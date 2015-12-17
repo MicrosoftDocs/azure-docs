@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="12/08/2015"
 	ms.author="rasquill"/>
 
 
@@ -22,7 +22,8 @@
 
 Injecting a script or other data into an Azure virtual machine when it is being provisioned is a very common scenario, regardless of whether the operating system is Windows or a Linux distribution. 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 This topic describes how to:
 
@@ -80,4 +81,4 @@ For further information, see the [cloud-init documentation for Ubuntu](https://h
 <!--Link references-->
 [Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
-[Azure Command-line Interface](https://github.com/Azure/azure-sdk-tools-xplat)
+[Azure Command-line Interface](https://github.com/Azure/azure-xplat-cli)

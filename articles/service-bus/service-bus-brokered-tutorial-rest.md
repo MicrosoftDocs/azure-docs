@@ -27,7 +27,7 @@ The first step is to create a service namespace, and to obtain a [Shared Access 
 
 1. For complete information about how to create a service namespace, see the topic [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh690931.aspx) in the [Managing Service Bus Service Namespaces](https://msdn.microsoft.com/library/azure/hh690928.aspx) section.
 
-1. In the main window of the Azure portal, click the name of the namespace you created in the previous step.
+1. In the main window of the [Azure classic portal][], click the name of the namespace you created in the previous step.
 
 1. Click the **Configure** tab.
 
@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 The next step is to write a method that uses the REST-style HTTP PUT command to create a queue.
 
-Paste the following code directly after the `GetToken()` code you added in the previous step:
+Paste the following code directly after the `GetSASToken()` code you added in the previous step:
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -628,3 +628,5 @@ See the following articles to learn more:
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Azure Service Bus fundamentals](fundamentals-service-bus-hybrid-solutions.md)
 - [Service Bus relay REST tutorial](service-bus-relay-rest-tutorial.md)
+
+[Azure classic portal]: http://manage.windowsazure.com

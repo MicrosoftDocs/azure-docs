@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Troubleshoot Access to an Application Running on an Azure Virtual Machine"
+	pageTitle="Troubleshoot application access on a VM | Microsoft Azure"
 	description="If you can't access an application running on an Azure virtual machine, use these steps to isolate the source of the problem."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,10 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="11/17/2015"
 	ms.author="dkshir"/>
 
 # Troubleshoot Access to an Application Running on an Azure Virtual Machine
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 If you can't access an application running on an Azure virtual machine, this article describes a methodical approach for isolating the source of the problem and correcting it.
 
@@ -98,9 +101,21 @@ If you can access the application, ensure that your Internet edge device is allo
 - The outbound application request traffic from your client computer to the Azure virtual machine.
 - The inbound application response traffic from the Azure virtual machine.
 
+## Troubleshooting Endpoint Connectivity problems
+
+If you have problems when connecting to an Endpoint such as Remote Desktop  Endpoint, you can try the following general troubleshooting steps:
+
+- Restart virtual machine
+- Recreate Endpoint
+- Connect from different location
+- Resize virtual machine
+- Recreate virtual machine
+
+For more information, see [Troubleshooting Endpoint Connectivity (RDP/SSH/HTTP, etc. failures)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
+
 ## Next steps
 
-If you have run through steps 1 through 3 in this article and need additional help to correct the problem, you can:
+If you have run the above steps in this article and need additional help to correct the problem, you can:
 
 - Get help from Azure experts across the world. Submit your issue to either the MSDN Azure or Stack Overflow forums. See [Microsoft Azure Forums](http://azure.microsoft.com/support/forums/) for more information.
 - File an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get support** under **Technical and billing support**.

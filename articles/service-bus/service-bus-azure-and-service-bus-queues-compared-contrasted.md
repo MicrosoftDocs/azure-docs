@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Queues and Service Bus queues - compared and contrasted"
+   pageTitle="Azure Queues and Service Bus queues - compared and contrasted | Microsoft Azure"
    description="Analyzes differences and similarities between two types of queues offered by Azure."
    services="service-bus"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/11/2015"
+   ms.date="11/18/2015"
    ms.author="sethm" />
 
 # Azure Queues and Service Bus queues - compared and contrasted
@@ -25,7 +25,7 @@ Microsoft Azure supports two types of queue mechanisms: **Azure Queues** and **S
 
 **Azure Queues**, which are part of the [Azure storage](http://azure.microsoft.com/services/storage/) infrastructure, feature a simple REST-based Get/Put/Peek interface, providing reliable, persistent messaging within and between services.
 
-**Service Bus queues** are part of a broader [Azure messaging](http://azure.microsoft.com/services/messaging/) infrastructure that supports queuing as well as publish/subscribe, Web service remoting, and integration patterns. For more information about Service Bus queues, topics/subscriptions, and relays, see [Overview of Service Bus Messaging Patterns](https://msdn.microsoft.com/library/hh410103.aspx).
+**Service Bus queues** are part of a broader [Azure messaging](http://azure.microsoft.com/services/service-bus/) infrastructure that supports queuing as well as publish/subscribe, Web service remoting, and integration patterns. For more information about Service Bus queues, topics/subscriptions, and relays, see the [overview of Service Bus messaging](service-bus-messaging-overview.md).
 
 While both queuing technologies exist concurrently, Azure Queues were introduced first, as a dedicated queue storage mechanism built on top of the Azure storage services. Service Bus queues are built on top of the broader "brokered messaging" infrastructure designed to integrate applications or application components that may span multiple communication protocols, data contracts, trust domains, and/or network environments.
 
@@ -55,7 +55,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 
 - Your solution must be able to support automatic duplicate detection.
 
-- You want your application to process messages as parallel long-running streams (messages are associated with a stream using the [SessionId](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
+- You want your application to process messages as parallel long-running streams (messages are associated with a stream using the [SessionId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
 
 - Your solution requires transactional behavior and atomicity when sending or receiving multiple messages from a queue.
 
@@ -67,7 +67,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 
 - Your queue size will not grow larger than 80 GB.
 
-- You want to use the AMQP 1.0 standards-based messaging broker. For more information about AMQP, see [Service Bus AMQP Overview](https://msdn.microsoft.com/library/jj841072.aspx).
+- You want to use the AMQP 1.0 standards-based messaging broker. For more information about AMQP, see [Service Bus AMQP Overview](service-bus-amqp-overview.md).
 
 - You can envision an eventual migration from queue-based point-to-point communication to a message exchange pattern that enables seamless integration of additional receivers (subscribers), each of which receives independent copies of either some or all messages sent to the queue. The latter refers to the publish/subscribe capability natively provided by Service Bus.
 
@@ -91,11 +91,11 @@ This section compares some of the fundamental queuing capabilities provided by A
 |Delivery guarantee|**At-Least-Once**|**At-Least-Once**<br/><br/>**At-Most-Once**|
 |Transaction support|**No**|**Yes**<br/><br/>(through the use of local transactions)|
 |Receive behavior|**Non-blocking**<br/><br/>(completes immediately if no new message is found)|**Blocking with/without timeout**<br/><br/>(offers long polling, or the ["Comet technique"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Non-blocking**<br/><br/>(through the use of .NET managed API only)|
-|Push-style API|**No**|**Yes**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/jj908682.aspx) and [OnMessage sessions](https://msdn.microsoft.com/library/dn790528.aspx) .NET API.|
+|Push-style API|**No**|**Yes**<br/><br/>[OnMessage](https://msdn.microsoft.com/library/azure/jj908682.aspx) and **OnMessage** sessions .NET API.|
 |Receive mode|**Peek & Lease**|**Peek & Lock**<br/><br/>**Receive & Delete**|
 |Exclusive access mode|**Lease-based**|**Lock-based**|
-|Lease/Lock duration|**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API.)|**60 seconds (default)**<br/><br/>You can renew a message lock using the [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API.|
-|Lease/Lock precision|**Message level**<br/><br/>(each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API)|**Queue level**<br/><br/>(each queue has a lock precision applied to all of its messages, but you can renew the lock using the [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API.)|
+|Lease/Lock duration|**30 seconds (default)**<br/><br/>**7 days (maximum)** (You can renew or release a message lease using the [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API.)|**60 seconds (default)**<br/><br/>You can renew a message lock using the [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API.|
+|Lease/Lock precision|**Message level**<br/><br/>(each message can have a different timeout value, which you can then update as needed while processing the message, by using the [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx) API)|**Queue level**<br/><br/>(each queue has a lock precision applied to all of its messages, but you can renew the lock using the [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) API.)|
 |Batched receive|**Yes**<br/><br/>(explicitly specifying message count when retrieving messages, up to a maximum of 32 messages)|**Yes**<br/><br/>(implicitly enabling a pre-fetch property or explicitly through the use of transactions)|
 |Batched send|**No**|**Yes**<br/><br/>(through the use of transactions or client-side batching)|
 
@@ -119,7 +119,7 @@ This section compares some of the fundamental queuing capabilities provided by A
 
 - Azure Queues provide leases with the ability to extend the leases for messages. This allows the workers to maintain short leases on messages. Thus, if a worker crashes, the message can be quickly processed again by another worker. In addition, a worker can extend the lease on a message if it needs to process it longer than the current lease time.
 
-- Azure Queues offer a visibility timeout that you can set upon the enqueueing or dequeuing of a message. In addition, you can update a message with different lease values at runtime, and update different values across messages in the same queue. Service Bus lock timeouts are defined in the queue metadata; however, you can renew the lock by calling the [RenewLock](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) method.
+- Azure Queues offer a visibility timeout that you can set upon the enqueueing or dequeuing of a message. In addition, you can update a message with different lease values at runtime, and update different values across messages in the same queue. Service Bus lock timeouts are defined in the queue metadata; however, you can renew the lock by calling the [RenewLock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx) method.
 
 - The maximum timeout for a blocking receive operation in Service Bus queues is 24 days. However, REST-based timeouts have a maximum value of 55 seconds.
 
@@ -141,8 +141,8 @@ This section compares advanced capabilities provided by Azure Queues and Service
 |Poison message support|**Yes**|**Yes**|
 |In-place update|**Yes**|**Yes**|
 |Server-side transaction log|**Yes**|**No**|
-|Storage metrics|**Yes**<br/><br/>**Minute Metrics**: provides real-time metrics for availability, TPS, API call counts, error counts, and more, all in real time (aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/hh343258.aspx).|**Yes**<br/><br/>(bulk queries by calling [GetQueues](https://msdn.microsoft.com/library/hh293128.aspx))|
-|State management|**No**|**Yes**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx)|
+|Storage metrics|**Yes**<br/><br/>**Minute Metrics**: provides real-time metrics for availability, TPS, API call counts, error counts, and more, all in real time (aggregated per minute and reported within a few minutes from what just happened in production. For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx).|**Yes**<br/><br/>(bulk queries by calling [GetQueues](https://msdn.microsoft.com/library/azure/hh293128.aspx))|
+|State management|**No**|**Yes**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.entitystatus.aspx)|
 |Message auto-forwarding|**No**|**Yes**|
 |Purge queue function|**Yes**|**No**|
 |Message groups|**No**|**Yes**<br/><br/>(through the use of messaging sessions)|
@@ -159,7 +159,7 @@ This section compares advanced capabilities provided by Azure Queues and Service
 
 - Queue auto-forwarding enables thousands of queues to auto-forward their messages to a single queue, from which the receiving application consumes the message. You can use this mechanism to achieve security, control flow, and isolate storage between each message publisher.
 
-- Azure Queues provide support for updating message content. You can use this functionality for persisting state information and incremental progress updates into the message so that it can be processed from the last known checkpoint, instead of starting from scratch. With Service Bus queues, you can enable the same scenario through the use of message sessions. Sessions enable you to save and retrieve the application processing state (by using [SetState](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.setstate.aspx) and [GetState](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagesession.getstate.aspx)).
+- Azure Queues provide support for updating message content. You can use this functionality for persisting state information and incremental progress updates into the message so that it can be processed from the last known checkpoint, instead of starting from scratch. With Service Bus queues, you can enable the same scenario through the use of message sessions. Sessions enable you to save and retrieve the application processing state (by using [SetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx) and [GetState](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx)).
 
 - Dead lettering, which is only supported by Service Bus queues, can be useful for isolating messages that cannot be processed successfully by the receiving application or when messages cannot reach their destination due to an expired time-to-live (TTL) property. The TTL value specifies how long a message remains in the queue. With Service Bus, the message will be moved to a special queue called $DeadLetterQueue when the TTL period expires.
 
@@ -167,9 +167,9 @@ This section compares advanced capabilities provided by Azure Queues and Service
 
 - Azure Queues enable you to obtain a detailed log of all of the transactions executed against the queue, as well as aggregated metrics. Both of these options are useful for debugging and understanding how your application uses Azure Queues. They are also useful for performance-tuning your application and reducing the costs of using queues.
 
-- The concept of “message sessions” supported by Service Bus allows messages that belong to a certain logical group to be associated with a given receiver, which in turn creates a session-like affinity between messages and their respective receivers. You can enable this advanced functionality in Service Bus by setting the [SessionID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) property on a message. Receivers can then listen on a specific session ID and receive messages that share the specified session identifier.
+- The concept of “message sessions” supported by Service Bus allows messages that belong to a certain logical group to be associated with a given receiver, which in turn creates a session-like affinity between messages and their respective receivers. You can enable this advanced functionality in Service Bus by setting the [SessionID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx) property on a message. Receivers can then listen on a specific session ID and receive messages that share the specified session identifier.
 
-- The duplication detection functionality supported by Service Bus queues automatically removes duplicate messages sent to a queue or topic, based on the value of the [MessageID](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) property.
+- The duplication detection functionality supported by Service Bus queues automatically removes duplicate messages sent to a queue or topic, based on the value of the [MessageID](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) property.
 
 ## Capacity and quotas
 
@@ -177,7 +177,7 @@ This section compares Azure Queues and Service Bus queues from the perspective o
 
 |Comparison Criteria|Azure Queues|Service Bus Queues|
 |---|---|---|
-|Maximum queue size|**200 TB**<br/><br/>(limited to a single storage account capacity)|**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](https://msdn.microsoft.com/library/dn520246.aspx) – see the “Additional Information” section)|
+|Maximum queue size|**200 TB**<br/><br/>(limited to a single storage account capacity)|**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section)|
 |Maximum message size|**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200GB for a single item.|**256 KB**<br/><br/>(including both header and body, maximum header size: 64 KB)|
 |Maximum message TTL|**7 days**|**Unlimited**|
 |Maximum number of queues|**Unlimited**|**10,000**<br/><br/>(per service namespace, can be increased)|
@@ -185,9 +185,9 @@ This section compares Azure Queues and Service Bus queues from the perspective o
 
 ### Additional information
 
-- Service Bus enforces queue size limits. The maximum queue size is specified upon creation of the queue and can have a value between 1 and 80 GB. If the queue size value set on creation of the queue is reached, additional incoming messages will be rejected and an exception will be received by the calling code. For more information about quotas in Service Bus, see [Service Bus Quotas](https://msdn.microsoft.com/library/ee732538.aspx).
+- Service Bus enforces queue size limits. The maximum queue size is specified upon creation of the queue and can have a value between 1 and 80 GB. If the queue size value set on creation of the queue is reached, additional incoming messages will be rejected and an exception will be received by the calling code. For more information about quotas in Service Bus, see [Service Bus Quotas](service-bus-quotas.md).
 
-- You can create Service Bus queues in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled (which is the default), Service Bus creates 16 partitions for each GB you specify. As such, if you create a queue that’s 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the Azure management portal.
+- You can create Service Bus queues in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled (which is the default), Service Bus creates 16 partitions for each GB you specify. As such, if you create a queue that’s 5 GB in size, with 16 partitions the maximum queue size becomes (5 * 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure classic portal][].
 
 - With Azure Queues, if the content of the message is not XML-safe, then it must be **Base64** encoded. If you **Base64**-encode the message, the user payload can be up to 48 KB, instead of 64 KB.
 
@@ -195,7 +195,7 @@ This section compares Azure Queues and Service Bus queues from the perspective o
 
 - When clients communicate with Service Bus queues over the TCP protocol, the maximum number of concurrent connections to a single Service Bus queue is limited to 100. This number is shared between senders and receivers. If this quota is reached, subsequent requests for additional connections will be rejected and an exception will be received by the calling code. This limit is not imposed on clients connecting to the queues using REST-based API.
 
-- If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the Azure management portal.
+- If you require more than 10,000 queues in a single Service Bus namespace, you can contact the Azure support team and request an increase. To scale beyond 10,000 queues with Service Bus, you can also create additional namespaces using the [Azure classic portal][].
 
 ## Management and operations
 
@@ -223,7 +223,7 @@ This section compares the management features provided by Azure Queues and Servi
 
 - The Service Bus .NET brokered messaging APIs leverage full-duplex TCP connections for improved performance when compared to REST over HTTP, and they support the AMQP 1.0 standard protocol.
 
-- Azure queue names can be 3-63 characters long, can contain lowercase letters, numbers, and hyphens. For more information, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx).
+- Azure queue names can be 3-63 characters long, can contain lowercase letters, numbers, and hyphens. For more information, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - Service Bus queue names can be up to 260 characters long and have less restrictive naming rules. Service Bus queue names can contain letters, numbers, periods (.), hyphens (-), and underscores (_).
 
@@ -247,9 +247,9 @@ This section compares Azure Queues and Service Bus queues from a performance per
 
 - Both Azure Queues and Service Bus queues enforce throttling behavior by rejecting requests to a queue that is being throttled. However, neither of them treats throttled requests as billable.
 
-- Benchmarks against Service Bus queues have demonstrated that a single queue can achieve a message throughput of up to 2,000 messages per second with a message size of approximately 1 KB. To achieve higher throughput, use multiple queues. For more information about performance optimization with Service Bus, see [Best Practices for Performance Improvements Using Service Bus Brokered Messaging](https://msdn.microsoft.com/library/hh528527.aspx).
+- Benchmarks against Service Bus queues have demonstrated that a single queue can achieve a message throughput of up to 2,000 messages per second with a message size of approximately 1 KB. To achieve higher throughput, use multiple queues. For more information about performance optimization with Service Bus, see [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md).
 
-- When the maximum throughput is reached for a Service Bus queue, a [ServerBusyException](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.serverbusyexception.aspx) (when using the.NET brokered messaging API) or HTTP 503 (when using the REST-based API) response is returned to the queue client, indicating that the queue is being throttled.
+- When the maximum throughput is reached for a Service Bus queue, a [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (when using the.NET brokered messaging API) or HTTP 503 (when using the REST-based API) response is returned to the queue client, indicating that the queue is being throttled.
 
 ## Authentication and authorization
 
@@ -265,7 +265,7 @@ This section discusses the authentication and authorization features supported b
 
 - Every request to either of the queuing technologies must be authenticated. Public queues with anonymous access are not supported. Using SAS, you can address this scenario by publishing a write-only SAS, read-only SAS, or even a full-access SAS.
 
-- The authentication scheme provided by Azure Queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authenticating Access to Your Storage Account](https://msdn.microsoft.com/library/hh225339.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](https://msdn.microsoft.com/library/dn170477.aspx).
+- The authentication scheme provided by Azure Queues involves the use of a symmetric key, which is a hash-based Message Authentication Code (HMAC), computed with the SHA-256 algorithm and encoded as a **Base64** string. For more information about the respective protocol, see [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx). Service Bus queues support a similar model using symmetric keys. For more information, see [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md).
 
 ## Cost
 
@@ -302,12 +302,15 @@ Because Service Bus queues provide a number of advanced features, such as sessio
 The following articles provide more guidance and information about using Azure Queues or Service Bus queues.
 
 - [How to Use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md)
-- [How to Use the Queue Storage Service](../storage-dotnet-how-to-use-queues.md)
-- [Best Practices for Performance Improvements Using Service Bus Brokered Messaging](https://msdn.microsoft.com/library/hh528527.aspx)
+- [How to Use the Queue Storage Service](../storage/storage-dotnet-how-to-use-queues.md)
+- [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md)
 - [Introducing Queues and Topics in Azure Service Bus](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [The Developer's Guide to Service Bus](http://www.cloudcasts.net/devguide/)
 - ["Azure Tables and Queues Deep Dive"](http://www.microsoftpdc.com/2009/SVC09)
 - [Azure Storage Architecture](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Using the Queuing Service in Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Understanding Azure Storage Billing – Bandwidth, Transactions, and Capacity](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+
+
+[Azure classic portal]: http://manage.windowsazure.com
  

@@ -1,16 +1,17 @@
 <properties
-	pageTitle="How to run a compute-intensive task in .NET on an Azure virtual machine"
+	pageTitle="Run a compute-intensive .NET app on a VM | Microsoft Azure"
 	description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Azure Service Bus queues to monitor progress remotely."
 	services="virtual-machines"
 	documentationCenter=".net"
 	authors="wadepickett"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor="mollybos"
+	tags=“azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="06/25/2015"
@@ -19,6 +20,9 @@
 # How to run a compute-intensive task in .NET on an Azure virtual machine
 
 With Azure, you can use a virtual machine to handle compute-intensive tasks. For example, a virtual machine can handle tasks and deliver results to client machines or mobile applications. After completing the tutorial, you will understand how to create a virtual machine that runs a compute-intensive .NET application that can be monitored by another .NET application.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 This tutorial assumes you know how to create .NET console applications. No knowledge of Azure is assumed.
 
@@ -44,7 +48,7 @@ The following is an example of the .NET application monitoring the compute-inten
 
 ## To create a virtual machine
 
-1. Log in to the [Azure portal](https://manage.windowsazure.com).
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Click **New**.
 3. Click **Virtual machine**.
 4. Click **Quick create**.
@@ -53,11 +57,11 @@ The following is an example of the .NET application monitoring the compute-inten
 7. Enter a name for the administrator in the **User Name** field. Remember this name and the password that you will enter next, you will use them when you remotely log in to the virtual machine.
 8. Enter a password in the **New password** field, and enter it again in the **Confirm** field.
 9. From the **Location** drop-down list, select the data center location for your virtual machine.
-10. Click **Create virtual machine**. You can monitor the status in the **Virtual machines** section of the Azure portal. When its status is displayed as **Active**, you can log in to the virtual machine.
+10. Click **Create virtual machine**. You can monitor the status in the **Virtual machines** section of the Azure classic portal. When its status is displayed as **Active**, you can log in to the virtual machine.
 
 ## To remotely log in to your virtual machine
 
-1. Log in to the [Azure portal](https://manage.windowsazure.com).
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that you want to log in to.
 4. Click **Connect**.
@@ -71,9 +75,9 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log in to the [Azure portal](https://manage.windowsazure.com).
-2.  In the left navigation pane of the Azure portal, click **Service Bus**.
-3.  In the lower pane of the Azure portal, click  **Create**.
+1.  Log in to the [Azure classic portal](https://manage.windowsazure.com).
+2.  In the left navigation pane of the Azure classic portal, click **Service Bus**.
+3.  In the lower pane of the Azure classic portal, click  **Create**.
 
     ![Create new service bus][create_service_bus]
 4.  In the **Create a namespace** dialog box, enter a namespace name. The system immediately checks to see if the name is available, as it must be a unique name.
@@ -88,7 +92,7 @@ To create a service namespace:
 
 	![Click create screenshot][click_create]
 
-The namespace you created will then appear in the Azure portal, and it takes a moment to activate. Wait until the status is **Active** before continuing with the next step.
+The namespace you created will then appear in the Azure classic portal, and it takes a moment to activate. Wait until the status is **Active** before continuing with the next step.
 
 ## Obtain the default management credentials for the namespace
 
@@ -544,7 +548,7 @@ The solver will run until it finishes examining all routes.
 For both the solver and client applications, you can press Ctrl+C to exit if you want to end prior to normal completion.
 
 ## Alternative to creating and deleting the queue with TSPSolver
-Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the [Azure portal](https://manage.windowsazure.com). Visit the Service Bus section of the Azure portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key. You can also view a dashboard of your Service Bus queues, allowing you to view metrics for your incoming and outgoing messages.
+Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the [Azure classic portal](https://manage.windowsazure.com). Visit the Service Bus section of the Azure classic portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key. You can also view a dashboard of your Service Bus queues, allowing you to view metrics for your incoming and outgoing messages.
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
 [client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png

@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/16/2015" 
 	ms.author="juliako"/>
 
 
 
 #How to Build a Smooth Streaming Windows Store Application
 
-The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content. In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on. For more information of the supported features, see the [release notes](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes).
-
-This tutorial covers the APIs. For player development, Microsoft strongly recommends using [Player Framework for Windows 8](http://playerframework.codeplex.com/). Player framework makes it easier to build applications and provides many additional features. 
+The Smooth Streaming Client SDK for Windows 8 enables developers to build Windows Store applications that can play on-demand and live Smooth Streaming content. In addition to the basic playback of Smooth Streaming content, the SDK also provides rich features like Microsoft PlayReady protection, quality level restriction, Live DVR, audio stream switching, listening for status updates (such as quality level changes) and error events, and so on. For more information of the supported features, see the [release notes](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). For more information, see [Player Framework for Windows 8](http://playerframework.codeplex.com/). 
 
 This tutorial contains four lessons:
 
@@ -32,13 +30,21 @@ This tutorial contains four lessons:
 4. Select Smooth Streaming Tracks
 
 ##Prerequisites
+
 - Windows 8 32-bit or 64-bit. You can get [Windows 8 Enterprise Evaluation](http://msdn.microsoft.com/evalcenter/jj554510.aspx) from MSDN.
-- Visual Studio 2012 or Visual Studio Express 2012 for Windows 8 installed on Windows 8. You can get the trial version from [here](http://www.microsoft.com/visualstudio/11/downloads).
+- Visual Studio 2012 or Visual Studio Express 2012 (or a later version). You can get the trial version from [here](http://www.microsoft.com/visualstudio/11/downloads).
 - [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
-The completed solution for each lesson can be downloaded from MSDN Developer Code Samples (Code Gallery): [Lesson 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "A Simple Windows 8 Smooth Streaming Media Player"), [Lesson 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control"), [Lesson 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "A Windows 8 Smooth Streaming Media Player with Stream Selection"), and [Lesson 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "A Windows 8 Smooth Streaming Media Player with Track Selection").
+
+The completed solution for each lesson can be downloaded from MSDN Developer Code Samples (Code Gallery): 
+
+- [Lesson 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) - A Simple Windows 8 Smooth Streaming Media Player, 
+- [Lesson 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) - A Simple Windows 8 Smooth Streaming Media Player with a Slider Bar Control, 
+- [Lesson 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - A Windows 8 Smooth Streaming Media Player with Stream Selection,  
+- [Lesson 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907)  - A Windows 8 Smooth Streaming Media Player with Track Selection.
 
 ##Lesson 1: Create a Basic Smooth Streaming Store Application
+
 In this lesson, you will create a Windows Store application with a MediaElement control to play Smooth Stream content.  The running application looks like:
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
@@ -970,11 +976,11 @@ You have completed lesson 4.  In this lesson, you add the functionality to choos
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 ##Other Resources:

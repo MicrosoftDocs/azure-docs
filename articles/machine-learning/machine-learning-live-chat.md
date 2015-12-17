@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
-    ms.author="luisca"/>
+    ms.date="10/14/2015" 
+    ms.author="olgali"/>
 #Get help from Machine Learning Live Chat Support
 
 [Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md) provides an intuitive interface for building machine learning models. There is a [Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) and [Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) to guide you along that way. 

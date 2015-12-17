@@ -12,14 +12,19 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
-
-
-
+	ms.topic="get-started-article" 
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 # Django and MySQL on Azure with Python Tools 2.2 for Visual Studio 
+
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=oKCApIrS0Lo).
 
@@ -93,14 +98,13 @@ As an alternative, you can create your own Virtual Machine running in Azure, the
 
 You can create a database with a free plan by following these steps.
 
-1.  Log into the [Azure Portal].
+1.  Log into the [Azure Portal](https://portal.azure.com/).
 
-1.  At the bottom of the navigation pane, click **NEW**. Then, click **Data + Storage** > **Azure Marketplace**. 
+1.  At the Top of the navigation pane, click **NEW**. Then, click **Data + Storage** > **MySQL Database**. 
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
+  
 
-1.  Type "**mysql**" in the search box, then click **MySQL Database**, and then click **Create**.
-
+1.  Type "**mysql**" in the search box, then click **MySQL Database**, and then click **Create**.  -->
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
 1.  Configure the new MySQL database by creating a new resource group and select the appropriate location for it.
@@ -186,9 +190,10 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 - [Django Documentation]
 - [MySQL]
 
+For more information, see the [Python Developer Center](/develop/python/).
+
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->

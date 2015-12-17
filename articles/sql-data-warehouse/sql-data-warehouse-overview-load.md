@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/21/2015"
+   ms.date="12/02/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Load data into SQL Data Warehouse
 SQL Data Warehouse presents numerous options for loading data including:
 
+- PolyBase
 - Azure Data Factory
 - BCP command-line utility
-- PolyBase
 - SQL Server Integration Services (SSIS)
 - 3rd party data loading tools
 
-While all of the above methods can be used with SQL Data Warehouse.  Many of our users are looking at initial loads in the 100s of Gigabytes to the 10s of Terabytes.  In the below sections, we provide some guidance on initial data loading.  
+While all of the above methods can be used with SQL Data Warehouse, PolyBase's ability to transparently parallelize loads from Azure Blob Storage will make it the fastest tool for loading data.  Check out more about how to [load with PolyBase][].  In addition, as many of our users are looking at initial loads in the 100s of Gigabytes to the 10s of Terabytes from on-premise sources, in the below sections we provide some guidance on initial data loading.  
 
 ## Initial Loading into SQL Data Warehouse from SQL Server 
 When loading into SQL Data Warehouse from an on-premise SQL Server instance, we recommend the following steps:
@@ -151,7 +151,8 @@ WITH
 CREATE TABLE <Table Name> 
 WITH 
 (
-	CLUSTERED COLUMNSTORE INDEX
+	CLUSTERED COLUMNSTORE INDEX,
+	DISTRIBUTION = <HASH(<Column Name>)>/<ROUND_ROBIN>
 )
 AS 
 SELECT  * 
@@ -162,6 +163,16 @@ FROM    <External Table Name>
 Note that you can also load a subsection of the rows from a table using a more detailed SELECT statement.  However, as PolyBase does not push additional compute to storage accounts at this time, if you load a subsection with a SELECT statement this will not be faster than loading the entire dataset. 
 
 In addition to the `CREATE TABLE...AS SELECT` statement, you can also load data from external tables into pre-existing tables with a 'INSERT...INTO' statement.
+
+##  Create Statistics on your newly loaded data 
+
+Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
+
+
+```
+create statistics [<name>] on [<Table Name>] ([<Column Name>]);
+create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
+```
 
 ## Next steps
 For more development tips, see the [development overview][].
@@ -175,6 +186,7 @@ For more development tips, see the [development overview][].
 [development overview]: sql-data-warehouse-overview-develop.md
 [Migrate schema]: sql-data-warehouse-migrate-schema.md
 [Migrate code]: sql-data-warehouse-migrate-code.md
+[Statistics]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx

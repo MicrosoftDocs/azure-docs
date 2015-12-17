@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 pageTitle="Install and set up tools for authoring in GitHub" 
 description="Tools and steps to get set up for authoring Azure content in GitHub." 
 services="contributor-guide" 
@@ -97,7 +97,7 @@ You need to install the tools if you want to make any of the following sorts of 
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are a Microsoft employee working on Azure content, you should work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo - click **Join a Team**, and join **azure-content-read**.
+If you are a Microsoft employee working on Azure content, you should work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain the read permissions that will let you make contributions through the private repo - sign in to GitHub using the button > click Azure > click **Join a team** or **Join another team**, and then search for and join the **azure-content-read** group.
 
 ## Install Git for Windows
 
@@ -154,7 +154,7 @@ If you use Atom, you'll need to set a few things up.
 
 2. Copy the Personal Access Token that you got from [https://github.com/settings/applications#personal-access-tokens](https://github.com/settings/applications#personal-access-tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
 
-3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open GitBash.  At the command prompt, enter the following command.  This command creates a azure-content(-pr) drectory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
+3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open Git Bash and run it as an administrator. At the command prompt, enter the following command.  This command creates a azure-content(-pr) drectory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
 
 Public repo:
 

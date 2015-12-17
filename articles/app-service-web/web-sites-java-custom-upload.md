@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="11/19/2015" 
 	ms.author="robmcm"/>
 
 # Upload a custom Java web app to Azure
 
 This topic explains how to upload a custom Java web app to [Azure App Service] Web Apps. Included is information that applies to any Java website or web app, and also some examples for specific applications.
 
-Note that Azure provides a means for creating Java web apps using the Azure preview portal's configuration UI, and the Azure Marketplace, as documented at [Create a Java web app in Azure App Service](web-sites-java-get-started.md). This tutorial is for scenarios in which you do not want to use the portal configuration UI or the Azure Marketplace.  
+Note that Azure provides a means for creating Java web apps using the Azure Portal's configuration UI, and the Azure Marketplace, as documented at [Create a Java web app in Azure App Service](web-sites-java-get-started.md). This tutorial is for scenarios in which you do not want to use the Azure Portal configuration UI or the Azure Marketplace.  
 
 ## Configuration guidelines
 
@@ -134,6 +134,22 @@ As is the case for Tomcat, customers can upload their own instances for Jetty. I
 
 The Jetty configuration needs to be changed in the start.ini to set `java.net.preferIPv4Stack=true`.
 
+### Springboot
+In order to get a Springboot application running you need to upload your JAR or WAR file and add the following web.config file. The web.config file goes into the wwwroot folder. In the web.config adjust the arguments to point to your JAR file, in the following example the JAR file is located in the wwwroot folder as well.  
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+	  <system.webServer>
+	    <handlers>
+	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+	    </handlers>
+	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+	        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\my-web-project.jar&quot;">
+	    </httpPlatform>
+	  </system.webServer>
+	</configuration>
+
+
 ### Hudson
 
 Our test used the Hudson 3.1.2 war and the default Tomcat 7.0.50 instance but without using the UI to set things up.  Because Hudson is a software build tool, it is advised to install it on dedicated instances where the **AlwaysOn** flag can be set on the web app.
@@ -228,7 +244,11 @@ It is worth noting that the JRE_HOME environnment varariable is specified in the
 
 Once you make these changes, restart your web app running Liferay, Then, open http://yourwebapp. The Liferay portal is available from the web app root. 
 
-For more information on Liferay, see [http://www.liferay.com](http://www.liferay.com).
+## Next steps
+
+For more information about Liferay, see [http://www.liferay.com](http://www.liferay.com).
+
+For more information about Java, see the [Java Developer Center](/develop/java/).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

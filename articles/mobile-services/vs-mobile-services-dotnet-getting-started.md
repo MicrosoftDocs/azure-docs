@@ -1,9 +1,9 @@
 <properties
-	pageTitle=""
+	pageTitle="Get Started with a Visual Studio .NET mobile services project (Connected Services) | Microsoft Azure"
 	description="How to get started with Azure Mobile Services in a Visual Studio .NET project"
 	services="mobile-services"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor=""/>
 
@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015" 
-	ms.author="patshea123"/>
+	ms.date="09/17/2015"
+	ms.author="tarcher"/>
 
 # Getting Started with Mobile Services (.NET Projects)
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)

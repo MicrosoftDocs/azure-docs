@@ -5,16 +5,16 @@
 	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""/>
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/09/2015"
 	ms.author="cephalin"/>
 
 # Azure App Service web app advanced config and extensions
@@ -26,7 +26,7 @@ By using [XML Document Transformation](http://msdn.microsoft.com/library/dd46532
 ##<a id="transform"></a>Advanced configuration through ApplicationHost.config
 The App Service platform provides flexibility and control for web app configuration. Although the standard IIS ApplicationHost.config configuration file is not available for direct editing in App Service, the platform supports a declarative ApplicationHost.config transform model based on XML Document Transformation (XDT).
 
-To leverage this transform functionality, you create an ApplicationHost.xdt file with XDT content and place under the web app root. You may need to restart the Web App for changes to take effect.
+To leverage this transform functionality, you create an ApplicationHost.xdt file with XDT content and place under the site root (d:\home\site) in the [Kudu Console](https://github.com/projectkudu/kudu/wiki/Kudu-console). You may need to restart the Web App for changes to take effect.
 
 The following applicationHost.xdt sample shows how to add a new custom environment variable to a web app that uses PHP 5.4.
 
@@ -46,7 +46,7 @@ The following applicationHost.xdt sample shows how to add a new custom environme
 
 A log file with transform status and details is available from the FTP root under LogFiles\Transform.
 
-For additional samples, see [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
+For additional samples, see [https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples).
 
 **Note**<br />
 Elements from the list of modules under `system.webServer` cannot be removed or reordered, but additions to the list are possible.
@@ -176,7 +176,6 @@ It is possible to disable all private (not pre-installed) extensions for your we
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [TransformSitePHPUI]: ./media/web-sites-transform-extend/TransformSitePHPUI.png

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Using the Slack Connector in Logic Apps | Microsoft Azure App Service"
 	description="How to create and configure the Slack Connector or API app and use it in a logic app in Azure App Service"
-	authors="anuragdalmia" 
+	authors="rajeshramabathiran" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Get started with the Slack Connector and add it to your Logic App
 Connect to Slack channels and post messages to your team. Connectors can be used in Logic Apps as a part of a "workflow" to do different tasks. When you use the Slack Connector in your workflow, you can achieve a variety of scenarios using other connectors. For example, you can use the [Facebook Connector](app-service-logic-connector-facebook.md) in your workflow to post a message to your Slack channel. 
@@ -81,6 +81,8 @@ The Slack connector has REST APIs available so you can use the connector outside
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
+
+>[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 

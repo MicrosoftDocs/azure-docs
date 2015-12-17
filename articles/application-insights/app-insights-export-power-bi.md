@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="See Application Insights data in Power BI" 
-	description="Use Power BI to monitor the performance and usage of your application." 
+	pageTitle="Use Stream Analytics to export to Power BI from Application Insights" 
+	description="Demonstrates how to use Stream Analytics to process exported data." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,21 +12,27 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
-# Power BI views of Application Insights data
+# Use Stream Analytics to feed Power BI from Application Insights
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presents your data in rich and varied visuals, with the ability to bring together information from multiple sources. You can stream telemetry data about the performance and usage of your web or device apps from Application Insights to Power BI.
+This article shows how to use [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) to process data [exported](app-insights-export-telemetry.md) from [Visual Studio Application Insights](app-insights-overview.md). As an example target, we send the data to [Microsoft Power BI](https://powerbi.microsoft.com/). 
+
+
+> [AZURE.NOTE] The easiest way to get data into Power BI from Application Insights is by [using the adapter](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-application-insights/) that you'll find in the Power BI Gallery under Services. What we describe in this article is currently more versatile, but it's also a demonstration of how to use Stream Analytics with Application Insights.
+
+[Microsoft Power BI](https://powerbi.microsoft.com/) presents your data in rich and varied visuals, with the ability to bring together information from multiple sources. 
+
 
 ![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/010.png)
 
-In this article, we'll show how to export data from Application Insights and use Stream Analytics to move the data into Power BI. [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) is an Azure service that we'll use as an adaptor.
+[Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) is an Azure service that works as an adaptor, continually processing the data exported from Application Insights.
 
 ![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-power-bi/020.png)
 
 
-> [AZURE.NOTE] You need a work or school account (MSDN organizational account) to send data from Stream Analytics to Power BI.
+
 
 ## Video
 
@@ -34,21 +40,24 @@ Noam Ben Zeev shows what we describe in this article.
 
 > [AZURE.VIDEO export-to-power-bi-from-application-insights]
 
+
+**Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
+
 ## Monitor your app with Application Insights
 
-If you haven't tried it yet, now is the time to start. Application Insights can monitor any device or web app on a wide range of platforms, including Windows, iOS, Android, J2EE, and more. [Get started](app-insights-get-started.md).
+If you haven't tried it yet, now is the time to start. Application Insights can monitor any device or web app on a wide range of platforms, including Windows, iOS, Android, J2EE, and more. [Get started](app-insights-overview.md).
 
 ## Create storage in Azure
 
 Continuous export always outputs data to an Azure Storage account, so you need to create the storage first.
 
-1. Create a storage account in your subscription in the [Azure portal](https://portal.azure.com).
+1. Create a "classic" storage account in your subscription in the [Azure portal](https://portal.azure.com).
 
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-export-power-bi/030.png)
 
 2. Create a container
 
-    ![In the new storage, select Containers and then Add](./media/app-insights-export-power-bi/040.png)
+    ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-power-bi/040.png)
 
 3. Copy the storage access key
 
@@ -205,7 +214,28 @@ Paste this query:
 
 * This query drills into the metrics telemetry to get the event time and the metric value. The metric values are inside an array, so we use the OUTER APPLY GetElements pattern to extract the rows. "myMetric" is the name of the metric in this case. 
 
+#### Query to include values of dimension properties
 
+```SQL
+
+    WITH flat AS (
+    SELECT
+      MySource.context.data.eventTime as eventTime,
+      InstanceId = MyDimension.ArrayValue.InstanceId.value,
+      BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
+    FROM MySource
+    OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
+    )
+    SELECT
+     eventTime,
+     InstanceId,
+     BusinessUnitId
+    INTO AIOutput
+    FROM flat
+
+```
+
+* This query includes values of the dimension properties without depending on a particular dimension being at a fixed index in the dimension array.
 
 ## Run the job
 

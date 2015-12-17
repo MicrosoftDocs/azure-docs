@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
+
 # Use Notification Hubs to send localized breaking news to iOS devices
 
 > [AZURE.SELECTOR]
@@ -24,7 +25,7 @@
 
 ##Overview
 
-This topic shows you how to use the **template** feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the Windows Store app created in [Use Notification Hubs to send breaking news]. When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
+This topic shows you how to use the [templates](notification-hubs-templates.md) feature of Azure Notification Hubs to broadcast breaking news notifications that have been localized by language and device. In this tutorial you start with the iOS app created in [Use Notification Hubs to send breaking news]. When complete, you will be able to register for categories you are interested in, specify a language in which to receive the notifications, and receive only push notifications for the selected categories in that language.
 
 
 There are two parts to this scenario:
@@ -39,7 +40,7 @@ There are two parts to this scenario:
 
 You must have already completed the [Use Notification Hubs to send breaking news] tutorial and have the code available, because this tutorial builds directly upon that code.
 
-You also need Visual Studio 2012.
+Visual Studio 2012 or later is optional.
 
 
 
@@ -67,14 +68,14 @@ Then we will ensure that devices register with a template that refers to the cor
 		}
 	}
 
-Templates are a very powerful feature you can learn more about in our [Notification Hubs Guidance] article. A reference for the template expression language is in our [How To: Service Bus Notification Hubs (iOS Apps)].
+Templates are a very powerful feature you can learn more about in our [Templates](notification-hubs-templates.md) article.
 
 ##The app user interface
 
 We will now modify the Breaking News app that you created in the topic [Use Notification Hubs to send breaking news] to send localized breaking news using templates.
 
 
-In your MainStoryboard_iPhone.storyboard, add a Segmented Control with the three languages we support: English, French, and Mandarin.
+In your MainStoryboard_iPhone.storyboard, add a Segmented Control with the three languages which we will support: English, French, and Mandarin.
 
 ![][13]
 
@@ -84,7 +85,6 @@ Then make sure to add an IBOutlet in your ViewController.h as shown below:
 
 ##Building the iOS app
 
-In order to adapt your client apps to receive localized messages, you have to replace your *native* registrations (i.e. registrations that do you specify a template) with template registrations.
 
 1. In your Notification.h add the *retrieveLocale* method, and modify the store and subscribe methods as shown below:
 
@@ -127,12 +127,12 @@ In order to adapt your client apps to receive localized messages, you have to re
 
 		    NSString* template = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"$(News_%@)\"},\"inAppMessage\":\"$(News_%@)\"}", localeString, localeString];
 
-		    [hub registerTemplateWithDeviceToken:self.deviceToken name:@"newsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
+		    [hub registerTemplateWithDeviceToken:self.deviceToken name:@"localizednewsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
 		}
 
 	Note how we are now using the method *registerTemplateWithDeviceToken*, instead of *registerNativeWithDeviceToken*. When we register for a template we have to provide the json template and also a name for the template (as our app might want to register different templates). Make sure to register your categories as tags, as we want to make sure to receive the notifciations for those news.
 
-	Finally, add a method to retrieve the locale from the user default settings:
+	Add a method to retrieve the locale from the user default settings:
 
 		- (int) retrieveLocale {
 		    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -142,7 +142,7 @@ In order to adapt your client apps to receive localized messages, you have to re
 		    return locale < 0?0:locale;
 		}
 
-3. Now that we modified our Notifications class, we have to make sure that our ViewController makes use of the new UISegmentControl. Add the following line in the *viewDidLoad* method to make sure to show the locale that is currently selected:
+2. Now that we modified our Notifications class, we have to make sure that our ViewController makes use of the new UISegmentControl. Add the following line in the *viewDidLoad* method to make sure to show the locale that is currently selected:
 
 		self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
 
@@ -159,19 +159,90 @@ In order to adapt your client apps to receive localized messages, you have to re
 	        }
 	    }];
 
-4. Finally, you have to update the *didRegisterForRemoteNotificationsWithDeviceToken* method in your AppDelegate.m, so that you can correctly refresh your registration when your app starts. Change your call to the *subscribe* method of notifications with the following:
+3. Finally, you have to update the *didRegisterForRemoteNotificationsWithDeviceToken* method in your AppDelegate.m, so that you can correctly refresh your registration when your app starts. Change your call to the *subscribe* method of notifications with the following:
 
-		NSSet* categories = [notifications retrieveCategories];
-	    int locale = [notifications retrieveLocale];
-	    [notifications subscribeWithLocale: locale categories:categories completion:^(NSError* error) {
+		NSSet* categories = [self.notifications retrieveCategories];
+	    int locale = [self.notifications retrieveLocale];
+	    [self.notifications subscribeWithLocale: locale categories:categories completion:^(NSError* error) {
 	        if (error != nil) {
 	            NSLog(@"Error registering for notifications: %@", error);
 	        }
 	    }];
 
-##Send localized notifications from your back-end
+##(optional) Send localized template notifications from .NET console app.
 
 [AZURE.INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
+
+
+
+##(optional) Send localized template notifications from the device
+
+If you don't have access to Visual Studio, or want to just test sending the localized template notifications directly from the app on the device.  You can simple add the localized template parameters to the `SendNotificationRESTAPI` method you defined in the previous tutorial.
+
+		- (void)SendNotificationRESTAPI:(NSString*)categoryTag
+		{
+		    NSURLSession* session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration
+									 defaultSessionConfiguration] delegate:nil delegateQueue:nil];
+
+		    NSString *json;
+
+		    // Construct the messages REST endpoint
+		    NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
+		                                       HUBNAME, API_VERSION]];
+
+		    // Generated the token to be used in the authorization header.
+		    NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
+
+		    //Create the request to add the template notification message to the hub
+		    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+		    [request setHTTPMethod:@"POST"];
+
+		    // Add the category as a tag
+		    [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
+
+			// Template notification
+	        json = [NSString stringWithFormat:@"{\"messageParam\":\"Breaking %@ News : %@\","
+					\"News_English\":\"Breaking %@ News in English : %@\","
+					\"News_French\":\"Breaking %@ News in French : %@\","
+					\"News_Mandarin\":\"Breaking %@ News in Mandarin : %@\","
+	                categoryTag, self.notificationMessage.text,
+	                categoryTag, self.notificationMessage.text,  // insert English localized news here
+	                categoryTag, self.notificationMessage.text,  // insert French localized news here
+	                categoryTag, self.notificationMessage.text]; // insert Mandarin localized news here
+
+	        // Signify template notification format
+	        [request setValue:@"template" forHTTPHeaderField:@"ServiceBusNotification-Format"];
+
+			// JSON Content-Type
+			[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+
+		    //Authenticate the notification message POST request with the SaS token
+		    [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
+
+		    //Add the notification message body
+		    [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
+
+		    // Send the REST request
+		    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
+		               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+	           {
+	           NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+	               if (error || httpResponse.statusCode != 200)
+	               {
+	                   NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
+	               }
+	               if (data != NULL)
+	               {
+	                   //xmlParser = [[NSXMLParser alloc] initWithData:data];
+	                   //[xmlParser setDelegate:self];
+	                   //[xmlParser parse];
+	               }
+	           }];
+
+		    [dataTask resume];
+		}
+
+
 
 
 ## Next Steps
@@ -180,9 +251,6 @@ For more information on using templates, see:
 
 - [Notify users with Notification Hubs: ASP.NET]
 - [Notify users with Notification Hubs: Mobile Services]
-- [Notification Hubs Guidance]
-
-A reference for the template expression language is in [Notification Hubs How-To for iOS].
 
 
 
@@ -216,7 +284,6 @@ A reference for the template expression language is in [Notification Hubs How-To
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript and HTML]: ../get-started-with-push-js.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

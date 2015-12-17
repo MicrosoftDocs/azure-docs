@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -24,17 +24,21 @@
 This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. The information provided applies regardless of which specific technology you use to connect to SQL Database.
 
 
+<a id="a-tech-independent-recommend" name="a-tech-independent-recommend"></a>
+
 ## Technology-independent recommendations
 
 
 - [Guidelines for Connecting to Azure SQL Database Programmatically](http://msdn.microsoft.com/library/azure/ee336282.aspx) - discussions include the following:
- - [Ports and Firewalls](sql-database-configure-firewall-settings.md/)
+ - [Ports and Firewalls](sql-database-configure-firewall-settings.md)
  - Connection strings
-- [Azure SQL Database Resource Management](https://msdn.microsoft.com/library/azure/dn338083.aspx) - discussions include the following:
+- [Azure SQL Database Resource Management](http://msdn.microsoft.com/library/azure/dn338083.aspx) - discussions include the following:
  - Resource governance
  - Enforcement of limits
  - Throttling
 
+
+<a id="b-authentication-recommend" name="b-authentication-recommend"></a>
 
 ## Authentication recommendations
 
@@ -63,8 +67,10 @@ The contained user approach has advantages and disadvantages:
  - A person who is a contained user in several databases might have more passwords to remember or update.
 
 
-Further information is given in - [Contained Databases](http://msdn.microsoft.com/library/ff929071.aspx).
+Further information is given in - [Contained Database Users - Making Your Database Portable](http://msdn.microsoft.com/library/ff929188.aspx).
 
+
+<a id="c-connection-recommend" name="c-connection-recommend"></a>
 
 ## Connection recommendations
 
@@ -73,8 +79,7 @@ Further information is given in - [Contained Databases](http://msdn.microsoft.co
  - The default of 15 seconds is too short for connections that depend on the internet.
 
 
-- Ensure that your [Azure SQL Database firewall](sql-database-firewall-configure.md) allows outgoing TCP communication on port 1433.
- - You can configure the firewall settings on an SQL Database server or to an individual database.
+- On the computer that hosts your client program, ensure the firewall allows outgoing TCP communication on port 1433.
 
 
 - If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open the port ranges 11000-11999 and 14000-14999 on the VM. Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details.
@@ -93,16 +98,6 @@ Unless your program will reuse the connection for another operation immediately 
 - Open a connection.
 - Do one operation through the connection.
 - Close the connection.
-
-
-#### Exception thrown when using a pool
-
-
-When connection pooling is enabled, and a timeout error or other login error occurs, an exception will be thrown. Subsequent connection attempts will fail for the next 5 seconds, which is called a *blocking period*.
-
-If the application attempts to connect within the blocking period, the first exception will be thrown again. After the blocking period ends, subsequent failures result in a new blocking period that lasts twice as long as the previous blocking period.
-
-The maximum duration of a blocking period is 60 seconds.
 
 
 ### Ports other than just 1433 in V12
@@ -127,7 +122,12 @@ The Azure system has the ability to dynamically reconfigure servers when heavy w
 
 However, a reconfiguration might cause your client program to lose its connection to SQL Database. This error is called a *transient fault*.
 
-Your client program can try to reestablish a connection after waiting for perhaps 6 to 60 seconds between retries. You must provide the retry logic in your client.
+If your client program has retry logic, it can try to reestablish a connection after giving the transient fault time to correct itself.
+
+We recommend that you delay for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry the delay should grow exponentially, up to a maximum of 60 seconds.
+
+A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+
 
 For code samples that illustrate retry logic, see:
 - [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
@@ -148,6 +148,8 @@ For further information see:
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
 
+
+<a id="e-technologies" name="e-technologies"></a>
 
 ## Technologies
 

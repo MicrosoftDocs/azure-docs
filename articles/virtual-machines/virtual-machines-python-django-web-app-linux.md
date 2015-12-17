@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Python web app with Django on Mac | Microsoft Azure" 
-	description="A tutorial that shows how to host a Django-based website on Azure using a Linux virtual machine." 
+	pageTitle="Python web app with Django on Linux | Microsoft Azure" 
+	description="Learn how to host a Django-based web application on Azure using a Linux virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="python" 
 	authors="huguesv" 
 	manager="wpickett" 
-	editor=""/>
+	editor=""
+	tags=“azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,18 +14,19 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="11/17/2015" 
 	ms.author="huvalo"/>
-
-
-
-
-
-# Django Hello World Web Application (mac-linux)
+	
+# Django Hello World web application on a Linux VM
 
 > [AZURE.SELECTOR]
-- [Windows](web-app-with-django.md)
-- [Mac/Linux](django-hello-world-(maclinux).md)
+- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+- [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
+
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
+
 
 This tutorial describes how to host a Django-based website on Microsoft 
 Azure using a Linux virtual machine. This tutorial assumes you have no prior experience using Azure. Upon completing this guide, you will have a Django-based application up and running in the cloud.
@@ -45,16 +47,11 @@ A screenshot of the completed application is below:
 
 ## Creating and configuring an Azure virtual machine to host Django
 
-1. Follow the instructions given [here][portal-vm] to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.
+1. Follow the instructions given [here](virtual-machines-linux-tutorial-portal-rm.md) to create an Azure virtual machine of the *Ubuntu Server 14.04 LTS* distribution.  If you prefer, you can choose password authentication instead of SSH public key.
 
-  **Note:** you *only* need to create the virtual machine. Stop at the section titled *How to log on to the virtual machine after you create it*.
+1. Edit the network security group to allow incoming http traffic to port 80 using the instructions [here](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
 
-1. Instruct Azure to direct port **80** traffic from the web to port **80** on the virtual machine:
-	* Navigate to your newly created virtual machine in the Azure Portal and click the *ENDPOINTS* tab.
-	* Click the *ADD* button at the bottom of the screen.
-	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* Open up the *TCP* protocol's *PUBLIC PORT 80* as *PRIVATE PORT 80*.
-	![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
+1. By default, your new virtual machine doesn't have a fully qualified domain name (FQDN).  You can create one by following the instructions [here](virtual-machines-create-fqdn-on-portal.md).  This step is optional to complete this tutorial.
 
 ## <a id="setup"> </a>Setting up the development environment
 
@@ -64,14 +61,14 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
 1.  Launch a new **Terminal** window.
     
-1.  Enter the following command to connect to the Azure VM.
+1.  Enter the following command to connect to the Azure VM.  If you didn't create a FQDN, you can connect using the public IP address displayed in the virtual machine summary in the Azure classic portal.
 
 		$ ssh yourusername@yourVmUrl
 
 1.  Enter the following commands to install django:
 
-		$ sudo apt-get install python-setuptools
-		$ sudo easy_install django
+		$ sudo apt-get install python-setuptools python-pip
+		$ sudo pip install django
 
 1.  Enter the following command to install Apache with mod-wsgi:
 
@@ -109,10 +106,10 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 
 ## Setting up Apache
 
-1.  Create an Apache virtual host configuration file **/etc/apache2/sites-available/helloworld.conf**. Set the contents to the following, and make sure to replace *yourVmUrl* with the actual URL of the machine you are using (for example *pyubuntu.cloudapp.net*).
+1.  Create an Apache virtual host configuration file **/etc/apache2/sites-available/helloworld.conf**. Set the contents to the following, and replace *yourVmName* with the actual name of the machine you are using (for example *pyubuntu*).
 
 		<VirtualHost *:80>
-		ServerName yourVmUrl
+		ServerName yourVmName
 		</VirtualHost>
 		WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
 		WSGIPythonPath /var/www/helloworld
@@ -133,7 +130,3 @@ The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't 
 ## Shutting down your Azure virtual machine
 
 When you're done with this tutorial, shutdown and/or remove your newly created Azure virtual machine to free up resources for other tutorials and avoid incurring Azure usage charges.
-
-
-[portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
- 

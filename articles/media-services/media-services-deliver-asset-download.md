@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #How to: Deliver an Asset by Download
@@ -47,7 +47,7 @@ This example shows how to download media assets from Media Services to your loca
 	        ParallelTransferThreadCount = 20
 	    };
 	
-	    var downloadTasks = new List&lt;Task&gt;();
+	    var downloadTasks = new List<Task>();
 	    foreach (IAssetFile outputFile in outputAsset.AssetFiles)
 	    {
 	        // Use the following event handler to check download progress.
@@ -73,12 +73,14 @@ This example shows how to download media assets from Media Services to your loca
 	}
 
 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
    
 ##See Also 

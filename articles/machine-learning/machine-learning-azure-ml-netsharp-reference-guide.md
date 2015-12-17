@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeannt"/>
 
 
@@ -158,6 +158,11 @@ A filtered connection bundle specification includes a predicate, expressed synta
 Optionally, you can specify a set of weights for a filtered bundle. The value for the **Weights** attribute must be a tuple of floating point values with a length that matches the number of connections defined by the bundle. By default, weights are randomly generated.  
 
 Weight values are grouped by the destination node index. That is, if the first destination node is connected to K source nodes, the first _K_ elements of the **Weights** tuple are the weights for the first destination node, in source index order. The same applies for the remaining destination nodes.  
+
+It's possible to specify weights directly as constant values. For example, if you learned the weights previously, you can specify them as constants using this syntax:
+
+	const Weights_1 = [0.0188045055, 0.130500451, ...]
+
 
 ## Convolutional bundles
 When the training data has a homogeneous structure, convolutional connections are commonly used to learn high-level features of the data. For example, in image, audio, or video data, spatial or temporal dimensionality can be fairly uniform.  

@@ -1,23 +1,24 @@
-<properties 
-	pageTitle="Create an Oracle Database VM with the Azure portal | Microsoft Azure" 
-	description="Learn how to create a virtual machine with an Oracle Database on it using the classic deployment model and the Azure preview portal." 
-	services="virtual-machines" 
-	authors="bbenz" 
+<properties
+	pageTitle="Create an Oracle Database VM with the Azure classic portal | Microsoft Azure"
+	description="Learn how to create a virtual machine with an Oracle Database on it using the classic deployment model and the Azure portal."
+	services="virtual-machines"
+	authors="bbenz"
 	documentationCenter=""
 	tags="azure-service-management"/>
-	
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="Windows" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="Windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
 	ms.author="bbenz" />
-	
+
 #Create an Oracle Database virtual machine in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 The following example shows you how you can create a virtual machine (VM) based on a Microsoft-provided Oracle Database image running on Windows Server 2012 in Azure. There are two steps. First, create the VM, and then create the Oracle Database inside the VM. The example shown is Oracle Database version 12c, but the steps are virtually identical for version 11g.
 
@@ -175,9 +176,9 @@ To allow your database to be reached remotely (for example, from a client comput
 10. Click **OK**.
 
 ##Enabling Oracle Database Enterprise Manager remote access
-If you want to enable remote access to Oracle Database Enterprise Manager, open port 5500 in your firewall, and create a virtual machine endpoint for 5500 in the Azure portal (using the steps shown earlier for opening port 1521 and creating an endpoint for 1521). Then, to run the Oracle Enterprise Manager from the remote computer, open a browser to the URL in the form of `http://<<unique_domain_name>>:5500/em`.
+If you want to enable remote access to Oracle Database Enterprise Manager, open port 5500 in your firewall, and create a virtual machine endpoint for 5500 in the Azure classic portal (using the steps shown earlier for opening port 1521 and creating an endpoint for 1521). Then, to run the Oracle Enterprise Manager from the remote computer, open a browser to the URL in the form of `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE] You can determine the value for *\<\<unique\_domain\_name\>\>* within the [Azure portal](https://ms.portal.azure.com/) by clicking **Virtual Machines** and then selecting the virtual machine that you are using to run Oracle Database).
+> [AZURE.NOTE] You can determine the value for *\<\<unique\_domain\_name\>\>* within the [Azure classic portal](https://ms.portal.azure.com/) by clicking **Virtual Machines** and then selecting the virtual machine that you are using to run Oracle Database).
 
 ##Configuring Popular Options and Advanced Options Bundles
 If you chose the **Oracle Database with Popular Options** or the **Oracle Database with Advanced Options bundle**, the next step is to configure the add-on features in your Oracle installation. Refer to the Oracle documentation for instruction on setting these up on Windows, as configurations can vary widely based on your needs of each individual component.

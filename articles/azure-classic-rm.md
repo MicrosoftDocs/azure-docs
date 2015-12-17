@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/14/2015"
+   ms.date="12/07/2015"
    ms.author="telmos"/>
 
 # Azure Deployment Models
@@ -65,5 +65,5 @@ You can create and configure Azure resources from Windows, OS X, or Linux comput
 ## Next steps
 
 - Learn more about [Resource Manager](/resource-group-overview.md).
-- Understand how to [design templates](/best-practices-resource-manager-design-templates/md).
-- Use [best practices](best-practices-resource-manager-examples.md)
+- Understand how to [design templates](/best-practices-resource-manager-design-templates.md).
+- Use [best practices](/best-practices-resource-manager-examples.md)

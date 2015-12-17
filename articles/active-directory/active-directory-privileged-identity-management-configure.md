@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
-	manager="stevepo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.date="09/21/2015"
 	ms.author="inhenk"/>
 
 # Azure AD Privileged Identity Management
@@ -94,10 +94,8 @@ Using Azure AD Privileged Identity Management you can also track changes in priv
 
 ![][6]
 
-## What's next
-
-[Microsoft Azure blog](http://azure.microsoft.com/blog/)
-[Role-based access control](../role-based-access-control-configure.md)
+## Next steps
+[AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png

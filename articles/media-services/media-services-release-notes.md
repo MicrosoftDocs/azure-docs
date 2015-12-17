@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="12/09/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,9 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [December 2015 Release](#dec_changes_15)
+- [November 2015 Release](#nov_changes_15)
+- [October 2015 Release](#oct_changes_15)
 - [September 2015 Release](#september_changes_15)
 - [August 2015 Release](#august_changes_15)
 - [July 2015 Release](#july_changes_15)
@@ -74,6 +77,33 @@ Media Services objects in the SDK cannot be serialized and as a result do not wo
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
 
+##<a id="dec_changes_15"></a>December 2015 Release
+
+The Azure SDK team published a new release of the [Azure SDK for PHP](http://github.com/Azure/azure-sdk-for-php) package that contains updates and new features for Microsoft Azure Media Services. In particular, the Azure Media Services SDK for PHP now supports the latest [content protection](media-services-content-protection-overview.md) features: dynamic encryption with AES and DRM (PlayReady and Widevine) with and without Token restriction. It also supports scaling [Encoding Units](media-services-dotnet-encoding-units.md).
+
+For more information, see:
+
+- The [Microsoft Azure Media Services SDK for PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) blog.
+- The following [code samples](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) to help get you started quickly:
+	- **vodworkflow_aes.php**: This is a PHP file that shows how to use AES-128 Dynamic Encryption and Key Delivery Service. It is based on the .NET sample explained in [this](media-services-protect-with-aes128.md) article.
+	- **vodworkflow_aes.php**: This is a PHP file that shows how to use PlayReady Dynamic Encryption and License Delivery Service. It is based on the .NET sample explained in [this](media-services-protect-with-drm.md) article.
+	- **scale_encoding_units.php**: This is a PHP file that shows how to scale encoding reserved unit.
+
+
+##<a id="nov_changes_15"></a>November 2015 Release
+
+Azure Media Services now offers Google Widevine license delivery service in the cloud. For more details, refer to [this announcement blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Also, see [this tutorial](media-services-protect-with-drm.md) and [GitHub repository](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm). 
+
+Note that Widevine license delivery services provided by Azure Media Sevices is in preview. For more information see [this blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+
+##<a id="oct_changes_15"></a>October 2015 Release
+
+Azure Media Services (AMS) is now live in the following data centers: Brazil South,  India West, India South and India Central. You can now use the Azure Classic Portal to [create Media Service accounts](media-services-create-account.md#create-a-media-services-account-using-quick-create) and perform various tasks described [here](https://azure.microsoft.com/documentation/services/media-services/). However, Live Encoding is not enabled in these data centers. Further, not all types of Encoding Reserved Units are available in these data centers.
+
+- Brazil South:                                          Only Standard and Basic Encoding Reserved Units are available
+- India West, India South and India Central:             Only Basic Encoding Reserved Units are available
+
+
 ##<a id="september_changes_15"></a>September 2015 Release 
 
 - AMS now offers the ability to protect both Video-On-Demand (VOD) and Live Streams with Widevine Modular DRM technology. You can use the following delivery services partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). For more information, see [this blog](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
@@ -83,6 +113,17 @@ For information about the Media Services REST API version history, see [Azure Me
 - AMS added support for Apple ProRes videos. You can now upload your QuickTime source videos files that use Apple ProRes or other codecs. For more information, see [this blog](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
 - You can now use Media Encoder Standard to do sub-clipping and live archive extraction. For more information, see [this blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+
+- The following filtering updates were made: 
+
+	- You can now use Apple HTTP Live Streaming (HLS) format with audio-only filter. This update enables you to remove audio-only track by specifying (audio-only=false) in the URL.
+	- When defining filters for your assets, you now have ability to combine multiple (up to 3) filters in a single URL.
+
+	For more information see [this](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
+
+- AMS now supports I-Frames in HLS v4. I-Frame support optimizes fast-forward and rewind operations. By default, all HLS v4 outputs include I-Frame playlist (EXT-X-I-FRAME-STREAM-INF).
+ 
+	For more information see [this](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
 
 ##<a id="august_changes_15"></a>August 2015 Release
 
@@ -248,15 +289,15 @@ Media Services SDK for .NET is now version 3.0.0.7
 ### <a id="sept_14_breaking_changes"></a>Breaking Changes
 
 * **Origin** was renamed to [StreamingEndpoint].
-* A change in the default behavior when using the **Azure Management Portal** to encode and then publish MP4 files. 
+* A change in the default behavior when using the **Azure Classic Portal** to encode and then publish MP4 files.
 
-	Previously, when using the Management Portal to publish a single-file MP4 video asset a SAS URL would be created (SAS URLs allow you to download the video from a blob storage). Currently, when you use the Management Portal to encode and then publish a single-file MP4 video asset, the generated URL points to an Azure Media Services streaming endpoint.  This change does not affect MP4 videos that are directly uploaded to Media Services and published without being encoded by Azure Media Services.
-	
-	Currently, you have the following two options to solve the problem. 
-	
-	* Enable streaming units and use dynamic packaging to stream the .mp4 asset as a smooth streaming presentation.
-	
-	* Create a SAS url to download (or progressively play) the .mp4. For more information about how to create a SAS locator, see [Delivering Content]. 
+Previously, when using the Azure Classic Portal to publish a single-file MP4 video asset a SAS URL would be created (SAS URLs allow you to download the video from a blob storage). Currently, when you use the Azure Classic Portal to encode and then publish a single-file MP4 video asset, the generated URL points to an Azure Media Services streaming endpoint.  This change does not affect MP4 videos that are directly uploaded to Media Services and published without being encoded by Azure Media Services.
+
+Currently, you have the following two options to solve the problem.
+
+* Enable streaming units and use dynamic packaging to stream the .mp4 asset as a smooth streaming presentation.
+
+* Create a SAS url to download (or progressively play) the .mp4. For more information about how to create a SAS locator, see [Delivering Content].
 
 
 ### <a id="sept_14_GA_changes"></a>New features\scenarios that are part of GA release
@@ -548,10 +589,12 @@ The following functionality was new in the November release of the SDK.
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 <!-- Anchors. -->
 
@@ -572,7 +615,7 @@ You can view AMS learning paths here:
 [Preview features]: http://azure.microsoft.com/services/preview/
 [Media Services PlayReady License Template Overview]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Streaming Storage Encrypted Content]: http://msdn.microsoft.com/library/azure/dn783451.aspx
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure Classic Portal]: https://manage.windowsazure.com
 [Dynamic Packaging]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin's Blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protecting Smooth Stream with PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx

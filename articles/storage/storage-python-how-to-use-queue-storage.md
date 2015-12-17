@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="12/11/2015" 
 	ms.author="emgerner"/>
 
 # How to use Queue storage from Python
@@ -133,10 +133,10 @@ To delete a queue and all the messages contained in it, call the
 Now that you have learned the basics of queue storage, follow these links
 to learn about more complex storage tasks.
 
--   See the MSDN Reference: [Storing and Accessing Data in Azure][]
 -   Visit the [Azure Storage Team Blog][]
 
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+For more information, see also the [Python Developer Center](/develop/python/).
+
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure package]: https://pypi.python.org/pypi/azure
 [Python Azure Storage package]: https://pypi.python.org/pypi/azure-storage 

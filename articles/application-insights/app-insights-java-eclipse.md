@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
@@ -22,7 +22,7 @@ The Application Insights SDK sends telemetry from your Java web application so t
 
 ## Prerequisites
 
-Currently the plug-in works for Dynamic Web Projects in Eclipse. 
+Currently the plug-in works for Maven projects and Dynamic Web Projects in Eclipse. 
 ([Add Application Insights to other types of Java project][java].)
 
 You'll need:
@@ -47,29 +47,20 @@ You only have to do this one time per machine. This step installs a toolkit whic
 
 Follow the remaining steps for each Java project.
 
-## Get an Application Insights instrumentation key
+## Create an Application Insights resource in Azure
 
-Your usage and performance analytics will be displayed in an Azure resource in the Azure web portal. In this step, you set up an Azure resource for your application.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. 
 
-1. Log into the [Microsoft Azure Portal](https://portal.azure.com). (You'll need an [Azure subscription](http://azure.microsoft.com/).)
-2. Create a new Application Insights resource
+## Add Application Insights to your project
 
-    ![Click + and choose Application Insights](./media/app-insights-java-eclipse/01-create.png)
-3. Set the application type to Java web application.
+1. Add Application Insights from the context menu of your Java web project.
 
-    ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-eclipse/02-create.png)
-4. Find the instrumentation key of the new resource. You'll need to paste this into your project in Eclipse.
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/02-context-menu.png)
 
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/03-key.png)
-
-## Add the SDK to your Java project
-
-1. Add Application Insights from the context menu of your web project.
-
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/4-addai.png)
 2. Paste the instrumentation key that you got from the Azure portal.
 
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/5-config.png)
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/03-ikey.png)
 
 
 The key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
@@ -109,7 +100,7 @@ Insert the code snippet in the head of your HTML files.
 
 #### View client-side data
 
-Open your updated web pages and use them. Wait a minute or two, then return to Application Insights and refresh the usage blade.
+Open your updated web pages and use them. Wait a minute or two, then return to Application Insights and open the usage blade. (From the Overview blade, scroll down and click Usage.)
 
 Page view, user, and session metrics will appear on the usage blade:
 
@@ -139,7 +130,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 Unhandled exceptions are automatically collected:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![](./media/app-insights-java-eclipse/21-exceptions.png)
 
 To collect data on other exceptions, you have two options:
 
@@ -154,10 +145,10 @@ To collect data on other exceptions, you have two options:
 
 ## Performance counters
 
-Click the **Servers** tile, and you'll see a range of performance counters.
+On your Overview blade, scroll down and click the  **Servers** tile. You'll see a range of performance counters.
 
 
-![](./media/app-insights-java-get-started/11-perf-counters.png)
+![Scroll down to click the Servers tile](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### Customize performance counter collection
 
@@ -208,7 +199,7 @@ Each [Windows performance counter](https://msdn.microsoft.com/library/windows/de
 
 Your performance counters are visible as custom metrics in [Metrics Explorer][metrics].
 
-![](./media/app-insights-java-get-started/12-custom-perfs.png)
+![](./media/app-insights-java-eclipse/12-custom-perfs.png)
 
 
 ### Unix performance counters
@@ -217,7 +208,9 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 
 ## Availability web tests
 
-Application Insights can test your website at regular intervals to check that it's up and responding well. To set up, click through the empty web tests chart on the overview blade, and provide your public URL. 
+Application Insights can test your website at regular intervals to check that it's up and responding well. [To set up][availability], scroll down to click Availability.
+
+![Scroll down, click Availability, then Add Web test](./media/app-insights-java-eclipse/31-config-web-test.png)
 
 You'll get charts of response times, plus email notifications if your site goes down.
 

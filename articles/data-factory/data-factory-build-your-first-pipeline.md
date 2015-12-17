@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Build your first pipeline using Azure Data Factory"
+	pageTitle="Get started with Azure Data Factory"
 	description="This tutorial shows you how to create a sample data pipeline that transforms data using Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
@@ -12,25 +12,26 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="09/10/2015"
+	ms.topic="hero-article" 
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Build your first pipeline using Azure Data Factory
+# Get started with Azure Data Factory
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
-This article helps you get started with building your first pipeline, and deploy it to the Azure Data Factory. 
+This article helps you get started with building your first Azure data factory. 
 
 > [AZURE.NOTE] This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
 ## Tutorial Overview
-This tutorial takes you through the steps needed to get your first pipeline up and running. You will be creating pipelines, and specifying all the resources needed from scratch.
+This tutorial takes you through the steps needed to get your first data factory with a pipeline. You will be creating a pipeline, and specifying all the resources needed from scratch.
 
-If you want to explore the various capabilities of the data factory quickly, without creating one from scratch, you can use the samples that we provide in the Azure Preview Portal. See [Azure Data Factory Update: Simplified sample deployment](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) on how to deploy an use-case based sample using the Azure Preview Portal.
+If you want to explore the various capabilities of the data factory quickly, without creating one from scratch, you can use the samples that we provide in the Azure Portal. See [Azure Data Factory Update: Simplified sample deployment](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) on how to deploy an use-case based sample using the Azure Portal.
 
 ## Pre-requisites
 Before you begin this tutorial, you must have the following pre-requisites:
@@ -62,8 +63,8 @@ The availability defined on the **AzureBlobOutput** dataset determines how often
 ## Prepare Azure Storage for the tutorial
 Before starting the tutorial, you need to prepare the Azure storage with files needed for the tutorial.
 
-1. Launch notepad, paste the following text, and save it as **partitionweblogs.hql** in the C:\adfgettingstarted folder on your hard drive. This Hive scripts creates two external tables: **WebLogsRaw** and **WebLogsPartitioned**.
-
+1. Launch **Notepad** and paste the following HQL script. This Hive scripts creates two external tables: **WebLogsRaw** and **WebLogsPartitioned**. Click **File** on the menu and select **Save As**. Switch to the **C:\adfgettingstarted** folder on your hard drive. Select **All Files (*.*)** for the **Save as type** field. Enter **partitionweblogs.hql** for the **File name**. Confirm that the **Encoding** field at the bottom of the dialog box is set to **ANSI**. If not, set it to **ANSI**.  
+	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -142,19 +143,20 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-	
- 
+	 
 2. To prepare the Azure storage for the tutorial:
 	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
 	2. After AzCopy has been installed, you can add it to the system path by running the following command at a command prompt. 
 	
-			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-	
+			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
 
 	3. Navigate to the c:\adfgettingstarted folder, and run the following command to upload the Hive .HQL file to the storage account. Replace **StorageAccountName** with the name of your storage account, and **Storage Key** with the storage account key.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
-	4. After the file has been successfully uploaded, you will see the following output from AzCopy.
+
+		> [AZURE.NOTE] The above command creates a container named **script** in your Azure Blob storage and copies the **partitionweblogs.hql** file from your local drive to the blob container. 
+	>
+	5. After the file has been successfully uploaded, you will see the following output from AzCopy.
 	
 			Finished 1 of total 1 file(s).
 			[2015/06/15 15:47:13] Transfer summary:
@@ -167,9 +169,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 
 Do the following:
 
-- Click [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Portal.
+- Click [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Classic Portal.
 - Click [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
 - Click [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) link at the top to perform the tutorial by using Visual Studio. 
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md). 

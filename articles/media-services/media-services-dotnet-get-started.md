@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with delivering Video-on-Demand (VoD) content using .NET SDK"
-	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using .NET."
+	pageTitle="Get started with delivering content on demand using .NET SDK"
+	description="This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using .NET."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/18/2015"
+	ms.date="11/08/2015"
 	ms.author="juliako"/>
 
 
-# Get started with delivering Video-on-Demand (VoD) content using .NET SDK
+# Get started with delivering content on demand using .NET SDK
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -28,33 +28,39 @@
 This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) SDK for .NET.
 
 
-The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.  
+The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.
+
+
+##Download sample
+
+Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+
 
 ## Prerequisites
 The following prerequisites are required to start developing with Media Services SDK for .NET.
 
 - Operating Systems: Windows 8 or later, Windows 2008 R2, Windows 7.
 - .NET Framework 4.5 or .NET Framework 4.0
-- Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express).
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later.
 
 
 The following tasks are shown in this Quickstart.
 
-1.  Create a Media Services account (using the Azure portal).
+1.  Create a Media Services account (using the Azure Classic Portal).
 2.  Configure streaming endpoint (using the portal).
 3.  Create and configure a Visual Studio project.
 5.  Connect to the Media Services account.
 6.  Create a new asset and upload a video file.
 7.  Encode the source file into a set of adaptive bitrate MP4 files.
-8.  Publish the asset and get URLs for streaming and progressive download.  
+8.  Publish the asset and get URLs for streaming and progressive download.
 9.  Play your content.
 
 
 ##Create a Media Services account using the portal
 
-1. In the Azure portal, click **New**, click **Media Service**, and then click **Quick Create**.
+1. In the Azure Classic Portal, click **New**, click **Media Service**, and then click **Quick Create**.
 
-	![Media Services Quick Create](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+![Media Services Quick Create](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. In **NAME**, enter the name of the new account. A Media Services account name is all lower-case numbers or letters with no spaces, and is 3 - 24 characters in length.
 
@@ -66,15 +72,15 @@ The following tasks are shown in this Quickstart.
 
 6. Click **Quick Create** at the bottom of the form.
 
-	You can monitor the status of the process in the message area at the bottom of the window.
+You can monitor the status of the process in the message area at the bottom of the window.
 
-	Once your account is successfully created, the status changes to **Active**.
+Once your account is successfully created, the status changes to **Active**.
 
-	At the bottom of the page, the **MANAGE KEYS** button appears. When you click this button, a dialog with the Media Services account name and the primary and secondary keys is displayed. You will need the account name and the primary key information to programmatically access the Media Services account.
+At the bottom of the page, the **MANAGE KEYS** button appears. When you click this button, a dialog with the Media Services account name and the primary and secondary keys is displayed. You will need the account name and the primary key information to programmatically access the Media Services account.
 
-	![Media Services Page](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
+![Media Services Page](./media/media-services-dotnet-get-started/wams-mediaservices-page.png)
 
-	When you double-click on the account name, the **Quickstart** page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page or do it from the CONTENT page.
+When you double-click on the account name, the **Quickstart** page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page or do it from the CONTENT page.
 
 ##Configure streaming endpoint using the portal
 
@@ -84,7 +90,7 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 
 To take advantage of dynamic packaging, you need to do the following:
 
-- Encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),  
+- Encode or transcode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial),
 - Get at least one streaming unit for the **streaming endpoint** from which you plan to delivery your content.
 
 With dynamic packaging, you only need to store and pay for the files in single storage format, and Media Services will build and serve the appropriate response based on requests from a client.
@@ -97,15 +103,15 @@ To change the number of streaming reserved units, do the following:
 
 3. To specify the number of streaming units, click the SCALE tab, and then move the **reserved capacity** slider.
 
-	![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
 4. Press **SAVE** to save your changes.
 
-	The allocation of any new units takes around 20 minutes to complete.
+The allocation of any new units takes around 20 minutes to complete.
 
-	>[AZURE.NOTE] Currently, going from any positive value of streaming units back to none can disable streaming for up to an hour.
-	>
-	> The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services pricing details](http://go.microsoft.com/fwlink/?LinkId=275107).
+>[AZURE.NOTE] Currently, going from any positive value of streaming units back to none can disable streaming for up to an hour.
+>
+> The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services pricing details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 
 
@@ -117,16 +123,16 @@ To change the number of streaming reserved units, do the following:
 
 3. Add a reference to System.Configuration assembly. This assembly contains the **System.Configuration.ConfigurationManager** class that is used to access configuration files, for example, App.config.
 
-4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example. To obtain the account name and key information, open the Azure portal, select your media services account, and then click the **MANAGE KEYS** button.
+4. Open the App.config file (add the file to your project if it was not added by default) and add an *appSettings* section to the file. Set the values for your Azure Media Services account name and account key, as shown in the following example. To obtain the account name and key information, open the Azure Classic Portal, select your media services account, and then click the **MANAGE KEYS** button.
 
-	 <pre><code>
-	&lt;configuration&gt;
-        &lt;appSettings&gt;
-    	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-        	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-  	    &lt;/appSettings&gt;
-	&lt;/configuration&gt;
-	</code></pre>
+<configuration>
+		...
+		  <appSettings>
+		    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+		    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+		  </appSettings>
+		  
+		</configuration>
 
 5. Overwrite the existing **using** statements at the beginning of the Program.cs file with the following code.
 
@@ -254,22 +260,23 @@ Add the following method to the Program class.
 
 	static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
 	{
-		// Prepare a job with a single task to transcode the specified asset
-        // into a multi-bitrate asset.
-
+	
+	    // Prepare a job with a single task to transcode the specified asset
+	    // into a multi-bitrate asset.
+	
 	    IJob job = _context.Jobs.CreateWithSingleTask(
-	        MediaProcessorNames.AzureMediaEncoder,
-	        MediaEncoderTaskPresetStrings.H264AdaptiveBitrateMP4Set720p,
+	        "Media Encoder Standard",
+	        "H264 Multiple Bitrate 720p",
 	        asset,
 	        "Adaptive Bitrate MP4",
 	        options);
-
-		Console.WriteLine("Submitting transcoding job...");
-
-
+	
+	    Console.WriteLine("Submitting transcoding job...");
+	
+	
 	    // Submit the job and wait until it is completed.
 	    job.Submit();
-
+	
 	    job = job.StartExecutionProgressTask(
 	        j =>
 	        {
@@ -277,11 +284,11 @@ Add the following method to the Program class.
 	            Console.WriteLine("Job progress: {0:0.##}%", j.GetOverallProgress());
 	        },
 	        CancellationToken.None).Result;
-
+	
 	    Console.WriteLine("Transcoding job finished.");
-
+	
 	    IAsset outputAsset = job.OutputMediaAssets[0];
-
+	
 	    return outputAsset;
 	}
 
@@ -421,13 +428,18 @@ To stream you video, use [Azure Media Services Player](http://amsplayer.azureweb
 To test progressive download, paste a URL into a browser (for example, Internet Explorer, Chrome, or Safari).
 
 
+##Next Steps: Media Services learning paths
 
-##Media Services learning paths
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-You can view AMS learning paths here:
+##Provide feedback
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+
+### Looking for something else?
+
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
 
 
 <!-- Anchors. -->

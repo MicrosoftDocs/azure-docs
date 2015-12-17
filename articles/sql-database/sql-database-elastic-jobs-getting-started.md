@@ -1,8 +1,6 @@
 <properties
-	title="Getting started with elastic database jobs"
 	pageTitle="Getting started with elastic database jobs"
 	description="how to use elastic database jobs"
-	metaKeywords="azure sql database elastic jobs"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -14,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="12/01/2015"
 	ms.author="sidneyh; ddove" />
 
 # Getting started with Elastic Database jobs
@@ -29,21 +27,21 @@ Download and run the [Getting started with Elastic Database tools sample](sql-da
 
 ## Create a shard map manager using the sample app
 
-Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you happen to already have shards setup with sharded data in them, you can skip the following steps and move to the next section.
+Here you will create a shard map manager along with several shards, followed by insertion of data into the shards. If you already have shards set up with sharded data in them, you can skip the following steps and move to the next section.
 
 1. Build and run the **Getting started with Elastic Database tools** sample application. Follow the steps until step 7 in the section [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools). At the end of Step 7, you will see the following command prompt:
 
 	![command prompt][1]
 
-2.  In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
+2.  In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat this action four times. This inserts sample data rows in your shards.
 
-3.  The [Azure preview portal](https://portal.azure.com) should show three new databases in your v12 server:
+3.  The [Azure Portal](https://portal.azure.com) should show three new databases in your v12 server:
 
 	![Visual Studio confirmation][2]
 
 	At this point, we will create a custom database collection that reflects all the databases in the shard map. This will allow us to create and execute a job that add a new table across shards.
 
-Now here we would usually create a shard map target, using the **New-AzureSqlJobTarget** cmdlet. The shard map manager database must be set as a database target and then the specific shard map is specified as a target. Instead, we are going to enumerate all the databases in the server and add the databases to the new custom collection with the exception of master database.
+Here we would usually create a shard map target, using the **New-AzureSqlJobTarget** cmdlet. The shard map manager database must be set as a database target and then the specific shard map is specified as a target. Instead, we are going to enumerate all the databases in the server and add the databases to the new custom collection with the exception of master database.
 
 ##Creates a custom collection and adds all databases in the server to the custom collection target with the exception of master.
 
@@ -52,7 +50,7 @@ Now here we would usually create a shard map target, using the **New-AzureSqlJob
 	New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 	$ResourceGroupName = "ddove_samples"
 	$ServerName = "samples"
-	$dbsinserver = Get-AzureSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+	$dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
 	$dbsinserver | %{
     $currentdb = $_.DatabaseName 
     $ErrorActionPreference = "Stop"
@@ -278,7 +276,7 @@ Update the desired execution policy to update:
  
 ## Cancel a job
 
-Elastic Database Jobs supports cancellation requests of jobs.  If Elastic Database Jobs detects a cancellation request for a job currently being executed, it will attempt to stop the job.
+Elastic Database Jobs supports jobs cancellation requests.  If Elastic Database Jobs detects a cancellation request for a job currently being executed, it will attempt to stop the job.
 
 There are two different ways that Elastic Database Jobs can perform a cancellation:
 
@@ -356,7 +354,7 @@ Use the **New-AzureSqlJob** cmdlet to create a job against a group of databases 
 
 **Elastic Database jobs** supports executing a query across a group of databases and sends the results to a specified database’s table. The table can be queried after the fact to see the query’s results from each database. This provides an asynchronous mechanism to execute a query across many databases. Failure cases such as one of the databases being temporarily unavailable are handled automatically via retries.
 
-The specified destination table will be automatically created if it does not yet exist matching the schema of the returned result set. If a script execution returns multiple result sets, Elastic Database jobs will only send the first one to the provided destination table.
+The specified destination table will be automatically created if it does not yet exist, matching the schema of the returned result set. If a script execution returns multiple result sets, Elastic Database jobs will only send the first one to the provided destination table.
 
 The following PowerShell script can be used to execute a script collecting its results into a specified table. This script assumes that a T-SQL script has been created which outputs a single result set and a custom database collection target has been created.
 
@@ -381,7 +379,7 @@ Set the following to reflect the desired script, credentials, and execution targ
 
 ## Create a schedule for job execution using a job trigger
 
-The following PowerShell script can be used to create a reoccurring schedule. This script uses a minute interval, but New-AzureSqlJobSchedule also supports -DayInterval, -HourInterval, -MonthInterval, and -WeekInterval parameters. Schedules that execute only once can be created by passing -OneTime.
+The following PowerShell script can be used to create a reoccurring schedule. This script uses a one minute interval, but New-AzureSqlJobSchedule also supports -DayInterval, -HourInterval, -MonthInterval, and -WeekInterval parameters. Schedules that execute only once can be created by passing -OneTime.
 
 Create a new schedule:
 

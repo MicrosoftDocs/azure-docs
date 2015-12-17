@@ -3,8 +3,8 @@
 	description="A checklist of proven practices for use with Azure Storage in developing performant applications."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
 
@@ -30,8 +30,6 @@ This article organizes the proven practices into the following groups. Proven pr
 -	Blobs
 -	Tables
 -	Queues  
-
-The Azure Files service is currently in Preview, and we will add proven practices here in the future.  
 
 |Done|	Area|	Category|	Question
 |----|------|-----------|-----------
@@ -187,7 +185,7 @@ For more information, see the article [An Overview of Performance Improvements i
 While parallelism can be great for performance, be careful about using unbounded parallelism (no limit on the number of threads and/or parallel requests) to upload or download data, using multiple workers to access multiple partitions (containers, queues, or table partitions) in the same storage account or to access multiple items in the same partition. If the parallelism is unbounded, your application can exceed the client device’s capabilities or the storage account’s scalability targets resulting in longer latencies and throttling.  
 
 ###<a name="subheading13"></a>Storage Client Libraries and Tools
-Always use the latest Microsoft provided client libraries and tools. At the time of writing, there are RTM libraries available for .NET, Windows Phone, Windows Runtime, and Java, as well as preview libraries in other languages like node.js and C++. In addition, Microsoft has released PowerShell cmdlets and Azure CLI commands for working with Azure Storage. Microsoft actively develops these tools with performance in mind, keeps them up to date with the latest service versions, and ensures they handle many of the proven performance practices internally.  
+Always use the latest Microsoft provided client libraries and tools. At the time of writing, there are client libraries available for .NET, Windows Phone, Windows Runtime, Java, and C++, as well as preview libraries for other languages. In addition, Microsoft has released PowerShell cmdlets and Azure CLI commands for working with Azure Storage. Microsoft actively develops these tools with performance in mind, keeps them up to date with the latest service versions, and ensures they handle many of the proven performance practices internally.  
 
 ###Retries
 ####<a name="subheading14"></a>Throttling/ServerBusy

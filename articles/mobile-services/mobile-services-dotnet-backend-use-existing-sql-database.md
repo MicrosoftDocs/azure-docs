@@ -12,12 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.topic="article"
+	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
 # Build a service using an existing SQL database with the Mobile Services .NET backend
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 The Mobile Services .NET backend makes it easy to take advantage of existing assets in building a mobile service. One particularly interesting scenario is using an existing SQL database (either on-premises or in the cloud), that may already be used by other applications, to make existing data available to mobile clients. In this case it's a requirement that database model (or *schema*) remain unchanged, in order for existing solutions to continue working.
 
@@ -26,7 +31,7 @@ The Mobile Services .NET backend makes it easy to take advantage of existing ass
 
 For this tutorial we will use the database that was created with your mobile service, but we will not use the default model that is created. Instead, we will manually create an arbitrary model that will represent an existing application that you may have. For full details about how to connect to an on-premises database instead, check out [Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-1. Start by creating a Mobile Services server project in **Visual Studio 2013 Update 2** or by using the quickstart project that you can download on the Mobile Services tab for your service in the [Azure Management Portal](http://manage.windowsazure.com). For the purposes of this tutorial, we will assume your server project name is **ShoppingService**.
+1. Start by creating a Mobile Services server project in **Visual Studio 2013 Update 2** or by using the quickstart project that you can download on the Mobile Services tab for your service in the [Azure classic portal](http://manage.windowsazure.com). For the purposes of this tutorial, we will assume your server project name is **ShoppingService**.
 
 2. Create a **Customer.cs** file inside the **Models** folder and use the following implementation. You will need to add an assembly reference to **System.ComponentModel.DataAnnotations** to your project.
 
@@ -147,7 +152,6 @@ The data model you would like to use with your mobile service may be arbitrarily
 
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
-        using System.ComponentModel.DataAnnotations;
         using System;
 
 4. Next, add these extra properties to each of the classes:
@@ -469,7 +473,7 @@ The next step is to implement a [**MappedEntityDomainManager**](http://msdn.micr
             }
         }
 
-    In this case the **InsertAsync** and **UpdateAsync** methods are interesting; that's where we enforce the relationship that each **Order** must have a valid associated **Customer**. In **InsertAsync** you'll notice that we populate the **MobileOrder.CustomerId** property, which maps to the **Order.CustomerId** property. We get that value by based looking up the **Customer** with the matching **MobileOrder.MobileCustomerId**. This is because by default the client is only aware of the Mobile Services ID (**MobileOrder.MobileCustomerId**) of the **Customer**, which is different than its actual primary key needed to set the foreign key (**MobileOrder.CustomerId**) from **Order** to **Customer**. This is only used internally within the service to facilitate the insert operation.
+    In this case the **InsertAsync** and **UpdateAsync** methods are interesting; that's where we enforce the relationship that each **Order** must have a valid associated **Customer**. In **InsertAsync** you'll notice that we populate the **MobileOrder.CustomerId** property, which maps to the **Order.CustomerId** property. We get that value based by looking up the **Customer** with the matching **MobileOrder.MobileCustomerId**. This is because by default the client is only aware of the Mobile Services ID (**MobileOrder.MobileCustomerId**) of the **Customer**, which is different than its actual primary key needed to set the foreign key (**MobileOrder.CustomerId**) from **Order** to **Customer**. This is only used internally within the service to facilitate the insert operation.
 
 We are now ready to create controllers to expose our DTOs to our clients.
 
@@ -585,7 +589,7 @@ We are now ready to create controllers to expose our DTOs to our clients.
 
 3. You are now ready to run your service. Press **F5** and use the test client built into the help page to modify the data.
 
-Please note that both controller implementations make exclusive use of the DTOs **MobileCustomer** and **MobileOrder** and are agnostic of the underlying model. These DTOs are readily serialized to JSON and can be used to exchange data with the  Mobile Services client SDK on all platforms. For example, if building a Windows Store app, the corresponding client-side type would look as shown below. The type would be analogous on other client platforms.
+Please note that both controller implementations make exclusive use of the DTOs **MobileCustomer** and **MobileOrder** and are agnostic of the underlying model. These DTOs are readily serialized to JSON and can be used to exchange data with the  Mobile Services client SDK on all platforms. For example, building a Windows Store app, the corresponding client-side type would look as shown below. The type would be analogous on other client platforms.
 
     using Microsoft.WindowsAzure.MobileServices;
     using System;
@@ -613,4 +617,4 @@ Please note that both controller implementations make exclusive use of the DTOs 
 
     }
 
-As a next step, you can now build out the client app to access the service. For more information, see [Add Mobile Services to an existing app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
+As a next step, you can now build out the client app to access the service.

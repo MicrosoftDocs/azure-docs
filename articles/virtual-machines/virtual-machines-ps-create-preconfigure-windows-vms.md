@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create and preconfigure a VM | Microsoft Azure"
-	description="Create and preconfigure Windows virtual machines with the classic deployment model and PowerShell."
+	pageTitle="Create a Windows VM with Powershell | Microsoft Azure"
+	description="Create Windows virtual machines using Azure PowerShell and the classic deploment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,17 +14,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="10/13/2015"
 	ms.author="cynthn"/>
 
-# Create and preconfigure Windows virtual machine with the classic deployment model and PowerShell
+# Create Windows virtual machines with Powershell and the classic deployment model 
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure classic portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating resources with the classic deployment model. You can also create resources with the [Resource Manager deployment model](virtual-machines-deploy-rmtemplates-powershell.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+
 
 These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
@@ -32,9 +36,6 @@ These steps follow a fill-in-the-blanks approach for creating Azure PowerShell c
 
 For the companion topic to configure Linux-based virtual machines, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-ps-create-preconfigure-linux-vms.md).
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
 ## Step 1: Install Azure PowerShell
 
@@ -53,11 +54,7 @@ You can get the correct subscription name from the SubscriptionName property of 
 
 ## Step 3: Determine the ImageFamily
 
-Next, you need to determine the ImageFamily or Label value for the specific image corresponding to the Azure virtual machine you want to create. Here are some examples from the Gallery in the Azure Management Portal.
-
-![](./media/virtual-machines-ps-create-preconfigure-windows-vms/PSPreconfigWindowsVMs_1.png)
-
-You can get the list of available ImageFamily values with this command.
+Next, you need to determine the ImageFamily or Label value for the specific image corresponding to the Azure virtual machine you want to create. You can get the list of available ImageFamily values with this command.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
@@ -149,8 +146,8 @@ Optionally, add the virtual machine to an existing load-balanced set for externa
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
 	$lbsetname="<name of the existing load-balanced set>"
-	$probeprotocol="<Specify one: tcp, udp>"
-	$probeport=<TCP or UDP port number of probe traffic>
+	$probeprotocol="<Specify one: tcp, http>"
+	$probeport=<TCP or HTTP port number of probe traffic>
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
@@ -160,7 +157,7 @@ Option 1: Create the virtual machine in an existing cloud service.
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure Management Portal or in the list of Resource Groups in the Azure Preview Portal.
+The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure classic portal or in the list of Resource Groups in the Azure portal.
 
 Option 2: Create the virtual machine in an existing cloud service and virtual network.
 
@@ -177,7 +174,7 @@ If you are using a text editor, copy the command set to the clipboard and then r
 If you will be creating this virtual machine again or a similar one, you can:
 
 - Save this command set as a PowerShell script file (*.ps1).
-- Save this command set as an Azure automation runbook in the **Automation** section of the Azure Management Portal.
+- Save this command set as an Azure automation runbook in the **Automation** section of the Azure classic portal.
 
 ## <a id="examples"></a>Examples
 
@@ -268,6 +265,6 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 [How to install and configure Azure PowerShell](../install-configure-powershell.md)
 
-[Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-[Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+
+

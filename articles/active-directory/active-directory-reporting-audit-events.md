@@ -13,65 +13,64 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/18/2015"
+   ms.date="12/07/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory Audit Report Events
+
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
+
 The Azure Active Directory Audit Report helps customers identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings). The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Management Portal](https://manage.windowsazure.com/), as described in [View your access and usage reports](active-directory-view-access-usage-reports.md).
 
-## Audit report retention
-Events in the Azure AD Audit report are retained for 180 days. For more information about retention on reports, see [Azure Active Directory Report Retention Policies](active-directory-reporting-retention.md).
-
-For customers interested in storing their audit events for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store. See [Getting Started with the Reporting API](active-directory-reporting-api-getting-started.md) for details.
-
-## Properties included with each audit event
-
-Property      | Description
-------------- | --------------------------------------------------------------
-Date and Time | The date and time that the audit event occured
-Actor         | The user or service principal that performed the action
-Action        | The action that was performed
-Target        | The user or service principal that the action was performed on
 
 ## List of Audit Report Events
 <!--- audit event descriptions should be in the past tense --->
 
 Events                               | Event Description
------------------------------------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **User events**                      |
 Add User                             | Added a user to the directory.
 Delete User                          | Deleted a user from the directory.
 Set license properties               | Set the license properties for a user in the directory.
 Reset user password                  | Reset the password for a user in the directory.
 Change user password                 | Changed the password for a user in the directory.
-Change user license                  | Changed the license assigned to a user in the directory.
-Update user                          | Updated a user in the directory.
+Change user license                  | Changed the license assigned to a user in the directory. To see what licenses were updated, look at the "Update user" event immediately before or after this event.
+Update user                          | Updated a user in the directory. [See below](#quotupdate-userquot-attributes) for attributes that can be updated.
 Set force change user password       | Set the property that forces a user to change their password on login.
 **Group events**                     |
-Create group                         | Created a group in the directory
-Update group                         | Updated a group in the directory
-Delete group                         | Deleted a group from the directory
-Add member to group                  | Added a member to a group in the directory
-Remove member from group             | Removed a member from a group in the directory
+Add group                            | Created a group in the directory.
+Update group                         | Updated a group in the directory.
+Delete group                         | Deleted a group from the directory.
+Add member to group                  | Added a member to a group in the directory.
+Remove member from group             | Removed a member from a group in the directory.
 **Application events**               |
 Add service principal                | Added a service principal to the directory.
 Remove service principal             | Removed a service principal from the directory.
 Add service principal credentials    | Added credentials to a service principal.
 Remove service principal credentials | Removed credentials from a service principal.
-Add delegation entry                 | Added a delegation entry to the directory.
-Set delegation entry                 | Update a delegation entry in the directory.
-Remove delegation entry              | Removed a delegation entry from the directory.
+Add delegation entry                 | Created an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
+Set delegation entry                 | Updated an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
+Remove delegation entry              | Deleted an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
 **Role events**                      |
 Add role member to Role              | Added a user to a directory role.
 Remove role member from Role         | Removed a user from a directory role.
 Set Company contact information      | Set company-level contact preferences. This includes email addresses for marketing, as well as technical notifications about Microsoft Online Services.
+**B2B events**                       |
+Batch invites uploaded.              | An administrator has uploaded a file containing invitations to be sent to partner users.
+Batch invites processed.             | A file containing invitations to partner users has been processed.
+Invite external user.                | An external user has been invited to the directory.
+Redeem external user invite.         | An external user has redeemed their invitation to the directory.
+Add external user to group.          | An external user has been assigned membership to a group in the directory.
+Assign external user to application. | An external user has been assigned direct access to an application.
+Viral tenant creation.               | A new tenant has been created in Azure AD by the invitation redemption.
+Viral user creation.                 | A user has been created in an existing tenant in Azure AD by the invitation redemption.
 **Directory events**                 |
 Add partner to company               | Added a partner to the directory.
 Remove Partner from company          | Removed a partner from the directory.
 Add domain to company                | Added a domain to the directory.
 Remove domain from company           | Removed a domain from the directory.
 Update domain                        | Updated a domain on the directory.
-Set domain authentication            | Changed the default domain setting for the company
+Set domain authentication            | Changed the default domain setting for the company.
 Set federation settings on domain    | Updated the federation settings for a domain.
 Verify domain                        | Verified a domain on the directory.
 Verify email verified domain         | Verified a domain on the directory using email verification.
@@ -89,7 +88,22 @@ Promote tenant to partner
 
 --->
 
-### User attributes included in the Update User audit event
+## Audit report retention
+Events in the Azure AD Audit report are retained for 180 days. For more information about retention on reports, see [Azure Active Directory Report Retention Policies](active-directory-reporting-retention.md).
+
+For customers interested in storing their audit events for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store. See [Getting Started with the Reporting API](active-directory-reporting-api-getting-started.md) for details.
+
+## Properties included with each audit event
+
+Property      | Description
+------------- | --------------------------------------------------------------
+Date and Time | The date and time that the audit event occured
+Actor         | The user or service principal that performed the action
+Action        | The action that was performed
+Target        | The user or service principal that the action was performed on
+
+
+## "Update User" attributes
 The "Update user" audit event includes additional information about what user attributes were updated. For each attribute, both the previous value and the new value is included.
 
 Attribute                       | Description

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect design concepts | Microsoft Azure"
+   pageTitle="Azure AD Connect: Design concepts | Microsoft Azure"
    description="This topic details certain implementation design areas"
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="Identity"
-   ms.date="09/03/2015"
+   ms.date="12/02/2015"
    ms.author="andkjell"/>
 
 # Design concepts for Azure AD Connect
@@ -56,7 +56,6 @@ If you move users between forests and domains, then you must find an attribute w
 
 Another solution is to pick an existing attribute you know will not change. Commonly used attributes include **employeeID**. If you consider an attribute which will contain letters, make sure there is no chance the case (upper case vs. lower case) can change for the attribute's value. Bad attributes which should not be used include those with the name of the user. In a marriage or divorce the name is expected to change, which is not allowed for this attribute. This is also one reason why attributes such as **userPrincipalName**, **mail**, and **targetAddress** are not even possible to select in the Azure AD Connect installation wizard. Those attributes will also contain the @-character, which is not allowed in the sourceAnchor.
 
-
 ### Changing the sourceAnchor attribute
 The sourceAnchor attribute value cannot be changed after the object has been created in Azure AD and the identity is synchronized.
 
@@ -65,3 +64,6 @@ For this reason, the following restrictions apply to Azure AD Connect:
 - The sourceAnchor attribute can only be set during initial installation. If you re-run the installation wizard this option is read-only. If you need to change this, then you must uninstall and reinstall.
 - If you install another Azure AD Connect server, then you must select the same sourceAnchor attribute as previously used. If you have earlier been using DirSync and move to Azure AD Connect, then you must use **objectGUID** since that is the attribute used by DirSync.
 - If the value for sourceAnchor is changed after the object has been exported to Azure AD, then Azure AD Connect sync will throw an error and will not allow any more changes on that object before the issue has been fixed and the sourceAnchor is changed back in the source directory.
+
+## Next steps
+Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

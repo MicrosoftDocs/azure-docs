@@ -3,7 +3,7 @@
 	description="Describes what happens to your MVC project when you connect to Azure AD by using Visual Studio connected services"
 	services="active-directory"
 	documentationCenter="na"
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="tarcher"/>
 
 # What happened to my MVC project (Visual Studio Azure Active Directory connected service)?
 

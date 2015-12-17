@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Dynamic SQL in SQL Data Warehouse
@@ -41,6 +41,6 @@ For more development tips, see [development overview][].
 [development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[sp_executesql]: https://msdn.microsoft.com/en-us/library/ms188001.aspx
+[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
 
 <!--Other Web references-->

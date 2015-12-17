@@ -8,15 +8,20 @@
 	services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services" 
+	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/07/2015"
 	ms.author="wesmc"/>
 
 # Role Based Access Control in Mobile Services using JavaScript and the Azure Active Directory
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -43,8 +48,6 @@ This tutorial requires the following:
 
 
 During the [Add Authentication to your app] tutorial, you created a registration for the integrated application when you completed the [Register to use an Azure Active Directory Login] step. In this section you generate a key to be used when reading directory information with that integrated application's client ID.
-
-If you went through the [Accessing Azure Active Directory Graph Information] tutorial, you have already completed this step and can skip this section.
 
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
@@ -181,7 +184,7 @@ In this section you will create a new custom authorization attribute that can be
         // Use ADAL and the authentication app settings from the Mobile Service to get an AAD access token
         private async Task<string> GetAADToken()
         {
-            // Try to get the required AAD authentication app settings from the mobile service.  
+            // Try to get the required AAD authentication app settings from the mobile service.
             if (!(services.Settings.TryGetValue("AAD_CLIENT_ID", out clientid) &
                   services.Settings.TryGetValue("AAD_CLIENT_KEY", out clientkey) &
                   services.Settings.TryGetValue("AAD_TENANT_DOMAIN", out tenantdomain)))
@@ -383,11 +386,9 @@ In this section you will create a new custom authorization attribute that can be
 <!-- URLs. -->
 [Add Authentication to your app]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [Store Server Scripts]: mobile-services-store-scripts-source-control.md
 [Register to use an Azure Active Directory Login]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-[Accessing Azure Active Directory Graph Information]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [ADAL for .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx

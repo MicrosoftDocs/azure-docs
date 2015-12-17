@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configure Asset Delivery Policies using REST" 
-	description="This topic shows how to configure different asset delivery policies." 
+	pageTitle="Configure Asset Delivery Policies using Media Services REST API" 
+	description="This topic shows how to configure different asset delivery policies using Media Services REST API." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #How to: Configure Asset Delivery Policies
@@ -258,21 +258,22 @@ Request:
 	Accept-Charset: UTF-8
 	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amsaccount1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423480651&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=T2FG3tIV0e2ETzxQ6RDWxWAsAzuy3ez2ruXPhrBe62Y%3d
-  x-ms-version: 2.11
-  x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
-  Host: media.windows.net
+	x-ms-version: 2.11
+	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
+	Host: media.windows.net
+	
+	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
-  {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
+If you want to protect your content using Widevine DRM, update the AssetDeliveryConfiguration values to use WidevineLicenseAcquisitionUrl (which has the value of 7) and specify the URL of a license delivery service. You can use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
-If you want to protect your content using Widevine, update the AssetDeliveryConfiguration values. For example:  
+For example: 
+ 
+	
+	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
-  {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
+>[AZURE.NOTE]When encrypting with Widevine, you would only be able to deliver using DASH. Make sure to specify DASH (2) in the asset delivery protocol.
   
-
-You can use the following delivery services partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
-
-
 ###Link asset with asset delivery policy
 
 See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_policy)
@@ -351,30 +352,43 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
         /// Apply Dynamic Common encryption.
         /// </summary>
         DynamicCommonEncryption
-    }
+        }
 
 ###ContentKeyDeliveryType
 
+
     /// <summary>
     /// Delivery method of the content key to the client.
-    /// </summary>
+    ///
+    </summary>
     public enum ContentKeyDeliveryType
     {
         /// <summary>
         /// None.
-        /// </summary>
-        None,
+        ///
+        </summary>
+        None = 0,
 
         /// <summary>
         /// Use PlayReady License acquistion protocol
-        /// </summary>
-        PlayReadyLicense,
+        ///
+        </summary>
+        PlayReadyLicense = 1,
 
         /// <summary>
         /// Use MPEG Baseline HTTP key protocol.
-        /// </summary>
-        BaselineHttp
+        ///
+        </summary>
+        BaselineHttp = 2,
+
+        /// <summary>
+        /// Use Widevine License acquistion protocol
+        ///
+        </summary>
+        Widevine = 3
+
     }
+
 
 ###AssetDeliveryPolicyConfigurationKey
 
@@ -428,9 +442,8 @@ See [Link asset with asset delivery policy](#link_asset_with_asset_delivery_poli
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
- 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/02/2015"
+   ms.date="11/04/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -27,6 +27,7 @@ Warehouse database with the following steps:
 - Create PolyBase objects: external data source, external file format, and external table. 
 - Query data stored in Azure blob storage.
 - Load data from Azure blob storage into SQL Data Warehouse.
+- Export data from SQL Data Warehouse to Azure blob storage.
 
 
 ## Prerequisites
@@ -37,35 +38,43 @@ To step through this tutorial, you need:
 
 First, you will create the objects that PolyBase requires for connecting to and querying data in Azure blob storage.
 
-## Create database master key
-Connect to user database on your server to create a database master key. This key is used to encrypt your credential secret in the next step. 
+> [AZURE.IMPORTANT] The Azure Storage account types supported by PolyBase are:
+> 
+> + Standard Locally Redundant Storage (Standard-LRS)
+> + Standard Geo-Redundant Storage (Standard-GRS)
+> + Standard Read-Access Geo-Redundant Storage (Standard-RAGRS)
+>
+> Standard Zone Redundant Storage (Standard-ZRS) and Premium Locally Redundant Storage (Premium-LRS) account types are NOT supported by PolyBase. If you are creating a new Azure Storage account, make sure you select a PolyBase-supported storage account type from the Pricing Tier.
 
-```
--- Creating master key
-CREATE MASTER KEY;
-```
+## Step 1: Store a credential in your database
+To access Azure blob storage, you need to create a database scoped credential that stores authentication information for your Azure storage account. Follow these steps to store a credential with your database.
 
-Reference topic: [CREATE MASTER KEY (Transact-SQL)][].
+1. Connect to your SQL Data Warehouse database.
+2. Use [CREATE MASTER KEY (Transact-SQL)][] to create a master key for your database. If your database already has a master key you don't need to create another one. This key is used to encrypt your credential "secret" in the next step.
 
-## Create a database scoped credential
-To access Azure blob storage, you need to create a database scoped credential that stores authentication information for your Azure storage account. Connect to your data warehouse database and create a database scoped credential for each Azure storage account you want to access. Specify an identity name and your Azure storage account key as the Secret. The identity name does not affect authentication to Azure Storage.
+    ```
+    -- Create a master key
+    CREATE MASTER KEY;
+    ```
 
-To see if a database-scoped credential already exists, use   sys.database_credentials, not sys.credentials which only shows the server credentials.
+1. Check to see if you already have any database credentials. To do this, use the sys.database_credentials system view, not sys.credentials which only shows the server credentials. 
 
-```
--- Check for existing database-scoped credentials.
-SELECT * FROM sys.database_credentials;
+    ```
+    -- Check for existing database-scoped credentials.
+    SELECT * FROM sys.database_credentials;
+    ```
 
--- Create a database scoped credential
-CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
-WITH IDENTITY = 'joe'
-,    Secret = '<azure_storage_account_key>'
-;
-```
+3. Use [CREATE CREDENTIAL (Transact-SQL)][] to Create a database scoped credential for each Azure storage account you want to access. In this example, IDENTITY is a friendly name for the credential. It does not affect authenticating to Azure storage. SECRET is your Azure storage account key.
 
-Reference topic: [CREATE CREDENTIAL (Transact-SQL)][].
+    ```
+    -- Create a database scoped credential
+    CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
+    WITH IDENTITY = 'joe'
+    ,    Secret = '<azure_storage_account_key>'
+    ;
+    ```
 
-To drop a database scoped credential you simply use the following syntax:
+1. If you need to drop a database-scoped credential, use [DROP CREDENTIAL (Transact-SQL)][]:
 
 ```
 -- Dropping credential
@@ -73,95 +82,90 @@ DROP DATABASE SCOPED CREDENTIAL ASBSecret
 ;
 ```
 
-Reference topic: [DROP CREDENTIAL (Transact-SQL)][].
+## Step 2: Create an external data source
+The external data source is a database object that stores the location of the Azure blob storage data and your access information. Use [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][] to define an external data source for each Azure storage blob you want to access.
 
-## Create an external data source
-The external data source is a database object that stores the location of the Azure blob storage data and your access information. You need to define an external data source for each Azure Storage container you want to access.
+    ```
+    -- Create an external data source for an Azure storage blob
+    CREATE EXTERNAL DATA SOURCE azure_storage 
+    WITH
+    (
+        TYPE = HADOOP,
+        LOCATION ='wasbs://mycontainer@test.blob.core.windows.net',
+        CREDENTIAL = ASBSecret
+    )
+    ;
+    ```
 
-```
--- Creating external data source (Azure Blob Storage) 
-CREATE EXTERNAL DATA SOURCE azure_storage 
-WITH
-(
-    TYPE = HADOOP
-,   LOCATION ='wasbs://mycontainer@test.blob.core.windows.net'
-,   CREDENTIAL = ASBSecret
-)
-;
-```
+if you need to drop the external table, use [DROP EXTERNAL DATA SOURCE][]:
 
-Reference topic: [CREATE EXTERNAL DATA SOURCE (Transact-SQL)][].
+    ```
+    -- Drop an external data source
+    DROP EXTERNAL DATA SOURCE azure_storage
+    ;
+    ```
 
-To drop the external data source the syntax is as follows:
+## Step 3: Create an external file format
+The external file format is a database object that specifies the format of the external data. PolyBase can work with compressed and uncompressed data in delimited text, Hive RCFILE and HIVE ORC formats. 
 
-```
--- Dropping external data source
-DROP EXTERNAL DATA SOURCE azure_storage
-;
-```
-
-Reference topic: [DROP EXTERNAL DATA SOURCE (Transact-SQL)][].
-
-## Create an external file format
-The external file format is a database object that specifies the format of the external data. In this example, we have uncompressed data in a text file and the fields are separated with the pipe character ('|'). 
+Use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][] to create the external file format. This example specifies the data in the file is uncompressed text and the fields are separated with the pipe character ('|'). 
 
 ```
--- Creating external file format (delimited text file)
+-- Create an external file format for a text-delimited file.
+-- Data is uncompressed and fields are separated with the
+-- pipe character.
 CREATE EXTERNAL FILE FORMAT text_file_format 
 WITH 
 (   
-    FORMAT_TYPE = DELIMITEDTEXT 
-,	FORMAT_OPTIONS  (
-                        FIELD_TERMINATOR ='|'
-                    ,   USE_TYPE_DEFAULT = TRUE
-                    )
+    FORMAT_TYPE = DELIMITEDTEXT, 
+    FORMAT_OPTIONS  
+    (
+        FIELD_TERMINATOR ='|',
+        USE_TYPE_DEFAULT = TRUE
+    )
 )
 ;
 ```
 
-PolyBase can work with compressed and uncompressed data in delimited text, Hive RCFILE and HIVE ORC formats. 
-
-Reference topic: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)][].
-
-To drop an external file format the syntax is as follows:
+If you need to drop an external file format, use [DROP EXTERNAL FILE FORMAT]. 
 
 ```
 -- Dropping external file format
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
-Reference topic: [DROP EXTERNAL FILE FORMAT (Transact-SQL)][].
 
 ## Create an external table
 
-The external table definition is similar to a relational table definition. The key difference is the location and the format of the data. The external table definition is stored in the SQL Data Warehouse database. The data is stored in the location specified by the data source.
+The external table definition is similar to a relational table definition. The key difference is the location and the format of the data. 
 
-The LOCATION option specifies the path to the data from the root of the data source. In this example, the data is located at 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'. All the files for the same table need to be under the same logical folder in Azure BLOB.
+- The external table definition is stored as metadata in the SQL Data Warehouse database. 
+- The data is stored in the external location specified by the data source.
+
+Use [CREATE EXTERNAL TABLE (Transact-SQL)][] to define the external table.
+
+The LOCATION option specifies the path to the data from the root of the data source. In this example, the data is located at 'wasbs://mycontainer@test.blob.core.windows.net/path/Demo/'. All the files for the same table need to be under the same logical folder in Azure blob storage.
 
 Optionally, you can also specify reject options (REJECT_TYPE, REJECT_VALUE, REJECT_SAMPLE_VALUE) that determine how PolyBase will handle dirty records it receives from the external data source.
 
 ```
--- Creating external table pointing to file stored in Azure Storage
+-- Creating an external table for data in Azure blob storage.
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
 (
-     [SensorKey]     int    NOT NULL 
-,    [CustomerKey]   int    NOT NULL 
-,    [GeographyKey]  int        NULL 
-,    [Speed]         float  NOT NULL 
-,    [YearMeasured]  int    NOT NULL
+     [SensorKey]     int    NOT NULL,
+     [CustomerKey]   int    NOT NULL,
+     [GeographyKey]  int        NULL,
+     [Speed]         float  NOT NULL,
+     [YearMeasured]  int    NOT NULL,
 )
 WITH 
 (
-    LOCATION    = '/Demo/'
-,   DATA_SOURCE = azure_storage
-,   FILE_FORMAT = text_file_format      
+    LOCATION    = '/Demo/',
+    DATA_SOURCE = azure_storage,
+    FILE_FORMAT = text_file_format      
 )
 ;
 ```
-
-> [AZURE.NOTE] Please note that you cannot create statistics on an external table at this time.
-
-Reference topic: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 The objects you just created are stored in SQL Data Warehouse database. You can view them in the SQL Server Data Tools (SSDT) Object Explorer. 
 
@@ -219,7 +223,7 @@ Storing data directly removes the data transfer time for queries. Storing data w
 
 This example uses the CREATE TABLE AS SELECT statement to load data. The new table inherits the columns named in the query. It inherits the data types of those columns from the external table definition. 
 
-CREATE TABLE AS SELECT is a highly performant Transact-SQL statement  that replaces INSERT...SELECT.  It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.
+CREATE TABLE AS SELECT is a highly performant Transact-SQL statement that loads the data in parallel to all the compute nodes of your SQL Data Warehouse.  It was originally developed for  the massively parallel processing (MPP) engine in Analytics Platform System and is now in SQL Data Warehouse.
 
 ```
 -- Load data from Azure blob storage to SQL Data Warehouse 
@@ -237,6 +241,42 @@ FROM   [ext].[CarSensor_Data]
 ```
 
 See [CREATE TABLE AS SELECT (Transact-SQL)][].
+
+## Create Statistics on newly loaded data
+
+Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.  Below is a quick example of how to create statistics on the tabled loaded in this example.
+
+```
+create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
+create statistics [CustomerKey] on [Customer_Speed] ([CustomerKey]);
+create statistics [GeographyKey] on [Customer_Speed] ([GeographyKey]);
+create statistics [Speed] on [Customer_Speed] ([Speed]);
+create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
+```
+
+## Export data to Azure blob storage
+This section shows how to export data from SQL Data Warehouse to Azure blob storage. This example uses CREATE EXTERNAL TABLE AS SELECT which is a highly performant Transact-SQL statement to export the data in parallel from all the compute nodes. 
+
+The following example creates an external table Weblogs2014 using column definitions and data from dbo.Weblogs table. The external table definition is stored in SQL Data Warehouse and the results of the SELECT statement are exported to the "/archive/log2014/" directory under the blob container specified by the data source. The data is exported in the specified text file format. 
+
+```
+CREATE EXTERNAL TABLE Weblogs2014 WITH
+(
+    LOCATION='/archive/log2014/',
+    DATA_SOURCE=azure_storage,
+    FILE_FORMAT=text_file_format
+)
+AS
+SELECT
+    Uri,
+    DateRequested
+FROM
+    dbo.Weblogs
+WHERE
+    1=1
+    AND DateRequested > '12/31/2013'
+    AND DateRequested < '01/01/2015';
+```
 
 
 ## Working around the PolyBase UTF-8 requirement
@@ -304,6 +344,7 @@ For more development tips, see [development overview][].
 [Load with PolyBase]: sql-data-warehouse-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [development overview]: sql-data-warehouse-overview-develop.md
+[Statistics]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -317,13 +358,13 @@ For more development tips, see [development overview][].
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
 

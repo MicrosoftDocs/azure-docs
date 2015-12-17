@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Agile software development with Azure App Service"
 	description="Learn how to create high-scale complex applications with Azure App Service in a way that supports agile software development."
-	services="app-service\web,app-service\api,app-service\mobile"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -69,7 +69,7 @@ You will also use the typical branching strategy, with code moving from the dev 
 
 > [AZURE.NOTE] You need an Azure account to complete this tutorial:
 > + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
-> + You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+> + You can [activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 >
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
@@ -77,7 +77,7 @@ You will also use the typical branching strategy, with code moving from the dev 
 
 >[AZURE.NOTE] The script used in this tutorial will automatically configure continuous publishing from your GitHub repository. This requires that your GitHub credentials are already stored in Azure, otherwise the scripted deployment will fail when attempting to configure source control settings for the web apps. 
 >
->To store your GitHub credentials in Azure, create a web app in the [Azure preview portal](https://portal.azure.com) and [configure GitHub deployment](web-sites-publish-source-control.md#Step7). You only need to do this once. 
+>To store your GitHub credentials in Azure, create a web app in the [Azure Portal](https://portal.azure.com) and [configure GitHub deployment](web-sites-publish-source-control.md#Step7). You only need to do this once. 
 
 In a typical DevOps scenario, you have an application that’s running live in Azure, and you want to make changes to it through continuous publishing. In this scenario, you have a template that you developed, tested, and used to deploy the production environment. You will set it up in this section.
 
@@ -111,7 +111,7 @@ In a typical DevOps scenario, you have an application that’s running live in A
 
 7.	When the script finishes, go back to browse to the frontend’s address (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) to see the application running in production.
  
-5.	Log into the [Azure preview portal](https://portal.azure.com) and take a look at what’s created.
+5.	Log into the [Azure Portal](https://portal.azure.com) and take a look at what’s created.
 
 	You should be able to see two web apps in the same resource group, one with the `Api` suffix in the name. If you look at the resource group view, you will also see the SQL Database and server, the App Service plan, and the staging slots for the web apps. Browse through the different resources and compare them with *&lt;repository_root>*\ARMTemplates\ProdAndStage.json to see how they are configured in the template.
 
@@ -266,7 +266,7 @@ Because you have purposely architected your dev and test environments to be self
 
 ## Summary ##
 
-Agile software development is a must-have for many companies who want to adopt Azure as their application platform. In this tutorial, you have learned how to create and tear down exact replicas or near replicas of the production environment with ease, even for complex applications. You have also learned how to leverage this ability to create a development process that can build and test every single commit in Azure. This tutorial has hopefully shown you how you can best use Azure App Service and Azure Resource Manager together to create a DevOps solution that caters to agile methodologies.
+Agile software development is a must-have for many companies who want to adopt Azure as their application platform. In this tutorial, you have learned how to create and tear down exact replicas or near replicas of the production environment with ease, even for complex applications. You have also learned how to leverage this ability to create a development process that can build and test every single commit in Azure. This tutorial has hopefully shown you how you can best use Azure App Service and Azure Resource Manager together to create a DevOps solution that caters to agile methodologies. Next, you can build on this scenario by performing advanced DevOps techniques such as [testing in production](app-service-web-test-in-production-get-start.md). For a common testing-in-production scenario, see [Flighting deployment (beta testing) in Azure App Service](app-service-web-test-in-production-controlled-test-flight.md).
 
 ## More resources ##
 
@@ -279,6 +279,6 @@ Agile software development is a must-have for many companies who want to adopt A
 -	[Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[David Ebbo’s Blog](http://blog.davidebbo.com/)
 -	[Azure PowerShell](powershell-install-configure.md)
--	[Azure Cross-Platform Command-Line Tools](xplat-cli.md)
+-	[Azure Cross-Platform Command-Line Tools](xplat-cli-install.md)
 -	[Create or edit users in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)

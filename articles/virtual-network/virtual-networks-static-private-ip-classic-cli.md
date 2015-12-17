@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/08/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # How to set a static private IP address (classic) in Azure CLI
@@ -30,7 +30,7 @@ The sample Azure CLI commands below expect a simple environment already created.
 ## How to specify a static private IP address when creating a VM
 To create a new VM named *DNS01* in a new cloud service named *TestService* based on the scenario above, follow these steps:
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 1. Run the **azure service create** command to create the cloud service.
 
 		azure service create TestService --location uscentral

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # Register the current user for push notifications by using a mobile service
@@ -118,6 +118,5 @@ Now that the client app has been updated, return to the [Notify users with Notif
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios/
 
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  

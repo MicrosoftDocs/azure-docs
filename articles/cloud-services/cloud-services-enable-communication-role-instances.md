@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Enable Communication for Role Instances in Cloud Services | Microsoft Azure" 
-description="" 
+pageTitle="Communication for Roles in Cloud Services | Microsoft Azure" 
+description="Role instances in Cloud Services can have endpoints (http, https, tcp, udp) defined for them that communicate with the outside or between other role instances." 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="08/18/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Enable communication for role instances in azure

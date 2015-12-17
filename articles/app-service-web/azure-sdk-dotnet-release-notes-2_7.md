@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/26/2015"
+   ms.date="11/18/2015"
    ms.author="juliako"/>
 
 
@@ -87,7 +87,7 @@ Cloud explorer supports the following:
 - Integrated Properties panel which shows developer-focused properties commonly needed during dev/test 
 - Quick switching of the account to use when enumerating resources (use Settings command on toolbar) 
 - Filtering of subscriptions to use when enumerating resources (use Settings command on toolbar) 
-- Deep links to the Azure Preview Portal for management of resources and resource groups 
+- Deep links to the Azure Portal for management of resources and resource groups 
  
  
 ###Azure Resource Manager Tools 
@@ -131,7 +131,7 @@ For more detailed explanation about HDInsight tools updates, see [this blog](htt
 
 	Visualizing is very important when you want to see if your topology is working as expected. In this release we added visualization for Storm graphs. You can visualize the important metrics for your topology (for example, a color indicates weather a certain Bolt is “busy” or not). You can also double click the Bolt/Spout to view more details.
 
-- Support for HDInsight clusters that were created in new Azure Portal (a bug fix)
+- Support for HDInsight clusters that were created in the Azure Portal (a bug fix)
 
 	You can now use Visual Studio to view and submit jobs to all your HDInsight clusters no matter where the cluster were created.
 
@@ -150,6 +150,7 @@ For more detailed explanation about HDInsight tools updates, see [this blog](htt
 
 Installing the Azure SDK 2.6 or 2.7.1 for Visual Studio Community 2013 on a non-English OS will display a warning that the English and non-English resources of Visual Studio may be mismatched. This warning may be safely dismissed. It will only occur if the machine did not contain a prior installation of Visual Studio Community 2013 and you are installing the SDK on a non-English OS. The warning is shown after the language pack applies the RTM resources to Visual Studio, but before it applies Update 4. Dismissing the warning will allow the language pack to continue and complete applying the Update 4 version of the language pack content.
 
+LightSwitch projects are not compatibile with this release. This issue will be resolved with the next SDK release.
 
 ##Also see
 [Azure SDK 2.7.1 announcement post](http://go.microsoft.com/fwlink/?LinkId=623850)

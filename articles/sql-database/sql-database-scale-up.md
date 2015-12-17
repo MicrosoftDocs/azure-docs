@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,12 +22,12 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-scale-up.md)
+- [Azure Portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
-This article shows how to change the service tier and performance level of your SQL database with the [Azure preview portal](https://portal.azure.com). 
+This article shows how to change the service tier and performance level of your SQL database with the [Azure portal](https://portal.azure.com). 
 
-Use the information in [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md) and [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx) to determine the appropriate service tier and performance level for your Azure SQL Database.
+Use the information in [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md) and [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md) to determine the appropriate service tier and performance level for your Azure SQL Database.
 
 > [AZURE.IMPORTANT] Changing the service tier and performance level of a SQL database is an online operation. This means your database will remain online and available during the entire operation with no downtime.
 
@@ -50,7 +50,7 @@ Use the information in [Upgrade SQL Database Web/Business Databases to New Servi
 
 Open the SQL Database blade for the database you want to scale up or down:
 
-1.	Go to the [Azure Preview Portal](https://portal.azure.com).
+1.	Go to the [Azure portal](https://portal.azure.com).
 2.	Click **BROWSE ALL**.
 3.	Click **SQL databases**.
 2.	Click the database you want to change.

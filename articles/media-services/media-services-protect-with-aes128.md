@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use AES-128 Dynamic Encryption and Key Delivery Service"
+	pageTitle="Using AES-128 Dynamic Encryption and Key Delivery Service"
 	description="Microsoft Azure Media Services enables you to deliver your content encrypted with AES 128-bit encryption keys. Media Services also provides the Key Delivery service that delivers encryption keys to authorized users. This topic shows how to dynamically encrypt with AES-128 and use the key delivery service."
 	services="media-services"
 	documentationCenter=""
@@ -13,14 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/16/2015"
+	ms.date="12/09/2015"
 	ms.author="juliako"/>
 
-#Use AES-128 Dynamic Encryption and Key Delivery Service
+#Using AES-128 Dynamic Encryption and Key Delivery Service
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-aes128.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ##Overview
 
@@ -66,81 +67,13 @@ If you add or update your asset’s delivery policy, you must delete an existing
 
 In order to manage, encode, and stream your videos, you must first upload your content into Microsoft Azure Media Services. Once uploaded, your content is stored securely in the cloud for further processing and streaming. 
 
-The following code snippet shows how to create an asset and upload the specified file into the asset.
-	
-	static public IAsset UploadFileAndCreateAsset(string singleFilePath)
-	{
-	    if(!File.Exists(singleFilePath))
-	    {
-	        Console.WriteLine("File does not exist.");
-	        return null;
-	    }
-	
-	    var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-	    IAsset inputAsset = _context.Assets.Create(assetName, AssetCreationOptions.StorageEncrypted);
-	
-	    var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-	
-	    Console.WriteLine("Created assetFile {0}", assetFile.Name);
-	
-	    var policy = _context.AccessPolicies.Create(
-	                            assetName,
-	                            TimeSpan.FromDays(30),
-	                            AccessPermissions.Write | AccessPermissions.List);
-	
-	    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-	
-	    Console.WriteLine("Upload {0}", assetFile.Name);
-	
-	    assetFile.Upload(singleFilePath);
-	    Console.WriteLine("Done uploading {0}", assetFile.Name);
-	
-	    locator.Delete();
-	    policy.Delete();
-	
-	    return inputAsset;
-	}
+For detailed information, see [Upload Files into a Media Services account](media-services-dotnet-upload-files.md).
 
 ##<a id="encode_asset"></a>Encode the asset containing the file to the adaptive bitrate MP4 set
 
 With dynamic encryption all you need is to create an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. For more information, see the [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) topic.
 
-The following code snippet shows you how to encode an asset to adaptive bitrate MP4 set:
-	
-	static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-	{
-	    var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-	
-	    IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-	                            inputAsset.Name,
-	                            encodingPreset));
-	
-	    var mediaProcessors = 
-	        _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-	
-	    var latestMediaProcessor = 
-	        mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-	
-	
-	
-	    ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-	    encodeTask.InputAssets.Add(inputAsset);
-	    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-	
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-	    job.Submit();
-	    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-	
-	    return job.OutputMediaAssets[0];
-	}
-	
-	static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
-	{
-	    Console.WriteLine(string.Format("{0}\n  State: {1}\n  Time: {2}\n\n",
-	        ((IJob)sender).Name,
-	        e.CurrentState,
-	        DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
-	}
+For instructions on how to encode, see [How to encode an asset using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
 ##<a id="create_contentkey"></a>Create a content key and associate it with the encoded asset
 
@@ -306,6 +239,7 @@ The following code shows how to send a request to the Media Services key deliver
 1. Overwrite the code in your Program.cs file with the code shown in this section.
 	
 	Make sure to update variables to point to folders where your input files are located.
+			
 		
 		using System;
 		using System.Collections.Generic;
@@ -429,7 +363,7 @@ The following code shows how to send a request to the Media Services key deliver
 		            }
 		
 		            var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-		            IAsset inputAsset = _context.Assets.Create(assetName, AssetCreationOptions.StorageEncrypted); 
+		            IAsset inputAsset = _context.Assets.Create(assetName, AssetCreationOptions.StorageEncrypted);
 		
 		            var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
 		
@@ -453,31 +387,45 @@ The following code shows how to send a request to the Media Services key deliver
 		            return inputAsset;
 		        }
 		
-		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
+		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
 		        {
-		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
+		            // Declare a new job.
+		            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+		            // Get a media processor reference, and pass to it the name of the 
+		            // processor to use for the specific task.
+		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 		
-		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-		                                    inputAsset.Name,
-		                                    encodingPreset));
+		            // Create a task with the encoding details, using a string preset.
+		            // In this case "H264 Multiple Bitrate 720p" preset is used.
+		            ITask task = job.Tasks.AddNew("My encoding task",
+		                processor,
+		                "H264 Multiple Bitrate 720p",
+		                TaskOptions.None);
 		
-		            var mediaProcessors =
-		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-		
-		            var latestMediaProcessor =
-		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-		
-		
-		
-		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-		            encodeTask.InputAssets.Add(inputAsset);
-		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
+		            // Specify the input asset to be encoded.
+		            task.InputAssets.Add(asset);
+		            // Add an output asset to contain the results of the job. 
+		            // This output is specified as AssetCreationOptions.None, which 
+		            // means the output asset is not encrypted. 
+		            task.OutputAssets.AddNew("Output asset",
+		                AssetCreationOptions.None);
 		
 		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
 		            job.Submit();
 		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
 		
 		            return job.OutputMediaAssets[0];
+		        }
+		
+		        private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+		        {
+		            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+		            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+		
+		            if (processor == null)
+		                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+		
+		            return processor;
 		        }
 		
 		        static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -515,7 +463,7 @@ The following code shows how to send a request to the Media Services key deliver
 		                    Name = "HLS Open Authorization Policy",
 		                    KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
 		                    Requirements = null // no requirements needed for HLS
-		                };
+		                        };
 		
 		            restrictions.Add(restriction);
 		
@@ -584,10 +532,10 @@ The following code shows how to send a request to the Media Services key deliver
 		            //   key url that will have KID=<Guid> appended to the envelope and
 		            //   the Initialization Vector (IV) to use for the envelope encryption.
 		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string> 
+		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
 		            {
-		                {AssetDeliveryPolicyConfigurationKey.EnvelopeKeyAcquisitionUrl, keyAcquisitionUri.ToString()},
-		                {AssetDeliveryPolicyConfigurationKey.EnvelopeEncryptionIVAsBase64, envelopeEncryptionIV}
+		                        {AssetDeliveryPolicyConfigurationKey.EnvelopeKeyAcquisitionUrl, keyAcquisitionUri.ToString()},
+		                        {AssetDeliveryPolicyConfigurationKey.EnvelopeEncryptionIVAsBase64, envelopeEncryptionIV}
 		            };
 		
 		            IAssetDeliveryPolicy assetDeliveryPolicy =
@@ -666,7 +614,8 @@ The following code shows how to send a request to the Media Services key deliver
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

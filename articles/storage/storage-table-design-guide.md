@@ -3,8 +3,8 @@
    description="Design Scalable and Performant Tables in Azure Table Storage"
    services="storage"
    documentationCenter="na"
-   authors="tamram" 
-   manager="carolz"
+   authors="jasonnewyork" 
+   manager="tadb"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="08/03/2015"
-   ms.author="tamram"/>
+   ms.date="12/03/2015"
+   ms.author="jahogg"/>
 
 # Azure Storage Table Design Guide: Designing Scalable and Performant Tables
 
@@ -302,6 +302,16 @@ The following patterns in the section [Table Design Patterns](#table-design-patt
 
 -	[Compound key pattern](#compound-key-pattern) - Use compound **RowKey** values to enable a client to lookup related data with a single point query.  
 -	[Log tail pattern](#log-tail-pattern) - Retrieve the *n* entities most recently added to a partition by using a **RowKey** value that sorts in reverse date and time order.  
+
+## Encrypting Table Data    
+     
+The .NET Azure Storage Client Library supports encryption of string entity properties for insert and replace operations. The encrypted strings are stored on the service as binary properties, and they are converted back to strings after decryption.    
+
+For tables, in addition to the encryption policy, users must specify the properties to be encrypted. This can be done by either specifying an [EncryptProperty] attribute (for POCO entities that derive from TableEntity) or an encryption resolver in request options. An encryption resolver is a delegate that takes a partition key, row key, and property name and returns a Boolean that indicates whether that property should be encrypted. During encryption, the client library will use this information to decide whether a property should be encrypted while writing to the wire. The delegate also provides for the possibility of logic around how properties are encrypted. (For example, if X, then encrypt property A; otherwise encrypt properties A and B.) Note that it is not necessary to provide this information while reading or querying entities.
+
+Note that merge is not currently supported. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.     
+
+For information about encrypting table data, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](storage-client-side-encryption.md).  
 
 ## Modelling relationships  
 

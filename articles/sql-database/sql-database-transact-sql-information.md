@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Transact-SQL Information | Microsoft Azure"
-   description="Transact-SQL statements in Azure SQL Database"
+   pageTitle="Unsupported in Azure SQL Database T-SQL | Microsoft Azure"
+   description="Transact-SQL statements that are less than fully supported in Azure SQL Database"
    services="sql-database"
    documentationCenter=""
    authors="BYHAM"
@@ -14,22 +14,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/07/2015"
+   ms.date="12/14/2015"
    ms.author="rick.byham@microsoft.com"/>
 
-# Azure SQL Database Transact-SQL information
+# Azure SQL Database Transact-SQL differences
 
-Most SQL Server 2016 Transact-SQL statements are fully supported in Microsoft Azure SQL Database. This includes the SQL Server data types, operators, and the string, arithmetic, logical, cursor functions, and the other Transact-SQL elements that most applications depend upon. Partially or unsupported functions are usually related to differences in how SQL Database manages the database (such as file, high availability, and security features) or for special purpose features such as service broker. Because SQL Database isolates many features from dependency on the master database, many server-level activities are inappropriate and unsupported. Features deprecated in SQL Server are generally not supported in SQL Database.
+
+Most of the Transact-SQL features that applications depend on are supported in both Microsoft SQL Server and Azure SQL Database. A partial list of supported features for applications follows:
+
+- Data types.
+- Operators.
+- String, arithmetic, logical, and cursor functions.
+
+However, Azure SQL Database is designed to isolate features from any dependency on the **master** database. As a consequence many server-level activities are inappropriate for SQL Database and are unsupported. This topic details the features that are not fully supported in SQL Database.
+
+Also, features that are deprecated in SQL Server are generally not supported in SQL Database.
 
 ## Upgrading to SQL Database V12
 
 This topic discusses the features that are available with SQL Database when upgraded to the free SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md). SQL Database V12 adds performance and manageability improvements, as well as support for additional features. The added features are listed below, separated into the features that are fully supported, and the features that are partially supported. 
 
-## Features that are partially supported in SQL Database V12
+## Features partially supported in SQL Database V12
 
 SQL Database V12 supports some but not all of the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however the WITH ENCRYPTION option of CREATE PROCEDURE is not available. Refer to the linked syntax topics for details about the supported areas of each statement.
 
-- CLR assemblies: [CREATE ASSEMBLY](https://msdn.microsoft.com/library/ms189524.aspx)
 - Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx )/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - DMV's are generally available for features that are available
 - Functions: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
@@ -41,7 +49,7 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - Users: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
 - Views: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
 
-## Features that are not supported in SQL Database
+## Features not supported in SQL Database
 
 - Collation of system objects
 - Connection related: Endpoint statements, ORIGINAL_DB_NAME. Windows authentication is not available for logins or contained database users.
@@ -66,6 +74,7 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - KILL STATS JOB
 - Linked servers, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, 3 and 4 part names
 - Master/target servers
+- .NET Framework [CLR integration with SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
 - Resource governor
 - Semantic search
 - Server credentials
@@ -76,6 +85,8 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - SHUTDOWN
 - sp_addmessage
 - sp_configure options and RECONFIGURE
+- sp_helpuser
+- sp_migrate_user_to_contained
 - SQL Server audit (use SQL Database auditing instead)
 - SQL Server Profiler
 - SQL Server trace
@@ -90,6 +101,9 @@ For more information about Transact-SQL grammar, usage, and examples, see [Trans
 
 ### About the "Applies to" tags
 
-The Transact-SQL reference includes topics related to SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014, and Microsoft Azure SQL Database. Near the top of each topic is a section indicating which products support the subject of the topic. If a product is omitted, then the feature described by the topic is not available in that product. For example, availability groups were introduced in SQL Server 2012. The **CREATE AVAILABILTY GROUP** topic indicates it applies to **SQL Server (SQL Server 2012 through current version)** because it does not apply to SQL Server 2008, SQL Server 2008 R2, or Microsoft Azure SQL Database.
+The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Under the topic title there is usually an "Applies to" line which lists SQL Server versions, and perhaps other product names too. Often the same "Applies to" tags also lists Azure SQL Database. If an "Applies to" does not list Azure SQL Database, the topic content does not apply to Azure SQL Database. Sometimes you might see an "Applies to" line which lists multiple products, each with a small icon to indicate whether topic applies to each product.
 
-In some cases, the general subject of topic can be used in a product, but all of the arguments are not supported. For example, contained database users were introduced in SQL Server 2012. The **CREATE USER** statement can be used in any SQL Server product, however the **WITH PASSWORD** syntax cannot be used with older versions. In this case, additional **Applies to** sections are inserted into the appropriate argument descriptions in the body of the topic.
+ For example, availability groups were introduced in SQL Server 2012. The **CREATE AVAILABILTY GROUP** topic indicates it applies to **SQL Server (SQL Server 2012 through current version)** because it does not apply to SQL Server 2008, SQL Server 2008 R2, or to Azure SQL Database.
+
+In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate.
+

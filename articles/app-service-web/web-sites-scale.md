@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Scale a web app in Azure App Service" 
 	description="Learn how to scale up and scale out a web app in Azure App Service, including autoscaling." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Scale a web app in Azure App Service #
@@ -24,7 +24,7 @@ For increased performance and throughput for your web apps on Microsoft Azure, y
 
 Scaling up on Azure web apps involves two related actions: changing your App Service plan mode to a higher level of service, and configuring certain settings after you have switched to the higher level of service. Both topics are covered in this article. Higher service tiers like **Standard** and **Premium** modes offer greater robustness and flexibility in determining how your resources on Azure are used.
 
-Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all web apps in your App Service plan. They do not require your code to be changed or your applications to be redeployed.
+The scale settings take only seconds to apply and affect all web apps in your App Service plan. They do not require your code to be changed or your applications to be redeployed.
 
 For information about App Service plans, see [What is an App Service Plan?](../web-sites-web-hosting-plan-overview.md) and [Azure App Service Plans In-Depth Overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/web-sites/).  
 
@@ -176,7 +176,6 @@ Depending on the web app's mode, the following developer-oriented features are a
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- LINKS -->
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkId=309169

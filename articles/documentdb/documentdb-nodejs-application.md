@@ -14,10 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
+	ms.date="10/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
+
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
 
 This Node.js tutorial shows you how to use the Azure DocumentDB service to store and access data from a Node.js Express application hosted on Azure Websites.
 
@@ -37,7 +43,7 @@ DocumentDB.
 
 ![Screen shot of the My Todo List application created in this Node.js tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Don't have time to complete the tutorial and just want to get the complete solution from GitHub? Not a problem, get it [here](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Don't have time to complete the tutorial and just want to get the complete solution? Not a problem, you can get the complete sample solution from [GitHub][].
 
 ## <a name="_Toc395783176"></a>Prerequisites
 
@@ -399,7 +405,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		
 		module.exports = config;
 
-3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure Preview portal](http://portal.azure.com):
+3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure Portal](http://portal.azure.com):
 
 4. Save and close the **config.js** file.
  
@@ -572,8 +578,11 @@ running in Azure!
 Congratulations! You have just built your first Node.js Express Web
 Application using Azure DocumentDB and published it to Azure Websites.
 
-The source code for the complete reference application can be downloaded [here](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+The source code for the complete reference application can be downloaded from [GitHub][].
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
+
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  

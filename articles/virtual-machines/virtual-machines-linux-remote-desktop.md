@@ -20,7 +20,8 @@
 
 #Using Remote Desktop to connect to a Microsoft Azure Linux VM
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers managing a resource with the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 ##Overview
 
@@ -105,7 +106,7 @@ Restart xrdp service, use:
 
 
 ##Connect your Linux VM from a Windows machine
-In a Windows machine, start the remote desktop client, input your Linux VM DNS name, or go to `Dashboard` of your VM in Azure portal and click `Connect` to connect your Linux VM, you will see below login window:
+In a Windows machine, start the remote desktop client, input your Linux VM DNS name, or go to `Dashboard` of your VM in Azure classic portal and click `Connect` to connect your Linux VM, you will see below login window:
 
 ![image](./media/virtual-machines-linux-remote-desktop/no2.png)
 

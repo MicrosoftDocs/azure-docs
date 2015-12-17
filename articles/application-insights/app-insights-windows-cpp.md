@@ -4,7 +4,7 @@
     services="application-insights" 
     documentationCenter="cpp"
     authors="crystk" 
-    manager="jakubo""/>
+    manager="douge""/>
 
 <tags 
     ms.service="application-insights" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="universal" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="11/17/2015" 
     ms.author="crystk"/>
 
 # Application Insights for C++ apps

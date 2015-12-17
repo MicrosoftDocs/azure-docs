@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How To Control Inbound Traffic to an App Service Environment" 
 	description="Learn about how to configure network security rules to control inbound traffic to an App Service Environment." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
@@ -9,17 +9,19 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="12/08/2015" 
 	ms.author="stefsch"/>	
 
 # How To Control Inbound Traffic to an App Service Environment
 
 ## Overview ##
 An App Service Environment is always created in a subnet of a regional classic "v1" [virtual network][virtualnetwork].  A new regional classic "v1" virtual network and new subnet can be defined at the time an App Service Environment is created.  Alternatively, an App Service Environment can be created in a pre-existing regional classic "v1" virtual network and pre-existing subnet.  For more details on creating an App Service Environment see [How To Create an App Service Environment][HowToCreateAnAppServiceEnvironment].
+
+**Note:**  An App Service Environment cannot be created in a "v2" ARM-managed virtual network.
 
 An App Service Environment must always be created within a subnet because a subnet provides a network boundary which can be used to lock down inbound traffic behind upstream devices and services such that HTTP and HTTPS traffic is only accepted from specific upstream IP addresses.
 
@@ -45,16 +47,27 @@ The following is a list of ports used by an App Service Environment:
 - 4020: Used for remote debugging with Visual Studio 2015.  This port can be safely blocked if the feature is not being used.
 
 ## Outbound Connectivity and DNS Requirements ##
-Note that for an App Service Environment to function properly, it also requires outbound access to Azure Storage worldwide as well as Sql Database in the same Azure region.  If outbound Internet access is blocked in the virtual network, App Service Environments will not be able to access these Azure endpoints.
+For an App Service Environment to function properly, it requires outbound access to Azure Storage worldwide as well as Sql Database in the same Azure region.  If outbound Internet access is blocked in the virtual network, App Service Environments will not be able to access these Azure endpoints.
 
-Customer may also have custom DNS servers configured in the virtual network.  App Service Environments need to be able to resolve Azure endpoints under *.database.windows.net, *.file.core.windows.net and *.blob.core.windows.net.  
+App Service Environments also require a valid DNS infrastructure configured for the virtual network.  If for any reason the DNS configuration is changed after an App Service Environment has been created, developers can force an App Service Environment to pick up the new DNS configuration.  Triggering a rolling environment reboot using the "Restart" icon located at the top of the App Service Environment management blade in the [new management portal][NewPortal] will cause the environment to pick up the new DNS configuration.
+
+The following list details the connectivity and DNS requirements for an App Service Environment:
+
+-  Outbound network connectivity to Azure Storage endpoints worldwide.  This includes endpoints located in the same region as the App Service Environment, as well as storage endpoints located in **other** Azure regions.  Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* and *file.core.windows.net*.  
+-  Outbound network connectivity to Sql DB endpoints located in the same region as the App Service Environment.  SQl DB endpoints resolve under the following domain:  *database.windows.net*.
+-  Outbound network connectivity to the Azure management plane endpoints (both ASM and ARM endpoints).  This includes outbound connectivity to both *management.core.windows.net* and *management.azure.com*. 
+-  Outbound network connectivity to *ocsp.msocsp.com*.  This is needed to support SSL functionality.
+-  The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points.  If these endpoints cannot be resolved, App Service Environment creation attempts will fail, and existing App Service Environments will be marked as unhealthy.
+-  If a custom DNS server exists on the other end of a VPN gateway, the DNS server must be reachable from the subnet containing the App Service Environment. 
+-  The outbound network path cannot travel through internal corporate proxies, nor can it be force tunneled to on-premises.  Doing so changes the effective NAT address of outbound network traffic from the App Service Environment.  Changing the NAT address of an App Service Environment's outbound network traffic will cause connectivity failures to many of the endpoints listed above.  This results in failed App Service Environment creation attempts, as well as previously healthy App Service Environments being marked as unhealthy.  
+-  Inbound network access to required ports for App Service Environments must be allowed as described in this [article](app-service-app-service-environment-control-inbound-traffic.md).
 
 It is also recommended that any custom DNS servers on the vnet be setup ahead of time prior to creating an App Service Environment.  If a virtual network's DNS configuration is changed while an App Service Environment is being created, that will result in the App Service Environment creation process failing.  In a similar vein, if a custom DNS server exists on the other end of a VPN gateway, and the DNS server is unreachable or unavailable, the App Service Environment creation process will also fail.
 
 ## Creating a Network Security Group ##
 For full details on how network security groups work see the following [information][NetworkSecurityGroups].  The details below touch on highlights of network security groups, with a focus on configuring and applying a network security group to a subnet that contains an App Service Environment.
 
-**Note:** Network security groups can only be configured using the Powershell cmdlets described below.  Network security groups cannot be configured graphically using the new portal (portal.azure.com) because the new portal only allows graphical configuration of NSGs associated with "v2" virtual networks.  However, App Service Environments currently only work with classic "v1" virtual networks.  As a result only Powershell cmdlets can be used to configure network security groups associated with "v1" virtual networks.
+**Note:** Network security groups can only be configured using the Powershell cmdlets described below.  Network security groups cannot be configured graphically using the [Azure Portal](portal.azure.com) because the Azure Portal only allows graphical configuration of NSGs associated with "v2" virtual networks.  However, App Service Environments currently only work with classic "v1" virtual networks.  As a result only Powershell cmdlets can be used to configure network security groups associated with "v1" virtual networks.
 
 Network security groups are first created as a standalone entity associated with a subscription. Since network security groups are created in an Azure region, ensure that the network security group is created in the same region as the App Service Environment.
 
@@ -130,7 +143,8 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
-[SecurelyConnecttoBackend]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/ 
+[SecurelyConnecttoBackend]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
+[NewPortal]:  https://portal.azure.com  
 
 <!-- IMAGES -->
  

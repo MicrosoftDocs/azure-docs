@@ -3,7 +3,7 @@
 	description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service."
 	services="cloud-services"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # Build and deploy a Node.js application to an Azure Cloud Service
@@ -31,7 +31,7 @@ provide a robust dedicated virtual machine for hosting each role reliably.
 
 For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](../choose-web-site-cloud-service-vm.md).
 
->[AZURE.TIP] Looking to build a simple website? If your scenario involves just a simple website front-end, consider <a href="/documentation/articles/web-sites-nodejs-develop-deploy-mac/">using a lightweight web app.</a> You can easily upgrade to a Cloud Service as your web app grows and your requirements change.
+>[AZURE.TIP] Looking to build a simple website? If your scenario involves just a simple website front-end, consider <a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">using a lightweight web app.</a> You can easily upgrade to a Cloud Service as your web app grows and your requirements change.
 
 
 By following this tutorial, you will build a simple web application hosted inside a web role. You
@@ -189,6 +189,9 @@ After deploying your application, you may want to disable it so you can avoid ex
 
 	> [AZURE.NOTE] Deleting the service does not delete the storage account that was created when the service was initially published, and you will continue to be billed for storage used. For more information on deleting a storage account, see [How to Delete a Storage Account from an Azure Subscription](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
 
+## Next steps
+
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
 [The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png

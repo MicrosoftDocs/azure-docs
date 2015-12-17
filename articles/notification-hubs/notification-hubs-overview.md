@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="12/10/2015"
 	ms.author="wesmc"/>
 
 
@@ -28,11 +28,8 @@ With Notification Hubs you can easily send cross-platform, personalized push not
 You can use Notification Hubs for both enterprise and consumer scenarios. For example:
 
 - Send breaking news notifications to millions with low latency (Notification Hubs powers Bing applications pre-installed on all Windows and Windows Phone devices).
-
 - Send location-based coupons to user segments.
-
 - Send event notifications to users or groups for sports/finance/games applications.
-
 - Notify users of enterprise events like new messages/emails, and sales leads.
 - Send one-time-passwords required for multi-factor authentication.
 
@@ -69,7 +66,7 @@ At a high level, though, all platform notification systems follow the same patte
 
 ##The Challenges of Push Notifications
 
-While these systems are very powerful, they still leave much work to the app developer in order to implement even common push notification scenarios, such as broadcasting or sending push notifications to a user.
+While these systems are very powerful, they still leave much work to the app developer in order to implement even common push notification scenarios, such as broadcasting or sending push notifications to segmented users.
 
 Push notifications are one of the most requested features in cloud services for mobile apps. The reason for this is that the infrastructure required to make them work is fairly complex and mostly unrelated to the main business logic of the app. Some of the challenges in building an on-demand push infrastructure are:
 
@@ -88,15 +85,10 @@ Notification Hubs eliminate complexity: you do not have to manage the challenges
 ![][1]
 
 
-
-
-
-
 Notification hubs provide a ready-to-use push notification infrastructure with the following advantages:
 
 - **Multiple platforms.**
 	+  Support for all major mobile platforms. Notification hubs can send push notifications to Windows Store, iOS, Android, and Windows Phone apps.
-
 
 	+  Notification hubs provide a common interface to send notifications to all supported platforms. Platform-specific protocols are not required. The app back-end can send notifications in platform-specific, or platform-independent formats. The application only communicates with Notification Hubs.
 
@@ -115,7 +107,7 @@ Notification hubs provide a ready-to-use push notification infrastructure with t
 
 	- *Segmentation*: Push to complex segment defined by tag expressions (for example, devices in New York following the Yankees).
 
-	Each device, when sending its handle to a notification hub, can specify one or more _tags_. For more information about [tags](http://msdn.microsoft.com/library/azure/dn530749.aspx). Tags do not have to be pre-provisioned or disposed. Tags provide a simple way to send notifications to users or interest groups. Since tags can contain any app-specific identifier (such as user or group IDs), their use frees the app back-end from the burden of having to store and manage device handles.
+	Each device, when sending its handle to a notification hub, can specify one or more _tags_. For more information about [tags]. Tags do not have to be pre-provisioned or disposed. Tags provide a simple way to send notifications to users or interest groups. Since tags can contain any app-specific identifier (such as user or group IDs), their use frees the app back-end from the burden of having to store and manage device handles.
 
 - **Personalization**: Each device can have one or more templates, to achieve per-device localization and personalization without affecting back-end code.
 
@@ -124,6 +116,24 @@ Notification hubs provide a ready-to-use push notification infrastructure with t
 - **Rich telemetry**: Available in the portal and programmatically.
 
 
+##Integration with App Service Mobile Apps
+
+To facililate a seamless and unifying experience across Azure services, [App Service Mobile Apps] has built-in support for push notifications using Notification Hubs. [App Service Mobile Apps] offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
+
+Mobile Apps developers can utilize Notification Hubs with the following workflow:
+
+1. Retrieve device PNS handle
+2. Register device and [templates] with Notification Hubs through convenient Mobile Apps Client SDK register API
+    + Note that Mobile Apps strips away all tags on registrations for security purposes. Work with Notification Hubs from your backend directly to associate tags with devices.
+3. Send notifications from your app backend with Notification Hubs
+
+Here are some conveniences brought to developers with this integration:
+- **Mobile Apps Client SDKs.** These multi-platform SDKs provide simple APIs for registration and talk to the notification hub linked up with the mobile app automatically. Developers do not need to dig through Notification Hubs credentials and work with an additional service.
+    + The SDKs automatically tag the given device with Mobile Apps authenticated User ID to enable push to user scenario.
+    + The SDKs automatically use the Mobile Apps Installation ID as GUID to register with Notification Hubs, saving developers the trouble of maintaining multiple service GUIDs.
+- **Installation model.** Mobile Apps works with Notification Hubs' latest push model to represent all push properties associated with a device in a JSON Installation that aligns with Push Notification Services and is easy to use.
+- **Flexibility.** Developers can always choose to work with Notification Hubs directly even with the integration in place.
+- **Integrated experience in [Azure Portal].** Push as a capability is represented visually in Mobile Apps and developers can easily work with the associated notification hub through Mobile Apps.
 
 
 
@@ -156,3 +166,7 @@ The relevant .NET managed API references for push notifications are located here
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
+  [App Service Mobile Apps]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
+  [templates]: notification-hubs-templates.md
+  [Azure Portal]: https://portal.azure.com
+  [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

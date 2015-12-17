@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="" 
-	description="Describes the first steps you can take to get started with Azure Mobile Services in a Cordova project" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Getting Started with a Cordova mobile services project (Visual Studio Connected Services)"
+	description="Describes the first steps you can take after connecting your Cordova project to Azure Mobile Services by using Visual Studio Connected Services."
+	services="mobile-services"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/12/2015" 
-	ms.author="patshea"/>
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/17/2015"
+	ms.author="tarcher"/>
 
 # Getting Started with Mobile Services (Cordova Projects)
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
@@ -47,7 +52,7 @@ Insert a new item into a data table. An id (a GUID of type string) is automatica
         this.text = text;
         this.complete = false;
     }
-    
+
     var items = new Array();
     var insertTodoItem = function (todoItem) {
         todoTable.insert(todoItem).done(function (item) {

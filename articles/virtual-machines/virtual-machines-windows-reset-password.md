@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Reset passwords on Windows virtual machines | Microsoft Azure"
-	description="Quickly reset a local administrator password or the Remote Desktop service for Windows virtual machines using the Azure portal or PowerShell commands."
+	pageTitle="Reset the password or Remote Desktop on a Windows VM | Microsoft Azure"
+	description="Reset the administrator password or Remote Desktop services on a Windows VM created with the Resource Manager deployment model."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,23 +14,24 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-# How to reset a password or the Remote Desktop service for Windows virtual machines
+# How to reset a password or the Remote Desktop service for a Windows VM
 
-If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, use the Azure preview portal or the VMAccess extension to reset the local administrator password or reset the Remote Desktop service configuration.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article does not apply to virtual machines created in Azure Resource Manager.
 
-## Preview portal
+If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, use the Azure portal or the VMAccess extension to reset the local administrator password or reset the Remote Desktop service configuration.
 
-To reset the Remote Desktop service in the [preview portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > *your Windows virtual machine* > **Reset Remote Access**. The following page appears.
+## Azure portal
+
+To reset the Remote Desktop service in the [Azure portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > *your Windows virtual machine* > **Reset Remote Access**. The following page appears.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-To reset the name and password of the local administrator account in the [preview portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > *your Windows virtual machine* > **All settings** > **Password reset**. The following page appears.
+To reset the name and password of the local administrator account in the [Azure portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > *your Windows virtual machine* > **All settings** > **Password reset**. The following page appears.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -56,7 +57,7 @@ If you don't know the cloud service and virtual machine name, run **Get-AzureVM*
 
 If the **write-host** command displays **True**, the VM Agent is installed. If it displays **False**, see the instructions and a link to the download in the [VM Agent and Extensions - Part 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) Azure blog post.
 
-If you created the virtual machine with the Azure portal, run the following additional command.
+If you created the virtual machine with the portal, run the following additional command.
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -107,7 +108,7 @@ If you were unable to run the Azure IaaS (Windows) diagnostics package or runnin
 
 ## Additional resources
 
-[Azure VM extensions and features](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+[Azure VM extensions and features](virtual-machines-extensions-features.md)
 
 [Connect to an Azure virtual machine with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 

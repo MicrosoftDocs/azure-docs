@@ -15,26 +15,27 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
+	ms.date="12/14/2015" 
 	ms.author="rasquill" 
 />
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Virtual Machines and Containers in Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+ 
 
 Azure offers you great cloud solutions, built on virtual machines&mdash;based on the emulation of physical computer hardware&mdash;to enable agile movement of software deployments and dramatically better resource consolidation than physical hardware. In the past few years, largely thanks to  the [Docker](https://www.docker.com) approach to containers and the docker ecosystem, Linux container technology has dramatically expanded the ways you can develop and manage distributed software. Application code in a container is isolated from the host Azure VM as well as other containers on the same VM, which gives you more development and deployment agility at the application level&mdash;in addition to the agility that Azure VMs already give you.
 
 **But that's old news.** The *new* news is that Azure offers you even more Docker goodness:
 
-- [Many](virtual-machines-docker-with-xplat-cli.md) [different](virtual-machines-docker-with-portal.md) [ways](virtual-machines-docker-ubuntu-quickstart.md) to [create Docker hosts](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) for containers to suit your situation
+- [Many](virtual-machines-docker-with-xplat-cli-install.md) [different](virtual-machines-docker-with-portal.md) [ways](virtual-machines-docker-ubuntu-quickstart.md) to [create Docker hosts](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) for containers to suit your situation
 - [Azure Resource Manager](resource-group-overview.md) and [resource group templates](resource-group-authoring-templates.md) to simplify deploying and updating complex distributed applications
 - integration with a large array of both proprietary and open-source configuration management tools
 
-And because you can programmatically create VMs and Linux containers on Azure, you can also use VM and container *orchestration* tools to create groups of Virtual Machines (VMs) and to deploy applications inside both Linux containers and soon [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). 
+And because you can programmatically create VMs and Linux containers on Azure, you can also use VM and container *orchestration* tools to create groups of Virtual Machines (VMs) and to deploy applications inside both Linux containers and soon [Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). 
 
-This article not only discusses these concepts at a high level, it also contains tons of links to more information, tutorials, and products related to container and cluster usage on Azure. If you know all this, and just want the links, they're [right here](#tools-for-working-with-containers).
+This article not only discusses these concepts at a high level, it also contains tons of links to more information, tutorials, and products related to container and cluster usage on Azure. If you know all this, and just want the links, they're right here at [tools for working with containers](#tools-for-working-with-containers).
 
 ## The difference between virtual machines and containers
 
@@ -46,7 +47,7 @@ Because in this isolation and execution model the kernel of the Docker host comp
 
 It's pretty cool.
 
-[Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) provide the same advantages as Linux containers for applications that run on Windows. Windows Server Containers support the docker image format and the docker API. As a result, an application using Windows Server Containers can be developed, published, retrieved, and deployed using similar commands to those on Mac and Linux. That's in addition to having [new docker support in Microsoft Visual Studio](https://visualstudiogallery.msdn.microsoft.com/6f638067-027d-4817-bcc7-aa94163338f0). The larger [container ecosystem](https://msdn.microsoft.com/virtualization/windowscontainers/about/container_ecosystem) will give everyone tools to do the work they need to do with containers.
+Windows Containers provide the same advantages as Linux containers, however for applications that run on Windows. Windows Containers support the Docker image format and Docker API, however can also be managed using PowerShell. Two container runtimes are available with Windows Containers, Windows Server Containers and Hyper-V Containers. Hyper-V Containers provide an additional layer of isolation by hosting each container in a super optimized virtual machine. To learn more about Windows Containers see [About Windows Containers]( https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). To try Windows Containers in Azure, see the [Windows Container Azure Quick Start]( https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup). 
 
 That's pretty cool, too.
 
@@ -120,15 +121,15 @@ The following table describes at a very high level the kind of feature differenc
 
 At this point, any architect, developer, or IT operations specialist might be thinking, "I can automate ALL of this; this really IS Data-Center-As-A-Service!". 
 
-You're right, it can be, and there are any number of systems, many of which you may already use, that can either manage groups of Azure VMs and inject custom code using scripts, often with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can&mdash;and perhaps already have&mdash;automated your Azure deployments using PowerShell or Azure CLI scripts [like this](virtual-machines-create-multi-vm-deployment-xplat-cli.md). 
+You're right, it can be, and there are any number of systems, many of which you may already use, that can either manage groups of Azure VMs and inject custom code using scripts, often with the [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) or the [CustomScriptingExtension for Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). You can&mdash;and perhaps already have&mdash;automated your Azure deployments using PowerShell or Azure CLI scripts [like this](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md). 
 
-These abilities are often then migrated to tools like [Puppet](https://puppetlabs.com/) and [Chef](https://www.chef.io/) to automate the creation of and configuration for VMs at scale. (There are links to using these tools with Azure [here](#tools-for-working-with-containers).) 
+These abilities are often then migrated to tools like [Puppet](https://puppetlabs.com/) and [Chef](https://www.chef.io/) to automate the creation of and configuration for VMs at scale. (Here are some links to [using these tools with Azure](#tools-for-working-with-containers).) 
 
 ### Azure resource group templates
 
 More recently, Azure released the [Azure resource management](virtual-machines-azurerm-versus-azuresm.md) REST API, and updated PowerShell and Azure CLI tools to use it easily. You can deploy, modify, or redeploy entire application topologies using [Azure Resource Manager templates](../resource-group-authoring-templates.md) with the Azure resource management API using:
 
-- the [Azure preview portal using templates](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, use the "DeployToAzure" button
+- the [Azure portal using templates](https://github.com/Azure/azure-quickstart-templates)&mdash;hint, use the "DeployToAzure" button
 - the [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 - the [Azure PowerShell modules](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
@@ -165,9 +166,9 @@ Some Linux container technologies:
 - [Open Container Project](http://opencontainers.org/)
 - [RancherOS](http://rancher.com/rancher-os/)
 
-Windows Server Container links:
+Windows Container links:
 
-- [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
+- [Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)
 
 Visual Studio Docker links:
 
@@ -185,8 +186,8 @@ Docker on Microsoft Azure:
 
 - [Docker VM Extension for Linux on Azure](virtual-machines-docker-vm-extension.md)
 - [Azure Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli.md)
-- [Using the Docker VM Extension from the Azure Preview Portal](virtual-machines-docker-with-portal.md)
+- [Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)](virtual-machines-docker-with-xplat-cli-install.md)
+- [Using the Docker VM Extension from the Azure portal](virtual-machines-docker-with-portal.md)
 - [Getting Started Quickly with Docker in the Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 - [How to use docker-machine on Azure](virtual-machines-docker-machine.md)
 - [How to use docker with swarm on Azure](virtual-machines-docker-swarm.md)
@@ -232,7 +233,7 @@ Configuration, cluster management, and container orchestration:
 
 ## Next steps
 
-Check out [Docker](https://www.docker.com) and [Windows Server Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
+Check out [Docker](https://www.docker.com) and [Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html

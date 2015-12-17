@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # Add authentication to your Mobile Services Android app (JavaScript backend)
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -51,15 +55,15 @@ Next, you will update the app to authenticate users before requesting resources 
 
 ## Add authentication to the app
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app](../../includes/mobile-services-android-authenticate-app.md)]
+[AZURE.INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
 ## <a name="cache-tokens"></a>Cache authentication tokens on the client
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../../includes/mobile-services-android-authenticate-app-with-token.md)]
+[AZURE.INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ## <a name="refresh-tokens"></a>Refresh the token cache
 
-[AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../../includes/mobile-services-android-authenticate-app-refresh-token.md)]
+[AZURE.INCLUDE [mobile-android-authenticate-app-refresh-token](../../includes/mobile-android-authenticate-app-refresh-token.md)]
 
 
 
@@ -99,11 +103,5 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
-[Add Mobile Services to an existing app]: /develop/mobile/tutorials/get-started-with-data-android
-[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
-[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
-[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-android
-
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md

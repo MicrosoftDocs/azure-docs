@@ -2,18 +2,18 @@
 	pageTitle="Download the Azure SDK for PHP"
 	description="Learn how to download and install the Azure SDK for PHP."
 	documentationCenter="php"
-	services=""
+	services="app-service\web"
 	authors="tfitzmac"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="app-service-web"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #Download the Azure SDK for PHP
@@ -108,7 +108,9 @@ For information about how to use Azure PowerShell, see [How to Use Azure PowerSh
 
 The Azure CLI is a set of commands for deploying and managing Azure services, such as Azure Websites and Azure Virtual Machines. For information about installing Azure CLI, see [Install the Azure CLI](xplat-cli-install.md).
 
+## Next steps
 
+For more information, see the [PHP Developer Center](/develop/php/).
 
 
 [install-php]: http://www.php.net/manual/en/install.php

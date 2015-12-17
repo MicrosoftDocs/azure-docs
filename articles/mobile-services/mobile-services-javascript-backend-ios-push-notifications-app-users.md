@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # Send Push Notifications to Authenticated Users
@@ -69,6 +69,4 @@ function insert(item, user, request) {
 <!-- URLs. -->
 [Get started with authentication]: mobile-services-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-ios-get-started-push.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md

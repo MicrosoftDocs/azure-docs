@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introduction to Service Fabric Health Monitoring"
-   description="This article describes the Azure Service Fabric Health Monitoring model, including health entities, reporting and evaluation."
+   pageTitle="Health Monitoring in Service Fabric | Microsoft Azure"
+   description="An introduction to Azure Service Fabric Health Monitoring model, which provides monitoring of the cluster and its applications and services."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Introduction to Service Fabric Health Monitoring

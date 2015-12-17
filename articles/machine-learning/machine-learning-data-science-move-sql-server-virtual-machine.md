@@ -2,9 +2,8 @@
 	pageTitle="Move data to SQL Server on an Azure virtual machine| Azure" 
 	description="Move data from flat files or from an on-premises SQL Server to SQL Server on Azure VM." 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -14,45 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/12/2015" 
 	ms.author="fashah;mohabib;bradsev" /> 
 
 # Move data to SQL Server on an Azure virtual machine
 
-This document outlines the options for moving data either from flat files (CSV or TSV formats) or from an on-premise SQL Server to SQL Server on an Azure virtual machine. These tasks for moving data to the cloud are part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning.
+This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Cortana Analytics Process (CAPS).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+
+## Introduction
+**This document** outlines the options for moving data either from flat files (CSV or TSV formats) or from an on-premise SQL Server to SQL Server on an Azure virtual machine. These tasks for moving data to the cloud are part of the Cortana Analytics Process provided by Azure.
 
 For a topic that outlines the options for moving data to an Azure SQL Database for Machine Learning, see [Move data to an Azure SQL Database for Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
 The following table summarizes the options for moving data to SQL Server on an Azure virtual machine.
-<table>
 
-<tr>
-<td><b>SOURCE</b></td>
-<td colspan="2" align="center"><b>DESTINATION: SQL Server on Azure VM</b></td>
-</tr>
-
-<tr>
-  <td><b>Flat File</b></td>  
-  <td>
-    1. <a href="#insert-tables-bcp">Command line bulk copy utility (BCP) </a><br>
-    2. <a href="#insert-tables-bulkquery">Bulk Insert SQL Query </a><br>
-    3. <a href="#sql-builtin-utilities">Graphical Built-in Utilities in SQL Server </a>
-  </td>
-</tr>
-<tr>
-  <td><b>On-Premises SQL Server</b></td>
-  <td>
-    1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Deploy a SQL Server Database to a Microsoft Azure VM wizard</a><br>
-    2. <a href="#export-flat-file">Export to a flat File </a><br>
-    3. <a href="#sql-migration">SQL Database Migration Wizard </a> <br>    
-    4. <a href="#sql-backup">Database backup and restore </a> <br>
-  </td>
-</tr>
-</table>
+<b>SOURCE</b> |<b>DESTINATION: SQL Server on Azure VM</b> |
+------------------ |-------------------- |
+<b>Flat File</b> |1. <a href="#insert-tables-bcp">Command line bulk copy utility (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Bulk Insert SQL Query </a><br> 3. <a href="#sql-builtin-utilities">Graphical Built-in Utilities in SQL Server</a>
+<b>On-Premises SQL Server</b> | 1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Deploy a SQL Server Database to a Microsoft Azure VM wizard</a><br> 2. <a href="#export-flat-file">Export to a flat File </a><br> 3. <a href="#sql-migration">SQL Database Migration Wizard </a> <br> 4. <a href="#sql-backup">Database backup and restore </a><br>
 
 Note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
 
-> [AZURE.TIP] As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/en-us/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](../data-factory/data-factory-copy-activity.md).
+> [AZURE.TIP] As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create and schedule a pipeline that will move data to a SQL Server VM on Azure. For more information, see [Copy data with Azure Data Factory (Copy Activity)](../data-factory/data-factory-copy-activity.md).
 
 
 ## <a name="prereqs"></a>Prerequisites
@@ -148,7 +133,7 @@ The sample PowerShell script below demonstrate parallel inserts using bcp :
 
 ### <a name="insert-tables-bulkquery"></a>Bulk Insert SQL Query
 
-[Bulk Insert SQL Query](https://msdn.microsoft.com/library/ms188365) can be used to import data into the database from row/column based files (the supported types are covered [here](https://msdn.microsoft.com/library/ms188609)). 
+[Bulk Insert SQL Query](https://msdn.microsoft.com/library/ms188365) can be used to import data into the database from row/column based files (the supported types are covered in the[Prepare Data for Bulk Export or Import (SQL Server)](https://msdn.microsoft.com/library/ms188609)) topic. 
 
 Here are some sample commands for Bulk Insert are as below:  
 
@@ -194,7 +179,7 @@ The **Deploy a SQL Server Database to a Microsoft Azure VM wizard** is a simple 
 
 ### <a name="export-flat-file"></a>Export to Flat File
 
-Various methods can be used to bulk export data from an On-Premises SQL Server as documented [here](https://msdn.microsoft.com/library/ms175937.aspx). This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import. 
+Various methods can be used to bulk export data from an On-Premises SQL Server as documented in the [Bulk Import and Export of Data (SQL Server)](https://msdn.microsoft.com/library/ms175937.aspx) topic. This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import. 
 
 1. Export the data from on-premises SQL Server to a File using the bcp utility as follows
 
@@ -202,7 +187,7 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 
 2. Create the database and the table on SQL Server VM on Azure using the `create database` and `create table` for the table schema exported in step 1.
 
-3. Create a format file for describing the table schema of the data being exported/imported. Details of the format file are described [here](https://msdn.microsoft.com/library/ms191516.aspx).
+3. Create a format file for describing the table schema of the data being exported/imported. Details of the format file are described in [Create a Format File (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
 
 	Format file generation when running BCP from the SQL Server machine 
 

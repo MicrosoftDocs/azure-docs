@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Deploy a 3-node Deis cluster on Azure"
+   pageTitle="Deploy a 3-node Deis cluster | Microsoft Azure"
    description="This article describes how to create a 3-node Deis cluster on Azure using an Azure Resource Manager template"
    services="virtual-machines"
    documentationCenter=""
    authors="HaishiBai"
    manager="larar"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,9 @@
 # Deploy a 3-node Deis cluster
 
 This article walks you through provisioning a [Deis](http://deis.io/) cluster on Azure. It covers all the steps from creating the necessary certificates to deploying and scaling a sample **Go** application on the newly provisioned cluster.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+
 
 The following diagram shows the architecture of the deployed system. A system administrator manages the cluster using Deis tools such as **deis** and **deisctl**. Connections are established through an Azure load balancer, which forwards the connections to one of the member nodes on the cluster. The clients access deployed applications through the load balancer as well. In this case, the load balancer forwards the traffic to a Deis router mesh, which further routs traffic to corresponding Docker containers hosted on the cluster.
 
@@ -87,9 +91,9 @@ Each CoreOS cluster needs to have a unique token from this free service. Please 
         ./deploy-deis.sh -n "[resource group name]" -l "West US" -f ./azuredeploy.json -e ./azuredeploy-parameters.json
         -c ./cloud-config.yaml  
 
-11. Once the resource group is provisioned, you can see all the resources in the group on Azure Portal. As shown in the following screenshot, the resource group contains a virtual network with three VMs, which are joined to the same availability set. The group also contains a load balancer, which has an associated public IP.
+11. Once the resource group is provisioned, you can see all the resources in the group on Azure classic portal. As shown in the following screenshot, the resource group contains a virtual network with three VMs, which are joined to the same availability set. The group also contains a load balancer, which has an associated public IP.
 
-  ![The provisioned resource group on Azure portal](media/virtual-machines-deis-cluster/resource-group.png)
+  ![The provisioned resource group on Azure classic portal](media/virtual-machines-deis-cluster/resource-group.png)
 
 ## Install the client
 
@@ -110,7 +114,7 @@ You need **deisctl** to control your Deis cluster. Although deisctl is automatic
 
         export DEISCTL_TUNNEL=[public ip of the load balancer]:2223
 
-The template defines inbound NAT rules that map 2223 to instance 1, 2224 to instance 2, and 2225 to instance 3. This provides redundancy for using the deisctl tool. You can examine these rules on Azure Portal:
+The template defines inbound NAT rules that map 2223 to instance 1, 2224 to instance 2, and 2225 to instance 3. This provides redundancy for using the deisctl tool. You can examine these rules on Azure classic portal:
 
 ![NAT rules on the load balancer](media/virtual-machines-deis-cluster/nat-rules.png)
 
@@ -255,6 +259,6 @@ This article walked you through all the steps to provision a new Deis cluster on
 [How to use the Azure CLI] [azure-command-line-tools]  
 [Using Azure PowerShell with Azure Resource Manager] [powershell-azure-resource-manager]  
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md

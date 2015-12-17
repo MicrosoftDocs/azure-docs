@@ -53,9 +53,9 @@ The StorSimple virtual device (also known as the StorSimple Virtual Appliance) r
 - The virtual device has only one interface, whereas the physical device has six network interfaces. 
 - You register the virtual device during device configuration, rather than as a separate task.
 - You cannot regenerate the service data encryption key from a virtual device. During key rollover, you regenerate the key on the physical device, and then update the virtual device with the new key.
-- If you need to apply updates to the virtual device, you will experience some down time. This does not occur with a physical StorSimple device.
+- Currently, applying updates to the virtual device is diabled. If you need a virtual device with the latest version, you can create a new one and failover volume containers to the new virtual device.
 
-We recommend that you use the StorSimple virtual device for disaster recovery scenarios in which a physical device is not available, such as cloud development an test scenarios.
+We recommend that you use the StorSimple virtual device for disaster recovery scenarios in which a physical device is not available, such as cloud development and test scenarios.
 
 For more information, see [StorSimple virtual device](storsimple-virtual-device.md).
 

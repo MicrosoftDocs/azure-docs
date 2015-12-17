@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Custom-provision Hadoop clusters in HDInsight | Microsoft Azure" 
-   description="Learn how to custom-provision clusters for Azure HDInsight by using the Azure portal, Azure PowerShell, a command line, or a .NET SDK." 
+   description="Learn how to custom-provision clusters for Azure HDInsight by using the Azure Classic Portal, Azure PowerShell, a command line, or a .NET SDK." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/07/2015"
+   ms.date="09/21/2015"
    ms.author="jgao"/>
 
 #Provision Hadoop clusters in HDInsight
@@ -124,7 +124,7 @@ Before you begin the instructions in this article, you must have the following:
 
 	The HDInsight clusters allow you to configure two user accounts during provisioning:
 
-	- HTTP user. The default user name is admin using the basic configuration on the Azure portal.
+	- HTTP user. The default user name is admin using the basic configuration on the Azure Classic Portal.
 	- RDP user (Windows clusters): It is used to connect to the cluster using RDP. When you create the account, you must set an expiration date that is within 90 days from today. 
 	- SSH User (Linux clusters): Is used to connect to the cluster using SSH. You can create additional SSH user accounts after the cluster is created by following the steps in [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
   
@@ -210,7 +210,7 @@ For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluste
 
 ### Customize clusters using Script action
 
-You can install additional components or customize cluster configuration by using scripts during provisioning. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster.md).
+You can install additional components or customize cluster configuration by using scripts during provisioning. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure Classic Portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster.md).
 
 
 ### Use Azure virtual networks
@@ -244,18 +244,18 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
 ## Provision tools
 
-- The Azure portal
+- The Azure Classic Portal
 - Azure PowerShell
 - .NET SDK
 - CLI
 
-### Use the Azure portal
+### Use the Azure Classic Portal
 
 You can refer to the [basic configuration options], and the [advanced configuration options] for the explanations of the fields. 
 
 **To create an HDInsight cluster by using the Custom Create option**
 
-1. Sign in to the [Azure portal][azure-management-portal].
+1. Sign in to the [Azure Classic Portal][azure-management-portal].
 2. Click **+ NEW** on the bottom of the page, click **DATA SERVICES**, click **HDINSIGHT**, and then click **CUSTOM CREATE**.
 3. On the **Cluster Details** page, type or choose the following values:
 
@@ -385,7 +385,7 @@ Once you have the Storage account and the Blob container prepared, you are ready
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
 
-	>[AZURE.NOTE] The $hadoopUserName and $hadoopUserPassword commands are used to create the Hadoop user account for the cluster. You will use this account to connect to the cluster and run jobs. If you use the Quick Create option from the Azure portal to provision a cluster, the default Hadoop user name is "admin". Don't confuse this account with the Remote Desktop Protocol (RDP) user account. The RDP user account has to be different from the Hadoop user account. For more information, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
+	>[AZURE.NOTE] The $hadoopUserName and $hadoopUserPassword commands are used to create the Hadoop user account for the cluster. You will use this account to connect to the cluster and run jobs. If you use the Quick Create option from the Azure Classic Portal to provision a cluster, the default Hadoop user name is "admin". Don't confuse this account with the Remote Desktop Protocol (RDP) user account. The RDP user account has to be different from the Hadoop user account. For more information, see [Manage Hadoop clusters in HDInsight using the Azure Classic Portal][hdinsight-admin-portal].
 
 	It can take several minutes before the cluster provisioning finishes.
 
@@ -456,7 +456,7 @@ Another option for provisioning an HDInsight cluster is the Azure CLI. Azure CLI
 - **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
 - **Azure CLI** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-For a general guide on how to use Azure CLI, see [Azure CLI for Mac, Linux and Windows](../xplat-cli.md).
+For a general guide on how to use Azure CLI, see [Azure CLI for Mac, Linux and Windows](../xplat-cli-install.md).
 
 Instructions below guide you on how to install Azure CLI on Linux and Windows, and then how to use the command line to provision a cluster.
 
@@ -585,7 +585,7 @@ HDInsight uses an Azure Blob storage container as the default file system. An Az
 
 	When prompted for a location, select a location where an HDInsight cluster can be provisioned. The storage must be in the same location as the HDInsight cluster. Currently, only the **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, and **South Central US** regions can host HDInsight clusters.  
 
-For information on creating an Azure Storage account by using the Azure portal, see [Create, manage, or delete a storage account](../storage-create-storage-account.md).
+For information on creating an Azure Storage account by using the Azure Classic Portal, see [Create, manage, or delete a storage account](../storage-create-storage-account.md).
 
 If you already have a Storage account but do not know the account name and account key, you can use the following commands to retrieve the information:
 
@@ -598,7 +598,7 @@ If you already have a Storage account but do not know the account name and accou
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-For details on getting the information by using the Azure portal, see the *How to: View, copy and regenerate storage access keys* section of [Create, manage, or delete a storage account](../storage-create-storage-account.md).
+For details on getting the information by using the Azure Classic Portal, see the *How to: View, copy and regenerate storage access keys* section of [Create, manage, or delete a storage account](../storage-create-storage-account.md).
 
 An HDInsight cluster also requires a container within a Storage account. If the Storage account you provide does not already have a container, the *azure hdinsight cluster create* command prompts you for a container name and creates it as well. However, if you want to create the container beforehand, you can use the following command:
 
@@ -689,26 +689,16 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 
 **To create a Visual Studio console application**
 
-1. Open Visual Studio 2013.
+1. Open Visual Studio 2013 or 2015.
 
 2. From the **File** menu, click **New**, and then click **Project**.
 
 3. From **New Project**, type or select the following values:
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-	<tr>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Property</th>
-	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Value</th></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
-	<tr>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
-	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-	</table>
+	|Property|Value|
+	|--------|-----|
+	|Template|Templates/Visual C#/Windows/Console Application|
+	|Name|CreateHDICluster|
 
 4. Click **OK** to create the project.
 
@@ -716,68 +706,102 @@ Create a self-signed certificate, install it on your workstation, and upload it 
 
 6. Run the following command in the console to install the packages:
 
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
+		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 
-	This command adds .NET libraries and references to them to the current Visual Studio project.
+	These commands add .NET libraries and references to them to the current Visual Studio project.
 
 7. From Solution Explorer, double-click **Program.cs** to open it.
+8. Replace the code with the following:
 
-8. Add the following using statements to the top of the file:
+		using Microsoft.Azure;
+		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Factories;
+		using Microsoft.Azure.Common.Authentication.Models;
+		using Microsoft.Azure.Management.HDInsight;
+		using Microsoft.Azure.Management.HDInsight.Models;
 
-		using System.Security.Cryptography.X509Certificates;
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
+		namespace CreateHDICluster
+		{
+		    internal class Program
+		    {
+		        private static HDInsightManagementClient _hdiManagementClient;
+		
+		        private static Guid SubscriptionId = new Guid("<AZURE SUBSCRIPTION ID>");
+		        private const string ResourceGroupName = "<AZURE RESOURCEGROUP NAME>";
 
+		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
+		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
+		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
+		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+		        private const OSType NewClusterOSType = OSType.Windows;
+		        private const string NewClusterVersion = "3.2";
 
-9. In the Main() function, copy and paste the following code:
+		        private const string NewClusterUsername = "admin";
+		        private const string NewClusterPassword = "<HTTP USER PASSWORD>";
+		        private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
+		        private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
+		        private const string ExistingContainer = "<DEFAULT CONTAINER NAME>"; 
+		
+		
+		        private static void Main(string[] args)
+		        {
+		            var tokenCreds = GetTokenCloudCredentials();
+		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		
+		            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+		
+		            CreateCluster();
+		        }
+		
+		        public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+		        {
+		            var authFactory = new AuthenticationFactory();
+		
+		            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+		
+		            if (username != null && password != null)
+		                account.Id = username;
+		
+		            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+		
+		            var accessToken =
+		                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+		                    .AccessToken;
+		
+		            return new TokenCloudCredentials(accessToken);
+		        }
+		
+		        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
+		        {
+		            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
+		        }
+		
+		
+		        private static void CreateCluster()
+		        {
+		            var parameters = new ClusterCreateParameters
+		            {
+		                ClusterSizeInNodes = NewClusterNumNodes,
+		                Location = NewClusterLocation,
+		                ClusterType = NewClusterType,
+		                OSType = NewClusterOSType,
+		                Version = NewClusterVersion,
 
-        string certfriendlyname = "<CertificateFriendlyName>";     // Friendly name for the certificate you created earlier  
-        string subscriptionid = "<AzureSubscriptionID>";
-        string clustername = "<HDInsightClusterName>";
-        string location = "<MicrosoftDataCenter>";
-        string storageaccountname = "<AzureStorageAccountName>.blob.core.windows.net";
-        string storageaccountkey = "<AzureStorageAccountKey>";
-        string containername = "<HDInsightDefaultContainerName>";
-        string username = "<HDInsightUsername>";
-        string password = "<HDInsightUserPassword>";
-        int clustersize = <NumberOfNodesInTheCluster>;
+		                UserName = NewClusterUsername,
+		                Password = NewClusterPassword,
 
-        // Get the certificate object from certificate store by using the friendly name to identify it
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certfriendlyname);
-
-        // Create the Storage account if it doesn't exist
-
-        // Create the container if it doesn't exist.
-
-		// Create an HDInsightClient object
-        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionid), cert);
-        var client = HDInsightClient.Connect(creds);
-
-		// Supply the cluster information
-        ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
-        {
-            Name = clustername,
-            Location = location,
-            DefaultStorageAccountName = storageaccountname,
-            DefaultStorageAccountKey = storageaccountkey,
-            DefaultStorageContainer = containername,
-            UserName = username,
-            Password = password,
-            ClusterSizeInNodes = clustersize
-        };
-
-		// Create the cluster
-        Console.WriteLine("Creating the HDInsight cluster ...");
-
-        ClusterDetails cluster = client.CreateCluster(clusterInfo);
-
-        Console.WriteLine("Created cluster: {0}.", cluster.ConnectionUrl);
-        Console.WriteLine("Press ENTER to continue.");
-        Console.ReadKey();
-
-10. Replace the variables at the beginning of the Main() function.
+		                DefaultStorageAccountName = ExistingStorageName,
+		                DefaultStorageAccountKey = ExistingStorageKey,
+		                DefaultStorageContainer = ExistingContainer
+		            };
+		
+		            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+		        }
+			}
+		}
+		
+10. Replace the class member values.
 
 **To run the application**
 

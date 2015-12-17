@@ -13,19 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015" 
+	ms.date="10/23/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
-We've heard the following questions about Azure RemoteApp. Have others? Visit the [RemoteApp forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) and let us know what you need to know.
+We've heard the following questions about Azure RemoteApp. Have others? Visit the [RemoteApp forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) and let us know what you need to know, or drop a comment down below.
 
 ## What is Azure RemoteApp? ##
 
 
 - **What is Azure RemoteApp?** RemoteApp is an Azure service helps you provide secure, remote access to applications from many different user devices. Read more  about [Azure RemoteApp](remoteapp-whatis.md).
-- **What are the two kinds of deployment options?** There are two kinds of RemoteApp deployments (or collections): cloud and hybrid. Figure out which [deployment option](remoteapp-whatis.md) works best for your organization.
+- **What are the deployment options?** There are two kinds of RemoteApp collections: cloud and hybrid. Which one you need depends on a number of factors, like whether you need domain join. We talk about all of those decisions [here](remoteapp-collections.md).
 
+## Quick tips on using Azure RemoteApp ##
+- **How long until I'm disconnected? How long can I be idle before you give me the boot?** 4 hours. If you or one of your users is idle for 4 hours, you'll be automatically signed out of Azure RemoteApp. Check out the other default settings in [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md).
+- **Can I try this service for free?** Yes. There is a free trial available for 30 days. After the trial ends, you can transition to a paid account (which you can use in production) or stop using the service. Start your free trial by going to [manage.windowsazure.com](http://manage.windowsazure.com) - create a new instance of RemoteApp. With the free trial, you can build 2 instances of RemoteApp with 10 users per instance. Remember that this trial only lives for 30 days.
 ## Azure RemoteApp subscription details ##
+
 - **What are the service limits?** You can learn about the default settings and service limits of Azure RemoteApp in [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md). Let us know if you have more questions.
 - **How many users do I have to have?** There's a minimum of 20 users. Let me repeat that to be super clear - the MINIMUM is 20. You will be billed for 20. 
 - **How much does RemoteApp cost?** Check out [Azure RemoteApp Pricing Details ](../../../pricing/details/remoteapp/).
@@ -86,7 +90,7 @@ And the phones:
 
 ##Support and feedback
 
-- **Can I try this service for free?** Yes. There is a free trial available for 30 days. After the trial ends, you can transition to a paid account (which you can use in production) or stop using the service. Start your free trial by going to [manage.windowsazure.com](http://manage.windowsazure.com) - create a new instance of RemoteApp. With the free trial, you can build 2 instances of RemoteApp with 10 users per instance. Remember that this trial only lives for 30 days.
+
 - **What is the support plan for RemoteApp?** Support for billing and subscription management is provided at no cost. Technical support is available through the [Azure service plans](../../../support/plans/). You can also get free community support through our [Azure discussion forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
 - **How do I submit feedback?** Visit the [feedback forum](http://feedback.azure.com/forums/247748-azure-remoteapp).
 - **Who can I talk to learn more about Azure RemoteApp?** In addition to our [discussion forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), which is a great place to post questions, you can join the weekly [Ask the Experts webinar](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html), where we talk about all things RemoteApp.
@@ -110,3 +114,5 @@ And the phones:
 	Videos! We also have a number of videos about RemoteApp. Some provide introduction ([Introduction to Azure RemoteApp](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) while others walk you through deployment ([Cloud deployment](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) and [Hybrid deployment](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Check them out!
 
  
+### Help us help you 
+Did you know that in addition to rating this article and making comments down below, you can make changes to the article itself? Something missing? Something wrong? Did I write something that's just confusing? Scroll up and click **Edit on GitHub** to make changes - those will come to us for review, and then, once we sign off on them, you'll see your changes and improvements right here.

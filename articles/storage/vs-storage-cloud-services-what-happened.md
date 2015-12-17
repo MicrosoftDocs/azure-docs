@@ -3,9 +3,9 @@
 	description="Describes what happens in a cloud services project after connecting to an Azure storage account using Visual Studio connected services"
     services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,15 +13,10 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+  ms.date="12/16/2015"
+	ms.author="tarcher"/>
 
 # What happened to my cloud services project (Visual Studio Azure Storage connected service)?
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-cloud-services-getting-started-blobs.md)
-> - [What happened](vs-storage-cloud-services-what-happened.md)
-
 
 ## References added
 

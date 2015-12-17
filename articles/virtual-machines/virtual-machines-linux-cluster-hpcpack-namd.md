@@ -6,23 +6,27 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="09/02/2015"
+ ms.date="12/02/2015"
  ms.author="danlep"/>
 
 # Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure
 
-This article shows you how to deploy a Microsoft HPC Pack cluster on Azure and run a [NAMD](http://www.ks.uiuc.edu/Research/namd/) job with **charmrun** on multiple Linux compute nodes in a virtual cluster network to calculate and visualize the structure of a large biomolecular system.
+This article shows you how to deploy a Microsoft HPC Pack cluster on Azure with multiple Linux compute nodes and run a [NAMD](http://www.ks.uiuc.edu/Research/namd/) job with **charmrun** to calculate and visualize the structure of a large biomolecular system.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
+
 
 NAMD (for Nanoscale Molecular Dynamics program) is a parallel molecular dynamics package designed for high-performance simulation of large biomolecular systems containing up to millions of atoms, such as viruses, cell structures, and large proteins. NAMD scales to hundreds of cores for typical simulations and to more than 500,000 cores for the largest simulations.
 
-Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. Starting in Microsoft HPC Pack 2012 R2, HPC Pack also supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md) for an introduction to using Linux compute nodes with HPC Pack.
+Microsoft HPC Pack provides features to run a variety of large-scale HPC and parallel applications, including MPI applications, on clusters of Microsoft Azure virtual machines. Starting in Microsoft HPC Pack 2012 R2 Update 2, HPC Pack also supports running Linux HPC applications on Linux compute node VMs deployed in an HPC Pack cluster. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-cluster-hpcpack.md) for an introduction.
 
 
 ## Prerequisites
@@ -54,17 +58,17 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
         <VMName>CentOS66HN</VMName>
         <ServiceName>MyHPCService</ServiceName>
         <VMSize>Large</VMSize>
-    <EnableRESTAPI />
-    <EnableWebPortal />
-  </HeadNode>
-  <LinuxComputeNodes>
-    <VMNamePattern>CentOS66LN-%00%</VMNamePattern>
-    <ServiceName>MyLnxCNService</ServiceName>
-    <VMSize>Large</VMSize>
-    <NodeCount>4</NodeCount>
-    <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-66-20150325</ImageName>
-  </LinuxComputeNodes>
-</IaaSClusterConfig>
+        <EnableRESTAPI />
+        <EnableWebPortal />
+      </HeadNode>
+      <LinuxComputeNodes>
+        <VMNamePattern>CentOS66LN-%00%</VMNamePattern>
+        <ServiceName>MyLnxCNService</ServiceName>
+        <VMSize>Large</VMSize>
+        <NodeCount>4</NodeCount>
+        <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-66-20150325</ImageName>
+      </LinuxComputeNodes>
+    </IaaSClusterConfig>    
 ```
 
 
@@ -100,16 +104,16 @@ It's easy to generate an RSA key pair, which contains a public key and a private
 
 2. Use standard Windows Server procedures to create a domain user account in the cluster's Active Directory domain. For example, use the Active Directory User and Computers tool on the head node. The examples in this article assume you create a domain user named hpclab\hpcuser.
 
-2.	Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example of this file in the Appendix at the end of this article.
+2.	Create a file named C:\cred.xml and copy the RSA key data into it. You can find an example in the sample files at the end of this article.
 
     ```
     <ExtendedData>
-      <PrivateKey>Copy the contents of private key here</PrivateKey>
-      <PublicKey>Copy the contents of public key here</PublicKey>
+        <PrivateKey>Copy the contents of private key here</PrivateKey>
+        <PublicKey>Copy the contents of public key here</PublicKey>
     </ExtendedData>
     ```
 
-3.	Open a Command window and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of C:\cred.xml file you created for the key data.
+3.	Open a Command Prompt and enter the following command to set the credentials data for the hpclab\hpcuser account. You use the **extendeddata** parameter to pass the name of C:\cred.xml file you created for the key data.
 
     ```
     hpccred setcreds /extendeddata:c:\cred.xml /user:hpclab\hpcuser /password:<UserPassword>
@@ -132,9 +136,9 @@ Now set up a standard SMB share on a folder on the head node, and mount the shar
 2.	Open a Windows PowerShell window and run the following commands to mount the shared folder.
 
     ```
-    PS > clusrun /nodegroup:LinuxNodes mkdir -p /namd2
+    clusrun /nodegroup:LinuxNodes mkdir -p /namd2
 
-    PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
+    clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS66HN/Namd/namd2 /namd2 -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
     ```
 
 The first command creates a folder named /namd2 on all nodes in the LinuxNodes group. The second command mounts the shared folder //CentOS66HN/Namd/namd2 onto the folder with dir_mode and file_mode bits set to 777. The *username* and *password* in the command should be the credentials of a user on the head node.
@@ -178,7 +182,7 @@ host CENTOS66LN-03 ++cpus 2
 ```
 ### Bash script to create a nodelist file
 
-Using a text editor of your choice, create the following Bash script in the folder containing the NAMD program files and name it hpccharmrun.sh. A complete sample of this file is in the Appendix of this article. This bash script does the following things.
+Using a text editor of your choice, create the following Bash script in the folder containing the NAMD program files and name it hpccharmrun.sh. A complete example is in the sample files at the end of this article. This bash script does the following things.
 
 >[AZURE.TIP] Save your script as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
@@ -306,7 +310,7 @@ Now you are ready to submit a NAMD job in HPC Cluster Manager.
 
     ![Job results][vmd_view]
 
-## Appendix
+## Sample files
 
 ### Sample hpccharmrun.sh script
 

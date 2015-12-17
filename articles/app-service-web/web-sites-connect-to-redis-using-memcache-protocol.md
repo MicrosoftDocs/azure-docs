@@ -8,11 +8,11 @@
 	editor="riande"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-web"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
-	ms.workload="web"
+	ms.workload="na"
 	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
@@ -37,7 +37,7 @@ Once you have the Scalable WordPress site deployed and a Redis Cache instance pr
 
 ## Enable the Web Apps Memcache shim
 
-In order to configure Memcache shim, you must create three app settings. This can be done using a variety of methods including the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), the [Old Portal][3], the [Azure PowerShell Cmdlets][5] or the [Azure Command-Line Interface][5]. For the purposes of this post, I’m going to use the [Azure Portal][4] to set the app settings. The following values can be retrieved from **Settings** blade of your Redis Cache instance.
+In order to configure Memcache shim, you must create three app settings. This can be done using a variety of methods including the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), the [classic portal][3], the [Azure PowerShell Cmdlets][5] or the [Azure Command-Line Interface][5]. For the purposes of this post, I’m going to use the [Azure Portal][4] to set the app settings. The following values can be retrieved from **Settings** blade of your Redis Cache instance.
 
 ![Azure Redis Cache Settings Blade](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -112,7 +112,7 @@ Find **Memcached Object Cache** in the list, then click **Install Now**.
 
 ### Enable the Memcache WordPress plugin
 
->[AZURE.NOTE] Follow the instructions in this blog on [How to enable a Site Extension in Web Apps][8] to install Visual Studio Online.
+>[AZURE.NOTE] Follow the instructions in this blog on [How to enable a Site Extension in Web Apps][8] to install Visual Studio Team Services.
 
 In the `wp-config.php` file, add the following code above the stop editing comment near the end of the file.
 
@@ -180,7 +180,6 @@ Congratulations! The WordPress app now has a centralized in-memory cache to aid 
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and its impact on existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [0]: http://bit.ly/1F0m3tw

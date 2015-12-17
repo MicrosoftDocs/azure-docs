@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage registration and protection" 
+	pageTitle="Unregister servers and disable protection | Microsoft Azure" 
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter. Use this article to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/05/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# Manage registration and protection
+# Unregister servers and disable protection
 
 This article describes how to unregister servers from the Site Recovery vault and how to disable protection for virtual machines protected by Site Recovery. If you have any questions after reading this article post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 

@@ -12,12 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/31/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Contact Microsoft Support
 
-If you encounter any issues with your Microsoft Azure StorSimple solution, you can create a service request for technical support. In an online session with your support engineer, you may also need to start a support session on your StorSimple device. This article walks you through the process of creating a support request and also starting a support session in the Windows PowerShell interface of your StorSimple device.
+If you encounter any issues with your Microsoft Azure StorSimple solution, you can create a service request for technical support. In an online session with your support engineer, you may also need to start a support session on your StorSimple device. This article walks you through:
+
+- How to create a support request.
+- How to start a support session in the Windows PowerShell interface of your StorSimple device.
+
+Review the [StorSimple 8000 Series Support SLAs and information](https://msdn.microsoft.com/library/mt433077.aspx) before you create a Support request.
 
 ## Create a support request
 
@@ -25,13 +30,13 @@ Perform the following steps to create a support request:
 
 #### To create a support request
 
-1. A support request can be created through the [Management Portal](http://manage.windowsazure.com/). In the [Management Portal](http://manage.windowsazure.com/), click your **Account Name** and then click **Contact Microsoft Support**.
+1. A support request can be created through the [Azure classic portal](http://manage.windowsazure.com/). In the [portal](http://manage.windowsazure.com/), click your **Account Name** and then click **Contact Microsoft Support**.
 
 	![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/IC777286.png)
 
 2. In the **Contact Microsoft Support** dialog:								
 
-	1. From the drop-down list, select the target **Subscription** associated with your StorSimple Manager service. Specify **Support Type** as **Technical**. You need a paid support plan to enable Technical Support.
+	1. From the dropdown list, select the target **Subscription** associated with your StorSimple Manager service. Specify **Support Type** as **Technical**. You need a paid support plan to enable Technical Support.
 
 	2. Click the check icon ![Check icon](./media/storsimple-contact-microsoft-support/IC740895.png) to **Create Ticket**.
 

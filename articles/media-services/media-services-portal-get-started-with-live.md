@@ -1,36 +1,36 @@
 <properties
-	pageTitle="Use the Azure portal to create channels that receive multi-bitrate live streams from on-premises encoders | Microsoft Azure"
+	pageTitle="Use the Azure Classic Portal to create channels that receive multi-bitrate live streams from on-premises encoders | Microsoft Azure"
 	description="This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a channel receives a multi-bitrate live stream from an on-premises live encoder."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	authors="Juliako,cenkdin" 
+	manager="dwrede" 
 	editor=""/>
 
-<tags
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
-	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ne" 
+	ms.topic="article" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
-# Use the Azure portal to create channels that receive multi-bitrate live streams from on-premises encoders
+# Use the Azure Classic Portal to create channels that receive multi-bitrate live streams from on-premises encoders
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
 This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a channel receives a multi-bitrate live stream from an on-premises live encoder. For a more detailed overview of working with channels and related components, see [Working with channels that receive multi-bitrate live stream from on-premises encoders](media-services-manage-channels-overview.md).
 
-In this tutorial, the Azure portal is used to accomplish the following tasks:
+In this tutorial, the Azure Classic Portal is used to accomplish the following tasks:
 
 2.  Configure streaming endpoints.
 3.  Create a channel.
 1.  Configure a live encoder and ingest live stream into the channel (Wirecast is used in this step).
 1.  Create a program (and an asset).
-1.  Publish the asset and get streaming URLs.  
+1.  Publish the asset and get streaming URLs.
 1.  Play your content.
 2.  Clean up.
 
@@ -43,7 +43,7 @@ For details, see [Azure Free Trial](azure.microsoft.com).
 - A webcam and an encoder that can send a multi-bitrate live stream.
 
 
-## Configure streaming endpoint using the Azure portal
+## Configure streaming endpoint using the Azure Classic Portal
 
 When working with Azure Media Services, one of the most common scenarios is delivering adaptive bitrate streaming to your clients. With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream because the video is displayed based on the current network bandwidth, CPU utilization, and other factors. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
 
@@ -53,26 +53,26 @@ To take advantage of dynamic packaging, you need to get at least one streaming u
 
 To change the number of streaming reserved units, do the following:
 
-1. In the [Azure portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
+1. In the [Azure Classic Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
 
 2. Select the **STREAMING ENDPOINTS** page. Then, click the streaming endpoint that you want to modify.
 
 3. To specify the number of streaming units, select the **SCALE** tab and move the reserved capacity slider.
 
-	![Scale page](./media/media-services-portal-get-started-with-live/media-services-origin-scale.png)
+![Scale page](./media/media-services-portal-get-started-with-live/media-services-origin-scale.png)
 
 4. Click the **SAVE** button to save your changes.
 
-	The allocation of any new units takes around 20 minutes to complete.
+The allocation of any new units takes around 20 minutes to complete.
 
-	>[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.
-	>
-	> The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
+>[AZURE.NOTE] Currently, going from any positive value of streaming units back to none, can disable streaming for up to an hour.
+>
+> The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 
 ## Create a channel
 
-In the Azure portal, select the **CHANNELS** page. Then, click **NEW**. On the **Create a new Live Channel** page enter a name for your channel.
+In the Azure Classic Portal, select the **CHANNELS** page. Then, click **NEW**. On the **Create a new Live Channel** page enter a name for your channel.
 
 ![createchannel](./media/media-services-portal-get-started-with-live/media-services-create-channel.png)
 
@@ -97,7 +97,7 @@ For more information about Ingest URLs, see [Using on-premises encoders to send 
 
 For detailed information about how to configure Wirecast and start ingesting the stream, see [Wirecast Configuration](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
->[AZURE.NOTE] If for any reason you stop the encoder and then need to restart it you should first reset the channel by clicking the **RESET** command in the Azure portal.
+>[AZURE.NOTE] If for any reason you stop the encoder and then need to restart it you should first reset the channel by clicking the **RESET** command in the Azure Classic Portal.
 
 
 ## Create and manage a program
@@ -130,25 +130,25 @@ There are two ways to start an event:
 
 1. From the **CHANNELS** page, click **ADD** to add a new program.
 
-	On the **Create a new program** page, specify the program name, asset name, archive window, and encryption option.
+On the **Create a new program** page, specify the program name, asset name, archive window, and encryption option.
 
-	![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
+![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
 
-	If **Publish this program now** is selected, the publish URLs are created.
+If **Publish this program now** is selected, the publish URLs are created.
 
-	You can click **START** whenever you are ready to stream the program.
+You can click **START** whenever you are ready to stream the program.
 
-	Once you start the program, you can click **PLAY** to start playing the content.
+Once you start the program, you can click **PLAY** to start playing the content.
 
-	![createdprogram](./media/media-services-portal-get-started-with-live/media-services-created-program.png)
+![createdprogram](./media/media-services-portal-get-started-with-live/media-services-created-program.png)
 
 2. Alternatively, you can use a shortcut and click the **START STREAMING** button on the **CHANNELS** page. This will create an Asset, Program, and Streaming Locator.
 
-	The program is named DefaultProgram and the archive window is set to 1 hour.
+The program is named DefaultProgram and the archive window is set to 1 hour.
 
-	You can play the published program from the **CHANNELS** page.
+You can play the published program from the **CHANNELS** page.
 
-	![channelpublish](./media/media-services-portal-get-started-with-live/media-services-channel-play.png)
+![channelpublish](./media/media-services-portal-get-started-with-live/media-services-channel-play.png)
 
 
 If you click **STOP STREAMING** on the **CHANNELS** page, the default program will be stopped and deleted. The asset will still be there and you can publish or unpublish it from the **CONTENT**  page.
@@ -160,7 +160,7 @@ If you switch to the **CONTENT** page, you will see the assets that were created
 
 ## Playing content
 
-To provide your user with a  URL that can be used to stream your content, you first need to *publish* your asset (as described in the previous section) by creating a locator (when you publish an asset using the Azure portal, locators are created for you). Locators provide access to files contained in the asset.
+To provide your user with a  URL that can be used to stream your content, you first need to *publish* your asset (as described in the previous section) by creating a locator (when you publish an asset using the Azure Classic Portal, locators are created for you). Locators provide access to files contained in the asset.
 
 Depending on what streaming protocol you want to use to playback your content, you might need to modify the URL that you get from the **PUBLISH URL** link of the channel\program.
 
@@ -168,15 +168,15 @@ Dynamic packaging will take care of packaging the live stream into the specified
 
 By default, a streaming URL has the following format and you can use it to play Smooth Streaming assets.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
 
-	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 For more information about delivering your content, see [Delivering content](media-services-deliver-content-overview.md).
 
@@ -191,17 +191,24 @@ If you are done streaming events and want to clean up the resources provisioned 
 - You can stop your streaming endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the channel is in a stopped state, it will not incur any charges.
 
 
-##Media Services learning paths
+##Next Steps: Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+
+### Looking for something else?
+
+If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with you feedback using the Disqus thread below.
+
 
 ## Additional resources
-- [Getting Started with Live Streaming Using the Azure Management Portal](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [Getting Started with Live Streaming Using the Azure Classic Portal](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->

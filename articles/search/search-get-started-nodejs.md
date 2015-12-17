@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Search in NodeJS | Microsoft Azure"
-	description="Walk through building a custom Azure Search application using NodeJS as your programming language."
+	pageTitle="Get started with Azure Search in NodeJS | Microsoft Azure | Hosted cloud search service"
+	description="Walk through building a search application on a hosted cloud search service on Azure using NodeJS as your programming language."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Get started with Azure Search in NodeJS
@@ -22,7 +22,7 @@ Learn how to build a custom NodeJS search application that uses Azure Search for
 
 We used [NodeJS](https://nodejs.org) and NPM, [Sublime Text 3](http://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
 
-To run this sample, you need an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com).
+To run this sample, you need an Azure Search service, which you can sign up for in the [Azure Classic Portal](https://portal.azure.com).
 
 > [AZURE.TIP] Download the source code for this tutorial at [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
 
@@ -36,7 +36,7 @@ In this application, the **DataIndexer** program builds and loads the index usin
 
 ## Create the service
 
-1. Sign in to [Azure portal](https://portal.azure.com).
+1. Sign in to [Azure Classic Portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** > **Data + Storage** > **Search**.
 

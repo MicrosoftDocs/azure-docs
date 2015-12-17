@@ -1,19 +1,19 @@
 <properties
-   pageTitle="How to upgrade projects to the current version of the Azure tools"
+   pageTitle="How to upgrade projects to the current version of the Azure tools | Microsoft Azure"
    description="Learn how to upgrade an Azure project in Visual Studio to the current version of the Azure tools"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.date="09/28/2015"
+   ms.author="tarcher" />
 
 # How to upgrade projects to the current version of the Azure Tools for Visual Studio
 
@@ -50,7 +50,3 @@ If a project is automatically upgraded or you specify that you want to upgrade i
 1. Choose the **Upgrade** button to upgrade a project to the current version of the tools.
 
 1. Build the project, and then address any errors that result from API changes. For information about how to modify your code for the new version, see the documentation for the specific API.
-
-## Resources
-
-[Azure Tools Release History]( http://go.microsoft.com/fwlink/p/?LinkId=623548)

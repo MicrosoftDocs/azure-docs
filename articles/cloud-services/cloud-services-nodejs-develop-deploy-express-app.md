@@ -3,7 +3,7 @@
 	description="A tutorial that builds on the cloud service tutorial, and demonstrates how to use the Express module." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="mwasson"/>
+	ms.date="11/20/2015" 
+	ms.author="robmcm"/>
 
 
 
@@ -134,6 +134,9 @@ Once the deployment operation completes, your browser will open and display the 
 
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
+## Next steps
+
+For more information, see the [Node.js Developer Center](/develop/nodejs/).
 
   [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
   [Express]: http://expressjs.com/

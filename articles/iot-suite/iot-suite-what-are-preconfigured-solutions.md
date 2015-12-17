@@ -1,89 +1,116 @@
 <properties
- pageTitle="What are the Azure IoT preconfigured solutions? | Microsoft Azure"
+ pageTitle="Azure IoT preconfigured solutions | Microsoft Azure"
  description="A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources."
- services="azure-iot"
- documentationCenter=".net"
+ services=""
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="azure-iot"
+ ms.service="na"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="11/30/2015"
  ms.author="dobett"/>
 
-# What are the Azure IoT preconfigured solutions?
-You can deploy preconfigured solutions that implement common Internet of Things (IoT) scenarios to Microsoft Azure using your Azure subscription. You can use these preconfigured solutions:
+# What are the Azure IoT Suite preconfigured solutions?
+
+The Azure IoT Suite preconfigured solutions are implementations of common IoT solution patterns that you can deploy to Microsoft Azure using your Azure subscription. You can use the preconfigured solutions:
+
 - As a starting point for your own IoT solutions.
-- To learn about proven practices in IoT solution design and development.
+- To learn about common patterns in IoT solution design and development.
 
-Each preconfigured solution implements a common IoT scenario and is a complete, end-to-end implementation based on the [Microsoft IoT reference architecture][lnk-iot-reference-architecture].
+Each preconfigured solution implements a common IoT scenario and is a complete, end-to-end implementation using simulated devices to generate telemetry.
 
-In addition to deploying and running the preconfigured solutions in Azure, you can download the complete source code to customize and extend the solution to meet your specific requirements.
+In addition to deploying and running the preconfigured solutions in Azure, you can download the complete source code and then customize and extend the solution to meet your specific IoT requirements.
 
 The available preconfigured solutions are:
-- Vending machines
-- Elevators
 
-The following table shows how these preconfigured solutions map to specific IoT scenarios:
+- [Remote monitoring][lnk-remote-monitoring]
+- [Predictive maintenance][lnk-predictive-maintenance]
 
-| &nbsp; | Remote <br/> monitoring |  Predictive <br/> maintenance |
-| ------------------------------: | :-: | :----: |
-| **Vending <br/> machines**      | Yes | &nbsp; |
-|**Elevators**                    | Yes | Yes    |
+The following table shows how these preconfigured solutions map to specific IoT features:
 
-## Vending machine sample overview
-Vending machines is the simplest of the preconfigured solutions. This section describes some of the key features of the vending machine preconfigured solution by way of an introduction to the full set of preconfigured solutions.
+| Solution | Data Ingestion | Device Identity | Command and Control | Rules and Actions | Predictive Analytics |
+|------------------------|-----|-----|-----|-----|-----|
+| Remote Monitoring      | Yes | Yes | Yes | Yes | -   |
+| Predictive Maintenance | Yes | Yes | Yes | Yes | Yes |
 
-The following diagram illustrates the key features of the solution and the following sections. The following sections provide more information about the elements shown in this diagram.
+## Remote Monitoring preconfigured solution overview
 
-![Vending machines preconfigured solution][img-vending-machines]
+This section describes some of the key elements of the remote monitoring preconfigured solution. Remote monitoring is the simplest of the preconfigured solutions and illustrates common design elements that the other preconfigured solutions share.
 
-[_TBD_ It would be good to redraw this diagram to make it more consistent with the reference architecture]
+The following diagram illustrates the key elements of the remote monitoring solution. The sections below provide more information about these elements.
 
-### Device
-A device is a software simulation of a vending machine that sends telemetry data with its current temperature and whether or not a person is currently standing in front of the machine. The device can also respond to commands sent from Azure IoT Hub instructing it to change the price of an item it vends.
+![Remote Monitoring preconfigured solution architecture][img-remote-monitoring-arch]
 
-The vending machines in this preconfigured solution correspond to the **devices and data sources** in the IoT reference architecture.
+## Devices
 
-### IoT Hub
-An IoT hub receives telemetry data from the vending machines at a single end-point and maintains device specific end-points where devices can retrieve commands such as the change item price command.
+When you deploy the remote monitoring preconfigured solution, the deployment includes instances of a software device simulator that simulates a physical cooler device. The simulated devices send temperature and humidity telemetry to an IoT hub endpoint. The simulated devices also respond to the following commands sent from the solution portal through the IoT hub:
 
-The IoT hub exposes the telemetry data it receives through an Event Hubs consumer group end-point.
+- Ping Device
+- Start Telemetry
+- Stop Telemetry
+- Change Set Point Temperature
+- Diagnostic Telemetry
+- Change Device State
 
-The IoT Hub instance in this preconfigured solution corresponds to the **cloud gateway** and **identity and registry store** in the IoT reference architecture.
+## IoT Hub
 
-### Azure Stream Analytics
-The preconfigured solution uses Azure Stream Analytics jobs to filter the stream of events from the vending machines. One job sends all telemetry data to Azure storage blobs for cold storage. The other job filters the event stream for command response messages and device status update messages and sends these specific messages to an Azure Event Hub end-point.
+An IoT hub receives telemetry from the cooler devices at a single endpoint. An IoT hub also maintains device specific endpoints where each devices can retrieve the commands, such as the **Ping Device** command, that are sent to it.
 
-The Stream Analytics jobs in this preconfigured solution correspond to the **stream event processor** in the IoT reference architecture.
+The IoT hub makes the telemetry it receives available through a consumer group endpoint.
 
-### Event Processor
-An [Event Processor][lnk-event-processor] instance, running in a worker role, processes the command response and device status data and stores this information in an Azure DocumentDB database.
+In this preconfigured solution, the IoT Hub instance corresponds to the *Cloud Gateway* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
-The event processor in this preconfigured solution corresponds in part to the **stream event processor** in the IoT reference architecture and the DocumentDB database implements the **device state store**.
+## Azure Stream Analytics
 
-### Device Administration Portal
-The Device Administration portal is a web-based UI that enables you to:
+The preconfigured solution uses three [Azure Stream Analytics][lnk-asa] (ASA) jobs to filter the telemetry stream from the cooler devices:
+
+- Job #1 sends all the telemetry to Azure blob storage for cold storage
+- Job #2 filters the telemetry stream to identify command response messages and device status update messages from the devices and sends these specific messages to an Azure Event Hub endpoint.
+- Job #3 filters the telemetry stream for values that trigger alarms. When a value triggers an alarm, the solution displays the notification in the alarm history table in the dashboard view of the solution portal.
+
+In this preconfigured solution, the ASA jobs form part of to the *IoT solution backend* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
+
+## Event processor
+
+An [EventPocessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], processes the command response and device status messages identified by ASA job #2, and then stores this information in an [Azure DocumentDB][lnk-document-db] database.
+
+In this preconfigured solution, the event processor forms part of the *IoT solution backend* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
+
+## Solution portal
+
+The solution portal is a web-based UI that is deployed to the cloud as part of the preconfigured solution. It enables you to:
+
+- View telemetry and alarm history in a dashboard.
 - Provision new devices.
 - Manage and monitor devices.
 - Send commands to specific devices.
+- Manage rules and actions.
 
-Note: The Device Administration portal also keeps the IoT Hub device identity registry synchronized with the store of richer device state information in the DocumentDB database.
+> [AZURE.NOTE] The solution portal also keeps the IoT Hub [device identity registry][lnk-identity-registry] synchronized with the store of richer device state information in the solution's DocumentDB database.
 
-The Device Administration portal in this preconfigured solution corresponds to the **solution portal** in the IoT reference architecture.
+In this preconfigured solution, the solution portal forms part of the *IoT solution backend* and part of the *Processing and business connectivity* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
 ## Next steps
-To get started using the Azure IoT preconfigured solutions, explore these resources:
-- [Azure IoT preconfigured solutions][lnk-preconfigured-solutions-microsite]
-- [Get started with the IoT preconfigured solutions][lnk-iot-solutions-get-started]
 
-[img-vending-machines]: media/iot-suite-what-are-preconfigured-solutions/vending-machines-overview.png
-[lnk-iot-reference-architecture]: TBD
-[lnk-iot-solutions-get-started]: TBD
-[lnk-event-processor]: TBD
-[lnk-preconfigured-solutions-microsite]: TBD
+Explore these resources to learn more about IoT preconfigured solutions:
+
+- [Azure IoT preconfigured solutions overview][lnk-suite-overview]
+- [Get started with the IoT preconfigured solutions][lnk-preconf-get-started]
+
+[img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
+[lnk-remote-monitoring]: iot-suite-remote-monitoring-sample-walkthrough.md
+[lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
+[lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
+[lnk-event-processor]: event-hubs-programming-guide.md#event-processor-host
+[lnk-web-job]: web-sites-create-web-jobs.md
+[lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
+[lnk-identity-registry]: iot-hub-devguide.md#device-identity-registry
+[lnk-suite-overview]: iot-suite-overview.md
+[lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
+[lnk-predictive-maintenance]: iot-suite-predictive-overview.md

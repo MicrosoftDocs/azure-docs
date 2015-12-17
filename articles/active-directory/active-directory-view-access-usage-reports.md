@@ -1,22 +1,25 @@
 <properties
-	pageTitle="View your access and usage reports"
-	description="A topic that explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
+	pageTitle="View your access and usage reports | Microsoft Azure"
+	description="Explains how to view access and usage reports to gain insight into the integrity and security of your organization’s directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"
-	manager="TerryLan"
-	editor="LisaToft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff;Justinha"/>
+	ms.date="12/07/2015"
+	ms.author="kenhoff;Justinha;curtand"/>
+
 
 # View your access and usage reports
+
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
@@ -56,7 +59,7 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Account provisioning activity						|	Provides a history of attempts to provision accounts to external applications.				|
 |	Password rollover status							|	Provides a detailed overview of automatic password rollover status of SaaS applications.	|
 |	Account provisioning errors							|	Indicates an impact to users’ access to external applications.								|
-|	**Rights managment**
+|	**Rights management**
 |	RMS usage											|	Provides a summary for Rights Management usage												|
 |	Most active RMS users								|	Lists top 1000 active users who accessed RMS-protected files								|
 |	RMS device usage									|	Lists devices used for accessing RMS-protected files										|
@@ -90,12 +93,6 @@ In the Azure Management Portal, reports are categorized in the following ways:
 |	Most active RMS users								|			|		|	RMS Only	|
 |	RMS device usage									|			|		|	RMS Only	|
 |	RMS enabled application usage						|			|		|	RMS Only	|
-
-
-
-
-
-
 
 
 
@@ -173,6 +170,10 @@ In the Azure Management Portal, reports are categorized in the following ways:
 | :-------------     | :-------        |
 | Use this report when you want to see usage for all the SaaS applications in your directory. This report is based on the number of times users have clicked on the application in the Access Panel. | Directory > Reports tab |
 
+This report includes sign ins to _all_ applications that your directory has access to, including pre-integrated Microsoft applications.
+
+Pre-integrated Microsoft applications include Office 365, Sharepoint, the Azure Management Portal, and others.
+
 ![Application usage summary](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
@@ -236,7 +237,7 @@ Only certain types of sign in events will appear in the User Activity report.
 | Sign ins to a custom business app that has been added to the directory		| No (Coming soon)	|
 | Sign ins to an Azure AD Application Proxy app that has been added to the directory	| No (Coming soon)	|
 
-> Note: To reduce the amount of noise in this report, sign ins to the [Lync/Skype for Business](http://products.office.com/en-us/skype-for-business/online-meetings) native app and by the [Microsoft Online Services Sign-In Assistant](http://community.office365.com/en-us/w/sso/534.aspx) are not shown.
+> Note: To reduce the amount of noise in this report, sign ins by the [Microsoft Online Services Sign-In Assistant](http://community.office365.com/en-us/w/sso/534.aspx) are not shown.
 
 
 
@@ -253,7 +254,7 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 
 - Contact the user to verify the activity
 - Reset the user's password
-- [Enable multi-factor authentication](http://go.microsoft.com/fwlink/?linkid=335774) for additional security
+- [Enable multi-factor authentication](multi-factor-authentication-get-started.md) for additional security
 
 ## View or download a report
 
@@ -270,6 +271,7 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 	- Up to 1000 events will be shown in the Azure Management Portal.
 5. If applicable, click **Download** to download the report to a compressed file in Comma Separated Values (CSV) format for offline viewing or archiving purposes.
 	- Up to 75,000 events will be included in the downloaded file.
+	- For more data, check out the [Azure AD Reporting API](active-directory-reporting-api-getting-started.md).
 
 ## Ignore an event
 

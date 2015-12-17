@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Configure web apps in Azure App Service" 
 	description="How to configure a web app in Azure App Services" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="erikre" 
 	manager="wpickett" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/08/2015" 
 	ms.author="erikre"/>
 
 
@@ -177,5 +177,4 @@ For more information, see [How to: Monitor web endpoint status](http://go.micros
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  

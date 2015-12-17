@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # App model v2.0 preview: Scopes, permissions, & consent
@@ -59,7 +59,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 &response_mode=query
 &scope=
 https%3A%2F%2Foutlook.office.com%2Fmail.read%20
-https%3A%2F%2Fgraph.windows.net%2Fmail.send
+https%3A%2F%2Foutlook.office.com%2Fmail.send
 &state=12345
 ```
 

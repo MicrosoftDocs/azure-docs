@@ -2,7 +2,6 @@
 	pageTitle="Submit Hive Queries to Hadoop clusters in the Advanced Analytics Process and Technology | Microsoft Azure"
 	description="Process Data from Hive Tables with Hive queries."
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -14,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/11/2015"
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process and Technology 
 
-This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. This task is part of the Advanced Analytics Process and Technology (ADAPT) provided by Azure Machine Learning. Several data wrangling tasks are discussed: data exploration and feature generation. Generic Hive queries that show how to explore data or generate features using Hive in an Azure HDInsight Hadoop cluster. These Hive queries use embedded Hive User Defined Functions (UDFs) which are provided.
+This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. This task is part of the Cortana Analytics Process (CAP). Several data wrangling tasks are discussed: data exploration and feature generation. Generic Hive queries that show how to explore data or generate features using Hive in an Azure HDInsight Hadoop cluster are presented. These Hive queries use embedded Hive User Defined Functions (UDFs) which are provided.
 
 Examples of queries that are specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run.
 
-In the final section, parameters that users can tune so that the performance of Hive queries can be improved are discussed.
+In the final section, parameters that can be used to tune and improve the performance of Hive queries are discussed.
 
 ## Prerequisites
 This article assumes that you have:
@@ -35,12 +34,12 @@ This article assumes that you have:
 
 
 ## <a name="submit"></a>How to Submit Hive Queries
-Hive queries can be submitted by using:
+Hive queries can be submitted by using the following applications:
 
-* the Hadoop Command Line on the headnode of the cluster
-* the IPython Notebook
-* the Hive Editor
-* Azure PowerShell scripts
+* **Hadoop Command Line console** on the headnode of the cluster
+* **IPython Notebook**
+* **Hive Editor**
+* **PowerShell** scripts
 
 Hive queries are SQL-like. Users familiar with SQL may find the <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL-to-Hive Cheat Sheet</a> useful.
 
@@ -68,7 +67,7 @@ Users can run command like
 
 to submit simple Hive queries directly in the Hadoop command line. Here is an example, where the red box outlines the command that submits the Hive query, and the green box outlines the output from the Hive query.
 
-![Create workspace][10]
+![Create workspace](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png)
 
 #### Submit Hive queries in .hql files
 
@@ -88,7 +87,7 @@ By default, after Hive query is submitted in the Hadoop Command Line console, th
 
 Users can also enter the Hive command console by running the  `hive` command from the Hadoop command line, and then submit Hive queries from Hive command console at the **hive>** prompt. Here is an example.  
 
-![Create workspace][11]
+![Create workspace](./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png)
 
 In this example, the two red boxes highlight the commands used to enter the Hive command console, and the Hive query submitted in Hive command console, respectively. The green box highlights the output from the Hive query.
 
@@ -109,11 +108,11 @@ Users can also output the Hive query results to an Azure blob, within the defaul
 
 In the following example, the output of Hive query is written to a blob directory `queryoutputdir` within the default container of the Hadoop cluster. Here, you must only provide the directory name, without the blob name. An error will be thrown out if you provide both the directory and the blob name, such as *wasb:///queryoutputdir/queryoutput.txt*.
 
-![Create workspace][13]
+![Create workspace](./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png)
 
 The output of the Hive query can be seen in blob storage by opening the default container of the Hadoop cluster using the Azure Storage Explorer (or equivalent) tool. You can apply the filter (highlighted by red box) if you only want to retrieve a blob with specified letters in names.
 
-![Create workspace][14]
+![Create workspace](./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png)
 
 ### Through Hive Editor or Azure PowerShell Commands
 
@@ -278,7 +277,7 @@ The fields that are used in this query are the GPS coordinates of pickup and dro
 
 The mathematical equations that calculate the distance between two GPS coordinates can be found on the <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> site, authored by Peter Lapisu. In his Javascript, the function `toRad()` is just *lat_or_lon*pi/180*, which converts degrees to radians. Here, *lat_or_lon* is the latitude or longitude. Since Hive does not provide the function `atan2`, but provides the function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query using the definition provided in <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
-![Create workspace][1]
+![test](./media/machine-learning-data-science-process-hive-tables/atan2new.png)
 
 A full list of Hive embedded UDFs can be found in the **Built-in Functions** section on the <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
@@ -316,11 +315,6 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]: ./media/machine-learning-data-science-process-hive-tables/atan2new.png
-[10]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png
-[11]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png
-[12]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-1.png
-[13]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-2.png
-[14]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-3.png
-[15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
+
+
  

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/05/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Manage your first API in Azure API Management
@@ -61,7 +61,7 @@ The system is made up of the following components:
 
 >[AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
 
-The first step in working with API Management is to create a service instance. Sign in to the [Azure portal][] and click **New**, **App Services**, **API Management**, **Create**.
+The first step in working with API Management is to create a service instance. Sign in to the [Azure Classic Portal][] and click **New**, **App Services**, **API Management**, **Create**.
 
 ![API Management new instance][api-management-create-instance-menu]
 
@@ -95,7 +95,7 @@ APIs can be created (and operations can be added) manually, or they can be impor
 
 >[AZURE.NOTE] For guidance on creating an API and manually adding operations, see [How to create APIs](api-management-howto-create-apis.md) and [How to add operations to an API](api-management-howto-add-operations.md).
 
-APIs are configured from the publisher portal, which is accessed through the Azure portal. To reach the publisher portal, click **Manage** in the Azure portal for your API Management service.
+APIs are configured from the publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 
@@ -116,7 +116,7 @@ Once the API is imported, the summary page for the API is displayed in the publi
 
 ![API summary][api-management-imported-api-summary]
 
-The API section has several tabs. The **Summary** tab displays basic metrics and information about the API. The [Settings](api-management-howto-create-apis.md#configure-api-settings) tab is used to view and edit the configuration for an API. The [Operations](api-management-howto-add-operations.md) tab is used to manage the API's operations. The **Security** tab can be used to configure proxy authentication for the backend server by using Basic authentication or [mutual certificate authentication](api-management-howto-mutual-certificates.md), and to configure [user authorization by using OAuth 2.0](api-management-howto-oauth2.md).  The **Issues** tab is used to view issues reported by the developers who are using your APIs. The **Products** tab is used to configure the products that contain this API.
+The API section has several tabs. The **Summary** tab displays basic metrics and information about the API. The [Settings](api-management-howto-create-apis.md#configure-api-settings) tab is used to view and edit the configuration for an API. The [Operations](api-management-howto-add-operations.md) tab is used to manage the API's operations. The **Security** tab can be used to configure gateway authentication for the backend server by using Basic authentication or [mutual certificate authentication](api-management-howto-mutual-certificates.md), and to configure [user authorization by using OAuth 2.0](api-management-howto-oauth2.md).  The **Issues** tab is used to view issues reported by the developers who are using your APIs. The **Products** tab is used to configure the products that contain this API.
 
 By default, each API Management instance comes with two sample products:
 
@@ -206,7 +206,7 @@ The **Analytics** section has the following four tabs:
 [Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png

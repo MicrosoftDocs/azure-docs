@@ -6,7 +6,7 @@
    authors="GitHub-alias-of-only-one-author"
    manager="manager-alias"
    editor=""
-   tags="top-support-issues,comma-separates-additional-tags-if-required"/>
+   tags="top-support-issue,comma-separates-additional-tags-if-required"/>
 
 <tags
    ms.service="required"

@@ -3,9 +3,9 @@
    description="Learn how to use Visual Studio to host a web app in a Docker container."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/20/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Hosting Web Apps in Docker
 

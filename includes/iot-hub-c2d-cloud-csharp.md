@@ -1,4 +1,4 @@
-## Send a cloud-to-device message from the app back-end
+## Send a cloud-to-device message from the app back end
 
 In this section, you'll write a Windows console app that sends cloud-to-device messages to the simulated device app.
 
@@ -18,10 +18,10 @@ In this section, you'll write a Windows console app that sends cloud-to-device m
 
 		using Microsoft.Azure.Devices;
 
-5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the IoT hub and the **service** connection string from [Get started with IoT Hub]:
+5. Add the following fields to the **Program** class, substituting the placeholder value with the IoT hub connection string from [Get started with IoT Hub]:
 
 		static ServiceClient serviceClient;
-        static string connectionString = "{service connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. Add the following method to the **Program** class:
 
@@ -47,28 +47,30 @@ In this section, you'll write a Windows console app that sends cloud-to-device m
 
 9.  Press **F5**, and you should see all three application start. Select the **SendCloudToDevice** windows and press **Enter**: you should see the message being received by the simulated app.
 
-    ![][22]
+    ![][21]
 
 ## Receiving delivery feedback
-It is possible to request delivery (or expiration) ackownledgements from IoT Hub for each cloud-to-device message. This enables the cloud back-end to easily inform retry or compensation logic. Refer to the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D] for more information on cloud-to-device feedback.
+It is possible to request delivery (or expiration) ackownledgments from IoT Hub for each cloud-to-device message. This enables the cloud back end to easily inform retry or compensation logic. Refer to the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D] for more information on cloud-to-device feedback.
 
-In this section, you will modify the **SendCloudToDevice** app to request feedbacks and receive them from IoT Hub.
+In this section, you will modify the **SendCloudToDevice** app to request feedback and receive them from IoT Hub.
 
 1. In Visual Studio, in the **SendCloudToDevice** project, add the following method to the **Program** class.
    
-        private static async void ReceiveC2dAsync()
+        private async static void ReceiveFeedbackAsync()
         {
-            Console.WriteLine("\nReceiving cloud to device messages from service");
+            var feedbackReceiver = serviceClient.GetFeedbackReceiver();
+
+            Console.WriteLine("\nReceiving c2d feedback from service");
             while (true)
             {
-                Message receivedMessage = await deviceClient.ReceiveAsync();
-                if (receivedMessage == null) continue;
+                var feedbackBatch = await feedbackReceiver.ReceiveAsync();
+                if (feedbackBatch == null) continue;
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Received message: {0}", Encoding.ASCII.GetString(receivedMessage.GetBytes()));
+                Console.WriteLine("Received feedback: {0}", string.Join(", ", feedbackBatch.Records.Select(f => f.StatusCode)));
                 Console.ResetColor();
 
-                await deviceClient.CompleteAsync(receivedMessage);
+                await feedbackReceiver.CompleteAsync(feedbackBatch);
             }
         }
 
@@ -78,7 +80,7 @@ In this section, you will modify the **SendCloudToDevice** app to request feedba
 
         ReceiveFeedbackAsync();
 
-3. In order to request feedbacks for the delivery of your cloud-to-device message, you have to specify a property in the **SendCloudToDeviceMessageAsync** method. Add the following line, right after the `var commandMessage = new Message(...);` line:
+3. In order to request feedback for the delivery of your cloud-to-device message, you have to specify a property in the **SendCloudToDeviceMessageAsync** method. Add the following line, right after the `var commandMessage = new Message(...);` line:
 
         commandMessage.Ack = DeliveryAcknowledgement.Full;
 
@@ -91,13 +93,13 @@ In this section, you will modify the **SendCloudToDevice** app to request feedba
 <!-- Links -->
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
-[Azure IoT - Service SDK NuGet package]: http://toadd
+[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Transient Fault Handling]: https://msdn.microsoft.com/en-us/library/hh680901(v=pandp.50).aspx
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 
 <!-- Images -->
 [20]: ./media/iot-hub-c2d-cloud-csharp/create-identity-csharp1.png
-[22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
+[21]: ./media/iot-hub-c2d-cloud-csharp/sendc2d1.png
 [22]: ./media/iot-hub-c2d-cloud-csharp/sendc2d2.png
 
 

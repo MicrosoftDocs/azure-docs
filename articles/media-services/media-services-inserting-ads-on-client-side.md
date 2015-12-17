@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/15/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 This topic contains information on how to insert various types of ads on the client side.
 
-For information about closed captioning and ad support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](https://msdn.microsoft.com/library/azure/dn783466.aspx#caption_ad).
+For information about closed captioning and ad support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](media-services-manage-channels-overview.md#cc_and_ads).
 
  
 ##<a id="insert_ads_into_media"></a>Inserting Ads into your Media
@@ -808,12 +808,14 @@ The following sample shows how to schedule a mid-roll overlay ad.
 	}
 
 
+
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
  
 ##See Also

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="09/23/2015"
 	ms.author="tomfitz"/>
 
 
@@ -59,13 +59,13 @@ The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT**
 
 To obtain these values:
 
-1. Log in to the [Azure portal](https://manage.windowsazure.com/).
+1. Log in to the [Azure Portal](portal.azure.com).
 
-2. Navigate to the storage account you want to use.
+2. Navigate to your storage account.
 
-3. Click **MANAGE KEYS** at the bottom of the navigation pane.
+3. On the **Settings** blade, select **Keys**.
 
-4. In the pop-up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can either the primary one or the secondary one.
+4. Copy the desired access key value.
 
 ## Create a table
 
@@ -155,6 +155,5 @@ To delete a table, use the **delete\_table()** method and pass in the name of th
 
 To learn about more complex storage tasks, follow these links:
 
-- MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub

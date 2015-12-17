@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Creating and managing elastic database jobs"
+	pageTitle="Creating and managing elastic database jobs | Micosoft Azure"
 	description="Walk through creation and management of an elastic database job."
 	services="sql-database"
 	documentationCenter=""
 	manager="jhubbard"
-	authors="sidneyh"
+	authors="ddove"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/04/2015"
 	ms.author="ddove; sidneyh"/>
 
 # Create and manage a SQL Database elastic jobs with Portal (preview)

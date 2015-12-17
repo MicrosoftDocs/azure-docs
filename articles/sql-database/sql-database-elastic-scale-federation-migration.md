@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Federations migration" 
+    pageTitle="Federations migration | Microsoft Azure" 
     description="Outlines the steps to migrate an existing app built with Federations feature to the elastic database model." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/14/2015" 
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # Federations migration 
 
@@ -108,7 +108,7 @@ The Federations Migration Utility provides the abilities to:
 
 ## Feature comparison
 
-Although Elastic database tools offers many additional features (for example, [multi-shard querying](sql-database-elastic-scale-multishard-querying.md), [splitting and merging shards](sql-database-elastic-scale-overview-split-and-merge.md), [shard elasticity](sql-database-elastic-scale-elasticity.md), [client-side caching](sql-database-elastic-scale-shard-map-management.md), and more), there are a few noteworthy Federations features that are not supported in elastic database tools.
+Although Elastic database tools offers many additional features (for example, [multi-shard querying](sql-database-elastic-scale-multishard-querying.md), [splitting and merging shards](sql-database-elastic-scale-overview-split-and-merge.md), shard elasticity, [client-side caching](sql-database-elastic-scale-shard-map-management.md), and more), there are a few noteworthy Federations features that are not supported in elastic database tools.
   
 - The use of **FILTERING=ON**. Instead, it is recommended that you use row-level security (RLS) for row filtering. Like filtering in Federations, RLS automatically adds a predicate to all queries on a sharded table. For details, see [Multi-tenant applications with elastic database tools and row-level security](sql-database-elastic-tools-multi-tenant-row-level-security.md). 
  

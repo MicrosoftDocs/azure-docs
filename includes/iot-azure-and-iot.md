@@ -1,31 +1,47 @@
-# Microsoft Azure and the Internet of Things (IoT)
-A typical IoT solution requires secure, bidirectional communication between devices, possibly numbering in the millions, and an application back end.
-Microsoft provides you with a set of libraries (that support multiple languages and hardware platforms) that you can use to develop client applications to run on an IoT device. To implement your IoT back end application, you can combine multiple Azure services. To better understand how Azure enables this IoT infrastructure, it's useful to consider the Microsoft IoT reference architecture.
+# Azure and IoT
 
-## Microsoft IoT Reference Architecture
-You can watch the following video for an in-depth discussion of the Microsoft IoT reference architecture:
+Welcome to Microsoft Azure and the Internet of Things (IoT). This article introduces a typical IoT solution architecture that describes the common characteristics of an IoT solution you might deploy using Azure services. A typical IoT solution requires secure, bidirectional communication between devices, possibly numbering in the millions, and a solution backend that, for example, uses automated, predictive analytics to uncover insights from your device-to-cloud event stream.
 
-> [AZURE.VIDEO microsoft-ignite-2015-the-microsoft-architecture-for-the-internet-of-things-iot]
+## IoT solution architecture
 
-The diagram below is a summary of the Microsoft IoT reference architecture described in the video. Notice that it does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. The following sections provide you with more information about the elements in this architecture.
+The following diagram shows a typical IoT solution architecture. Note that it does not include the names of any specific Azure services, but describes the key elements in a generic IoT solution architecture. The following sections provide more information about the elements in this solution.
 
-![IoT Reference Architecture][img-reference-architecture]
-[_TBD_ - redraw this diagram with agreed terminology]
+![IoT solution architecture][img-solution-architecture]
 
-### Devices and data sources
-In a typical IoT scenario, devices send device-to-cloud telemetry data such as temperature readings to a cloud end-point for storage and processing. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, a device might retrieve a command that instructs it to change the frequency at which it samples data.
+### Device connectivity
 
-A device or data source in an IoT solution can range from a simple network-connected sensor to a powerful, standalone computing device. A device may have limited processing capability, memory, communication bandwidth, and communication protocol support.
+In a typical IoT scenario, devices send telemetry, such as temperature readings, to a cloud endpoint for storage and processing. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, a device might retrieve a command that instructs it to change the frequency at which it samples data.
 
-### Data transport
-A device may communicate directly with an end-point in a cloud gateway, or through some intermediary such as a field gateway that provides a service such as protocol translation. Typical communication protocols include AMQP and HTTP.
+One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the solution backend. Typically, IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. IoT devices:
 
-### Device and event processing
-In the cloud, a stream event processor receives device-to-cloud messages at scale from your devices and determines how to process and store those messages. A control system enables you to send cloud-to-device data in the form of commands to specific devices. Identity and registry stores enable you to provision devices and to control which devices are permitted to connect to your infrastructure. A device state store enables you to track the state of your devices and monitor their activities.
+- Are often embedded systems with no human operator.
+- Can be located in remote locations, where physical access is very expensive.
+- May only be reachable through the solution backend.
+- May have limited power and processing resources.
+- May have intermittent, slow, or expensive network connectivity.
+- May need to use proprietary, custom, or industry specific application protocols.
+- Can be created using a large set of popular hardware and software platforms.
 
-Some IoT solutions include automatic feedback loops. For example, a machine learning module can identify from cloud-to-device telemetry data that the temperature of a specific device is above normal operating levels and then send a command to the device instructing it to take corrective action.
+In addition to the requirements above, any IoT solution must also deliver scale, security, and reliability. The resulting set of connectivity requirements is hard and time-consuming to implement using traditional technologies such as web containers and messaging brokers.
+
+A device can communicate directly with a cloud gateway endpoint, or if the device cannot use any of the communications protocols that the cloud gateway supports, it can connect through an intermediate gateway that performs protocol translation.
+
+### Data processing and analytics
+
+In the cloud, an IoT solution backend:
+
+- Receives telemetry at scale from your devices and determines how to process and store that data. 
+- May also enable you to send commands from the cloud to specific device.
+- Provides device registration capabilities that enable you to provision devices and to control which devices are permitted to connect to your infrastructure.
+- Enables you to track the state of your devices and monitor their activities.
+
+IoT solutions can include automatic feedback loops. For example, a machine learning module in the backend can identify from telemetry that the temperature of a specific device is above normal operating levels and then send a command to the device, enabling it to take corrective action.
 
 ### Presentation
-Many IoT solutions enable users to view and analyze the data collected from their devices. These visualizations may take the form of dashboards or BI reports.
 
-[img-reference-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
+Many IoT solutions enable users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports.
+
+[img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
+
+[lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
+[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot

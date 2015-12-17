@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Install Update 1.2 on your StorSimple device | Microsoft Azure"
-   description="Explains how to install StorSimple 8000 Series Update 1.2 on your device."
+   description="Explains how to install StorSimple 8000 Series Update 1.2 on your StorSimple 8000 series device."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Install Update 1.2 on your StorSimple device
@@ -21,7 +21,7 @@
 
 This tutorial explains how to install Update 1.2 on a StorSimple device that is running a software version prior to Update 1. The tutorial also covers the additional steps required for the update when a gateway is configured on a network interface other than DATA 0 of the StorSimple device. 
 
-Update 1.2 includes device software updates, LSI driver updates and disk firmware updates. The software and LSI driver updates are non-disruptive updates and can be applied via the Management Portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
+Update 1.2 includes device software updates, LSI driver updates and disk firmware updates. The software and LSI driver updates are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
 
 Depending upon which version your device is running, you can determine if Update 1.2 will be applied. You can check the software version of your device by navigating to the **quick glance** section of your device **Dashboard**.
 
@@ -41,8 +41,8 @@ Depending upon which version your device is running, you can determine if Update
 > [AZURE.IMPORTANT]
  
 > -  You may not see Update 1.2 immediately because we do a phased rollout of the updates. Scan for updates in a few days again as this Update will become available soon.
-> - This update includes a set of manual and automatic pre-checks to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure portal. 
-> - We recommend that you install the software and driver updates via the Azure Management portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the Portal. The updates may take 5-10 hours to install (including the Windows Updates). The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
+> - This update includes a set of manual and automatic pre-checks to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure classic portal. 
+> - We recommend that you install the software and driver updates via the Azure  classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. The updates may take 5-10 hours to install (including the Windows Updates). The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
 
 ## Preparing for updates
 You will need to perform the following steps before you scan and apply the update:
@@ -50,8 +50,7 @@ You will need to perform the following steps before you scan and apply the updat
 
 1. Take a cloud snapshot of the device data.
 
-
-1. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
+2. Ensure that your controller fixed IPs are routable and can connect to the Internet. These fixed IPs will be used to service updates to your device. You can test this by running the following cmdlet on each controller from the Windows PowerShell interface of the device:
 
  	`Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
@@ -78,7 +77,7 @@ You will need to perform the following steps before you scan and apply the updat
 
 After you have successfully completed these manual pre-checks, you can proceed to scan and install the updates.
 
-## Install Update 1.2 via the Management Portal 
+## Install Update 1.2 via the Azure classic portal 
 
 Use this procedure only if you have a gateway configured on DATA 0 network interface on your device. Perform the following steps to update your device.
 
@@ -86,7 +85,7 @@ Use this procedure only if you have a gateway configured on DATA 0 network inter
 
 ## Install Update 1.2 on a device that has a gateway configured for a non-DATA 0 network interface 
 
-You should use this procedure only if you fail the gateway check when trying to install the updates through the Management Portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1. If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Management Portal. See [Use the Management Portal to install Update 1](#install-update-12-via-the-management-portal).
+You should use this procedure only if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1. If your device does not have a gateway on a non-DATA 0 network interface, you can update your device directly from the Azure classic portal. See [Install update 1.2 via the Azure classic portal](#install-update-12-via-the-azure-portal).
 
 The software versions that can be upgraded using this method are Update 0.1, Update 0.2, and Update 0.3. 
 
@@ -94,20 +93,20 @@ The software versions that can be upgraded using this method are Update 0.1, Upd
 > [AZURE.IMPORTANT] 
 > 
 > - If your device is running Release (GA) version, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with the update.
-> - This procedure needs to be performed only once to apply Update 1.2. You can use the Azure Management Portal to apply subsequent updates.
+> - This procedure needs to be performed only once to apply Update 1.2. You can use the Azure classic portal to apply subsequent updates.
 
 If your device is running pre-Update 1 software and it has a gateway set for a network interface other than DATA 0, you can apply Update 1.2 in the following two ways:
 
 - **Option 1**: Download the update and apply it by using the `Start-HcsHotfix` cmdlet from the Windows PowerShell interface of the device. This is the recommended method. **Do not use this method to apply Update 1.2 if your device is running Update 1.0 or Update 1.1.** 
 
-- **Option 2**: Remove the gateway configuration and install the update directly from the Management Portal.
+- **Option 2**: Remove the gateway configuration and install the update directly from the Azure classic portal.
 
 
 Detailed instructions for each of these are provided in the following sections.
 
 ## Option 1: Use Windows PowerShell for StorSimple to apply Update 1.2 as a hotfix
 
-You should use this procedure only if you are running Update 0.1, 0.2, 0.3 and if your gateway check has failed when trying to install updates from the Management Portal. If you are running Release (GA) software, please [Microsoft Support](storsimple-contact-microsoft-support.md) to update your device. 
+You should use this procedure only if you are running Update 0.1, 0.2, 0.3 and if your gateway check has failed when trying to install updates from the Azure classic portal. If you are running Release (GA) software, please [Microsoft Support](storsimple-contact-microsoft-support.md) to update your device. 
 
 Before using this procedure to apply the update, make sure that:
 
@@ -118,7 +117,7 @@ Perform the following steps to apply Update 1.2. **The updates could take around
 [AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
 
 
-## Option 2: Use the Azure Portal to apply Update 1.2 after removing the gateway configuration
+## Option 2: Use the Azure classic portal to apply Update 1.2 after removing the gateway configuration
 
 This procedure applies only to StorSimple devices that are running a software version prior to Update 1 and have a gateway set on a network interface other than DATA 0. You will need to clear the gateway setting prior to applying the update.
  
@@ -151,4 +150,4 @@ If you have verified the connectivity exists, and you continue to see this issue
 
 ## Next steps
 
-Learn more about [Update 1.2 release](storsimple-update1-release-notes.md) 
+Learn more about the [Update 1.2 release](storsimple-update1-release-notes.md).

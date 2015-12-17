@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="hero-article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/16/2015"
+	ms.author="huvalo"/>
 
 
 # Creating web apps with Django in Azure
@@ -57,7 +57,7 @@ You should have Python and Git already installed, but make sure you have either 
 The first step in creating your app is to create the web app via the [Azure Portal](https://portal.azure.com).
 
 1. Log into the Azure Portal and click the **NEW** button in the bottom left corner.
-2. Click **Web + Mobile** > **Azure Marketplace** > **Web Apps**.
+2. Click **Web + Mobile**.
 3. In the search box, type "python".
 4. In the search results, select **Django**, then click **Create**.
 5. Configure the new Django app, such as creating a new App Service plan and a new resource group for it. Then, click **Create**.
@@ -333,6 +333,10 @@ For Python 3.4:
 
     python -m venv env
 
+or
+
+	pyvenv env
+
 Install any external packages required by your application. You can use the requirements.txt file at the root of the repository to install the packages in your virtual environment:
 
     env/bin/pip install -r requirements.txt
@@ -488,9 +492,11 @@ For information on using SQL Database and MySQL:
 - [Django and MySQL on Azure with Python Tools for Visual Studio]
 - [Django and SQL Database on Azure with Python Tools for Visual Studio]
 
+For more information, see the [Python Developer Center](/develop/python/).
+
+
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->

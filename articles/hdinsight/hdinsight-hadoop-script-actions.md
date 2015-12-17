@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="11/09/2015"
 	ms.author="jgao"/>
 
 # Develop Script Action scripts for HDInsight
@@ -92,7 +92,7 @@ Name | Script
 **Install Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. See [Install and use Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md).
 - **Install Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. See [Install and use Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install.md).
 
-Script Action can be deployed from the Azure preview portal, Azure PowerShell or by using the HDInsight .NET SDK.  For more information, see [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize].
+Script Action can be deployed from the Azure Portal, Azure PowerShell or by using the HDInsight .NET SDK.  For more information, see [Customize HDInsight clusters using Script Action][hdinsight-cluster-customize].
 
 > [AZURE.NOTE] The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
 
@@ -201,9 +201,9 @@ Scripts used to customize a cluster needs to either be in the default storage ac
 
 In this example, you must ensure that the container 'somecontainer' in storage account 'somestorageaccount' is publicly accessible. Otherwise, the script will throw a ‘Not Found’ exception and fail.
 
-### Pass parameters to the Add-AzureHDInsightScriptAction cmdlet
+### Pass parameters to the Add-AzureRmHDInsightScriptAction cmdlet
 
-To pass multiple parameters to the Add-AzureHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script. For example:
+To pass multiple parameters to the Add-AzureRmHDInsightScriptAction cmdlet, you need to format the string value to contain all parameters for the script. For example:
 
 	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  

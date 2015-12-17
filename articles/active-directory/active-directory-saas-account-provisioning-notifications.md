@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Account provisioning notifications"
+	pageTitle="Account provisioning notifications | Microsoft Azure"
 	description="Learn how to ensure that you are notified of issues related to user provisioning that require your attention by enabling account provisioning notifications."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 

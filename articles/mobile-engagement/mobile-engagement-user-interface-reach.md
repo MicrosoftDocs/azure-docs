@@ -13,50 +13,53 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="08/10/2015"
+   ms.date="11/29/2015"
    ms.author="piyushjo"/>
 
 
 # How to reach out to the users of your application with push notifications
+
+This article describes the **REACH** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+
 The Reach section of the UI is the Push campaign management tool where you can create/edit/activate/finish/monitor and get statistics on Push notification campaigns and features that can also be accessed via the Reach API (and some elements of the low level Push API). Remember that whether you are using the APIs or the UI, you will need to integrate both Azure Mobile Engagement and Reach into your application for each platform with the SDK before you can use Reach campaigns.
 
-### See also
--  [API Documentation - Reach API][Link 4], [API Documentation - Push API][Link 4], [Troubleshooting Guide - Push/Reach][Link 23]
--  [Reach - Campaign][Link 27], [Reach - Criterion][Link 28], [Reach - Content][Link 29], [Reach - How To][Link 3]
+>[AZURE.NOTE] Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
+
  
 ## Four types of Push notifications
 1.    Announcements - allow you to send advertising messages to users that redirect them to another location inside your app or to send them to a webpage or store outside of your app. 
 2.    Polls - allow you to gather information from end users by asking them questions.
 3.    Data Pushes - allow you to send a binary or base64 data file. The information contained in a data push is sent to your application to modify your users' current experience in your app. Your application needs to be able to process the data in a data push.
-4.    Tiles (Windows Phone only) - allow you to use the Microsoft Push Notification Service (MPNS) to send Native Windows Push containing XML Data. (Supported since SDK version 0.9.0. The final payload for tiles cannot exceed 32 kilobytes.)
 
-### See also
--  [Concepts - Glossary][Link 6]
 
 ## Three categories of Real time statistics shown for each campaign
+
 1.    Pushed - how many pushes were sent based on the criteria specified in the campaign. 
 2.    Replied - how many users reacted to the notification by either opening it from outside of app or closing it in the app. 
 3.    Actioned - how many users clicked on the link in the notification to be redirected to a new location in the app, to a store, or to a web browser. 
 
-> Note: More verbose campaign statistics are available from the via Reach API Stats
+> [AZURE.NOTE]: More verbose campaign statistics are available from the via Reach API Stats
 
-### See also
--  [Concepts - Glossary][Link 6], [API Documentation - Reach API - Stats][Link 4]
 
 
 ## Campaign Details
+
 You can edit, clone, delete, or activate campaigns that have not been activated yet by hovering over their names or you can click to open them. You can clone campaigns that have already been activated by hovering over their names or you can click to open them. However, you can't change a campaign once it has been activated.
  
 ![Reach1][18]
 
 ## Reach Feedback
-You can switch from the details to the statistics view of an open campaign that has already been activated and switch from the simple to advanced view of the statistics to view more detailed information (depending on your permissions). You can also use the reach feedback information from a previous campaign as targeting criteria in a new campaign. Reach Feedback statistics can also be gathered with “Stats” from the Reach API. You can also customize the audience of your Push campaigns based on previous campaigns.
 
+To see details or statistics of a campaign, click on it. You can then switch from the details to the statistics view of an open campaign that has already been activated and switch from the simple to advanced view of the statistics to view more detailed information (depending on your permissions). You can also use the reach feedback information from a previous campaign as targeting criteria in a new campaign. Reach Feedback statistics can also be gathered with **Stats** from the Reach API. You can also customize the audience of your Push campaigns based on previous campaigns.
 
-### See also 
--  [UI Documentation - Reach - New Push Campaign][27], [API Documentation - Reach API - Stats][Link 4]
 
 ![Reach2][19]
+
+
+## See also
+
+- [Concepts][Link 6]
+- [Troubleshooting Guide Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

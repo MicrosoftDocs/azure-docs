@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # Data collection, retention and storage in Application Insights 
@@ -59,10 +59,19 @@ Telemetry data include:
 
 User and session counts aren't included in the quota for pricing purposes.
 
+*What happens if my app exceeds the per-second rate?*
+
+* The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. Some versions of the SDK then try to resend, spreading a surge out over several minutes; others such as the JavaScript SDK just drop the refused data.
+
 *How do I know how many data points my app is sending?*
 
 * Open Settings/Quota and Pricing to see the Data Volume chart.
 * Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
+
+*How can I reduce the amount of data my app sends?*
+
+* Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search. From ASP.NET SDK 2.0.0-beta3, adaptive sampling is enabled by default.
+* [Switch off telemetry collectors](app-insights-configuration-with-applicationinsights-config.md) that you don't need.
 
 
 #### How long is the data kept? 
@@ -77,7 +86,7 @@ Aggregated data (that is, counts, averages and other statistical data that you s
 
 1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  [Metrics and property names][api] are global per instrumentation key not scoped to data type.
 2.	[Properties][apiproperties] can be used for filtering and group by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
-3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as “Other values”. The original value can still be used for full text search and filtering.
+3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values". The original value can still be used for full text search and filtering.
 
 
 ## Access
@@ -107,7 +116,7 @@ Microsoft uses the data only in order to provide the service to you.
 
 #### How secure is my data? 
 
-The data is stored in Microsoft Azure servers. For accounts in the Azure Preview Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](http://go.microsoft.com/fwlink/?linkid=392408). For accounts in the Visual Studio Online Portal, the [Visual Studio Online Data Protection](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) document applies. 
+The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](http://go.microsoft.com/fwlink/?linkid=392408). For accounts in the Visual Studio Team Services Portal, the [Visual Studio Team Services Data Protection](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) document applies. 
 
 Access to your data by Microsoft personnel is restricted. We access your data only with your permission and if it is necessary to support your use of Application Insights. 
 
@@ -240,12 +249,12 @@ This product includes GeoLite2 data created by MaxMind, available from [http://w
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  

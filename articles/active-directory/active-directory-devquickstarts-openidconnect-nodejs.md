@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="11/19/2015"
 	ms.author="brandwe"/>
 
 # Web App Sign In & Sign Out with Azure AD
@@ -348,7 +348,6 @@ These simple routes will just pass along the request to our views, including the
 	<a href="/account">Account Info</a></br>
 	<a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azuread` has put in the user request.
@@ -368,7 +367,6 @@ These simple routes will just pass along the request to our views, including the
 <p></p>
 <a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - Finally, let's make this look pretty by adding a layout. Create the '/views/layout.ejs' view under the root directory
@@ -395,7 +393,8 @@ These simple routes will just pass along the request to our views, including the
 		<% } %>
 		<%- body %>
 	</body>
-</html>```
+</html>
+```
 
 Finally, build and run your app! 
 

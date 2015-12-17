@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Services Concepts 
@@ -104,9 +104,11 @@ For information about supported encoders, see [Encoders](media-services-encode-a
 
 ##Live Streaming
 
-###On-premises (3rd Party) Live transcoder
+In Azure Media Services, a Channel represents a pipeline for processing live streaming content. A Channel receives live input streams in one of two ways:
 
-An on-premises live encoder (or transcoder) converts the audio and/or video that is streamed from your camera into a multi-bitrate RTMP or Smooth Streaming format. The transcoder then pushes the adaptive bitrate RTMP or Smooth streams into a Media Services channel. Media Services then broadcasts the event live.
+- An on-premises live encoder sends multi-bitrate RTMP or Smooth Streaming (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco. The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through Channels without any further processing. When requested, Media Services delivers the stream to customers.
+
+- A single bitrate stream (in one of the following formats: RTP (MPEG-TS)), RTMP, or Smooth Streaming (Fragmented MP4)) is sent to the Channel that is enabled to perform live encoding with Media Services. The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
 
 ###Channel
 
@@ -116,9 +118,6 @@ You can get the ingest URL and the preview URL when you create the channel. To g
 
 Each Media Services account can contain multiple Channels, multiple Programs, and multiple StreamingEndpoints. Depending on the bandwidth and security needs, StreamingEndpoint services can be dedicated to one or more channels. Any StreamingEndpoint can pull from any Channel.
 
-By default you can add 5 channels to your Media Services account. To request a higher limit, see [Quotas and limitations](media-services-quotas-and-limitations.md).  
-
-You are only billed when your channel is in running state.
 
 ###Program 
 
@@ -131,37 +130,39 @@ Each program is associated with an Asset. To publish the program you must create
 
 A channel supports up to three concurrently running programs so you can create multiple archives of the same incoming stream. This allows you to publish and archive different parts of an event as needed. For example, your business requirement is to archive 6 hours of a program, but to broadcast only last 10 minutes. To accomplish this, you need to create two concurrently running programs. One program is set to archive 6 hours of the event but the program is not published. The other program is set to archive for 10 minutes and this program is published.
 
+
+For more information, see: 
+
+- [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
+- [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md)
+- [Quotas and limitations](media-services-quotas-and-limitations.md).  
+
 ##Protecting content
 
 ###Dynamic encryption
 
-Microsoft Azure Media Services enables you to deliver your content encrypted  dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM. 
+Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and common encryption (CENC) using PlayReady and/or Widevine DRM. Media Services also provides a service for delivering AES keys and PlayReady licenses to authorized clients. Widevine license delivery services provided by Azure Media Sevices is in currently inpreview. 
 
 Currently, you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
 
 If you want for Media Services to encrypt an asset, you need to associate an encryption key (CommonEncryption or EnvelopeEncryption) with your asset and also configure authorization policies for the key.
 
-You also need to configure the asset's delivery policy. If you want to stream a storage encrypted asset, make sure to specify how you want to deliver it by configuring asset delivery policy.  
+If you want to stream a storage encrypted asset, you must configure the asset's delivery policy in order to specify how you want to deliver your asset.    
 
-When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
+When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using an envelope encryption (with AES) or common encryption (with PlayReady  or Widevine). To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-###PlayReady DRM licenses and AES clear keys delivery services
-
-Media Services provides a service for delivering PlayReady licenses and AES clear keys to authorized clients. You can use the Azure Management Portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
-
-Note if you are using the Portal, you can configure one AES policy (which will be applied to all the AES encrypted content) and one PlayReady policy (which will be applied to all the PlayReady encrypted content). Use Media Services SDK for .NET if you want more control over the configurations.
-
-###PlayReady license template
-
-Media Services provides a service for delivering PlayReady licenses. When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
-
-Licenses contain the rights and restrictions that you want for the PlayReady DRM runtime to enforce when a user is trying to playback protected content. Media Services provides APIs that let you configure your PlayReady licenses. For more information, see [Media Services PlayReady License Template Overview](https://msdn.microsoft.com/library/azure/dn783459.aspx)
 
 ###Token restriction
 
 The content key authorization policy could have one or more authorization restrictions: open, token restriction, or IP restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format. Media Services does not provide Secure Token Services. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).
 
 When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
+
+For more information, see the following articles:
+
+[Protect content overview](media-services-content-protection-overview.md)
+[Protect with AES-128](media-services-protect-with-aes128.md)
+[Protect with DRM](media-services-protect-with-drm.md)
 
 ##Delivering
 
@@ -244,8 +245,8 @@ The following list describes different streaming formats and gives examples:
  
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

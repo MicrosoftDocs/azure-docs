@@ -13,29 +13,95 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="11/03/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Create Table As Select (CTAS) in SQL Data Warehouse
-Create table as select or CTAS is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a Select statement. You can consider it to be a supercharged version of SELECT..INTO if you would like.
+Create table as select or CTAS is one of the most important T-SQL features available. It is a fully parallelized operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create a copy of a table. You can consider it to be a supercharged version of SELECT..INTO if you would like. This document provide both examples and best practices for CTAS.
 
-CTAS can also be used to work around a number of the unsupported features listed above. This can often prove to be a win/win situation as not only will your code be compliant but it will often execute faster on SQL Data Warehouse. This is as a result of its fully parallelized design.
+## Using CTAS to copy a table
 
-> [AZURE.NOTE] Try to think "CTAS first". If you think you can solve a problem using CTAS then that is generally the best way to approach it - even if you are writing more data as a result.
+Perhaps one of the most common uses of CTAS is creating a copy of a table so that you can change the DDL. If for example you originally created your table as ROUND_ROBIN and now want change it to a table distributed on a column, CTAS is how you would change the distribution column. CTAS can also be used to changed partitioning, indexing, or column types.
 
-Scenarios that can be worked around with CTAS include:
+Let's say you created this table using the default distribution type of ROUND_ROBIN distributed since no distribution column was specified in the CREATE TABLE.
+
+```
+CREATE TABLE FactInternetSales
+(
+	ProductKey int NOT NULL,
+	OrderDateKey int NOT NULL,
+	DueDateKey int NOT NULL,
+	ShipDateKey int NOT NULL,
+	CustomerKey int NOT NULL,
+	PromotionKey int NOT NULL,
+	CurrencyKey int NOT NULL,
+	SalesTerritoryKey int NOT NULL,
+	SalesOrderNumber nvarchar(20) NOT NULL,
+	SalesOrderLineNumber tinyint NOT NULL,
+	RevisionNumber tinyint NOT NULL,
+	OrderQuantity smallint NOT NULL,
+	UnitPrice money NOT NULL,
+	ExtendedAmount money NOT NULL,
+	UnitPriceDiscountPct float NOT NULL,
+	DiscountAmount float NOT NULL,
+	ProductStandardCost money NOT NULL,
+	TotalProductCost money NOT NULL,
+	SalesAmount money NOT NULL,
+	TaxAmt money NOT NULL,
+	Freight money NOT NULL,
+	CarrierTrackingNumber nvarchar(25),
+	CustomerPONumber nvarchar(25)
+);
+```
+
+Now you want to create a new copy of this table with a Clustered Columnstore Index so that you can take advantage of the performance of Clustered Columnstore tables. You also want to distribute this table on ProductKey since you are anticipating joins on this column and want to avoid data movement during joins on ProductKey. Lastly you also want to add partitioning on OrderDateKey so that you can quickly delete old data by dropping old partitions. Here is the CTAS statement which would copy your old table into a new table.
+
+```
+CREATE TABLE FactInternetSales_new
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = HASH(ProductKey),
+    PARTITION
+    (
+        OrderDateKey RANGE RIGHT FOR VALUES 
+        (
+        20000101,20010101,20020101,20030101,20040101,20050101,20060101,20070101,20080101,20090101,
+        20100101,20110101,20120101,20130101,20140101,20150101,20160101,20170101,20180101,20190101,
+        20200101,20210101,20220101,20230101,20240101,20250101,20260101,20270101,20280101,20290101
+        )
+    )
+)
+AS SELECT * FROM FactInternetSales;
+```
+
+Finally you can rename your tables to swap in your new table and then drop your old table.
+
+```
+RENAME OBJECT FactInternetSales TO FactInternetSales_old;
+RENAME OBJECT FactInternetSales_new TO FactInternetSales;
+
+DROP TABLE FactInternetSales_old;
+```
+
+> [AZURE.NOTE] Azure SQL Data Warehouse does not yet support auto create or auto update statistics.  In order to get the best performance from your queries, it's important that statistics be created on all columns of all tables after the first load or any substantial changes occur in the data.  For a detailed explanation of statistics, see the [Statistics][] topic in the Develop group of topics.
+
+## Using CTAS to work around unsupported features
+
+CTAS can also be used to work around a number of the unsupported features listed below. This can often prove to be a win/win situation as not only will your code be compliant but it will often execute faster on SQL Data Warehouse. This is as a result of its fully parallelized design. Scenarios that can be worked around with CTAS include:
 
 - SELECT..INTO
 - ANSI JOINS on UPDATEs 
 - ANSI JOINs on DELETEs
 - MERGE statement
 
-This document also includes some best practices for when coding with CTAS.
+> [AZURE.NOTE] Try to think "CTAS first". If you think you can solve a problem using CTAS then that is generally the best way to approach it - even if you are writing more data as a result.
+> 
 
 ## SELECT..INTO
 You may find SELECT..INTO appears in a number of places in your solution. 
 
-An SELECT..INTO example is below:
+Below is an example of a SELECT..INTO statement:
 
 ```
 SELECT *
@@ -43,14 +109,13 @@ INTO    #tmp_fct
 FROM    [dbo].[FactInternetSales]
 ```
 
-To convert this to CTAS is quite straight-forward:
+To convert the above to CTAS is quite straight-forward:
 
 ```
 CREATE TABLE #tmp_fct
 WITH
 (
     DISTRIBUTION = ROUND_ROBIN
-,   LOCATION = USER_DB
 )
 AS
 SELECT  *
@@ -58,7 +123,7 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-Using CTAS means you can also specify a data distribution preference and optional index the table as well.
+> [AZURE.NOTE] CTAS currently requires a distribution column be specified.  If you are not intentionally trying to change the distribution column, your CTAS will perform the fastest if you select a distribution column that is the same as the underlying table as this strategy avoids data movement.  If you are creating a small table where performance is not a factor, then you can specify ROUND_ROBIN to avoid having to decide on a distribution column.
 
 ## ANSI join replacement for update statements
 
@@ -104,7 +169,7 @@ AND	[acs].[CalendarYear]				= [fis].[CalendarYear]
 ;
 ```
 
-As SQL Data Warehouse does not support ANSI joins you cannot copy this code over without changing it slightly.
+Since SQL Data Warehouse does not support ANSI joins in the FROM clause of an UPDATE statement, you cannot copy this code over without changing it slightly.
 
 You can use a combination of a CTAS and an implicit join to replace this code:
 
@@ -141,7 +206,7 @@ DROP TABLE CTAS_acs
 ```
 
 ## ANSI join replacement for delete statements
-Sometimes the best approach for deleting data is to use CTAS. Rather than deleting the data simply select the data you want to keep. This especially true for DELETE statements that use ansi joining syntax as this is not supported on SQL Data Warehouse.
+Sometimes the best approach for deleting data is to use CTAS. Rather than deleting the data simply select the data you want to keep. This especially true for DELETE statements that use ansi joining syntax since SQL Data Warehouse does not support ANSI joins in the FROM clause of a DELETE statement.
 
 An example of a converted DELETE statement is available below:
 
@@ -361,8 +426,9 @@ For more development tips, see [development overview][].
 
 <!--Article references-->
 [development overview]: sql-data-warehouse-overview-develop.md
+[Statistics]: ./sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
-[CTAS]: https://msdnstage.redmond.corp.microsoft.com/en-us/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/library/mt204041.aspx
 
 <!--Other Web references-->

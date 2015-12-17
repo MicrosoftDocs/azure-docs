@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Troubleshoot creating RemoteApp hybrid collections"
-    description="Learn how to troubleshoot RemoteApp hybrid collection creation failures" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="vkbucha" 
+<properties
+    pageTitle="Troubleshoot creating RemoteApp hybrid collections | Microsoft Azure"
+    description="Learn how to troubleshoot RemoteApp hybrid collection creation failures"
+    services="remoteapp"
+    documentationCenter=""
+    authors="vkbucha"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="11/04/2015"
     ms.author="elizapo" />
 
 
@@ -26,6 +26,9 @@ Haven't created your collection yet? See [Create a hybrid collection](remoteapp-
 
 If you are having trouble creating your collection, or if the collection isn't working the way you think it should, check out the following information.
 
+## Your image is invalid ##
+If you see a message like, "GoldImageInvalid" when you are waiting for Azure to provision your collection, it means that your template image doesn't meet the [defined image requirements](remoteapp-imagereqs.md). So, go read those [requirements](remoteapp-imagereqs.md), fix your image, and try to create your collection again.
+
 ## Does your VNET use forced tunneling? ##
 RemoteApp does not currently support using VNETs that have forced tunneling enabled. If you need this function, contact the [RemoteApp team](mailto:remoteappforum@microsoft.com) to request support.
 
@@ -34,7 +37,7 @@ After your request is approved, make sure the following ports are opened on the 
 Outbound: TCP: 443, TCP: 10101-10175
 
 ## Does your VNET have network security groups defined? ##
-If you have network security groups defined on the subnet you are using for your collection, make sure the following URLs are accessible from within your subnet: 
+If you have network security groups defined on the subnet you are using for your collection, make sure the following URLs are accessible from within your subnet:
 
 	https://management.remoteapp.windowsazure.com  
 	https://opsapi.mohoro.com  
@@ -72,7 +75,7 @@ For example:
 ![Define your DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
 ## Are you using an Active Directory domain controller in your collection? ##
-Currently only one Active Directory domain can be associated with Azure RemoteApp. The hybrid collection supports only Azure Active Directory accounts that have been synced using DirSync tool from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration. 
+Currently only one Active Directory domain can be associated with Azure RemoteApp. The hybrid collection supports only Azure Active Directory accounts that have been synced using DirSync tool from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration.
 
 See [Configuring Active Directory for Azure RemoteApp](remoteapp-ad.md) for more information.
 

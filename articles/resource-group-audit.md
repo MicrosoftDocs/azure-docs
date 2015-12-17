@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Audit operations with Resource Manager | Microsoft Azure" 
 	description="Use the audit log in Resource Manager to review user actions and errors. Shows PowerShell, Azure CLI, and REST." 
 	services="azure-resource-manager" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/02/2015" 
 	ms.author="tomfitz"/>
 
 # Audit operations with Resource Manager
@@ -22,22 +22,33 @@ When you encounter a problem during deployment or during the lifetime of your so
 You can use deployment commands to retrieve information about particular deployments and operations. Or, you can use the audit logs to retrieve information about deployments and other actions 
 taken during the lifetime of the solution. This topic focuses on audit logs. 
 
-The audit log contains all actions performed on your resources. So, if a user in your organization modifies a resource, you will be able to identify the action, time, and user.   
+The audit log contains all actions performed on your resources. So, if a user in your organization modifies a resource, you will be able to identify the action, time, and user.
 
-You can retrieve information from the audit logs through Azure PowerShell, Azure CLI, REST API, or the Azure preview portal.
+There are two important limitations to keep in mind when working with audit logs:
+
+1. Audit logs are only retained for 90 days.
+2. You can only query for a range of 15 days or less.
+
+You can retrieve information from the audit logs through Azure PowerShell, Azure CLI, REST API, or the Azure portal.
 
 ## PowerShell
 
-To retrieve log entries, you run the **Get-AzureResourceGroupLog** command. You provide additional parameters to filter the list of entries . 
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-The following example shows how to use the audit log to research actions taken during the lifecycle of the solution. You can see when the action occurred and who requested it.
+To retrieve log entries, run the **Get-AzureRmLog** command  (or **Get-AzureResourceGroupLog** for PowerShell versions earlier than 1.0). You provide additional parameters to filter the list of entries . 
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+The following example shows how to use the audit log to research actions taken during the lifecycle of the solution. You can see when the action occurred and who requested it. The start and end dates are specified in a date format.
 
-Depending on the start time you specify, the previous command can return a long list actions for that resource group. You can filter the results for what you are looking for by providing search criteria. For example, if you
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+
+Or, you can use date functions to specify the date range, such as the last 15 days.
+
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15)
+
+Depending on the start time you specify, the previous commands can return a long list actions for that resource group. You can filter the results for what you are looking for by providing search criteria. For example, if you
 are trying to research how a web app was stopped you could run the following command and see that a stop action was performed by someone@example.com.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -57,11 +68,11 @@ are trying to research how a web app was stopped you could run the following com
 
 In the next example, we'll just look for failed actions after the specified start time. We'll also include the **DetailedOutput** parameter to see the error messages.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) -Status Failed –DetailedOutput
     
 If this command returns too many entries and properties, you can focus your auditing efforts by retrieving the **properties** property.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
 
     Content
     -------
@@ -71,7 +82,7 @@ If this command returns too many entries and properties, you can focus your audi
 
 And, you can further refine the results by looking at the status message.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -136,9 +147,9 @@ If the list of operations from the last deployment is too long, you can filter t
 
 The REST operations for working with the audit log are part of the [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). To retrieve audit log events, see [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
-## Preview portal
+## Portal
 
-You can also view logged operations through the preview portal. Simply select the audit logs blade.
+You can also view logged operations through the portal. Simply select the audit logs blade.
 
 ![select audit logs](./media/resource-group-audit/select-audit.png) 
 
@@ -150,6 +161,6 @@ You can select any operation for more details about it.
 
 ## Next steps
 
-- To learn about setting security policies, see [Managing access to resources](./azure-portal/resource-group-rbac.md).
+- To learn about setting security policies, see [Managing access to resources](resource-group-rbac.md).
 - To learn about granting access to a service principal, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
 - To learn how to actions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).

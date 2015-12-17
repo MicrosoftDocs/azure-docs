@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="arramac"/>
 	
 # Automatic Indexing in Azure DocumentDB
@@ -34,7 +34,7 @@ With a goal to eliminate the impedance mismatch between the database and the app
 
 The indexing in DocumentDB takes advantage of the fact that JSON grammar allows documents to be **represented as trees**. For a JSON document to be represented as a tree, a dummy root node needs to be created which parents the rest of the actual nodes in the document underneath. Each label including the array indices in a JSON document becomes a node of the tree. The figure below illustrates an example JSON document and its corresponding tree representation.
 
->[AZURE.NOTE] Since JSON is self-describing i.e. each document includes both schema (metadata) and data, e.g. `{"locationId", 5, "city": "Moscow"}` reveals that there are two properties `locationId` and `city`, and that they have a numeric and string property values. DocumentDB is able to infer the schema of documents and index them when they are inserted or replaced, without you ever having to define schemas or secondary indexes.
+>[AZURE.NOTE] Since JSON is self-describing i.e. each document includes both schema (metadata) and data, e.g. `{"locationId": 5, "city": "Moscow"}` reveals that there are two properties `locationId` and `city`, and that they have a numeric and string property values. DocumentDB is able to infer the schema of documents and index them when they are inserted or replaced, without you ever having to define schemas or secondary indexes.
 
 
 **JSON Documents as Trees:**
@@ -55,7 +55,7 @@ An important implication of treating both the schema and instance values uniform
 
 ![Index as a Tree](media/documentdb-indexing/IndexAsTree.png)
 
-Despite being schema-free, DocumentDB’s SQL and JavaScript query languages provide relational projections and filters, hierarchical navigation across documents, and invocation of UDFs written entirely in JavaScript. The DocumentDB’s query runtime is able to support these queries since it can operate directly against this index tree representation of the data.
+Despite being schema-free, DocumentDB’s SQL and JavaScript query languages provide relational projections and filters, hierarchical navigation across documents, spatial operations, and invocation of UDFs written entirely in JavaScript. The DocumentDB’s query runtime is able to support these queries since it can operate directly against this index tree representation of the data.
 
 The default indexing policy automatically indexes all properties of all documents and provides consistent queries (meaning the index is updated synchronously with the document write). How does DocumentDB support consistent updates to the index tree at scale? DocumentDB uses write optimized, lock free, and log structured index maintenance techniques. This means that DocumentDB can support a sustained volume of fast writes while still serving consistent queries. 
 

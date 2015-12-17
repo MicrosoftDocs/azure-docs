@@ -3,9 +3,9 @@
 	description="How to get started using Azure Table storage in an Azure WebJobs project in Visual Studio after connecting to a storage account using Visual Studio connected services"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,21 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.date="12/16/2015"
+	ms.author="tarcher"/>
 
 # Getting Started with Azure Storage (Azure WebJob Projects)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-tables.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
-
 
 ## Overview
 

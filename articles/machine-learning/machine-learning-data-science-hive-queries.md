@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Submit Hive Queries to Hadoop clusters in the advanced analytics process | Microsoft Azure" 
+	pageTitle="Submit Hive Queries to Hadoop clusters in the Cortana Analytics Process  | Microsoft Azure" 
 	description="Process Data from Hive Tables" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -14,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="10/18/2015" 
 	ms.author="hangzh;bradsev" /> 
 
-#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process
+#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Cortana Analytics Process
 
 This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. Hive queries can be submitted by using: 
 
@@ -35,10 +34,10 @@ In the final section, parameters that users can tune to improve the performance 
 ## Prerequisites
 This article assumes that you have:
  
-* created an Azure storage account. If you need instructions for this task, see [Create an Azure Storage account](../hdinsight-get-started.md#storage) 
-* provisioned an Hadoop cluster with the HDInsight service.  If you need instructions, see [Provision an HDInsight cluster](../hdinsight-get-started.md#provision).
-* the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow the instructions provided at [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
-* enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
+* Created an Azure storage account. If you need instructions for this task, see [Create an Azure Storage account](../hdinsight-get-started.md#storage) 
+* Provisioned an Hadoop cluster with the HDInsight service.  If you need instructions, see [Provision an HDInsight cluster](../hdinsight-get-started.md#provision).
+* Uploaded the data to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow the instructions provided at [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
+* Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
 ## <a name="submit"></a>How to submit Hive queries
@@ -280,11 +279,11 @@ The fields that are used in this query are GPS coordinates of pickup and dropoff
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-The mathematical equations of calculating distance between two GPS coordinates can be found at [here](http://www.movable-type.co.uk/scripts/latlong.html), authored by Peter Lapisu. In his Javascript, the function toRad() is just `lat_or_lon*pi/180`, which converts degrees to radians. Here, `lat_or_lon` is the latitude or longitude. Since Hive does not provide function `atan2`, but provides function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query, based on its definition in [Wikipedia](http://en.wikipedia.org/wiki/Atan2). 
+The mathematical equations of calculating distance between two GPS coordinates can be found at [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html), authored by Peter Lapisu. In his Javascript, the function toRad() is just `lat_or_lon*pi/180`, which converts degrees to radians. Here, `lat_or_lon` is the latitude or longitude. Since Hive does not provide function `atan2`, but provides function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query, based on its definition in [Wikipedia](http://en.wikipedia.org/wiki/Atan2). 
 
 ![Create workspace][1]
 
-A full list of Hive embedded UDFs can be found [here](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions). 
+A full list of Hive embedded UDFs can be found in the [UDF Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions). 
 
 ## <a name="tuning"></a> Advanced topics: Tune Hive Parameters to Improve Query Speed
 

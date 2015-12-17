@@ -32,9 +32,9 @@ Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)
 
 ##Release notes
 
-###3.1.0 (08/26/2015)
+###3.2.1 (12/11/2015)
 
--   Fix iOS 9 compatibility bug with a third party library. It was causing crashes while sending polls results, application information or extra data.
+-   Fixed the delay when a new app instance is triggered by a notification with deep links 
 
 For earlier version please see the [complete release notes](mobile-engagement-ios-release-notes.md)
 
@@ -58,4 +58,3 @@ The method `application:didReceiveRemoteNotification:` needs to be replaced by `
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
-

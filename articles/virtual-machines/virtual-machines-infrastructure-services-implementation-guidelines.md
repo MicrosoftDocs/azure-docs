@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Azure infrastructure services implementation guidelines
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure is an excellent platform to implement dev/test or proof-of-concept configurations, because it requires very little investment to test a particular approach to an implementation of your solutions. However, you must be able to distinguish the easy practices for a dev/test environment from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
 
@@ -37,7 +39,7 @@ You should agree on a set of naming conventions up front. There are some conside
 
 ### Affixes
 
-When creating certain resources, Azure uses some defaults to simplify management of the resources that are associated with these resources. For example, when creating the first virtual machine for a new cloud service, the Azure portal attempts to use the virtual machine’s name for the name of a new cloud service for the virtual machine.
+When creating certain resources, Azure uses some defaults to simplify management of the resources that are associated with these resources. For example, when creating the first virtual machine for a new cloud service, the Azure classic portal attempts to use the virtual machine’s name for the name of a new cloud service for the virtual machine.
 
 Therefore, it is beneficial to identify types of resources that need an affix to identify that type. In addition, clearly specify whether the affix will be at:
 
@@ -202,7 +204,7 @@ Decisions:
 
 Task:
 
-- Create the set of storage accounts using your naming convention. You can use the Azure preview portal, the Azure portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
+- Create the set of storage accounts using your naming convention. You can use the Azure portal, the Azure classic portal, or the **New-AzureStorageAccount** PowerShell cmdlet.
 
 ## 4. Cloud services
 
@@ -230,7 +232,7 @@ Decision:
 
 Task:
 
-- Create the set of cloud services using your naming convention. You can use the Azure portal or the **New-AzureService** PowerShell cmdlet.
+- Create the set of cloud services using your naming convention. You can use the Azure classic portal or the **New-AzureService** PowerShell cmdlet.
 
 ## 5. Virtual networks
 
@@ -288,7 +290,7 @@ Tasks:
 - Define the address space for the virtual network.
 - Define the set of subnets and the address space for each.
 - For cross-premises virtual networks, define the set of local network address spaces for the on-premises locations that the virtual machines in the virtual network need to reach.
-- Create the virtual network using your naming convention. You can use the Azure preview portal or the Azure portal.
+- Create the virtual network using your naming convention. You can use the Azure portal or the Azure classic portal.
 
 ## 6. Availability sets
 
@@ -312,7 +314,7 @@ Task:
 
 In Azure PaaS, Azure manages virtual machines and their associated disks. You must create and name cloud services and roles, and then Azure creates instances associated to those roles. In the case of Azure IaaS, it is up to you to provide names for the cloud services, virtual machines, and associated disks.
 
-To reduce administrative burden, the Azure portal uses the computer name as a suggestion for the default name for the associated cloud service (in the case the customer chooses to create a new cloud service as part of the virtual machine creation wizard).
+To reduce administrative burden, the Azure classic portal uses the computer name as a suggestion for the default name for the associated cloud service (in the case the customer chooses to create a new cloud service as part of the virtual machine creation wizard).
 
 In addition, Azure names disks and their supporting VHD blobs using a combination of the cloud service name, the computer name, and the creation date.
 
@@ -327,7 +329,7 @@ Decision:
 Tasks:
 
 - Define each virtual machine name using your naming convention.
-- Create your virtual machines with the Azure preview portal, the Azure portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
+- Create your virtual machines with the Azure portal, the Azure classic portal, the **New-AzureVM** PowerShell cmdlet, the Azure CLI, or with Resource Manager templates.
 
 ## Example of an IT workload: The Contoso financial analysis engine
 
@@ -375,7 +377,7 @@ Contoso determined that they needed two storage accounts:
 
 Because the virtual network does not need ongoing connectivity to the Contoso on-premises network, Contoso decided on a cloud-only virtual network.
 
-They created a cloud-only virtual network with the following settings using the Azure preview portal:
+They created a cloud-only virtual network with the following settings using the Azure portal:
 
 - Name: AZFAE-USE-VN01
 - Location: East US 2

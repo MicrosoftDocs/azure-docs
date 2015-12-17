@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Mobile Services for Xamarin iOS apps"
+	pageTitle="Get Started with Mobile Services for Xamarin iOS apps | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure Mobile Services for Xamarin iOS development."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -12,23 +12,29 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="hero-article"
+	ms.date="11/05/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-This tutorial shows you how to add a cloud-based backend service to a Xamarin.iOS app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple <em>To do list</em> app that stores app data in the new mobile service.
+&nbsp;
+
+
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+This tutorial shows you how to add a cloud-based backend service to a Xamarin.iOS app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service.
 
 If you prefer to watch a video, the clip below follows the same steps as this tutorial.
 
 Video: "Getting Started with Xamarin and Azure Mobile Services" with Craig Dunn, developer evangelist for Xamarin  (duration: 10:05 min)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
-
-
 
 A screenshot from the completed app is below:
 
@@ -44,11 +50,11 @@ Completing this tutorial requires XCode and [Xamarin Studio] for OS X or the Xam
 
 ## Create a new Xamarin.iOS app
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service.
+Once you have created your mobile service, you can follow an easy quickstart in the Azure classic portal to either create a new app or modify an existing app to connect to your mobile service.
 
 In this section you will create a new Xamarin.iOS app that is connected to your mobile service.
 
-1.  In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
+1.  In the [Azure classic portal], click **Mobile Services**, and then click the mobile service that you just created.
 
 2. In the quickstart tab, click **Xamarin.iOS** under **Choose platform** and expand **Create a new Xamarin.iOS app**.
 
@@ -86,7 +92,7 @@ The final stage of this tutorial is to build and run your new app.
 
 	> [AZURE.NOTE] You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.cs C# file.
 
-4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
+4. Back in the [Azure classic portal], click the **Data** tab and then click the **TodoItems** table.
 
 	![][11]
 
@@ -98,17 +104,20 @@ The final stage of this tutorial is to build and run your new app.
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services:
 
-* [Get started with data]
-	<br/>Learn how to add a new table to a mobile service, then read and write against that table.
-
 * [Get started with offline data sync]
-  <br/>Learn how the quickstart uses offline data sync to make the app responsive and robust.
+  Learn how the quickstart uses offline data sync to make the app responsive and robust.
 
 * [Get started with authentication]
-  <br/>Learn how to authenticate users of your app with an identity provider.
+  Learn how to authenticate users of your app with an identity provider.
 
 * [Get started with push notifications]
-  <br/>Learn how to send a very basic push notification to your app.
+  Learn how to send a very basic push notification to your app.
+
+* [How to use the Xamarin Component client for Azure Mobile Services](partner-xamarin-mobile-services-how-to-use-client-library.md)
+   Learn how to query the mobile service, work with data, and access custom APIs.
+
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -128,7 +137,6 @@ Now that you have completed the quickstart, learn how to perform additional impo
 
 
 <!-- URLs. -->
-[Get started with data]: partner-xamarin-mobile-services-ios-get-started-data.md
 [Get started with offline data sync]: mobile-services-xamarin-ios-get-started-offline-data.md
 [Get started with authentication]: partner-xamarin-mobile-services-ios-get-started-users.md
 [Get started with push notifications]: partner-xamarin-mobile-services-ios-get-started-push.md
@@ -136,4 +144,4 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/

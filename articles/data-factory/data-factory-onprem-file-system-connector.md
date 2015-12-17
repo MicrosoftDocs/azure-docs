@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Move data to and from On-premises File System using Azure Data Factory
@@ -52,13 +52,15 @@ As a first step, do setup the data management gateway as per the instructions in
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
 	    }
 	  }
 	}
+
+For host, you can specify **Local** or **localhost** if the file share is on the gateway machine itself. And, we recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties.  See [File System Linked Service](#onpremisesfileserver-linked-service-properties) for details about this linked service. 
 
 **Azure Blob storage linked service:**
 
@@ -84,7 +86,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 	    "type": " FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -146,7 +148,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -273,13 +275,15 @@ The sample copies data belonging to a time series from a table in Azure SQL data
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\\Contosogame-Asia",
+	      "host": "\\\\Contosogame-Asia.<region>.corp.<company>.com",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
 	    }
 	  }
 	}
+
+For host, you can specify **Local** or **localhost** if the file share is on the gateway machine itself. And, we recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties.  See [File System Linked Service](#onpremisesfileserver-linked-service-properties) for details about this linked service. 
 
 **Azure SQL input dataset:**
 
@@ -320,7 +324,7 @@ Data is copied to a new file every hour with the path for the blob reflecting th
 	    "type": "FileShare",
 	    "linkedServiceName": " OnPremisesFileServerLinkedService ",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mysharedfolder/yearno={Year}/monthno={Month}/dayno={Day}",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -431,7 +435,7 @@ type | The type property should be set to **OnPremisesFileServer** | Yes
 host | Host name of the server. Use ‘ \ ’ as the escape character as in the following example: if your share is: \\servername, specify \\\\servername.<p>If the file system is local to the gateway machine, use Local or localhost. If the file system is on a server different from the gateway machine, use \\\\servername.</p> | Yes
 userid  | Specify the ID of the user who has access to the server | No (if you choose encryptedCredential)
 password | Specify the password for the user (userid) | No (if you choose encryptedCredential 
-encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureDataFactoryEncryptValue cmdlet<p>**Note:** You must use the Azure PowerShell of version 0.8.14 or higher to use cmdlets such as New-AzureDataFactoryEncryptValue with type parameter set to OnPremisesFileSystemLinkedService</p> | No (if you choose to specify userid and password in plain text)
+encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet<p>**Note:** You must use the Azure PowerShell of version 0.8.14 or higher to use cmdlets such as New-AzureRmDataFactoryEncryptValue with type parameter set to OnPremisesFileSystemLinkedService</p> | No (if you choose to specify userid and password in plain text)
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises file server | Yes
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises File System data source.
@@ -473,7 +477,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 Property | Description | Required
 -------- | ----------- | --------
-folderPath | Path to the folder. Example: myfolder<p>Use escape character ‘ \ ’ for special characters in the string. For example: for folder\subfolder, specify folder\\subfolder and for d:\samplefolder, specify d:\\samplefolder.</p><p>You can combine this with **partitionBy** to have folder paths based on slice start/end date-times.</p> | Yes
+folderPath | Path to the folder. Example: myfolder<p>Use escape character ‘ \ ’ for special characters in the string. For example: for folder\subfolder, specify folder\\\\subfolder and for d:\samplefolder, specify d:\\\\samplefolder.</p><p>You can combine this with **partitionBy** to have folder paths based on slice start/end date-times.</p> | Yes
 fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<p>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: </p><p>Data.<Guid>.txt (for example: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt</p> | No
 partitionedBy | partitionedBy can be leveraged to specify a dynamic folderPath, filename for time series data. For example folderPath parameterized for every hour of data. | No
 Format | Two formats types are supported: **TextFormat**, **AvroFormat**. You need to set the type property under format to either if this value. When the forAvroFormatmat is TextFormat you can specify additional optional properties for format. See the format section below for more details. | No
@@ -562,7 +566,30 @@ To use Avro format in a subsequent Hive table, refer to [Apache Hive’s tutoria
 
 ## File Share Copy Activity type properties
 
-**FileSystemSource** and **FileSystemSink** do not support any properties at this time.
+**FileSystemSource** supports the following properties:
+
+| Property | Description | Allowed values | Required |
+| -------- | ----------- | -------------- | -------- |
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True, False (default)| No | 
+
+The **FileSystemSink** supports the following properties:  
+
+| Property | Description | Allowed values | Required |
+| -------- | ----------- | -------------- | -------- |
+| copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | <p>There are three possible values for the copyBehavior property. </p><ul><li>**PreserveHierarchy:** preserves the file hierarchy in the target folder, i.e., the relative path of source file to source folder is identical to the relative path of target file to target folder.</li><li>**FlattenHierarchy:** all files from the source folder will be in the first level of target folder. The target files will have auto generated name. </li><li>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name.</li></ul> | No |
+
+### recursive and copyBehavior examples
+This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values. 
+
+recursive | copyBehavior | Resulting behavior
+--------- | ------------ | --------
+true | preserveHierarchy | <p>For a source folder Folder1 with the following structure:</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>the target folder Folder1 will have the same structure as the source<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>.  
+true | flattenHierarchy | <p>For a source folder Folder1 with the following structure:</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>the target Folder1 will have the following structure: <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File5</p>
+true | mergeFiles | <p>For a source folder Folder1 with the following structure:</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>the target Folder1 will have the following structure: <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 + File3 + File4 + File 5 contents will be merged into one file with auto-generated file name</p>
+false | preserveHierarchy | <p>For a source folder Folder1 with the following structure:</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>the target folder Folder1 will have the following structure<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/></p><p>Subfolder1 with File3, File4, and File5 are not picked up.</p>.
+false | flattenHierarchy | <p>For a source folder Folder1 with the following structure:</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>the target folder Folder1 will have the following structure<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File2<br/></p><p>Subfolder1 with File3, File4, and File5 are not picked up.</p>.
+false | mergeFiles | <p>For a source folder Folder1 with the following structure:</p> <p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5</p>the target folder Folder1 will have the following structure<p>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 contents will be merged into one file with auto-generated file name. auto-generated name for File1</p><p>Subfolder1 with File3, File4, and File5 are not picked up.</p>.
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

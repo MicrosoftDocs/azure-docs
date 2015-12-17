@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,13 +22,13 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-scale-up.md)
+- [Azure portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
 
 This article shows how to change the service tier and performance level of your SQL database with PowerShell.
 
-Use the information in [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md) and [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx) to determine the appropriate service tier and performance level for your Azure SQL Database.
+Use the information in [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md) and [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md) to determine the appropriate service tier and performance level for your Azure SQL Database.
 
 > [AZURE.IMPORTANT] Changing the service tier and performance level of a SQL database is an online operation. This means your database will remain online and available during the entire operation with no downtime.
 
@@ -45,21 +45,18 @@ Use the information in [Upgrade SQL Database Web/Business Databases to New Servi
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - An Azure SQL database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- Azure PowerShell. You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell.
 
-The cmdlets for changing the service tier of Azure SQL databases are located in the Azure Resource Manager module. When you start Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet.
 
-	Switch-AzureMode -Name AzureResourceManager
+To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-If you run the **Switch-AzureMode** and see warning: The *Switch-AzureMode cmdlet is deprecated and will be removed in a future release*, that's okay; just go to the next step to configure your credentials.
 
-For detailed information, see [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
 ## Configure your credentials and select your subscription
 
 First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure portal.
 
-	Add-AzureAccount
+	Add-AzureRmAccount
 
 After successfully signing in you will see some information on screen that includes the Id you signed in with and the Azure subscriptions you have access to.
 
@@ -69,7 +66,7 @@ After successfully signing in you will see some information on screen that inclu
 To select the subscription you need your subscription Id or subscription name (**-SubscriptionName**). You can copy the subscription Id from the information displayed from previous step, or if you have multiple subscriptions and need more details you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
 
 	$SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
 After successfully running **Select-AzureSubscription** you are returned to the PowerShell prompt. If you have more than one subscription you can run **Get-AzureSubscription** and verify the subscription you want to use shows **IsCurrent: True**.
 
@@ -79,7 +76,7 @@ After successfully running **Select-AzureSubscription** you are returned to the 
 
 ## Change the service tier and performance level of your SQL database
 
-Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
+Run the **Set-AzureRmSqlDatabase** cmdlet and set the **-RequestedServiceObjectiveName** to the performance level of the desired pricing tier; for example *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, ...
 
     $ResourceGroupName = "resourceGroupName"
     
@@ -89,7 +86,7 @@ Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjective
     $NewEdition = "Standard"
     $NewPricingTier = "S2"
 
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
 
 
   
@@ -100,7 +97,7 @@ Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjective
 ## Sample PowerShell script to change the service tier and performance level of your SQL database
 
     
-	Switch-AzureMode -Name AzureResourceManager
+
     
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     
@@ -113,10 +110,10 @@ Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjective
     $NewEdition = "Standard"
     $NewPricingTier = "S2"
     
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionId $SubscriptionId
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
     
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRmSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
     
     $ScaleRequest
     
@@ -133,3 +130,4 @@ Run the **Set-AzureSqlDatabase** cmdlet and set the **-RequestedServiceObjective
 
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt163521.aspx)

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple Manager service administration | Microsoft Azure"
-   description="Learn how to manage your StorSimple device by using the StorSimple Manager service in the Azure Management Portal."
+   description="Learn how to manage your StorSimple device by using the StorSimple Manager service in the Azure classic portal."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/11/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to administer your StorSimple device
@@ -30,13 +30,13 @@ After reading this article, you will learn to:
 
 ## Connect to StorSimple Manager service
 
-The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. You use a central Microsoft Azure Management Portal running in a browser to manage these devices. To connect to the StorSimple Manager service, do the following.
+The StorSimple Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. You use a central Microsoft Azure classic portal running in a browser to manage these devices. To connect to the StorSimple Manager service, do the following.
 
 #### To connect to the service
 
 1. Navigate to [http://azure.microsoft.com/](http://azure.microsoft.com/)
 
-1. Using your Microsoft account credentials, log on to the Microsoft Azure Management Portal (located at the top-right of the pane).
+1. Using your Microsoft account credentials, log on to the Microsoft Azure classic portal (located at the top-right of the pane).
 
 1. Scroll down the left navigation pane to access the StorSimple Manager service.
 
@@ -63,6 +63,9 @@ The navigational hierarchy for the StorSimple Manager service UI is shown in the
 ||Jobs|Configure (Device)|
 ||Alerts|Maintenance|
 
+![Video available](./media/storsimple-manager-service-administration/Video_icon.png) **Video available**
+
+To watch a video that walks you through the StorSimple Manager service user interface, click [here](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Administer StorSimple device using StorSimple Manager service
 
@@ -102,9 +105,6 @@ For more information about each workflow, click the appropriate procedure in the
 |Create a support package|StorSimple Manager service → Devices → Maintenance|[Create and manage a Support package](storsimple-create-manage-support-package.md)|
 |Install software updates|StorSimple Manager service → Devices → Maintenance|[Update your device](storsimple-update-device.md)|
 
-![Video available](./media/storsimple-manager-service-administration/Video_icon.png) **Video available**
-
-To watch a video that walks you through the StorSimple Manager service user interface, click [here](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ##Next steps
 If you experience any issues with the day-to-day operation of your StorSimple device or with any of its hardware components, refer to:

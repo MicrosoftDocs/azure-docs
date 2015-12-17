@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Service Fabric Reliable Service Architecture"
-   description="High-level overview of the reliable service architecture"
+   pageTitle="Reliable service architecture | Microsoft Azure"
+   description="Overview of the reliable service architecture for stateful and stateless services."
    services="service-fabric"
    documentationCenter=".net"
    authors="AlanWarwick"
@@ -16,22 +16,22 @@
    ms.date="09/03/2015"
    ms.author="alanwar"/>
 
-# Reliable Service Architecture
+# Architecture for stateful and stateless reliable services
 
-A Service Fabric Reliable Service may be stateful or stateless. Each type of service runs within a specific architecture described in this article.
-See [Reliable Service Overview](../Service-Fabric/service-fabric-reliable-services-introduction.md) for more information about the differences between stateful and stateless services.
+A Service Fabric reliable service may be stateful or stateless. Each type of service runs within a specific architecture described in this article.
+See the [reliable service overview](service-fabric-reliable-services-introduction.md) for more information about the differences between stateful and stateless services.
 
-## Stateful Reliable Service
+## Stateful reliable services
 
-### Stateful Reliable Service Architecture Diagram
+### Architecture of a stateful service
 ![Architecture Diagram](./media/service-fabric-reliable-services-platform-architecture/reliable-stateful-service-architecture.png)
 
-### Stateful Reliable Service
+### Stateful reliable service
 
 A stateful reliable service can derive from either the StatefulService or StatefulServiceBase class. Both of these base classes are provided by Service Fabric and
-provide various levels of support and abstraction for your stateful service to interface with Service Fabric, and to participate as a service within the Service Fabric Cluster.
+provide various levels of support and abstraction for your stateful service to interface with Service Fabric, and to participate as a service within the Service Fabric cluster.
 StatefulService derives from StatefulServiceBase; StatefulServiceBase offers services more flexibility but requires more understanding of the internals of Service Fabric.
-See [Reliable Service Overview](../Service-Fabric/service-fabric-reliable-services-introduction.md) and [Reliable Service Advanced Usage](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md) for more information on the specifics
+See the [reliable service overview](service-fabric-reliable-services-introduction.md) and [reliable service advanced usage](service-fabric-reliable-services-advanced-usage.md) for more information on the specifics
 of writing services using StatefulService and StatefulServiceBase classes.
 
 Both base classes manage the lifetime and role of the service implementation. The service implementation may override virtual methods of either base class if the service implementation has work to do
@@ -43,26 +43,23 @@ Your stateful reliable service uses the reliable state manager to take advantage
 that is, are always available regardless of service failovers. Each type of reliable collection is implemented by a reliable state provider.
 For more information on reliable collections see [the Reliable Collections overview](service-fabric-reliable-services-reliable-collections.md)
 
-### Reliable State Manager And Providers
+### Reliable state manager and state providers
 
 The reliable state manager is the object that manages reliable state providers and has functionality to create, delete, enumerate and ensure that the reliable state providers are
 persisted and highly available. A reliable state provider instance represents an instance of a persisted and highly available data structure such as a
 dictionary or a queue. Each reliable state provider exposes an interface that is used by your stateful service to interact with the reliable state provider. For example
-IReliableDictionary is used to interface with the reliable dictionary while IReliableQueue is used to interface with the reliable queue. All reliable state providers implement the
-IReliableState interface.
+IReliableDictionary is used to interface with the reliable dictionary while IReliableQueue is used to interface with the reliable queue. All reliable state providers implement the IReliableState interface.
 
-The reliable state manager has an interface named IReliableStateManager which allows access to it by the stateful service implementation. Interfaces to reliable state providers
-are returned through IReliableStateManager.  
+The reliable state manager has an interface named IReliableStateManager which allows access to it from your stateful service. Interfaces to reliable state providers are returned through IReliableStateManager.
 
-The reliable state manager is architected with a dynamic plug-in architecture so that new types of reliable collections can be plugged in dynamically.
+The reliable state manager uses a plug-in architecture so that new types of reliable collections can be plugged in dynamically.
 
 The reliable dictionary and reliable queue are built upon the implementation of a high performance versioned differential store.
 
 ### Transactional Replicator
 
 The transactional replicator component is responsible for ensuring that the state of the your service, that is the state within the reliable state manager and the reliable collections,
-is consistent across all replicas running your service and that state is also persisted in the log. The reliable state manager interfaces with the transactional replicator
-via a private mechanism.
+is consistent across all replicas running your service and that state is also persisted in the log. The reliable state manager interfaces with the transactional replicator via a private mechanism.
 
 The transactional replicator uses a network protocol to communicate state with other replicas of the service instance so that all replicas have up to date state information.
 
@@ -89,14 +86,14 @@ is preallocated and the log component can write directly to the file with the hi
 Aside from a minimal user mode interface to the log, the log is written as a kernel mode driver. By running as a kernel mode driver the log can provide the highest performance to all services that
 use it.
 
-For more information about configuring the log see [configuring stateful Reliable Services](../Service-Fabric/service-fabric-reliable-services-configuration.md).
+For more information about configuring the log see [configuring stateful reliable services](service-fabric-reliable-services-configuration.md).
 
-## Stateless Reliable Service
+## Stateless reliable service
 
-### Stateless Reliable Service Architecture Diagram
+### Architecture of a stateless service
 ![Architecture Diagram](./media/service-fabric-reliable-services-platform-architecture/reliable-stateless-service-architecture.png)
 
-### Stateless Reliable Service
+### Stateless reliable service
 
 Stateless service implementations derive from the StatelessService or StatelessServiceBase class where the StatelessServiceBase class allows more flexibility than the StatelessService.
 Both base classes manages the lifetime and role of the your service. The service implementation may override virtual methods of either base class if your service has work to do
@@ -104,7 +101,7 @@ at those points in the service lifecycle or if it wants to create a communicatio
 listener object exposing ICommunicationListener, in the diagram above, the communication listener is implemented by Service Fabric as that service implementation uses a
 communication listener implemented by Service Fabric.
 
-See [Reliable Service Overview](../Service-Fabric/service-fabric-reliable-services-introduction.md) and [Reliable Service Advanced Usage](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md) for more information on the specifics
+See the [reliable service overview](service-fabric-reliable-services-introduction.md) and [reliable service advanced usage](service-fabric-reliable-services-advanced-usage.md) for more information on the specifics
 of writing services using StatelessService and StatelessServiceBase classes.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -112,13 +109,13 @@ of writing services using StatelessService and StatelessServiceBase classes.
 
 For more information about Service Fabric, see:
 
-[Reliable Service Overview](../Service-Fabric/service-fabric-reliable-services-introduction.md)
+[Reliable Service Overview](service-fabric-reliable-services-introduction.md)
 
 [Quick Start](service-fabric-reliable-services-quick-start.md)
 
 [Reliable Collections Overview](service-fabric-reliable-services-reliable-collections.md)
 
-[Reliable Service Advanced Usage](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
+[Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md)
 
-[Reliable Service Configuration](../Service-Fabric/service-fabric-reliable-services-configuration.md)  
+[Reliable Service Configuration](service-fabric-reliable-services-configuration.md)  
  

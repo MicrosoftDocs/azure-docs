@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Azure Backup - manage virtual machines | Microsoft Azure"
-	description="Learn how to manage an Azure virtual machine"
+	pageTitle="Manage and monitor Azure virtual machine backups | Microsoft Azure"
+	description="Learn how to manage and monitor an Azure virtual machine backups"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/29/2015"
 	ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
-# Manage virtual machines
+# Manage and monitor Azure virtual machine backups
 
 ## Manage protected virtual machines
 

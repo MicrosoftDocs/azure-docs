@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with Azure Search | Microsoft Azure" 
-	description="Get started with Azure Search" 
+	pageTitle="Get started with Azure Search | Microsoft Azure | Hosted cloud search service" 
+	description="Get started with Azure Search, a cloud hosted search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search
 
-Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a .NET library or a REST API.
+Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides the search engine and storage for your data, which you access and manage using a .NET library or a REST API.
 
 This article gets you started with the Azure Search REST API. 
 
@@ -35,7 +35,7 @@ As an administrator, you can add Search service to an existing subscription at n
 
 Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. Sign up for the free version using these steps.
 
-1. Sign in to [Azure portal](https://portal.azure.com) using your existing subscription. Notice that this URL takes you to the Preview portal. Using the Preview portal is a requirement. 
+1. Sign in to [Azure Classic Portal](https://portal.azure.com) using your existing subscription. Notice that this URL takes you to the Portal. Using the Portal is a requirement. 
 
 2. Click **New** at the top of the page.
  
@@ -78,7 +78,7 @@ Setting up dedicated resources can take a while (15 minutes or longer).
 
 **Step 1 - Create a new service with Pricing Tier set to Standard**
 
-1. Sign in to [Azure portal](https://portal.azure.com) using your existing subscription. 
+1. Sign in to [Azure Classic Portal](https://portal.azure.com) using your existing subscription. 
 
 2. Click **New** at the bottom of the page.
 
@@ -310,7 +310,7 @@ You can also query the system to get document counts and storage consumption. On
 
 If you need a refresher on where to find the configuration pages, follow these steps to locate the service dashboard.
 
-1.	Sign in to [Azure portal](https://portal.azure.com) using your existing subscription. 
+1.	Sign in to [Azure Classic Portal](https://portal.azure.com) using your existing subscription. 
 2.	Click **Home** and then click the tile for your Search service.
 
  	![][22]

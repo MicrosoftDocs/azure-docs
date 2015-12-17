@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/09/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
+Please see the [Data Factory - .NET API Change Log](data-factory-api-change-log.md) article to learn about changes to Data Factory .NET SDK in a specific release.  
 
 ## Notes for 07/17/2015 release of Data Factory
 The following JSON changes are introduced in the July 2015 release of Azure PowerShell. 
@@ -264,7 +265,7 @@ The HDInsight activities (Hive, Pig, MapReduce, Hadoop Streaming) support the ne
 ## Notes for 04/10/2015 release of Data Factory
 You will see the **Recently updated slices** and **Recently failed slices** lists on the **TABLE** blade now. These lists are sorted by the update time of the slice. The update time of a slice is changed in the following situations.    
 
--  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+-  You update the status of the slice manually, for example, by using the **Set-AzureRmDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
 -  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
 
 Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.
@@ -294,7 +295,7 @@ See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.mi
 ## Notes for 2/27/2015 release of Data Factory
 
 ### New improvements
-- **Azure Data Factory Editor**. The Data Factory Editor, which is part of the Azure Preview Portal, allows you to create, edit, and deploy JSON files that define linked services, data sets, and pipelines.The main goal of the editor is to provide you a fast and light-weight user-interface (UI) to create Azure Data Factory artifacts without requiring you to install Azure PowerShell and ramp up on using PowerShell cmdlets. See the [Azure Data Factory Editor - A Light Weight Web Editor][adf-editor-blog] blog post for a quick overview and a video on Data Factory Editor. For detailed overview of the editor, see the [Data Factory Editor][adf-editor] article.          
+- **Azure Data Factory Editor**. The Data Factory Editor, which is part of the Azure Portal, allows you to create, edit, and deploy JSON files that define linked services, data sets, and pipelines.The main goal of the editor is to provide you a fast and light-weight user-interface (UI) to create Azure Data Factory artifacts without requiring you to install Azure PowerShell and ramp up on using PowerShell cmdlets. See the [Azure Data Factory Editor - A Light Weight Web Editor][adf-editor-blog] blog post for a quick overview and a video on Data Factory Editor. For detailed overview of the editor, see the [Data Factory Editor][adf-editor] article.          
 
 ### Changes
 
@@ -306,7 +307,7 @@ See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.mi
 - **SqlSink** supports a new property: **WriteBatchTimeout**. This property gives you the flexibility to configure how long to wait for the batch insert operation to complete before the operation times out. For a hybrid copy (copy operation that involves an on-premises data source and a cloud data source), you must have the gateway of version 1.4 or higher to use this property. 
 - **SQL Server linked service** now supports **Windows Authentication**. 
 	- When creating a SQL Server linked service using the portal, you can now choose to use Windows Authentication and set appropriate credentials. This requires you to have the gateway of version 1.4 or higher. 
-	- When creating a SQL Server linked service using Azure PowerShell, you can specify connection information in plain text or encrypt the connection information using updated [New-AzureDataFactoryEncryptValue cmdlet][adf-encrypt-value-cmdlet] and then use the encrypted string for the Connection String property in the linked service JSON payload. See [Linked Services][adf-msdn-linked-services] for details about defining a linked service in JSON. The encryption feature is not supported by the New-AzureDataFactoryEncryptValue cmdlet yet. 
+	- When creating a SQL Server linked service using Azure PowerShell, you can specify connection information in plain text or encrypt the connection information using updated [New-AzureRmDataFactoryEncryptValue cmdlet](https://msdn.microsoft.com/library/mt603802.aspx) and then use the encrypted string for the Connection String property in the linked service JSON payload. The encryption feature is not supported by the New-AzureRmDataFactoryEncryptValue cmdlet yet. 
 
 ## Notes for 12/11/2014 release of Data Factory ##
 
@@ -315,16 +316,16 @@ See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.mi
 - Azure Machine Learning integration
 	- This release of Azure Data Factory service allows you to integrate Azure Data Factory with Azure Machine Learning (ML) by using **AzureMLLinkedService** and **AzureMLBatchScoringActivity**. See [Create predictive pipelines using Data Factory and Azure Machine Learning][adf-azure-ml] for details. 
 - Gateway version status is provided
-	- "NewVersionAvailable" status will be shown in the Azure Preview Portal and in the output of Get-AzureDataFactoryGateway cmdlet, if there is a newer version of the gateway available than the one that is currently installed. You can then follow the portal journey  to download the new installation file (.msi) and run it to install the latest gateway. There is no additional configuration is  needed.
+	- "NewVersionAvailable" status will be shown in the Azure Portal and in the output of Get-AzureRmDataFactoryGateway cmdlet, if there is a newer version of the gateway available than the one that is currently installed. You can then follow the portal journey  to download the new installation file (.msi) and run it to install the latest gateway. There is no additional configuration is  needed.
 
 ### Changes
 
 - JobsContainer in HdInsightOnDemandLinkedService is removed.
-	- In the JSON definition for a HDInsightOnDemandLinkedService, you do not need to specify **jobsContainer** property anymore. If you have the property specified for an on-demand linked service, the property is ignored. You can remove the property from the JSON definition for the linked service and update the linked service definition by using New-AzureDataFactoryLinkedService cmdlet.
+	- In the JSON definition for a HDInsightOnDemandLinkedService, you do not need to specify **jobsContainer** property anymore. If you have the property specified for an on-demand linked service, the property is ignored. You can remove the property from the JSON definition for the linked service and update the linked service definition by using New-AzureRmDataFactoryLinkedService cmdlet.
 - Optional configuration parameters for HDInsightOnDemandLinkedService
 	- This release introduces support for a few optional configuration parameters for HDInsightOnDemandLinked (on-demand HDInsight cluster). See [ClusterCreateParameters Properties][on-demand-hdi-parameters] for details.
 - Gateway location is removed
-	- When creating an Azure Data Factory gateway via portal or PowerShell (New-AzureDataFactoryGateway), you no longer need to specifiy the location for the gateway. The data factory region will be inherited. Similarly, to configure a SQL Server linked Service using JSON, "gatewayLocation" property is not needed anymore. Data Factory .NET SDK is also updated to refelct these changes.
+	- When creating an Azure Data Factory gateway via portal or PowerShell (New-AzureRmDataFactoryGateway), you no longer need to specifiy the location for the gateway. The data factory region will be inherited. Similarly, to configure a SQL Server linked Service using JSON, "gatewayLocation" property is not needed anymore. Data Factory .NET SDK is also updated to refelct these changes.
 	- If you use an older version of SDK and Azure PowerShell, you are still required to provide the location setting.
  
      

@@ -1,6 +1,6 @@
 
 
-The mobile service project lets you to run your new mobile service locally. This makes it easy to debug your service code before you even publish it to Azure.
+The mobile service project lets you run your new mobile service locally. This makes it easy to debug your service code before you even publish it to Azure.
 
 1. On your Windows PC, download your personalized server project, extract it, and then open it in Visual Studio.
 

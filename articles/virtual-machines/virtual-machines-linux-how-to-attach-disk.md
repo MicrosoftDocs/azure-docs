@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Attach a disk to a Linux virtual machine | Microsoft Azure"
-	description="Learn how to attach a data disk to an Linux virtual machine running on Azure and initialize it so it's ready for use."
+	pageTitle="Attach a disk to a Linux VM | Microsoft Azure"
+	description="Learn how to attach a data disk to an Azure virtual machine running Linux and initialize it so it's ready for use."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,7 +19,8 @@
 
 # How to Attach a Data Disk to a Linux Virtual Machine
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers attaching a disk with the Azure Service Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+
 
 You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use. This article refers to virtual machines created using the classic deployment model.
 
@@ -151,7 +152,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	Or, on systems based on SUSE Linux you may need to use a slightly different format:
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
 	You can now test that the file system is mounted properly by simply unmounting and then re-mounting the file system, i.e. using the example mount point `/datadrive` created in the earlier steps:
 
@@ -160,6 +161,9 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created you will need to enter them into /etc/fstab separately as well.
 
+	You will need to make the drive writable by using these commands:
+		# cd /datadrive
+		# sudo chmod go+w /datadrive
 
 >[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk fails to mount at boot time. Please consult your distribution's documentation for more information on these parameters.
 

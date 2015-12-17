@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Shard map management" 
+	pageTitle="Shard map management | Microsoft Azure" 
 	description="How to use the ShardMapManager, elastic database client library" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # Shard map management
-In a sharded database environment, a **shard map** maintains information allowing an application to connect to the correct database based upon the value of the **sharding key**. Understanding how these maps are constructed is crucial to managing shards with the elastic database client library.
+
+Use the [Elastic Database client library](sql-database-elastic-database-client-library.md) to manage sharded applications. In a sharded database environment, a [**shard map**](sql-database-elastic-scale-glossary.md) maintains information allowing an application to connect to the correct database based upon the value of the **sharding key**. Understanding how these maps are constructed is essential to shard map management.
 
 ## Shard maps and shard mappings
  
@@ -106,6 +107,7 @@ In this code, an application tries to open an existing **ShardMapManager**.  If 
         // for privileges on both the GSM and the shards themselves.
     } 
  
+As an alternative, you can use Powershell to create a new Shard Map Manager. An example is available [here](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ### Shard map administration credentials
 
@@ -199,7 +201,7 @@ The code is written in a way that the entire method can be safely rerun in case 
             } 
         } 
  
-As an alternative you can use PowerShell scripts to achieve the same result.     
+As an alternative you can use PowerShell scripts to achieve the same result. Some of the sample PowerShell examples are available [here](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).     
 
 Once shard maps have been populated, data access applications can be created or adapted to work with the maps. Populating or manipulating the maps need not occur again until **map layout** needs to change.  
 

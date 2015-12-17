@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="krisragh"/>
 
 
 # Add Push Notifications to iOS App and .NET Backend
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -119,12 +124,9 @@ This topic shows you how to add push notifications to the [quickstart project](m
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Send push notifications to authenticated users]: mobile-services-dotnet-backend-ios-push-notifications-app-users.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md

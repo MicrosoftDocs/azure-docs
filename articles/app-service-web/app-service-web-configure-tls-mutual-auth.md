@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How To Configure TLS Mutual Authentication for Web App" 
 	description="Learn how to configure your web app to use client certificate authentication on TLS." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -24,7 +24,7 @@ You can restrict access to your Azure web app by enabling different types of aut
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Configure Web App for Client Certificate Authentication ##
-To setup your web app to require client certificates you need to add the clientCertEnabled site setting for your web app and set it to true. This setting is not currently available through the management experience in the portal, and the REST API will need to be used to accomplish this.
+To setup your web app to require client certificates you need to add the clientCertEnabled site setting for your web app and set it to true. This setting is not currently available through the management experience in the Portal, and the REST API will need to be used to accomplish this.
 
 You can use the [ARMClient tool](https://github.com/projectkudu/ARMClient) to make it easy to craft the REST API call. After you log in with the tool you will need to issue the following command:
 

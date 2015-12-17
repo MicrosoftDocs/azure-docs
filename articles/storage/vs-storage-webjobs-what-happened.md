@@ -1,11 +1,11 @@
 <properties
 	pageTitle="What happened to my WebJob project (Visual Studio Azure Storage connected service)? | Microsoft Azure"
-	description="Describes what happened in a Azure WebJob project after connecting to a storage account using Visual Studio connected services" 
+	description="Describes what happened in a Azure WebJob project after connecting to a storage account using Visual Studio connected services"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,15 +13,10 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.date="12/16/2015"
+	ms.author="tarcher"/>
 
 # What happened to my WebJob project (Visual Studio Azure Storage connected service)?
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-blobs.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
-
 
 ## References Added
 

@@ -21,7 +21,7 @@
 
 The inclusion of Compute, Network & Storage capabilities with the Azure Resource Manager will fundamentally simplify the deployment and management of complex applications running on IaaS. Many applications require a combination of resources, including a Virtual Network, Storage Account, Virtual Machine, and a Network Interface. The Azure Resource Manager offers the ability to construct a JSON template to deploy and manage all these resources together as a single application.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers creating a resource with the Resource Manager deployment model or the classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ## Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager
@@ -70,9 +70,9 @@ In this section, we will walk through some of the most important conceptual diff
 
 You can get started with the Azure Templates by leveraging the various tools that we have for developing and deploying to the platform.
 
-### Azure Portal
+### Azure portal
 
-The Azure Portal will continue to have the option to deploy Virtual Machines and Virtual Machines (Preview) simultaneously. The Azure Portal will also allow custom template deployments.
+The Azure portal will continue to have the option to deploy Virtual Machines with the classic deployment model and Virtual Machines with the Resource Manager deployment model simultaneously. The Azure portal will also allow custom template deployments.
 
 ### Azure PowerShell
 

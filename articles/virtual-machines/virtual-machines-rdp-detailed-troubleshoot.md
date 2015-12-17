@@ -6,7 +6,7 @@
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Detailed troubleshooting for Remote Desktop connections to Windows based Azure virtual machines
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 This article provides detailed troubleshooting steps for complex Remote Desktop errors.
 
@@ -43,7 +45,7 @@ Here is the set of components involved.
 Before diving into a step-by-step troubleshooting process, it is helpful to mentally review what has changed since you were able to successfully create Remote Desktop connections and use that change as a basis for correcting the problem. For example:
 
 - If you were able to create Remote Desktop connections and you changed the public IP address of the virtual machine or the cloud service containing your virtual machine (also known as the virtual IP address [VIP]), your DNS client cache might have an entry for the DNS name and the *old IP address*. Flush your DNS client cache and try again. Alternately, try making the connection by using the new VIP.
-- If you changed from using the Azure portal or the Azure preview portal to using an application to manage your Remote Desktop connections, ensure that the application configuration includes the randomly determined TCP port for the Remote Desktop traffic.
+- If you changed from using the Azure classic portal or the Azure portal to using an application to manage your Remote Desktop connections, ensure that the application configuration includes the randomly determined TCP port for the Remote Desktop traffic.
 
 The following sections step through isolating and determining the various root causes for this problem and providing solutions and workarounds.
 
@@ -52,7 +54,7 @@ The following sections step through isolating and determining the various root c
 
 Perform these steps before proceeding to the detailed troubleshooting.
 
-- Check the status of the virtual machine in the Azure portal or the Azure preview portal
+- Check the status of the virtual machine in the Azure classic portal or the Azure portal
 - Restart the virtual machine
 - [Resize the virtual machine](virtual-machines-size-specs.md)
 
