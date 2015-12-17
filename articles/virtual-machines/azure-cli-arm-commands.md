@@ -49,7 +49,7 @@ The set-up requirements to use the Resource Manager mode with the Azure CLI are:
 
 Once you have an account and have installed the Azure CLI, you must
 
-- [configure the Azure CLI](../xplat-cli-connect.md) to use a work or school account or a Microsoft account identity 
+- [configure the Azure CLI](../xplat-cli-connect.md) to use a work or school account or a Microsoft account identity
 - switch to the Resource Manager mode by typing `azure config mode arm`
 
 
@@ -1693,7 +1693,7 @@ Parameter options:
 
 **Lists the virtual machines within a resource group**
 
-	vm list [options] <resource-group>
+	vm list [options]
 
 **Gets one virtual machine within a resource group**
 
