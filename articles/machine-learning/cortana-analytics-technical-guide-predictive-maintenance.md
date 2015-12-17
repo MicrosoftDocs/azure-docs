@@ -218,14 +218,12 @@ service orchestrates the movement and processing of data. In the
 Predictive Maintenance for Aerospace Solution Template the data factory
 is made up of three
 [pipelines](data-factory-create-pipelines.md)
-that move and process the data using various technologies.
+that move and process the data using various technologies.  You can access your data factory by opening the the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
 
-This section discusses the necessary
-[pipelines](data-factory-create-pipelines.md)
-and
-[activities](data-factory-create-pipelines.md)
-contained in the [Azure Data
-Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+![](media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
+
+This section discusses the necessary [pipelines](data-factory-create-pipelines.md) and [activities](data-factory-create-pipelines.md) contained in the [Azure Data
+Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
 
 ![](media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
@@ -409,7 +407,7 @@ containing data (*e.g.*. prediction results) for visualization.
     the server and database names as in the above steps and click OK.
 
     -   Once you're guided back to the previous page, close the window. A message will pop out - click **Apply**. Lastly, click the **Save** button to save
-    the changes. Your PowerBI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations as time progresses.
+    the changes. Your PowerBI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you will only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
 
 3.  (Optional) Publish the cold path dashboard to [Power BI
     online](http://www.powerbi.com/). Note that this step needs a Power
@@ -433,11 +431,11 @@ containing data (*e.g.*. prediction results) for visualization.
 <br/>
     -   To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) and then choose **Schedule Refresh**.
 <br/>
-        **Note:** If you see a warning message, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
+        **Note:** If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
 <br/>
     ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png)
 <br/>
-    -   Expand the **Schedule Refresh** session. Turn on "keep your
+    -   Expand the **Schedule Refresh** section. Turn on "keep your
     data up-to-date".
 <br/>
     -   Schedule the refresh based on your needs. To find more information, see
