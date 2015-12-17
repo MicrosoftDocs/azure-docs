@@ -227,7 +227,7 @@ Another key aspect to Redis success is the healthy, vibrant open source ecosyste
 For more information about getting started with Azure Redis Cache, see [How to Use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 ### Managed Cache service
-If you are an existing Azure Managed Cache Service customer, you can continue using the existing service or choose to migrate to Azure Redis Cache to leverage its rich feature set. Azure Managed Cache Service is also Generally Available and also offers an availability SLA of 99.9%.
+Managed Cache service is set to be retired November 30, 2016.
 
 ### In-Role Cache
-If you are self-hosting cache using In-Role Cache, you can continue to do so as well. Because In-Role Cache is a self-hosted software component and not a Microsoft hosted service, it does not offer any SLA. In-Role Cache users can choose to migrate to Azure Redis Cache to leverage its rich feature set and get an SLA.
+In-Role Cache is set to be retired November 30, 2016.
