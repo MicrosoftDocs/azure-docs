@@ -20,7 +20,7 @@
 
 Azure IoT Hub can support up to a million simultaneously connected devices by increasing the number of IoT Hub S1 tier units or S2 tier units to 2,000. For more information, see [IoT Hub pricing][lnk-pricing].
 
-Each IoT Hub unit allows a certain number of device identities in the registry, which can all be simultaneously connected. Each unit also allows a number of daily messages.
+Each IoT Hub unit allows a certain number of devices in the registry, and these devices can all be simultaneously connected. Each unit also allows a number of daily messages.
 
 In order to properly scale your solution, consider your particular use of IoT Hub. In particular, consider the required peak throughput for the following categories of operations:
 
@@ -38,15 +38,15 @@ Device-to-cloud messages follow these sustained throughput guidelines.
 
 | Tier | Sustained throughput | Sustained send rate |
 | ---- | -------------------- | ------------------- |
-| S1 | Up to 8 kb/hour per device | Average of 4 messages/hour per device |
-| S2 | Up to 4 kb/min per device | Average of 2 messages/min per device |
+| S1 | Up to 8 KB/hr per device | Average of 4 messages/hr per device |
+| S2 | Up to 4 KB/min per device | Average of 2 messages/min per device |
 
 When receiving device-to-cloud messages, the application back end can expect the following maximum throughput (across all readers).
 
 | Tier | Sustained throughput |
 | ---- | -------------------- |
-| S1 | Up to 120 Kb/min per unit, with 2 Mb/s minimum |
-| S2 | Up to 4 Mb/min per unit, with 2 Mb/s minimum |
+| S1 | Up to 120 KB/min per unit, with 2 MB/s minimum |
+| S2 | Up to 4 MB/min per unit, with 2 MB/s minimum |
 
 The performance of cloud-to-device messages scales per device, with each device receiving up to 5 messages per minute.
 
