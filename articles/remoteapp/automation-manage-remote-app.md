@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage Azure RemoteApp using Azure Automation"
+	pageTitle="Manage Azure RemoteApp using Azure Automation | Microsoft Azure"
 	description="Learn about how the Azure Automation service can be used to manage Azure RemoteApp."
 	services="remoteapp, automation"
 	documentationCenter=""

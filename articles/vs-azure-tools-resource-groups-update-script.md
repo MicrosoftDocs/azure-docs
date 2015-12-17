@@ -3,9 +3,9 @@
 	description="Describes the steps needed to manually update the PowerShell script that comes with an Azure Resource Group deployment project."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tlee" />
+	editor="" />
 
  <tags
 	ms.service="azure-resource-manager"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/10/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Update the Azure Resource Group project PowerShell script
 

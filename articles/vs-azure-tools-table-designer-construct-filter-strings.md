@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Constructing filter strings for the table designer"
+   pageTitle="Constructing filter strings for the table designer | Microsoft Azure"
    description="Constructing filter strings for the table designer"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Constructing Filter Strings for the Table Designer
 
