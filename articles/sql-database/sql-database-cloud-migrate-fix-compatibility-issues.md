@@ -42,4 +42,4 @@ Use SQL Server Management Studio to fix compatibility issues using various Trans
 
 ## Next step: Select migration method and perform migration
 
-[Select migration method](sql-database-cloud-migrate.md).
+[Select migration method](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database).
