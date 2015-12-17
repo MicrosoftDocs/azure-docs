@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-- [SSMS](sql-database-cloud-migrate-determine-compatibility-export-data-tier-application)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
  
 In this article you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio.
 

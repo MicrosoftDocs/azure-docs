@@ -26,7 +26,7 @@ In this article you learn to how to migrate an on-premises SQL Server 2005 or la
 
 > [AZURE.SELECTOR]
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-- [SSMS](sql-database-cloud-migrate-determine-compatibility-export-data-tier-application.md)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
 
 To test for SQL Database compatibility issues before you start the migration process, use one of the following methods:
 
