@@ -431,7 +431,7 @@ containing data (*e.g.*. prediction results) for visualization.
 <br/>
     ![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png)
 <br/>
-    -   To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) and then choose **Schedule Refresh. **
+    -   To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) and then choose **Schedule Refresh**.
 <br/>
         **Note:** If you see a warning message, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
 <br/>
