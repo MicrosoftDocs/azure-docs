@@ -33,8 +33,6 @@ To test for SQL Database compatibility issues before you start the migration pro
 - The SqlPackage command prompt utility will generate a report containing detected issues.
 - The Export Data Tier application wizard in SQL Server management studio will display detected errors to the screen.
 
-> [AZURE NOTE] If you begin to migrate a SQL Server database without verifying compatibility, each of the migration methods discussed in this article will validate compatibility as part of the migration process and throw errors if incompatibilities are detected. 
-
 ## Migrate a compatible SQL Server database to SQL Database
 
 To migrate a compatible SQL Server database, Microsoft provides several migration methods for various scenarios. The method you choose depends upon your tolerance for downtime, the size and complexity of your SQL Server database, and your connectivity to the Microsoft Azure cloud.  
