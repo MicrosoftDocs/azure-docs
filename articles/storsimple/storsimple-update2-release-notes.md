@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/14/2015"
+   ms.date="12/17/2015"
    ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 2 release notes  
@@ -96,6 +96,7 @@ The following table provides a summary of known issues in this release.
 | 14 | Migration | Configuration backup for migration may fail on a 5000-7000 series device when there are volume groups with no associated volumes. | Delete all the empty volume groups with no associated volumes and then retry the configuration backup.| Yes | No |
 | 15 | Azure PowerShell cmdlets and locally pinned volumes | You cannot create a locally pinned volume via Azure PowerShell cmdlets. (Any volume you create via Azure PowerShell will be tiered.) |Always use the StorSimple Manager service to configure locally pinned volumes.|
 | 16 |Space available for locally pinned volumes | If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Manager service updates the local space available approximately every hour.| Wait for an hour before you try to create the new volume. |
+| 17 |Preview message on creation of the StorSimple Manager Service | The preview message that is displayed on creation of a StorSimple Manager Service is applicable only to the StorSimple Virtual Device Series. The Virtual device series was launched recently and is a preview offering at this time, covered by the [preview supplemental terms] (https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).  The StorSimple Manager Service and the StorSimple Physical Device Series are general availability solutions and the preview supplemental terms do not apply to them. | |  |
 
 ## Controller and firmware updates in Update 2
 
