@@ -46,7 +46,7 @@ Title: SAP DBMS in Azure Deployment Guide
 
 Summary: This paper covers planning and implementation considerations for the DBMS systems that should run in conjunction with SAP. In the first part, general considerations are listed and presented. The following parts of the paper relate to deployments of different DBMS in Azure that are supported by SAP. Different DBMS presented are SQL Server, SAP ASE and Oracle. In those specific parts considerations you have to account for when you are running SAP systems on Azure in conjunction with those DBMS are discussed. Subjects like backup and high availability methods that are supported by the different DBMS on Azure are presented for the usage with SAP applications.
 
-Updated: August 2015
+Updated: December 2015
 
 [Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397965)
 
