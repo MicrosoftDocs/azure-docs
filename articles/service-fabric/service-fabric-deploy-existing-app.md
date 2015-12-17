@@ -34,19 +34,19 @@ In this article, we cover the basic steps to package an existing application and
 
 ## Quick overview of application and service manifest files
 
-Before getting into the details of deploying an existing application, it is useful to understand the Service Fabric packaging and deployment model. The Service Fabric packaging deployment model relies mainly on two files:
+Before you get into the details of deploying an existing application, it is useful to understand the Service Fabric packaging and deployment model. The Service Fabric packaging deployment model relies mainly on two files:
 
 
 * **Application manifest**
 
   The application manifest is used to describe the application. It lists the services that compose it plus other parameters that are used to define how the service(s) should be deployed (such as the number of instances).
 
-  In the Service Fabric world, an application is the "upgradable unit." An application can be upgraded as a single unit where potential failures (and potential rollbacks) are managed by the platform. The platform guarantees that the upgrade process is either completely successful or, if it fails, the platform does not leave the application in an unknown/unstable state.
+  In the Service Fabric world, an application is the "upgradable unit." An application can be upgraded as a single unit where potential failures (and potential rollbacks) are managed by the platform. The platform guarantees that the upgrade process is either completely successful--or, if it fails, the platform does not leave the application in an unknown/unstable state.
 
 
 * **Service manifest**
 
-  The service manifest describes the components of a service. It includes data such as the name and type of service (information that Service Fabric uses to manage the service) and its code, configuration, and data components--plus some additional parameters that can be used to configure the service once it is deployed.
+  The service manifest describes the components of a service. It includes data, such as the name and type of service (which is information that Service Fabric uses to manage the service), and its code, configuration, and data components. The service manifest also includes some additional parameters that can be used to configure the service once it is deployed.
 
   We are not going into the details of all the different parameters that are available in the service manifest. We will go through the subset that is required to make an existing application run on Service Fabric.
 
@@ -151,7 +151,7 @@ The CodePackage element specifies the location (and version) of the service's co
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-The `Name` element is used to specify the name of the directory in the application package that contains the service's code. `CodePackage` also has the `version` attribute, which can be used to specify the version of the code--and can also potentially be used to upgrade the service's code by using Service Fabric's ALM infrastructure.
+The `Name` element is used to specify the name of the directory in the application package that contains the service's code. `CodePackage` also has the `version` attribute. This can be used to specify the version of the code--and can also potentially be used to upgrade the service's code by using Service Fabric's application lifecycle management infrastructure.
 ### SetupEntrypoint
 
 ```xml
