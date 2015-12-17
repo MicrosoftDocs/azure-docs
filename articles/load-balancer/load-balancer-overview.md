@@ -28,7 +28,7 @@ It can be configured to:
 
 ## Understanding Azure load balancer in Azure classic and Azure Resource Manager (ARM)
 
-All resources in the cloud need a public IP address to be reachable from Internet. The cloud infrastructure in Microsoft Azure will use non-routable IP addresses within its resources and will use network address translation(NAT) with public IP addresses to communicate to Internet.
+All resources in the cloud need a public IP address to be reachable from Internet. The cloud infrastructure in Microsoft Azure will use non-routable IP addresses within its resources and will use network address translation (NAT) with public IP addresses to communicate to Internet.
 
 There are 2 deployment models in Microsoft Azure and their load balancer implementations:
 
@@ -56,7 +56,7 @@ A network Interface (NIC) resource holds the IP address configuration (private o
 
 An availability set is the grouping method used to add virtual machines to the load balancer. The availability set guarantees the virtual machines won't reside in the same physical hardware and in case of any failure related to the physical cloud infrastructure making sure the load balancer will always have a virtual machine receiving load balanced network traffic.
 
-This is a graphic representation of a load balancer in Azure Resource Manager(ARM):
+This is a graphic representation of a load balancer in Azure Resource Manager (ARM):
 
 ![hash based load balancer](./media/load-balancer-overview/arm-lb.png)
 
