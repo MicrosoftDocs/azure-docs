@@ -29,21 +29,24 @@ This article helps you get started with building your first Azure data factory.
 > [AZURE.NOTE] This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
 ## Tutorial Overview
-This tutorial takes you through the steps needed to get your first data factory with a pipeline. You will be creating a pipeline, and specifying all the resources needed from scratch.
-
-If you want to explore the various capabilities of the data factory quickly, without creating one from scratch, you can use the samples that we provide in the Azure Portal. See [Azure Data Factory Update: Simplified sample deployment](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) on how to deploy an use-case based sample using the Azure Portal.
+This tutorial takes you through the steps needed to get your first data factory up and running. You will be creating a pipeline in the data factory that transforms/processes input data to produce output data.
 
 ## Pre-requisites
-Before you begin this tutorial, you must have the following pre-requisites:
+Before you begin this tutorial, you must have the following prerequisites:
 
 1.	**Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
 
-2.	**Azure Storage** – You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../storage-create-storage-account/#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](../storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
+2.	**Azure Storage** – You will use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you will need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 ## What’s covered in this tutorial?	
 **Azure Data Factory** enables you to compose data **movement** and data **processing** tasks as a data driven workflow. You will learn how to build your first pipeline that uses HDInsight to transform and analyze web logs on a monthly basis.  
 
 In this tutorial, you will be performing the following steps:
+
+1.	Creating the **data factory**. A data factory can contain one or more pipelines that move and process data. In this tutorial, you will create only one pipeline. 
+2.	Creating the **linked services**. You create a linked service to link a data store or a compute service to the data factory. A data store such as Azure Storage holds input/output data of activities in the pipeline. A compute service such as Azure HDInsight processes/transforms data.    
+3.	Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
+3.	Creating the **pipeline**. A pipeline can have one or more activities such as Copy Activity to copy data from a source to a destination (or) HDInsight Hive Activity to transform input data using Hive script to produce output data. This sample uses the HDInsight Hive activity that runs a Hive script. The script first creates an external table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
 
 1.	Create a **data factory**.
 2.	Create following **linked services**:
@@ -56,16 +59,28 @@ Your first pipeline, called **MyFirstPipeline**, uses a Hive activity to transfo
  
 ![Diagram View](./media/data-factory-build-your-first-pipeline/diagram-view.png)
 
-After the Hive script executes, the results will be stored in an Azure blob storage container: **adfgetstarted/partitioneddata**.
 
-The availability defined on the **AzureBlobOutput** dataset determines how often the Hive activity is run. In this tutorial, this is set to **monthly**.
+In this tutorial, the adfgetstarted (container) => inputdata (folder) contains one file named input.log that contains entries from three months: January, February, and March. Here are the sample rows for each month in the input file. 
 
-## Prepare Azure Storage for the tutorial
+	2014-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871 
+	2014-02-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
+	2014-03-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
+
+When the file is processed by the pipeline with HDInsight Hive Activity, the activity runs a Hive script on the HDInsight cluster that partitions input data by year and month. The script creates three output folders that contain a file with entries from each month.  
+
+	adfgetstarted/partitioneddata/year=2014/month=1/000000_0
+	adfgetstarted/partitioneddata/year=2014/month=2/000000_0
+	adfgetstarted/partitioneddata/year=2014/month=3/000000_0
+
+From the sample lines shown above, the first one (with 2014-01-01) will be written to the 000000_0 file in the month=1 folder. Similarly, the second one will be written to the file in the the month=2 folder and the third one will be written to the file in the month=3 folder.  
+
+## Upload files to Azure Storage for the tutorial
 Before starting the tutorial, you need to prepare the Azure storage with files needed for the tutorial.
 
 In this section, you will do the following:
-2. Upload input file to **inputdata** folder of the **adfgetstarted** container.   
-2. Upload Hive query file (HQL) to **script** folder of the **adfgetstarted** container. 
+
+2. Upload Hive query file (HQL) to **script** folder of the **adfgetstarted** container.
+3. Upload input file to **inputdata** folder of the **adfgetstarted** container. 
 
 ### Create HQL script file 
 
@@ -150,7 +165,7 @@ In this section, you will do the following:
 		  month(date)
 		FROM WebLogsRaw
 
-### Create a sample input file. 
+### Create a sample input file
 Using notepad, create a file named **input.log** in the **c:\adfgetstarted** with the following content: 
 
 	#Software: Microsoft Internet Information Services 8.0

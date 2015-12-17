@@ -24,20 +24,12 @@
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
+In this article, you will learn how to use the [Azure Portal](https://portal.azure.com/) to create your first Azure data factory. 
 
-In this article, you will learn how to use the [Azure Portal](https://portal.azure.com/) to create your first Azure data factory. This tutorial consists of the following steps:
+## Prerequisites
 
-1.	Creating the **data factory**. A data factory can contain one or more pipelines that move and process data. In this tutorial, you will create only one pipeline. 
-2.	Creating the **linked services**. You create a linked service to link a data store or a compute service to the data factory. A data store such as Azure Storage holds input/output data of activities in the pipeline. A compute service such as Azure HDInsight processes/transforms data.    
-3.	Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
-3.	Creating the **pipeline**. A pipeline can have one or more activities such as Copy Activity to copy data from a source to a destination (or) HDInsight Hive Activity to transform input data using Hive script to produce output data. 
-
-
-> [AZURE.IMPORTANT] 
-> Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
->  
-> This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
-  
+1. You must read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
+2. This article does not provide a conceptual overview of the Azure Data Factory service. We recommend that you go through [Introduction to Azure Data Factory](data-factory-introduction.md) article for a detailed overview of the service.  
 
 ## Step 1: Create the data factory
 
