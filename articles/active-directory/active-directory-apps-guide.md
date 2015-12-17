@@ -18,7 +18,7 @@
 
 #SaaS App Management Guide for Azure Active Directory
 
-This guide is intended to help IT professionals understand and use the various SaaS app-related features available in Azure Active Directory (Azure AD). This page serves as a hub for the various sections of the guide, and it offers a brief introduction to each major feature.
+This guide is intended to help IT professionals understand and use the various SaaS app-related features available in Azure Active Directory (Azure AD). This page offers a brief introduction to each major feature area and provides a comprehensive list of every article written about that feature. Some features are only available for certain pricing tiers, so please refer to [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/) for details.
 
 ##Overview
 
@@ -123,7 +123,7 @@ Automate the creation, maintenance, and removal of user identities in SaaS appli
 
 ##How to Manage who has Access to which Apps
 
-Azure Active Directory provides several tools to help you control who has access to which resources. 
+To help you manage who should have access to which resources, Azure Active Directory allows you to set assignments and permissions at scale using groups. IT departments can also delegate the configuration of these permissions to other people in the organization, such as managers or team admins. IT may choose to enable self-service access so that users can simply request permission when they need it.
 
 | Article Guide |   |
 | :---: | --- |
