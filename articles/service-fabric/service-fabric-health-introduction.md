@@ -76,7 +76,7 @@ The possible health states are:
 
 - **Error**: The entity is unhealthy. Action should be taken to fix the state of the entity, because it can't function properly.
 
-- **Unknown**: The entity doesn't exist in the health store. This result can be obtained from distributed queries like get the Service Fabric nodes or applications. These queries merge results from multiple system components. If another system component has an entity that has not yet reached the health store or that has been cleaned up from the health store, the merged query will populate the health result with the unknown health state.
+- **Unknown**: The entity doesn't exist in the health store. This result can be obtained from the distributed queries that merge results from multiple components. These can include the query to get the list of Service Fabric nodes, which goes to **FailoverManager** and **HealthManager**, or the query to get the list of applications, which goes to **ClusterManager** and **HealthManager**. These queries merge results from multiple system components. If another system component has an entity that has not yet reached the health store or that has been cleaned up from the health store, the merged query will populate the health result with the unknown health state.
 
 ## Health policies
 The health store applies health policies to determine whether an entity is healthy based on its reports and its children.
