@@ -18,10 +18,14 @@
 
 # Determine SQL Database compatibility using SqlPackage.exe
 
+> [AZURE.SELECTOR]
+- [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-export-data-tier-application)
+
 In this article you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility.
 
 1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
-2. Execute the following sqlpackage.exe command with the following arguments for your environment:
+2. Execute the following SqlPackage command with the following arguments for your environment:
 
 	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
 
@@ -41,4 +45,5 @@ In this article you learn to determine if a SQL Server database is compatible to
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage02.png)
 
-> [AZURE NOTE] For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](../sql-database-migrate-fix-compatibility-issues.md).
+ > [AZURE NOTE] For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](../sql-database-migrate-fix-compatibility-issues.md).
+

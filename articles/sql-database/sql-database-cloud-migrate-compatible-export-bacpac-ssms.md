@@ -28,7 +28,7 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 
 1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
-	 > [AZURE.IMPORTANT] [Use newest version of version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database.
+	 > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 2. Open Management Studio and connect to your source database in Object Explorer.
 

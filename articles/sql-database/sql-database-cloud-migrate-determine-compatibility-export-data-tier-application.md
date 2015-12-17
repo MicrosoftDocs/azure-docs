@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Determine SQL Database compatibility using Export Data Tier Application Wizard"
+   pageTitle="Determine SQL Database compatibility using SSMS"
    description="Microsoft Azure SQL Database, database migration, SQL Database compatibility, Export Data Tier Application Wizard"
    services="sql-database"
    documentationCenter=""
@@ -16,13 +16,17 @@
    ms.date="12/15/2015"
    ms.author="carlrab"/>
 
-# Determine SQL Database compatibility using Export Data Tier Application Wizard
+# Determine SQL Database compatibility using SSMS
 
+> [AZURE.SELECTOR]
+- [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
+- [SSMS](sql-database-cloud-migrate-determine-compatibility-export-data-tier-application)
+ 
 In this article you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio.
 
 1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
- 	 > [AZURE.IMPORTANT] [Use newest version of version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database.
+ 	 > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 2. Open Management Studio and connect to your source database in Object Explorer.
 3. Right-click the source database in the Object Explorer, point to **Tasks**, and click **Export Data-Tier Application…**
@@ -44,7 +48,7 @@ In this article you learn to determine if a SQL Server database is compatible to
 7. If no errors appear, your database is compatible and you are ready to migrate. If you have errors, you will need to fix them. To see the errors, click **Error** for **Validating schema**. 
 	![Export settings](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSSMS05.png)
 
-> [AZURE NOTE] For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](../sql-database-migrate-fix-compatibility-issues.md).
+ > [AZURE NOTE] For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](../sql-database-migrate-fix-compatibility-issues.md).
 
 8.	If the *.BACPAC file is successfully generated, then your database is compatible with SQL Database, and you are ready to migrate.
 
