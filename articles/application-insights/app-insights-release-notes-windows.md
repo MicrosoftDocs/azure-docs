@@ -32,15 +32,16 @@ See [Get started with Application Insights for Windows Phone and Store apps](app
 * Compare the old and new versions of ApplicationInsights.config. Merge back any customizations you made to the old version.
 * Rebuild your solution.
 
-## Version 1.2
+## Version 1.1.1
 
-### Windows App SDK
+### Windows SDK
 
-- Fix a FileNotFound exception that was preventing persisted telemetries from being sent after the app is re-opened.
+- Fix a hang during crash when using the Windows Phone's Silverlight SDK. After this change, any crash that happens later than ~2 seconds after the call to WindowsAppInitialier.InitializeAsync(...) will be persisted to disk and will be sent the next time the app is started. If a crash happens before ~2 seconds after the call, it will be ignored.  
+- Set the NuGet's dependencies to a specific version of Core and Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3).   
 
 ### Core SDK
 
-- First version of Application Insights SDK shipped from [github](http://github.com/microsoft/ApplicationInsights-dotnet)
+- Core is managed in github. Future release notes of the Core SDK can be found [in github](http://github.com/Microsoft/ApplicationInsights-dotnet/releases)
 
 ## Version 1.1
 

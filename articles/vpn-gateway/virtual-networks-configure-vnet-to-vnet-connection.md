@@ -23,11 +23,14 @@
 - [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
-This article will walk you through the steps to create and connect virtual networks together using the Classic deployment model (also known as Service Management). These steps will use a combination of the Azure Classic Portal (not the Azure Portal) and PowerShell cmdlets. If you want to connect VNets that were created using the Azure Resource Manager deployment model, see the tab above. The steps are different for each model. 
 
-You can also connect a VNet created in the Classic deployment model to a VNet created using the Resource Manager model. See [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+This article will walk you through the steps to create and connect virtual networks together using the classic deployment model (also known as Service Management). These steps will use a combination of the Azure Classic Portal (not the Azure Portal) and PowerShell cmdlets. If you are looking for a different deployment model for this configuration, use the tabs above to select the article you want. 
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+	
+If you want to connect a VNet created in the Classic deployment model to a VNet created using the Resource Manager model. See [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) is very similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. The VNets you connect can be in different subscriptions and different regions. You can even combine VNet to VNet communication with multi-site configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the diagram below:
 
@@ -222,16 +225,7 @@ Wait for the connections to initialize. Once the gateway has initialized, the ga
 
 ## Next steps
 
-
-If you want to add virtual machines to your virtual network, see [How to Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md).
-
-For information about the configuration schema, see [Azure Virtual Network Configuration Schema](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
-
-For REST API information, see [Operations on Virtual Network Gateways](https://msdn.microsoft.com/library/azure/jj154113.aspx).
-
-For more information about VPN Gateways, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
-
-For more information about Virtual Networks, see the [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) and the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. See [How to Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial-classic-portal.md) for steps.
 
 
 [1]: ../hdinsight-hbase-geo-replication-configure-vnets.md

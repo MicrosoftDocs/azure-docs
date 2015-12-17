@@ -23,9 +23,10 @@
 Notification Hubs is offered in three tiers - *Free*, *Basic* & *Standard* tiers. More details here - [Notification Hubs Pricing]. The pricing is charged at the subscription level and is based on the number of pushes so it doesn't matter how many namespaces or notification hubs you have.
 Free tier is offered for development purpose with no SLA guarantee. Basic & Standard Tiers are offered for production usage with the following key features enabled only for Standard Tier:
 
-- *Broadcast* - Basic tier limits the number of Notification Hub tags to 3K (applies to > 5 devices). If you have an audience size greater than 3K then you must move to Standard Tier.
 - *Rich telemetry* - Basic Tier does not allow exporting your telemetry or registrations data. If you need the capability to export your telemetry data for offline viewing and analysis then you must move to Standard Tier.
 - *Multi-tenancy* - If you are creating a mobile app using Notification Hubs to support multiple tenants then you must consider moving to Standard tier. This allows you to set Push Notification Services (PNS) credentials at the Notification Hub namespace level for the app and then you can segregate the tenants providing them individual hubs under this common namespace. This enables ease of maintenance while keeping the SAS keys to send & receive notifications from the notification hubs segregated for each tenant ensuring non cross-tenant overlap.
+- *Scheduled Push* - You can schedule for push notifications to be queued up and sent out.
+- *Bulk import* - You can import registrations in bulk.
 
 ###2.	What is the SLA?
 For Basic and Standard Notification Hub tiers, we guarantee that at least 99.9% of the time, properly configured applications will be able to send notifications or perform registration management operations with respect to a Notification Hub deployed within a Basic or Standard Notification Hub Tier. To learn more about our SLA, please visit the SLA page here - [Notification Hubs SLA]. Note that there are no SLA guarantees for the leg between the Platform Notification Service and the device since Notification Hubs depend on external platform providers to deliver the notification to the device.
