@@ -61,17 +61,17 @@ You can assign either a dynamic or a static public IP address to the primary NIC
 ### VPN gateways
 You can use a [VPN gateway](vpn-gateway-about-vpngateways.md) to connect an Azure VNet to other Azure VNets or your on-premises network. A VPN gateway requires a public IP to communicate with the network you trying to connect to. 
 
-You can assign a public IP to the **publicIPAddress** of a VPN gateway resource in Azure. At this moment, you can only assign a dynamic public IP address to a VPN gateway.
+At this moment, you can only assign a dynamic public IP address to a VPN gateway.
 
 ### Internet facing load balancers
 You can use an Internet-facing [load balancer](load-balancer-overview.md) to balance the load of an application across multiple VMs using a single public IP address, along with other features available to common level 4 load balancers. 
 
-You can assign a public IP address to the **frontendIPConfigurations** property of an internet facing load balancer. You can assign either a dynamic or static public IP address to an Internet facing load balancer.
+You can assign a public IP address to the front end of an internet facing load balancer. You can assign either a dynamic or static public IP address to an Internet facing load balancer.
 
 ### Application gateways
 You can use an [application gateway](application-gateway-introduction.md) to balance the load of an application across multiple VMs using a single public IP address, in a similar way you use load balancers. However, application gateways also allow you to create routing rules to further spread traffic across VMs based on the URL users request, among other features provided by a regular level 7 load balancer. 
 
-You can assign a public IP to the **frontendIPConfigurations** property of an application gateway. At this moment, you can only assign a dynamic public IP address to a VPN gateway.
+You can assign a public IP to the frontend of an application gateway. At this moment, you can only assign a dynamic public IP address to a VPN gateway.
 
 ### At-a-glance
 
@@ -118,7 +118,7 @@ You can assign either a dynamic or static IP address to NICs used by a VM.
 ### Internet facing load balancers
 You can use an Internet-facing [load balancer](load-balancer-overview.md) to balance the load of an application across multiple VMs using a single public IP address, along with other features available to common level 4 load balancers. 
 
-You can associate NICs assigned to VMs to the **backendAddressPool** property of a load balancer to use the VMs as destination for load balanced traffic. You can also associate NICs to the **loadBalancerInboundNatRules** property of a load balancer to provide NAT rules that allow direct access to the VMs behind a load balancer. 
+You can associate NICs assigned to VMs to the backend pool of a load balancer to use the VMs as destination for load balanced traffic. You can also associate NICs to the inbound NAT rules of a load balancer to provide NAT rules that allow direct access to the VMs behind a load balancer. 
 
 When you associate NICs to an internet facing load balancer, traffic that applies to the NAT rules or load balancing rules in the load balancer is forwarded to the private IP address of the corresponding NIC. 
 
@@ -127,18 +127,16 @@ You can assign either a dynamic or static IP address to NICs associated to an In
 ###Internal load balancer (ILB)
 You can use an [internal load balancer](load-balancer-internal-overview) to balance the load of an application across multiple VMs using a single private IP address in your subnet. For instance, you can have multiple VMs hosting the same database, and decide to spread database connections coming from your VNet to these VMs. You can do so by using an itnernal load balancer.
 
-You can associate a private IP address to the **frontendIPConfiguration** of an ILB. You can also associated NICs assigned to VMs to the **backendAddressPool** and **loadBalancerInboundNatRules** properties of an ILB, in the same way you do for Internet-facing load balancers.
+Similarly to public facing load balancers, you can associate NICs assigned to VMs to the backend pool of a load balancer to use the VMs as destination for load balanced traffic. You can also associate NICs to the inbound NAT rules of a load balancer to provide NAT rules that allow direct access to the VMs behind a load balancer. You can also associate a private IP address to the frontend of an ILB. 
 
-You can assign either a dynamic or static IP address to NICs used by a VM.
+You can assign either a dynamic or static private IP address to the frontend, and backend NICs, of an internal load balancer.
 
 ###Application gateway
 You can use an [application gateway](application-gateway-introduction.md) to balance the load of an application across multiple VMs using a single private IP address, creating an internal application gateway. 
 
-You can associate NICs assigned to VMs to the **backendAddressPool** property of an application gateway to use the VMs as destination for load balanced traffic. You can assign either a dynaic or static private IP address to a NIC.
+You can associate NICs assigned to VMs to the backend address pool of an application gateway to use the VMs as destination for load balanced traffic. You can assign either a dynamic or static private IP address to a NIC.
 
-You can associate the **frontendIPConfigurations** property of an application gateway to a private IP address in two different ways:
-- Associate to a subnet, to assign it a dynamic private IP address. 
-- Associate to static private IP address. 
+You can associate a private IP address to the frontend of an application gateway. You can assign either a dynamic or static private IP address to an application gateway.
 
 ### At-a-glance
 The table below shows what resources can use dynamic or static private IP addresses, and multiple private IP addresses.
