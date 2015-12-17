@@ -20,6 +20,8 @@
 
 The Deploy Database to Microsoft Azure Database wizard in SQL Server Management Studio migrates a [compatible SQL Server database](../sql-database-cloud-migrate.md) directly into your Azure SQL Database server.
 
+## Use the Deploy Database to Microsoft Azure Database Wizard
+
 > [AZURE.NOTE] The steps below assume that you have a [provisioned SQL Database server](../sql-database-get-started.md).
 
 1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.

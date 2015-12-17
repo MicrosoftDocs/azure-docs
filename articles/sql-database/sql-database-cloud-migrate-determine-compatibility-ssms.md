@@ -54,4 +54,4 @@ In this article you learn to determine if a SQL Server database is compatible to
 
 ## Next step: Fix compatibility issues, if any
 
-[Fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues), if any.
+[Fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues.md), if any.
