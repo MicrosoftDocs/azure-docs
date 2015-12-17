@@ -42,9 +42,8 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 
 	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
 
-## Import to SQL Database from a BACPAC file
+## Next Step: Import to SQL Database from a BACPAC file
 
-> [AZURE.SELECTOR]
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 - [Azure Portal](sql-database-import.md)
