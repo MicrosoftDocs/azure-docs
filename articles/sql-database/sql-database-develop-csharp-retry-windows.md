@@ -23,11 +23,9 @@
 
 
 > [AZURE.SELECTOR]
-- [C# from Windows (connect to Azure SQL DB)](sql-database-develop-dotnet-simple.md)
-- [PHP from Windows](sql-database-develop-php-simple-windows.md)
-- [Python from Windows](sql-database-develop-python-simple-windows)
-- [Java](sql-database-develop-java-simple-windows.md)
-- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+- [C# Retry](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6 Retry](sql-database-develop-entlib-csharp-retry-windows)
+- [PHP Retry](sql-database-develop-php-retry-windows.md)
 
 
 
