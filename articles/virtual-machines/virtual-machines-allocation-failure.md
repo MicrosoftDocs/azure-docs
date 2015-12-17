@@ -77,7 +77,7 @@ Two common failure scenarios are related to Affinity Group. In the past, Affinit
 Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
 ![Pinned Allocation Taxonomy](./media/virtual-machines-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Error string loop](#Error string lookup) for detailed error strings.
+> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
 
 #### Allocation scenario: resizing a VM, or adding additional VMs or role instances to an existing cloud service
 **Error**
