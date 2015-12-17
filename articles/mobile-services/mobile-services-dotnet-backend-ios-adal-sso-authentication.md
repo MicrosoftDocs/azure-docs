@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/15/2015"
 	ms.author="mahender"/>
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
@@ -42,6 +42,7 @@ This tutorial requires the following:
 
 * XCode 4.5 and iOS 6.0 (or later versions)
 * Completion of the [Get started with Mobile Services] tutorial.
+* Completion of the [Register your apps to use an Azure Active Directory Account login]
 * Microsoft Azure Mobile Services SDK
 * The [Active Directory Authentication Library for iOS]
 
@@ -120,6 +121,7 @@ This tutorial requires the following:
 
 <!-- URLs. -->
 [Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Register your apps to use an Azure Active Directory Account login]:mobile-services-how-to-register-active-directory-authentication.md
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure classic portal]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios

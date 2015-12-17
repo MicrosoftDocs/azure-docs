@@ -20,7 +20,7 @@
 ## Introduction
 This article describes how [Service Fabric](http://azure.microsoft.com/documentation/services/service-fabric/) applications can use **ElasticSearch** and **Kibana** for application trace storage, indexing and search. [ElasticSearch](https://www.elastic.co/guide/index.html) is an open-source, distributed and scalable real-time search and analytics engine that is well suited for this task and can be installed on Windows or Linux virtual machines running in Microsoft Azure. ElasticSearch can very efficiently process *structured* traces produced using technologies such as **Event Tracing for Windows (ETW)**.
 
-ETW is used by Service Fabric runtime to source diagnostic information (traces) and is the recommended method for Service Fabric applications to source their diagnostic information too. This allows for correlation between runtime-supplied and application-supplied traces and makes troubleshooting easier. Service Fabric project templates in Visual Studio include a logging API (based on the .NET **EventSource** class) that emits ETW traces by default. For a general overview of Service Fabric application tracing using ETW please see [this article](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+ETW is used by Service Fabric runtime to source diagnostic information (traces) and is the recommended method for Service Fabric applications to source their diagnostic information too. This allows for correlation between runtime-supplied and application-supplied traces and makes troubleshooting easier. Service Fabric project templates in Visual Studio include a logging API (based on the .NET **EventSource** class) that emits ETW traces by default. For a general overview of Service Fabric application tracing using ETW please see [this article](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 For the traces to show up in ElasticSearch, they need to be captured at the Service Fabric cluster nodes in real time (while the application is running) and sent to ElasticSearch endpoint. There are two major options for trace capturing:
 
@@ -34,7 +34,7 @@ In the rest of the article we will describe how to set up ElasticSearch on Azure
 
 
 ## Setting up Elasticsearch on Azure
-The most straightforward way to set up ElasticSearch service on Azure is through [**Azure ARM templates**](https://azure.microsoft.com/documentation/articles/resource-group-overview/). A comprehensive [quickstart ARM template for ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) is available from Azure quickstart templates repository. This template uses separate storage accounts for scale units (groups of nodes) and can provision separate client and server nodes with different configurations, with various numbers of data disks attached.
+The most straightforward way to set up ElasticSearch service on Azure is through [**Azure ARM templates**](../resource-group-overview.md). A comprehensive [quickstart ARM template for ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) is available from Azure quickstart templates repository. This template uses separate storage accounts for scale units (groups of nodes) and can provision separate client and server nodes with different configurations, with various numbers of data disks attached.
 
 In this article we will use another template called **ES-MultiNode** from the [Microsoft Patterns & Practices ELK branch](https://github.com/mspnp/semantic-logging/tree/elk/). This template is somewhat easier to use and creates an ElasticSearch cluster protected by HTTP basic authentication by default. Before proceeding please download the [Microsoft P&P "elk" repo](https://github.com/mspnp/semantic-logging/tree/elk/) from GitHub to your machine (either by cloning the repo or downloading a ZIP file). The ES-MultiNode template is located in the folder with the same name.
 >[AZURE.NOTE] ES-MultiNode template and associated scripts currently support ElasticSearch 1.7 release. Support for ElasticSearch 2.0 will be added at a latter date.
@@ -244,7 +244,7 @@ That is it! Now whenever the service is run, it will start sending traces to the
 ![Kibana showing PartyCluster application events][2]
 
 ## Next steps
-- [Learn more about diagnosing and monitoring a Service Fabric service](service-fabric-diagnose-monitor-your-service-index.md)
+- [Learn more about diagnosing and monitoring a Service Fabric service](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png

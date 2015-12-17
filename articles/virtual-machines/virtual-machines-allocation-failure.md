@@ -23,7 +23,7 @@
 
 When you create a VM, restart stopped (de-allocated) VMs, resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
+If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get Support** on the [Azure Support](http://azure.microsoft.com/support/options/) site.
 
 The "Troubleshooting common allocation failures" section lists steps to address common issues. The "Troubleshooting specific allocation failure scenarios" section provides resolution steps by specific error message. Before you get started, here are some background information to understand how allocation works and Why allocation failure happens.
 
