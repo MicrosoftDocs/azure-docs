@@ -45,5 +45,6 @@ In this article you learn to determine if a SQL Server database is compatible to
 
 	![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage02.png)
 
-    > [AZURE NOTE] For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](../sql-database-migrate-fix-compatibility-issues.md).
+## Next step: Fix compatibility issues, if any
 
+[Fix database compatibility issues](../sql-database-migrate-fix-compatibility-issues.md), if any.
