@@ -142,8 +142,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
 	                                  "scriptPath": "script/partitionweblogs.hql",
 	                                  "scriptLinkedService": "StorageLinkedService",
 	                                  "defines": {
-	                                    "partitionedtable": "wasb://data@[variables('storageAccountName')].blob.core.windows.net/partitioneddata"
-	                                  }
+                                        "partitionedtable": "[concat('wasb://data@', variables('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"	                                  }
 	                                },
 	                                "outputs": [
 	                                  {
@@ -180,7 +179,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
 	- Run **Select-AzureSubscription SubscriptionName** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
 1. Run the following command to deploy Data Factory entities using the ARM template you created in Step 1. 
 
-		New-AzureRmResourceGroupDeployment -Name SP-ARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
+		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
 
 ## Monitor the pipeline
  

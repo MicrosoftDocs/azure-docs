@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/15/2015" 
+	ms.date="12/16/2015" 
 	ms.author="billmath"/>
 
 # Using Azure AD Connect Health for sync
@@ -50,7 +50,7 @@ This feature provides a graphical trend of the number of changes that are being 
 ## Related links
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-install.md)
+* [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
