@@ -1,5 +1,5 @@
 ## WordPress and Azure App Service
-   
+  
 * [What is WordPress? ](https://wordpress.org/)
 * [How to setup enterprise-class WordPress web app](web-sites-php-enterprise-wordpress.md)
 * [How to purchase ClearDB Shared MySQL hosting for your WordPress app](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
