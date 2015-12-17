@@ -43,10 +43,12 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 
 	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingDeploymentWizard02.png)
 
-6.	Complete the wizard to migrate the database. Depending on the size and complexity of the database, deployment may take from a few minutes to many hours. 
-
-	> [AZURE NOTE] If this wizard detects compatibility issues, errors will be displayed to the screen and the migration will not continue. For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](../sql-database-migrate-fix-compatibility-issues.md).
+6.	Complete the wizard to migrate the database. Depending on the size and complexity of the database, deployment may take from a few minutes to many hours. If this wizard detects compatibility issues, errors will be displayed to the screen and the migration will not continue. For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues).
 
 7.	Using Object Explorer, connect to your migrated database in your Azure SQL Database server.
 8.	Using the Azure Portal, view your database and its properties.
+
+## Next step: Fix compatibility issues, if any
+
+[Fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues.md), if any.
 

@@ -24,6 +24,8 @@
  
 In this article you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio.
 
+## Using SSMS
+
 1. Verify that you have the latest version of SQL Server Management Studio. New versions of Management Studio are updated monthly to remain in sync with updates to the Azure portal.
 
  	 > [AZURE.IMPORTANT] It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -52,4 +54,4 @@ In this article you learn to determine if a SQL Server database is compatible to
 
 ## Next step: Fix compatibility issues, if any
 
-[Fix database compatibility issues](../sql-database-migrate-fix-compatibility-issues.md), if any.
+[Fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues), if any.

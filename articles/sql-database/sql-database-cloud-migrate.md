@@ -31,7 +31,7 @@ In this article you learn to how to migrate an on-premises SQL Server 2005 or la
 To test for SQL Database compatibility issues before you start the migration process, use one of the following methods:
 
 - [Use SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage is a command-prompt utility will test for and, if found, generate a report containing detected compatibility issues.
-- [Use SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)The Export Data Tier application wizard in SQL Server management studio will display detected errors to the screen.
+- [Use SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md): The Export Data Tier application wizard in SQL Server management studio will display detected errors to the screen.
 
 ## Fix compatibility issues
 

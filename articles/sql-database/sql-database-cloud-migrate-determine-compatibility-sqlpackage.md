@@ -24,6 +24,8 @@
 
 In this article you learn to determine if a SQL Server database is compatible to migrate to SQL Database using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility.
 
+## Using SqlPackage.exe
+
 1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 2. Execute the following SqlPackage command with the following arguments for your environment:
 
@@ -47,4 +49,4 @@ In this article you learn to determine if a SQL Server database is compatible to
 
 ## Next step: Fix compatibility issues, if any
 
-[Fix database compatibility issues](../sql-database-migrate-fix-compatibility-issues.md), if any.
+[Fix database compatibility issues](sql-database-cloud-migrate-fix-compatibility-issues.md), if any.
