@@ -24,7 +24,7 @@
 - [Azure Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-This article shows how to import from a [BACPAC](https://msdn.microsoft.com/en-us/library/ee210546.aspx#Anchor_4) file to SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio.
+This article shows how to import from a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file to SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio.
 
 > [AZURE.NOTE] The steps below assume that you have already provisioned your Azure SQL logical instance and have the connection information on hand.
 
