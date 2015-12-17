@@ -36,9 +36,10 @@ To test for SQL Database compatibility issues before you start the migration pro
 ## Fix compatibility issues
 
 If compatibility issues are detected, you must fix these compatibility issues before proceeding with the migration.
-- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md#fix_sql_server_database_compatibility_issues_using_sql_azure_migration_wizard)
-- Use [SQL Server Data Tools for Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues.md#fix_sql_server_database_compatibility_issues_using_sql_server_data_tools_for_visual_studio)
-- Use [SQL Server Management Studio](sql-database-cloud-migrate-fix-compatibility-issues.md#fix_sql_server_database_compatibility_issues_using_sql_server_management_studio)
+
+- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md#fix-sql-server-database-compatibility-issues-using-sql-azure-migration-wizard)
+- Use [SQL Server Data Tools for Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues.md#fix-sql-server-database-compatibility-issues-using-sql-server-data-tools-for-visual-studio)
+- Use [SQL Server Management Studio](sql-database-cloud-migrate-fix-compatibility-issues.md#fix-sql-server-database-compatibility-issues-using-sql-server-management-studio)
 
 ## Migrate a compatible SQL Server database to SQL Database
 
