@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="12/15/2015"    
 	ms.author="juliako"/>
 
 
@@ -357,7 +357,7 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 The following considerations apply:
 
 - The use of explicit timestamps for Start/Step/Range assumes that the input source is at least 1 minute long.
-- Jpg/Png/BmpVideo elements have Start, Step and Range string attributes – these can be interpreted as:
+- Jpg/Png/BmpImage elements have Start, Step and Range string attributes – these can be interpreted as:
 
 	- Frame Number if they are non-negative integers, eg. "Start": "120",
 	- Relative to source duration if expressed as %-suffixed, eg. "Start": "15%", OR

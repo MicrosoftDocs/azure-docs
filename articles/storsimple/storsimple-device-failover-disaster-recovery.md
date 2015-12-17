@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -20,9 +20,14 @@
 ## Overview
 
 This tutorial describes the steps required to fail over a StorSimple device in the event of a disaster. A failover will allow you to migrate your data from a source device in the datacenter to another physical or even a virtual device located in the same or a different geographical location. 
+
 Device failover is orchestrated via the disaster recovery (DR) feature and is initiated from the Devices page. This page tabulates all the StorSimple devices connected to your StorSimple Manager service. For each device, the friendly name, status, provisioned and maximum capacity, type and model are displayed.
 
 ![Devices page](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
+
+The guidance in this tutorial applies to StorSimple physical and virtual devices across all software versions.
+
+
 
 ## Disaster recovery (DR) and device failover
 
@@ -41,6 +46,18 @@ For any device failover, keep in mind the following:
 - The prerequisites for DR are that all the volumes within the volume containers are offline and the volume containers have an associated cloud snapshot. 
 - The available target devices for DR are devices that have sufficient space to accommodate the selected volume containers. 
 - The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
+
+#### Device failover across software versions
+
+A StorSimple Manager service in a deployment may have multiple devices, both physical and virtual, all running different software versions. Depending upon the software version, the volume types on the devices may also be different. For instance, a device running Update 2 or higher would have locally pinnned and tiered volumes (with archival being a subset of tiered). A pre-Update 2 device on the other hand may have tiered and archival volumes. 
+
+Use the following table to determine if you can fail over to another device running a different software version and the behavior of volume types during DR.
+
+| Failover from                                      | Allowed for physical device                                                                                                                                                      | Allowed for virtual device                            |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|
+| Update 2  to pre-Update 1 (Release, 0.1, 0.2, 0.3) | No                                                                                                                                                                               | No                                                    |
+| Update 2 to Update 1 (1, 1.1, 1.2)                 | Yes <br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as tiered.                  | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
+| Update 2 to Update 2 (later version)                               | Yes<br></br>If using locally pinned or tiered volumes or a mix of two, the volumes are always failed over as the starting volume type; tiered as tiered and locally pinned as locally pinned. | Yes<br></br>If using locally pinned volumes, these are failed over as tiered. |
 
 ## Fail over to another physical device
 
@@ -96,10 +113,8 @@ Perform the following steps if you only have a single device and need to perform
 
 ## Fail over to a StorSimple virtual device
 
-You must have a StorSimple virtual device created and configured prior to running this procedure.
+You must have a StorSimple virtual device created and configured prior to running this procedure. If running Update 2, consider using an 8020 virtual device for the DR that has 64 TB and uses Premium Storage. 
  
->[AZURE.NOTE] **In this release, the amount of storage supported on the StorSimple virtual device is 30 TB.**
-
 Perform the following steps to restore the device to a target StorSimple virtual device.
 
 1. Verify that the volume container you want to fail over has associated cloud snapshots.
@@ -120,7 +135,6 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 	b. Under **Choose a target device for the volumes in the selected containers**, select the StorSimple virtual device from the drop-down list of available devices. Only the devices that have sufficient capacity are displayed in the drop-down list.  
 	
-	>[AZURE.NOTE] **If your physical device is running Update 1, you can fail over to a virtual device running Update 1 only. If the target virtual device is running a lower software version, you will see an error to the effect that your target device software needs to be updated.**
 
 1. Finally, review all the failover settings under **Confirm failover**. Click the check icon ![Check icon](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
