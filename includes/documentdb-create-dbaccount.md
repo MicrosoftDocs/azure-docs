@@ -1,7 +1,7 @@
 1.	Sign in to the online [Microsoft Azure portal](https://portal.azure.com/).
 2.	In the Jumpbar, click **New**, then click **Data + Storage**, and then click **Azure DocumentDB**. 
   
-	![Screen shot of the Azure preview portal  to create a database, highlighting the New button, Data + storage in the Create blade, and Azure DocumentDB in the Data + Storage blade](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
+	![Screen shot of the Azure portal  to create a database, highlighting the New button, Data + storage in the Create blade, and Azure DocumentDB in the Data + Storage blade](media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 
 3. In the **New DocumentDB account** blade, specify the desired configuration for the DocumentDB account. 
  
@@ -15,7 +15,7 @@
 	
 	- For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
 
-	- In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, a new Resource group will be created.  You may, however, choose to select an existing resource group to which you would like to add your DocumentDB account. For more information, see [Using the Azure Preview Portal to manage your Azure resources](resource-group-portal.md).
+	- In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, a new Resource group will be created.  You may, however, choose to select an existing resource group to which you would like to add your DocumentDB account. For more information, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).
  
 	- Use **Location** to specify the geographic location in which to host your DocumentDB account.   
 
