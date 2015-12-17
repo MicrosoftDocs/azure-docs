@@ -107,6 +107,7 @@ GeneralError*
 **Workaround**
 
 If it's acceptable to use a different VIP, delete the stopped (de-allocated) VMs (but keep the associated disks) and add the VMs back through a different Cloud Service. Use Regional Virtual Network to connect your Cloud Services:
+
 1. If your existing Cloud Service uses Regional Virtual Network, simply add the new Cloud Service to the same Virtual Network.
 2. If your existing Cloud Service does not use Regional Virtual Network, create a new Virtual Network for the new Cloud Service, and then [connect your existing VNet to the new VNet](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
