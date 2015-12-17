@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Accessing private Azure clouds with Visual Studio"
+   pageTitle="Accessing private Azure clouds with Visual Studio | Microsoft Azure"
    description="Learn how to access private cloud resources by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
