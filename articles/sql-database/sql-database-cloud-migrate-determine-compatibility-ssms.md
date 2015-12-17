@@ -52,3 +52,4 @@ In this article you learn to determine if a SQL Server database is compatible to
 
 8.	If the *.BACPAC file is successfully generated, then your database is compatible with SQL Database, and you are ready to migrate.
 
+> [AZURE NOTE] For guidance on how to fix database compatibility issues, go to [fix database compatibility issues](../sql-database-migrate-fix-compatibility-issues.md).
