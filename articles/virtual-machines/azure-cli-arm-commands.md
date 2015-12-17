@@ -1691,15 +1691,15 @@ Parameter options:
 
 	vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>
 
-**Lists the virtual machines within a resource group**
+**List the virtual machines within an account**
 
 	vm list [options]
 
-**Gets one virtual machine within a resource group**
+**Get one virtual machine within a resource group**
 
 	vm show [options] <resource-group> <name>
 
-**Deletes one virtual machine within a resource group**
+**Delete one virtual machine within a resource group**
 
 	vm delete [options] <resource-group> <name>
 
@@ -1707,11 +1707,11 @@ Parameter options:
 
 	vm stop [options] <resource-group> <name>
 
-**Restarts one virtual machine within a resource group**
+**Restart one virtual machine within a resource group**
 
 	vm restart [options] <resource-group> <name>
 
-**Starts one virtual machine within a resource group**
+**Start one virtual machine within a resource group**
 
 	vm start [options] <resource-group> <name>
 
@@ -1719,7 +1719,7 @@ Parameter options:
 
 	vm deallocate [options] <resource-group> <name>
 
-**Lists available virtual machine sizes**
+**List available virtual machine sizes**
 
 	vm sizes [options]
 
@@ -1727,19 +1727,19 @@ Parameter options:
 
 	vm capture [options] <resource-group> <name> <vhd-name-prefix>
 
-**Sets the state of the VM to Generalized**
+**Set the state of the VM to Generalized**
 
 	vm generalize [options] <resource-group> <name>
 
-**Gets instance view of the VM**
+**Get instance view of the VM**
 
 	vm get-instance-view [options] <resource-group> <name>
 
-**Enables you to reset Remote Desktop Access or SSH settings on a Virtual Machine and to reset the password for the account that has administrator or sudo authority**
+**Enable you to reset Remote Desktop Access or SSH settings on a Virtual Machine and to reset the password for the account that has administrator or sudo authority**
 
 	vm reset-access [options] <resource-group> <name>
 
-**Updates VM with new data**
+**Update VM with new data**
 
 	vm set [options] <resource-group> <name>
 
