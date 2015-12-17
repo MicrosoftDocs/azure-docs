@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage Azure storage resources with Storage Explorer | Microsoft Azure"
-	description="Describes how to use Storage Explorer to create and manage Azure storage resources."
+	pageTitle="Manage Azure storage resources with Storage Explorer (Preview) | Microsoft Azure"
+	description="Describes how to use Microsoft Azure Storage Explorer (Preview) to create and manage Azure storage resources."
 	services="visual-studio-online"
 	documentationCenter="na"
 	authors="kempb"
@@ -16,9 +16,9 @@
 	ms.date="11/17/2015"
 	ms.author="kempb" />
 
-# Manage Azure storage resources with Storage Explorer
+# Manage Azure storage resources with Storage Explorer (Preview)
 
-Storage Explorer lets you manage Azure storage resources (blob containers, queues, and tables) outside of Azure using Windows or OS X.
+Microsoft Azure Storage Explorer (Preview) is a standalone tool that helps you easily manage your Azure storage accounts. It's useful in situations where you want to quickly manage storage outside of the Azure portal, such as when you're developing apps in Visual Studio. This preview release enables you to easily work with blob storage. You can create and delete containers, upload, download, and delete blobs, and search across all your containers and blobs. Advanced features enable developers and ops to work with SAS keys and policies. Windows developers can also use the Azure storage emulator to test their code using the Local Development storage account.
 
 To view or manage storage resources in Storage Explorer, you need to be able to access an Azure storage account, either in your subscription or an external storage account. If you don't have a storage account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
