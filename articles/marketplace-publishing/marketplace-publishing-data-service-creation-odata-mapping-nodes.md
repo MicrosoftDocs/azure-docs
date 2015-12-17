@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="11/30/2015"
+      ms.date="12/17/2015"
       ms.author="hascipio; avikova" />
 
 # Understanding the nodes schema for mapping an existing web service to OData through CSDL
@@ -164,9 +164,8 @@ The following are the attributes that have been added to the CSDL specification:
 |----|----|
 | **d:Regex** *(Optional)* | A regex statement used to validate the input value for the parameter. If the input value doesn’t match the statement the value is rejected. This allows to specify also a set of possible values, e.g. ^[0-9]+?$ to only allow numbers. **Example:** `<Parameter Name="name" Mode="In" Type="String" d:Nullable="false" d:Regex="^[a-zA-Z]*$" d:Description="A name that cannot contain any spaces or non-alpha non-English characters" d:SampleValues="George|John|Thomas|James"/>` |
 | **d:Enum** *(Optional)* | A pipe separated list of values valid for the parameter. The type of the values needs to match the defined type of the parameter. Example: `english|metric|raw`. Enum will display as a selectable dropdown list of parameters in the UI (service explorer). **Example:** `<Parameter Name="Duration" Type="String" Mode="In" Nullable="true" d:Enum="1year|5years|10years"/>` |
-| **d:Nullable** *(Optional)* | Allows defining whether a parameter can be null. The default is: true. However, parameters that are exposed as part of the path in the URI template can’t be null. When the attribute is set to false for these parameters – the user input is overridden. Allows defining whether a parameter can be null. The default is: true. However, parameters that are exposed as part of the path in the URI template can’t be null. When the attribute is set to false for these parameters – the user input is overridden. **Example:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
-| **d:SampleValue** *(Optional)* | A sample value to display as a note to the Client in the UI.  Can add several values, separate with the pipe, “|”. **Example:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
-| **d:UriTemplate** | |
+| **d:Nullable** *(Optional)* | Allows defining whether a parameter can be null. The default is: true. However, parameters that are exposed as part of the path in the URI template can’t be null. When the attribute is set to false for these parameters – the user input is overridden. **Example:** `<Parameter Name="BikeType" Type="String" Mode="In" Nullable="false"/>` |
+| **d:SampleValue** *(Optional)* | A sample value to display as a note to the Client in the UI.  It is possible to add several values by using a pipe separated list, i.e. `a|b|c` **Example:** `<Parameter Name="BikeOwner" Type="String" Mode="In" d:SampleValues="George|John|Thomas|James"/>` |
 
 ## EntityType node
 
