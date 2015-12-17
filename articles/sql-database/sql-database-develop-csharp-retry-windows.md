@@ -12,16 +12,18 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Code sample: Retry logic in C# for connecting to SQL Database
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C# Without retry](sql-database-develop-dotnet-simple.md)
+- [C# with EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 This topic provides a C# code sample that demonstrates custom retry logic. The retry logic is designed to gracefully process temporary errors or *transient faults* that tend to go away if the program waits a few seconds and retries.
@@ -281,4 +283,7 @@ Run the program with the "test" parameter, and verify it first fails but then su
 
 
 - [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
+
+- [Try SQL Database: Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)
+
 
