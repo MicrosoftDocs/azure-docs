@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Build your first Azure Data Factory pipeline using Visual Studio"
+	pageTitle="Get started with Azure Data Factory (Visual Studio)"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Visual Studio."
 	services="data-factory"
 	documentationCenter=""

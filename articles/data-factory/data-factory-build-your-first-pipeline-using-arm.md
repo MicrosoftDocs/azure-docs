@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Build your first Azure Data Factory pipeline using Azure PowerShell"
-	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Azure PowerShell."
+	pageTitle="Get started with Azure Data Factory (Azure Resource Manager template)"
+	description="In this tutorial, you will create a sample Azure Data Factory pipeline using an Azure Resource Manager template."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"

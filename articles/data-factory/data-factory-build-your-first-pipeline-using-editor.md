@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Build your first Azure Data Factory pipeline using Data Factory Editor"
+	pageTitle="Get started with Azure Data Factory (Azure Portal)"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Data Factory Editor in the Azure Portal."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="11/02/2015"
+	ms.date="12/14/2015"
 	ms.author="spelluru"/>
 
-# Build your first Azure Data Factory pipeline using Data Factory Editor (Azure Portal)
+# Get started with Azure Data Factory (Data Factory Editor)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -25,15 +25,19 @@
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
-In this article, you will learn how to use the [Azure Portal](https://portal.azure.com/) to create your first pipeline. This tutorial consists of the following steps:
+In this article, you will learn how to use the [Azure Portal](https://portal.azure.com/) to create your first Azure data factory. This tutorial consists of the following steps:
 
-1.	Creating the data factory
-2.	Creating the linked services (data stores, computes) and datasets
-3.	Creating the pipeline
+1.	Creating the **data factory**. A data factory can contain one or more pipelines that move and process data. In this tutorial, you will create only one pipeline. 
+2.	Creating the **linked services**. You create a linked service to link a data store or a compute service to the data factory. A data store such as Azure Storage holds input/output data of activities in the pipeline. A compute service such as Azure HDInsight processes/transforms data.    
+3.	Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
+3.	Creating the **pipeline**. A pipeline can have one or more activities such as Copy Activity to copy data from a source to a destination (or) HDInsight Hive Activity to transform input data using Hive script to produce output data. 
 
-This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
 
-> [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the pre-requisite steps before performing this tutorial.  
+> [AZURE.IMPORTANT] 
+> Please go through the [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
+>  
+> This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
+  
 
 ## Step 1: Creating the data factory
 
@@ -44,18 +48,18 @@ This article does not provide a conceptual overview of the Azure Data Factory se
 
 		![Create blade](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-2.	In the **New data factory** blade, enter **DataFactoryMyFirstPipeline** for the Name.
+2.	In the **New data factory** blade, enter **GetStartedDF** for the Name.
 
 	![New data factory blade](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “DataFactoryMyFirstPipeline” is not available**, change the name of the data factory (for example, yournameDataFactoryMyFirstPipeline) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+	> [AZURE.IMPORTANT] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “GetStartedDF” is not available**, change the name of the data factory (for example, yournameGetStartedDF) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 	>  
 	> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 
 3.	If you have not created any resource group,  you will need to create a resource group. To do this:
 	1.	Click on **RESOURCE GROUP NAME**.
 	2.	Select **Create a new resource group** in the **Resource group** blade.
-	3.	Enter **ADF** for the **Name** in the **Create resource group** blade.
+	3.	Enter **ADFGetStartedRG** for the **Name** in the **Create resource group** blade.
 	4.	Click **OK**.
 	
 		![Create resource group](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
@@ -74,7 +78,7 @@ In the subsequent steps, you will learn how to create the linked services, datas
 In this step, you will link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory and then create a dataset to represent the output data from Hive processing.
 
 ### Create Azure Storage linked service
-1.	Click **Author and deploy** on the **DATA FACTORY** blade for **DataFactoryFirstPipeline**. This launches the Data Factory Editor. 
+1.	Click **Author and deploy** on the **DATA FACTORY** blade for **GetStartedDF**. This launches the Data Factory Editor. 
 	 
 	![Author and deploy tile](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 2.	Click **New data store** and choose **Azure storage**
@@ -93,7 +97,7 @@ Now, you will create a linked service for an on-demand HDInsight cluster that wi
 1. In the **Data Factory Editor**, click **New compute** on the command bar and select **On-demand HDInsight cluster**.
 
 	![New compute](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
-2. Copy and paste the snippet below to the Draft-1 window. The JSON snippet describes the properties that will be used to create the HDInsight cluster on-demand. 
+2. Copy and paste the snippet below to the **Draft-1** window. The JSON snippet describes the properties that will be used to create the HDInsight cluster on-demand. 
 
 		{
 		  "name": "HDInsightOnDemandLinkedService",
@@ -120,13 +124,44 @@ Now, you will create a linked service for an on-demand HDInsight cluster that wi
 4. Confirm that you see both StorageLinkedService and HDInsightOnDemandLinkedService in the tree view on the left.
 
 	![Tree view with linked services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
- 
-### Create the output dataset
-Now, you will create the output dataset to represent the data stored in the Azure Blob storage. 
 
-1. In the **Data Factory Editor**, click **New dataset** on the command bar and select **Azure Blob storage**.  
+### Create the input dataset
+Now, you will create the input dataset to represent the data stored in the Azure Blob storage. 
+
+1. In the **Data Factory Editor**, click **New dataset** on the command bar and select **Azure Blob storage**.
 
 	![New dataset](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
+2. Copy and paste the snippet below to the Draft-1 window. In the JSON snippet, you are creating a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is located in the blob container called **adfgetstarted** and the folder called **inputdata**.
+		
+		{
+		    "name": "AzureBlobInput",
+		    "properties": {
+		        "published": false,
+		        "type": "AzureBlob",
+		        "linkedServiceName": "StorageLinkedService",
+		        "typeProperties": {
+		            "fileName": "input.log",
+		            "folderPath": "adfgetstarted/inputdata",
+		            "format": {
+		                "type": "TextFormat",
+		                "columnDelimiter": ","
+		            }
+		        },
+		        "availability": {
+		            "frequency": "Month",
+		            "interval": 1
+		        },
+		        "external": true,
+		        "policy": {}
+		    }
+		} 
+3. Click **Deploy** on the command bar to deploy the newly created dataset. You should see the dataset in the tree view on the left. 
+
+
+### Create the output dataset
+Now, you will create the output dataset to represent the output data stored in the Azure Blob storage. 
+
+1. In the **Data Factory Editor**, click **New dataset** on the command bar and select **Azure Blob storage**.  
 2. Copy and paste the snippet below to the Draft-1 window. In the JSON snippet, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that will be produced by the Hive script. In addition, you specify that the results are stored in the blob container called **data** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
 	
 		{
@@ -135,7 +170,7 @@ Now, you will create the output dataset to represent the data stored in the Azur
 		    "type": "AzureBlob",
 		    "linkedServiceName": "StorageLinkedService",
 		    "typeProperties": {
-		      "folderPath": "data/partitioneddata",
+		      "folderPath": "adfgetstarted/partitioneddata",
 		      "format": {
 		        "type": "TextFormat",
 		        "columnDelimiter": ","
@@ -154,7 +189,7 @@ Now, you will create the output dataset to represent the data stored in the Azur
 	![Tree view with linked services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
 ## Step 3: Creating your first pipeline
-In this step, you will create your first pipeline.
+In this step, you will create your first pipeline with a **HDInsightHive** activity.
 
 1. In the **Data Factory Editor**, click **Elipsis (…)** and then click **New pipeline**.
 	
@@ -162,41 +197,50 @@ In this step, you will create your first pipeline.
 2. Copy and paste the snippet below to the Draft-1 window.
 
 	> [AZURE.IMPORTANT] Replace **storageaccountname** with the name of your storage account in the  JSON.
-
+		
 		{
-		  "name": "MyFirstPipeline",
-		  "properties": {
-		    "description": "My first Azure Data Factory pipeline",
-		    "activities": [
-		      {
-		        "type": "HDInsightHive",
-		        "typeProperties": {
-		          "scriptPath": "script/partitionweblogs.hql",
-		          "scriptLinkedService": "StorageLinkedService",
-		          "defines": {
-		            "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
-		          }
-		        },
-		        "outputs": [
-		          {
-		            "name": "AzureBlobOutput"
-		          }
+		    "name": "MyFirstPipeline",
+		    "properties": {
+		        "description": "My first Azure Data Factory pipeline using ARM",
+		        "activities": [
+		            {
+		                "type": "HDInsightHive",
+		                "typeProperties": {
+		                    "scriptPath": "script/partitionweblogs.hql",
+		                    "scriptLinkedService": "StorageLinkedService",
+		                    "defines": {
+		                        "inputtable": "wasb://data@<storageaccountname>.blob.core.windows.net/inputdata",
+		                        "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
+		                    }
+		                },
+		                "inputs": [
+		                    {
+		                        "name": "AzureBlobInput"
+		                    }
+		                ],
+		                "outputs": [
+		                    {
+		                        "name": "AzureBlobOutput"
+		                    }
+		                ],
+		                "policy": {
+		                    "concurrency": 1,
+		                    "retry": 3
+		                },
+		                "scheduler": {
+		                    "frequency": "Month",
+		                    "interval": 1
+		                },
+		                "name": "RunSampleHiveActivity",
+		                "linkedServiceName": "HDInsightOnDemandLinkedService"
+		            }
 		        ],
-                "scheduler": {
-                    "frequency": "Month",
-                    "interval": 1
-                },
-		        "policy": {
-		          "concurrency": 1,
-		          "retry": 3
-		        },
-		        "name": "RunSampleHiveActivity",
-		        "linkedServiceName": "HDInsightOnDemandLinkedService"
-		      }
-		    ],
-		    "start": "2014-01-01",
-		    "end": "2014-01-02"
-		  }
+		        "start": "2014-02-01T00:00:00Z",
+		        "end": "2014-02-02T00:00:00Z",
+		        "isPaused": false,
+		        "hubName": "tutorialdatafactoryarm_hub",
+		        "pipelineMode": "Scheduled"
+		    }
 		}
  
 	In the JSON snippet, you are creating a pipeline that consists of a single activity that uses Hive to process Data on an HDInsight cluster.
@@ -225,7 +269,7 @@ In this step, you will create your first pipeline.
 9. When processing is done, you will see the slice in **Ready** state. Note that the creation of an on-demand HDInsight cluster usually takes sometime. 
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **data** container in your blob storage for the output data.  
+10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
  
 
  
