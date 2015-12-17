@@ -28,7 +28,7 @@ Private IP addresses are used for communication within an Azure virtual network 
 ## Public IP addresses
 You assign public IP addresses to allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [SQL databases](sql-database-technical-overview.md), and [Azure storage](storage-introduction.md).
 
-In Azure Resource Manager, a [public IP](resource-groups-networking.md/#public-ip-address) address is a resource that has its own properties, and can be associated with any of the following resources:
+In Azure Resource Manager, a [public IP](resource-groups-networking.md#public-ip-address) address is a resource that has its own properties, and can be associated with any of the following resources:
 
 - VMs
 - VPN gateways
@@ -36,9 +36,10 @@ In Azure Resource Manager, a [public IP](resource-groups-networking.md/#public-i
 - Application gateways
 
 ### Allocation methods
-You can use *dynamic* or *static* public IP addresses. In the default allocation method, which is *dynamic*, an IP address is **not** assigned to the public IP resource during creation. Instead, the public IP resource has an IP address allocated based on the [Azure location](https://www.microsoft.com/download/details.aspx?id=41653) it is a part of when a resource such as a NIC, load balancer, or application gateway is created or started. Furthermore, the IP address used by public IP may change when the associated resource is deleted or stopped.
+You can use *dynamic* or *static* public IP addresses. In the default allocation method, which is *dynamic*, an IP address is **not** assigned to the public IP resource during creation. Instead, the public IP resource has an IP address allocated based on the [Azure location](https://www.microsoft.com/download/details.aspx?id=41653) it is a part of when the resource associated to the public IP is created or started. Furthermore, the actual IP address used by a public IP may change when the associated resource is deleted or stopped.
 
-If you want to ensure the IP address for your resource remains the same, you have to change the allocation method to *static*. Unlike private IP addresses, you cannot specify what IP address you want to use. Static public IP addresses are commonly used for cloud services and VMs in the following scenarios:
+If you want to ensure the IP address for your resource remains the same, you have to change the allocation method to *static*. Static public IP addresses are commonly used in the following scenarios:
+
 - Use of SSL certificates linked to an IP address.
 - Resources that require firewall rules setup for outside Azure.
 - Resources that depend on external DNS name resolution, where a dynamic IP would require updating A records.
@@ -49,12 +50,12 @@ If you want to ensure the IP address for your resource remains the same, you hav
 ### DNS hostname resolution
 You can associate a public IP with a DNS domain name label, which creates a corresponding DNS entry in the Azure DNS servers. The corresponding FQDN will have the format *domainnamelabel*.*location*.cloudapp.azure.com, and will be associated to the public IP linked to your resource. For instance, if you create a public IP with a *domainnamelabel* of **azuretest** in the *West US* Azure region, the FQDN for the resource associated to the public IP will be **azuretest.westus.cloudapp.azure.com**.
 
->[AZURE.IMPORTANT] Each domain name label created in the public Internet must be unique.  
+>[AZURE.IMPORTANT] Each domain name label created must be unique within its Azure location.  
 
-You can later create CNAME records using your own custom domain name that point to the domain label name you create in Azure.
+You can later create CNAME records using your own custom domain name that point to the FQDN used in Azure.
 
 ### VMs
-You cannot assign a public IP directly to a [VM](virtual-machines-about.md). Instead, you create a NIC and associate the public IP to the NIC, and the NIC to the VM. Although VMs can be assigned multiple NICs, only the **primary** NIC can have a public IP associated to it. 
+You **cannot** assign a public IP directly to a [VM](virtual-machines-about.md). Instead, you create a NIC and associate the public IP to the NIC, and the NIC to the VM. Although VMs can be assigned multiple NICs, only the **primary** NIC can have a public IP associated to it. 
 
 You can assign either a dynamic or a static public IP address to the primary NIC of a VM.
 
@@ -85,7 +86,7 @@ The table below shows what resources can use dynamic or static public IP address
 |Application gateway front end|Yes|No|No|
 
 ## Private IP addresses
-You assign private IP addresses to allow Azure resources to communicate to other resources in your [VNet](virtual-networks-overview), or to your on-premises network through a VPN gateway or ExpressRoute circuit. Each VNet you create will use a range of private IP addresses that you specify. Resources in a VNet must use a private IP address that is part of this range. 
+You assign private IP addresses to allow Azure resources to communicate to other resources in your [VNet](virtual-networks-overview.md), or to your on-premises network through a VPN gateway or ExpressRoute circuit. Each VNet you create will use a range of private IP addresses that you specify. Resources in a VNet must use a private IP address that is part of this range. 
 
 In Azure Resource Manager, a private IP address is a property that can be used in different resources.
 
@@ -99,9 +100,10 @@ You can use *dynamic* or *static* private IP addresses. In the default allocatio
 
 If you want to ensure the IP address for your resource remains the same, you have to change the allocation method to *static* and specify a valid IP address that is part of the range of addresses assigned to the subnet the resource is part of. 
 
-Static IP addresses are commonly used for:
+Static private IP addresses are commonly used for:
+
 - VMs that act as DNS servers.
-- VMs that act domain controllers.
+- VMs that act as domain controllers.
 - VMs that require firewall rules using IP addresses.
 - VMs running services accessed by other apps by using an IP address.
 
@@ -111,7 +113,7 @@ Most communication between Azure resources is done by using a human readable nam
 All Azure VMs use [Azure-managed DNS servers](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution), unless you create your own DNS server and configure your VMs to use it. In case of using Azure-managed DNS servers, a DNS record is created automatically to resolve the VM's hostname to the private IP address of the VM. In case of a multi-NIC VM, the hostname resolves to private IP address of the primary NIC.
 
 ### VMs
-You cannot assign a private IP directly to a [VM](virtual-machines-about.md). Instead, you create a NIC and associate the NIC to the VM. Each NIC has its own **privateIPAddress** property that must have a valid IP address for the subnet which the NIC is assigned to. VMs can have [multiple NICs](virtual-networks-multiple-nics).
+You cannot assign a private IP directly to a [VM](virtual-machines-about.md). Instead, you create a NIC and associate the NIC to the VM. Each NIC has its own **privateIPAddress** property that must have a valid IP address for the subnet which the NIC is assigned to. VMs can have [multiple NICs](virtual-networks-multiple-nics.md).
 
 You can assign either a dynamic or static IP address to NICs used by a VM.
 
@@ -125,7 +127,7 @@ When you associate NICs to an internet facing load balancer, traffic that applie
 You can assign either a dynamic or static IP address to NICs associated to an Internet facing load balancer.
 
 ###Internal load balancer (ILB)
-You can use an [internal load balancer](load-balancer-internal-overview) to balance the load of an application across multiple VMs using a single private IP address in your subnet. For instance, you can have multiple VMs hosting the same database, and decide to spread database connections coming from your VNet to these VMs. You can do so by using an itnernal load balancer.
+You can use an [internal load balancer](load-balancer-internal-overview.md) to balance the load of an application across multiple VMs using a single private IP address in your subnet. For instance, you can have multiple VMs hosting the same database, and decide to spread database connections coming from your VNet to these VMs. You can do so by using an itnernal load balancer.
 
 Similarly to public facing load balancers, you can associate NICs assigned to VMs to the backend pool of a load balancer to use the VMs as destination for load balanced traffic. You can also associate NICs to the inbound NAT rules of a load balancer to provide NAT rules that allow direct access to the VMs behind a load balancer. You can also associate a private IP address to the frontend of an ILB. 
 
@@ -150,7 +152,7 @@ The table below shows what resources can use dynamic or static private IP addres
 ## Differences between Resource Manager and classic deployments
 If you are familiar with the classic deployment model, and new to Resource Manager, you can quickly understand with changes in Resource Manager by checking the differences listed below.
 
-**Private IP addresses**
+###Private IP addresses
 
 |Resource|classic|Resource Manager|
 |---|---|---|
@@ -159,7 +161,7 @@ If you are familiar with the classic deployment model, and new to Resource Manag
 |ILB|Allocated to back end address pool|Allocated to NICs that are part of the backend address pool|
 |Internet facing load balancer|Allocated to VMs or role instances in a cloud service|Allocated to NICs that are part of the backend address pool|
 
-**Public IP addresses**
+###Public IP addresses
 
 |Resource|classic|Resource Manager|
 |---|---|---|
@@ -171,10 +173,10 @@ If you are familiar with the classic deployment model, and new to Resource Manag
 
 ## Next steps
 
-- [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-arm-template.md).
-- [Create a public IP address for an Internet facing load balancer by using the Azure CLI](load-balancer-get-started-internet-arm-cli.md/#create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool)
-- [Create a public IP address for an application gateway by using PowerShell](application-gateway-create-gateway-arm.md/#create-public-ip-address-for-front-end-configuration)
-- [Create a public IP address for a VPN gateway by using PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md/#4-request-a-public-ip-address-for-the-gateway)
-- [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-arm-pportal.md).
-- [Create a front end static private IP address for an internal load balancer by using PowerShell](load-balancer-get-started-ilb-arm-ps.md/#create-front-end-ip-pool-and-backend-address-pool)
-- [Create a backend pool with static private IP addresses for an application gateway by using PowerShell](application-gateway-create-gateway-arm.md/#create-an-application-gateway-configuration-object)
+- [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-arm-template.md)
+- [Create a public IP address for an Internet facing load balancer by using the Azure CLI](load-balancer-get-started-internet-arm-cli.md#create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool)
+- [Create a public IP address for an application gateway by using PowerShell](application-gateway-create-gateway-arm.md#create-public-ip-address-for-front-end-configuration)
+- [Create a public IP address for a VPN gateway by using PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md#4-request-a-public-ip-address-for-the-gateway)
+- [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-arm-pportal.md)
+- [Create a front end static private IP address for an internal load balancer by using PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-front-end-ip-pool-and-backend-address-pool)
+- [Create a backend pool with static private IP addresses for an application gateway by using PowerShell](application-gateway-create-gateway-arm.md#create-an-application-gateway-configuration-object)
