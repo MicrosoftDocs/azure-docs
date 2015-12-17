@@ -1,3 +1,4 @@
+
 <properties
    pageTitle="Export a SQL Server database to a BACPAC file using SSMS"
    description="Microsoft Azure SQL Database, database migration, export database, export BACPAC file, Export Data Tier Application wizard"
@@ -19,12 +20,9 @@
 # Export a SQL Server database to a BACPAC file using SSMS
 
 > [AZURE.SELECTOR]
-- [Export to BACPAC using SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [Export to BACPAC using SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
-- [Import from BACPAC using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms)
-- [Import from BACPAC using SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage)
-- [Import from BACPAC using Azure portal](sql-database-import.md)
-- [Import from BACPAC using PowerShell](sql-database-import-powershell.md)
+- [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+- [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
+
  
 This article shows how to export a SQL Server database to a [BACPAC](https://msdn.microsoft.com/en-us/library/ee210546.aspx#Anchor_4) file using the Export Data Tier Application Wizard in SQL Server Management Studio. 
 
@@ -43,3 +41,11 @@ This article shows how to export a SQL Server database to a [BACPAC](https://msd
 4. In the export wizard, configure the export to save the BACPAC file to either a local disk location or to an Azure blob. The exported BACPAC always includes the complete database schema and, by default, data from all the tables. Use the Advanced tab if you want to exclude data from some or all of the tables. You might, for example, choose to export only the data for reference tables rather than from all tables.
 
 	![Export settings](./media/sql-database-cloud-migrate/MigrateUsingBACPAC02.png)
+
+## Import to SQL Database from a BACPAC file
+
+> [AZURE.SELECTOR]
+- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+- [Azure Portal](sql-database-import.md)
+- [PowerShell](sql-database-import-powershell.md)

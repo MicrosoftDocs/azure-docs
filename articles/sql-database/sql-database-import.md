@@ -23,8 +23,10 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-import.md)
+- [Azure Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
+- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 
 This article provides directions for creating a new Azure SQL database from a BACPAC file using the [Azure portal](https://portal.azure.com).
 

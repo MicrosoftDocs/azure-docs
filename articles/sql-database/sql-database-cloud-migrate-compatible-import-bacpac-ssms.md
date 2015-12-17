@@ -19,12 +19,10 @@
 # Import from BACPAC to SQL Database using SSMS
 
 > [AZURE.SELECTOR]
-- [Export to BACPAC using SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-- [Export to BACPAC using SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
-- [Import from BACPAC using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-- [Import from BACPAC using SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
-- [Import from BACPAC using Azure portal](sql-database-import.md)
-- [Import from BACPAC using PowerShell](sql-database-import-powershell.md)
+- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
+- [Azure Portal](sql-database-import.md)
+- [PowerShell](sql-database-import-powershell.md)
 
 This article shows how to import from a [BACPAC](https://msdn.microsoft.com/en-us/library/ee210546.aspx#Anchor_4) file to SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio.
 
