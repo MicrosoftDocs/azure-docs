@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="12/11/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -27,7 +27,7 @@
 
 This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) using the Azure portal. A SQL Database configuration with elastic database pools simplifies administration and resource sharing across multiple databases.
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
 
 
 Before you start, you need a database on a SQL Database V12 server. If you don't have one, see [Create your first Azure SQL Database](sql-database-get-started.md) to create one in under five minutes. Or if you already have a SQL Database V11 server you can [upgrade to V12 in the portal](sql-database-v12-upgrade.md) and then come back and follow these directions to create a pool.
@@ -89,7 +89,11 @@ The service evaluates resource needs and cost effectiveness of moving the single
 
 ## Step 3: add databases to the pool
 
-At any time, you can select the specific databases you want to be included in the pool. When you create a new pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
+At any time, you can add existing or new databases to a pool.
+
+### Add existing databases to the pool
+
+When you create a new pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
 
    ![Add databases][5]
 
@@ -98,8 +102,18 @@ When you select a database to be added to a pool, the following conditions must 
 - The pool must have room for the database (cannot already contain the maximum number of databases). More specifically, the pool must have enough available eDTUs to cover the eDTU guarantee per database (for example, if the eDTU guarantee for the group is 400, and the eDTU guarantee for each database is 10, then the maximum number of databases that are allowed in the pool is 40 (400 eDTUs/10 eDTUs guaranteed per DB = 40 Max databases).
 - The current features used by the database must be available in the pool.
 
+### Add a new database to the pool
 
-## Step 4: tweaking performance characteristics
+Create a new database in a pool by browsing to the desired pool and clicking **Create database**.
+
+The SQL database is already configured for the correct server and pool so enter a name and select your database options, then click **OK** to create the new elastic database:
+
+
+   ![create elastic database][13]
+
+
+
+## Step 4: setting performance characteristics of the pool
 
 You configure the performance of the pool by setting the performance parameters for both the pool and the elastic databases in the pool. Keep in mind that the **Elastic database settings** apply to all databases in the pool.
 
@@ -201,3 +215,4 @@ After creating an elastic database pool, you can manage the databases in the poo
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
+[13]: ./media/sql-database-elastic-pool-portal/create-database.png
