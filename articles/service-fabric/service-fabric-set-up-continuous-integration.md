@@ -293,7 +293,7 @@ To install Azure PowerShell, follow the steps in the previous section **Install 
 
 ### Add a "Remove Cluster Resource Group" step
 
-If a previous build did not clean up after itself (such as if the build was cancelled before it could clean up), there may be an existing resource group that will conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before creating a new one.
+If a previous build did not clean up after itself (such as if the build was cancelled before it could clean up), there may be an existing resource group that will conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before creating a new one:
 
 1.	On the **Build** tab, choose the **Add build step…** command.
 2.	Choose **Utility** > **PowerShell**.
@@ -313,7 +313,7 @@ If a previous build did not clean up after itself (such as if the build was canc
 
 ### Add a "Remove Cluster Resource Group" step
 
-Now that you're done with the temporary cluster, you should clean it up. If you don't do this, you'll continue to be charged for the temporary cluster. This procedure removes the resource group, which removes the cluster and all other resources in the group.
+Now that you're done with the temporary cluster, you should clean it up. If you don't do this, you'll continue to be charged for the temporary cluster. This procedure removes the resource group, which removes the cluster and all other resources in the group:
 
 1.	On the **Build** tab, choose the **Add build step…** command.
 2.	Choose **Utility** > **PowerShell**.
