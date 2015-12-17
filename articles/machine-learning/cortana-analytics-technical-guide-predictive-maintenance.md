@@ -425,7 +425,7 @@ containing data (*e.g.*. prediction results) for visualization.
     Maintenance Demo" for this new dashboard.
 
     -   Once you open the report, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png) to pin all the
-    visualizations to your dashboard. To find detailed instructions, see [Pin a tile to a Power BI dashboard from a report](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report). 
+    visualizations to your dashboard. To find detailed instructions, see [Pin a tile to a Power BI dashboard from a report](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
     Go to the dashboard page and
     adjust the size and location of your visualizations and edit their titles. To find detailed instructions on how to edit your tiles, see [Edit a tile -- resize, move, rename, pin, delete, add hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Here is an example dashboard with some cold path visualizations pinned to it.  Depending on how long you run your data simulator, your numbers on the visualizations may be different.
 
@@ -433,7 +433,7 @@ containing data (*e.g.*. prediction results) for visualization.
 
     -   To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) and then choose **Schedule Refresh. **
 
-        **Note:** If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
+    >[AZURE.NOTE] If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
 
     ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png)
 
@@ -453,7 +453,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 
 1.  Add Power BI output in Azure Stream Analytics (ASA).
 
-    -  You will need to follow the instructions in 
+    -  You will need to follow the instructions in
     [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
     to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
 	- Locate the stream analytics job **maintenancesa02asapbi** in the [Azure Portal](https://manage.windowsazure.com).
