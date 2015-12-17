@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/15/2015"
+   ms.date="12/17/2015"
    ms.author="carlrab"/>
 
 # Export a SQL Server database to a BACPAC file using SSMS

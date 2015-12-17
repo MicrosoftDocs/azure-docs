@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="12/15/2015"
+   ms.date="12/17/2015"
    ms.author="carlrab"/>
 
 # Migrating a SQL Server database to Azure SQL Database
@@ -26,7 +26,7 @@ In this article you learn to how to migrate an on-premises SQL Server 2005 or la
 
 > [AZURE.SELECTOR]
 - [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-- [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+- [SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md)
 
 To test for SQL Database compatibility issues before you start the migration process, use one of the following methods:
 
@@ -37,9 +37,9 @@ To test for SQL Database compatibility issues before you start the migration pro
 
 If compatibility issues are detected, you must fix these compatibility issues before proceeding with the migration.
 
-- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md#fix-sql-server-database-compatibility-issues-using-sql-azure-migration-wizard)
-- Use [SQL Server Data Tools for Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues.md#fix-sql-server-database-compatibility-issues-using-sql-server-data-tools-for-visual-studio)
-- Use [SQL Server Management Studio](sql-database-cloud-migrate-fix-compatibility-issues.md#fix-sql-server-database-compatibility-issues-using-sql-server-management-studio)
+- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md#using-sql-azure-migration-wizard)
+- Use [SQL Server Data Tools for Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues.md#using-sql-server-data-tools-for-visual-studio)
+- Use [SQL Server Management Studio](sql-database-cloud-migrate-fix-compatibility-issues.md#using-sql-server-management-studio)
 
 ## Migrate a compatible SQL Server database to SQL Database
 
