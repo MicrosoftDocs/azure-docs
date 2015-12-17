@@ -255,7 +255,7 @@ $(Build.StagingDirectory)/AzureResourceGroup1/Scripts/Deploy-AzureResourceGroup.
 ```
 
 ## Next steps
-Learn more about Azure Resource Manager by reading [Azure Resource Manager overview](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/).
+Learn more about Azure Resource Manager by reading [Azure Resource Manager overview](resource-group-overview.md).
 
 [0]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy1c.png
 [1]: ./media/vs-azure-tools-resource-groups-how-script-works/deploy2bc.png
