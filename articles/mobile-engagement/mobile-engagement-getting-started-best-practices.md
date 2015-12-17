@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="09/25/2015"
+	ms.date="12/11/2015"
 	ms.author="wesmc"/>
 
 # Azure Mobile Engagement - Getting Started Guide with Best practices
@@ -284,7 +284,7 @@ Azure Mobile Engagement identifies users by generating a unique identifier for e
 
 A session is one instance of the app being run by a user. The session spans from the time the user starts the app, until it stops.
 
-An activity is a logical grouping of a set of things the app during a session. It is usually a particular screen in the app, but it can be anything defined by the logic of the application. At a minimum you should tag each screen or Activity for your app. This will allow you to understand the user-path.
+An activity is a logical grouping of a set of things the app may do during a session. It is usually a particular screen in the app, but it can be anything defined by the logic of the application. At a minimum you should tag each screen or Activity for your app. This will allow you to understand the user-path.
 
 
 ###### Events
@@ -394,6 +394,7 @@ After you have developed some experience you might consider adding the following
 
 ## Next Steps
 
+- [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
 - Visit [Define your Mobile Engagement strategy](mobile-engagement-define-your-mobile-engagement-strategy.md) to learn more about defining your Mobile Engagement strategy.
 
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How does Azure Site Recovery work?"
+	pageTitle="How does Site Recovery work? | Microsoft Azure"
 	description="This article provides an overview of Site Recovery architecture"
 	services="site-recovery"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="12/07/2015"
 	ms.author="raynew"/>
 
 # How does Azure Site Recovery work?
@@ -44,7 +44,7 @@ If you want to protect either VMware VMs, or Windows/Linux physical machines by 
 
 **Location** | **What you need** 
 --- | --- 
- On-premises | **Process server**: This server optimizes data from protected VMware virtual machines or physical Windows/Linux machines before sending it to Azure. It also handles push installation of the Mobility service component to protected machine, and performs automatic discovery of VMware virtual machines. <br/><br/> **VMware vCenter server**: If you're protecting VMware VMs you'll need a VMwave vCenter server managing your vSphere hypervisors<br/><br/> **ESX server**: If you're protecting VMware VMs you'll need a server running ESX/ESXi version 5.1 or 5.5 with the latest updates.<br/><br/> **Machines**: If you're protecting VMware you should have VMware VMs with VMware tools installed and running. If you're protecting physical machines they should be running a supported Windows or Linux operating system. See [what's supported](site-recovery-vmware-to-azure/#before-you-start). <br/><br/> **Mobility service**: Installs on machines you want to protect to capture changes and communicate them to the process server. <br/><br/>Third-party components: This deployment depends on some [third-party components](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt).
+ On-premises | **Process server**: This server optimizes data from protected VMware virtual machines or physical Windows/Linux machines before sending it to Azure. It also handles push installation of the Mobility service component to protected machine, and performs automatic discovery of VMware virtual machines. <br/><br/> **VMware vCenter server**: If you're protecting VMware VMs you'll need a VMwave vCenter server managing your vSphere hypervisors<br/><br/> **ESX server**: If you're protecting VMware VMs you'll need a server running ESX/ESXi version 5.1 or 5.5 with the latest updates.<br/><br/> **Machines**: If you're protecting VMware you should have VMware VMs with VMware tools installed and running. If you're protecting physical machines they should be running a supported Windows or Linux operating system. See [what's supported](site-recovery-vmware-to-azure.md/#before-you-start). <br/><br/> **Mobility service**: Installs on machines you want to protect to capture changes and communicate them to the process server. <br/><br/>Third-party components: This deployment depends on some [third-party components](http://download.microsoft.com/download/C/D/7/CD79E327-BF5A-4026-8FF4-9EB990F9CEE2/Third-Party_Notices.txt).
 Azure | **Configuration server**: Standard A3 Azure VM that coordinates communication between protected machines, the process server, and master target servers in Azure. It sets up replication and coordinates recovery when failover occurs. <br/><br/>**Master target server**: Azure VM that holds replicated data from protected machines using attached VHDs created on blob storage in your Azure storage account. A failback master target server runs on premises so that you can fail back Azure VMs to VMware VMs. <br/><br/> **Site Recovery vault**: At least one Azure Site Recovery vault (set up with a subscription to the Site Recovery service) <br/><br/> **Virtual network**: An Azure network on which the configuration server and master target servers are located, in the same subscription and region as the Site Recovery service. <br/><br/> **Azure storage**: Azure storage account to store replicated data. Should be a standard geo-redundant or premium account in the same region as the Site Recovery subscription.
 
 

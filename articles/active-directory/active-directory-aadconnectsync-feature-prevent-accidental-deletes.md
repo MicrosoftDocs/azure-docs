@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/20/2015"
+   ms.date="12/16/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Prevent accidental deletes
@@ -25,7 +25,7 @@ The default value of 500 objects can be changed with PowerShell using `Enable-AD
 
 With this feature enabled, if there are too many deletes staged to be exported to Azure AD, the export will not continue and you will receive an email like this:
 
-![Accidental deletes email](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
+![Hello. At time the Identity synchronization service detected that the number of deletions exceeded the configured threshold for fabrikam.com. A total of 1234 objects were sent for deletion in this Identity synchronization run. This met or exceeded the configured deletion threshold value of 500 objects. We need you to provide confirmation that these deletions should be processed before we will proceed. Please see the preventing accidental deletions for more information about the error listed in this email message.](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
 If this was unexpected, then investigate and take corrective actions. To see which objects are about to be deleted, do the following:
 
