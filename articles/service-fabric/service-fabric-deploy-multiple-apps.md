@@ -118,7 +118,7 @@ To package MongoDB, you want to make sure you package Mongod.exe and Mongo.exe. 
 	|-- bin
         |-- mongod.exe
         |-- mongo.exe
-        |-- etc.
+        |-- anybinary.exe
 ```
 Service Fabric needs to start MongoDB with a command similar to the one below, so you need to use the `/ma` parameter when packaging MongoDB.
 
