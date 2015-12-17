@@ -118,7 +118,7 @@ If you need to migrate BizTalk Server orchestration processing to Microsoft Azur
 
 - [*Windows Workflow Foundation Developer Center*](http://go.microsoft.com/fwlink/p/?LinkId=237315) on MSDN.
 
-- [*Windows Workflow Foundation 4 (WF4) documentation*](https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx) on MSDN.
+- [*Windows Workflow Foundation 4 (WF4) documentation*](https://msdn.microsoft.com/library/dd489441.aspx) on MSDN.
 
 ## Other Considerations
 
