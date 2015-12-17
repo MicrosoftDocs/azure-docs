@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="sameerch"/>
 
 
@@ -36,7 +36,7 @@ The following actions are supported:
 - Send IDoc
 
 ## Prerequisites
-The SAP specific client libraries are required on the client machine where the hybrid listener is installed and running. The precise details are captured [here][9] under the section titled **For the SAP adapter**.
+The SAP specific client libraries are required on the client machine where the hybrid listener is installed and running. The precise details are in the [BizTalk Adapter Pack Installation Guide][9] under the section titled **For the SAP adapter**.
 
 
 ## Create a new SAP Connector

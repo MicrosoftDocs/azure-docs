@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="12/17/2015"
 	ms.author="mandia"/>
 
 
@@ -104,21 +104,21 @@ Yet another example is the **If-Then-Else** Expression map operation.  Doing an 
 
 ### Migrating BizTalk Server Maps
 
-Microsoft Azure BizTalk Services provides a tool to migrate BizTalk Server maps to BizTalk Services transforms. The **BTMMigrationTool** is available as part of the **Tools** package provided with the BizTalk Services SDK and can be downloaded from [here](http://go.microsoft.com/fwlink/p/?LinkId=235057). For more information about the tool, see [Convert a BizTalk map to a BizTalk Services Transform](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
+Microsoft Azure BizTalk Services provides a tool to migrate BizTalk Server maps to BizTalk Services transforms. The **BTMMigrationTool** is available as part of the **Tools** package provided with the [BizTalk Services SDK download](http://go.microsoft.com/fwlink/p/?LinkId=235057). For more information about the tool, see [Convert a BizTalk map to a BizTalk Services Transform](https://msdn.microsoft.com/library/windowsazure/hh949812.aspx).
 
-You can also look at a sample by Sandro Pereira, BizTalk MVP, on how to migrate BizTalk Server maps to BizTalk Services transforms. The sample is available [here](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
+You can also look at a sample by Sandro Pereira, BizTalk MVP, on how to [migrate BizTalk Server maps to BizTalk Services transforms](http://social.technet.microsoft.com/wiki/contents/articles/23220.migrating-biztalk-server-maps-to-windows-azure-biztalk-services-wabs-maps.aspx).
 
 ## Orchestrations
 
 If you need to migrate BizTalk Server orchestration processing to Microsoft Azure, the orchestrations would need to be rewritten because Microsoft Azure does not support running BizTalk Server orchestrations.  You could rewrite the orchestration functionality in a Windows Workflow Foundation 4.0 (WF4) service.  This would be a complete rewrite as there is currently no migration from BizTalk Server orchestrations to WF4. Here are some resources for Windows Workflow:
 
-- *How to integrate a WCF Workflow Service with Service Bus Queues and Topics* by Paolo Salvatori. See [here](https://msdn.microsoft.com/library/azure/hh709041.aspx).
+- [*How to integrate a WCF Workflow Service with Service Bus Queues and Topics*](https://msdn.microsoft.com/library/azure/hh709041.aspx) by Paolo Salvatori. 
 
-- *Building apps with Windows Workflow Foundation and Azure* session from the Build 2011 conference. See [here](http://go.microsoft.com/fwlink/p/?LinkId=237314).
+- [*Building apps with Windows Workflow Foundation and Azure* session](http://go.microsoft.com/fwlink/p/?LinkId=237314) from the Build 2011 conference.
 
-- *Windows Workflow Foundation Developer Center on MSDN*. See [here](http://go.microsoft.com/fwlink/p/?LinkId=237315).
+- [*Windows Workflow Foundation Developer Center*](http://go.microsoft.com/fwlink/p/?LinkId=237315) on MSDN.
 
-- *Windows Workflow Foundation 4 (WF4) documentation on MSDN*. See [here](https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx).
+- [*Windows Workflow Foundation 4 (WF4) documentation*](https://msdn.microsoft.com/library/dd489441(v=vs.100).aspx) on MSDN.
 
 ## Other Considerations
 
