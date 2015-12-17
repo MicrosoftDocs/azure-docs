@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="12/17/2015"
 	ms.author="v-shysun"/>
 
 # Troubleshoot database performance using Azure SQL Database
