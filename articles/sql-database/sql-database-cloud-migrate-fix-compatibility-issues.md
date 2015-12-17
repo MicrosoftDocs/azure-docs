@@ -40,6 +40,6 @@ Use SQL Server Data Tools for Visual Studio ("SSDT") to import the database sche
 
 Use SQL Server Management Studio to fix compatibility issues using various Transact-SQL commands, such as **ALTER DATABASE**.
 
-## Next step: Fix compatibility issues, if any
+## Next step: Select migration method and perform migration
 
 [Select migration method](sql-database-cloud-migrate.md).
