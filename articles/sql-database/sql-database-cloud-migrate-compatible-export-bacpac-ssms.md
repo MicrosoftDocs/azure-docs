@@ -18,6 +18,7 @@
 
 # Export a SQL Server database to a BACPAC file using SSMS
 
+> [AZURE.SELECTOR]
 - [Export to BACPAC using SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 - [Export to BACPAC using SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 - [Import from BACPAC using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms)

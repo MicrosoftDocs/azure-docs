@@ -21,12 +21,12 @@
 > [AZURE.SELECTOR]
 - [Export to BACPAC using SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
 - [Export to BACPAC using SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
-- [Import from BACPAC using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms)
-- [Import from BACPAC using SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage)
+- [Import from BACPAC using SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [Import from BACPAC using SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 - [Import from BACPAC using Azure portal](sql-database-import.md)
 - [Import from BACPAC using PowerShell](sql-database-import-powershell.md)
 
-This article shows how to import to SQL database from a [BACPAC](https://msdn.microsoft.com/en-us/library/ee210546.aspx#Anchor_4) file using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
+This article shows how to import to SQL database from a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file using the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
 
 > [AZURE.NOTE] The steps below assume that you have already provisioned a SQL Database server, have the connection information on hand, and have verified that your source database is compatible.
 
