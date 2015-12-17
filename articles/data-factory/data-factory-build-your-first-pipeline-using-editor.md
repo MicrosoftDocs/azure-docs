@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Build your first Azure Data Factory pipeline using Data Factory Editor"
-	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Data Factory Editor in the Azure Classic Portal."
+	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Data Factory Editor in the Azure Portal."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,12 +16,13 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Build your first Azure Data Factory pipeline using Data Factory Editor (Azure Classic Portal)
+# Build your first Azure Data Factory pipeline using Data Factory Editor (Azure Portal)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 In this article, you will learn how to use the [Azure Portal](https://portal.azure.com/) to create your first pipeline. This tutorial consists of the following steps:

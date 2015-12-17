@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/11/2015"
 	ms.author="emgerner"/>
 
 # How to use Azure Blob storage from Python
