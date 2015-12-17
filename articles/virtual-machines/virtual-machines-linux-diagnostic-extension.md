@@ -148,4 +148,4 @@ If have enabled fileCfg or perfCfg specified in Scenario 2 and 3, you can use th
 
 ## Known issues
 - For version 2.0, the Rsyslog information and customer specified log file can only be accessed via scripting.
-- For version 2.0, if you have enabled the Linux Diagnostic extension via script first, then you cannot view the data from the portal. If you enable the extension from the portal first, then the scripts will still work.
+
