@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="12/17/2015"
 	ms.author="v-aabrol"/>
 
 
@@ -76,7 +76,7 @@ To configure the integration of OpsGenie into Azure AD, you need to add OpsGenie
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with OpsGenie based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know the counterpart user in OpsGenie to an user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in OpsGenie needs to be established.<br>
+For single sign-on to work, Azure AD needs to know the counterpart user in OpsGenie to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in OpsGenie needs to be established.<br>
 This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in OpsGenie.
 
 To configure and test Azure AD single sign-on with OpsGenie, you need to complete the following building blocks:
@@ -101,7 +101,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 2. On the **How would you like users to sign on to OpsGenie** page, select **Azure AD Single Sign-On**, and then click **Next**.
 <br><br> ![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_03.png) <br>
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+3. On the **Configure App Settings** dialog page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_04.png) <br>
 
 
