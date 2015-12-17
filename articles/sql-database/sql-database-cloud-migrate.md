@@ -18,7 +18,7 @@
 
 # Migrating a SQL Server database to Azure SQL Database
 
-In this article you learn to how to migrate an on-premises SQL Server 2005 or later database to Azure SQL Database. In this migration process you migrate your schema and your data from the SQL Server database in your current environment into SQL Database, provided the existing database passes compatibility tests. With [SQL Database V12](../sql-database-v12-whats-new.md), there are very few remaining compatibility issues other than server-level and cross-database operations. Databases and applications that rely on [partially or unsupported functions](../sql-database-transact-sql-information.md) will need some re-engineering  to [fix these incompatibilities](../sql-database-cloud-migrate-fix-compatibility-issues.md) before the SQL Server database can be migrated. 
+In this article you learn to how to migrate an on-premises SQL Server 2005 or later database to Azure SQL Database. In this migration process you migrate your schema and your data from the SQL Server database in your current environment into SQL Database, provided the existing database passes compatibility tests. With [SQL Database V12](sql-database-v12-whats-new.md), there are very few remaining compatibility issues other than server-level and cross-database operations. Databases and applications that rely on [partially or unsupported functions](sql-database-transact-sql-information.md) will need some re-engineering  to [fix these incompatibilities](sql-database-cloud-migrate-fix-compatibility-issues.md) before the SQL Server database can be migrated. 
 
 > [AZURE.NOTE] To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
 
@@ -30,8 +30,15 @@ In this article you learn to how to migrate an on-premises SQL Server 2005 or la
 
 To test for SQL Database compatibility issues before you start the migration process, use one of the following methods:
 
-- The SqlPackage command prompt utility will generate a report containing detected issues.
-- The Export Data Tier application wizard in SQL Server management studio will display detected errors to the screen.
+- [Use SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage is a command-prompt utility will test for and, if found, generate a report containing detected compatibility issues.
+- [Use SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)The Export Data Tier application wizard in SQL Server management studio will display detected errors to the screen.
+
+## Fix compatibility issues
+
+If compatibility issues are detected, you must fix these compatibility issues before proceeding with the migration.
+- Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md#fix_sql_server_database_compatibility_issues_using_sql_azure_migration_wizard)
+- Use [SQL Server Data Tools for Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues.md#fix_sql_server_database_compatibility_issues_using_sql_server_data_tools_for_visual_studio)
+- Use [SQL Server Management Studio](sql-database-cloud-migrate-fix-compatibility-issues.md#fix_sql_server_database_compatibility_issues_using_sql_server_management_studio)
 
 ## Migrate a compatible SQL Server database to SQL Database
 
