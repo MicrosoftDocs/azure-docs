@@ -127,7 +127,7 @@ Click **(PREVIEW) Redis Cluster Size** to change the cluster size for a running 
 
 ![Redis cluster size](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
-To change the shard count, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
+To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box and click **OK** to save.
 
 >[AZURE.IMPORTANT] Redis clustering is only available for Premium caches. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 

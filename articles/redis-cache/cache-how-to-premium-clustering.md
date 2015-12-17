@@ -142,7 +142,7 @@ For ssl, replace `1300N` with `1500N`.
 
 ## Can I configure clustering for a previously created cache?
 
-At this time you can only enable clustering when you create a cache. You can change the shard count after the cache is created, but you can't add clustering to a premium cache or remove clustering from a premium cache after the cache is created. A premium cache with clustering enabled and only one shard is different than a premium cache of the same size with no clustering.
+At this time you can only enable clustering when you create a cache. You can change the cluster size after the cache is created, but you can't add clustering to a premium cache or remove clustering from a premium cache after the cache is created. A premium cache with clustering enabled and only one shard is different than a premium cache of the same size with no clustering.
 
 ## Can I configure clustering for a basic or standard cache?
 
