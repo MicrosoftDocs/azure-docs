@@ -29,6 +29,7 @@ This is a PowerShell script that uses a publish profile path as a parameter for 
 ### Publish profiles
 
 A folder in the Service Fabric application project called **PublishProfiles** contains XML files that store essential information for publishing an application, such as:
+
 - Service Fabric cluster connection parameters
 - Path to an application parameter file
 - Upgrade settings
