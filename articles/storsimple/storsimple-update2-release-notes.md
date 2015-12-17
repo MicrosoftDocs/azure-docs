@@ -28,7 +28,7 @@ Please review the information contained in the release notes before you deploy t
 >[AZURE.IMPORTANT]
 > 
 - It takes approximately 4-7 hours to install this update (including the Windows updates). 
-- Update 2 has software, USM, LSI driver, and SSD firmware updates.
+- Update 2 has software, LSI driver, and SSD firmware updates.
 - For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
 
@@ -56,7 +56,6 @@ Update 2 introduces the following new features.
     Update 2 uses Microsoft Update for all update packages. This should lead to less time patching or doing failovers. 
 
 - **Firmware updates** – The following firmware updates are included:
-    - USM 3.33 RC5
     - LSI: lsi_sas2.sys Product Version 2.00.72.10
     - SSD only (no HDD updates): XMGG, XGEG, KZ50, F6C2, and VR08
 
@@ -104,7 +103,7 @@ The following table provides a summary of known issues in this release.
 
 This release updates the driver and the disk firmware on your device.
  
-- For more information about the USM and LSI firmware update, see Microsoft Knowledge base article 3121900. 
+- For more information about the LSI firmware update, see Microsoft Knowledge base article 3121900. 
 - For more information about the disk firmware update, see Microsoft Knowledge base article 3121899.
  
 ## Virtual device updates in Update 2
