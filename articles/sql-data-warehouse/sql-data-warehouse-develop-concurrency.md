@@ -449,7 +449,7 @@ For more development tips, see [development overview][].
 [development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/en-us/library/azure/ee336235.aspx
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 

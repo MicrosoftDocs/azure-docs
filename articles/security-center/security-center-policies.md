@@ -13,20 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="12/16/2015"
    ms.author="yurid"/>
 
 #Setting security policies in Azure Security Center
-Learn how to configure security policies in Azure Security Center using this walkthrough.
+This document helps you to configure security policies in Azure Security Center by guiding you through the necessary steps to perform this task.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
-##When should I use security policies?
+## What is Azure Security Center?
+Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+
+##What are security policies?
 A security policy defines the set of controls which are recommended for resources within the specified subscription. In Azure Security Center, you define policies for your Azure subscriptions according to your company security needs and the type of applications or sensitivity of the data in each subscription.
  
 For example, resources used for development or test may have different security requirements than those used for production applications. Likewise, applications with regulated data like PII (Personally Identifiable Information) may require a higher level of security. The security policies enabled in Azure Security Center will drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats.
 
-####Configure security policies
+##Setting security policies
 
 Security policies are configured for each subscription. To modify a security policy, you must be an Owner or Contributor of that subscription. Follow the steps below to configure security polices in Azure Security Center:
 

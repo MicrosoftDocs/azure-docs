@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Getting started with Microsoft Azure security | Microsoft Azure"
    description="This article provides an overview of Microsoft Azure Security capabilities and general considerations for organizations that are migrating their assets to a cloud provider."
    services="virtual-machines, cloud-services, storage"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/28/2015"
+   ms.date="12/10/2015"
    ms.author="yuridio"/>
 
 #Getting started with Microsoft Azure security

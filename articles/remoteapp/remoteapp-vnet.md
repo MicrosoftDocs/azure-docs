@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/29/2015"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -36,4 +36,3 @@ For more information about the end-to-end hybrid collection workflow, see the fo
 - [How to plan your virtual network for Azure RemoteApp](remoteapp-planvpn.md)
 - [Create a hybrid collection](remoteapp-create-hybrid-deployment.md)
 - [Deploy Azure RemoteApp collection to your Azure Virtual Network (with support for ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
- 

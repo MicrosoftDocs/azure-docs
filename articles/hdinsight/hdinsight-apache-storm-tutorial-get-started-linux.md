@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 
@@ -66,7 +66,7 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows) 
+	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) 
 
 6. For __Data Source__, you can select the entry to choose an existing data source, or create a new one.
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/08/2015" 
 	ms.author="byvinyal"/>
 
 #Azure App Service plans in-depth overview#

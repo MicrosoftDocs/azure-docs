@@ -16,7 +16,7 @@
     ms.date="11/30/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/en-us/library/azure/dn268601.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268601.aspx -->
 
 # Deploying Large Deployments #
 

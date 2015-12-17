@@ -32,7 +32,7 @@ The solution uses two different data sources:
 - **simulated vehicle signals and diagnostic dataset** and 
 - **vehicle catalog**
 
-A vehicle telematics simulator is included as part of this solution. It emits diagnostic information and signals corresponding to the state of the vehicle and driving pattern at a given point in time. Click [here](http://go.microsoft.com/fwlink/?LinkId=717075) to download the **Vehicle Telematics Simulator Visual Studio Solution** for customizations based on your requirements. The vehicle catalog contains a reference dataset with a VIN to model mapping.
+A vehicle telematics simulator is included as part of this solution. It emits diagnostic information and signals corresponding to the state of the vehicle and driving pattern at a given point in time. Click [Vehicle Telematics Simulator](http://go.microsoft.com/fwlink/?LinkId=717075) to download the **Vehicle Telematics Simulator Visual Studio Solution** for customizations based on your requirements. The vehicle catalog contains a reference dataset with a VIN to model mapping.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig2-vehicle-telematics-simulator.png)
 
@@ -40,26 +40,26 @@ A vehicle telematics simulator is included as part of this solution. It emits di
 
 This is a JSON format dataset and contains the below schema.
 
-Column | Description | Values |  
-------- | ----------- | --------- | 
-VIN | Randomly generated Vehicle Identification Number | This is obtained from a master list of 10,000 randomly generated vehicle identification number | 
-Outside temperature | The outside temperature where the vehicle is driving | Randomly generated number from 0-100 | 
-Engine temperature | The engine temperature of the vehicle | Randomly generated number from 0-500 | 
-Speed | The engine speed at which the vehicle is driving | Randomly generated number from 0-100 | 
-Fuel | The fuel level of the vehicle | Randomly generated number from 0-100 (indicates fuel level percentage) | 
-EngineOil | The engine oil level of the vehicle | Randomly generated number from 0-100 (indicates engine oil level percentage) | 
-Tirepressure | The tirepressure of the vehicle | Randomly generated number from 0-50 (indicates tirepressure level percentage) | 
-Odometer | The odometer reading of the vehicle | Randomly generated number from 0-200000 | 
-Accelerator_pedal_position | The accelerator pedal position of the vehicle | Randomly generated number from 0-100 (indicates accelerator level percentage) | 
-Parking_brake_status | Indicates whether the vehicle is parked or not | True or False | 
-Headlamp_status | Indicates where the headlamp is on or not | True or False | 
-Brake_pedal_status | Indicates whether the brake pedal is pressed or not | True or False | 
-Transmission_gear_position | The transmission gear position of the vehicle | States: first, second, third, fourth, fifth, sixth, seventh, eighth | 
-Ignition_status | Indicates whether the vehicle is running or stopped | True or False | 
-Windshield_wiper_status | Indicates whether the windshield wiper is turned or not | True or False | 
-ABS | Indicates whether ABS is engaged or not | True or False | 
-Timestamp | The timestamp when the data point is created | Date | 
-City | The location of the vehicle | 4 cities in this solution : Bellevue, Redmond, Sammamish, Seattle | 
+Column | Description | Values   
+ ------- | ----------- | ---------  
+VIN | Randomly generated Vehicle Identification Number | This is obtained from a master list of 10,000 randomly generated vehicle identification number
+Outside temperature | The outside temperature where the vehicle is driving | Randomly generated number from 0-100
+Engine temperature | The engine temperature of the vehicle | Randomly generated number from 0-500
+Speed | The engine speed at which the vehicle is driving | Randomly generated number from 0-100
+Fuel | The fuel level of the vehicle | Randomly generated number from 0-100 (indicates fuel level percentage)
+EngineOil | The engine oil level of the vehicle | Randomly generated number from 0-100 (indicates engine oil level percentage)
+Tirepressure | The tirepressure of the vehicle | Randomly generated number from 0-50 (indicates tirepressure level percentage)
+Odometer | The odometer reading of the vehicle | Randomly generated number from 0-200000
+Accelerator_pedal_position | The accelerator pedal position of the vehicle | Randomly generated number from 0-100 (indicates accelerator level percentage)
+Parking_brake_status | Indicates whether the vehicle is parked or not | True or False
+Headlamp_status | Indicates where the headlamp is on or not | True or False
+Brake_pedal_status | Indicates whether the brake pedal is pressed or not | True or False
+Transmission_gear_position | The transmission gear position of the vehicle | States: first, second, third, fourth, fifth, sixth, seventh, eighth
+Ignition_status | Indicates whether the vehicle is running or stopped | True or False
+Windshield_wiper_status | Indicates whether the windshield wiper is turned or not | True or False
+ABS | Indicates whether ABS is engaged or not | True or False
+Timestamp | The timestamp when the data point is created | Date
+City | The location of the vehicle | 4 cities in this solution : Bellevue, Redmond, Sammamish, Seattle
 
 
 The vehicle model reference dataset contains VIN to the model mapping. 
@@ -132,7 +132,7 @@ The stream analytics job ingests data from the Event Hub, performs a join with t
 *Figure 7 - Stream analytics job query for data ingestion*
 
 ### Batch analysis
-We are also generating an additional volume of simulated vehicle signals and diagnostic dataset for richer batch analytics. This is required to ensure a good representative data volume for batch processing. For this purpose, we are using a pipeline named ‘PrepareSampleDataPipeline’ in the Azure Data Factory workflow to generate one-year worth of simulated vehicle signals and diagnostic dataset. Click [here](http://go.microsoft.com/fwlink/?LinkId=717077) to download the Data Factory custom DotNet activity Visual Studio solution for customizations based on your requirements. 
+We are also generating an additional volume of simulated vehicle signals and diagnostic dataset for richer batch analytics. This is required to ensure a good representative data volume for batch processing. For this purpose, we are using a pipeline named ‘PrepareSampleDataPipeline’ in the Azure Data Factory workflow to generate one-year worth of simulated vehicle signals and diagnostic dataset. Click [Data Factory custom activity](http://go.microsoft.com/fwlink/?LinkId=717077) to download the Data Factory custom DotNet activity Visual Studio solution for customizations based on your requirements. 
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig8-vehicle-telematics-prepare-sample-data-for-batch-processing.png) 
 
@@ -367,7 +367,7 @@ Figure 15 – Stream analytics query for real-time processing
 
 All the averages are calculated over a 3 seconds TumblingWindow. We are using TubmlingWindow in this case since we require non-overlapping and contiguous time intervals. 
 
-To learn more about all the ‘Windowing’ capabilities in Azure Stream Analytics, click [here](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+To learn more about all the ‘Windowing’ capabilities in Azure Stream Analytics, click [Windowing (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835019.aspx).
 
 **Real-time prediction**
 
@@ -382,7 +382,7 @@ An application is included as part of the solution to operationalize the machine
 
 This pattern is also applicable in scenarios where you want to integrate a Line of Business application with the real-time analytics flow for scenarios such as alerts, notifications, messagings, etc. 
 
-Click [here](http://go.microsoft.com/fwlink/?LinkId=717078) to download the RealtimeDashboardApp Visual Studio solution for customizations. 
+Click [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717078) to download the RealtimeDashboardApp Visual Studio solution for customizations. 
 
 **To execute the Real-time Dashboard Application **
 
