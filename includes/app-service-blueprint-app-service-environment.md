@@ -13,4 +13,5 @@
   * [ExpressRoute and App Service Environments](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
 
 ## Videos
-  * [AzureCon 2015:  Deploying Highly Secure and Scalable Apps](/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/)
+
+* [AzureCon 2015:  Deploying Highly Secure and Scalable Apps](/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/)

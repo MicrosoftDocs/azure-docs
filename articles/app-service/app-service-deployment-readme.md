@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="How Azure App Service Works" 
-	description="Learn how App Service work" 
-	keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
+	pageTitle="Deploying Applications to Azure App Service" 
+	description="Learn how to Deploy applications to App Service work" 
+	keywords="app service, azure app service, deploying, deployment"
 	services="app-service" 
 	documentationCenter="" 
 	authors="dariagrigoriu" 
