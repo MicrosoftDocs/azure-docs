@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="v-sharos"/>
 
-# Use the StorSimple Manager service to manage backup policies
+# Use the StorSimple Manager service to manage backup policies (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
