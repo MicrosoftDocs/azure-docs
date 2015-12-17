@@ -274,8 +274,8 @@ The method has a few key components that you need to understand.
                 
                 // Calculate method returns the number of occurrences of 
                 // the search term (“Microsoft”) in each blob associated
-        // with the data slice. 
-        // 
+        		// with the data slice. 
+        		// 
         	    // definition of the method is shown in the next step. 
                 output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
@@ -584,7 +584,6 @@ In this step, you will create datasets to represent input and output data.
 		        "type": "AzureBlob",
 		        "linkedServiceName": "StorageLinkedService",
 		        "typeProperties": {
-				   "fileName": "*.txt",
 		            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
 		            "format": {
 		                "type": "TextFormat"
@@ -713,6 +712,8 @@ In this step, you will create another dataset of type AzureBlob to represent the
 ### Step 4: Create and run the pipeline with custom activity
 
 In this step, you will create a pipeline with one activity, the custom activity you created earlier.
+
+> [AZURE.IMPORTANT] If you haven't uploaded the **file.txt** to input folders in the blob container, please do so before creating the pipeline. The **isPaused** property is set to false in the pipeline JSON, so the pipeline will run immediately as the **start** date is in the past. 
 
 1.  In the Data Factory Editor, click **New pipeline** on the command bar. If you do not see the command, click **... (Ellipsis)** to see it.
 
