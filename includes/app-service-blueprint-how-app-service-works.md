@@ -1,4 +1,4 @@
-* [What is Azure App Service?](./app-service-value-prop-what-is.md)
+* [What is Azure App Service?](app-service-value-prop-what-is.md)
   * [Web App](../app-service-web/app-service-web-overview.md)
   * [Mobile App](../app-service-mobile/app-service-mobile-value-prop-preview.md)
   * [API App](../app-service-api/app-service-api-apps-why-best-platform.md)
