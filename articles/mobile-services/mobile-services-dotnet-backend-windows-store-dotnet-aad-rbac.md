@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/07/2015"
 	ms.author="wesmc"/>
 
 # Role Based Access Control in Mobile Services using JavaScript and the Azure Active Directory

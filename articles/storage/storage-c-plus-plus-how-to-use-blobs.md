@@ -237,7 +237,7 @@ Now that you've learned the basics of blob storage, follow these links to learn 
 -	[List Azure Storage Resources in C++](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
 -	[Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
-
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 
 
 

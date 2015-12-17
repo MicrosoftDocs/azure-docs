@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio" />
 
 # How to publish an offer to the Azure Marketplace
@@ -59,6 +59,7 @@ Some steps are shared between the different types of solutions. This article pro
 - [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-tutorial/)
 
 **Data Services**
+
 - [Data Service OData Mapping](marketplace-publishing-data-service-creation-odata-mapping.md)
 - [Data Service OData Mapping Nodes](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
 - [Data Service OData Mapping Examples](marketplace-publishing-data-service-creation-odata-mapping-examples.md)

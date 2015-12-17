@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/03/2015"
 	ms.author="yuaxu"/>
 
 # Add push notifications to your Mobile Services app
@@ -267,7 +267,7 @@ Your mobile service is now configured to work with APNS.
             }
         }
 
-8. In **TodoListViewController**, modify the **OnAdd** action to get the device token stored in **AppDelegeate**, and store it into the **TodoItem** being added.
+8. In **QSTodoListViewController**, modify the **OnAdd** action to get the device token stored in **AppDelegeate**, and store it into the **TodoItem** being added.
 
         string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
 

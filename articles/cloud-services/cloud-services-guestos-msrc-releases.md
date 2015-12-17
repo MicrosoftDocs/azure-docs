@@ -4,7 +4,7 @@
    services="cloud-services" 
    documentationCenter="na" 
    authors="yuemlu" 
-   manager="markkie" 
+   manager="timlt" 
    editor=""/>
 
 <tags
@@ -13,24 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/13/2015"
+   ms.date="12/15/2015"
    ms.author="yuemlu"/>
 
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
 
+## December Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-124 | [3116180] | Cumulative Security Update for Internet Explorer | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-126 | [3116178] | Security Update for Microsoft VBScript and JScript to Address Remote Code Execution | 2.46 | December 8, 2015 |
+| MS15-127 | [3100465] | Security Update for Microsoft Windows DNS to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-128 | [3104503] | Security Updates for Microsoft Graphics Component to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-132 | [3116162] | Security Update for Windows to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-133 | [3116130] | Security Update for Windows PGM to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-134 | [3108669] | Security Update for Windows Media Center to Address Remote Code Execution | 4.27, 3.34, 2.46 | December 8, 2015 |
+| MS15-135 | [3119075] | Security Update for Windows Kernel Mode Drivers to Address Elevation of Privilege | 4.27, 3.34, 2.46 | December 8, 2015 |
+
 ## November Guest OS
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS15-112 | [3104517] | Cumulative Security Update for Internet Explorer | 4.26, 3.33, 2.45 | November 10, 2015 |
-| MS15-114 | [3100213] | Security Update for Windows Journal to Address Remote Code Execution | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-114 | [3100213] | Security Update for Windows Journal to Address Remote Code Execution | 2.45 | November 10, 2015 |
 | MS15-115 | [3105864] | Security Update for Microsoft Windows to Address Remote Code Execution | 4.26, 3.33, 2.45 | November 10, 2015 |
-| MS15-117 | [3101722] | Security Update for NDIS to Address Elevation of Privilege | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-117 | [3101722] | Security Update for NDIS to Address Elevation of Privilege | 2.45 | November 10, 2015 |
 | MS15-118 | [3104507] | Security Updates for .NET Framework to Address Elevation of Privilege | 4.26, 3.33, 2.45 | November 10, 2015 |
 | MS15-119 | [3104521] | Security Update for Winsock to Address Elevation of Privilege | 4.26, 3.33, 2.45 | November 10, 2015 |
-| MS15-120 | [3102939] | Security Update for IPSec to Address Denial of Service | 4.26, 3.33, 2.45 | November 10, 2015 |
+| MS15-120 | [3102939] | Security Update for IPSec to Address Denial of Service | 4.26, 3.33 | November 10, 2015 |
 | MS15-121 | [3081320] | Security Update to Schannel to Address Spoofing | 4.26, 3.33, 2.45 | November 10, 2015 |
 | MS15-122 | [3105256] | Security Update for Kerberos to Address Security Feature Bypass | 4.26, 3.33, 2.45 | November 10, 2015 |
 | Microsoft Security Advisory | [3097966] | Inadvertently disclosed Digital Certificates Could Allow spoofing | 4.26, 3.33, 2.45 | November 10, 2015 |
@@ -197,6 +210,16 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [3007054][3007054]  | PIN-protected printing option always shows when you print a document within a Windows Store application in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
+
+
+[3116180]: http://support.microsoft.com/kb/3116180
+[3116178]: http://support.microsoft.com/kb/3116178
+[3100465]: http://support.microsoft.com/kb/3100465
+[3104503]: http://support.microsoft.com/kb/3104503
+[3116162]: http://support.microsoft.com/kb/3116162
+[3116130]: http://support.microsoft.com/kb/3116130
+[3108669]: http://support.microsoft.com/kb/3108669
+[3119075]: http://support.microsoft.com/kb/3119075
 
 [3104517]: http://support.microsoft.com/kb/3104517
 [3100213]: http://support.microsoft.com/kb/3100213

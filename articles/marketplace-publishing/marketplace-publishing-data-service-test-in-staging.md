@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/24/2015"
+   ms.date="12/03/2015"
    ms.author="hascipio; avikova" />
 
 # Testing your Data Service offer in Staging
-After completing the first two steps of [Creating your Microsoft Seller Accounts in Seller Dashboard](marketplace-publishing-accounts-creation-registration.md) and [Creating your Data Service Offer in Publishing Portal](marketplace-publishing-data-service-creation.md) you’re ready for making your offer available in the Azure Marketplace. This topic will walk you through the first, intermediate, step called “Staging”
+After completing the first two steps of [Creating your Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md) and [Creating your Data Service Offer in Publishing Portal](marketplace-publishing-data-service-creation.md) you’re ready for making your offer available in the Azure Marketplace. This topic will walk you through the first, intermediate, step called “Staging”
 
 Staging means deploying your offer in a private "sandbox" where you can test and verify its functionality before pushing it to production. The offer will appear in staging just as it would to a customer who has deployed it.
 

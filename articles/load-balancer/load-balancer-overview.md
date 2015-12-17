@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 
@@ -26,6 +26,39 @@ It can be configured to:
 - Load balance traffic between virtual machines in a Virtual Network, between virtual machines in cloud services or between on-premises computers and virtual machines in a cross-premises virtual network. We refer it as [internal load balancing (ILB)](load-balancer-internal-overview.md).
 - 	Forward external traffic to a specific Virtual Machine instance
 
+## Understanding Azure load balancer in Azure classic and Azure Resource Manager (ARM)
+
+All resources in the cloud need a public IP address to be reachable from Internet. The cloud infrastructure in Microsoft Azure will use non-routable IP addresses within its resources and will use network address translation(NAT) with public IP addresses to communicate to Internet.
+
+There are 2 deployment models in Microsoft Azure and their load balancer implementations:
+
+ 
+### Azure classic
+
+Azure classic is the first deployment model implemented in Microsoft Azure. In this model, a public IP address and a FQDN is assigned to a cloud service, and virtual machines deployed within a cloud service boundary can be grouped to use a load balancer. The load balancer will do port translation and load balance the network traffic, leveraging the public IP address for the cloud service.
+
+In a classic deployment model, port translation is done by using endpoints which are a one to one relationship between the public assigned port of the public IP address and the local port assigned to send traffic to a specific virtual machine.
+
+Load balancing is done by using load balancer set endpoints. Those endpoints are a one to many relationship between the public IP address to local ports assigned all virtual machines in the set which will respond for the load balanced network traffic. 
+
+The domain label for the public IP address which a load balancer would use in this deployment model would be `<cloud service name>.cloudapp.net`.
+
+This is a graphic representation of a load balancer in a classic deployment model:
+![hash based load balancer](./media/load-balancer-overview/asm-lb.png)
+
+### Azure Resource Manager
+ 
+The concept of load balancer changes on Azure Resource Manager (ARM) because there is no need of a cloud service to create a load balancer.
+
+In ARM, a public IP address is its own resource and can be associated to a domain label or DNS name. The public IP in this case is associated to the load balancer resource so load balancer rules, inbound NAT rules will use the public IP address as its internet endpoint for the resources receiving load balanced network traffic. 
+
+A network Interface (NIC) resource holds the IP address configuration (private or public IP) for a virtual machine. Once a NIC is added to a load balancer back end IP address pool, the load balancer will start sending load balanced network traffic based on the load balanced rules created.
+
+An availability set is the grouping method used to add virtual machines to the load balancer. The availability set guarantees the virtual machines won't reside in the same physical hardware and in case of any failure related to the physical cloud infrastructure making sure the load balancer will always have a virtual machine receiving load balanced network traffic.
+
+This is a graphic representation of a load balancer in Azure Resource Manager(ARM):
+
+![hash based load balancer](./media/load-balancer-overview/arm-lb.png)
 
 ## Load Balancer features
 
@@ -75,8 +108,6 @@ All outbound traffic to Internet originating from your service is Source NATed (
 - It makes ACL management easier since the ACL can be expressed in terms of VIPs and hence do no change as services scale up or down or get redeployed
 
 Azure Load balancer configuration supports full cone NAT for UDP. Full cone NAT is a type of NAT where the port allows inbound connections from any external host (in response to an outbound request).
-
-![snat](./media/load-balancer-overview/load-balancer-snat.png)
 
 
 >[AZURE.NOTE]Note that for each new outbound connection initiated by a VM, an outbound port is also allocated by Azure Load Balancer. The external host will see traffic coming as VIP: allocated port.  If your scenarios require large number of outbound connections, it is recommended that the VMs uses Instance-Level public IPs so that it has dedicated outbound IP for Source Network Address Translation (SNAT). This will reduce the risk of port exhaustion. 
