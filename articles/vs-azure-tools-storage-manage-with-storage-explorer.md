@@ -20,7 +20,7 @@
 
 Storage Explorer lets you manage Azure storage resources (blob containers, queues, and tables) outside of Azure using Windows or OS X.
 
-To view or manage storage resources in Storage Explorer, you need to be able to access an Azure storage account, either in your subscription or an external storage account. If you don't have a storage account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Azure benefit for MSDN subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details.md). Otherwise, see [Free one-month trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+To view or manage storage resources in Storage Explorer, you need to be able to access an Azure storage account, either in your subscription or an external storage account. If you don't have a storage account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Manage Azure accounts and subscriptions
 
@@ -160,24 +160,24 @@ To control access to blob containers, you can choose the **Manage Access Control
 ## Next steps
 Learn about the features in Azure Storage services by reading articles in [Introduction to Microsoft Azure Storage](storage-introduction.md).
 
-[0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1.png
-[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1.png
-[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External1.png
-[3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External2.png
-[4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External3.png
-[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External4.png
-[6]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External5.png
-[7]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Navigate.png
-[8]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Search.png
-[9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit1.png
-[10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit2.png
-[11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit3.png
-[12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit4.png
-[13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit5.png
-[14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS1.png
-[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS2.png
-[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS3.png
-[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS1.png
-[18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS2.png
-[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3.png
-[20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4.png
+[0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount1c.png
+[1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/AddAccount2c.png
+[2]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External1c.png
+[3]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External2c.png
+[4]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External3c.png
+[5]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External4c.png
+[6]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/External5c.png
+[7]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Navigatec.png
+[8]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Searchc.png
+[9]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit1c.png
+[10]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit2c.png
+[11]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit3c.png
+[12]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit4c.png
+[13]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Edit5c.png
+[14]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS1c.png
+[15]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS2c.png
+[16]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/SAS3c.png
+[17]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS1c.png
+[18]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS2c.png
+[19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
+[20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
