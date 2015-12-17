@@ -53,7 +53,7 @@ To access Azure blob storage, you need to create a database scoped credential th
 2. Use [CREATE MASTER KEY (Transact-SQL)][] to create a master key for your database. If your database already has a master key you don't need to create another one. This key is used to encrypt your credential "secret" in the next step.
 
     ```
-    -- Create a E master key
+    -- Create a master key
     CREATE MASTER KEY;
     ```
 
@@ -62,9 +62,11 @@ To access Azure blob storage, you need to create a database scoped credential th
     ```
     -- Check for existing database-scoped credentials.
     SELECT * FROM sys.database_credentials;
+    ```
 
 3. Use [CREATE CREDENTIAL (Transact-SQL)][] to Create a database scoped credential for each Azure storage account you want to access. In this example, IDENTITY is a friendly name for the credential. It does not affect authenticating to Azure storage. SECRET is your Azure storage account key.
 
+    ```
     -- Create a database scoped credential
     CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
     WITH IDENTITY = 'joe'
