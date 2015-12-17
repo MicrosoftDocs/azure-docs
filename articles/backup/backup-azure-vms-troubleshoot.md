@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/25/2015"
-	ms.author="trinadhk";"aashishr"/>
+	ms.date="12/15/2015"
+	ms.author="trinadhk;aashishr;jimpark"/>
 
 
 # Troubleshoot Azure virtual machine backup
@@ -115,7 +115,7 @@ How to check for the VM Agent version on Windows VMs:
 2. Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher
 
 ## Networking
-Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of of ways:
+Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of ways:
 
 - The extension installation can fail
 - The backup operations (like disk snapshot) can fail
@@ -123,7 +123,12 @@ Like all extensions, Backup extension need access to the public internet to work
 
 The need for resolving public internet addresses has been articulated [here](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). You will need to check the DNS configurations for the VNET and ensure that the Azure URIs can be resolved.
 
-Once the name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow these steps:
+Once the name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow one of these steps:
 
-1. Get the list of [Azure datacenter IPs](https://msdn.microsoft.com/library/azure/dn175718.aspx) to be whitelisted.
-2. Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) commandlet. Run this commandlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
+1. WhiteList the Azure datacenter IP ranges.
+    - Get the list of [Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be whitelisted.
+    - Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
+    - Add rules to the NSG (if you have one in place) to allow access to the IPs.
+2. Create a path for HTTP traffic to flow
+    - If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy a HTTP Proxy server can found [here](backup-azure-vms-prepare.md#2-network-connectivity).
+    - Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.

@@ -397,7 +397,7 @@ The following table provides description for JSON elements specific to SQL Serve
 | username | Specify user name if you are using Windows Authentication. | No |
 | password | Specify password for the user account you specified for the username. | No |
 
-You can encrypt credentials using the **New-AzureDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
+You can encrypt credentials using the **New-AzureRmDataFactoryEncryptValue** cmdlet and use them in the connection string as shown in the following example (**EncryptedCredential** property):  
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
