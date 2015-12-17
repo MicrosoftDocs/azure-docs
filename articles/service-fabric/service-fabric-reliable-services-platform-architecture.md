@@ -33,12 +33,10 @@ offer various levels of support and abstraction for the stateful service to inte
 
 StatefulService derives from StatefulServiceBase. StatefulServiceBase offers services more flexibility, but requires more understanding of the internals of Service Fabric.
 See the [reliable service overview](service-fabric-reliable-services-introduction.md) and [reliable service advanced usage](service-fabric-reliable-services-advanced-usage.md) for more information on the specifics
-of writing services using the StatefulService and StatefulServiceBase classes.
+of writing services by using the StatefulService and StatefulServiceBase classes.
 
-Both base classes manage the lifetime and role of the service implementation. The service implementation may override virtual methods of either base class. This occurs if the service implementation has work to do
-at those points in the service implementation lifecycle or if it wants to create a communication listener object. Note that although a service implementation
-may implement its own communication listener object exposing ICommunicationListener (in the diagram above), the communication listener is
-implemented by Service Fabric, as the service implementation uses a communication listener that is implemented by Service Fabric.
+Both base classes manage the lifetime and role of the service implementation. The service implementation may override virtual methods of either base class if the service implementation has work to do at those points in the service implementation lifecycle--or if it wants to create a communication listener object. Note that although a service implementation may implement its own communication listener object exposing ICommunicationListener, in the diagram above, the communication listener is
+implemented by Service Fabric--as the service implementation uses a communication listener that is implemented by Service Fabric.
 
 A stateful reliable service uses the reliable state manager to take advantage of reliable collections. Reliable collections are local data structures that are highly available to the service--that is, they are always available, regardless of service failovers. Each type of reliable collection is implemented by a reliable state provider.
 For more information on reliable collections, see the [reliable collections overview](service-fabric-reliable-services-reliable-collections.md).
@@ -102,7 +100,7 @@ Both base classes manage the lifetime and role of a service.
 
 The service implementation may override virtual methods of either base class if the service has work to do
 at those points in the service lifecycle--or if it wants to create a communication listener object. Note that although the service may implement its own communication
-listener object exposing ICommunicationListener (in the diagram above), the communication listener is implemented by Service Fabric, as that service implementation uses a
+listener object exposing ICommunicationListener, in the diagram above, the communication listener is implemented by Service Fabric, as that service implementation uses a
 communication listener that is implemented by Service Fabric.
 
 See the [reliable service overview](service-fabric-reliable-services-introduction.md) and [reliable service advanced usage](service-fabric-reliable-services-advanced-usage.md) for more information on the specifics
