@@ -21,9 +21,14 @@
 # Code sample: Retry logic in C# for connecting to SQL Database
 
 
+
 > [AZURE.SELECTOR]
-- [C# Without retry](sql-database-develop-dotnet-simple.md)
-- [C# with EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+- [C# from Windows (connect to Azure SQL DB)](sql-database-develop-dotnet-simple.md)
+- [PHP from Windows](sql-database-develop-php-simple-windows.md)
+- [Python from Windows](sql-database-develop-python-simple-windows)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+
 
 
 This topic provides a C# code sample that demonstrates custom retry logic. The retry logic is designed to gracefully process temporary errors or *transient faults* that tend to go away if the program waits a few seconds and retries.
