@@ -142,7 +142,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 8. The installation happens in phases. In the first phase the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available you can proceed with installation, if not, you need to provide proxy details to connect to the Internet.
 
-  The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you will have to provide your the vault credentials to register the machine to the backup vault. You will also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
+    The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you will have to provide your the vault credentials to register the machine to the backup vault. You will also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 
     ![Azure Backup Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/mars-install-configure.gif)
 
