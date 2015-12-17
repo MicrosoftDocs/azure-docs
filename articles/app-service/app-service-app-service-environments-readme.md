@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How Azure App Service Works" 
+	pageTitle="Azure App Service Environment" 
 	description="Learn how App Service work" 
-	keywords="app service, azure app service, scale, scalable, app service plan, app service cost"
+	keywords="app service environment, azure app service environment"
 	services="app-service" 
 	documentationCenter="" 
-	authors="nirma" 
+	authors="yochay" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="12/08/2015" 
-	ms.author="nirma"/>
+	ms.author="yochay"/>
 
 # Overview
 

@@ -1,7 +1,7 @@
 ## WordPress and Azure App Service
    
 * [What is WordPress? ](https://wordpress.org/)
-* [How to setup enterprise-class WordPress web app](./web-sites-php-enterprise-wordpress/)
+* [How to setup enterprise-class WordPress web app](web-sites-php-enterprise-wordpress.md)
 * [How to purchase ClearDB Shared MySQL hosting for your WordPress app](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
 * [How to Purchase ClearDB dedicated MySQL cluster for your WordPress app ](/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
 * [Deploy a WordPress web app backed with MySQL replication cluster](/documentation/templates/wordpress-mysql-replication/)
@@ -17,13 +17,13 @@
 * [Run Zend Zray profiler against your web app to diagnose issues and performance](https://sunithamk.wordpress.com/2015/08/04/profiling-php-application-on-azure-web-apps/)
 * [Use Kudu Support portal to diagnose and mitigate issues in real time](https://sunithamk.wordpress.com/2015/11/04/diagnose-and-mitigate-issues-with-azure-web-apps-support-portal/)
 * [Use various auto-heal rules to automate resolving real time incidents](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
-* [How to backup your web app](./web-sites-backup/) and [How to restore your web app](./web-sites-restore/)
+* [How to backup your web app](web-sites-backup.md) and [How to restore your web app](web-sites-restore.md)
 
  
 ## Chapter 3: Performance
 
 * [How to speed up WordPress web app](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
-* [How to enabled redis cache](../cache/cache-dotnet-how-to-use-azure-redis-cache/) using [redis cache plugin](https://wordpress.org/plugins/wp-redis/)
+* [How to enabled redis cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md) using [redis cache plugin](https://wordpress.org/plugins/wp-redis/)
 * [How to enable memcached object cache for WordPress](./web-sites-connect-to-redis-using-memcache-protocol/) using [memcached plugin](https://wordpress.org/plugins/memcached/)
 * [Enable wincache with W3 total cache plugin](https://wordpress.org/plugins/w3-total-cache/)
 * [How to use supercache plugin to speed up WordPress app](http://ruslany.net/2008/12/speed-up-wordpress-on-iis-70/)
