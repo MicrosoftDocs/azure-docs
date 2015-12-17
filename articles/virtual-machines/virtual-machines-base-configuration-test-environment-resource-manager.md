@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Base Configuration test environment with Azure Resource Manager
@@ -56,9 +56,22 @@ If you do not already have an Azure account, you can sign up for a free trial at
 
 ## Phase 1: Create the virtual network
 
-> [AZURE.NOTE] This article contains commands for Azure PowerShell Preview 1.0. To run these commands in Azure PowerShell 0.9.8 and prior versions, replace all instances of "-AzureRM" with "-Azure" and add the **Switch-AzureMode AzureResourceManager** command before you execute any commands. For more information, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+First, start an Azure PowerShell prompt.
 
-First, open an Azure PowerShell prompt.
+> [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+
+Login to your account.
+
+	Login-AzureRMAccount
+
+Get your subscription name using the following command.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Set your Azure subscription. Replace everything within the quotes, including the < and > characters, with the correct names.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
 
 Next, create a new resource group for your Base Configuration test lab. To determine a unique resource group name, use this command to list your existing resource groups.
 
@@ -72,7 +85,7 @@ Create your new resource group with these commands. Replace everything within th
 
 Resource Manager-based virtual machines require a Resource Manager-based storage account. You must pick a globally unique name for your storage account that contains only lowercase letters and numbers. You can use this command to list the existing storage accounts.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 Create a new storage account for your new test environment with these commands.
 
@@ -118,7 +131,7 @@ First, fill in the name of your resource group, Azure location, and storage acco
 
 Next, connect to the DC1 virtual machine.
 
-1.	In the Azure portal, click **Browse All** in the left pane, click **Virtual machines** in the **Browse** list, and then click the **DC1** virtual machine.  
+1.	In the Azure portal, click **Virtual machines**, and then click the **DC1** virtual machine.  
 2.	In the **DC1** pane,, click **Connect**.
 3.	When prompted, open the DC1.rdp downloaded file.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
@@ -147,8 +160,8 @@ Next, configure DC1 as a domain controller and DNS server for the corp.contoso.c
 
 After DC1 restarts, reconnect to the DC1 virtual machine.
 
-1.	In the Azure portal, click Browse All in the left pane, click Virtual machines in the Browse list, and then click the DC1 virtual machine.
-2.	In the DC1 pane, click Connect.
+1.	In the Azure portal, click **Virtual machines**, and then click the **DC1** virtual machine.
+2.	In the **DC1** pane, click** Connect**.
 3.	When prompted to open DC1.rdp, click **Open**.
 4.	When prompted with a Remote Desktop Connection message box, click **Connect**.
 5.	When prompted for credentials, use the following:
@@ -276,11 +289,9 @@ This is your final configuration.
 
 Your base configuration in Azure is now ready for application development and testing or for additional test environments.
 
-## Additional resources
+## Next step
 
-[Hybrid cloud test environments](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
-
-[Base Configuration test environment](virtual-machines-base-configuration-test-environment.md)
+- Use this as a basis to build the [simulated hybrid cloud test environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 
 
 ## <a id="costs"></a>Minimizing the costs of test environment virtual machines in Azure

@@ -3,7 +3,7 @@
    description="Learn how to access private cloud resources by using Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="tarcher"
+   authors="TomArcher"
    manager="douge"
    editor="" />
 <tags 

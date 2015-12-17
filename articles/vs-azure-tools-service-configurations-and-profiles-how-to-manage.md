@@ -1,11 +1,11 @@
 <properties
-   pageTitle="How to manage service configurations and profiles"
+   pageTitle="How to manage service configurations and profiles | Microsoft Azure"
    description="Learn how to work with service configurations and profiles configuration files| which store settings for the deployment environments and publish settings for cloud services."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # How to manage service configurations and profiles
 

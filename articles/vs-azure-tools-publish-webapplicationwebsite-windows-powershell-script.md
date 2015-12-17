@@ -3,7 +3,7 @@
    description="Learn how to publish a web project to an Azure website. This script creates the required resources in your Azure subscription if they don't exist."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="tarcher"
+   authors="TomArcher"
    manager="douge"
    editor="" />
 <tags
