@@ -84,5 +84,5 @@ Once configured, you can easily expand this line of business application by addi
 
 ## Next step
 
-- Get an [overview](virtual-machines-workload-high-availability-lob-application-overview.md) of the deployment before diving into the configuration.
+- Get an [overview](virtual-machines-workload-high-availability-lob-application-overview.md) of the production workload before diving into the configuration.
 

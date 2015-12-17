@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -100,5 +100,5 @@ Once configured, you can expand this SharePoint farm with guidance from [Microso
 
 ## Next step
 
-- Get an [overview](virtual-machines-workload-intranet-sharepoint-overview.md) of the deployment before diving into the configuration.
+- Get an [overview](virtual-machines-workload-intranet-sharepoint-overview.md) of the production workload before diving into the configuration.
 
