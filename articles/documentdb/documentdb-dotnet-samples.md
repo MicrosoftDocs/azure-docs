@@ -125,23 +125,6 @@ Task | API reference
 
 For more information about working with Geospatial data, see [Working with Geospatial data in Azure DocumentDB](documentdb-geospatial.md).
 
-## JavaScript query samples
-
-The javascript query project, [azure-documentdb-net/samples/code-samples/Queries.JavaScript/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries.JavaScript/Program.cs), shows how to use DocumentDB's JavaScript integrated queries within stored procedures.
-
-For more information about using JavaScript query examples, see [JavaScript language-integrated query API](documentdb-programming.md#javascript-language-integrated-query-api).
-
-## Order by samples
-
-The Order by sample file, [azure-documentdb-net/samples/code-samples/Queries.OrderBy/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries.OrderBy/Program.cs), shows how to do use Order by as an end-to-end sample using Twitter's JSON API.
-
-Task | API reference
---- | ---
-[Create a collection with the required indexing policies<br>to support Order By on any numeric or string property](https://github.com/Azure/azure-documentdb-dotnet/blob/069a94990034218652027299badedb93d4d48e01/samples/code-samples/Queries.OrderBy/Program.cs#L347-L374) | [DocumentCollection](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.aspx)<br>[DocumentCollection.IndexingPolicy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.indexingpolicy.aspx#P:Microsoft.Azure.Documents.DocumentCollection.IndexingPolicy)<br>[RangeIndex](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.rangeindex.aspx)
-[Run Order by using Linq or SQL](https://github.com/Azure/azure-documentdb-dotnet/blob/069a94990034218652027299badedb93d4d48e01/samples/code-samples/Queries.OrderBy/Program.cs#L135-L172) | [SQL Order by in MSDN](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_orderby_clause) 
-
-For more information about Order by, see [Sorting DocumentDB data using Order by](documentdb-orderby.md).
-
 ## Query samples
 
 The query document file, [azure-documentdb-net/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries/Program.cs), shows how to do each of the following tasks using the SQL query grammar, the LINQ provider with query, and with Lambda.
