@@ -428,18 +428,18 @@ containing data (*e.g.*. prediction results) for visualization.
     visualizations to your dashboard. To find detailed instructions, see [Pin a tile to a Power BI dashboard from a report](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
     Go to the dashboard page and
     adjust the size and location of your visualizations and edit their titles. To find detailed instructions on how to edit your tiles, see [Edit a tile -- resize, move, rename, pin, delete, add hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Here is an example dashboard with some cold path visualizations pinned to it.  Depending on how long you run your data simulator, your numbers on the visualizations may be different.
-
+<br/>
     ![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png)
-
+<br/>
     -   To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) and then choose **Schedule Refresh. **
-
+<br/>
         **Note:** If you see a warning message, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
-
+<br/>
     ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png)
 <br/>
     -   Expand the **Schedule Refresh** session. Turn on "keep your
     data up-to-date".
-
+<br/>
     -   Schedule the refresh based on your needs. To find more information, see
     [Data refresh in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
