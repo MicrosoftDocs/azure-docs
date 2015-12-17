@@ -1,9 +1,9 @@
-<properties
+TomArcher<properties
 	pageTitle="Overview of the Azure Resource Group project deployment script  | Microsoft Azure"
 	description="Describes how the PowerShell script in the Azure Resource Group deployment project works."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/17/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Overview of the Azure Resource Group project deployment script
 
