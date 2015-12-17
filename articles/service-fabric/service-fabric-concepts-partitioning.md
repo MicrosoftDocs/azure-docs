@@ -26,7 +26,7 @@ Partitioning is not unique to Service Fabric. In fact, it is a core pattern of b
 ### Partition Service Fabric stateless services
 For stateless services, you can think about a partition being a logical unit that contains one or more instances of a service. Figure 1 shows a stateless service with five instances distributed across a cluster using one partition.
 
-![Stateless service](./media/service-fabric-concepts-partitioning/statelessservice.png)
+![Stateless service](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
 There are really two types of stateless service solutions. The first one is a service that persists its state externally, for example in an Azure SQL database (like a website that stores the session information and data). The second one is computation-only services (like a calculator or image thumbnailing) that do not manage any persistent state.
 
@@ -46,7 +46,7 @@ If you now need to scale out the cluster to 10 nodes, Service Fabric would rebal
 
 Figure 2 shows the distribution of 10 partitions before and after scaling the cluster.
 
-![Stateful service](./media/service-fabric-concepts-partitioning/scaledcluster.png)
+![Stateful service](./media/service-fabric-concepts-partitioning/partitions.png)
 
 As a result, the scale-out is achieved since requests from clients are distributed across computers, overall performance of the application is improved, and contention on access to chunks of data is reduced.
 
