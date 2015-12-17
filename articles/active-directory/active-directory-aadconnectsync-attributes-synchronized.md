@@ -401,7 +401,7 @@ Windows 10 domain-joined computers(devices) will synchronize some attributes to 
 | displayName | X| |
 | ms-DS-CreatorSID | X| Also called registeredOwnerReference.|
 | objectGUID | X| Also called deviceID.|
-| objectSID | X| Also called omPremisesSecurityIdentifier.|
+| objectSID | X| Also called onPremisesSecurityIdentifier.|
 | operatingSystem | X| Also called deviceOSType.|
 | operatingSystemVersion | X| Also called deviceOSVersion.|
 | userCertificate | X| |

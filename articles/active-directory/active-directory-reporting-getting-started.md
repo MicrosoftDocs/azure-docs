@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Reporting: Getting started"
+   pageTitle="Azure Active Directory Reporting: Getting started | Microsoft Azure"
    description="Lists the various available reports in Azure Active Directory reporting"
    services="active-directory"
    documentationCenter=""
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="12/01/2015"
    ms.author="curtand;kenhoff"/>
 
-# Getting started with Azure AD Reporting
+# Getting started with Azure Active Directory Reporting
 
 ## What it is
 
-Azure Active Directory includes security, activity, and audit reports for your directory. Here's a list of the reports included:
+Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. Here's a list of the reports included:
 
 ### Security reports
 
@@ -61,7 +61,7 @@ The reporting pipeline consists of three main steps. Every time a user signs in,
 
 - First, the user is authenticated (successfully or unsuccessfully), and the result is stored in the Azure Active Directory service databases.
 - At regular intervals, all recent sign ins are processed. At this point, our security and anomalous activity algorithms are searching all recent sign ins for suspicious activity.
-- After processing, the reports are written, cached, and served in the Azure Management Portal.
+- After processing, the reports are written, cached, and served in the Azure classic portal.
 
 ### Report generation times
 
@@ -78,9 +78,9 @@ You can find the most recent processed sign in by examining the help text at the
 ## Getting started
 
 
-### Sign into the Azure Management Portal
+### Sign into the Azure classic portal
 
-First, you'll need to sign into the [Azure Management Portal](https://manage.windowsazure.com)  as a global or compliance administrator. You must also be an Azure subscription service administrator or co-administrator, or be using the "Access to Azure AD" Azure subscription.
+First, you'll need to sign into the [Azure classic portal](https://manage.windowsazure.com)  as a global or compliance administrator. You must also be an Azure subscription service administrator or co-administrator, or be using the "Access to Azure AD" Azure subscription.
 
 ### Navigate to Reports
 

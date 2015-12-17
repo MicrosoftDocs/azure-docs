@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Create a VM with multiple NICs
@@ -72,12 +72,12 @@ At this time, multi NIC has the following requirements and constraints:
 |DS11|2|
 |DS12|4|
 |DS13|8|
-|DS14|16|
+|DS14|8|
 |D1_v2|1|
 |D2_v2|2|
 |D3_v2|4|
 |D4_v2|8|
-|D5_v2|16|
+|D5_v2|8|
 |D11_v2|2|
 |D12_v2|4|
 |D13_v2|8|
@@ -262,5 +262,5 @@ For Linux VMs, since the default behavior uses weak host routing, we recommend t
 
 ## Next steps
 
-- Deploy [MultiNIC VMs in a 2-tier application scenario in a Resource Manager deployment](virtual-network-deploy-multinic-arm-template).
-- Deploy [MultiNIC VMs in a 2-tier application scenario in a classic deployment](virtual-network-deploy-multinic-classic-ps).
+- Deploy [MultiNIC VMs in a 2-tier application scenario in a Resource Manager deployment](virtual-network-deploy-multinic-arm-template.md).
+- Deploy [MultiNIC VMs in a 2-tier application scenario in a classic deployment](virtual-network-deploy-multinic-classic-ps.md).

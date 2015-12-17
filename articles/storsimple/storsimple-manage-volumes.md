@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/18/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
 ## Overview
 
@@ -115,8 +117,7 @@ Modify a volume when you need to expand it or change the hosts that access the v
  
     > [AZURE.NOTE] You cannot change the **Enable a default backup for this volume** option for the volume.
 
-6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). The Azure
-7.  portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
+6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png). The Azure portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
 7. If you are expanding a volume, complete the following steps on your Windows host computer:
 

@@ -35,7 +35,7 @@ To create a namespace, follow the steps outlined in [How To: Create or Modify a 
 
 >[AZURE.NOTE] You do not have to use the same namespace for both client and service applications.
 
-1. In the main window of the Azure portal, click the name of the service namespace you created in the previous step.
+1. In the main window of the [Azure classic portal][], click the name of the service namespace you created in the previous step.
 
 2. Click **Configure** to view the default shared access policies for your service namespace.
 
@@ -842,3 +842,5 @@ To learn more about Service Bus, see the following topics.
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus architecture](service-bus-architecture.md)
+
+[Azure classic portal]: http://manage.windowsazure.com

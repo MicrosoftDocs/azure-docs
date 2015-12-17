@@ -53,7 +53,7 @@ To access Azure blob storage, you need to create a database scoped credential th
 2. Use [CREATE MASTER KEY (Transact-SQL)][] to create a master key for your database. If your database already has a master key you don't need to create another one. This key is used to encrypt your credential "secret" in the next step.
 
     ```
-    -- Create a E master key
+    -- Create a master key
     CREATE MASTER KEY;
     ```
 
@@ -62,9 +62,11 @@ To access Azure blob storage, you need to create a database scoped credential th
     ```
     -- Check for existing database-scoped credentials.
     SELECT * FROM sys.database_credentials;
+    ```
 
 3. Use [CREATE CREDENTIAL (Transact-SQL)][] to Create a database scoped credential for each Azure storage account you want to access. In this example, IDENTITY is a friendly name for the credential. It does not affect authenticating to Azure storage. SECRET is your Azure storage account key.
 
+    ```
     -- Create a database scoped credential
     CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
     WITH IDENTITY = 'joe'
@@ -356,13 +358,13 @@ For more development tips, see [development overview][].
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]:https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]:https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]:https://msdn.microsoft.com/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]:https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/en-us/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]:https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]:https://msdn.microsoft.com/library/ms189450.aspx
 
 

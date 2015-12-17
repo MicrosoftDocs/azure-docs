@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/20/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Get started with BizTalk Trading Partner Management and add it to your Logic App
@@ -25,7 +25,7 @@ The TPM API App is the base requirement of the AS2 connector, the X12 API App, a
 - Blank SQL Azure database - You have to create a blank SQL Azure database first, before creating a new TPM API App.
 
 ## Understanding Partners, Agreements and Profiles
-To know more about trading partner agreement, click [here][1].
+Learn more about [create a trading partner agreement][1].
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).

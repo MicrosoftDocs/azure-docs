@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="12/02/2015"
 	ms.author="yuaxu"/>
 
-# Add Push Notifications to your iOS App
+# Add Push Notifications to your Android App
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 &nbsp;  
@@ -29,27 +29,23 @@ In this tutorial, you add push notifications to the [Android quick start] projec
 
 To complete this tutorial, you need the following:
 
-* [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Complete the [quickstart tutorial](../app-service-mobile-android-get-started.md)
-
-## Enable Google Cloud Messaging
-
-[AZURE.INCLUDE [app-service-mobile-enable-Google-cloud-messaging](../../includes/app-service-mobile-enable-google-cloud-messaging.md)]
+* [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)&mdash;not needed for a Node.js backend project.
+* Complete the [quickstart tutorial](../app-service-mobile-android-get-started.md).
 
 ##<a name="create-hub"></a>Create a Notification Hub
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
-##Configure Mobile App to send push requests
+## Enable Google Cloud Messaging
 
-1. Log on to the [Azure Portal], select **Browse** > **Mobile App** > your app > **Push notification services**.
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-2. In **Google Cloud Messaging**, enter the **API key** that you obtained from GCM, then click **Save**.
+##Configure the Mobile App backend to send push requests
 
-Your Mobile App backend is now configured to work with GCM.
+[AZURE.INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
-##<a id="update-service"></a>Update the server to send push notifications
+##<a id="update-service"></a>Update the server project to send push notifications
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 

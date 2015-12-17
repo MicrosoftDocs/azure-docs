@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 This article helps you get started with building your first Azure data factory. 
 
@@ -30,7 +31,7 @@ This article helps you get started with building your first Azure data factory.
 ## Tutorial Overview
 This tutorial takes you through the steps needed to get your first data factory with a pipeline. You will be creating a pipeline, and specifying all the resources needed from scratch.
 
-If you want to explore the various capabilities of the data factory quickly, without creating one from scratch, you can use the samples that we provide in the Azure Preview Portal. See [Azure Data Factory Update: Simplified sample deployment](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) on how to deploy an use-case based sample using the Azure Preview Portal.
+If you want to explore the various capabilities of the data factory quickly, without creating one from scratch, you can use the samples that we provide in the Azure Portal. See [Azure Data Factory Update: Simplified sample deployment](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) on how to deploy an use-case based sample using the Azure Portal.
 
 ## Pre-requisites
 Before you begin this tutorial, you must have the following pre-requisites:
@@ -168,7 +169,7 @@ Before starting the tutorial, you need to prepare the Azure storage with files n
 
 Do the following:
 
-- Click [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Portal.
+- Click [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure Classic Portal.
 - Click [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
 - Click [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) link at the top to perform the tutorial by using Visual Studio. 
 
