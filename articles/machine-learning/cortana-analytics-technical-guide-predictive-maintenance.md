@@ -433,10 +433,10 @@ containing data (*e.g.*. prediction results) for visualization.
 
     -   To schedule refresh of the data, hover your mouse over the **PredictiveMaintenanceAerospace** dataset, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-elipsis.png) and then choose **Schedule Refresh. **
 
-    >[AZURE.NOTE] If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
+        **Note:** If you see a warning message, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
 
     ![](media\cortana-analytics-technical-guide-predictive-maintenance\schedule-refresh.png)
-
+<br/>
     -   Expand the **Schedule Refresh** session. Turn on "keep your
     data up-to-date".
 
