@@ -26,7 +26,7 @@ In this article you learn to determine if a SQL Server database is compatible to
 
 ## Using SqlPackage.exe
 
-1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
+1. Open a command prompt and change a directory containing the newest version of sqlpackage.exe. This utility ships with both Visual Studio and SQL Server. Download the [newest version of SQL Server Data Tools for Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) to get the latest version of the SqlPackage utility.
 2. Execute the following SqlPackage command with the following arguments for your environment:
 
 	'sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1'
