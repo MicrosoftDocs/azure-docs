@@ -44,7 +44,7 @@ Updated: September 2015
 ## SAP DBMS on Azure
 Title: SAP DBMS in Azure Deployment Guide
 
-Summary: This paper covers planning and implementation considerations for the DBMS systems that should run in conjunction with SAP. In the first part, general considerations are listed and presented. The following parts of the paper relate to deployments of different DBMS in Azure that are supported by SAP. Different DBMS presented are SQL Server, IBM DB2 for Linux, Unix and Windows, SAP ASE, SAP MaxDB and Oracle. In those specific parts considerations you have to account for when you are running SAP systems on Azure in conjunction with those DBMS are discussed. Subjects like backup and high availability methods that are supported by the different DBMS on Azure are presented for the usage with SAP applications.
+Summary: This paper covers planning and implementation considerations for the DBMS systems that should run in conjunction with SAP. In the first part, general considerations are listed and presented. The following parts of the paper relate to deployments of different DBMS in Azure that are supported by SAP. Different DBMS presented are SQL Server, SAP ASE, Oracle, SAP MaxDB and IBM DB2 for Linux, Unix and Windows. In those specific parts considerations you have to account for when you are running SAP systems on Azure in conjunction with those DBMS are discussed. Subjects like backup and high availability methods that are supported by the different DBMS on Azure are presented for the usage with SAP applications.
 
 Updated: December 2015
 
@@ -80,4 +80,4 @@ This article should help setting up Azure SUSE Linux VMs for running SAP and giv
 
 Updated: December 2015
 
-<https://azure.microsoft.com/documentation/articles/virtual-machines-sap-on-linux-suse-quickstart/>
+[This article can be found here](https://azure.microsoft.com/documentation/articles/virtual-machines-sap-on-linux-suse-quickstart/)
