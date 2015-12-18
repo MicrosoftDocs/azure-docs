@@ -151,6 +151,7 @@ In this step, you will create datasets to represent the input and output data fo
 		} 
 
 	The following table provides descriptions for the JSON properties used in the snippet:
+
 	| Property | Description |
 	| :------- | :---------- |
 	| type | The type property is set to AzureBlob because data resides in Azure blob storage. |  
@@ -282,17 +283,18 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 	![Open pipeline view](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
 	To navigate back to the previous view, click **Data factory** in the breadcrump menu at the top. 
-10. In the **Diagram View**, double-click on the dataset **AzureBlobInput**. Confirm that the slice is in **Ready** state. 
+10. In the **Diagram View**, double-click on the dataset **AzureBlobInput**. Confirm that the slice is in **Ready** state. It may take a couple of minutes for the slice to show up in Ready state. If it does not happen after you wait for sometime, please see if you have the input file (input.log) placed in the right container (adfgetstarted) and folder (inputdata).
 
 	![Input slice in ready state](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
-11. In the **Diagram View**, double-click on the dataset **AzureBlobOutput**. You will see that the slice that is currently being processed.
+11. Click **X** to close **AzureBlobInput** blade. 
+12. In the **Diagram View**, double-click on the dataset **AzureBlobOutput**. You will see that the slice that is currently being processed.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. When processing is done, you will see the slice in **Ready** state. 
+9. When processing is done, you will see the slice in **Ready** state.
+	>[AZURE.IMPORTANT] Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes).  
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-
-	>[AZURE.IMPORTANT] Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). 
+	
 10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
  
 	![output data](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
