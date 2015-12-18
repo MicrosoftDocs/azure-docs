@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/26/2015" 
+	ms.date="12/17/2015" 
 	ms.author="bradsev" />
 
 
@@ -90,6 +90,20 @@ The provisioning should take about 10-20 minutes. The status of the provisioning
 Once the VM is created you can login to it using remote desktop with the Admin account credentials you created in the Basics section of step 4. 
 
 Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are desktop icons and start menu tiles for many of the tools. 
+
+## How to create a strong password on the Data Science Virtual Machine
+
+Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the machine.
+
+	c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
+
+Enter your password when prompted.
+
+You will see the password hash in the format "sha1:xxxxxx" in the output. Copy this password hash and replace the existing hash that is in your notebook config file located at: **C:\Aaqs\.ipython\profile_nbserver\ipython_notebook_config.py** with a parameter name ***c.NotebookApp.password***.
+
+You should only replace the existing hash value that is within the quotes. The quotes and the ***sha1:*** prefix for the parameter value need to be retained.
+
+Finally, you need to stop and restart the Ipython server which is running on the VM as a windows scheduled task called "Start_IPython_Notebook". If your new password is not accepted after restarting this task, try restarting the virtual machine.
 
 ## Tools installed on the Microsoft Data Science Virtual Machine
 
