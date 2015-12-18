@@ -108,29 +108,29 @@ You must decide which role to add the application to, and at what scope. To lear
 at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope (for example, adding an application to the Reader role for a resource group means it can read the 
 resource group and any resources it contains).
 
-In the portal, navigate to the level of scope you wish to assign the application to. For this topic, you can navigate to a resource group, and from the resource group blade, select the **Access** icon.
+1. In the portal, navigate to the level of scope you wish to assign the application to. For this topic, you can navigate to a resource group, and from the resource group blade, select the **Access** icon.
 
-![select users](./media/resource-group-create-service-principal-portal/select-users.png)
+     ![select users](./media/resource-group-create-service-principal-portal/select-users.png)
 
-Select **Add**.
+2. Select **Add**.
 
-![select add](./media/resource-group-create-service-principal-portal/select-add.png)
+     ![select add](./media/resource-group-create-service-principal-portal/select-add.png)
 
-Select the **Reader** role (or whatever role you wish to assign the application to).
+3. Select the **Reader** role (or whatever role you wish to assign the application to).
 
-![select role](./media/resource-group-create-service-principal-portal/select-role.png)
+     ![select role](./media/resource-group-create-service-principal-portal/select-role.png)
 
-When you first see the list of users you can add to the role, you will not see applications. You will only see group and users.
+4. When you first see the list of users you can add to the role, you will not see applications. You will only see group and users.
 
-![show users](./media/resource-group-create-service-principal-portal/show-users.png)
+     ![show users](./media/resource-group-create-service-principal-portal/show-users.png)
 
-To find your application, you must search for it. Start typing the name of your application, and the list of available options will change. Select your application when you see it in the list.
+5. To find your application, you must search for it. Start typing the name of your application, and the list of available options will change. Select your application when you see it in the list.
 
-![assign to role](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+     ![assign to role](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
-Select **Okay** to finish assigning the role. You should now see your application in the list of uses assigned to a role for the resource group.
+6. Select **Okay** to finish assigning the role. You should now see your application in the list of uses assigned to a role for the resource group.
 
-![show](./media/resource-group-create-service-principal-portal/show-app.png)
+     ![show](./media/resource-group-create-service-principal-portal/show-app.png)
 
 For more information about assigning users and applications to roles through the portal, see [Manage access using the Azure Management Portal](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
