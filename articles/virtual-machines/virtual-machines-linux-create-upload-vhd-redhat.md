@@ -266,7 +266,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 8.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 9.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open `/boot/grub/menu.lst` in a text editor and ensure that the default kernel includes the following parameters:
 
@@ -389,7 +389,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 7.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 8.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor and edit the **GRUB_CMDLINE_LINUX** parameter, for example:
 
