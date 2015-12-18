@@ -41,11 +41,11 @@ To enable the Azure Diagnostics extension on an existing virtual machine that wa
 
 If the diagnostics configuration file specifies a **StorageAccount** element with a storage account name then the *Set-AzureRMVMDiagnosticsExtension* script will automatically set the diagnostics extension to send diagnostics data to that storage account. The storage account must be in the same subscription as the virtual machine for this to work. 
 
-If the diagnostics storage account is in a different subscription than the virtual machine then you must explicitly pass in the *StorageAccountName* and *StorageAccountKey* parameters to the cmdlet.
+If no **StorageAccount** was specified in the diagnostics configuration then you must pass in the *StorageAccountName* parameter to the cmdlet. If the *StorageAccountName* parameter is specified then the cmdlet will always use the storage account specified in the parameter and not the one specified in the diagnostics configuration file. 
+
+If the diagnostics storage account is in a different subscription than the virtual machine then you must explicitly pass in the *StorageAccountName* and *StorageAccountKey* parameters to the cmdlet. The *StorageAccountKey* parameter is not needed when the diagnostics storage account is in the same subscription as the cmdlet can automatically query and set the key value when enabling the diagnostics extension. However if the diagnostics storage account is in a different subscription then the cmdlet may not be able to get the key automatically and you must explicitly specify the key through the *StorageAccountKey* parameter.  
 
 	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key	
-
-If the *StorageAccountName and *StorageAccountKey* parameters are specified then the cmdlet will use that storage account and not the one specified in the diagnostics configuration file. 
 
 Once the Azure diagnostics extension is enabled on a VM you can get the current settings using the [Get-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603678.aspx) cmdlet. 
 
