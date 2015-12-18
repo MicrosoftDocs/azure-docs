@@ -118,6 +118,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OCTanner.jpg)| [O. C. Tanner - AppreciateHub](https://go.microsoft.com/fwLink/?LinkID=530237&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OfficeSpaceSoftware.jpg)| [OfficeSpace Software](https://go.microsoft.com/fwLink/?LinkID=512726&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Onit.jpg)| [Onit](https://go.microsoft.com/fwLink/?LinkID=522566&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OpsGenie.jpg)| [OpsGenie](https://go.microsoft.com/fwLink/?LinkID=708670&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OverdriveBooks.jpg)| [Overdrive Books](https://go.microsoft.com/fwLink/?LinkID=512730&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PagerDuty.jpg)| [Pagerduty](https://go.microsoft.com/fwLink/?LinkID=510244&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Panopto.jpg)| [Panopto](https://go.microsoft.com/fwLink/?LinkID=512739&clcid=0x409)|
