@@ -112,6 +112,22 @@ In addition to what's described in the article it's recommended to also remove
 
 Installing the waagent should also avoid any potential issue as long as there are no multiple nics.
 
+## Deploy a SUSE VM on Azure
+
+New VMs should be created via json template files in the new Azure Resource Manager model. Once the json template
+file is created one can deploy the VM using the following CLI command as an alternative to Powershell :
+
+   ```
+   azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
+   
+   ```
+More details about json template files can be found here :
+
+
+More details about CLI and Azure Resource Manager can be found here :
+
+<https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/>
+
 ## SAP license and hardware key
 
 For the official SAP-Windows-Azure certification a new mechanism was introduced to calculate the
