@@ -55,9 +55,10 @@ Single sign-on allows users to access a variety of apps and services using only 
 | Article Guide |   |
 | :---: | --- |
 | An introduction to federation and other types of sign-on | [Single Sign-On with Azure AD](active-directory-appssoaccess-whatis.md) |
-| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps | [Getting started with the Azure AD application gallery](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps) |
+| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps | [Getting started with the Azure AD application gallery](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps)<br /><br />[How to Add Your App to the Azure AD App Gallery](active-directory-app-gallery-listing.md) |
 | More than 150 app tutorials on how to configure single sign-on for apps such as [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), and many more | [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
-| How to manually configure single sign-on and other advanced scenarios | [How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery](active-directory-saas-custom-apps.md)<br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md)<br /><br />[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
+| How to manually set up and customize your single sign-on configuration | [How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery](active-directory-saas-custom-apps.md)<br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md) |
+| Troubleshooting guide for federated apps that use the SAML protocol | [Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
 | How to configure your app's certificate's expiration date, and how to renew your certificates | [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) |
 
 ##Password-Based Single Sign-On (SSO): Account Sharing and SSO for Non-Federated Apps
@@ -102,6 +103,7 @@ If your organization is developing or maintaining line-of-business (LoB) applica
 | Article Guide |   |
 | :---: | --- |
 | Guidance for both IT professionals and application developers on integrating apps with Azure AD | [The IT Pro's Guide for Developing Applications for Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[The Developer's Guide for Azure Active Directory](active-directory-developers-guide.md) |
+| How to application vendors can add their apps to the Azure AD App Gallery | [Listing your Application in the Azure Active Directory Application Gallery](active-directory-app-gallery-listing) |
 | How to manage access to developed applications using Azure Active Directory | [How to Enable User Assignment for Developed Applications](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Assigning Users to your App](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Assigning Group to your App](active-directory-applications-guiding-developers-assigning-groups.md) |
 
 If you're developing consumer-facing applications, you may be interested in using [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) so that you don't have to develop your own identity system to manage your users. [Learn more](../active-directory-b2c/active-directory-b2c-overview.md).
@@ -125,20 +127,20 @@ To help you manage who should have access to which resources, Azure Active Direc
 
 | Article Guide |   |
 | :---: | --- |
-| An overview Azure AD's access management features | [Introduction to Managing Access to Apps](active-directory-managing-access-to-apps.md)<br /><br />[How Access Management Works in Azure AD](active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](active-directory-accessmanagement-group-saasapps.md) |
+| An overview of Azure AD's access management features | [Introduction to Managing Access to Apps](active-directory-managing-access-to-apps.md)<br /><br />[How Access Management Works in Azure AD](active-directory-manage-groups.md)<br /><br />[How to Use Groups to Manage Access to SaaS Applications](active-directory-accessmanagement-group-saasapps.md) |
 | Delegate management of apps and groups, and enable self-service management | [Self-Service and Delegated Application Management](active-directory-self-service-application-access.md)<br /><br />[Self-Service and Delegated Group Management](active-directory-accessmanagement-self-service-group-management.md) |
 | Instructions for setting up your groups in Azure AD | [How to Create Security Groups](active-directory-accessmanagement-manage-groups.md)<br /><br />[How to Designate Owners for a Group](active-directory-accessmanagement-managing-group-owners.md)<br /><br />[How to Use the "All Users" Group](active-directory-accessmanagement-dedicated-groups.md) |
 | Automatically populate group membership using attribute-based membership rules | [Dynamic Group Membership: Simple Rules](active-directory-accessmanagement-simplerulegroup.md)<br /><br />[Dynamic Group Membership: Advanced Rules](active-directory-accessmanagement-groups-with-advanced-rules.md)<br /><br />[Troubleshooting Dynamic Group Memberships](active-directory-accessmanagement-troubleshooting.md) |
 
 ##B2B: Enable Partner Access to Applications
 
-If your organization has partnered with other companies, it's likely that you need to manage partner access to your corporate applications. Azure Active Directory B2B Collaboration provides an easy and secure way to share your apps with partners.
+If your business has partnered with other companies, it's likely that you need to manage partner access to your corporate applications. Azure Active Directory B2B Collaboration provides an easy and secure way to share your apps with partners.
 
 | Article Guide |   |
 | :---: | --- |
-| intro | [Azure Active Directory (Azure AD) B2B collaboration preview: Simple, secure cloud partner integration](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory (Azure AD) B2B collaboration](active-directory-b2b-collaboration-overview.md) |
-| deep dive | [Detailed walkthrough of using the Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-detailed-walkthrough.md)<br /><br />[Current preview limitations for Azure Active Directory (Azure AD) B2B collaboration](active-directory-b2b-current-preview-limitations.md)<br /><br />[Azure Active Directory (Azure AD) B2B collaboration preview: How it works](active-directory-b2b-how-it-works.md) |
-| misc | [CSV file format for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-csv-file-format.md)<br /><br />[External user object attribute changes for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[External user token format for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-external-user-token-format.md) |
+| An introduction to Azure AD B2B Preview and how to get started | [Simple, Secure, Cloud Partner Integration with Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory (Azure AD) B2B Collaboration](active-directory-b2b-collaboration-overview.md) |
+| A deeper dive into Azure AD B2B Preview and how to use it | [Azure AD B2B Preview: How it works](active-directory-b2b-how-it-works.md)<br /><br />[Current Limitations of Azure AD B2B Preview](active-directory-b2b-current-preview-limitations.md)<br /><br />[Detailed walkthrough of using Azure AD B2B Preview](active-directory-b2b-detailed-walkthrough.md) |
+| Reference articles with technical details on how Azure AD B2B Preview works | [CSV File Format for Adding Partner Users](active-directory-b2b-references-csv-file-format.md)<br /><br />[User Attributes Affected by Azure AD B2B Preview](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[User Token Format for Partner Users](active-directory-b2b-references-external-user-token-format.md) |
 
 ##Access Panel: A Portal for Users to Access Apps and More
 
