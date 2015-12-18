@@ -24,22 +24,24 @@
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-This guide shows you how to perform common scenarios using the Android client SDK for Azure App Service Mobile Apps.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and customizing the client. Successfully completing that tutorial ensures that you will have  installed Android Studio; it will help you configure your account and create your first Mobile App backend, and install the [Mobile Services SDK for Android], which supports Android version 2.2 or later, but we recommend building against Android version 4.2 or later.
+This guide shows you how to perform common scenarios using the Android client SDK for Azure App Service Mobile Apps.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and customizing the client. 
 
-If you are new to Mobile Apps, you should consider first completing the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial. In this guide, we focus on the client-side Android SDK. To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or [How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
+In this guide, we focus on the client-side Android SDK.  To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or [How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
+
 
 <!---You can find the Javadocs API reference for the Android client library [here](http://go.microsoft.com/fwlink/p/?LinkId=298735).-->
 
+## Setup and Prerequisites
 
-##<a name="setup"></a>Setup and Prerequisites
+The Mobile Services SDK for Android, which supports Android version 2.2 or later, but we recommend building against Android version 4.2 or later.
 
-This topic assumes that you have already created a Mobile App backend to use with your Android app project. To learn how to create a new Mobile App backend project, see [Create a new Azure mobile app backend](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) in the Android quickstart tutorial. The Android quickstart project that you download in this topic is already configured to connect to your Mobile App backend. 
+Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial, which will ensure that you have installed Android Studio; it will help you configure your account and create your first Mobile App backend. 
 
-If you have a different Android app to connect to a Mobile App backend, you need to do the following in your Android Studio project:
+If you have your own Android app that you want to connect to a Mobile App backend, and decide not to complete the Quickstart, you need to do the following in your Android Studio project:
 
-- [update the Gradle build file](#gradle-build)
-- [Enable the internet permission](#enable-internet)
-- [Define client data classes](#data-objects)
+- [create a Mobile App backend](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) to use with your Android app (unless your app already has one)
+- [update the Gradle build files](#gradle-build)
+- [Enable internet permission](#enable-internet)
 
 ###<a name="gradle-build"></a>Update the Gradle build file 
 
@@ -64,24 +66,11 @@ To access Azure, your app must have the INTERNET permission enabled. If it's not
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
-###<a name="data-object"></a>Define client data classes
-To access data from backend tables, you need to define client data classes that correspond to tables in the Mobile App backend. Examples in this topic assume a table named *ToDoItem*, which has the following columns:
+## Deep dive into the basics
 
-- id
-- text
-- complete
+If you completed the Quickstart app, the code in these sections will already be in your app. If not you will need to add it. This section provides you with more detailed discussion.
 
-The corresponding typed client-side object is the following:
-
-	public class ToDoItem {
-		private String id;
-		private String text;
-		private Boolean complete;
-	}
-
-To learn how to create new tables in your Mobile Apps backend, see [How to: Define a table controller](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET backend) or [Define Tables using a Dynamic Schema](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js backend). For a Node.js backend, you can also use the **Easy tables** setting in the [Azure portal].
-
-##<a name="create-client"></a>How to: Create the client context
+###<a name="create-client"></a>How to: Create the client context
 The following code creates the **MobileServiceClient** object that is used to access your Mobile App backend. The code goes in the `onCreate` method of the **Activity** class specified in *AndroidManifest.xml* as a **MAIN** action and **LAUNCHER** category.
 
 		MobileServiceClient mClient = new MobileServiceClient(
@@ -92,7 +81,7 @@ In the code above, replace `MobileAppUrl` with the URL of your Mobile App backen
 
 	import com.microsoft.windowsazure.mobileservices.*;
 
-##<a name="instantiating"></a>How to: Create a table reference
+###<a name="instantiating"></a>How to: Create a table reference
 
 The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless serialization and deserialization to JSON using the [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) library when sending data between the client and the backend: the developer doesn't have to do anything, the framework handles it all.
 
@@ -114,12 +103,141 @@ The [2nd overload](http://go.microsoft.com/fwlink/p/?LinkId=296840) is used when
 
 		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
-## <a name="api"></a>The API structure
+###<a name="data-object"></a>Define client data classes
+To access data from backend tables, you need to define client data classes that correspond to tables in the Mobile App backend. Examples in this topic assume a table named *ToDoItem*, which has the following columns:
+
+- id
+- text
+- complete
+
+The corresponding typed client-side object is the following:
+
+	public class ToDoItem {
+		private String id;
+		private String text;
+		private Boolean complete;
+	}
+
+To learn how to create new tables in your Mobile Apps backend, see [How to: Define a table controller](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET backend) or [Define Tables using a Dynamic Schema](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js backend). For a Node.js backend, you can also use the **Easy tables** setting in the [Azure portal].
+
+### <a name="api"></a>The API structure
 
 Mobile Apps table operations and custom API calls are asynchronous, so you should use the [Future](http://developer.android.com/reference/java/util/concurrent/Future.html) and [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) objects in all of the asynchronous operations such as methods involving queries and operations like inserts, updates and deletes. This makes it easier to perform multiple operations (while on a background thread) without having to deal with multiple nested callbacks.
 
-The examples in the topic focus only on the client API calls to the Mobile Apps backend. To see how these asynchronous APIs are used in your Android app and data is displayed in the UI, download the Android quickstart project from the [Azure portal] and review the ToDoActivity project file.
+To see how these asynchronous APIs are used in your Android app and how data is displayed in the UI, review the ToDoActivity project file in the Android quickstart project from the [Azure portal].
 
+###<a name="binding"></a>How to: Bind data to the user interface
+
+Data binding involves three components:
+
+- The data source
+- The screen layout
+- The adapter that ties the two together.
+
+In our sample code, we return the data from the mobile service table *ToDoItem* into an array. This is one very common pattern for data applications: database queries typically return a collection of rows which the client gets in a list or array. In this sample the array is the data source.
+
+The code specifies a screen layout that defines the view of the data that will appear on the device.
+
+And the two are bound together with an adapter, which in this code is an extension of the *ArrayAdapter&lt;ToDoItem&gt;* class.
+
+#### <a name="layout"></a>How to: Define the Layout
+
+The layout is defined by several snippets of XML code. Given an existing layout, let's assume the following code represents the **ListView** we want to populate with our server data.
+
+    <ListView
+        android:id="@+id/listViewToDo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/row_list_to_do" >
+    </ListView>
+
+
+In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check box and its associated text. This gets instantiated once for each item in the list. A more complex layout would specify additional fields in the display. This code is in the *row_list_to_do.xml* file.
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="horizontal">
+	    <CheckBox
+	        android:id="@+id/checkToDoItem"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/checkbox_text" />
+	</LinearLayout>
+
+
+#### <a name="adapter"></a>How to: Define the adapter
+
+Since the data source of our view is an array of *ToDoItem*, we subclass our adapter from a *ArrayAdapter&lt;ToDoItem&gt;* class. This subclass will produce a View for every *ToDoItem* using the *row_list_to_do* layout.
+
+In our code we define the following class which is an extension of the *ArrayAdapter&lt;E&gt;* class:
+
+	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
+
+
+You must override the adapter's *getView* method. This sample code is one example of how to do this: details will vary with your application.
+
+	public View getView(int position, View convertView, ViewGroup parent) {
+		View row = convertView;
+
+		final ToDoItem currentItem = getItem(position);
+
+		if (row == null) {
+			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
+			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
+		}
+
+		row.setTag(currentItem);
+
+		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
+		checkBox.setText(currentItem.getText());
+		checkBox.setChecked(false);
+		checkBox.setEnabled(true);
+
+		return row;
+	}
+
+We create an instance of this class in our Activity as follows:
+
+	ToDoItemAdapter mAdapter;
+	mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
+
+Note that the second parameter to the ToDoItemAdapter constructor is a reference to the layout. The call to the constructor is followed by the following code which first gets a reference to the **ListView**, and next calls *setAdapter* to configure itself to use the adapter we just created:
+
+	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
+	listViewToDo.setAdapter(mAdapter);
+
+
+#### <a name="use-adapter"></a>How to: Use the adapter
+
+You are now ready to use data binding. The following code shows how to get the items in the mobile service table, clear the adapter, and then call the adapter's *add* method to fill it with the returned items.
+
+    public void showAll(View view) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    final MobileServiceList<ToDoItem> result = mToDoTable.execute().get();
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            mAdapter.clear();
+                            for (ToDoItem item : result) {
+                                mAdapter.add(item);
+                            }
+                        }
+                    });
+                } catch (Exception exception) {
+                    createAndShowDialog(exception, "Error");
+                }
+                return null;
+            }
+        }.execute();
+    }
+
+You must also call the adapter any time you modify the *ToDoItem* table if you want to display the results of doing that. Since modifications are done on a record by record basis, you will be dealing with a single row instead of a collection. When you insert an item you call the *add* method on the adapter, when deleting, you call the *remove* method.
 
 ##<a name="querying"></a>How to: Query data from your Mobile App backend
 
@@ -256,7 +374,7 @@ String ID values provide the following advantages:
 + Records are easier to merge from different tables or databases.
 + ID values integrate better with an application's logic.
 
-##<a name="updating"></a>How to: Update data in a mobile service
+##<a name="updating"></a>How to: Update data in a mobile app
 
 The following code shows how to update data in a table. 
 
@@ -264,7 +382,7 @@ The following code shows how to update data in a table.
 
 In this example, *item* is a reference to a row in the *ToDoItem* table, which has had some changes made to it. 
 
-##<a name="deleting"></a>How to: Delete data in a mobile service
+##<a name="deleting"></a>How to: Delete data in a mobile app
 
 The following code shows how to delete data from a table by specifying the data object. 
 
@@ -368,118 +486,6 @@ The following code shows how to retrieve an entire table. Since you are using a 
 You can do filtering, sorting and paging by concatenating  methods that have the same names as those used in the typed programming model.
 
 
-##<a name="binding"></a>How to: Bind data to the user interface
-
-Data binding involves three components:
-
-- The data source
-- The screen layout
-- The adapter that ties the two together.
-
-In our sample code, we return the data from the mobile service table *ToDoItem* into an array. This is one very common pattern for data applications: database queries typically return a collection of rows which the client gets in a list or array. In this sample the array is the data source.
-
-The code specifies a screen layout that defines the view of the data that will appear on the device.
-
-And the two are bound together with an adapter, which in this code is an extension of the *ArrayAdapter&lt;ToDoItem&gt;* class.
-
-### <a name="layout"></a>How to: Define the Layout
-
-The layout is defined by several snippets of XML code. Given an existing layout, let's assume the following code represents the **ListView** we want to populate with our server data.
-
-    <ListView
-        android:id="@+id/listViewToDo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/row_list_to_do" >
-    </ListView>
-
-
-In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check box and its associated text. This gets instantiated once for each item in the list. A more complex layout would specify additional fields in the display. This code is in the *row_list_to_do.xml* file.
-
-	<?xml version="1.0" encoding="utf-8"?>
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent"
-	    android:orientation="horizontal">
-	    <CheckBox
-	        android:id="@+id/checkToDoItem"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="@string/checkbox_text" />
-	</LinearLayout>
-
-
-### <a name="adapter"></a>How to: Define the adapter
-
-Since the data source of our view is an array of *ToDoItem*, we subclass our adapter from a *ArrayAdapter&lt;ToDoItem&gt;* class. This subclass will produce a View for every *ToDoItem* using the *row_list_to_do* layout.
-
-In our code we define the following class which is an extension of the *ArrayAdapter&lt;E&gt;* class:
-
-	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
-
-
-You must override the adapter's *getView* method. This sample code is one example of how to do this: details will vary with your application.
-
-	public View getView(int position, View convertView, ViewGroup parent) {
-		View row = convertView;
-
-		final ToDoItem currentItem = getItem(position);
-
-		if (row == null) {
-			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
-			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
-		}
-
-		row.setTag(currentItem);
-
-		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
-		checkBox.setText(currentItem.getText());
-		checkBox.setChecked(false);
-		checkBox.setEnabled(true);
-
-		return row;
-	}
-
-We create an instance of this class in our Activity as follows:
-
-	ToDoItemAdapter mAdapter;
-	mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
-
-Note that the second parameter to the ToDoItemAdapter constructor is a reference to the layout. The call to the constructor is followed by the following code which first gets a reference to the **ListView**, and next calls *setAdapter* to configure itself to use the adapter we just created:
-
-	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-	listViewToDo.setAdapter(mAdapter);
-
-
-### <a name="use-adapter"></a>How to: Use the adapter
-
-You are now ready to use data binding. The following code shows how to get the items in the mobile service table, clear the adapter, and then call the adapter's *add* method to fill it with the returned items.
-
-    public void showAll(View view) {
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                try {
-                    final MobileServiceList<ToDoItem> result = mToDoTable.execute().get();
-                    runOnUiThread(new Runnable() {
-
-                        @Override
-                        public void run() {
-                            mAdapter.clear();
-                            for (ToDoItem item : result) {
-                                mAdapter.add(item);
-                            }
-                        }
-                    });
-                } catch (Exception exception) {
-                    createAndShowDialog(exception, "Error");
-                }
-                return null;
-            }
-        }.execute();
-    }
-
-You must also call the adapter any time you modify the *ToDoItem* table if you want to display the results of doing that. Since modifications are done on a record by record basis, you will be dealing with a single row instead of a collection. When you insert an item you call the *add* method on the adapter, when deleting, you call the *remove* method.
 
 ##<a name="custom-api"></a>How to: Call a custom API
 
@@ -507,11 +513,13 @@ From an Android client, you call the **invokeApi** method to call the custom API
 	
 The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors. Other versions of **invokeApi** let you optionally send an object in the request body, specify the HTTP method, and send query parameters with the request. Untyped versions of **invokeApi** are provided as well.
 
-##<a name="authentication"></a>How to: Authenticate users
+##<a name="authentication"></a>How to: add authentication to your app
 
-App Service supports authenticating app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend. For more information, see [Get started with authentication].
+Tutorials already describe in detail how to add these features.
 
-Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs.
+App Service supports [authenticating app users](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-android-get-started-users/) using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend. 
+
+Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs, and requires you to code this.
 
 Three steps are required to enable authentication in your app:
 
@@ -540,9 +548,22 @@ You can see a complete example of how to cache authentication tokens in [Cache a
 
 When you try to use an expired token you will get a *401 unauthorized* response. The user must then log in to obtain new tokens. You can avoid having to write code to handle this in every place in your app that calls your mobile service by using filters, which allow you to intercept calls to and responses from Mobile Services. The filter code will then test the response for a 401, trigger the sign-in process if needed, and then resume the request that generated the 401. You can also inspect the token to check the expiration.
 
+## How to: add push notification to your app
+
+You can [read an overview](https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-overview/#integration-with-app-service-mobile-apps) that describes how Windows Azure Notification Hubs supports a wide variety of push notifications,
+
+In [this tutorial](https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-android-get-started-push/), every time a record is inserted, a push notification is sent.
+
+## How to: add offline sync to your app
+The Quickstart tutorial contains code that implements offline sync. Look for code prefixed with comments like this:
+
+	// Offline Sync
+
+By uncommenting the following lines of code you can implement offline sync, and you can add similar code to other Mobile Apps code.
+
 ##<a name="customizing"></a>How to: Customize the client
 
-There are several ways for you to customize the default behavior of the client.
+There are several ways for you to customize the default behavior of the client. 
 
 ### <a name="headers"></a>How to: Customize request headers
 
