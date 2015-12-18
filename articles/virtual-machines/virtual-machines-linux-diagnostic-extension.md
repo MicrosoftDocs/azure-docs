@@ -15,7 +15,7 @@
 		ms.tgt_pltfrm="vm-linux"
 		ms.devlang="na"
 		ms.topic="article"
-		ms.date="07/20/2015"
+		ms.date="12/15/2015"
 		ms.author="Ning"/>
 
 
