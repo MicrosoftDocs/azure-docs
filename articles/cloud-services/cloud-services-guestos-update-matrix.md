@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="12/15/2015"
+   ms.date="12/18/2015"
    ms.author="yuemlu"/>
 
 # Azure Guest OS Releases and SDK Compatibility Matrix
@@ -29,6 +29,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 
 
 ## News Updates
+
+###### **December 18 2015**
+November 201511-02 Guest OS release date has been postponed from Dec 16 2015 to Jan 4 2016.
 
 ###### **December 9 2015**
 December Guest OS rollout is starting December 10 2015, and projected to be released on Janurary 8 2016.
@@ -174,7 +177,7 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2 (Note 2)
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
 | 4.27             | WA-GUEST-OS-4.27_201512-01 | Projected Jan 8 2016   | Will be updated when 4.29 is released | TBD |
-| 4.26             | WA-GUEST-OS-4.26_201511-02 | Projected Dec 16 2015  | Will be updated when 4.28 is released | TBD |
+| 4.26             | WA-GUEST-OS-4.26_201511-02 | Projected Jan 4 2016   | Will be updated when 4.28 is released | TBD |
 | 4.26             | WA-GUEST-OS-4.26_201511-01 | Dec 10 2015            | Will be updated when 4.28 is released | TBD |
 | 4.25             | WA-GUEST-OS-4.25_201510-01 | Nov 6 2015             | Will be updated when 4.27 is released | TBD |
 | 4.24             | WA-GUEST-OS-4.24_201509-01 | Oct 1 2015             | Jan 10 2016  | TBD |
@@ -204,7 +207,7 @@ Supports .NET 4.0, 4.5
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
 | 3.34             | WA-GUEST-OS-3.34_201512-01 | Projected Jan 8 2016   | Will be updated when 3.36 is released | TBD |
-| 3.33             | WA-GUEST-OS-3.33_201511-02 | Projected Dec 16 2015  | Will be updated when 3.35 is released | TBD |
+| 3.33             | WA-GUEST-OS-3.33_201511-02 | Projected Jan 4 2016   | Will be updated when 3.35 is released | TBD |
 | 3.33             | WA-GUEST-OS-3.33_201511-01 | Dec 10 2015            | Will be updated when 3.35 is released | TBD |
 | 3.32             | WA-GUEST-OS-3.32_201510-01 | Nov 6 2015             | Will be updated when 3.34 is released | TBD |
 | 3.31             | WA-GUEST-OS-3.31_201509-01 | Oct 1 2015             | Jan 10 2016  | TBD |
@@ -235,7 +238,7 @@ Supports .NET 3.5, 4.0
 | Guest OS Version | Configuration String       | Release Date           | Disable Date | Expiration Date |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
 | 2.46             | WA-GUEST-OS-2.46_201512-01 | Projected Jan 8 2015   | Will be updated when 2.48 is released | TBD |
-| 2.45             | WA-GUEST-OS-2.45_201511-02 | Projected Dec 16 2015  | Will be updated when 2.47 is released | TBD |
+| 2.45             | WA-GUEST-OS-2.45_201511-02 | Projected Jan 4 2016   | Will be updated when 2.47 is released | TBD |
 | 2.45             | WA-GUEST-OS-2.45_201511-01 | Dec 10 2015            | Will be updated when 2.47 is released | TBD |
 | 2.44             | WA-GUEST-OS-2.44_201510-01 | Nov 6 2015             | Will be updated when 2.46 is released | TBD |
 | 2.43             | WA-GUEST-OS-2.43_201509-01 | Oct 1 2015             | Jan 10 2016  | TBD |
