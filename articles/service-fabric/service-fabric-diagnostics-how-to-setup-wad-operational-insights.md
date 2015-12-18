@@ -21,9 +21,9 @@
 
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location makes it easy to analyze and troubleshoot issues in your cluster or in the applications and services running in that cluster. One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage.
 
-Azure Operational Insights (part of the Microsoft Operations Management Suite) is an SaaS solution that makes it easy to analyze and search logs. The steps below describe how to set up Azure Diagnostics on the VMs in a cluster to upload logs to a central store, and then to configure Operational Insights to pull the logs so that you can view them in the Operational Insights portal.
+Azure Operational Insights (part of the Microsoft Operations Management Suite) is an SaaS solution that makes it easy to analyze and search logs. The steps below describe how to set up the Azure Diagnostics extension on the VMs in a cluster to upload logs to a central store, and then to configure Operational Insights to pull the logs so that you can view them in the Operational Insights portal.
 
-Operational Insights identifies the sources of the different types of logs uploaded from a Service Fabric cluster by the names of the storage tables that they are stored in. This means Diagnostics must be configured to upload the logs to storage tables with names that match what Operational Insights will look for. The configuration settings examples in this document will show you what the names of the storage tables should be.
+Operational Insights identifies the sources of the different types of logs uploaded from a Service Fabric cluster by the names of the storage tables that they are stored in. This means the Azure Diagnostics extension must be configured to upload the logs to storage tables with names that match what Operational Insights will look for. The configuration settings examples in this document will show you what the names of the storage tables should be.
 
 ## Suggested reading
 * [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) (Related to Azure Cloud Services but has good information and examples)
@@ -43,14 +43,14 @@ These tools will be used to perform some of the operations in this document:
 2. **Application events:** Events emitted from your services code and written out by using the EventSource helper class provided in the Visual Studio templates. For more information on how to write logs from your application, refer to [this article about monitoring and diagnosing services in a local machine setup](https://azure.microsoft.com/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
 
 
-## Deploy Diagnostics to a Service Fabric cluster to collect and upload logs
-The first step in collecting logs is to deploy the Diagnostics extension on each of the VMs in the Service Fabric cluster. Diagnostics collects logs on each VM and uploads them to the storage account you specify. The steps vary a little based on whether you use the Azure portal or Azure Resource Manager and if the deployment is being done as part of cluster creation or for a cluster that already exists. Let's look at the steps for each scenario.
+## Deploy the Diagnostics extension to a Service Fabric cluster to collect and upload logs
+The first step in collecting logs is to deploy the Diagnostics extension on each of the VMs in the Service Fabric cluster. The Diagnostics extension collects logs on each VM and uploads them to the storage account you specify. The steps vary a little based on whether you use the Azure portal or Azure Resource Manager and if the deployment is being done as part of cluster creation or for a cluster that already exists. Let's look at the steps for each scenario.
 
-### Deploy Diagnostics as part of cluster creation through the portal
+### Deploy the Diagnostics extension as part of cluster creation through the portal
 To deploy Diagnostics to the VMs in the cluster as part of cluster creation, the Diagnostics setting shown in the image below is used. It is **On** by default.
 ![Azure Diagnostics setting in portal for cluster creation](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
 
-### Deploy Diagnostics as part of cluster creation by using Azure Resource Manager
+### Deploy the Diagnostics extension as part of cluster creation by using Azure Resource Manager
 To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full cluster Resource Manager template before creating the cluster. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-1-nodetype-wad).
 
 To see the Diagnostics setting in the Resource Manager template, search for **WadCfg.** To create a cluster with this template, just press the **Deploy to Azure** button available at the link above.
@@ -62,7 +62,7 @@ Additionally, before calling this deployment command, you may need to do some se
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
-### <a name="deploywadarm"></a>Deploy Diagnostics to an existing cluster
+### <a name="deploywadarm"></a>Deploy the Diagnostics extension to an existing cluster
 If you have an existing cluster that doesn't have Diagonistics deployed, you can add it by following these steps.
 Create the two files, WadConfigUpdate.json and WadConfigUpdateParams.json, by using the JSON below.
 
@@ -172,7 +172,7 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 ```
 
 ## Set up Operational Insights to view and search cluster logs
-Once Diagnostics is set up on the cluster and is uploading logs to a storage account, the next step is to set up Operational Insights so you can view, search, and query all the cluster logs through the UI of the Operational Insights portal.
+Once Diagnostics is set up on the cluster and is uploading logs to a storage account, the next step is to set up Operational Insights so you can view, search, and query all the cluster logs through the of the Operational Insights portal.
 
 ### Create an Operational Insights Workspace
 To see the steps for creating an Operational Insights workspace, go to the article below. Note that it describes two different ways to create a workspace. Choose the Azure portal and subscription-based approach. You will need the name of the Operational Insights workspace in the later sections of this document. Create the Operational Insights workspace by using the same subscription that you used to create all the cluster resources, including storage accounts.
@@ -180,7 +180,7 @@ To see the steps for creating an Operational Insights workspace, go to the artic
 [Operational Insights Onboarding](https://technet.microsoft.com/library/mt484118.aspx)
 
 ### Configure an Operational Insights workspace to show the cluster logs
-Once you have created the Operational Insights workspace as described above, the next step is to configure the workspace to pull the logs from the storage tables where they are being uploaded from the cluster by Diagnostics. Currently this configuration can't be done through the Operational Insights portal and can only be done through PowerShell commands. Run the following PowerShell script:
+Once you have created the Operational Insights workspace as described above, the next step is to configure the workspace to pull the logs from the Azure storage tables where they are being uploaded from the cluster by the Diagnostics extension. Currently this configuration can't be done through the Operational Insights portal and can only be done through PowerShell commands. Run the following PowerShell script:
 ```powershell
 <#
     This script will configure an Operations Management Suite workspace (aka Operational Insights workspace) to read Diagnostics from an Azure Storage account.
