@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Build your first Azure Data Factory pipeline using Azure PowerShell"
+	pageTitle="Get started with Azure Data Factory (Azure PowerShell)"
 	description="In this tutorial, you will create a sample Azure Data Factory pipeline using Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/08/2015"
+	ms.date="12/18/2015"
 	ms.author="spelluru"/>
 
-# Build your first Azure Data Factory pipeline using Azure PowerShell
+# Get started with Azure Data Factory (Azure PowerShell)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -25,21 +25,15 @@
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
-In this article, you will learn how to use Azure PowerShell to create your first pipeline. This tutorial consists of the following steps:
+In this article, you will learn how to use the Azure PowerShell to create your first Azure data factory. 
 
-1.	Creating the data factory.
-2.	Creating the linked services (data stores, computes) and datasets.
-3.	Creating the pipeline.
-
-> [AZURE.IMPORTANT] 
-> This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
-> 
-> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets.
 
 ## Prerequisites
 Apart from prerequisites listed in the Tutorial Overview topic, you need to install the following:
 
-- **Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer. 
+- You **must** read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
+- **Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
+- (optional) This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets. 
 
 If you are using Azure PowerShell of **version < 1.0**, You will need to use cmdlets that are documented [here][cmdlet-reference]. You also will need to run the following commands before using the Data Factory cmdlets: 
  
@@ -50,9 +44,9 @@ If you are using Azure PowerShell of **version < 1.0**, You will need to use cmd
 4. Switch to AzureResourceManager mode as the Azure Data Factory cmdlets are available in this mode: **Switch-AzureMode AzureResourceManager**.
 
 
-## Step 1: Creating the data factory
+## Step 1: Create the data factory
 
-In this step, you use Azure PowerShell to create an Azure Data Factory named ADFTutorialDataFactoryPSH.
+In this step, you use Azure PowerShell to create an Azure Data Factory named **FirstDataFactoryPSH**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Let's start with creating the data factory in this step. 
 
 1. Start Azure PowerShell and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
 	- Run **Login-AzureRmAccount** and enter the  user name and password that you use to sign in to the Azure Portal.  
@@ -63,55 +57,56 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named ADF
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
 	Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you will need to use it in place of ADFTutorialResourceGroup in this tutorial.
-4. Run the **New-AzureRmDataFactory** cmdlet to create a data factory named DataFactoryMyFirstPipelinePSH.  
+4. Run the **New-AzureRmDataFactory** cmdlet to create a data factory named **FirstDataFactoryPSH**.  
 
-		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH –Location "West US"
+		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
-	> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “DataFactoryMyFirstPipelinePSH” is not available**, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+	> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstDataFactoryPSH” is not available**, change the name (for example, yournameFirstDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 	> 
 	> The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 
-In the subsequent steps, you will learn how to create the linked services, datasets and pipeline that you will use in this tutorial.
+Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link data stores/computes to your data store, define input and output datasets to represent data in linked data stores, and then create the pipeline with a activity that use these datasets. 
 
-## Step 2: Create linked services and datasets
-In this step, you will link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory and then create a dataset to represent the output data from Hive processing.
+## Step 2: Create linked services 
+In this step, you will link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account will hold the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. You need to identify what data store/compute services are used in your scenario and link those services to the data factory by creating linked services.
 
 ### Create Azure Storage linked service
-1.	Create a JSON file named StorageLinkedService.json in the C:\ADFGetStartedPSH folder with the following content. Create the folder ADFGetStartedPSH if it does not already exist.
+In this step, you will link your Azure Storage account to your data factory. For the purpose of this tutorial, you use the same Azure Storage account to store input/output data and the HQL script file.
+
+1. Create a JSON file named StorageLinkedService.json in the C:\ADFGetStarted folder with the following content. Create the folder ADFGetStarted if it does not already exist.
 
 		{
-		    "name": "StorageLinkedService",
-		    "properties": {
-		        "type": "AzureStorage",
-		        "description": "",
-		        "typeProperties": {
-		            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-		        }
-		    }
+	    	"name": "StorageLinkedService",
+	    	"properties": {
+	        	"type": "AzureStorage",
+	        	"description": "",
+	        	"typeProperties": {
+	            	"connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	        	}
+	    	}
 		}
 
 	Replace **account name** with the name of your Azure storage account and **account key** with the access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
-2.	In Azure PowerShell, switch to the ADFGetStartedPSH folder.
-3.	You can use the **New-AzureRmDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial require you to pass values for the *ResourceGroupName* and *DataFactoryName* parameters. Alternatively, you can use **Get-AzureRmDataFactory** to get a **DataFactory** object and pass the object without typing *ResourceGroupName* and *DataFactoryName* each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureRmDataFactory** cmdlet to a **$df** variable.
+2. In Azure PowerShell, switch to the ADFGetStarted folder.
+3. You can use the **New-AzureRmDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial require you to pass values for the *ResourceGroupName* and *DataFactoryName* parameters. Alternatively, you can use **Get-AzureRmDataFactory** to get a **DataFactory** object and pass the object without typing *ResourceGroupName* and *DataFactoryName* each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureRmDataFactory** cmdlet to a **$df** variable.
 
-		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
+		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
 
-4.	Now, run the **New-AzureRmDataFactoryLinkedService** cmdlet to create the linked **StorageLinkedService** service.
+4. Now, run the **New-AzureRmDataFactoryLinkedService** cmdlet to create the linked **StorageLinkedService** service.
 
 		New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
 
 	If you hadn't run the **Get-AzureRmDataFactory** cmdlet and assigned the output to the **$df** variable, you would have to specify values for the *ResourceGroupName* and *DataFactoryName* parameters as follows.
 
-		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
 
 	If you close Azure PowerShell in the middle of the tutorial, you will have run the **Get-AzureRmDataFactory** cmdlet next time you start Azure PowerShell to complete the tutorial.
 
 ### Create Azure HDInsight linked service
-Now, you will create a linked service for an on-demand Azure HDInsight cluster that will be used to run the Hive script.
+In this step, you will link an on-demand HDInsight cluster to your data factory. The HDInsight cluster is automatically created at runtime and deleted after it is done processing and idle for the specified amount of time. You could use your own HDInsight cluster instead of using an on-demand HDInsight cluster. See [Compute Linked Services](data-factory-compute-linked-services.md) for details.  
 
-1.	Create a JSON file named HDInsightOnDemandLinkedService.json in the C:\ADFGetStartedPSH folder with the following content.
-
+1. Create a JSON file named **HDInsightOnDemandLinkedService**.json in the **C:\ADFGetStarted** folder with the following content.
 
 		{
 		  "name": "HDInsightOnDemandLinkedService",
@@ -128,21 +123,68 @@ Now, you will create a linked service for an on-demand Azure HDInsight cluster t
 
 	The following table provides descriptions for the JSON properties used in the snippet:
 
-	Property | Description
-	-------- | -----------
-	Version | This specifies that the version of the HDInsight created to be 3.2.
-	ClusterSize | This creates a one node HDInsight cluster.
-	TimeToLive | This specifies that the idle time for the HDInsight cluster, before it is deleted.
-	linkedServiceName | This specifies the storage account that will be used to store the logs that are generated by HDInsight
+	| Property | Description |
+	| :------- | :---------- |
+	| Version | This specifies that the version of the HDInsight created to be 3.2. | 
+	| ClusterSize | This creates a one node HDInsight cluster. | 
+	| TimeToLive | This specifies that the idle time for the HDInsight cluster, before it is deleted. |
+	| linkedServiceName | This specifies the storage account that will be used to store the logs that are generated by HDInsight |
+
 2. Run the **New-AzureRmDataFactoryLinkedService** cmdlet to create the linked service called HDInsightOnDemandLinkedService.
 
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 
-### Create the output dataset
-Now, you will create the output dataset to represent the data stored in the Azure Blob storage.
+## Step 3: Create datasets
+In this step, you will create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
 
-1.	Create a JSON file named OutputTable.json in the C:\ADFGetStartedPSH folder with the following content:
+### Create the input dataset
+1. Create a JSON file named **InputTable.json** in the **C:\ADFGetStarted** folder with the following content:
+
+		{
+			"name": "AzureBlobInput",
+		    "properties": {
+		        "type": "AzureBlob",
+		        "linkedServiceName": "StorageLinkedService",
+		        "typeProperties": {
+		            "fileName": "input.log",
+		            "folderPath": "adfgetstarted/inputdata",
+		            "format": {
+		                "type": "TextFormat",
+		                "columnDelimiter": ","
+		            }
+		        },
+		        "availability": {
+		            "frequency": "Month",
+		            "interval": 1
+		        },
+		        "external": true,
+		        "policy": {}
+		    }
+		} 
+
+	In the previous example, you are creating a dataset called **AzureBlobOutput**, and specifying n the JSON snippet, you are creating a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is located in the blob container called **adfgetstarted** and the folder called **inputdata**.
+
+	The following table provides descriptions for the JSON properties used in the snippet:
+
+	| Property | Description |
+	| :------- | :---------- |
+	| type | The type property is set to AzureBlob because data resides in Azure blob storage. |  
+	| linkedServiceName | refers to the StorageLinkedService you created earlier. |
+	| fileName | This property is optional. If you omit this property, all the files from the folderPath are picked. In this case, only the input.log is processed. |
+	| type | The log files are in text format, so we will use TextFormat. | 
+	| columnDelimiter | columns in the log files are delimited by , (comma) |
+	| frequency/interval | frequency set to Month and interval is 1, which means that the input slices are available monthly. | 
+	| external | this property is set to true if the input data is not generated by the Data Factory service. | 
+
+2. Run the following command in Azure PowerShell to create the Data Factory dataset.
+
+		New-AzureRmDataFactoryDataset $df -File .\InputTable.json
+
+### Create the output dataset
+Now, you will create the output dataset to represent the output data stored in the Azure Blob storage.
+
+1. Create a JSON file named **OutputTable.json** in the **C:\ADFGetStarted** folder with the following content:
 
 		{
 		  "name": "AzureBlobOutput",
@@ -150,7 +192,7 @@ Now, you will create the output dataset to represent the data stored in the Azur
 		    "type": "AzureBlob",
 		    "linkedServiceName": "StorageLinkedService",
 		    "typeProperties": {
-		      "folderPath": "data/partitioneddata",
+		      "folderPath": "adfgetstarted/partitioneddata",
 		      "format": {
 		        "type": "TextFormat",
 		        "columnDelimiter": ","
@@ -163,61 +205,73 @@ Now, you will create the output dataset to represent the data stored in the Azur
 		  }
 		}
 
-	In the previous example, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that will be produced by the Hive script. In addition, you specify that the results are stored in the blob container called **data** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
+	In the JSON snippet, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that will be produced by the Hive script. In addition, you specify that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
 
 2. Run the following command in Azure PowerShell to create the Data Factory dataset.
 
 		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
-## Step 3: Creating your first pipeline
-In this step, you will create your first pipeline.
+## Step 3: Create your first pipeline
+In this step, you will create your first pipeline with a **HDInsightHive** activity. Note that input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly (see below). The settings for the output dataset and the activity scheduler must match. At this time, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset. The properties used in the following JSON are explained at the end of this section. 
 
-1.	Create a JSON file named MyFirstPipelinePSH.json in the C:\ADFGetStartedPSH folder with the following content:
+
+1. Create a JSON file named MyFirstPipelinePSH.json in the C:\ADFGetStarted folder with the following content:
 
 	> [AZURE.IMPORTANT] Replace **storageaccountname** with the name of your storage account in the  JSON.
-
+		
 		{
-		  "name": "MyFirstPipeline",
-		  "properties": {
-		    "description": "My first Azure Data Factory pipeline",
-		    "activities": [
-		      {
-		        "type": "HDInsightHive",
-		        "typeProperties": {
-		          "scriptPath": "script/partitionweblogs.hql",
-		          "scriptLinkedService": "StorageLinkedService",
-		          "defines": {
-		            "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
-		          }
-		        },
-		        "outputs": [
-		          {
-		            "name": "AzureBlobOutput"
-		          }
+		    "name": "MyFirstPipeline",
+		    "properties": {
+		        "description": "My first Azure Data Factory pipeline",
+		        "activities": [
+		            {
+		                "type": "HDInsightHive",
+		                "typeProperties": {
+		                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+		                    "scriptLinkedService": "StorageLinkedService",
+		                    "defines": {
+		                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+		                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+		                    }
+		                },
+		                "inputs": [
+		                    {
+		                        "name": "AzureBlobInput"
+		                    }
+		                ],
+		                "outputs": [
+		                    {
+		                        "name": "AzureBlobOutput"
+		                    }
+		                ],
+		                "policy": {
+		                    "concurrency": 1,
+		                    "retry": 3
+		                },
+		                "scheduler": {
+		                    "frequency": "Month",
+		                    "interval": 1
+		                },
+		                "name": "RunSampleHiveActivity",
+		                "linkedServiceName": "HDInsightOnDemandLinkedService"
+		            }
 		        ],
-		        "policy": {
-		          "concurrency": 1,
-		          "retry": 3
-		        },
-		        "name": "RunSampleHiveActivity",
-		        "linkedServiceName": "HDInsightOnDemandLinkedService"
-		      }
-		    ],
-		    "start": "2014-01-01",
-		    "end": "2014-01-02"
-		  }
+		        "start": "2014-02-01T00:00:00Z",
+		        "end": "2014-02-02T00:00:00Z",
+		        "isPaused": false
+		    }
 		}
 
-	In the previous example, you are creating a pipeline that consists of a single activity that uses Hive to process data on an HDInsight cluster.
+	In the JSON snippet, you are creating a pipeline that consists of a single activity that uses Hive to process Data on an HDInsight cluster.
+	
+	The Hive script file, **partitionweblogs.hql**, is stored in the Azure storage account (specified by the scriptLinkedService, called **StorageLinkedService**), and in **script** folder in the container **adfgetstarted**.
 
-	The Hive script file, partitionweblogs.hql, is stored in the Azure storage account (specified by the scriptLinkedService, called StorageLinkedService), and in a container called **script**.
-
-	The **defines** section is used to specify the runtime settings that will be passed to the hive script as Hive configuration values (for example, ${hiveconf:PartitionedData}).
+	The **defines** section is used to specify the runtime settings that will be passed to the hive script as Hive configuration values (e.g ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
 	The **start** and **end** properties of the pipeline specifies the active period of the pipeline.
 
-	In the activity JSON, you specify that the Hive script runs on the computer specified by the linked service – **HDInsightOnDemandLinkedService**.
-2. Run the following command to create the Data Factory table.
+	In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
+2.  Confirm that you see the **input.log** file in the **adfgetstarted/inputdata** folder in the Azure blob storage, and run the following command to deploy the pipeline. Since the **start** and **end** times are set in the past and **isPaused** is set to false, the pipeline (activity in the pipeline) runs immediately after you deploy. 
 
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Congratulations, you have successfully created your first pipeline using Azure PowerShell!
@@ -225,43 +279,45 @@ In this step, you will create your first pipeline.
 ### <a name="MonitorDataSetsAndPipeline"></a> Monitor the datasets and pipeline
 In this step, you will use Azure PowerShell to monitor what’s going on in an Azure data factory.
 
-1.	Run **Get-AzureRmDataFactory** and assign the output to a **$df** variable.
+1. Run **Get-AzureRmDataFactory** and assign the output to a **$df** variable.
 
-		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
+		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
 
-2.	Run **Get-AzureRmDataFactorySlice** to get details about all slices of the **EmpSQLTable**, which is the output table of the pipeline.  
+2. Run **Get-AzureRmDataFactorySlice** to get details about all slices of the **EmpSQLTable**, which is the output table of the pipeline.  
 
-		Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2014-01-01
+		Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
 
 	Notice that the StartDateTime you specify here is the same start time specified in the pipeline JSON. You should see output similar to the following.
 
 		ResourceGroupName : ADFTutorialResourceGroup
-		DataFactoryName   : DataFactoryMyFirstPipelinePSH
-		TableName         : AzureBlobOutput
-		Start             : 1/1/2014 12:00:00 AM
-		End               : 2/1/2014 12:00:00 AM
+		DataFactoryName   : FirstDataFactoryPSH
+		DatasetName       : AzureBlobOutput
+		Start             : 2/1/2014 12:00:00 AM
+		End               : 3/1/2014 12:00:00 AM
 		RetryCount        : 0
-		Status            : InProgress
+		State             : InProgress
+		SubState          :
 		LatencyStatus     :
 		LongRetryCount    : 0
 
-3.	Run **Get-AzureRmDataFactoryRun** to get the details of activity runs for a specific slice.
 
-		Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2014-01-01
+3. Run **Get-AzureRmDataFactoryRun** to get the details of activity runs for a specific slice.
+
+		Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
 
 	You should see output similar to the following.
-
-		Id                  : 4dbc6a07-537d-4005-a53e-6b9a4b844089_635241312000000000_635268096000000000_AzureBlobOutput
+		
+		Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput
 		ResourceGroupName   : ADFTutorialResourceGroup
-		DataFactoryName     : DataFactoryMyFirstPipelinePSH
-		TableName           : AzureBlobOutput
-		ProcessingStartTime : 7/7/2015 1:14:18 AM
+		DataFactoryName     : FirstDataFactoryPSH
+		DatasetName         : AzureBlobOutput
+		ProcessingStartTime : 12/18/2015 4:50:33 AM
 		ProcessingEndTime   : 12/31/9999 11:59:59 PM
 		PercentComplete     : 0
-		DataSliceStart      : 1/1/2014 12:00:00 AM
-		DataSliceEnd        : 2/1/2014 12:00:00 AM
+		DataSliceStart      : 2/1/2014 12:00:00 AM
+		DataSliceEnd        : 3/1/2014 12:00:00 AM
 		Status              : AllocatingResources
-		Timestamp           : 7/7/2015 1:14:18 AM
+		Timestamp           : 12/18/2015 4:50:33 AM
 		RetryAttempt        : 0
 		Properties          : {}
 		ErrorMessage        :
@@ -269,14 +325,19 @@ In this step, you will use Azure PowerShell to monitor what’s going on in an A
 		PipelineName        : MyFirstPipeline
 		Type                : Script
 
-	You can keep running this cmdlet until you see the slice in Ready state or Failed state. When the slice is in Ready state, check the partitioneddata folder in the data container in your blob storage for the output data.  Note that the creation of an on-demand HDInsight cluster usually takes some time.
+	You can keep running this cmdlet until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  Note that the creation of an on-demand HDInsight cluster usually takes some time.
 
-See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets.
-
-
-
+	![output data](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
 ## Next steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand Azure HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure Blob to Azure SQL](./data-factory-get-started.md).
 
+### References
+| Topic | Description |
+| :---- | :---- |
+| [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn820234.aspx) |  See comprehensive documentation on Data Factory cmdlets |
+| [Pipelines](data-factory-create-pipelines.md) | This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. |
+| [Datasets](data-factory-create-datasets.md) | his article will help you understand datasets in Azure Data Factory.
+| [Scheduling and Execution](data-factory-scheduling-and-execution.md) | This article explains the scheduling and execution aspects of Azure Data Factory application model. |
+| [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md) | This article describes how to monitor, manage and debug your pipelines. It also provides information on how to create alerts and get notified on failures. |
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
