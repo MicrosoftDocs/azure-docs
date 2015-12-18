@@ -325,7 +325,7 @@ In this step, you will use Azure PowerShell to monitor what’s going on in an A
 		PipelineName        : MyFirstPipeline
 		Type                : Script
 
-	You can keep running this cmdlet until you see the slice in Ready state or Failed state. When the slice is in Ready state, check the partitioneddata folder in the data container in your blob storage for the output data.  Note that the creation of an on-demand HDInsight cluster usually takes some time.
+	You can keep running this cmdlet until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  Note that the creation of an on-demand HDInsight cluster usually takes some time.
 
 ## Next steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand Azure HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure Blob to Azure SQL](./data-factory-get-started.md).
