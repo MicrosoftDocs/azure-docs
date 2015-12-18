@@ -46,9 +46,9 @@ You can have data exported from the Application Insights service, for example to
 
 Application Insights SDKs are available for a range of application types: web services hosted in your own J2EE or ASP.NET servers, or in Azure; web clients - that is, the code running in a web page; desktop apps and services; device apps such as Windows Phone, iOS, and Android. They all send telemetry to the same service.
 
-## Collection
+## What data does it collect?
 
-### How does Application Insights collect telemetry data?
+### How is the data is collected?
 
 There are three sources of data:
 
@@ -59,7 +59,7 @@ There are three sources of data:
 * In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [J2EE servers](app-insights-java-agent.md) can have such agents.
 * [Availability tests](app-insights-monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
 
-### What data is collected?
+### What kinds of data are collected?
 
 The main categories are:
 
@@ -74,7 +74,7 @@ The main categories are:
 
 [More detail](#data-sent-by-application-insights).
 
-### How can I verify what's being collected?
+## How can I verify what's being collected?
 
 If you're developing the app using Visual Studio, run the app in debug mode (F5). The telemetry appears in the Output window. From there, you can copy it and format it as JSON for easy inspection. 
 
@@ -90,9 +90,7 @@ This would be possible by writing a [telemetry processor plugin](app-insights-ap
 
 
 
-## Retention
-
-### How long is the data kept? 
+## How long is the data kept? 
 
 It depends on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/).
 
@@ -101,9 +99,7 @@ Raw data points (that is, items that you can inspect in Diagnostic Search): betw
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.
 
 
-## Access
-
-#### Who can see the data?
+## Who can access the data?
 
 The data is visible to you and, if you have an organization account, your team members. 
 
@@ -114,9 +110,7 @@ It can be exported by you and your team members and could be copied to other loc
 Microsoft uses the data only in order to provide the service to you.
 
 
-## Location
-
-#### Where is the data held? 
+## Where is the data held? 
 
 * In the USA. 
 
@@ -124,13 +118,10 @@ Microsoft uses the data only in order to provide the service to you.
 
 * Not yet. 
 
-## Security 
-
-
+## How secure is my data?  
 
 Application Insights is an Azure Service in Preview. While in Preview we are working towards protecting your data per the policies described in the [Azure Security, Privacy, and Compliance white paper](http://go.microsoft.com/fwlink/?linkid=392408).
 
-#### How secure is my data? 
 
 The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](http://go.microsoft.com/fwlink/?linkid=392408). For accounts in the Visual Studio Team Services Portal, the [Visual Studio Team Services Data Protection](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) document applies. 
 
@@ -144,9 +135,7 @@ They could send additional telemetry to your account by using the instrumentatio
 
 If you share code with other projects, remember to remove your instrumentation key.
 
-## Encryption
-
-#### Is the data encrypted in Application Insights servers? 
+## Is the data encrypted? 
 
 Not inside the servers at present.
 
