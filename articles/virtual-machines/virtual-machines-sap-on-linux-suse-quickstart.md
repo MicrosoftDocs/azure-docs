@@ -44,29 +44,33 @@ e.g. to define the OS image in a json template for deploying a new SUSE Linux VM
 * look for existing publishers including SUSE :
 
    ```
-   PS  : Get-AzureVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
-   CLI : azure vm image list-publishers westeurope | grep "US"
+   PS     : Get-AzureVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
+   PS new : Get-AzureRmVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
+   CLI    : azure vm image list-publishers westeurope | grep "US"
    ```
 
 * look for existing offerings from SUSE :
       
    ```
-   PS  : Get-AzureVMImageOffer -Location "West Europe" -Publisher "SUSE"
-   CLI : azure vm image list-offers westeurope SUSE
+   PS     : Get-AzureVMImageOffer -Location "West Europe" -Publisher "SUSE"
+   PS new : Get-AzureRmVMImageOffer -Location "West Europe" -Publisher "SUSE"
+   CLI    : azure vm image list-offers westeurope SUSE
    ```
       
 * look for SUSE SLES offerings :
       
    ```
-   PS  : Get-AzureVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
-   CLI : azure vm image list-skus westeurope SUSE SLES
+   PS     : Get-AzureVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
+   PS new : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
+   CLI    : azure vm image list-skus westeurope SUSE SLES
    ```
       
 * look for a specific version of a SLES sku :
       
    ```
-   PS  : Get-AzureVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
-   CLI : azure vm image list westeurope SUSE SLES 12
+   PS     : Get-AzureVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
+   PS new : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
+   CLI    : azure vm image list westeurope SUSE SLES 12
    ```
      
 ## Installing WALinuxAgent in a SUSE VM 
