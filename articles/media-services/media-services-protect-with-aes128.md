@@ -563,6 +563,7 @@ The following code shows how to send a request to the Media Services key deliver
 		                                        FirstOrDefault();
 		
 		            // Create a 30-day readonly access policy. 
+                // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
 		            IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 		                TimeSpan.FromDays(30),
 		                AccessPermissions.Read);
