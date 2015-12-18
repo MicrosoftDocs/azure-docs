@@ -193,7 +193,7 @@ Check out the following sample query that will let you create your own reports i
 	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
 	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
-    	>     #"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+    	#"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
 	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
 	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
 	>     #"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
@@ -206,8 +206,7 @@ Check out the following sample query that will let you create your own reports i
 	>     #"Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
 	>     #"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
 	>     in
-    	>     #"Inserted Date"
-
+    	#"Inserted Date"
 
 10. Click Done and then select Close&Apply in the Home tab.
 
