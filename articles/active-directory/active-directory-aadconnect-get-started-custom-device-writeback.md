@@ -26,7 +26,7 @@ This provides additional security and assurance that access to applications is g
 
 >[AZURE.NOTE] A subscription to Azure AD Premium is required for device writeback.
 
->[AZURE.IMPORTANT] Devices must be located in the same forest as the user. Since devices must be written back to a single forest, this feature does not currently support a multi user forest deployment.
+>[AZURE.IMPORTANT] Devices must be located in the same forest as the users. Since devices must be written back to a single forest, this feature does not currently support a deployment with multiple user forests.
 
 ## Part 1: Install Azure AD Connect
 1. Install Azure AD Connect using Custom or Express settings. The recommendation is to start with having all users and groups successfully synchronized before you enable device writeback.
