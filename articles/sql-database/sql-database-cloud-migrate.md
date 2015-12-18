@@ -39,7 +39,7 @@ If compatibility issues are detected, you must fix these compatibility issues be
 
 - Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
 - Use [SQL Server Data Tools for Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Use [SQL Server Management Studio](sql-database-cloud-migrate-fix-compatibility-issues-SSMS.md)
+- Use [SQL Server Management Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
 
 ## Migrate a compatible SQL Server database to SQL Database
 

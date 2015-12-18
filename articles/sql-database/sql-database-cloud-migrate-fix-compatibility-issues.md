@@ -23,7 +23,7 @@ If you determine that your source SQL Server database is not compatible, you hav
 > [AZURE.SELECTOR]
 - Use [SQL Azure Migration Wizard](sql-database-cloud-migrate-fix-compatibility-issues.md)
 - Use [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
-- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-SSMS.md)
+- Use [SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
 
 ## Using SQL Azure Migration wizard
 
