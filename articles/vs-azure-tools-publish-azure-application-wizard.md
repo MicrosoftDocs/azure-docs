@@ -1,11 +1,11 @@
 <properties 
-   pageTitle="Publish Azure Application Wizard"
+   pageTitle="Publish Azure Application Wizard | Microsoft Azure"
    description="Publish Azure Application Wizard"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Publish Azure Application Wizard
 

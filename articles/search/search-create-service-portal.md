@@ -19,7 +19,7 @@
 
 # Create an Azure Search service in the Azure Classic Portal
 
-Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you can access and manage through the Azure Classic Portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, scoring profiles, and multi-language support. For more information about what Azure Search does, see [What is Azure Search](seach-what-is-search.md).
+Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you can access and manage through the Azure Classic Portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, scoring profiles, and multi-language support. For more information about what Azure Search does, see [What is Azure Search](search-what-is-azure-search.md).
 
 ## Add Azure Search to your subscription for free
 
