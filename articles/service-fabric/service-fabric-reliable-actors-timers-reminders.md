@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Reliable Actors Timers and Reminders"
-   description="Introduction to Timers and Reminders for Service Fabric Reliable Actors."
+   pageTitle="Reliable Actors timers and reminders | Microsoft Azure"
+   description="Introduction to timers and reminders for Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -17,10 +17,10 @@
    ms.author="amanbha"/>
 
 
-# Actor Timers
-Actor timers provide a simple wrapper around .NET timers such that the callback methods respect the turn-based concurrency guarantees provided by the Actors runtime.
+# Actor timers
+Actor timers provide a simple wrapper around .NET timers, such that the callback methods respect the turn-based concurrency guarantees that the Actors runtime provides.
 
-Actors can use the `RegisterTimer` and `UnregisterTimer` methods on their base class to register and unregister their timers. The example below shows the use of timer APIs. The APIs are very similar to the .NET timer. In the example below when the timer is due the `MoveObject` method will be called by the Actors runtime and it is guaranteed to respect the turn-based concurrency, which means that no other actor methods or timer/reminder callbacks will be in progress until this callback completes execution.
+Actors can use the `RegisterTimer` and `UnregisterTimer` methods on their base class to register and unregister their timers. The example below shows the use of timer APIs. The APIs are very similar to the .NET timer. In the example below, when the timer is due, the `MoveObject` method will be called by the Actors runtime. It is guaranteed to respect the turn-based concurrency, which means that no other actor methods or timer/reminder callbacks will be in progress until this callback completes execution.
 
 ```csharp
 class VisualObjectActor : StatefulActor<VisualObject>, IVisualObject
@@ -58,14 +58,14 @@ class VisualObjectActor : StatefulActor<VisualObject>, IVisualObject
 }
 ```
 
-The next period of the timer starts after the callback completes execution. This implies that the timer is stopped while the callback is executing and is started when the callback has completed.
+The next period of the timer starts after the callback completes execution. This implies that the timer is stopped while the callback is executing and is started when the callback finishes.
 
-The Actors runtime saves the actor state when the callback completes if the Actor is a stateful actor like in the example above. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. A callback method that does not modify the actor state can be registered as a read-only timer callback by specifying the Readonly attribute on the timer callback, as described in the section on [readonly methods](service-fabric-reliable-actors-introduction.md#readonly-methods).
+The Actors runtime saves the actor state when the callback finishes if the actor is a stateful actor, as in the example above. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. A callback method that does not modify the actor state can be registered as a read-only timer callback by specifying the Readonly attribute on the timer callback. This is described in the section on [Readonly methods](service-fabric-reliable-actors-introduction.md#readonly-methods).
 
-All timers are stopped when the actor is deactivated as part of garbage collection and no timer callbacks are invoked after that. Also, the Actors runtime does not retain any information about the timers that were running before deactivation. It is up to the actor to register any timers that it needs when it is reactivated in the future. For more information, please see the section on [actor garbage collection](service-fabric-reliable-actors-lifecycle.md).
+All timers are stopped when the actor is deactivated as part of garbage collection. No timer callbacks are invoked after that. Also, the Actors runtime does not retain any information about the timers that were running before deactivation. It is up to the actor to register any timers that it needs when it is reactivated in the future. For more information, see the section on [actor garbage collection](service-fabric-reliable-actors-lifecycle.md).
 
-## Actor Reminders
-Reminders are a mechanism to trigger persistent callbacks on an Actor at specified times. Their functionality is similar to timers, but unlike timers reminders are triggered under all circumstances until the Reminder is explicitly unregistered by the Actor. Specifically, reminders are triggered across actor deactivations and failovers because the Actors runtime persists information about the actor's reminders.
+## Actor reminders
+Reminders are a mechanism to trigger persistent callbacks on an actor at specified times. Their functionality is similar to timers. But unlike timers, reminders are triggered under all circumstances until the Reminder is explicitly unregistered by the Actor. Specifically, reminders are triggered across actor deactivations and failovers because the Actors runtime persists information about the actor's reminders.
 
 Reminders are supported for stateful actors only. Stateless actors cannot use reminders. The actors state providers are responsible for storing information about the reminders that have been registered by actors.  
 
