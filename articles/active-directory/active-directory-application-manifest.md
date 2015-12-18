@@ -91,7 +91,7 @@ Now lets walk through the steps required to update your application's identity c
         }
         ],
 
-    The entry must be unique, and you must therefore generate a new Globally Unique ID (GUID) for the `"id"` property. In this case, because we specified `"type": "User"`, this permission can be consented to by any account authenticated by the Azure AD tenant in which the resource/API application is registered, granting the client application permission to access it. The description and display name strings are used during consent and for display in the Azure classic portal.  
+    The entry must be unique, and you must therefore generate a new Globally Unique ID (GUID) for the `"id"` property. In this case, because we specified `"type": "User"`, this permission can be consented to by any account authenticated by the Azure AD tenant in which the resource/API application is registered, granting the client application permission to access it on the account's behalf. The description and display name strings are used during consent and for display in the Azure classic portal.  
 
 6. When you're finished updating the manifest, return to the Azure AD application page in the Azure classic portal, click the "Manage Manifest" feature again (1), but this time select the "Upload Manifest" option (2). Similar to the download, you will be greeted again with a second dialog, prompting you for the location of the JSON file. Click "Browse for file ..." (3), then use the "Choose File to Upload" dialog to select the JSON file (4), and press "Open". Once the dialog goes away, select the "OK" check mark (5) and your manifest will be uploaded.  
 
@@ -106,7 +106,7 @@ Now that the manifest is saved, you can give a registered client application acc
 1. First go to the "Configure" page of the client application to which you wish to add access to the new API, and click the "Add application" button.
 2. Then you will be presented with the list of registered resource applications (APIs) in the tenant. Click the plus/+ symbol next to the resource application's name to select it.  
 3. Then click the check mark in the lower right. 
-4. When you return to the "Add Application" section of your client's configuration page, you will see the new resource application in the list. If you hover over the "Delegated Permissions" section to the right of that row, you will see a drop down list show up. Click the list, then select the new permission in order to add it to the client's requested list of permissions. Note: this new permission will be stored in the client application's identity configuration, in the "requireResourceAccess" collection property.
+4. When you return to the "Add Application" section of your client's configuration page, you will see the new resource application in the list. If you hover over the "Delegated Permissions" section to the right of that row, you will see a drop down list show up. Click the list, then select the new permission in order to add it to the client's requested list of permissions. Note: this new permission will be stored in the client application's identity configuration, in the "requiredResourceAccess" collection property.
 
 ![Permissions to other applications][PERMS-TO-OTHER-APPS]
 
