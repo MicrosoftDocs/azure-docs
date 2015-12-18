@@ -141,6 +141,14 @@ The current SAP kernel versions for Linux do NOT include this code change. There
 that in certain situations ( e.g. Azure VM resize ) the SAP hardware key changes and the SAP license
 is no longer valid
 
+## SUSE sapconf package
+
+SUSE provides a package called "sapconf" which takes care of a set of SAP-specific settings. More
+details about this package, what it does and how to install and use it can be found here :
+
+<https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/>
+<http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems>
+
 ## NFS share in distributed SAP installations
 
 In case of a distributed installation where one wants to install e.g. the database and the SAP
