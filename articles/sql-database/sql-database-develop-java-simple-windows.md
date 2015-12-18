@@ -25,6 +25,7 @@
 - [C#](sql-database-develop-dotnet-simple.md)
 - [PHP](sql-database-develop-php-simple-windows.md)
 - [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
 - [Java](sql-database-develop-java-simple-windows.md)
 - [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
