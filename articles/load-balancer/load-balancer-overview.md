@@ -28,10 +28,7 @@ It can be configured to:
 
 ## Load Balancer in the two deployment models
 
-All resources in the cloud need a public IP address to be reachable from the Internet. The cloud infrastructure in Microsoft Azure uses non-routable IP addresses within its resources and uses network address translation (NAT) with public IP addresses to communicate to the Internet.
-
-Load Balancer is implemented in the two deployment models in Microsoft Azure: Azure classic and Azure Resource Manager.
-
+All resources in the cloud need a public IP address to be reachable from the Internet. The cloud infrastructure in Microsoft Azure uses non-routable IP addresses within its resources. It uses network address translation (NAT) with public IP addresses to communicate to the Internet.
 
 ### Azure classic
 
@@ -49,13 +46,11 @@ This is a graphic representation of Load Balancer in the classic deployment mode
 
 ### Azure Resource Manager
 
-The concept of Load Balancer changes for Azure Resource Manager because there is no need for a cloud service to create a load balancer.
+The concept of Load Balancer changes for the Azure Resource Manager deployment model, because there is no need for a cloud service to create a load balancer.
 
 In Resource Manager, a public IP address is its own resource and can be associated with a domain label or a DNS name. The public IP in this case is associated with the Load Balancer resource. This way, Load Balancer rules and inbound NAT rules will use the public IP address as the Internet endpoint for the resources that are receiving load-balanced network traffic.
 
 A network interface (NIC) resource holds the IP address configuration (private or public IP) for a virtual machine. Once a NIC is added to a Load Balancer back-end IP address pool, Load Balancer will start sending load-balanced network traffic based on the load-balanced rules that are created.
-
-An availability set is the grouping method that's used to add virtual machines to Load Balancer. The availability set guarantees that virtual machines won't reside in the same physical hardware. In case of any failure related to the physical cloud infrastructure, Load Balancer will always have a virtual machine receiving load-balanced network traffic.
 
 This is a graphic representation of Load Balancer in Resource Manager:
 
