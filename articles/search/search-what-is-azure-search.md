@@ -2,6 +2,7 @@
 	pageTitle="What is Azure Search | Microsoft Azure | Hosted cloud search service"
 	description="Azure Search is a fully-managed hosted cloud search service. Learn more in this feature overview."
 	services="search"
+	authors="ashmaka"
 	documentationCenter=""/>
 
 <tags
@@ -40,9 +41,9 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 
 **Data integration** using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) allows Azure Search to automatically crawl Azure SQL Database or Azure DocumentDB to sync your search index's content with your primary data store.
 
-**Document cracking** is available [to read and index major file formats](https://azure.microsoft.com/documentation/articles/search-howto-indexing-azure-blob-storage/) including Microsoft Office as well as PDF and HTML documents.
+**Document cracking** is available [to read and index major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office as well as PDF and HTML documents.
 
-**Search traffic analytics** are [easily collected and analyzed](https://azure.microsoft.com/documentation/articles/search-traffic-analytics/) to unlock insights from what users are typing into the search box.
+**Search traffic analytics** are [easily collected and analyzed](search-traffic-analytics.md) to unlock insights from what users are typing into the search box.
 
 **Simple scoring** is a key benefit of Azure Search. [Scoring profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) are used to allow organizations to model relevance as a function of values in the documents themselves. For example, you might want newer products or discounted products to appear higher in the search results. You can also build scoring profiles using tags for personalized scoring based on customer search preferences you've tracked and stored separately.
 
@@ -55,7 +56,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 ## How it works
 
 ### 1. Provision service
-You can spin up an Azure Search service using either the [Azure Portal](https://portal.azure.com/) or the [Azure Resource Management API](https://msdn.microsoft.com/en-us/library/azure/dn832684.aspx).
+You can spin up an Azure Search service using either the [Azure Portal](https://portal.azure.com/) or the [Azure Resource Management API](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
 Depending on how you configure the service, you'll use either the Free tier that is shared with other Azure Search subscribers, or the Standard [pricing tier](https://azure.microsoft.com/pricing/details/search/) that dedicates resources to be used only by your service. When provisioning your service, you also choose the region of the data center that hosts your service.
 
@@ -64,7 +65,7 @@ When using Azure Search in the Standard tier, you can scale your service in two 
 ### 2. Create index
 Before you can upload your content to your Azure Search service, you must first define an Azure Search index. An index is like a database table that holds your data and can accept search queries. You define the index schema to map to the structure of the documents you wish to search, similar to fields in a database.
 
-The schema of these indexes can either be created in the Azure Portal, or programmatically [using the .NET SDK](https://azure.microsoft.com/documentation/articles/search-howto-dotnet-sdk/) or [REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx). Once the index is defined, you can then upload your data to the Azure Search service where it is subsequently indexed.
+The schema of these indexes can either be created in the Azure Portal, or programmatically [using the .NET SDK](search-howto-dotnet-sdk.md) or [REST API](https://msdn.microsoft.com/library/azure/dn798941.aspx). Once the index is defined, you can then upload your data to the Azure Search service where it is subsequently indexed.
 
 ### 3. Index data
 Once you have defined the fields and attributes of your index, you're ready to upload your content into the index. You can use either a push or pull model to upload data to the index.
@@ -77,6 +78,6 @@ The push model is provided through the SDK or REST APIs used for sending updated
 Once you have populated your Azure Search index, you can now [issue search queries](https://msdn.microsoft.com/library/azure/dn798927.aspx) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
 
 ## Try it now (for free!)
-You can try Azure Search today! If you already have an Azure account, you can [provision a service in the Free tier](https://azure.microsoft.com/documentation/articles/search-create-service-portal/).
+You can try Azure Search today! If you already have an Azure account, you can [provision a service in the Free tier](search-create-service-portal.md).
 
 If you don't have an Azure account you can try a free, 60-minute session with no sign up required. Go to the [Try Azure App Service](http://go.microsoft.com/fwlink/p/?LinkId=618214) and select "Web App." Then select the "ASP.NET + Azure Search" template to get started.
