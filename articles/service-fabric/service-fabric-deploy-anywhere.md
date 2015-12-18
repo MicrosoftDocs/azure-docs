@@ -16,7 +16,7 @@
    ms.date="11/19/2015"
    ms.author="kunalds"/>
 
-# "Deploy Anywhere" on Windows Server or Linux with Azure Service Fabric
+# "Deploy Anywhere" on Windows Server or Linux with Service Fabric
 With the addition of "Deploy Anywhere," Azure Service Fabric will allow the creation of Service Fabric clusters on any VMs or computers running Windows Server or Linux. This means you'll be able to deploy and run Service Fabric applications in any environment where you have a set of Windows Server or Linux computers that are interconnected, be it on-premises or with a cloud provider.
 
  Service Fabric provides a setup package for you to create Service Fabric clusters. A key benefit of the Deploy Anywhere feature is that there's no vendor lock-in when you build an application using Service Fabric, since you choose where those applications run. This feature also increases your potential to reach out to a broader customer base, because customers can have varying requirements for the environments where they want to run your applications. For example, customers in the healthcare and financial industries may have different needs than customers in the auto or travel industries.

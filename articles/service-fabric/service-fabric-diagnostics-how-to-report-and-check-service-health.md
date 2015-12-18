@@ -39,6 +39,7 @@ To deploy an application and check its health, follow these steps:
 3. Press **F5** to run the application in debug mode. The application will be deployed to the local cluster.
 
 4. Once the application is running, launch Service Fabric Explorer by right-clicking the Local Cluster Manager system tray app, and choose **Manage Local Cluster** from the context menu.
+
 ![Launch Service Fabric Explorer from system tray](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/LaunchSFX.png)
 
 5. The application health should be displayed as in the image below. At this time, the application should be healthy with no errors.

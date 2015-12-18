@@ -164,6 +164,7 @@ Replace the vmNamePrefix with the prefix you chose for VM names while creating y
     }
 }
 ```
+
 After creating the JSON files as described above, change them for the specifics of your environment. Then call the following command, passing in the name of the resource group for your Service Fabric cluster. Once this command is run successfully, Diagnostics will be deployed on all the VMs and will start uploading the logs from the cluster to tables in the specified Azure Storage account.
 
 Additionally, before calling this deployment command you may need to do some setup, including adding your Azure account(`Add-AzureAccount`), choosing the right subscription(`Select-AzureSubscription`), and switching to Resource Manager mode(`Switch-AzureMode AzureResourceManager`).
