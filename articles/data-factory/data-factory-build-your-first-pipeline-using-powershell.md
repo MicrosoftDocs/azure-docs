@@ -91,15 +91,15 @@ In this step, you will link your Azure Storage account to your data factory. For
 2.	In Azure PowerShell, switch to the ADFGetStartedPSH folder.
 3.	You can use the **New-AzureRmDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial require you to pass values for the *ResourceGroupName* and *DataFactoryName* parameters. Alternatively, you can use **Get-AzureRmDataFactory** to get a **DataFactory** object and pass the object without typing *ResourceGroupName* and *DataFactoryName* each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureRmDataFactory** cmdlet to a **$df** variable.
 
-		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
+			$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
 4.	Now, run the **New-AzureRmDataFactoryLinkedService** cmdlet to create the linked **StorageLinkedService** service.
 
-		New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
+			New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
 
 	If you hadn't run the **Get-AzureRmDataFactory** cmdlet and assigned the output to the **$df** variable, you would have to specify values for the *ResourceGroupName* and *DataFactoryName* parameters as follows.
 
-		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
+			New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
 
 	If you close Azure PowerShell in the middle of the tutorial, you will have run the **Get-AzureRmDataFactory** cmdlet next time you start Azure PowerShell to complete the tutorial.
 
