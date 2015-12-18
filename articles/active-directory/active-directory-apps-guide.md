@@ -55,11 +55,9 @@ Single sign-on allows users to access a variety of apps and services using only 
 | Article Guide |   |
 | :---: | --- |
 | An introduction to federation and other types of sign-on | [Single Sign-On with Azure AD](active-directory-appssoaccess-whatis.md) |
-| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps | [Browse the Application Gallery](http://azure.microsoft.com/marketplace/active-directory/all/)<br /><br />[Getting started with the Azure AD application gallery](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps) |
-| How to manually configure single sign-on for apps that are not pre-integrated with Azure AD | [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md) |
+| Thousands of SaaS apps that are pre-integrated with Azure AD with simplified single sign-on configuration steps | [Getting started with the Azure AD application gallery](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery)<br /><br />[Full List of Pre-Integrated Apps that Support Federation](http://aka.ms/aadfederatedapps) |
 | More than 150 app tutorials on how to configure single sign-on for apps such as [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md), and many more | [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md) |
-| Troubleshooting your federated single sign-on configuration | [How to debug SAML-based single sign-on to applications in Azure Active Directory](active-directory-saml-debugging.md) |
-| Configure what information gets sent to the app when users initiate single sign-on | [Customizing claims issued in the SAML token for pre-integrated apps in Azure Active Directory](active-directory-saml-claims-customization.md) |
+| How to manually configure single sign-on and other advanced scenarios | [How to Configure Federated Single Sign-On to Apps that are not in the Azure Active Directory Application Gallery](active-directory-saas-custom-apps.md)<br /><br />[How to Customize Claims Issued in the SAML Token for Pre-Integrated Apps](active-directory-saml-claims-customization.md)<br /><br />[Troubleshooting SAML-Based Single Sign-On](active-directory-saml-debugging.md) |
 | How to configure your app's certificate's expiration date, and how to renew your certificates | [Managing Certificates for Federated Single Sign-On in Azure Active Directory](active-directory-sso-certs.md) |
 
 ##Password-Based Single Sign-On (SSO): Account Sharing and SSO for Non-Federated Apps
@@ -134,25 +132,13 @@ To help you manage who should have access to which resources, Azure Active Direc
 
 ##B2B: Enable Partner Access to Applications
 
-Azure Active Directory B2B Collaboration makes it easy for businesses to securely share corporate applications with partner companies. Partners can easily  
+If your organization has partnered with other companies, it's likely that you need to manage partner access to your corporate applications. Azure Active Directory B2B Collaboration provides an easy and secure way to share your apps with partners.
 
 | Article Guide |   |
 | :---: | --- |
-| s | [Azure Active Directory (Azure AD) B2B collaboration preview: Simple, secure cloud partner integration](active-directory-b2b-what-is-azure-ad-b2b.md)
-
-[Azure Active Directory (Azure AD) B2B collaboration](active-directory-b2b-collaboration-overview.md)
-
-[Current preview limitations for Azure Active Directory (Azure AD) B2B collaboration](active-directory-b2b-current-preview-limitations.md)
-
-[Detailed walkthrough of using the Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-detailed-walkthrough.md)
-
-[Azure Active Directory (Azure AD) B2B collaboration preview: How it works](active-directory-b2b-how-it-works.md)
-
-[CSV file format for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-csv-file-format.md)
-
-[External user object attribute changes for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-external-user-object-attribute-changes.md)
-
-[External user token format for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-external-user-token-format.md)
+| intro | [Azure Active Directory (Azure AD) B2B collaboration preview: Simple, secure cloud partner integration](active-directory-b2b-what-is-azure-ad-b2b.md)<br /><br />[Azure Active Directory (Azure AD) B2B collaboration](active-directory-b2b-collaboration-overview.md) |
+| deep dive | [Detailed walkthrough of using the Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-detailed-walkthrough.md)<br /><br />[Current preview limitations for Azure Active Directory (Azure AD) B2B collaboration](active-directory-b2b-current-preview-limitations.md)<br /><br />[Azure Active Directory (Azure AD) B2B collaboration preview: How it works](active-directory-b2b-how-it-works.md) |
+| misc | [CSV file format for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-csv-file-format.md)<br /><br />[External user object attribute changes for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[External user token format for Azure Active Directory (Azure AD) B2B collaboration preview](active-directory-b2b-references-external-user-token-format.md) |
 
 ##Access Panel: A Portal for Users to Access Apps and More
 
