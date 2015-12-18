@@ -126,6 +126,7 @@ file is created one can deploy the VM using the following CLI command as an alte
 More details about json template files can be found here :
 
 <https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/>
+
 <https://azure.microsoft.com/documentation/templates/>
 
 More details about CLI and Azure Resource Manager can be found here :
@@ -147,6 +148,7 @@ SUSE provides a package called "sapconf" which takes care of a set of SAP-specif
 details about this package, what it does and how to install and use it can be found here :
 
 <https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/>
+
 <http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems>
 
 ## NFS share in distributed SAP installations
