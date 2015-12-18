@@ -18,7 +18,7 @@
 
 
 # Reliable Actors reentrancy
-Fabric actors, by default, allow logical call context-based reentrancy. This allows for actors to be reentrant if they are in the same call context chain. For example, Actor A sends a message to Actor B, who sends a message to Actor C. As part of the message processing, if Actor C calls Actor A, the message is reentrant, so it will be allowed. Any other messages that are part of a different call context will be blocked on Actor A until it finishes processing.
+The Fabric Actors runtime, by default, allows logical call context-based reentrancy. This allows for actors to be reentrant if they are in the same call context chain. For example, Actor A sends a message to Actor B, who sends a message to Actor C. As part of the message processing, if Actor C calls Actor A, the message is reentrant, so it will be allowed. Any other messages that are part of a different call context will be blocked on Actor A until it finishes processing.
 
 Actors that want to disallow logical call context-based reentrancy can disable it by decorating the actor class with `ReentrantAttribute(ReentrancyMode.Disallowed)`.
 
