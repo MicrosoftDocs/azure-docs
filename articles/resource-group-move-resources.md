@@ -93,7 +93,7 @@ To move to a new subscription, include a value for the **DestinationSubscription
 
 ## Using Azure CLI to move resources
 
-To move existing resources to another resource group or subscription, use the **azure resource move** command. The following example moves a Redis Cache to a new resource group. In the **-i** parameter, provide a comma-separated list of the resource id's to move.
+To move existing resources to another resource group or subscription, use the **azure resource move** command. The following example shows how to move a Redis Cache to a new resource group. In the **-i** parameter, provide a comma-separated list of the resource id's to move.
 
     azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
     info:    Executing command resource move
