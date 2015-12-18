@@ -18,7 +18,9 @@
 
 # Create a DocumentDB collection
 
-To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a [database](documentdb-create-database.md), a collection, and documents. This topic describes how to create a DocumentDB collection in the Azure portal. Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a-documentdb-collection)
+To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a [database](documentdb-create-database.md), a collection, and documents. This topic describes how to create a DocumentDB collection in the Azure portal. 
+
+Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a-documentdb-collection)
 
 ![Screen shot highlighting the DocumentDB Accounts in the Jumpbar, the account in the DocumentDB Accounts blade, and the database in the DocumentDB account blade, in the Databases lens](./media/documentdb-create-collection/docdb-database-creation-1-3.png)
 
@@ -64,7 +66,7 @@ Collections do not have to be created using the portal, you can also create them
 
 ## Troubleshooting
 
-If **Add Collection** is disabled in the Azure portal, that means your account is currently disabled, which normally occurs when all the benefits credit for the month are used.	
+If **Add Collection** is disabled in the Azure portal, that means your account is currently disabled, which normally occurs when all the benefits credits for the month are used.	
 
 ## Next steps
 
