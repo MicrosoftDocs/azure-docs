@@ -113,6 +113,7 @@ Now that the manifest is saved, you can give a registered client application acc
 ![Permissions to other applications][PERMS-SELECT-APP]
 
 ![Permissions to other applications][PERMS-SELECT-PERMS]
+
 That's it. Now your applications will run using their new identity configuration.
 
 ## Next steps
