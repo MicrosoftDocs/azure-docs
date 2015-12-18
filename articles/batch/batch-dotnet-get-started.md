@@ -331,13 +331,15 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 
 Within the `foreach` loop in the code snippet above, you can see that the command line for the task is constructed such that three command line arguments are passed to *TaskApplication.exe*:
 
-1. The **first argument** is path of the file to process. This is the local path to the file as it exists on the node. When first creating the ResourceFile object in `UploadFileToContainerAsync` above, we simply used the name of the file for this property (as a parameter to the ResourceFile constructor). In doing so, we indicate that the file can be found in the same directory in which *TaskApplication.exe* resides.
+1. The **first argument** is the path of the file to process. This is the local path to the file as it exists on the node. When first creating the ResourceFile object in `UploadFileToContainerAsync` above, we simply used the name of the file for this property (as a parameter to the ResourceFile constructor). In doing so, we indicate that the file can be found in the same directory in which *TaskApplication.exe* resides.
 
 2. The **second argument** specifies that the top *N* words should be written to the output file. In the sample, this is hard-coded so that the top 3 words will be written to the output file.
 
 3. The **third argument** is the shared access signature (SAS) providing write-access to the **output** container in Azure Storage. *TaskApplication.exe* uses this SAS URL when uploading the output file to Azure Storage, the code for which can be found in the `UploadFileToContainer` method in the TaskApplication project's `Program.cs` file:
 
 ```
+// NOTE: From project TaskApplication Program.cs
+
 private static void UploadFileToContainer(string filePath, string containerSas)
 {
 		string blobName = Path.GetFileName(filePath);
@@ -369,7 +371,6 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 }
 ```
 
-
 ## Step 6: Monitor tasks
 
 ![Monitor tasks][6]<br/>
@@ -377,63 +378,87 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes within the pool associated with the job. Batch handles all task queuing and scheduling, retrying, and other task administration duties for you. There are many approaches to monitoring task execution, and DotNetTutorial shows a simple example that reports only on completion and task failure or success states.
 
-The logic `MonitorTasks` method in DotNetTutorial's `Program.cs` is fairly straightforward, so here we discuss only those sections of code that introduce new or important Batch .NET concepts. Refer to DotNetTutorial's `Program.cs` file for the full method.
+Within the `MonitorTasks` method in DotNetTutorial's `Program.cs`, there are three Batch .NET concepts that warrant discussion, listed below in their order of appearance:
+
+1. **ODATADetailLevel** - Specifying an [ODATADetailLevel][net_odatadetaillevel] in list operations (such as obtaining a list of the tasks here in `MonitorTasks`) is essential in ensuring Batch application performance. Add [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to your reading list if you plan on doing any sort of monitoring within your Batch applications.
+
+2. **TaskStateMonitor** - The [TaskStateMonitor][net_taskstatemonitor] provides Batch .NET applications with helper utilities for monitoring task states. In `MonitorTasks`, we wait for all tasks to reach [TaskState.Completed][net_taskstate] within a time limit, then terminate the job.
+
+3. **TerminateJobAsync** - Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. Explicitly terminating a job is essential if your Batch solution uses a [JobReleaseTask][net_jobreltask], a special type of task explained fully in [Job preparation and completion tasks](batch-job-prep-release).
 
 ```
-// Obtain the collection of tasks currently managed by the job. Note that we use a detail level to
-// specify that only the "id" property of each task should be populated. Using a detail level for
-// all list operations helps to lower response time from the Batch service.
-ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
-List<CloudTask> tasks = await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
-```
-
-In the code snippet above...
-
-```
-// We use a TaskStateMonitor to monitor the state of our tasks. In this case, we will wait for all tasks to
-// reach the Completed state.
-TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
-bool timedOut = await taskStateMonitor.WaitAllAsync(tasks, TaskState.Completed, timeout);
-```
-
-The TaskStateMonitor...
-
-```
-await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
-```
-```
-await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
-```
-
-Terminating a job is important because it...
-
-In the following code snippet, each task is refreshed prior to checking its ExecutionInformation property for a SchedulingError. The task must be refreshed because...
-
-```
-foreach (CloudTask task in tasks)
+private static async Task<bool> MonitorTasks(BatchClient batchClient, string jobId, TimeSpan timeout)
 {
-    // Populate the task's properties with the latest info from the Batch service
-    await task.RefreshAsync(detail);
+    bool allTasksSuccessful = true;
+    const string successMessage = "All tasks reached state Completed.";
+    const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
 
-    if (task.ExecutionInformation.SchedulingError != null)
+    // Obtain the collection of tasks currently managed by the job. Note that we use a detail level to
+    // specify that only the "id" property of each task should be populated. Using a detail level for
+    // all list operations helps to lower response time from the Batch service.
+    ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
+    List<CloudTask> tasks = await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
+
+    Console.WriteLine("Awaiting task completion, timeout in {0}...", timeout.ToString());
+
+    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we will wait for all tasks to
+    // reach the Completed state.
+    TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
+    bool timedOut = await taskStateMonitor.WaitAllAsync(tasks, TaskState.Completed, timeout);
+
+    if (timedOut)
     {
-        // A scheduling error indicates a problem starting the task on the node. It is important to note that
-        // the task's state can be "Completed," yet still have encountered a scheduling error.
-
         allTasksSuccessful = false;
 
-        Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}", task.Id, task.ExecutionInformation.SchedulingError.Message);
+        await batchClient.JobOperations.TerminateJobAsync(jobId, failureMessage);
+
+        Console.WriteLine(failureMessage);
     }
-    else if (task.ExecutionInformation.ExitCode != 0)
+    else
     {
-        // A non-zero exit code may indicate that the application executed by the task encountered an error
-        // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
-        // your implementation of error checking may differ from this example.
+        await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
 
-        allTasksSuccessful = false;
+        // All tasks have reached the "Completed" state, however, this does not guarantee all tasks completed successfully.
+        // Here we further check each task's ExecutionInfo property to ensure that it did not encounter a scheduling error
+        // or return a non-zero exit code.
 
-        Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+        // Update the detail level to populate only the task id and executionInfo properties.
+        // We refresh the tasks below, and need only this information for each task.
+        detail.SelectClause = "id, executionInfo";
+
+        foreach (CloudTask task in tasks)
+        {
+            // Populate the task's properties with the latest info from the Batch service
+            await task.RefreshAsync(detail);
+
+            if (task.ExecutionInformation.SchedulingError != null)
+            {
+                // A scheduling error indicates a problem starting the task on the node. It is important to note that
+                // the task's state can be "Completed," yet still have encountered a scheduling error.
+
+                allTasksSuccessful = false;
+
+                Console.WriteLine("WARNING: Task [{0}] encountered a scheduling error: {1}", task.Id, task.ExecutionInformation.SchedulingError.Message);
+            }
+            else if (task.ExecutionInformation.ExitCode != 0)
+            {
+                // A non-zero exit code may indicate that the application executed by the task encountered an error
+                // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
+                // your implementation of error checking may differ from this example.
+
+                allTasksSuccessful = false;
+
+                Console.WriteLine("WARNING: Task [{0}] returned a non-zero exit code - this may indicate task execution or completion failure.", task.Id);
+            }
+        }
     }
+
+    if (allTasksSuccessful)
+    {
+        Console.WriteLine("Success! All tasks completed successfully within the specified timeout period.");
+    }
+
+    return allTasksSuccessful;
 }
 ```
 
@@ -442,7 +467,7 @@ foreach (CloudTask task in tasks)
 ![Download task output from Storage][7]<br/>
 *Downloading the results of the task output from Azure Storage*
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Now that the job has completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `DownloadBlobsFromContainerAsync` in DotNetTutorial's `Program.cs`:
 
 ```
 private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobClient, string containerName, string directoryPath)
@@ -458,7 +483,7 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 				// Retrieve reference to the current blob
 				CloudBlob blob = (CloudBlob)item;
 
-				// Save blob contents to a file in the %TEMP% folder
+				// Save blob contents to a file in the specified folder
 				string localOutputFile = Path.Combine(directoryPath, blob.Name);
 				await blob.DownloadToFileAsync(localOutputFile, FileMode.Create);
 		}
@@ -467,9 +492,11 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 }
 ```
 
+> [AZURE.INFO]  The call to `DownloadBlobsFromContainerAsync` in the *DotNetTutorial* application specifies that the files should be downloaded to your `%TEMP%` folder. Feel free to modify this output location.
+
 ## Step 8: Delete task output
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Because you are charged for data that resides in Azure Storage, it is always a good idea to remove any blobs that are no longer needed for your Batch jobs. In DotNetTutorial's `Program.cs`, this is done with a call to `DeleteBlobsFromContainerAsync`:
 
 ```
 private static async Task DeleteBlobsFromContainerAsync(CloudBlobClient blobClient, string containerName)
@@ -493,7 +520,7 @@ private static async Task DeleteBlobsFromContainerAsync(CloudBlobClient blobClie
 
 ## Step 9: Delete job and pool
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+In the final step, the user is prompted to delete the job and pool created by the DotNetTutorial application. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes.
 
 ```
 // Clean up the resources we've created in the Batch account if the user so chooses
@@ -513,6 +540,8 @@ if (response != "n" && response != "no")
 }
 ```
 
+> [AZURE.IMPORTANT] Be aware that deleting a pool deletes all compute nodes within that pool, and that any data on the nodes will be unrecoverable once the pool is deleted.
+
 ## Next steps
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -528,9 +557,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 [net_api_storage]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_poolinfo]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.protocol.models.cloudjob.poolinformation.aspx
+[net_joboperations_terminatejob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.terminatejobasync.aspx
 [net_jobpreptask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobpreparationtask.aspx
 [net_jobreltask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobreleasetask.aspx
 [net_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.aspx
+[net_odatadetaillevel]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_pool_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
 [net_pool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
@@ -540,6 +571,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 [net_sas_container]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblobcontainer.getsharedaccesssignature.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 [net_task_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.resourcefiles.aspx
+[net_taskstate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.taskstate.aspx
+[net_taskstatemonitor]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
 [net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
 [net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
 [net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
