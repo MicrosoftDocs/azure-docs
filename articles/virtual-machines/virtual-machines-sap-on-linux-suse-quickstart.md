@@ -96,6 +96,7 @@ file system in case an external Azure data disk wasn't mounted during the boot.
 ## Uploading a SUSE VM from on-premises to Azure
 
 The following blog describes the steps :
+
 <https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd-suse/>
 
 If one wants to upload a VM without the deprovision step at the end to keep e.g. an existing SAP
@@ -103,8 +104,9 @@ installation as well as the hostname the following items have to be checked :
 
 * make sure that the OS disk is mounted via UUID and NOT via device id. Changing to UUID just in /etc/fstab is NOT enough for the OS disk. One may not forget to also adapt the boot loader e.g. via yast or by editing /boot/grub/menu.lst
 * in case one used the vhdx format for the SUSE OS disk and converts it to vhd for uploading to Azure it's very likely that the network device changed from eth0 to eth1.
-To avoid issues when booting on Azure later on one should change back to eth0 like described
-here : <https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/>
+To avoid issues when booting on Azure later on one should change back to eth0 like described here :
+
+<https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/>
 
 In addition to what's described in the article it's recommended to also remove 
 
@@ -122,10 +124,12 @@ file is created one can deploy the VM using the following CLI command as an alte
    
    ```
 More details about json template files can be found here :
+
 <https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/>
 <https://azure.microsoft.com/documentation/templates/>
 
 More details about CLI and Azure Resource Manager can be found here :
+
 <https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/>
 
 ## SAP license and hardware key
