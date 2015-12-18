@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/11/2015"
+	ms.date="12/17/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -89,9 +89,7 @@ The service evaluates resource needs and cost effectiveness of moving the single
 
 ## Step 3: add databases to the pool
 
-At any time, you can select the specific databases you want to be included in the pool. When you create a new pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
-
-### Add existing databases to the pool
+At any time, you can select the specific databases you want to be included in the pool. (To create a new database in a pool, see [Add and remove databases](sql-database-elastic-pool-portal.md#add-and-remove-databases-from-the-pool) below.)
 
 When you create a new pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
 
@@ -101,7 +99,6 @@ When you select a database to be added to a pool, the following conditions must 
 
 - The pool must have room for the database (cannot already contain the maximum number of databases). More specifically, the pool must have enough available eDTUs to cover the eDTU guarantee per database (for example, if the eDTU guarantee for the group is 400, and the eDTU guarantee for each database is 10, then the maximum number of databases that are allowed in the pool is 40 (400 eDTUs/10 eDTUs guaranteed per DB = 40 Max databases).
 - The current features used by the database must be available in the pool.
-
 
 
 ## Step 4: setting performance characteristics of the pool
@@ -143,9 +140,9 @@ Just like elastic database pool pricing tier recommendations, recommended pools 
 
 ## Add and remove databases from the pool
 
-### Add a new database to the pool
+### Add an existing database to the pool
 
-After the pool is created, you can add or remove existing databases in and out of the pool by selecting or clearing databases on the **Add Databases** page.
+After the pool is created, you can add or remove existing databases in and out of the pool by adding or removing databases on the **Elastic databases** page (browse to your pool and click the **Elastic databases** link in **Essentials**.
 
 After creating a pool you can also use Transact-SQL to create new elastic databases in the pool and move databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
