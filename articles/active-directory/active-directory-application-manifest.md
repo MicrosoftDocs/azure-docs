@@ -44,7 +44,7 @@ include:
 The application manifest also provides a good way to track the state of your application registration. Because it's available in JSON format, the file representation can be checked into your source control, along with your application's source code.
 
 ## Step by step example
-Now lets walk through the steps required to update your application's identity configuration through the application manifest. We will highlight one of the examples given above, showing how to declare a new permission scopes on a resource application:
+Now lets walk through the steps required to update your application's identity configuration through the application manifest. We will highlight one of the examples given above, showing how to declare a new permission scope on a resource application:
 
 1. Navigate to the [Azure classic portal][AZURE-CLASSIC-PORTAL] and sign in with an account that has service administrator or co-administrator privileges.
 
@@ -95,25 +95,25 @@ Now lets walk through the steps required to update your application's identity c
 
 6. When you're finished updating the manifest, return to the Azure AD application page in the Azure classic portal, click the "Manage Manifest" feature again (1), but this time select the "Upload Manifest" option (2). Similar to the download, you will be greeted again with a second dialog, prompting you for the location of the JSON file. Click "Browse for file ..." (3), then use the "Choose File to Upload" dialog to select the JSON file (4), and press "Open". Once the dialog goes away, select the "OK" check mark (5) and your manifest will be uploaded.  
 
-![Manage the manifest, upload option][MANAGE-MANIFEST-UPLOAD]
+    ![Manage the manifest, upload option][MANAGE-MANIFEST-UPLOAD]
 
-![Upload the manifest JSON][UPLOAD-MANIFEST]
+    ![Upload the manifest JSON][UPLOAD-MANIFEST]
 
-![Upload the manifest JSON - confirmation][UPLOAD-MANIFEST-CONFIRM]
+    ![Upload the manifest JSON - confirmation][UPLOAD-MANIFEST-CONFIRM]
 
-Now that the manifest is saved, you can then give a registered client application access to the new permission we added above, but this time you can use the Azure classic portal's Web UI:  
+Now that the manifest is saved, you can give a registered client application access to the new permission we added above, but this time you can use the Azure classic portal's Web UI instead of editing the client application's manifest:  
 
 1. First go to the "Configure" page of the client application to which you wish to add access to the new API, and click the "Add application" button.
 2. Then you will be presented with the list of registered resource applications (APIs) in the tenant. Click the plus/+ symbol next to the resource application's name to select it.  
 3. Then click the check mark in the lower right. 
-4. When you return to the "Add Application" section of your client's configuration page, you will see the new resource application in the list. If you hover over the "Delegated Permissions" section to the right of that row, you will see a drop down list show up. Click the list, then add the new permission to the list of resources the client needs to access. Note: this new permission will be stored in the client application's identity configuration, in the "requireResourceAccess" collection property.
+4. When you return to the "Add Application" section of your client's configuration page, you will see the new resource application in the list. If you hover over the "Delegated Permissions" section to the right of that row, you will see a drop down list show up. Click the list, then select the new permission in order to add it to the client's requested list of permissions. Note: this new permission will be stored in the client application's identity configuration, in the "requireResourceAccess" collection property.
 
 ![Permissions to other applications][PERMS-TO-OTHER-APPS]
 
 ![Permissions to other applications][PERMS-SELECT-APP]
 
 ![Permissions to other applications][PERMS-SELECT-PERMS]
-That's it. Now your application can run using the new Application configuration, based on the changes you made to the manifest.
+That's it. Now your applications will run using their new identity configuration.
 
 ## Next steps
 Please use the DISQUS comments section below to provide feedback and help us refine and shape our content.
