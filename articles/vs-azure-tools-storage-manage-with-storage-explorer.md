@@ -3,7 +3,7 @@
 	description="Describes how to use Microsoft Azure Storage Explorer (Preview) to create and manage Azure storage resources."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/17/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Manage Azure storage resources with Storage Explorer (Preview)
 
