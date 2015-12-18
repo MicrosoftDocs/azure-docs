@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Factory (Data Factory Editor)
@@ -261,7 +261,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 	In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
 
-3. Click **Deploy** on the command bar to deploy the pipeline.
+3. Confirm that you see the input.log file in the adfgetstarted/inputdata folder in the Azure blob storage, and click **Deploy** on the command bar to deploy the pipeline. Since the **start** and **end** times are set in the past and **isPaused** is set to false, the pipeline (activity in the pipeline) runs immediately after you deploy. 
 4. Confirm that you see the pipeline in the tree view.
 
 	![Tree view with pipeline](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)

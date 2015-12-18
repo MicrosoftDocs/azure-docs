@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="12/16/2015"
+	ms.date="12/18/2015"
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Factory
@@ -191,7 +191,7 @@ You can use any tool of your choice (for example: Azure Storage Explorer, CloudX
 	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
 	2. After AzCopy has been installed, you can add it to the system path by running the following command at a command prompt. 
 	
-			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy 
+			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
 	3. Navigate to the c:\adfgetstarted folder, and run the following command to upload the **input.log** file to the storage account (**adfgetstarted** container and **inputdata** folder). Replace **StorageAccountName** with the name of your storage account, and **Storage Key** with the storage account key.
 
