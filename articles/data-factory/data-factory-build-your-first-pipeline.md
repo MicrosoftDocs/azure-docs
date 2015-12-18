@@ -26,7 +26,7 @@
 
 This article helps you get started with building your first Azure data factory. 
 
-> [AZURE.NOTE] This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see the [Introduction to Azure Data Factory](data-factory-introduction.md) article.
+> [AZURE.NOTE] This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, see [Introduction to Azure Data Factory](data-factory-introduction.md).
 
 ## Tutorial Overview
 This tutorial takes you through the steps needed to get your first data factory up and running. You will be creating a pipeline in the data factory that transforms/processes input data to produce output data.
@@ -43,24 +43,17 @@ Before you begin this tutorial, you must have the following prerequisites:
 
 In this tutorial, you will be performing the following steps:
 
-1.	Creating the **data factory**. A data factory can contain one or more pipelines that move and process data. In this tutorial, you will create only one pipeline. 
-2.	Creating the **linked services**. You create a linked service to link a data store or a compute service to the data factory. A data store such as Azure Storage holds input/output data of activities in the pipeline. A compute service such as Azure HDInsight processes/transforms data.    
+1.	Create the **data factory**. A data factory can contain one or more data pipelines that move and process data. 
+2.	Create the **linked services**. You create a linked service to link a data store or a compute service to the data factory. A data store such as Azure Storage holds input/output data of activities in the pipeline. A compute service such as Azure HDInsight processes/transforms data.    
 3.	Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
-3.	Creating the **pipeline**. A pipeline can have one or more activities such as Copy Activity to copy data from a source to a destination (or) HDInsight Hive Activity to transform input data using Hive script to produce output data. This sample uses the HDInsight Hive activity that runs a Hive script. The script first creates an external table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
-
-1.	Create a **data factory**.
-2.	Create following **linked services**:
-	1.	Azure Storage Account – The Azure storage account will be used to store files used by the on-demand HDInsight cluster.
-	2.	On-Demand HDInsight Cluster – A HDInsight cluster will be started on-demand to transform and analyze the data.
-3.	Create  input and output **datasets**. 
-4.	Create a **pipeline** that runs a Hive script to process the input dataset and produce an output dataset. The Hive script first creates an external table, referencing the raw web log data stored in Azure blob storage. The next step in the Hive script then partitions the raw data by year and month.
+3.	Create the **pipeline**. A pipeline can have one or more activities such as Copy Activity to copy data from a source to a destination (or) HDInsight Hive Activity to transform input data using Hive script to produce output data. This sample uses the HDInsight Hive activity that runs a Hive script. The script first creates an external table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
 
 Your first pipeline, called **MyFirstPipeline**, uses a Hive activity to transform and analyze a web log that you will be uploading to the **inputdata** folder in **adfgetstarted** container (adfgetstarted/inputdata) in your Azure blob storage. 
  
 ![Diagram View](./media/data-factory-build-your-first-pipeline/diagram-view.png)
 
 
-In this tutorial, the adfgetstarted (container) => inputdata (folder) contains one file named input.log that contains entries from three months: January, February, and March. Here are the sample rows for each month in the input file. 
+In this tutorial, the adfgetstarted (container) => inputdata (folder) contains one file named input.log. This log file has entries from three months: January, February, and March of 2014. Here are the sample rows for each month in the input file. 
 
 	2014-01-01,02:01:09,SAMPLEWEBSITE,GET,/blogposts/mvc4/step2.png,X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,53175,871 
 	2014-02-01,02:01:10,SAMPLEWEBSITE,GET,/blogposts/mvc4/step7.png,X-ARR-LOG-ID=d7472a26-431a-4a4d-99eb-c7b4fda2cf4c,80,-,1.54.23.196,Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36,-,http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx,\N,200,0,0,30184,871
