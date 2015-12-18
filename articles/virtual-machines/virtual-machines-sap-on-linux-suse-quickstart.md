@@ -122,10 +122,10 @@ file is created one can deploy the VM using the following CLI command as an alte
    
    ```
 More details about json template files can be found here :
-
+<https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/>
+<https://azure.microsoft.com/documentation/templates/>
 
 More details about CLI and Azure Resource Manager can be found here :
-
 <https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/>
 
 ## SAP license and hardware key
