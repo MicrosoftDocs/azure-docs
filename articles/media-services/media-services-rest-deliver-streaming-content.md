@@ -46,6 +46,7 @@ To create the OnDemand streaming locator and get URLs you need to do the followi
    		
 	If you plan to progressively download, get the names of MP4 files in the asset. 
    4. Build URLs to the manifest file or MP4 files. 
+   5. Note that you cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
 
 
 ###Create an access policy

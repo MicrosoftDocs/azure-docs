@@ -54,7 +54,7 @@ Build Streaming URLs
 	{
 	
 	    // Create a 30-day readonly access policy. 
-      // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
+      	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
 	    IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 	        TimeSpan.FromDays(30),
 	        AccessPermissions.Read);
