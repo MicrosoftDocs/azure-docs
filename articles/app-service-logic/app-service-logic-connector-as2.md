@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Get started with the AS2 Connector and add it to your Logic App
@@ -59,7 +59,7 @@ TPM Instance Name | Enter the name of the **BizTalk Trading Partner Management**
 
 Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners establish a relationship, this is referred to as an Agreement. The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.
 
-Steps involved in creating a trading partner agreement are documented [here][2].
+See the steps to [create a trading partner agreement][2].
 
 ## Use the Connector as a Trigger
 
