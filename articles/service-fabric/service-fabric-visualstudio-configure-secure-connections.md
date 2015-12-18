@@ -50,7 +50,7 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
 
     You can use the *ClusterConnectionParameters* parameters to specify the PowerShell parameters to use when connecting to the Service Fabric cluster. Valid parameters are any that are accepted by the Connect-ServiceFabricCluster cmdlet. See [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) for a list of available parameters.
 
-    If you’re publishing to a remote cluster, you need to specify the appropriate parameters for that specific cluster. The following is an example of for connecting to a non-secure cluster:
+    If you’re publishing to a remote cluster, you need to specify the appropriate parameters for that specific cluster. The following is an example of connecting to a non-secure cluster:
 
     `<ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000" />`
 
@@ -70,7 +70,7 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
 5.	Edit any other necessary settings, such as upgrade parameters and Application Parameter file location, and then publish your application from the **Publish Service Fabric Application** dialog box in Visual Studio.
 
 ## Next steps
-For more information about accessing Service Fabric clusters, see [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+For more information about accessing Service Fabric clusters, see [Visualizing your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 <!--Image references-->
 [publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
