@@ -210,7 +210,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 		{
 		    "name": "MyFirstPipeline",
 		    "properties": {
-		        "description": "My first Azure Data Factory pipeline using ARM",
+		        "description": "My first Azure Data Factory pipeline",
 		        "activities": [
 		            {
 		                "type": "HDInsightHive",
