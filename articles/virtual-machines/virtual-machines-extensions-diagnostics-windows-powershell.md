@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Enable diagnostics in a Azure Virtual Machine running Windows using PowerShell | Microsoft Azure" 
+	pageTitle="Enable diagnostics in a Azure virtual machine running Windows using PowerShell | Microsoft Azure" 
 	description="Learn how use PowerShell to enable diagnostics in a Azure Virtual Machine running Windows" 
 	services="virtual-machines" 
 	documentationCenter=""
@@ -17,52 +17,50 @@
 	ms.author="saurabh"/>
 
 
-# Enable diagnostics in a Azure Virtual Machine running Windows using PowerShell
+# Enable diagnostics in a Azure virtual machine running Windows using PowerShell
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)] 
 
 You can collect diagnostic data like application logs, performance counter etc. from a Azure Virtual machine running Windows using the Azure Diagnostics extension. This article describes how to enable the Azure Diagnostics extension for a Virtual Machine using PowerShell.  See [How to install and configure Azure PowerShell](powershell-install-configure.md) for the prerequisites needed for this article.
 
-## Enable Azure Diagnostics extension on a virtual machine using resource manager stack
+## Enable Azure diagnostics extension on a virtual machine using resource manager deployment model
 
-You can enable the diagnostics extension while creating a windows virtual machines on the resource manager stack by adding the extension configuration to the resource manager template. See [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](virtual-machines-extensions-diagnostics-windows-template.md).
+You can enable the diagnostics extension while creating a windows virtual machines with the resource manager deployment model by adding the extension configuration to the resource manager template. See [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](virtual-machines-extensions-diagnostics-windows-template.md).
 
-To enable the Azure Diagnostics extension on an existing virtual machine that was created using the resource manager stack you can use the [Set-AzureRMVMExtension](https://msdn.microsoft.com/library/mt603745.aspx) powershell cmdlet as shown below.
+To enable the Azure Diagnostics extension on an existing virtual machine that was created using the resource manager deployment model you can use the [Set-AzureRMVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt603499.aspx) powershell cmdlet as shown below.
 
 
 	$vm_resourcegroup = "myvmresourcegroup"
 	$vm_name = "myvm"
 	$diagnosticsconfig_path = "DiagnosticsPubConfig.xml"
-	$diagnostics_storageresourcegroup = "myvmdiagnosticsresourcegroup"
-	$diagnostics_storagename = "myvmdiagnostics"
-
-	$xmlconfig = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((get-content $diagnosticsconfig_path)))
-	$diagnostics_storagekey = (Get-AzureRmStorageAccountKey -ResourceGroupName $diagnostics_storageresourcegroup -Name $diagnostics_storagename).Key1
 	
-	$public_settings = @{"storageAccount"= $diagnostics_storagename ; "xmlCfg" = $xmlconfig}
-	$protected_settings = @{"storageAccountName"= $diagnostics_storagename ; "storageAccountKey" = $diagnostics_storagekey ; "storageAccountEndPoint" = "http://core.windows.net"}
+	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path 
+
+
+*$diagnosticsconfig_path* is the path to the file containing the diagnostics configuration in xml as described in the [sample](#Sample-diagnostics-configuration) below.  
+
+If the diagnostics configuration file already contains a *<StorageAccount>* element in the XML with the name of the storage account then the *Set-AzureRMVMDiagnosticsExtension* script will automatically use that storage account. The storage account must be in the same subscription as the virtual machine for this to work. 
+
+If the diagnostics storage account is in a different subscription than the virtual machine then you must explicitly pass in the *StorageAccountName* and *StorageAccountKey* parameters to the cmdlet.
+
+	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName $diagnosticsstorage_name -StorageAccountKey $diagnosticsstorage_key	
+
+If the *StorageAccountName and *StorageAccountKey* parameters are specified then the cmdlet will use that storage account and not the one specified in the diagnostics configuration file. 
+
+Once the Azure diagnostics extension is enabled on a VM you can get the current settings using the [Get-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603678.aspx) cmdlet. 
+
+	Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
+
+The *PublicSettings* returned by the cmdlet contains the xml configuration in a base64 encoded format. To read the xml you will need to decode it.
 	
-	Set-AzureRmVMExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -Name "Microsoft.Insights.VMDiagnosticsSettings" -Publisher "Microsoft.Azure.Diagnostics" -ExtensionType "IaaSDiagnostics" -Settings $public_settings -ProtectedSettings $protected_settings -Location "West US" -TypeHandlerVersion "1.5" 
-
-
-*$diagnosticsconfig_path* is the path to the file containing the diagnostics configuration in xml. This configuration should only include the elements under the **<WADCfg>** node as described in the [Diagnostics Configuration Schema](https://msdn.microsoft.com/library/azure/mt634524.aspx). Specifically make sure that this xml file does not include the *<StorageAccount>* element in the XML. The storage account will be specified separately as part of the *$public_settings* hashtable. 
-
-The *Settings* parameter of the *Set-AzureRmExtension* cmdlet accepts an Hashtable with two values, the storage account name where diagnostics data will be stored and base64 encoded value of the public configuration xml.
-   
-The *ProtectedSettings* parameter of the *Set-AzureRmExtension* cmdlet accepts an Hashtable with the storage account name where diagnostics data will be stored along with the key and http endpoint for that storage account.
-
-The Azure diagnostics extension is identified by the *Publisher* value of **Microsoft.Azure.Diagnostics** and *ExtensionType* of **IaaSDiagnostics**. 
-
-The *Name* parameter can be set to any string used to identify the Azure diagnostics extension. Set it to the standard value of **Microsoft.Insights.VMDiagnosticsSettings** so that it can be easily identified by other tools like Visual Studio and the Azure Portal.
-
-*Location* is a required parameter make sure you pass in the same location as that of the VM you want to enable the diagnostics extension on. 
-
-The *TypeHandlerVersion* specified the version of the extension to use. Set it to latest available version of **1.5**.
-
-Once the Azure diagnostics extension is enabled on a VM you can get the current settings using the [Get-AzureRMVmExtension](https://msdn.microsoft.com/library/mt603744.aspx) cmdlet and passing in the details for the extension used with the Set-AzureRmVMExtension cmdlet.  To remove the extension from the virtual machine use the [Remove-AzureRMVmExtension](https://msdn.microsoft.com/library/mt603782.aspx) cmdlet. 
+	$publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
+	$encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
+	$xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
+	Write-Host $xmlconfig
+ 
+The [Remove-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603782.aspx) cmdlet can be used to remove the diagnostics extension from the VM.  
   
-
-## Enable Azure Diagnostics extension on a virtual machine (classic)
+## Enable Azure diagnostics extension on a virtual machine (classic)
 
 The [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx) cmdlet can be used to enable Azure Diagnostics extension on a virtual machine (classic). The following example shows how to create a new virtual machine (classic) with the Azure diagnostics extension enabled.
 
@@ -77,10 +75,23 @@ To enable Azure Diagnostics extension on an existing virtual machine (classic) f
 	$VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
 	Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
-## Sample Diagnostics Configuration
+## Sample diagnostics configuration
 
-The following xml can be used for the diagnostics public configuration with the scripts above. This sample configuration will transfer various performance counters to the diagnostics storage account along with errors from the Application, Security and System Channels in the Windows Event Logs and any errors from the diagnostics infrastructure logs.     
-	
+The following xml can be used for the diagnostics public configuration with the scripts above. This sample configuration will transfer various performance counters to the diagnostics storage account along with errors from the Application, Security and System Channels in the Windows Event Logs and any errors from the diagnostics infrastructure logs.
+
+The configuration needs to be updated to include the following: 
+
+- The *resourceID* attribute of the **Metrics** element needs to be updated with the resource ID for the virtual machine. 
+	- The resource ID can be constructed using the following pattern: "/subscriptions/{*subscription ID for the subscription with the VM*}/resourceGroups/{*The resourcegroup name for the VM*}/providers/Microsoft.Compute/virtualMachines/{*The VM Name*}". For example if the subscription id for the subscription where the VM is running is **11111111-1111-1111-1111-111111111111**, the resource group name for the resource group is **MyResourceGroup** and the VM Name is **MyWindowsVM** then the value for *resourceID* would be:
+	 
+		```
+		<Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
+		```
+	- For more information on how metrics are generated based on the performance counters and metrics configuration, see [WAD Metrics table in storage](virtual-machines-extensions-diagnostics-windows-template.md#wadmetrics-tables-in-storage)
+
+- The **StorageAccount** element needs to be updated with the name of the diagnostics storage account.
+ 
+
 	<?xml version="1.0" encoding="utf-8"?>
 	<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
 	    <WadCfg>
@@ -169,6 +180,10 @@ The following xml can be used for the diagnostics public configuration with the 
 	        <annotation displayName="Disk free space (MB)" locale="en-us"/>
 	      </PerformanceCounterConfiguration>
 	    </PerformanceCounters>
+	<Metrics resourceId="(Update with resource ID for the VM)" >
+        <MetricAggregation scheduledTransferPeriod="PT1H"/>
+        <MetricAggregation scheduledTransferPeriod="PT1M"/>
+    </Metrics>
 	    <WindowsEventLog scheduledTransferPeriod="PT1M">
 	      <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]"/>
 	      <DataSource name="Security!*[System[(Level = 1 or Level = 2)]"/>
@@ -176,10 +191,10 @@ The following xml can be used for the diagnostics public configuration with the 
 	    </WindowsEventLog>
 	      </DiagnosticMonitorConfiguration>
 	    </WadCfg>
-	    <StorageAccount></StorageAccount>
+	    <StorageAccount>(Update with diagnostics storage account name)</StorageAccount>
 	</PublicConfig>
 
-## Next Steps
-- For more details on creating windows virtual machines (classic), see [Create Windows virtual machines with Powershell and the classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md)  
+
+## Next Steps 
 - For additional guidance on using Azure diagnostics and other techniques to troubleshoot problems, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md).
 - The [Diagnostics Configuration Schema](https://msdn.microsoft.com/library/azure/mt634524.aspx) explains the various xml configurations options for the diagnostics extension.
