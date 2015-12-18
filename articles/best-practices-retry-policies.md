@@ -3,8 +3,8 @@
    description="Guidance on NuGet Packages for general retry policy work."
    services=""
    documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
+   authors="manikrish"
+   manager="roshar"
    editor=""
    tags=""/>
 
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/09/2015"
-   ms.author="masashin"/>
+   ms.date="12/20/2015"
+   ms.author="manikris"/>
 
 # NuGet Packages
 
