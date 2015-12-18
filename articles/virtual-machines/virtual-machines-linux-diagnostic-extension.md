@@ -35,7 +35,7 @@ For version 2.0, the data includes:
 - All system data specified in this [document](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - User specified log files.
 
-Note this extension works with both classic and Resource Manager deployment model.
+Note this extension works with both the classic and Resource Manager deployment models.
 
 
 ## How to enable the extension
