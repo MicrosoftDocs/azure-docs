@@ -37,19 +37,10 @@ The sample template available in the public repository uses a parameter file con
 To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. Run the **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
 
-		Switch-AzureMode AzureResourceManager
+2. Run the **New-AzureRmResourceGroup** cmdlet to create a resource group using the template.
 
-	Here is the expected output for the command above:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
-
-3. Run the **New-AzureResourceGroup** cmdlet to create a resource group using the template.
-
-		New-AzureResourceGroup -Name TestRG -Location uswest `
+		New-AzureRmResourceGroup -Name TestRG -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'	
 
