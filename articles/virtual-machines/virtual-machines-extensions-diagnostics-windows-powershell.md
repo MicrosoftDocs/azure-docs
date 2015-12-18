@@ -60,9 +60,9 @@ The *PublicSettings* returned by the cmdlet contains the xml configuration in a 
  
 The [Remove-AzureRMVmDiagnosticsExtension](https://msdn.microsoft.com/library/mt603782.aspx) cmdlet can be used to remove the diagnostics extension from the VM.  
   
-## Enable Azure diagnostics extension on a virtual machine (classic)
+## Enable Azure diagnostics extension on a virtual machine using classic deployment model
 
-The [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx) cmdlet can be used to enable Azure Diagnostics extension on a virtual machine (classic). The following example shows how to create a new virtual machine (classic) with the Azure diagnostics extension enabled.
+The [Set-AzureVMDiagnosticsExtension](https://msdn.microsoft.com/library/mt589189.aspx) cmdlet can be used to enable Azure Diagnostics extension on a virtual machine created using the classic deployment model. The following example shows how to create a new virtual machine using the classic deployment model with the Azure diagnostics extension enabled.
 
 	$VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
 	$VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
