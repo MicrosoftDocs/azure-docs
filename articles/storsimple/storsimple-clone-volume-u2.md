@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="alkohli" />
 
-# Use the StorSimple Manager service to clone a volume
+# Use the StorSimple Manager service to clone a volume (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 

@@ -14,13 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="andrela"/>
 
 
 # Connect to SQL Database by using Ruby on Mac OS X (Yosemite)
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+
 
 This topic presents a Ruby code sample that runs on Mac computer running Yosemite to connect to an Azure SQL Database database.
 
