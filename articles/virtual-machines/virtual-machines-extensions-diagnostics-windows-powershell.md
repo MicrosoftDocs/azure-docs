@@ -181,10 +181,10 @@ The configuration needs to be updated to include the following:
 	        <annotation displayName="Disk free space (MB)" locale="en-us"/>
 	      </PerformanceCounterConfiguration>
 	    </PerformanceCounters>
-	<Metrics resourceId="(Update with resource ID for the VM)" >
-        <MetricAggregation scheduledTransferPeriod="PT1H"/>
-        <MetricAggregation scheduledTransferPeriod="PT1M"/>
-    </Metrics>
+		<Metrics resourceId="(Update with resource ID for the VM)" >
+	        <MetricAggregation scheduledTransferPeriod="PT1H"/>
+	        <MetricAggregation scheduledTransferPeriod="PT1M"/>
+	    </Metrics>
 	    <WindowsEventLog scheduledTransferPeriod="PT1M">
 	      <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]"/>
 	      <DataSource name="Security!*[System[(Level = 1 or Level = 2)]"/>
