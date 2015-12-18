@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Setting Up Named Authentication Credentials"
+   pageTitle="Setting Up Named Authentication Credentials | Microsoft Azure"
    description="Learn how to to provide credentials that Visual Studio can use to authenticate requests to Azure to publish an application to Azure from Visual Studio or to monitor an existing cloud service.. "
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/02/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Setting Up Named Authentication Credentials
 
