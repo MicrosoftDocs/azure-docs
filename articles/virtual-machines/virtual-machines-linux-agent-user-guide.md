@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
-	ms.author="szark"/>
+	ms.date="12/14/2015" 
+	ms.author="mingzhan"/>
 
 
 
@@ -81,6 +81,7 @@ The following systems have been tested and are known to work with the Azure Linu
 * openSUSE 12.3+
 * SLES 11 SP2+
 * Oracle Linux 6.4+
+* Red Hat 6.7+
 
 Other Supported Systems:
 
