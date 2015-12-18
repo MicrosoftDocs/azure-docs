@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -262,7 +262,7 @@ In the case of SD Elements, creating SD Elements users is a manual task.
 
     e. Click **Create User**.
 
-6.	Click Create User button
+
 
 
 ### Assigning the Azure AD test user
@@ -281,7 +281,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 1. In the menu on the top, click **Users**.
 <br><br>![Assign User][203] <br>
 
-1. In the Users list, select **Britta Simon**.
+1. In the **Users** list, select **Britta Simon**.
 
 2. In the toolbar on the bottom, click **Assign**.
 <br><br>![Assign User][205]
