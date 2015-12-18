@@ -47,9 +47,9 @@ The template allows you to create the following Data Factory entities.
 
 1. A **data factory** named **TutorialDataFactoryARM**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. 
 2. Two **linked services**: **StorageLinkedService** and **HDInsightOnDemandLinkedService**. These linked services link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account will hold the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. You need to identify what data store/compute services are used in your scenario and link those services to the data factory by creating linked services. 
-3. Two (input/output) **datasets**: **AzureBlobInput** and **AzureBlobOutput**. These datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
+3. Two (input/output) **datasets**: **AzureBlobInput** and **AzureBlobOutput**. These datasets represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
 
-Click **Using Data Factory Editor** tab at the top to see an article to see more details (Data Factory specific JSON property descriptions, etc...). 
+Click **Using Data Factory Editor** tab to switch to the article with details about JSON properties used in this template.  
 
 	{
 	    "contentVersion": "1.0.0.0",
