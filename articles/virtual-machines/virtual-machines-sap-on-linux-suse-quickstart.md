@@ -39,38 +39,35 @@ to hide this image from the public. So just don't use it.
 
 All new tests on Azure should be done with Azure Resource Manager. To look for SUSE SLES images 
 and versions using Azure Powershell or CLI use the following commands. The output can then be used
-e.g. to define the OS image in a json template for deploying a new SUSE Linux VM :
+e.g. to define the OS image in a json template for deploying a new SUSE Linux VM. 
+The PS commands below are valid for Azure Powershell version >= 1.0.1
 
 * look for existing publishers including SUSE :
 
    ```
-   PS     : Get-AzureVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
-   PS new : Get-AzureRmVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
-   CLI    : azure vm image list-publishers westeurope | grep "US"
+   PS  : Get-AzureRmVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
+   CLI : azure vm image list-publishers westeurope | grep "US"
    ```
 
 * look for existing offerings from SUSE :
       
    ```
-   PS     : Get-AzureVMImageOffer -Location "West Europe" -Publisher "SUSE"
-   PS new : Get-AzureRmVMImageOffer -Location "West Europe" -Publisher "SUSE"
-   CLI    : azure vm image list-offers westeurope SUSE
+   PS  : Get-AzureRmVMImageOffer -Location "West Europe" -Publisher "SUSE"
+   CLI : azure vm image list-offers westeurope SUSE
    ```
       
 * look for SUSE SLES offerings :
       
    ```
-   PS     : Get-AzureVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
-   PS new : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
-   CLI    : azure vm image list-skus westeurope SUSE SLES
+   PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
+   CLI : azure vm image list-skus westeurope SUSE SLES
    ```
       
 * look for a specific version of a SLES sku :
       
    ```
-   PS     : Get-AzureVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
-   PS new : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
-   CLI    : azure vm image list westeurope SUSE SLES 12
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
+   CLI : azure vm image list westeurope SUSE SLES 12
    ```
      
 ## Installing WALinuxAgent in a SUSE VM 
