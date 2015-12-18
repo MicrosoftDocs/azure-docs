@@ -87,7 +87,7 @@ If you require a background task to communicate with the calling task to indicat
 You can host background tasks using a range of different Azure platform services:
 
 - [**Azure Web Apps and WebJobs**](#azure-web-apps-and-webjobs). You can use WebJobs to execute custom jobs based on a range of different types of script or executable program within the context of a web app.
-- [**Azure Cloud Services worker roles**](#azure-cloud-services-worker-roles). You can write code within a role that executes as a background task.
+- [**Azure Cloud Services web and worker roles**](#azure-cloud-services-web-and-worker-roles). You can write code within a role that executes as a background task.
 - [**Azure Virtual Machines**](#azure-virtual-machines). If you have a Windows service or you want to use the Windows Task Scheduler, it is common to host your background tasks within a dedicated virtual machine.
 
 The following sections describe each of these options in more detail, and include considerations to help you choose the appropriate option.
