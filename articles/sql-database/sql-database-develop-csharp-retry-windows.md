@@ -24,7 +24,7 @@
 
 > [AZURE.SELECTOR]
 - [C# Retry](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6 Retry](sql-database-develop-entlib-csharp-retry-windows)
+- [C# EntLib6 Retry](sql-database-develop-entlib-csharp-retry-windows.md)
 - [PHP Retry](sql-database-develop-php-retry-windows.md)
 
 
