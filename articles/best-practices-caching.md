@@ -457,7 +457,7 @@ in the cloud.
   are currently slated for retirement on November 16th, 2016.
   It is recommended that you migrate to Azure Redis Cache in
   preparation for this retirement. For more information, visit the page 
-  [Which Azure Cache offering is right for me?](https://azure.microsoft.com/en-us/documentation/articles/cache-faq/#which-azure-cache-offering-is-right-for-me) on the Microsoft website.
+  [What Redis Cache offering and size should I use?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) on the Microsoft website.
 
 
 ### Features of Redis
