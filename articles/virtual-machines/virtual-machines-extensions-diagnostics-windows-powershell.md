@@ -37,9 +37,9 @@ To enable the Azure Diagnostics extension on an existing virtual machine that wa
 	Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name -DiagnosticsConfigurationPath $diagnosticsconfig_path 
 
 
-*$diagnosticsconfig_path* is the path to the file containing the diagnostics configuration in xml as described in the [sample](#Sample-diagnostics-configuration) below.  
+*$diagnosticsconfig_path* is the path to the file containing the diagnostics configuration in xml as described in the [sample](#sample-diagnostics-configuration) below.  
 
-If the diagnostics configuration file already contains a *<StorageAccount>* element in the XML with the name of the storage account then the *Set-AzureRMVMDiagnosticsExtension* script will automatically use that storage account. The storage account must be in the same subscription as the virtual machine for this to work. 
+If the diagnostics configuration file specifies a **StorageAccount** element with a storage account name then the *Set-AzureRMVMDiagnosticsExtension* script will automatically set the diagnostics extension to send diagnostics data to that storage account. The storage account must be in the same subscription as the virtual machine for this to work. 
 
 If the diagnostics storage account is in a different subscription than the virtual machine then you must explicitly pass in the *StorageAccountName* and *StorageAccountKey* parameters to the cmdlet.
 
@@ -82,7 +82,8 @@ The following xml can be used for the diagnostics public configuration with the 
 The configuration needs to be updated to include the following: 
 
 - The *resourceID* attribute of the **Metrics** element needs to be updated with the resource ID for the virtual machine. 
-	- The resource ID can be constructed using the following pattern: "/subscriptions/{*subscription ID for the subscription with the VM*}/resourceGroups/{*The resourcegroup name for the VM*}/providers/Microsoft.Compute/virtualMachines/{*The VM Name*}". For example if the subscription id for the subscription where the VM is running is **11111111-1111-1111-1111-111111111111**, the resource group name for the resource group is **MyResourceGroup** and the VM Name is **MyWindowsVM** then the value for *resourceID* would be:
+	- The resource ID can be constructed using the following pattern: "/subscriptions/{*subscription ID for the subscription with the VM*}/resourceGroups/{*The resourcegroup name for the VM*}/providers/Microsoft.Compute/virtualMachines/{*The VM Name*}". 
+	- For example if the subscription id for the subscription where the VM is running is **11111111-1111-1111-1111-111111111111**, the resource group name for the resource group is **MyResourceGroup** and the VM Name is **MyWindowsVM** then the value for *resourceID* would be:
 	 
 		```
 		<Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
@@ -91,7 +92,7 @@ The configuration needs to be updated to include the following:
 
 - The **StorageAccount** element needs to be updated with the name of the diagnostics storage account.
  
-
+	```
 	<?xml version="1.0" encoding="utf-8"?>
 	<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
 	    <WadCfg>
@@ -193,7 +194,7 @@ The configuration needs to be updated to include the following:
 	    </WadCfg>
 	    <StorageAccount>(Update with diagnostics storage account name)</StorageAccount>
 	</PublicConfig>
-
+	```
 
 ## Next Steps 
 - For additional guidance on using Azure diagnostics and other techniques to troubleshoot problems, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md).
