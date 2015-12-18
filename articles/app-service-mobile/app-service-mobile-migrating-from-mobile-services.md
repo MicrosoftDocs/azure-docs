@@ -23,8 +23,8 @@ features of the Azure App Service.  This document explains what to expect when m
 
 ## <a name="what-does-migration-do"></a>What does migration do to your site
 
-Migration of your Azure Mobile Service will turn your Mobile Service into an [Azure App Service] without affecting the code in any way.  Your Notification
-Hubs, SQL data connection, authentication settings and scheduled jobs, domain name will remain unchanged.  Mobile clients using your Azure Mobile Service
+Migration of your Azure Mobile Service will turn your Mobile Service into an [Azure App Service] app without affecting the code in any way.  Your Notification
+Hubs, SQL data connection, authentication settings, scheduled jobs, and domain name will remain unchanged.  Mobile clients using your Azure Mobile Service
 will continue to operate normally.  Migration will restart your service once it is transferred to Azure App Service.
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
@@ -97,7 +97,7 @@ To migrate your site:
 If you are migrating a Mobile Service in the Free or Basic pricing tiers, all Mobile Services in that pricing tier will be migrated at the same time.   You
 can avoid this by [raising the Mobile Service you are migrating](#opt-raise-service-tier) to Standard during the migration.
 
-You can monitor the status of the migration in the activity monitor and your site will be listed as *migrating* in the [Azure Classic Portal].
+You can monitor the status of the migration in the activity monitor and your site will be listed as *migrating* in the Azure Classic Portal.
 
   ![Migration Activity Monitor][1]
 
@@ -147,7 +147,7 @@ There are a limited number of free scheduler jobs available post-migration.  You
 
 ### <a name="configure-cors"></a>Configure CORS if needed
 
-[Cross-origin resource sharing] is a technique to allow a website to access a Web API on a different domain.  If you were using Azure Mobile
+Cross-origin resource sharing is a technique to allow a website to access a Web API on a different domain.  If you were using Azure Mobile
 Services with an associated website then you will need to configure CORS as part of the migration.  If you were accessing Azure Mobile
 Services exclusively from mobile devices, then CORS does not need to be configured except in rare cases.
 
@@ -388,7 +388,7 @@ Not that your application is migrated to App Service, there are even more featur
 [Hybrid Connections]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [Logging]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
-[Mobile Services vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
+[Mobile Services vs. App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-overview.md
 [performance monitoring]: ../app-service-web/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
