@@ -16,7 +16,7 @@
 	ms.date="12/08/2015"
 	ms.author="spelluru"/>
 
-# Build your first Azure Data Factory pipeline using Azure PowerShell
+# Get started with Azure Data Factory (Azure PowerShell)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
