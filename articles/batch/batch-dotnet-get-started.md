@@ -492,7 +492,7 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 }
 ```
 
-> [AZURE.INFO]  The call to `DownloadBlobsFromContainerAsync` in the *DotNetTutorial* application specifies that the files should be downloaded to your `%TEMP%` folder. Feel free to modify this output location.
+> [AZURE.INFO] The call to `DownloadBlobsFromContainerAsync` in the *DotNetTutorial* application specifies that the files should be downloaded to your `%TEMP%` folder. Feel free to modify this output location.
 
 ## Step 8: Delete task output
 
@@ -518,9 +518,11 @@ private static async Task DeleteBlobsFromContainerAsync(CloudBlobClient blobClie
 }
 ```
 
+> [AZURE.IMPORTANT] Because you are charged for data in Azure Storage, you may also wish to delete the contents of the **application** and **input**, or delete the containers themselves.
+
 ## Step 9: Delete job and pool
 
-In the final step, the user is prompted to delete the job and pool created by the DotNetTutorial application. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes.
+In the final step, the user is prompted to delete the job and pool created by the DotNetTutorial application. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes, thus it is recommended that you allocate nodes only as needed, and deleting unused pools can be part of your maintenance process.
 
 ```
 // Clean up the resources we've created in the Batch account if the user so chooses
