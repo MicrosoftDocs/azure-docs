@@ -196,7 +196,7 @@ If you want to connect to your SQL Server database engine from the Internet, the
 
 If you use the portal to provision a SQL Server virtual machine image with the resource manager, these steps were done for you when you select **Public** for the SQL connectivity option.
 
-> [AZURE.INCLDE [Configure a Network Security Group inbound rule for the VM](../../includes/virtual-machines-sql-server-connection-steps-resource-manager-nsg-rule.md)]
+> [AZURE.INCLUDE [Configure a Network Security Group inbound rule for the VM](../../includes/virtual-machines-sql-server-connection-steps-resource-manager-nsg-rule.md)]
 
 > [AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
