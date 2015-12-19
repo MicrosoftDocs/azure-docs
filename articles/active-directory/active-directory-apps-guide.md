@@ -18,24 +18,21 @@
 
 #SaaS App Management Guide for Azure Active Directory
 
-This guide is intended to help IT professionals understand and use the various SaaS app-related features available in Azure Active Directory (Azure AD). This page offers a brief introduction to each major feature area and provides a comprehensive list of every article written about that feature. Some features are only available for certain pricing tiers, so please refer to [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/) for details.
+This guide is intended to help IT professionals understand and use the various SaaS app-related features available in Azure Active Directory (Azure AD).
+
+This page offers a brief introduction to each major feature area and provides a comprehensive list of every article written about that feature. Some features are only available for certain pricing tiers, so please refer to [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/) for details.
 
 ##Overview
 
-desc
+The articles below are good starting points for those who simply want a breif overview of Azure AD's app management features.
 
 | Article Guide |   |
 | :---: | --- |
-| s | [Managing Applications with Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
-| A roadmap for how to  | [Integrating Azure Active Directory with applications](active-directory-integrating-applications-getting-started.md) |
+| An introduction to the application management problems that Azure AD solves | [Managing Applications with Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
+| An overview of the various features in Azure AD related to enabling single sign-on, defining who has access to apps, and how users launch apps | [Application Access and Single Sign-on in Azure Active Directory](active-directory-appssoaccess-whatis.md) |
+| A look at the different steps involved when integrating apps into your Azure AD | [Integrating Azure Active Directory with Applications](active-directory-integrating-applications-getting-started.md)<br /><br />[Enabling Single Sign-On to SaaS Apps](active-directory-sso-integrate-saas-apps.md)<br /><br />[Managing Access to Apps](active-directory-managing-access-to-apps.md) |
+| A technical explanation of how apps are represented in Azure AD | [How and Why Applications are Added to Azure AD](active-directory-how-applications-are-added.md) |
 
-[Integrate Azure Active Directory (Azure AD) single sign-on with SaaS apps](active-directory-sso-integrate-saas-apps.md)
-
-[Managing access to apps](active-directory-managing-access-to-apps.md)
-
-[How and why applications are added to Azure AD](active-directory-how-applications-are-added.md) | dunno which category this fits into
-
-[What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 ##Cloud App Discovery: Find which SaaS Apps are being Used in Your Organization
 
@@ -165,8 +162,6 @@ Azure Active Directory provides several reports and alerts to help you monitor y
 | How to monitor the sign-ins and app-usage of your users | [View Your Access and Usage Reports](active-directory-view-access-usage-reports.md)<br /><br />[Azure Active Directory All User Sign In Activity Report](active-directory-reporting-all-user-sign-in-activity-report.md) |
 | Track changes made to who can access a particular application | [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) |
 | Export the data of these reports to your preferred tools using the Reporting API | [Getting Started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md) |
-
-
 
 ##See Also
 
