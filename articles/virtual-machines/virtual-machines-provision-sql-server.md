@@ -118,7 +118,27 @@ Once you are connected to the virtual machine with Windows Remote Desktop, the v
 
 ##<a id="SSMS">Connect to the SQL Server VM instance from SSMS on another computer</a>
 
+The following steps demonstrate how to connect to the SQL Server instance over the internet using SQL Server Management Studio (SSMS). However, the same steps apply to making your SQL Server virtual machine accessible for your applications, running both on-premises and in Azure.
+
+Before you can connect to the instance of SQL Server from another VM or the internet, you must complete the following tasks as described in the sections that follow:
+
+- [Create a TCP endpoint for the virtual machine](#create-a-tcp-endpoint-for-the-virtual-machine)
+- [Open TCP ports in the Windows firewall](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [Configure SQL Server to listen on the TCP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [Configure SQL Server for mixed mode authentication](#configure-sql-server-for-mixed-mode-authentication)
+- [Create SQL Server authentication logins](#create-sql-server-authentication-logins)
+- [Determine the DNS name of the virtual machine](#determine-the-dns-name-of-the-virtual-machine)
+- [Connect to the Database Engine from another computer](#connect-to-the-database-engine-from-another-computer)
+
+The connection path is summarized by the following diagram:
+
+![Connecting to a SQL Server virtual machine](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+
+[AZURE.INCLUDE [Connect to SQL Server in a VM Classic TCP Endpoint](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
+
 [AZURE.INCLUDE [Connect to SQL Server in a VM](../../includes/virtual-machines-sql-server-connection-steps.md)]
+
+[AZURE.INCLUDE [Connect to SQL Server in a VM Classic Steps](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## <a id="cdea">Connect to the Database Engine from your application</a>
 

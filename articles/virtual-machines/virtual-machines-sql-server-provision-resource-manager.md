@@ -42,7 +42,7 @@ In this tutorial, you will:
 
 This tutorial assumes the following:
 
-- You already have an Azure account. If you do not have an Azure account, visit [Azure free trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+- You already have an Azure account. If you do not have an Azure account, visit [Azure free trial](http://azure.microsoft.com/pricing/free-trial/).
 
 - You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md)
 
@@ -53,6 +53,7 @@ This tutorial assumes the following:
 <br/>
 ![Azure Portal Dashboard](./media/virtual-machines-sql-server-provision-resource-manager/azure-portal-dashboard.png)<br/>
 The portal will open the **New** blade. The SQL Server VM templates are in the **Compute** group of the Marketplace.
+
 1. In the **New** blade, click **Compute**.
 1. To see all of the types of resources in the in the **Compute** blade, click **See all**.
 <br/>
@@ -67,6 +68,7 @@ The portal will open the **New** blade. The SQL Server VM templates are in the *
 
 ## Configure the VM
 In the Azure portal there are five blades for configuring a SQL Server virtual machine.
+
 1.	Configure basic settings
 1.	Choose virtual machine size
 1.	Configure virtual machine settings
@@ -75,19 +77,21 @@ In the Azure portal there are five blades for configuring a SQL Server virtual m
 
 ## 1. Configure basic settings
 On the **Create Virtual Machine** blade under **Basics** provide the following information:
+
 * A unique virtual machine **Name**.
 * In the **User name** box, a unique user name for the machine’s local administrator account. This account will also be a member of the SQL Server sysadmin fixed server role.
 * In the *Password* box, type a strong password.
 * If you have multiple subscriptions, verify the subscription is correct for the VM that you are about to build.
-* In the *Resource group* box, type a name for the resource group. Alternatively, to use an existing resource group click **Select existing**. A resource group is a collection of related services in Azure. For more information about resource groups see [Azure Resource Manager Overview](http://azure.microsoft.com/en-us/documentation/articles/resource-group-overview).
+* In the *Resource group* box, type a name for the resource group. Alternatively, to use an existing resource group click **Select existing**. A resource group is a collection of related services in Azure. For more information about resource groups see [Azure Resource Manager Overview](../resource-group-overview.md).
 Verify that the **Location** is correct for your requirements.
 * Click **OK** to save the settings.
 <br/>
+
 ![SQL ARM Basics](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-basic.png)
 <br/>
 
 ## 2. Choose virtual machine size
-On the **Create Virtual Machine** blade under **Size** choose a virtual machine size. The Azure portal will display recommended sizes. Find more information about virtual machine sizes see, [Sizes for virtual machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/). The sizes are based on the template you selected. The size estimates the monthly cost to run the VM.  Select a VM size for your server. For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-sql-server-performance-best-practices/).
+On the **Create Virtual Machine** blade under **Size** choose a virtual machine size. The Azure portal will display recommended sizes. Find more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-size-specs.md). The sizes are based on the template you selected. The size estimates the monthly cost to run the VM.  Select a VM size for your server. For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
 
 ## 3. Configure virtual machine settings
 On the **Create Virtual Machine** blade under **Settings**, configure Azure storage, networking and monitoring for the virtual machine.
@@ -100,7 +104,7 @@ Under **Network**, you can accept the automatically populated values for feature
 
 Azure enables **Monitoring** by default with the same storage account designated for the VM. You can change these settings here.
 
-Under **Availability set** specify **none** for the purpose of this tutorial. For more information, see [High Availability and Disaster Recovery for SQL Server Virtual Machines](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions).
+Under **Availability set** specify **none** for the purpose of this tutorial. For more information, see [High Availability and Disaster Recovery for SQL Server Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## 4. Configure SQL Server
 On the **Create Virtual Machine** blade under **Configure SQL Server** configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include:
@@ -112,20 +116,24 @@ On the **Create Virtual Machine** blade under **Configure SQL Server** configure
 - Key Vault Integration
 
 ### Connectivity
-Under **SQL connectivity**, specify one of the following
+Under **SQL connectivity**, specify **Public (internet)** to allow connections to SQL Server from machines or services on the internet. With this option selected, Azure will automatically configure the firewall and the network security group to allow traffic on port 1433.  
+
+If you would prefer to not enable connections to the Database Engine via the internet automatically choose one of the following options:
 - **Local (inside VM only)** to allow connections to SQL Server only from within the VM.
 - **Private (within Virtual Network)** to allow connections to SQL Server from machines or services in the same virtual network.
-- **Public (internet)** to allow connections to SQL Server from machines or services on the internet.
+
 
 **Port** defaults to 1433. You can specify a different port number.
-For more information, see [Connect to a SQL Server Virtual Machine on Azure](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-sql-server-connectivity).
+For more information, see [Connect to a SQL Server Virtual Machine on Azure](virtual-machines-sql-server-connectivity.md).
 
 <br/>![SQL ARM Connectivity](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-connectivity.png)
 <br/>
 
 
 ### Authentication
-If you require SQL Server Authentication, click **Enable** under **SQL authentication**. If you enable SQL Server Authentication specify a **Login name** and **Password**. This user name will be a SQL Server Authentication login and member of the sysadmin fixed server role. See [Choose an Authentication Mode](http://msdn.microsoft.com/en-us/library/ms144284.aspx) for more information about Authentication Modes. By default, the SQL Server does not enable SQL Server Authentication. In that scenario, local Administrators on the virtual machine can connect to the SQL Server instance. You can see the Q
+If you require SQL Server Authentication, click **Enable** under **SQL authentication**. If you enable SQL Server Authentication specify a **Login name** and **Password**. This user name will be a SQL Server Authentication login and member of the sysadmin fixed server role. See [Choose an Authentication Mode](http://msdn.microsoft.com/library/ms144284.aspx) for more information about Authentication Modes. By default, the SQL Server does not enable SQL Server Authentication. In that scenario, local Administrators on the virtual machine can connect to the SQL Server instance.
+
+See an example of SQL Authentication configured below.
 <br/>![SQL ARM Authentication](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-authentication.png)
 <br/>
 ### Storage optimization
@@ -176,23 +184,23 @@ You can monitor the deployment from the azure portal. The **Notifications** butt
 
 ## Open the virtual machine using Remote Desktop and complete setup
 Follow these steps to use Remote Desktop to open the virtual machine:
+
 1.	After the Azure VM is built, and icon for the VM will appear on the Azure dashboard. Click the icon to see information about the VM.
 1.	At the top of the VM blade click **Connect**. The browser will download an .rdp file for the VM. Open the .rdp file.
 1.	The Remote Desktop Connection will notify you that the publisher of this remote connection can’t be identified and ask if you want to connect anyway. Click **Connect**.
 1.	In the **Windows Security** dialog click **Use another account**. For **User name** type <machine name>\<user name> that you specified when you configured the VM.
 
-## Connect to SQL Server over the Internet
-The way to connect to a SQL Server instance is different depending on the connectivity options you selected during provisioning. The following screenshot shows three connectivity options from the portal.
 
-<br>
-**ADD IMAGE OF CONNECTIVITY DIALOG**
+## Connect to SQL Server over the internet
+If you want to connect to your SQL Server database engine from the Internet, there are several steps required, such as configuring the firewall, enabling SQL Authentication, and configuring your network security group. You must have a Network Security Group rule to allow TCP traffic on port 1433.
 
-If you selected Public, then the network security group allows incoming TCP traffic and a firewall rule permits traffic on SQL port 1433.  If you configured SQL Server authentication you can use the user and password that you specified during setup. This allows you to connect from the internet by just using the public IP address of your virtual machine and a valid SQL authentication user name and password.
+If you use the portal to provision a SQL Server virtual machine image with the resource manager, these steps were done for you when you select **Public** for the SQL connectivity option.
 
-To locate the public IP from the Azure portal...**ADD CONTENT AND PICTURES**
->[AZURE.NOTE] Connections to SQL Server over the internet require SQL Server authentication.
+> [AZURE.INCLDE [Configure a Network Security Group inbound rule for the VM](../../includes/virtual-machines-sql-server-connection-steps-resource-manager-nsg-rule.md)]
 
-**ADD PICTURES OF HOW TO CONNECT WITH SSMS**
+> [AZURE.INCLUDE [Connect to SQL Server in a VM Resource Manager](../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
+
+For more information about connecting to SQL Server on a virtual machine in Azure resource model, see [Connect to a SQL Server Virtual Machine (Resource Manager)](virtual-machines-sql-server-connectivity-resource-manager).
 
 ## Next Steps
 You have now successfully implemented SQL Server AlwaysOn by creating an availability group in Azure. To configure a listener for this availability group, see [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
