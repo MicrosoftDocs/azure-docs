@@ -22,11 +22,12 @@ This guide is intended to help IT professionals understand and use the various S
 
 ##Overview
 
-[sloppy, work in progress]
+desc
 
-[Managing Applications with Azure Active Directory (AD)](active-directory-enable-sso-scenario.md)
-
-[Integrating Azure Active Directory with applications getting started guide](active-directory-integrating-applications-getting-started.md)
+| Article Guide |   |
+| :---: | --- |
+| s | [Managing Applications with Azure Active Directory (AD)](active-directory-enable-sso-scenario.md) |
+| A roadmap for how to  | [Integrating Azure Active Directory with applications](active-directory-integrating-applications-getting-started.md) |
 
 [Integrate Azure Active Directory (Azure AD) single sign-on with SaaS apps](active-directory-sso-integrate-saas-apps.md)
 
