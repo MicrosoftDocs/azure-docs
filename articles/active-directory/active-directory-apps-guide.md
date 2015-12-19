@@ -24,7 +24,7 @@ This page offers a brief introduction to each major feature area and provides a 
 
 ##Overview
 
-The articles below are good starting points for those who simply want a breif overview of Azure AD's app management features.
+The articles below are good starting points for those who simply want a brief overview of Azure AD's app management features.
 
 | Article Guide |   |
 | :---: | --- |
@@ -165,6 +165,10 @@ Azure Active Directory provides several reports and alerts to help you monitor y
 
 ##See Also
 
-[List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
+[What is Azure Active Directory?](active-directory-whatis.md)
 
-[Azure Active Directory Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview)
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
+
+[Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
+
+[Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
