@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/15/2015" 
 	ms.author="rasquill"/>
 
 #How to Use SSH with Linux and Mac on Azure
@@ -89,7 +89,7 @@ Once you've created the files you need, there are many ways to create a VM to wh
 
 ### Example: Creating a VM with the id_rsa.pub file
 
-The most common usage is when imperatively creating a VM -- or uploading a template to create a VM. The following code example shows creating a new, secure Linux VM in Azure by passing the public file name (in this case, the default `~/.ssh/id_rsa` file) to the `azure vm create` command. (The other arguments were previously created.)
+The most common usage is when imperatively creating a VM -- or uploading a template to create a VM. The following code example shows creating a new, secure Linux VM in Azure by passing the public file name (in this case, the default `~/.ssh/id_rsa.pub` file) to the `azure vm create` command. (The other arguments were previously created.)
 
 	azure vm create \
 	--nic-name testnic \
@@ -99,7 +99,7 @@ The most common usage is when imperatively creating a VM -- or uploading a templ
 	--storage-account-name computeteststore 
 	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
 	--username ops \
-	-ssh-publickey-file ~/.ssh/id_rsa \
+	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
 
 The next example shows the use of the **ssh-rsa** format with a Resource Manager template and the Azure CLI to create an Ubuntu VM that is secured by a username and the contents of the `~/.ssh/id_rsa.pub` as a string. (In this case, the public key string is shortened to be more readable.) 
@@ -267,7 +267,7 @@ If you created a VM using a .pem file created from your `~/.ssh/id_rsa` file, yo
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
 	Saving password to keychain failed
-	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
+	Identity added: /Users/user/.ssh/id_rsa.pub (/Users/user/.ssh/id_rsa.pub)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
 
 	* Documentation:  https://help.ubuntu.com/
