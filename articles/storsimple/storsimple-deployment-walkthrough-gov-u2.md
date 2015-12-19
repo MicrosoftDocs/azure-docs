@@ -15,7 +15,7 @@
    ms.date="12/09/2015"
    ms.author="v-sharos" />
 
-# Deploy your on-premises StorSimple device in the Government Portal
+# Deploy your on-premises StorSimple device in the Government Portal (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
