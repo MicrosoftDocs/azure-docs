@@ -220,16 +220,16 @@ Select a new VM size to allocate. If this does not work, please try again later.
 ### Error string lookup
 **New_VMSizeNotSupported***
 
-The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, relax constraints such as virtual network bindings, deploy to a hosted service with no other deployment in it, deploy to a different affinity group or with no affinity group, or deploy to a different region.
+"The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."
 
 **New_General***
 
-Allocation failed. Unable to satisfy constraints in the request. The requested new service deployment is bound to an affinity group, or it targets a virtual network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or reduce the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or deploy to a different region.
+"Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an affinity group, or it targets a virtual network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
 **Upgrade_VMSizeNotSupported***
 
-Unable to upgrade the deployment. The requested VM size may not be available in the resources that support the existing deployment. Please try again later, try with a different VM size or smaller number of role instances, or create a deployment under an empty hosted service with a new affinity group or no affinity group binding.
+"Unable to upgrade the deployment. The requested VM size XXX may not be available in the resources supporting the existing deployment. Please try again later, try with a different VM size or smaller number of role instances, or create a deployment under an empty hosted service with a new affinity group or no affinity group binding."
 
 **GeneralError***
 
-The server encountered an internal error. Please retry the request.
+"The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
