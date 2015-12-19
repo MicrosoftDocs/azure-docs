@@ -142,21 +142,30 @@ If your business has partnered with other companies, it's likely that you need t
 | A deeper dive into Azure AD B2B Preview and how to use it | [Azure AD B2B Preview: How it works](active-directory-b2b-how-it-works.md)<br /><br />[Current Limitations of Azure AD B2B Preview](active-directory-b2b-current-preview-limitations.md)<br /><br />[Detailed walkthrough of using Azure AD B2B Preview](active-directory-b2b-detailed-walkthrough.md) |
 | Reference articles with technical details on how Azure AD B2B Preview works | [CSV File Format for Adding Partner Users](active-directory-b2b-references-csv-file-format.md)<br /><br />[User Attributes Affected by Azure AD B2B Preview](active-directory-b2b-references-external-user-object-attribute-changes.md)<br /><br />[User Token Format for Partner Users](active-directory-b2b-references-external-user-token-format.md) |
 
-##Access Panel: A Portal for Users to Access Apps and More
+##Access Panel: A Portal for Accessing Apps and Self-Service Features
 
-[sloppy, work in progress]
+The Azure AD Access Panel is where end-users can launch their apps, access self-service features, and perform delegated app/group-management responsibilities. In addition to Access Panel, other options for accessing SSO-enabled apps include: simply launching the apps directly, using the Office 365 App Launcher, using the Intune Managed Browser mobile app, or using app-specific deep links provided by Azure AD. 
 
-[Introduction to Access Panel](active-directory-saas-access-panel-introduction.md)
+| Article Guide |   |
+| :---: | --- |
+| A comparison of the different options available for deploying single sign-on apps to users | [Deploying Azure AD Integrated Applications to Users](active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users) |
+| An overview of the Access Panel and its mobile equivalent MyApps | [Introduction to Access Panel and MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| How to access Azure AD apps from the Office 365 website | [Using the Office 365 App Launcher](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
+| How to access Azure AD apps from the Intune Managed Browser mobile app | [Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| How to access Azure AD apps using deep links to initiate single sign-on | [Getting Direct Sign-On Links to Your Apps](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
-##Reporting (needs better headline)
+##Reports: Easily Monitor App Sign-Ins and Audit App Access Changes 
 
-[sloppy, work in progress]
+Azure Active Directory provides several reports and alerts to help you monitor your organization's access to applications. You can receive alerts for anomalous sign-ins to your apps, and you can track when and why a users' access to an application has changed.
 
-something about reports related to managing apps, sign ins to apps, security reports
+| Article Guide |   |
+| :---: | --- |
+| An overview of the reporting features in Azure Active Directory | [Getting Started with Azure AD Reporting](active-directory-reporting-getting-started.md) |
+| How to monitor the sign-ins and app-usage of your users | [View Your Access and Usage Reports](active-directory-view-access-usage-reports.md)<br /><br />[Azure Active Directory All User Sign In Activity Report](active-directory-reporting-all-user-sign-in-activity-report.md) |
+| Track changes made to who can access a particular application | [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md) |
+| Export the data of these reports to your preferred tools using the Reporting API | [Getting Started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md) |
 
-[Getting started with Azure AD Reporting](active-directory-reporting-getting-started.md)
 
-[Getting started with the Azure AD Reporting API](active-directory-reporting-api-getting-started.md)
 
 ##See Also
 
