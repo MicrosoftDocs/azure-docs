@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="12/18/2015"
 	ms.author="liviodlc"/>
 
 #SaaS App Management Guide for Azure Active Directory
@@ -24,7 +24,7 @@ This page offers a brief introduction to each major feature area and provides a 
 
 ##Overview
 
-The articles below are good starting points for those who simply want a brief overview of Azure AD's app management features.
+The articles below are good starting points for those who simply want a brief explanation of Azure AD's app management features. These topics are explored at depth throughout the rest of this guide.
 
 | Article Guide |   |
 | :---: | --- |
@@ -46,9 +46,9 @@ Cloud App Discovery helps IT departments learn which SaaS apps are being used th
 | Tutorials for deploying Cloud App Discovery | [Group Policy Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[System Center Deployment Guide](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Installing on Proxy Servers with Custom Ports](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
 | The change log for updates to the Cloud App Discovery agent | [Change log](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
 
-##Federated Single Sign-On (SSO): Sign Into Apps Using Azure AD Accounts
+##Federated Single Sign-On (SSO): Sign Into Many Apps Using One Identity
 
-Single sign-on allows users to access a variety of apps and services using only one account. Federation is one method through which you can enable single sign-on. When users attempt to sign into federated apps, they will get redirected to their organization's official sign-in page rendered by Azure Active Directory, and are then redirected back to the app upon successful authentication.
+Single sign-on allows users to access a variety of apps and services using only one set of credentials. Federation is one method through which you can enable single sign-on. When users attempt to sign into federated apps, they will get redirected to their organization's official sign-in page rendered by Azure Active Directory, and are then redirected back to the app upon successful authentication.
 
 | Article Guide |   |
 | :---: | --- |
@@ -152,7 +152,7 @@ The Azure AD Access Panel is where end-users can launch their apps, access self-
 | How to access Azure AD apps from the Intune Managed Browser mobile app | [Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | How to access Azure AD apps using deep links to initiate single sign-on | [Getting Direct Sign-On Links to Your Apps](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
-##Reports: Easily Monitor App Sign-Ins and Audit App Access Changes 
+##Reports: Easily Monitor App Sign-Ins and Audit Changes in App Access
 
 Azure Active Directory provides several reports and alerts to help you monitor your organization's access to applications. You can receive alerts for anomalous sign-ins to your apps, and you can track when and why a users' access to an application has changed.
 
