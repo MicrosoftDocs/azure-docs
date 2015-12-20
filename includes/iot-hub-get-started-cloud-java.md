@@ -227,13 +227,6 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
 
 [lnk-eventhubs-tutorial]: event-hubs-csharp-ephcs-getstarted.md
 [lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
-[lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-event-hubs-overview]: event-hubs-overview.md
-
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-<!-- Images -->
-[10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
-[11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
-[12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
