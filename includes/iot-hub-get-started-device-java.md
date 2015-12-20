@@ -145,7 +145,9 @@ In this section, you'll create a Java console app that simulates a device that s
     }
     ```
 
-12. To build the **simulated-device** application using Maven, execute the following command at the command-prompt in the simulated-device folder:
+12. Save and close the App.java file.
+
+13. To build the **simulated-device** application using Maven, execute the following command at the command-prompt in the simulated-device folder:
 
     ```
     mvn clean package -DskipTests

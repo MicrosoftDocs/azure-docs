@@ -1,7 +1,3 @@
-TODO - Need some prereqs that specify Java version and Maven install instructions.
-TODO - Make sure the setup instructions include info about EH connection details.
-
-
 ## Create a device identity
 
 In this section, you'll create a Java console app that creates a new device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the device identity registry. Refer to the **Device Identity Registry** section of the [IoT Hub Developer Guide][lnk-devguide-identity] for more information. When you run this console application, it generates a unique device ID and key that your device can identify itself with when it sends device-to-cloud messages to IoT Hub.
@@ -215,7 +211,9 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
 
     > [AZURE.NOTE] This code assumes you created a free IoT hub. A free IoT hub has two partitions named "0" and "1". If you created your IoT hub using one of the other pricing tiers, you must adjust the code accordingly.
 
-13. To build the **read-d2c-messages** application using Maven, execute the following command at the command-prompt in the read-d2c-messages folder:
+13. Save and close the App.java file.
+
+14. To build the **read-d2c-messages** application using Maven, execute the following command at the command-prompt in the read-d2c-messages folder:
 
     ```
     mvn clean package -DskipTests

@@ -96,11 +96,18 @@ You have now created your IoT hub and you have the IoT Hub hostname, IoT Hub con
 
 You are now ready to run the applications.
 
-1. At a command-prompt in the read-d2c folder, run the following command:
+1. At a command-prompt in the read-d2c folder, run the following command to begin monitoring your IoT hub:
 
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
+
+2. At a command-prompt in the simulated-device folder, run the following command to begin sending telemetry data to your IoT hub:
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    ```
+
 
 ## Next steps
 
