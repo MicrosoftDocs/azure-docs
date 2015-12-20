@@ -16,9 +16,9 @@
      ms.date="12/14/2015"
      ms.author="dobett"/>
 
-[AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
-
 # Tutorial: Get started with Azure IoT Hub
+
+[AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 ## Introduction
 
