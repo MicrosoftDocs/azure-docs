@@ -102,12 +102,15 @@ You are now ready to run the applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
+    ![][7]
+
 2. At a command-prompt in the simulated-device folder, run the following command to begin sending telemetry data to your IoT hub:
 
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
+    ![][8]
 
 ## Next steps
 
@@ -132,6 +135,8 @@ You can find out more about IoT Hub in the following articles:
 [4]: ./media/iot-hub-java-java-getstarted/create-iot-hub4.png
 [5]: ./media/iot-hub-java-java-getstarted/create-iot-hub5.png
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
+[7]: ./media/iot-hub-java-java-getstarted/runapp1.png
+[8]: ./media/iot-hub-java-java-getstarted/runapp2.png
 
 <!-- Links -->
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/doc/devbox_setup.md
