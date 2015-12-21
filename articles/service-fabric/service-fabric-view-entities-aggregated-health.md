@@ -1,6 +1,6 @@
 <properties
-   pageTitle="How to View Azure Service Fabric entities aggregated health | Microsoft Azure"
-   description="Describes how to query, view and evaluate the Azure Service Fabric entities aggregated health, through health queries and general queries."
+   pageTitle="How to view Azure Service Fabric entities' aggregated health | Microsoft Azure"
+   description="Describes how to query, view, and evaluate the Azure Service Fabric entities' aggregated health, through health queries and general queries."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -16,16 +16,16 @@
    ms.date="10/23/2015"
    ms.author="oanapl"/>
 
-# How to view Service Fabric health reports
-Service Fabric introduces a [Health Model](service-fabric-health-introduction.md) comprised of health entities on which System components and watchdogs can report local conditions they are monitoring. The [Health Store](service-fabric-health-introduction.md#health-store) aggregates all health data to determine whether entities are healthy.
+# View Service Fabric health reports
+Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) comprised of health entities on which system components and watchdogs can report local conditions they are monitoring. The [health store](service-fabric-health-introduction.md#health-store) aggregates all health data to determine whether entities are healthy.
 
-Out of the box, the cluster is populated with health reports sent by the System components. Read more at [Using System health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+Out of the box, the cluster is populated with health reports sent by the system components. Read more at [Use System health reports to troubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
 Service Fabric provides multiple ways to get the entities aggregated health:
 
 - [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools
 
-- Health queries (through Powerhsell/API/REST)
+- Health queries (through PowerShell, the API,and REST)
 
 - General queries that return a list of entities that have health as one of the properties (through Powershell/API/REST)
 
@@ -837,4 +837,3 @@ Whenever there is an issue in the cluster or an application, look at the cluster
 [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Service Fabric Application Upgrade](service-fabric-application-upgrade.md)
- 
