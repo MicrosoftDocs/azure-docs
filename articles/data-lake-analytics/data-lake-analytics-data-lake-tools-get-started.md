@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/02/2015"
+   ms.date="12/21/2015"
    ms.author="jgao"/>
 
 # Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
@@ -26,10 +26,10 @@ Learn how to install Data Lake Tools for Visual Studio, and use Data Lake Tools 
 U-SQL is a hyper-scalable, highly extensible language for preparing, transforming and analyzing all data in the data lake and beyond. For more information, see [U-SQL Reference] (http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 
-**Prerequisites**
+###Prerequisites
 
 - **Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed** 
-- **Microsoft Azure SDK for .NET version 2.7 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
+- **Microsoft Azure SDK for .NET version 2.7.1 or above**.  Install it using the [Web platform installer](http://www.microsoft.com/web/downloads/platform.aspx).
 - **[Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)**. 
 
     Once Data Lake Tools for Visual Studio is installed, you will see a Data Lake menu in Visual Studio:
@@ -41,21 +41,16 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 	- [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 	- [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
-	The Data Lake Tools doesn't support creating Data Lake Analytics accounts.  So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
+	The Data Lake Tools doesn't support creating Data Lake Analytics accounts. So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow. 
 
 ## Connect to Azure
 
 **To connect to Data Lake Analytics**
 
 1. Open Visual Studio.
-2. From the **U-SQL** menu, click **Options and Settings**.
-4. Click **Sign In**, or **Change User** if someone has signed in, and follow the instructions to sign in.
-5. Click **OK** to close the Options and Settings dialog.
-
-**To browse your Data Lake Analytics accounts**
-
-1. From Visual Studio, open **Server Explorer** by press **CTRL+ALT+S**.
-2. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analytics accounts from Visual Studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](knoa-get-started-powershell.md).
+2. From the **View** menu, click **Server Explorer** to open Server Explorer. Or press **[CTRL]+[ALT]+S**.
+3. Right-click **Azure**, click "Connect to Microsoft Azure Subscription", and then follow instructions.
+4. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analytics accounts from Visual Studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics--get-started-powershell.md).
 
 ## Upload source data files
 
@@ -131,6 +126,13 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 		 
 		IntelliSense for catalog entities (Databases, Schemas, Tables, UDOs etc.) is related to your compute account. You can check the current active compute account, database and schema in the top toolbar, and switch them through the dropdown lists. 
  
+    - **Expand * columns**
+
+        Click the right of *, you shall see a blue underline beneath the *. Hover your mouse cursor on the blue underline, and then click the down arrow.
+    	![Data Lake visual studio tools expand *](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-expand-asterisk.png)
+
+        Click **Expand Columns**, the tool will replace the * with the column names.
+    
 	- **Auto Format** 
 	
 		Users can change the indentation of the Scope script based on the code structure under Edit->Advanced:
@@ -208,7 +210,7 @@ Using the U-SQL local run experience in Visual Studio, you can:
 
 - Run U-SQL scripts locally, along with C# Assemblies. 
 - Debug C# assemblies locally. 
-- View local tables, assemblies in Server Explorer just as you can do for Azure Data Lake Analytics service. 
+- Create/delete/view local databases, assemblies, schemas, and tables in Server Explorer just as you can do for Azure Data Lake Analytics service. 
 
 You will see a *Local* account in Visual Studio, and the installer creates a *DataRoot* folder located *C:\LocalRunRoot*. The DataRoot folder will be used:
 
@@ -267,12 +269,6 @@ The following procedure only works in Visual Studio 2015. In older Visual Studio
  
 
 
-
-
-
-
-
-
 ##See also
 
 To get started with Data Lake Analytics using different tools, see:
@@ -287,4 +283,76 @@ To see more development topics:
 - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
 - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-user-defined-operators.md)
+
+##Appendix A
+
+The following PowerShell script prepares an Azure Data Lake Analytics account and the source data for you, So you can skip to [Develop U-SQL scipts](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
+
+    #region - used for creating Azure service names
+    $nameToken = "jgao" #"<Enter an alias>" 
+    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+    #endregion
+
+    #region - service names
+    $resourceGroupName = $namePrefix + "rg"
+    $dataLakeStoreName = $namePrefix + "adas"
+    $dataLakeAnalyticsName = $namePrefix + "adla"
+    $location = "East US 2"
+    #endregion
+
+
+    # Treat all errors as terminating
+    $ErrorActionPreference = "Stop"
+
+    #region - Connect to Azure subscription
+    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    try{Get-AzureRmContext}
+    catch{Login-AzureRmAccount}
+    #endregion
+
+    #region - Create an Azure Data Lake Analytics service account
+    Write-Host "Create a resource group ..." -ForegroundColor Green
+    New-AzureRmResourceGroup `
+        -Name  $resourceGroupName `
+        -Location $location
+
+    Write-Host "Create a Data Lake account ..."  -ForegroundColor Green
+    New-AzureRmDataLakeStoreAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $dataLakeStoreName `
+        -Location $location 
+
+    Write-Host "Create a Data Lake Analytics account ..."  -ForegroundColor Green
+    New-AzureRmDataLakeAnalyticsAccount `
+        -Name $dataLakeAnalyticsName `
+        -ResourceGroupName $resourceGroupName `
+        -Location $location `
+        -DefaultDataLake $dataLakeStoreName
+
+    Write-Host "The newly created Data Lake Analytics account ..."  -ForegroundColor Green
+    Get-AzureRmDataLakeAnalyticsAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $dataLakeAnalyticsName  
+    #endregion
+
+    #region - prepare the source data
+    Write-Host "Import the source data ..."  -ForegroundColor Green
+    $localFolder = "C:\Tutorials\Downloads\" # A temp location for the file. 
+    $storageAccount = "adltutorials"  # Don't modify this value.
+    $container = "adls-sample-data"  #Don't modify this value.
+
+    # Create the temp location  
+    New-Item -Path $localFolder -ItemType Directory -Force 
+
+    # Download the sample file from Azure Blob storage
+    $context = New-AzureStorageContext -StorageAccountName $storageAccount -Anonymous
+    $blobs = Azure\Get-AzureStorageBlob -Container $container -Context $context
+    $blobs | Get-AzureStorageBlobContent -Context $context -Destination $localFolder
+
+    # Upload the file to the default Data Lake Store account    
+    Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path $localFolder"SearchLog.tsv" -Destination "/Samples/Data/SearchLog.tsv"
+
+    Write-Host "List the source data ..."  -ForegroundColor Green
+    Get-AzureRmDataLakeStoreChildItem -Account $dataLakeStoreName -Path  "/Samples/Data/"
+    #endregion
 
