@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="12/14/2015"
-   ms.author="telmos,sivae" />
+   ms.author="telmos" />
 
 # IP addresses in Azure Resource Manager
 IP addresses are assigned to Azure resources to allow communication with other Azure resources, on-premises network, and the Internet. There are two types of IP addresses you can use in Azure - public and private.
