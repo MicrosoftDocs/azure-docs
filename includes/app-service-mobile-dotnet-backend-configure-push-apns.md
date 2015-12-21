@@ -50,9 +50,11 @@
 
 	4. Republish the server project.
 
-+ **Node.js backend** :  
++ **Node.js backend** : 
+   
+	1. If you haven't already done so, [download the quickstart project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).	
 	
-	1. Replace the todoitem.js table script with the following code:
+	2. Replace the todoitem.js table script with the following code:
 
 
 	        var azureMobileApps = require('azure-mobile-apps'),
