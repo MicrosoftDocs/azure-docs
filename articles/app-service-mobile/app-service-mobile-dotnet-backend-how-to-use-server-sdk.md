@@ -203,8 +203,15 @@ The custom API controller provides the most basic functionality to your Mobile A
 
 Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it may not be correctly consumed by clients using any Mobile App client SDK. 
 
+## Work with authentication
 
-## How to: Add authentication to a server project
+Mobile Apps uses the facilities of App Service authentication and ASP.NET to simply the process of enabling authentication for your apps. This section shows you how to perform the following authentication-related tasks in your .NET backend server project:
+
++ [How to: Add authentication to a server project](#add-auth) 
++ [How to: Use custom authentication for your application](#custom-auth) 
++ [How to: Retrieve authenticated user information](#user-info)
+
+### <a name="add-auth"></a>How to: Add authentication to a server project
 
 You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip to step 3.
 
@@ -220,7 +227,7 @@ You can add authentication to your server project by extending the **MobileAppCo
 
 To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-ios-get-started-users.md).
 
-## <a name="custom-auth"></a>How to: Use custom authentication for your application
+### <a name="custom-auth"></a>How to: Use custom authentication for your application
 
 You can choose to provide your own login system if you do not wish to use one of the App Service Authentication/Authorization providers. To do so, install the [Microsoft.Azure.Mobile.Server.Login] package.
 
@@ -263,6 +270,22 @@ In the above, LoginResult and LoginResultUser are just simple objects exposing t
 The `MobileAppLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing the _WEBSITE_AUTH_SIGNING_KEY_ environment variable. If needed in a local debugging context, follow the instructions in the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
 
 You also need to provide a lifetime for the issued token, as well as any claims you would like included. It is required that you provide a subject claim, as shown in the example code.
+
+###<a name="user-info"></a>How to: Retrieve authenticated user information
+
+When a user 
+
+    // Get the current user SID and create a tag for the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+    string userTag = "_UserId:" + sid;
+
+We have also removed a few extraneous types, such as MobileAppUser (recently renamed to AppServiceUser). This class really only provided the GetIdentityAsync() method, and meant you had do an explicit cast. Now, we've moved GetIdentityAsync() to be an extension method on IPrincipal, so you can just write:
+
+	ProviderCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>(this.Request);
+
+Just make sure to include a "using System.Security.Principal;" statement so the extension method shows up appropriately.
+
 
 ## How to: Add push notifications to a server project
 

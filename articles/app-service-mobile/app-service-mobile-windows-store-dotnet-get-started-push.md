@@ -103,6 +103,8 @@ Now that push notifications are enabled in the app, you must update your app bac
 	
 	This code tells the notification hub to send a push notification after a new item is insertion.
 
+4. Republish the server project.
+
 ### <a name="nodejs"></a>Node.js backend project
 
 1. If you haven't already done so, [download the quickstart project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
@@ -152,10 +154,6 @@ Now that push notifications are enabled in the app, you must update your app bac
 	This sends a WNS toast notification that contains the item.text when a new todo item is inserted.
 
 2. When editing the file in your local computer, republish the server project. 
-
-## <a name="publish-the-service"></a>Publish the mobile backend to Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##<a id="update-service"></a>Add push notifications to your app
 
