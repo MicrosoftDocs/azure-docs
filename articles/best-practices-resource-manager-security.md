@@ -23,8 +23,7 @@ When looking at aspects of security for your Azure Resource Manager templates, t
 and network security groups.
 
 This topic assumes you are familiar with Role-Based Access Control (RBAC) in Azure Resource Manager. For more information, see 
-[Role-based access control in the Microsoft Azure portal](role-based-access-control-configure.md) and 
-[Managing and Auditing Access to Resources](resource-group-rbac.md) 
+[Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). 
 
 This topic is part of a larger whitepaper. To read the full paper, download [World Class ARM Templates Considerations and Proven Practices](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 

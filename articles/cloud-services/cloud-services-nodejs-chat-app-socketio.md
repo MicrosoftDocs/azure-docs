@@ -13,12 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/18/2015" 
 	ms.author="tarcher"/>
-
-
-
-
 
 # Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service
 
