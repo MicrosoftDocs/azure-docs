@@ -21,7 +21,7 @@ Runbook input parameters increase the flexibility of runbooks by allowing you to
 
 ## Configuring input parameters
 
-Input parameters can be configured in PowerShell, PowerShell Workflow, and Graphical runbooks. A runbook can have multiple parameters with different data types, or no parameters at all. Input parameters can be mandatory or optional, and you can assign a default value for optional parameters. The input parameters configured for a runbook can have values assigned when you start a runbook through any of the methods available. This includes starting a runbook through the UI, webhooks, web service, or as a child runbook called inline in another runbook. 
+Input parameters can be configured in PowerShell, PowerShell Workflow, and Graphical runbooks. A runbook can have multiple parameters with different data types, or no parameters at all. Input parameters can be mandatory or optional, and you can assign a default value for optional parameters. The input parameters configured for a runbook can have values assigned when you start a runbook through any of the methods available, this includes starting a runbook through the UI, webhooks, web service, or as a child runbook called inline in another runbook. 
 
 ## Configuring input parameters in PowerShell and PowerShell Workflow runbooks
 
@@ -38,6 +38,7 @@ Windows PowerShell supports more attributes of input parameters than the ones li
 
 A parameter definition in PowerShell Workflow runbooks has the following general form, where multiple parameters are separated by comma.
 
+```
      Param
      (
          [Parameter (Mandatory= $true/$false)]
@@ -46,7 +47,7 @@ A parameter definition in PowerShell Workflow runbooks has the following general
          [Parameter (Mandatory= $true/$false)]
          [Type] Name2 = <Default value>
      ) 
-
+```
 
 >[AZURE.NOTE] When defining parameters, if you don’t specify the **Mandatory** attribute, then by default, the parameter is considered optional. Also if you set a default value for a parameter in PowerShell workflow runbooks, then it will be treated by PowerShell as an optional parameter, irrespective of the **Mandatory** attribute value.
 
@@ -75,7 +76,7 @@ To configure a graphical runbook with input parameters, let’s create a [Graphi
 
 You can use the [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) activity to output the names of virtual machines. The activity **Get-AzureVM** will accept two parameters: the **virtual machine name** and the **service account name**. Since these parameters could require different values each time you start the runbook, you can add input parameters to your runbook. Here are the steps to add input parameters:
 
-1. Select the graphical runbook from the **Runbooks** blade and [edit](automation-graphical-authoring-intro) it. 
+1. Select the graphical runbook from the **Runbooks** blade and [edit](automation-graphical-authoring-intro.md) it. 
 
 2. From the **Edit** blade, click **Input and output** to open the **Input and Output** blade.
 
@@ -150,7 +151,7 @@ In the label beneath the input textbox you can see attributes set for the parame
 
     Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
 
->[AZURE.NOTE] When you start a runbook using PowerShell cmdlets, along with the inputs parameters that you passed, a default parameter, “MicrosoftApplicationManagementStartedBy,” is created with the value “PowerShell.” You can view this parameter in the Job details blade.
+>[AZURE.NOTE] When you start a runbook using PowerShell cmdlets, along with the inputs parameters that you passed, a default parameter, **MicrosoftApplicationManagementStartedBy** is created with the value **PowerShell**. You can view this parameter in the Job details blade.
 
 #### Start a runbook using the SDK and assign parameters
 
@@ -196,6 +197,7 @@ In the label beneath the input textbox you can see attributes set for the parame
 
 To start this method, create a dictionary to store the runbook parameters, VMName and ServiceName, and their values, and start the runbook. Below is the C# code snippet to call the above defined method.
 
+```
     IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
 
     // Add parameters to the dictionary.
@@ -204,7 +206,7 @@ To start this method, create a dictionary to store the runbook parameters, VMNam
 
     //Call the StartRunbook method with parameters
     StartRunbook(“Get-AzureVMGraphical”, RunbookParameters);
-
+```
 
 #### Start a runbook using the REST API and assign parameters
 
@@ -214,18 +216,19 @@ A runbook job can be created and started with the Azure Automation REST API usin
 
 In the Request URI, replace the following parameters:
  
-a. subscription-id: Your Azure subscription ID.
-b. cloud-service-name: Name of the cloud service to which request should be sent.
-c. automation-account-name: Name of your automation account hosted within the specified cloud service.
+a. subscription-id: Your Azure subscription ID.  
+b. cloud-service-name: Name of the cloud service to which request should be sent.  
+c. automation-account-name: Name of your automation account hosted within the specified cloud service.  
 d. job-id: The GUID for the job. GUID in PowerShell can be created using **[GUID]::NewGuid().ToString()** cmdlet.
 	
 In order to pass parameters to the runbook job, use the request body, and it takes two properties provided in JSON format:
 
-a. Runbook Name – Required. Name of the runbook for the job to start.
+a. Runbook Name – Required. Name of the runbook for the job to start.  
 b. Runbook Parameters – Optional. A dictionary of the parameter list in (name, value) format where name should be of String type and value can be any valid JSON value. 
 
 If you want to start the **Get-AzureVMTextual** runbook created earlier with VMName and ServiceName as parameters, use the following JSON format for the request body. 
 
+```
         {
            "properties":{
            "runbook":{
@@ -237,12 +240,13 @@ If you want to start the **Get-AzureVMTextual** runbook created earlier with VMN
            }
           }
        }
+```
 
 An HTTP status code 201 is returned if the job is successfully created, for more information on response headers and response body, please refer to [create a runbook job using REST API](https://msdn.microsoft.com/library/azure/mt163849.aspx).
 
 ### Test a runbook and assign parameters
 
-When you [test the draft version of your runbook](automation-testing-runbook.md) using the test option, the **Test** blade opens where you can configure values for the parameters you just created. 
+When you [test](automation-testing-runbook.md) the draft version of your runbook using the test option, the **Test** blade opens where you can configure values for the parameters you just created. 
 
 ![Test And Assign Parameters](media/automation-runbook-input-parameters/automation_06_TestAndAssignParameters.png)
 
@@ -258,7 +262,7 @@ You can create a [webhook](automation-webhooks.md) for your runbook and configur
 
 ![Create Webhook and Assign parameters](media/automation-runbook-input-parameters/automation_08_CreateWebhookAndAssignParameters.png)
 
-When you execute a runbook using [webhook](automation-webhooks.md), a predefined input parameter **[Webhookdata](automation-webhooks.md#details-of-a-webhook)** is sent along with the input parameters that you defined. You can click to expand the WebhookData parameter for more details.
+When you execute a runbook using webhook, a predefined input parameter **[Webhookdata](automation-webhooks.md#details-of-a-webhook)** is sent along with the input parameters that you defined. You can click to expand the WebhookData parameter for more details.
 
 ![WebhookData Parameter](media/automation-runbook-input-parameters/automation_09_WebhookDataParameter.png)
 
