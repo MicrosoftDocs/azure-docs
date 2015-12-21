@@ -3,7 +3,7 @@
 	description="Create an SQL Server virtual machine in Azure Resource Manager mode. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines"
 	documentationCenter="na"
-	authors="mikeray","rothja","ninarn"
+	authors="mikerayMSFT","rothja","ninarn"
     editor="monicar"
 	manager="jeffreyg"
 	tags="azure-service-management" />
