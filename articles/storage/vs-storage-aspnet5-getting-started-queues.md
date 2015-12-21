@@ -62,7 +62,7 @@ To access queues in ASP.NET 5 projects, you need to include the following items 
 4. Get a **CloudQueue** object to reference a specific queue.
 
     	// Get a reference to a table named "messageQueue"
-	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
+	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
 **NOTE:** Use all of the above code in front of the code in the following samples.
