@@ -23,7 +23,7 @@
 Azure Service Fabric simplifies the process of upgrading cloud applications by ensuring that only changed services are upgraded, and that application health is monitored throughout the upgrade process. It also automatically rolls back the application to the previous version if it encounters any issues. Service Fabric application upgrades are *Zero Downtime*, since the application can be upgraded with no downtime. This tutorial covers how to complete a simple rolling upgrade from Visual Studio.
 
 
-## Step 1: Build and Publish the Visual Objects sample
+## Step 1: Build and publish the Visual Objects sample
 
 These steps can be taken by downloading the application from GitHub, and then adding the **webgl-utils.js** and **gl-matrix-min.js** files into the project as mentioned in the sample's readme file. Without that, the application will not work. After adding these to the project, build and publish the application by right-clicking on the application project, **VisualObjectsApplication**, and then selecting the **Publish** command in the Service Fabric menu item as follows.
 
