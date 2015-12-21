@@ -206,7 +206,7 @@ If you want to connect to your SQL Server database engine from the Internet, the
 
 If you use the portal to provision a SQL Server virtual machine image with the resource manager, these steps were done for you when you select **Public** for the SQL connectivity option. However, there are a few remaining steps to complete to access your SQL Server instance over the internet.
 
->[AZRURE.NOTE] If you did not select Public during provisioning, then additional steps are required to access your SQL Server instance over the internet. For more information, see  [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md).
+>[AZURE.NOTE] If you did not select Public during provisioning, then additional steps are required to access your SQL Server instance over the internet. For more information, see  [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md).
 
 The following steps are not required if you only need to access your Virtual Machine locally or from within the same Virtual Network.
 
