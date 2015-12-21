@@ -23,7 +23,7 @@ This article will explain how to backup and restore an app with RESTful API requ
 
 <a name="gettingstarted"></a>
 ## Getting Started
-To send REST requests, you will need to know your app’s **name**, **resource group**, and **subscription id**. This information can be found by clicking on your app in the **App Service** blade of the [Azure preview portal](https://portal.azure.com). For the examples in this article, we will be configuring the website `backuprestoreapiexamples.azurewebsites.net`. It is stored in the Default-Web-WestUS resource group and is running on a subscription with the ID 00001111-2222-3333-4444-555566667777.
+To send REST requests, you will need to know your app’s **name**, **resource group**, and **subscription id**. This information can be found by clicking on your app in the **App Service** blade of the [Azure portal](https://portal.azure.com). For the examples in this article, we will be configuring the website `backuprestoreapiexamples.azurewebsites.net`. It is stored in the Default-Web-WestUS resource group and is running on a subscription with the ID 00001111-2222-3333-4444-555566667777.
 
 ![Sample Website Information][SampleWebsiteInformation]
 
