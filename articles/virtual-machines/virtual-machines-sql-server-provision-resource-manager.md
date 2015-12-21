@@ -68,7 +68,7 @@ In the Azure portal there are five blades for configuring a SQL Server virtual m
 1.	Configure SQL Server
 1.	Review the summary
 
-# 1. Configure basic settings
+## 1. Configure basic settings
 On the **Create Virtual Machine** blade under **Basics** provide the following information:
 
 * A unique virtual machine **Name**.
@@ -83,10 +83,10 @@ Verify that the **Location** is correct for your requirements.
 >![SQL ARM Basics](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-basic.png)
 <br/>
 
-# 2. Choose virtual machine size
+## 2. Choose virtual machine size
 On the **Create Virtual Machine** blade under **Size** choose a virtual machine size. The Azure portal will display recommended sizes. Find more information about virtual machine sizes see, [Sizes for virtual machines](virtual-machines-size-specs.md). The sizes are based on the template you selected. The size estimates the monthly cost to run the VM.  Select a VM size for your server. For considerations about SQL Server VM sizes, see [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md).
 
-# 3. Configure virtual machine settings
+## 3. Configure virtual machine settings
 On the **Create Virtual Machine** blade under **Settings**, configure Azure storage, networking and monitoring for the virtual machine.
 
 - Under **Storage** specify a disk type. Premium storage is recommended for production workloads.
@@ -101,7 +101,7 @@ On the **Create Virtual Machine** blade under **Settings**, configure Azure stor
 
 - Under **Availability set** specify an availability set. For the purposes of this tutorial, you can select **none**.  For more information, see [Manage the Availability of Virtual Machines](virtual-machines-manage-availability.md).
 
-# 4. Configure SQL Server
+## 4. Configure SQL Server
 On the **Create Virtual Machine** blade under **Configure SQL Server** configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include:
 
 - Connectivity
@@ -111,7 +111,7 @@ On the **Create Virtual Machine** blade under **Configure SQL Server** configure
 - Backups
 - Key Vault Integration
 
-## Connectivity
+### Connectivity
 Under **SQL connectivity**, specify **Public (internet)** to allow connections to SQL Server from machines or services on the internet. With this option selected, Azure will automatically configure the firewall and the network security group to allow traffic on port 1433.  
 <br/>![SQL ARM Connectivity](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-connectivity-alt.png)
 <br/>
@@ -126,7 +126,7 @@ For more information, see [Connect to a SQL Server Virtual Machine (Resource Man
 
 
 
-## Authentication
+### Authentication
 If you require SQL Server Authentication, click **Enable** under **SQL authentication**.
 
 <br/>![SQL ARM Authentication](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-authentication.png)
@@ -137,7 +137,7 @@ If you enable SQL Server Authentication specify a **Login name** and **Password*
 
 >[AZURE.NOTE] If you plan to access SQL Server over the internet (i.e. the Public connectivity option), you should enable SQL authentication here. Public access to the SQL Server requires the use of SQL Authentication.
 
-## Storage optimization
+### Storage optimization
 Click **Storage configuration** in order to specify the storage requirements. You can specify requirements as input/output operations per second (IOPS), throughput in MB/s, and total storage size. Configure these by using the sliding scales. The portal automatically calculates the number of disks based on these requirements.
 You can also optimize storage based on workload. Under **Storage optimized for**, select one of the following
 
@@ -149,7 +149,7 @@ The following image shows the Storage configuration blade.
 <br/>![SQL ARM Storage](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-storage.png)
 <br/>
 
-## Patching
+### Patching
 **SQL automated patching** is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. Specify a day of the week, time, and duration for a maintenance window. Azure will perform patching in the maintenance window. The maintenance window schedule uses the VM locale for time. If you do not want Azure to automatically patch SQL Server and the operating system click **Disable**.  
 
 <br/>![SQL ARM Patching](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-patching.png)
@@ -157,7 +157,7 @@ The following image shows the Storage configuration blade.
 
 For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-patching.md).
 
-## Backups
+### Backups
 Enable automatic database backups for all databases under **SQL automated backup**.
 When you enable SQL automated backup you can configure the following:
 
@@ -170,7 +170,7 @@ When you enable SQL automated backup you can configure the following:
 
  For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
 
-## Key Vault Integration
+### Key Vault Integration
 To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
 
 <br/>![SQL ARM Azure Key Vault Integration](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-akv.png)
@@ -191,7 +191,7 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 Review the summary and click **OK** to create SQL Server, resource group, and resources specified for this VM.
 You can monitor the deployment from the azure portal. The **Notifications** button at the top of the screen shows basic status of the deployment.
 
-# Open the virtual machine using Remote Desktop and complete setup
+## Open the virtual machine using Remote Desktop and complete setup
 Follow these steps to use Remote Desktop to open the virtual machine:
 
 1.	After the Azure VM is built, and icon for the VM will appear on the Azure dashboard. Click the icon to see information about the VM.
