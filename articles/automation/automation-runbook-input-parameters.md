@@ -41,10 +41,10 @@ A parameter definition in PowerShell Workflow runbooks has the following general
      Param
      (
          [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = \<Default value>,
+         [Type] Name1 = <Default value>,
 
          [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = \<Default value>
+         [Type] Name2 = <Default value>
      ) 
 
 
@@ -150,7 +150,7 @@ In the label beneath the input textbox you can see attributes set for the parame
 
     Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
 
->[AZURE.NOTE] When you start a runbook using PowerShell cmdlets, along with the inputs parameters that you passed, a default parameter, “MicrosoftApplicationManagementStartedBy,” is created with the value “PowerShell.” Yyou can view this parameter in the Job details blade.
+>[AZURE.NOTE] When you start a runbook using PowerShell cmdlets, along with the inputs parameters that you passed, a default parameter, “MicrosoftApplicationManagementStartedBy,” is created with the value “PowerShell.” You can view this parameter in the Job details blade.
 
 #### Start a runbook using the SDK and assign parameters
 
@@ -176,6 +176,7 @@ In the label beneath the input textbox you can see attributes set for the parame
       
 2. **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet to start a runbook in your Automation account, you can view the full code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
+```
     public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
        var response = AutomationClient.Jobs.Create(resourceGroup, automationAccount, new JobCreateParameters
@@ -191,7 +192,7 @@ In the label beneath the input textbox you can see attributes set for the parame
        });
     return response.Job;
     }
-
+```
 
 To start this method, create a dictionary to store the runbook parameters, VMName and ServiceName, and their values, and start the runbook. Below is the C# code snippet to call the above defined method.
 
