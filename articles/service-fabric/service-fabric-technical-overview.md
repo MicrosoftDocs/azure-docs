@@ -42,7 +42,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to bui
 
 **Programming models**: There are two programming models available in Service Fabric to build applications:
 
-- Reliable services: An API to build stateless and stateful services based on `StatelessService` and `StatefulService` .NET classes and store state in .NET reliable collections (dictionary and queue). They also have the ability to plug in a variety of communication stacks, such as Web API and WCF. This programming model is suitable for applications where you need to perform compute across multiple units of state.
+- Reliable services: An API to build stateless and stateful services based on `StatelessService` and `StatefulService` .NET classes and store state in .NET reliable collections (dictionary and queue). They also have the ability to plug in a variety of communication stacks, such as Web API and Windows Communication Foundation. This programming model is suitable for applications where you need to perform compute across multiple units of state.
 
 - Reliable actors: An API to build stateless and stateful objects through the virtual actor programming model that is suitable for applications with multiple independent units of state and compute.
 

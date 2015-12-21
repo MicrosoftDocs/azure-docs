@@ -38,7 +38,7 @@ Stateless microservices (protocol gateways, web proxies, etc.) do not maintain a
 
 Why are stateful microservices important? Why not simply use stateless services for everything? Two reasons:
 
-1. The ability to build high-throughput, low-latency, failure-tolerant OLTP services such as interactive store fronts, search, Internet of Things (IoT) systems, trading systems, credit card processing and fraud detection systems, personal record management, etc., by keeping code and data close on the same machine.
+1. The ability to build high-throughput, low-latency, failure-tolerant online transaction processing (OLTP) services such as interactive storefronts, search, Internet of Things (IoT) systems, trading systems, credit card processing and fraud detection systems, personal record management, etc., by keeping code and data close on the same machine.
 
 2. Application design simplification, as stateful microservices remove the need for additional queues and caches. These have traditionally been required to address the availability and latency requirements of a purely stateless application. Since stateful services are naturally high-availability and low-latency, this means fewer moving parts to manage in your application as a whole.
 
