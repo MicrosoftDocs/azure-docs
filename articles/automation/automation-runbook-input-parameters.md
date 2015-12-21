@@ -41,16 +41,14 @@ A parameter definition in PowerShell Workflow runbooks has the following general
      Param
      (
          [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+         [Type] Name1 = \<Default value>,
 
          [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
+         [Type] Name2 = \<Default value>
      ) 
 
 
->[AZURE.NOTE] When defining parameters, if you don’t specify the **Mandatory** attribute, then by default, the parameter is considered optional.  
-
->[AZURE.NOTE] If you set a default value for a parameter in PowerShell workflow runbooks, then it will be treated by PowerShell as an optional parameter, irrespective of the **Mandatory** attribute value.
+>[AZURE.NOTE] When defining parameters, if you don’t specify the **Mandatory** attribute, then by default, the parameter is considered optional. Also if you set a default value for a parameter in PowerShell workflow runbooks, then it will be treated by PowerShell as an optional parameter, irrespective of the **Mandatory** attribute value.
 
 As an example, let’s configure the input parameters for a PowerShell Workflow runbook that outputs details about virtual machines – either a single VM or all VMs within a service. This runbook has two parameters: the name of virtual machine and the name of service as seen in the screenshot below.
 
@@ -94,7 +92,7 @@ You can use the [**Write-Output**](https://technet.microsoft.com/library/hh84992
     | Mandatory | Optional. Specifies whether a value must be provided for the parameter. If you choose **yes**, then a value must be provided when the runbook is started. If you choose **no**, then a value is not required when the runbook is started, and a default value may be set. |
     | Default Value | Optional. Specifies a value that will be used for the parameter if a value is not passed in when the runbook is started. A default value can be set for a parameter which is not mandatory. You can choose **Custom** to set a default value. This value is used unless another value is provided when the runbook is started. Choose **None** if you don’t want to provide any default value. |  
 
-    ![AddNewInput](media/automation-runbook-input-parameters/ automation_03_AddNewInput.png)
+    ![AddNewInput](media/automation-runbook-input-parameters/automation_03_AddNewInput.png)
 
 4. Create two parameters with the following properties that will be used by the **Get-AzureVM** activity:
 
@@ -131,9 +129,7 @@ In the label beneath the input textbox you can see attributes set for the parame
 ![Help Baloon](media/automation-runbook-input-parameters/automation_05_HelpBaloon.png)
 
 
->[AZURE.NOTE] String type parameters support **Empty** string values.  Entering [EmptyString] in the input parameter textbox will pass an empty string to the parameter.  
-
->[AZURE.NOTE] String type parameters don’t support **Null** values being passed.  If you don’t pass any value to the string parameter, then PowerShell will interpret it as null. 
+>[AZURE.NOTE] String type parameters support **Empty** string values.  Entering **[EmptyString]** in the input parameter textbox will pass an empty string to the parameter. Also String type parameters don’t support **Null** values being passed. If you don’t pass any value to the string parameter, then PowerShell will interpret it as null. 
 
 #### Start a published runbook using PowerShell cmdlets and assign parameters
 
@@ -159,7 +155,8 @@ In the label beneath the input textbox you can see attributes set for the parame
 #### Start a runbook using the SDK and assign parameters
 
 1. **Azure Service Management method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet to start a runbook in your Automation account, you can view the full code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
-      
+
+```      
     public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
         var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -175,7 +172,7 @@ In the label beneath the input textbox you can see attributes set for the parame
         });
         return response.Job;
     }
-
+```
       
 2. **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet to start a runbook in your Automation account, you can view the full code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
