@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="12/01/2015"
 	ms.author="krisragh"/>
 
 # Enable offline sync for your iOS mobile app
@@ -88,7 +88,7 @@ The offline data sync sync feature of Azure Mobile Apps allows end users to inte
 
     The method `pullWithQuery` allows you to specify a query to filter the records you wish to retrieve. In this example, the query just retrieves all records in the remote `TodoItem` table.
 
-    The second parameter to `pullWithQuery` is a query ID that is used for *incremental sync*. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp (called `ms_updatedAt` in the local store). The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. Note that this can be potentially inefficient, since it will retrieve all records on each pull operation.
+    The second parameter to `pullWithQuery` is a query ID that is used for *incremental sync*. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp (called `updatedAt` in the local store). The query ID should be a descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. Note that this can be potentially inefficient, since it will retrieve all records on each pull operation.
 
 	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
@@ -105,9 +105,9 @@ When using the Core Data offline store, you need to define particular tables and
       * MS_TableOperations: For tracking the items that need to be synchronized with the server
       * MS_TableOperationErrors: For tracking any errors that happen during offline synchronization
       * MS_TableConfig: For tracking the last updated time for the last sync operation for all pull operations
-      * TodoItem: For storing the todo items. The system columns **ms_createdAt**, **ms_updatedAt**, and **ms_version** are optional system properties.
+      * TodoItem: For storing the todo items. The system columns **createdAt**, **updatedAt**, and **version** are optional system properties.
 
->[AZURE.NOTE] The Azure Mobile Apps SDK reserves column names that being with "**`ms_`**". You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote backend.
+>[AZURE.NOTE] The Azure Mobile Apps SDK reserves column names that being with "**``**". You should not use this prefix on anything other than system columns, otherwise your column names will be modified when using the remote backend.
 
 - When using the offline sync feature, you must define the system tables as shown below.
 
@@ -150,19 +150,16 @@ When using the Core Data offline store, you need to define particular tables and
 
     ### Data table
 
-    ![][defining-core-data-todoitem-entity]
-
     **TodoItem**
-
 
     | Attribute    |  Type   | Note                                                   |
     |-----------   |  ------ | -------------------------------------------------------|
     | id           | String, marked required  | primary key in remote store                            |
     | complete     | Boolean | todo item field                                        |
     | text         | String  | todo item field                                        |
-    | ms_createdAt | Date    | (optional) maps to __createdAt system property         |
-    | ms_updatedAt | Date    | (optional) maps to __updatedAt system property         |
-    | ms_version   | String  | (optional) used to detect conflicts, maps to __version |
+    | createdAt | Date    | (optional) maps to createdAt system property         |
+    | updatedAt | Date    | (optional) maps to updatedAt system property         |
+    | version   | String  | (optional) used to detect conflicts, maps to version |
 
 
 ## <a name="setup-sync"></a>Change the sync behavior of the app
@@ -185,20 +182,22 @@ In this section, you will modify the app so that it does not sync on app start, 
 
 ## <a name="test-app"></a>Test the app
 
+In this section, you will connect to an invalid URL to simulate an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile backend.
 
-In this section, you will turn of Wi-Fi in the simulator to create an offline scenario. When you add data items, they will be held in the local Core Data store, but not synced to the mobile backend.
+1. Change the Mobile App URL in **QSTodoService.m** to an invalid URL, and run the app again:
 
-1. Turn off Wi-Fi in the iOS simulator.
+        self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
 
 2. Add some todo items or complete some items. Quit the simulator (or forcibly close the app) and restart. Verify that your changes have been persisted.
 
 3. View the contents of the remote TodoItem table:
-   - For the JavaScript backend, to to the Management Portal, and click the Data tab to view the contents of the `TodoItem` table.
-   - For the .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.
+
+    + For a Node.js backend, go to the [Azure portal](https://portal.azure.com/), and in your Mobile App backend click **Easy Tables** > **TodoItem** to view the contents of the `TodoItem` table.
+   	+ For a .NET backend, view the table contents either with a SQL tool such as SQL Server Management Studio, or a REST client such as Fiddler or Postman.
 
     Verify that the new items have *not* been synced to the server:
 
-4. Turn on the Wi-Fi in the iOS simulator, then perform the refresh gesture by pulling down the list of items. You will see a progress spinner and the text "Syncing...".
+4. Change the URL back to the correct on in **QSTodoService.m** and rerun the app. Perform the refresh gesture by pulling down the list of items. You will see a progress spinner and the text "Syncing...".
 
 5. View the TodoItem data again. The new and changed TodoItems should now appear.
 

@@ -81,13 +81,14 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 The following example creates a new HPC Pack cluster using the
 configuration file MyConfigFile.xml, and specifies administrative
 credentials for installing the cluster.
+
 ```
-New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
-<username> –AdminPassword <password>
+New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
+
 ### Additional considerations
 
-* The script uses the HPC Pack VM image in the Azure Marketplace to create the cluster head node. The current image is based on Windows Server 2012 R2 Datacenter with HPC Pack 2012 R2 Update 2 installed.
+* The script uses the HPC Pack VM image in the Azure Marketplace to create the cluster head node. The current image is based on Windows Server 2012 R2 Datacenter with HPC Pack 2012 R2 Update 3 installed.
 
 * The script can optionally enable job submission through the HPC Pack web portal or the HPC Pack REST API.
 
@@ -449,6 +450,6 @@ extension might be stuck in the installing state.
 
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 
-* For a tutorial that uses the script to create a cluster and run an HPC workload, see [Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-excel-cluster-hpcpac) or [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
+* For tutorials that use the script to create a cluster and run an HPC workload, see [Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-excel-cluster-hpcpac), [Run NAMD with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-namd.md), or [Run OpenFOAM with Microsoft HPC Pack on Linux compute nodes in Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
 
 * Try HPC Pack's tools to start, stop, add, and remove compute nodes from a cluster you create. See [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-hpcpack-cluster-node-manage.md)

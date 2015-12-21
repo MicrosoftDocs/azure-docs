@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Create a VM with multiple NICs
@@ -64,7 +64,7 @@ At this time, multi NIC has the following requirements and constraints:
 |D11|2|
 |D12|4|
 |D13|8|
-|D14|16|
+|D14|8|
 |DS1|1|
 |DS2|2|
 |DS3|4|
@@ -72,21 +72,21 @@ At this time, multi NIC has the following requirements and constraints:
 |DS11|2|
 |DS12|4|
 |DS13|8|
-|DS14|16|
+|DS14|8|
 |D1_v2|1|
 |D2_v2|2|
 |D3_v2|4|
 |D4_v2|8|
-|D5_v2|16|
+|D5_v2|8|
 |D11_v2|2|
 |D12_v2|4|
 |D13_v2|8|
-|D14_v2|16|
+|D14_v2|8|
 |G1|1|
 |G2|2|
 |G3|4|
 |G4|8|
-|G5|16|
+|G5|8|
 |All Other Sizes|1|
 
 ## Network Security Groups (NSGs)
@@ -262,5 +262,5 @@ For Linux VMs, since the default behavior uses weak host routing, we recommend t
 
 ## Next steps
 
-- Deploy [MultiNIC VMs in a 2-tier application scenario in a Resource Manager deployment](virtual-network-deploy-multinic-arm-template).
-- Deploy [MultiNIC VMs in a 2-tier application scenario in a classic deployment](virtual-network-deploy-multinic-classic-ps).
+- Deploy [MultiNIC VMs in a 2-tier application scenario in a Resource Manager deployment](virtual-network-deploy-multinic-arm-template.md).
+- Deploy [MultiNIC VMs in a 2-tier application scenario in a classic deployment](virtual-network-deploy-multinic-classic-ps.md).

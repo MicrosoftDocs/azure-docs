@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mahender"/>
 
 # Add authentication to your Xamarin.Android app
@@ -34,9 +34,7 @@ This tutorial is based on the Mobile App quickstart. You must also first complet
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
-&nbsp;&nbsp;4.  In Visual Studio or Xamarin Studio, run the client project on a device or emulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
-
-&nbsp;&nbsp;&nbsp;&nbsp;This happens because the app attempts to access your Mobile App backend as an unauthenticated user. The *TodoItem* table now requires authentication.
+In Visual Studio or Xamarin Studio, run the client project on a device or emulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This happens because the app attempts to access your Mobile App backend as an unauthenticated user. The *TodoItem* table now requires authentication.
 
 Next, you will update the client app to request resources from the Mobile App backend with an authenticated user.
 
@@ -48,40 +46,45 @@ The app is updated to require users to tap the **Sign in** button and authentica
 
 	    // Define a authenticated user.
 	    private MobileServiceUser user;
-	    private async Task Authenticate()
+	    private async Task<bool> Authenticate()
 	    {
-	        try
-	        {
-	            // Sign in with Facebook login using a server-managed flow.
-	            user = await client.LoginAsync(this, 
-	                MobileServiceAuthenticationProvider.Facebook);
-	            CreateAndShowDialog(string.Format("you are now logged in - {0}", 
-	                user.UserId), "Logged in!");
-	        }
-	        catch (Exception ex)
-	        {
-	            CreateAndShowDialog(ex, "Authentication failed");
-	        }
+	            var success = false;
+	            try
+	            {
+	                // Sign in with Facebook login using a server-managed flow.
+	                user = await client.LoginAsync(this,
+	                    MobileServiceAuthenticationProvider.Facebook);
+	                CreateAndShowDialog(string.Format("you are now logged in - {0}",
+	                    user.UserId), "Logged in!");
+	
+	                success = true;
+	            }
+	            catch (Exception ex)
+	            {
+	                CreateAndShowDialog(ex, "Authentication failed");
+	            }
+	            return success;
 	    }
 
         [Java.Interop.Export()]
         public async void LoginUser(View view)
         {
-            // Load data after authentication succeeds.
-            await Authenticate();
-            
-            //Hide the button after authentication succeeds. 
-            FindViewById<Button>(Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
-            
-            // Load the data.
-            OnRefreshItemsSelected();
+            // Load data only after authentication succeeds.
+            if (await Authenticate())
+            {
+                //Hide the button after authentication succeeds. 
+                FindViewById<Button>(Resource.Id.buttonLoginUser).Visibility = ViewStates.Gone;
+
+                // Load the data.
+                OnRefreshItemsSelected();
+            }
         }
 
     This creates a new method to authenticate a user and a method handler for a new **Sign in** button. The user in the example code above is authenticated by using a Facebook login. A dialog is used to display the user ID once authenticated. 
 
     > [AZURE.NOTE] If you are using an identity provider other than Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
-3. In the **OnCreate** method, comment-out the following line of code:
+3. In the **OnCreate** method, delete or comment-out the following line of code:
 
 		OnRefreshItemsSelected ();
 
@@ -94,12 +97,15 @@ The app is updated to require users to tap the **Sign in** button and authentica
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
 
-4. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider. 
+5. Add the following element to the Strings.xml resources file:
+
+		<string name="login_button_text">Sign in</string> 
+
+6. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider. 
 
    	When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
 
 
 <!-- URLs. -->
 [Create a Xamarin.Android app]: app-service-mobile-xamarin-android-get-started.md
-[Azure Management Portal]: https://portal.azure.com
  

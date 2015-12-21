@@ -33,7 +33,7 @@ Here you will create a shard map manager along with several shards, followed by 
 	![command prompt][1]
 
 2.  In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
-3.  The [Azure preview portal](https://portal.azure.com) should show three new databases in your v12 server:
+3.  The [Azure Portal](https://portal.azure.com) should show three new databases in your v12 server:
 
 	![Visual Studio confirmation][2]
 
@@ -43,7 +43,7 @@ Here you will create a shard map manager along with several shards, followed by 
 
 ## Create an elastic query database
 
-1. Open the [Azure preview portal](https://portal.azure.com) and log in.
+1. Open the [Azure Portal](https://portal.azure.com) and log in.
 2. Create a new Azure SQL database in the same server as your shard setup. Name the database "ElasticDBQuery." For a pricing tier, you must select one of the premium offers. The Elastic Database query is currently available only on the premium tier.
 
 	![Azure portal and pricing tier][3]

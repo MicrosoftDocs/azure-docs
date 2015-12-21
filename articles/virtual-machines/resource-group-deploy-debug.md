@@ -24,7 +24,7 @@ issue and resume operations in your solution.
 
 This topic focuses primarily on using deployment commands to troubleshoot deployments. For information about using the audit logs to track all operations on your resources, see [Audit operations with Resource Manager](../resource-group-audit.md).
 
-This topic shows how to retrieve troubleshooting information through Azure PowerShell, Azure CLI and REST API. For information about using the preview portal to troubleshoot deployments, see [Using the Azure preview portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
+This topic shows how to retrieve troubleshooting information through Azure PowerShell, Azure CLI and REST API. For information about using the preview portal to troubleshoot deployments, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
 
 Solutions to common errors that users encounter are also described in this topic.
 
@@ -317,7 +317,7 @@ To be specific about cores, for example, you can check the regions for which you
 
 ## Checking resource provider registration
 
-Resources are managed by resource providers, and an account or subscription might be enabled to use a particular provider. If you are enabled to use a provider, it must also be registered for use. Most providers are registered automatically by the Azure preview portal or the command-line interface you are using, but not all.
+Resources are managed by resource providers, and an account or subscription might be enabled to use a particular provider. If you are enabled to use a provider, it must also be registered for use. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all.
 
 ### PowerShell
 
@@ -410,7 +410,7 @@ If you are using templates that you created, it's important to understand that t
 
 Note however, that this does not necessarily mean that your resource group is "active and ready for your users". For example, most deployments request the deployment to download upgrades, wait on other, non-template resources, or to install complex scripts or some other executable activity that Azure does not know about because it is not an activity that a provider is tracking. In these cases, it can be some time before your resources are ready for real-world use. As a result, you should expect that the deployment status succeeds some time before your deployment can be used.
 
-You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template. An example can be seen [here](https://msdn.microsoft.com/library/azure/dn790564.aspx).
+You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template. An example can be seen when [creating template deployments](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
 ## Useful tools to interact with Azure
 When you work with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure Resource Manager API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.

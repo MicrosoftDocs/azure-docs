@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 11/18/15-->
+<!--author=SharS last changed: 11/16/15-->
 
 #### To create a volume
 
@@ -7,7 +7,8 @@
 2. In the Add a volume wizard, under **Basic Settings**, do the following:
    1. Supply a **Name** for your volume.
    2. Specify the **Provisioned Capacity** for your volume in GB or TB. The volume capacity must be between 1 GB and 64 TB for a physical device.
-   3. On the drop-down list, select the **Usage Type** for your volume. If you are using this volume for archival data, select the **Use this volume for less frequently accessed archival data** check box. For all other use cases, simply select **Tiered Volume**. (Tiered volumes were formerly called primary volumes).
+   3. On the drop-down list, select the **Usage Type** for your volume. 
+   4. If you are using this volume for archival data, select the **Use this volume for less frequently accessed archival data** check box. For all other use cases, simply select **Tiered Volume**. (Tiered volumes were formerly called primary volumes).
    4. Click the arrow icon ![arrow-icon](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) to go to the next page.
 
         ![Add volume](./media/storsimple-create-volume/AddVolume1-include.png)

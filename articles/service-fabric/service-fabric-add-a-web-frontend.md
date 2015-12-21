@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/20/2015"
+   ms.date="11/21/2015"
    ms.author="seanmck"/>
 
 
@@ -21,7 +21,7 @@
 
 By default, Service Fabric services do not provide a public interface to the web. To expose your application's functionality to HTTP clients, you will need to create a web project to act as entry point and then communicate from there to your individual services.
 
-In this tutorial, we will walk through adding an ASP.NET 5 Web API front-end to an application which already includes a stateful service. If you have not already done so, consider walking through [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) before starting this tutorial.
+In this tutorial, we will walk through adding an ASP.NET 5 Web API front-end to an application which already includes a Reliable Service based on the stateful service project template. If you have not already done so, consider walking through [Creating your first application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md) before starting this tutorial.
 
 
 ## Add an ASP.NET 5 service to your application
@@ -60,7 +60,7 @@ To get a sense of what we've done, let's deploy the new application and take a l
 
 ## Connect the services
 
-Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services which are accessible via TCP, others via a HTTP REST API, and still others via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with Services](service-fabric-connect-and-communicate-with-services.md). In this tutorial, we will follow one of the simpler approaches and use the `ServiceProxy`/`ServiceCommunicationListener` classes provided in the SDK.
+Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services which are accessible via TCP, others via a HTTP REST API, and still others via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with Services](service-fabric-connect-and-communicate-with-services.md). In this tutorial, we will follow one of the simpler approaches and use the `ServiceProxy`/`ServiceRemotingListener` classes provided in the SDK.
 
 In the `ServiceProxy` approach (modeled on remote procedure calls or RPC) you define an interface to act as the public contract for the service and then use that interface to generate a proxy class for interacting with the service.
 
@@ -86,7 +86,7 @@ We will start by creating the interface to act as the contract between the state
     ```c#
     namespace MyStatefulService.Interfaces
     {
-        using Microsoft.ServiceFabric.Services;
+        using Microsoft.ServiceFabric.Services.Remoting;
 
         public interface ICounter: IService
         {
@@ -130,13 +130,13 @@ Now that we have defined the interface, we need to implement it in our stateful 
     ```
 
 
-### Expose the stateful service using ServiceCommunicationListener
+### Expose the stateful service using ServiceRemotingListener
 
 With the `ICounter` interface implemented, the final step in enabling the stateful service to be callable from other services is to open a communication channel. For stateful services, Service Fabric provides an overrideable method called `CreateServiceReplicaListeners` where you can specify one or more communication listeners based on the type of communication you want to enable to your service.
 
 >[AZURE.NOTE] The equivalent method for opening a communication channel to stateless services is called `CreateServiceInstanceListeners`.
 
-In this case, we will provide a `ServiceCommunicationListener`, which creates an RPC endpoint callable from clients using the `ServiceProxy`.
+In this case, we will provide a `ServiceRemotingListener`, which creates an RPC endpoint callable from clients using the `ServiceProxy`.
 
 ```c#
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -145,7 +145,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     {
         new ServiceReplicaListener(
             (initParams) =>
-                new ServiceCommunicationListener<ICounter>(initParams, this))
+                new ServiceRemotingListener<ICounter>(initParams, this))
     };
 }
 ```
@@ -175,7 +175,7 @@ Our stateful service is now ready to receive traffic from other services so all 
 
     The first line of code is the key one. To create the ICounter proxy to the stateful service, you need to provide two pieces of information: a partition ID and the name of the service.
 
-    Partitioning enables you to scale stateful services by breaking up their state into different buckets based on a key that you define, such as customer ID or post code.  In our trivial application, the stateful service only has one partition so the key doesn't matter - any key that you provide will lead to the same partition.
+    Partitioning enables you to scale stateful services by breaking up their state into different buckets based on a key that you define, such as customer ID or post code.  In our trivial application, the stateful service only has one partition so the key doesn't matter - any key that you provide will lead to the same partition. To learn more about partitioning services, see [How to partition Service Fabric Reliable Services](service-fabric-concepts-partitioning).
 
     The service name is a URI of the form fabric:/&lt;application_name&gt;/&lt;service_name&gt;.
 
@@ -194,13 +194,13 @@ Our stateful service is now ready to receive traffic from other services so all 
 
 This tutorial focused on adding a web front-end that communicated with a stateful service, but you can follow a very similar model to talk to actors. In fact, it is somewhat simpler.
 
-When you create an actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically so you do not need to do anything equivalent to establishing a `ServiceCommunicationListener` as you did for the stateful service in this tutorial.
+When you create an actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically so you do not need to do anything equivalent to establishing a `ServiceRemotingListener` as you did for the stateful service in this tutorial.
 
 ## Running web services on a local cluster
 
 In general, you can deploy exactly the same Service Fabric application to a multi-machine cluster that you deployed on your local cluster and be highly confident that it will work as you expect, since your local cluster is simply a five node configuration collapsed to a single machine.
 
-When it comes to web services, however, there is one key nuance. When your cluster sits behind a load balancer, as it does in Azure, you must ensure that your web services are deployed on every machine since the load balancer will simply round-robin traffic across the machines. This can be done by setting the `InstanceCount` for the service to the special value of -1. By contrast, when running locally you need to ensure that only one instance of the service is running; otherwise you will run into conflicts from multiple processes listening on the same path and port. As a result, the web service instance count should be set to 1 for local deployments.git
+When it comes to web services, however, there is one key nuance. When your cluster sits behind a load balancer, as it does in Azure, you must ensure that your web services are deployed on every machine since the load balancer will simply round-robin traffic across the machines. This can be done by setting the `InstanceCount` for the service to the special value of -1. By contrast, when running locally you need to ensure that only one instance of the service is running; otherwise you will run into conflicts from multiple processes listening on the same path and port. As a result, the web service instance count should be set to 1 for local deployments.
 
 To learn how to configure different values for different environment, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 

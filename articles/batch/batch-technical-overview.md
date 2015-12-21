@@ -54,7 +54,7 @@ See [Azure Batch feature overview](batch-api-basics.md) for more about the Batch
 
 + **Azure account and subscription** - If you don't have an account, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-+ **Batch account** - You use the name and URL of a Batch account and an access key as credentials when you make Batch API calls. All your Batch resources such as compute nodes, pools, jobs, and tasks are associated with a Batch account. One way to create a Batch account and manage access keys for the account is to use the [Azure preview portal](batch-account-create-portal.md).
++ **Batch account** - You use the name and URL of a Batch account and an access key as credentials when you make Batch API calls. All your Batch resources such as compute nodes, pools, jobs, and tasks are associated with a Batch account. One way to create a Batch account and manage access keys for the account is to use the [Azure portal](batch-account-create-portal.md).
 
 + **Storage account** - For most Batch scenarios you'll need an Azure storage account to store your data inputs and outputs and the scripts or executables that run on the compute nodes. To create a storage account, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 

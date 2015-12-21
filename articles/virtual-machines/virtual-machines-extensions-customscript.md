@@ -73,9 +73,9 @@ This scenario shows how to use a non-default storage either within the same subs
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Add Custom Script extension from the Azure preview portal
+### Add Custom Script extension from the Azure portal
 
-Browse to the VM in the <a href="https://portal.azure.com/ " target="_blank">Azure preview portal </a> and add the extension by specifying the script file to run.
+Browse to the VM in the <a href="https://portal.azure.com/ " target="_blank">Azure portal </a> and add the extension by specifying the script file to run.
 
   ![][5]
 
@@ -88,7 +88,7 @@ Custom Script Extension can be uninstalled from the VM using the following comma
 
 ### Using Custom Script extension with templates
 
-To learn about using Custom Script extension with templates, see the documentation [here](virtual-machines-extensions-customscript -with template.md).
+To learn about using Custom Script extension with Azure Resource Manager templates, see the documentation [here](virtual-machines-extensions-customscript%20-with%20template.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png

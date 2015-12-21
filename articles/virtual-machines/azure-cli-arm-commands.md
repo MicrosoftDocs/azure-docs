@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
-This article describes how to use the Azure Command-Line Interface (Azure CLI) in the Azure Resource Manager mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure preview portal.
+This article describes how to use the Azure Command-Line Interface (Azure CLI) in the Azure Resource Manager mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure portal.
 
 Azure Resource Manager enables you to create a group of resources -- virtual machines, websites, databases, and so on -- as a single deployable unit. You can then deploy, update, or delete all of the resources for your application in a single, coordinated operation. You describe your group resources in a JSON template for deployment and then can use that template for different environments such as testing, staging, and production.
 
@@ -49,7 +49,7 @@ The set-up requirements to use the Resource Manager mode with the Azure CLI are:
 
 Once you have an account and have installed the Azure CLI, you must
 
-- [configure the Azure CLI](../xplat-cli-connect.md) to use a work or school account or a Microsoft account identity 
+- [configure the Azure CLI](../xplat-cli-connect.md) to use a work or school account or a Microsoft account identity
 - switch to the Resource Manager mode by typing `azure config mode arm`
 
 
@@ -1691,15 +1691,15 @@ Parameter options:
 
 	vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>
 
-**Lists the virtual machines within a resource group**
+**List the virtual machines within an account**
 
-	vm list [options] <resource-group>
+	vm list [options]
 
-**Gets one virtual machine within a resource group**
+**Get one virtual machine within a resource group**
 
 	vm show [options] <resource-group> <name>
 
-**Deletes one virtual machine within a resource group**
+**Delete one virtual machine within a resource group**
 
 	vm delete [options] <resource-group> <name>
 
@@ -1707,11 +1707,11 @@ Parameter options:
 
 	vm stop [options] <resource-group> <name>
 
-**Restarts one virtual machine within a resource group**
+**Restart one virtual machine within a resource group**
 
 	vm restart [options] <resource-group> <name>
 
-**Starts one virtual machine within a resource group**
+**Start one virtual machine within a resource group**
 
 	vm start [options] <resource-group> <name>
 
@@ -1719,7 +1719,7 @@ Parameter options:
 
 	vm deallocate [options] <resource-group> <name>
 
-**Lists available virtual machine sizes**
+**List available virtual machine sizes**
 
 	vm sizes [options]
 
@@ -1727,19 +1727,19 @@ Parameter options:
 
 	vm capture [options] <resource-group> <name> <vhd-name-prefix>
 
-**Sets the state of the VM to Generalized**
+**Set the state of the VM to Generalized**
 
 	vm generalize [options] <resource-group> <name>
 
-**Gets instance view of the VM**
+**Get instance view of the VM**
 
 	vm get-instance-view [options] <resource-group> <name>
 
-**Enables you to reset Remote Desktop Access or SSH settings on a Virtual Machine and to reset the password for the account that has administrator or sudo authority**
+**Enable you to reset Remote Desktop Access or SSH settings on a Virtual Machine and to reset the password for the account that has administrator or sudo authority**
 
 	vm reset-access [options] <resource-group> <name>
 
-**Updates VM with new data**
+**Update VM with new data**
 
 	vm set [options] <resource-group> <name>
 
@@ -1764,3 +1764,122 @@ Parameter options:
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
+
+## azure hdinsight: Commands to manage your HDInsight clusters
+
+**Commands to create or add to a cluster configuration file**
+
+	hdinsight config create [options] <configFilePath> <overwrite>
+	hdinsight config add-config-values [options] <configFilePath>
+	hdinsight config add-script-action [options] <configFilePath>
+
+Example: Create a configuration file that contains a script action to run when creating a cluster.
+
+	hdinsight config create "C:\myFiles\configFile.config"
+	hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
+
+**Command to create a cluster in a resource group**
+
+	hdinsight cluster create [options] <clusterName>
+	 
+Example: Create a Storm on Linux cluster
+
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
+	
+	info:    Executing command hdinsight cluster create
+	+ Submitting the request to create cluster...
+	info:    hdinsight cluster create command OK
+
+Example: Create a cluster with a script action
+
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+	
+	info:    Executing command hdinsight cluster create
+	+ Submitting the request to create cluster...
+	info:    hdinsight cluster create command OK
+	
+Parameter options:
+
+	-h, --help                                                 output usage information
+	-v, --verbose                                              use verbose output
+	-vv                                                        more verbose with debug output
+	--json                                                     use json output
+	-g --resource-group <resource-group>                       The name of the resource group
+	-c, --clusterName <clusterName>                            HDInsight cluster name
+	-l, --location <location>                                  Data center location for the cluster
+	-y, --osType <osType>                                      HDInsight cluster operating system
+	'Windows' or 'Linux'
+	--version <version>                                        HDInsight cluster version
+	--clusterType <clusterType>                                HDInsight cluster type.
+	Hadoop | HBase | Spark | Storm
+	--defaultStorageAccountName <storageAccountName>           Storage account url to use for default HDInsight storage
+	--defaultStorageAccountKey <storageAccountKey>             Key to the storage account to use for default HDInsight storage
+	--defaultStorageContainer <storageContainer>               Container in the storage account to use for HDInsight default storage
+	--headNodeSize <headNodeSize>                              (Optional) Head node size for the cluster
+	--workerNodeCount <workerNodeCount>                        Number of worker nodes to use for the cluster
+	--workerNodeSize <workerNodeSize>                          (Optional) Worker node size for the cluster)
+	--zookeeperNodeSize <zookeeperNodeSize>                    (Optional) Zookeeper node size for the cluster
+	--userName <userName>                                      Cluster username
+	--password <password>                                      Cluster password
+	--sshUserName <sshUserName>                                SSH username (only for Linux clusters)
+	--sshPassword <sshPassword>                                SSH password (only for Linux clusters)
+	--sshPublicKey <sshPublicKey>                              SSH public key (only for Linux clusters)
+	--rdpUserName <rdpUserName>                                RDP username (only for Windows clusters)
+	--rdpPassword <rdpPassword>                                RDP password (only for Windows clusters)
+	--rdpAccessExpiry <rdpAccessExpiry>                        RDP access expiry.
+	For example 12/12/2015 (only for Windows clusters)
+	--virtualNetworkId <virtualNetworkId>                      (Optional) Virtual network ID for the cluster. 
+	Value is a GUID for Windows cluster and ARM resource ID for Linux cluster)
+	--subnetName <subnetName>                                  (Optional) Subnet for the cluster
+	--additionalStorageAccounts <additionalStorageAccounts>    (Optional) Additional storage accounts.
+	Can be multiple.
+	In the format of 'accountName#accountKey'.
+	For example, --additionalStorageAccounts "acc1#key1;acc2#key2"
+	--hiveMetastoreServerName <hiveMetastoreServerName>        (Optional) SQL Server name for the external metastore for Hive
+	--hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>    (Optional) Database name for the external metastore for Hive
+	--hiveMetastoreUserName <hiveMetastoreUserName>            (Optional) Database username for the external metastore for Hive
+	--hiveMetastorePassword <hiveMetastorePassword>            (Optional) Database password for the external metastore for Hive
+	--oozieMetastoreServerName <oozieMetastoreServerName>      (Optional) SQL Server name for the external metastore for Oozie
+	--oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>  (Optional) Database name for the external metastore for Oozie
+	--oozieMetastoreUserName <oozieMetastoreUserName>          (Optional) Database username for the external metastore for Oozie
+	--oozieMetastorePassword <oozieMetastorePassword>          (Optional) Database password for the external metastore for Oozie
+	--configurationPath <configurationPath>                    (Optional) HDInsight cluster configuration file path
+	-s, --subscription <id>                                    The subscription id
+	--tags <tags>                                              Tags to set to the cluster.
+	Can be multiple.
+	In the format of 'name=value'.
+	Name is required and value is optional.
+	For example, --tags tag1=value1;tag2
+
+
+**Command to delete a cluster**
+
+	hdinsight cluster delete [options] <clusterName>
+
+**Command to show cluster details**
+
+	hdinsight cluster show [options] <clusterName>
+
+**Command to list all clusters (in a specific resource group, if provided)**
+
+	hdinsight cluster list [options]
+
+**Command to resize a cluster**
+
+	hdinsight cluster resize [options] <clusterName> <targetInstanceCount>
+
+**Command to enable HTTP access for a cluster**
+
+	hdinsight cluster enable-http-access [options] <clusterName> <userName> <password>
+
+**Command to disable HTTP access for a cluster**
+
+	hdinsight cluster disable-http-access [options] <clusterName>
+
+**Command to enable RDP access for a cluster**
+
+	hdinsight cluster enable-rdp-access [options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+
+**Command to disable HTTP access for a cluster**
+
+	hdinsight cluster disable-rdp-access [options] <clusterName>
