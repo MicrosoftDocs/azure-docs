@@ -20,6 +20,8 @@
 
 Learn the basics of [Azure Batch][azure_batch] and Batch solution workflow as we examine a C# application step-by-step, seeing how it leverages the power of the Batch service and the [Batch .NET][net_api] library to perform a computational workload in the cloud, as well as how it interacts with [Azure Storage](./../storage/storage-introduction.md) for file staging and retrieval.
 
+![Batch solution workflow (minimal)][11]<br/>
+
 ## Prerequisites
 
 This article assumes that you have a working knowledge of C# and Visual Studio, and that you are able to satisfy the account creation requirements specified below for Azure and the Batch and Storage services.
@@ -51,7 +53,7 @@ The DotNetTutorial code sample is a Visual Studio 2013 solution consisting of tw
 The following diagram illustrates the primary operations performed by the client application, DotNetTutorial, and the application that is executed by the tasks, TaskApplication. This basic workflow is typical of many compute solutions created with Batch, and while it does not demonstrate every feature available in the Batch service, nearly every Batch scenario will include similar processes.
 
 ![Batch example workflow][8]<br/>
-*DotNetTutorial sample application workflow*
+*DotNetTutorial application workflow*
 
 **1.** Create blob **containers** in Azure Storage<br/>
 **2.** Upload task application and input files to containers<br/>
@@ -97,18 +99,21 @@ Now that you've updated the project with your credentials, right-click the solut
 
 In the following sections, we break the sample application down into the steps it performs to process a workload in the Batch service, and discuss those steps in depth. You are encouraged to refer to the open solution in Visual Studio while working your way through the rest of this article since not every line of code within the sample is discussed.
 
+Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's `Program.cs` to start with Step #1. Each step below then roughly follows the progression of method calls in `MainAsync`.
+
 ## Step 1: Create Storage containers
 
 ![Create containers in Azure Storage][1]
 <br/>
-*Creating the blob containers in Azure Storage*
 
 Batch includes built-in support for interacting with Azure Storage, and blob containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute, as well as a place to store output data once they've completed. The first thing the DotNetTutorial client application does is create three block blob containers in Azure Storage:
 
 - **application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
 - **input** - Tasks will download the data files they are to process from the *input* container.
 - **output** - When tasks complete the processing of the input files, they will upload their results to the *output* container.
+
 &nbsp;
+
 > [AZURE.INFO] In [Azure Storage](./../storage/storage-introduction.md), a "blob" is a file of any type and size. Of the three types of blobs offered by Storage - block blobs, page blobs, and append blobs - this sample uses only the block blob.
 
 In order to interact with a Storage account and create containers, we use the [Azure Storage Client Library for .NET][net_api_storage] and create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that obtain a [CloudBlobClient][net_cloudblobclient]:
@@ -161,7 +166,6 @@ Once the three containers have been created, the application can now upload the 
 
 ![Upload task application and input (data) files to containers][2]
 <br/>
-*Uploading the task application (binaries) and the task input (data) files*
 
 In the file upload operation, the application first defines collections of *application* and *input* file paths on the local machine, then uploads these files to the containers created in step #1 above. Two helper methods are involved in the upload process:
 
@@ -220,11 +224,10 @@ Shared access signatures are strings which - when included as part of a URL - pr
 
 ![Create Batch pool][3]
 <br/>
-*(1) Creating a pool of compute nodes within Batch and (2) nodes downloading the pool's StartTask.ResourceFiles*
 
 After uploading the application and data files to the Storage account, a pool of compute nodes is created in the Batch account. When creating a pool, you can specify a number of parameters such as the number of compute nodes, the [size of the nodes](./../cloud-services/cloud-services-sizes-specs.md), and the nodes' [operating system](./../cloud-services/cloud-services-guestos-update-matrix.md).
 
-Along with these physical node properties, we can also specify a [StartTask][net_pool_starttask] for the pool. The StartTask will execute on each node as it joins the pool, as well as each time a node is restarted. The StartTask is especially useful for installing applications on compute nodes prior to the execution of tasks. For example, if your tasks process data using Python scripts, you could use a StartTask to install Python on the compute nodes.
+Along with these physical node properties, we can also specify a [StartTask][net_pool_starttask] for the pool. The StartTask will execute on each node as that node joins the pool, as well as each time a node is restarted. The StartTask is especially useful for installing applications on compute nodes prior to the execution of tasks. For example, if your tasks process data using Python scripts, you could use a StartTask to install Python on the compute nodes.
 
 In this sample application, we use the StartTask to copy the files that it has downloaded from Storage (which we specify using the StartTask's *ResourceFiles* property) from its working directory to the shared directory that all tasks running on the node can access.
 
@@ -236,10 +239,10 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
     // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(), no pool is actually created in the
     // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
     CloudPool pool = batchClient.PoolOperations.CreatePool(
-        poolId: poolId,
-        targetDedicated: 1,
-        virtualMachineSize: "small",
-        osFamily: "4");
+				poolId: poolId,
+				targetDedicated: 3,           // 3 compute nodes
+				virtualMachineSize: "small",  // single-core, 1.75 GB memory, 225 GB disk
+				osFamily: "4");               // Windows Server 2012 R2
 
     // Create and assign the StartTask that will be executed when compute nodes join the pool.
     // In this case, we copy the StartTask's resource files (that will be automatically downloaded
@@ -270,7 +273,6 @@ Notable in the code snippet above is the use of two environment variables in the
 ## Step 4: Create Batch job
 
 ![Create Batch job][4]<br/>
-*Creating a job within the Batch service associated with a pool*
 
 A Batch job is essentially a collection of tasks, and is used not only for performing distinct workloads, but can also impose certain constraints such as the maximum run-time for the job (and by extension, its tasks) as well as job priority in relation to other jobs within the Batch account. In this example, however, we merely associate the job with the pool created in the previous step and do not configure any additional properties.
 
@@ -386,6 +388,8 @@ Within the `MonitorTasks` method in DotNetTutorial's `Program.cs`, there are thr
 
 3. **TerminateJobAsync** - Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. Explicitly terminating a job is essential if your Batch solution uses a [JobReleaseTask][net_jobreltask], a special type of task explained fully in [Job preparation and completion tasks](batch-job-prep-release).
 
+The `MonitorTasks` method in DotNetTutorial's `Program.cs` appears below:
+
 ```
 private static async Task<bool> MonitorTasks(BatchClient batchClient, string jobId, TimeSpan timeout)
 {
@@ -465,7 +469,6 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
 ## Step 7: Download task output
 
 ![Download task output from Storage][7]<br/>
-*Downloading the results of the task output from Azure Storage*
 
 Now that the job has completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `DownloadBlobsFromContainerAsync` in DotNetTutorial's `Program.cs`:
 
@@ -491,38 +494,45 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 		Console.WriteLine("All files downloaded to {0}", directoryPath);
 }
 ```
-
+&nbsp;
 > [AZURE.INFO] The call to `DownloadBlobsFromContainerAsync` in the *DotNetTutorial* application specifies that the files should be downloaded to your `%TEMP%` folder. Feel free to modify this output location.
 
-## Step 8: Delete task output
+## Step 8: Delete containers
 
-Because you are charged for data that resides in Azure Storage, it is always a good idea to remove any blobs that are no longer needed for your Batch jobs. In DotNetTutorial's `Program.cs`, this is done with a call to `DeleteBlobsFromContainerAsync`:
+Because you are charged for data that resides in Azure Storage, it is always a good idea to remove any blobs that are no longer needed for your Batch jobs. In DotNetTutorial's `Program.cs`, this is done with three calls to the helper method `DeleteContainerAsync`:
 
 ```
-private static async Task DeleteBlobsFromContainerAsync(CloudBlobClient blobClient, string containerName)
-{
-    Console.WriteLine("Deleting all files from container [{0}]...", containerName);
+// Clean up Storage resources
+await DeleteContainerAsync(blobClient, appContainerName);
+await DeleteContainerAsync(blobClient, inputContainerName);
+await DeleteContainerAsync(blobClient, outputContainerName);
+```
 
-    // Retrieve a reference to the container
+The method itself merely obtains a reference to the container, and then calls [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete]:
+
+```
+private static async Task DeleteContainerAsync(CloudBlobClient blobClient, string containerName)
+{
     CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
-    // Get a flat listing of all of the blobs within the container
-    foreach (IListBlobItem item in container.ListBlobs(prefix: null, useFlatBlobListing: true))
+    if (await container.DeleteIfExistsAsync())
     {
-        // Retrieve a reference to the current blob
-        CloudBlob blob = (CloudBlob)item;
-
-        // Delete the blob
-        await blob.DeleteAsync();
+        Console.WriteLine("Container [{0}] deleted.", containerName);
+    }
+    else
+    {
+        Console.WriteLine("Container [{0}] does not exist, skipping deletion.", containerName);
     }
 }
 ```
 
-> [AZURE.IMPORTANT] Because you are charged for data in Azure Storage, you may also wish to delete the contents of the **application** and **input**, or delete the containers themselves.
+> [AZURE.IMPORTANT] Be aware that deleting a pool deletes all compute nodes within that pool, and that any data on the nodes will be unrecoverable once the pool is deleted.
 
 ## Step 9: Delete job and pool
 
 In the final step, the user is prompted to delete the job and pool created by the DotNetTutorial application. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes, thus it is recommended that you allocate nodes only as needed, and deleting unused pools can be part of your maintenance process.
+
+The BatchClient's [JobOperations][net_joboperations] and [PoolOperations][net_pooloperations] both have corresponding delete methods, called if the user confirms deletion:
 
 ```
 // Clean up the resources we've created in the Batch account if the user so chooses
@@ -546,12 +556,16 @@ if (response != "n" && response != "no")
 
 ## Next steps
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Now that you are familiar with the basic workflow of a Batch solution, it's time to dig in to the additional features of the Batch service.
+
+- [Overview of Azure Batch features](batch-api-basics) - This article provides an overview of many of the features of Batch, and is recommended reading for those new to the service.
+- Check out the other Batch development articles in *Development in-depth* in the [Batch learning path][batch_learning_path]
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_portal]: https://portal.azure.com
 [batch_explorer]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
@@ -559,6 +573,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 [net_api_storage]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_poolinfo]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.protocol.models.cloudjob.poolinformation.aspx
+[net_joboperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.joboperations
 [net_joboperations_terminatejob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.terminatejobasync.aspx
 [net_jobpreptask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobpreparationtask.aspx
 [net_jobreltask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobreleasetask.aspx
@@ -567,6 +582,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 [net_pool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_pool_create]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx
 [net_pool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
+[net_pooloperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.pooloperations
 [net_resourcefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.aspx
 [net_resourcefile_blobsource]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.blobsource.aspx
 [net_sas_blob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblob.getsharedaccesssignature.aspx
@@ -578,6 +594,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 [net_cloudblobclient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx
 [net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
 [net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
+[net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 
 [1]: ./media/batch-dotnet-get-started\batch_workflow_01_sm.png "Create containers in Azure Storage"
@@ -590,3 +607,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 [8]: ./media/batch-dotnet-get-started\batch_workflow_sm.png "Batch solution workflow (full diagram)"
 [9]: ./media/batch-dotnet-get-started\credentials_batch_sm.png "Batch credentials in Portal"
 [10]: ./media/batch-dotnet-get-started\credentials_storage_sm.png "Storage credentials in Portal"
+[11]: ./media/batch-dotnet-get-started\batch_workflow_minimal_sm.png "Batch solution workflow (minimal diagram)"
