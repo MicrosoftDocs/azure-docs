@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="12/15/2015"
 	ms.author="juliako"/>
 
 #How To: Update Media Services after Rolling Storage Access Keys
 
-When you create a new Azure Media Services account, you are also asked to select an Azure Storage account that is used to store your media content. Note that you can add more than one storage accounts to your Media Services account.
+When you create a new Azure Media Services account, you are also asked to select an Azure Storage account that is used to store your media content. Note that you can [add more than one storage accounts](meda-services-managing-multiple-storage-accounts.md) to your Media Services account.
 
 When a new storage account is created, Azure generates two 512-bit storage access keys, which are used to authenticate access to your storage account. To keep your storage connections more secure, it is recommended to periodically regenerate and rotate your storage access key. Two access keys (primary and secondary) are provided in order to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. This procedure is also called "rolling access keys".
 
-Media Services has dependency on one of the storage keys (primary or secondary). Specifically, the locators that are used to stream or download your assets depend on the access key. When rolling storage access keys, you also need to make sure to update your locators so there will no interruption in your streaming service.
+Media Services depends on a storage key provided to it. Specifically, the locators that are used to stream or download your assets depend on the specified storage access key. When an AMS account is created it takes a dependency on the primary storage access key by default but as a user you can update the storage key that AMS has. You must make sure to let Media Services know which key to use by following steps described in this topic. Also, when rolling storage access keys, you need to make sure to update your locators so there will no interruption in your streaming service (this step is also described in the topic).
 
->[AZURE.NOTE]After you regenerate a storage key, you must make sure to synchronize the update with Media Services. 
-
-This topic describes steps you would take to roll storage keys and update Media Services to use the appropriate storage key. Note, if you have multiple storage accounts, you would perform this procedure with each storage account.
-
->[AZURE.NOTE]Before executing steps described in this topic on a production account, make sure to test them on a pre-production account.
+>[AZURE.NOTE]If you have multiple storage accounts, you would perform this procedure with each storage account.
+>
+>Before executing steps described in this topic on a production account, make sure to test them on a pre-production account.
 
 
 ## Step 1: Regenerate secondary storage access key
@@ -79,13 +77,15 @@ The following code example shows how to construct the https://endpoint/<subscrip
 		    }
 		}
 
-After this update existing locators (that have dependency on the old storage key).
+After this step, update existing locators (that have dependency on the old storage key) as shown in the following step.
 
 >[AZURE.NOTE]Wait for 30 minutes before performing any operations with Media Services (for example, creating new locators) in order to prevent any impact on pending jobs.
 
 ##Step 3: Update locators 
 
-After 30 minutes you can recreate your OnDemand locators so they take dependency on the new secondary storage key and maintain the existing URL.  
+>[AZURE.NOTE]When rolling storage access keys, you need to make sure to update your existing locators so there is no interruption in your streaming service. 
+
+Wait at least 30 minutes after synchronizing the new storage key with AMS. Then, you can recreate your OnDemand locators so they take dependency on the specified storage key and maintain the existing URL.  
 
 Note that when you update (or recreate) a SAS locator, the URL will always change. 
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Implementing security recommendations in Azure Security Center  | Microsoft Azure"
+   pageTitle="Managing security recommendations in Azure Security Center  | Microsoft Azure"
    description="This document walks you through how recommendations in Azure Security Center help you protect your Azure resources and stay in compliance with security policies."
    services="security-center"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
-# Implementing security recommendations in Azure Security Center
+# Managing security recommendations in Azure Security Center
 
 This document walks you through how recommendations in Azure Security Center help you protect your Azure resources.
 
@@ -25,10 +25,12 @@ This document walks you through how recommendations in Azure Security Center hel
 ## What is Azure Security Center?
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-##What is a security recommendation?
+## What are security recommendations?
 Azure Security Center periodically analyses the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control.
 
-## Setting recommendations
+## Implementing security recommendations
+
+### Setting recommendations
 
 In [Setting security policies in Azure Security Center](security-center-policies.md) you learn to:
 
@@ -38,11 +40,7 @@ In [Setting security policies in Azure Security Center](security-center-policies
 
 Current policy recommendations center around system updates, baseline rules, anti-malware, [ACLs for endpoints](virtual-machines-set-up-endpoints.md), [Network Security Groups](virtual-networks-nsg.md) on subnets and network interfaces, SQL Database auditing, SQL Database transparent data encryption, and web application firewall.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
 
-The **Show recommendations for** section of the **Security policy** blade gives you a list of recommendations that you can turn on for the resources in the specified subscription.
-
-![][1]
-
-## Monitoring recommendations
+### Monitoring recommendations
 
 After setting a security policy, Azure Security Center analyses the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile on the **Security Center** blade lets you know the total amount of recommendations identified by Azure Security Center.
 
@@ -88,7 +86,7 @@ Use the table below as a reference to understand the available recommendations a
 | Enable Transparent Data Encryption on SQL databases | Recommends that you enable encryption for SQL databases (Azure SQL service only). |
 | Deploy the VM Agent | Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision Patch Scanning, Baseline Scanning, and Antimalware. The VM Agent is installed by default for VMs deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent. |
 
-## Applying recommendations
+### Applying recommendations
 After reviewing all recommendations, you may decide which one you should apply first. It is recommended to use the severity rating as the main parameter to evaluate which recommendations should be applied first.
 Using the Antimalware recommendation, let’s walk through an example on how to apply a recommendation:
 
@@ -103,7 +101,7 @@ Using the Antimalware recommendation, let’s walk through an example on how to 
 
 [Microsoft Antimalware](azure-security-antimalware.md) is now active on the selected virtual machine.
 
-## Deploying integrated partner solutions
+### Deploying recommended partner solutions
 
 A recommendation may be to deploy an integrated security solution from a Microsoft partner. Let’s walk through an example on how to do this:
 
@@ -136,7 +134,6 @@ In this document, you were introduced to security recommendations in Azure Secur
 - [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/) – Find blog posts about Azure security and compliance
 
 <!--Image references-->
-[1]: ./media/security-center-recommendations/show-recommendations-for.png
 [2]: ./media/security-center-recommendations/recommendations-tile.png
 [3]: ./media/security-center-recommendations/filter-recommendations.png
 [4]: ./media/security-center-recommendations/dismiss-recommendations.png
