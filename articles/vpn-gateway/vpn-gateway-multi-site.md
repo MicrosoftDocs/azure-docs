@@ -27,9 +27,9 @@ This article applies to connecting multiple on-premises sites to VNets that were
 
 ## About connecting
 
-You can connect multiple on-premises sites to a single virtual network. This is especially attractive for building hybrid cloud solutions. Creating a multi-site connection to your Azure virtual network gateway is very similar to creating other Site-to-Site connections. In fact, you can use an existing Azure VPN gateway, provided you have a route-based (or dynamic routing) VPN gateway configured for your virtual network. 
+You can connect multiple on-premises sites to a single virtual network. This is especially attractive for building hybrid cloud solutions. Creating a multi-site connection to your Azure virtual network gateway is very similar to creating other Site-to-Site connections. In fact, you can use an existing Azure VPN gateway, as long as the gateway is dynamic (route-based).
 
-If your gateway is policy-based (or static routing), you can always change the gateway type without needing to rebuild the virtual network to accommodate multi-site, although you will also need to ensure your on-premises VPN gateway supports route-based VPN configurations. You'll then just add configuration settings to the network configuration file, and create multiple VPN connections from your virtual network to additional sites.
+If already have a static gateway connected to your virtual network, you can change the gateway type to dynamic without needing to rebuild the virtual network in order to accommodate multi-site. Before changing the routing type, make sure that your on-premises VPN gateway supports route-based VPN configurations. 
 
 ![Multi-Site VPN](./media/vpn-gateway-multi-site/IC727363.png)
 
