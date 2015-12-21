@@ -29,6 +29,7 @@ Private IP addresses are used for communication within an Azure virtual network 
 Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [SQL databases](sql-database-technical-overview.md), and [Azure storage](storage-introduction.md).
 
 In Azure Resource Manager, a [public IP](resource-groups-networking.md#public-ip-address) address is a resource that has its own properties, and can be associated with any of the following resources:
+
 - VMs
 - Internet facing load balancers
 - VPN gateways
@@ -37,11 +38,12 @@ In Azure Resource Manager, a [public IP](resource-groups-networking.md#public-ip
 ### Allocation method
 There are two methods in which an IP address is allocated to a *public IP resource* - *dynamic* or *static*. The default allocation method is *dynamic*, where an IP address is **not** allocated at the time of its creation. Instead, the public IP address is allocated when the associated resource (like VM or Load balancer) is created or started. This IP address is released when the resource is stopped (or deleted), and may change when the resource is started again.
 
-To ensure the IP address for the associated resource remains the same, the allocation method needs to explicitly set to *static*. In this case an IP address is allocated to the *public IP resource* Immediately at the time of its creation. This IP address is released only when the *public IP resource* itself is deleted or its allocation method is modified to *dynamic*.
+To ensure the IP address for the associated resource remains the same, the allocation method needs to be explicitly set to *static* for the *public IP resource*. In this case an IP address is assigned immediately, and is released only when the resource is deleted or its allocation method is set to *dynamic*.
 
->[AZURE.NOTE] Even when a public IP resource is configured as static, the actual IP address allocated cannot be specified. Instead, it is allocated from a pool of available IP addresses in the Azure location the resource is created in.
+>[AZURE.NOTE] Even when a public IP resource is configured as static, the actual IP address allocated cannot be specified. Instead, it is allocated from a pool of available IP addresses in the Azure location the resource is created.
 
 Static public IP addresses are commonly used in the following scenarios:
+
 - Resources that require firewall rules setup by end-users.
 - Resources that depend on external DNS name resolution, where a dynamic IP would require updating A records.
 - Resources that consume external web services which use IP based security model.
@@ -50,17 +52,15 @@ Static public IP addresses are commonly used in the following scenarios:
 >[AZURE.NOTE] The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### DNS hostname resolution
-You can associate a public IP with a DNS domain name label, which creates a corresponding DNS entry in the Azure DNS servers. The corresponding FQDN will have the format *domainnamelabel*.*location*.cloudapp.azure.com, and will be associated to the public IP linked to your resource. For instance, if you create a public IP with a *domainnamelabel* of **azuretest** in the *West US* Azure region, the FQDN for the resource associated to the public IP will be **azuretest.westus.cloudapp.azure.com**.
+A DNS domain name label can be specified for a public IP resource, a mapping for *domainnamelabel*.*location*.cloudapp.azure.com to the public IP address is added in the Azure-managed DNS servers. For instance, if you create a public IP resource with a *domainnamelabel* of **azuretest** in the *West US* Azure region, the fully-qualified domain name (FQDN) mapping to the public IP will be **azuretest.westus.cloudapp.azure.com**. This FQDN can further be used to create a custom domain CNAME record pointing to the public IP address in Azure.
 
 >[AZURE.IMPORTANT] Each domain name label created must be unique within its Azure location.  
-
-You can later create CNAME records using your own custom domain name that point to the FQDN used in Azure.
 
 ### VMs
 A Public IP address can be associated with a [Virtual machine](virtual-machines-about.md) (VM) by assigning it to its **network interface card** (NIC). In case of a multi-NIC VM, it can be assigned to the *primary* NIC only. You can assign either a dynamic or a static public IP address to a VM.
 
 ### Internet facing load balancers
-A public IP address can be associated with an [Azure Load Balancer](load-balancer-overview.md)(LB), which serves as the load-balanced virtual IP address (VIP). Either a dynamic or a static public IP can be assigned to the LB **front end** configuration. Multiple public IPs can be assigned to an LB, which enables scenarios like multi-tenant environment with multiple SSL-based websites.
+A public IP address can be associated with an [Azure Load Balancer](load-balancer-overview.md) (LB), which serves as the load-balanced virtual IP address (VIP). Either a dynamic or a static public IP can be assigned to the LB **front end** configuration. Multiple public IPs can be assigned to an LB, which enables scenarios like multi-tenant environment with multiple SSL-based websites.
 
 ### VPN gateways
 [Azure VPN Gateway](vpn-gateway-about-vpngateways.md) is used to connect an Azure virtual network (VNet) to other Azure VNets or on-premises network. It requires a public IP address associated with its **IP configuration** to communicate with the remote network. Currently, only a dynamic public IP address can be assigned to a VPN gateway.
@@ -68,7 +68,7 @@ A public IP address can be associated with an [Azure Load Balancer](load-balance
 ### Application gateways
 A public IP address can be associated with an Azure [Application gateway](application-gateway-introduction.md), which serves as the load-balanced VIP. Currently, only a *dynamic* public IP can be assigned to an application gateway **front end** configuration. It is possible to assign multiple public IP addresses, which enables scenarios like multi-tenant environment.
 
-### At-atype-glance
+### At-a-glance
 The table below shows each resource type with the possible allocation methods (dynamic/static), and ability to assign multiple public IP addresses.
 
 |Resource|Dynamic|Static|Multiple IP addresses|
@@ -82,6 +82,7 @@ The table below shows each resource type with the possible allocation methods (d
 Private IP addresses allow Azure resources to communicate with other resources in a [virtual network](virtual-networks-overview.md)(VNet), or in on-premises network through a VPN gateway or ExpressRoute circuit, without using an Internet-reachable IP address.
 
 In Azure Resource Manager deployment model, a private IP address is associated to various Azure resources.
+
 - VMs
 - Internal load balancers (ILBs)
 - Application gateways
@@ -94,6 +95,7 @@ There are two methods in which a private IP address is allocated: *dynamic* or *
 To ensure the IP address remains the same, the allocation method needs to be set to *static*. In this case, a valid IP address needs to be specified, that is part of the address range assigned to the subnet the resource is part of and is free.
 
 Static private IP addresses are commonly used for:
+
 - VMs that act as domain controllers or DNS servers.
 - Resources that require firewall rules using IP addresses.
 - Resources accessed by other apps/resources through an IP address.
@@ -113,7 +115,7 @@ A private IP address can be assigned to an [Azure Internal Load Balancer](load-b
 A private IP address can be assigned to an [Azure Application Gateway](application-gateway-introduction.md) **front end** configuration, which serves as an internal application gateway end-point not exposed to the internet. It is accessible only to the resources within its virtual network (VNet) and the remote networks connected to the VNet. Either a dynamic or static private IP address can be assigned to the front end configuration of an application gateway.
 
 ### At-a-glance
-The table below shows what resources can use dynamic or static private IP addresses, and multiple private IP addresses.
+The table below shows each resource type with the possible allocation methods (dynamic/static), and ability to assign multiple private IP addresses.
 
 |Resource|Static|Dynamic|Multiple IP addresses|
 |---|---|---|---|
@@ -128,19 +130,18 @@ Below is a comparison of IP address in resource manager with the classic deploym
 
 |Resource|Classic|Resource Manager|
 |---|---|---|
-|VM|Referred to as an ILPIP|Referred to as a public IP|
-||Only dynamic allocation|Either dynamic or static allocation|
-||Allocated to an IaaS VM or a PaaS role instance|Allocated to the VM's NIC|
+|VM|Referred to as an ILPIP (dynamic only)|Referred to as a public IP (dynamic or static)|
+||Assigned to an IaaS VM or a PaaS role instance|Associated to the VM's NIC|
 |Internet facing load balancer|Referred to as VIP (dynamic) or Reserved IP (static)|Referred to as a public IP (dynamic or static)|
-||Allocated to a cloud service|Allocated to the front end IP configuration|
+||Assigned to a cloud service|Associated to the LB's front end config|
 
 ### Private IP addresses
 
 |Resource|Classic|Resource Manager|
 |---|---|---|
 |VM|Referred to as a DIP|Referred to as a private IP address|
-||Allocated to the VM|Allocated to a NIC|
-|ILB|Allocated to the ILB dynamic (from subnet) or static (StaticVNetIPAddress)|Allocated to front end IP configuration (dynamic or static)|
+||Assigned to an IaaS VM or a PaaS role instance|Assigned to the VM's NIC|
+|ILB|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end config (dynamic or static)|
 
 ## Next steps
 - [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-arm-template.md)
