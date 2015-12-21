@@ -44,7 +44,7 @@ Working with the Azure Resource Manager through the Azure CLI requires you to au
 
 For more information on authenticating to Microsoft Azure, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
->[AZURE.NOTE] When you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](resource-group-rbac.md).
+>[AZURE.NOTE] When you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
 ## Set the Azure Resource Manager mode
 
