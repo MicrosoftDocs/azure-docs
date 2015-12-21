@@ -59,18 +59,9 @@ Before you begin configuration, verify that you have the following:
 
 1. **Create a Site-to-Site VPN with a dynamic (route-based) routing gateway.** If you already have one, great! You can proceed to [Export the virtual network configuration settings](#export). If not, do the following:
 
-	**If you already have a Site-to-Site virtual network, but it has a static (policy-based) routing gateway:** 
+	**If you already have a Site-to-Site virtual network, but it has a static (policy-based) routing gateway:** - Step 1: Change your gateway type to dynamic routing. A multi-site VPN requires a dynamic routing gateway. To change your gateway type, you'll need to first delete the existing gateway, then create a new one. For instructions, see [Change a VPN Gateway Routing Type](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type).- Step 2: configure your new gateway and create your VPN tunnel. For instructions, see [Configure a VPN Gateway in the Azure Classic Portal](vpn-gateway-configure-vpn-gateway-mp.md).First, Change your gateway type to dynamic routing. 
 
-
-	- Step 1: Change your gateway type to dynamic routing. A multi-site VPN requires a dynamic routing gateway. To change your gateway type, you'll need to first delete the existing gateway, then create a new one. For instructions, see [Change a VPN Gateway Routing Type](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type).
-
-	- Step 2: configure your new gateway and create your VPN tunnel. For instructions, see [Configure a VPN Gateway in the Azure Classic Portal](vpn-gateway-configure-vpn-gateway-mp.md).First, Change your gateway type to dynamic routing. 
-
-	**If you don't have a site-to-site virtual network:**
-
-	- Step 1: Create your Site-to-Site virtual network using these instructions: [Create a Virtual Network with a Site-to-Site VPN Connection in the Azure Classic Portal](vpn-gateway-site-to-site-create.md).
-
-	- Step 2: Configure a dynamic routing gateway using these instructions: [Configure a VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
+	**If you don't have a site-to-site virtual network:** - Step 1: Create your Site-to-Site virtual network using these instructions: [Create a Virtual Network with a Site-to-Site VPN Connection in the Azure Classic Portal](vpn-gateway-site-to-site-create.md).- Step 2: Configure a dynamic routing gateway using these instructions: [Configure a VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
 
 2. **<a name="export"></a>Export the virtual network configuration settings.** To export your network configuration file, see [To export your network settings](../virtual-network/virtual-networks-using-network-configuration-file.md). The file that you export will be used to configure your new multi-site settings.
 
