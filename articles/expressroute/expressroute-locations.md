@@ -61,7 +61,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Tokyo, Washington DC |
 |**China Telecom Global** | Supported | Not Supported | Hong Kong |
 |**Cologix** | Coming soon | Not Supported | Montreal+, Toronto+ |
-| **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Supported | Supported | Amsterdam, London |
+| **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Supported | Supported | Amsterdam, Dublin+, London |
 | **Comcast** | Supported | Not Supported | Silicon Valley, Washington DC |
 | **CoreSite** | Supported | Supported | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, London, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto+, Washington DC |
@@ -74,7 +74,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **MTN** | Supported | Supported | London |
 | **NEXTDC** | Supported | Supported | Melbourne, Sydney |
 | **NTT Communications** | Supported | Not Supported | London+, Tokyo |
-| **[Orange]( http://www.orange-business.com/)** | Supported | Not Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Washington DC |
+| **[Orange]( http://www.orange-business.com/)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Washington DC |
 | **PCCW Global Limited** | Supported | Not Supported | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Not Supported | Singapore |
 | **Softbank** | Coming soon | Not Supported | Osaka, Tokyo | 
