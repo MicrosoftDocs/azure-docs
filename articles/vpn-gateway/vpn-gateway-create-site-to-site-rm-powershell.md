@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a virtual network with a site-to-site VPN connection using Azure Resource Manager and PowerShell | Microsoft Azure"
-   description="This article walks you through creating a VNet using the Resource Manager model and connecting it to your local on-premises network using a site-to-site VPN gateway connection. Includes additional steps to modify IP address prefixes for existing local sites."
+   description="This article walks you through creating a VNet using the Resource Manager model and connecting it to your local on-premises network using a S2S VPN gateway connection. Site to site connections can be used for hybrid configurations. Includes additional steps to modify IP address prefixes for existing local sites."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -23,7 +23,7 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the Azure Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above.
+This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the Azure Resource Manager deployment model. If you are looking for a different deployment model for this configuration, use the tabs above to select the article you want. If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md).
 
 
 **About Azure deployment models**
@@ -43,7 +43,7 @@ Verify that you have the following items before beginning configuration.
 ## Install the PowerShell modules
 
 You'll need the latest version of the Azure Resource Manager PowerShell cmdlets to configure your connection.
-
+	
 [AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
 
 ## 1. Connect to your subscription 
@@ -223,7 +223,7 @@ If you need to change the prefixes for your local site, use the instructions bel
 
 - **To remove** an address prefix from a local site that doesn't have a VPN connection, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local site and exclude that prefix.
 
-		local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
 ### Add or remove prefixes with a VPN gateway connection
@@ -241,12 +241,11 @@ You can use the following sample as a guideline.
 		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-		remove-AzureRmVirtualNetworkGatewayConnection -Name vnetgw1 -ResourceGroupName testrg
+		Remove-AzureRmVirtualNetworkGatewayConnection -Name vnetgw1 -ResourceGroupName testrg
 
 		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 	
-
 		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 

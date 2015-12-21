@@ -34,6 +34,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
 - If you plan to use the feature **password writeback** the Domain Controllers must be on Windows Server 2008 (with latest SP) or later.
 - Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials. The server must be using Windows Server standard or better.
 - Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server if using express settings. If you use custom settings, the server can also be stand-alone and does not have to be joined to a domain.
+- If you install Azure AD Connect on Windows Server 2008, make sure to apply the latest hotfixes from Windows Update. The installation will not be able to start with an unpatched server.
 - If you plan to use the feature **password synchronization**, the Azure AD Connect server must be on Windows Server 2008 R2 SP1 or later.
 - The Azure AD Connect server must have [.Net 4.5.1](#component-prerequisites) or later and [PowerShell 3.0](#component-prerequisites) or later installed.
 - If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy will be installed must be Windows Server 2012 R2 or later. [Windows remote management](#windows-remote-management) must be enabled on these servers for remote installation.
@@ -48,7 +49,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
 
 **Connectivity**
 
-- If you are using an outbound proxy for connecting to the Internet, the following setting in the **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** file must be added for the installation wizard and Azure AD sync to be able to connect to the Internet and Azure AD.
+- If you are using an outbound proxy for connecting to the Internet, the following setting in the **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** file must be added for the installation wizard and Azure AD sync to be able to connect to the Internet and Azure AD. This text must be entered at the bottom of the file.  In this code, &lt;PROXYADRESS&gt; represents the actual proxy IP address or host name.
 
 ```
     <system.net>
@@ -62,8 +63,25 @@ Before you install Azure AD Connect, there are a few things that you will need.
     </system.net>
 ```
 
-This text must be entered at the bottom of the file.  In this code, &lt;PROXYADRESS&gt; represents the actual proxy IP address or host name.
-- If your proxy limits which URLs which can be accessed then the URLs documented in [Office 365 URLs and IP address ranges ](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened in the proxy.
+If your proxy server requires authentication, then the section should look like this instead.
+
+```
+    <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+            <proxy
+            usesystemdefault="true"
+            proxyaddress="http://<PROXYADDRESS>:<PROXYPORT>"
+            bypassonlocal="true"
+            />
+        </defaultProxy>
+    </system.net>
+```
+
+With this change in machine.config the installation wizard and sync engine will respond to authentication requests from the proxy server. In all installation wizard pages, excluding the **Configure** page, the signed in user's credentials are used. On the **Configure** page at the end of the installation wizard, the context is switched to the [service account](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) which was created.
+
+See MSDN for more information about the [default proxy Element](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
+
+- If your proxy limits which URLs which can be accessed then the URLs documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened in the proxy.
 
 **Other**
 

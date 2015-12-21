@@ -39,33 +39,34 @@ to hide this image from the public. So just don't use it.
 
 All new tests on Azure should be done with Azure Resource Manager. To look for SUSE SLES images 
 and versions using Azure Powershell or CLI use the following commands. The output can then be used
-e.g. to define the OS image in a json template for deploying a new SUSE Linux VM :
+e.g. to define the OS image in a json template for deploying a new SUSE Linux VM. 
+The PS commands below are valid for Azure Powershell version >= 1.0.1
 
 * look for existing publishers including SUSE :
 
    ```
-   PS  : Get-AzureVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
+   PS  : Get-AzureRmVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
    CLI : azure vm image list-publishers westeurope | grep "US"
    ```
 
 * look for existing offerings from SUSE :
       
    ```
-   PS  : Get-AzureVMImageOffer -Location "West Europe" -Publisher "SUSE"
+   PS  : Get-AzureRmVMImageOffer -Location "West Europe" -Publisher "SUSE"
    CLI : azure vm image list-offers westeurope SUSE
    ```
       
 * look for SUSE SLES offerings :
       
    ```
-   PS  : Get-AzureVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
+   PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
    CLI : azure vm image list-skus westeurope SUSE SLES
    ```
       
 * look for a specific version of a SLES sku :
       
    ```
-   PS  : Get-AzureVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
    CLI : azure vm image list westeurope SUSE SLES 12
    ```
      
@@ -92,6 +93,7 @@ file system in case an external Azure data disk wasn't mounted during the boot.
 ## Uploading a SUSE VM from on-premises to Azure
 
 The following blog describes the steps :
+
 <https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd-suse/>
 
 If one wants to upload a VM without the deprovision step at the end to keep e.g. an existing SAP
@@ -99,14 +101,34 @@ installation as well as the hostname the following items have to be checked :
 
 * make sure that the OS disk is mounted via UUID and NOT via device id. Changing to UUID just in /etc/fstab is NOT enough for the OS disk. One may not forget to also adapt the boot loader e.g. via yast or by editing /boot/grub/menu.lst
 * in case one used the vhdx format for the SUSE OS disk and converts it to vhd for uploading to Azure it's very likely that the network device changed from eth0 to eth1.
-To avoid issues when booting on Azure later on one should change back to eth0 like described
-here : <https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/>
+To avoid issues when booting on Azure later on one should change back to eth0 like described here :
+
+<https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/>
 
 In addition to what's described in the article it's recommended to also remove 
 
    /lib/udev/rules.d/75-persistent-net-generator.rules
 
 Installing the waagent should also avoid any potential issue as long as there are no multiple nics.
+
+## Deploy a SUSE VM on Azure
+
+New VMs should be created via json template files in the new Azure Resource Manager model. Once the json template
+file is created one can deploy the VM using the following CLI command as an alternative to Powershell :
+
+   ```
+   azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
+   
+   ```
+More details about json template files can be found here :
+
+<https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/>
+
+<https://azure.microsoft.com/documentation/templates/>
+
+More details about CLI and Azure Resource Manager can be found here :
+
+<https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/>
 
 ## SAP license and hardware key
 
@@ -116,6 +138,15 @@ of this.
 The current SAP kernel versions for Linux do NOT include this code change. Therefore it might happen 
 that in certain situations ( e.g. Azure VM resize ) the SAP hardware key changes and the SAP license
 is no longer valid
+
+## SUSE sapconf package
+
+SUSE provides a package called "sapconf" which takes care of a set of SAP-specific settings. More
+details about this package, what it does and how to install and use it can be found here :
+
+<https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/>
+
+<http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems>
 
 ## NFS share in distributed SAP installations
 

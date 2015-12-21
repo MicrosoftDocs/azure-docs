@@ -14,20 +14,20 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/11/2015" 
+	ms.date="12/17/2015" 
 	ms.author="betorres"
 />
 
 
-# Enabling and using Search Traffic Analytics #
+# Enabling and using Search Traffic Analytics
 
 Search traffic analytics is an Azure Search feature that lets you gain visibility into your search service and unlock insights about your users and their behavior. When you enable this feature, your search service data is copied to a storage account of your choosing. This data includes your search service logs and aggregated operational metrics.   
 Once there, you can process and manipulate the usage data in any way.
 
 
-## How to enable Search Traffic Analytics ##
+## How to enable Search Traffic Analytics
 
-### 1. Using the portal ###
+### 1. Using the portal
 Open your Azure Search service in the [Azure Portal](http://portal.azure.com). Under Settings, you will find the Search traffic analytics option. 
 
 ![][1]
@@ -41,7 +41,7 @@ Select this option and a new blade will open. Change the Status to **On**, selec
 > 
 > Standard charges apply for this storage account
 
-### 2. Using PowerShell ###
+### 2. Using PowerShell
 
 You can also enable this feature by running the following PowerShell cmdlets.
 
@@ -72,7 +72,7 @@ Once enabled, the data will start flowing into your storage account within 5-10 
     insights-metrics-pt1m: aggregated metrics
 
 
-## Understanding the data ##
+## Understanding the data
 
 The data is stored in Azure Storage blobs formatted as JSON.
 
@@ -80,36 +80,36 @@ There will be one blob, per hour, per container.
   
 Example path: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2015/m=12/d=25/h=01/m=00/name=PT1H.json`
 
-### Logs ###
+### Logs
 
 The logs blobs contain your search service traffic logs.
 
 Each blob has one root object called **records** that contains an array of log objects
 
-Log schema
+####Log schema
 
-|Name |Type |Example |Notes| 
-|------|-----|----|-----|
-|time|datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp of the operation|
-|resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Your ResourceId |
-|operationName |string |"Query.Search" |The name of the operation |
-|operationVersion |string |"2015-02-28"|The api-version used |
-|category |string |"OperationLogs" |constant |
-|resultType |string |"Success" |Possible values: Success or Failure | 
-|resultSignature |int |200 |HTTP result code |
-|durationMS |int |50 |Duration of the operation in milliseconds |
-|properties |object |see below |Object containing operation specific data|
+Name |Type |Example |Notes 
+------|-----|----|-----
+time |datetime |"2015-12-07T00:00:43.6872559Z" |Timestamp of the operation
+resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Your ResourceId
+operationName |string |"Query.Search" |The name of the operation
+operationVersion |string |"2015-02-28"|The api-version used
+category |string |"OperationLogs" |constant 
+resultType |string |"Success" |Possible values: Success or Failure 
+resultSignature |int |200 |HTTP result code 
+durationMS |int |50 |Duration of the operation in milliseconds 
+properties |object |see below |Object containing operation specific data
 
-Properties schema
+####Properties schema
 
-|Name |Type |Example |Notes| 
+|Name |Type |Example |Notes|
 |------|-----|----|-----|
 |Description|string |"GET /indexes('content')/docs" |The operation's endpoint |
 |Query |string |"?search=AzureSearch&$count=true&api-version=2015-02-28" |The query parameters |
 |Documents |int |42 |Number of documents processed|
 |IndexName |string |"testindex"|Name of the index associated with the operation |
 
-### Metrics ###
+### Metrics
 
 The metrics blobs contain aggregated values for your search service.
 Each file has one root object called **records** that contains an array of metric objects
@@ -118,21 +118,21 @@ Available metrics:
 
 - Latency
 
-Metrics schema
+####Metrics schema
 
-|Name |Type |Example |Notes| 
+|Name |Type |Example |Notes|
 |------|-----|----|-----|
 |resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE"  |your resource id |
 |metricName |string |"Latency" |the name of the metric |
 |time|datetime |"2015-12-07T00:00:43.6872559Z" |the operation's timestamp |
 |average |int |64|The average value of the raw samples in the metric time interval |
 |minimum |int |37 |The minimum value of the raw samples in the metric time interval |
-|maximum |int |78 |The maximum value of the raw samples in the metric time interval | 
+|maximum |int |78 |The maximum value of the raw samples in the metric time interval |
 |total |int |258 |The total value of the raw samples in the metric time interval |
 |count |int |4 |The number of raw samples used to generate the metric |
 |timegrain |string |"PT1M" |The time grain of the metric in ISO 8601|
 
-## Analyzing your data ##
+## Analyzing your data
 
 The data is in your own storage account and we encourage you to explore this data in the manner that works best for your case.
 
@@ -140,7 +140,7 @@ As a starting point, we recommend using [Power BI Desktop](https://powerbi.micro
 
 Check out the following sample query that will let you create your own reports in Power BI Desktop.
 
-### Instructions ###
+### Instructions
 
 1. Open a new PowerBI Desktop report
 2. Select Get Data -> More...
@@ -152,8 +152,8 @@ Check out the following sample query that will let you create your own reports i
 	![][4]
 
 4. Enter the Name and Account Key of your storage account
-5. Right click insight-logs-operationlogs and select Load
-6. The Query Editor will open. Now open the Advanced Editor by selecting View -> Advanced Editor
+5. Select "insight-logs-operationlogs" and "insights-metrics-pt1m", then click on Edit
+6. The Query Editor will open, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor
 
 	![][5]
 
@@ -161,7 +161,7 @@ Check out the following sample query that will let you create your own reports i
 
 	>     #"insights-logs-operationlogs" = Source{[Name="insights-logs-operationlogs"]}[Data],
 	>     #"Sorted Rows" = Table.Sort(#"insights-logs-operationlogs",{{"Date modified", Order.Descending}}),
-	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",288),
+	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
 	>     #"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
 	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
 	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
@@ -186,11 +186,33 @@ Check out the following sample query that will let you create your own reports i
 	>     in
 	>     #"Changed Type2"
 
-8. Click Done, and the select Close&Apply in the Home tab.
+8. Click Done
 
-9. Your data is now ready to be consumed. Go ahead and create some [visualizations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).
+9. Select now "insights-metrics-pt1m" from the lest of queries on the left, and open the Advanced editor again. Keep the first 2 lines and replace the rest with the following query: 
 
-## Next Steps ##
+	>     #"insights-metrics-pt1m1" = Source{[Name="insights-metrics-pt1m"]}[Data],
+	>     #"Sorted Rows" = Table.Sort(#"insights-metrics-pt1m1",{{"Date modified", Order.Descending}}),
+	>     #"Kept First Rows" = Table.FirstN(#"Sorted Rows",744),
+    	#"Removed Columns" = Table.RemoveColumns(#"Kept First Rows",{"Name", "Extension", "Date accessed", "Date modified", "Date created", "Attributes", "Folder Path"}),
+	>     #"Parsed JSON" = Table.TransformColumns(#"Removed Columns",{},Json.Document),
+	>     #"Expanded Content" = Table.ExpandRecordColumn(#"Parsed JSON", "Content", {"records"}, {"records"}),
+	>     #"Expanded records" = Table.ExpandListColumn(#"Expanded Content", "records"),
+	>     #"Expanded records1" = Table.ExpandRecordColumn(#"Expanded records", "records", {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}, {"resourceId", "metricName", "time", "average", "minimum", "maximum", "total", "count", "timeGrain"}),
+	>     #"Filtered Rows" = Table.SelectRows(#"Expanded records1", each ([metricName] = "Latency")),
+	>     #"Removed Columns1" = Table.RemoveColumns(#"Filtered Rows",{"timeGrain"}),
+	>     #"Renamed Columns" = Table.RenameColumns(#"Removed Columns1",{{"time", "Datetime"}, {"resourceId", "ResourceId"}, {"metricName", "MetricName"}, {"average", "Average"}, {"minimum", "Minimum"}, {"maximum", "Maximum"}, {"total", "Total"}, {"count", "Count"}}),
+	>     #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"ResourceId", type text}, {"MetricName", type text}, {"Datetime", type datetimezone}, {"Average", type number}, {"Minimum", Int64.Type}, {"Maximum", Int64.Type}, {"Total", Int64.Type}, {"Count", Int64.Type}}),
+	>         Rounding = Table.TransformColumns(#"Changed Type",{{"Average", each Number.Round(_, 2)}}),
+	>     #"Changed Type1" = Table.TransformColumnTypes(Rounding,{{"Average", type number}}),
+	>     #"Inserted Date" = Table.AddColumn(#"Changed Type1", "Date", each DateTime.Date([Datetime]), type date)
+	>     in
+    	#"Inserted Date"
+
+10. Click Done and then select Close&Apply in the Home tab.
+
+11. Your data for the last 30 days is now ready to be consumed. Go ahead and create some [visualizations](https://powerbi.microsoft.com/en-us/documentation/powerbi-desktop-report-view/).
+
+## Next Steps
 
 Learn more about search syntax and query parameters. See [Search Documents (Azure Search REST API)](https://msdn.microsoft.com/library/azure/dn798927.aspx) for details.
 
@@ -203,3 +225,4 @@ Learn more about creating amazing reports. See [Getting started with Power BI De
 [3]: ./media/search-traffic-analytics/GetData.png
 [4]: ./media/search-traffic-analytics/BlobStorage.png
 [5]: ./media/search-traffic-analytics/QueryEditor.png
+

@@ -99,9 +99,7 @@ Resource Manager enables you to control who has access to specific actions for y
 
 Resource Manager automatically logs user actions for auditing. For informatin about working with the audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 
-For more information about role-based access control, see [Role-based access control in the Microsoft Azure preview portal](role-based-access-control-configure.md). This topic contains a list of the built-in roles and the permitted actions. The built-in roles include general roles such as Owner, Reader, and Contributor; as well as, service-specific roles such as Virtual Machine Contributor, Virtual Network Contributor, and SQL Security Manager (to name just a few of the available roles).
-
-For examples of assigning roles, see [Managing access to resources](resource-group-rbac.md).
+For more information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). The [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md) topic contains a list of the built-in roles and the permitted actions. The built-in roles include general roles such as Owner, Reader, and Contributor; as well as, service-specific roles such as Virtual Machine Contributor, Virtual Network Contributor, and SQL Security Manager (to name just a few of the available roles).
 
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
