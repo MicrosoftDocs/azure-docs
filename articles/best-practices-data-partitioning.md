@@ -189,11 +189,11 @@ Azure SQL Database is a relational database-as-a-service that runs in the cloud.
 
 A single SQL database has a limit to the volume of data that it can contain, and throughput is constrained by architectural factors and the number of concurrent connections that it supports. Azure SQL Database provides Elastic Database to support horizontal scaling for a SQL database. Using Elastic Database, you can partition your data into shards spread across multiple SQL databases, and you can add or remove shards as the volume of data that you need to handle grows and shrinks. Using Elastic Database can also help to reduce contention by distributing the load across databases.
 
-> [AZURE.NOTE] Elastic Database is currently in preview as of January 2015. It is a replacement for Azure SQL Database Federations which will be retired. Existing Azure SQL Database Federation installations can be migrated to Elastic Database by using the [Federations Migration Utility]. Alternatively, you can implement your own sharding mechanism if your scenario does not lend itself naturally to the features provided by Elastic Database.
+> [AZURE.NOTE] Elastic Database is currently in preview as of December 2015. It is a replacement for Azure SQL Database Federations which will be retired. Existing Azure SQL Database Federation installations can be migrated to Elastic Database by using the [Federations Migration Utility]. Alternatively, you can implement your own sharding mechanism if your scenario does not lend itself naturally to the features provided by Elastic Database.
 
 Each shard is implemented as a SQL database. A shard can hold more than one dataset (referred to as a _shardlet_), and each database maintains metadata that describes the shardlets that it contains. A shardlet can be a single data item, or it can be a group of items that share the same shardlet key. For example, if you are sharding data in a multi-tenant application, the shardlet key could be the tenant ID and all data for a given tenant would be held as part of the same shardlet. Data for other tenants would be held in different shardlets.
 
-It is the programmer's responsibility to associate a dataset with a shardlet key. A separate SQL database acts as a global shard-map manager that contains a list of databases (shards) that comprise the entire system together with information about the shardlets in each database. A client application that accesses data first connects to the global shard-map manager database to obtain a copy of the shard-map (listing shards and shardlets) which it caches locally. The application then uses this information to route data requests to the appropriate shard. This functionality is hidden behind a series of APIs contained in the Azure SQL Database Elastic Database Client Library, available as a NuGet package. The page [Azure SQL Database Elastic Database Overview] on the Microsoft website provides a more comprehensive introduction to Elastic Database.
+It is the programmer's responsibility to associate a dataset with a shardlet key. A separate SQL database acts as a global shard-map manager that contains a list of databases (shards) that comprise the entire system together with information about the shardlets in each database. A client application that accesses data first connects to the global shard-map manager database to obtain a copy of the shard-map (listing shards and shardlets) which it caches locally. The application then uses this information to route data requests to the appropriate shard. This functionality is hidden behind a series of APIs contained in the Azure SQL Database Elastic Database Client Library, available as a NuGet package. The page [Elastic Database features overview] on the Microsoft website provides a more comprehensive introduction to Elastic Database.
 
 > [AZURE.NOTE] You can replicate the global shard-map manager database to reduce latency and improve availability. If you implement the database by using one of the Premium pricing tiers you can configure active geo-replication to continuously copy data to databases in different regions. Create a copy of the database in each region in which users are based, and configure your application to connect to this copy to obtain the shard map.
 
@@ -259,7 +259,7 @@ Azure table storage is a key/value stored designed around partitioning. All enti
 - The partition key. This is a string values that determines in which partition Azure table storage will place the entity. All entities with the same partition key will be stored in the same partition.
 - The row key. This is another string value that identifies the entity within the partition. All entities within a partition are sorted lexically, in ascending order, by this key. The partition key/row key combination must be unique for each entity and cannot exceed 1KB in length.
 
-The remainder of the data for an entity consists of application-defined fields. No particular schemas are enforced, and each row can contain a different set of application-defined fields. The only limitation is that the maximum size of an entity (including the partition and row keys) is currently 1MB. The maximum size of a table is 200TB, although these figures may change in the future (check the page [Azure Storage Scalability and Performance Targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) on the Microsoft website for the most recent information about these limits. If you are attempting to store entities that exceed this capacity, then consider splitting them into multiple tables; use vertical partitioning and divide the fields into the groups that are most likely to be accessed together.
+The remainder of the data for an entity consists of application-defined fields. No particular schemas are enforced, and each row can contain a different set of application-defined fields. The only limitation is that the maximum size of an entity (including the partition and row keys) is currently 1MB. The maximum size of a table is 200TB, although these figures may change in the future (check the page [Azure Storage Scalability and Performance Targets] on the Microsoft website for the most recent information about these limits. If you are attempting to store entities that exceed this capacity, then consider splitting them into multiple tables; use vertical partitioning and divide the fields into the groups that are most likely to be accessed together.
 
 Figure 7 shows the logical structure of an example storage account (Contoso Data) for a fictitious ecommerce application. The storage accounts contains three tables (Customer Info, Product Info, and Order Info), and each table has multiple partitions. In the Customer Info table the data is partitioned according to the city in which the customer is located, and the row key contains the customer ID. In the Product Info table the products are partitioned by product category and the row key contains the product number. In the Order Info table the orders are partitioned by the date on which they were placed and the row key specified the time the order was received. Note that all data is ordered by the row key in each partition.
 
@@ -289,7 +289,7 @@ For additional information on partitioning data in Azure table storage, see the 
 
 ## Partitioning Azure blob storage
 
-Azure Blob Storage enables you to hold large binary objects, currently up to 200GB in size for block blobs, or 1TB for page blobs (for the most recent information, visit the [Azure Storage Scalability and Performance Targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) page on the Microsoft website). Use block blobs in scenarios such as streaming where you need to upload or download large volumes of data quickly. Use page blobs for applications that require random rather than serial access to parts of the data.
+Azure Blob Storage enables you to hold large binary objects, currently up to 200GB in size for block blobs, or 1TB for page blobs (for the most recent information, visit the [Azure Storage Scalability and Performance Targets] page on the Microsoft website). Use block blobs in scenarios such as streaming where you need to upload or download large volumes of data quickly. Use page blobs for applications that require random rather than serial access to parts of the data.
 
 Each blob (either block or page) is held in a container in an Azure storage account. You can use containers to group related blobs that have the same security requirements together, although this grouping is logical rather than physical. Inside a container each blob has a unique name.
 
@@ -365,13 +365,13 @@ You should consider the following points when deciding how to partition data wit
 
 ## Partitioning Strategies for Azure Search
 
-The ability to search for data is often the primary method of navigation and exploration provided by many web applications, enabling users to quickly find resources (for example, products in an ecommerce application) based on combinations of search criteria. The Azure Search service provides full-text search capabilities over web content, and includes features such as type-ahead, suggested queries based on near matches, and faceted navigation. A full description of these capabilities is available on the [Azure Search Overview] page on the Microsoft website.
+The ability to search for data is often the primary method of navigation and exploration provided by many web applications, enabling users to quickly find resources (for example, products in an ecommerce application) based on combinations of search criteria. The Azure Search service provides full-text search capabilities over web content, and includes features such as type-ahead, suggested queries based on near matches, and faceted navigation. A full description of these capabilities is available on the [What is Azure Search?] page on the Microsoft website.
 
 The Search service stores searchable content as JSON documents in a database. You define indexes that specify the searchable fields in these documents and provide these definitions to the Search service. When a user submits a search request, the Search service uses the appropriate indexes to find matching items.
 
 To reduce contention, the storage used by the Search service can be divided into up into 1, 2, 3, 4, 6, or 12 partitions, and each partition can be replicated up to 6 times. The product of the number of partitions multiplied by the number of replicas is called the _Search Unit_ (SU). A single instance of the Search Service can contain a maximum of 36 SUs (a database with 12 partitions only supports a maximum of 3 replicas). You are billed for each SU that is allocated to your service. As the volume of searchable content increases or the rate of search requests grows, you can add SUs to an existing instance of the Search service to handle the extra load. The Search Service itself takes responsibility for distributing the documents evenly across the partitions, and no manual partitioning strategies are currently supported.
 
-Each partition can contain a maximum of 15 million documents or occupy 300GB of storage space (whichever is the lower, depending on the size of your documents and indexes). You can create up to 50 indexes. The performance of the service will vary depending on the complexity of the documents, the available indexes, and the effects of network latency. On average, a single replica (1SU) should be able to handle 15 queries per second (QPS), although you should perform benchmarking with your own data to obtain a more precise measure of throughput. For more information, see the [Limits and Constraints (Azure Search API)] page on the Microsoft website.
+Each partition can contain a maximum of 15 million documents or occupy 300GB of storage space (whichever is the lower, depending on the size of your documents and indexes). You can create up to 50 indexes. The performance of the service will vary depending on the complexity of the documents, the available indexes, and the effects of network latency. On average, a single replica (1SU) should be able to handle 15 queries per second (QPS), although you should perform benchmarking with your own data to obtain a more precise measure of throughput. For more information, see the [Service limits in Azure Search] page on the Microsoft website.
 
 > [AZURE.NOTE] You can store a limited set of data types in searchable documents; strings, Booleans, numeric data, datetime data, and some geographical data. For more details, see the [Supported Data Types (Azure Search)] page on the Microsoft website.
 
@@ -451,25 +451,25 @@ For an example of a solution that supports online migration, see the [Scaling us
 
 The following patterns may also be relevant to your scenario when considering strategies for implementing data consistency:
 
-- The Data Consistency Guidance page, available on the Microsoft website, describes strategies for maintaining consistency in a distributed environment such as the cloud.
+- The [Data Consistency Primer] page, available on the Microsoft website, describes strategies for maintaining consistency in a distributed environment such as the cloud.
 - The [Data Partitioning Guidance] page on the Microsoft website provides a general overview of designing partitions to meet various criteria in a distributed solution.
 - The [Sharding Pattern], described on the Microsoft website, summarizes some common strategies for sharding data.
 - The [Index Table Pattern] described on the Microsoft website illustrates how to create secondary indexes over data. This approach enables an application to quickly retrieve data by using queries that do not reference the primary key of a collection.
 - The [Materialized View Pattern] discussed on the Microsoft website describes how to generate pre-populated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions containing the data being summarized are distributed across multiple sites.
-- The article Content Delivery Network (CDN) provides additional guidance on configuring and using CDN with Azure.
+- The [Using CDN for Azure] article provides additional guidance on configuring and using CDN with Azure.
 
 ## More Information
 
 - The [What is Azure SQL Database?] page on the Microsoft website provides detailed documentation describing how to create and use SQL databases.
-- The page [Azure SQL Database Elastic Database Overview] on the Microsoft website provides a comprehensive introduction to Elastic Database.
+- The page [Elastic Database features overview] on the Microsoft website provides a comprehensive introduction to Elastic Database.
 - The topic [Scaling using the Elastic Database split-merge tool] on the Microsoft website contains information on using the Split/Merge service to manage Elastic Database shards.
 - The page [Azure Storage Scalability and Performance Targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) on the Microsoft website documents the current sizing and throughput limits of Azure storage.
 - The [Performing Entity Group Transactions] page on the Microsoft website provides detailed information about implementing transactional operations over entities stored in Azure table storage.
 - The article [Azure Storage Table Design Guide] on the Microsoft website contains detailed information on partitioning data in Azure table storage.
 - The page [Using CDN for Azure] on the Microsoft website describes how to replicate data held in Azure Blob Storage by using the Azure Content Delivery Network (CDN).
 - The page [Manage DocumentDB capacity needs] on the Microsoft website contains information about how Azure DocumentDB allocates resources to databases.
-- The [Azure Search Overview] page on the Microsoft website provides a full description of the capabilities available with the Azure Search service.
-- The [Limits and Constraints (Azure Search API)] page on the Microsoft website contains information on the capacity of each instance of the Azure Search service.
+- The [What is Azure Search?] page on the Microsoft website provides a full description of the capabilities available with the Azure Search service.
+- The [Service limits in Azure Search] page on the Microsoft website contains information on the capacity of each instance of the Azure Search service.
 - The [Supported Data Types (Azure Search)] page on the Microsoft website summarizes the data types that you can use in searchable documents and indexes.
 - The [Azure Redis Cache] page on the Microsoft website provides an introduction to Azure Redis Cache.
 - The page [Partitioning: how to split data among multiple Redis instances] on the Redis website provides information on implementing partitioning with Redis.
@@ -477,18 +477,18 @@ The following patterns may also be relevant to your scenario when considering st
 - The [Data Types] page on the Redis website describes the data types that are available with Redis and Azure Redis Cache.
 
 [Azure Redis Cache]: http://azure.microsoft.com/services/cache/
-[Azure Search Overview]: https://msdn.microsoft.com/library/azure/dn798933.aspx
-[Azure SQL Database Elastic Database Overview]: ../sql-database/sql-database-elastic-scale-introduction.md
+[Elastic Database features overview]: sql-database/sql-database-elastic-scale-introduction.md
 [Azure Storage Scalability and Performance Targets]: storage/storage-scalability-targets.md
 [Azure Storage Table Design Guide]: storage/storage-table-design-guide.md
 [Building a Polyglot Solution]: https://msdn.microsoft.com/library/dn313279.aspx
 [Data Access for Highly-Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/library/dn271399.aspx
+[Data Consistency Primer]: http://aka.ms/Data-Consistency-Primer
 [Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
 [Data Types]: http://redis.io/topics/data-types
 [DocumentDB limits and quotas]: documentdb/documentdb-limits.md
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
-[Limits and Constraints (Azure Search API)]:  search/search-limits-quotas-capacity.md
+[Service limits in Azure Search]:  search/search-limits-quotas-capacity.md
 [Manage DocumentDB capacity needs]: documentdb/documentdb-manage.md
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
 [Multi-shard querying]: sql-database/sql-database-elastic-scale-multishard-querying.md
@@ -503,4 +503,5 @@ The following patterns may also be relevant to your scenario when considering st
 [Sharding pattern]: http://aka.ms/Sharding-Pattern
 [Supported Data Types (Azure Search)]:  https://msdn.microsoft.com/library/azure/dn798938.aspx
 [Transactions]: http://redis.io/topics/transactions
+[What is Azure Search?]: search/search-what-is-azure-search.md
 [What is Azure SQL Database?]: sql-database/sql-database-technical-overview.md
