@@ -19,7 +19,7 @@
 
 # Service Fabric application upgrade
 
-An Azure Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-model.md#describe-an-application) with the previous version and determines which services in the application require updates. Fabric Service does this by comparing the version numbers in the service manifests with the version numbers in previous version. If a service has not changed, that service is not upgraded.
+An Azure Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-model.md#describe-an-application) with the previous version and determines which services in the application require updates. Fabric Service does this by comparing the version numbers in the service manifests with the version numbers in the previous version. If a service has not changed, that service is not upgraded.
 
 ## Rolling upgrades overview
 
@@ -33,21 +33,21 @@ Non-rolling upgrades are possible if the upgrade is applied to all nodes in the 
 
 ## Health checks during upgrades
 
-For an upgrade, health policies have to be set (or default values may be used). An upgrade is termed successful when all update domains are upgraded within the specified time-outs, and all update domains are deemed healthy.  A healthy update domain means that the update domain passed all the health checks specified in the health policy. For example, a health policy may mandate that all services within an application instance must be <em>healthy</em>, as health is defined by Service Fabric.
+For an upgrade, health policies have to be set (or default values may be used). An upgrade is termed successful when all update domains are upgraded within the specified time-outs, and when all update domains are deemed healthy.  A healthy update domain means that the update domain passed all the health checks specified in the health policy. For example, a health policy may mandate that all services within an application instance must be <em>healthy</em>, as health is defined by Service Fabric.
 
-Health policies and checks during upgrade by Service Fabric are service- and application- agnostic. That is, no service specific tests are checked.  For example, your service might have a minimal throughput requirement. However, Service Fabric does not have the information to test for that, and so will not check throughput as defined for your application.   Please refer to the [Health articles](service-fabric-health-introduction.md) for the checks that are performed. Fabric Service checks thing that happen during an upgrade, such as whether the application package was copied correctly, whether the instance was started, and so on.
+Health policies and checks during upgrade by Service Fabric are service- and application- agnostic. That is, no service-specific tests are done.  For example, your service might have a minimal throughput requirement. However, Service Fabric does not have the information to test for that, and so will not check throughput as defined for your application.   Please refer to the [Health articles](service-fabric-health-introduction.md) for the checks that are performed. The checks that happen during an upgrade include tests for whether the application package was copied correctly, whether the instance was started, and so on.
 
-The application health is an aggregation of the child entities of the application. In short, Service Fabric evaluates the health of the application through the health reported on the application. It also evaluates the health of all the services for the application this way. The health of the application services are further evaluated by aggregating the health of their children, such as the service replica. Once the application health policy is satisfied, the upgrade can proceed. If the health policy is violated, the application upgrade fails.
+The application health is an aggregation of the child entities of the application. In short, Service Fabric evaluates the health of the application through the health that is reported on the application. It also evaluates the health of all the services for the application this way. The health of the application services are further evaluated by aggregating the health of their children, such as the service replica. Once the application health policy is satisfied, the upgrade can proceed. If the health policy is violated, the application upgrade fails.
 
 ## Upgrade modes
 
 The mode we recommend for upgrades is monitored mode, which is the most commonly used mode. Monitored mode performs the upgrade on one update domain, and if all health checks pass (per the policy specified), moves on to the next update domain automatically.  If the health checks fail and/or time-outs are reached, the upgrade is either rolled back for the update domain, or the mode changed to unmonitored manual (if that is the option selected at the time of upgrade).
 
-Unmonitored manual mode needs manual intervention after every upgrade on an update domain to kick off the upgrade on the next update domain. There are no Service Fabric health checks that are performed, and it's dependent on the administrator to perform the health or status checks before starting the upgrade in the next update domain.
+Unmonitored manual mode needs manual intervention after every upgrade on an update domain, to kick off the upgrade on the next update domain. There are no Service Fabric health checks that are performed, and it's dependent on the administrator to perform the health or status checks before starting the upgrade in the next update domain.
 
 ## Application upgrade flowchart
 
-The flowchart below aids can help you understand the upgrade process of a Service Fabric application. In particular, the flow describes how the time-outs, including *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, and *UpgradeHealthCheckInterval*, help control when the upgrade in one update domain is considered a success or a failure.
+The flowchart below can help you understand the upgrade process of a Service Fabric application. In particular, the flow describes how the time-outs, including *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, and *UpgradeHealthCheckInterval*, help control when the upgrade in one update domain is considered a success or a failure.
 
 ![The upgrade process for a Service Fabric Application][image]
 
