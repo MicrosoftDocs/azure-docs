@@ -26,15 +26,15 @@ Tests can be run against an application while it's being upgraded.
 
 ## Parameters needed to upgrade
 
-There are two types of deployment you can choose: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade an Azure Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade, while health check policies determine whether the upgrade was successful or not. See [Service Fabric application upgrade: upgrade parameters](service-fabric-application-upgrade-parameters.md) for more details.
+There are two types of deployment you can choose: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade an Azure Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade, while health check policies determine whether the upgrade was successful. See [Service Fabric application upgrade: upgrade parameters](service-fabric-application-upgrade-parameters.md) for more details.
 
-There are three upgrade modes: *Monitored*, *UnmonitoredAuto*, and *Manual*.
+There are three upgrade modes: *Monitored*, *UnmonitoredAuto*, and *UnmonitoredManual*.
 
   - A Monitored upgrade automates the upgrade and application health check.
 
   - An UnmonitoredAuto upgrade automates the upgrade, but skips the application health check.
 
-  - When you do a Manual upgrade, you need to manually upgrade each upgrade domain.
+  - When you do an UnmonitoredManual upgrade, you need to manually upgrade each upgrade domain.
 
 Each upgrade mode requires different sets of parameters. See [Application upgrade parameters](service-fabric-application-upgrade-parameters.md) to learn more about the available upgrade options.
 
