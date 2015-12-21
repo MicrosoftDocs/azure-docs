@@ -15,7 +15,7 @@
    ms.date="12/15/2015"
    ms.author="v-sharos" />
 
-# Use the StorSimple Manager service to manage volumes
+# Use the StorSimple Manager service to manage volumes (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Command-line build for Azure"
+   pageTitle="Command-line build for Azure | Microsoft Azure"
    description="Command-line build for Azure"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Command-Line Build for Azure
