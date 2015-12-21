@@ -364,6 +364,7 @@ For more information, see the following resources.
 -   [Azure Storage Team Blog][]
 -   [Azure Storage SDK for Node][] repository on GitHub
 -   [Node.js Developer Center](/develop/nodejs/)
+-   [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/

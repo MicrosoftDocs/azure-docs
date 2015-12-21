@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure a point-to-site VPN connection to an Azure Virtual Network | Microsoft Azure"
-   description="Securely connect to your Azure Virtual Network by creating a point-to-site VPN connection. Instructions for VNets that were created using the Service Management (classic) deployment model."
+   pageTitle="Configure a Point-to-Site VPN connection to an Azure Virtual Network | Microsoft Azure"
+   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN connection. Instructions for VNets that were created using the Service Management (classic) deployment model."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,25 +14,25 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/16/2015"
+   ms.date="12/16/2015"
    ms.author="cherylmc"/>
 
-# Configure a point-to-site VPN connection to a VNet
+# Configure a Point-to-Site VPN connection to a VNet
 
 
-This article applies to point-to-site connections for virtual networks created using the classic deployment model (Service Management). 
+This article applies to Point-to-Site VPN Gateway connections to a virtual network created using the classic deployment model (Service Management). Point-to-Site connections for virtual networks created using the Azure Resource Manager deployment model are now available using REST APIs and PowerShell. We are working on an article that will walk you through the steps using PowerShell. I'll update this page and include the link when the article is ready. We're currently planning for early January.
 
-**At this time, point-to-site connections to a virtual network created using the Azure Resource Manager deployment model are not supported.** This page will be updated when this feature is supported for the Resource Manager deployment model.
+**About Azure deployment models**
 
-[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+ 
+The following procedure will walk you through the steps to create a secure Point-to-Site connection to a virtual network. Although configuring a Point-to-Site connection requires multiple steps, it's a great way to have a secure connection from your computer to your virtual network without acquiring and configuring a VPN device. 
 
-The following procedure will walk you through the steps to create a secure point-to-site connection to a virtual network. Although configuring a point-to-site connection requires multiple steps, it's a great way to have a secure connection from your computer to your virtual network without acquiring and configuring a VPN device. 
-
-The configuration for a point-to-site connection is broken down into 3 sections: the virtual network and VPN gateway, the certificates used for authentication, and the VPN client that will be used to connect to your virtual network. The order in which you configure each of these is important, so don't skip steps or jump ahead.
+The configuration for a Point-to-Site connection is broken down into 3 sections: the virtual network and VPN gateway, the certificates used for authentication, and the VPN client that will be used to connect to your virtual network. The order in which you configure each of these is important, so don't skip steps or jump ahead.
 
 ## Section 1 - Create a virtual network and a VPN gateway
 
-A point-to-site connection requires a virtual network with a dynamic routing gateway. The following steps will walk you through the following:
+A Point-to-Site connection requires a virtual network with a dynamic routing gateway. The following steps will walk you through the following:
 
 Step 1 - Create a virtual network.
 
@@ -56,7 +56,7 @@ Step 2 - Create a dynamic routing gateway.
 1. Enter the following information, and then click the checkmark to begin creating your virtual network.
  - **Address Space**: Add the internal IP address range that you want to use for this virtual network, including Starting IP and Count. It's important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You'll need to coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
  - **Add subnet**: Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that's separate from your other role instances.
- - **Add gateway subnet**: The gateway subnet is required for a point-to-site VPN. Click to add the gateway subnet. The gateway subnet is used only for the virtual network gateway.
+ - **Add gateway subnet**: The gateway subnet is required for a Point-to-Site VPN. Click to add the gateway subnet. The gateway subnet is used only for the virtual network gateway.
 1. When your virtual network has been created, you will see **Created** listed under **Status** on the networks page in the Azure Classic Portal. Once your virtual network has been created, you can create your dynamic routing gateway.
 
 ### Create a dynamic routing gateway
@@ -68,7 +68,7 @@ The gateway type must be configured as dynamic. Static routing gateways will not
 
 ## Section 2 - Generate and upload certificates
 
-Certificates are used to authenticate VPN clients for point-to-site VPNs. Previously, you were required to generate your own self-signed certificate. Now, you can now use certificates that you generated using an enterprise solution. You can upload up to 20 root certificates to Azure.
+Certificates are used to authenticate VPN clients for Point-to-Site VPNs. Previously, you were required to generate your own self-signed certificate. Now, you can now use certificates that you generated using an enterprise solution. You can upload up to 20 root certificates to Azure.
 
 If you want to use a self-signed certificate, the steps below will walk you through the process. If you are planning to use an enterprise certificate solution, the steps within each section will be different, but you'll still need to do the following:
 
@@ -167,7 +167,7 @@ Note that the configuration package is not signed by Microsoft. You may want to 
 ### Verify the VPN connection
 
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
-2. View the results. Notice that the IP address you received is one of the addresses within the point-to-site connectivity address range that you specified when you created your VNet. The results should be something similar to this:
+2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site connectivity address range that you specified when you created your VNet. The results should be something similar to this:
 
 Example:
 
@@ -185,10 +185,6 @@ Example:
 		NetBIOS over Tcpip..............: Enabled
 
 ## Next steps
-
-You can learn more about virtual network cross-premises connectivity in this article: [About virtual network secure cross-premises connectivity](vpn-gateway-cross-premises-options.md).
-
-If you want to configure a site-to-site VPN connection, see [Configure a virtual network with a site-to-site VPN gateway connection](vpn-gateway-site-to-site-create.md).
 
 You can add virtual machines to your virtual network. See [How to create a custom virtual machine](../virtual-machines/virtual-machines-create-custom.md).
 
