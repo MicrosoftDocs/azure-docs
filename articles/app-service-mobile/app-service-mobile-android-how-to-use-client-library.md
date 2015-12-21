@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-This guide shows you how to perform common scenarios using the Android client SDK for Azure App Service Mobile Apps.  The scenarios covered include querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and customizing the client. 
+This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and customizing the client. 
 
 In this guide, we focus on the client-side Android SDK.  To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or [How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
@@ -33,21 +33,21 @@ In this guide, we focus on the client-side Android SDK.  To learn more about the
 
 ## Setup and Prerequisites
 
-The Mobile Services SDK for Android, which supports Android version 2.2 or later, but we recommend building against Android version 4.2 or later.
+The Mobile Services SDK for Android supports Android version 2.2 or later, but we recommend building against Android version 4.2 or later.
 
-Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial, which will ensure that you have installed Android Studio; it will help you configure your account and create your first Mobile App backend. 
+Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial, which will ensure that you have installed Android Studio; it will help you configure your account and create your first Mobile App backend. If you do this, you can skip the rest of this section.
 
-If you have your own Android app that you want to connect to a Mobile App backend, and decide not to complete the Quickstart, you need to do the following in your Android Studio project:
+If you have your own Android app that you want to connect to a Mobile App backend, and decide not to complete the Quickstart, you need to do the following:
 
 - [create a Mobile App backend](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) to use with your Android app (unless your app already has one)
-- [update the Gradle build files](#gradle-build)
+- In Android Studio, [update the Gradle build files](#gradle-build), and
 - [Enable internet permission](#enable-internet)
 
 ###<a name="gradle-build"></a>Update the Gradle build file 
 
-You must change both **build.gradle** files:
+Change both **build.gradle** files:
 
-1. Add the following to the *Project* level **build.gradle** file inside the *buildscript* tag:
+1. Add this code to the *Project* level **build.gradle** file inside the *buildscript* tag:
  
 		buildscript {
 		    repositories {
@@ -55,7 +55,7 @@ You must change both **build.gradle** files:
 		    }
 		} 
 
-2. Add the following to the *Module app* level **build.gradle** file inside the *dependencies* tag:
+2. Add this to the *Module app* level **build.gradle** file inside the *dependencies* tag:
 
 		compile 'com.microsoft.azure:azure-mobile-android:**version**'
 
@@ -68,8 +68,10 @@ To access Azure, your app must have the INTERNET permission enabled. If it's not
 
 ## Deep dive into the basics
 
-If you completed the Quickstart app, the code in these sections will already be in your app. If not you will need to add it. This section provides you with more detailed discussion.
+This section discusses some of the code in the Quickstart app. If you did not completed it, you will need to add it. 
 
+> [AZURE.NOTE] You will notice "MobileServices" occurs frequently in the code: the code actually does reference the Mobile Apps SDK, it's just a temporary carry-over from the past.
+> 
 ###<a name="create-client"></a>How to: Create the client context
 The following code creates the **MobileServiceClient** object that is used to access your Mobile App backend. The code goes in the `onCreate` method of the **Activity** class specified in *AndroidManifest.xml* as a **MAIN** action and **LAUNCHER** category.
 
@@ -83,27 +85,28 @@ In the code above, replace `MobileAppUrl` with the URL of your Mobile App backen
 
 ###<a name="instantiating"></a>How to: Create a table reference
 
-The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless serialization and deserialization to JSON using the [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) library when sending data between the client and the backend: the developer doesn't have to do anything, the framework handles it all.
+The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless serialization and deserialization to JSON using the [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) library when sending data between  client objects and tables in the backend Azure SQL: the developer doesn't have to do anything, the framework handles it all.
 
-The first thing you do to query or modify data is to create a [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) object by calling the **getTable** method on the [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html).  We will look at two overloads of this method:
+The first step in accessing a table is to create a [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) object by calling the **getTable** method on the [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html).  This method has two overloads:
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
 	    public <E> MobileServiceTable<E> getTable(String name, Class<E> clazz);
 	}
 
-In the following code, *mClient* is a reference to your mobile service client.
+In the following code, *mClient* is a reference to your MobileServiceClient object.
 
 The [first overload](http://go.microsoft.com/fwlink/p/?LinkId=296839) is used where the class name and the table name are the same:
 
 		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
 
-The [2nd overload](http://go.microsoft.com/fwlink/p/?LinkId=296840) is used when the table name is different from the type name.
+The [2nd overload](http://go.microsoft.com/fwlink/p/?LinkId=296840) is used when the table name is different from the type name: the first parameter is the table name.
 
 		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 ###<a name="data-object"></a>Define client data classes
+
 To access data from backend tables, you need to define client data classes that correspond to tables in the Mobile App backend. Examples in this topic assume a table named *ToDoItem*, which has the following columns:
 
 - id
@@ -134,7 +137,7 @@ Data binding involves three components:
 - The screen layout
 - The adapter that ties the two together.
 
-In our sample code, we return the data from the mobile service table *ToDoItem* into an array. This is one very common pattern for data applications: database queries typically return a collection of rows which the client gets in a list or array. In this sample the array is the data source.
+In our sample code, we return the data from the mobile apps table *ToDoItem* into an array. This is a very common pattern for data applications: database queries often return a collection of rows which the client gets in a list or array. In this sample the array is the data source.
 
 The code specifies a screen layout that defines the view of the data that will appear on the device.
 
@@ -152,7 +155,7 @@ The layout is defined by several snippets of XML code. Given an existing layout,
     </ListView>
 
 
-In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check box and its associated text. This gets instantiated once for each item in the list. A more complex layout would specify additional fields in the display. This code is in the *row_list_to_do.xml* file.
+In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check box and its associated text. This gets instantiated once for each item in the list. A more complex layout would specify additional fields in the display. This code is in the row_list_to_do.xml file.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
