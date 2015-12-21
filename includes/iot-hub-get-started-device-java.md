@@ -15,8 +15,8 @@ In this section, you'll create a Java console app that simulates a device that s
     ```
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
-      <artifactId>iothub-java-client</artifactId>
-      <version>1.0.0-preview.7</version>
+      <artifactId>iothub-java-device-client</artifactId>
+      <version>1.0.0-preview.8</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>

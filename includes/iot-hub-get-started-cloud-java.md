@@ -14,9 +14,9 @@ In this section, you'll create a Java console app that creates a new device iden
 
     ```
     <dependency>
-      <groupId>com.microsoft.azure.iothub.service.sdk</groupId>
-      <artifactId>iothub-service-sdk</artifactId>
-      <version>1.0.0-preview.7</version>
+      <groupId>com.microsoft.azure.iothub-java-client</groupId>
+      <artifactId>iothub-java-service-client</artifactId>
+      <version>1.0.0-preview.8</version>
     </dependency>
     ```
     
