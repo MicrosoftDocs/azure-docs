@@ -23,7 +23,7 @@ This article applies to connecting multiple on-premises sites to VNets that were
 
 **About Azure deployment models**
 
-[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]When we have an article with steps for VNets created using the Resource Manager model, I'll link to that article from this page. 
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]When we have an article with steps for VNets created using the Resource Manager model, I'll link to it from this page. 
 
 ## About connecting
 
@@ -35,7 +35,7 @@ If already have a static gateway connected to your virtual network, you can chan
 
 ## Points to consider
 
-**You won't be able to use the Azure Classic Portal to make changes to this virtual network.** For this release, you'll need to make changes to the network configuration file instead of using the Azure Classic Portal. If you make changes in the Azure Classic Portal, they'll overwrite your multi-site reference settings for this virtual network. You should feel pretty comfortable using the network configuration file by the time you've completed the multi-site procedure. However, if you have multiple people working on your network configuration, you'll need to make sure that everyone knows about this limitation. This doesn't mean that you can't use the Azure Classic Portal at all. You can use it for everything else except making configuration changes to this particular virtual network.
+**You won't be able to use the Azure Classic Portal to make changes to this virtual network.** For this release, you'll need to make changes to the network configuration file instead of using the Azure Classic Portal. If you make changes in the Azure Classic Portal, they'll overwrite your multi-site reference settings for this virtual network. You should feel pretty comfortable using the network configuration file by the time you've completed the multi-site procedure. However, if you have multiple people working on your network configuration, you'll need to make sure that everyone knows about this limitation. This doesn't mean that you can't use the Azure Classic Portal at all. You can use it for everything else, except making configuration changes to this particular virtual network.
 
 ## Before you begin
 
@@ -68,6 +68,7 @@ Before you begin configuration, verify that you have the following:
 	**If you don't have a site-to-site virtual network:** 
 
 	- Step 1: Create your Site-to-Site virtual network using these instructions: [Create a Virtual Network with a Site-to-Site VPN Connection in the Azure Classic Portal](vpn-gateway-site-to-site-create.md). 
+
 
 	- Step 2: Configure a dynamic routing gateway using these instructions: [Configure a VPN Gateway](vpn-gateway-configure-vpn-gateway-mp.md). Be sure to select **dynamic routing** for your gateway type.
 
@@ -123,7 +124,7 @@ Before you begin configuration, verify that you have the following:
 		  </VirtualNetworkConfiguration>
 		</NetworkConfiguration>
 
-4. Add multiple site references to the network configuration file. When you add or remove site reference information, you'll make configuration changes to the ConnectionsToLocalNetwork/LocalNetworkSiteRef. Adding a new local site reference triggers Azure to create a new tunnel. In the example below, the network configuration is for a single-site connection.
+4. **Add multiple site references to the network configuration file**. When you add or remove site reference information, you'll make configuration changes to the ConnectionsToLocalNetwork/LocalNetworkSiteRef. Adding a new local site reference triggers Azure to create a new tunnel. In the example below, the network configuration is for a single-site connection.
 
 		<Gateway>
           <ConnectionsToLocalNetwork>
