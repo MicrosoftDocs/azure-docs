@@ -33,6 +33,7 @@ When both the source and sink (destination) data stores reside in the cloud, the
 3.	Writes data to the destination data store
 
 ![Copy data between two cloud data stores](./media/data-factory-copy-activity-performance/copy-data-between-two-cloud-stores.png)
+
 **Note:** Dotted line shapes (compression, column mapping, etc.) are capabilities which may or may not be leveraged in your use case.
 
 
