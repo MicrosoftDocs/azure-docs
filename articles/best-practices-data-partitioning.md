@@ -477,7 +477,6 @@ The following patterns may also be relevant to your scenario when considering st
 - The [Data Types] page on the Redis website describes the data types that are available with Redis and Azure Redis Cache.
 
 [Azure Redis Cache]: http://azure.microsoft.com/services/cache/
-[Elastic Database features overview]: sql-database/sql-database-elastic-scale-introduction.md
 [Azure Storage Scalability and Performance Targets]: storage/storage-scalability-targets.md
 [Azure Storage Table Design Guide]: storage/storage-table-design-guide.md
 [Building a Polyglot Solution]: https://msdn.microsoft.com/library/dn313279.aspx
@@ -486,9 +485,9 @@ The following patterns may also be relevant to your scenario when considering st
 [Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
 [Data Types]: http://redis.io/topics/data-types
 [DocumentDB limits and quotas]: documentdb/documentdb-limits.md
+[Elastic Database features overview]: sql-database/sql-database-elastic-scale-introduction.md
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
 [Index Table Pattern]: http://aka.ms/Index-Table-Pattern
-[Service limits in Azure Search]:  search/search-limits-quotas-capacity.md
 [Manage DocumentDB capacity needs]: documentdb/documentdb-manage.md
 [Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
 [Multi-shard querying]: sql-database/sql-database-elastic-scale-multishard-querying.md
@@ -500,6 +499,7 @@ The following patterns may also be relevant to your scenario when considering st
 [Scaling using the Elastic Database split-merge tool]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
 [Using CDN for Azure]: cdn/cdn-how-to-use-cdn.md
 [Service Bus quotas]: service-bus/service-bus-quotas.md
+[Service limits in Azure Search]:  search/search-limits-quotas-capacity.md
 [Sharding pattern]: http://aka.ms/Sharding-Pattern
 [Supported Data Types (Azure Search)]:  https://msdn.microsoft.com/library/azure/dn798938.aspx
 [Transactions]: http://redis.io/topics/transactions
