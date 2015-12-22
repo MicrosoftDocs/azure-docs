@@ -153,7 +153,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 	This sends a WNS toast notification that contains the item.text when a new todo item is inserted.
 
-2. When editing the file in your local computer, republish the server project. 
+2. When editing the file on your local computer, republish the server project. 
 
 ##<a id="update-service"></a>Add push notifications to your app
 
