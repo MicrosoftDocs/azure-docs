@@ -21,27 +21,6 @@
 
 ![](media/best-practices-cdn/pnp-logo.png)
 
-**Table of Contents**
-
-- [Overview](#overview)
-- [How and why the CDN is used](#how-and-why-the-cdn-is-used)
-- [Challenges](#chalenges)
-- [General guidelines and good practices](#general-guidelines-and-good-practices)
-	- [Origin](#origin)
-	- [Deployment](#deployment)
-	- [Routing and versioning](#routing-and-versioning)
-	- [Cache control](#cache-control)
-	- [Security](#security)
-	- [Custom domains](#custom-domains)
-	- [CDN fallback](#cdn-fallback)
-	- [Search engine optimisation](#search-engine-optimisation)
-	- [Monitoring and logging](#monitoring-and-logging)
-	- [Cost implications](#cost-implications)
-	- [Bundling and minification](#bundling-and-minification)
-- [Example code](#example-code)
-	- [URL rewriting](#url-rewriting)
-- [More information](#more-information)
-
 ## Overview
 The Microsoft Azure Content Delivery Network (CDN) offers developers a global solution for delivering high-bandwidth content that is hosted in Azure. Using the CDN, you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, or an application folder. The CDN cache can be held at strategic locations to provide maximum bandwidth for delivering content to users. The CDN is typically used for delivering static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.
 
@@ -76,7 +55,32 @@ Typical uses for the CDN include:
 
 The following table shows examples of the median time to first byte from various geographic locations. The target web role is deployed to Azure West US. There is a strong correlation between greater boost due to the CDN and proximity to a CDN node. A complete list of Azure CDN node locations is available at [Azure Content Delivery Network (CDN) Node Locations](cdn/cdn-pop-locations.md/).
 
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><a name="_MailEndCompose" href="#"><span /></a><br /></th><th><p>Time (ms) to First Byte (Origin)</p></th><th><p>Time (ms) to First Byte (CDN)</p></th><th><p>% time improvement for CDN</p></th></tr><tr><td><p>\* San Jose, CA</p></td><td><p>47.5</p></td><td><p>46.5</p></td><td><p>2 %</p></td></tr><tr><td><p>\*\* Dulles, VA</p></td><td><p>109</p></td><td><p>40.5</p></td><td><p>169 %</p></td></tr><tr><td><p>Buenos Aires, AR</p></td><td><p>210</p></td><td><p>151</p></td><td><p>39 %</p></td></tr><tr><td><p>\* London, UK</p></td><td><p>195</p></td><td><p>44</p></td><td><p>343 %</p></td></tr><tr><td><p>Shanghai, CN</p></td><td><p>242</p></td><td><p>206</p></td><td><p>17 %</p></td></tr><tr><td><p>\* Singapore</p></td><td><p>214</p></td><td><p>74</p></td><td><p>189%</p></td></tr><tr><td><p>\* Tokyo, JP</p></td><td><p>163</p></td><td><p>48</p></td><td><p>240 %</p></td></tr><tr><td><p>Seoul, KR</p></td><td><p>190</p></td><td><p>190</p></td><td><p>0 %</p></td></tr></table>
+|Location     | Time(ms) to First Byte | Time (ms) to First |% time improvement|
+|             | (Origin)               |    Byte (CDN)      |    for CDN       |
+|-------------|------------------------|--------------------|------------------|
+|\*San Jose,  |  47.5                  | 46.5               |         2 %      |
+| CA          |                        |                    |                  |
+|-------------|------------------------|--------------------|------------------|
+|\*\*Dulles,  |     109   |     40.5   |       169% |
+|VA           | | |
+|-------------|------------------------|--------------------|------------------|
+|Buenos Aires, | 210 | 151 | 39%|
+|AR        |        |        |
+|-------------|------------------------|--------------------|------------------|
+|\*London,  | 195   | 44 | 343%|
+|  UK       |        |        |
+|-------------|------------------------|--------------------|------------------|
+|Shanghai, | 242  | 206    | 17%   |
+| CN        |        |        |
+|-------------|------------------------|--------------------|------------------|
+|\*Singapore | 214    | 74       | 189 %  |
+|-------------|------------------------|--------------------|------------------|
+|\*Tokyo, JP  |  163 |    48    |     204 %   |
+|-------------|------------------------|--------------------|------------------|
+|Seoul, KR        |  190      |    190    |     0%   |
+|-------------|------------------------|--------------------|------------------|
+
+
 \* Has an Azure CDN node in the same city.  
 \*\* Has an Azure CDN node in a neighboring city.  
 
