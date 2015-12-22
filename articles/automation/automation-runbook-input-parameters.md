@@ -39,14 +39,14 @@ Windows PowerShell supports more attributes of input parameters than the ones li
 A parameter definition in PowerShell Workflow runbooks has the following general form, where multiple parameters are separated by comma.
 
 ```
-Param
-(
-[Parameter (Mandatory= $true/$false)]
-[Type] Name1 = <Default value>,
+     Param
+     (
+         [Parameter (Mandatory= $true/$false)]
+         [Type] Name1 = <Default value>,
 
-[Parameter (Mandatory= $true/$false)]
-[Type] Name2 = <Default value>
-) 
+         [Parameter (Mandatory= $true/$false)]
+         [Type] Name2 = <Default value>
+     ) 
 ```
 
 >[AZURE.NOTE] When defining parameters, if you don’t specify the **Mandatory** attribute, then by default, the parameter is considered optional. Also if you set a default value for a parameter in PowerShell workflow runbooks, then it will be treated by PowerShell as an optional parameter, irrespective of the **Mandatory** attribute value.
