@@ -20,9 +20,9 @@
 # Create a SQL Server Virtual Machine in Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-provision-sql-server.md)
+- [Classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
-- [Azure Resource Manager model from portal](virtual-machines-sql-server-provision-resource-manager.md)
+- [Resource Manager portal](virtual-machines-sql-server-provision-resource-manager.md)
 
 
 ## Overview
