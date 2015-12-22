@@ -293,7 +293,7 @@ A *controller* handles HTTP requests and renders the HTML response.
 		  },
 
 		  addTask: function(req,res) {
-		    var self = this
+		    var self = this;
 		    var item = req.body.item;
 		    self.task.addItem(item, function itemAdded(error) {
 		      if(error) {
