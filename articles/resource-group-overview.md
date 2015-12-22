@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/22/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -57,6 +57,12 @@ There are some important factors to consider when defining your resource group:
 5. A resource group can be used to scope access control for administrative actions.
 6. A resource can be linked to a resource in another resource group when the two resources must interact with each other but they do not share the same lifecycle (for example, multiple apps connecting to a database). For more information, see [Linking resources in Azure Resource Manager](resource-group-link-resources.md).
 
+## Resource providers
+
+A resource provider is a service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers REST API operations for working with the resources. For example, if you want to deploy an Azure Key Vault for storing keys and secrets, you will work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault.
+
+To deploy and manage your infrastructure, you will need to know details about the resource providers; such as, what resource types it offers, the version numbers of the REST API operations, the operations it supports, and the schema to use when setting the values of the resource type to create. To learn about the supported resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md)
+
 ## Template deployment
 
 With Resource Manager, you can create a simple template (in JSON format) that defines deployment and configuration of your application. This template is known as a Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
@@ -76,8 +82,6 @@ When you create a solution from the Marketplace, the solution automatically incl
 Finally, the template becomes part of the source code for your app. You can check it in to your source code repository and update it as your app evolves. You can edit the template through Visual Studio.
 
 For more information about defining the template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
-
-For template schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas).
 
 For information about using a template for deployment, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 
@@ -111,7 +115,7 @@ Resource Manager enables you to create customized policies for managing your res
 
 ## Consistent management layer
 
-Resource Manager provides completely compatible operations through Azure PowerShell, Azure CLI for Mac, Linux, and Windows, the Azure preview portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion. The portal even displays notification for actions taken outside of the portal.
+Resource Manager provides completely compatible operations through Azure PowerShell, Azure CLI for Mac, Linux, and Windows, the Azure portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion. The portal even displays notification for actions taken outside of the portal.
 
 For information about PowerShell, see [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
@@ -119,7 +123,7 @@ For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Wi
 
 For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
-For information about using the preview portal, see [Using the Azure Preview Portal to manage your Azure resources](azure-portal/resource-group-portal.md).
+For information about using the portal, see [Using the Azure Portal to manage your Azure resources](azure-portal/resource-group-portal.md).
 
 Azure Resource Manager supports cross-origin resource sharing (CORS). With CORS, you can call the Resource Manager REST API or an Azure service REST API from a web application that resides in a different domain. Without CORS support, the web browser would prevent an app in one domain from accessing resources in another domain. Resource Manager enables CORS for all requests with valid authentication credentials.
 
