@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Provision a SQL Server virtual machine | Microsoft Azure" 
-	description="This tutorial teaches you how to create and configure a SQL Server VM on Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Provision a SQL Server virtual machine | Microsoft Azure"
+	description="This tutorial teaches you how to create and configure a SQL Server VM on Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
 	editor="monicar"
 	tags="azure-service-management"
 	/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sql-server" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/26/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="jroth"/>
 
 # Provision a SQL Server virtual machine in Azure
@@ -23,11 +23,12 @@
 > [AZURE.SELECTOR]
 - [Azure classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
+- [Azure Resource Manager model](virtual-machines-sql-server-provision-resource-manager)
 
 ## Overview
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
-. 
+.
 
 The Azure virtual machine gallery includes several images that contain Microsoft SQL Server. You can select one of the virtual machine images from the gallery and with a few clicks you can provision the virtual machine to your Azure environment.
 
@@ -46,7 +47,7 @@ In this tutorial, you will:
 
 2. On the Azure classic portal, at the bottom left of the web page, click **+NEW**, click **COMPUTE**, click **VIRTUAL MACHINE**, and then click **FROM GALLERY**.
 
-3. On the **Choose an Image** page, click **SQL SERVER**. Then select a SQL Server image. Click the next arrow at the bottom right of the page. 
+3. On the **Choose an Image** page, click **SQL SERVER**. Then select a SQL Server image. Click the next arrow at the bottom right of the page.
 
 	![Choose an Image](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
 
@@ -61,9 +62,9 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 	- A **VERSION RELEASE DATE**. If multiple images are available, select the latest.
 	- A unique **VIRTUAL MACHINE NAME**.
 	- In the **NEW USER NAME** box, a unique user name for the machine's local administrator account.
-	- In the **NEW PASSWORD** box, type a strong password. 
+	- In the **NEW PASSWORD** box, type a strong password.
 	- In the **CONFIRM PASSWORD** box, retype the password.
-	- Select the appropriate **SIZE** from the drop down list. 
+	- Select the appropriate **SIZE** from the drop down list.
 
 	![VM Configuration](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
@@ -76,13 +77,13 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 
 5. On the second **Virtual machine configuration** page, configure resources for networking, storage, and availability:
 	- In the **Cloud Service** box, choose **Create a new cloud service**.
-	- In the **Cloud Service DNS Name** box, provide the first portion of a DNS name of your choice, so that it completes a name in the format **TESTNAME.cloudapp.net** 
+	- In the **Cloud Service DNS Name** box, provide the first portion of a DNS name of your choice, so that it completes a name in the format **TESTNAME.cloudapp.net**
 	- Select a **SUBSCRIPTION**, if you have multiple subscriptions to choose from. The choice determines which **storage accounts **are available.
 	- In the **REGION/AFFINITY GROUP/VIRTUAL NETWORK** box, select a region where this virtual image will be hosted.
-	- In the **Storage Account**, automatically generate an account, or select one from the list. Change the **SUBSCRIPTION** to see more accounts. 
+	- In the **Storage Account**, automatically generate an account, or select one from the list. Change the **SUBSCRIPTION** to see more accounts.
 	- In the **AVAILABILITY SET** box, select **(none)**.
 	- Read and accept the legal terms.
-	
+
 
 6. Click the next arrow to continue.
 
@@ -96,7 +97,7 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 	- **Starting (Provisioning)**
 	- **Running (Provisioning)**
 	- **Running**
-	
+
 
 ##<a id="RemoteDesktop">Open the VM using Remote Desktop to complete setup</a>
 
@@ -108,13 +109,13 @@ For the most up-to-date information on the supported SQL Server images on Azure,
 
 3. At the **Windows Security** dialog box, click **Use another account**.
 
-	![Click Use another account](./media/virtual-machines-provision-sql-server/credentials.png) 
+	![Click Use another account](./media/virtual-machines-provision-sql-server/credentials.png)
 
 4. Use the name of the machine as the domain name, followed by your administrator name in this format: `machinename\username`. Type your password and connect to the machine.
 
 4. The first time you log on, several processes will complete, including setup of your desktop, Windows updates, and completion of the Windows initial configuration tasks (sysprep). After Windows sysprep completes, SQL Server setup  completes configuration tasks. These tasks make cause a delay of a few minutes while they complete. `SELECT @@SERVERNAME` may not return the correct name until SQL Server setup completes, and SQL Server Management Studio may not be visable on the start page.
 
-Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works much like any other computer. Connect to the default instance of SQL Server with SQL Server Management Studio (running on the virtual machine) in the normal way. 
+Once you are connected to the virtual machine with Windows Remote Desktop, the virtual machine works much like any other computer. Connect to the default instance of SQL Server with SQL Server Management Studio (running on the virtual machine) in the normal way.
 
 ##<a id="SSMS">Connect to the SQL Server VM instance from SSMS on another computer</a>
 
