@@ -1,4 +1,4 @@
-en<properties
+<properties
    pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure"
    description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Lucene query syntax and custom analyzers."
    services="search"
