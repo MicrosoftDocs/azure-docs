@@ -49,7 +49,7 @@ To find the registration URL and key for the Automation account to onboard the m
 
     # log in to both Azure Service Management and Azure Resource Manager
     Add-AzureAccount
-    Login-AzureRmAccount
+    Add-AzureRmAccount
     
     # fill in correct values for your VM / Automation Account here
     $VMName = ""
@@ -74,38 +74,38 @@ To find the registration URL and key for the Automation account to onboard the m
 
     # update these DSC agent Local Configuration Manager defaults if they do not match your use case.
     # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
-    Properties = @{
-       RegistrationKey = @{
-         UserName = 'notused'
-         Password = 'PrivateSettingsRef:RegistrationKey'
-    }
-      RegistrationUrl = $RegistrationInfo.Endpoint
-      NodeConfigurationName = $NodeConfigName
-      ConfigurationMode = "ApplyAndMonitor"
-      ConfigurationModeFrequencyMins = 15
-      RefreshFrequencyMins = 30
-      RebootNodeIfNeeded = $False
-      ActionAfterReboot = "ContinueConfiguration"
-      AllowModuleOverwrite = $False
-      }
-    }
+      Properties = @{
+        RegistrationKey = @{
+          UserName = 'notused'
+          Password = 'PrivateSettingsRef:RegistrationKey'
+        }
+        RegistrationUrl = $RegistrationInfo.Endpoint
+        NodeConfigurationName = $NodeConfigName
+        ConfigurationMode = "ApplyAndMonitor"
+        ConfigurationModeFrequencyMins = 15
+        RefreshFrequencyMins = 30
+        RebootNodeIfNeeded = $False
+        ActionAfterReboot = "ContinueConfiguration"
+        AllowModuleOverwrite = $False
+     }  
+   }
 
-    $PrivateConfiguration = ConvertTo-Json -Depth 8 @{
-      Items = @{
-         RegistrationKey = $RegistrationInfo.PrimaryKey
-      }
-    }
+   $PrivateConfiguration = ConvertTo-Json -Depth 8 @{
+     Items = @{
+       RegistrationKey = $RegistrationInfo.PrimaryKey
+     }
+   }
     
-    $VM = Set-AzureVMExtension `
+   $VM = Set-AzureVMExtension `
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.6 `
+     -Version 2.11 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
 
-    $VM | Update-AzureVM
+   $VM | Update-AzureVM
 
 ## Azure virtual machines
 
