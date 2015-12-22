@@ -140,24 +140,28 @@ To start a runbook in Service Management model use Service management cmdlets an
 
     **Example:**
 
+      ```
         $params = @{“VMName”=”WSVMClassic”; ”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
+      ```
 
 
     2. **Azure Resource Manager cmdlets:** You can start an Automation runbook created in a resource group using [Start-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)
 
     **Example:**
 
+      ```
         $params = @{“VMName”=”WSVMClassic”;”ServiceName”=”WSVMClassicSG”}
 
         Start-AzureRMAutomationRunbook -AutomationAccountName “TestAutomationRG” -Name “Get-AzureVMGraphical” –ResourceGroupName “RG1” -Parameters $params
+      ```
 
 >[AZURE.NOTE] When you start a runbook using PowerShell cmdlets, along with the inputs parameters that you passed, a default parameter, **MicrosoftApplicationManagementStartedBy** is created with the value **PowerShell**. You can view this parameter in the Job details blade.
 
 * **Start a runbook using the SDK and assign parameters**
 
-    1. **Azure Service Management method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet to start a runbook in your Automation account, you can view the full code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+    * **Azure Service Management method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet to start a runbook in your Automation account, you can view the full code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
     ```      
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -177,7 +181,7 @@ To start a runbook in Service Management model use Service management cmdlets an
         }
     ```
       
-    2. **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet to start a runbook in your Automation account, you can view the full code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+    * **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet to start a runbook in your Automation account, you can view the full code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
     ```
         public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
