@@ -14,31 +14,30 @@
    ms.workload="infrastructure-services" 
    ms.date="12/21/2015"
    ms.author="joaoma"/>
+
 # URL based routing 
 
 
-Application gateway uses URL based routing to send client requests to different back end pools. It creates routes based upon the URL path used for client HTTP requests. Each defined route is associated to a back end pool. This is suitable when you have different workloads to be handled by separate back end pools.
+URL based routing uses the URL path to define which back end server pool Application gateway will send the network traffic. To each URL path is assigned a route and associated to a back end server pool.
+
+This scenario is commonly used to load balance different content types to different back end server pools.
+
+In the following example, Application Gateway is load balancing traffic for contoso.com. Application gateway is configured with two back end server pools: *VideoServerPool* and *ImageServerPool*. 
+
+Two URL routes are created for each back end server pool, *http://contoso.com/video** routes to *VideoServerPool* and *http://contoso.com/image** routes to *ImageServerPool*.
 
 When a client request is made, Application Gateway will query the URL path used and checks if there is a defined route. If query matches one of the assigned routes, it will send traffic to a specific back end pool.
 
-For example, Application Gateway can be configured with two different back end pools, one to handle video and streaming and another to handle images.  
-
+In the case of a client trying to access http://contoso.com/video, the application gateway will match the URL path with a route and send to the back end server pool responsible for the URL path which in this example is *VideoServerPool*.
 
 ![figure1](./media/application-gateway-url-routing-overview/figure1.png)
 
 
-	http://contoso.com/video* routes to VideoServerPool 
-	
-	http://contoso.com/image* routes to ImageServerPool
-
-	http(s)://<host>:<port>/<path>?<querystring> 
-
-
 >[AZURE.NOTE]What happens if a route is not defined to a back end pool? Application gateway supports a default back end pool in case of URL path doesn't match any of the routes.
  
-## New Configuration element
+## UrlPathMap configuration element
 
-To be able to map URL’s to a back end pool, a new configuration element called UrlPathMap. This configuration maps the array of URL’s to a back end address pool. It also configures which back end pool will be assigned as default if none of the routing rules match the client HTTP request.
+UrlPathMap is a new configuration element for Application Gateway. This configuration element stores an array of URL paths their mappings to a back end server pool. It also configures a default back end server pool in case the client request doesn't match any of the URL path mappings.
 
 	"urlPathMaps": [
     {
@@ -72,9 +71,19 @@ To be able to map URL’s to a back end pool, a new configuration element called
 ],
 
 
+## Routing rules 
 
-A new routing rule called ‘PathBasedRouting’ which takes a listener and a urlPathMap element.
+An Application Gateway rule binds the listener and the back end server pool and defines which back end server pool the traffic should be directed to when it hits a particular listener.
 
+There are two rules for application gateway:
+
+-**Basic** - The basic rule is round-robin load distribution. This rule associates a listener to a *HttpBackendSetting* and *BackendAddressPool*.
+
+
+
+-**PathBasedRouting**- URL based routing introduces a new rule type which takes a listener and a *UrlPathMap* element.The *UrlPathMap* contains the array for the URL based routes and the mapping to *BackendAddressPool*. 
+
+ An example of **PathBasedRouting** rule:
 
 	"requestRoutingRules": [
       {
@@ -93,6 +102,7 @@ A new routing rule called ‘PathBasedRouting’ which takes a listener and a ur
         }
     ]
 
-Earlier ‘basic’ routing rule associated a listener to a HttpBackendSetting and BackendAddressPool.
+
+.
 
 

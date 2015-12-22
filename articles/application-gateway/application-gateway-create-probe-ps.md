@@ -20,19 +20,17 @@
 # Create custom probe for Application Gateway using PowerShell
 
 
-[AZURE.INCLUDE [application-gateway-create-probe-intro-include.md](../../includes/application-gateway-create-probe-intro-include.md)]
-
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](application-gateway-create-probe-classic-ps.md).
 
-[AZURE.INCLUDE [application-gateway-create-probe-scenario-include.md](../../includes/application-gateway-create-probe-scenario-include.md)]
-
-ENTER YOUR CONTENT HERE
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
+### Step 1 
 
+Use Login-AzureRmAccount to authenticate 
 
+	Login-AzureRmAccount
 
 ### Step 2
 
