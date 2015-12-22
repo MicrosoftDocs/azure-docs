@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="How to build a real time processing job in Stream Analytics | Microsoft Azure" 
+	pageTitle="Build a real time processing job in Stream Analytics | Microsoft Azure" 
 	description="Stream Analytics tollbooth tutorial using both streaming and reference data"
-	keywords=""
+	keywords="reference data"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -15,206 +15,194 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/15/2015" 
+	ms.date="12/21/2015" 
 	ms.author="jeffstok"
 />
 
-# SPEED LAB: AZURE STREAM ANALYTICS
+# Build a real time processing job in Stream Analytics
 
-SETUP AND RUNNING IN MINUTES TO GET REAL-TIME INSIGHTS
-ABSTRACT
-Learn how to get your own real-time insights from your data set up and running in minutes using Azure Stream Analytics. Azure's new stream processing service enables developers to easily tackle the space of data in motion by combining streams of data such as click-streams, logs and device generated events with historical records or reference data to derive business insights easily and quickly. Being a fully managed, real-time stream computation service hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes. Join us to become a guru in your enterprise in delivering real-time insights using Azure Stream Analytics!
+Follow this tutorial to gain insights on real-time data streams and leverage reference data sets for thresholds and comparisons. Azure Stream Analytics data stream processing service enables developers to easily tackle the space of data in motion by combining streams of data such as click-streams, logs and device generated events with historical records or reference data to derive business insights easily and quickly. Being a fully managed, real-time stream computation service hosted in Microsoft Azure, Stream Analytics provides built-in resiliency, low latency, and scalability to quickly address a variety of use cases.
 
-1. GOALS
-After completing this lab you will be able to:
- Familiarize yourself with the Azure Stream Analytics Portal.
- Configure and deploy a streaming job.
- Articulate real world problems and solve them using Stream Analytics Query Language.
- Develop streaming solutions for your customers using Azure Streaming Analytics with confidence.
- Use the monitoring and logging experience to troubleshoot issues.
-4
-2. AZURE STREAM ANALYTICS
-Azure Stream Analytics is a fully managed service which is highly available, scalable and provides low latency complex event processing over streaming data in the cloud. In its initial release, Azure Stream Analytics enables customers to easily setup a job to analyze streams of data allowing them to drive near real-time analytics and dashboards. The following scenarios are targeted:
- Performing complex event processing on high volume and high velocity data
- Collecting event data from globally distributed assets or equipment such as connected cars or utility grids
- Processing telemetry data for near real time monitoring and diagnostics
- Capturing and archiving real-time events for future processing
-This lab will use sample highway toll data to help you learn Azure Stream Analytics. 3. “HELLO, TOLL!” – INTRODUCTION
-A tolling station is a common phenomenon – we encounter them in many expressways, bridges, and tunnels across the world. Each toll station has multiple toll booths, which may be manual – meaning that you stop to pay the toll to an attendant, or automated – where a sensor placed on top of the booth scans an RFID card affixed to the windshield of your vehicle as you pass the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
-INCOMING DATA
-We will work with two streams of data which are produced by sensors installed in the entrance and exit of the toll stations and a static look up dataset with vehicle registration data.
-ENTRY DATA STREAM
+This tutorial describes a toll booth scenario. Tolling stations are a common phenomenon encountered worldwide. Each toll station has multiple toll booths, which may be manual – meaning that the vehicle stops at the toll to pay, or automated – where a sensor placed on top of the booth scans a sensor affixed to the windshield of a vehicle as it passes the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
+
+## Input data
+
+The data input for this tutorial consists of two data streams produced by sensors installed in the entrance and exit of the toll stations In addition, a static look up data set with vehicle registration data is leveraged.
+
+### ENTRY DATA STREAM ###
 Entry data stream contains information about cars entering toll stations.
-5
-Toll Id EntryTime LicensePlate State Make Model Vehicle Type Vehicle Weight Toll Tag 1 2014-09-10 12:01:00.000 JNB 7001 NY Honda CRV 1 0 7
-1
-2014-09-10 12:02:00.000
-YXZ 1001
-NY
-Toyota
-Camry
-1
-0
-4
-123456789 3 2014-09-10 12:02:00.000 ABC 1004 CT Ford Taurus 1 0 5 456789123
-2
-2014-09-10 12:03:00.000
-XYZ 1003
-CT
-Toyota
-Corolla
-1
-0
-4
-1 2014-09-10 12:03:00.000 BNJ 1007 NY Honda CRV 1 0 5 789123456
-2
-2014-09-10 12:05:00.000
-CDE 1007
-NJ
-Toyota
-4x4
-1
-0
-6
-321987654 …
-Here is a short description of the columns: TollID Toll booth ID uniquely identifying a toll booth
-EntryTime
-The date and time of entry of the vehicle to Toll Booth in UTC LicensePlate License Plate number of the vehicle
-State
-Is a State in United States Make The manufacturer of the automobile
-Model
-Model number of the automobile VehicleType 1 for Passenger and 2 for Commercial vehicles
-WeightType
-Vehicle weight in tons; 0 for passenger vehicles Toll The toll value in USD
-Tag
-e-Tag on the automobile that automates payment, left blank where the payment was done manually
-EXIT DATA STREAM
-Exit data stream contains information about cars leaving the toll station. TollId ExitTime LicensePlate 1 2014-09-10T12:03:00.0000000Z JNB 7001
-1
-2014-09-10T12:03:00.0000000Z
-YXZ 1001 3 2014-09-10T12:04:00.0000000Z ABC 1004
-2
-2014-09-10T12:07:00.0000000Z
-XYZ 1003 1 2014-09-10T12:08:00.0000000Z BNJ 1007
-2
-2014-09-10T12:07:00.0000000Z
-CDE 1007
-…
-6
-Column descriptions: TollID Toll booth ID uniquely identifying a toll booth
-ExitTime
-The date and time of exit of the vehicle from Toll Booth in UTC LicensePlate License Plate number of the vehicle
-COMMERCIAL VEHICLE REGISTRATION DATA
-We will use a static snapshot of commercial vehicle registration database. LicensePlate RegistrationId Expired SVT 6023 285429838 1
-XLZ 3463
-362715656
-0 BAC 1005 876133137 1
-RIV 8632
-992711956
-0 SNY 7188 592133890 0
-ELH 9896
-678427724
-1 …
-Column descriptions: LicensePlate License Plate number of the vehicle
-RegistrationId
-RegistrationId Expired 0 if vehicle registration is active, 1 if registration is expired
-4. SETTING UP ENVIRONMENT FOR AZURE STREAM ANALYTICS
-To perform this lab, you will need a Microsoft Azure subscription. Microsoft offers free trial for Microsoft Azure services as described below.
-If you do not have an Azure account, you can request a free trial version by going to http://azure.microsoft.com/en-us/pricing/free-trial/ .
-Note: To sign up for a free trial, you will need a mobile device that can receive text messages and a valid credit card.
-Be sure to follow the “Clean up your Azure account” section steps at the end of this exercise so that you can make the most use of your $200 free Azure credit.
-7
-PROVISIONING AZURE RESOURCES REQUIRED FOR THE LAB
-This lab will require 2 Azure Event Hubs to receive “Entry” and “Exit” data streams. We will use Azure SQL Database to output the results of the Stream Analytics jobs. We will also use Azure Storage to store reference data about vehicle registration.
-The Setup.ps1 script in the TollApp sample folder on GitHub can be used to create all required resources. In the interest of time, we recommend that you run it. If you would like to learn more about configuring these resources in Azure portal, please refer to the appendix “Configuring Lab resources in Azure Portal”
-Download and save the supporting TollApp folder and files. Make sure you download the latest release.
-Open a “Microsoft Azure PowerShell” window AS AN ADMINISTRATOR. If you do not yet have Azure PowerShell, follow the instructions here to install it: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
-Windows automatically blocks ps1, dll and exe files downloaded from the Internet. We need to set the Execution Policy before running the script. Make sure the Azure PowerShell window is running as an administrator. Run “Set-ExecutionPolicy unrestricted”. When prompted, type “Y”.
-Now close Azure PowerShell window and reopen it. Run Get-ExecutionPolicy to make sure the command worked.
-Go to the directory with the scripts and generator application.
-Type “.\Setup.ps1” to set up your azure account, create and configure all required resources and start generating events.
-The script will open “Sign In” page for Windows Azure. Enter your account credentials.
-8
-Please note that if your account has access to multiple subscriptions, you will be asked to enter the subscription name that you want to use for the lab.
+
+| Toll Id | EntryTime | License Plate | State | Make | Model | Vehicle Type | Vehicle Weight | Toll | Tag |  
+|---|---|---|---|---|---|---|---|---|---|  
+| 1 | 2014-09-10 12:01:00.000 | JNB7001 | NY | Honda | CRV | 1 | 0 | 7 |   |  
+| 1 | 2014-09-10 12:02:00.000 | YXZ1001 | NY | Toyota | Camry | 1 | 0 | 4 | 123456789 |  
+| 3 | 2014-09-10 12:02:00.000 | ABC1004 | CT | Ford | Taurus | 1 | 0 | 5 | 456789123 |  
+| 2 | 2014-09-10 12:03:00.000 | XYZ1003 | CT | Toyota | Corolla | 1 | 0 | 4 |   |  
+| 1 | 2014-09-10 12:03:00.000 | BNJ1007 | NY | Honda | CRV | 1 | 0 | 5 | 789123456 |  
+| 2 | 2014-09-10 12:05:00.000 | CDE1007 | NJ | Toyota | 4x4 | 1 | 0 | 6 | 321987654 |  
+
+The data field definitions are as follows:  
+
+| Data Field | Data Definition |  
+|---|---|  
+| TollID | Toll booth ID uniquely identifying a toll booth |  
+| EntryTime | The date and time of entry of the vehicle to Toll Booth in UTC format |  
+| LicensePlate | License Plate number of the vehicle |  
+| State | Is a State in United States |  
+| Make | The manufacturer of the automobile |    
+| Model | Model number of the automobile |  
+| VehicleType | 1 for Passenger and 2 for Commercial vehicles |  
+| VehicleWeight | Vehicle weight in tons; 0 for passenger vehicles |  
+| Toll | The toll value in USD |  
+| Tag | e-Tag on the automobile that automates payment, left blank where the payment was done manually |  
+
+### EXIT DATA STREAM ###  
+Exit data stream contains information about cars exiting the toll station. 
+
+| TollId |  ExitTime | LicensePlate |  
+|---|---|---|  
+| 1 | 2014-09-10T12:03:00.0000000Z | JNB7001 |  
+| 1 | 2014-09-10T12:03:00.0000000Z | YXZ1001 |  
+| 3 | 2014-09-10T12:04:00.0000000Z | ABC1004 |  
+| 2 | 2014-09-10T12:07:00.0000000Z | XYZ1003 |  
+| 1 | 2014-09-10T12:08:00.0000000Z | BNJ1007 |  
+| 2 | 2014-09-10T12:07:00.0000000Z | CDE1007 |  
+
+The data field definitions are as follows:  
+
+| Data Field | Data Definition |  
+|---|---|  
+| TollID | Toll booth ID uniquely identifying a toll booth |  
+| ExitTime | The date and time of exit of the vehicle from Toll Booth in UTC format |  
+| LicensePlate | License Plate number of the vehicle |  
+
+### COMMERCIAL VEHICLE REGISTRATION DATA ###  
+In addition to the streamed data from the toll sensors, a static snapshot of the commercial vehicle registrations database is leveraged as reference data.  
+
+| LicensePlate | RegistrationId | Expired |  
+|---|---|---|
+| SVT6023 | 285429838 | 1 |  
+| XLZ3463 | 362715656 | 0 |  
+| BAC1005 | 876133137 | 1 |  
+| RIV8632 | 992711956 | 0 |  
+| SNY7188 | 592133890 | 0 |  
+| ELH9896 | 678427724 | 1 |  
+
+| Data Field | Data Definition |  
+|---|---|  
+| LicensePlate | License Plate number of the vehicle |  
+| RegistrationID | Registration number of the vehicle |  
+| Expired | This field is 0 if the vehicle registration is active, 1 if it is expired |   
+
+### CONFIGURE ENVIRONMENT FOR AZURE STREAM ANALYTICS ###  
+To perform this lab, a Microsoft Azure subscription is required. Microsoft offers free trial for Microsoft Azure services as described below.
+If you do not have an Azure account, you can request a free trial version by going to [http://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/ "Build a real time processing job in Stream Analytics - Free Trial Link").  
+
+Note that to sign up for a free trial, you will need a mobile device that can receive text messages and a valid credit card. Also be sure to follow the “Clean up your Azure account” section steps at the end of this exercise so that you can make the most use of your $200 free Azure credit.
+
+### PROVISIONING AZURE RESOURCES REQUIRED FOR THE LAB ###
+This tutorial will walk through the creation of 2 Azure Event Hubs to receive the “Entry” and “Exit” data streams. Azure SQL Database is used to output the job results. Azure Blob Storage will be used to  store reference data about vehicle registrations.
+
+The `Setup.ps1` PowerShell script in the TollApp sample folder on GitHub can be used to create all the required resources. In the interest of time, we recommend that you run it. If you would like to learn more about configuring these resources in Azure portal, please refer to the appendix “Configuring Lab resources in Azure Portal”
+
+Download and save the supporting TollApp folder and files. Be sure to download the latest available release.
+
+Open a “Microsoft Azure PowerShell” window as Administrator. If you do not yet have Azure PowerShell, follow the instructions here to install it: [http://azure.microsoft.com/documentation/articles/install-configure-powershell/](./install-configure-powershell.md).
+
+Now one must set the ExecutionPolicy for PowerShell so the script can run. Be sure the Azure PowerShell window is running as Administrator. Type `Set-ExecutionPolicy unrestricted` and hit enter. When prompted, type “Y”. Next type `Get-ExecutionPolicy` and hit enter to make sure the command worked.
+
+Now change directories in the PowerShell window to the directory with the downloaded scripts and generator application.
+
+Type `.\Setup.ps1` to set up the Azure account, create and configure all required resources and start generating events.
+
+The script will open the “Sign In” page for Windows Azure. Enter account credentials as requested.
+
+Please note that if the Azure account has access to multiple subscriptions, the script will prompt to enter the subscription name for use in the lab.
+
 The script can take several minutes to run. Once completed, the output should look like the screenshot below.
-9
-You will also see another window similar the screen shot below. This application is sending events to your EventHub and is required to run the lab exercises. So you should not stop the application or close this window until you finish the lab.
-You should be able to see all created resources in Azure Management Portal now. Please go to https://manage.windowsazure.com and login with your account credentials.
-EVENT HUBS
+
+Another window will be present, similar to the screen shot below. This is the simulator application that sends events to EventHub. It is required to run the lab exercises. **Do not stop the application or close this window until the the lab is finished.**
+
+The created resources should populate in Azure Management Portal and be visible. To verify and see the objects go to [https://manage.windowsazure.com](https://manage.windowsazure.com "Build a real time processing job in Stream Analytics manage Windows Azure link") and login with the same account credentials used for the script setup.
+
+## Event Hub Review ##
 Click on “Service Bus” menu item on the left side of the Azure Management Portal to see Event Hubs created by the script from the previous section.
-You will see all available namespaces in your subscription. Click on the one starting with “TollData”. (TollData4637388511 in our example). Click on “Event Hubs” tab.
-You will see two event hubs named entry and exit created in this namespace.
-10
-AZURE STORAGE CONTAINER
+Note that by default all available namespaces in the subscription are visible. Click on the one starting with “TollData”. (TollData4637388511 in this example). Click on “Event Hubs” tab.
+
+Two Event Hubs should be visible, named entry and exit created in this namespace.
+
+## Azure Storage Container Review ##
 Click on “Storage” menu item on the left side of the Azure Management Portal to see storage container used in the Lab.
-Click on the one starting with “tolldata”. (tolldata4637388511 in our example). Open “Containers” tab to see the created container.
+Click on the one starting with “tolldata”. (tolldata4637388511 in this example). Open “Containers” tab to see the created container.
+
 Click on “tolldata” container to see uploaded JSON file with vehicle registration data.
-11
-AZURE SQL DATABASE
-Click on “SQL Databases” menu item on the left side of the Azure Management Portal to see Azure SQL Database that will be used in the Lab.
-Click on “TollDataDB”
-Copy the server name without the port number (<serverName>.database.windows.net for example)
-12
-CONNECT TO DATABASE FROM VISUAL STUDIO
-We will use Visual Studio to access query results in the output database.
-Connect to the Azure database (the destination) from Visual Studio:
-1) Open Visual Studio then click “Tools” and then “Connect to Database…” menu item.
-2) If asked, select “Microsoft SQL Server” as a data source
-3) In the Server Name field paste the name of the SQL Server copied in the previous section from Azure Portal (i.e. <serverName>.database.windows.net)
-4) In the Authentication field choose SQL Server Authentication
-5) Enter a LOGIN NAME as “tolladmin” and LOGIN PASSWORD as “123toll!”
-6) Choose TollDataDB as the database
-13
-7) Click OK.
-8) Open Server Explorer
-9) See 4 tables created in the TollDataDB database.
-14
-EVENT GENERATOR - TOLLAPP SAMPLE PROJECT
-The PowerShell script automatically starts sending events using the TollApp sample application program. You don’t need to perform any additional steps.
-However, if you are interested in implementation details, you can find the source code of the TollApp application under in GitHub samples/TollApp
-15
-5. CREATE STREAM ANALYTICS JOB
-In Azure portal open Stream Analytics and click “New” in the bottom left hand corner of the page to create a new analytics job.
-Click “Quick Create”. Select "South Central US" as the region.
-For “Regional Monitoring Storage Account” setting, select “Create new storage account” and give it any unique name. Azure Stream Analytics will use this account to store monitoring information for all your future jobs.
-Click “Create Stream Analytics Job” at the bottom of the page.
-16
-DEFINE INPUT SOURCES
-Click on the created analytics job in the portal.
-Open “Inputs” tab to define the source data.
-Click “Add an Input”
-Select “Data Stream” on the first page
-17
-Select “Event Hub” on the second page of the wizard.
-Enter “EntryStream” as Input Alias.
-Click on “Event Hub” drop down and select the one starting with “TollData” (e.g. TollData9518658221).
-Select “entry” as Event Hub name and “all” as Event Hub policy name.
-Your settings will look like:
-18
-Move to the next page. Select values as JSON, UTF8 encoding.
-Click OK at the bottom of the dialog to finish the wizard.
-19
-You will need to follow the same sequence of steps to create the second Event Hub input for the stream with Exit events. Make sure on the 3rd page you enter values as on the screenshot bellow.
-You now have two input streams defined:
-20
-Next, we will add “Reference” data input for the blob file with car registration data.
+
+## Azure SQL Database Review ##
+Click on “SQL Databases” menu item on the left side of the Azure Management Portal to see Azure SQL Database that will be used in the Lab. Click on “TollDataDB” and copy the server name without the port number (<serverName>.database.windows.net for example). This will be needed in the next step.
+
+## Connect Visual Studio to Azure SQL Database ##
+Visual Studio will be leveraged to review the query results in the output database.  
+  
+To do so connect to the Azure database (the destination) from Visual Studio:
+1. Open Visual Studio then click “Tools” and then “Connect to Database…” menu item.  
+2. If prompted, select “Microsoft SQL Server” as a data source.  
+3. In the Server Name field paste the name of the SQL Server copied in the previous section from Azure Portal (i.e. <serverName>.database.windows.net).  
+4. In the Authentication field choose SQL Server Authentication.  
+5. Enter a LOGIN NAME as “tolladmin” and LOGIN PASSWORD as “123toll!”.  
+6. Choose TollDataDB as the database.  
+7. Click OK.  
+8. Open Server Explorer.
+9. Review the four tables created in the TollDataDB database.
+
+
+## Event Generator - TollApp Sample Project ##
+The PowerShell script automatically starts sending events using the TollApp sample application program. No additional steps are needed. However, if you are interested in the implementation details, you can find the source code of the TollApp application under in GitHub samples/TollApp.
+
+## Create the Stream Analytics Job ##
+In the Azure portal select Stream Analytics and click “New” in the bottom left hand corner of the page to create a new job. Then click “Quick Create” and select "South Central US" as the region.
+
+For “Regional Monitoring Storage Account” setting, select “Create new storage account” and give it any unique name. Azure Stream Analytics will use this account to store monitoring information for your future jobs. Then click “Create Stream Analytics Job” at the bottom of the page.
+
+## Define Input Sources ##
+Select the created analytics job in the portal. Then select the  “Inputs” tab to define the source data and select “Add an Input”.
+
+1. Select “Data Stream” on the first page.  
+2. Select “Event Hub” on the second page of the wizard.  
+3. Enter “EntryStream” as Input Alias.  
+4. Click on “Event Hub” drop down and select the one starting with “TollData” (e.g. TollData9518658221).  
+5. Select “entry” as Event Hub name and “all” as Event Hub policy name.  
+
+The settings will look like:
+
+On the next page verify the values are set as JSON and UTF8 encoding. Then simply select OK at the bottom of the dialog to finish the wizard.
+
+Follow the same sequence of steps to create the second Event Hub Input for the stream with toll exit events. Validate that on 3rd page values as as shown on the screenshot below.
+
+You now have two input streams defined like the display below:
+
+Next, add “Reference” data input for the blob file with car registration data.
+
 Click “Add Input”. Select “Reference Data”
+
 On the next page, select the storage account starting with “tolldata”. Container name should be “tolldata” and blob name under Pattern Path should be “registration.json”. This file name is case sensitive and should be all in lowercase.
-21
+
 Select the values as shown below on the next page and click OK to finish the wizard.
-Now all inputs are defined.
-22
-DEFINE OUTPUT
-Go to “Output” tab and click “Add an output”.
-Choose “Sql Database”.
-Select the server name that was used in “Connect to Database from Visual Studio”. The database name should be TollDataDB.
-Enter “tolladmin” as the user name and “123toll!” as the password. The table name should be set to “TollDataRefJoin”
-23
-AZURE STREAM ANALYTICS QUERY
-The Query tab contains a SQL query that performs the transformation over the incoming data.
-Through this lab we will attempt to answer several business questions related to Toll data and construct Stream Analytics queries that can be used in Azure Stream Analytics to provide a relevant answer.
-Before we start our first Azure Stream Analytics job, let’s explore few scenarios and query syntax. 6. INTRODUCTION TO AZURE STREAM ANALTYICS QUERY LANGUAGE
-24
+
+At this point in the tutorial, all data inputs are defined.
+
+## Define Output Data Connections ##  
+  
+1.  Go to “Output” tab and click “Add an output”.  
+2.  Select “Sql Database”.  
+3.  Select the server name that was used in “Connect to Database from Visual Studio”.  
+4.  The database name should be "TollDataDB".  
+5.  Enter “tolladmin” as the user name and “123toll!” as the password.  
+6.  The table name should be set to “TollDataRefJoin”.  
+
+## Azure Stream Analytics Job Query ##
+The Query tab contains a T-SQL query that performs the transformation over the incoming data. Throughout the lab questions will be presented and addressed by using the toll booth data stream and Stream Analytics queries to provide an answer. Before starting the first Azure Stream Analytics job, explore a few scenarios and query syntax.
+
+## Introduction to Azure Stream Analytics Query Language ##
 Let’s say, we need to count the number of vehicles that enter a toll booth. Since this is a continuous stream of events, it is essential we define a “period of time”. So we need to modify our question to be “Number of vehicles entering a toll booth every 3 minutes”. This is commonly referred to as the Tumbling Count.
 Let’s look at the Azure Stream Analytics query answering this question:
 As you can see, Azure Stream Analytics is using a SQL-like query language with a few additional extensions to enable specifying time related aspects of the query.
