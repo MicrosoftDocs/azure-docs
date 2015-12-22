@@ -55,38 +55,17 @@ Typical uses for the CDN include:
 
 The following list shows examples of the median time to first byte from various geographic locations. The target web role is deployed to Azure West US. There is a strong correlation between greater boost due to the CDN and proximity to a CDN node. A complete list of Azure CDN node locations is available at [Azure Content Delivery Network (CDN) Node Locations](cdn/cdn-pop-locations.md/).
 
-+ **\*San Jose, CA**
-  + Time to First Byte (Origin): 47.5 ms
-  + Time to First Byte (CDN)  : 46.5 ms
-  + % time improvement for CDN : 2 %
-+ **\*\*Dulles, VA**
-  + Time to First Byte (Origin): 109 ms
-  + Time to First Byte (CDN)   :  40.5 ms
-  + % time improvement for CDN : 169 %
-+ **Buenos Aires, AR**
-  + Time to First Byte (Origin): 210 ms
-  + Time to First Byte (CDN)   : 151 ms
-  + % time improvement for CDN : 39 %
-+ **London, UK**
-  + Time to First Byte (Origin): 195 ms
-  + Time to First Byte (CDN)  : 44 ms
-  + % time improvement for CDN : 343 %
-+ **Shanghai, CN**
-  + Time to First Byte (Origin): 242 ms
-  + Time to First Byte (CDN)  : 206 ms
-  + % time improvement for CDN : 17 %
-+ **\*Singapore**
-  + Time to First Byte (Origin): 214 ms
-  + Time to First Byte (CDN)  : 74 ms
-  + % time improvement for CDN : 189%
-+ **\*Tokyo, JP**
-  + Time to First Byte (Origin): 163 ms
-  + Time to First Byte (CDN)  : 48 ms
-  + % time improvement for CDN : 204%
-+ **Seoul, KR** 
-  + Time to First Byte (Origin): 190 ms
-  + Time to First Byte (CDN)  : 190 ms
-  + % time improvement for CDN : 0
+
+|| Time (ms) to First Byte (Origin) | Time (ms) to First (CDN) |%CDN time improvement|
+|-------------|------------------------|--------------------|------------------|
+|\*San Jose, CA|  47.5                  | 46.5               |         2 %  |
+|\*\*Dulles, VA|     109   |     40.5   |       169% |
+|Buenos Aires, AR| 210 | 151 | 39%|
+|\*London, UK| 195   | 44 | 343%|
+|Shanghai, CN| 242  | 206    | 17%   |
+|\*Singapore | 214    | 74       | 189 %  |
+|\*Tokyo, JP  |  163 |    48    |     204 %   |
+|Seoul, KR|  190      |    190    |     0%   |
 
 
 \* Has an Azure CDN node in the same city.  
