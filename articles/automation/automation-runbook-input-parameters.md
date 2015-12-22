@@ -39,14 +39,14 @@ Windows PowerShell supports more attributes of input parameters than the ones li
 A parameter definition in PowerShell Workflow runbooks has the following general form, where multiple parameters are separated by comma.
 
 ```
-     Param
-     (
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name1 = <Default value>,
+Param
+(
+[Parameter (Mandatory= $true/$false)]
+[Type] Name1 = <Default value>,
 
-         [Parameter (Mandatory= $true/$false)]
-         [Type] Name2 = <Default value>
-     ) 
+[Parameter (Mandatory= $true/$false)]
+[Type] Name2 = <Default value>
+) 
 ```
 
 >[AZURE.NOTE] When defining parameters, if you don’t specify the **Mandatory** attribute, then by default, the parameter is considered optional. Also if you set a default value for a parameter in PowerShell workflow runbooks, then it will be treated by PowerShell as an optional parameter, irrespective of the **Mandatory** attribute value.
@@ -216,15 +216,15 @@ A runbook job can be created and started with the Azure Automation REST API usin
 
 In the Request URI, replace the following parameters:
  
-a. subscription-id: Your Azure subscription ID.  
-b. cloud-service-name: Name of the cloud service to which request should be sent.  
-c. automation-account-name: Name of your automation account hosted within the specified cloud service.  
-d. job-id: The GUID for the job. GUID in PowerShell can be created using **[GUID]::NewGuid().ToString()** cmdlet.
+a. **subscription-id:** Your Azure subscription ID.  
+b. **cloud-service-name:** Name of the cloud service to which request should be sent.  
+c. **automation-account-name:** Name of your automation account hosted within the specified cloud service.  
+d. **job-id:** The GUID for the job. GUID in PowerShell can be created using **[GUID]::NewGuid().ToString()** cmdlet.
 	
 In order to pass parameters to the runbook job, use the request body, and it takes two properties provided in JSON format:
 
-a. Runbook Name – Required. Name of the runbook for the job to start.  
-b. Runbook Parameters – Optional. A dictionary of the parameter list in (name, value) format where name should be of String type and value can be any valid JSON value. 
+a. **Runbook Name** – Required. Name of the runbook for the job to start.  
+b. **Runbook Parameters** – Optional. A dictionary of the parameter list in (name, value) format where name should be of String type and value can be any valid JSON value. 
 
 If you want to start the **Get-AzureVMTextual** runbook created earlier with VMName and ServiceName as parameters, use the following JSON format for the request body. 
 
