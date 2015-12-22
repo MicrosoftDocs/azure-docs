@@ -146,11 +146,11 @@ Once you have saved the data as a Hive table, you can use Power BI to connect to
 
 8. By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. For both the fields, from the drop-down, select **Average** to get an average of actual and target temperatures for both buildings.
 
-	![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual.2.png "Create visualizations")
-
+	![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual.2.png)
+    
 9. Your data visualization should be similar to the following. Move your cursor over the visualization to get tool tips with relevant data.
 
-	![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual.3.png "Create visualizations")
+	![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools/hdispark.powerbi.visual.3.png)
 
 10. Click **Save** from the top menu and provide a report name. You can also pin the visual. When you pin a visualization, it will be stored on your dashboard so you can track the latest value at a glance. 
 

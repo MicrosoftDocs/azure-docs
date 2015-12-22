@@ -197,7 +197,7 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 
 2. Create a new notebook. Click **New**, and then click **Python2**.
 
-	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.jupyter.createNotebook.png "Create a new Jupyter notebook")
+	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
 3. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
 
