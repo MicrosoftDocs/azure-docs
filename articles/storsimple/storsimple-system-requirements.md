@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/14/2015"
+   ms.date="12/18/2015"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -103,7 +103,7 @@ Update 2 has several networking-related improvements and the routing metrics has
 
 - A set of predetermined values have been assigned to network interfaces. 	
 		
-- Consider an example table shown below with values (example) assigned to the various network interfaces when they are cloud-enabled or cloud-disabled but with a configured gateway.
+- Consider an example table shown below with values assigned to the various network interfaces when they are cloud-enabled or cloud-disabled but with a configured gateway. Note the values assgined here are example values only.
 
 		
 	| Network interface | Cloud-enabled | Cloud-disabled with gateway |
@@ -136,7 +136,7 @@ Update 2 has several networking-related improvements and the routing metrics has
 - If there is a VIP failure for an iSCSI-enabled network interface, there will be 3 retries with a 2 seconds delay. This behavior has stayed the same from the previous releases. If all the iSCSI network interfaces fail, then a controller failover will occur (accompanied by a reboot).
 
 
-- An alert is also raised on your StorSimple device when there is a VIP failure. For more information, go to [alert for VIP failure](storsimple-manage-alerts.md).
+- An alert is also raised on your StorSimple device when there is a VIP failure. For more information, go to [alert quick reference](storsimple-manage-alerts.md).
 	
 - In terms of retries, iSCSI will take precedence over cloud.
 
