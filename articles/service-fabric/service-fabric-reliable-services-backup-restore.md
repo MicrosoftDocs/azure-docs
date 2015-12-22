@@ -30,14 +30,14 @@ For example, a service may want to back up data in the following scenarios:
 
 * Offline data processing. It might be convenient to have offline processing of data for business intelligence that happens separately from the service that generates the data.
 
-The Backup/Restore feature allows services built on the Reliable Services API to create and restore backups. The backup APIs provided by the platform allow backups of a partition’s state to be taken without blocking read or write operations. The restore APIs allow a partition’s state to be restored from a chosen backup.
+The Backup/Restore feature allows services built on the Reliable Services API to create and restore backups. The backup APIs provided by the platform allow backups of a partition’s state to be made without blocking read or write operations. The restore APIs allow a partition’s state to be restored from a chosen backup.
 
 
 ## Backup operation
 
-The service author has full control of when to take backups and where backups will be stored.
+The service author has full control of when to make backups and where backups will be stored.
 
-To start a backup, the service needs to invoke **IReliableStateManager.BackupAsync**.  Backups can be taken only from primary replicas, and they require write status to be granted.
+To start a backup, the service needs to invoke **IReliableStateManager.BackupAsync**.  Backups can be made only from primary replicas, and they require write status to be granted.
 
 As shown below, the simplest overload of **BackupAsync** takes in Func<< BackupInfo, bool >> called **backupCallback**.
 
@@ -73,11 +73,11 @@ Note that:
 In general, the cases when you might need to perform a restore operation fall into one of these categories:
 
 
-1. The service partition lost data. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted or wiped. The new primary may need to restore data from a backup.
+- The service partition lost data. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted or wiped. The new primary may need to restore data from a backup.
 
-2. The entire service is lost. For example, an administrator removes the entire service and thus the service and the data need to be restored.
+- The entire service is lost. For example, an administrator removes the entire service and thus the service and the data need to be restored.
 
-3. The service replicated corrupt application data (e.g., because of an application bug). In this case, the service has to be upgraded or reverted to remove the cause of the corruption, and noncorrupt data has to be restored.
+- The service replicated corrupt application data (e.g., because of an application bug). In this case, the service has to be upgraded or reverted to remove the cause of the corruption, and noncorrupt data has to be restored.
 
 While many approaches are possible, we offer some examples on using **RestoreAsync** to recover from the above scenarios.
 
@@ -86,11 +86,17 @@ While many approaches are possible, we offer some examples on using **RestoreAsy
 In this case, the runtime would automatically detect the data loss and invoke the **OnDataLossAsync** API.
 
 The service author needs to perform the following to recover:
+
 - Override **IReliableStateManager** to return a new **ReliableStateManager** and provide a callback function to be called in the case of a data-loss event.
+
 - Find the latest backup in the external location that contains the service's backups.
+
 - If the latest backup’s state is behind the new primary, return false. This will ensure that the new primary does not get overwritten with older data.
+
 - Download the latest backup (and uncompress the backup into the backup folder if it was compressed).
+
 - Call **IReliableStateManager.RestoreAsync** with the path to the backup folder.
+
 - Return true if the restoration was a success.
 
 Following is an example implementation of the **OnDataLossAsync** method along with the **IReliableStateManager** override.
@@ -125,7 +131,7 @@ From this point, implementation is the same as the above scenario.  Each partiti
 
 If the newly deployed application upgrade has a bug, that may cause corruption of data. For example, an application upgrade may start to update every phone number record in a Reliable Dictionary with an invalid area code.  In this case, the invalid phone numbers will be replicated since Service Fabric is not aware of the nature of the data that is being stored.
 
-The first thing to do after you detect such an egregious bug that causes data corruption is to freeze the service at the application level and, if possible, upgrade to the version of the application code that does not have the bug.  However, even after the service code is fixed, the data may still be corrupt and thus data may need to be restored.  In such cases, it may not be sufficient to restore the latest backup, since the latest backups may also be corrupt.  Thus, you have to find the last backup that was taken before the data got corrupted.
+The first thing to do after you detect such an egregious bug that causes data corruption is to freeze the service at the application level and, if possible, upgrade to the version of the application code that does not have the bug.  However, even after the service code is fixed, the data may still be corrupt and thus data may need to be restored.  In such cases, it may not be sufficient to restore the latest backup, since the latest backups may also be corrupt.  Thus, you have to find the last backup that was made before the data got corrupted.
 
 If you are not sure which backups are corrupt, you could deploy a new Service Fabric cluster and restore the backups of affected partitions just like the above "Deleted or lost service" scenario.  For each partition, start restoring the backups from the most recent to the least. Once you find a backup that does not have the corruption, move/delete all backups of this partition that were more recent (than that backup). Repeat this process for each partition. Now, when **OnDataLossAsync** is called on the partition in the production cluster, the last backup found in the external store will be the one picked by the above process.
 
@@ -141,7 +147,7 @@ Note that:
 ## Under the hood: More details on Backup and Restore
 
 ### Backup
-The Reliable State Manager provides the ability to create consistent backups without blocking any read or write operations. To do so, it utilizes a checkpoint and log persistence mechanism.  The Reliable State Manager takes fuzzy (lightweight) checkpoints at certain points to relieve pressure from the transactional log and improve recovery times.  When **IReliableStateManager.BackupAsync** is called, the Reliable State Manager instructs all Reliable objects to copy their latest checkpoint files to a local backup folder.  Then, the Reliable State Manager copies all log records, starting from the "start pointer" to the latest log record into the backup folder.  Since all the log records up to the latest log record are included in the backup and the Reliable State Manager preserves Write Ahead Logging, the Reliable State Manager guarantees that all transactions that are committed (**CommitAsync** has returned successfully) are included in the backup.
+The Reliable State Manager provides the ability to create consistent backups without blocking any read or write operations. To do so, it utilizes a checkpoint and log persistence mechanism.  The Reliable State Manager takes fuzzy (lightweight) checkpoints at certain points to relieve pressure from the transactional log and improve recovery times.  When **IReliableStateManager.BackupAsync** is called, the Reliable State Manager instructs all Reliable objects to copy their latest checkpoint files to a local backup folder.  Then, the Reliable State Manager copies all log records, starting from the "start pointer" to the latest log record into the backup folder.  Since all the log records up to the latest log record are included in the backup and the Reliable State Manager preserves write-ahead logging, the Reliable State Manager guarantees that all transactions that are committed (**CommitAsync** has returned successfully) are included in the backup.
 
 Any transaction that commits after **BackupAsync** has been called may or may not be in the backup.  Once the local backup folder has been populated by the platform (i.e., local backup is completed by the runtime), the service's backup callback is invoked.  This callback is responsible for moving the backup folder to an external location such as Azure Storage.
 

@@ -22,17 +22,17 @@ Reliable Collections enable you to write highly available, scalable, and low-lat
 
 The key difference between Reliable Collections and other high-availability technologies (such as Redis, Azure Table service, and Azure Queue service) is that the state is kept locally in the service instance while also being made highly available. This means that:
 
-1. All reads are local, which results in low latency and high-throughput reads.
-2. All writes incur the minimum number of network IOs, which results in low latency and high-throughput writes.
+- All reads are local, which results in low latency and high-throughput reads.
+- All writes incur the minimum number of network IOs, which results in low latency and high-throughput writes.
 
 ![Image of evolution of collections.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
 Reliable Collections can be thought of as the natural evolution of the **System.Collections** classes: a new set of collections that are designed for the cloud and multi-computer applications without increasing complexity for the developer. As such, Reliable Collections are:
 
-1. Replicated: State changes are replicated for high availability.
-2. Persisted: Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).
-3. Asynchronous: APIs are asynchronous to ensure that threads are not blocked when incurring IO.
-4. Transactional: APIs utilize the abstraction of transactions so you can manage multiple Reliable Collections within a service easily.
+- Replicated: State changes are replicated for high availability.
+- Persisted: Data is persisted to disk for durability against large-scale outages (for example, a datacenter power outage).
+- Asynchronous: APIs are asynchronous to ensure that threads are not blocked when incurring IO.
+- Transactional: APIs utilize the abstraction of transactions so you can manage multiple Reliable Collections within a service easily.
 
 Reliable Collections provide strong consistency guarantees out of the box in order to make reasoning about application state easier.
 Strong consistency is achieved by ensuring transaction commits finish only after the entire transaction
@@ -42,14 +42,14 @@ To achieve weaker consistency, applications can acknowledge back to the client/r
 The Reliable Collections APIs are an evolution of concurrent collections APIs
 (found in the **System.Collections.Concurrent** namespace):
 
-1. Asynchronous: Returns a task since, unlike concurrent collections, the operations are replicated and persisted.
-2. No out parameters: Uses **ConditionalResult<T>** to return a bool and a value instead of out parameters. **ConditionalResult<T>** is like **Nullable<T>** but does not require T to be a struct.
-3. Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
+- Asynchronous: Returns a task since, unlike concurrent collections, the operations are replicated and persisted.
+- No out parameters: Uses **ConditionalResult<T>** to return a bool and a value instead of out parameters. **ConditionalResult<T>** is like **Nullable<T>** but does not require T to be a struct.
+- Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
 
 Today, **Microsoft.ServiceFabric.Data.Collections** contains two collections:
 
-1. [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to **ConcurrentDictionary**, both the key and the value can be of any type.
-2. [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
+- [Reliable Dictionary](https://msdn.microsoft.com/library/azure/dn971511.aspx): Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to **ConcurrentDictionary**, both the key and the value can be of any type.
+- [Reliable Queue](https://msdn.microsoft.com/library/azure/dn971527.aspx): Represents a replicated, transactional, and asynchronous strict first-in, first-out (FIFO) queue. Similar to **ConcurrentQueue**, the value can be of any type.
 
 ## Isolation levels
 Isolation level is a measure of the degree to which isolation is achieved.
@@ -119,7 +119,7 @@ The lock compatibility matrix can be found below:
 | Update            | No conflict  | No conflict  | Conflict    | Conflict     |
 | Exclusive         | No conflict  | Conflict     | Conflict    | Conflict     |
 
-Note that time-out argument in the Reliable Collections APIs are used as a deadlock detection.
+Note that a time-out argument in the Reliable Collections APIs is used for deadlock detection.
 For example, two transactions (T1 and T2) are trying to read and update K1.
 It is possible for them to deadlock, because they both end up having the Shared lock.
 In this case, one or both of the operations will time out.
