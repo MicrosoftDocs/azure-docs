@@ -53,32 +53,40 @@ Typical uses for the CDN include:
 
 + Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increased running costs. For example, when an update to an operating system is released for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.
 
-The following table shows examples of the median time to first byte from various geographic locations. The target web role is deployed to Azure West US. There is a strong correlation between greater boost due to the CDN and proximity to a CDN node. A complete list of Azure CDN node locations is available at [Azure Content Delivery Network (CDN) Node Locations](cdn/cdn-pop-locations.md/).
+The following list shows examples of the median time to first byte from various geographic locations. The target web role is deployed to Azure West US. There is a strong correlation between greater boost due to the CDN and proximity to a CDN node. A complete list of Azure CDN node locations is available at [Azure Content Delivery Network (CDN) Node Locations](cdn/cdn-pop-locations.md/).
 
-|Location     | Time(ms) to First Byte | Time (ms) to First |% time improvement|
-|             | (Origin)               |    Byte (CDN)      |    for CDN       |
-|-------------|------------------------|--------------------|------------------|
-|\*San Jose,  |  47.5                  | 46.5               |         2 %      |
-| CA          |                        |                    |                  |
-|-------------|------------------------|--------------------|------------------|
-|\*\*Dulles,  |     109   |     40.5   |       169% |
-|VA           | | |
-|-------------|------------------------|--------------------|------------------|
-|Buenos Aires, | 210 | 151 | 39%|
-|AR        |        |        |
-|-------------|------------------------|--------------------|------------------|
-|\*London,  | 195   | 44 | 343%|
-|  UK       |        |        |
-|-------------|------------------------|--------------------|------------------|
-|Shanghai, | 242  | 206    | 17%   |
-| CN        |        |        |
-|-------------|------------------------|--------------------|------------------|
-|\*Singapore | 214    | 74       | 189 %  |
-|-------------|------------------------|--------------------|------------------|
-|\*Tokyo, JP  |  163 |    48    |     204 %   |
-|-------------|------------------------|--------------------|------------------|
-|Seoul, KR        |  190      |    190    |     0%   |
-|-------------|------------------------|--------------------|------------------|
++ **\*San Jose, CA**
+  + Time to First Byte (Origin): 47.5 ms
+  + Time to First Byte (CDN)  : 46.5 ms
+  + % time improvement for CDN : 2 %
++ **\*\*Dulles, VA**
+  + Time to First Byte (Origin): 109 ms
+  + Time to First Byte (CDN)   :  40.5 ms
+  + % time improvement for CDN : 169 %
++ **Buenos Aires, AR**
+  + Time to First Byte (Origin): 210 ms
+  + Time to First Byte (CDN)   : 151 ms
+  + % time improvement for CDN : 39 %
++ **London, UK**
+  + Time to First Byte (Origin): 195 ms
+  + Time to First Byte (CDN)  : 44 ms
+  + % time improvement for CDN : 343 %
++ **Shanghai, CN**
+  + Time to First Byte (Origin): 242 ms
+  + Time to First Byte (CDN)  : 206 ms
+  + % time improvement for CDN : 17 %
++ **\*Singapore**
+  + Time to First Byte (Origin): 214 ms
+  + Time to First Byte (CDN)  : 74 ms
+  + % time improvement for CDN : 189%
++ **\*Tokyo, JP**
+  + Time to First Byte (Origin): 163 ms
+  + Time to First Byte (CDN)  : 48 ms
+  + % time improvement for CDN : 204%
++ **Seoul, KR** 
+  + Time to First Byte (Origin): 190 ms
+  + Time to First Byte (CDN)  : 190 ms
+  + % time improvement for CDN : 0
 
 
 \* Has an Azure CDN node in the same city.  
