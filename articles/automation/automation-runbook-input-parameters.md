@@ -64,15 +64,15 @@ If your runbook has an [object] type input parameter, then to pass in a value, u
 
 Then you can pass the following value to the parameter: 
 
-@{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
+    @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 
 
 ## Configuring input parameters in Graphical runbooks
 
 To configure a graphical runbook with input parameters, let’s create a [Graphical runbook](automation-first-runbook-graphical.md) that outputs details about virtual machines – either a single VM or all VMs within a service. The runbook consists of two major activities:
 
-1. [**Add-AzureAccount**](https://msdn.microsoft.com/library/dn495128.aspx) to authenticate with Azure.
-2. [**Get-AzureVM**](https://msdn.microsoft.com/library/azure/dn495236.aspx) to get all the virtual machines.
+* [**Add-AzureAccount**](https://msdn.microsoft.com/library/dn495128.aspx) to authenticate with Azure.
+* [**Get-AzureVM**](https://msdn.microsoft.com/library/azure/dn495236.aspx) to get all the virtual machines.
 
 You can use the [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) activity to output the names of virtual machines. The activity **Get-AzureVM** will accept two parameters: the **virtual machine name** and the **service account name**. Since these parameters could require different values each time you start the runbook, you can add input parameters to your runbook. Here are the steps to add input parameters:
 
@@ -119,7 +119,7 @@ You can pass values to input parameters in runbooks in the following scenarios:
 
 A runbook can be started many ways: Through the Azure portal UI, with a webhook, with the PowerShell cmdlets, REST API, and SDK. Below we discuss different methods to start a runbook and assign parameters. 
 
-#### Start a published runbook through the Azure portal and assign parameters
+* **Start a published runbook through the Azure portal and assign parameters**
 
 When you [start the runbook](automation-starting-a-runbook#starting-a-runbook-with-the-azure-portal.md), the **Start Runbook** blade opens where you can configure values for the parameters you just created.
 
@@ -132,9 +132,11 @@ In the label beneath the input textbox you can see attributes set for the parame
 
 >[AZURE.NOTE] String type parameters support **Empty** string values.  Entering **[EmptyString]** in the input parameter textbox will pass an empty string to the parameter. Also String type parameters don’t support **Null** values being passed. If you don’t pass any value to the string parameter, then PowerShell will interpret it as null. 
 
-#### Start a published runbook using PowerShell cmdlets and assign parameters
+* **Start a published runbook using PowerShell cmdlets and assign parameters**
 
-**Azure Service Management cmdlets:** You can start an automation runbook created in a default resource group using [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx)
+To start a runbook in Service Management model use Service management cmdlets and to start a runbook in Resource Manager deployment model use Resource manager cmdlets.
+
+1. **Azure Service Management cmdlets:** You can start an automation runbook created in a default resource group using [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx)
 
 **Example:**
 
@@ -143,7 +145,7 @@ In the label beneath the input textbox you can see attributes set for the parame
     Start-AzureAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” -Parameters $params
 
 
-**Azure Resource Manager cmdlets:** You can start an Automation runbook created in a resource group using [Start-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)
+2. **Azure Resource Manager cmdlets:** You can start an Automation runbook created in a resource group using [Start-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)
 
 **Example:**
 
@@ -153,47 +155,47 @@ In the label beneath the input textbox you can see attributes set for the parame
 
 >[AZURE.NOTE] When you start a runbook using PowerShell cmdlets, along with the inputs parameters that you passed, a default parameter, **MicrosoftApplicationManagementStartedBy** is created with the value **PowerShell**. You can view this parameter in the Job details blade.
 
-#### Start a runbook using the SDK and assign parameters
+* **Start a runbook using the SDK and assign parameters**
 
 1. **Azure Service Management method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet to start a runbook in your Automation account, you can view the full code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
-```      
-    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
-    {
-        var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
+    ```      
+        public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
         {
-            Properties = new JobCreateProperties 
+            var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
             {
-                Runbook = new RunbookAssociationProperty
+                Properties = new JobCreateProperties 
                 {
-                    Name = runbookName
-                },
-                    Parameters = parameters
-            }
-        });
-        return response.Job;
-    }
-```
+                    Runbook = new RunbookAssociationProperty
+                    {
+                        Name = runbookName
+                    },
+                        Parameters = parameters
+                }
+            });
+            return response.Job;
+        }
+    ```
       
 2. **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet to start a runbook in your Automation account, you can view the full code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
 
-```
-    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
-    {
-       var response = AutomationClient.Jobs.Create(resourceGroup, automationAccount, new JobCreateParameters
-       {
-           Properties = new JobCreateProperties 
+    ```
+        public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
+        {
+           var response = AutomationClient.Jobs.Create(resourceGroup, automationAccount, new JobCreateParameters
            {
-               Runbook = new RunbookAssociationProperty
+               Properties = new JobCreateProperties 
                {
-                   Name = runbookName
-               },
-                   Parameters = parameters
-           }
-       });
-    return response.Job;
-    }
-```
+                   Runbook = new RunbookAssociationProperty
+                   {
+                       Name = runbookName
+                   },
+                       Parameters = parameters
+               }
+           });
+        return response.Job;
+        }
+    ```
 
 To start this method, create a dictionary to store the runbook parameters, VMName and ServiceName, and their values, and start the runbook. Below is the C# code snippet to call the above defined method.
 
@@ -208,7 +210,7 @@ To start this method, create a dictionary to store the runbook parameters, VMNam
     StartRunbook(“Get-AzureVMGraphical”, RunbookParameters);
 ```
 
-#### Start a runbook using the REST API and assign parameters
+* **Start a runbook using the REST API and assign parameters**
 
 A runbook job can be created and started with the Azure Automation REST API using the **PUT** method with the following request URI.
 
@@ -216,10 +218,10 @@ A runbook job can be created and started with the Azure Automation REST API usin
 
 In the Request URI, replace the following parameters:
  
-a. **subscription-id:** Your Azure subscription ID.  
-b. **cloud-service-name:** Name of the cloud service to which request should be sent.  
-c. **automation-account-name:** Name of your automation account hosted within the specified cloud service.  
-d. **job-id:** The GUID for the job. GUID in PowerShell can be created using **[GUID]::NewGuid().ToString()** cmdlet.
+* **subscription-id:** Your Azure subscription ID.  
+* **cloud-service-name:** Name of the cloud service to which request should be sent.  
+* **automation-account-name:** Name of your automation account hosted within the specified cloud service.  
+* **job-id:** The GUID for the job. GUID in PowerShell can be created using **[GUID]::NewGuid().ToString()** cmdlet.
 	
 In order to pass parameters to the runbook job, use the request body, and it takes two properties provided in JSON format:
 
@@ -267,12 +269,12 @@ When you execute a runbook using webhook, a predefined input parameter **[Webhoo
 ![WebhookData Parameter](media/automation-runbook-input-parameters/automation_09_WebhookDataParameter.png)
 
 
-## Related articles
+## Next Steps
 
-- [Azure Automation: Runbook Input, Output, and Nested Runbooks](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/)
-- [Starting a runbook](automation-starting-a-runbook.md)
-- [Editing textual runbooks](automation-edit-textual-runbook.md)
-- [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
+- For more information on runbook input and output, see [Azure Automation: Runbook Input, Output, and Nested Runbooks](https://azure.microsoft.com/blog/azure-automation-runbook-input-output-and-nested-runbooks/)
+- For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md)
+- To edit a textual runbook, refer to [Editing textual runbooks](automation-edit-textual-runbook.md)
+- To edit a graphical runbook, refer to [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 
 
 
