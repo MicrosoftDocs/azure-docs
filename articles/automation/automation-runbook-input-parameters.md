@@ -134,7 +134,7 @@ In the label beneath the input textbox you can see attributes set for the parame
 
 * **Start a published runbook using PowerShell cmdlets and assign parameters**
 
-To start a runbook in Service Management model use Service management cmdlets and to start a runbook in Resource Manager deployment model use Resource manager cmdlets.
+To start a runbook in Service Management model use Service management cmdlets and to start a runbook in Resource Manager deployment model use Resource manager cmdlets.  
 
     1. **Azure Service Management cmdlets:** You can start an automation runbook created in a default resource group using [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx)
 
