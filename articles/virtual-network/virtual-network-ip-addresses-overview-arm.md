@@ -60,7 +60,7 @@ You can specify a DNS domain name label for a public IP resource, which creates 
 You can associate a Public IP address with a [Virtual machine](virtual-machines-about.md) (VM) by assigning it to its **network interface card** (NIC). In case of a multi-NIC VM, you can assign it to the *primary* NIC only. You can assign either a dynamic or a static public IP address to a VM.
 
 ### Internet facing load balancers
-You can associate a public IP address with an [Azure Load Balancer](load-balancer-overview.md) (LB), by assigning it to the LB **front end** configuration. This public IP address serves as a load-balanced virtual IP address (VIP). You can assign either a dynamic or a static public IP address to an LB front end. You can also assign multiple public IP addresses to an LB front end, which enables [multi-vip](load-balancer-multivip.md) scenarios like a multi-tenant environment with SSL-based websites.
+You can associate a public IP address with an [Azure Load Balancer](load-balancer-overview.md), by assigning it to the load balancer **front end** configuration. This public IP address serves as a load-balanced virtual IP address (VIP). You can assign either a dynamic or a static public IP address to a load balancer front end. You can also assign multiple public IP addresses to a load balancer front end, which enables [multi-vip](load-balancer-multivip.md) scenarios like a multi-tenant environment with SSL-based websites.
 
 ### VPN gateways
 [Azure VPN Gateway](vpn-gateway-about-vpngateways.md) is used to connect an Azure virtual network (VNet) to other Azure VNets or on-premises network. You need to assign a public IP address to its **IP configuration** to enable communicate with the remote network. Currently, you can only assign a dynamic public IP address to a VPN gateway.
@@ -129,12 +129,12 @@ Below is a comparison of IP address in resource manager with the classic deploym
 |---|---|---|---|
 |**Public IP Address**|VM|Referred to as an ILPIP (dynamic only)|Referred to as a public IP (dynamic or static)|
 |||Assigned to an IaaS VM or a PaaS role instance|Associated to the VM's NIC|
-||Internet facing load balancer (LB)|Referred to as VIP (dynamic) or Reserved IP (static)|Referred to as a public IP (dynamic or static)|
-|||Assigned to a cloud service|Associated to the LB's front end config|
+||Internet facing load balancer|Referred to as VIP (dynamic) or Reserved IP (static)|Referred to as a public IP (dynamic or static)|
+|||Assigned to a cloud service|Associated to the load balancer's front end config|
 ||||
 |**Private IP Address**|VM|Referred to as a DIP|Referred to as a private IP address|
 |||Assigned to an IaaS VM or a PaaS role instance|Assigned to the VM's NIC|
-||Internal load balancer (ILB)|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end config (dynamic or static)|
+||Internal load balancer (ILB)|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end configuration (dynamic or static)|
 
 ## Next steps
 - [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-arm-template.md)
