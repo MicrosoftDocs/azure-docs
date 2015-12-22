@@ -59,7 +59,7 @@ Now you are all set to send notifications using this **user_name**.
 
 ![][4]	
 
-> [AZURE.NOTE] Any users for which the user_name app info is not set, will not get any notification. 
+> [AZURE.NOTE] Any users for which the user_name app info is not set, will not get any notification. If you run the notification campaign in test mode and if you do not have app-info set then we will send '?' character to replace the placeholder. 
 
 2) When Mobile Engagement will select a device to send this notification then it will look at this app-info and replace the value in the placeholder.  
 For example, if we have set `str = "Scott"` for a user than the device registration will get associated with the app info of **user_name = SCOTT** for this user and this user will see an out of app push notification in the following format. 

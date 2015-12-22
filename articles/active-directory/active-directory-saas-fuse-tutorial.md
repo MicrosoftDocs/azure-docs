@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="v-aabrol"/>
 
 
@@ -72,6 +72,7 @@ To configure the integration of Fuse into Azure AD, you need to add Fuse from th
 ![Creating an Azure AD test user](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_01.png)<br>
 7. In the results pane, select **Fuse**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Fuse based on a test user called "Britta Simon".
