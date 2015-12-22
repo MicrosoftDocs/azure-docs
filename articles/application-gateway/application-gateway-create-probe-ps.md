@@ -19,7 +19,6 @@
 
 # Create custom probe for Application Gateway using PowerShell
 
-[AZURE.INCLUDE [application-gateway-create-probe-arm-selectors-include.md](../../includes/application-gateway-create-probe-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [application-gateway-create-probe-intro-include.md](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -181,4 +180,15 @@ Use `Start-AzureRmApplicationGateway` to start the Application Gateway:
 
 	 Start-AzureRmApplicationGateway -ApplicationGateway $getgw 
 
-## Query the 
+## Add a probe to an existing application gateway
+
+
+You have three steps to add a custom probe to an existing application gateway.
+
+### Step 1 
+
+Load the application gateway resource into a PowerShell variable using `Get-AzureRmApplicationGateway`
+
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+
+

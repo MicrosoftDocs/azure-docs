@@ -60,8 +60,6 @@ The following example creates a new Application Gateway using a virtual network 
 **To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet.
 
 
-
-
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
 	Description   :
