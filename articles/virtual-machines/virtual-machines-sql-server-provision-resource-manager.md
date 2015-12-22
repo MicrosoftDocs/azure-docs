@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
-    editor="monicar"
+    editor=""
 	manager="jeffreyg"
 	tags="azure-service-management" />
 
@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/16/2015"
+	ms.date="12/22/2015"
 	ms.author="mikeray" />
 
 # Provision a SQL Server virtual machine in Azure Resource Manager
