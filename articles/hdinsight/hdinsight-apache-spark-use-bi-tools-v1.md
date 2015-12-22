@@ -138,17 +138,17 @@ Once you have saved the data as a Hive table, you can use Power BI to connect to
 
 7. Build a visualization to show the variance between target temperature and actual temperature for each building. To do so, drag-and-drop the **BuildingID** field under **Axis**, and **ActualTemp**/**TargetTemp** fields under **Value**.
 
-	![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.powerbi.visual.1.png "Create visualizations")
+	![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.powerbi.visual1.png "Create visualizations")
 
 	Also, select **Area Map** (shown in red) to visualize your data.
 
 8. By default the visualization shows the sum for **ActualTemp** and **TargetTemp**. For both the fields, from the drop-down, select **Average** to get an average of actual and target temperatures for both buildings.
 
-	![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.powerbi.visual.2.png "Create visualizations")
+	![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.powerbi.visual2.png "Create visualizations")
 
 9. Your data visualization should be similar to the following. Move your cursor over the visualization to get tool tips with relevant data.
 
-	![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.powerbi.visual.3.png "Create visualizations")
+	![Create visualizations](./media/hdinsight-apache-spark-use-bi-tools-v1/hdispark.powerbi.visual3.png "Create visualizations")
 
 10. Click **Save** from the top menu and provide a report name. You can also pin the visual. When you pin a visualization, it will be stored on your dashboard so you can track the latest value at a glance. 
 
