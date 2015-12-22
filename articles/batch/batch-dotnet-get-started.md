@@ -108,9 +108,11 @@ Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's 
 
 Batch includes built-in support for interacting with Azure Storage, and blob containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute, as well as a place to store output data once they've completed. The first thing the DotNetTutorial client application does is create three block blob containers in Azure Storage:
 
- - **application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
- - **input** - Tasks will download the data files they are to process from the *input* container.
- - **output** - When tasks complete the processing of the input files, they will upload their results to the *output* container.
+**application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
+
+**input** - Tasks will download the data files they are to process from the *input* container.
+
+**output** - When tasks complete the processing of the input files, they will upload their results to the *output* container.
 
 > [AZURE.INFO] In [Azure Storage](./../storage/storage-introduction.md), a "blob" is a file of any type and size. Of the three types of blobs offered by Storage - block blobs, page blobs, and append blobs - this sample uses only the block blob.
 
