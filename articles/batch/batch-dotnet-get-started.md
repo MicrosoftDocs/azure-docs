@@ -50,7 +50,7 @@ The Batch Explorer is a free utility included in the [azure-batch-samples][githu
 
 The DotNetTutorial code sample is a Visual Studio 2013 solution consisting of two projects: **DotNetTutorial** and **TaskApplication**. The client application, *DotNetTutorial*, interacts with the Batch and Storage services to coordinate the execution of a workload on compute nodes (virtual machines), while *TaskApplication* is the executable that actually runs on the compute nodes to perform the work. In this sample, TaskApplication.exe parses the text in a text file (the "input" file) that has been downloaded to the node from Azure Storage, producing as output another text file that contains a list of the top three words appearing in the input file. After creating the output file, TaskApplication then uploads its output file to Azure Storage, making it available to the client application for download.
 
-The following diagram illustrates the primary operations performed by the client application, DotNetTutorial, and the application that is executed by the tasks, TaskApplication. This basic workflow is typical of many compute solutions created with Batch, and while it does not demonstrate every feature available in the Batch service, nearly every Batch scenario will include similar processes.
+The following diagram illustrates the primary operations performed by the client application, *DotNetTutorial*, and the application that is executed by the tasks, *TaskApplication*. This basic workflow is typical of many compute solutions created with Batch, and while it does not demonstrate every feature available in the Batch service, nearly every Batch scenario will include similar processes.
 
 ![Batch example workflow][8]<br/>
 *DotNetTutorial application workflow*
@@ -71,9 +71,9 @@ While not every Batch solution will include the above steps (and may include mor
 
 ## Build the *DotNetTutorial* sample project
 
-Before you can successfully run the sample, you must specify both Batch and Storage account credentials in the DotNetTutorial project's `Program.cs` file. If you have not done so already, open the solution in Visual Studio by double-clicking on the `DotNetTutorial.sln` solution file, or from within Visual Studio by using the **File > Open > Project/Solution** menu.
+Before you can successfully run the sample, you must specify both Batch and Storage account credentials in the *DotNetTutorial* project's `Program.cs` file. If you have not done so already, open the solution in Visual Studio by double-clicking on the `DotNetTutorial.sln` solution file, or from within Visual Studio by using the **File > Open > Project/Solution** menu.
 
-Open `Program.cs` within the DotNetTutorial project, and add your credentials near the top of the file just below `public class Program`:
+Open `Program.cs` within the *DotNetTutorial* project, and add your credentials near the top of the file just below `public class Program`:
 
 ```
 // Update the Batch and Storage account credential strings below with the values unique to your accounts.
@@ -106,15 +106,13 @@ Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's 
 ![Create containers in Azure Storage][1]
 <br/>
 
-Batch includes built-in support for interacting with Azure Storage, and blob containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute, as well as a place to store output data once they've completed. The first thing the DotNetTutorial client application does is create three block blob containers in Azure Storage:
+Batch includes built-in support for interacting with Azure Storage, and blob containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute, as well as a place to store output data once they've completed. The first thing the *DotNetTutorial* client application does is create three block blob containers in Azure Storage:
 
-**application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
+- **application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
+- **input** - Tasks will download the data files they are to process from the *input* container.
+- **output** - When tasks complete the processing of the input files, they will upload their results to the *output* container.
 
-**input** - Tasks will download the data files they are to process from the *input* container.
-
-**output** - When tasks complete the processing of the input files, they will upload their results to the *output* container.
-
-> [AZURE.INFO] In [Azure Storage](./../storage/storage-introduction.md), a "blob" is a file of any type and size. Of the three types of blobs offered by Storage - block blobs, page blobs, and append blobs - this sample uses only the block blob.
+> [AZURE.NOTE] In [Azure Storage](./../storage/storage-introduction.md), a "blob" is a file of any type and size. Of the three types of blobs offered by Storage - block blobs, page blobs, and append blobs - this sample uses only the block blob.
 
 In order to interact with a Storage account and create containers, we use the [Azure Storage Client Library for .NET][net_api_storage] and create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that obtain a [CloudBlobClient][net_cloudblobclient]:
 
@@ -494,8 +492,8 @@ private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobCl
 		Console.WriteLine("All files downloaded to {0}", directoryPath);
 }
 ```
-&nbsp;
-> [AZURE.INFO] The call to `DownloadBlobsFromContainerAsync` in the *DotNetTutorial* application specifies that the files should be downloaded to your `%TEMP%` folder. Feel free to modify this output location.
+
+> [AZURE.NOTE] The call to `DownloadBlobsFromContainerAsync` in the *DotNetTutorial* application specifies that the files should be downloaded to your `%TEMP%` folder. Feel free to modify this output location.
 
 ## Step 8: Delete containers
 
