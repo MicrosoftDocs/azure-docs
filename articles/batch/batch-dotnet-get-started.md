@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="12/18/2015"
+	ms.date="01/01/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch library for .NET  
@@ -30,7 +30,7 @@ This article assumes that you have a working knowledge of C# and Visual Studio, 
 
 - **Azure account** - If you do not already have an Azure subscription, you can create a free trial account in minutes at [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 - **Batch account** - Once you have an Azure subscription, [Create and manage an Azure Batch account](batch-account-create-portal.md).
-- **Storage account** - See the **Create a storage account** section in [About Azure storage accounts](../storage-create-storage-account.md).
+- **Storage account** - See the *Create a storage account* section in [About Azure storage accounts](../storage-create-storage-account.md).
 
 ### Visual Studio
 
@@ -44,16 +44,19 @@ The [DotNetTutorial][github_dotnettutorial] sample is one of the many code sampl
 
 ### Batch Explorer (optional)
 
-The Batch Explorer is a free utility included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it is highly recommended for use in debugging and administration of the entities in your Batch account. You can read about an older version of the Batch Explorer in the [Azure Batch Explorer Sample Walkthrough][batch_explorer_blog] blog post.
+The Batch Explorer is a free utility included in the [azure-batch-samples][github_samples] repository on GitHub. While not required to complete this tutorial, it is highly recommended for use in the debugging and administration of entities in your Batch account. You can read about an older version of the Batch Explorer in the [Azure Batch Explorer Sample Walkthrough][batch_explorer_blog] blog post.
 
 ## DotNetTutorial sample project overview
 
-The DotNetTutorial code sample is a Visual Studio 2013 solution consisting of two projects: **DotNetTutorial** and **TaskApplication**. The client application, *DotNetTutorial*, interacts with the Batch and Storage services to coordinate the execution of a workload on compute nodes (virtual machines), while *TaskApplication* is the executable that actually runs on the compute nodes to perform the work. In this sample, TaskApplication.exe parses the text in a text file (the "input" file) that has been downloaded to the node from Azure Storage, producing as output another text file that contains a list of the top three words appearing in the input file. After creating the output file, TaskApplication then uploads its output file to Azure Storage, making it available to the client application for download.
+The *DotNetTutorial* code sample is a Visual Studio 2013 solution consisting of two projects: **DotNetTutorial** and **TaskApplication**.
+
+- **DotNetTutorial** is the client application that interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). DotNetTutorial runs on your local workstation.
+
+- **TaskApplication** is the executable that runs on the compute nodes to perform the actual work. In the sample, `TaskApplication.exe` parses the text in a text file downloaded from Azure Storage (the input file), and produces a text file (the output file) that contains a list of the top three words appearing in the input file. After creating the output file, TaskApplication then uploads the file to Azure Storage, making it available to the client application for download. TaskApplication runs in parallel on multiple compute nodes in the Batch service.
 
 The following diagram illustrates the primary operations performed by the client application, *DotNetTutorial*, and the application that is executed by the tasks, *TaskApplication*. This basic workflow is typical of many compute solutions created with Batch, and while it does not demonstrate every feature available in the Batch service, nearly every Batch scenario will include similar processes.
 
 ![Batch example workflow][8]<br/>
-*DotNetTutorial application workflow*
 
 **1.** Create blob **containers** in Azure Storage<br/>
 **2.** Upload task application and input files to containers<br/>
@@ -67,13 +70,13 @@ The following diagram illustrates the primary operations performed by the client
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** As tasks complete, they upload their output data to Azure Storage<br/>
 **7.** Download task output from Storage
 
-While not every Batch solution will include the above steps (and may include more), the *DotNetTutorial* sample is designed to show the most common processes within a Batch scenario.
+As mentioned, not every Batch solution will perform these exact steps, and may include many more, but the *DotNetTutorial* sample application demonstrates common processes found in a Batch solution.
 
 ## Build the *DotNetTutorial* sample project
 
 Before you can successfully run the sample, you must specify both Batch and Storage account credentials in the *DotNetTutorial* project's `Program.cs` file. If you have not done so already, open the solution in Visual Studio by double-clicking on the `DotNetTutorial.sln` solution file, or from within Visual Studio by using the **File > Open > Project/Solution** menu.
 
-Open `Program.cs` within the *DotNetTutorial* project, and add your credentials near the top of the file just below `public class Program`:
+Open `Program.cs` within the *DotNetTutorial* project, and add your credentials as specified near the top of the file:
 
 ```
 // Update the Batch and Storage account credential strings below with the values unique to your accounts.
@@ -89,15 +92,14 @@ private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
 
-You can find these credentials within the account blade of each service within the [Azure Portal][azure_portal], examples of which are shown below.
+You can find your Batch and Storage account credentials within the account blade of each service in the [Azure Portal][azure_portal]:
 
 ![Batch credentials in Portal][9]
 ![Storage credentials in Portal][10]<br/>
-*Batch and Storage account credentials found within the Azure Portal*
 
 Now that you've updated the project with your credentials, right-click the solution in *Solution Explorer* and click **Build Solution**. Confirm the restoration of any NuGet packages, if prompted.
 
-In the following sections, we break the sample application down into the steps it performs to process a workload in the Batch service, and discuss those steps in depth. You are encouraged to refer to the open solution in Visual Studio while working your way through the rest of this article since not every line of code within the sample is discussed.
+In the following sections, we break the sample application down into the steps it performs to process a workload in the Batch service, and discuss those steps in detail. You are encouraged to refer to the open solution in Visual Studio while working your way through the rest of this article, since not every line of code in the sample is discussed.
 
 Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's `Program.cs` to start with Step #1. Each step below then roughly follows the progression of method calls in `MainAsync`.
 
@@ -106,7 +108,7 @@ Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's 
 ![Create containers in Azure Storage][1]
 <br/>
 
-Batch includes built-in support for interacting with Azure Storage, and blob containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute, as well as a place to store output data once they've completed. The first thing the *DotNetTutorial* client application does is create three block blob containers in Azure Storage:
+Batch includes built-in support for interacting with Azure Storage, and blob containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute, as well as a place to store the output data they produce. The first thing the *DotNetTutorial* client application does is create three block blob containers in Azure Storage:
 
 - **application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
 - **input** - Tasks will download the data files they are to process from the *input* container.
@@ -128,7 +130,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-We use the `blobClient` reference throughout the rest of the application, passing it as a parameter to a number of methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
+We use the `blobClient` reference throughout the application, passing it as a parameter to a number of methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
 
 ```
 // Use the blob client to create the containers in Azure Storage if they don't yet exist
@@ -156,9 +158,9 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 }
 ```
 
-Once the three containers have been created, the application can now upload the files that will be used by the tasks.
+Once the containers have been created, the application can now upload the files that will be used by the tasks.
 
-> [AZURE.TIP] [How to use Blob storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md) provides a great overview of working with Azure Storage containers and blobs, and should be near the top of your reading list as you start working with Batch.
+> [AZURE.TIP] [How to use Blob storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md) provides a good overview of working with Azure Storage containers and blobs, and should be near the top of your reading list as you start working with Batch.
 
 ## Step 2: Upload task application and data files
 
@@ -206,11 +208,11 @@ A [ResourceFile][net_resourcefile] provides tasks in Batch with the URL to a fil
 - [JobPreparationTask][net_jobpreptask]
 - [JobReleaseTask][net_jobreltask]
 
-The DotNetTutorial sample application does not use the JobPreparationTask or JobReleaseTask, but you can read more about both in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
+The DotNetTutorial sample application does not use the JobPreparationTask or JobReleaseTask, but you can read more about them in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
 ### Shared Access Signatures (SAS)
 
-Shared access signatures are strings which - when included as part of a URL - provide secure access to either containers or blobs within Azure Storage. The DotNetTutorial application uses both blob and container SAS URLs, and demonstrates how to obtain these SAS strings from the Storage service.
+Shared access signatures are strings which - when included as part of a URL - provide secure access to either containers or blobs in Azure Storage. The DotNetTutorial application uses both blob and container SAS URLs, and demonstrates how to obtain these SAS strings from the Storage service.
 
 - **Blob SAS** - The tasks in DotNetTutorial use blob shared access signatures when downloading the application binaries and input data files from Storage. The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's SAS, and does so by calling [CloudblobData.GetSharedAccessSignature][net_sas_blob].
 
@@ -273,17 +275,17 @@ When creating a pool with [CreatePool][net_pool_create], you will specify a numb
 
 Along with these physical node properties, you may also specify a [StartTask][net_pool_starttask] for the pool. The StartTask will execute on each node as that node joins the pool, as well as each time a node is restarted. The StartTask is especially useful for installing applications on compute nodes prior to the execution of tasks. For example, if your tasks process data using Python scripts, you could use a StartTask to install Python on the compute nodes.
 
-In this sample application, the StartTask copies the files that it has downloaded from Storage (which are specified using the StartTask's *ResourceFiles* property) from its working directory to the shared directory that all tasks running on the node can access.
+In this sample application, the StartTask copies the files that it downloads from Storage (which are specified using the StartTask's *ResourceFiles* property) from the StartTask working directory to the shared directory that *all* tasks running on the node can access.
 
 Also notable in the code snippet above is the use of two environment variables in the *CommandLine* property of the StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` and `%AZ_BATCH_NODE_SHARED_DIR%`. Each compute node within a Batch pool is automatically configured with a number of environment variables specific to Batch, and any process executed by a task has access to these environment variables.
 
-> [AZURE.TIP] To find out more about the environment variables available on compute nodes within a Batch pool, as well as information on task working directories, see the **Environment settings for tasks** and **Files and directories** sections in the [Overview of Azure Batch features](batch-api-basics.md).
+> [AZURE.TIP] To find out more about the environment variables available on compute nodes in a Batch pool, as well as information on task working directories, see the **Environment settings for tasks** and **Files and directories** sections in the [Overview of Azure Batch features](batch-api-basics.md).
 
 ## Step 4: Create Batch job
 
 ![Create Batch job][4]<br/>
 
-A Batch job is essentially a collection of tasks, and is used not only for performing distinct workloads, but can also impose certain constraints such as the maximum run-time for the job (and by extension, its tasks) as well as job priority in relation to other jobs within the Batch account. In this example, however, the job is merely associated with the previously created pool, and no other properties are configured.
+A Batch job is essentially a collection of tasks associated with a pool of compute nodes, and is used not only for organizing and tracking tasks in related workloads, but can also impose certain constraints such as the maximum run-time for the job (and by extension, its tasks) as well as job priority in relation to other jobs in the Batch account. In this example, however, the job is only associated with the pool created in step #3, and no additional properties are configured.
 
 All Batch jobs are associated with a specific pool. This indicates on which nodes the job's tasks will execute, and is done using the [CloudJob.PoolInformation][net_job_poolinfo] property as shown in the code snippet below.
 
@@ -307,7 +309,7 @@ Now that a job has been created, tasks are added to perform the work.
 ![Add tasks to job][5]<br/>
 *(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
 
-To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured with a command line and, as with the pool's StartTask, also [ResourceFiles][net_task_resourcefiles] that the task downloads to the node before the command line is executed. In the case of the tasks in the *DotNetTutorial* sample project, each task processes only one file, and as such, its ResourceFiles collection contains a single element.
+To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured with a command line and, as with the pool's StartTask, [ResourceFiles][net_task_resourcefiles] that the task downloads to the node before its command line is executed. In the *DotNetTutorial* sample project, each task processes only one file, thus its ResourceFiles collection contains a single element.
 
 ```
 private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient, string jobId, List<ResourceFile> inputFiles, string outputContainerSasUrl)
