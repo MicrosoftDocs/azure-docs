@@ -18,7 +18,7 @@
 
 # Load test your application by using Visual Studio Team Services
 
-This article shows how to use Microsoft Visual Studio load testing features to stress test an application. It uses an Azure Service Fabric stateful service back end and a stateless service web front end. The example application used here is an airplane location simulator. You provide an airplane ID, departure time, and destination. The application’s back end processes the requests, and the front end displays on a map the airplane that matches the criteria.
+This article shows how to use Microsoft Visual Studio load test features to stress test an application. It uses an Azure Service Fabric stateful service back end and a stateless service web front end. The example application used here is an airplane location simulator. You provide an airplane ID, departure time, and destination. The application’s back end processes the requests, and the front end displays on a map the airplane that matches the criteria.
 
 The following diagram illustrates the Service Fabric application that you'll be testing.
 
@@ -31,11 +31,11 @@ Before getting started, you need to do the following:
 - Get and install Visual Studio 2013 or Visual Studio 2015. This article uses Visual Studio 2015 Enterprise edition, but Visual Studio 2013 and other editions should work similarly.
 - Deploy your application to a staging environment. See [How to deploy applications to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md) for information about this.
 - Understand your application’s usage pattern. This information is used to simulate the load pattern.
-- Understand the goal for your load testing. This helps you interpret and analyze the load testing results.
+- Understand the goal for your load testing. This helps you interpret and analyze the load test results.
 
 ## Create and run the Web Performance and Load Test project
 
-### To create a Web Performance and Load Test project
+### Create a Web Performance and Load Test project
 
 1. Open Visual Studio 2015. Choose **File** > **New** > **Project** on the menu bar to open the **New Project** dialog box.
 
@@ -47,7 +47,7 @@ Before getting started, you need to do the following:
 
     ![Screen shot of Solution Explorer showing the new project][2]
 
-### To record a web performance test
+### Record a web performance test
 
 1. Open the .webtest project.
 
@@ -75,11 +75,11 @@ Before getting started, you need to do the following:
 
 ### Parameterize the web performance test
 
-You can parameterize the web performance test by converting it to a coded web performance test and then editing the code. As an alternative, you can bind the web performance test to a data list so that the test iterates through the data. See [Generate and run a coded web performance test](https://msdn.microsoft.com/library/ms182552.aspx) for details about how to convert the web performance test to a coded test, and see [Add a data source to a web performance test](https://msdn.microsoft.com/library/ms243142.aspx) for information about how to bind data to a web performance test.
+You can parameterize the web performance test by converting it to a coded web performance test and then editing the code. As an alternative, you can bind the web performance test to a data list so that the test iterates through the data. See [Generate and run a coded web performance test](https://msdn.microsoft.com/library/ms182552.aspx) for details about how to convert the web performance test to a coded test. See [Add a data source to a web performance test](https://msdn.microsoft.com/library/ms243142.aspx) for information about how to bind data to a web performance test.
 
 For this example, we'll convert the web performance test to a coded test so you can replace the airplane ID with a generated GUID and add more requests to send flights to different locations.
 
-### To create a load test project
+### Create a load test project
 
 A load test project is composed of one or more scenarios described by the web performance test and unit test, along with additional specified load test settings. The following steps show how to create a load test project:
 
@@ -94,19 +94,19 @@ A load test project is composed of one or more scenarios described by the web pe
 4. In the **Run Settings** section, specify the load test duration.
     >[AZURE.NOTE] The **Test Iterations** option is available only when you run a load test locally using Visual Studio.
 
-5. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Services account. Log in using your Team Services account, and then choose a geographic location. When you're done, choose the **Finish** button.
+5. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Services account. Log in and then choose a geographic location. When you're done, choose the **Finish** button.
 
 6. After the load test is created, open the .loadtest project and choose the current run setting, such as **Run Settings** > **Run Settings1 [Active]**. This opens the run settings in the **Properties** window.
 
 7. In the **Results** section of the **Run Settings** properties window, the **Timing Details Storage** setting should have **None** as its default value. Change this value to **All Individual Details** to get more information on the load test results. See [Load Testing](https://www.visualstudio.com/load-testing.aspx) for more information on how to connect to Visual Studio Team Services and run a load test.
 
-### To run the load test by using Visual Studio Team Services
+### Run the load test by using Visual Studio Team Services
 
 Choose the **Run Load Test** command to start the test run.
 
 ![Screen shot of the Run Load Test command][8]
 
-## To view and analyze the load test results
+## View and analyze the load test results
 
 As the load test progresses, the performance information is graphed. You should see something similar to the following graph.
 
@@ -120,7 +120,7 @@ As the load test progresses, the performance information is graphed. You should 
 
     The **Detail** tab shows virtual user and test scenario information for failed requests. This data can be useful if the load test includes multiple scenarios.
 
-See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](https://www.visualstudio.com/load-testing.aspx) for more information on viewing load testing results.
+See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](https://www.visualstudio.com/load-testing.aspx) for more information on viewing load test results.
 
 ## Automate your load test
 
