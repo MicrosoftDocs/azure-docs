@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/17/2015" 
+	ms.date="12/22/2015" 
 	ms.author="ricksal"/>
 
 
@@ -24,24 +24,26 @@
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as querying for data; inserting, updating, and deleting data, authenticating users, handling errors, and customizing the client. 
+This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as querying for data (inserting, updating, and deleting), authenticating users, handling errors, and customizing the client. It also does a deep-dive into several common Mobile Apps client methods.
 
-In this guide, we focus on the client-side Android SDK.  To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or [How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
+This guide focuses on the client-side Android SDK.  To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or [How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
 
 <!---You can find the Javadocs API reference for the Android client library [here](http://go.microsoft.com/fwlink/p/?LinkId=298735).-->
 
 ## Setup and Prerequisites
 
-The Mobile Services SDK for Android supports Android version 2.2 or later, but we recommend building against Android version 4.2 or later.
+The Mobile Services SDK for Android supports Android version 2.2 or later, but we recommend building against version 4.2 or later.
 
 Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial, which will ensure that you have installed Android Studio; it will help you configure your account and create your first Mobile App backend. If you do this, you can skip the rest of this section.
 
-If you have your own Android app that you want to connect to a Mobile App backend, and decide not to complete the Quickstart, you need to do the following:
+If you decide not to complete the Quickstart tutorial, and want to connect an Android app to a Mobile App backend, you need to do the following:
 
 - [create a Mobile App backend](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) to use with your Android app (unless your app already has one)
 - In Android Studio, [update the Gradle build files](#gradle-build), and
 - [Enable internet permission](#enable-internet)
+
+After this, you will need to complete the steps described in the Deep dive section.
 
 ###<a name="gradle-build"></a>Update the Gradle build file 
 
@@ -68,46 +70,14 @@ To access Azure, your app must have the INTERNET permission enabled. If it's not
 
 ## Deep dive into the basics
 
-This section discusses some of the code in the Quickstart app. If you did not completed it, you will need to add it. 
+This section discusses some of the code in the Quickstart app. If you did not complete it, you will need to add it. 
 
-> [AZURE.NOTE] You will notice "MobileServices" occurs frequently in the code: the code actually does reference the Mobile Apps SDK, it's just a temporary carry-over from the past.
-> 
-###<a name="create-client"></a>How to: Create the client context
-The following code creates the **MobileServiceClient** object that is used to access your Mobile App backend. The code goes in the `onCreate` method of the **Activity** class specified in *AndroidManifest.xml* as a **MAIN** action and **LAUNCHER** category.
+> [AZURE.NOTE] The string "MobileServices" occurs frequently in the code: the code actually references the Mobile Apps SDK, it's just a temporary carry-over from the past.
 
-		MobileServiceClient mClient = new MobileServiceClient(
-				"MobileAppUrl", // Replace with the above Site URL
-				this)
-
-In the code above, replace `MobileAppUrl` with the URL of your Mobile App backend, which can be found in the [Azure portal](https://portal.azure.com) in the blade for your Mobile App backend. For this line of code to compile, you also need to add the following **import** statement:
-
-	import com.microsoft.windowsazure.mobileservices.*;
-
-###<a name="instantiating"></a>How to: Create a table reference
-
-The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless serialization and deserialization to JSON using the [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) library when sending data between  client objects and tables in the backend Azure SQL: the developer doesn't have to do anything, the framework handles it all.
-
-The first step in accessing a table is to create a [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) object by calling the **getTable** method on the [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html).  This method has two overloads:
-
-	public class MobileServiceClient {
-	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
-	    public <E> MobileServiceTable<E> getTable(String name, Class<E> clazz);
-	}
-
-In the following code, *mClient* is a reference to your MobileServiceClient object.
-
-The [first overload](http://go.microsoft.com/fwlink/p/?LinkId=296839) is used where the class name and the table name are the same:
-
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
-
-
-The [2nd overload](http://go.microsoft.com/fwlink/p/?LinkId=296840) is used when the table name is different from the type name: the first parameter is the table name.
-
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 ###<a name="data-object"></a>Define client data classes
 
-To access data from backend tables, you need to define client data classes that correspond to tables in the Mobile App backend. Examples in this topic assume a table named *ToDoItem*, which has the following columns:
+To access data from SQL Azure tables, you define client data classes that correspond to the tables in the Mobile App backend. Examples in this topic assume a table named *ToDoItem*, which has the following columns:
 
 - id
 - text
@@ -121,13 +91,43 @@ The corresponding typed client-side object is the following:
 		private Boolean complete;
 	}
 
-To learn how to create new tables in your Mobile Apps backend, see [How to: Define a table controller](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET backend) or [Define Tables using a Dynamic Schema](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js backend). For a Node.js backend, you can also use the **Easy tables** setting in the [Azure portal].
+The code will reside in a file called **ToDoItem.java**.
 
-### <a name="api"></a>The API structure
+To learn how to create additional tables in your Mobile Apps backend, see [How to: Define a table controller](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET backend) or [Define Tables using a Dynamic Schema](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js backend). For a Node.js backend, you can also use the **Easy tables** setting in the [Azure portal].
 
-Mobile Apps table operations and custom API calls are asynchronous, so you should use the [Future](http://developer.android.com/reference/java/util/concurrent/Future.html) and [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) objects in all of the asynchronous operations such as methods involving queries and operations like inserts, updates and deletes. This makes it easier to perform multiple operations (while on a background thread) without having to deal with multiple nested callbacks.
+###<a name="create-client"></a>How to: Create the client context
 
-To see how these asynchronous APIs are used in your Android app and how data is displayed in the UI, review the ToDoActivity project file in the Android quickstart project from the [Azure portal].
+This code creates the **MobileServiceClient** object that is used to access your Mobile App backend. The code goes in the `onCreate` method of the **Activity** class specified in *AndroidManifest.xml* as a **MAIN** action and **LAUNCHER** category. In the Quickstart code, it goes in the **ToDoActivity.java** file.
+
+		MobileServiceClient mClient = new MobileServiceClient(
+				"MobileAppUrl", // Replace with the above Site URL
+				this)
+
+In this code, replace `MobileAppUrl` with the URL of your Mobile App backend, which can be found in the [Azure portal](https://portal.azure.com) in the blade for your Mobile App backend. For this line of code to compile, you also need to add the following **import** statement:
+
+	import com.microsoft.windowsazure.mobileservices.*;
+
+###<a name="instantiating"></a>How to: Create a table reference
+
+The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless JSON serialization and deserialization using the [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) library when sending data between  client objects and tables in the backend Azure SQL: the developer doesn't have to do anything, the framework handles it all.
+
+To access a table, first create a [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) object by calling the **getTable** method on the [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html).  This method has two overloads:
+
+	public class MobileServiceClient {
+	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
+	    public <E> MobileServiceTable<E> getTable(String name, Class<E> clazz);
+	}
+
+In the following code, *mClient* is a reference to your MobileServiceClient object.
+
+The [first overload](http://go.microsoft.com/fwlink/p/?LinkId=296839) is used where the class name and the table name are the same, and is the one used in the Quickstart:
+
+		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
+
+
+The [2nd overload](http://go.microsoft.com/fwlink/p/?LinkId=296840) is used when the table name is different from the class name: the first parameter is the table name.
+
+		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 ###<a name="binding"></a>How to: Bind data to the user interface
 
@@ -137,7 +137,7 @@ Data binding involves three components:
 - The screen layout
 - The adapter that ties the two together.
 
-In our sample code, we return the data from the mobile apps table *ToDoItem* into an array. This is a very common pattern for data applications: database queries often return a collection of rows which the client gets in a list or array. In this sample the array is the data source.
+In our sample code, we return the data from the Mobile Apps SQL Azure table *ToDoItem* into an array. This is a very common pattern for data applications: database queries often return a collection of rows which the client gets in a list or array. In this sample the array is the data source.
 
 The code specifies a screen layout that defines the view of the data that will appear on the device.
 
@@ -155,7 +155,7 @@ The layout is defined by several snippets of XML code. Given an existing layout,
     </ListView>
 
 
-In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check box and its associated text. This gets instantiated once for each item in the list. A more complex layout would specify additional fields in the display. This code is in the row_list_to_do.xml file.
+In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check box and its associated text. This gets instantiated once for each item in the list. This layout does not display the **id** field, and a more complex layout would specify additional fields in the display. This code is in the **row_list_to_do.xml** file.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -181,6 +181,7 @@ In our code we define the following class which is an extension of the *ArrayAda
 
 You must override the adapter's *getView* method. This sample code is one example of how to do this: details will vary with your application.
 
+    @Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
 
@@ -198,6 +199,21 @@ You must override the adapter's *getView* method. This sample code is one exampl
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
 
+        checkBox.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                if (checkBox.isChecked()) {
+                    checkBox.setEnabled(false);
+                    if (mContext instanceof ToDoActivity) {
+                        ToDoActivity activity = (ToDoActivity) mContext;
+                        activity.checkItem(currentItem);
+                    }
+                }
+            }
+        });
+
+
 		return row;
 	}
 
@@ -211,23 +227,32 @@ Note that the second parameter to the ToDoItemAdapter constructor is a reference
 	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
 	listViewToDo.setAdapter(mAdapter);
 
+### <a name="api"></a>The API structure
+
+Mobile Apps table operations and custom API calls are asynchronous, so you use the [Future](http://developer.android.com/reference/java/util/concurrent/Future.html) and [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) objects in all of the asynchronous  methods involving queries and inserts, updates and deletes. This makes it easier to perform multiple operations on a background thread without having to deal with multiple nested callbacks.
+
+To see how these asynchronous APIs are used in your Android app and how data is displayed in the UI, review the **ToDoActivity.java** file in the Android quickstart project from the [Azure portal].
+
 
 #### <a name="use-adapter"></a>How to: Use the adapter
 
 You are now ready to use data binding. The following code shows how to get the items in the mobile service table, clear the adapter, and then call the adapter's *add* method to fill it with the returned items.
 
+
+**TBD**: Test this code!!
+
     public void showAll(View view) {
-        new AsyncTask<Void, Void, Void>() {
+        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    final MobileServiceList<ToDoItem> result = mToDoTable.execute().get();
+                    final List<ToDoItem> results = mToDoTable.execute().get();
                     runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
                             mAdapter.clear();
-                            for (ToDoItem item : result) {
+                            for (ToDoItem item : results) {
                                 mAdapter.add(item);
                             }
                         }
@@ -237,7 +262,8 @@ You are now ready to use data binding. The following code shows how to get the i
                 }
                 return null;
             }
-        }.execute();
+        };
+		runAsyncTask(task);
     }
 
 You must also call the adapter any time you modify the *ToDoItem* table if you want to display the results of doing that. Since modifications are done on a record by record basis, you will be dealing with a single row instead of a collection. When you insert an item you call the *add* method on the adapter, when deleting, you call the *remove* method.
@@ -263,7 +289,7 @@ The *results* variable returns the result set from the query as a list.
 
 ### <a name="filtering"></a>How to: Filter returned data
 
-The following query execution returns all items from the *ToDoItem* table where *complete* equals *false*. 
+The following query execution returns all items from the *ToDoItem* table where *complete* equals *false*. This is the code that is already in the Quickstart.
 
 	List<ToDoItem> result = mToDoTable.where()
 								.field("complete").eq(false)
@@ -398,13 +424,16 @@ You can also delete an item by specifying the **id** field of the row to delete.
                     
 
 ##<a name="lookup"></a>How to: Look up a specific item
-Sometimes you want to look up a specific item by its *id*, unlike querying where you typically get a collection of items that satisfy some criteria. The following example shows how to do get the data object with an *id* value of `0380BAFB-BCFF-443C-B7D5-30199F730335`. 
 
-	ToDoItem result = mToDoTable.lookUp(ID).get();
+This code shows how to look up an item with a specific *id*. 
+
+	ToDoItem result = mToDoTable
+						.lookUp("0380BAFB-BCFF-443C-B7D5-30199F730335")
+						.get();
 
 ##<a name="untyped"></a>How to: Work with untyped data
 
-The untyped programming model gives you exact control over the JSON serialization, and there are some scenarios where you may wish to use it, for example, if your backend table contains a large number of columns and you only need to reference a few of them. Using the typed model requires you to define all of the mobile service table's columns in your data class. But with the untyped model you only define the columns you need to use.
+The untyped programming model gives you exact control over the JSON serialization, and there are some scenarios where you may wish to use it, for example, if your backend table contains a large number of columns and you only need to reference a few of them. Using the typed model requires you to define all of the mobile apps table's columns in your data class. But with the untyped model you only define the columns you need to use.
 
 Most of the API calls for accessing data are similar to the typed programming calls. The main difference is that in the untyped model you invoke methods on the **MobileServiceJsonTable** object, instead of the **MobileServiceTable** object.
 
