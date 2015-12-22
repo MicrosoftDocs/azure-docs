@@ -125,22 +125,16 @@ The table below shows each resource type with the possible allocation methods (d
 ## Comparison between Resource Manager and Classic deployments
 Below is a comparison of IP address in resource manager with the classic deployment model.
 
-### Public IP addresses
-
-|Resource|Classic|Resource Manager|
-|---|---|---|
-|VM|Referred to as an ILPIP (dynamic only)|Referred to as a public IP (dynamic or static)|
-||Assigned to an IaaS VM or a PaaS role instance|Associated to the VM's NIC|
-|Internet facing load balancer|Referred to as VIP (dynamic) or Reserved IP (static)|Referred to as a public IP (dynamic or static)|
-||Assigned to a cloud service|Associated to the LB's front end config|
-
-### Private IP addresses
-
-|Resource|Classic|Resource Manager|
-|---|---|---|
-|VM|Referred to as a DIP|Referred to as a private IP address|
-||Assigned to an IaaS VM or a PaaS role instance|Assigned to the VM's NIC|
-|ILB|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end config (dynamic or static)|
+||Resource|Classic|Resource Manager|
+|---|---|---|---|
+|**Public IP Address**|VM|Referred to as an ILPIP (dynamic only)|Referred to as a public IP (dynamic or static)|
+|||Assigned to an IaaS VM or a PaaS role instance|Associated to the VM's NIC|
+||Internet facing load balancer (LB)|Referred to as VIP (dynamic) or Reserved IP (static)|Referred to as a public IP (dynamic or static)|
+|||Assigned to a cloud service|Associated to the LB's front end config|
+||||
+|**Private IP Address**|VM|Referred to as a DIP|Referred to as a private IP address|
+|||Assigned to an IaaS VM or a PaaS role instance|Assigned to the VM's NIC|
+||Internal load balancer (ILB)|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end config (dynamic or static)|
 
 ## Next steps
 - [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-arm-template.md)
