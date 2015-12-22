@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="12/22/2015" 
 	ms.author="nitinme"/>
 
 # Overview: Apache Spark on Azure HDInsight (Windows)
@@ -25,7 +25,7 @@
 
 When you provision a Spark cluster in HDInsight, you provision Azure compute resources with Spark installed and configured. It only takes about ten minutes to provision a Spark cluster in HDInsight. The data to be processed is stored in Azure Blob storage. See [Use Azure Blob Storage with HDInsight][hdinsight-storage].
 
-![Apache Spark on Azure HDInsight](./media/hdinsight-apache-spark-overview-v1/SparkArchitecture.png  "Apache Spark on Azure HDInsight")
+![Apache Spark on Azure HDInsight](./media/hdinsight-apache-spark-overview-v1/hdispark.architecture.png  "Apache Spark on Azure HDInsight")
 
 
 **Want to get started with Apache Spark on Azure HDInsight?** See [QuickStart: Provision a Spark cluster on HDInsight and run sample applications using Jupyter and Zeppelin](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md).

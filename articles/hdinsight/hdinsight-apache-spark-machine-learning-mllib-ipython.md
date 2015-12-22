@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="12/22/2015" 
 	ms.author="nitinme"/>
 
 
@@ -65,11 +65,11 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
 
 2. Create a new notebook. Click **New**, and then click **Python 2**.
 
-	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/HDI.Spark.Note.Jupyter.CreateNotebook.png "Create a new Jupyter notebook")
+	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
 3. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
 
-	![Provide a name for the notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/HDI.Spark.Note.Jupyter.Notebook.Name.png "Provide a name for the notebook")
+	![Provide a name for the notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
 3. Start building your machine learning application. You should start by by setting up the Pyspark environment. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
 
