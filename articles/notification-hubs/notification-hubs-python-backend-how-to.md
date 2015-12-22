@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Notification Hubs from a Python back-end." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777"
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # How to use Notification Hubs from Python
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
+		
 You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [AZURE.NOTE] This is a sample reference implementation for implementing the notification sends in Python and is not the officially supported Notifications Hub Python SDK.
@@ -44,6 +42,7 @@ You can find all the code available in the [Python REST wrapper sample].
 
 For example, to create a client:
 
+	isDebug = True
 	hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 	
 To send a Windows toast notification:
@@ -206,6 +205,48 @@ Now with this class, we can write the send notification methods inside of the **
             headers.update(notification.headers)
 
         self.make_http_request(url, payload_to_send, headers)
+
+	def send_apple_notification(self, payload, tags=""):
+        nh = Notification("apple", payload)
+        self.send_notification(nh, tags)
+
+    def send_gcm_notification(self, payload, tags=""):
+        nh = Notification("gcm", payload)
+        self.send_notification(nh, tags)
+
+    def send_adm_notification(self, payload, tags=""):
+        nh = Notification("adm", payload)
+        self.send_notification(nh, tags)
+
+    def send_baidu_notification(self, payload, tags=""):
+        nh = Notification("baidu", payload)
+        self.send_notification(nh, tags)
+
+    def send_mpns_notification(self, payload, tags=""):
+        nh = Notification("windowsphone", payload)
+
+        if "<wp:Toast>" in payload:
+            nh.headers = {'X-WindowsPhone-Target': 'toast', 'X-NotificationClass': '2'}
+        elif "<wp:Tile>" in payload:
+            nh.headers = {'X-WindowsPhone-Target': 'tile', 'X-NotificationClass': '1'}
+
+        self.send_notification(nh, tags)
+
+    def send_windows_notification(self, payload, tags=""):
+        nh = Notification("windows", payload)
+
+        if "<toast>" in payload:
+            nh.headers = {'X-WNS-Type': 'wns/toast'}
+        elif "<tile>" in payload:
+            nh.headers = {'X-WNS-Type': 'wns/tile'}
+        elif "<badge>" in payload:
+            nh.headers = {'X-WNS-Type': 'wns/badge'}
+
+        self.send_notification(nh, tags)
+
+    def send_template_notification(self, properties, tags=""):
+        nh = Notification("template", properties)
+        self.send_notification(nh, tags)
 
 The above methods send an HTTP POST request to the /messages endpoint of your notification hub, with the correct body and headers to send the notification.
 

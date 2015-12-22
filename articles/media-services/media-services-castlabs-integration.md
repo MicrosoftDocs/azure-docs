@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Using castLabs to deliver DRM licenses to Azure Media Services" 
+	pageTitle="Using castLabs to deliver Widevine licenses to Azure Media Services" 
 	description="This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by castLabs license server." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Mingfeiy,willzhan,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,19 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="10/08/2015"  
 	ms.author="juliako"/>
 
 
-#Using castLabs to deliver DRM licenses to Azure Media Services
+#Using castLabs to deliver Widevine licenses to Azure Media Services
+
+> [AZURE.SELECTOR]
+- [Axinom](media-services-axinom-integration.md)
+- [castLabs](media-services-castlabs-integration.md)
 
 ##Overview
 
 This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by **castLabs** license server.
 
+To playback streaming content protected by CENC (PlayReady and/or Widevine), you can use  [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). See [AMP document](http://amp.azure.net/libs/amp/latest/docs/) for details.
+
 The following diagram demonstrates a high-level Azure Media Services and castLabs integration architecture.
 
-![Scale page](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
+![integration](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ##Typical system set up
 
@@ -44,25 +50,24 @@ Both castLabs and AMS support JWT (JSON Web Token) token format used to authoriz
 
 The following table describes JWT token in AMS. 
 
-<table border="1">
-<tr><td>Issuer</td><td>Issuer string from the chosen Secure Token Service (STS)</td></tr>
-<tr><td>Audience</td><td>Audience string from the used STS</td></tr>
-<tr><td>Claims</td><td>A set of claims</td></tr>
-<tr><td>NotBefore</td><td>Start validity of the token</td></tr>
-<tr><td>Expires</td><td>End validity of the token</td></tr>
-<tr><td>SigningCredentials</td><td>The key that is shared among PlayReady License Server, castLabs License Server and STS, it could be either symmetric or asymmetric key.</td></tr>
-</table>
+Issuer|Issuer string from the chosen Secure Token Service (STS)
+---|---
+Audience|Audience string from the used STS
+Claims|A set of claims
+NotBefore|Start validity of the token
+Expires|End validity of the token
+SigningCredentials|The key that is shared among PlayReady License Server, castLabs License Server and STS, it could be either symmetric or asymmetric key.
 
 ###JWT token in castLabs
 
 The following table describes JWT token in castLabs. 
 
-<table border="1">
-<tr><td>optData</td><td>A JSON string containing information about you. </td></tr>
-<tr><td>crt</td><td>A JSON string containing information about the asset, its license info and playback rights.</td></tr>
-<tr><td>iat</td><td>The current datetime in epoch.</td></tr>
-<tr><td>jti</td><td>A unique identifier about this token (every token can only be used once in the castLabs system).</td></tr>
-</table> 
+Name|Description
+---|---
+optData|A JSON string containing information about you. 
+crt|A JSON string containing information about the asset, its license info and playback rights.
+iat|The current datetime in epoch.
+jti|A unique identifier about this token (every token can only be used once in the castLabs system).
 
 ##Sample solution set up 
 
@@ -95,21 +100,24 @@ To use the Web Application (STS):
 
 ##Playing back a video
 
-To playback a video encrypted with common encryption (PlayReady), you can use the [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). When running the console app, the Content Key ID and the Manifest URL are echoed.
+To playback a video encrypted with common encryption (PlayReady and/or Widevine), you can use the [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). When running the console app, the Content Key ID and the Manifest URL are echoed.
 
 1.	Open a new tab and launch your STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2.	Go to [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 3.	Paste in the streaming URL.
 4.	Click the **Advanced Options** checkbox.
-5.	Select PlayReady in the **Protection** dropdown.
-6.	Paste the token that you got from your STS in the Token textbox.
+5.	In the **Protection** dropdown, select PlayReady and/or Widevine.
+6.	Paste the token that you got from your STS in the Token textbox. 
+	
+	The castLab license server does not need the “Bearer=” prefix in front of the token. So please remove that before submitting the token.
 7.	Update the player.
 8.	The video should be playing.
 
-For playing back the protected video in HTML5 with Chrome with the castLabs player, please contact yanmf@microsoft.com to get access to the player. When you have access, there are 2 things to be aware of:
 
-1.	The castLabs player needs access to the MPEG-DASH manifest file, so append (format=mpd-time-csf) to your manifest file to get the MPEG-DASH manifest file, instead of the default Smooth Streaming one.
+##Media Services learning paths
 
-2.	The castLab license server does not need the “Bearer=” prefix in front of the token. So please remove that before submitting the token.
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
- 
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

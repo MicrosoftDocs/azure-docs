@@ -7,27 +7,26 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Rich Push
 
-<div class="dev-center-tutorial-selector sublanding">
-        <a href="/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
-</div>
 
 ##Overview
 
 In order to engage users with instant rich contents, an application might want to push beyond plain text. These notifications promote user interactions and  present content such as urls, sounds, images/coupons, and more. This tutorial builds on the [Notify Users](notification-hubs-aspnet-backend-ios-notify-users.md) topic, and shows how to send push notifications that incorporate payloads (for example, image).
 
+
 This tutorial is compatible with iOS 7 & 8.
-    ![][IOS1]
+
+  ![][IOS1]
 
 At a high level:
 
@@ -72,7 +71,7 @@ At a high level:
             public NotificationHubClient Hub { get; set; }
 
             private Notifications() {
-                // Placeholders: replace with the connection string (with full access) for your notification hub and the hub name from the Azure Management Portal
+                // Placeholders: replace with the connection string (with full access) for your notification hub and the hub name from the Azure Classics Portal
                 Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}",  "{hub name}");
             }
 
@@ -381,4 +380,3 @@ Now that you have modified your app backend to send just the *id* of a notificat
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
- 

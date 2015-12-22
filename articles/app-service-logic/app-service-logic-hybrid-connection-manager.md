@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Using the Hybrid Connection Manager for Azure App Service" 
-	description="Install and configure the Hybrid Connection Manager in Azure App Service; microservices architecture" 
+	pageTitle="Using the Hybrid Connection Manager | Microsoft Azure App Service" 
+	description="Install and configure the Hybrid Connection Manager and connect to on-premises connectors in Azure App Service" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
 	authors="MandiOhlinger" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="11/30/2015" 
 	ms.author="mandia"/>
 
-# Using the Hybrid Connection Manager in Azure App Service
-Some Connectors can connect to an on-premises system, like SQL Server, SAP, SharePoint, and so on. To use an on-premises system, Azure App Service uses the Hybrid Connection Manager. 
+# Connect to on-premises connectors in Azure App Service using the Hybrid Connection Manager
+To use an on-premises system, Azure App Service uses the Hybrid Connection Manager. Some Connectors can connect to an on-premises system, like SQL Server, SAP, SharePoint, and so on. 
 
 The Hybrid Connection Manager (HCM) is a click-once installer that is installed on an IIS server within your network, behind your firewall. Using an Azure Service Bus relay, HCM authenticates the on-premises system with the Connector in Azure. 
 
@@ -33,7 +33,7 @@ To get started, you need:
 
 In the Azure portal, copy the Service Bus root SAS Connection String. This connection string connects your Azure connector to your on-premises system. 
 
-1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=213885), select your Service Bus namespace, and select **Connection Information**:
+1. In the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885), select your Service Bus namespace, and select **Connection Information**:
 
 	![][SB_ConnectInfo]
 
@@ -43,7 +43,7 @@ In the Azure portal, copy the Service Bus root SAS Connection String. This conne
 
 ## Install the Hybrid Connection Manager
 
-1. In the preview [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select the connector you created. To open it, you can select **Browse**, select **API Apps**, and then select your connector or API App. 
+1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select the connector you created. To open it, you can select **Browse**, select **API Apps**, and then select your connector or API App. 
 <br/><br/>
 In **Hybrid Connection**, the setup is **incomplete**:
 <br/>
@@ -112,7 +112,7 @@ On-prem system port | On the on-premises system, open the port used by the syste
 
 
 
-### In the Azure portal
+### In the Azure classic portal
 
 1. Confirm the Service Bus namespace has an **Active** state.
 2. When you create the connector, enter the Service Bus SAS connection string. Do not enter the ACS connection string.

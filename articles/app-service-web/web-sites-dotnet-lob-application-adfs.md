@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="04/09/2015" 
+	ms.date="12/15/2015" 
 	ms.author="cephalin"/>
 
 # Create a .NET MVC web app in Azure App Service with AD FS authentication
@@ -48,7 +48,7 @@ You need the following to complete this tutorial:
 <a name="bkmk_sample"></a>
 ## Use sample application for line-of-business template ##
 
-The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), is created by the Azure Active Directory team. Since AD FS supports WS-Federation, you can is it as a template to create new line-of-business applications with ease. It has the following features:
+The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), is created by the Azure Active Directory team. Since AD FS supports WS-Federation, you can use it as a template to create new line-of-business applications with ease. It has the following features:
 
 - Uses [WS-Federation](http://msdn.microsoft.com/library/bb498017.aspx) to authenticate with an on-premises AD FS deployment
 - Sign-in and sign-out functionality
@@ -74,7 +74,7 @@ The sample application in this tutorial, [WebApp-WSFederation-DotNet)](https://g
                 MetadataAddress = metadata                                      
             });
 
-	In the OWIN world, this is really the bare minimum you need to configure WS-Federation authentication. This is must simpler and more elegant than WIF, where Web.config is injected with XML all over the place. The only information you need is the relying party's (RP) identifier and the URL of your AD FS service's metadata file. Here's an example:
+	In the OWIN world, this is really the bare minimum you need to configure WS-Federation authentication. This is much simpler and more elegant than WIF, where Web.config is injected with XML all over the place. The only information you need is the relying party's (RP) identifier and the URL of your AD FS service's metadata file. Here's an example:
 
 	-	RP identifier: `https://contoso.com/MyLOBApp`
 	-	Metadata address: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
@@ -121,7 +121,7 @@ Here, you will publish the application to a web app in App Service Web Apps whil
 
 	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
-2. Select **Microsoft Azure Web Apps**.
+2. Select **Microsoft Azure App Service**.
 3. If you haven't signed in to Azure, click **Sign In** and use the Microsoft account for your Azure subscription to sign in.
 4. Once signed in, click **New** to create a new web app.
 5. Fill in all required fields. You are going to connect to on-premise data later, so you won't create a database for this web app.
@@ -146,7 +146,7 @@ If you want to attach the published web app in Azure to the debugger (i.e. you m
 <a name="bkmk_rptrusts"></a>
 ## Configure relying party trusts in AD FS Management ##
 
-Now you need to configure a RP trust in AD FS Mangement before you can your sample application can actually authenticate with AD FS. You will need to set up two separate RP trusts, one for your debug environment and one for your published web app.
+Now you need to configure an RP trust in AD FS Mangement before you can use your sample application and actually authenticate with AD FS. You will need to set up two separate RP trusts, one for your debug environment and one for your published web app.
 
 > [AZURE.NOTE] Make sure that you repeat the steps below for both of your environments.
 

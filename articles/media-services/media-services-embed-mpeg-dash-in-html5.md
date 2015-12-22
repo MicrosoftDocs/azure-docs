@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="12/16/2015" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 
 MPEG-DASH is an ISO standard for the adaptive streaming of video content, which offers significant benefits for those who wish to deliver high-quality, adaptive video streaming output. With MPEG-DASH, the video stream will automatically drop to a lower definition when the network becomes congested. This reduces the likelihood of the viewer seeing a "paused" video while the player downloads the next few seconds to play (aka buffering). As network congestion reduces, the video player will in turn return to a higher quality stream. This ability to adapt the bandwidth required also results in a faster start time for video. That means that the first few seconds can be played in a fast-to-download lower quality segment and then step up to a higher quality once sufficient content has been buffered.
 
-Dash.js is an open source MPEG-DASH video player written in JavaScript. Its goal is to provide a robust, cross-platform player that can be freely reused in applications that require video playback. It provides MPEG-DASH playback in any browser that supports the W3C Media Source Extensions (MSE), today that is Chrome and IE11 (other browsers have indicated their intent to support MSE). For more information about DASH.js, js see the GitHub dash.js repository.
+Dash.js is an open source MPEG-DASH video player written in JavaScript. Its goal is to provide a robust, cross-platform player that can be freely reused in applications that require video playback. It provides MPEG-DASH playback in any browser that supports the W3C Media Source Extensions (MSE), today that is Chrome, Microsoft Edge and IE11 (other browsers have indicated their intent to support MSE). For more information about DASH.js, js see the GitHub dash.js repository.
 
 
 ##Creating a browser-based streaming video player
@@ -38,7 +38,6 @@ To create a simple web page that displays a video player with the expected contr
 1. View the results in a browser that implements MSE
 
 Initializing the player can be completed in just a handful of lines of JavaScript code. Using dash.js, it really is that simple to embed MPEG-DASH video in your browser based applications.
-
 
 ##Creating the HTML Page
 
@@ -99,6 +98,15 @@ Finally, set the size of the video element using CSS. In an adaptive streaming e
 ##Playing a Video
 
 To play a video, point your browser at the basicPlayback.html file and click play on the video player displayed.
+
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##See Also
 

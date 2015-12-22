@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to create and deploy a cloud service - Azure"
+	pageTitle="How to create and deploy a cloud service | Microsoft Azure"
 	description="Learn how to create and deploy a cloud service using the Quick Create method in Azure."
 	services="cloud-services"
 	documentationCenter=""
@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="06/30/2015"
+	ms.topic="article"
+	ms.date="12/07/2015"
 	ms.author="adegeo"/>
 
 
@@ -22,52 +22,54 @@
 # How to Create and Deploy a Cloud Service
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-create-deploy.md)
-- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
+- [Azure classic portal](cloud-services-how-to-create-deploy.md)
+- [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 
-The Azure portal provides two ways for you to create and deploy a cloud service: **Quick Create** and **Custom Create**.
+The Azure classic portal provides two ways for you to create and deploy a cloud service: **Quick Create** and **Custom Create**.
 
-This topic explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using **Custom Create**.
+This topic explains how to use the Quick Create method to create a new cloud service and then use **Upload** to upload and deploy a cloud service package in Azure. When you use this method, the Azure classic portal makes available convenient links for completing all requirements as you go. If you're ready to deploy your cloud service when you create it, you can do both at the same time using **Custom Create**.
 
-> [AZURE.NOTE] If you plan to publish your cloud service from Visual Studio Online (VSO), use Quick Create, and then set up VSO publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Online][TFSTutorialForCloudService], or see help for the **Quick Start** page.
+> [AZURE.NOTE] If you plan to publish your cloud service from Visual Studio Team Services (VSTS), use Quick Create, and then set up VSTS publishing from **Quick Start** or the dashboard. For more information, see [Continuous Delivery to Azure by Using Visual Studio Team Services][TFSTutorialForCloudService], or see help for the **Quick Start** page.
 
 ## Concepts
 Three components are required in order to deploy an application as a cloud service in Azure:
 
-- **Service Definition**<br/>
+- **Service Definition**  
   The cloud service definition file (.csdef) defines the service model, including the number of roles.
 
-- **Service Configuration**<br/>
+- **Service Configuration**  
   The cloud service configuration file (.cscfg) provides configuration settings for the cloud service and individual roles, including the number of role instances.
 
-- **Service Package**<br/>
+- **Service Package**  
   The service package (.cspkg) contains the application code and configurations and the service definition file.
+  
+You can learn more about these and how to create a package [here](cloud-services-model-and-package.md).
 
 ## Prepare your app
 Before you can deploy a cloud service, you must create the cloud service package (.cspkg) from your application code and a cloud service configuration file (.cscfg). The Azure SDK provides tools for preparing these required deployment files. You can install the SDK from the [Azure Downloads](http://azure.microsoft.com/downloads/) page, in the language in which you prefer to develop your application code.
 
 Three cloud service features require special configurations before you export a service package:
 
-- If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, configure your application for SSL. For more information, see [How to Configure an SSL Certificate on an HTTPS Endpoint](http://msdn.microsoft.com/library/azure/ff795779.aspx).
+- If you want to deploy a cloud service that uses Secure Sockets Layer (SSL) for data encryption, [configure your application](cloud-services-configure-ssl-certificate.md#step-2-modify-the-service-definition-and-configuration-files) for SSL.
 
-- If you want to configure Remote Desktop connections to role instances, configure the roles for Remote Desktop. For more information about preparing the service definition file for remote access, see [Set Up a Remote Desktop Connection for a Role in Azure](http://msdn.microsoft.com/library/hh124107.aspx).
+- If you want to configure Remote Desktop connections to role instances, [configure the roles](cloud-services-role-enable-remote-desktop.md) for Remote Desktop.
 
 - If you want to configure verbose monitoring for your cloud service, enable Azure Diagnostics for the cloud service. *Minimal monitoring* (the default monitoring level) uses performance counters gathered from the host operating systems for role instances (virtual machines). "Verbose monitoring* gathers additional metrics based on performance data within the role instances to enable closer analysis of issues that occur during application processing. To find out how to enable Azure Diagnostics, see [Enabling Diagnostics in Azure](cloud-services-dotnet-diagnostics.md).
 
-- To create a cloud service with deployments of web roles or worker roles, you must create the service package. For more information about the files related to the package, see [Set Up a Cloud Service for Azure](http://msdn.microsoft.com/library/hh124108.aspx). To create the package file, see [Package an Azure Application](http://msdn.microsoft.com/library/hh403979.aspx). If you are using Visual Studio to develop your application, see [Publishing a Cloud Service using the Azure Tools](http://msdn.microsoft.com/library/ff683672.aspx).
+To create a cloud service with deployments of web roles or worker roles, you must [create the service package](cloud-services-model-and-package.md#servicepackagecspkg).
 
 ## Before you begin
 
 - If you haven't installed the Azure SDK, click **Install Azure SDK** to open the [Azure Downloads page](http://azure.microsoft.com/downloads/), and then download the SDK for the language in which you prefer to develop your code. (You'll have an opportunity to do this later.)
 
-- If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. You can upload the certificates to Azure as you create and deploy the cloud service. For information about certificates, see [Manage Certificates](http://msdn.microsoft.com/library/gg981929.aspx).
+- If any role instances require a certificate, create the certificates. Cloud services require a .pfx file with a private key. You can [upload the certificates to Azure](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) as you create and deploy the cloud service.
 
-- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Management Portal, on the **Affinity Groups** page. For more information, see [Create an Affinity Group in the Management Portal](http://msdn.microsoft.com/library/jj156209.aspx).
+- If you plan to deploy the cloud service to an affinity group, create the affinity group. You can use an affinity group to deploy your cloud service and other Azure services to the same location in a region. You can create the affinity group in the **Networks** area of the Azure classic portal, on the **Affinity Groups** page.
 
 
 ## How to: Create a cloud service using Quick Create
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **New**>**Compute**>**Cloud Service**>**Quick Create**.
+1. In the [Azure classic portal](http://manage.windowsazure.com/), click **New**>**Compute**>**Cloud Service**>**Quick Create**.
 
 	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
@@ -88,7 +90,7 @@ Three cloud service features require special configurations before you export a 
 
 ## How to: Upload a certificate for a cloud service
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Certificates**.
+1. In the [Azure classic portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Certificates**.
 
 	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
@@ -109,10 +111,7 @@ Three cloud service features require special configurations before you export a 
 
 ## How to: Deploy a cloud service
 
-1. In the [Management Portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Dashboard**.
-
-	The dashboard opens in the Production environment, you could at this point select Staging to deploy your application in the staging environment. For more information, see [Manage Deployments in Azure](http://msdn.microsoft.com/library/gg433027.aspx).
-
+1. In the [Azure classic portal](http://manage.windowsazure.com/), click **Cloud Services**, click the name of the cloud service, and then click **Dashboard**.
 
 2. Click either **Upload a new production deployment** or **Upload**.
 
@@ -145,5 +144,11 @@ Three cloud service features require special configurations before you export a 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
  
+## Next steps
+
+* [General configuration of your cloud service](cloud-services-how-to-configure.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name.md).
+* [Manage your cloud service](cloud-services-how-to-manage.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).

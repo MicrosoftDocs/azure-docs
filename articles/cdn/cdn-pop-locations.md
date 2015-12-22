@@ -3,7 +3,7 @@
 	description="This topic lists Azure Content Delivery Network (CDN) POP locations." 
 	services="cdn" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,10 +11,10 @@
 	ms.service="cdn" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 
 #Azure Content Delivery Network (CDN) POP Locations
@@ -25,7 +25,7 @@ This topic lists current Microsoft Azure CDN point of presence (POP) locations.
 ![CDN POP Locations](./media/cdn-pop-locations/CDN_POP_locations_update.png)
 
 
-##United States
+##North America
 
 - Atlanta
 - Chicago
@@ -39,6 +39,10 @@ This topic lists current Microsoft Azure CDN point of presence (POP) locations.
 - Washington DC
 - Boston
 
+##South America
+
+- São Paulo
+- Quito
 
 ##Europe
 
@@ -64,7 +68,10 @@ This topic lists current Microsoft Azure CDN point of presence (POP) locations.
 - Seoul
 - Singapore
 - Tokyo
-
+- Bangalore
+- Chennai
+- Delhi
+- Mumbai
 
 ##Australia
 

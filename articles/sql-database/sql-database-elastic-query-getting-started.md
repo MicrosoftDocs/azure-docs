@@ -1,8 +1,6 @@
 <properties
-	title="Getting started with elastic database query"
-	pageTitle="Getting started with elastic database query"
-	description="how to use elastic database query"
-	metaKeywords="azure sql database elastic queries"
+	pageTitle="Getting started with elastic queries for sharding (horizontal partitioning) | Microsoft Azure"
+	description="how to use cross database database queries"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -14,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="sidneyh" />
+	ms.date="10/15/2015"
+	ms.author="SilviaDoomra" />
 
-# Getting started with Elastic Database query
+# Getting started with elastic queries for sharding (horizontal partitioning)
 
 Elastic Database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. For more information about the Elastic Database query feature, please see the [feature overview page](sql-database-elastic-query-overview.md).
 
@@ -35,7 +33,7 @@ Here you will create a shard map manager along with several shards, followed by 
 	![command prompt][1]
 
 2.  In the command window, type "1" and press **Enter**. This creates the shard map manager, and adds two shards to the server. Then type "3" and press **Enter**; repeat the action four times. This inserts sample data rows in your shards.
-3.  The [Azure preview portal](https://portal.azure.com) should show three new databases in your v12 server:
+3.  The [Azure Portal](https://portal.azure.com) should show three new databases in your v12 server:
 
 	![Visual Studio confirmation][2]
 
@@ -45,7 +43,7 @@ Here you will create a shard map manager along with several shards, followed by 
 
 ## Create an elastic query database
 
-1. Open the [Azure preview portal](https://portal.azure.com) and log in.
+1. Open the [Azure Portal](https://portal.azure.com) and log in.
 2. Create a new Azure SQL database in the same server as your shard setup. Name the database "ElasticDBQuery." For a pricing tier, you must select one of the premium offers. The Elastic Database query is currently available only on the premium tier.
 
 	![Azure portal and pricing tier][3]
@@ -64,12 +62,11 @@ These are used to connect to the shard map manager and the shards:
 
 		CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
-		CREATE CREDENTIAL ElasticDBQueryCred ON DATABASE
+		CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
 		WITH IDENTITY = '<username>',
 		SECRET = '<password>';
 
 	"username" and "password" should be the same as login information used in step 6 of [Download and run the sample app](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools) in [Getting started with elastic database tools](sql-database-elastic-scale-get-started.md).
-
 
 ### External data sources
 
@@ -127,7 +124,7 @@ You will notice that the query aggregates results from all the shards and gives 
 All the rows from **Customers** table, stored in different shards populate the Excel sheet.
 
 ## Next steps
-You can now use Excel’s powerful data functions. You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
+You can now use Excel’s powerful data visualization functions. You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
 
 ### Cost
 There is no additional charge for using the Elastic Database Query feature. However, at this time this feature is available only on premium databases as an end point, but the shards can be of any service tier.

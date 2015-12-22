@@ -3,7 +3,7 @@
 	description="Learn how to how to add encoding units with .NET"  
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,milangada,gtrifonov" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,16 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
-
-
 
 
 #How to Scale Encoding with .NET SDK
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series.
-  
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-encoding-units.md)
+- [.NET](media-services-dotnet-encoding-units.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+
 ##Overview
 
 A Media Services account is associated with a Reserved Unit Type which determines the speed with which your encoding jobs are processed. You can pick between the following reserved unit types: Basic, Standard, or Premium. For example, the same encoding job runs faster when you use the Standard reserved unit type compare to the Basic type. For more information, see the "Encoding Reserved Unit Types" blog written by [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
@@ -68,4 +72,11 @@ To open a support ticket do the following:
 1. Click submit to open the ticket.
  
 
- 
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

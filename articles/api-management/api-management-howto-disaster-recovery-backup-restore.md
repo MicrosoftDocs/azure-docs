@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to implement disaster recovery using service backup and restore in Azure API Management
@@ -28,7 +28,7 @@ This guide shows how to authenticate Azure Resource Manager requests, and how to
 
 ## Authenticating Azure Resource Manager requests
 
->[AZURE.IMPORTANT] The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/dn790557.aspx).
+>[AZURE.IMPORTANT] The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 All of the tasks that you do on resources using the Azure Resource Manager must be authenticated with Azure Active Directory using the following steps.
 
@@ -36,9 +36,9 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 -	Set permissions for the application that you added.
 -	Get the token for authenticating requests to Azure Resource Manager.
 
-The first step is to create an Azure Active Directory application. Log into the [Management portal](http://manage.windowsazure.com/) using the subscription that contains your API Management service instance and navigate to the **Applications** tab for your default Azure Active Directory.
+The first step is to create an Azure Active Directory application. Log into the [Azure Classic Portal](http://manage.windowsazure.com/) using the subscription that contains your API Management service instance and navigate to the **Applications** tab for your default Azure Active Directory.
 
->[AZURE.NOTE] If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account. For information on locating your default directory, see [Locate your default directory in the Azure Portal](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE] If the Azure Active Directory default directory is not visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account. For information on locating your default directory, see [Locate your default directory](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Create Azure Active Directory application][api-management-add-aad-application]
 

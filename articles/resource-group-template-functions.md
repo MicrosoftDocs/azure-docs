@@ -1,26 +1,182 @@
 <properties
-   pageTitle="Azure Resource Manager Template Functions"
-   description="Describes the functions to use in an Azure Resource Manager template to retrieve values, format strings and retrieve deployment information."
-   services="na"
+   pageTitle="Resource Manager Template Expressions | Microsoft Azure"
+   description="Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information."
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="12/07/2015"
    ms.author="tomfitz"/>
 
-# Azure Resource Manager Template Functions
+# Azure Resource Manager template expressions
 
-This topic describes all of the functions you can use in an Azure Resource Manager template.
+This topic describes all of the expressions you can use in an Azure Resource Manager template.
 
-## base64
+Template expressions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the expression expressly modifies case (such as toUpper or toLower), the expression will preserve the case. Certain resource types may have case requirements irrespective of how expressions are evaluated.
+
+## Numeric expressions
+
+Resource Manager provides the following expressions for working with integers:
+
+- [add](#add)
+- [copyIndex](#copyindex)
+- [div](#div)
+- [int](#int)
+- [length](#length)
+- [mod](#mod)
+- [mul](#mul)
+- [sub](#sub)
+
+
+<a id="add" />
+### add
+
+**add(operand1, operand2)**
+
+Returns the sum of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | First operand to use.
+| operand2                           |   Yes    | Second operand to use.
+
+
+<a id="copyindex" />
+### copyIndex
+
+**copyIndex(offset)**
+
+Returns the current index of an iteration loop. 
+
+This expression is always used with a **copy** object. For examples of using **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+
+<a id="div" />
+### div
+
+**div(operand1, operand2)**
+
+Returns the integer division of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number being divided.
+| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+
+
+<a id="int" />
+### int
+
+**int(valueToConvert)**
+
+Converts the specified value to Integer.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert                     |   Yes    | The value to convert to Integer. The type of value can only be String or Integer.
+
+The following example converts the user-provided parameter value to Integer.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
+
+<a id="length" />
+### length
+
+**length(array or string)**
+
+Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+Or, you can use with a string:
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
+
+
+<a id="mod" />
+### mod
+
+**mod(operand1, operand2)**
+
+Returns the remainder of the integer division using the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number being divided.
+| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+
+
+
+<a id="mul" />
+### mul
+
+**mul(operand1, operand2)**
+
+Returns the multiplication of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | First operand to use.
+| operand2                           |   Yes    | Second operand to use.
+
+
+<a id="sub" />
+### sub
+
+**sub(operand1, operand2)**
+
+Returns the subtraction of the two provided integers.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| operand1                           |   Yes    | Number which is to be subtracted from.
+| operand2                           |   Yes    | Number to be subtracted.
+
+
+## String expressions
+
+Resource Manager provides the following expressions for working with strings:
+
+- [base64](#base64)
+- [concat](#concat)
+- [padLeft](#padleft)
+- [replace](#replace)
+- [split](#split)
+- [string](#string)
+- [toLower](#tolower)
+- [toUpper](#toupper)
+- [trim](#trim)
+- [uniqueString](#uniquestring)
+- [uri](#uri)
+
+To get the number of characters in a string or array, see [length](#length).
+
+<a id="base64" />
+### base64
 
 **base64 (inputString)**
 
@@ -37,7 +193,8 @@ The following example show how to use the base64 function.
       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-## concat
+<a id="concat" />
+### concat
 
 **concat (arg1, arg2, arg3, ...)**
 
@@ -52,54 +209,8 @@ The following example shows how to combine multiple values to return a value.
         }
     }
 
-## deployment
-
-**deployment()**
-
-Returns information about the current deployment operation.
-
-The information about the deployment is returned as an object with the following properties:
-
-    {
-      "name": "",
-      "properties": {
-        "template": {},
-        "parameters": {},
-        "mode": "",
-        "provisioningState": ""
-      }
-    }
-
-The following example shows how to return deployment information in the outputs section.
-
-    "outputs": {
-      "exampleOutput": {
-        "value": "[deployment()]",
-        "type" : "object"
-      }
-    }
-
-## listKeys
-
-**listKeys (resourceName or resourceIdentifier, [apiVersion])**
-
-Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
-  
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| resourceName or resourceIdentifier |   Yes    | Unique identifier of a storage account.
-| apiVersion                         |   Yes    | API version of resource runtime state.
-
-The following example shows how to return the keys from a storage account in the outputs section.
-
-    "outputs": { 
-      "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
-        "type" : "object" 
-      } 
-    } 
-
-## padLeft
+<a id="padleft" />
+### padLeft
 
 **padLeft(stringToPad, totalLength, paddingCharacter)**
 
@@ -120,8 +231,243 @@ The following example shows how to pad the user-provided parameter value by addi
         "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
     }
 
+<a id="replace" />
+### replace
 
-## parameters
+**replace(originalString, oldCharacter, newCharacter)**
+
+Returns a new string with all instances of one character in the specified string replaced by another character.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalString                     |   Yes    | The string that will have all instances of one character replaced by another character.
+| oldCharacter                       |   Yes    | The character to be removed from the original string.
+| newCharacter                       |   Yes    | The character to add in place of the removed character.
+
+The following example shows how to remove all dashes from the user-provided string.
+
+    "parameters": {
+        "identifier": { "type": "string" }
+    },
+    "variables": { 
+        "newidentifier": "[replace(parameters('identifier'),'-','')]"
+    }
+
+<a id="split" />
+### split
+
+**split(inputString, delimiter)**
+**split(inputString, [delimiters])**
+
+Returns an array of strings that contains the substrings of the input string that are delimited by the sent delimiters.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| inputString                        |   Yes    | The string to to be splitted.
+| delimiter                          |   Yes    | The delimiter to use, can be a single string or an array of strings.
+
+The following example splits the input string with a comma.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+<a id="string" />
+### string
+
+**string(valueToConvert)**
+
+Converts the specified value to String.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| valueToConvert                     |   Yes    | The value to convert to String. The type of value can only be Boolean, Integer or String.
+
+The following example converts the user-provided parameter value to String.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
+    }
+
+<a id="tolower" />
+### toLower
+
+**toLower(stringToChange)**
+
+Converts the specified string to lower case.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToChange                     |   Yes    | The string to convert to lower case.
+
+The following example converts the user-provided parameter value to lower case.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "lowerCaseAppName": "[toLower(parameters('appName'))]"
+    }
+
+<a id="toupper" />
+### toUpper
+
+**toUpper(stringToChange)**
+
+Converts the specified string to upper case.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToChange                     |   Yes    | The string to convert to upper case.
+
+The following example converts the user-provided parameter value to upper case.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "upperCaseAppName": "[toUpper(parameters('appName'))]"
+    }
+
+<a id="trim" />
+### trim
+
+**trim (stringToTrim)**
+
+Removes all leading and trailing white-space characters from the specified string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToTrim                       |   Yes    | The string to trim.
+
+The following example trims the white-space characters from the user-provided parameter value.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "trimAppName": "[trim(parameters('appName'))]"
+    }
+
+<a id="uniquestring" />
+### uniqueString
+
+**uniqueString (stringForCreatingUniqueString, ...)**
+
+Performs a 64-bit hash of the provided strings to create a unique string. This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringForCreatingUniqueString      |   Yes    | The base string used in the hash function to create a unique string.
+| additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level for uniqueness.
+
+The returned value is not a completely random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a more friendly name.
+
+The following examples show how to use uniqueString to create a unique value for a different commonly-used levels.
+
+Unique based on subscription
+
+    "[uniqueString(subscription().subscriptionId)]"
+
+Unique based on resource group
+
+    "[uniqueString(resourceGroup().id)]"
+
+Unique based on deployment for a resource group
+
+    "[uniqueString(resourceGroup().id, deployment().name)]"
+    
+The following example shows how to create a unique name for a storage account based on your resource group.
+
+    "resources": [{ 
+        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "type": "Microsoft.Storage/storageAccounts", 
+        ...
+
+<a id="uri" />
+### uri
+
+**uri (baseUri, relativeUri)**
+
+Creates an absolute URI by combining the baseUri and the relativeUri string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| baseUri                            |   Yes    | The base uri string.
+| relativeUri                        |   Yes    | The relative uri string to add to the base uri string.
+
+The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing **http://contoso.com/resources/azuredeploy.json** as the baseUri parameter will result in a base URI of **http://contoso.com/resources/**.
+
+The following example shows how to construct a link to a nested template based on the value of the parent template.
+
+    "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
+
+
+
+## Deployment value expressions
+
+Resource Manager provides the following expressions for getting values from sections of the template and values related to the deployment:
+
+- [deployment](#deployment)
+- [parameters](#parameters)
+- [variables](#variables)
+
+To get values from resources, resource groups, or subscriptions, see [Resource expressions](#resource-expressions).
+
+<a id="deployment" />
+### deployment
+
+**deployment()**
+
+Returns information about the current deployment operation.
+
+This expression returns the object that is passed during deployment. The properties in the returned object will differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object is in the following format:
+
+    {
+        "name": "",
+        "properties": {
+            "template": {
+                "$schema": "",
+                "contentVersion": "",
+                "resources": [
+                ],
+                "outputs": {}
+            },
+            "parameters": {},
+            "mode": "",
+            "provisioningState": ""
+        }
+    }
+
+When the object is passed as a link, such as when using the **-TemplateUri** parameter to point to a remote object, the object is returned in the following format. 
+
+    {
+        "name": "",
+        "properties": {
+            "templateLink": {
+                "uri": "",
+                "contentVersion": ""
+            },
+            "mode": "",
+            "provisioningState": ""
+        }
+    }
+
+The following example shows how to use deployment() to link to another template based on the URI of the parent template.
+
+    "variables": {  
+        "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
+    }  
+
+
+<a id="parameters" />
+### parameters
 
 **parameters (parameterName)**
 
@@ -147,9 +493,57 @@ The following example shows a simplified use of the parameters function.
        }
     ]
 
-## provider
+<a id="variables" />
+### variables
 
-**provider (providerNamespace, [resourceType])**
+**variables (variableName)**
+
+Returns the value of variable. The specified variable name must be defined in the variables section of the template.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| variable Name                      |   Yes    | The name of the variable to return.
+
+
+
+## Resource expressions
+
+Resource Manager provides the following expressions for getting resource values:
+
+- [listkeys](#listkeys)
+- [providers](#providers)
+- [reference](#reference)
+- [resourceGroup](#resourcegroup)
+- [resourceId](#resourceid)
+- [subscription](#subscription)
+
+To get values from parameters, variables, or the current deployment, see [Deployment value expressions](#deployment-value-expressions).
+
+<a id="listkeys" />
+### listKeys
+
+**listKeys (resourceName or resourceIdentifier, apiVersion)**
+
+Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
+  
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| resourceName or resourceIdentifier |   Yes    | Unique identifier of a storage account.
+| apiVersion                         |   Yes    | API version of resource runtime state.
+
+The following example shows how to return the keys from a storage account in the outputs section.
+
+    "outputs": { 
+      "exampleOutput": { 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
+        "type" : "object" 
+      } 
+    } 
+
+<a id="providers" />
+### providers
+
+**providers (providerNamespace, [resourceType])**
 
 Return information about a resource provider and its supported resource types. If not type is provided, all of the supported types are returned.
 
@@ -175,7 +569,8 @@ The following example shows how to use the provider function:
 	    }
     }
 
-## reference
+<a id="reference" />
+### reference
 
 **reference (resourceName or resourceIdentifier, [apiVersion])**
 
@@ -183,42 +578,61 @@ Enables an expression to derive its value from another resource's runtime state.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| resourceName or resourceIdentifier |   Yes    | Name or the unique identifier of a resource.
-| apiVersion                         |   No     | API version of resource runtime state. Parameter should be used if resource is not provisioned within same template.
+| resourceName or resourceIdentifier |   Yes    | Name or unique identifier of a resource.
+| apiVersion                         |   No     | API version of the specified resource. You must include this parameter when the resource is not provisioned within same template.
 
 The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
 
-By using the reference expression, you declare that one resource depends on another resource if the referenced resource is provisioned within same template.
+By using the reference expression, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the **dependsOn** property. 
+The expression is not evaluated until the referenced resource has completed deployment.
+
+The following example references a storage account that is deployed in the same template.
 
     "outputs": {
-      "siteUri": {
-          "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-      }
-    }
+		"NewStorage": {
+			"value": "[reference(parameters('storageAccountName'))]",
+			"type" : "object"
+		}
+	}
 
-## replace
+The following example references a storage account that is not deployed in this template, but exists within the same resource group as the resources being deployed.
 
-**replace(originalString, oldCharacter, newCharacter)**
+    "outputs": {
+		"ExistingStorage": {
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15')]",
+			"type" : "object"
+		}
+	}
 
-Returns a new string with all instances of one character in the specified string replaced by another character.
+You can retrieve a particular value from the returned object, such as the blob endpoint URI, as shown below.
 
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| originalString                     |   Yes    | The string that will have all instances of one character replaced by another character.
-| oldCharacter                       |   Yes    | The character to be removed from the original string.
-| newCharacter                       |   Yes    | The character to add in place of the removed character.
+    "outputs": {
+		"BlobUri": {
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+			"type" : "string"
+		}
+	}
 
-The following example shows how to remove all dashes from the user-provided string.
+If you do now wish to directly specify the API version in your template, you can use the **providers** expression and retrieve one the values, such as the latest version as shown below.
 
-    "parameters": {
-        "identifier": { "type": "string" }
-    },
-    "variables": { 
-        "newidentifier": "[replace(parameters('identifier'),'-','')]"
-    }
+    "outputs": {
+		"BlobUri": {
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
+			"type" : "string"
+		}
+	}
 
-## resourceGroup
+The following example references a storage account in a different resource group.
+
+    "outputs": {
+		"BlobUri": {
+			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+			"type" : "string"
+		}
+	}
+
+<a id="resourcegroup" />
+### resourceGroup
 
 **resourceGroup()**
 
@@ -242,7 +656,8 @@ The following example uses the resource group location to assign the location fo
        }
     ]
 
-## resourceId
+<a id="resourceid" />
+### resourceId
 
 **resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
@@ -265,7 +680,7 @@ The following example shows how to retrieve the resource ids for a web site and 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
 
     {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
           "virtualNetworkName": {
@@ -305,8 +720,8 @@ Often, you need to use this function when using a storage account or virtual net
       }]
     }
 
-
-## subscription
+<a id="subscription" />
+### subscription
 
 **subscription()**
 
@@ -326,58 +741,10 @@ The following example shows the subscription function called in the outputs sect
       } 
     } 
 
-## toLower
-
-**toLower(stringToChange)**
-
-Converts the specified string to lower case.
-
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| stringToChange                     |   Yes    | The string to convert to lower case.
-
-The following example converts the user-provided parameter value to lower case.
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "lowerCaseAppName": "[toLower(parameters('appName'))]"
-    }
-
-## toUpper
-
-**toUpper(stringToChange)**
-
-Converts the specified string to upper case.
-
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| stringToChange                     |   Yes    | The string to convert to upper case.
-
-The following example converts the user-provided parameter value to upper case.
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "upperCaseAppName": "[toUpper(parameters('appName'))]"
-    }
-
-
-## variables
-
-**variables (variableName)**
-
-Returns the value of variable. The specified variable name must be defined in the variables section of the template.
-
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| variable Name                      |   Yes    | The name of the variable to return.
-
 
 ## Next Steps
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
-- [Advanced Template Operations](./resource-group-advanced-template.md)
-- [Deploy an application with Azure Resource Manager Template](azure-portal/resource-group-template-deploy.md)
-- [Azure Resource Manager Overview](./resource-group-overview.md)
+- For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
+- To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
+- To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)
+- To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
+

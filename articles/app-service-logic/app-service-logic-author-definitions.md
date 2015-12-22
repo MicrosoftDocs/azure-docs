@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Author Logic App definitions" 
-	description="Learn how to write the JSON definition for Logic apps." 
+	pageTitle="Author Logic App definitions | Microsoft Azure" 
+	description="Learn how to write the JSON definition for Logic apps" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="12/07/2015"
 	ms.author="stepsic"/>
 	
-#Author Logic App definitions
+# Author Logic App definitions
 This topic demonstrates how to use [App Services Logic Apps](app-service-logic-what-are-logic-apps.md) definitions, which is a simple, declarative JSON language. If you haven't done so yet, check out [how to Create a new Logic app](../app-service-create-a-logic-app.md) first. You can also read the [full reference material of the definition language on MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
 ## Several steps that repeat over a list
 
-A common pattern is to have one step that gets a list of items, and then you have a series of two or more actions that you want to do on the list. 
+A common pattern is to have one step that gets a list of items, and then you have a series of two or more actions that you want to do on the list:  
 
 ![Repeat over lists](./media/app-service-logic-author-definitions/repeatoverlists.png)
 
-In this example there are 3 actions:
+In this example, there are 3 actions:
 
 1. Get a list of articles. This returns back an object that contains an array.
 
-2. An action that goes to a link property on each article, which will return back the actual location of the article.
+2. An action that goes to a link property on each article, which returns the actual location of the article.
 
 3. An action that iterates over all of the results from the second action to download the actual articles. 
 
@@ -79,7 +79,7 @@ Inside the action you can use either the: [`repeatItem()`](https://msdn.microsof
 
 ## Mapping items in a list to some different configuration
 
-Next, let's say that we want to get completely different content depending on a value of a property. We can create a map of values to destinations as a parameter. 
+Next, let's say that we want to get completely different content depending on a value of a property. We can create a map of values to destinations as a parameter:  
 
 ```
 {
@@ -234,14 +234,14 @@ Then, in the child logic app you'll use the [`triggerBody()`](https://msdn.micro
 }
 ```
 
-You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx). 
+You can read about the [Logic app type action on MSDN](https://msdn.microsoft.com/library/azure/dn948511.aspx). 
 
 >[AZURE.NOTE]The Logic app designer does not support Logic app type actions so you will need to edit the definition manually.
 
 
 ## A failure-handling step if something goes wrong
 
-You commonly want to be able to write a *remediation step* -- some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later.
+You commonly want to be able to write a *remediation step* — some logic that executes, if , **and only if**, one or more of your calls failed. In this example, we are getting data from a variety of places, but if the call fails, I want to POST a message somewhere so I can track down that failure later:  
 
 ```
 {
@@ -287,7 +287,7 @@ You commonly want to be able to write a *remediation step* -- some logic that ex
 }
 ```
 
-I am using two conditions because in the first step I am repeating over a list. If you just had a single action, you'd only need one condition (the first one). Also note that you can use the *inputs* to the failed action in your remediation step -- here I pass the failed URL to the second step. 
+I am using two conditions because in the first step I am repeating over a list. If you just had a single action, you'd only need one condition (the first one). Also note that you can use the *inputs* to the failed action in your remediation step — here I pass the failed URL to the second step:  
 
 ![Remediation](./media/app-service-logic-author-definitions/remediation.png)
 
@@ -686,4 +686,39 @@ Then, in the actual `PUT` request for the Logic app you can provide the paramete
 }
 ``` 
 
-In each environment you can then provide a different value for the `connection` parameter. See the [REST API documentation](https://msdn.microsoft.com/library/azure/dn948513.aspx) for all of the options you have for creating and managing Logic apps. 
+In each environment you can then provide a different value for the `connection` parameter. 
+
+## Running a step until a condition is met
+
+You may have an API that you are calling, and you want to wait for a certain response before proceeding. Imagine, for example, that you want to wait for someone to upload a file to a directory before processing the file. You can do that with *do-until*:
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {},
+    "actions": {
+        "http0": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://mydomain/listfiles"
+            },
+            "until": {
+                "limit": {
+                    "timeout": "PT10M"
+                },
+                "conditions": [
+                    {
+                        "expression": "@greater(length(action().outputs.body),0)"
+                    }
+                ]
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+See the [REST API documentation](https://msdn.microsoft.com/library/azure/dn948513.aspx) for all of the options you have for creating and managing Logic apps. 

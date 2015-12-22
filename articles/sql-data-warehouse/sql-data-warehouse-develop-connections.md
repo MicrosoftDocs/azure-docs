@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="10/21/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Connect to SQL Data Warehouse 
@@ -151,8 +151,8 @@ Once connected you can begin designing your tables. Please refer to the [table d
 <!--Image references-->
 
 <!--Azure.com references-->
-[connect and query]: sql-data-warehouse-connect-query.md
-[table design]: sql-data-warehouse-develop-table-design.md
+[connect and query]: ./sql-data-warehouse-get-started-connect.md
+[table design]: ./sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
 

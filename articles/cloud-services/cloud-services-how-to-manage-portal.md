@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to manage a cloud service - Azure" 
-	description="Learn how to manage cloud services in the Azure Preview Portal." 
+	pageTitle="How to manage a cloud service  | Microsoft Azure" 
+	description="Learn how to manage cloud services in the Azure portal. These examples use the Azure portal." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
 # How to Manage Cloud Services
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-how-to-manage.md)
-- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+- [Azure classic portal](cloud-services-how-to-manage.md)
+- [Azure portal](cloud-services-how-to-manage-portal.md)
 
-In the **Cloud Services** area of the Azure Preview Portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
+In the **Cloud Services** area of the Azure portal, you can update a service role or a deployment, promote a staged deployment to production, link resources to your cloud service so that you can see the resource dependencies and scale the resources together, and delete a cloud service or a deployment.
 
 
 ## How to: Update a cloud service role or deployment
 
 If you need to update the application code for your cloud service, use **Update** on the cloud service blade. You can update a single role or all roles. You'll need to upload a new service package and service configuration file.
 
-1. In the [Azure Preview Portal][], select the cloud service you want to update. This opens the cloud service instance blade.
+1. In the [Azure portal][], select the cloud service you want to update. This opens the cloud service instance blade.
 
 2. In the blade, click the **Update** button.
 
@@ -60,7 +60,7 @@ Use **Swap** to promote a staging deployment of a cloud service to production. W
 
 You can swap deployments from the **Cloud Services** page or the dashboard.
 
-1. In the [Azure Preview Portal][], select the cloud service you want to update. This opens the cloud service instance blade.
+1. In the [Azure portal][], select the cloud service you want to update. This opens the cloud service instance blade.
 
 2. In the blade, click the **Swap** button.
 
@@ -78,7 +78,7 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 
 ## How to: Link a resource to a cloud service
 
-The Azure Preview Portal does not link resources together like the current Azure Portal does. Instead, you must deploy additional resources to the same resource group being used by the Cloud Service.
+The Azure portal does not link resources together like the current Azure classic portal does. Instead, you must deploy additional resources to the same resource group being used by the Cloud Service.
 
 ## How to: Delete deployments and a cloud service
 
@@ -88,7 +88,7 @@ To save compute costs, you can delete your staging deployment after you verify t
 
 Use the following procedure to delete a deployment or your cloud service. 
 
-1. In the [Azure Preview Portal][], select the cloud service you want to delete. This opens the cloud service instance blade.
+1. In the [Azure portal][], select the cloud service you want to delete. This opens the cloud service instance blade.
 
 2. In the blade, click the **Delete** button.
 
@@ -105,4 +105,11 @@ Use the following procedure to delete a deployment or your cloud service.
 > [AZURE.NOTE]
 > If verbose monitoring is configured for your cloud service, Azure does not delete the monitoring data from your storage account when you delete the cloud service. You will need to delete the data manually. For information about where to find the metrics tables, see [this](cloud-services-how-to-monitor.md) article.
 
-[Azure Preview Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
+
+## Next steps
+
+* [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
+* Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
+* Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
+* Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).

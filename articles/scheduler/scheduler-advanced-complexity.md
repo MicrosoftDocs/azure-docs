@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="05/15/2015" 
+ ms.date="12/04/2015" 
  ms.author="krisragh"/>
 
 # How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
@@ -178,22 +178,23 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
 
 ## See Also
  
+
  [What is Scheduler?](scheduler-intro.md)
  
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
- 
- [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
- 
- [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
- 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- 
- [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
- 
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
- 
- [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
- 
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
+
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
+
+ [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
+
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
+
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
+
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
  
   

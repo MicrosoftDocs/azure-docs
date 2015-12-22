@@ -1,38 +1,44 @@
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Resource</th>
-   <th align="left" valign="middle">Default Limit</th>
-   <th align="left" valign="middle">Maximum Limit</th>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Virtual networks</a><sup>1</sup> per subscription</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>100</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Total machines<sup>2</sup> per virtual network</p></td>
-   <td valign="middle"><p>2048</p></td>
-   <td valign="middle"><p>2048</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Concurrent TCP connections for a virtual machine or role instance</p></td>
-   <td valign="middle"><p>500K</p></td>
-   <td valign="middle"><p>500K</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Access Control Lists (ACLs) per endpoint<sup>3</sup></p></td>
-   <td valign="middle"><p>50</p></td>
-   <td valign="middle"><p>50</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p>Local network sites per virtual network</p></td>
-   <td valign="middle"><p>10</p></td>
-   <td valign="middle"><p>10</p></td>
-</tr>
-</table>
+The following limits apply only for networking resources managed through the classic deployment model per subscription.
 
-<sup>1</sup>Each virtual network supports a single [virtual network gateway](http://msdn.microsoft.com/library/azure/jj156210.aspx).
+Resource| Default limit | Maximum limit
+--- | --- | --- 
+Virtual networks per subscription | 50 | 100
+Local network sites per virtual network | 20 | contact support
+DNS Servers per virtual network | 20 | 100
+Virtual machines and role instances per virtual network | 2048 | 2048
+Concurrent TCP connections for a virtual machine or role instance | 500K | 500K 
+Network Security Groups (NSG) | 100 | 200
+NSG rules per NSG | 200 | 400
+User defined route tables | 100 | 200
+User defined routes per route table | 100 | 500
+Public IP addresses (dynamic) | 5 | contact support
+Reserved public IP addresses | 20 | contact support
+Public VIP per deployment | 5 | contact support
+Private VIP (ILB) per deployment | 1 | 1
+Endpoint Access Control Lists (ACLs) | 50 | 50
 
-<sup>2</sup>The total number of machines includes Virtual Machines and Web/Worker role instances.
 
-<sup>3</sup>ACL is supported on Input Endpoints for Virtual Machines. For web/worker roles, it is supported on Input and Instance Input endpoints.
+#### Networking Limits - Azure Resource Manager
+
+The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription.
+
+Resource| Default limit | Maximum Limit
+--- | --- | ---
+Virtual networks per subscription | 50 | 500
+DNS Servers per virtual network | 9 | 25
+Virtual machines and role instances per virtual network | 2048 | 2048
+Concurrent TCP connections for a virtual machine or role instance | 500K |500K
+Network Interfaces (NIC) | 300 | 1000
+Network Security Groups (NSG) | 100 | 400
+NSG rules per NSG | 200 | 500
+User defined route tables | 100 | 400
+User defined routes per route table | 100 | 500
+Public IP addresses (dynamic) | 60 | contact support
+Reserved public IP addresses | 20 | contact support
+Load balancers (internal and internet facing) | 100 | contact support
+Load balancer rules per load balancer | 150 | 150
+Public front end IP per load balancer | 5 | contact support
+Private front end IP per load balancer | 1 | contact support
+Application gateways | 50 | 50
+
+Contact support in case you need to increase limits from default.

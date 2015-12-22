@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/12/2015" 
-	ms.author="luisca"/>
+	ms.date="09/01/2015" 
+	ms.author="bharaths"/>
 
 # Publish Azure Machine Learning Web Service to the Azure Marketplace 
 
@@ -37,7 +37,7 @@ The following are the steps for publishing an Azure Machine Learning web service
  If you have not done this already, please take a look at this [walk through](machine-learning-walkthrough-5-publish-web-service.md).
 
 ###Step 2: Deploy the service to production, and obtain the API Key and OData endpoint information###
-1. From the [Azure management portal](http://manage.windowsazure.com), select the **MACHINE LEARNING** option from the left navigation bar, and select your workspace. 
+1. From the [Azure Classic Portal](http://manage.windowsazure.com), select the **MACHINE LEARNING** option from the left navigation bar, and select your workspace. 
 
 2. Click on the **WEB SERVICES** tab, and select the web service you would like to publish to the marketplace.
 
@@ -84,7 +84,7 @@ deploy the service into production.
 
 	![Azure Marketplace][image2]
 
-9.	Get the web service URL and API key from the Azure management portal, as explained in step 2 above.
+9.	Get the web service URL and API key from the Azure Classic Portal, as explained in step 2 above.
 
 10.	In the Marketplace Data Service setup dialog box, paste the OData endpoint address into the **Service URL** text box.
 

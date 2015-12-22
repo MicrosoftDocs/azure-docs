@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="12/08/2015" 
 	ms.author="luisca"/> 
 
 # Machine Learning Apps in the Azure Marketplace
@@ -33,12 +33,6 @@ For example, these apps include :
 
 [Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md) 
   
-##Frequently Bought Together##
-An API that helps your customers discover items in your catalog that are frequently purchased together. Use your customer purchase history to add Frequently Bought Together recommendations to your website and to improve conversion in your digital store.
-
-[Data Market Link](https://datamarket.azure.com/dataset/amla/mba)
-
-[Documentation](machine-learning-apps-frequently-bought-together-api.md)
 
 ##Anomaly Detection##
 An API that can spot anomalous events in time series data (for example, server telemetry or sensor-based data).
@@ -57,4 +51,9 @@ This API can be used to analyze unstructured text for tasks such as sentiment an
 [Documentation](machine-learning-apps-text-analytics.md)
 
  
- 
+ ##Customer Churn Prediction##
+Customer Churn Prediction is a churn analytics service built with Azure Machine Learning. It's designed to predict when a customer (player, subscriber, user, etc.) is likely to end his or her relationship with a company or service. Being able to predict which customers have a high risk of leaving the relationship with a company provides the company with a window of opportunity to approach them and reduce the likelihood of their leaving. 
+
+[Data Market Link](https://datamarket.azure.com/dataset/amla/customer-churn-prediction)
+
+[Documentation](https://churn.cloudapp.net/documentation)

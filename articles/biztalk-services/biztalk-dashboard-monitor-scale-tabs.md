@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Azure" 
-	description="Learn about the controls and monitor performance on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS" 
+	pageTitle="Dashboard, Monitor, Scale, Configure, and Hybrid Connections in BizTalk Services | Microsoft Azure" 
+	description="Learn about the controls and monitor performance on the classic portal tabs for BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connections. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="12/02/2015" 
 	ms.author="mandia"/>
 
 
 
 
-# BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs
+# Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs
 
 After you create your BizTalk Service and deploy your application, you can change some of the BizTalk Service settings and monitor the application performance. 
 
-When you open the Azure Management Portal, you are automatically placed at the **ALL ITEMS** tab. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or select the **BIZTALK SERVICES** tab; and then select your BizTalk Service name.
+When you open the Azure classic portal, you are automatically placed at the **ALL ITEMS** tab. To view your BizTalk Service, select your BizTalk Service in the **ALL ITEMS** tab or select the **BIZTALK SERVICES** tab; and then select your BizTalk Service name.
 
 This opens a new window with the following tabs. This topic describes these tabs.
 
@@ -72,7 +72,7 @@ This is the same as <strong>Create partner agreements</strong> on the <strong>Qu
 <td><strong>Connection Information</strong> of the Access Control Namespace</td>
 <td>When you select Connection Information, then the Access Control Namespace, Default Issuer, and Default Key are displayed. You can copy these values.
 <br/><br/>
-You can also open the Access Control Management Portal. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Create an Access control Namespace</a> provides more information on the Access Control Management Portal.</td>
+You can also open the Access Control Portal. <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Create an Access control Namespace</a> provides more information on the Access Control Portal.</td>
 </tr>
 
 <tr>
@@ -83,9 +83,9 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <br/><br/>
 <ol>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
-<li>In the Azure Management Portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
+<li>In the Azure classic portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
-<li>In the Azure Management Portal, select your Storage account and Regenerate the Secondary Key.</li>
+<li>In the Azure classic portal, select your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
 This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
@@ -170,7 +170,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 <tr>
 <td><strong>Subscription Name</strong></td>
-<td>Lists the subscription that hosts your BizTalk Service. The subscription governs access to the Azure Management Portal.</td>
+<td>Lists the subscription that hosts your BizTalk Service. The subscription governs access to the Azure classic portal.</td>
 </tr>
 <tr>
 <td><strong>Subscription ID</strong></td>
@@ -178,7 +178,7 @@ For a description of these performance metrics, go to [Available Metrics](#Metri
 </tr>
 </table>
 
-[BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
+[BizTalk Services: Provisioning Using Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=302280) lists the steps to create a BizTalk Service.
 
 
 ##### Manage, Connection Information, Sync Keys, and Delete in the task bar:
@@ -197,9 +197,9 @@ This is the same as <strong>Create partner agreements</strong> on the <strong>Qu
 <td><strong>Connection Information</strong> of the Access Control Namespace</td>
 <td>Displays the Access Control Namespace, Default Issuer, and Default Key values; which can be copied.
 <br/><br/>
-You can also open the Access Control Management Portal. This Access Control Management Portal is the same as using the Active Directory option in the left navigation pane.
+You can also open the Access Control Portal. This Access Control Portal is the same as using the Active Directory option in the left navigation pane.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Management Portal.</td>
+<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285670">Managing Your ACS Namespace</a> provides more information on the Access Control Portal.</td>
 </tr>
 <tr>
 <td><strong>Sync Keys</strong> in the Storage Account</td>
@@ -209,9 +209,9 @@ For example, you want the BizTalk Service to use a new Primary Key for the Stora
 <br/><br/>
 <ol>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Select the Secondary Key. When you do this, the BizTalk Service starts using the Secondary Key.</li>
-<li>In the Azure Management Portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
+<li>In the Azure classic portal, select your Storage account and Regenerate the Primary Key. Remember, your BizTalk Service is using the Secondary Key.</li>
 <li>Select your BizTalk Service and select <strong>Sync Keys</strong>. Now, select the Primary Key. This is the new Primary Key you regenerated.</li>
-<li>In the Azure Management Portal, select your Storage account and Regenerate the Secondary Key.</li>
+<li>In the Azure classic portal, select your Storage account and Regenerate the Secondary Key.</li>
 </ol>
 <br/>
 This process is called "rollover keys". The purpose is to enable users to switch between the Primary Key and the Secondary Key without disrupting the BizTalk Service.</td>
@@ -236,19 +236,16 @@ You can also choose the **Relative** or **Absolute** values and the time range *
 
 ##### To remove or display metrics in the graph:
 1. Select the **Monitor** tab.
-2. Select **Add Metrics** in the task bar:
-<br/>
+2. Select **Add Metrics** in the task bar:  
 ![Select Add Metrics][AddMetrics]
 3. Check the performance metrics you want to display.
 4. Select the checkmark to return to the **Monitor** tab.
-5. Select the circle next to the metric to display that metric's value in the graph.
-<br/>
-For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:
-<br/>
-![CPU Usage metric is grayed out][GrayedMetric]
-<br/>
-Select the grayed out circle to enable the **CPU Usage** metric to display its output in the graph:
-<br/>
+5. Select the circle next to the metric to display that metric's value in the graph.  
+
+	For example, the **CPU Usage** metric is grayed out; its output is not displayed in the graph:  
+![CPU Usage metric is grayed out][GrayedMetric]  
+
+	Select the grayed out circle to enable the **CPU Usage** metric to display its output in the graph:  
 ![CPU Usage metric is enabled][EnabledMetric]
 
 6. To remove a metric from the display graph and the list, select **Delete Metric** in the task bar. To add the metric back to the list, select **Add Metrics** in the task bar, check the metric, and select the checkmark to return to the **Monitor** tab. Select the grayed out circle to enable the metric.
@@ -322,11 +319,11 @@ In a Request-Reply scenario, the metric is incremented when the route destinatio
 ## Scale
 In the Scale tab, you can add or subtract the number of units used by your BizTalk Service. By default, there is one Unit configured. Additional Units can be added to scale your BizTalk Service. When you increase the scale, you are increasing throughput. The amount of resources also increases, including deployed bridges, agreements, LOB connections, and processing power. For example, you increase the scale from 1 Unit to 2 Units. In this situation, you can deploy double the number of bridges, double the agreements, double the LOB connections, and double the processing power.
 
-Some BizTalk editions do not offer a scale option. In this situation, one Unit is permitted. To determine how many units your edition can be scaled, refer to [BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279).
+Some BizTalk editions do not offer a scale option. In this situation, one Unit is permitted. To determine how many units your edition can be scaled, refer to [BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md).
 
 Increasing the number of units may impact pricing. If you increase the Units, selecting **Save** displays a message that tells you if billing is impacted. You then choose to continue. When you increase the number of Units, the BizTalk Service status changes from Active to Updating. In the Updating state, your BizTalk Service continues to run.
 
-[BizTalk Services: Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279) defines a "Unit".
+[BizTalk Services: Editions Chart](biztalk-editions-feature-chart.md) defines a "Unit".
 
 
 ## Configure
@@ -334,32 +331,32 @@ Does not apply to Hybrid Connections.
 
 Sets the Backup Status to None or Automatic. When set to None, no backups are automatically created. When set to Automatic, you configure the backup location, the frequency of the backup, and how long to keep the backup files. 
 
-[BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873) provides the details. 
+[BizTalk Services: Backup and Restore](biztalk-backup-restore.md) provides the details. 
 
 
 ## <a name="HybridConnections"></a>Hybrid Connections
-Hybrid Connections connect an Azure application, like Websites or Mobile Services, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in  BizTalk Services in the Azure Management Portal.
+Hybrid Connections connect an Azure application, like Websites or Mobile Services, to an on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, and most custom Web Services. Hybrid Connections are managed in  BizTalk Services in the Azure classic portal.
 
 To create Hybrid Connections in Azure Websites, see [Hybrid Connection: Connect an Azure Web Site to an On-Premises Resource](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
 To use Hybrid Connections in Azure Mobile Services, see [Azure Mobile Services and Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
-To create or manage Hybrid Connections in Azure BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+To create or manage Hybrid Connections in Azure BizTalk Services, see [Hybrid Connections](integration-hybrid-connection-overview.md).
 
 
 
 ## Next
 Now that you're familiar with the different tabs, you can learn more about the Azure BizTalk Services features:
 
-- [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-- [BizTalk Services: Backup and Restore](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)  
+- [BizTalk Services: Issuer Name and Issuer Key](biztalk-issuer-name-issuer-key.md)  
+- [BizTalk Services: Backup and Restore](biztalk-backup-restore.md)
 
 ## See Also
-- [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk Services: Provisioning Using Azure Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [BizTalk Services: BizTalk Service State Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [Hybrid Connections](integration-hybrid-connection-overview.md)  
+- [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](biztalk-editions-feature-chart.md)  
+- [BizTalk Services: Provisioning Using Azure classic portal](biztalk-provision-services.md)  
+- [BizTalk Services: BizTalk Service State Chart](biztalk-service-state-chart.md)  
 - [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png

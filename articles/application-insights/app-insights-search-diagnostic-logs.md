@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Logs, exceptions and custom diagnostics for ASP.NET in Application Insights
@@ -34,6 +34,11 @@ Open Diagnostic Search to see the telemetry that the SDK automatically sends.
 ![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
 
 The details vary from one application type to another. You can click through any individual event to get more detail.
+
+## Sampling 
+
+If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
+
 
 ##<a name="events"></a>Custom events
 
@@ -271,6 +276,11 @@ In Solution Explorer, right-click `ApplicationInsights.config` and choose **Upda
 
 Up to 500 events per second from each application. Events are retained for seven days.
 
+### Some of my events or traces don't appear
+
+If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
+
+
 ## <a name="add"></a>Next steps
 
 * [Set up availability and responsiveness tests][availability]
@@ -285,12 +295,12 @@ Up to 500 events per second from each application. Events are retained for seven
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-web-failures-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[start]: app-insights-get-started.md
-[track]: app-insights-custom-events-metrics-api.md
+[start]: app-insights-overview.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  

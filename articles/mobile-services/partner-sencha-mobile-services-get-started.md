@@ -12,21 +12,29 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.topic="get-started-article"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>This tutorial shows you how to leverage Azure Mobile Services in your Sencha Touch application. You will create a simple To Do List app using Sencha Touch that utilizes a mobile service you define through the Management Portal. This tutorial is intended for intermediate to advanced web application developers who have a good understanding of JavaScript and who are familiar with the Sencha Touch framework. </p>
-<p>If you prefer to watch a video, the clip to the right follows the same steps as this tutorial. In the video, Arthur Kay will explain how to build a Sencha Touch application using an Azure Mobile Services backend.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/partner-sencha-mobile-services-get-started/mobile-sencha-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=392574" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">14:37</span></div>
-</div>
+&nbsp;
+
+
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+##Overview
+
+This tutorial shows you how to leverage Azure Mobile Services in your Sencha Touch application. You will create a simple *To Do List* app using Sencha Touch that utilizes a mobile service you define through the Azure classic portal. This tutorial is intended for intermediate to advanced web application developers who have a good understanding of JavaScript and who are familiar with the Sencha Touch framework.
+
+If you prefer to watch a video, this clip follows the same steps as this tutorial. In the video, Arthur Kay  explains how to build a Sencha Touch application using an Azure Mobile Services backend.
+
+> [AZURE.VIDEO getting-started-with-sencha-touch]
 
 
 A screenshot from the completed app is shown below:
@@ -40,6 +48,7 @@ A screenshot from the completed app is shown below:
 - Download and install [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
 
 - Java Runtime Environment (JRE), or Java Development Kit (if you are creating Android apps)
+- Ruby and SASS gem.
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
@@ -47,10 +56,10 @@ A screenshot from the completed app is shown below:
 
 ##Create a TodoItems Table
 
-Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to create
+Once you have created your mobile service, you can follow an easy quickstart in the Azure classic portal to create
 a new database table for use in your mobile service.
 
-1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
+1. In the [Azure classic portal], click **Mobile Services**, and then click the mobile service that you just created.
 
 2. In the quickstart tab, click **HTML** under **Choose platform** and expand **Create a new HTML app**.
 
@@ -62,10 +71,10 @@ a new database table for use in your mobile service.
 
 3. Click **Create TodoItems table** to create a table to store app data.
 
-	> [AZURE.NOTE] Do NOT download the HTML app from the management portal. Instead, we will manually create a Sencha Touch application in the section below.
+	> [AZURE.NOTE] Do NOT download the HTML app from the Azure classic portal. Instead, we will manually create a Sencha Touch application in the section below.
 
 
-1. Take note of the **appKey** and **appUrl** in the Management Portal. You will use them in other sections of this tutorial.
+1. Take note of the **appKey** and **appUrl** in the Azure classic portal. You will use them in other sections of this tutorial.
 
     ![app key](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
 
@@ -93,13 +102,13 @@ In most Touch applications, if you wish to add an external library of classes, y
 
 You can manually add the Azure extensions to your application using the following steps:
 
-1. Download the Azure extensions package from [here](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure). (You may use your Sencha Forums ID to access this area.)
+1. Download the Azure extensions package from [here](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure). (You may use your Sencha Forums ID to access this area.)
 
 2. Copy the Azure extensions package from the download directory to where you would ultimately want it to reside and unpack it :
 
         $ cd /path/to/application
 	    $ mv /download-location/azure.zip .
-    	$ unzip azure.zip  
+    	$ unzip azure.zip
 
     This creates an **azure** directory containing the entire package source, examples and documentation. The source will reside in the **azure/src** directory.
 
@@ -110,7 +119,7 @@ You can manually add the Azure extensions to your application using the followin
 
 All applications generated by Sencha Cmd have a "packages" folder at the root. The location of this folder can be configured, but regardless of its location, the role of the "packages" folder is to serve as the storage of all packages used by your application (or applications if you have created a Sencha Workspace).
 
-As Ext.Azure is a Sencha Cmd "package", the source code can be easily installed and included in your application using Sencha Cmd. (See [Sencha Cmd Packages](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages) for more information).
+As Ext.Azure is a Sencha Cmd "package", the source code can be easily installed and included in your application using Sencha Cmd. (See [Sencha Cmd Packages](http://docs.sencha.com/cmd/6.x/cmd_packages/cmd_packages.html) for more information).
 
 To download and install the Azure extensions package from the Sencha Packages repository, you will need to add the package name to your **app.json** file and build your application:
 
@@ -663,7 +672,7 @@ The final stage of this tutorial is to host and run your new app on your local c
   2. Using Sencha Cmd, run the following commands:
 
     * *sencha app refresh* : This will instruct Sencha Cmd to locate all app dependencies,
-      and download any needed packages (for example, [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
+      and download any needed packages (for example, [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
 
     * *sencha web start* : This will start a local web server to test our application.
 
@@ -677,7 +686,7 @@ The final stage of this tutorial is to host and run your new app on your local c
 
     This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table.
 
-  5. Back in the Management Portal, click the **Data** tab and then click the TodoItems table.
+  5. Back in the [Azure classic portal], click the **Data** tab and then click the TodoItems table.
 
     ![Todo Items table](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
@@ -701,7 +710,7 @@ Then, dive into more information about the Sencha Touch Extensions for Azure:
 ##Additional Resources
 
   * [Download Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
-  * [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
+  * [Sencha Touch Extensions for Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
 
 ##Summary
@@ -710,6 +719,10 @@ The example outlined here is provided in the Sencha Touch Extension for Azure pa
 
 For more information about getting started with Sencha Touch please visit the full set of [guides](http://docs.sencha.com/touch/#!/guide)
 
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
- 
+
+[Azure classic portal]: https://manage.windowsazure.com/

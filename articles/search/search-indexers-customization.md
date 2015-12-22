@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Search Indexer Customization" 
-	description="Learn how to customize settings and policies of Azure Search indexers." 
+	pageTitle="Azure Search Indexer Customization | Microsoft Azure | Hosted cloud search service" 
+	description="Learn how to customize settings and policies of indexers in Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="chaosrealm" 
@@ -13,23 +13,17 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/25/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
-#Azure Search Indexer Customization#
+#Azure Search Indexer Customization
 
-In this article, you will learn how to use Azure Search indexers to implement these scenarios: 
-
-- Rename fields between a datasource and a target index 
-- Transform strings from a database table into string collections
-- Switch the change detection policy on a datasource 
-- URL-encode document keys that contain URL-unsafe characters 
-- Tolerate failures to index some documents 
+Configuring an indexer in Azure Search let's you rename fields between a datasource and a target index, transform strings from a database table into string collections, switch the change detection policy on a datasource, URL-encode document keys that contain URL-unsafe characters, and tolerate failures to index some documents.
 
 If you’re not familiar with Azure Search indexers, you might want to take a look at the following articles first:
 
 - [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-- [Connecting DocumentDB with Azure Search using indexers](../documentdb-search-indexer.md)
+- [Connecting DocumentDB with Azure Search using indexers](../documentdb/documentdb-search-indexer.md)
 - [.NET SDK with support for indexers](https://msdn.microsoft.com/library/dn951165.aspx) or 
 - [Indexers REST API reference](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 

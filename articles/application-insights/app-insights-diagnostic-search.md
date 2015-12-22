@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
@@ -34,6 +34,12 @@ For example, if your application is a web service, the overview blade shows a ch
 
 
 The main body of Diagnostic Search is a list of telemetry items - server requests, page views, custom events that you have coded, and so on. At the top of the list is a summary chart showing counts of events over time.
+
+Events typically show up in diagnostic search before they appear in metric explorer. Although the blade refreshes itself at intervals, you can click Refresh if you're waiting for a particular event.
+
+
+> [AZURE.NOTE] If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
+> [Learn about sampling](app-insights-sampling.md).
 
 
 ## Inspect individual items
@@ -81,6 +87,12 @@ In this example, it's clear that the `Reports/Employees` request results in the 
 
 Additionally if you want to also see what other events were happening during this time, you can check **Include events with undefined properties**.
 
+## Remove bot and web test traffic
+
+Use the filter **Real or synthetic traffic** and check **Real**.
+
+You can also filter by **Source of synthetic traffic**.
+
 ## Inspect individual occurrences
 
 Add that request name to the filter set, and you can then inspect individual occurrences of that event.
@@ -89,7 +101,7 @@ Add that request name to the filter set, and you can then inspect individual occ
 
 For Request events, the details show exceptions that occurred while the request was being processed.
 
-Click through an exception to see its detail.
+Click through an exception to see its detail, including the stack trace.
 
 ![Click an exception](./media/app-insights-diagnostic-search/06-callStack.png)
 
@@ -186,8 +198,8 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 [javalogs]: app-insights-java-trace-logs.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-spi-custom-events-metrics.md
 
  

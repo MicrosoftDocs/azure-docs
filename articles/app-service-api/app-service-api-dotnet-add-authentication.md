@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="10/27/2015" 
 	ms.author="tdykstra"/>
 
 # Protect an API app: Add Azure Active Directory or social provider authentication
+
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Overview
 
@@ -144,6 +146,8 @@ You have now protected the API app from unauthenticated access. Next you have to
 
 	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
 
+	If you have enabled the Swagger UI, you can also go to the Swagger UI page now. However, you'll see a red **ERROR** icon at the bottom right corner of the page, and if you click the icon you'll see a message saying that the Swagger JSON file is inaccessible. This is because Swagger makes an AJAX call without including the Zumo token to try to retrieve the JSON file. This does not prevent the Swagger UI page from working.
+
 ## Use Postman to send a Post request
 
 When you log in to the gateway, the gateway sends back an authentication token.  This token must be included with all requests from external sources that go through the gateway. When you access an API with a browser, the browser typically stores the token in a cookie and sends it along with all subsequent calls to the API.
@@ -228,7 +232,11 @@ In this section you change the code in the ContactsList API app so that it retri
 	* "twitter"
 	* "facebook". 
 
-2. In the *ContactsController.cs* file, replace the code  in the `Get` method with the following code.
+3. In the *ContactsController.cs* file, add a `using` statement at the top of the file.
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+2. Replace the code  in the `Get` method with the following code.
 
 		var runtime = Runtime.FromAppSettings(Request);
 		var user = runtime.CurrentUser;

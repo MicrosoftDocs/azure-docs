@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations - Quick Start Guide" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.date="11/12/2015" 
 	ms.author="luisca"/>
 
 # Quick start guide for the Machine Learning Recommendations API
 
-This document describes how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. 
+This document describes how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. You can find more details on the Recommendations API in the [gallery](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -27,7 +27,7 @@ This document describes how to onboard your service or application to use Micros
 To use Azure Machine Learning Recommendations, you need to take the following steps:
 
 * Create a model - A model is a container of your usage data, catalog data and the recommendation model.
-* Import catalog data - This is an optional step. A catalog contains metadata information on the items. If you do not upload catalog data, the recommendation's services will learn about your catalog implicitly from the usage data.
+* Import catalog data - A catalog contains metadata information on the items. 
 * Import usage data - Usage data can be uploaded in one of 2 ways (or both):
 	* By uploading a file that contains the usage data.
 	* By sending data acquisition events.
@@ -35,7 +35,7 @@ To use Azure Machine Learning Recommendations, you need to take the following st
 * Build a recommendation model - This is an asynchronous operation in which the recommendation system takes all the usage data and creates a recommendation model. This operation can take several minutes or several hours depending on the size of the data and the build configuration parameters. When triggering the build, you will get a build ID. Use it to check when the build process has ended before starting to consume recommendations.
 * Consume recommendations - Get recommendations for a specific item or list of items.
 
-All the steps above are done through the Azure Machine Learning Recommendations API.
+All the steps above are done through the Azure Machine Learning Recommendations API.  You can download a sample application that implements each of these steps from the [gallery as well.](http://1drv.ms/1xeO2F3)
 
 ##Limitations
 
@@ -48,24 +48,23 @@ All the steps above are done through the Azure Machine Learning Recommendations 
 ##Integration
 
 ###Authentication
-Micosoft Azure Marketplace supports either the Basic or OAuth authentication method.
+Micosoft Azure Marketplace supports either the Basic or OAuth authentication method. You can easily find the account keys by navigating to the keys in the marketplace under [your account settings](https://datamarket.azure.com/account/keys). 
 ####Basic Authentication
 Add the Authorization header:
 
 	Authorization: Basic <creds>
                
-	Where <creds> = ConvertToBase64(“AccountKey:” + yourAccountKey);  
+	Where <creds> = ConvertToBase64("AccountKey:" + yourAccountKey);  
 	
 Convert to Base64 (C#)
 
-	var bytes = Encoding.UTF8.GetBytes(“AccountKey:” + yourAccountKey);
+	var bytes = Encoding.UTF8.GetBytes("AccountKey:" + yourAccountKey);
 	var creds = Convert.ToBase64String(bytes);
 	
 Convert to Base64 (JavaScript)
 
 	var creds = window.btoa("AccountKey" + ":" + yourAccountKey);
 	
-You get your account key [here]( https://datamarket.azure.com/account/keys). 
 
 
 
@@ -81,7 +80,7 @@ Each API call will have, at the end, a query parameter called apiVersion that sh
 IDs, returned by any of the APIs, are case sensitive and should be used as such when passed as parameters in subsequent API calls. For instance, model IDs and catalog IDs are case sensitive.
 
 ###Create a model
-Creating a “create model” request:
+Creating a "create model" request:
 
 | HTTP Method | URI |
 |:--------|:--------|
@@ -356,7 +355,7 @@ HTTP Status code: 200
 
 HTTP Status code: 200
 
-This is an asynchronous API. You will get a build ID as a response. To know when the build has ended, you should call the “Get Builds Status of a Model” API and locate this build ID in the response. Note that a build can take from minutes to hours depending on the size of the data.
+This is an asynchronous API. You will get a build ID as a response. To know when the build has ended, you should call the "Get Builds Status of a Model" API and locate this build ID in the response. Note that a build can take from minutes to hours depending on the size of the data.
 
 You cannot consume recommendations till the build ends.
 
@@ -711,7 +710,7 @@ OData XML
 	</feed>
 
 ##Legal
-This document is provided “as-is”. Information and views expressed in this document, including URL and other Internet website references, may change without notice. 
+This document is provided "as-is". Information and views expressed in this document, including URL and other Internet website references, may change without notice. 
 Some examples depicted herein are provided for illustration only and are fictitious. No real association or connection is intended or should be inferred. 
 This document does not provide you with any legal rights to any intellectual property in any Microsoft product. You may copy and use this document for your internal, reference purposes. 
 © 2014 Microsoft. All rights reserved. 

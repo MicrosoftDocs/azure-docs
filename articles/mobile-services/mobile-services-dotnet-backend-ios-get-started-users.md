@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add Authentication to Existing Azure Mobile Services App (iOS) | Mobile Dev Center"
+	pageTitle="Add Authentication to Existing Azure Mobile Services App (iOS) | .NET Backend | Microsoft Azure"
 	description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # Add Authentication to Existing Azure Mobile Services app
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -56,11 +61,8 @@ In the next tutorial, [Service-side authorization of Mobile Services users], you
 <!-- URLs. -->
 [Service-side authorization of Mobile Services users]: mobile-services-dotnet-backend-service-side-authorization.md
 [Mobile Services Quick Start tutorial]: mobile-services-dotnet-backend-ios-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md

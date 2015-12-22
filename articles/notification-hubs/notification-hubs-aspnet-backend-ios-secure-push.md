@@ -1,31 +1,32 @@
-<properties 
-	pageTitle="Azure Notification Hubs Secure Push" 
-	description="Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#." 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Azure Notification Hubs Secure Push"
+	description="Learn how to send secure push notifications to an iOS app from Azure. Code samples written in Objective-C and C#."
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Secure Push
 
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##Overview
 
-Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
+Push notification support in Microsoft Azure enables you to access an easy-to-use, multiplatform, scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms.
 
 Due to regulatory or security constraints, sometimes an application might want to include something in the notification that cannot be transmitted through the standard push notification infrastructure. This tutorial describes how to achieve the same experience by sending sensitive information through a secure, authenticated connection between the client device and the app backend.
 
@@ -40,7 +41,7 @@ At a high level, the flow is as follows:
 
 It is important to note that in the preceding flow (and in this tutorial), we assume that the device stores an authentication token in local storage, after the user logs in. This guarantees a completely seamless experience, as the device can retrieve the notification’s secure payload using this token. If your application does not store authentication tokens on the device, or if these tokens can be expired, the device app, upon receiving the notification should display a generic notification prompting the user to launch the app. The app then authenticates the user and shows the notification payload.
 
-This Secure Push tutorial shows how to send a push notification securely. The tutorial builds on the **Notify Users** tutorial, so you should complete the steps in that tutorial first.
+This Secure Push tutorial shows how to send a push notification securely. The tutorial builds on the [Notify Users](notification-hubs-aspnet-backend-ios-notify-users.md) tutorial, so you should complete the steps in that tutorial first.
 
 > [AZURE.NOTE] This tutorial assumes that you have created and configured your notification hub as described in [Getting Started with Notification Hubs (iOS)](notification-hubs-ios-get-started.md).
 
@@ -64,6 +65,7 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 
 3. Then add in the implementation section the following code, substituting the placeholder `{back-end endpoint}` with the endpoint for your back-end obtained previously:
 
+```
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
@@ -108,6 +110,7 @@ To achieve this goal, we have to write the logic to retrieve the secure content 
 		    }];
 		    [dataTask resume];
 		}
+```
 
 	This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
 
@@ -154,4 +157,3 @@ To run the application, do the following:
 3. In the iOS app UI, click **Log in**. Then click **Send push**. You should see the secure notification being displayed in your notification center.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
- 

@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="11/19/2015" 
 	ms.author="tomfitz"/>
 
 # Create a PHP-SQL web app and deploy to Azure App Service using Git
 
-This tutorial shows you how to create a PHP web app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) that connects to Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), a web server, and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL web app running in Azure.
+This tutorial shows you how to create a PHP web app in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) that connects to Azure SQL Database and how to deploy it using Git. This tutorial assumes you have [PHP][install-php], [SQL Server Express][install-SQLExpress], the [Microsoft Drivers for SQL Server for PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), and [Git][install-git] installed on your computer. Upon completing this guide, you will have a PHP-SQL web app running in Azure.
 
 > [AZURE.NOTE]
-> You can install and configure PHP, SQL Server Express, the Microsoft Drivers for SQL Server for PHP, and Internet Information Services (IIS) using the [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+> You can install and configure PHP, SQL Server Express, and the Microsoft Drivers for SQL Server for PHP using the [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
 You will learn:
 
-* How to create an Azure web app and a SQL Database using the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715). Because PHP is enabled in App Service Web Apps by default, nothing special is required to run your PHP code.
+* How to create an Azure web app and a SQL Database using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). Because PHP is enabled in App Service Web Apps by default, nothing special is required to run your PHP code.
 * How to publish and re-publish your application to Azure using Git.
  
 By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Website. A screenshot of the completed application is below:
@@ -40,11 +40,11 @@ By following this tutorial, you will build a simple registration web application
 
 Follow these steps to create an Azure web app and a SQL Database:
 
-1. Log in to the [Azure preview portal](https://portal.azure.com/).
+1. Log in to the [Azure Portal](https://portal.azure.com/).
 
-2. Open the Azure Marketplace either by clicking the **Marketplace** icon, or by clicking the **New** icon on the bottom left of the dashboard, selecting **Web + mobile** and then **Azure Marketplace** at the bottom.
+2. Open the Azure Marketplace by clicking the **New** icon on the top left of the dashboard, click on **Select All** next to Marketplace and selecting **Web + Mobile**.
 	
-3. In the Marketplace, select **Web Apps**.
+3. In the Marketplace, select **Web + Mobile**.
 
 4. Click the **Web app + SQL** icon.
 
@@ -66,15 +66,15 @@ Follow these steps to create an Azure web app and a SQL Database:
 
 	![web app's resource group](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
 
-5. Click **Set up continuous deployment** > **Choose Source**. Select **Local Git Repository** and click **OK**.
+5. In **Settings** click **Continuous deployment** > **Configure required settings**. Select **Local Git Repository** and click **OK**.
 
 	![where is your source code](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
 
-	If you have not set up a Git repository before, you must provide a user name and password. To do this, click **Set deployment credentials** in the web app's blade.
+	If you have not set up a Git repository before, you must provide a user name and password. To do this, click **Settings** > **Deployment credentials** in the web app's blade.
 
 	![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
 
-6. **Set up continous deployment** becomes **No deployment found**. Click it to see the Git remote URL you need to use to deploy your PHP app later.
+6. In **Settings** click on **Properties** to see the Git remote URL you need to use to deploy your PHP app later.
 
 ##Get SQL Database connection information
 
@@ -82,7 +82,7 @@ To connect to the SQL Database instance that is linked to your web app, your wil
 
 1. Back in the resource group's blade, click the SQL database's icon.
 
-2. In the SQL database's blade, click **Properties**, then click **Show database connection strings**. 
+2. In the SQL database's blade, click **Settings** > **Properties**, then click **Show database connection strings**. 
 
 	![View database properties](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 	
@@ -95,7 +95,7 @@ The Registration application is a simple PHP application that allows you to regi
 * **index.php**: Displays a form for registration and a table containing registrant information.
 * **createtable.php**: Creates the SQL Database table for the application. This file will only be used once.
 
-To run the application locally, follow the steps below. Note that these steps assume you have PHP, SQL Server Express, and a web server set up on your local machine, and that you have enabled the [PDO extension for SQL Server][pdo-sqlsrv].
+To run the application locally, follow the steps below. Note that these steps assume you have PHP and SQL Server Express set up on your local machine, and that you have enabled the [PDO extension for SQL Server][pdo-sqlsrv].
 
 1. Create a SQL Server database called `registration`. You can do this from the `sqlcmd` command prompt with these commands:
 
@@ -104,7 +104,7 @@ To run the application locally, follow the steps below. Note that these steps as
 		2> GO	
 
 
-2. In your web server's root directory, create a folder called `registration` and create two files in it - one called `createtable.php` and one called `index.php`.
+2. In your application root directory, create two files in it - one called `createtable.php` and one called `index.php`.
 
 3. Open the `createtable.php` file in a text editor or IDE and add the code below. This code will be used to create the `registration_tbl` table in the `registration` database.
 
@@ -133,7 +133,11 @@ To run the application locally, follow the steps below. Note that these steps as
 
 	Note that you will need to update the values for <code>$user</code> and <code>$pwd</code> with your local SQL Server user name and password.
 
-4. Open a web browser and browse to **http://localhost/registration/createtable.php**. This will create the `registration_tbl` table in the database.
+4. In a terminal at the root directory of the application type the following command:
+
+		php -S localhost:8000
+
+4. Open a web browser and browse to **http://localhost:8000/createtable.php**. This will create the `registration_tbl` table in the database.
 
 5. Open the **index.php** file in a text editor or IDE and add the basic HTML and CSS code for the page (the PHP code will be added in later steps).
 
@@ -229,7 +233,7 @@ To run the application locally, follow the steps below. Note that these steps as
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-You can now browse to **http://localhost/registration/index.php** to test the application.
+You can now browse to **http://localhost:8000/index.php** to test the application.
 
 ##Publish your application
 
@@ -283,7 +287,6 @@ To publish changes to application, follow these steps:
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 

@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="12/10/2015"
 	ms.author="wesmc"/>
 
 # How to use Notification Hubs from Node.js
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
-</div>
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 ##Overview
 
@@ -80,9 +78,9 @@ module:
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-The connection **connectionstring** value can be obtained from the Azure Management portal by performing the following steps:
+The connection **connectionstring** value can be obtained from the [Azure Classic Portal] by performing the following steps:
 
-1. From the Azure Management portal, select **Service Bus**, and then select the namespace that contains the notification hub.
+1. From the [Azure Classic Portal], select **Service Bus**, and then select the namespace that contains the notification hub.
 
 2. Select **NOTIFICATION HUBS**, and then select the hub you wish to use.
 
@@ -211,7 +209,7 @@ links to learn more.
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure Classic Portal]: http://manage.windowsazure.com
   [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
@@ -226,4 +224,3 @@ links to learn more.
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
- 

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="05/12/2015" 
+ ms.date="12/04/2015" 
  ms.author="krisragh"/>
  
 # Plans and Billing in Azure Scheduler
@@ -25,7 +25,7 @@ Job collections are the billable entity in Azure Scheduler. Job collections cont
 |:---|:---|:---|:---|:---|
 |**Free**|5 jobs per job collection|Once per hour. Cannot execute jobs more often than once an hour|A subscription is allowed up to 1 free job collection|Cannot use [HTTP outbound authorization object](scheduler-outbound-authentication.md)
 |**Standard**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 100 standard job collections|Access to full feature set of Scheduler|
-|**Premium**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|No limit on number of premium job collections in a subscription|Access to full feature set of Scheduler|
+|**Premium**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 10,000 premium job collections. <a href="mailto:wapteams@microsoft.com">Contact us</a> for more.|Access to full feature set of Scheduler|
 
 ## Upgrades and Downgrades of Job Collection Plans
 
@@ -68,21 +68,23 @@ For pricing details, please see [Scheduler Pricing](http://azure.microsoft.com/p
 
 ## See Also
  
+
  [What is Scheduler?](scheduler-intro.md)
  
- [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
+ [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
- [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
 
- [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
+ [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
- [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
+ [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
+
+ [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
+
+ [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
  
- [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+  
 
- [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
-
- [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
   

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="12/03/2015" 
 	ms.author="antonba"/>
 
 # How to delegate user registration and product subscription
@@ -94,7 +94,7 @@ Delegating product subscription works similarly to delegating user sign-in/-up. 
 1. Developer selects a product in the API Management developer portal and clicks on the Subscribe button
 2. Browser is redirected to the delegation endpoint
 3. Delegation endpoint performs required product subscription steps - this is up to you and may entail redirecting to another page to request billing information, asking additional questions, or simply storing the information and not requiring any user action
-4. On success, the user is redirected back to the API Management developer portal page they started from
+
 
 To enable the functionality, on the **Delegation** page click **Delegate product subscription**.
 
@@ -127,11 +127,9 @@ Then ensure the delegation endpoint performs the following actions:
 
 4. On successfully subscribing the user to the product on your side, subscribe the user to the API Management product by [calling the REST API for product subscription].
 
-5. Redirect the user back to the **returnUrl** provided when receiving the request.
-
 ## <a name="delegate-example-code"> </a> Example Code ##
 
-These code samples show how to take the *delegation validation key*, which is set in the Delegation screen of the API Management portal, to create a HMAC which is then used to validate the signature, proving the validity of the passed returnUrl. The same code works for the productId and userId with slight modification.
+These code samples show how to take the *delegation validation key*, which is set in the Delegation screen of the publisher portal, to create a HMAC which is then used to validate the signature, proving the validity of the passed returnUrl. The same code works for the productId and userId with slight modification.
 
 **C# code to generate hash of returnUrl**
 

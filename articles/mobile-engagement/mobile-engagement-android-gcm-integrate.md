@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure Mobile Engagement Android SDK Integration" 
+<properties
+	pageTitle="Azure Mobile Engagement Android SDK Integration"
 	description="Latest updates and procedures for Android SDK for Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo" />
 
 #How to Integrate GCM with Mobile Engagement
 
@@ -24,16 +24,11 @@
 
 ##Introduction
 
-Integrating GCM allows your application to be pushed even when it's not running.
+Integrating GCM allows your application to be pushed.
 
-No campaign data is actually sent via GCM, it's just a background signal telling the application to fetch the Engagement push. If the application is not running while receiving a GCM push, it triggers a connection to the Engagement servers to fetch the push, the Engagement connection remains active for about a minute in case the user launches the application in the response to the push.
+GCM payloads pushed to the SDK always contain the `azme` key in the data object. Thus if you use GCM for another purpose in your application, you can filter pushes based on that key.
 
-For your information, Engagement uses only [Send-to-Sync] messages with the `engagement.tickle` collapse key.
-
-> [AZURE.IMPORTANT] Only devices running Android 2.2 or above, having Google Play installed and having Google background connection enabled can be woken up by GCM; however, you can integrate this code safely on older versions of the Android SDK and on devices that can't support GCM (it just uses intents). If the application cannot be woken up by GCM, the Engagement notification will be received the next time the application is launched.
-
-
-> [AZURE.WARNING] If your own client code manages C2DM registration identifiers while the Engagement SDK is configured to use GCM, a conflict on the registration identifiers occurs, use GCM in Engagement only if your own code does not use C2DM.
+> [AZURE.IMPORTANT] Only devices running Android 2.2 or above, having Google Play installed and having Google background connection enabled can be pushed using GCM; however, you can integrate this code safely on unsupported devices (it just uses intents).
 
 ##Sign up to GCM and enable GCM Service
 
@@ -74,7 +69,7 @@ In order to communicate the registration id of the device to the Engagement Push
 			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
 			  </intent-filter>
 			</receiver>
-			
+
 			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			  <intent-filter>
 			    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -115,10 +110,7 @@ You are now able to select "Any Time" when creating Reach announcements and poll
 Now please verify your integration by reading How to Test Engagement Integration on Android.
 
 
-[Send-to-Sync]:http://developer.android.com/google/gcm/adv.html#collapsible
 [<http://developer.android.com/guide/google/gcm/gs.html>]:http://developer.android.com/guide/google/gcm/gs.html
 [Google Developers Console]:https://cloud.google.com/console
 [GCM client library]:http://developer.android.com/guide/google/gcm/gs.html#libs
 [Google Developers Console]:https://cloud.google.com/console
-
- 

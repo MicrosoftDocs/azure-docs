@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Monitor usage and statistics in an Azure Search service" 
-   description="Track resource consumption and index size for Azure Search" 
+   pageTitle="Monitor usage and statistics in an Azure Search service | Microsoft Azure | Hosted cloud search service" 
+   description="Track resource consumption and index size for Azure Search, a hosted cloud search service on Microsoft Azure." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -14,18 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="04/27/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Monitor usage and statistics in an Azure Search service
 
 Tracking the growth of indexes and document size can help you proactively adjust capacity before hitting the upper limit you've established for your service. 
 
-To monitor resource usage, counts and statistics are easily viewed in the [Azure portal](https://portal.azure.com), but you can also obtain the information programmatically if you are building a custom service administration tool. This article covers the steps for both techniques.
+To monitor resource usage, counts and statistics are easily viewed in the [Azure Classic Portal](https://portal.azure.com), but you can also obtain the information programmatically if you are building a custom service administration tool. This article covers the steps for both techniques.
 
 ##View counts and metrics in the portal 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure Classic Portal](https://portal.azure.com). 
 
 2. Open the service dashboard of your Azure Search service. Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar. See [Create a service](search-create-service-portal.md) for step-by-step instructions.
 
@@ -45,7 +45,7 @@ Both the Azure Search REST API and the .NET SDK provide programmatic access to s
 
 ## Next steps
 
-Review [Limits and capacity](https://msdn.microsoft.com/library/azure/dn798934.aspx) to determine the combination of partitions and replicas you'll need if existing capacity is insufficient. 
+Review [Limits and capacity](search-limits-quotas-capacity.md) to determine the combination of partitions and replicas you'll need if existing capacity is insufficient. 
 
 Visit [Manage your Search service on Microsoft Azure](search-manage.md) for more information on service administration.
 

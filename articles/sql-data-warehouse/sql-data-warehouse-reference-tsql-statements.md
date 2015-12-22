@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="11/05/2015"
    ms.author="barbkess"/>
 
 #Transact-SQL topics
@@ -35,7 +35,7 @@
 - [CREATE PROCEDURE](https://msdn.microsoft.com/library/ms187926.aspx)
 - [CREATE SCHEMA](https://msdn.microsoft.com/library/ms189462.aspx)
 - [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx)
-- [CREATE TABLE](https://msdn.microsoft.com/library/ms174979.aspx)
+- [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 - [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 - [CREATE VIEW](https://msdn.microsoft.com/library/ms187956.aspx)
 - [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/mt146367.aspx)
@@ -59,9 +59,10 @@
 
 ## Database Console Commands
 
+- [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 - [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
 - DBCC SHRINKLOG
-- DBCC PDW_SHOWEXECUTIONPLAN
+- [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
 - DBCC PDW_SHOWPARTITIONSTATS
 - DBCC PDW_SHOWSPACEUSED
 - [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)
@@ -73,6 +74,7 @@
 - [EXCEPT and INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
 - EXPLAIN
 - [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
+- [Using PIVOT and UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
 - [GROUP BY](https://msdn.microsoft.com/library/ms177673.aspx)
 - [HAVING](https://msdn.microsoft.com/library/ms180199.aspx)
 - [ORDER BY](https://msdn.microsoft.com/library/ms188385.aspx)
@@ -115,7 +117,7 @@
 
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse reference overview][].
+For more TSQL examples, see [SQL Data Warehouse development overview][].
 
 <!--Image references-->
 

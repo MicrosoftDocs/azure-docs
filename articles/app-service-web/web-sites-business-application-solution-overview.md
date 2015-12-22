@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 
@@ -39,7 +39,7 @@ Below is an example of a line-of-business application running on App Service Web
 
 Bring your existing web assets to App Service Web Apps from a variety of languages and frameworks.
 
-Your existing web assets can run on App Service Web Apps, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Web Apps using your familiar [FTP] tools or your source control management system. Web Apps supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Online], and [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
+Your existing web assets can run on App Service Web Apps, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Web Apps using your familiar [FTP] tools or your source control management system. Web Apps supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Team Services], and [Git] - local, GitHub, BitBucket, DropBox, Mercurial, etc..
 
 ## Secure your assets
 
@@ -63,7 +63,7 @@ However, your business may require its data to be kept on-premises. App Service 
 
 Optimize your line-of-business application by scaling automatically with Autoscale, caching with Azure Redis Cache, running background tasks with WebJobs, and maintaining high availability with Azure Traffic Manager.
 
-The ability of App Service Web Apps to [scale up and out] meets the need of your line-of-business application, regardless of the size of your workload. Scale out your web app manually through the [Azure Management Portal], programmatically through the [Service Management API] or [PowerShell scripting], or automatically through the Autoscale feature. In the **Standard** tier, Autoscale enables you to scale out a web app automatically based on CPU utilization. For best practices, see [Troy Hunt]'s [10 things I learned about rapidly scaling web apps with Azure].
+The ability of App Service Web Apps to [scale up and out] meets the need of your line-of-business application, regardless of the size of your workload. Scale out your web app manually through the [Azure Portal], programmatically through the [Service Management API] or [PowerShell scripting], or automatically through the Autoscale feature. In the **Standard** tier, Autoscale enables you to scale out a web app automatically based on CPU utilization. For best practices, see [Troy Hunt]'s [10 things I learned about rapidly scaling web apps with Azure].
 
 Make your web app more responsive with the [Azure Redis Cache]. Use it to cache data from backend databases and other things such as the [ASP.NET session state] and [output cache].
 
@@ -73,7 +73,7 @@ Maintain high availability of your web app using [Azure Traffic Manager]. Using 
 
 Stay up-to-date on your web app's performance with Azure or third-party tools. Receive alerts on critical web app events. Gain user insight easily with Application Insight or with web log analytics from HDInsight. 
 
-Get a [quick glance] of the web app's current performance metrics and resource quotas in the web app's blade in the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715). For a 360° view of your application across availability, performance and usage, use [Azure Application Insights] to give you fast & powerful troubleshooting, diagnostics and usage insights. Or, use a third-party tool like [New Relic] to provide advanced monitoring data for your web apps.
+Get a [quick glance] of the web app's current performance metrics and resource quotas in the web app's blade in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). For a 360° view of your application across availability, performance and usage, use [Azure Application Insights] to give you fast & powerful troubleshooting, diagnostics and usage insights. Or, use a third-party tool like [New Relic] to provide advanced monitoring data for your web apps.
 
 In the **Standard** tier, monitor app responsiveness receive email notifications whenever your app becomes unresponsive. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure].
 
@@ -93,7 +93,7 @@ In the **Standard** tier, monitor app responsiveness receive email notifications
 
 [FTP]:web-sites-deploy.md#ftp
 [Visual Studio]:web-sites-dotnet-get-started.md
-[Visual Studio Online]:../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]:../cloud-services-continuous-delivery-use-vso.md
 [Git]:web-sites-publish-source-control.md
 
 [HTTPS]:web-sites-configure-ssl-certificate.md
@@ -109,7 +109,7 @@ In the **Standard** tier, monitor app responsiveness receive email notifications
 [Azure Virtual Network]:web-sites-integrate-with-vnet.md
 
 [scale up and out]:web-sites-scale.md
-[Azure Management Portal]:http://manage.windowsazure.com/
+[Azure Portal]:http://portal.azure.com/
 [Service Management API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [PowerShell scripting]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt

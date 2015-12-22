@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage Azure RemoteApp using Azure Automation"
+	pageTitle="Manage Azure RemoteApp using Azure Automation | Microsoft Azure"
 	description="Learn about how the Azure Automation service can be used to manage Azure RemoteApp."
 	services="remoteapp, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
+	ms.date="10/23/2015"
 	ms.author="csand"/>
 
 

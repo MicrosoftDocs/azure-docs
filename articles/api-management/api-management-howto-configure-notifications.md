@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to configure notifications and email templates in Azure API Management
@@ -22,7 +22,7 @@ API Management provides the ability to configure notifications for specific even
 
 ## <a name="publisher-notifications"> </a>Configure publisher notifications
 
-To configure notifications, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+To configure notifications, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
@@ -54,7 +54,7 @@ To specify the users to be notified, click **add recipient**, check the box besi
 
 After configuring the notification recipients, click **Save** to apply the updated notification recipients.
 
->If you navigate away from the **Publisher Notifications** tab the API Management portal alerts you if there are unsaved changes.
+>If you navigate away from the **Publisher Notifications** tab the publisher portal alerts you if there are unsaved changes.
 
 ## <a name="email-templates"> </a>Configure email templates
 

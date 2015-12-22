@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="apwestgarth" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="apwestgarth"/>
+	ms.date="11/30/2015" 
+	ms.author="anwestg"/>
 
 # Azure App Service Web Apps Offerings for Enterprise Whitepaper #
 
-The need to reduce costs and deliver IT solutions faster in a rapidly evolving environment creates new challenges for Developers, IT Professionals, and Managers. Users are increasingly looking for their Line of Business (LOB) web applications to be quick, responsive, and available from any device. At the same time, businesses are trying to capitalize on the increased productivity and efficiency that comes from integration with cloud and mobile services, this may be something as simple as single sign-on across devices using Active Directory to collaboration in Office365 using data pulled from an internal LOB application which in turn pulls in data from the company implementation of Salesforce. [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) is an enterprise-class cloud service for developing, testing, and running web and mobile applications, Web APIs, and generic websites. It can be used to run corporate websites, business apps, and digital marketing campaigns on a global network of datacenters optimized for scale and availability, along with support for continuous integration and modern DevOps practices. 
+The need to reduce costs and deliver IT solutions faster in a rapidly evolving environment creates new challenges for Developers, IT Professionals, and Managers. Users are increasingly looking for their Line of Business (LOB) web applications to be quick, responsive, and available from any device. At the same time, businesses are trying to capitalize on the increased productivity and efficiency that comes from integration with cloud and mobile services, this may be something as simple as single sign-on across devices using Active Directory to collaboration in Office365 using data pulled from an internal LOB application which in turn pulls in data from the company implementation of Salesforce. [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) is an enterprise-class cloud service for developing, testing, and running web and mobile applications, Web APIs, and generic websites. It can be used to run corporate websites, intranet sites, business apps, and digital marketing campaigns on a global network of datacenters optimized for scale and availability, along with support for continuous integration and modern DevOps practices.  
 
 This whitepaper highlights the capabilities of the [Web Apps](/services/app-service/web/) service specifically focused on running LOB Web Applications, covering migration of existing web applications and deployment of new LOB web applications on the platform. 
 
@@ -33,9 +32,9 @@ App Service Web Apps is an ideal platform on which to host both external and int
 
 ## Problem Definition ##
 
-The IT landscape is changing rapidly, with a move away from hosting on traditional servers with their high capital costs on long lead times to one that uses on-demand use of services that scale automatically to handle load. IT departments are being challenged to reduce the cost and footprint of infrastructure and maintenance spend with a focus on reducing CAPEX while also increasing agility. The imminent end of life of older infrastructure platforms, such as Windows Server 2003, is leading IT departments to review cloud migration as a potential way to avoid new long term capital costs. In the past, CIOs would make purchasing decisions for other departments; however, increasingly CMOs and other business unit heads are taking a more active role in how their budget is spent and what the return on their investment is. Increasingly, businesses need their workforce to be far more mobile than ever before with employees working remotely, spending more time with customers needing access to systems hassle free.
+The IT landscape is changing rapidly, with a move away from hosting on traditional servers with their high capital costs on long lead times to one that uses on-demand use of services that scale automatically to handle load. IT departments are being challenged to reduce the cost and footprint of infrastructure and maintenance spend with a focus on reducing CAPEX while also increasing agility. The end of life of older infrastructure platforms, such as Windows Server 2003, is leading IT departments to review cloud migration as a potential way to avoid new long term capital costs. In the past, CIOs would make purchasing decisions for other departments; however, increasingly CMOs and other business unit heads are taking a more active role in how their budget is spent and what the return on their investment is. Increasingly, businesses need their workforce to be far more mobile than ever before with employees working remotely, spending more time with customers needing access to systems hassle free.
 
-Business needs change monthly, weekly, daily. Businesses are looking for instant global scale with regular updated services full of new features, provided by a third party or internally. Users have higher expectations, with many making use of services in their own private lives such as Office365. They expect to have access to similar, up to date, feature rich services in their work life. To cope with this demand, IT must look to help the business to enable this through selection and integration with third party services, careful selection of platforms which can adapt to the business needs, whilst also being reliable with a total reduced cost of ownership.
+Business needs change monthly, weekly, daily. Businesses are looking for instant global scale with regular updated services full of new features, provided by a third party or internally.  In some cases Businesses are also looking for the capabilities to isolate their applications and access to resources whilst also making use of Public Cloud facilities. Users have higher expectations, with many making use of services in their own private lives such as Office365. They expect to have access to similar, up to date, feature rich services in their work life. To cope with this demand, IT must look to help the business to enable this through selection and integration with third party services, careful selection of platforms which can adapt to the business needs, whilst also being reliable with a total reduced cost of ownership.
 
 Development teams are looking to deliver immediate business benefit, delivering new features on a frequent basis. They are looking for a cost effective, reliable platform which integrates with their existing tools and practices – development, test, release; and working together with IT departments automates deployment, management and alerting, all with the goal of zero downtime.
 
@@ -46,14 +45,19 @@ Web platforms and frameworks are increasingly being used to develop, test and ho
 
 App Service Web Apps is a good option for hosting such applications, offering scalable and reliable infrastructure which is managed and patched with near zero manual intervention and downtime. The Microsoft Azure platform provides many data storage options to support web applications hosted on Web Apps from Microsoft Azure SQL Database, a managed scalable relational database-as-a-service, to popular services from our partners such as ClearDB MySQL Database and MongoDB.
 
-An alternative approach is to make use of your existing investment on premise. In the example scenario, an employee expense system, you may wish to maintain your data store within your own internal infrastructure. This could be for integration with internal systems (reporting, payroll, billing etc.) or to satisfy an IT governance requirement.  Web Apps provides two methods of enabling you to connect to your on premises infrastructure:
+An alternative approach is to make use of your existing investment on premise. In the example scenario, an employee expense system, you may wish to maintain your data store within your own internal infrastructure. This could be for integration with internal systems (reporting, payroll, billing etc.) or to satisfy an IT governance requirement.  Web Apps provides a number of methods of enabling you to connect to your on premises infrastructure:
 
+- [App Service Environments](../app-service-app-service-environment-intro.md) - App Service Environments (ASE) are a new Premium feature which was recently add to the Microsoft Azure App Service offering.  ASEs provide a fully isolated and dedicated environment for securely running Azure App Service apps at high scale while also offering isolation and secure network access   
 - [Hybrid Connections](../integration-hybrid-connection-overview.md) – Hybrid Connections are a feature of Microsoft Azure BizTalk Services and enable Web Apps to connect to on premises resources securely, for example SQL Server, MySQL, Web APIs and custom web services. 
 - [Virtual Network Integration](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) – Web Apps integrtaion with Azure Virtual Network allows you to connect your web app to an Azure Virtual Network which in turn can be connected to your on premises infrastructure through a site-to-site VPN. 
 
-The following diagram is an example high-level solution with connectivity options for on premises resources.
+The following diagrams depict an example high-level solution with connectivity options for on premises resources.  The first example shows how this can be achieved using standard features of Azure App Service and the second shows how this can be achieved using the premium offering, App Service Environments.
 
-![](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions.png)
+Using Standard App Service Features:
+![](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions.png "Using Standard App Service Features")
+
+Using an App Service Environment:
+![](./media/web-sites-enterprise-offerings/on-premise-connectivity-solutions-ASE.png "Using an App Service Environment")
 
 ## Business Benefits ##
 
@@ -65,7 +69,7 @@ App Service Web Apps is built on a Platform as a Service model which provides a 
 
 The PaaS Model underpinning Web Apps enables practitioners of the DevOps methodology to fulfill their goals. As a business this means full management and integration throughout the application entire life cycle, including development, testing, release, monitoring and management, and support. 
 
-For development teams, continuous integration and deployment workflows can be configured from Visual Studio Online, GitHub, TeamCity, Hudson or BitBucket, enabling automated build, test and deployment enabling faster release cycles whilst reducing the friction involved in releasing in existing infrastructure. Web Apps also supports the creation of multiple testing and staging environments for your release workflow, no longer do you need to reserve or allocate hardware for these purposes, you can create as many environments as you wish and define your own promotion to release workflow. As a business you could decide to release to a test slot from source control, perform a series of tests and upon successful completion promote to a stage slot and finally swap to production with no downtime, with the added benefit that web applications hosted on Web Apps are preloaded and hot to provide the best possible customer experience.
+For development teams, continuous integration and deployment workflows can be configured from Visual Studio Team Services, GitHub, TeamCity, Hudson or BitBucket, enabling automated build, test and deployment enabling faster release cycles whilst reducing the friction involved in releasing in existing infrastructure. Web Apps also supports the creation of multiple testing and staging environments for your release workflow, no longer do you need to reserve or allocate hardware for these purposes, you can create as many environments as you wish and define your own promotion to release workflow. As a business you could decide to release to a test slot from source control, perform a series of tests and upon successful completion promote to a stage slot and finally swap to production with no downtime, with the added benefit that web applications hosted on Web Apps are preloaded and hot to provide the best possible customer experience.  In addition businesses can make use of the Testing in Production capabilities of App Service Web Apps to direct a section of traffic to a different slot, validate the changes, before switching all traffic to the new deployment or reverting all traffic to the previous deployment. 
 
 Operations teams can feel confident that they are in the best possible position to react to any issues with any of their web applications hosted on Web Apps with the built in monitoring and alerts features. Should Operations Teams have already invested in analytics and monitoring solutions such from Microsoft Visual Studio Application Insights, New Relic and AppDynamics. These are also fully supported on Web Apps enabling continuity and a familiar environments from which to monitor your web applications.
 
@@ -81,13 +85,15 @@ App Service Web Apps provides a stable, reliable platform which has been proven 
 
 Microsoft Azure platform allows Role Based Authorization Controls enabling enterprise levels of control to resources within Web Apps. RBAC gives enterprises the power to implement their own access management policies for all of their assets in the Azure Environment, by assigning users to groups and in turn assigning the required permissions to those groups against the asset such as a web app. For more information on RBAC in Azure, see [http://aka.ms/azurerbac](../role-based-access-control-configure/). By utilizing Web Apps, you can be sure your web applications are deployed in a safe and secure environment and you have full control into which territory your assets are deployed. 
 
-Additionally, Web Apps is also able to make full use of your on premises investments by offering the ability to connect back to your internal resources, such as your data warehouse or SharePoint environment. As discussed in [High Level solution] you can make use of Hybrid Connections and Virtual Network Connectivity to establish connections to on premises infrastructure and services.
+Azure App Service Environments [http://aka.ms/aseintro] are a new premium service plan option for enterprise customers wishing to make use of Azure App Service and these provide a fully isolated and dedicated environment.  This enables enterprise customers to deploy applications that can take advantage of very high scale whilst also having full control over inbound and outbound network traffic, and ASEs enable applications to have high speed secure connections over virtual networks to on-premises resources.
+
+App Service Web Apps are also able to make full use of your on premises investments by offering the ability to connect back to your internal resources, such as your data warehouse or SharePoint environment. As discussed in [High Level solution] you can make use of Hybrid Connections and Virtual Network Connectivity to establish connections to on premises infrastructure and services.
 
 ### Global Scale ###
 
 App Service Web Apps is a global and scalable platform, enabling your web applications to grow and adapt to the needs of a growing business quickly and with minimal long term planning and cost. In typical on premises infrastructure scenarios, expansion and increase in demand both locally and geographically would require a large amount of management, planning and expenditure to provision and manage additional infrastructure. Web Apps offers the ability to scale your web applications with the ebb and flow of your requirements. For example using the expenses application as an example, for the majority of the month your users are light users of the application but as the deadline each month for expense submissions to be entered and usage increases on your application, Web Apps has the capability to automatically provision more infrastructure for your application and then once the usage has subsided again it can scale back to the baseline infrastructure you define.
 
-Web Apps is available globally in 17 datacenters worldwide, and growing. For the most updated list of regions and location, see [http://aka.ms/azlocations](http://aka.ms/azlocations). With Web Apps, your business can easily achieve global reach and scale. As your company grows into new regions, the reporting application dashboards that you use and host on Web Apps can easily be deployed into additional datacenters and serve local users far more quickly through the combination of Web Apps and Azure Traffic Manager, all with the added benefit of the scalable infrastructure underneath being able to contract and expand as the needs of the regional offices change.
+Web Apps is available globally in 24 datacenters worldwide, and growing. For the most updated list of regions and location, see [http://aka.ms/azlocations](http://aka.ms/azlocations). With Web Apps, your business can easily achieve global reach and scale. As your company grows into new regions, the reporting application dashboards that you use and host on Web Apps can easily be deployed into additional datacenters and serve local users far more quickly through the combination of Web Apps and Azure Traffic Manager, all with the added benefit of the scalable infrastructure underneath being able to contract and expand as the needs of the regional offices change.
  
 ## Solution Details ##
 
@@ -129,8 +135,9 @@ The final step in this first stage of the migration requires the updating of con
 The Azure platform offers a number of alternatives to using Azure SQL Database as a web applications primary database, this is to enable different workloads i.e. use of a NoSQL Solution or to enable the platform to suit a business’ data needs. For example, a business may hold data that must not be stored off-site or in a public cloud environment, and therefore would look to maintain the use of their on-premises database.
 
 #### Connectivity to On Premises Resources ####
-App Service Web Apps offers two methods of connecting to on premises resources, such as databases, enabling reuse of existing high value infrastructure. The two methods are Web Apps Virtual Network Integration and Hybrid Connections:
+App Service Web Apps offers multiple options for connecting to on premises resources, such as databases, enabling reuse of existing high value infrastructure. The options are as listed below:
 
+- App Service Environments are isolated and created within a subnet of a virtual network, therefore enabling the environment to communicate with private endpoints located within the same virtual network -  [http://aka.ms/appserviceasenetworking]
 - Web Apps Virtual Network Integration supports integration between Web Apps and an Azure Virtual Network, allowing you access to resources running in your Virtual Network which, if connected to your on premises network with site-to-site VPN, allows connectivity direct to your on premises systems.
 - Hybrid Connections are a feature of Azure BizTalk Services and provide an easy way to connect to individual on-premises resources such as SQL Server, MySQL, HTTP Web APIs and most custom Web Services.
 
@@ -146,7 +153,7 @@ In addition to the scaling flexibility of Web Apps, the overall platform enables
 App Service Web Apps offers a flexible, cost effective, responsive solution to the dynamic needs of a business in a rapidly evolving environment. Web Apps helps businesses increase productivity and efficiency by making use of a managed platform with modern DevOps capabilities and reduced hands on management, while providing enterprise capabilities in scale, resilience, security and integration with on-premises assets.
 
 ## Call to Action ##
-For more information on the Azure App Service Web Apps service, visit [http://aka.ms/enterprisewebsites](/sservices/websites/enterprise/) where more information can be sourced, and sign up for a trial today at [http://aka.ms/azuretrial](/pricing/free-trial/) to evaluate the service and discover the benefits for your business.
+For more information on the Azure App Service Web Apps service, visit [http://aka.ms/enterprisewebsites](/services/websites/enterprise/) where more information can be sourced, and sign up for a trial today at [http://aka.ms/azuretrial](/pricing/free-trial/) to evaluate the service and discover the benefits for your business.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

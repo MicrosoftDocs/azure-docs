@@ -1,9 +1,9 @@
-<properties 
-   pageTitle="Azure Active Directory Authentication Protocols"
+<properties
+   pageTitle="Azure Active Directory Authentication Protocols | Microsoft Azure"
    description="An overview of the authentication protocols supported by Azure Active Directory (AD)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
-   services="active-directory" 
+   services="active-directory"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/01/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory Authentication Protocols
 
 Azure Active Directory (Azure AD) supports several of the most widely used authentication and authorization protocols. The topics in this section describe the supported protocols and their implementation in Azure AD. The topics included a review of supported claim types, an introduction to the use of federation metadata, detailed OAuth 2.0. and SAML 2.0 protocol reference documentation, and a troubleshooting section.
 
-## Authentication Protocols Articles and Reference 
+## Authentication Protocols Articles and Reference
 
 - [Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) – Learn about Azure AD’s signing key rollover cadence, changes you can make to update the key automatically, and discussion for how to update the most common application scenarios.
 
@@ -47,11 +47,10 @@ Azure Active Directory (Azure AD) supports several of the most widely used authe
 
 
 
-## See Also 
+## See Also
 
 [Azure Active Directory Developer's Guide](active-directory-developers-guide.md)
 
-[Using Azure AD for Authentication](https://msdn.microsoft.com/library/azure/dn385718.aspx)
+[Using Azure AD for Authentication](../app-service-web/web-sites-authentication-authorization.md)
 
 [Active Directory Code Samples](active-directory-code-samples.md)
- 

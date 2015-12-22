@@ -1,10 +1,10 @@
 <properties
 	pageTitle="How to use Blob storage from .NET | Microsoft Azure"
-	description="Learn how to use Microsoft Azure Blob storage to upload, download, list, and delete blob content. Samples are written in C#."
+	description="Learn about Azure Blob storage, and how to create a container and to upload, download, list, and delete blob content."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
-	manager="adinah"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 
@@ -25,10 +25,9 @@
 
 This guide will demonstrate how to perform common scenarios using the
 Azure Blob storage service. The samples are written in C\# and
-use the Azure Storage Client Library for .NET. The scenarios covered include
-**uploading**, **listing**, **downloading**, and **deleting** blobs.
+use the Azure Storage Client Library for .NET. The Storage Client Library is an SDK that simplifies interacting with Blob Storage REST API's. The scenarios covered in this guide include **uploading**, **listing**, **downloading**, and **deleting** blobs and should take you about an hour to complete. If you want to watch a Getting Started Video see [Introduction To Azure Storage in five minutes](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/) or you can read [Getting started with Azure Storage in five minutes](storage-getting-started-guide.md).
 
-> [AZURE.NOTE] This guide targets the Azure .NET Storage Client Library 2.x and above. The recommended version is Storage Client Library 4.x, which is available via [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) or as part of the [Azure SDK for .NET](/downloads/). See [Programmatically access Blob storage](#programmatically-access-blob-storage) below for more details on obtaining the Storage Client Library.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -99,7 +98,9 @@ Azure Blob Storage supports block blobs and page blobs.  In the majority of case
 To upload a file to a block blob, get a container reference and use it to get
 a block blob reference. Once you have a blob reference, you can upload any
 stream of data to it by calling the **UploadFromStream** method. This operation will create the blob if it didn't previously exist,
-or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.
+or overwrite it if it does exist. 
+
+The following example shows how to upload a blob into a container and assumes that the container was already created.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -313,28 +314,71 @@ Because the sample method calls an asynchronous method, it must be prefaced with
         while (continuationToken != null);
     }
 
+## Writing to an append blob
+
+An append blob is a new type of blob, introduced with version 5.x of the Azure storage client library for .NET. An append blob is optimized for append operations, such as logging. Like a block blob, an append blob is comprised of blocks, but when you add a new block to an append blob, it is always appended to the end of the blob. You cannot update or delete an existing block in an append blob. The block IDs for an append blob are not exposed as they are for a block blob. 
+ 
+Each block in an append blob can be a different size, up to a maximum of 4 MB, and an append blob can include a maximum of 50,000 blocks. The maximum size of an append blob is therefore slightly more than 195 GB (4 MB X 50,000 blocks).
+
+The example below creates a new append blob and appends some data to it, simulating a simple logging operation.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create service client for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+    //Get a reference to a container.
+    CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
+
+    //Create the container if it does not already exist. 
+    container.CreateIfNotExists();
+
+    //Get a reference to an append blob.
+    CloudAppendBlob appendBlob = container.GetAppendBlobReference("append-blob.log");
+
+    //Create the append blob. Note that if the blob already exists, the CreateOrReplace() method will overwrite it.
+    //You can check whether the blob exists to avoid overwriting it by using CloudAppendBlob.Exists().
+    appendBlob.CreateOrReplace();
+
+    int numBlocks = 10;
+
+    //Generate an array of random bytes.
+    Random rnd = new Random();
+    byte[] bytes = new byte[numBlocks];
+    rnd.NextBytes(bytes);
+        
+    //Simulate a logging operation by writing text data and byte data to the end of the append blob.
+    for (int i = 0; i < numBlocks; i++)
+    {
+        appendBlob.AppendText(String.Format("Timestamp: {0:u} \tLog Entry: {1}{2}",
+            DateTime.UtcNow, bytes[i], Environment.NewLine));
+    }
+
+    //Read the append blob to the console window.
+    Console.WriteLine(appendBlob.DownloadText());
+
+See [Understanding Block Blobs, Page Blobs, and Append Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx) for more information about the differences between the three types of blobs.
+
 ## Next steps
 
-Now that you've learned the basics of blob storage, follow these links
-to learn about more complex storage tasks.
-<ul>
-<li>View the Blob service reference documentation for complete details about available APIs:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET reference</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API reference</a></li>
-  </ul>
-</li>
-<li>Learn about more advanced tasks you can perform with Azure Storage at <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Storing and Accessing Data in Azure</a>.</li>
-<li>Learn how to simplify the code you write to work with Azure Storage by using the <a href="../websites-dotnet-webjobs-sdk/">Azure WebJobs SDK.</li>
-<li>View more feature guides to learn about additional options for storing data in Azure.
-  <ul>
-    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Table Storage</a> to store structured data.</li>
-    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Queue Storage</a> to store unstructured data.</li>
-    <li>Use <a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL Database</a> to store relational data.</li>
-  </ul>
-</li>
-</ul>
+Now that you've learned the basics of Blob storage, follow these links
+to learn more.
+
+### Blob storage reference documentation
+
+- [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+- [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+
+### Additional feature guides
+
+- [Get started with Table storage for .NET](storage-dotnet-how-to-use-tables.md)
+- [Get started with Queue storage for .NET](storage-dotnet-how-to-use-queues.md)
+- [Get started with File storage for .NET](storage-dotnet-how-to-use-files.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+- [Use SQL Database to store relational data](../sql-database/articles/sql-database-dotnet-how-to-use.md)
+- [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -342,7 +386,6 @@ to learn about more complex storage tasks.
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409

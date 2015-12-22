@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # How to use the API Inspector to trace calls in Azure API Management
 
-API Management provides an API Inspector tool to help you with debugging and troubleshooting your APIs. The API Inspector can be used programmatically from your applications and can also be used directly from the developer portal. This guide provides a walk-through of using API Inspector.
+API Management provides an API Inspector tool to help you with debugging and troubleshooting your APIs. The API Inspector can be used programmatically and can also be used directly from the developer portal. 
 
->[AZURE.NOTE] In addition to tracing operations, API Inspector also traces [policy expression](https://msdn.microsoft.com/library/azure/dn910913.aspx) evaluations. For a demonstration, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 21:00.
+In addition to tracing operations, API Inspector also traces [policy expression](https://msdn.microsoft.com/library/azure/dn910913.aspx) evaluations. For a demonstration, see [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 21:00.
+
+This guide provides a walk-through of using API Inspector.
+
+>[AZURE.NOTE] API Inspector traces are only generated and made available for requests containing subscription keys that belong to the [administrator](api-management-howto-create-groups.md) account.
 
 ## <a name="trace-call"> </a> Use API Inspector to trace a call
 
@@ -30,7 +34,7 @@ This tutorial shows how to use the API Inspector to trace operations using the B
 
 
 
-To get started, click **developer portal** in the Azure Portal for your API Management service. Operations can be called directly from the developer portal which provides a convenient way to view and test the operations of an API.
+To get started, click **developer portal** in the Azure Classic Portal for your API Management service. Operations can be called directly from the developer portal which provides a convenient way to view and test the operations of an API.
 
 >If you haven't yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
@@ -226,7 +230,7 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 ## <a name="next-steps"> </a>Next steps
 
 -	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
--	Watch a demo of tracing policy expressions in [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Fast-forward to 21:00 to see the demo.
+-	Watch a demo of tracing policy expressions in [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Fast-forward to 21:00 to see the demo.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
 
@@ -241,7 +245,7 @@ To review the values in the trace, download the trace file from the **ocp-apim-t
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Get started with advanced API configuration]: api-management-get-started-advanced.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png

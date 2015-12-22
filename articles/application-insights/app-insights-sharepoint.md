@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Monitor a SharePoint site with Application Insights
@@ -73,23 +73,25 @@ Insert a web part and embed the code snippet in it.
 
 ## View data about your app
 
+Redeploy your app.
+
 Return to your application blade in the [Azure portal](http://portal.azure.com).
 
-The first events will appear in Diagnostic Search. 
+The first events will appear in Search. 
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Click Refresh after a few seconds if you're expecting more data.
 
-**Usage analytics** provides a quick snapshot of users, sessions and page views:
+From the overview blade, click **Usage analytics** to see to charts of users, sessions and page views:
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Click through Page Views to see more details: 
+Click any chart to see more details - for example Page Views:
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
-Click through Users to see details about new users and their locations.
+Or Users:
 
 
 ![](./media/app-insights-sharepoint/08-users.png)
@@ -100,7 +102,7 @@ Click through Users to see details about new users and their locations.
 
 * [Web tests](app-insights-monitor-web-app-availability.md) to monitor the availability of your site.
 
-* [Application Insights](app-insights-get-started.md) for other types of app.
+* [Application Insights](app-insights-overview.md) for other types of app.
 
 
 

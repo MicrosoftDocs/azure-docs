@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="12/04/2015" 
 	ms.author="tdykstra"/>
 
 # Manage API apps in Azure App Service
+
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 This article shows how use the [Azure preview portal](https://portal.azure.com/) to perform API app management and monitoring tasks. Here are some of the tasks you can do:
 
@@ -65,7 +67,7 @@ The only functions provided on **API app** blade that are not duplicates from th
 
 ### Tasks you can do only on the API app Host blade
 
-You use the **API App Host** blade for all of the tasks that you would do for any web app. For more information, see [Manage web apps in the portal](../app-service-web/web-sites-manage.md).  
+You use the **API App Host** blade for all of the tasks that you would do for any web app.
 
 ### Tasks you can do only on the gateway blade
 
@@ -80,7 +82,7 @@ The gateway and gateway host blades share UI the same as the API app and API app
 
 ### Tasks you can do only on the gateway host blade
 
-You use the **Gateway Host** blade for all of the tasks that you would do for any web app. For more information, see [Manage web apps in the portal](web-sites-manage.md).  
+You use the **Gateway Host** blade for all of the tasks that you would do for any web app.
 
 ## <a id="navigate"></a>How to navigate to API app and gateway blades 
 

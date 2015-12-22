@@ -1,11 +1,12 @@
-<properties 
-	pageTitle="Send email using SendGrid - Azure Mobile Services" 
-	description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="Erikre" 
-	manager="sendgrid" 
+<properties
+	pageTitle="Send email using SendGrid | Microsoft Azure"
+	description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app."
+	services="mobile-services"
+	documentationCenter=""
+	authors="Erikre"
+	manager="sendgrid"
 	editor=""/>
+
 
 <tags 
 	ms.service="mobile-services" 
@@ -13,11 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="11/30/2015" 
 	ms.author="Erikre"/>
 
 
 # Send email from Mobile Services with SendGrid
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 This topic shows you how can add email functionality to your mobile service. In this tutorial you add server side scripts to send email using SendGrid. When complete, your mobile service will send an email each time a record is inserted.
 
@@ -29,7 +35,7 @@ This tutorial walks you through these basic steps to enable email functionality:
 2. [Add a script to send email]
 3. [Insert data to receive email]
 
-This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services]. 
+This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete [Get started with Mobile Services].
 
 ## <a name="sign-up"></a>Create a new SendGrid account
 
@@ -37,14 +43,14 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="add-script"></a>Register a new script that sends emails
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+1. Log on to the [Azure classic portal], click **Mobile Services**, and then click your mobile service.
 
-2. In the Management Portal, click the **Data** tab and then click the **TodoItem** table. 
+2. In the Azure classic portal, click the **Data** tab and then click the **TodoItem** table.
 
 	![][1]
 
 3. In **todoitem**, click the **Script** tab and select **Insert**.
-   
+
 	![][2]
 
 	This displays the function that is invoked when an insert occurs in the **TodoItem** table.
@@ -52,8 +58,8 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 4. Replace the insert function with the following code:
 
         var SendGrid = require('sendgrid').SendGrid;
-        
-        function insert(item, user, request) {    
+
+        function insert(item, user, request) {
             request.execute({
                 success: function() {
                     // After the record has been inserted, send the response immediately to the client
@@ -64,8 +70,8 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
             });
 
             function sendEmail(item) {
-                var sendgrid = new SendGrid('**username**', '**password**');       
-                
+                var sendgrid = new SendGrid('**username**', '**password**');
+
                 sendgrid.send({
                     to: '**email-address**',
                     from: '**from-address**',
@@ -86,7 +92,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 	- **_email-address_**: the address that the email is sent to. In a real-world app, you can use tables to store and retrieve email addresses. When testing your app, just use your own email address.
 
-	- **_from-address_**: the address from which the email originates. Consider using a registered domain address that belongs to your organization. 
+	- **_from-address_**: the address from which the email originates. Consider using a registered domain address that belongs to your organization.
 
      > [AZURE.NOTE] If you do not have a registered domain, you can instead use the domain of your Mobile Service, in the format *notifications@_your-mobile-service_.azure-mobile.net*. However, messages sent to your mobile service domain are ignored.
 
@@ -94,7 +100,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 ## <a name="insert-data"></a>Insert test data to receive email
 
-1. In the client app project, run the quickstart application. 
+1. In the client app project, run the quickstart application.
 
 	This topic shows the Windows Store version of the quickstart,
 
@@ -102,7 +108,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 	![][3]
 
-3. Notice that you receive an email, such as one shown in the notification below. 
+3. Notice that you receive an email, such as one shown in the notification below.
 
 	![][4]
 
@@ -133,8 +139,8 @@ these links to learn more about SendGrid.
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started
 [sign up page]: https://sendgrid.com/windowsazure.html
 [Multiple User Credentials page]: https://sendgrid.com/credentials
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [cloud-based email service]: https://sendgrid.com/email-solutions
 [transactional email delivery]: https://sendgrid.com/transactional-email
 
- 
+

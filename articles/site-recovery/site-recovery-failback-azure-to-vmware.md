@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Steps to failback from Azure to VMware" 
-   description="This article describes how Azure Site Recovery and vContinuum tool can be used to failback a virtual machine back to VMware." 
+   pageTitle="Fail back VMware virtual machines and physical servers from Azure to VMware | Microsoft Azure" 
+   description="This article describes how to fail back a VMware virtual machine that's been replicated to Azure with Azure Site Recovery." 
    services="site-recovery" 
    documentationCenter="" 
    authors="ruturaj" 
@@ -9,238 +9,139 @@
 
 <tags
    ms.service="site-recovery"
-   ms.devlang="powershell"
+   ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.topic="article"
-   ms.workload="required" 
-   ms.date="05/27/2015"
+   ms.workload="storage-backup-recovery" 
+   ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-# Steps to failback from Azure to VMware
-
-This document will walk you through the steps you need to failback from Azure back to your VMware site. You must have already followed the steps given in the tutorial for [VMware to Azure protection and recovery](site-recovery-vmware-to-azure.md).
-
-After a successful failover to Azure, the virtual machines will be
-available in the virtual machines tab. When you decide to failback –
-below are the steps you need to follow.
-
-Note that when you failback from Azure back to your VMware site, the recovery can only be to a virtual machine. Even if your initial source on VMware was a physical machine, failover to Azure followed by a failback to VMware will convert it into a virtual machine.
+# Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery
 
 ## Overview
 
-1.  Install vContinuum server on-premises
+This document describes how to fail back VMware virtual machines and Windows/Linux physical servers from Azure to your on-premises site. 
 
-    a.  Configure it to point to the CS
+To set up replication and failover for this scenario follow the instructions in [this article](site-recovery-vmware-to-azure.md). After a successful failover of VMware virtual machines or physical servers to Azure with Site Recovery, the machines will be available in the Azure virtual machines tab. 
 
-2.  Deploy a PS on Azure
+>[AZURE.NOTE] You can only fail back VMware virtual machines and Windows/Linux physical servers from Azure to VMware virtual machines in the on-premises primary site.  If you're failing back a physical machine, failover to Azure will convert it to an Azure VM, and failback to VMware will convert it to a VMware VM. 
 
-3.  Install a MT on-premises
-
-4.  Steps to protect the failed over VMs back to on-premises
-
-    a.  Configuration considerations
-
-5.  Monitoring protection of VMs back to on-premises
-
-6.  Failover the VMs back to on-premises
-
-Below is the setup overview that we will achieve with the below steps.
-Part of the setup has already been completed during failover.
-
--   The blue lines are the connections used during failover.
-
--   The red lines are the connections used during failback.
-
--   The lines with arrows go over the internet.
+This diagram represents the failover and failback scenario. The blue lines are the connections used during failover. The red lines are the connections used during failback. The lines with arrows go over the internet.
 
 ![](./media/site-recovery-failback-azure-to-vmware/vconports.png)
 
-## Install vContinuum on-premsies
+## Step 1: Install vContinuum on-premises
 
-The vContinuum setup will be at available at [download location](http://go.microsoft.com/fwlink/?linkid=526305).
+You'll need to install a vContinuum server on premises and point it to the configuration server.
 
-Also install the patch given here on the vConinuum - available at [download location](http://go.microsoft.com/fwlink/?LinkID=533813).
+1.  [Download vContinuum](http://go.microsoft.com/fwlink/?linkid=526305). 
+2.  After you've downloaded then download the updated [vContinuum update](http://go.microsoft.com/fwlink/?LinkID=533813) verison.
+3.  Run setup for the latest version to install vContinuum. On the **Welcome** page click **Next**.
+	![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+4.  On the first page of the wizard specify the CX server IP address and the CX server port. Select **Use HTTPS**.
 
-1.  Launch the setup to begin installation of vContinuum. After the
-    welcome screen click next to begin specifying the settings
+	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+5.  Find the configuration server IP address on the **Dashboard** tab of the configuration server VM in Azure.
+	![](./media/site-recovery-failback-azure-to-vmware/image4.png)
 
-2.  Specify the CX server IP address and the CX server port. Ensure to
-    select HTTPs in the checkbox.
+6.  Find the configuration server HTTPS public port on the **Endpoints** tab of the configuration server VM in Azure.
 
-![](./media/site-recovery-failback-azure-to-vmware/image3.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image5.png)
 
-    a.  To discover the CX IP go to the CS deployment on Azure and view
-        its dashboard. The public IP address will be displayed under
-        Public Virtual IP address.
+7. On the **CS Passphrase Details** page specify the passphrase that you noted down when you registered the configuration server. If you don't remember it check it in **C:\\Program Files (x86)\\InMage Systems\\private\\connection.passphrase** on the configuration server VM.
 
-![](./media/site-recovery-failback-azure-to-vmware/image4.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image6.png)
 
-    b.  To discover the CX public port go to the endpoints tab in the VM
-        page and identify the HTTPs endpoints public port
+8.  In the **Select Destination Location** page specify where you want to install the vContinuum server and click **Install**.
 
-![](./media/site-recovery-failback-azure-to-vmware/image5.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image7.png)
 
-3.  Specify the CS Passphrase. You need to have noted down the
-    passphrase during the CS registration. You would have used the
-    passphrase during MT and PS deployments also. In case you do not
-    remember the passphrase you can go in to the CS server on Azure and
-    find the passphrase stored under C:\\Program Files (x86)\\InMage
-    Systems\\private\\connection.passphrase
-
-    ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
-
-4.  Specify the location to install the vContinuum server and begin
-    installation
-
-    ![](./media/site-recovery-failback-azure-to-vmware/image7.png)
-
-5.  Once the installation completes, you can launch the vContinuum to
-    see it working.
-
+9. After installation completes, you can launch vContinuum.
     ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
-## Install PS server on Azure
 
-A Process Server needs to be installed on Azure so that the VMs in Azure
-can send the data back to on-premises MT. You need to deploy the PS on
-Azure in the same network as the Configuration Server.
+## Step 2: Install a process server in Azure 
 
-1.  On the Configuration Severs page in Azure, select to add a new
-    Process Server ![](./media/site-recovery-failback-azure-to-vmware/image9.png)
+You need to install a process server in Azure so that the VMs in Azure can send the data back to an on-premises master target server. 
 
-2.  Configure the below settings on a Process Server to deploy a new
-    server
+1.  On the **Configuration Servers** page in Azure, select to add a new process server.
 
-    a.  Give the Process Server a name
+	![](./media/site-recovery-failback-azure-to-vmware/image9.png)
 
-    b.  Enter a username to connect to the virtual machine as admin
+2.  Specify a process server name, and a name and password to connect to the virtual machine as an administrator. Select the configuration server to which you want to register the process server. This should be the same server you're using to protect and fail over your virtual machines.
+3.  Specify the Azure network in which the process server should be deployed. It should be the same network as the configuration server. Specify a unique IP address selected subnet and begin deployment.
 
-    c.  Enter the password to login with
+	![](./media/site-recovery-failback-azure-to-vmware/image10.png)
 
-    d.  Select the Configuration server to which the Process server
-        needs to be registered to. Ensure that you select the correct
-        Configuration server. This is the same server using which you
-        protected and failed over your virtual machines.
+4.  A job is triggered to deploy the process server.
 
-    e.  Specify the Azure Network into which you need to deploy the
-        Process Server. Ensure that you select the same network as your
-        Configuration Server’s network.
+	![](./media/site-recovery-failback-azure-to-vmware/image11.png)
 
-    f.  Specify a unique IP address from the subnet selected.
+5.  After the process server is deployed in Azure you can log into the server
+using the credentials you specified. Register the process server in the same way you registered the on-premises process server. 
 
-    g.  Begin the deployment of the Process server.
+	![](./media/site-recovery-failback-azure-to-vmware/image12.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image10.png)
+>[AZURE.NOTE] The servers registered during failback won't be visible under VM properties in Site Recovery. They are only visible under the **Servers** tab of the configuration server to which they're registered. It can take about 10-15 minutes until they the process server appears on the tab.
 
-1.  A job to deploy the Process server will be triggered
 
-![](./media/site-recovery-failback-azure-to-vmware/image11.png)
+## Step 3: Install a master target server on-premises
 
-Once the Process server is deployed on Azure you can log into the server
-using the credentials you specified. Use the same steps you used during
-forward direction of protection to register the PS.
+Depending on your source virtual machines operating system, you need to install a Linux or a Windows master target server on-premises.
 
-![](./media/site-recovery-failback-azure-to-vmware/image12.png)
+### Deploy a Windows master target server
 
-The Servers registered during failback will not be visible under VM
-properties. They will be only visible under the Servers tab under the
-Configuration server to which they have been registered.
+A Windows master target is already bundled with vContinuum setup. When you install
+the vContinuum, a master server is also deployed on the same machine and
+registered to the configuration server.
 
-It can take about 10-15 mins for the PS to be listed under the CS.
+1.  To begin deployment, create an empty machine on-premises on the ESX host onto which you want to recover the VMs from Azure.
 
-## Install an MT server on-premises
-
-Depending on the source side virtual machines you need to install a
-Linux or a Windows Master Target server on-premises.
-
-### Deploy Windows MT
-
-A windows MT is already bundled with vContinuum setup. When you install
-the vContinuum, an MT is also deployed on the same machine and
-registered to the Configuration server.
-
-1.  To begin deployment, create an empty machine on-premises on the ESX
-    host onto which you want to recover the VMs from Auzre.
-
-2.  Ensure that there are at least two disks attached to the VM – one is
-    used for the OS and the second one is used for Retention Drive.
+2.  Ensure that there are at least two disks attached to the VM – one is used for the operating system and the other is used for the retention drive.
 
 3.  Install the operating system.
 
-4.  Install the vContinuum on the server. This would also complete
-    installation of the MT.
+4.  Install the vContinuum on the server. This also completes installation of the master target server.
 
-### Deploy Linux MT
+### Deploy a Linux master target server
 
-1.  To begin deployment, create an empty machine on-premises on the ESX
-    host onto which you want to recover the VMs from Auzre.
+1.  To begin deployment, create an empty machine on-premises on the ESX host onto which you want to recover the VMs from Azure.
 
-2.  Ensure that there are at least two disks attached to the VM – one is
-    used for the OS and the second one is used for Retention Drive.
+2.  Ensure that there are at least two disks attached to the VM – one is used for the operating system and the other is used for the retention drive.
 
-3.  Install the linux operating system.
+3.  Install the Linux operating system. The Linux master target system should not use LVM for root or retention storage spaces. A Linux master target server is configured to avoid LVM partitions/disks discovery by default.
+4.  Partitions that you can create:
 
-    a.  NOTE: Linux Master Target (MT) system should not use LVM for
-        root or retention storage spaces. Linux MT configured to avoid
-        LVM partitions/disks discovery by default.
+	![](./media/site-recovery-failback-azure-to-vmware/image13.png)
 
-    b.  Partitions that you can create are
-        ![](./media/site-recovery-failback-azure-to-vmware/image13.png)
+5.  Carry out the below post installation steps before beginning the master target installation.
 
-4.  Carry out the below post installation steps before beginning MT
-    installation.
 
 #### Post OS Installation Steps
 
-To get SCSI ID’s for each of SCSI hard disk in a Linux virtual machine,
-you should enable the parameter “disk.EnableUUID = TRUE”.
+To get the SCSI ID’s for each of SCSI hard disk in a Linux virtual machine,
+enable the parameter “disk.EnableUUID = TRUE” as follows:
 
-To enable this parameter, follow the steps as given below:
+1. Shut down your virtual machine.
+2. Right-click the VM entry in the left-hand panel > **Edit Settings**.
+3. Click the **Options** tab. Select **Advanced\>General item** > **Configuration Parameters**. The **Configuration Parameters** option is only available when the machine is shut down.
 
-a. Shut down your virtual machine.
+	![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 
-b. Right-click the VM’s entry in the left-hand panel and select **Edit
-Settings.**
+4. Checks whether a row with **disk.EnableUUID** exists. If it does and is set to **False** then set it to **True **(not case sensitive). If exists and is set to true, click **Cancel** and test the SCSI command inside the guest operating system after it's booted up. If doesn't exist click **Add Row.**
+5. Add disk.EnableUUID in the **Name** column. Set its value as TRUE. Don't add the above values along with double-quotes.
 
-c. Click the **Options** tab.
+	![](./media/site-recovery-failback-azure-to-vmware/image15.png)
 
-d. Select the **Advanced\>General item** on the left and click the
-**Configuration Parameters** that you see on the right.
+#### Download and install the additional packages
 
-![](./media/site-recovery-failback-azure-to-vmware/image14.png)
-
-“Configuration Parameters” option will be in de-active state when the
-machine is running”. In order to make this tab active, shutdown machine.
-
-e. See whether already a row with **disk.EnableUUID** exists?
-
-If exists and if the value is set to False over write the value with
-True (True and False values are case in-sensitive).
-
-If exists and is set to true, click on cancel and test the SCSI
-command inside guest operating system after it is boot-up.
-
-f. If does not exist click **Add Row.**
-
-Add disk.EnableUUID in the Name column.
-
-Set its value as TRUE
-
-NOTE: Do not add the above values along with double-quotes.
-
-![](./media/site-recovery-failback-azure-to-vmware/image15.png)
-
-#### Download and Install the Additional Packages
-
-NOTE: Make sure system has Internet connectivity before download and
-installing additional packages.
+NOTE: Make sure the system has internet connectivity before downloading and installing the additional packages.
 
 \# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
-Above command will download below mentioned 15 packages from CentOS 6.6
-repository and install.
+This command downloads these 15 packages from CentOS 6.6
+repository and installs them:
 
 bc-1.06.95-1.el6.x86\_64.rpm
 
@@ -259,7 +160,7 @@ perl-5.10.1-136.el6\_6.1.x86\_64.rpm
 perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
 
 perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
-
+	
 perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
 
 perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
@@ -272,9 +173,9 @@ snappy-1.1.0-1.el6.x86\_64.rpm
 
 wget-1.12-5.el6\_6.1.x86\_64.rpm
 
-NOTE: If source machine uses Reiser or XFS filesystem for root or boot
-device, then following packages should be download and installed on
-Linux Master Target prior to the protection.
+NOTE: If the source machine uses Reiser or XFS filesystem for the root or boot
+device, then following packages should be downloaded and installed on
+Linux master target prior to protection.
 
 \# cd /usr/local
 
@@ -292,504 +193,258 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
 \# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
-#### Apply Custom Configuration Changes
+#### Apply custom configuration changes
 
-Before applying custom configuration changes make sure you have
-completed Post Installation Steps
+Before applying these changes make sure you've completed the previous section, then follow these steps:
 
-To apply custom configuration changes, follow the below mentioned steps:
 
 1. Copy the RHEL 6-64 Unified Agent binary to the newly created OS.
 
-2. Run the below command to untar the binary.
+2. Run this command to untar the binary: **tar -zxvf \<File name\>**
 
-**tar -zxvf \<File name\>**
+3. Run this command to give permissions: \# **chmod 755 ./ApplyCustomChanges.sh**
 
-3. Execute below command to give permission.
+4. Run the script: **\# ./ApplyCustomChanges.sh**. Run the script only once on the server. Restart the server after the script runs.
 
-\# **chmod 755 ./ApplyCustomChanges.sh**
 
-4. Execute the below command to run the script.
 
-**\# ./ApplyCustomChanges.sh**
+### Install the Linux server
 
-NOTE: Execute the script only once on the server. **REBOOT** the server
-after successful execution of the above script.
 
-### Begin MT Installation
-
-[Download](http://go.microsoft.com/fwlink/?LinkID=529757) the Linux
-Master Target Server installation file.
-
-Copy the downloaded Linux Master Target Server installer to the Linux
-Master Target virtual machine using an sftp client utility of your
-choice. Alternately you can log into the Linux Master Target virtual
+1. [Download](http://go.microsoft.com/fwlink/?LinkID=529757) the installation file.
+2. Copy the file to the Linux Master Target virtual machine using an sftp client utility of your choice. Alternately you can log onto the Linux master target virtual
 machine and use wget to download the installation package from the
-provided link.
+provided link
+3. Log onto the Linux master target server virtual machine using an ssh
+client of your choice
+4. If you're connected to the Azure network on which you deployed your
+Linux master target server through a VPN connection then use the
+internal IP address for the server that you can find in the
+virtual machine **Dashboard** tab, and port 22 to connect to the Linux master
+target Server using Secure Shell.
+5. If you're connecting to the Linux master target server over a public
+internet connection use the Linux master target server’s public virtual
+IP address (from the virtual machines **Dashboard** tab) and the public
+endpoint created for ssh to login to the Linux servder.
+6. Extract  the files from the gzipped Linux master target Server installer
+tar archive by running: *“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64\*”* from the directory that contains the installer file.
 
-Log in to the Linux Master Target server virtual machine using an ssh
-client of your choice.
+	![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 
-If you are connected to the Azure network on which you deployed your
-Linux Master Target server through a VPN connection then use the
-internal IP address for the Linux Master Target Server obtained from the
-virtual machine dashboard and port 22 to connect to the Linux Master
-Target Server using Secure Shell.
+7. If you extracted the installer files to a different directory change
+to the directory to which the contents of the tar archive were
+extracted. From this directory path run “sudo ./install.sh”.
 
-If you are connecting to the Linux Master Target Server over a public
-internet connection use the Linux Master Target Server’s public virtual
-IP address (from the virtual machines dashboard page) and the public
-endpoint created for ssh to login to the Linux Master Target Server.
+	![](./media/site-recovery-failback-azure-to-vmware/image17.png)
 
-Extract the files from the gzipped Linux Master Target Server installer
-tar archive by executing
+8. When prompted to choose a primary role select **2 (Master Target)**. Leave the other interactive install options at their default values.
+9. Wait for installation to continue and the Host Config
+Interface to appear. The Host Configuration utility for the Linux master
+sarget Server is a command line utility. Don’t resize the ssh client
+utility window. Use the arrow keys to select the **Global** option and press
+ENTER on your keyboard.
 
-*“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64\*”* from the directory
-where you had copied the Linux Master Target Server installer to.
+	![](./media/site-recovery-failback-azure-to-vmware/image18.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image16.png)
-
-If you extracted the installer files to a different directory change
-directory to the directory to which the contents of the tar archive were
-extracted. From this directory path execute “sudo ./install.sh”
-
-![](./media/site-recovery-failback-azure-to-vmware/image17.png)
-
-When prompted to make choice of Primary Role of this Agent select 2
-(Master Target)
-
-Leave the other interactive install options at their default values.
-
-Wait for the rest of the installation to proceed and the Host Config
-Interface to appear. The Host Configuration utility for the Linux Master
-Target Server is a command line utility. Don’t resize your ssh client
-utility window. Use the arrow keys to select the Global option and press
-enter on your keyboard.
-
-![](./media/site-recovery-failback-azure-to-vmware/image18.png)
-
-![](./media/site-recovery-failback-azure-to-vmware/image19.png)
-
-1.  Against the field IP enter the Internal IP address of the
-    Configuration Server obtained from the virtual machines dashboard
-    page and press enter.
-
-2.  Against the field Port enter 22 and press enter.
-
-3.  Leave Use https: as Yes. Press enter one more time.
-
-4.  Enter the Passphrase that was generated on the Configuration Server.
-    If you are using PuTTY client from a Windows machine to ssh to the
-    Linux Master Target Server virtual machine you can use Shift+Insert
-    to paste the contents of the clipboard. Copy the Passphrase to the
-    local clipboard using Ctrl-C and use Shift+Insert to paste it. Press
-    enter
-
-5.  Use the right arrow key to navigate to quit and press enter.
-
-Wait for the installation to complete
-
-![](./media/site-recovery-failback-azure-to-vmware/image20.png)
-
-If for some reason you failed to register your Linux Master Target
-Server to the Configuration Server you could do so again by running the
-host configuration utility from /usr/local/ASR/Vx/bin/hostconfigcli (you
-will first need to set access permissions to this directory by executing
-chmod as a super user)
+	![](./media/site-recovery-failback-azure-to-vmware/image19.png)
 
 
-#### Validate Master Target Server registration to the Configuration Server.
+10. In the field **IP** enter the Internal IP address of the configuration server (you can find it in the **Dashboard** tab of the configuration server VM) and press ENTER. In **Port** enter **22** and press ENTER. 
+11.  Leave **Use HTTPS** as **Yes**, and press ENTER.
+12.  Enter the Passphrase that was generated on the configuration server. If you're using a PUTTY client from a Windows machine to ssh to the Linux virtual machine you can use Shift+Insert to paste the contents of the clipboard. Copy the Passphrase to the local clipboard using Ctrl-C and use Shift+Insert to paste it. Press ENTER.
+13.  Use the right arrow key to navigate to quit and press ENTER. Wait for installation to complete.
 
-You can validate that the Master Target Server registered successfully
-with the Configuration Server by visiting the Server Details page under
-the Configuration Server page on the Azure Site Recovery vault
+	![](./media/site-recovery-failback-azure-to-vmware/image20.png)
+
+If for some reason you failed to register your Linux master target
+server to the configuration server you can do so again by running the
+host configuration utility from /usr/local/ASR/Vx/bin/hostconfigcli (you'll
+first need to set access permissions to this directory by running chmod as a super user).
 
 
-## Begin protecting the virtual machines back to on-premises
+#### Validate master target registration
 
-Before failback of the VMs back to on-premises, first you need to
-protect the virtual machines back to on-premises. Follow the below steps
-to protect VMs of an application.
+You can validate that the master target server was registered successfully
+to the configuration server in Azure Site Recovery vault > **Configuration Server** > **Server Details**.
 
-### Note on temp drive
+>[AZURE.NOTE] After registering the master target server, if you receive configuration errors that the virtual machine might have been deleted from Azure or that endpoints are not properly configured, this is because although the master target configuration is detected by the Azure dndpoints when the master target is deployed in Azure, this isn't true for an on-premises master target server on-premises. This won't affect failback and you can ignore these errors. 
+
+
+
+## Step 4: Protect the virtual machines to the on-premises site
+
+You need to protect VMs to the on-premises site before you fail back.
+
+### Before you begin
 
 When a VM is failed over to Azure, it adds an extra temp drive for page
 file. This is an extra drive that is typically not required by your
 failed over VM since it might already have a drive dedicated for the
-page file.
+page file. Before you begin reverse protection of the virtual machines, you need to
+ensure that this drive is taken offline so that it does not get
+protected. Do this as follows:
 
-Before you begin reverse protection of the virtual machines, you need to
-ensure that the drive is taken offline so that it does not get
-protected.
+1.  Open Computer Management and select Storage Management so that it lists the disks online and attached to the machine.
+2.  Select the temporary disk attached to the machine and choose to bring it offline. 
 
-To do this,
+### Protect the VMs
 
-1.  Open Computer Management (via control panel administrative tool, or
-    by right click on This PC in the explorer window and selecting
-    manage.)
+1. In the Azure portal, check the states of the virtual machine to ensure that they're failed over.
 
-2.  Select Storage Management so that it lists the disks online and
-    attached to the machine.
+	![](./media/site-recovery-failback-azure-to-vmware/image21.png)
 
-3.  Select the temporary disk attached to the machine and choose to
-    bring it offline.
+2. Launch vContinuum on your machine.
 
-4.  Once it has been successfully taken offline you can proceed with
-    protecting the virtual machine in the reverse direction.
+	![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
-### Protection plan for VMs
+3. Click **New Protection** and select the operation system type, the 
 
-On the Azure portal, look at the states of the virtual machine and
-ensure that they are failed over.
+4.  In the new window that open select the **OS type** > **Get Details** for the VMs you want to fail back. In **Primary server details**, identify and select the virtual machines that you want to protect. VMs are listed under the vCenter host name that they were on before failover.
+5.  When you select a virtual machine to protect (and it has already failed over to Azure) a pop-up window provides two entries for the virtual machine. This is because the configuration server detects two instances of the virtual machines registered to it. You need to remove the entry for the on-premises VM so that you can protect the correct VM. To identify the correct Azure VM entry here, you can log into the Azure VM and go to C:\Program Files (x86)\Microsoft Azure Site Recovery\Application Data\etc. In the file drscout.conf , identify the host ID. In the vContinuum dialog, keep the entry for which you found the host ID on  the VM. Delete all other entries. To select the correct VM you can refer to its IP address. The IP address range on-premises will be the on-premises VM.
 
-![](./media/site-recovery-failback-azure-to-vmware/image21.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
-Note : during failover from Azure back to on-premises, the Azure VM is
-considered similar to a Physical VM. The failover to on-premises is to a
-virtual machine.
+	![](./media/site-recovery-failback-azure-to-vmware/image23.png)
 
-1.  Launch the vContinuum on your machine
+6. On the vCenter server stop the virtual machine. You can also delete the VMs on-premises.
+7. Then specify the on-premises MT server to which you want to protect the VMs. To do this, connect to the vCenter server to which you want to fail back.
 
-![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-1.  In the **Choose Application** setting, select **P2V**
+8. Select the master target server based on the host to which you want to recover the VM.
 
-2.  Click on the **New Protection** option to begin
+	![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-3.  In the new window that opens you will begin protecting the virtual
-    machines back to on-premises.
+9. Provide the replication option for each of the virtual machines. To do this you need to select the recovery side datastore to which the VMs will be recovered. The table summarizes the different options you need to provide for each VM.
 
-    a.  Select the **OS type** according to the VMs you want to failback
-        and **Get Details**
+	![](./media/site-recovery-failback-azure-to-vmware/image25.png)
 
-    b.  In the **Primary server details**, you need to identify the
-        virtual machines that you want to protect.
+	**Option** | **Option recommended value**
+	---|---
+	Process server IP address | Select the process server deployed in Azure
+	Retention size in MB| 
+	Retention value | 1
+	Days/Hours | Days
+	Consistency interval | 1
+	Select target datastore | The datastore available on the recovery site. The data store should have enough space, and be available to the ESX host on which you want to restore the virtual machine.
 
-    c.  The virtual machines are listed by their Computer Hostnames and
-        not as they are visible on vCenter or Azure
 
-    d.  The virtual machines are listed under the vCenter Hostname that
-        the virtual machines were on, before failover.
+10. Configure the properties that the virtual machine will acquire after failover to on-premises site. The properties are summarized in the following table.
 
-    e.  Once you have identified the VMs you want to protect, select
-        them one by one.
+	![](./media/site-recovery-failback-azure-to-vmware/image26.png)
 
-4.  When you select a virtual machine to protect (and it has already
-    failed over to Azure) you will get a popup window that gives two
-    entries for the virtual machine. This is because the CS has detected
-    two instances of the virtual machines registered to it. You need to
-    remove the entry for the on-premises VM so that you can protect the
-    correct VM. Note that you will see the entries by its computer
-    hostname. To identify the correct Azure VM entry here, you can log into the Azure VM and go to C:\Program Files (x86)\Microsoft Azure Site Recovery\Application Data\etc. In the file drscout.conf , identify the Host ID. In the vContinuum dialog, keep the entry for which the hostID is found in the VM. Delete all other entries.
+	**Property** | **Details**
+	---|---
+	Network configuration| For each network adapter detected, select it and click **Change** to configure the failback IP address for the virtual machine. 
+	Hardware Configuration| Specify the CPU and the memory for the VM. Settings can be applied to all the VMs you are trying to protect. To identify the correct values for the CPU and memory, you can refer to the IAAS VMs role size and see the number of cores and memory assigned.
+	Display name | After failback to on-premises, you can rename the virtual machines as they'll appear in the vCenter inventory. The default name is the virtual machine computer host name. To identify the VM name, you can refer to the VM list in the Protection group.
+	NAT Configuration | Discussed in detail below
 
-![](./media/site-recovery-failback-azure-to-vmware/image22.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image27.png)
 
-    a.  To select the correct VM – you can refer to its IP address. The
-        IP address range on-premises will be the on-premises VM.
+#### Configure NAT settings
 
-    b.  Click **Remove** to delete the entry
+1. To enable protection of the virtual machines, two communication channels need to be established. The first channel is between the virtual machine and the process server. This channel collects the data from the VM and sends it to the process server which then sends the data to the master target server. If the process server and the virtual machine to be protected are on the same Azure virtual network then you don't need to use NAT settings. Otherwise specify NAT settings. View the public IP address of the process server in Azure. 
 
-![](./media/site-recovery-failback-azure-to-vmware/image23.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image28.png)
 
-    c.  Go to the vCenter and stop the virtual machine on the vCenter
+2. The second channel is between the process server and the master target server. The option to use NAT or not depends on whether you are using a VPN based connection or communicating over the internet. Don't select NAt if you're using VPN, but only if you're using an internet connection.
 
-    d.  Next you can also delete the virtual machines on-premises
+	![](./media/site-recovery-failback-azure-to-vmware/image29.png)
 
-5.  Next you need to specify the on-premises MT server to which you want
-    to protect the VMs.
+	![](./media/site-recovery-failback-azure-to-vmware/image30.png)
 
-    a.  Connect to the vCenter to which you want to failback to
+3. If you haven't deleted the on-premises virtual machines as specified and if the datastore you are failing back to still contains the old VMDK’s then you will need to ensure that the failback VM gets created in a new place. To do this select the **Advanced** settings and specify an alternate Folder to restore to in **Folder Name Settings**. Leave the other options with their default settings. Apply the folder name settings to all the servers.
 
-![](./media/site-recovery-failback-azure-to-vmware/image24.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image31.png)
 
-a.  Select the MT server based on the host into which you want to
-    recover the virtual machines
+4. Run a Readiness Check to ensure that the virtual machines are ready to be protected back to on-premises. 
 
-![](./media/site-recovery-failback-azure-to-vmware/image24.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image32.png)
 
-1.  Next provide the replication option for each of the virtual machines
 
-![](./media/site-recovery-failback-azure-to-vmware/image25.png)
+5. Wait for it to complete. If it's successfully on all VMs you can specify a name for the protection plan. Then click **Protect** to begin.
 
-a.  You need to select the recovery side **Datastore** – this is the
-    datastore to which the VMs will be recovered to
+	![](./media/site-recovery-failback-azure-to-vmware/image33.png)
 
-The different options you need to provide per VM are
 
-<table>
-<tr><td>Option</td><td>Option recommended value</td></tr>
-<tr><td>Process Server IP</td><td>Select the PS which you have deployed on Azure</td></tr>
-<tr><td>Retention size in MB</td><td></td></tr>
-<tr><td>Retention value</td><td>1</td></tr>
-<tr><td>Days/Hours</td><td>Days</td></tr>
-<tr><td>Consistency Interval</td><td>1</td></tr>
-<tr><td>Select Target Datastore</td><td>The datastore available on the recovery side. This data store should have enough space and also be available to the ESX host on which you want to realise the virtual machine.</td></tr>
-</table>
-
-
-1.  Next you can configure the properties that the virtual machine will
-    acquire after failover to on-premises site. The different properties
-    you can configure are as below
-
-![](./media/site-recovery-failback-azure-to-vmware/image26.png)
+6. You can monitor progress in vContinuum.
 
-
-  <table>
-<tr><td>Property</td><td>How to configure</td></tr>
-<tr><td>Network Configuration</td><td>For each NIC detected, configure the failback IP address for the virtual machine. Select the NIC and click **Change** to specify the IP address details.
+	![](./media/site-recovery-failback-azure-to-vmware/image34.png)
 
-</td></tr>
-<tr><td>Hardware Configuration</td><td>You can specify the CPU and the Memory values for the VM. This setting can be applied to all the VMs you are trying to protect.
+7. After the step **Activating Protection Plan** finishes you can monitor VM protection in the Site Recovery portal.
 
-To identify the correct values for the CPU and Memory, you can refer to the IAAS VMs role size and see the number of cores and Memory assigned.
-</td></tr>
-<tr><td>Display Name</td><td>After failover back to on-premises, you can choose to rename the virtual machines as it will be seen in the inventory of vCenter. Note that the default value seen here is the virtual machine computer host name. To identify the VM name, you can refer to the VM list in the Protection group.</td></tr>
-<tr><td>NAT Configuration</td><td>Discussed in detail below</td></tr>
-</table>
+	![](./media/site-recovery-failback-azure-to-vmware/image35.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image27.png)
+8. You can see the exact status clicking on the VM and monitoring its progress.
 
+	![](./media/site-recovery-failback-azure-to-vmware/image36.png)
 
-
-> **PS NAT settings choices**
->
-> To enable protection of the virtual machines, two communication
-> channels need to be established.
->
-> The first channel is between the virtual machine and the Process
-> Server. This channel collects the data from the VM and sends it to the
-> PS. PS will then send this data to the Master Target. If the process
-> server and the virtual machine to be protected are on the same Azure
-> vNet, then you do not need to use the NAT settings. If the PS and the
-> virtual machine to be protected is in two different vNet, then you
-> need to specify the NAT settings for the PS and check the first
-> option.
->
-> ![](./media/site-recovery-failback-azure-to-vmware/image28.png)
->
-> To identify the Process server Public IP, you can go to the PS
-> deployment in Azure and see its Public IP address.
->
-> The second channel is between the Process server and the Master
-> target. The option to use NAT or not depends on whether you are using
-> VPN based connection between MT and PS or protecting over the
-> internet. If the PS communicates to the MT over a VPN, then you should
-> not select this option. If the Master Target needs to communicate to
-> the Process server over the internet, then specify the NAT settings
-> for the PS.
->
-> ![](./media/site-recovery-failback-azure-to-vmware/image29.png)
->
-> To identify the Process server Public IP, you can go to the PS
-> deployment in Azure and see its Public IP address.
->
-> ![](./media/site-recovery-failback-azure-to-vmware/image30.png)
-
-1.  If you have not deleted the on-premises virtual machines as specified
-    in Step 5.d, and if the datastore you are failing back to, as
-    selected in step 7.a still contains the old VMDK’s then you will
-    also need to ensure that the failback VM gets created in a new
-    place. For this you can select the Advanced settings and specify an
-    alternate Folder to restore to in the **Folder Name Settings**
-    section of the Advanced Settings.
-
-![](./media/site-recovery-failback-azure-to-vmware/image31.png)
-
-The other options in the Advanced settings can be left as default.
-Make sure you apply the folder name settings to all the servers.
-
-1.  Next move to the final stage of the Protection. Here you need to run
-    a Readiness Check to ensure that the virtual machines are ready to
-    be protected back to on-premises.
-
-![](./media/site-recovery-failback-azure-to-vmware/image32.png)
-
-	a.  Click on the readiness check and wait for it to complete.
-
-	b.  The Readiness Report tab will give the information if all the
-    virtual machines are ready.
-
-	c.  If the Readiness Report is successful on all the virtual machines it
-    will allow you to specify a name to the Protection plan
-
-![](./media/site-recovery-failback-azure-to-vmware/image33.png)
-
-	d.  Give the plan a new Name and begin Protect by clicking the button
-    below.
-
-
-1.  The Protection will now begin.
-
-    a.  You can see the progress of the protection on the vContinuum
-
-![](./media/site-recovery-failback-azure-to-vmware/image34.png)
-
-	b.  Once the step **Activating Protection Plan** is completed, you can
-    monitor the protection of the virtual machines via the ASR Portal.
-
-	c.  You can also monitor the protection via Azure Site Recovery.
-
-![](./media/site-recovery-failback-azure-to-vmware/image35.png)
-
-You can also see the exact status of the pairs by clicking into the
-virtual machine and monitoring its progress under the volume replication
-section.
-
-![](./media/site-recovery-failback-azure-to-vmware/image36.png)
-
-## Prepare the Failback plan
+## Prepare the failback plan
 
 You can prepare a failback plan using vContinuum so that the application
-can be failed over back to on-premises at any time. These recovery plans
-are very similar to the ASR Recovery plans.
+can be failed back to the on-premises site at any time. These recovery plans are very similar to the recovery plans in Site Recovery.
 
-1.  Launch the vContinuum and select the option to **Manage plans**.
+1.  Launch vContinuum and select **Manage plans** > **Recover.** You can see of list of all the plans that have been used to fail over VMs. You can use the same plans to recover.
 
-2.  User the sub-options select **Recover.**
+	![](./media/site-recovery-failback-azure-to-vmware/image37.png)
 
-![](./media/site-recovery-failback-azure-to-vmware/image37.png)
+2. Select the protection plan and all of the VMs you want to recover in it. When you select each VM you can see more details including the target ESX server and the source VM disk. Click **Next** to begin the Recover Wizard and select the VMs you want to recover.
 
-1.  You can see the list of all the Plans that have been used to protect the virtual machines. These are the same plans you can use to recover.
+	![](./media/site-recovery-failback-azure-to-vmware/image38.png)
 
-2.  Select the Protection Plan and select all the VMs you want to recover within it.
+3. You can recover based on multiple options but we recommend you use **Latest Tag** and select **Apply for All VMs** to ensure that the latest data from the virtual machine will be used.
+4. Run the **Readiness Check.** This will check if the right parameters are configured to enable VM recovery. Click **Next** if all the checks are successful. If not check the log and resolve the errors.
 
-    a.  On selecting each VM you can see more details about the source
-        VM, target ESX server where the VM will be recovered to and the
-        source VM disk
+	![](./media/site-recovery-failback-azure-to-vmware/image39.png)
 
-3.  Click Next to begin the **Recover** Wizard
+8.  In **VM Configuration** ensure that the recovery settings are correctly set. You can change the VM settings if you need to.
 
-4.  Select the Virtual Machines you want to recover
+	![](./media/site-recovery-failback-azure-to-vmware/image40.png)
 
-    a.  See the list of all the virtual machines that you can recover
+9. Review the list of virtual machines that will be recovered and specify a recovery order. Note that VMs are listed using the computer host name. It
+might be difficult to map the computer host name to the virtual machine.
+To map the names, go to the virtual machines **Dashboard** in Azure and check the VM host name.
 
-![](./media/site-recovery-failback-azure-to-vmware/image38.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image41.png)
 
-	b.  You can **recover based on** multiple options however we recommend
-    the **Latest Tag.** This will ensure that the latest data from the
-    virtual machine will be used.
+10. Specify a plan name and select **Recover later**. We recommend to recover later since the initial protection might not be complete. 
+11. Click on **Recover** to save the plan or trigger the recovery if you've selected to recover now and not later. You can check the recovery status to see if the plan's been saved.
 
-	c.  Select **Apply for All VMs** to ensure that the latest tag will be
-    chosen for all the virtual machines.
+	![](./media/site-recovery-failback-azure-to-vmware/image42.png)
 
+	![](./media/site-recovery-failback-azure-to-vmware/image43.png)
 
-1.  Run the **Readiness Check.** This will inform if the right
-    parameters are configured to enable the latest tag recovery of the
-    virtual machine. Click Next if all the checks are successful else
-    look at the log and resolve the errors.
+## Recover virtual machines
 
-![](./media/site-recovery-failback-azure-to-vmware/image39.png)
-
-2.  In the VM Configuration step of the wizard, ensure that the recovery
-    settings are correctly set. In case the VM settings are different
-    from the one you require, you can choose to change them. Since we
-    have already completed this action during the protection, you may
-    choose to ignore it this time.
-
-![](./media/site-recovery-failback-azure-to-vmware/image40.png)
-
-1.  Finally review the list of virtual machines that will be recovered.
-
-    a.  Specify a recovery order to the virtual machines.
-
-Note: The virtual machines are listed using the Computer Hostname. It
-might be difficult to map the computer hostname to the virtual machine.
-To map the names, you can go to the virtual machines dashboard in Azure
-IAAS and look at the hostname of the virtual machine.
-
-![](./media/site-recovery-failback-azure-to-vmware/image41.png)
-
-1.  Give the **recovery plan name** and select **Recover later** in
-    **Recovery options.**
-
-    a.  In case you want to recover right away you can choose to
-        **Recover now** in the **Recovery options**.
-
-    b.  It is recommended to Recover later since the protection initial
-        replication may not have completed
-
-    c.  Finally click on **Recover** button to either save the plan or
-        to trigger the recovery based on your **Recovery options**.
-
-2.  You can see the Recovery Status and see if it the plan is
-    successfully saved.
-
-![](./media/site-recovery-failback-azure-to-vmware/image42.png)
-
-1.  If you have chosen to recover later, you will be informed that the
-    plan is created and you can recover later.
-
-![](./media/site-recovery-failback-azure-to-vmware/image43.png)
-
-## Recover Virtual Machines
-
-After the plan is created, you can choose to recover the virtual
-machines. As a pre-requisite, you need to ensure that the virtual
-machines have completed synchronization.
+After the plan's been created, you can recover the virtual machines. Before you do check that the virtual machines have completed synchronization. If replication status shows OK then the protection is completed and the RPO threshold has been met. You can verify health in the VM properties.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image44.png)
 
-If Replication Status shows OK then the protection is completed and the
-RPO threshold has been met. To confirm the replication pair’s health,
-you can go to the virtual machine properties and see the health of the
-replication.
-
-**Turn off the Azure virtual machines before you initiate the recovery.
-This will ensure that there is no split brain and your end customers
-will be served by one copy of the application. Only when you have
-successfully ensured that the Azure VMs are turned off continue to the
-steps below.**
-
-To begin recovering the virtual machines back to on-premise, you need to
-start the plan that is saved.
-
-1.  On the vContinuum select to **Monitor** the plans.
-
-2.  The wizard will list the plans that have been executed till now.
-
-![](./media/site-recovery-failback-azure-to-vmware/image45.png)
-
-1.  Select the **Recovery** node and select the plan that you want to
-    recover.
-
-    a.  It will inform you that the plan has not yet started.
-
-2.  Click **Start** to begin the recovery.
-
-3.  You can monitor the recovery of the virtual machines
+Turn off the Azure virtual machines before you initiate the recovery. This ensures there's no split brain and that users will only access one copy of the application. 
 
 
-![](./media/site-recovery-failback-azure-to-vmware/image46.png)
+1.  Start the saved plan. In vContinuum select **Monitor** the plans. This lists all the plans that have been run.
 
-4. Once the VMs have been powered ON, you can connect to the virtual
-    machines on your vCenter.
+	![](./media/site-recovery-failback-azure-to-vmware/image45.png)
 
-## Re-protect to Azure after failback
+2.  Select the plan in **Recovery** and click **Start**. You can monitor recovery. After VMs have been turned on you can connect to them in vCenter.
 
-After failback has been completed you may want to protect the virtual
-machines once again. The below steps will help you re-configure the
-protection
+	![](./media/site-recovery-failback-azure-to-vmware/image46.png)
 
-1.  Check that the virtual machines on-premises are working and
-    application is able to reach your end customers.
+## Protect to Azure again after failback
 
-2.  On the Azure Site Recovery portal, select the virtual machines and
-    delete them.
+After failback has been completed you'll probably want to protect the virtual
+machines again. Do this as follows:
 
-    a.  Select to disable the protection of the virtual machines. This
-        will ensure that the VMs are no more protected.
+1.  Check that the virtual machines on-premises are working and that applications are reachable.
+2.  In the Azure Site Recovery portal, select the virtual machines and delete them. Select to disable the protection of the virtual machines. This ensures that the VMs are no more protected.
+3.  In Azure delete the failed over Azure virtual machines
+4.  Delete the old virtual machine on vSpehere. These are the VMs that you previously failed over to Azure.
+5.  In the Site Recovery portal protect the VMs that recently failed over. After they're protected  you can add them to a recovery plan.
+ 
+## Next steps
 
-3.  Go to the Azure IAAS virtual machines and delete the failed over
-    VMs.
-
-4.  Delete the old VMs on vSpehere – these are the VMs that you
-    previously failed over to Azure.
-
-5.  On the ASR portal select to protect the virtual machines recently
-    failed over.
-
-6.  Once the VMs are protected, you can add them to a recovery plan and
-    be continuously protected.
-
+[Read about](site-recovery-vmware-to-azure.md) replicating VMware virtual machines to Azure
 
  

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="How to use Access Control (Java) - Azure feature guide"
+    pageTitle="How to use Access Control (Java) | Microsoft Azure"
     description="Learn how to develop and use Access Control with Java in Azure."
 	services="active-directory" 
     documentationCenter="java"
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/03/2015"
+    ms.date="10/12/2015" 
     ms.author="robmcm" />
 
 # How to Authenticate Web Users with Azure Access Control Service Using Eclipse
 
-This guide will show you how to use the Azure Access Control Service (ACS) within the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies). For more information on ACS, see the [Next steps](#next_steps) section.
+This guide will show you how to use the Azure Access Control Service (ACS) within the Azure Toolkit for Eclipse. For more information on ACS, see the [Next steps](#next_steps) section.
 
 > [AZURE.NOTE]
-> The Azure Access Services Control Filter (by Microsoft Open Technologies) is a community technology preview. As pre-release software, it is not formally supported by Microsoft Open Technologies, Inc. nor Microsoft.
+> The Azure Access Services Control Filter is a community technology preview. As pre-release software, it is not formally supported by Microsoft.
 
 ## What is ACS?
 
@@ -123,9 +123,9 @@ To complete the tasks in this guide, you will need the following:
 - Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>. 
 - A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, or Jetty.
 - an Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
-- The Azure Plugin for Eclipse with Java (by Microsoft Open Technologies), April 2014 release. For more information, see [Installing the Azure Plugin for Eclipse with Java (by Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+- The Azure Toolkit for Eclipse, April 2014 release or later. For more information, see [Installing the Azure Toolkit for Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - An X.509 certificate to use with your application. You will need this certificate in both public certificate (.cer) and Personal Information Exchange (.PFX) format. (Options for creating this certificate will be described later in this tutorial).
-- Familiarity with the Azure compute emulator and deployment techniques discussed at [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
+- Familiarity with the Azure compute emulator and deployment techniques discussed at [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 ## Create an ACS Namespace
 
@@ -203,7 +203,7 @@ In this task, you upload a .PFX certificate that will be used to sign token requ
 3.  On the **Add Token-Signing Certificate or Key** page:
     1. In the **Used for** section, click **Relying Party Application** and select **Azure Web App** (which you previously set as the name of your relying party application).
     2. In the **Type** section, select **X.509 Certificate**.
-    3. In the **Certificate** section, click the browse button and navigate to the X.509 certificate file that you want to use. This will be a .PFX file. Select the file, click **Open**,  and then enter the certificate password in the **Password** text box. Note that for testing purposes, you may use a self-signed-certificate. To create a self-signed certificate, use the **New** button in the **ACS Filter Library** dialog (described later), or use the **encutil.exe** utility from the [project website][] of the Azure Starter Kit for Java (by Microsoft Open Technologies).
+    3. In the **Certificate** section, click the browse button and navigate to the X.509 certificate file that you want to use. This will be a .PFX file. Select the file, click **Open**,  and then enter the certificate password in the **Password** text box. Note that for testing purposes, you may use a self-signed-certificate. To create a self-signed certificate, use the **New** button in the **ACS Filter Library** dialog (described later), or use the **encutil.exe** utility from the [project website][] of the Azure Starter Kit for Java.
     4. Ensure that **Make Primary** is checked. Your **Add Token-Signing Certificate or Key** page should look similar to the following.
         ![Add token-signing certificate][add_token_signing_cert]
     5. Click **Save** to save your settings and close the **Add Token-Signing Certificate or Key** page.
@@ -274,7 +274,7 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 
 1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Azure**, and then click **Package for Azure**.
 2. For **Project name**, type **MyAzureACSProject** and click **Next**.
-3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) tutorial).
+3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) tutorial).
 4. Click **Finish**.
 5. Click the **Run in Azure Emulator** button.
 6. After your Java web application starts in the compute emulator, close all instances of your browser (so that any current browser sessions do not interfere with your ACS login test).
@@ -308,11 +308,11 @@ To deploy to Azure, you'll need to change the relying party realm and return URL
 
 13. Click **Finish** to close the **Edit Library** dialog.
 14. Click **OK** to close the **Properties for MyACSHelloWorld** dialog.
-15. In Eclipse, click the **Publish to Azure Cloud** button. Respond to the prompts, similar as done in the **To deploy your application to Azure** section of the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) topic. 
+15. In Eclipse, click the **Publish to Azure Cloud** button. Respond to the prompts, similar as done in the **To deploy your application to Azure** section of the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) topic. 
 
 After your web application has been deployed, close any open browser sessions, run your web application, and you should be prompted to sign in with Windows Live ID credentials, followed by being sent to the return URL of your relying party application.
 
-When you are done using your ACS Hello World application, remember to delete the deployment (you can learn how to delete a deployment in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) topic).
+When you are done using your ACS Hello World application, remember to delete the deployment (you can learn how to delete a deployment in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) topic).
 
 
 ## <a name="next_steps"></a>Next steps

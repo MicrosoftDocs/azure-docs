@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Add Azure automation runbooks to recovery plans" 
+   pageTitle="Add Azure automation runbooks to recovery plans | Microsoft Azure" 
    description="This article describes how Azure Site Recovery now enables you to extend recovery plans using Azure Automation to complete complex tasks during recovery to Azure" 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,11 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/03/2015"
+   ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-  
-   
 
 # Add Azure automation runbooks to recovery plans
 
@@ -163,19 +161,19 @@ Below is an example of how the context variable looks.
         }
 
 
-Table below contains name and description for each variable in the context.
-  
-<table border="1">
-  <tr><th>Variable name</th><th>Variable description</th></tr>
-  <tr><td>RecoveryPlanName</td><td>Name of the recovery plan being executed. <p> This variable can help you take different actions based on the Recovery Plan name using the same script.</td></tr>
-  <tr><td>FailoverType</td><td>Specifies whether the execution is **Test**, **Planned** or **Unplanned**. <p> This variable helps you take different actions based on the type of failover. </td></tr>
-  <tr><td>FailoverDirection</td><td>Specifies whether the recovery is from primary side to recovery or vice versa. <p>The two values it takes is **PrimaryToSecondary** and **SecondaryToPrimary** </td></tr>
-  <tr><td>GroupId</td><td> Identifies the group number within the recovery plan where the runbook is executing. <p> For example, if the runbook is post group 2, the GroupId will be 2. </td></tr>
-  <tr><td>VmMap</td><td> This is an array of all the virtual machines in the group. </td></tr>
-  <tr><td>VmMap key</td><td>Each virtual machine has a unique key identified by a GUID. This GUID is same as the VMM ID of the virtual machine. <p> You can use this GUID to deterministically specify which virtual machine you want to operate on. </td></tr>
-  <tr><td>RoleName</td><td>This specifies the name of the Azure virtual machine being recovered.</td></tr>
-  <tr><td>CloudServiceName</td><td> This specifies the Azure Cloud Service name under which the virtual machine is being created. </td></tr>
-  </table><br />
+The table below contains name and description for each variable in the context.
+
+**Variable name** | **Description**
+---|---
+RecoveryPlanName | Name of plan being run. Helps you take action based on name using the same script
+FailoverType | Specifies whether the failover is test, planned, or unplanned. 
+FailoverDirection | Specify whether recovery is to primary or secondary
+GroupID | Identify the group number within the recovery plan when the plan is running
+VmMap | Array of all the virtual machines in the group
+VMMap key | Unique key (GUID) for each VM. It's the same as the VMM ID of the virtual machine where applicable. 
+RoleName | Name of the Azure VM that's being recovered
+CloudServiceName | Azure Cloud Service name under which the virtual machine is created.
+
 
 To identify the VmMap Key in the context you could also go to the VM properties page in ASR and look at the VM GUID property.
 
@@ -188,69 +186,68 @@ Now create the runbook to open port 80 on the front-end virtual machine.
 1.  Create a new runbook in the Azure Automation account with the name
     **OpenPort80**
 
-![](media/site-recovery-runbook-automation/14.png)
+	![](media/site-recovery-runbook-automation/14.png)
 
 2.  Navigate to the Author view of the runbook and enter the draft mode.
 
 3.  First specify the variable to use as the recovery plan context
-
-```
-	param (
-		[Object]$RecoveryPlanContext
-	)
-
-```
   
+	```
+		param (
+			[Object]$RecoveryPlanContext
+		)
+
+	```
 
 4.  Next connect to the subscription using the credential and
     subscription name
 
-```
-	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
+	```
+		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
 	
-	# Connect to Azure
-	$AzureAccount = Add-AzureAccount -Credential $Cred
-	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-```
+		# Connect to Azure
+		$AzureAccount = Add-AzureAccount -Credential $Cred
+		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+	```
 
-> Note that you use the Azure assets – **AzureCredential** and **AzureSubscriptionName** here.
+	Note that you use the Azure assets – **AzureCredential** and **AzureSubscriptionName** here.
 
-5.  Now specify the endpoint details and the GUID of the virtual machine for which you want to expose the endpoint, in this case the front-end virtual machine.
+5.  Now specify the endpoint details and the GUID of the virtual machine for which you want to expose the endpoint. In this case the front-end virtual machine.
 
-```
-	# Specify the parameters to be used by the script
-	$AEProtocol = "TCP"
-	$AELocalPort = 80
-	$AEPublicPort = 80
-	$AEName = "Port 80 for HTTP"
-	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-```
+	```
+		# Specify the parameters to be used by the script
+		$AEProtocol = "TCP"
+		$AELocalPort = 80
+		$AEPublicPort = 80
+		$AEName = "Port 80 for HTTP"
+		$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
+	```
 
-This specifies the Azure endpoint protocol, local port on the VM and its mapped public port. These variables are parameters required by the Azure commands that add endpoints to VMs. The VMGUID holds the GUID of the virtual machine you need to operate on. 
+	This specifies the Azure endpoint protocol, local port on the VM and its mapped public port. These variables are parameters 	required by the Azure commands that add endpoints to VMs. The VMGUID holds the GUID of the virtual machine you need to operate on. 
 
 6.  The script will now extract the context for the given VM GUID and
     create an endpoint on the virtual machine referenced by it.
 
-```
-	#Read the VM GUID from the context
-	$VM = $RecoveryPlanContext.VmMap.$VMGUID
+	```
+		#Read the VM GUID from the context
+		$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
-	if ($VM -ne $null)
-	{
-		# Invoke pipeline commands within an InlineScript
+		if ($VM -ne $null)
+		{
+			# Invoke pipeline commands within an InlineScript
 
-		$EndpointStatus = InlineScript {
-			# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
-			# This set of commands includes: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including necessary parameters)
+			$EndpointStatus = InlineScript {
+				# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
+				# Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
 
-			$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
-				Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
-				Update-AzureVM
-			Write-Output $Status
+				$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
+					Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
+					Update-AzureVM
+				Write-Output $Status
+			}
 		}
-	}
-```
+	```
 
 7. Once this is complete, hit Publish ![](media/site-recovery-runbook-automation/20.png) to allow your script to be available for execution. 
 

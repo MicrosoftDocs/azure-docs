@@ -1,19 +1,18 @@
-<properties 
-    pageTitle="Using redirection in Azure RemoteApp" 
-    description="Learn how to configure and use redirection in RemoteApp" 
-    services="remoteapp" 
-    solutions="" 
-	documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Using redirection in Azure RemoteApp | Microsoft Azure"
+    description="Learn how to configure and use redirection in RemoteApp"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/29/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Using redirection in Azure RemoteApp
@@ -37,7 +36,7 @@ When you use RemoteApp, the following redirections are enabled by default. The i
 ## What other redirection is available?
 Two redirection options are disabled by default:
 
-- Drive redirection (drive mapping): Your local computer's drives become mapped drives in the remote session. This lets you save or open files from your local drives while you work in the remote session. 
+- Drive redirection (drive mapping): Your local computer's drives become mapped drives in the remote session. This lets you save or open files from your local drives while you work in the remote session.
 - USB redirection: You can use the USB devices attached to your local computer within the remote session.
 
 ## Change your redirection settings in RemoteApp
@@ -46,13 +45,13 @@ You can change the device redirection settings for a collection by using the Mic
 Then use a command similar to the following to set the custom RDP properties:
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
-    
+
 (Note that *`n* is used as a delimiter between individual properties.)
 
 To get a list of what custom RDP properties are configured, run the following cmdlet. Note that only custom properties are shown as output results and not the default properties:  
 
-    Get-AzureRemoteAppCollection -CollectionName <collection name> 
- 
+    Get-AzureRemoteAppCollection -CollectionName <collection name>
+
 When you set custom properties you must specify all custom properties each time; otherwise the setting reverts to disabled.   
 
 ### Common examples
@@ -60,7 +59,7 @@ Use the following cmdlet to enable drive redirection:
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*”
 
-Use this cmdlet to enable both USB and Drive redirection: 
+Use this cmdlet to enable both USB and Drive redirection:
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
 
@@ -73,11 +72,12 @@ Use this cmdlet to disable clipboard sharing:
 ## Change USB redirection settings on your Windows client
 
 If you want to use USB redirection on a computer that connects to RemoteApp, there are 2 actions that need to happen. 1 - Your administrator needs to enable USB redirection at the collection level by using Azure PowerShell. 2 - On each device where you want to use USB redirection, you need to enable a group policy that permits it. This step will need to be done for each user that wants to use USB redirection.
-   
+
 > [AZURE.NOTE] USB redirection with Azure RemoteApp is only supported for Windows computers.
 
 ### Enable USB redirection for the RemoteApp collection
 Use the following cmdlet to enable USB redirection at the collection level:
+
     Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### Enable USB redirection for the client computer
@@ -88,9 +88,9 @@ To configure USB redirection settings on your computer:
 2. Open **Computer Configuration\Policies\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Connection Client\RemoteFX USB Device Redirection**.
 3. Double-click **Allow RDP redirection of other supported RemoteFX USB devices from this computer**.
 4. Select **Enabled**, and then select **Administrators and Users in the RemoteFX USB Redirection Access Rights**.
-5. Open a command prompt with administrative permissions, and run the following command: 
+5. Open a command prompt with administrative permissions, and run the following command:
 
-    gpupdate /force
+		gpupdate /force
 6. Restart the computer.
 
 You can also use the Group Policy Management tool to create and apply the USB redirection policy for all computers in your domain:

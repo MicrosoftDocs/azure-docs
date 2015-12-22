@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="05/07/2015" 
+	ms.date="12/11/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -37,7 +37,7 @@ A custom R module is defined by a .zip file that contains, at a minimum, two fil
 Additional auxiliary files can also be included in the .zip file that provide functionality that can be accessed from the custom module. This option is discussed below.
 
 ## Quick start example: define, package, and register a custom R module
-This example illustrates how to construct the files required by a custom R module, package them into a zip file, and then register the module in your Machine Learning workspace. The example zip package and sample files can be downloaded from [here](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+This example illustrates how to construct the files required by a custom R module, package them into a zip file, and then register the module in your Machine Learning workspace. The example zip package and sample files can be downloaded from [Download CustomAddRows.zip file](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 Consider the example of a **Custom Add Rows** module that modifies the standard implementation of the Add Rows module used to concatenate rows (observations) from two datasets (data frames). The standard Add Rows module appends the rows of the second input dataset to the end of the first input dataset using the rbind algorithm. The customized `CustomAddRows` function similarly accepts two datasets, but also accepts an additional Boolean swap parameter as an input. If the swap parameter is **FALSE**, it returns the same data set as the standard implementation. But if the swap parameter is **TRUE**, it appends rows of first input dataset to the end of the second dataset instead. The file that implements the R `CustomAddRows` function exposed by the **Custom Add Rows** module contains the following R code.
 
@@ -92,7 +92,7 @@ Save these two files as *CustomAddRows.R* and *CustomAddRows.xml* and then zip t
 
 To register them in your Machine Learning workspace, go to your  workspace in the Machine Learning Studio, click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new Custom Add Rows module.
 
-![](http://i.imgur.com/RFJhCls.png)
+![Upload Zip](./media/machine-learning-custom-r-modules/upload-from-zip-package.png)
 
 The **Custom Add Rows** module is now ready to be accessed by your Machine Learning experiments.
 
@@ -331,7 +331,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 
 ### Auxiliary Files
 
-Any file that is placed in your custom module ZIP file will be available for use during execution time. If there is a directory structure present it will be preserved. This means that file sourcing will work the same locally and in Azure Machine Learning execution. 
+Any file that is placed in your custom module ZIP file will be available for use during execution time. If there is a directory structure present it will be preserved. This means that file sourcing will work the same locally and in Azure Machine Learning execution. Please notice that all files are extracted to ‘src’ directory so all paths should have ‘src/’ prefix.
 
 For example, say you want to remove any rows with NAs from the  dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you’ve already written an R function that does that in a file RemoveDupNARows.R:
 
@@ -345,7 +345,7 @@ For example, say you want to remove any rows with NAs from the  dataset, and als
 You can source the auxiliary file RemoveDupNARows.R in the CustomAddRows function:
 
 	CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
-		source(“RemoveDupNARows.R”)
+		source("src/RemoveDupNARows.R")
 			if (swap) { 
 				dataset <- rbind(dataset2, dataset1))
 	 		} else { 

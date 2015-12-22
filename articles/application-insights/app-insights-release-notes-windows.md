@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Release notes for Application Insights" 
-	description="The latest updates." 
+	pageTitle="Release notes for Application Insights for Windows" 
+	description="The latest updates for Windows Store SDK." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/18/2015" 
 	ms.author="sergkanz"/>
  
 # Release Notes for Application Insights SDK for Windows Phone and Store
@@ -31,6 +31,24 @@ See [Get started with Application Insights for Windows Phone and Store apps](app
 * Select the installed Application Insights packages and choose Upgrade.
 * Compare the old and new versions of ApplicationInsights.config. Merge back any customizations you made to the old version.
 * Rebuild your solution.
+
+## Version 1.1.1
+
+### Windows SDK
+
+- Fix a hang during crash when using the Windows Phone's Silverlight SDK. After this change, any crash that happens later than ~2 seconds after the call to WindowsAppInitialier.InitializeAsync(...) will be persisted to disk and will be sent the next time the app is started. If a crash happens before ~2 seconds after the call, it will be ignored.  
+- Set the NuGet's dependencies to a specific version of Core and Microsoft.ApplicationInsights.PersistenceChannel (v1.2.3).   
+
+### Core SDK
+
+- Core is managed in github. Future release notes of the Core SDK can be found [in github](http://github.com/Microsoft/ApplicationInsights-dotnet/releases)
+
+## Version 1.1
+
+### Core SDK
+
+- SDK now introduces new telemetry type ```DependencyTelemetry``` which contains information about dependency call from application
+- New method ```TelemetryClient.TrackDependency``` allows to send information about dependency calls from application
 
 ## Version 1.0.0
 

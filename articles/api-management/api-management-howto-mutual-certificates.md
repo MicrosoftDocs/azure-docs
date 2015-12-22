@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to secure back-end services using mutual certificate authentication in Azure API Management" 
-	description="Learn how to secure back-end services using mutual certificate authentication in Azure API Management." 
+	pageTitle="How to secure back-end services using client certificate authentication in Azure API Management" 
+	description="Learn how to secure back-end services using client certificate authentication in Azure API Management." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
-# How to secure back-end services using mutual certificate authentication in Azure API Management
+# How to secure back-end services using client certificate authentication in Azure API Management
 
-API Management provides the capability to secure access to the back-end service of an API using mutual certificates. This guide shows how to manage certificates in the API publisher portal, and how to configure an API to use a certificate to access its back-end service.
+API Management provides the capability to secure access to the back-end service of an API using client certificates. This guide shows how to manage certificates in the API publisher portal, and how to configure an API to use a certificate to access its back-end service.
 
 For information about managing certificates using the API Management REST API, see [Azure API Management REST API Certificate entity][].
 
 ## <a name="prerequisites"> </a>Prerequisites
 
-This guide shows you how to configure your API Management service instance to use mutual certificate authentication to access the back-end service for an API. Before following the steps in this topic, you should have your back-end service configured for mutual certificate authentication, and have access to the certificate and the password for the certificate for uploading in the API Management publisher portal.
+This guide shows you how to configure your API Management service instance to use client certificate authentication to access the back-end service for an API. Before following the steps in this topic, you should have your back-end service configured for client certificate authentication, and have access to the certificate and the password for the certificate for uploading in the API Management publisher portal.
 
 ## <a name="step1"> </a>Upload a client certificate
 
-To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![API Publisher portal][api-management-management-console]
 
@@ -54,7 +54,7 @@ Click **Upload** to upload the certificate.
 
 ![Certificate uploaded][api-management-certificate-uploaded]
 
-Once the certificate is uploaded, it appears on the **Client certificates** tab. If you have multiple certificates, make a note of the subject, or the last four characters of the thumbprint, which are used to select the certificate when configuring an API to use certificates, as covered in the following [Configure an API to use a mutual certificate for proxy authentication][] section.
+Once the certificate is uploaded, it appears on the **Client certificates** tab. If you have multiple certificates, make a note of the subject, or the last four characters of the thumbprint, which are used to select the certificate when configuring an API to use certificates, as covered in the following [Configure an API to use a client certificate for gateway authentication][] section.
 
 ## <a name="step1a"> </a>Delete a client certificate
 
@@ -70,15 +70,15 @@ If the certificate is in use by an API, then a warning screen is displayed. To d
 
 ![Confirm delete][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>Configure an API to use a mutual certificate for proxy authentication
+## <a name="step2"> </a>Configure an API to use a client certificate for gateway authentication
 
 Click **APIs** from the **API Management** menu on the left, click the name of the desired API, and click the **Security** tab.
 
 ![API security][api-management-api-security]
 
-Select **Mutual certificates** from the **With credentials** drop-down list.
+Select **Client certificates** from the **With credentials** drop-down list.
 
-![Mutual certificates][api-management-mutual-certificates]
+![Client certificates][api-management-mutual-certificates]
 
 Select the desired certificate from the **Client certificate** drop-down list. If there are multiple certificates you can look at the subject or the last four characters of the thumbprint as noted in the previous section to determine the correct certificate.
 
@@ -90,13 +90,13 @@ Click **Save** to save the configuration change to the API.
 
 ![Save API changes][api-management-save-api]
 
->When a certificate is specified for proxy authentication for the back-end service of an API, it becomes part of the policy for that API, and can be viewed in the policy editor.
+>When a certificate is specified for gateway authentication for the back-end service of an API, it becomes part of the policy for that API, and can be viewed in the policy editor.
 
 ![Certificate policy][api-management-certificate-policy]
 
 ## Next steps
 
-For more information, see the following video.
+For more information on other ways to secure your backend service, such as HTTP basic or shared secret authentication, see the following video.
 
 > [AZURE.VIDEO last-mile-security]
 
@@ -133,7 +133,7 @@ For more information, see the following video.
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configure an API to use a mutual certificate for proxy authentication]: #step2
+[Configure an API to use a client certificate for gateway authentication]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 

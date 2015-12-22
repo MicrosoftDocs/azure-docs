@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Node Buffer Percentage"
-   description="An overview of the role of Node Buffer Percentage in the Resource Balancer"
+   pageTitle="Node buffer percentage | Microsoft Azure"
+   description="An overview of the role of node buffer percentage in Resource Balancer"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
-# Node Buffer Percentage Overview
+# Overview of node buffer percentage
 
-Currently, customer can specify node capacity limit as a constraint that Resource Balancer respects based on constraint priority. If capacity constraint priority is high (node capacity cannot be breached) and if cluster nodes are highly utilized, it could happen that failover is not immediate or that node capacity is breached.
+Currently, customers can specify the node capacity limit as a constraint that Resource Balancer respects based on constraint priority. If the capacity constraint priority is high (node capacity cannot be breached) and if cluster nodes are highly utilized, failover might not be immediate or node capacity might be breached.
 
-Problem scan happen if nodes with secondary replicas are near node capacity when a node with the primary replica goes down. In that case, if primary load is greater than secondary load, secondary replica cannot be immediately promoted without having node overcommit or replica copy.
+Problems can happen if nodes with secondary replicas are near node capacity when a node with the primary replica goes down. In that case, if the primary load is greater than the secondary load, the secondary replica cannot be immediately promoted without having node overcommit or replica copy.
 
-Having proactive packing logic running, higher number of cluster nodes will be near node capacity limit. Node Buffer Percentage is a feature that prevents increased failover time or node overcommit during failover, by providing customers possibility to specify percentage of the node that should be kept free. Replicas of the new services should not be added to the node buffer space but Resource Balancer should be able to use total node capacity (accounting buffer space) for failovers and adding missing replicas.
+When proactive packing logic is running, a higher number of cluster nodes will be near the node capacity limit. Node buffer percentage is a feature that prevents increased failover time or node overcommit during failover, by enabling customers to specify the percentage of the node that should be kept free. Replicas of the new services should not be added to the node buffer space, but Resource Balancer should be able to use total node capacity (accounting for buffer space) for failovers and adding missing replicas.
 
-This feature can be used even in case when proactive metric packing feature is turned off.
+This feature can be used even when the proactive metric-packing feature is turned off.
 
-The code example shows that node buffer percentages for metrics are configured per metric via the FabricSettings element within the cluster manifest.
+The code example below shows that node buffer percentages for metrics are configured per metric via the FabricSettings element within the cluster manifest.
 
 ``` xml
 <FabricSettings>
@@ -37,12 +37,11 @@ The code example shows that node buffer percentages for metrics are configured p
 
 ```
 
-Value 0.1 for metric with name “MetricName” means that 10% of every node capacity for metric “MetricName” should be kept free.
+Value 0.1 for the metric with the name “MetricName” means that 10 percent of every node capacity for the metric “MetricName” should be kept free.
 
-If the value is not specified in this section, 0 as default value will be used.
+If the value is not specified in this section, 0 will be used as the default value.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-For more information: [Resource Balancer Architecture](service-fabric-resource-balancer-architecture.md)
- 
+For more information: [Resource Balancer architecture](service-fabric-resource-balancer-architecture.md)

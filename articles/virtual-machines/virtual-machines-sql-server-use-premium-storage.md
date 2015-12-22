@@ -1,11 +1,12 @@
-<properties 
-	pageTitle="Use Azure Premium Storage with SQL Server on Virtual Machines"
-	description="This article provides guidance for how to start using Azure Premium Storage with SQL Server running on Azure Virtual Machines. This includes examples of new deployments and migrations of existing deployments of SQL Server on IaaS."
+﻿<properties 
+	pageTitle="Use Azure Premium Storage with SQL Server | Microsoft Azure"
+	description="This article uses resources created with the classic deployment model, and gives guidance on using Azure Premium Storage with SQL Server running on Azure Virtual Machines."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-	editor=""/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/02/2015"
+	ms.date="10/02/2015"
 	ms.author="jroth"/>
 
 # Use Azure Premium Storage with SQL Server on Virtual Machines
@@ -21,7 +22,12 @@
 
 ## Overview
 
-[Azure Premium Storage](../storage-premium-storage-preview-portal.md) is the next generation of storage that provides low latency and high throughput IO. It works best for key IO intensive workloads, such as SQL Server on IaaS [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/). This article provides planning and guidance for migrating a Virtual Machine running SQL Server to use Premium Storage. This includes Azure infrastructure (networking, storage) and guest Windows VM steps. The example in the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) shows a full comphrensive end to end migration of how to move larger VMs to take advantage of improved local SSD storage with PowerShell.
+[Azure Premium Storage](../storage-premium-storage-preview-portal.md) is the next generation of storage that provides low latency and high throughput IO. It works best for key IO intensive workloads, such as SQL Server on IaaS [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/). 
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+ 
+
+This article provides planning and guidance for migrating a Virtual Machine running SQL Server to use Premium Storage. This includes Azure infrastructure (networking, storage) and guest Windows VM steps. The example in the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) shows a full comphrensive end to end migration of how to move larger VMs to take advantage of improved local SSD storage with PowerShell.
 
 It is important to understand the end-to-end process of utilizing Azure Premium Storage with SQL Server on IAAS VMs. This includes:
 
@@ -42,7 +48,7 @@ There are several prerequisites for using Premium Storage.
 
 ### Machine Size
 
-For using Premium Storage you will need to use DS series Virtual Machines (VM). If you have not used DS Series machines in your cloud service before, you must delete the existing VM, keep the attached disks, and then create a new cloud service before recreating  the VM as DS* role size. For more information on Virtual Machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+For using Premium Storage you will need to use DS series Virtual Machines (VM). If you have not used DS Series machines in your cloud service before, you must delete the existing VM, keep the attached disks, and then create a new cloud service before recreating  the VM as DS* role size. For more information on Virtual Machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](virtual-machines-size-specs.md).
 
 ### Cloud Services
 
@@ -142,7 +148,7 @@ Once you have mapped VHDs to Physical Disks in Storage Pools you can then detach
 
 ### VM Storage Bandwidth and VHD Storage Throughput 
 
-The amount of storage performance depends on the DS* VM size specified and the VHD sizes. The VMs have different allowances for the number of VHDs that can be attached and the maximum bandwidth they will support (MB/s). For the specific bandwidth numbers, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+The amount of storage performance depends on the DS* VM size specified and the VHD sizes. The VMs have different allowances for the number of VHDs that can be attached and the maximum bandwidth they will support (MB/s). For the specific bandwidth numbers, see [Virtual Machine and Cloud Service Sizes for Azure](virtual-machines-size-specs.md).
 
 Increased IOPS are achieved with larger disk sizes. You should consider this when you think about your migration path. For details, [see the table for IOPS and Disk Types](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage). 
 
@@ -287,7 +293,7 @@ You can use an existing image. Or, you can [take an image of an existing machine
     $destContext = New-AzureStorageContext  –StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
  
 #### Step 4: Copy Blob between Storage Accounts
-    #Get Image VHD from Portal
+    #Get Image VHD 
     $myImageVHD = "dansoldonorsql2k14-os-2015-04-15.vhd"
     $containerName = 'vhds'
     
@@ -677,7 +683,7 @@ As you are going to be taking out at least one SQL Server down at a time, you sh
 
     Set-ClusterQuorum -NodeMajority  
 
-For more information on managing and configuring the cluster quorum, please see [Configure and Manage the Quorum in a Windows Server 2012 Failover Cluster](https://technet.microsoft.com/en-us/library/jj612870.aspx).
+For more information on managing and configuring the cluster quorum, please see [Configure and Manage the Quorum in a Windows Server 2012 Failover Cluster](https://technet.microsoft.com/library/jj612870.aspx).
 
 #### Step 6: Extract Existing Endpoints and ACLs
     #GET Endpoint info
@@ -871,7 +877,7 @@ The code below also uses the added option here you can import the machine and us
     
     #SET Azure ACLs or Network Security Groups & Windows FWs 
      
-    #http://msdn.microsoft.com/en-us/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/library/azure/dn495192.aspx
     
     ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 
@@ -1089,11 +1095,11 @@ For information for individual blobs:
     Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEndpoint -Name $epname -Protocol $prot -LocalPort $locport -PublicPort $pubport -ProbePort 59999 -ProbeIntervalInSeconds 5 -ProbeTimeoutInSeconds 11  -ProbeProtocol "TCP" -InternalLoadBalancerName $ilb -LBSetName $ilb -DirectServerReturn $true | Update-AzureVM
     
     
-    #STOP!!! CHECK in portal or Machine Endpoints through powershell that these Endpoints are created!
+    #STOP!!! CHECK in the Azure classic portal or Machine Endpoints through powershell that these Endpoints are created!
     
     #SET ACLs or Azure Network Security Groups & Windows FWs 
      
-    #http://msdn.microsoft.com/en-us/library/azure/dn495192.aspx
+    #http://msdn.microsoft.com/library/azure/dn495192.aspx
 
 #### Step 23: Test Failover
 

@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,56 +12,57 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # What is a Network Security Group (NSG)?
 
-You can use an NSG to control traffic to one or more virtual machine (VM) instances in your virtual network. A network security group is a top level object that is associated to your subscription An NSG contains access control rules that allow or deny traffic to VM instances. The rules of an NSG can be changed at any time, and changes are applied to all associated instances. To use an NSG, you must have a VNet that is associated with a region (location). 
+Network security group (NSG) contains a list of Access control List (ACL) rules that allow\deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.  In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
 
->[AZURE.WARNING] NSGs are not compatible with VNets that are associated with an affinity group. If you don’t have a regional VNet and you want to control traffic to your endpoints, please see [What is a Network Access Control List (ACL)?](../virtual-networks-acl).
+NSGs contain the following properties.
 
-You can associate an NSG to a VM, or to a subnet within a VNet. When associated with a VM, the NSG applies to all the traffic that is sent and received by the VM instance. When applied to a subnet within your VNet, it applies to all the traffic that is sent and received by ALL the VM instances in the subnet. A VM or subnet can be associated with only 1 NSG, and each NSG can contain up to 200 rules. You can have 100 NSGs per subscription.
+|Property|Description|Constraints|Considerations|
+|---|---|---|---|
+|Name|Name for the NSG|Must be unique within the region<br/>Can contain letters, numbers, underscores, periods and hyphens<br/>Must start with a letter or number<br/>Must end with a letter, number, or underscore<br/>Can have up to 80 characters|Since you may need to create several NSGs, make sure you have a naming convention that makes it easy to identify the function of your NSGs|
+|Region|Azure region where the NSG is hosted|NSGs can only be applied to resources within the region it is created|See [limits](#Limits) below to understand how many NSGs you can have in a region|
+|Resource group|Resource group the NSG belongs to|Although an NSG belongs to a resource group, it can be associated to resources in any resource group, as long as the resource is part of the same Azure region as the NSG|Resource groups are used to manage multiple resources together, as a deployment unit<br/>You may consider grouping the NSG with resources it is associated to|
+|Rules|Rules that define what traffic is allowed, or denied||See [NSG rules](#Nsg-rules) below| 
 
->[AZURE.NOTE] Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+>[AZURE.NOTE] Endpoint-based ACLs and network security groups are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Managing Access Control Lists (ACLs) for Endpoints by using PowerShell](virtual-networks-acl-powershell.md).
 
-## How does a network security group work?
+### NSG rules
 
-Network security groups are different than endpoint-based ACLs. Endpoint ACLs work only on the public port that is exposed through the input endpoint. An NSG works on one or more VM instances and controls all the traffic that is inbound and outbound on the VM.
+NSG rules contain the following properties.
 
-A network security group has a *Name*, is associated to a *Region*, and has a descriptive label. It contains two types of rules, **Inbound** and **Outbound**. The Inbound rules are applied on the incoming packets to a VM and the Outbound rules are applied to the outgoing packets from the VM. The rules are applied at the host where the VM is located. An incoming or outgoing packet has to match an **Allow** rule for it be permitted, if not it will be dropped.
+|Property|Description|Constraints|Considerations|
+|---|---|---|---|
+|**Name**|Name for the rule|Must be unique within the region<br/>Can contain letters, numbers, underscores, periods and hyphens<br/>Must start with a letter or number<br/>Must end with a letter, number, or underscore<br/>Can have up to 80 characters|You may have several rules within an NSG, so make sure you follow a naming convention that allows you to identify the function of your rule|
+|**Protocol**|Protocol to match for the rule|TCP, UDP, or \*|Using \* as a protocol includes ICMP (East-West traffic only), as well as UDP and TCP and may reduce the number of rules you need<br/>At the same time, using \* might be too broad an approach, so make sure you only use when really necessary|
+|**Source port range**|Source port range to match for the rule|Single port number from 1 to 65535, port range (i.e. 100-2000), or \* (for all ports)|Try to use port ranges as much as possible to avoid the need for multiple rules|
+|**Destination port range**|Destination port range to match for the rule|Single port number from 1 to 65535, port range (i.e. 100-2000), or \* (for all ports)|Try to use port ranges as much as possible to avoid the need for multiple rules|
+|**Source address prefix**|Source address prefix or tag to match for the rule|Single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#Default-Tags), or * (for all addresses)|Consider using ranges, tags, and * to reduce the number of rules|
+|**Destination address prefix**|Destination address prefix or tag to match for the rule|single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#Default-Tags), or * (for all addresses)|Consider using ranges, tags, and * to reduce the number of rules|
+|**Direction**|Direction of traffic to match for the rule|inbound or outbound|Inbound and outbound rules are processed separately, based on direction|
+|**Priority**|Rules are checked in the order of priority, once a rule applies, no more rules are tested for matching|Number between 100 and 65535|Consider creating rules jumping priorities by 100 for each rule, to leave space for new rules to come between existing rules|
+|**Access**|Type of access to apply if the rule matches|allow or deny|Keep in mind that if an allow rule is not found for a packet, the packet is dropped|
 
-Rules are processed in the order of priority. For example, a rule with a lower priority number (e.g. 100) is processed before rules with a higher priority numbers (e.g. 200). Once a match is found, no more rules are processed.
+### Default Tags
 
-A rule specifies the following:
+Default tags are system-provided identifiers to address a category of IP addresses. You can use default tags in the **source address prefix** and **destination address prefix** properties of any rule. There are three default tags you can use.
 
-- **Name:** A unique identifier for the rule
+- **VIRTUAL_NETWORK:** This default tag denotes all of your network address space. It includes the virtual network address space (CIDR ranges defined in Azure) as well as all connected on-premises address spaces and connected Azure VNets (local networks).
 
-- **Type:** Inbound/Outbound
+- **AZURE_LOADBALANCER:** This default tag denotes Azure’s Infrastructure load balancer. This will translate to an Azure datacenter IP where Azure’s health probes originate.
 
-- **Priority:** <You can specify an integer between 100 and 4096>
-
-- **Source IP Address:** CIDR of source IP range
-
-- **Source Port Range:** <integer or range between 0 and 65536>
-
-- **Destination IP Range:** CIDR of the destination IP Range
-
-- **Destination Port Range:** <integer or range between 0 and 65536>
-
-- **Protocol:** <TCP, UDP or ‘*’ is allowed>
-
-- **Access:** Allow/Deny
+- **INTERNET:** This default tag denotes the IP address space that is outside the virtual network and reachable by public Internet. This range includes [Azure owned public IP space](https://www.microsoft.com/download/details.aspx?id=41653) as well.
 
 ### Default Rules
 
-An NSG contains default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. The default rules describe the default settings recommended by the platform. As illustrated by the default rules below, traffic originating and ending in a VNet is allowed both in Inbound and Outbound directions.
+All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. 
 
-While connectivity to the Internet is allowed for Outbound direction, it is by default blocked for Inbound direction. There is a default rule to allow Azure’s load balancer (LB) to probe the health of the VM. You can override this rule if the VM or set of VMs under the NSG does not participate in the load balanced set.
+As illustrated by the default rules below, traffic originating and ending in a VNet is allowed both in Inbound and Outbound directions. While connectivity to the Internet is allowed for Outbound direction, it is by default blocked for Inbound direction. There is a default rule to allow Azure’s load balancer to probe the health of your VMs and role instances. You can override this rule if you are not using a load balanced set.
 
-The default rules are:
-
-**Inbound**
+**Inbound default rules**
 
 | Name                              | Priority | Source IP          | Source Port | Destination IP  | Destination Port | Protocol | Access |
 |-----------------------------------|----------|--------------------|-------------|-----------------|------------------|----------|--------|
@@ -69,7 +70,7 @@ The default rules are:
 | ALLOW AZURE LOAD BALANCER INBOUND | 65001    | AZURE_LOADBALANCER | *           | *               | *                | *        | ALLOW  |
 | DENY ALL INBOUND                  | 65500    | *                  | *           | *               | *                | *        | DENY   |
 
-**Outbound**
+**Outbound default rules**
 
 | Name                    | Priority | Source IP       | Source Port | Destination IP  | Destination Port | Protocol | Access |
 |-------------------------|----------|-----------------|-------------|-----------------|------------------|----------|--------|
@@ -77,173 +78,172 @@ The default rules are:
 | ALLOW INTERNET OUTBOUND | 65001    | *               | *           | INTERNET        | *                | *        | ALLOW  |
 | DENY ALL OUTBOUND       | 65500    | *               | *           | *               | *                | *        | DENY   |
 
-### Special Infrastructure Rules
+## Associating NSGs
 
-NSG rules are explicit. No traffic is allowed or denied beyond what is specified in the NSG rules. However, there are two types of traffic that are always allowed regardless of the Network Security group specification. These provisions are made to support the infrastructure.
+You can associate an NSG to VMs, NICs, and subnets, depending on the deployment model you are using.
+
+[AZURE.INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
+ 
+- **Associating an NSG to a VM (classic deployments only).** When you associate an NSG to a VM, the network access rules in the NSG are applied to all traffic that destined and leaving the VM. 
+
+- **Associating an NSG to a NIC (Resource Manager deployments only).** When you associate an NSG to a NIC, the network access rules in the NSG are applied only to that NIC. That means that in a multi-NIC VM, if an NSG is applied to a single NIC, it does not affect traffic bound to other NICs. 
+
+- **Associating an NSG to a subnet (all deployments)**. When you associate an NSG to a subnet, the network access rules in the NSG are applied to all the IaaS and PaaS resources in the subnet. 
+
+You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is bound to. When that happens, all network access rules are applied to the traffic in the following order:
+
+- **Inbound traffic**
+	1. NSG applied to subnet.
+	2. NSG applied to NIC (Resource Manager) or VM (classic).
+- **Outbound traffic**
+	1. NSG applied to NIC (Resource Manager) or VM (classic).
+	3. NSG applied to subnet.
+
+![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
+
+>[AZURE.NOTE] Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
+
+## Planning
+
+Before implementing NSGs, you need to answer the questions below:	
+
+1. What types of resources do you want to filter traffic to or from (NICs in the same VM, VMs or other resources such as cloud services or application service environments connected to the same subnet, or between resources connected to different subnets)?
+
+2. Are the resources you want to filter traffic to/from connected to subnets in existing VNets or will they be connected to new VNets or subnets?
+ 
+For more information on planning for network security in Azure, read the [best practices for colud services and network security](best-practices-network-security.md). 
+
+## Design considerations
+
+Once you know the answers to the questions in the [Planning](#Planning) section, review the following before defining your NSGs.
+
+### Limits
+
+You need to consider the following limits when designing your NSGs.
+
+|**Description**|**Default Limit**|**Implications**|
+|---|---|---|
+|Number of NSGs you can associate to a subnet, VM, or NIC|1|This means you cannot combine NSGs. Ensure all the rules needed for a given set of resources are included in a single NSG.|
+|NSGs per region per subscription|100|By default, a new NSG is created for each VM you create in the Azure portal. If you allow this default behavior, you will run out of NSGs quickly. Make sure you keep this limit in mind during your design, and separate your resources into multiple regions or subscriptions if necessary. |
+|NSG rules per NSG|200|Use a broad range of IP and ports to ensure you do not go over this limit. |
+
+>[AZURE.IMPORTANT] Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits/#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
+
+### VNet and subnet design
+
+Since NSGs can be applied to subnets, you can minimize the number of NSGs by grouping your resources by subnet, and applying NSGs to subnets.  If you decide to apply NSGs to subnets, you may find that existing VNets and subnets you have were not defined with NSGs in mind. You may need to define new VNets and subnets to support your NSG design. And deploy your new resources to your new subnets. You could then define a migration strategy to move existing resources to the new subnets. 
+
+### Special rules
+
+You need to take into account the special rules listed below. Make sure you do not block traffic allowed by those rules, otherwise your infrastructure will not be able to communicate with essential Azure services.
 
 - **Virtual IP of the Host Node:** Basic infrastructure services such as DHCP, DNS, and Health monitoring are provided through the virtualized host IP address 168.63.129.16. This public IP address belongs to Microsoft and will be the only virtualized IP address used in all regions for this purpose. This IP address maps to the physical IP address of the server machine (host node) hosting the virtual machine. The host node acts as the DHCP relay, the DNS recursive resolver, and the probe source for the load balancer health probe and the machine health probe. Communication to this IP address should not be considered as an attack.
 
 - **Licensing (Key Management Service):** Windows images running in the virtual machines should be licensed. To do this, a licensing request is sent to the Key Management Service host servers that handle such queries. This will always be on outbound port 1688.
 
-### Default Tags
+### ICMP traffic
 
-Default tags are system-provided identifiers to address a category of IP addresses. Default tags can be specified in customer defined rules. The default tags are as follows:
+The current NSG rules only allow for protocols *TCP* or *UDP*. There is not a specific tag for *ICMP*. However, ICMP traffic is allowed within a Virtual Network by default through the Inbound VNet rules that allow traffic from/to any port and protocol within the VNet.
 
-- **VIRTUAL_NETWORK -** This default tag denotes all of your network address space. It includes the virtual network address space (IP CIDR in Azure) as well as all connected on-premises address space (Local Networks). This also includes VNet to VNet address spaces.
+### Subnets
 
-- **AZURE_LOADBALANCER -** This default tag denotes Azure’s Infrastructure load balancer. This will translate to an Azure datacenter IP where Azure’s health probes will originate. This is needed only if the VM or set of VMs associated with the NSG is participating in a load balanced set.
+- Consider the number of tiers your workload requires. Each tier can be isolated by using a subnet, with an NSG applied to the subnet. 
+- If you need to implement a subnet for a VPN gateway, or ExpressRoute circuit, make sure you do **NOT** apply an NSG to that subnet. If you do so, your cross VNet or cross premises connectivity will not work.
+- If you need to implement a virtual appliance, make sure you deploy the virtual appliance on its own subnet, so that your User Defined Routes (UDRs) can work correctly. You can implement a subnet level NSG to filter traffic in and out of this subnet. Learn more about [how to control traffic flow and use virtual appliances](virtual-networks-udr-overview.md).
 
-- **INTERNET -** This default tag denotes the IP Address space that is outside the virtual network and reachable by public Internet. This range includes Azure owned public IP space as well.
+### Load balancers
 
-### Ports and Port Ranges
+- Consider the load balancing and NAT rules for each load balancer being used by each of your workloads.These rules are bound to a back end pool that contains NICs (Resource Manager deployments) or VMs/role instances (classic deployments). Consider creating an NSG for each back end pool, allowing only traffic mapped through the rules implemented in the load balancers. That guarantees that traffic coming to the backend pool directly, without passing through the load balancer, is also filtered.
+- In classic deployments, you create endpoints that map ports on a load balancer to ports on your VMs or role instances. You can also create your own individual public facing load balancer in a Resource Manager deployment. If you are restricting traffic to VMs and role instances that are part of a backend pool in a load balancer by using NSGs, keep in mind that the destination port for the incoming traffic is the actual port in the VM or role instance, not the port exposed by the load balancer. Also keep in mind that the source port and address for the connection to the VM is a port and address on the remote computer in the Internet, not the port and address exposed by the load balancer.
+- Similar to public facing load balancers, when you create NSGs to filter traffic coming through an internal load balancer (ILB), you need to understand that the source port and address range applied are the ones from the computer originating the call, not the load balancer. And the destination port and address range are related to the computer receiving the traffic, not the load balancer.
 
-Network security group rules can be specified on a single source/destination port, or on a port range. This is particularly useful in cases where you want to open a wide range of ports for an application, such as FTP. The range can only be sequential and cannot be mixed with individual port specification.
+### Other
 
-To specify a range of ports, use the ‘-’ sign, as shown below in the *DestinationPortRange* parameter:
+- Endpoint-based ACLs and NSGs are not supported on the same VM instance. If you want to use an NSG and have an endpoint ACL already in place, first remove the endpoint ACL. For information about how to do this, see [Manage endpoint ACLs](virtual-networks-acl-powershell.md).
+- In the Resource Manager deployment model, you can use an NSG associated to a NIC for VMs with multiple NICs to enable management (remote access) by NIC, therefore segregating traffic.
+- Similar to the use of load balancers, when filtering traffic from other VNets, you must use the source address range of the remote computer, not the gateway connecting the VNets.
+- Many Azure services cannot be connected to Azure Virtual Networks and therefore, traffic to and from them cannot be filtered with NSGs.  Read the documentation for the services you use to determine whether or not they can be connected to VNets.
 
-	Get-AzureNetworkSecurityGroup -Name ApptierSG `
-	| Set-AzureNetworkSecurityRule -Name FTP -Type Inbound -Priority 600 -Action Allow `
-		-SourceAddressPrefix INTERNET -SourcePortRange * `
-		-DestinationAddressPrefix * -DestinationPortRange 100-500 -Protocol *
+## Sample deployment
 
-### ICMP Traffic
+To illustrate the application of the information in this article, we’ll define NSGs to filter network traffic for a two tier workload solution with the following requirements:
 
-The current NSG rules only allow for protocols ‘TCP’ or ‘UDP’. There is not a specific tag for ‘ICMP’. However, ICMP traffic is allowed within a Virtual Network by default through the Inbound VNet rules that allow traffic from/to any port and protocol  ‘*’ within the VNet.
+1. Separation of traffic between front end (Windows web servers) and back end (SQL database servers).
+2. Load balancing rules forwarding traffic to the load balancer to all web servers on port 80.
+3. NAT rules forwarding traffic coming in port 50001 on load balancer to port 3389 on only one VM in the front end.
+4. No access to the front end or back end VMs from the Internet, with exception of requirement number 1.
+5. No access from the front end or back end to the Internet.
+6. Access to port 3389 to any web server in the front end, for traffic coming from the front end subnet itself.
+7. Access to port 3389 to all SQL Server VMs in the back end from the front end subnet only.
+8. Access to port 1433 to all SQL Server VMs in the back end from the front end subnet only.
+9. Separation of management traffic (port 3389) and database traffic (1433) on different NICs in the back end VMs.
 
-## Associating NSGs
+![NSGs](./media/virtual-network-nsg-overview/figure1.png)
 
-Associating an NSG to a VM - When an NSG is directly associated to a VM, the Network access rules in the NSG are directly applied to all traffic that is destined to the VM. Whenever the NSG is updated for rule changes, the changes are reflected in the traffic handling within minutes. When the NSG is dis-associated from the VM, the state goes back to whatever it was before the NSG, i.e. the system defaults before the introduction if NSG will be used.
+As seen in the diagram above, the *Web1* and *Web2* VMs are connected to the *FrontEnd* subnet, and the *DB1* and *DB2* VMs are connected to the *BackEnd* subnet.  Both subnets are part of the *TestVNet* VNet. All resources are assigned to the *West US* Azure region.
 
-Associating an NSG to a Subnet - When an NSG is associated to a subnet, the Network access rules in the NSG are applied to all the VMs in the subnet. Whenever the access rules in the NSG are updated the changes are applied to all Virtual machines in the subnet within minutes.
+Requirements 1-6 (with exception of 3) above are all confined to subnet spaces. To minimize the number of rules required for each NSG, and to make it easy to add additional VMs to the subnets running the same workload types as the existing VMs, we can implement the following subnet level NSGs.
 
-Associating an NSG to a Subnet and a VM - It is possible that you can associate an NSG to a VM and a different NSG to the subnet where the VM resides. This is supported and in this case the VM gets two layers of protection. On the Inbound traffic the packet goes through the access rules specified in the subnet followed by rules in the VM and in the Outbound case it goes through the rules specified in the VM first before going through the rules specified in the subnet, as illustrated in the diagram below.
+### NSG for FrontEnd subnet
 
-![NSG ACLs](./media/virtual-networks-nsg/figure1.png)
+**Incoming rules**
 
-When an NSG is associated with a VM or subnet, the network access control rules becomes very explicit. The platform will not insert any implicit rule to allow traffic to a particular port. In this case, if you create an endpoint in the VM, you also have to create a rule to allow traffic from the Internet. If you don’t do this, the VIP:<Port> will not be accessible from outside.
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
+|---|---|---|---|---|---|---|---|
+|allow HTTP|Allow|100|INTERNET|\*|\*|80|TCP|
+|allow RDP from FrontEnd|Allow|200|192.168.1.0/24|\*|\*|3389|TCP|
+|deny anything from Internet|Deny|300|INTERNET|\*|\*|\*|TCP|
 
-For example: You create a new VM and also create a new NSG. You associate the NSG to the VM. The VM can communicate to other VMs in the virtual network through the ALLOW VNET INBOUND rule. The VM can also make outbound connections to the Internet using the ALLOW INTERNET OUTBOUND rule. Later, you create an endpoint on port 80 to receive traffic to your website running in the VM. Packets destined to port 80 on the VIP (public Virtual IP address) from the Internet will not reach the VM until you add a rule similar to the following (below) to the NSG.
+**Outgoing rules**
 
-| Name | Priority | Source IP | Source Port | Destination IP | Destination Port | Protocol | Access |
-|------|----------|-----------|-------------|----------------|------------------|----------|--------|
-| WEB  | 100      | INTERNET  | *           | *              | 80               | TCP      | ALLOW  |
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
+|---|---|---|---|---|---|---|---|
+|deny Internet|Deny|100|\*|\*|INTERNET|\*|\*|
 
-## Design considerations
+### NSG for BackEnd subnet
 
-You must understand how VMs communicate with infrastructure services, and PaaS service hosted hosted by Azure when designing your NSGs. Most Azure PaaS services, such as SQL databases and storage, can only be accessed through a public facing Internet address. The same is true for load balancing probes.
+**Incoming rules**
 
-A common scenario in Azure is the segregation of VMs and PaaS roles in subnets based on whether these objects required access to the internet or not. In such scenario, you might have a subnet with VMs or role instances that require access to Azure Paas services, such as SQL databases and storage, but that do not require any inbound or outbound communication to the public Internet. 
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
+|---|---|---|---|---|---|---|---|
+|deny Internet|Deny|100|INTERNET|\*|\*|\*|\*|
 
-Imagine the following NSG rule for such a scenario:
+**Outgoing rules**
 
-| Name | Priority | Source IP | Source Port | Destination IP | Destination Port | Protocol | Access |
-|------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|NO INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|DENY| 
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
+|---|---|---|---|---|---|---|---|
+|deny Internet|Deny|100|\*|\*|INTERNET|\*|\*|
 
-Since the rule is denying all access from the virtual network to the Internet, VMs will not be able to access any Azure PaaS service that requires a public Internet endpoint, such as SQL databases. 
+### NSG for single VM (NIC) in FrontEnd for RDP from Internet
 
-Instead of using a deny rule, consider using a rule to allow access from the virtual network to the Internet, but deny access from the Internet to the virtual network, as shown below:
+**Incoming rules**
 
-| Name | Priority | Source IP | Source Port | Destination IP | Destination Port | Protocol | Access |
-|------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|TO INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|ALLOW|
-|FROM INTERNET|110| INTERNET|&#42;|VIRTUAL_NETWORK|&#42;|TCP|DENY| 
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
+|---|---|---|---|---|---|---|---|
+|allow RDP from Internet|Allow|100|INTERNET|*|\*|3389|TCP|
 
+>[AZURE.NOTE] Notice how the source address range for this rule is **Internet**, and not the VIP for the load balancer; the source port is **\***, not 500001. Do not get confused between NAT rules/load balancing rules and NSG rules. The NSG rules are always related to the original source and final destination of traffic, **NOT** the load balancer between the two. 
 
-## Planning - network security group workflow
+### NSG for management NICs in BackEnd
 
-Here are the basic workflow steps when using network security groups.
+**Incoming rules**
 
-### Workflow – Create and associate an NSG
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
+|---|---|---|---|---|---|---|---|
+|allow RDP from front end|Allow|100|192.168.1.0/24|*|\*|3389|TCP|
 
-1. Create a network security group (NSG).
+### NSG for database access NICs in back end
 
-1. Add network security rules, unless the default rules are sufficient.
+**Incoming rules**
 
-1. Associate the NSG to a VM.
+|Rule|Access|Priority|Source address range|Source port|Destination address range|Destination port|Protocol|
+|---|---|---|---|---|---|---|---|
+|allow SQL from front end|Allow|100|192.168.1.0/24|*|\*|1433|TCP|
 
-1. Update the VM.
+Since some of the NSGs above need to be associated to individual NICs, you need to deploy this scenario as a Resource Manager deployment. Notice how rules are combined for subnet and NIC level, depending on how they need to be applied. 
 
-1. After update, the NSG rules will take effect immediately.
+## Next steps
 
-### Workflow – Update an existing NSG
-
-1. Add, delete, or update a rule in an existing NSG.
-
-1. All VMs associated with the NSG will get the updates within minutes. A VM update is not required when the NSG rule is already associated with the VM.
-
-### Workflow – Changing an NSG association
-
-1. Associate a new NSG to a VM that is already associated to another NSG.
-
-1. Update the VM.
-
-1. The rules from the new NSG will take effect within minutes.
-
-## How to create, configure, and manage your network security groups
-
-At this time, NSGs can be configured and modified by using PowerShell cmdlets and REST APIs only. You cannot configure NSGs by using the Management Portal. The PowerShell cmdlets below will help you create, configure, and manage your NSGs.
-
-**Create a Network Security Group**
-
-	New-AzureNetworkSecurityGroup -Name "MyVNetSG" -Location uswest `
-		-Label "Security group for my Vnet in West US"
-
-**Add or Update rules**
-
-	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
-	| Set-AzureNetworkSecurityRule -Name WEB -Type Inbound -Priority 100 `
-		-Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' `
-		-DestinationAddressPrefix '*' -DestinationPortRange '*' -Protocol TCP
-
-
-**Delete a rule from an NSG**
-
-	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
-	| Remove-AzureNetworkSecurityRule -Name WEB
-
-**Associate an NSG to a VM**
-
-	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
-	| Set-AzureNetworkSecurityGroupConfig -NetworkSecurityGroupName "MyVNetSG" `
-	| Update-AzureVM
-
-**View NSGs associated to a VM**
-
-	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
-	| Get-AzureNetworkSecurityGroupAssociation
-
-**Remove an NSG from a VM**
-
-	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
-	| Remove-AzureNetworkSecurityGroupConfig -NetworkSecurityGroupName "MyVNetSG" `
-	| Update-AzureVM
-
-**Associate an NSG to a subnet**
-
-	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
-	| Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'VNetUSWest' `
-		-SubnetName 'FrontEndSubnet'
-
-**View NSGs associated to a subnet**
-
-	Get-AzureNetworkSecurityGroupForSubnet -SubnetName 'FrontEndSubnet' `
-		-VirtualNetworkName 'VNetUSWest' 
-
-**Remove an NSG from the subnet**
-
-	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
-	| Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'VNetUSWest' `
-		-SubnetName 'FrontEndSubnet'
-
-**Delete an NSG**
-
-	Remove-AzureNetworkSecurityGroup -Name "MyVNetSG"
-
-**Get the details of an NSG along with rules**
-
-	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" -Detailed
- 
-**View all Azure PowerShell cmdlets realted to NSGs**
-
-	Get-Command *azurenetworksecuritygroup*
+- [Deploy NSGs in the classic deployment model](virtual-networks-create-nsg-classic-ps.md).
+- [Deploy NSGs in Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
+- [Manage NSG logs](virtual-network-nsg-manage-log.md).

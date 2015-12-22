@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create a load balancer using Azure Resource Manager | Microsoft Azure "
+   pageTitle="Get started configuring an internet facing load balancer using Azure Resource Manager | Microsoft Azure "
    description="How to create a load balancer rules, NAT rules, probe for Azure Resource Manager. Step by step showing end to end process to create a load balancer resource."
    services="load-balancer"
    documentationCenter="na"
@@ -9,36 +9,42 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="10/26/2015"
    ms.author="joaoma" />
 
-# How to create a load balancer using Azure Resource Manager
+# Get started configuring an internet facing load balancer using Azure Resource Manager
 
-The steps below will show how to create a load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create a load balancer are configured individually and then put together to create a resource. 
+
+> [AZURE.SELECTOR]
+- [Azure Classic steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+
+
+The steps below will show how to create an internet facing load balancer using Azure Resource Manager with PowerShell. With Azure Resource Manager, the items to create an internet facing load balancer are configured individually and then put together to create a resource. 
 
 We will cover in this page the sequence of individual tasks it has to be done to create a load balancer and explain in detail what is being done to accomplish the goal to create a load balancer.
 
 
-## What is required to create a load balancer?
+## What is required to create an internet facing load balancer?
 
 The following items need to be configured before creating a load balancer:
 
-- Front end IP configuration 
+- Front end IP configuration - will add a public IP address to front end IP pool for incoming network traffic to load balance. 
 
-- Backend address pool 
+- Backend address pool - will configure the network interfaces which will receive the load balanced traffic coming from front end IP pool. 
 
-- Load balancing rules
+- Load balancing rules - source and local port configuration for the load balancer.
 
-- Probes 
+- Probes - configures the health status probe for the Virtual Machine instances.
 
-- Inbound NAT rules 
+- Inbound NAT rules - configures the port rules to directly access one of the Virtual Machine instances.
 
 You can get more information about load balancer components with Azure resource manager at [Azure Resource Manager support for load balancer](load-balancer-arm.md).
 
-The following steps will show how to configure a load balancer to be load balanced between 2 virtual machines.
+The following steps will show how to configure a load balancer between 2 virtual machines.
 
 
 ## Step by Step using powershell
@@ -103,6 +109,7 @@ Create a public IP address to be used by frontend IP pool:
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
+>[AZURE.NOTE]The public IP address domain name label property will be the prefix for the FQDN of the load balancer. 
 
 ## Create Front end IP pool and backend address pool
 
@@ -235,7 +242,37 @@ PS C:\> $backendnic1
 
 Use the command Add-AzureVMNetworkInterface to assign the NIC to a virtual Machine.
 
-You can find the step by step to create a virtual machine and assign to a NIC following the documentation [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+You can find the step by step to create a virtual machine and assign to a NIC following the documentation [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) option 4 or 5.
+
+## Update an existing load balancer
+
+
+### Step 1
+
+Using the load balancer from the example above, assign load balancer object to variable $slb using Get-AzureLoadBalancer
+
+	$slb=get-azureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+
+### Step 2
+
+In the following example, you will add a new Inbound NAT rule using port 81 in the front end and port 8181 for the back end pool to an existing load balancer
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### Step 3
+
+Save the new configuration using Set-AzureLoadBalancer 
+
+	$slb | Set-AzureLoadBalancer
+
+## Remove a load balancer
+
+Use the command Remove-AzureLoadBalancer to delete a previously created load balancer named "NRP-LB"  in a resource group called "NRP-RG" 
+
+	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE] You can use the optional switch -Force to avoid the prompt for deletion.
 
 
 ## See Also

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 #Encoding your media with Dolby Digital Plus
@@ -650,3 +650,11 @@ Each attribute is described below.
 
 **TruePeak** - This result contains the largest absolute true‐peak value in any channel since the metering was reset. Refer to ITU‐R BS.1770‐2 for a description of true peak. The values can range in -70 to 12.04 dBTP.
  
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
-You can troubleshoot Azure Data Factory issues using Azure Portal (or) Azure PowerShell cmdlets. This topic has walkthroughs that show you how to use the Azure Portal to quickly troubleshoot errors that you encounter with Data Factory. 
+You can troubleshoot Azure Data Factory issues using Azure Classic Portal (or) Azure PowerShell cmdlets. This topic has walkthroughs that show you how to use the Azure Classic Portal to quickly troubleshoot errors that you encounter with Data Factory. 
 
 ## Problem: Not able to run Data Factory cmdlets
+If you are using Azure PowerShell of version < 1.0:
+ 
 To resolve this issue, switch Azure mode to **AzureResourceManager**: 
 
 Launch **Azure PowerShell** and execute the following command to switch to the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
@@ -31,70 +33,68 @@ You are probably not using the right Azure account or subscription with the Azur
 
 1. Add-AzureAccount - Use the right user ID and password
 2. Get-AzureSubscription - View all the subscriptions for the account. 
-3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Preview Portal.
+3. Select-AzureSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Portal.
 
-## Problem: Fail to launch Data Gateway Express Setup from Azure Portal
+## Problem: Fail to launch Data Gateway Express Setup from Azure Classic Portal
 The Express Setup for the Data Gateway requires Internet Explorer or a Microsoft ClickOnce compatible web browser. If you fails to start the Express Setup, you can
 
 1. Switch to Internet Explorer if you fails with other browsers. Or
 2. Use the "Manual Setup" links shown on the same blade in the portal to do the installation, and then copy the Key that is provided on the screen, and paste when the Data Management Gateway configuration is ready. If it doesn't launch, check your start menu for "Microsoft Data Management Gateway" and paste in the key when it launches. 
 
 
-## Problem: Fail to launch Credentials Manager from Azure Portal
-When set up or update a SQL Server Linked Service via Azure Portal, the Credentials Manager application will be launched to guarantee security. It requires Internet Explorer or a Microsoft ClickOnce compatible web browser. You can switch to Internet Explorer if you fails with other browsers.
+## Problem: Fail to launch Credentials Manager from Azure Classic Portal
+When set up or update a SQL Server Linked Service via Azure Classic Portal, the Credentials Manager application will be launched to guarantee security. It requires Internet Explorer or a Microsoft ClickOnce compatible web browser. You can switch to Internet Explorer if you fails with other browsers.
 
 ## Problem: Fail to connect to on-premises SQL Server 
 Verify that the SQL Server is reachable from the machine where the gateway is installed. On the machine on which the gateway is installed, you can
 
 1. Ping the machine where the SQL Server is installed. Or
-2. Try connecting to the SQL Server instance using the credentials you specified on the Azure Portal using SQL Server Management Studio (SSMS).
+2. Try connecting to the SQL Server instance using the credentials you specified on the Azure Classic Portal using SQL Server Management Studio (SSMS).
 
 
 ## Problem: Input slices are in PendingExecution or PendingValidation state for ever
 
-The slices could be in **PendingExecution** or **PendingValidation** state due to a number of reasons and one of the common reasons is that the **waitOnExternal** property is not specified in the **availability** section of the first table/dataset in the pipeline. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **waitOnExternal** property under **availability** section. This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
+The slices could be in **PendingExecution** or **PendingValidation** state due to a number of reasons and one of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property . This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
 
-See the following example for the usage of the **waitOnExternal** property. You can specify **waitOnExternal{}** without setting values for properties in the section so that the default values are used. 
+See the following example for the usage of the **external** property. You can optionally specify **externalData*** when you set external to true.. 
 
 See Tables topic in [JSON Scripting Reference][json-scripting-reference] for more details about this property.
 	
 	{
-	    "name": "CustomerTable",
-	    "properties":
-	    {
-	        "location":
-	        {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "MyContainer/MySubFolder/",
-	            "linkedServiceName": "MyLinkedService",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "rowDelimiter": ";"
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1,
-	            "waitOnExternal":
-	            {
-	                "dataDelay": "00:10:00",
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
+	  "name": "CustomerTable",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyLinkedService",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "dataDelay": "00:10:00",
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
 	    }
+	  }
 	}
 
- To resolve the error, add the **waitOnExternal** section to the JSON definition of the input table and recreate the table. 
+ To resolve the error, add the **external** property and the optional **externalData** section to the JSON definition of the input table and recreate the table. 
 
 ## Problem: Hybrid copy operation fails
 To learn more details:
 
-1. Launch Data Management Gateway Configuration Manager on the machine on which gateway was installed. Verify that the **Gateway name** is set to the logical gateway name on the **Azure Portal**, **Gateway key status** is **registered** and **Service status** is **Started**. 
+1. Launch Data Management Gateway Configuration Manager on the machine on which gateway was installed. Verify that the **Gateway name** is set to the logical gateway name on the **Azure Classic Portal**, **Gateway key status** is **registered** and **Service status** is **Started**. 
 2. Launch **Event Viewer**. Expand **Applications and Services Logs** and click **Data Management Gateway**. See if there are any errors related to Data Management Gateway. 
 
 ## Problem: On Demand HDInsight Provisioning Fails with Error
@@ -112,11 +112,11 @@ Additionally, there is a second JSON property additionalLinkedServiceNames where
 ## Problem: Custom Activity Fails
 When using a Custom Activity in Azure Data Factory (pipeline activity type CustomActivity), the custom application runs in the specified linked service to HDInsight as a Map only streaming MapReduce job. 
 
-When the custom activity runs, Azure Data Factory will be able to capture that output from the HDInsight cluster, and save it in the *adfjobs* storage container in your Azure Blob Storage account. In case of an error, you can read the text from **stderr** output text file after a failure has occurred. The files are accessible and readable from the Azure portal itself in the web browser, or by using storage explorer tools to access the files kept in the storage container in Azure Blob Storage directly. 
+When the custom activity runs, Azure Data Factory will be able to capture that output from the HDInsight cluster, and save it in the *adfjobs* storage container in your Azure Blob Storage account. In case of an error, you can read the text from **stderr** output text file after a failure has occurred. The files are accessible and readable from the Azure Classic Portal itself in the web browser, or by using storage explorer tools to access the files kept in the storage container in Azure Blob Storage directly. 
 
 To enumerate and read the logs for a particular Custom Activity, you may follow one of the illustrated walkthroughs later on this page. In summary:
 
-1.  In the Azure portal **Browse** to locate your Data Factory.
+1.  In the Azure Classic Portal **Browse** to locate your Data Factory.
 2.  Use the **Diagram** button to view the data factory diagram, and click on the **Dataset** Table that follows the specific **Pipeline** which has the Custom Activity. 
 3.  In the **Table** blade, Click on the slice of interest in the **Problem slices** for the time frame to be investigated.
 4.  The detailed **Data Slice** blade will appear and it can list multiple **Activity runs** for the slice. Click on an **Activity** from the list. 
@@ -173,7 +173,7 @@ If you use the discontinued versions of the Azure PowerShell SDK you may receive
 
 
 ## <a name="copywalkthrough"></a> Walkthrough: Troubleshooting an error with copying data
-In this walkthrough, you will introduce an error in the tutorial from Get started with Data Factory article and learn how you can use Azure Portal to troubleshoot the error.
+In this walkthrough, you will introduce an error in the tutorial from Get started with Data Factory article and learn how you can use Azure Classic Portal to troubleshoot the error.
 
 ### Prerequisites
 1. Complete the Tutorial in the [Get started with Azure Data Factory][adfgetstarted] article.
@@ -182,14 +182,14 @@ In this walkthrough, you will introduce an error in the tutorial from Get starte
 4. Run the following command in the **Azure PowerShell** to update the active period for the pipeline so that it tries to write data to the **emp** table, which doesn’t exist anymore.
 
          
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
 	Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. 
 
 
-### Use Azure Preview Portal to troubleshoot the error
+### Use Azure Portal to troubleshoot the error
 
-1.	Login to [Azure Preview Portal][azure-preview-portal]. 
+1.	Login to [Azure Portal][azure-portal]. 
 2.	Click **ADFTutorialDataFactory** from the **Startboard**. If you don’t see the data factory link on the **Startboard**, click **BROWSE** hub and click **Everything**. Click **Data factories…** in the **Browse** blade, and click **ADFTutorialDataFactory**.
 3.	Notice that you see **With errors** on the **Datasets** tile. Click **With errors**. You should see **Datasets with errors** blade.
 
@@ -219,17 +219,12 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
 
 ### Use Azure PowerShell cmdlets to troubleshoot the error
 1.	Launch **Azure PowerShell**. 
-2.	Switch to **AzureResourceManager** mode as the Data Factory cmdlets are available only in this mode.
+3. Run Get-AzureRmDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-3. Run Get-AzureDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.	
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
-
-	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
+	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureRmDataFactoryPipelineActivePeriod**. 
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -242,9 +237,9 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
 		LongRetryCount    		: 0
 
 	Note the **Start** time for the problem slice (the slice with **Status** set to **Failed**) in the output. 
-4. Now, run the **Get-AzureDataFactoryRun** cmdlet to get details about activity run for the slice.
+4. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
 	The value of **StartDateTime** is the Start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
 5. You should see the output with details about the error (similar to the following):
@@ -272,10 +267,10 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
  
 
 ## <a name="pighivewalkthrough"></a> Walkthrough: Troubleshooting an error with Hive/Pig processing
-This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Preview Portal and Azure PowerShell. 
+This walkthrough provides steps to troubleshoot an error with Hive/Pig processing by using both Azure Portal and Azure PowerShell. 
 
 
-### Walkthrough: Use Azure Portal to troubleshoot an error with Pig/Hive processing
+### Walkthrough: Use Azure Classic Portal to troubleshoot an error with Pig/Hive processing
 In this scenario, data set is in an error state due to a failure in Hive processing on an HDInsight cluster.
 
 1. Click **With errors** on **Datasets** tile on the **DATA FACTORY** home page.
@@ -301,17 +296,12 @@ In this scenario, data set is in an error state due to a failure in Hive process
     
 ### Walkthrough: Use Azure PowerShell to troubleshoot an error with Pig/Hive processing
 1.	Launch **Azure PowerShell**. 
-2.	Switch to **AzureResourceManager** mode as the Data Factory cmdlets are available only in this mode.
+3. Run Get-AzureRmDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-3. Run Get-AzureDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.	
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-
-	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
+	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureRmDataFactoryPipelineActivePeriod**. 
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory
@@ -325,9 +315,9 @@ In this scenario, data set is in an error state due to a failure in Hive process
 
 
 	Note the **Start** time for the problem slice (the slice with **Status** set to **Failed**) in the output. 
-4. Now, run the **Get-AzureDataFactoryRun** cmdlet to get details about activity run for the slice.
+4. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	The value of **StartDateTime** is the Start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
 5. You should see the output with details about the error (similar to the following):
@@ -351,13 +341,11 @@ In this scenario, data set is in an error state due to a failure in Hive process
 		PipelineName        : EnrichGameLogsPipeline
 		Type                :
 
-6. You can run **Save-AzureDataFactoryLog** cmdlet with Id value you see from the above output and download the log files using the **-DownloadLogs** option for the cmdlet.
+6. You can run **Save-AzureRmDataFactoryLog** cmdlet with Id value you see from the above output and download the log files using the **-DownloadLogs** option for the cmdlet.
 
 
 
 [adfgetstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
@@ -366,7 +354,7 @@ In this scenario, data set is in an error state due to a failure in Hive process
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [image-data-factory-troubleshoot-with-error-link]: ./media/data-factory-troubleshoot/DataFactoryWithErrorLink.png
 

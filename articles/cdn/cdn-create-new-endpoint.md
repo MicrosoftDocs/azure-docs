@@ -3,7 +3,7 @@
 	 description="This topic shows how to enable the Content Delivery Network (CDN) for Azure." 
 	 services="cdn" 
 	 documentationCenter="" 
-	 authors="zhangmanling" 
+	 authors="camsoper" 
 	 manager="dwrede" 
 	 editor=""/>
 <tags 
@@ -12,44 +12,91 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="06/03/2015" 
-	 ms.author="mazha"/>
+	 ms.date="12/02/2015" 
+	 ms.author="casoper"/>
 
 
 
 #How to Enable Content Delivery Network (CDN)  for Azure  
 
-CDN can be enabled for your origin via Azure Management Portal. The current available origin type includes: Web Apps, storage, Cloud Services. You can also enable CDN for your Azure Media Services Streaming endpoint. Once you enable a CDN endpoint for your origin, all publicly available objects are eligible for CDN edge caching.
+CDN can be enabled for your origin via Azure Management Portal. Several types of integrated Azure origins are supported, including Web Apps, blob storage, and Cloud Services. You can also enable CDN for your Azure Media Services Streaming endpoint.  If your origin is not one of these Azure services, or is hosted elsewhere outside of Azure, you can also create a custom origin.  Once you enable a CDN endpoint for your origin, all publicly available objects are eligible for CDN edge caching.
 
-Note that now you can also create a custom origin and it does not have to be Azure.
+## Create a new CDN profile
 
-##To Create a New CDN Endpoint  
+A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
 
-1.	Log into the [Azure Management Portal](http://manage.windowsazure.com/).
-2.	In the navigation pane, click **CDN**.
-3.	On the ribbon, click **New**. In the **New** dialog, select **APP SERVICES**, then **CDN**, then **QUICK CREATE**.
-4.	In the **ORIGIN TYPE** dropdown, select an origin type form the list of available origin type.
+> [AZURE.NOTE] A single Azure subscription is limited to four CDN profiles. Each CDN profile is limited to four CDN endpoints.
+>
+> CDN pricing is applied at the CDN profile level. If you wish to use a mix of Standard and Premium CDN features, you will need multiple CDN profiles.
+
+
+**To create a new CDN profile**
+
+1. In the [Azure Management Portal](https://portal.azure.com), in the upper left, click **New**.  In the **New** blade, select **Media + CDN**, then **CDN**.
+
+    The new CDN profile blade appears.
+    
+    ![New CDN Profile][new-cdn-profile]
+
+2. Enter a name for your CDN profile. 
+
+3. Select a **Pricing tier** or use the default.
+
+4. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview/#resource-groups). 
+
+5. Select the **Subscription** for this CDN profile.
+
+6. Select a **Location**.  This is the Azure location where your CDN profile information will be stored.  It has no impact on CDN endpoint locations.  It does not need to be the same location as the storage account.
+
+7. Click the **Create** button to create the new profile.
+
+## Create a new CDN endpoint
+
+**To create a new CDN endpoint for your storage account**
+
+1. In the [Azure Management Portal](https://portal.azure.com), navigate to your CDN profile.  You may have pinned it to the dashboard in the previous step.  If you not, you can find it by clicking **Browse**, then **CDN profiles**, and clicking on the profile you plan to add your endpoint to.
+
+    The CDN profile blade appears.
+    
+    ![CDN profile][cdn-profile-settings]
+    
+2. Click the **Add Endpoint** button.
+
+    ![Add endpoint button][cdn-new-endpoint-button]
+
+    The **Add an endpoint** blade appears.
+    
+    ![Add endpoint blade][cdn-add-endpoint]
+
+3. Enter a **Name** for this CDN endpoint.  This name will be used to access your cached resources at the domain `<EndpointName>.azureedge.net`.
+
+4. In the **Origin type** dropdown, select your origin type.
 	
-	The list of available origin URLs will be displayed in the **ORIGIN URL** dropdown list.
-	
+	![CDN origin type](./media/cdn-create-new-endpoint/cdn-origin-type.png)
 
-	![createnew][createnew]
+5. In the **Origin hostname** dropdown, select or type your origin domain.  The dropdown will list all available origins of the type you specified in step 4.  If you selected *Custom origin* as your **Origin type**, you will type in the domain of your custom origin.
 
-	If you select **Custom Origin**, you can enter a custom origin URL. That does not have to be an Azure origin.
+6. In the **Origin path** text box, enter the path to the resources you want to cache, or leave blank to allow cache any resource at the domain you specified in step 5.
 
-	![customorigin][customorigin]
+7. In the **Origin host header**, enter the host header you want the CDN to send with each request, or leave the default.
 
-	>[AZURE.NOTE] Currently only HTTP is supported for origin and you must use the Media Services extension to enable Azure CDN for an Azure Media Services streaming endpoint.
-	
-5.	Click the **Create** button to create the new endpoint.
+8. For **Protocol** and **Origin port**, specify the protocols and ports used to access your resources at the origin.  Your clients will continue to use these same protocols and ports when they access resources on the CDN.  At least one protocol (HTTP or HTTPS) must be selected.
 
+9. Click the **Add** button to create the new endpoint.
 
->[AZURE.NOTE] The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
+10. Once the endpoint is created, it appears in a list of endpoints for the profile. The list view shows the URL to use to access cached content, as well as the origin domain.
+
+    ![CDN endpoint][cdn-endpoint-success]
+
+    > [AZURE.NOTE] The endpoint will not immediately be available for use.  It can take up to 90 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 404 until the content is available via the CDN.
 
 ##See Also
-[How to Map Content Delivery Network (CDN) Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+- [How to Map Content Delivery Network (CDN) Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+- [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
 
-[createnew]: ./media/cdn-create-new-endpoint/cdn-create-new-account.png
-
-[customorigin]: ./media/cdn-create-new-endpoint/cdn-custom-origin.png
+[new-cdn-profile]: ./media/cdn-create-new-endpoint/cdn-new-profile.png
+[cdn-profile-settings]: ./media/cdn-create-new-endpoint/cdn-profile-settings.png
+[cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
+[cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
+[cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png 
  

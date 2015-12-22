@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="12/01/2015" 
 	ms.author="ricksal"/>
 
 
 # Work with a JavaScript backend mobile service
 
-<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET backend">.NET backend</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript backend" class="current">JavaScript backend</a></div>
- 
 This article provides detailed information about and examples of how to work with a JavaScript backend in Azure Mobile Services. 
 
 ##<a name="intro"></a>Introduction
@@ -85,13 +83,13 @@ Here are the canonical main-function signatures for the table operations:
 
 >[AZURE.NOTE]A function that's registered to the delete operation must be named _del_ because delete is a reserved keyword in JavaScript. 
 
-Every server script has a main function, and may have optional helper functions. Even though a server script may have been been created for a specific table, it can also reference other tables in the same database. You can also define common functions as modules that can be shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
+Every server script has a main function, and may have optional helper functions. Even though a server script may have been created for a specific table, it can also reference other tables in the same database. You can also define common functions as modules that can be shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
 ###<a name="register-table-scripts"></a>How to: Register table scripts
 
 You can define server scripts that are registered to a table operation in one of the following ways:
 
-+ In the [Azure Management Portal][Management Portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
++ In the [Azure classic portal]. Scripts for table operations are accessed in the **Scripts** tab for a given table. The following shows the default code registered to the insert script for the `TodoItem` table. You can override this code with your own custom business logic.
 
 	![1][1]
 	
@@ -291,7 +289,7 @@ In JavaScript it is a compact version of the lengthier equivalent:
 
 ###<a name="work-with-users"></a>How to: Work with users
 
-In Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user invokes a table operation, Mobile Services uses the [user object] to supply information about the user to the registered script function. The **userId** property can be used to store and retrieve user-specific information. The following example sets the owner property of an item based on the userId of an authenticated user:
+In Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user invokes a table operation, Mobile Services uses the [user object] to supply information about the user to the registered script function. The **userId** property can be used to store and retrieve user-specific information. The following example sets the owner property of an item based on the **userId** of an authenticated user:
 
 	function insert(item, user, request) {
 	    item.owner = user.userId;
@@ -338,7 +336,7 @@ The global state is maintained between executions.
 
 You can define server scripts that are registered to HTTP methods in a custom API endpoint in one of the following ways:
 
-+ In the [Azure Management Portal][Management Portal]. Custom API scripts are created and modified in the **API** tab. The server script code is in the **Scripts** tab of a given custom API. The following shows the script that is invoked by a POST request to the `CompleteAll` custom API endpoint. 
++ In the [Azure classic portal]. Custom API scripts are created and modified in the **API** tab. The server script code is in the **Scripts** tab of a given custom API. The following shows the script that is invoked by a POST request to the `CompleteAll` custom API endpoint. 
 
 	![2][2]
 	
@@ -380,7 +378,7 @@ This custom API function is invoked by an HTTP GET request to the following endp
 
 In Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user requests a custom API, Mobile Services uses the [user object] to provide information about the user to custom API code. The [user object] is accessed from the user property of the [request object]. The **userId** property can be used to store and retrieve user-specific information. 
 
-The following **OrderPizza** custom API function sets the owner property of an item based on the userId of an authenticated user:
+The following **OrderPizza** custom API function sets the owner property of an item based on the **userId** of an authenticated user:
 
 		exports.post = function(request, response) {
 			var userTable = request.service.tables.getTable('user');
@@ -445,17 +443,17 @@ The two routes in the above custom API example can be invoked by HTTP GET reques
 
 ##<a name="scheduler-scripts"></a>Job Scheduler
 
-Mobile Services enables you to define server scripts that are executed either as jobs on a fixed schedule or on-demand from the Management Portal. Scheduled jobs are useful for performing periodic tasks such as cleaning-up table data and batch processing. For more information, see [Schedule jobs].
+Mobile Services enables you to define server scripts that are executed either as jobs on a fixed schedule or on-demand from the Azure classic portal. Scheduled jobs are useful for performing periodic tasks such as cleaning-up table data and batch processing. For more information, see [Schedule jobs].
 
 Scripts that are registered to scheduled jobs have a main function with the same name as the scheduled job. Because a scheduled script is not invoked by an HTTP request, there is no context that can be passed by the server runtime and the function takes no parameters. Like other kinds of scripts, you can have subroutine functions and require shared modules. For more information, see [Source control, shared code, and helper functions].
 
 ###<a name="scheduler-scripts"></a>How to: Define scheduled job scripts
 
-A server script can be assigned to a job that's defined in the Mobile Services Scheduler. These scripts belong to the job and are executed according to the job schedule. (You can also use the [Management Portal] to run jobs on demand.) A script that defines a scheduled job has no parameters because Mobile Services doesn't pass it any data; it's executed as a regular JavaScript function and doesn't interact with Mobile Services directly. 
+A server script can be assigned to a job that's defined in the Mobile Services Scheduler. These scripts belong to the job and are executed according to the job schedule. (You can also use the [Azure classic portal] to run jobs on demand.) A script that defines a scheduled job has no parameters because Mobile Services doesn't pass it any data; it's executed as a regular JavaScript function and doesn't interact with Mobile Services directly. 
 
 You define scheduled jobs in one of the following ways: 
 
-+ In the [Azure Management Portal][Management Portal] in the **Script** tab in the scheduler:
++ In the [Azure classic portal] in the **Script** tab in the scheduler:
 
 	![3][3]
 
@@ -773,38 +771,16 @@ When you are writing server scripts that use [insert], [update], [read] or [dele
 
 When you use the [tables object] or the [mssql object], or just let your table scripts execute, the deserialized JavaScript objects are inserted into your SQL database. In that process, object properties are mapped to T-SQL types:
 
-<table border="1">
-<tr>
-<td>JavaScript property</td>
-<td>T-SQL type</td>
-</tr><tr>
-<td>Number</td>
-<td>Float(53)</td>
-</tr><tr>
-<td>Boolean</td>
-<td>Bit</td>
-</tr><tr>
-<td>Date</td>
-<td>DateTimeOffset(3)</td>
-</tr>
-<tr>
-<td>String</td>
-<td>Nvarchar(max)</td>
-</tr>
-<tr>
-<td>Buffer</td>
-<td>Not supported</td>
-</tr><tr>
-<td>Object</td>
-<td>Not supported</td>
-</tr><tr>
-<td>Array</td>
-<td>Not supported</td>
-</tr><tr>
-<td>Stream</td>
-<td>Not supported</td>
-</tr>
-</table> 
+JavaScript property|T-SQL type
+---|---
+Number|Float(53)
+Boolean|Bit
+Date|DateTimeOffset(3)|
+String|Nvarchar(max)
+Buffer|Not supported
+Object|Not supported
+Array|Not supported
+Stream|Not supported
 
 ###<a name="TSQL"></a>Using Transact-SQL to access tables
 
@@ -948,7 +924,7 @@ The primary way to debug and troubleshoot your server scripts is by writing to t
 
 To write to the logs, use the global [console object]. Use the **log** or **info** function to log information-level warnings. The **warning** and **error** functions log their respective levels, which are called-out in the logs. 
 
-> [AZURE.NOTE] To view the logs for your mobile service, log on to the [Management Portal](https://manage.windowsazure.com/), select your mobile service, and then choose the **Logs** tab.
+> [AZURE.NOTE] To view the logs for your mobile service, log on to the [Azure classic portal](https://manage.windowsazure.com/), select your mobile service, and then choose the **Logs** tab.
 
 You can also use the logging functions of the [console object] to format your messages using parameters. The following example supplies a JSON object as a parameter to the message string:
 
@@ -1035,7 +1011,7 @@ To avoid overloading your log, you should remove or disable calls to console.log
 [Validate data]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
 [Modify the request]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
 [Modify the response]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
-[Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Schedule jobs]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Commands to manage Azure Mobile Services]: ../virtual-machines-command-line-tools.md#Mobile_Scripts

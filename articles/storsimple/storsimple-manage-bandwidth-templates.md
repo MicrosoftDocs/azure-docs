@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Manage your StorSimple bandwidth templates"
+   pageTitle="Manage your StorSimple bandwidth templates | Microsoft Azure"
    description="Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
-# Manage your StorSimple bandwidth templates
+# Use the StorSimple Manager service to manage StorSimple bandwidth templates
 
 ## Overview
 
@@ -35,7 +35,7 @@ This feature is available only for StorSimple physical devices and not for virtu
 
 - **Used by** – The number of volumes using the bandwidth templates.
 
-You use the StorSimple Manager service **Configure** page in the Management Portal to manage bandwidth templates. The most common tasks related to bandwidth templates that can be performed on this page are:
+You use the StorSimple Manager service **Configure** page in the Azure classic portal to manage bandwidth templates. The most common tasks related to bandwidth templates that can be performed on this page are:
 
 - Add a bandwidth template
 - Edit a bandwidth template
@@ -54,7 +54,7 @@ Perform the following steps to create a new bandwidth template.
 
 #### To add a bandwidth template
 
-1. Click **add/edit bandwidth template**.
+1. On the StorSimple Manager service **Configure** page, click **add/edit bandwidth template**.
 
 2. In the **Add/Edit Bandwidth Template** dialog box:
 
@@ -174,4 +174,4 @@ Follow these best practices for your StorSimple device:
 
 ## Next steps
 
-Read more about [StorSimple components](storsimple-components.md). 
+Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management | Microsoft Azure"
-	description="Learn about using the command-line tools for Mac, Linux, and Windows to manage Azure using the Azure CLI asm mode."
+	pageTitle="Use the Azure CLI with Service Management | Microsoft Azure"
+	description="Learn about using the command-line tools for Mac, Linux, and Windows to manage Azure using the Azure CLI in classic (Azure Service Management) mode."
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,22 +14,27 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management
 
-This topic describes how to use the Azure CLI in the **asm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. This functionality is similar to that provided by the Windows PowerShell Service Management cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md).
 
-> [AZURE.NOTE] Using Azure services with the **asm** mode is conceptually similar to thinking of individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on. Richer functionality with a logically grouped and hierarchical model of resources is available on the command line using the **arm** mode. To switch to that mode, see [Using the Azure Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md).
+This article describes how to use the Azure CLI in the Service Management mode (asm mode) to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure classic portal. Using Azure services with the Service Management mode is conceptually similar to creating and managing individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on.  
 
-For installation instructions, see [Install and Configure the Azure Command-Line Interface](../xplat-cli-install.md).
+> [AZURE.NOTE]
+To get started, first [install the Azure CLI](../xplat-cli-install.md) and [log on to use Azure resources associated with your account](../xplat-cli-connect.md).
+
+## Scope of article
+
+This article provides syntax and options for commonly used Azure CLI commands for the classic (Service Management) deployment model. It is not a complete reference, and your CLI version may show some different commands or parameters. For current command syntax and options at the command line in Service Management mode, type `azure help` or, to display help for a specific command, `azure help [command]`. You'll also find CLI examples in the documentation for creating and managing specific Azure services.
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 
 In addition to command-specific optional parameters documented here, there are three optional parameters that can be used to display detailed output such as request options and status codes. The -v parameter provides verbose output, and the -vv parameter provides even more detailed verbose output. The --json option will output the result in raw json format.
 
-## Setting the **asm** mode
+## Setting the Service Management mode
 
 Currently the Service Management mode is enabled by default when you first install the CLI. If you need to, use the following command to enable Azure CLI Service Management commands.
 
@@ -38,11 +43,11 @@ Currently the Service Management mode is enabled by default when you first insta
 >[AZURE.NOTE] The Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
 ## Manage your account information and publish settings
-Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations. You only need to import your publish settings once.
+Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure classic portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations. You only need to import your publish settings once.
 
 **account download [options]**
 
-This command launches a browser to download your .publishsettings file from the Azure portal.
+This command launches a browser to download your .publishsettings file from the Azure classic portal.
 
 	~$ azure account download
 	info:   Executing command account download
@@ -195,7 +200,7 @@ The following diagram shows how Azure virtual machines are hosted in the product
 
 This command creates a new Azure virtual machine. By default, each virtual machine (vm) is created in its own cloud service; however, you can specify that a virtual machine should be added to an existing cloud service through use of the -c option as documented here.
 
-The vm create command, like the Azure portal, only creates virtual machines in the production deployment environment. There is no option to create a virtual machine in the staging deployment environment of a cloud service. If your subscription does not have an existing Azure storage account, the command creates one.
+The vm create command, like the Azure classic portal, only creates virtual machines in the production deployment environment. There is no option to create a virtual machine in the staging deployment environment of a cloud service. If your subscription does not have an existing Azure storage account, the command creates one.
 
 You can specify a location through the --location parameter, or you can specify an affinity group through the --affinity-group parameter. If neither is provided, you are prompted to provide one from a list of valid locations.
 
@@ -220,7 +225,7 @@ The following optional parameters are supported for this command:
 **-w** The virtual network name <br/>
 **-l, --location** specifies the location (for example, "North Central US"). <br />
 **-a, --affinity-group** specifies the affinity group.<br />
-**-w, --virtual-network-name** Specify the virtual network on which to add the new virtual machine. Virtual networks can be set up and managed from the Azure portal.<br />
+**-w, --virtual-network-name** Specify the virtual network on which to add the new virtual machine. Virtual networks can be set up and managed from the Azure classic portal.<br />
 **-b, --subnet-names** Specifies the subnet names to assign the virtual machine.
 
 In this example, MSFT__Win2K8R2SP1-120514-1520-141205-01-en-us-30GB is an image provided by the platform. For more information about operating system images, see vm image list.

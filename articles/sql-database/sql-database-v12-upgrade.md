@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Upgrade to SQL Database V12" 
-	description="Explains how to upgrade to Azure SQL Database V12, from an earlier version of Azure SQL Database." 
+	pageTitle="Upgrade to Azure SQL Database V12 using the Azure Portal | Microsoft Azure" 
+	description="Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using the Azure Portal." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sonalmm" 
-	manager="jeffreyg" 
+	authors="stevestein" 
+	manager="jeffreyg"
 	editor=""/>
 
 <tags 
@@ -13,83 +13,162 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="05/15/2015" 
-	ms.author="sonalm"/>
+	ms.date="11/11/2015" 
+	ms.author="sstein"/>
 
 
-# Upgrade to SQL Database V12 in place
+# Upgrade to Azure SQL Database V12 using the Azure Portal
 
 
-[Sign up](https://portal.azure.com) for SQL Database V12 to take advantage of the next generation of  SQL Database on Microsoft Azure. First, you need a subscription to Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information. 
+> [AZURE.SELECTOR]
+- [Azure Portal](sql-database-upgrade-server-portal.md)
+- [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-## Steps to upgrade to SQL Database V12
+SQL Database V12 is the latest version so upgrading to SQL Database V12 is recommended.
+SQL Database V12 has many [advantages over the previous version](sql-database-v12-whats-new.md) including:
+
+- Increased compatibility with SQL Server.
+- Improved premium performance and new performance levels.
+- [Elastic database pools](sql-database-elastic-pool.md).
+
+This article provides directions for upgrading existing SQL Database V11 servers and databases to SQL Database V12. 
+
+During the process of upgrading to V12 you will upgrade any Web and Business databases to a new service tier so directions for upgrading Web and Business databases are included. 
+
+In addition, migrating to an [elastic database pool](sql-database-elastic-pool.md) can be more cost effective than upgrading to individual performance levels (pricing tiers) for single databases. Pools also simplify database management because you only need to manage the performance settings for the pool rather than separately managing the performance levels of individual databases. If you have databases on multiple servers consider moving them into the same server and taking advantage of putting them into a pool. You can easily [auto-migrate databases from V11 servers directly into elastic database pools using PowerShell](sql-database-upgrade-server.md). You can also use the portal to migrate V11 databases into a pool but in the portal you must already have a V12 server to create a pool. Directions are provided later in this article to create the pool after the server upgrade if you have [databases that can benefit from a pool](sql-database-elastic-pool-guidance.md).
+
+Note that your databases will remain online and continue to work throughout the upgrade operation. At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration that is typically around 90 seconds but can be as much as 5 minutes. If your application has [transient fault handling for connection terminations](sql-database-connect-central-recommendations.md) then it is sufficient to protect against dropped connections at the end of the upgrade. 
+
+Upgrading to SQL Database V12 cannot be undone. After an upgrade the server cannot be reverted to V11. 
+
+After upgrading to V12, [service tier recommendations](sql-database-service-tier-advisor.md) and [elastic pool recommendations](sql-database-elastic-pool-portal.md#step-2-choose-a-pricing-tier) will not immediately be available until the service has time to evaluate your workloads on the new server. V11 server recommendation history does not apply to V12 servers so it is not retained.  
 
 
-| Upgrade step  | Screen shot |
-| :--- | :--- |
-| 1. Sign in to [http://portal.azure.com/](http://portal.azure.com/). | ![New Azure Portal][1] |
-| 2. Click **BROWSE**. | ![Browse Services][2] |
-| 3.	Click **SQL servers**. A list of SQL Server names is displayed. | ![Select SQL Server service][3] |
-| 4. Select the server you want to copy to a new server with  SQL Database Update enabled. | ![Shows a list of SQL Servers][4] |
-| 5. Click **Settings** or **Server version** to upgrade your server to V12.  | ![Latest preview feature][5] |
-| 6. Click **UPGRADE THIS SERVER**. | ![Upgrades the SQL Server to the preview][6] |
-| 7. Once you click **UPGRADE THIS SERVER**, the upgrade process will be initiated. Under **Server version**, the notification changes from **V2** to **Upgrade scheduled..**. If you click on the **Upgrade scheduled..** notification, a blade opens with the **Cancel Upgrade** button at the top. Click **Cancel Upgrade** in case you decide against upgrading the server for any reason. Please **note** that cancel operation will not work towards the end of the upgrade process and the upgrade will be completed.|![Cancel Upgrade][9] 
+## Prepare to upgrade
+
+- **Upgrade all Web and Business databases**: See [Upgrade all Web and Business databases](sql-database-upgrade-server-portal.md#upgrade-all-web-and-business-databases) section below or use [PowerShell to upgrade databases and server](sql-database-upgrade-server-powershell.md).
+- **Review and suspend geo-replication**: If your Azure SQL database is configured for geo-replication you should document its current configuration and [stop geo-replication](sql-database-geo-replication-portal.md#remove-secondary-database). After the upgrade completes reconfigure your database for geo-replication.
+- **Open these ports if you have clients on an Azure VM**: If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open port ranges 11000-11999 and 14000-14999 on the VM. For details, see [Ports for SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-> [AZURE.NOTE] Once you select the upgrade option, your server and the databases within that server will be enabled with SQL Database V12 features, and you will not be able to reverse that. To upgrade servers to SQL Database V12, you require a Basic, Standard or Premium service tier. For more information on the  service tiers,see [Upgrade SQL Database Web/Business Databases to New Service Tiers"](sql-database-upgrade-new-service-tiers.md).
+
+## Start the upgrade
+
+1. In the [Azure Portal](http://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
+2. Select **Latest SQL database update**, then select **Upgrade this server**.
+
+      ![upgrade server][1]
+
+## Upgrade all Web and Business databases
+
+If your server has any Web or Business databases you must upgrade them. During the process of upgrading to SQL Database V12 you will update all Web and Business databases to a new service tier.    
+
+To assist you with upgrading, the SQL Database service recommends an appropriate service tier and performance level (pricing tier) for each database. The service recommends the best tier for running your existing database’s workload by analyzing the historical usage for your database. 
+    
+3. In the **Upgrade this server** blade select each database to review and select the recommended pricing tier to upgrade to. You can always browse the available pricing tiers and select the one that suits your environment best.
 
 
-> [AZURE.IMPORTANT] Geo-replication is not supported with SQL Database V12 (preview). For more information, see [Plan and Prepare to Upgrade to Azure SQL Database V12 Preview](sql-database-v12-plan-prepare-upgrade.md).
+     ![databases][2]
 
 
-Once you click the **UPGRADE THIS SERVER** option, the blade that opens shows a message about a validation process. 
+7. After clicking the suggested tier you will be presented with the **Choose your pricing tier** blade where you can select a tier and then click the **Select** button to change to that tier. Select a new tier for each Web or Business database.
+
+    What is important to note is that your SQL database is not locked into any specific service tier or performance level, so as the requirements of your database change you can easily change between the available service tiers and performance levels. In fact, Basic, Standard, and Premium SQL Databases are billed by the hour, and you have the ability to scale each database up or down 4 times within a 24 hour period.
+
+    ![recommendations][6]
 
 
-- The validation process checks the service tier of your database and checks whether Geo-replication is enabled. The blade will show the results after the validation is complete. 
-- After the validation process is complete, you will see a list of database names that require you to take action to meet the requirements of upgrading to SQL Database V12.
- - **You need to complete the actions for each of those databases to be able to upgrade to SQL Database V12**.
-- As you click on each database name, a new blade provides service pricing tier recommendation based on your current usage. You can also browse various pricing tiers and select the one that suits your environment best. All the databases that are setup for Geo Replication need to be reconfigured to stop replication. 
-- Note that a recommendation on pricing tier will not be displayed if enough data is not found. 
+After all databases on the server are eligible you are ready to start the upgrade
+
+## Confirm the upgrade
+
+3. When all the databases on the server are eligible for upgrade you need to **TYPE THE SERVER NAME** to verify that you want to perform the upgrade, and then click **OK**. 
+
+    ![verify upgrade][3]
 
 
-| Action | Screen shot |
-| :--- | :--- |
-| 7. Once you have completed the actions that prepares your server for the upgrade, type the name of the server to upgrade and Click **OK**. | ![Confirm the server name to upgrade][7] |
-| 8. The upgrade process is initiated. Upgrade can take up to 24 hours. During this time all databases on this server will remain online but server and database management actions will be restricted. Once the process is complete, the status **Enabled** is displayed on the server blade. | ![Confirms preview features are enabled][8] |
+4. The upgrade starts and displays the in progress notification. The upgrade process is initiated. Depending on the details of your specific databases upgrading to V12 can take some time. During this time all databases on the server will remain online but server and database management actions will be restricted.
+
+    ![upgrade in progress][4]
+
+    At the time of the actual transition to the new performance level temporary dropping of the connections to the database can happen for a very small duration (typically measured in seconds). If an application has transient fault handling (retry logic) for connection terminations then it is sufficient to protect against dropped connections at the end of the upgrade. 
+
+5. After the upgrade operation completes the **Latest Update** blade will display **Enabled**. 
+
+    ![V12 enabled][5]  
+
+## Move your databases into an elastic database pool
+
+In the [Azure Portal](https://ms.portal.azure.com/) browse to the V12 server and click **Add pool**.
+
+-or-
+
+If you see a message saying **Click here to view the recommended elastic database pools for this server**, click it to easily create a pool that is optimized for your server's databases. For details, see [Recommended elastic database pools](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
+
+![Add pool to a server][7]
+   
+Follow the directions in the [Create an elastic database pool](sql-database-elastic-pool.md) article to finish creating your pool.
+
+## Monitor databases after upgrading to SQL Database V12
 
 
-## Powershell cmdlets
+After upgrading, it is recommended to monitor the database actively to ensure applications are running at the desired performance and optimize usage as needed. 
+
+In addition to monitoring individual databases you can monitor elastic database pools [using the portal](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool) or with [PowerShell](sql-database-elastic-pool-powershell.md#monitoring-elastic-databases-and-elastic-database-pools) 
 
 
-Powershell cmdlets are available to start, stop, or monitor an upgrade to Azure SQL Database V12 from V11 or any other pre-V12 version.
+**Resource consumption data:** For Basic, Standard, and Premium databases resource consumption data is available through the [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) DMV in the user database. This DMV provides near real time resource consumption information at 15 second granularity for the previous hour of operation. The DTU percentage consumption for an interval is computed as the maximum percentage consumption of the CPU, IO and log dimensions. Here is a query to compute the average DTU percentage consumption over the last hour:
+
+    SELECT end_time
+    	 , (SELECT Max(v)
+             FROM (VALUES (avg_cpu_percent)
+                         , (avg_data_io_percent)
+                         , (avg_log_write_percent)
+    	   ) AS value(v)) AS [avg_DTU_percent]
+    FROM sys.dm_db_resource_stats
+    ORDER BY end_time DESC;
+
+Additional monitoring information:
+
+- [Azure SQL Database performance guidance for single databases](http://msdn.microsoft.com/library/azure/dn369873.aspx).
+- [Price and performance considerations for an elastic database pool](sql-database=elastic-pool-guidance.md).
+- [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
 
 
-For reference documentation about these Powershell cmdlets, see:
 
 
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+**Alerts:** Set up 'Alerts' in the Azure Portal to notify you when the DTU consumption for an upgraded database approaches certain high level. Database alerts can be setup in the Azure Portal for various performance metrics like DTU, CPU, IO, and Log. Browse to your database and select **Alert rules** in the **Settings** blade.
+
+For example, you can set up an email alert on “DTU Percentage” if the average DTU percentage value exceeds 75% over the last 5 minutes. Refer to [Receive alert notifications](insights-receive-alert-notifications.md) to learn more about how to configure alert notifications.
 
 
-The Stop- cmdlet means cancel, not pause. There is no way to resume an upgrade, other than starting again from the beginning. The Stop- cmdlet cleans up and releases all appropriate resources. 
+
+
+
+## Next Steps
+
+- [Check for elastic database pool recommendations](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
+- [Create an elastic database pool](sql-database-elastic-pool-portal.md) and add some or all of your databases into a pool.
+- [Change the service tier and performance level of your database](sql-database-scale-up.md).
+
 
 
 ## Related Links
 
--  [What's new in SQL Database V12](sql-database-v12-whats-new.md) 
+- [What's new in SQL Database V12](sql-database-v12-whats-new.md)
 - [Plan and prepare to upgrade to SQL Database V12](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->
-[1]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[2]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[3]: ./media/sql-database-v12-upgrade/sqlserverlist.png
-[4]: ./media/sql-database-v12-upgrade/sqlserverlist.png
-[5]: ./media/sql-database-v12-upgrade/latestprview.png
-[6]: ./media/sql-database-v12-upgrade/upgrade.png
-[7]: ./media/sql-database-v12-upgrade/typeservername.png
-[8]: ./media/sql-database-v12-upgrade/enabled.png
-[9]: ./media/sql-database-v12-upgrade/cancel.PNG
- 
+[1]: ./media/sql-database-upgrade-server-portal/latest-sql-database-update.png
+[2]: ./media/sql-database-upgrade-server-portal/upgrade-server2.png
+[3]: ./media/sql-database-upgrade-server-portal/upgrade-server3.png
+[4]: ./media/sql-database-upgrade-server-portal/online-during-upgrade.png
+[5]: ./media/sql-database-upgrade-server-portal/enabled.png
+[6]: ./media/sql-database-upgrade-server-portal/recommendations.png
+[7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
+
+
+
+

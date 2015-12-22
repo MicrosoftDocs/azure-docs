@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Manage Azure HDInsight using Azure Automation"
-	description="Learn about how the Azure Automation service can be used to manage Azure HDInsight."
+	description="Learn how the Azure Automation service can be used to manage Azure HDInsight."
 	services="HDInsight, automation"
 	documentationCenter=""
 	authors="elcooper"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="10/20/2015"
 	ms.author="elcooper"/>
 
 
 
-#Managing Azure HDInsight using Azure Automation
+#Manage Azure HDInsight using Azure Automation
 This guide will introduce you to the Azure Automation service and how it can be used to simplify management of your clusters and automate common tasks in Azure HDInsight.
 
 ## What is Azure Automation?
@@ -40,5 +40,6 @@ With the Azure HDInsight cmdlets you can automate tasks such as provisioning HDI
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure HDInsight, follow this link to learn more about Azure Automation.
 
 * See the Azure Automation [Getting Started Tutorial](../automation-create-runbook-from-samples.md).
+* View examples in [Script Center](http://aka.ms/scriptcentergallery).  
 
  

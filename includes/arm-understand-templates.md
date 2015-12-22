@@ -1,6 +1,6 @@
 ## Understanding Azure resource templates and resource groups
 
-Most applications that are deployed and run in Microsoft Azure are built out of a combination of different cloud resource types (e.g. one or more VMs and Storage accounts, a SQL database, a virtual network, a CDN, etc).  [Azure Resource Manager templates](https://msdn.microsoft.com/library/azure/dn835138.aspx) make it possible for you to deploy and manage these different resources together by using a JSON description of the resources and associated configuration and deployment parameters.
+Most applications that are deployed and run in Microsoft Azure are built out of a combination of different cloud resource types (e.g. one or more VMs and Storage accounts, a SQL database, a virtual network, a CDN, etc).  [Azure Resource Manager templates](../resource-group-authoring-templates.md) make it possible for you to deploy and manage these different resources together by using a JSON description of the resources and associated configuration and deployment parameters.
 
 Once you have defined a JSON based resource template, you can execute it and have the resources defined within it be deployed in Azure using a PowerShell command.  You can run this PowerShell command either standalone within the PowerShell command shell, or you can integrate it within a PowerShell script that contains additional automation logic.
 

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="04/29/2015"
+	ms.date="11/06/2015"
 	ms.author="tomfitz"/>
 
 #Enterprise-class WordPress on Azure App Service
@@ -28,7 +28,7 @@ A basic WordPress installation has only two requirements.
 
     > [AZURE.NOTE] ClearDB provides several MySQL configurations, with different performance characteristics for each configuration. See the [Azure Store][cdbnstore] for information on offerings provided through the Azure store or [ClearDB pricing](http://www.cleardb.com/pricing.view) for offerings directly from ClearDB.
 
-* **PHP 5.2.4 or greater** - Azure App Service currently provide [PHP versions 5.3, 5.4, and 5.5][phpwebsite].
+* **PHP 5.2.4 or greater** - Azure App Service currently provide [PHP versions 5.4, 5.5, and 5.6][phpwebsite].
 
 	> [AZURE.NOTE] We recommend always running on the latest version of PHP to ensure you have the latest security fixes.
 
@@ -53,7 +53,7 @@ Replication and routing to multiple MySQL Databases can be done using ClearDB's 
 
 ###Multi-region deployment with media storage and caching
 
-If the site will accept uploads, or host media files, use Azure Blob storage. If you need caching, consider [Redis cache][rediscache], [Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/), or one of the other caching offerings in the [Azure Store](http://azure.microsoft.com/gallery/store/).
+If the site will accept uploads, or host media files, use Azure Blob storage. If you need caching, consider [Redis cache][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), or one of the other caching offerings in the [Azure Store](http://azure.microsoft.com/gallery/store/).
 
 ![an Azure web app, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN][performance-diagram]
 
@@ -87,7 +87,7 @@ Performance in the cloud is achieved primarily through caching and scale out; ho
 To do this... | Use this...
 ------------------------|-----------
 **Understand App Service instance capabilities** |  [Pricing details, including capabilities of App Service tiers][websitepricing]
-**Cache resources** | [Redis cache][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/), or one of the other caching offerings in the [Azure Store](/gallery/store/)
+**Cache resources** | [Redis cache][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), or one of the other caching offerings in the [Azure Store](/gallery/store/)
 **Scale your application** | [Scale a web app in Azure App Service][websitescale] and [ClearDB High Availability Routing][cleardbscale]. If you choose to host and manage your own MySQL installation, you should consider [MySQL Cluster CGE][cge] for scale out
 
 ####Migration
@@ -134,7 +134,7 @@ Use one of the following sections to migrate your site.
 
 6. Click **Submit**. You will be prompted that the import was successful.
 
-8. Once you have completed all these steps, restart your site from its web app blade in the [Azure preview portal][mgmtportal].
+8. Once you have completed all these steps, restart your site from its web app blade in the [Azure Portal][mgmtportal].
 
 After importing the site, you may need to perform the following steps to enable settings not contained in the import file.
 
@@ -161,7 +161,7 @@ If you were using this... | Do this...
 
 4. Create a new web app in the Azure Portal and publish the WordPress backup.
 
-	1. Create a new web app in the [Azure preview portal][mgmtportal] with a database using **New** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (or **Web app + MySQL**) -> **Create**. Configure all the required settings to create an empty web app.
+	1. Create a new web app in the [Azure Portal][mgmtportal] with a database using **New** -> **Web + Mobile** -> **Azure Marketplace** -> **Web Apps** -> **Web app + SQL** (or **Web app + MySQL**) -> **Create**. Configure all the required settings to create an empty web app.
 
 	2. In your WordPress backup, locate the **wp-config.php** file and open it in an editor. Replace the following entries with the information for your new MySQL database.
 
@@ -236,7 +236,6 @@ To do this... | Use this...
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [performance-diagram]: ./media/web-sites-php-enterprise-wordpress/performance-diagram.png
 [basic-diagram]: ./media/web-sites-php-enterprise-wordpress/basic-diagram.png
@@ -249,10 +248,10 @@ To do this... | Use this...
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
 [customdomain]: web-sites-custom-domain-name.md
-[trafficmanager]: /blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/
+[trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
-[rediscache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[rediscache]: https://azure.microsoft.com/documentation/services/redis-cache/
 [managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
 [managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
@@ -278,7 +277,7 @@ To do this... | Use this...
 [searchandreplace]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
 [deploy]: web-sites-deploy.md
 [posh]: ../install-configure-powershell.md
-[Azure CLI]: ../xplat-cli.md
-[storesendgrid]: /gallery/store/sendgrid/sendgrid-azure/
+[Azure CLI]: ../xplat-cli-install.md
+[storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn-how-to-use.md
  

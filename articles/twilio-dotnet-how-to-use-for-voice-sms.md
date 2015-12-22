@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Use Twilio for Voice and SMS (.NET) - Azure" 
+	pageTitle="How to Use Twilio for Voice and SMS (.NET) | Microsoft Azure" 
 	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." 
 	services="" 
 	documentationCenter=".net" 
@@ -82,32 +82,13 @@ For information on creating an initial Azure project, see [Creating an Azure pro
 Twilio provides a set of .NET helper libraries that wrap various aspects of Twilio to provide simple and easy ways to interact with the Twilio REST API and Twilio Client to generate TwiML responses.
 
 Twilio provides five libraries for .NET developers:
-<table border="1">
-    <tr>
-        <th>Library</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>Twilio.API</td>
-        <td>The core Twilio library that wraps the Twilio REST API in a friendly .NET library. This library is available for .NET, Silverlight, and Windows Phone 7.</td>
-    </tr>
-    <tr>
-        <td>Twilio.TwiML</td>
-        <td>Provides a .NET friendly way to generate TwiML markup.</td>
-    </tr>
-    <tr>
-        <td>Twilio.MVC</td>
-        <td>For developers using ASP.NET MVC, this library includes a TwilioController, TwiML ActionResult and request validation attribute.</td>
-    </tr>
-    <tr>
-        <td>Twilio.WebMatrix</td>
-        <td>For developers using Microsoft's free WebMatrix development tool, this library contains Razor syntax helpers for various Twilio actions.</td>
-    </tr>
-    <tr>
-        <td>Twilio.Client.Capability</td>
-        <td>Contains the Capability token generator for use with the Twilio Client JavaScript SDK.</td>
-    </tr>
-</table>
+Library|Description
+---|---
+Twilio.API|The core Twilio library that wraps the Twilio REST API in a friendly .NET library. This library is available for .NET, Silverlight, and Windows Phone 7.
+Twilio.TwiML|Provides a .NET friendly way to generate TwiML markup.
+Twilio.MVC|For developers using ASP.NET MVC, this library includes a TwilioController, TwiML ActionResult and request validation attribute.
+Twilio.WebMatrix|For developers using Microsoft's free WebMatrix development tool, this library contains Razor syntax helpers for various Twilio actions.
+Twilio.Client.Capability|Contains the Capability token generator for use with the Twilio Client JavaScript SDK.
 
 Note that all libraries require .NET 3.5, Silverlight 4, or Windows Phone 7 or later.
 

@@ -1,19 +1,18 @@
-<properties 
-    pageTitle="How to migrate from a RemoteApp VNET to an Azure VNET"
-    description="Learn how to migrate from a RemoteApp VNET to an Azure VNET" 
-    services="remoteapp" 
-    solutions="" 
-	documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="How to migrate from a RemoteApp VNET to an Azure VNET | Microsoft Azure"
+    description="Learn how to migrate from a RemoteApp VNET to an Azure VNET"
+    services="remoteapp"
+	documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/28/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/02/2015"
     ms.author="elizapo" />
 
 
@@ -39,7 +38,7 @@ Now, if you DON’T need to migrate any user information from the original colle
 
 And, you’re done!
 
-Alternately, if you DO need to migrate user information from the original collection to the new collection, do these steps next: 
+Alternately, if you DO need to migrate user information from the original collection to the new collection, do these steps next:
 
 6.	Send an email to [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20user%20information%20migration) with your Azure subscription ID, the name of your original collection, and the name of your new collection, and ask them to migrate your user information.
 7.	Within 2 business days the RemoteApp team will move the user access list and all user documents and user settings from the original collection to the new collection.
@@ -49,4 +48,3 @@ Alternately, if you DO need to migrate user information from the original collec
 And now, you’re done!
 
 If you have any questions or need special assistance, please email [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
- 

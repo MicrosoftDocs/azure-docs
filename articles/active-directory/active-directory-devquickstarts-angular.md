@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="10/13/2015"
 	ms.author="dastrock"/>
 
 
 # Securing AngularJS Single Page Apps with Azure AD
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -30,7 +32,7 @@ For javascript applications running in a browser, Azure AD provides the Active D
 - Securely calls the app's To Do List API using Bearer tokens from AAD.
 - Signs the user out of the app.
 
-To build the complete working application, you?ll need to:
+To build the complete working application, you'll need to:
 
 2. Register your application with Azure AD.
 3. Install ADAL & Configure the SPA.
@@ -123,7 +125,7 @@ $scope.logout = function () {
 };
 ...
 ```
-- You might also want to present user information in the app's UI.  The adal service has already been added to the `userDataCtrl` controller, so you can access the `userInfo` object in the associated view, `App/Scripts/UserData.html`:
+- You might also want to present user information in the app's UI.  The adal service has already been added to the `userDataCtrl` controller, so you can access the `userInfo` object in the associated view, `App/Views/UserData.html`:
 
 ```js
 <p>{{userInfo.userName}}</p>
@@ -147,8 +149,4 @@ For reference, the completed sample (without your configuration values) is provi
 
 [Call a CORS Web API from a SPA >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
-For additional resources, check out:
-- [AzureADSamples on GitHub >>](https://github.com/AzureAdSamples)
-- [CloudIdentity.com >>](https://cloudidentity.com)
-- Azure AD documentation on [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
- 
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]

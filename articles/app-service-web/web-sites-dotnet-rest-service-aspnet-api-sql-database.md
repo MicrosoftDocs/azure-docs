@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="12/04/2015" 
 	ms.author="riande"/>
 
 # Create a REST service using ASP.NET Web API and SQL Database in Azure App Service
 
-This tutorial shows how to deploy an ASP.NET web app to an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. 
+This tutorial shows how to deploy an ASP.NET web app to an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 Community Edition. 
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. So you can start developing for Azure entirely for free.
 
@@ -37,7 +37,6 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 ![screenshot of web site][intro001]
 
-<a name="bkmk_setupdevenv"></a>
 <!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -45,13 +44,13 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 1. Start Visual Studio 2013.
 1. From the **File** menu click **New Project**.
-3. In the **New Project** dialog box, expand **Visual C#** and select **Web**  and then select **ASP.NET MVC 5 Web Application**. Name the application **ContactManager** and click **OK**.
+3. In the **New Project** dialog box, expand **Visual C#** and select **Web**  and then select **ASP.NET Web Application**. Name the application **ContactManager** and click **OK**.
 
-	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.PNG)]
+	![New Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr4.png)
 
 1. In the **New ASP.NET Project** dialog box, select the **MVC** template, check **Web API** and then click **Change Authentication**.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 1. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**.
 
@@ -59,9 +58,9 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 	The sample application you're creating won't have features that require users to log in. For information about how to implement authentication and authorization features, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
 
-1. In the **New ASP.NET Project** dialog box, click **OK**.
+1. In the **New ASP.NET Project** dialog box, make sure the **Host in the Cloud** is checked and click **OK**.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.PNG)
+	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 If you have not previously signed in to Azure, you will be prompted to sign in.
 
@@ -126,11 +125,11 @@ The markup above changes the app name from "My ASP.NET App" to "Contact Manager"
 
 1. Press CTRL+F5 to run the application.
 The application home page appears in the default browser.
-	![To Do List home page](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.PNG)
+	![To Do List home page](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr5.png)
 
 This is all you need to do for now to create the application that you'll deploy to Azure. Later you'll add database functionality.
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Azure</h2>
+## Deploy the application to Azure
 
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
@@ -150,7 +149,7 @@ Visual Studio begins the process of copying the files to the Azure server. The *
 	
 	![To Do List home page running in Azure][rxz2]
 
-<h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
+## Add a database to the application
 
 Next, you'll update the MVC application to add the ability to display and update contacts and store the data in a database. The application will use the Entity Framework to create the database and to read and update data in the database.
 
@@ -190,13 +189,13 @@ You begin by creating a simple data model in code.
     		}
 		}
 
-The **Contacts** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database. You can get more information about data models in the [Next Steps](#nextsteps) section at the end of this tutorial.
+The **Contact** class defines the data that you will store for each contact, plus a primary key, ContactID, that is needed by the database. You can get more information about data models in the [Next Steps](#nextsteps) section at the end of this tutorial.
 
 ### Create web pages that enable app users to work with the contacts
 
 The ASP.NET MVC the scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions.
 
-<h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
+## Add a Controller and a view for the data
 
 1. In **Solution Explorer**, expand the Controllers folder.
 
@@ -208,15 +207,15 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
 
 1. In the **Add Scaffold** dialog box, select **MVC Controller with views, using Entity Framework** and click **Add**.
 
- ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
+ ![Add controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.png)
 
 6. Set the controller name to **HomeController**. Select **Contact** as your model class. Click the **New data context** button and accept the default "ContactManager.Models.ContactManagerContext" for the **New data context type**. Click **Add**.
 
-	![Add Controller dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
+	![Add Controller dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.png)
 
 	A dialog box will prompt you: "A file with the name HomeController already exits. Do you want to replace it?". Click **Yes**. We are overwriting the Home Controller that was created with the new project. We will use the new Home Controller for our contact list.
 
-	Visual Studio creates a controller methods and views for CRUD database operations for **Contact** objects.
+	Visual Studio creates controller methods and views for CRUD database operations for **Contact** objects.
 
 ## Enable Migrations, create the database, add sample data and a data initializer ##
 
@@ -321,7 +320,7 @@ The application shows the seed data and provides edit, details and delete links.
 
 ![MVC view of data][rxz3]
 
-<h2><a name="bkmk_addview"></a>Edit the View</h2>
+## Edit the View
 
 1. Open the *Views\Home\Index.cshtml* file. In the next step, we will replace the generated markup with code that uses [jQuery](http://jquery.com/) and [Knockout.js](http://knockoutjs.com/). This new code retrieves the list of contacts from using web API and JSON and then binds the contact data to the UI using knockout.js. For more information, see the [Next Steps](#nextsteps) section at the end of this tutorial. 
 
@@ -504,15 +503,15 @@ To:
 
 1. In the Package Manager Console, run the following command to install Knockout.
 
-	Install-Package knockoutjs
+		Install-Package knockoutjs
 
-<h2><a name="bkmk_addwebapi"></a>Add a controller for the Web API Restful interface</h2>
+## Add a controller for the Web API Restful interface
 
 1. In **Solution Explorer**, right-click Controllers and click **Add** and then **Controller....** 
 
 1. In the **Add Scaffold** dialog box, enter **Web API 2 Controller with actions, using Entity Framework** and then click **Add**.
 
-	![Add API controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.PNG)
+	![Add API controller](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt1.png)
 
 4. In the **Add Controller** dialog box, enter "ContactsController" as your controller name. Select "Contact (ContactManager.Models)" for the **Model class**.  Keep the default value for the **Data context class**. 
 
@@ -547,8 +546,7 @@ To:
 	![Web API save dialog][addwebapi007]
 
 	**Security Warning**: At this point, your application is insecure and vulnerable to CSRF attack. Later in the tutorial we will remove this vulnerability. For more information see [Preventing Cross-Site Request Forgery (CSRF) Attacks][prevent-csrf-attacks].
-
-<h2><a name="xsrf"></a>Add XSRF Protection</h2>
+## Add XSRF Protection
 
 Cross-site request forgery (also known as XSRF or CSRF) is an attack against web-hosted applications whereby a malicious website can influence the interaction between a client browser and a website trusted by that browser. These attacks are made possible because web browsers will send authentication tokens automatically with every request to a website. The canonical example is an authentication cookie, such as ASP.NET's Forms Authentication ticket. However, websites which use any persistent authentication mechanism (such as Windows Authentication, Basic, and so forth) can be targeted by these attacks.
 
@@ -630,13 +628,13 @@ For more information, see the [Open Web Application Security Project](https://ww
 
 1. Add the following *using* statement to the contracts controller so you have access to the **[ValidateHttpAntiForgeryToken]** attribute.
 
-	using ContactManager.Filters;
+		using ContactManager.Filters;
 
 1. Add the **[ValidateHttpAntiForgeryToken]** attribute to the Post methods of the **ContactsController** to protect it from XSRF threats. You will add it to the "PutContact",  "PostContact" and **DeleteContact** action methods.
 
-	[ValidateHttpAntiForgeryToken]
-        public IHttpActionResult PutContact(int id, Contact contact)
-        {
+		[ValidateHttpAntiForgeryToken]
+	        public IHttpActionResult PutContact(int id, Contact contact)
+	        {
 
 1. Update the *Scripts* section of the *Views\Home\Index.cshtml* file to include code to get the XSRF tokens.
 
@@ -691,9 +689,10 @@ For more information, see the [Open Web Application Security Project](https://ww
                }
                ko.applyBindings(new ContactsViewModel());
             </script>
+		 }
 
 
-<h2><a name="bkmk_deploydatabaseupdate"></a>Publish the application update to Azure and SQL Database</h2>
+## Publish the application update to Azure and SQL Database
 
 To publish the application, you repeat the procedure you followed earlier.
 
@@ -731,7 +730,7 @@ The application is now running in the cloud, using SQL Database to store its dat
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-<h2><a name="nextsteps"></a>Next Steps</h2>
+## Next Steps
 
 A real application would require authentication and authorization, and you would use the membership database for that purpose. The tutorial [Deploy a Secure ASP.NET MVC application with OAuth, Membership and SQL Database](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) is based on this tutorial and shows how to deploy a web application with the membership database.
 
@@ -749,7 +748,6 @@ Please leave feedback on what you liked or what you would like to see improved, 
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth

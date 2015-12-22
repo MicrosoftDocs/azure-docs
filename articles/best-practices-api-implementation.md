@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # API implementation guidance
@@ -247,26 +247,26 @@ Once a request from a client application has been successfully routed to a metho
 	...
 	Content-Length: ...
 	{"CustomerID":2,"CustomerName":"Bert","Links":[
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"PUT",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"DELETE",
-	   "LinkedResourceMIMETypes":[]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"POST",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]}
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"PUT",
+	   "types":["application/x-www-form-urlencoded"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"DELETE",
+	   "types":[]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"POST",
+	   "types":["application/x-www-form-urlencoded"]}
 	]}
 	```
 
@@ -283,10 +283,10 @@ Once a request from a client application has been successfully routed to a metho
 
 	public class Link
 	{
-    	public string Relationship { get; set; }
-    	public string HRef { get; set; }
+    	public string Rel { get; set; }
+    	public string Href { get; set; }
     	public string Action { get; set; }
-    	public string [] LinkedResourceMIMETypes { get; set; }
+    	public string [] Types { get; set; }
 	}
 	```
 
@@ -294,11 +294,11 @@ Once a request from a client application has been successfully routed to a metho
 
 	- The relationship between the object being returned and the object described by the link. In this case "self" indicates that the link is a reference back to the object itself (similar to a `this` pointer in many object-oriented languages), and "orders" is the name of a collection containing the related order information.
 
-	- The hyperlink (`HRef`) for the object being described by the link in the form of a URI.
+	- The hyperlink (`Href`) for the object being described by the link in the form of a URI.
 
 	- The type of HTTP request (`Action`) that can be sent to this URI.
 
-	- The format of any data (`LinkedResourceMIMETypes`) that should be provided in the HTTP request or that can be returned in the response, depending on the type of the request.
+	- The format of any data (`Types`) that should be provided in the HTTP request or that can be returned in the response, depending on the type of the request.
 
 	The HATEOAS links shown in the example HTTP response indicate that a client application can perform the following operations:
 
@@ -406,7 +406,7 @@ In a distributed environment such as that involving a web server and client appl
 	Cache-Control: max-age=600, private
 	Content-Type: text/json; charset=utf-8
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	In this example, the Cache-Control header specifies that the data returned should be expired after 600 seconds, and is only suitable for a single client and must not be stored in a shared cache used by other clients (it is _private_). The Cache-Control header could specify _public_ rather than _private_ in which case the data can be stored in a shared cache, or it could specify _no-store_ in which case the data must **not** be cached by the client. The following code example shows how to construct a Cache-Control header in a response message:
@@ -514,7 +514,7 @@ In a distributed environment such as that involving a web server and client appl
 	Content-Type: text/json; charset=utf-8
 	ETag: "2147483648"
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	> [AZURE.TIP] For security reasons, do not allow sensitive data or data returned over an authenticated (HTTPS) connection to be cached.
@@ -646,7 +646,7 @@ In a distributed environment such as that involving a web server and client appl
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
 	Content-Length: ...
-	ProductID=3&Quantity=5&OrderValue=250
+	productID=3&quantity=5&orderValue=250
 	```
 
 	- The PUT operation in the web API obtains the current ETag for the requested data (order 1 in the above example), and compares it to the value in the If-Match header.
@@ -1027,7 +1027,7 @@ The nature of a web API brings its own additional requirements to verify that it
 	- If the client sends a request that successfully deletes a resource, the status code should be 204 (No Content).
 	- If the client sends a request that creates a new resource, the status code should be 201 (Created)
 
-Watch out for unexpected response status codes in the 5xx range. These messages are usually reported by the host server to indicate that it was unable to fulfil a valid request.
+Watch out for unexpected response status codes in the 5xx range. These messages are usually reported by the host server to indicate that it was unable to fulfill a valid request.
 
 - Test the different request header combinations that a client application can specify and ensure that the web API returns the expected information in response messages.
 
@@ -1061,7 +1061,7 @@ Azure provides the [API Management Service](http://azure.microsoft.com/documenta
 
 You can find full details describing how to perform these tasks on the [API Management](http://azure.microsoft.com/services/api-management/) page on the Microsoft website. The Azure API Management Service also provides its own REST interface, enabling you to build a custom interface for simplifying the process of configuring a web API. For more information, visit the [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website.
 
-> [AZURE.TIP] Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager.  For more information, visit the [About Traffic Manager Load Balancing Methods](https://msdn.microsoft.com/library/azure/dn339010.aspx) page on the Microsoft website.
+> [AZURE.TIP] Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager.  For more information, visit the [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md) page on the Microsoft website.
 
 > In this structure, if you are using custom DNS names for your web sites, you should configure the appropriate CNAME record for each web site to point to the DNS name of the Azure Traffic Manager web site.
 
@@ -1147,7 +1147,7 @@ You can use this information to determine whether a particular web API or operat
 - The page [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) on the Microsoft website shows how you can use an Azure Notification Hub to push asynchronous responses to client applications.
 - The [API Management](http://azure.microsoft.com/services/api-management/) page on the Microsoft website describes how to publish a product that provides controlled and secure access to a web API.
 - The [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website describes how to use the API Management REST API to build custom management applications.
-- The [About Traffic Manager Load Balancing Methods](https://msdn.microsoft.com/library/azure/dn339010.aspx) page on the Microsoft website summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
+- The [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md) page on the Microsoft website summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
 - The [Application Insights - Start monitoring your app's health and usage](app-insights-start-monitoring-app-health-usage.md) page on the Microsoft website provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.
 - The page [Verifying Code by Using Unit Tests](https://msdn.microsoft.com/library/dd264975.aspx) on the Microsoft website provides detailed information on creating and managing unit tests by using Visual Studio.
 - The page [Run performance tests on an application before a release](https://msdn.microsoft.com/library/dn250793.aspx) on the Microsoft website describes how to use Visual Studio Ultimate to create a web performance and load test project.

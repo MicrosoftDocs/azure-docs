@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Create an Azure RemoteApp image based on an Azure VM"
-    description="Learn how to create an image for RemoteApp starting with an Azure virtual machine." 
+    pageTitle="Create an Azure RemoteApp image based on an Azure VM | Microsoft Azure"
+    description="Learn how to create an image for Azure RemoteApp by starting with an Azure virtual machine." 
     services="remoteapp" 
     documentationCenter="" 
     authors="lizap" 
@@ -12,22 +12,22 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="09/02/2015" 
     ms.author="elizapo" />
 
 
 
 # Create a Azure RemoteApp image based on an Azure virtual machine
 
-You can create RemoteApp images (which hold the apps you share in your collection) from an Azure virtual machine. We also have added a virtual machine image to the Azure VM image gallery that meets all the RemoteApp image requirements - you can use that VM image as a starting point for your own VM, if you want. Just look for the "Windows Server Remote Desktop Session Host" image in the library.
+You can create Azure RemoteApp images (which hold the apps you share in your collection) from an Azure virtual machine. You could also choose to use a virtual machine image we added to the Azure VM image gallery that meets all the Azure RemoteApp image requirements - you can use that VM image as a starting point for your own VM, if you want. Just look for the "Windows Server Remote Desktop Session Host" image in the library.
 
-There are two steps - create the image and then upload it from the Azure VM library to Azure RemoteApp.
+There are two steps to create your own image based on an Azure VM - create the image and then upload it from the Azure VM library to Azure RemoteApp.
 
 ## Create a custom image based on an Azure VM
 
 Use these steps to create an image based on an Azure VM.
 
-1. Create an Azure virtual machine. You can use the “Windows Server Remote Desktop Session Host” image from the Azure virtual machine image gallery. This image meets all the Azure RemoteApp template image requirements. 
+1. Create an Azure virtual machine. You can use the “Windows Server Remote Desktop Session Host” or the "Windows Server Remote Desktop Session Host with Microsoft Office 365 ProPlus" image from the Azure virtual machine image gallery. This image meets all the Azure RemoteApp template image requirements. 
 
 	For details, see [Create a VM running Windows](virtual-machines-windows-tutorial.md).
 
@@ -35,15 +35,15 @@ Use these steps to create an image based on an Azure VM.
 
 	For details, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md). 
 
-3. If you are using the Windows Server Remote Desktop Session Host image, there is an included validation script that will ensure your VM meets the RemoteApp pre-reqs. To run script, double-click **ValidateRemoteAppImage** on the desktop. Ensure that all errors reported by the script are fixed before proceeding to the next step.
+3. If you are using one of the Windows Server Remote Desktop Session Host images, there is an included validation script that will ensure your VM meets the RemoteApp pre-reqs. To run script, double-click **ValidateRemoteAppImage** on the desktop. Ensure that all errors reported by the script are fixed before proceeding to the next step.
 
 4. SYSPREP generalize and capture the image. See [How to Capture a Windows Virtual Machine to Use as a Template](../virtual-machines-capture-image-windows-server.md) for instructions.
 
  
 
-## Import the image into the RemoteApp image library
+## Import the image into the Azure RemoteApp image library
 
-Use these steps to import the new image into RemoteApp:
+Use these steps to import the new image into Azure RemoteApp:
 
 1. In the **Template Images** tab:
 	- If you have no existing images, click **Upload or Import a Template Image**. 

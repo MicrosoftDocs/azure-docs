@@ -3,7 +3,7 @@
    description="How to get started with the Azure Active Directory Reporting API"
    services="active-directory"
    documentationCenter=""
-   authors="yossibanai"
+   authors="kenhoff"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,11 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/22/2015"
-   ms.author="yossib"/>
+   ms.date="12/07/2015"
+   ms.author="kenhoff"/>
 
 
 # Getting started with the Azure AD Reporting API
+
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 Azure Active Directory provides a variety of activity, security and audit reports. This data can be consumed through the Azure portal, but can also be very useful in a many other applications, such as SIEM systems, audit, and business intelligence tools.
 
@@ -73,67 +75,84 @@ The steps below will walk you through obtaining your application's client ID and
 
 
 ## Modify the script
-To edit the PowerShell script below to work with your directory, replace $ClientID, $ClientSecret and $tenantdomain with the correct values from “Delegating Access in Azure AD”.
+Edit one of the scripts below to work with your directory by replacing $ClientID, $ClientSecret and $tenantdomain with the correct values from “Delegating Access in Azure AD”.
+
+### PowerShell Script
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID      = <<YOUR CLIENT ID HERE>>                # Should be a ~35 character string insert your info here
-    $ClientSecret  = "<<YOUR CLIENT SECRET HERE>>"          # Should be a ~44 character string insert your info here
-    $loginURL      = "https://login.windows.net"
-    $tenantdomain  = "<<YOUR TENANT NAME HERE>>"            # For example, contoso.onmicrosoft.com
+    $ClientID	  	= "your-application-client-id-here"				# Should be a ~35 character string insert your info here
+    $ClientSecret  	= "your-application-client-secret-here"			# Should be a ~44 character string insert your info here
+    $loginURL		= "https://login.windows.net"
+    $tenantdomain	= "your-directory-name-here.onmicrosoft.com"			# For example, contoso.onmicrosoft.com
 
     # Get an Oauth 2 access token based on client id, secret and tenant domain
-    $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
-    $oauth         = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+    $body		= @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
+    $oauth		= Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+
+    $7daysago = "{0:s}" -f (get-date).AddDays(-7) + "Z"
+    # or, AddMinutes(-5)
+
+    Write-Output $7daysago
 
     if ($oauth.access_token -ne $null) {
-        $headerParams  = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
+    	$headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
 
-        # Returns a list of all the available reports
-        Write-host List of available reports
-        Write-host =========================
-        $allReports = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports?api-version=beta")
-        Write-host $allReports.Content
+        $url = "https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&`$filter=eventTime gt $7daysago"
 
-        Write-host
-        Write-host Data from the AccountProvisioningEvents report
-        Write-host ====================================================
-        Write-host
-        # Returns a JSON document for the "accountProvisioningEvents" report
-        $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/accountProvisioningEvents?api-version=beta")
-        Write-host $myReport.Content
-
-        Write-host
-        Write-host Data from the AuditEvents report with datetime filter
-        Write-host ====================================================
-        Write-host
-        # Returns a JSON document for the "auditEvents" report
-        $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&$filter=eventTime gt 2015-05-20")
-        Write-host $myReport.Content
-
-        # Options for other output formats
-
-        # to output the JSON use following line
-        $myReport.Content | Out-File -FilePath accountProvisioningEvents.json -Force
-
-        # to output the content to a name value list
-        ($myReport.Content | ConvertFrom-Json).value | Out-File -FilePath accountProvisioningEvents.txt -Force
-
-        # to output the content in XML use the following line
-        (($myReport.Content | ConvertFrom-Json).value | ConvertTo-Xml).InnerXml | Out-File -FilePath accountProvisioningEvents.xml -Force
-
+    	$myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
+    	foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
+    		Write-Output ($event | ConvertTo-Json)
+    	}
+        $myReport.Content | Out-File -FilePath auditEvents.json -Force
     } else {
-        Write-Host "ERROR: No Access Token"
-        }
+    	Write-Host "ERROR: No Access Token"
+    }
+
+### Bash Script
+
+    #!/bin/bash
+
+    # Author: Ken Hoff (kenhoff@microsoft.com)
+    # Date: 2015.08.20
+    # NOTE: This script requires jq (https://stedolan.github.io/jq/)
+
+    CLIENT_ID="your-application-client-id-here"         # Should be a ~35 character string insert your info here
+    CLIENT_SECRET="your-application-client-secret-here" # Should be a ~44 character string insert your info here
+    LOGIN_URL="https://login.windows.net"
+    TENANT_DOMAIN="your-directory-name-here.onmicrosoft.com"    # For example, contoso.onmicrosoft.com
+
+    TOKEN_INFO=$(curl -s --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" "$LOGIN_URL/$TENANT_DOMAIN/oauth2/token?api-version=1.0")
+
+    TOKEN_TYPE=$(echo $TOKEN_INFO | ./jq-win64.exe -r '.token_type')
+    ACCESS_TOKEN=$(echo $TOKEN_INFO | ./jq-win64.exe -r '.access_token')
+
+    # get yesterday's date
+
+    YESTERDAY=$(date --date='1 day ago' +'%Y-%m-%d')
+
+    URL="https://graph.windows.net/$TENANT_DOMAIN/reports/auditEvents?api-version=beta&\$filter=eventTime%20gt%20$YESTERDAY"
+
+
+    REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" $URL)
+
+    echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
+
+
+
 
 
 ## Execute the script
-Once you finish editing the script, run it and verify that the expected data from the is returned.
+Once you finish editing the script, run it and verify that the expected data from the AuditEvents report is returned.
 
 The script returns lists all the available reports, and returns output from the AccountProvisioningEvents report in the PowerShell window in JSON format. It also creates files with the same output in JSON, text and XML. You can comment experiment with modifying the script to return data from other reports, and comment out the output formats that you do not need.
+
+## Notes
+
+- There is no limit on the number of events returned by the Azure AD Reporting API (using OData pagination).
+	- For retention limits on reporting data, check out [Reporting Retention Policies](active-directory-reporting-retention.md).
 
 
 ## Next Steps
 - Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
 - See [Azure AD Audit Report Events](active-directory-reporting-audit-events.md) for more details on the Audit Report
 - See [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/library/azure/mt126081.aspx) for more details on the Graph API REST service
- 

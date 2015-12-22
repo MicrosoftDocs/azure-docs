@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 
 #Create ContentKeys with .NET
 
-This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.  
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-create-contentkey.md)
+- [.NET](media-services-dotnet-create-contentkey.md)
 
 Media Services enables you to create and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
 
@@ -35,9 +37,6 @@ Encrypted assets have to be associated with **ContentKey**s. This article descri
 
 One of the values that you must set when create a content key is the content key type. Choose from one of the following values. 
 
-    /// <summary>
-    /// Specifies the type of a content key.
-    /// </summary>
     public enum ContentKeyType
     {
         /// <summary>
@@ -52,9 +51,14 @@ One of the values that you must set when create a content key is the content key
         StorageEncryption = 1,
 
         /// <summary>
-        /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
+        /// Specifies a content key for configuration encryption.
         /// </summary>
         ConfigurationEncryption = 2,
+
+        /// <summary>
+        /// Specifies a content key for Envelope encryption.  Only used internally.
+        /// </summary>
+        EnvelopeEncryption = 4
     }
 
 ##<a id="envelope_contentkey"></a>Create envelope type ContentKey
@@ -132,3 +136,12 @@ The following code snippet creates a content key of the common encryption type. 
 call
 
 	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
+
+
+##Media Services learning paths
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

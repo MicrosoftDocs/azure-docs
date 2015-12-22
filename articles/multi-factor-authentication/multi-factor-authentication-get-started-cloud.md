@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
@@ -12,8 +12,8 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.topic="get-started-article" 
+	ms.date="12/10/2015" 
 	ms.author="billmath"/>
 
 # Getting started with Azure Multi-Factor Authentication in the cloud
@@ -22,16 +22,16 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/cloud2.png)</center>
 
-Now that we have determined that we are using multi-factor authentication in the cloud, let's get going!  Please note that if you are using Multi-Factor Authentication for Office 365 or Multi-Factor Authentication for Azure Administrators you can skip to step 3.
+Now that we have determined that we are using multi-factor authentication in the cloud, let's get going!  Please note that if you are using Multi-Factor Authentication for Office 365 or Multi-Factor Authentication for Azure Administrators you can skip to step 3.  Also, this document deals with 
 
 
-1. **Sign up for an Azure subscription**
+1. [Sign up for an Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 	- If you do not already have an Azure subscription, you need to sign-up for one. If you are just starting out and exploring using Azure MFA you can use a trial subscription
-2. **Create a Multi-Factor Auth Provider or assign an Azure AD Premium or Enterprise Mobility Suite license to users**
+2. [Create a Multi-Factor Auth Provider](#creating-an-azure-multi-factor-auth-provider)  or [assign an Azure AD Premium or Enterprise Mobility Suite license to users](#assigning-an-azure-ad-premium-or-enterprise-mobility-license-top-users)
 	- You will need to either create an Azure Multi-Factor Auth Provider and assign it to your directory or assign licenses to your Azure AD Premium or EMS users. Azure Multi Factor Authentication is included in Azure Active Directory Premium and as a result it is also included with the Enterprise Mobility Suite. If you have Azure AD Premium or EMS you do not need to create a Multi-Factor Auth Provider, rather to enable MFA for an Azure AD Premium or EMS user, an Azure AD Premium or EMS license needs to be assigned to that user and then an Administrator can assign MFA to the user through the management portal. See the section below on how to assign licenses to users.
-3. **Turn on Multi-Factor Authentication for your users** 
+3. [Turn on Multi-Factor Authentication for your users](#turn-on-multi-factor-authentication-for-users)
 	- Enable Azure MFA on your users either through the Office 365 or Azure portal. See the section below for information on how to do this.
-4. **Send email to end users to notify them about MFA**
+4. [Send email to end users to notify them about MFA](#send-email-to-end-users)
 	- Once a user has had multi-factor authentication turned on for their account, it is recommended that you send them an email notifying them of this. The user will be prompted to complete the process the next time they sign-in, so this lets them no what to expect. See the section below for an example email template.
 
 
@@ -69,7 +69,7 @@ Multi-factor authentication is available by default for global administrators wh
 
 If you have Azure AD Premium or the Enterprise Mobility Suite, you do not need to create a Multi-Factor Auth provider.  You need to simply assign a user a license and then you can begin turning on mfa for users.
 
-### To assign an Azure AD Premium or Enterprise Mobilitiy Suite License
+### To assign an Azure AD Premium or Enterprise Mobility Suite License
 --------------------------------------------------------------------------------
 <ol>
 
@@ -156,4 +156,3 @@ Once you have enabled your users, it is advised that you send your users an emai
 
 ## Next Steps
 Now that you have setup multi-factor authentication in the cloud, you can move on to what's next by going to [Configuring Azure Multi-Factor Authentication.](multi-factor-authentication-whats-next.md)  There you will learn about reporting, fraud alert, customizing voice messages and all of the features that Azure Multi-Factor Authentication has to offer.  
-

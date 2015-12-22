@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Real-time Twitter sentiment analysis with Stream Analytics | Microsoft Azure"
 	description="Learn how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="real-time twitter trend analysis, sentiment analysis, social media analysis, trend analysis example"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,23 +14,23 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/01/2015"
+	ms.date="12/04/2015"
 	ms.author="jeffstok"/>
 
 
 # Social media analysis: Real-time Twitter sentiment analysis in Azure Stream Analytics
 
-In this tutorial, you'll learn how to build a sentiment analysis solution by bringing real-time Twitter events into Event Hubs, writing Stream Analytics queries to analyze the data, and then storing the results or using a dashboard to provide insights in real time. 
+Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Event Hubs. You'll write a Stream Analytics query to analyze the data and then either store the results for later perusal or use a dashboard to provide insights in real time using [Power BI](https://powerbi.com/).
 
-Social media analytics tools help organizations understand trending topics, meaning subjects and attitudes with a high volume of posts in social media. Sentiment analysis - also called "opinion mining" - uses social media analytics tools to determine attitudes toward a product, idea, and so on.
+Social media analytics tools help organizations understand trending topics, meaning subjects and attitudes with a high volume of posts in social media. Sentiment analysis - also called "opinion mining" - uses social media analytics tools to determine attitudes toward a product, idea, and so on. Real-time Twitter trend analysis is a great example because the hashtag subscription model allows you to listen to particular keywords and develop sentiment analysis on the feed. 
 
-## Scenario
+## Scenario - Sentiment Analysis in Real Time
 
-A news media website is interested in getting an edge over its competitors by featuring site content that is immediately relevant to its readers. They use social media analysis on topics relevant to their readers by doing real time sentiment analysis on Twitter data. Specifically, to identify what topics are trending in real time on Twitter, they need real-time analytics about the tweet volume and sentiment for key topics.
+A news media website is interested in getting an edge over its competitors by featuring site content that is immediately relevant to its readers. They use social media analysis on topics relevant to their readers by doing real time sentiment analysis on Twitter data. Specifically, to identify what topics are trending in real time on Twitter, they need real-time analytics about the tweet volume and sentiment for key topics. So in essence they need a sentiment analysis analytics engine based on this social media feed.
 
 ## Prerequisites
 1.	A Twitter account is required for this tutorial.  
-2.	This walkthough uses a Twitter client application which is located on GitHub.  Download it [here](https://github.com/streamanalytics/samples/tree/master/TwitterClient) and follow the steps below to set up your solution.
+2.	This walkthough uses a Twitter client application which is located on GitHub.  Download it [here](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) and follow the steps below to set up your solution.
 
 ## Create an Event Hub input and a Consumer Group
 
@@ -55,7 +55,7 @@ We have provided a client application that will tap into Twitter data via [Twitt
 
 Follow these steps to set up the application:
 
-1.	[Download the TwitterClient solution](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
+1.	[Download the TwitterClient solution](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)
 2.	Open App.config and replace oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret with Twitter tokens with your values.  
 
 	[Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  

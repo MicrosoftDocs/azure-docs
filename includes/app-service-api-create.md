@@ -1,6 +1,6 @@
-1. Open Visual Studio 2013.
+1. Open Visual Studio 2015 or Visual Studio 2013.
 
-2. Select **File > New Project**.
+2. Select **File > New > Project**.
 
 3. Select the **ASP.NET Web Application** template.
 

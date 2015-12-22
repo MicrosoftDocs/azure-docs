@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Windows Universal Apps SDK Upgrade Procedures
@@ -21,6 +21,127 @@
 If you already have integrated an older version of Engagement into your application, you have to consider the following points when upgrading the SDK.
 
 You may have to follow several procedures if you missed several versions of the SDK. For example if you migrate from 0.10.1 to 0.11.0 you have to first follow the "from 0.9.0 to 0.10.1" procedure then the "from 0.10.1 to 0.11.0" procedure.
+
+##From 3.1.0 to 3.2.0
+
+### Resources
+This step concerns customized resources only. If you have customized the resources provided by the SDK (html, images, overlay) then you have to backup them before upgrading and reapply your customization on upgraded resources.
+
+### Webview integration
+Some improvements to match different device form factors were introduced in this version. 
+Make sure that your integration of the webview match the following:
+
+In your XAML page ():
+
+			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
+
+And in your associated .cs file:
+
+    using Microsoft.Azure.Engagement;
+    using System;
+    using Windows.ApplicationModel.Core;
+    using Windows.UI.ViewManagement;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Navigation;
+
+    namespace My.Namespace.Example
+    {
+			/// <summary>
+			/// An empty page that can be used on its own or navigated to within a Frame.
+			/// </summary>
+			public sealed partial class ExampleEngagementReachPage : EngagementPage
+			{
+			  public ExampleEngagementReachPage()
+			  {
+			    this.InitializeComponent();
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
+			
+			  #region to implement
+              /* Attach events when page is navigated. */
+              protected override void OnNavigatedTo(NavigationEventArgs e)
+              {
+                /* Update the webview when the app window is resized. */
+                Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
+
+                /* Update the webview when the app/status bar is resized. */
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+                ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
+    #endif
+                base.OnNavigatedTo(e);
+              }
+
+			  /* When page is left ensure to detach SizeChanged handler. */
+			  protected override void OnNavigatedFrom(NavigationEventArgs e)
+			  {
+			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+                ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
+    #endif
+			    base.OnNavigatedFrom(e);
+			  }
+			  
+			  /* "width" and "height" are the current size of your application display. */
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+    #else
+			  double width =  Window.Current.Bounds.Width;
+			  double height =  Window.Current.Bounds.Height;
+    #endif
+			
+			  /// <summary>
+			  /// Set your webview elements to the correct size.
+			  /// </summary>
+			  /// <param name="width">The width of your current display.</param>
+			  /// <param name="height">The height of your current display.</param>
+			  private void SetWebView(double width, double height)
+			  {
+			    #pragma warning disable 4014
+			    CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+			            () =>
+			            {
+			              this.engagement_notification_content.Width = width;
+			              this.engagement_announcement_content.Width = width;
+			              this.engagement_announcement_content.Height = height;
+			            });
+			  }
+			
+			  /// <summary>
+			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
+			  /// </summary>
+			  /// <param name="sender">Original event trigger.</param>
+			  /// <param name="e">Window Size Changed Event arguments.</param>
+			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
+			  {
+			    double width = e.Size.Width;
+			    double height = e.Size.Height;
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
+
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
+			  /// <summary>
+			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
+			  /// </summary>
+			  /// <param name="sender">The related application view.</param>
+			  /// <param name="e">Related event arguments.</param>
+			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
+			  {
+			    double width = sender.VisibleBounds.Width;
+			    double height = sender.VisibleBounds.Height;
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
+    #endif
+			  #endregion
+			}
+    }
 
 ##From 2.0.0 to 3.0.0
 
@@ -151,7 +272,7 @@ If you want to specify it at runtime instead, you can call the following method 
 	/* Initialize Engagement agent with above configuration. */
 	EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-The connection string for your application is displayed on the Azure Management Portal.
+The connection string for your application is displayed on the Azure Classic Portal.
 
 ### Items name change
 

@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="10/30/2015" 
 	ms.author="bradygaster"/>
 
 # Consume an Azure API App using HTML and JavaScript
+
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Overview
 
@@ -141,7 +143,7 @@ The process of enabling CORS in Web API is documented in the ASP.NET article [En
 
 ## Creating a Web App to Consume the API App
 
-In this section, you'll create a new Empty Web Application, install and use AngularJS into it, and bind a simple HTML front end to the API App. You'll deploy the consuming Web App into Azure App Service. The HTML Web App will bind to and display the data retrieved from the API App, and provide users a simple UI for the Contacts API. 
+In this section, you'll create a new Empty Web Application, install and use AngularJS, and bind a simple HTML front end to the API App. You'll deploy the consuming Web App into Azure App Service. The HTML Web App will bind to and display the data retrieved from the API App, and provide users a simple UI for the Contacts API. 
 
 1. Right-click the solution that you created earlier in [Create an API App](app-service-dotnet-create-api-app.md), and select **Add -> New Project**
 
@@ -312,7 +314,7 @@ In this section, you'll create a new Empty Web Application, install and use Angu
 
 1, In the code you just added to index.html, replace the port number in the base URL (`http://localhost:1578`) with the actual port number for your API project.
 
-	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+>[AZURE.NOTE] **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
 
 1. Make sure that the API App project is also running when you run the HTML client, or the JavaScript HTML will not function properly. Right-click the solution and select **Properties**. Then set both Web projects to **Start without Debugging**, and that the API project runs first. 
 

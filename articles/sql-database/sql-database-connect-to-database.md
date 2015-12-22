@@ -1,65 +1,96 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SSMS"
-	pageTitle="How to connect to an Azure SQL database using SSMS" metaKeywords=""
-	description="Learn how to connect to an Azure SQL database using SSMS."
-	metaCanonical=""
-	services="sql-database"
-	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
-
+   pageTitle="How to connect to an Azure SQL database using SSMS | Microsoft Azure"
+   description="Learn how to connect to an Azure SQL database using SSMS."
+   services="sql-database"
+   documentationCenter=""
+   authors="sidneyh"
+   manager="jeffreyg"
+   editor=""
+   tags=""/>
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="06/25/2015"
-	ms.author="sidneyh" />
+   ms.service="sql-database"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="09/14/2015"
+   ms.author="sidneyh"/>
 
-# How to connect to an Azure SQL database with SQL Server Management Studio
+# Connect with SQL Server Management Studio (SSMS)
 
-These are the steps to connect to a Microsoft Azure SQL Database using SQL Server Management Studio (SSMS).
+Use the following steps to connect and query your SQL database using SQL Server Management Studio (SSMS).
 
 ## Prerequisites
-* An Azure SQL Database provisioned and running. To create a new SQL Database, see [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
-* The administrator name and password for the SQL Database.
-* SQL Server Management Studio 2014. To get the tool, see [Download SQL Express](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx).
-* Configure the firewall settings for the database. See [How to: Configure Firewall Settings (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
-## To connect to an instance of SQL Database
-1. Log into the [Azure Management portal](https://portal.azure.com).
-2. Click the **Browse** button, then click **SQL databases** (b).
-
-	![Click Browse and SQL Database][1]
-3. With **SQL databases** selected (a), click the name of a database on the server you want to connect to (b).
-
-	![Click the name of a database][2]
-4. With the name selected (a), click Properties (b). Copy the name of the server (c), and the name of the administrator (d). The administrator name and password are created with the creation of the SQL Database. You must have the password to proceed to the next step.
-
-	![Click SQL Server, Settings, and Property][3]
-5. Open SQL Server Management Studio 2014.
-6. In the Connect to Server dialog, paste the name of the server into the **Server name** box (a). Set the Authentication to **SQL Server Authentication** (b). Paste the name of the server administrator into the **Login** box (c), then type in its password (d). Then click **Options** (e).
-
-	![SSMS login dialog box][4]
-7. In the Connection Properties tab, set the **Connect to database** box to **master** (or to any other database you want to connect to).Then click **Connect**.
-
-	![Set to master and click Connect][5]
-
-## Troubleshooting connection problems
-
-In case of problems, see [Troubleshoot connection problems to Azure SQL Database](https://support.microsoft.com/kb/2980233/). For a list of possible problems and answers, see [Troubleshoot Microsoft Azure SQL Database connectivity](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+* SQL Server Management Studio (SSMS) - To download the latest version of SSMS, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+* The AdventureWorks sample database as described in [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
 
 
-## Next Steps
-You can use Transact-SQL statements to create or manage databases. See [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) and [Managing Azure SQL Database using SQL Server Management Studio](sql-database-manage-azure-ssms.md). You can also log events to Azure storage. See [Get started with SQL database auditing](sql-database-auditing-get-started.md).
+## Get your fully qualified Azure SQL server name
+
+To connect to your database you need the full name  of the server (***servername**.database.windows.net*) that contains the database you want to connect to.
+
+1. Go to the [Azure Portal](https://portal.azure.com).
+2. Browse to the database you want to connect to.
+3. Locate the full server name:
+
+    ![fully qualified server name][6]
+
+    Use the fully qualified server name in step 3 below.
+
+
+
+## Connect to your SQL database
+
+1. Open SSMS.
+2. Click **Connect** > **Database Engine...**
+
+    ![Connect > Database Engine][7]
+
+2. In the **Connect to Server** dialog box, in the **Server name** box, type the server name in the format *&lt;servername>*.**database.windows.net**.
+3. In the **Authentication** list, select **SQL Server Authentication**.
+4. Enter the **Login** and **Password** you specified when you created your SQL Database server, and click **Connect**.
+
+	![Connect to server dialog][2]
+
+
+
+### If the connection fails
+Make sure that the firewall of the logical server you have created allows connections from your local computer. For more information, see [How to: Configure Firewall Settings on SQL Database](sql-database-configure-firewall-settings.md).
+
+## Run sample queries
+
+1. In **Object Explorer**, navigate to the **AdventureWorks** database.
+2. Right-click the database and then select **New Query**.
+
+	![New query][4]
+
+3. In the query window, copy and paste the following code:
+
+		SELECT
+		CustomerId
+		,Title
+		,FirstName
+		,LastName
+		,CompanyName
+		FROM SalesLT.Customer;
+
+4. Click the **Execute** button.  The following screen shot shows a successful query.
+
+	![Sucess][5]
+
+
+
+
+## Next steps
+You can use Transact-SQL statements to create or manage databases. For more information see [CREATE DATABASE (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) and [Managing Azure SQL Database using SQL Server Management Studio](sql-database-manage-azure-ssms.md). You can also log events to Azure storage. See [Get started with SQL database auditing](sql-database-auditing-get-started.md) for more information.
 
 <!--Image references-->
 
-[1]:./media/sql-database-connect-to-database/browse-vms.png
-[2]:./media/sql-database-connect-to-database/sql-databases.png
-[3]:./media/sql-database-connect-to-database/blades.png
-[4]:./media/sql-database-connect-to-database/ssms-connect-to-server.png
-[5]:./media/sql-database-connect-to-database/ssms-master.png
- 
+[1]:./media/sql-database-connect-to-database/1-download.png
+[2]:./media/sql-database-connect-to-database/2-connect.png
+[3]:./media/sql-database-connect-to-database/3-connect-to-database.png
+[4]:./media/sql-database-connect-to-database/4-run-query.png
+[5]:./media/sql-database-connect-to-database/5-success.png
+[6]:./media/sql-database-connect-to-database/server-name.png
+[7]:./media/sql-database-connect-to-database/connect-dbengine.png

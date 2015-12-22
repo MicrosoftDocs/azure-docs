@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Timers and Reminders"
-   description="Introduction to Timers and Reminders for Azure Service Fabric Actors."
+   pageTitle="Reliable Actors Timers and Reminders"
+   description="Introduction to Timers and Reminders for Service Fabric Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
 # Actor Timers
-Actor timers provide a simple wrapper around .NET timer such that the callback methods respect the turn-based concurrency guarantees provided by the Actors runtime.
+Actor timers provide a simple wrapper around .NET timers such that the callback methods respect the turn-based concurrency guarantees provided by the Actors runtime.
 
 Actors can use the `RegisterTimer` and `UnregisterTimer` methods on their base class to register and unregister their timers. The example below shows the use of timer APIs. The APIs are very similar to the .NET timer. In the example below when the timer is due the `MoveObject` method will be called by the Actors runtime and it is guaranteed to respect the turn-based concurrency, which means that no other actor methods or timer/reminder callbacks will be in progress until this callback completes execution.
 
 ```csharp
-class VisualObjectActor : Actor<VisualObject>, IVisualObject
+class VisualObjectActor : StatefulActor<VisualObject>, IVisualObject
 {
     private IActorTimer _updateTimer;
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         ...
 
@@ -40,7 +40,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
         return base.OnActivateAsync();
     }
 
-    public override Task OnDeactivateAsync()
+    protected override Task OnDeactivateAsync()
     {
         if (_updateTimer != null)
         {
@@ -53,7 +53,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
     private Task MoveObject(object state)
     {
         ...
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 }
 ```
@@ -87,7 +87,7 @@ In the example above, `"Pay cell phone bill"` is the reminder name, which is a s
 Actors that use reminders must implement `IRemindable` interface, as shown in the example below.
 
 ```csharp
-public class ToDoListActor : Actor<ToDoList>, IToDoListActor, IRemindable
+public class ToDoListActor : StatefulActor<ToDoList>, IToDoListActor, IRemindable
 {
     public Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
     {
@@ -113,4 +113,3 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 ```
 
 As shown above, the `UnregisterReminder` method accepts an `IActorReminder` interface. The actor base class supports a `GetReminder` method that can be used to retrieve the `IActorReminder` interface by passing in the reminder name. This is convenient because the actor does not need to persist the `IActorReminder` interface that was returned from the `RegisterReminder` method call.
- 

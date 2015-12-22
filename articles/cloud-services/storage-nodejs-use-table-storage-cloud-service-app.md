@@ -3,7 +3,7 @@
 	description="A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module." 
 	services="cloud-services, storage" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="TomArcher" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.date="09/01/2015" 
+	ms.author="tarcher"/>
 
 
 
@@ -26,7 +26,7 @@
 ## Overview
 
 In this tutorial, you will extend the application created in the
-[Node.js Web Application using Express] tutorial by using the Windows
+[Node.js Web Application using Express] tutorial by using the Microsoft
 Azure Client Libraries for Node.js to work with data management services. You
 will extend your application to create a web-based task-list application
 that you can deploy to Azure. The task list allows a user to

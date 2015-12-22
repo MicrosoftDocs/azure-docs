@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Running the Chaos test."
-   description="This article talks about the pre-canned service fabric scenarios shipped by Microsoft."
+   pageTitle="Chaos and failover tests | Microsoft Azure"
+   description="Using the Service Fabric chaos test and failover test scenarios to induce faults and verify the reliability of your services."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -13,37 +13,40 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/14/2015"
+   ms.date="08/26/2015"
    ms.author="anmola"/>
 
-# Testability Scenarios
-Large distributed systems like cloud infrastructures are inherently unreliable. Service Fabric provides developers the ability to write services to run on top of unreliable infrastructures. In order to write high quality services, developers need to be able to induce such unreliable infrastructure to test the stability of their services. Service Fabric gives developers the ability to induce fault actions to test services in presence of failures. However, targeted simulated faults will only get you so far. To take the testing further Service Fabric ships pre-canned test scenarios. The scenarios simulate continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once configured with the rate and kind of faults, it runs as a client side tool, through either C# APIs or PowerShell to generate faults in the cluster and your service. As part of the testability feature we ship the following scenarios.
+# Testability scenarios
+Large distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric gives developers the ability to write services to run on top of unreliable infrastructures. In order to write high-quality services, developers need to be able to induce such unreliable infrastructure to test the stability of their services.
 
-1.	Chaos Test
-2.	Failover Test
+Service Fabric gives developers the ability to induce fault actions to test services in the presence of failures. However, targeted simulated faults will get you only so far. To take the testing further, you can use the test scenarios in Service Fabric: a chaos test and a failover test. These scenarios simulate continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once a test is configured with the rate and kind of faults, it runs as a client-side tool, through either C# APIs or PowerShell, to generate faults in the cluster and your service.
 
-## Chaos Test
-The chaos scenario generates faults across the entire service fabric cluster. The scenario compresses faults generally seen in months or years to a few hours. The combination of interleaved faults with the high fault rate finds corner cases which are otherwise missed. This leads to a significant improvement in the code quality of the service.
+## Chaos test
+The chaos scenario generates faults across the entire Service Fabric cluster. The scenario compresses faults generally seen in months or years to a few hours. The combination of interleaved faults with the high fault rate finds corner cases that are otherwise missed. This leads to a significant improvement in the code quality of the service.
 
-### Faults simulated in Chaos test
- - Restart of a Node
- - Restart of a Deployed Code Package
- - Remove of a Replicas
- - Restart of a Replica
- - Move of a Primary Replica (optional)
- - Move of a secondary Replica (optional)
+### Faults simulated in the chaos test
+ - Restart a node
+ - Restart a deployed code package
+ - Remove a replica
+ - Restart a replica
+ - Move a primary replica (optional)
+ - Move a secondary replica (optional)
 
-Chaos test runs multiple iterations of faults and cluster validations for the specified period of time. The time spent for the cluster to stabilize and validation to succeed is also configurable. The scenario fails when we hit a single failure in cluster validation. For example, consider a test set to run for 1 hour and with maximum 3 concurrent faults. The test will induce 3 faults, then validate the cluster health. The test will iterate through the previous step till cluster becomes unhealthy or 1 hour passes. If in any iteration the cluster becomes unhealthy, i.e. not stabilize within a configured time, the test will fail with an exception. This exception indicates something has gone wrong and needs further investigation. In its current form the test Chaos test fault generation engine induces only safe faults. This means that in absence of external faults a quorum or data loss will never occur.
+The chaos test runs multiple iterations of faults and cluster validations for the specified period of time. The time spent for the cluster to stabilize and for validation to succeed is also configurable. The scenario fails when you hit a single failure in cluster validation.
+
+For example, consider a test set to run for one hour with a maximum of three concurrent faults. The test will induce three faults, and then validate the cluster health. The test will iterate through the previous step till the cluster becomes unhealthy or one hour passes. If the cluster becomes unhealthy in any iteration, i.e. it does not stabilize within a configured time, the test will fail with an exception. This exception indicates that something has gone wrong and needs further investigation.
+
+In its current form, the fault generation engine in the chaos test induces only safe faults. This means that in the absence of external faults, a quorum or data loss will never occur.
 
 ### Important configuration options
- - **TimeToRun**: Total time that the test will run before completing with success. The test can complete earlier in lieu of a validation failure.
- - **MaxClusterStabilizationTimeout**: Max amount of time to wait for the cluster to become healthy before failing the test. The checks performed are whether Cluster Health is OK, whether Service Health is OK, Target replica set size achieved for service partition and no InBuild replicas.
- - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number the more aggressive the test hence resulting in more complex failovers and transition combinations. The test guarantees that in absence of external faults there will not be a quorum or data loss, irrespective of how high this configuration is.
- - **EnableMoveReplicaFaults**: Enables or disables the faults causing the move of the primary or secondary replicas. These faults are disabled by default.
- - **WaitTimeBetweenIterations**: Amount of time to wait between iterations i.e. after a round of Faults and corresponding validation.
+ - **TimeToRun**: Total time that the test will run before finishing with success. The test can finish earlier in lieu of a validation failure.
+ - **MaxClusterStabilizationTimeout**: Maximum amount of time to wait for the cluster to become healthy before failing the test. The checks performed are whether cluster health is OK, service health is OK, the target replica set size is achieved for the service partition, and no InBuild replicas exist.
+ - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number, the more aggressive the test, hence resulting in more complex failovers and transition combinations. The test guarantees that in absence of external faults there will not be a quorum or data loss, irrespective of how high this configuration is.
+ - **EnableMoveReplicaFaults**: Enables or disables the faults that are causing the move of the primary or secondary replicas. These faults are disabled by default.
+ - **WaitTimeBetweenIterations**: Amount of time to wait between iterations, i.e. after a round of faults and corresponding validation.
 
-### How to run Chaos Test
-C# Sample
+### How to run the chaos test
+C# sample
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -89,10 +92,10 @@ class Test
         uint maxConcurrentFaults = 3;
         bool enableMoveReplicaFaults = true;
 
-        // Create FabricClient with connection & security information here.
+        // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
 
-        // The Chaos Test Scenario should run at least 60 minutes or up until it fails.
+        // The chaos test scenario should run at least 60 minutes or until it fails.
         TimeSpan timeToRun = TimeSpan.FromMinutes(60);
         ChaosTestScenarioParameters scenarioParameters = new ChaosTestScenarioParameters(
           maxClusterStabilizationTimeout,
@@ -121,7 +124,7 @@ class Test
 }
 ```
 
-Powershell
+PowerShell
 
 ```powershell
 $connection = "localhost:19000"
@@ -138,26 +141,26 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 
 ## Failover test
 
-The Failover test scenario is a version of the Chaos test scenario targeting a specific service partition. It tests the effect of failover on a specific service partition while leaving the other services unaffected. Once configured with the target partition information and other parameters it runs as a client side tool either using C# APIs or Powershell to generate faults for a service partition. The scenario iterates through a sequence of simulated faults and service validation while your business logic run on the side to provide a workload. A failure in service validation indicates an issue that needs further investigation.
+The failover test scenario is a version of the chaos test scenario that targets a specific service partition. It tests the effect of failover on a specific service partition while leaving the other services unaffected. Once it's configured with the target partition information and other parameters, it runs as a client-side tool that uses either C# APIs or PowerShell to generate faults for a service partition. The scenario iterates through a sequence of simulated faults and service validation while your business logic runs on the side to provide a workload. A failure in service validation indicates an issue that needs further investigation.
 
-### Faults simulated in Failover test
-- Restart a Deployed Code Package where partition is hosted
-- Remove a Primary/Secondary replica or Stateless instance
-- Restart a Primary Secondary Replica (If persisted service)
-- Move a Primary Replica
-- Move a secondary Replica
-- Restart the partition.
+### Faults simulated in the failover test
+- Restart a deployed code package where the partition is hosted
+- Remove a primary/secondary replica or stateless instance
+- Restart a primary secondary replica (if a persisted service)
+- Move a primary replica
+- Move a secondary replica
+- Restart the partition
 
-Failover test works induces a chosen fault  and then runs validation on the service to ensure its stability. The Failover test only induces one fault at a time as opposed to possible multiple faults in Chaos test. If after each fault the service partition does not stabilize within the configured timeout the test fails The test induces only safe faults. This means that in absence of external failures a quorum or data loss will not occur.
+The failover test induces a chosen fault and then runs validation on the service to ensure its stability. The failover test induces only one fault at a time, as opposed to possible multiple faults in the chaos test. If the service partition does not stabilize within the configured timeout after each fault, the test fails. The test induces only safe faults. This means that in absence of external failures, a quorum or data loss will not occur.
 
 ### Important configuration options
- - **PartitionSelector**: Selector object specifying the partition that needs to be targeted.
- - **TimeToRun**: Total time that the test will run before completing
- - **MaxServiceStabilizationTimeout**: Max amount of time to wait for the cluster to become healthy before failing the test. The checks performed are whether Service Health is OK, Target replica set size achieved for all partitions and no InBuild replicas.
- - **WaitTimeBetweenFaults**: Amount of time to wait between every fault and validation cycle
+ - **PartitionSelector**: Selector object that specifies the partition that needs to be targeted.
+ - **TimeToRun**: Total time that the test will run before finishing.
+ - **MaxServiceStabilizationTimeout**: Maximum amount of time to wait for the cluster to become healthy before failing the test. The checks performed are whether service health is OK, the target replica set size is achieved for all partitions, and no InBuild replicas exist.
+ - **WaitTimeBetweenFaults**: Amount of time to wait between every fault and validation cycle.
 
-### How to run Failover test
-C# Sample
+### How to run the failover test
+C# sample
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -203,10 +206,10 @@ class Test
         TimeSpan maxServiceStabilizationTimeout = TimeSpan.FromSeconds(180);
         PartitionSelector randomPartitionSelector = PartitionSelector.RandomOf(serviceName);
 
-        // Create FabricClient with connection & security information here.
+        // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
 
-        // The Chaos Test Scenario should run at least 60 minutes or up until it fails.
+        // The chaos test scenario should run at least 60 minutes or until it fails.
         TimeSpan timeToRun = TimeSpan.FromMinutes(60);
         FailoverTestScenarioParameters scenarioParameters = new FailoverTestScenarioParameters(
           randomPartitionSelector,
@@ -235,7 +238,7 @@ class Test
 ```
 
 
-Powershell
+PowerShell
 
 ```powershell
 $connection = "localhost:19000"
@@ -248,5 +251,3 @@ Connect-ServiceFabricCluster $connection
 
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
-
- 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use Emoji emoticon within Push Notifications" 
-	description="How to use Emoji emoticons within your push notifications"					
+	pageTitle="Use Emoji emoticons within Azure Mobile Engagement" 
+	description="How to use Emoji emoticons within your push notifications"		
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -11,40 +11,42 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="10/22/2015" 
 	ms.author="piyushjo" />
 
 #Use Emoji emoticon within Push Notifications
 
-You can include Emoji emoticons in you push notification. Currently, Azure Mobile Engagement only supports the 3 bytes Emoji emoticon set for in and out of app text notifications. 
-Please follow the steps below:
+You can include Emoji emoticons in you push notification in a few easy steps: 
 
-1.  First you need to find a 3 bytes Emoji emoticon library. You can find all Emoji emoticons you can use at the following [link](http://stackoverflow.com/questions/10153529/emoji-on-mysql-and-php-why-some-symbol-yes-other-not).
+1. First of all you need to find the Emoji you want to send in the message. Please ensure that the Emoji you are selecting will be supported by the target device as device manufactures take some time to add newly approved Emojis to the device platforms. 
+
+2. On **Windows** - you can navigate to this [link](http://apps.timwhitlock.info/emoji/tables/unicode) and copy the 'Native' icon.
+
+	![][7] 
+
+3. On **Mac** - you can find the Emojis in Dictionary application under Edit -> Emoji & Symbols.
+
+	![][6] 
+
+4. Now, go to the **Reach** tab on the the Azure Mobile Engagement portal. Select the type of your push notification (Announcement, polls etc). For this example we choose an announcement push.
+
+5. Specify the different fields of the notification until you reach the text of the notification. This is where you will add your Emoji Emoticon. You can choose to put it in the title, the message, or both. You will need to drag and drop or copy the Emoji that you find from the locations above. 
 
 	![][1]
-
-2. Go to the Reach tab on the the Azure Mobile Engagement portal.
-
-3. Select the type of your push notification (Announcement, polls etc). For this example we choose an announcement push.
-
-4. Specify the different fields of the notification until you reach the text of the notification. This is where you will add your Emoji Emoticon. You can choose to put it in the title, the message, or both.
-
-	![][2]
-
-5. Cut the Emoji emoticon you want to use from the previous link. Paste it directly in the title and/or message, at the place you chose. 
 
 6. Complete the other fields for the notification and save it. 
 
 7. When you run a test or activate the announcement you will see a notification with the emoticon as specified.   
 
-	![][3] 
-	![][4]
+	![][3] ![][4] ![][5]
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-use-emoji-with-push/emoji.png
-[2]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png
-[3]: ./media/mobile-engagement-use-emoji-with-push/notification_android.png
-[4]: ./media/mobile-engagement-use-emoji-with-push/notification_ios.png
- 
+[1]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png
+[3]: ./media/mobile-engagement-use-emoji-with-push/iOS_Emoji.png
+[4]: ./media/mobile-engagement-use-emoji-with-push/Android_Emoji.png
+[5]: ./media/mobile-engagement-use-emoji-with-push/WindowsPhone_Emoji.png
+[6]: ./media/mobile-engagement-use-emoji-with-push/Mac_SelectEmoji.png
+[7]: ./media/mobile-engagement-use-emoji-with-push/Windows_SelectEmoji.png
+

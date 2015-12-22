@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Smart Cache design pattern"
-   description="Design pattern on how to use Service Fabric Actors as Caching infrastructure on web-based applications"
+   pageTitle="Smart cache design pattern | Microsoft Azure"
+   description="Design pattern on how to use Service Fabric's Reliable Actors programming model to build a caching infrastructure for web-based applications."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
-   ms.author="claudioc"/>
+   ms.date="11/13/2015"
+   ms.author="vturecek"/>
 
-# Service Fabric Actors design pattern: smart cache
+# Reliable Actors design pattern: smart cache
+
 The combination of a web tier, caching tier, storage tier, and occasionally a worker tier are pretty much the standard parts of today’s applications. The caching tier is usually vital to performance and may, in fact, be comprised of multiple tiers itself.
 Many caches are simple key-value pairs while other systems like [Redis](http://redis.io) that are used as caches offer richer semantics. Still, any special, caching tier will be limited in semantics and more importantly it is yet another tier to manage.
 What if instead, objects just kept state in local variables and these objects can be snapshotted or persisted to a durable store automatically? Furthermore, rich collections such as lists, sorted sets, queues, and any other custom type for that matter are simply modelled as member variables and methods.
@@ -24,6 +25,7 @@ What if instead, objects just kept state in local variables and these objects ca
 ![][1]
 
 ## The leaderboard sample
+
 Take leader boards as an example—a Leaderboard object needs to maintain a sorted list of players and their scores so that we can query it. For example for the "Top 100 Players" or to find a player’s position in the leader board relative to +- N players above and below him/her. A typical solution with traditional tools would require ‘GET’ing the Leaderboard object (collection which supports inserting a new tuple<Player, Points> named Score), sorting it, and finally ‘PUT’ing it back to the cache. We would probably LOCK (GETLOCK, PUTLOCK) the Leaderboard object for consistency.
 Let’s have an actor-based solution where state and behaviour are together. There are two options:
 
@@ -53,14 +55,13 @@ Next, we implement this interface and use the latter option and encapsulate this
 ## Smart Cache code sample – Leaderboard actor
 
 ```
-public class Leaderboard : Actor<LeaderboardCollection>, ILeaderboard
+public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
 {
     // Specialised collection, could be part of the actor
 
     public Task UpdateLeaderboard(Score score)
     {
         State.UpdateLeaderboard(score);
-        return TaskDone.Done;
     }
 
     public Task<List<Score>> GetLeaderboard(int count)
@@ -175,12 +176,12 @@ public class Job : IComparable<Job>
 }
 ```
 
-Finally, we implement the IJobQueue interface in the grain. Note that we omitted the implementation details of the priority queue here for clarity. A sample implementation can be found in the accompanying samples.
+Finally, we implement the IJobQueue interface in the actor. Note that we omitted the implementation details of the priority queue here for clarity. A sample implementation can be found in the accompanying samples.
 
 ## Smart Cache code sample – Job Queue
 
 ```
-public class JobQueue : Actor<List<Jobs>>, IJobQueue
+public class JobQueue : StatefulActor<List<Jobs>>, IJobQueue
 {
 
     public override Task OnActivateAsync()
@@ -194,7 +195,6 @@ public class JobQueue : Actor<List<Jobs>>, IJobQueue
 
         ...
 
-        return TaskDone.Done;
     }
 
     public Task<Job> Dequeue()
@@ -248,9 +248,9 @@ In the samples above, Leaderboard and JobQueue, we used two different techniques
 
 * On the other hand, in the JobQueue sample we implemented the actor as a priority queue itself rather than referencing another object defined elsewhere.
 
-Actors provide flexibility for the developer to define rich object structures as part the actors or reference object graphs outside of the actors.
+Actors provide flexibility for the developer to define rich object structures as part of the actors or reference object graphs outside of the actors.
 In caching terms actors can write-behind or write-through, or we can use different techniques at a member variable granularity. In other words, we have full control over what to persist and when to persist. We don’t have to persist transient state or state that we can build from saved state.
-And how about populating these actors caches then? There are number of ways to achieve this. Actors provide virtual methods called OnActivateAsync() and OnDectivateAsync() to let us know when an instance of the actor is activated and deactivated. Note that the actor is activated on demand when a first request is sent to it.
+And how about populating these actors caches then? There are number of ways to achieve this. Actors provide virtual methods called OnActivateAsync() and OnDeactivateAsync() to let us know when an instance of the actor is activated and deactivated. Note that the actor is activated on demand when a first request is sent to it.
 We can use OnActivateAsync() to populate state on-demand as in read-through, perhaps from an external stable store. Or we can populate state on a timer, say an Exchange Rate actor that provides the conversion function based on the latest currency rates. This actor can populate its state from an external service periodically, say every 5 seconds, and use the state for the conversion function. See the example below:
 
 ## Smart Cache code sample – Rate Converter
@@ -273,13 +273,11 @@ public Task Activate()
     TimeSpan.FromSeconds(0), // start immediately
     TimeSpan.FromSeconds(5)); // refresh every 5 seconds
 
-    return TaskDone.Done;
 }
 
 public Task RefreshRates()
 {
     // this is where we will make an external call and populate rates
-    return TaskDone.Done;
 }
 
 ```
@@ -295,6 +293,7 @@ Essentially Smart Cache provides:
 
 
 ## Next Steps
+
 [Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
@@ -312,4 +311,3 @@ Essentially Smart Cache provides:
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
- 

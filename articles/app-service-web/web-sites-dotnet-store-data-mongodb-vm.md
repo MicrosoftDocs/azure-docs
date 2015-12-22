@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="12/11/2015" 
 	ms.author="cephalin"/>
 
 
@@ -70,7 +70,7 @@ In this section you will create an ASP.NET application called "My Task List" by 
 	![Select MVC Template][VS2013SelectMVCTemplate]
 
 1. If you aren't already signed into Microsoft Azure, you will be prompted to sign in. Follow the prompts to sign into Azure.
-2. Once you are signed in, you can start configuring your App Service web app. Specify the **Web App name**, **App Service plan**, **Resource group**, and **Region**, then click **OK**.
+2. Once you are signed in, you can start configuring your App Service web app. Specify the **Web App name**, **App Service plan**, **Resource group**, and **Region**, then click **Create**.
 
 	![](./media/web-sites-dotnet-store-data-mongodb-vm/VSConfigureWebAppSettings.png)
 
@@ -92,7 +92,7 @@ To install the MongoDB C# driver:
 
 	![Manage NuGet Packages][VS2013ManageNuGetPackages]
 
-2. In the **Manage NuGet Packages** window, in the left pane, click **Online**. In the **Search Online** box on the right, type "mongocsharpdriver".  Click **Install** to install the driver.
+2. In the **Manage NuGet Packages** window, in the left pane, click **Online**. In the **Search Online** box on the right, type "mongodb.driver".  Click **Install** to install the driver.
 
 	![Search for MongoDB C# Driver][SearchforMongoDBCSharpDriver]
 
@@ -102,7 +102,7 @@ To install the MongoDB C# driver:
 	![MongoDB C# Driver Installed][MongoDBCsharpDriverInstalled]
 
 
-The MongoDB C# driver is now installed.  References to the **MongoDB.Driver.dll** and **MongoDB.Bson.dll** libraries have been added to the project.
+The MongoDB C# driver is now installed.  References to the **MongoDB.Bson**, **MongoDB.Driver**, and **MongoDB.Driver.Core**  libraries have been added to the project.
 
 ![MongoDB C# Driver References][MongoDBCSharpDriverReferences]
 
@@ -148,7 +148,9 @@ In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a 
 	using System.Web;
 	using MyTaskListApp.Models;
 	using MongoDB.Driver;
+	using MongoDB.Bson;
 	using System.Configuration;
+	
 	
 	namespace MyTaskListApp
 	{
@@ -158,42 +160,42 @@ In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a 
 	        private bool disposed = false;
 	
 	        // To do: update the connection string with the DNS name
-			// or IP address of your server. 
-			//For example, "mongodb://testlinux.cloudapp.net"
-	        private string connectionString = "mongodb://<vm-dns-name>";
+	        // or IP address of your server. 
+	        //For example, "mongodb://testlinux.cloudapp.net"
+	        private string connectionString = "mongodb://mongodbsrv20151211.cloudapp.net";
 	
 	        // This sample uses a database named "Tasks" and a 
-			//collection named "TasksList".  The database and collection 
-			//will be automatically created if they don't already exist.
+	        //collection named "TasksList".  The database and collection 
+	        //will be automatically created if they don't already exist.
 	        private string dbName = "Tasks";
 	        private string collectionName = "TasksList";
 	
 	        // Default constructor.        
 	        public Dal()
 	        {
-	        }        
+	        }
 	
 	        // Gets all Task items from the MongoDB server.        
 	        public List<MyTask> GetAllTasks()
 	        {
 	            try
 	            {
-	                MongoCollection<MyTask> collection = GetTasksCollection();
-	                return collection.FindAll().ToList<MyTask>();
+	                var collection = GetTasksCollection();
+	                return collection.Find(new BsonDocument()).ToList();
 	            }
 	            catch (MongoConnectionException)
 	            {
-	                return new List<MyTask >();
+	                return new List<MyTask>();
 	            }
 	        }
 	
 	        // Creates a Task and inserts it into the collection in MongoDB.
 	        public void CreateTask(MyTask task)
 	        {
-	            MongoCollection<MyTask> collection = GetTasksCollectionForEdit();
+	            var collection = GetTasksCollectionForEdit();
 	            try
 	            {
-	                collection.Insert(task, SafeMode.True);
+	                collection.InsertOne(task);
 	            }
 	            catch (MongoCommandException ex)
 	            {
@@ -201,19 +203,19 @@ In **Solution Explorer**, right-click the *MyTaskListApp* project and **Add** a 
 	            }
 	        }
 	
-	        private MongoCollection<MyTask> GetTasksCollection()
+	        private IMongoCollection<MyTask> GetTasksCollection()
 	        {
-	            MongoServer server = MongoServer.Create(connectionString);
-	            MongoDatabase database = server[dbName];
-	            MongoCollection<MyTask> todoTaskCollection = database.GetCollection<MyTask>(collectionName);
+	            MongoClient client = new MongoClient(connectionString);
+	            var database = client.GetDatabase(dbName);
+	            var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
 	            return todoTaskCollection;
 	        }
 	
-	        private MongoCollection<MyTask> GetTasksCollectionForEdit()
+	        private IMongoCollection<MyTask> GetTasksCollectionForEdit()
 	        {
-	            MongoServer server = MongoServer.Create(connectionString);
-	            MongoDatabase database = server[dbName];
-	            MongoCollection<MyTask> todoTaskCollection = database.GetCollection<MyTask>(collectionName);
+	            MongoClient client = new MongoClient(connectionString);
+	            var database = client.GetDatabase(dbName);
+	            var todoTaskCollection = database.GetCollection<MyTask>(collectionName);
 	            return todoTaskCollection;
 	        }
 	
@@ -420,7 +422,7 @@ In **Solution Explorer**, open the *DAL/Dal.cs* file. Find the following line of
 
 	private string connectionString = "mongodb://<vm-dns-name>";
 
-Replace `<vm-dns-name>` with the DNS name of the virtual machine running MongoDB you created in the [Create a virtual machine and install MongoDB][] step of this tutorial.  To find the DNS name of your virtual machine, go to the Azure portal, select **Virtual Machines**, and find **DNS Name**.
+Replace `<vm-dns-name>` with the DNS name of the virtual machine running MongoDB you created in the [Create a virtual machine and install MongoDB][] step of this tutorial.  To find the DNS name of your virtual machine, go to the Azure Portal, select **Virtual Machines**, and find **DNS Name**.
 
 If the DNS name of the virtual machine is "testlinuxvm.cloudapp.net" and MongoDB is listening on the default port 27017, the connection string line of code will look like:
 
@@ -451,7 +453,7 @@ In this section you will publish your changes to Azure App Service Web Apps.
 
 You have now successfully deployed your ASP.NET application to Azure App Service Web Apps. To view the web app:
 
-1. Log into the Azure portal.
+1. Log into the Azure Portal.
 2. Click **Web apps**. 
 3. Select your web app in the **Web Apps** list.
 

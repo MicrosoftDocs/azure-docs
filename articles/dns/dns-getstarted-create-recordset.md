@@ -4,20 +4,25 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="Adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 
 # Create DNS records
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [PowerShell](dns-getstarted-create-recordset.md)
 
 After creating your DNS Zone, you need to add the DNS records for your domain.  To do this, you first need to understand DNS records and record sets.
 
@@ -31,7 +36,7 @@ A _fully qualified_ name includes the zone name, whereas a _relative_ name does 
 
 Records come in various types according to the data they contain.  The most common type is an ‘A’ record, which maps a name to an IPv4 address.  Another type is an ‘MX’ record, which maps a name to a mail server.
 
-Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV and TXT.
+Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV and TXT.  (Note that [SPF records should be created using the TXT record type](http://tools.ietf.org/html/rfc7208#section-3.1).)
 
 Sometimes, you need to create more than one DNS record with a given name and type.  For example, suppose the www.contoso.com web site is hosted on two different IP addresses.  This requires two different A records, one for each IP address:
 
@@ -55,7 +60,7 @@ In the following example we will show how to create a record set and records.  W
 
 Create record set and assign to a variable $rs:
 
-	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:\>$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 The record set has relative name ‘www’ in the DNS Zone ‘contoso.com’, so the fully-qualified name of the records will be ‘www.contoso.com’.  The record type is ‘A’ and the TTL is 60 seconds.
 
@@ -67,21 +72,21 @@ The record set is empty and we have to add records to be able to use the newly c
 
 Add IPv4 A records to the "www" record set using the $rs variable assigned when created record set on step 1:
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
-Adding records to a record set using Add-AzureDnsRecordConfig is an off-line operation.  Only the local variable $rs is updated.
+Adding records to a record set using Add-AzureRmDnsRecordConfig is an off-line operation.  Only the local variable $rs is updated.
 
 ### Step 3
-Commit the changes to the record set.  Use Set-AzureDnsRecordSet to upload the changes to the record set to Azure DNS:
+Commit the changes to the record set.  Use Set-AzureRmDnsRecordSet to upload the changes to the record set to Azure DNS:
 
 
-	Set-AzureDnsRecordSet -RecordSet $rs
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-The changes are complete.  You can retrieve the record set from Azure DNS using Get-AzureDnsRecordSet:
+The changes are complete.  You can retrieve the record set from Azure DNS using Get-AzureRmDnsRecordSet:
 
 
-	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -112,6 +117,7 @@ You can also use nslookup or other DNS tools to query the new record set.
 
 
 ## Next Steps
+
 [How to manage DNS zones](dns-operations-dnszones.md)
 
 [How to manage DNS records](dns-operations-recordsets.md)<BR>
