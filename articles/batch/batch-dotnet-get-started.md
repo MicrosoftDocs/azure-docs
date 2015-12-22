@@ -18,7 +18,7 @@
 
 # Get started with the Azure Batch library for .NET  
 
-Learn the basics of [Azure Batch][azure_batch] and Batch solution workflow as we examine a C# application step-by-step, seeing how it leverages the power of the Batch service and the [Batch .NET][net_api] library to perform a computational workload in the cloud, as well as how it interacts with [Azure Storage](./../storage/storage-introduction.md) for file staging and retrieval.
+Learn the basics of [Azure Batch][azure_batch] and the [Batch .NET][net_api] library as we discuss a C# sample application step-by-step to see how it leverages the Batch service to process a parallel workload in the cloud, as well as how it interacts with [Azure Storage](./../storage/storage-introduction.md) for file staging and retrieval. Learn common Batch application workflow techniques, and gain a base understanding of the major components of Batch such as jobs, tasks, pools, and compute nodes.
 
 ![Batch solution workflow (minimal)][11]<br/>
 
