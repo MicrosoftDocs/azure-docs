@@ -4,7 +4,7 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="felixwu"
+	manager="msmbaldwin"
 	editor="meerak"
 	/>
 
