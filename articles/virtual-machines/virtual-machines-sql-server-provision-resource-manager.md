@@ -121,6 +121,8 @@ Under **SQL connectivity**, specify **Public (internet)** to allow connections t
 <br/>![SQL ARM Connectivity](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-connectivity-alt.png)
 <br/>
 
+In order to connect to SQL Server via the internet, you will also need to enable SQL Server Authentication.
+
 If you would prefer to not enable connections to the Database Engine via the internet automatically choose one of the following options:
 - **Local (inside VM only)** to allow connections to SQL Server only from within the VM.
 - **Private (within Virtual Network)** to allow connections to SQL Server from machines or services in the same virtual network.
@@ -143,8 +145,9 @@ If you enable SQL Server Authentication specify a **Login name** and **Password*
 >[AZURE.NOTE] If you plan to access SQL Server over the internet (i.e. the Public connectivity option), you should enable SQL authentication here. Public access to the SQL Server requires the use of SQL Authentication.
 
 ### Storage optimization
-Click **Storage configuration** in order to specify the storage requirements. You can specify requirements as input/output operations per second (IOPS), throughput in MB/s, and total storage size. Configure these by using the sliding scales. The portal automatically calculates the number of disks based on these requirements.
-You can also optimize storage based on workload. Under **Storage optimized for**, select one of the following
+Click **Storage configuration** in order to specify the storage requirements. You can specify requirements as input/output operations per second (IOPs), throughput in MB/s, and total storage size. Configure these by using the sliding scales. The portal automatically calculates the number of disks based on these requirements.
+
+By default, Azure optimizes the storage for 5000 IOPs, 200 MBs, and 1 TB of storage space. You can change these settings storage based on workload. Under **Storage optimized for**, select one of the following
 
 - **General** is the default setting and supports most workloads.
 - **Transactional** processing optimizes the storage for traditional database OLTP workloads.
@@ -153,6 +156,8 @@ You can also optimize storage based on workload. Under **Storage optimized for**
 The following image shows the Storage configuration blade.
 <br/>![SQL ARM Storage](./media/virtual-machines-sql-server-provision-resource-manager/azure-sql-arm-storage.png)
 <br/>
+
+>[AZURE.NOTE] Storage configuration limits depend on the virtual machine size. For more information see [Sizes for virtual machines](virtual-machines-size-specs.md)
 
 ### Patching
 **SQL automated patching** is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. Specify a day of the week, time, and duration for a maintenance window. Azure will perform patching in the maintenance window. The maintenance window schedule uses the VM locale for time. If you do not want Azure to automatically patch SQL Server and the operating system click **Disable**.  
@@ -207,9 +212,10 @@ Follow these steps to use Remote Desktop to open the virtual machine:
 Once you connect to the SQL Server virtual machine, you can launch SQL Server Management Studio and connect with Windows Authentication using your local administrator credentials. This also enables you to change firewall settings or SQL Server configuration settings post-provisioning if necessary.
 
 ##<a id="Connect"> Connect to SQL Server over the internet
-If you want to connect to your SQL Server database engine from the Internet, there are several steps required, such as configuring the firewall, enabling SQL Authentication, and configuring your network security group. You must have a Network Security Group rule to allow TCP traffic on port 1433.
 
-If you use the portal to provision a SQL Server virtual machine image with the resource manager, these steps were done for you when you select **Public** for the SQL connectivity option. However, there are a few remaining steps to complete to access your SQL Server instance over the internet.
+If you want to connect to your SQL Server database engine from the Internet, there are several steps required, such as configuring the firewall, enabling SQL Server authentication, and configuring your network security group. You must have a Network Security Group rule to allow TCP traffic on port 1433.
+
+If you use the portal to provision a SQL Server virtual machine image with the resource manager, these steps were done for you when you select **Public** for the SQL connectivity option and enabled SQL Server authentication. However, there are a few remaining steps to complete to access your SQL Server instance over the internet.
 
 >[AZURE.NOTE] If you did not select Public during provisioning, then additional steps are required to access your SQL Server instance over the internet. For more information, see  [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure](virtual-machines-sql-server-connectivity-resource-manager.md).
 
