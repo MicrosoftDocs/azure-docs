@@ -23,7 +23,7 @@
 > [AZURE.SELECTOR]
 - [Azure classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
-- [Azure Resource Manager model](virtual-machines-sql-server-provision-resource-manager)
+- [Azure Resource Manager model from portal](virtual-machines-sql-server-provision-resource-manager.md)
 
 ## Overview
 

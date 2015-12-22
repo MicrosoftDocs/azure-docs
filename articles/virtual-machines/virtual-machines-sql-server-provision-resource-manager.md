@@ -21,7 +21,7 @@
 # Provision a SQL Server virtual machine in Azure Resource Manager
 
 > [AZURE.SELECTOR]
-- [Azure Resource Manager model](virtual-machines-sql-server-provision-resource-manager)
+- [Azure Resource Manager model from portal](virtual-machines-sql-server-provision-resource-manager.md)
 - [Azure classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
