@@ -223,7 +223,16 @@ Shared access signatures are strings which - when included as part of a URL - pr
 ![Create Batch pool][3]
 <br/>
 
-After uploading the application and data files to the Storage account, a pool of compute nodes is created in the Batch account. When creating a pool, you can specify a number of parameters such as the number of compute nodes, the [size of the nodes](./../cloud-services/cloud-services-sizes-specs.md), and the nodes' [operating system](./../cloud-services/cloud-services-guestos-update-matrix.md).
+After uploading the application and data files to the Storage account, a pool of compute nodes is created in the Batch account. At this point in application, *DotNetTutorial* starts its interaction with the Batch service and so creates a [BatchClient][net_batchclient] from the Batch .NET library:
+
+```
+BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
+using (BatchClient batchClient = BatchClient.Open(cred))
+{
+	...
+```
+
+When creating a pool, you can specify a number of parameters such as the number of compute nodes, the [size of the nodes](./../cloud-services/cloud-services-sizes-specs.md), and the nodes' [operating system](./../cloud-services/cloud-services-guestos-update-matrix.md).
 
 Along with these physical node properties, we can also specify a [StartTask][net_pool_starttask] for the pool. The StartTask will execute on each node as that node joins the pool, as well as each time a node is restarted. The StartTask is especially useful for installing applications on compute nodes prior to the execution of tasks. For example, if your tasks process data using Python scripts, you could use a StartTask to install Python on the compute nodes.
 
@@ -567,6 +576,7 @@ Now that you are familiar with the basic workflow of a Batch solution, it's time
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [net_api]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_api_storage]: https://msdn.microsoft.com/library/azure/mt347887.aspx
+[net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_job]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_poolinfo]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.protocol.models.cloudjob.poolinformation.aspx
 [net_joboperations]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.joboperations
