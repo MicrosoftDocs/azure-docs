@@ -317,8 +317,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	        ],
 	        "typeProperties": {
 	          "source": {
-	            "type": "BlobSource",
-	            "blobColumnSeparators": ","
+	            "type": "BlobSource"
 	          },
 	          "sink": {
 	            "type": "AzureTableSink",

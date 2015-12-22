@@ -78,7 +78,7 @@ If you must build an Event Hub connection string with the previous information, 
 The following is a list of SDKs and integration that can be used with IoT Hub:
 
 * [Java Event Hubs client](https://github.com/hdinsight/eventhubs-client)
-* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can find the link to the spout source [here](https://github.com/apache/storm/tree/master/external/storm-eventhubs)
+* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
 * [Apache Spark integration](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 ## Device identity registry
@@ -475,7 +475,7 @@ The following is the list of enforced throttles. Values refer to an individual h
 | -------- | ------------- |
 | Identity registry operations (create, retrieve, list, update, delete), individual or bulk import/export | 100/min/unit, up to 5000/min |
 | Device connections | 100/sec/unit |
-| D2C sends | 2000/min/unit (for S2), 60/min/unit (for S1). Minimum of 100/sec. |
+| D2C sends | 120/sec/unit (for S2), 12/sec/unit (for S1). Minimum of 100/sec. |
 | C2D operations (sends, receive, feedback) | 100/min/unit |
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.

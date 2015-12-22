@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Creating an Azure project with Visual Studio"
+   pageTitle="Creating an Azure project with Visual Studio | Microsoft Azure"
    description="Creating an Azure project with Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.date="12/18/2015"
+   ms.author="tarcher" />
 
 # Creating an Azure Project with Visual Studio
 

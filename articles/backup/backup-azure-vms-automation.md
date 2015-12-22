@@ -37,10 +37,37 @@ To begin:
 
 1. [Download latest PowerShell](https://github.com/Azure/azure-powershell/releases) (minimum version required is : 1.0.0)
 
-2. Enable the Azure Backup commandlets by switching to *AzureResourceManager* mode by using the **Switch-AzureMode** commandlet:
+2. Find the Azure Backup PowerShell commandlets available by typing the following command:
 
 ```
-PS C:\> Switch-AzureMode AzureResourceManager
+PS C:\> Get-Command *azurermbackup*
+
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Cmdlet          Backup-AzureRmBackupItem                           1.0.1      AzureRM.Backup
+Cmdlet          Disable-AzureRmBackupProtection                    1.0.1      AzureRM.Backup
+Cmdlet          Enable-AzureRmBackupContainerReregistration        1.0.1      AzureRM.Backup
+Cmdlet          Enable-AzureRmBackupProtection                     1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupContainer                         1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupItem                              1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupJob                               1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupJobDetails                        1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupRecoveryPoint                     1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Get-AzureRmBackupVaultCredentials                  1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupRetentionPolicyObject             1.0.1      AzureRM.Backup
+Cmdlet          New-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Register-AzureRmBackupContainer                    1.0.1      AzureRM.Backup
+Cmdlet          Remove-AzureRmBackupProtectionPolicy               1.0.1      AzureRM.Backup
+Cmdlet          Remove-AzureRmBackupVault                          1.0.1      AzureRM.Backup
+Cmdlet          Restore-AzureRmBackupItem                          1.0.1      AzureRM.Backup
+Cmdlet          Set-AzureRmBackupProtectionPolicy                  1.0.1      AzureRM.Backup
+Cmdlet          Set-AzureRmBackupVault                             1.0.1      AzureRM.Backup
+Cmdlet          Stop-AzureRmBackupJob                              1.0.1      AzureRM.Backup
+Cmdlet          Unregister-AzureRmBackupContainer                  1.0.1      AzureRM.Backup
+Cmdlet          Wait-AzureRmBackupJob                              1.0.1      AzureRM.Backup
 ```
 
 The following setup and registration tasks can be automated with PowerShell:
@@ -203,8 +230,6 @@ Building the VM out of the restored disks can be done using the older Azure Serv
  $storageAccountName = $properties["TargetStorageAccountName"]
  $containerName = $properties["TargetContainerName"]
  $blobName = $properties["TargetBlobName"]
-
- Switch-AzureMode AzureServiceManagement
 
  $keys = Get-AzureStorageKey -StorageAccountName $storageAccountName
  $storageAccountKey = $keys.Primary

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/11/2015"
+   ms.date="12/22/2015"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight
@@ -56,7 +56,7 @@ The following are the basic configuration options for creating a HDInsight clust
 
 	You can create HDInsight clusters on one of the following two operating systems:
 	- **HDInsight on Windows (Windows Server 2012 R2 Datacenter)**:
-	- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux) **: HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
+	- **HDInsight on Linux (Ubuntu 12.04 LTS for Linux)**: HDInsight provides the option of configuring Linux clusters on Azure. Configure a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information, see [Get started with Hadoop on Linux in HDInsight](hdinsight-hadoop-linux-get-started.md).
 
 - **Cluster type** and **cluster size (a.k.a. data nodes)**
 
@@ -255,7 +255,6 @@ For more information on Virtual Network features, benefits, and capabilities, se
 >
 > It is highly recommended to designate a single subnet for one cluster.
 
-
 ## Cluster creation methods
 
 In this article, you have learned basic information about creating a Windows-based HDInsight cluster. Use the table below to find specific information on how to create a cluster using a method that best suits your needs:
@@ -277,3 +276,4 @@ In this article, you have learned basic information about creating a Windows-bas
 - [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 - [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 - [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
+

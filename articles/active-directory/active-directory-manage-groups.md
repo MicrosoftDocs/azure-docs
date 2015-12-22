@@ -52,6 +52,8 @@ The access to a resource is derived from an external source; for example, a grou
 
 You can watch a short video that explains more about this:
 
+[Azure AD : Introduction to Dynamic Memberships for Groups](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups)
+
 > [AZURE.VIDEO azure-ad--introduction-to-dynamic-memberships-for-groups]
 
 ## How does Access Management in Azure Active Directory work?
