@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Resource Manager supported services and supported regions | Microsoft Azure"
-   description="Describes the resource providers that support Resource Manager and the regions that can host the resources."
+   pageTitle="Resource Manager supported services, regions, schemas and versions | Microsoft Azure"
+   description="Describes the resource providers that support Resource Manager, their schemas and available API versions, and the regions that can host the resources."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/21/2015"
+   ms.date="12/22/2015"
    ms.author="tomfitz"/>
 
-# Resource Manager support for services, regions, and API versions
+# Resource Manager providers, regions, API versions and schemas
 
 Azure Resource Manager provides a new way for you to deploy and manage the services that make up your applications. 
 Most, but not all, services support Resource Manager, and some services support Resource Manager only partially. Microsoft will enable Resource Manager for every service that is important for future solutions, but until the 
@@ -28,7 +28,8 @@ To see which services are supported in the Azure portal and classic portal, see 
 
 The following tables list which services support deployment and management through Resource Manager and which do not. The column titled **Move Resources** refers to whether resources of this type can be moved to both a 
 new resource group and a new subscription. The link in the column **Quickstart Templates** sends a query to the Azure Quickstart Templates repository for the specified resource provider. 
-If no templates exist currently in the repository, the query will return no results.
+Quickstart templates are added and updated frequently. The presence of a link for a particular service does not necessarily mean 
+the query will return templates from the repository. 
 
 
 ## Compute
@@ -51,12 +52,12 @@ Virtual Machines (classic) resources can be moved to new resource group, but not
 
 | Service | Resource Manager Enabled | Move Resources | REST API | Schema | Quickstart Templates |
 | ------- | -------  | -------------- | -------- | ------ | ------ |
-| Application Gateway | Yes |      |          |        | [Microsoft.Network/applicationGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FapplicationGateways%22&type=Code) |
-| DNS     | Yes  |               | [Create DNS Zone](https://msdn.microsoft.com/library/azure/mt130622.aspx)         | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [Microsoft.Network/dnsZones](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FdnsZones%22&type=Code) |
-| Load Balancer | Yes |          | [Create Load Balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [Microsoft.Network/loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
-| Virtual Networks | Yes | No        | [Create Virtual Network](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [Microsoft.Network/virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
-| Traffic Manager | Yes |           | [Create Traffic Manager profile](https://msdn.microsoft.com/library/azure/mt163581.aspx) | [2015-11-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json)  | [Microsoft.Network/trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
-| ExpressRoute | Yes | No             | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx)  |       | [Microsoft.Network/expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
+| Application Gateway | Yes |      |          |        | [applicationGateways](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FapplicationGateways%22&type=Code) |
+| DNS     | Yes  |               | [Create DNS Zone](https://msdn.microsoft.com/library/azure/mt130622.aspx)         | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [dnsZones](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FdnsZones%22&type=Code) |
+| Load Balancer | Yes |          | [Create Load Balancer](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [loadBalancers](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Floadbalancers%22&type=Code) |
+| Virtual Networks | Yes | No        | [Create Virtual Network](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) | [virtualNetworks](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FvirtualNetworks%22&type=Code) |
+| Traffic Manager | Yes |           | [Create Traffic Manager profile](https://msdn.microsoft.com/library/azure/mt163581.aspx) | [2015-11-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-11-01/Microsoft.Network.json)  | [trafficmanagerprofiles](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2Ftrafficmanagerprofiles%22&type=Code) |
+| ExpressRoute | Yes | No             | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx)  |       | [expressRouteCircuits](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Network%2FexpressRouteCircuits%22&type=Code) |
 
 ## Data & Storage
 
@@ -100,8 +101,8 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Media & CDN
 
-| Service | Resource Manager Enabled | Portal | Move Resources | REST API | Schema | Quickstart Templates |
-| ------- | ------- | -------- | -------------- | -------- | ------ | ------ |
+| Service | Resource Manager Enabled | Move Resources | REST API | Schema | Quickstart Templates |
+| ------- | ------- | -------------- | -------- | ------ | ------ |
 | CDN | Yes |  | [CDN REST](https://msdn.microsoft.com/library/azure/mt634456.aspx)  |  | [Microsoft.Cdn](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Cdn%22&type=Code) |
 | Media Service | No |  |  |  |
 
