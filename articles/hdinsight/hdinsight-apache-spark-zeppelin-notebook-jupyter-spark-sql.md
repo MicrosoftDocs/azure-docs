@@ -112,13 +112,13 @@ After you have provisioned a cluster, you can use a web-based Zeppelin notebook 
 
 2. Create a new notebook. From the header pane, click **Notebook**, and then click **Create New Note**.
 
-	![Create a new Zeppelin notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.CreateNewNote.png "Create a new Zeppelin notebook")
+	![Create a new Zeppelin notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.createnewnote.png "Create a new Zeppelin notebook")
 
 	On the same page, under the **Notebook** heading, you should see a new notebook with the name starting with **Note XXXXXXXXX**. Click the new notebook.
 
 3. On the webpage for the new notebook, click the heading, and change the name of the notebook if you want to. Press ENTER to save the name change. Also, make sure the notebook header shows a **Connected** status in the top-right corner.
 
-	![Zeppelin notebook status](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.NewNote.Connected.png "Zeppelin notebook status")
+	![Zeppelin notebook status](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.newnote.connected.png "Zeppelin notebook status")
 
 4. Load sample data into a temporary table. When you provision a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\SensorSampleData\hvac**.
 
@@ -145,7 +145,7 @@ After you have provisioned a cluster, you can use a web-based Zeppelin notebook 
 
 	Press **SHIFT + ENTER** on the keyboard or click the **Play** button for the paragraph to run the code. The status in the upper right corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED. The output appears at the bottom of the same paragraph. The screenshot looks like the following:
 
-	![Create a temporary table from raw data](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.LoadDataIntoTable.png "Create a temporary table from raw data")
+	![Create a temporary table from raw data](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.loaddataintotable.png "Create a temporary table from raw data")
 
 	You can also provide a title to each paragraph. From the right-hand corner, click the **Settings** icon, and then click **Show title**.
 
@@ -160,7 +160,7 @@ After you have provisioned a cluster, you can use a web-based Zeppelin notebook 
 
 	The following screenshot shows the output.
 
-	![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.SparkSQLQuery1.png "Run a Spark SQL statement using the notebook")
+	![Run a Spark SQL statement using the notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/hdispark.note.sparksqlquery1.png "Run a Spark SQL statement using the notebook")
 
 	Click the display options (highlighted in rectangle) to switch between different representations for the same output. Click **Settings** to choose what consitutes the key and values in the output. The screen capture above uses **buildingID** as the key and the average of **temp_diff** as the value.
 

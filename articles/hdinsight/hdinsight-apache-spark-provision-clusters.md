@@ -164,7 +164,7 @@ Spark clusters on HDInsight use an Azure Blob storage container as the default f
 
 11. Once the provisioning completes, click the tile for the cluster from the Startboard to launch the cluster blade. The cluster blade provides essential information about the cluser such as the name, the resource group it belongs to, the location, the operating system, URL for the cluster dashboard, etc.
 
-	![Cluster blade](./media/hdinsight-apache-spark-provision-clusters/hdi.cluster.blade.png "Cluster properties")
+	![Cluster blade](./media/hdinsight-apache-spark-provision-clusters/hdispark.cluster.blade.png "Cluster properties")
 
 	Use the following to understand the icons at the top of this blade, and in the **Essentials** and **Quick Links** section:
 
