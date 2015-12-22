@@ -108,11 +108,9 @@ Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's 
 
 Batch includes built-in support for interacting with Azure Storage, and blob containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute, as well as a place to store output data once they've completed. The first thing the DotNetTutorial client application does is create three block blob containers in Azure Storage:
 
-- **application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
-- **input** - Tasks will download the data files they are to process from the *input* container.
-- **output** - When tasks complete the processing of the input files, they will upload their results to the *output* container.
-
-&nbsp;
+ - **application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
+ - **input** - Tasks will download the data files they are to process from the *input* container.
+ - **output** - When tasks complete the processing of the input files, they will upload their results to the *output* container.
 
 > [AZURE.INFO] In [Azure Storage](./../storage/storage-introduction.md), a "blob" is a file of any type and size. Of the three types of blobs offered by Storage - block blobs, page blobs, and append blobs - this sample uses only the block blob.
 
@@ -526,8 +524,6 @@ private static async Task DeleteContainerAsync(CloudBlobClient blobClient, strin
 }
 ```
 
-> [AZURE.IMPORTANT] Be aware that deleting a pool deletes all compute nodes within that pool, and that any data on the nodes will be unrecoverable once the pool is deleted.
-
 ## Step 9: Delete job and pool
 
 In the final step, the user is prompted to delete the job and pool created by the DotNetTutorial application. Although you are not charged for jobs and tasks themselves, you *are* charged for compute nodes, thus it is recommended that you allocate nodes only as needed, and deleting unused pools can be part of your maintenance process.
@@ -559,7 +555,7 @@ if (response != "n" && response != "no")
 Now that you are familiar with the basic workflow of a Batch solution, it's time to dig in to the additional features of the Batch service.
 
 - [Overview of Azure Batch features](batch-api-basics) - This article provides an overview of many of the features of Batch, and is recommended reading for those new to the service.
-- Check out the other Batch development articles in *Development in-depth* in the [Batch learning path][batch_learning_path]
+- Check out the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path]
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_portal]: https://portal.azure.com
