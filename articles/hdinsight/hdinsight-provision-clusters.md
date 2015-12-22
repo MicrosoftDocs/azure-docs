@@ -164,7 +164,13 @@ The following are the basic configuration options for creating a HDInsight clust
 
 ## Advanced configuration options
 
-### Customize clusters using HDInsight cluster customization
+There are 3 parts in this section:
+
+- Customize clusters using HDInsight cluster customization (bootstrap)
+- Customize clusters using Script action
+- Use Azure virtual networks
+
+### Customize clusters using HDInsight cluster customization (bootstrap)
 
 Sometimes, you want to configure the configuration files:
 
@@ -177,7 +183,7 @@ Sometimes, you want to configure the configuration files:
 
 The clusters can't retain the changes due to re-image. For more information, 
 see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). 
-To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process.
+To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process. This is the recommended way to change configurations of a cluster and persist across these Azure reimage reboot restart events. These configuration changes are applied before service start, so services needn’t be restarted.  
 
 The following is an Azure PowerShell script example of customizing a Hive configuration:
 

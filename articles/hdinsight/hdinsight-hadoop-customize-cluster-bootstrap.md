@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Customize HDInsight Clusters using script actions | Microsoft Azure"
-	description="Learn how to customize HDInsight clusters using Script Action."
+	pageTitle="Customize HDInsight Clusters using bootstrap | Microsoft Azure"
+	description="Learn how to customize HDInsight clusters using bootstrap."
 	services="hdinsight"
 	documentationCenter=""
-	authors="nitinme"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"
 	tags="azure-portal"/>
@@ -14,12 +14,104 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
-	ms.author="nitinme"/>
+	ms.date="12/22/2015"
+	ms.author="jgao"/>
 
-# Customize HDInsight clusters using Script Action (Windows)
+# Customize HDInsight clusters using Bootstrap
 
 [AZURE.INCLUDE [usescriptaction-selector](../../includes/hdinsight-selector-use-script-action.md)]
+
+
+
+
+
+Sometimes, you want to configure the configuration files which include:
+
+- core-site.xml
+- hdfs-site.xml
+- mapred-site.xml
+- yarn-site.xml
+- hive-site.xml
+- oozie-site.xml
+
+The clusters can't retain the changes due to re-imaging. For more information on re-imaging, 
+see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). 
+To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process. This is the recommended way to change configurations of a cluster and persist across these Azure reimage reboot restart events. These configuration changes are applied before service start, so services needn’t be restarted. 
+
+There are 3 methods to use bootstrap:
+
+- Use Azure PowerShell
+- Use .NET SDK
+- Use ARM template
+
+For information on installing additional components on HDInsight cluster during the creation time, see :
+
+- [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
+- [Customize HDInsight clusters using Script Action (Windows)](hdinsight-hadoop-customize-cluster.md)
+
+## Use Azure PowerShell
+
+The following sample script customizes a Hive configuration:
+
+	# hive-site.xml configuration
+	$hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
+	
+	$config = New-AzureRmHDInsightClusterConfig `
+		| Set-AzureRmHDInsightDefaultStorage `
+			-StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+			-StorageAccountKey $defaultStorageAccountKey `
+		| Add-AzureRmHDInsightConfigValues `
+			-HiveSite $hiveConfigValues 
+	
+	New-AzureRmHDInsightCluster `
+		-ResourceGroupName $existingResourceGroupName `
+		-ClusterName $clusterName `
+		-Location $location `
+		-ClusterSizeInNodes $clusterSizeInNodes `
+		-ClusterType Hadoop `
+		-OSType Windows `
+		-Version "3.2" `
+		-HttpCredential $httpCredential `
+		-Config $config 
+
+Some more samples on customizing other configuration files:
+
+	# hdfs-site.xml configuration
+	$HdfsConfigValues = @{ "dfs.blocksize"="64m" } #default is 128MB in HDI 3.0 and 256MB in HDI 2.1
+
+	# core-site.xml configuration
+	$CoreConfigValues = @{ "ipc.client.connect.max.retries"="60" } #default 50
+
+	# mapred-site.xml configuration
+	$MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
+
+	# oozie-site.xml configuration
+	$OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
+
+For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creationg](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+
+
+## Use .NET SDK
+
+## Use Azure ARM template
+
+## See also
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 **Script Action** can be used to invoke [custom scripts](hdinsight-hadoop-script-actions.md) 
 during the cluster creation process for installing additional software on a cluster.
