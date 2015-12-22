@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="nitinme"/>
 
 
-# Quick Start: Provision Apache Spark on HDInsight and run interactive queries using Spark SQL
+# Quick Start: Provision Apache Spark on HDInsight and run interactive queries using Spark SQL (Windows)
 
 [AZURE.INCLUDE [hdinsight-azure-portal](../../includes/hdinsight-azure-portal.md)]
 
-* [Provision Apache Spark on HDInsight and run interactive queries using Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [Provision Apache Spark on HDInsight and run interactive queries using Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
 
 Learn how to provision an Apache Spark cluster in HDInsight using the Quick Create option and then use the web-based [Zeppelin](https://zeppelin.incubator.apache.org) and [Jupyter](https://jupyter.org) notebooks to run Spark SQL interactive queries on the Spark cluster.
 
@@ -39,10 +39,10 @@ When you provision an HDInsight cluster in HDInsight, you specify an Azure Stora
 
 **To create an Azure Storage account**
 
-1. Sign in to the [Azure Classic Portal][azure-management-portal].
+1. Sign in to the [Azure Portal][azure-management-portal].
 2. Click **NEW** in the lower-left corner and then enter the values as shown in the image.
 
-	![Azure Classic Portal where you can use Quick Create to set up a new storage account](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Azure Classic Portal where you can use Quick Create to set up a new storage account")
+	![Azure portal where you can use Quick Create to set up a new storage account](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1/HDI.StorageAccount.QuickCreate.png "Azure portal where you can use Quick Create to set up a new storage account")
 
 >[AZURE.NOTE]  Make sure you create the storage account in a location that is supported for the cluster.
 
@@ -57,7 +57,7 @@ In this section, you provision an HDInsight version 3.2 cluster, which is based 
 
 **To provision a Spark cluster** 
 
-1. Sign in to the [Azure Classic Portal][azure-management-portal]. 
+1. Sign in to the [Azure Portal][azure-management-portal]. 
 
 2. Click **NEW** in the lower-left corner and then enter the values as shown in the image.
 
@@ -70,9 +70,7 @@ After you have provisioned a cluster, you can use a web-based Zeppelin notebook 
 
 >[AZURE.NOTE] The notebook you create following the instructions below is also available by default on the cluster. After you have launched Zeppelin, you will find this notebook by the name **Zeppelin HVAC tutorial**.
 
-1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
-
-2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Zeppelin Notebook**. If prompted, enter the admin credentials for the cluster.
+1. From the [Azure Portal][azure-management-portal] left pane, click **HDInsight**, and then click the Spark cluster you provisioned. From the Spark cluster page, from the bottom pane, click **Zeppelin Notebook**. If prompted, enter the admin credentials for the cluster.
 
 	> [AZURE.NOTE] You may also reach the Zeppelin Notebook for your cluster by opening the following URL in your browser. Replace __CLUSTERNAME__ with the name of your cluster:
 	>
@@ -156,9 +154,7 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 
 >[AZURE.NOTE] The notebook you create following the instructions below is also available by default on the cluster. After you have launched Jupyter, you will find this notebook by the name **HVACTutorial.ipynb**.
 
-1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
-
-2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
+1. From the [Azure Portal][azure-management-portal] left pane, click **HDInsight**, and then click the Spark cluster you provisioned. From the Spark cluster page, from the bottom pane, click **Zeppelin Notebook**. If prompted, enter the admin credentials for the cluster.
 
 	> [AZURE.NOTE] You may also reach the Jupyter Notebook for your cluster by opening the following URL in your browser. Replace __CLUSTERNAME__ with the name of your cluster:
 	>
@@ -242,12 +238,12 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 ##<a name="seealso"></a>See also
 
 
-* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
+* [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
 * [Provision a Spark on HDInsight cluster](hdinsight-apache-spark-provision-clusters.md)
-* [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
-* [Use Spark in HDInsight for building machine learning applications](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools-v1.md)
+* [Use Spark in HDInsight for building machine learning applications](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
 * [Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
