@@ -97,4 +97,4 @@
 	        
 	        module.exports = table;
 
-	2. When editing the file in your local computer, republish the server project.
+	2. When editing the file on your local computer, republish the server project.
