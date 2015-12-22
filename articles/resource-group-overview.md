@@ -59,9 +59,9 @@ There are some important factors to consider when defining your resource group:
 
 ## Resource providers
 
-A resource provider is a service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers REST API operations for working with the resources. For example, if you want to deploy an Azure Key Vault for storing keys and secrets, you will work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, and a resource type called **vaults/secrets** for creating a secret in the key vault.
+A resource provider is a service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers REST API operations for working with the resources. For example, if you want to deploy an Azure Key Vault for storing keys and secrets, you will work with the **Microsoft.KeyVault** resource provider. This resource provider offers a resource type called **vaults** for creating the key vault, a resource type called **vaults/secrets** for creating a secret in the key vault, and a set of [REST API operations](https://msdn.microsoft.com/en-us/library/azure/dn903609.aspx).
 
-To deploy and manage your infrastructure, you will need to know details about the resource providers; such as, what resource types it offers, the version numbers of the REST API operations, the operations it supports, and the schema to use when setting the values of the resource type to create. To learn about the supported resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md)
+To deploy and manage your infrastructure, you will need to know details about the resource providers; such as, what resource types it offers, the version numbers of the REST API operations, the operations it supports, and the schema to use when setting the values of the resource type to create. To learn about the supported resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
 
 ## Template deployment
 
