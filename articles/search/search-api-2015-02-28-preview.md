@@ -21,7 +21,7 @@
 This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
 - [Lucene query syntax](https://msdn.microsoft.com/library/mt589323.aspx) can now be used for queries in Azure Search. To use the Lucene query parser, specify `queryType` in Search operations.
-- [Custom analyzers](https://msdn.microsoft.com/en-us/library/azure/mt605304.aspx) allow you to take control over the process of converting text into indexable/searchable tokens
+- [Custom analyzers](https://msdn.microsoft.com/library/azure/mt605304.aspx) allow you to take control over the process of converting text into indexable/searchable tokens
 - `moreLikeThis` is a a query parameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
 
 Azure Search service is available in multiple versions. Please refer to [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
