@@ -1,9 +1,9 @@
 <properties
-   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight using the Azure PowerShell | Microsoft Azure"
-   	description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using the Azure PowerShell."
+   	pageTitle="Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight using the Azure CLI | Microsoft Azure"
+   	description="Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using the Azure CLI."
    	services="hdinsight"
    	documentationCenter=""
-   	authors="mumian"
+   	authors="nitinme"
    	manager="paulettm"
    	editor="cgronlun"
 	tags="azure-portal"/>
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="12/08/2015"
    	ms.author="nitinme"/>
 
 #Create Linux-based clusters in HDInsight using Azure PowerShell
@@ -25,12 +25,11 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 
 > [AZURE.NOTE] Azure PowerShell is only available on Windows clients. If you are using a Linux, Unix, or Mac OS X client, see [Create a Linux-based HDInsight cluster using Azure CLI](hdinsight-hadoop-create-linux-cluster-azure-cli.md) for information on using the Azure CLI to create a cluster.
 
-###Prerequisites
+##Prerequisites
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure PowerSHell__. For information on configuring a workstation to run HDInsight Windows PowerShell cmdlets, see [Install and configure Azure PowerShell](../install-configure-powershell.md). For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
-
 
 ##Create the cluster
 
@@ -127,3 +126,11 @@ Now that you have successfully created an HDInsight cluster, use the following t
 * [Develop Java topologies for Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Use Python components in Storm on HDInsight](hdinsight-storm-develop-python.md)
 * [Deploy and monitor topologies with Storm on HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+
+###Spark clusters
+
+* [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
+* [Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools.md)
+* [Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark Streaming: Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-eventhub-streaming.md)
