@@ -74,7 +74,7 @@ To install the SDK, right-click on the server project in Visual Studio, select *
 
 ###<a name="server-project-setup"></a> Initialize the server project
 
-A .NET backend server project is initialized similar to other ASP.NET projects, by including an OWIN startup class. Ensure that you have referenced the NuGet package `Microsoft.Owin.Host.SystemWeb`. To add this class in Visual Studio, right-click on your server project and select **Add** -> **New Item**, then **Web** -> **General** -> **OWIN Startup class**.
+A .NET backend server project is initialized similar to other ASP.NET projects, by including an OWIN startup class. Ensure that you have referenced the NuGet package `Microsoft.Owin.Host.SystemWeb`. To add this class in Visual Studio, right-click on your server project and select **Add** > **New Item**, then **Web** > **General** > **OWIN Startup class**.
 
 This will generate a class with the following attribute:
 
@@ -147,11 +147,29 @@ The following NuGet-based extension packages provide various mobile features tha
 - [Microsoft.Azure.Mobile.Server.Login] 
 	 Provides preview support for custom authentication via the MobileAppLoginHandler.CreateToken() method. This is a static method and does not need to be enabled in the configuration.
 
-## How to: Publish the server project
+## <a name="publish-server-project"></a>How to: Publish the server project
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using Git or any of the other methods covered in the [Azure App Service deployment documentation](../app-service-web/web-site-deploy.md). 
 
-You can also use any of the other methods covered in the [Azure App Service deployment documentation](../app-service-web/web-site-deploy.md).
+1. In Visual Studio, rebuild the project to restore NuGet packages.
+
+2. In Solution Explorer, right-click the project, click **Publish**. The first time you publish, you will need to define a publishing profile. When you already have a profile defined, you can just select it and click **Publish**.
+
+2. If asked to select a publish target, click **Microsoft Azure App Service** > **Next**, then (if needed) sign-in with your Azure credentials. Visual Studio downloads and securely stores your publish settings directly from Azure.
+
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
+
+3. Choose your **Subscription**, select **Resource Type** from **View**, expand **Mobile App** and click your Mobile App backend, then click **OK**. 
+
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
+
+4. Verify the publish profile information and click **Publish**.  
+
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)
+
+	When your Mobile App backend has published successfully, you will see a landing page indicating success.
+
+	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
 ## How to: Define a table controller
 
@@ -203,8 +221,15 @@ The custom API controller provides the most basic functionality to your Mobile A
 
 Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it may not be correctly consumed by clients using any Mobile App client SDK. 
 
+## How to: Work with authentication
 
-## How to: Add authentication to a server project
+Mobile Apps uses the facilities of App Service authentication and ASP.NET to simply the process of enabling authentication for your apps. This section shows you how to perform the following authentication-related tasks in your .NET backend server project:
+
++ [How to: Add authentication to a server project](#add-auth) 
++ [How to: Use custom authentication for your application](#custom-auth) 
++ [How to: Retrieve authenticated user information](#user-info)
+
+### <a name="add-auth"></a>How to: Add authentication to a server project
 
 You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip to step 3.
 
@@ -220,7 +245,7 @@ You can add authentication to your server project by extending the **MobileAppCo
 
 To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-ios-get-started-users.md).
 
-## <a name="custom-auth"></a>How to: Use custom authentication for your application
+### <a name="custom-auth"></a>How to: Use custom authentication for your application
 
 You can choose to provide your own login system if you do not wish to use one of the App Service Authentication/Authorization providers. To do so, install the [Microsoft.Azure.Mobile.Server.Login] package.
 
@@ -263,6 +288,46 @@ In the above, LoginResult and LoginResultUser are just simple objects exposing t
 The `MobileAppLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing the _WEBSITE_AUTH_SIGNING_KEY_ environment variable. If needed in a local debugging context, follow the instructions in the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
 
 You also need to provide a lifetime for the issued token, as well as any claims you would like included. It is required that you provide a subject claim, as shown in the example code.
+
+###<a name="user-info"></a>How to: Retrieve authenticated user information
+
+When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This is useful for making authorization decisions for a given user in the backend, such as whether a specific user can access a table row or other resource. The following code shows how to obtain the 
+user ID for a logged-in user:
+
+    // Get the current user SID and create a tag for the current user.
+    var claimsPrincipal = this.User as ClaimsPrincipal;
+    string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+The SID is derived from the provider-specific user ID and is static for a given user and login provider.
+
+App Service also lets you request specific claims from your login provider. This lets you request more information from the provider, such as by using the Facebook Graph APIs. You can specify claims in the provider blade in the portal. Some claims require additional configuration with the provider.
+
+The following code calls the **GetAppServiceIdentityAsync** extension method to get the login credentials, which include the access token needed to make requests against the Facebook Graph API: 
+
+    // Get the credentials for the logged-in user.
+    var credentials = 
+        await this.User
+        .GetAppServiceIdentityAsync<FacebookCredentials>(this.Request);
+
+    if (credentials.Provider == "Facebook")
+    {
+        // Create a query string with the Facebook access token.
+        var fbRequestUrl = "https://graph.facebook.com/me/feed?access_token=" 
+            + credentials.AccessToken;
+
+        // Create an HttpClient request.
+        var client = new System.Net.Http.HttpClient();
+
+        // Request the current user info from Facebook.
+        var resp = await client.GetAsync(fbRequestUrl);
+        resp.EnsureSuccessStatusCode();
+
+        // Do something here with the Facebook user information.
+        var fbInfo = await resp.Content.ReadAsStringAsync();
+    }
+
+Note that you must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method  work.
+
 
 ## How to: Add push notifications to a server project
 
@@ -336,10 +401,24 @@ Azure App Service provides several debugging and troubleshooting techniques for 
 
 ### Logging
 
-You can write to App Service diagnostic logs by using the standard ASP.NET trace writing:
+You can write to App Service diagnostic logs by using the standard ASP.NET trace writing. Before you can write to the logs, you must enable diagnostics in your Mobile App backend. 
+
+To enable enable diagnostics and write to the logs:
+
+1. Follow the steps in [How to enable diagnostics](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag).
+
+2. Add the following using statement in your code file:
+
+		using System.Web.Http.Tracing;
+
+3. Create a trace writer to write from the .NET backend to the diagnostic logs, as follows:
 
 		ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
 		traceWriter.Info("Hello, World");  
+
+4. Republish your server project, and access the Mobile App backend to execute the code path with the logging.
+
+5. Download and evaluate the logs, as described in [How to: Download logs](../app-service-web/web-sites-enable-diagnostic-log.md#download).
 
 ### <a name="local-debug"></a>Local debugging with authentication
 
