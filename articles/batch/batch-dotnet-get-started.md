@@ -114,7 +114,7 @@ Batch includes built-in support for interacting with Azure Storage, and blob con
 
 > [AZURE.NOTE] In [Azure Storage](./../storage/storage-introduction.md), a "blob" is a file of any type and size. Of the three types of blobs offered by Storage - block blobs, page blobs, and append blobs - this sample uses only the block blob.
 
-In order to interact with a Storage account and create containers, we use the [Azure Storage Client Library for .NET][net_api_storage] and create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that obtain a [CloudBlobClient][net_cloudblobclient]:
+In order to interact with a Storage account and create containers, the [Azure Storage Client Library for .NET][net_api_storage] is used to create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that a [CloudBlobClient][net_cloudblobclient] is obtained:
 
 ```
 // Construct the Storage account connection string
@@ -223,7 +223,7 @@ Shared access signatures are strings which - when included as part of a URL - pr
 ![Create Batch pool][3]
 <br/>
 
-After uploading the application and data files to the Storage account, a pool of compute nodes is created in the Batch account. At this point in application, *DotNetTutorial* starts its interaction with the Batch service and so creates a [BatchClient][net_batchclient] from the Batch .NET library:
+After uploading the application and data files to the Storage account, *DotNetTutorial* starts its interaction with the Batch service using the Batch .NET library. To do so, a [BatchClient][net_batchclient] is first created:
 
 ```
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -232,11 +232,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 	...
 ```
 
-When creating a pool, you can specify a number of parameters such as the number of compute nodes, the [size of the nodes](./../cloud-services/cloud-services-sizes-specs.md), and the nodes' [operating system](./../cloud-services/cloud-services-guestos-update-matrix.md).
-
-Along with these physical node properties, we can also specify a [StartTask][net_pool_starttask] for the pool. The StartTask will execute on each node as that node joins the pool, as well as each time a node is restarted. The StartTask is especially useful for installing applications on compute nodes prior to the execution of tasks. For example, if your tasks process data using Python scripts, you could use a StartTask to install Python on the compute nodes.
-
-In this sample application, we use the StartTask to copy the files that it has downloaded from Storage (which we specify using the StartTask's *ResourceFiles* property) from its working directory to the shared directory that all tasks running on the node can access.
+Next, a pool of compute nodes is created in the Batch account with a call to `CreatePoolAsync`. `CreatePoolAsync` uses the [BatchClient.PoolOperations.CreatePool][net_pool_create] method to actually create the pool in the Batch service.
 
 ```
 private static async Task CreatePoolAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -273,7 +269,13 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
 }
 ```
 
-Notable in the code snippet above is the use of two environment variables in the *CommandLine* property of the StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` and `%AZ_BATCH_NODE_SHARED_DIR%`. Each compute node within a Batch pool is automatically configured with a number of environment variables specific to Batch, and any process executed by a task has access to these environment variables.
+When creating a pool with [CreatePool][net_pool_create], you will specify a number of parameters such as the number of compute nodes, the [size of the nodes](./../cloud-services/cloud-services-sizes-specs.md), and the nodes' [operating system](./../cloud-services/cloud-services-guestos-update-matrix.md).
+
+Along with these physical node properties, you may also specify a [StartTask][net_pool_starttask] for the pool. The StartTask will execute on each node as that node joins the pool, as well as each time a node is restarted. The StartTask is especially useful for installing applications on compute nodes prior to the execution of tasks. For example, if your tasks process data using Python scripts, you could use a StartTask to install Python on the compute nodes.
+
+In this sample application, the StartTask copies the files that it has downloaded from Storage (which are specified using the StartTask's *ResourceFiles* property) from its working directory to the shared directory that all tasks running on the node can access.
+
+Also notable in the code snippet above is the use of two environment variables in the *CommandLine* property of the StartTask: `%AZ_BATCH_TASK_WORKING_DIR%` and `%AZ_BATCH_NODE_SHARED_DIR%`. Each compute node within a Batch pool is automatically configured with a number of environment variables specific to Batch, and any process executed by a task has access to these environment variables.
 
 > [AZURE.TIP] To find out more about the environment variables available on compute nodes within a Batch pool, as well as information on task working directories, see the **Environment settings for tasks** and **Files and directories** sections in the [Overview of Azure Batch features](batch-api-basics.md).
 
@@ -281,7 +283,7 @@ Notable in the code snippet above is the use of two environment variables in the
 
 ![Create Batch job][4]<br/>
 
-A Batch job is essentially a collection of tasks, and is used not only for performing distinct workloads, but can also impose certain constraints such as the maximum run-time for the job (and by extension, its tasks) as well as job priority in relation to other jobs within the Batch account. In this example, however, we merely associate the job with the pool created in the previous step and do not configure any additional properties.
+A Batch job is essentially a collection of tasks, and is used not only for performing distinct workloads, but can also impose certain constraints such as the maximum run-time for the job (and by extension, its tasks) as well as job priority in relation to other jobs within the Batch account. In this example, however, the job is merely associated with the previously created pool, and no other properties are configured.
 
 All Batch jobs are associated with a specific pool. This indicates on which nodes the job's tasks will execute, and is done using the [CloudJob.PoolInformation][net_job_poolinfo] property as shown in the code snippet below.
 
@@ -298,14 +300,14 @@ private static async Task CreateJobAsync(BatchClient batchClient, string jobId, 
 }
 ```
 
-Now that we have created a job, we can add tasks and perform the work.
+Now that a job has been created, tasks are added to perform the work.
 
 ## Step 5: Add tasks to job
 
 ![Add tasks to job][5]<br/>
 *(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
 
-To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured with a command line and, as with the pool's StartTask, also [ResourceFiles][net_task_resourcefiles] that the task downloads to the node before the command line is executed. In the case of the tasks in our DotNetTutorial sample project, each task processes only one file, and as such, its ResourceFiles collection contains a single element.
+To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured with a command line and, as with the pool's StartTask, also [ResourceFiles][net_task_resourcefiles] that the task downloads to the node before the command line is executed. In the case of the tasks in the *DotNetTutorial* sample project, each task processes only one file, and as such, its ResourceFiles collection contains a single element.
 
 ```
 private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient, string jobId, List<ResourceFile> inputFiles, string outputContainerSasUrl)
@@ -340,7 +342,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 
 Within the `foreach` loop in the code snippet above, you can see that the command line for the task is constructed such that three command line arguments are passed to *TaskApplication.exe*:
 
-1. The **first argument** is the path of the file to process. This is the local path to the file as it exists on the node. When first creating the ResourceFile object in `UploadFileToContainerAsync` above, we simply used the name of the file for this property (as a parameter to the ResourceFile constructor). In doing so, we indicate that the file can be found in the same directory in which *TaskApplication.exe* resides.
+1. The **first argument** is the path of the file to process. This is the local path to the file as it exists on the node. When first creating the ResourceFile object in `UploadFileToContainerAsync` above, the filename was used for this property (as a parameter to the ResourceFile constructor), thus indicating that the file can be found in the same directory as *TaskApplication.exe*.
 
 2. The **second argument** specifies that the top *N* words should be written to the output file. In the sample, this is hard-coded so that the top 3 words will be written to the output file.
 
@@ -391,11 +393,11 @@ Within the `MonitorTasks` method in DotNetTutorial's `Program.cs`, there are thr
 
 1. **ODATADetailLevel** - Specifying an [ODATADetailLevel][net_odatadetaillevel] in list operations (such as obtaining a list of the tasks here in `MonitorTasks`) is essential in ensuring Batch application performance. Add [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to your reading list if you plan on doing any sort of monitoring within your Batch applications.
 
-2. **TaskStateMonitor** - The [TaskStateMonitor][net_taskstatemonitor] provides Batch .NET applications with helper utilities for monitoring task states. In `MonitorTasks`, we wait for all tasks to reach [TaskState.Completed][net_taskstate] within a time limit, then terminate the job.
+2. **TaskStateMonitor** - The [TaskStateMonitor][net_taskstatemonitor] provides Batch .NET applications with helper utilities for monitoring task states. In `MonitorTasks`, *DotNetTutorial* waits for all tasks to reach [TaskState.Completed][net_taskstate] within a time limit, then terminates the job.
 
-3. **TerminateJobAsync** - Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. Explicitly terminating a job is essential if your Batch solution uses a [JobReleaseTask][net_jobreltask], a special type of task explained fully in [Job preparation and completion tasks](batch-job-prep-release).
+3. **TerminateJobAsync** - Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. Explicitly terminating a job marks the job as complete, and is essential if your Batch solution uses a [JobReleaseTask][net_jobreltask], a special type of task detailed in [Job preparation and completion tasks](batch-job-prep-release).
 
-The `MonitorTasks` method in DotNetTutorial's `Program.cs` appears below:
+The `MonitorTasks` method from *DotNetTutorial*'s `Program.cs` appears below:
 
 ```
 private static async Task<bool> MonitorTasks(BatchClient batchClient, string jobId, TimeSpan timeout)
@@ -477,7 +479,7 @@ private static async Task<bool> MonitorTasks(BatchClient batchClient, string job
 
 ![Download task output from Storage][7]<br/>
 
-Now that the job has completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `DownloadBlobsFromContainerAsync` in DotNetTutorial's `Program.cs`:
+Now that the job has completed, the output from the tasks can be downloaded from Azure Storage. This is done with a call to `DownloadBlobsFromContainerAsync` in *DotNetTutorial*'s `Program.cs`:
 
 ```
 private static async Task DownloadBlobsFromContainerAsync(CloudBlobClient blobClient, string containerName, string directoryPath)
