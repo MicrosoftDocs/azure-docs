@@ -197,7 +197,7 @@ With support for SMB 3.0, File storage now supports encryption and persistent ha
 - An Azure virtual machine in a different region (SMB 3.0 only)
 - An on-premises client application (SMB 3.0 only) 
 
-When a client accesses File storage, the SMB version used depends on the SMB version supported by the operating system. The table below provides a summary of support for Windows clients. For more details, refer to << Which version of the SMB protocol blog post>>.
+When a client accesses File storage, the SMB version used depends on the SMB version supported by the operating system. The table below provides a summary of support for Windows clients. Please refer to this blog for more details on [SMB versions](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
 | Windows Client         | SMB Version Supports |
 |------------------------|----------------------|
