@@ -74,6 +74,9 @@ The following sample script customizes a Hive configuration:
 		-HttpCredential $httpCredential `
 		-Config $config 
 
+To verify the changes:
+
+
 Some more samples on customizing other configuration files:
 
 	# hdfs-site.xml configuration
@@ -89,7 +92,6 @@ Some more samples on customizing other configuration files:
 	$OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
 For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creationg](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
-
 
 ## Use .NET SDK
 
