@@ -1,4 +1,4 @@
-<properties
+en<properties
    pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure"
    description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Lucene query syntax and custom analyzers."
    services="search"
@@ -1498,7 +1498,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
 
 Note the use of `searchMode=all` above. Including this parameter overrides the default of `searchMode=any`, ensuring that `-motel` means "AND NOT" instead of "OR NOT". Without `searchMode=all`, you get "OR NOT" which expands rather than restricts search results, and this can be counter-intuitive to some users.
 
-15) Find documents in the index using [lucene query syntax](https://msdn.microsoft.com/en-US/library/mt589323.aspx). This query returns hotels where the category field contains the term "budget" and all searchable fields containing the phrase "recently renovated". Documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3)
+15) Find documents in the index using [lucene query syntax](https://msdn.microsoft.com/library/mt589323.aspx). This query returns hotels where the category field contains the term "budget" and all searchable fields containing the phrase "recently renovated". Documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3)
 
     GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28-Preview&querytype=full
 
