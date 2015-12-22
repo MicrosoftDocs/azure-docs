@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure | Hosted cloud search service"
-   description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Lucene Query Syntax and moreLikeThis searches."
+   pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure"
+   description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Lucene query syntax and custom analyzers."
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,26 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="11/04/2015"
+   ms.date="12/21/2015"
    ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview
 
-Azure Search is a hosted cloud search service on Microsoft Azure. This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
+This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current generally available version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
-- [Lucene Query Syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) is an implementation of the [Lucene Query Parser](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), which you can specify using queryType parameter in [Search operations](#SearchDocs).
-- `moreLikeThis` is a a query queparameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
-
-A few additional features in `2015-02-28-Preview` are documented separately. These include:
-
-- [Scoring Profiles](search-api-scoring-profiles-2015-02-28-preview.md)
-- [Indexers](search-api-indexers-2015-02-28-preview.md)
+- [Lucene query syntax](https://msdn.microsoft.com/library/mt589323.aspx) can now be used for queries in Azure Search. To use the Lucene query parser, specify `queryType` in Search operations.
+- [Custom analyzers](https://msdn.microsoft.com/en-us/library/azure/mt605304.aspx) allow you to take control over the process of converting text into indexable/searchable tokens
+- `moreLikeThis` is a a query parameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
 
 Azure Search service is available in multiple versions. Please refer to [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
-##APIs in this document
-
-Azure Search service API supports two URL syntaxes for API operations: simple and OData (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
+##APIs in this documentsear
 
 [Create Index](#CreateIndex)
 
@@ -153,7 +147,7 @@ The following list describes the required and optional request headers.
 - `api-key`: Required. The `api-key` is used to
 - authenticate the request to your Search service. It is a string value, unique to your service. The **Create Index** request must include an `api-key` header set to your admin key (as opposed to a query key).
 
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 <a name="RequestData"></a>
 **Request Body Syntax**
@@ -186,8 +180,10 @@ The syntax for structuring the request payload is as follows. A sample request i
           "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
-          "retrievable": true (default) | false,
-		  "analyzer": "name of text analyzer"
+          "retrievable": true (default) | false,		      
+          "analyzer": "name of the analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+          "searchAnalyzer": "name of the search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+          "indexAnalyzer": "name of the indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
         }
       ],
       "suggesters": [
@@ -268,7 +264,11 @@ The following attributes can be set when creating an index. For details about sc
 
 `retrievable` - Sets whether the field can be returned in a search result.  This is useful when you want to use a field (for example, margin) as a filter, sorting, or scoring mechanism but do not want the field to be visible to the end user. This attribute must be `true` for `key` fields.
 
-`analyzer` - Sets the name of the text analyzer to use for the field. For the allowed set of values see [Language Support](#LanguageSupport). This option can be used only with `searchable` fields. Once the analyzer is chosen, it cannot be changed for the field.
+`analyzer` - Sets the name of the analyzer to use for the field at search time and indexing time. For the allowed set of values see [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). This option can be used only with `searchable` fields and it can't be set together with either `searchAnalyzer` or `indexAnalyzer`.  Once the analyzer is chosen, it cannot be changed for the field.
+
+`searchAnalyzer` - Sets the name of the analyzer used at search time for the field. For the allowed set of values see [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). This option can be used only with `searchable` fields. It must be set together with `indexAnalyzer` and it cannot be set together with the `analyzer` option. Once the analyzer is chosen, it cannot be changed for the field.
+
+`indexAnalyzer` - Sets the name of the analyzer used at indexing time for the field. For the allowed set of values see [Analyzers](https://msdn.microsoft.com/library/mt605304.aspx). This option can be used only with `searchable` fields. It must be set together with `searchAnalyzer` and it cannot be set together with the `analyzer` option. Once the analyzer is chosen, it cannot be changed for the field.
 
 `suggesters` - Sets the search mode and fields that are the source of the content for suggestions. See [Suggesters](#Suggesters) for details.
 
@@ -458,7 +458,7 @@ Below is the list of supported languages together with Lucene and Microsoft anal
 	</tr>
     <tr>
 		<td>Korean</td>
-		<td></td>
+		<td>ko.microsoft</td>
 		<td>ko.lucene</td>
 	</tr>
     <tr>
@@ -737,7 +737,7 @@ The following list describes the required and optional request headers.
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Update Index** request must include an `api-key` header set to your admin key (as opposed to a query key).
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body Syntax**
 
@@ -756,8 +756,10 @@ The schema syntax used to create an index is reproduced here for convenience. Se
           "sortable": true (default where applicable) | false (Collection(Edm.String) fields cannot be sortable),
           "facetable": true (default where applicable) | false (Edm.GeographyPoint fields cannot be facetable),
           "key": true | false (default, only Edm.String fields can be keys),
-          "retrievable": true (default) | false,
-		  "analyzer": "name of text analyzer"
+          "retrievable": true (default) | false, 
+		  "analyzer": "name of the analyzer used for search and indexing", (only if 'searchAnalyzer' and 'indexAnalyzer' are not set)
+          "searchAnalyzer": "name of the search analyzer", (only if 'indexAnalyzer' is set and 'analyzer' is not set)
+          "indexAnalyzer": "name of the indexing analyzer" (only if 'searchAnalyzer' is set and 'analyzer' is not set)
         }
       ],
       "suggesters": [
@@ -837,7 +839,7 @@ The following list describes the required and optional request headers.
 
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **List Indexes** request must include an `api-key` set to an admin key (as opposed to a query key).
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
@@ -904,7 +906,7 @@ The following list describes the required and optional request headers.
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Get Index** request must include an `api-key` set to an admin key (as opposed to a query key).
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
@@ -919,7 +921,7 @@ See the example JSON in [Creating and Updating an Index](#CreateUpdateIndexExamp
 <a name="DeleteIndex"></a>
 ## Delete Index
 
-The **Delete Index** operation removes an index and associated documents from your Azure Search service. You can get the index name from the service dashboard in the Azure Classic Portal, or from the API. See [List Indexes](#ListIndexes) for details.
+The **Delete Index** operation removes an index and associated documents from your Azure Search service. You can get the index name from the service dashboard in the Azure portal, or from the API. See [List Indexes](#ListIndexes) for details.
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
@@ -938,7 +940,7 @@ The following list describes the required and optional request headers.
 
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Delete Index** request must include an `api-key` header set to your admin key (as opposed to a query key).
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
@@ -971,7 +973,7 @@ The following list describes the required and optional request headers.
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Get Index Statistics** request must include an `api-key` set to an admin key (as opposed to a query key).
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
@@ -1026,7 +1028,7 @@ The following list describes the required and optional request headers.
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Add Documents** request must include an `api-key` header set to your admin key (as opposed to a query key).
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](.search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](.search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
@@ -1179,7 +1181,7 @@ Also, URL encoding is only necessary when calling the REST API directly using GE
 
 `searchFields=[string]` (optional) - The list of comma-separated field names to search for the specified text. Target fields must be marked as `searchable`.
 
-`queryType=simple|full` (optional, defaults to `simple`) - when set to "simple" search text is interpreted using a simple query language that allows for symbols such as +, * and "". Queries are evaluated across all searchable fields (or fields indicated in `searchFields`) in each document by default. When the query type is set to `full` search text is interpreted using the Lucene query language which allows field-specific and weighted searches. See [Simple Query Syntax](https://msdn.microsoft.com/library/dn798920.aspx) and [Lucene Query Syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) for specifics on the search syntaxes. 
+`queryType=simple|full` (optional, defaults to `simple`) - when set to "simple" search text is interpreted using a simple query language that allows for symbols such as +, * and "". Queries are evaluated across all searchable fields (or fields indicated in `searchFields`) in each document by default. When the query type is set to `full` search text is interpreted using the Lucene query language which allows field-specific and weighted searches. See [Simple Query Syntax](https://msdn.microsoft.com/library/dn798920.aspx) and [Lucene Query Syntax](https://msdn.microsoft.com/library/mt589323.aspx) for specifics on the search syntaxes. 
  
 > [AZURE.NOTE] Range search in the Lucene query language is not supported in favor of $filter which offers similar functionality.
 
@@ -1191,11 +1193,9 @@ Also, URL encoding is only necessary when calling the REST API directly using GE
 
 `$top=#` (optional) - the number of search results to retrieve. This can be used in conjunction with `$skip` to implement client-side paging of search results.
 
-> [AZURE.NOTE] Azure Search uses ***server-side paging*** to prevent queries from retrieving too many documents at once. The default page size is 50, while the maximum page size is 1000. This means that by default **Search** returns at most 50 results if you don't specify `$top`. If there are more than 50 results, the response includes information to retrieve the next page of at most 50 results (see `@odata.nextLink` and `@search.nextPageParameters` in [the example below](#SearchResponse)). Similarly, if you specify a value greater than 1000 for `$top` and there are more than 1000 results, only the first 1000 results are returned, along with information to retrieve the next page of at most 1000 results.  
-
 > [AZURE.NOTE] When calling **Search** using POST, this parameter is named `top` instead of `$top`.
 
-`$count=true|false` (optional, defaults to `false`) - Specifies whether to fetch the total count of results. Setting this value to `true` may have a performance impact. Note that the count returned is an approximation.
+`$count=true|false` (optional, defaults to `false`) - Specifies whether to fetch the total count of results. This is the count of all documents that match the `search` and `$filter` parameters, ignoring `$top` and `$skip`. Setting this value to `true` may have a performance impact. Note that the count returned is an approximation.
 
 > [AZURE.NOTE] When calling **Search** using POST, this parameter is named `count` instead of `$count`.
 
@@ -1259,7 +1259,7 @@ The following list describes the required and optional request headers.
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Search** request can specify either an admin key or query key for `api-key`.
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
@@ -1287,6 +1287,12 @@ For POST:
       "top": #
     }
 
+**Continuation of Partial Search Responses**
+
+Sometimes Azure Search can't return all the requested results in a single Search response. This can happen for different reasons, such as when the query requests too many documents by not specifying `$top` or specifying a value for `$top` that is too large. In such cases, Azure Search will include the `@odata.nextLink` annotation in the response body, and also `@search.nextPageParameters` if it was a POST request. You can use the values of these annotations to formulate another Search request to get the next part of the search response. This is called a ***continuation*** of the original Search request, and the annotations are generally called ***continuation tokens***. See [the example below](#SearchResponse) for details on the syntax of these annotations and where they appear in the response body. 
+
+The reasons why Azure Search might return continuation tokens are implementation-specific and subject to change. Robust clients should always be ready to handle cases where fewer documents than expected are returned and a continuation token is included to continue retrieving documents. Also note that you must use the same HTTP method as the original request in order to continue. For example, if you sent a GET request, any continuation requests you send must also use GET (and likewise for POST).
+
 <a name="SearchResponse"></a>
 **Response**
 
@@ -1306,7 +1312,7 @@ Status Code: 200 OK is returned for a successful response.
         ],
         ...
       },
-      "@search.nextPageParameters": { (request body to fetch the next page of results if result count exceeds page size and Search was called with POST)
+      "@search.nextPageParameters": { (request body to fetch the next page of results if not all results could be returned in this response and Search was called with POST)
         "count": ... (value from request body if present),
         "facets": ... (value from request body if present),
         "filter": ... (value from request body if present),
@@ -1338,7 +1344,7 @@ Status Code: 200 OK is returned for a successful response.
         },
         ...
       ],
-      "@odata.nextLink": (URL to fetch the next page of results if result count exceeds page size; Applies to both GET and POST)
+      "@odata.nextLink": (URL to fetch the next page of results if not all results could be returned in this response; Applies to both GET and POST)
     }
 
 **Examples:**
@@ -1492,7 +1498,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
 
 Note the use of `searchMode=all` above. Including this parameter overrides the default of `searchMode=any`, ensuring that `-motel` means "AND NOT" instead of "OR NOT". Without `searchMode=all`, you get "OR NOT" which expands rather than restricts search results, and this can be counter-intuitive to some users.
 
-15) Find documents in the index using [lucene query syntax](http://lucene.apache.org/core/4_10_4/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview). This query returns hotels where the category field contains the term "budget" and all searchable fields containing the phrase "recently renovated". Documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3)
+15) Find documents in the index using [lucene query syntax](https://msdn.microsoft.com/en-US/library/mt589323.aspx). This query returns hotels where the category field contains the term "budget" and all searchable fields containing the phrase "recently renovated". Documents containing the phrase "recently renovated" are ranked higher as a result of the term boost value (3)
 
     GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28-Preview&querytype=full
 
@@ -1537,7 +1543,7 @@ The following list describes the required and optional request headers.
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Lookup Document** request can specify either an admin key or query key for `api-key`.
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
@@ -1585,7 +1591,7 @@ The following list describes the required and optional request headers.
 - `Accept`: This value must be set to `text/plain`.
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Count Documents** request can specify either an admin key or query key for `api-key`.
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
@@ -1666,7 +1672,7 @@ Also, URL encoding is only necessary when calling the REST API directly using GE
 
 > [AZURE.NOTE] When calling **Suggestions** using POST, this parameter is named `orderby` instead of `$orderby`.
 
-`$select=[string]` (optional) - a list of comma-separated fields to retrieve. If unspecified, only the document key and suggestion text is returned.
+`$select=[string]` (optional) - a list of comma-separated fields to retrieve. If unspecified, only the document key and suggestion text is returned. You can explicitly request all fields by setting this parameter to `*`.
 
 > [AZURE.NOTE] When calling **Suggestions** using POST, this parameter is named `select` instead of `$select`.
 
@@ -1684,7 +1690,7 @@ The following list describes the required and optional request headers
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Suggestions** request can specify either an admin key or query key as the `api-key`.
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Classic Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.
 
 **Request Body**
 
