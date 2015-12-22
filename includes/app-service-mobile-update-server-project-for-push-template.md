@@ -99,4 +99,4 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
 
 	This sends a template notification that contains the item.text when a new todo item is inserted.
 
-2. When editing the file in your local computer, republish the server project.
+2. When editing the file on your local computer, republish the server project.
