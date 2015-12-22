@@ -17,7 +17,7 @@
 
 # Configure the upgrade of a Service Fabric application in Visual Studio
 
-Visual Studio Service Fabric tools provide upgrade support for publishing to local or remote clusters. There are two advantages to upgrading your application to a newer version instead of replacing the application during testing and debugging:
+Visual Studio tools for Azure Service Fabric provide upgrade support for publishing to local or remote clusters. There are two advantages to upgrading your application to a newer version instead of replacing the application during testing and debugging:
 
 - Application data won't be lost during the upgrade.
 - Availability remains high so there won't be any service interruption during the upgrade, if there are enough service instances spread across upgrade domains.
@@ -26,7 +26,7 @@ Tests can be run against an application while it's being upgraded.
 
 ## Parameters needed to upgrade
 
-There are two types of deployment you can choose: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade an Azure Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade, while health check policies determine whether the upgrade was successful. See [Service Fabric application upgrade: upgrade parameters](service-fabric-application-upgrade-parameters.md) for more details.
+You can choose from two types of deployment: regular or upgrade. A regular deployment erases any previous deployment information and data on the cluster, while an upgrade deployment preserves it. When you upgrade a Service Fabric application in Visual Studio, you need to provide application upgrade parameters and health check policies. Application upgrade parameters help control the upgrade, while health check policies determine whether the upgrade was successful. See [Service Fabric application upgrade: upgrade parameters](service-fabric-application-upgrade-parameters.md) for more details.
 
 There are three upgrade modes: *Monitored*, *UnmonitoredAuto*, and *UnmonitoredManual*.
 
@@ -46,9 +46,9 @@ If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fa
 
 1. Click the **Settings** button next to the check box. The **Edit Upgrade Parameters** dialog box appears. The **Edit Upgrade Parameters** dialog box supports the Monitored, UnmonitoredAuto, and UnmonitoredManual upgrade modes.
 
-2. Select the upgrade mode you want to use and then fill out the parameter grid.
+2. Select the upgrade mode that you want to use and then fill out the parameter grid.
 
-    Each parameter has default values. The optional parameter *DefaultServiceTypeHealthPolicy* parameter takes a hash table input. Here’s an example of the hash table input format for *DefaultServiceTypeHealthPolicy*:
+    Each parameter has default values. The optional parameter *DefaultServiceTypeHealthPolicy* takes a hash table input. Here’s an example of the hash table input format for *DefaultServiceTypeHealthPolicy*:
 
 	```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
@@ -66,7 +66,7 @@ If you’re using the Visual Studio Service Fabric tools to upgrade a Service Fa
 	@{ "ServiceTypeName01" = "5,10,5"; "ServiceTypeName02" = "5,5,5" }
 	```
 
-3. If you select UnmonitoredManual upgrade mode, you must manually start a PowerShell console to continue and finish the upgrade process. Please refer to [Service Fabric application upgrade: advanced topics](service-fabric-application-upgrade-advanced.md) to learn how manual upgrade works.
+3. If you select UnmonitoredManual upgrade mode, you must manually start a PowerShell console to continue and finish the upgrade process. Refer to [Service Fabric application upgrade: advanced topics](service-fabric-application-upgrade-advanced.md) to learn how manual upgrade works.
 
 ## Upgrade an application by using PowerShell
 
