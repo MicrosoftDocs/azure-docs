@@ -17,7 +17,7 @@
    ms.author="telmos" />
 
 # IP addresses in Azure Resource Manager
-You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure - public and private.
+You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure: public and private.
 
 Public IP addresses are used for communication with the Internet, including Azure public-facing services.
 

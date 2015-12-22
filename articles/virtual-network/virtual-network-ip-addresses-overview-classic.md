@@ -17,7 +17,7 @@
    ms.author="telmos" />
 
 # IP addresses (classic) in Azure
-You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure - public and private.
+You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure: public and private.
 
 Public IP addresses are used for communication with the Internet, including Azure public-facing services.
 
@@ -91,8 +91,8 @@ Virtual machines (VMs) created with the classic deployment model are always plac
 
 It is important to note that a cloud service can be deployed in two ways:
 
-1. As a *standalone* cloud service, where it is not within a virtual network
-2. As part of a virtual network
+- As a *standalone* cloud service, where it is not within a virtual network.
+- As part of a virtual network.
 
 #### Allocation method
 In case of a *standalone* cloud service, resources get a private IP address allocated *dynamically* from the Azure datacenter private IP address range. It can be used only for communication with other VMs within the same cloud service. This IP address can change when the resource is stopped and started.
