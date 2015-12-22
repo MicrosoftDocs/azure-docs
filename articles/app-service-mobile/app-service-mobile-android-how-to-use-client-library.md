@@ -549,7 +549,7 @@ The **invokeApi** method is called on the client, which sends a POST request to 
 
 Tutorials already describe in detail how to add these features.
 
-App Service supports [authenticating app users](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-android-get-started-users/) using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend. 
+App Service supports [authenticating app users](mobile-services-android-get-started-users.md) using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend. 
 
 Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs, and requires you to code this.
 
@@ -582,9 +582,9 @@ When you try to use an expired token you will get a *401 unauthorized* response.
 
 ## How to: add push notification to your app
 
-You can [read an overview](https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-overview/#integration-with-app-service-mobile-apps) that describes how Windows Azure Notification Hubs supports a wide variety of push notifications,
+You can [read an overview](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) that describes how Microsoft Azure Notification Hubs supports a wide variety of push notifications,
 
-In [this tutorial](https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-android-get-started-push/), every time a record is inserted, a push notification is sent.
+In [this tutorial](app-service-mobile-android-get-started-push.md), every time a record is inserted, a push notification is sent.
 
 ## How to: add offline sync to your app
 The Quickstart tutorial contains code that implements offline sync. Look for code prefixed with comments like this:
