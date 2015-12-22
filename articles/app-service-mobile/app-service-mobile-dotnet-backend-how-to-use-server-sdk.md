@@ -221,7 +221,7 @@ The custom API controller provides the most basic functionality to your Mobile A
 
 Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it may not be correctly consumed by clients using any Mobile App client SDK. 
 
-## Work with authentication
+## How to: Work with authentication
 
 Mobile Apps uses the facilities of App Service authentication and ASP.NET to simply the process of enabling authentication for your apps. This section shows you how to perform the following authentication-related tasks in your .NET backend server project:
 
@@ -291,8 +291,8 @@ You also need to provide a lifetime for the issued token, as well as any claims 
 
 ###<a name="user-info"></a>How to: Retrieve authenticated user information
 
-When a user is authenticated by App Service, you can access the assigned user ID and optionally other information in your .NET backend code. This is useful for making authorization decisions for a given user in the backend, such as whether a specific user can access a table row or other resource. For the following code shows how to obtain the 
-user SID for a logged-in user:
+When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This is useful for making authorization decisions for a given user in the backend, such as whether a specific user can access a table row or other resource. The following code shows how to obtain the 
+user ID for a logged-in user:
 
     // Get the current user SID and create a tag for the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -300,9 +300,9 @@ user SID for a logged-in user:
 
 The SID is derived from the provider-specific user ID and is static for a given user and login provider.
 
-App Service also lets you add specific claims to authentication with your login provider. This enables you to get back more information from the provider, such as using the Facebook Graph APIs. You can specify supported claims in the provider blade in the portal. Some claims require additional configuration of your app with the provider.
+App Service also lets you request specific claims from your login provider. This lets you request more information from the provider, such as by using the Facebook Graph APIs. You can specify claims in the provider blade in the portal. Some claims require additional configuration with the provider.
 
-The following code calls the **GetAppServiceIdentityAsync** extension method to get the login credential, which includes the access token needed to make requests against the Facebook Graph API: 
+The following code calls the **GetAppServiceIdentityAsync** extension method to get the login credentials, which include the access token needed to make requests against the Facebook Graph API: 
 
     // Get the credentials for the logged-in user.
     var credentials = 
@@ -324,10 +324,9 @@ The following code calls the **GetAppServiceIdentityAsync** extension method to 
 
         // Do something here with the Facebook user information.
         var fbInfo = await resp.Content.ReadAsStringAsync();
-        traceWriter.Info(fbInfo);
     }
 
-Note that you must include the statement `using System.Security.Principal;` for the **GetAppServiceIdentityAsync** extension method to work.
+Note that you must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method  work.
 
 
 ## How to: Add push notifications to a server project
