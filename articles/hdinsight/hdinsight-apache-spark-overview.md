@@ -28,6 +28,7 @@ When you provision a Spark cluster in HDInsight, you provision Azure compute res
 
 **Want to get started with Apache Spark on Azure HDInsight?** See [QuickStart: Provision a Spark cluster on HDInsight Linux and run sample applications using Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
+>[AZURE.NOTE] For a list of known issues and limitations with the current release, see [Known issues of Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 
 ## Why use Spark on Azure HDInsight? 

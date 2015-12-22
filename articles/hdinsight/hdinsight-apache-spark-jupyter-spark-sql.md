@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Provision a Spark cluster on HDInsight Linux and use Spark SQL from Jupyter for interactive analysis | Microsoft Azure"
-	description="Step-by-step instructions on how to quickly provision an Apache Spark cluster in HDInsight and then use Spark SQL from Jupyter notebooks to run interactive queries."
+	pageTitle="Create a Spark cluster on HDInsight Linux and use Spark SQL from Jupyter for interactive analysis | Microsoft Azure"
+	description="Step-by-step instructions on how to quickly create an Apache Spark cluster in HDInsight and then use Spark SQL from Jupyter notebooks to run interactive queries."
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
@@ -14,16 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/22/2015"
 	ms.author="nitinme"/>
 
 
-# Get started: Provision Apache Spark on Azure HDInsight (Linux) and run interactive queries using Spark SQL
+# Get started: Create Apache Spark cluster on Azure HDInsight (Linux) and run interactive queries using Spark SQL
 
-Learn how to provision an Apache Spark cluster in HDInsight and then use [Jupyter](https://jupyter.org) notebook to run Spark SQL interactive queries on the Spark cluster.
+Learn how to create an Apache Spark cluster in HDInsight and then use [Jupyter](https://jupyter.org) notebook to run Spark SQL interactive queries on the Spark cluster.
 
+   ![Get started using Apache Spark in HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png  "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
 
-   ![Get started using Apache Spark in HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/HDI.GetStartedFlow.Spark.png  "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; provision a cluster; run Spark SQL statements")
+>[AZURE.NOTE] For a list of known issues and limitations with the current release, see [Known issues of Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 **Prerequisites:**
 
@@ -31,31 +32,31 @@ Learn how to provision an Apache Spark cluster in HDInsight and then use [Jupyte
 
 - **A Secure Shell (SSH) client**: Linux, Unix, and OS X systems provied an SSH client through the `ssh` command. For Windows systems, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
     
-- **Secure Shell (SSH) keys (optional)**: You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a password gets you started quickly, and you should use this option if you want to quickly provision a cluster and run some test jobs. Using a key is more secure, however it requires additional setup. You might want to use this approach when provisioning a production cluster. In this article, we use the password approach. For instructions on how to create and use SSH keys with HDInsight, refer to the following articles:
+- **Secure Shell (SSH) keys (optional)**: You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a password gets you started quickly, and you should use this option if you want to quickly create a cluster and run some test jobs. Using a key is more secure, however it requires additional setup. You might want to use this approach when creating a production cluster. In this article, we use the password approach. For instructions on how to create and use SSH keys with HDInsight, refer to the following articles:
 
 	-  From a Linux computer - [Use SSH with Linux-based HDInsight (Hadoop) from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
     
 	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 
-## <a name="provision"></a>Provision a Spark Cluster on HDInsight Linux
+## <a name="provision"></a>Create a Spark Cluster on HDInsight Linux
 
-In this section, you provision an HDInsight version 3.3 cluster, which is based on Spark version 1.5.1. For information about HDInsight versions and their SLAs, see [HDInsight component versioning](hdinsight-component-versioning.md).
+In this section, you create an HDInsight version 3.3 cluster, which is based on Spark version 1.5.1. For information about HDInsight versions and their SLAs, see [HDInsight component versioning](hdinsight-component-versioning.md).
 
->[AZURE.NOTE] The steps in this article create an Apache Spark cluster in HDInsight by using basic configuration settings. For information about other cluster configuration settings (such as using additional storage, an Azure virtual network, or a metastore for Hive), see [Provision HDInsight Spark clusters using custom options](hdinsight-hadoop-provision-linux-clusters.md).
+>[AZURE.NOTE] The steps in this article create an Apache Spark cluster in HDInsight by using basic configuration settings. For information about other cluster configuration settings (such as using additional storage, an Azure virtual network, or a metastore for Hive), see [Create HDInsight Spark clusters using custom options](hdinsight-hadoop-provision-linux-clusters.md).
 
 
-**To provision a Spark cluster**
+**To create a Spark cluster**
 
 1. Sign in to the [Azure preview portal](https://ms.portal.azure.com/).
 
 2. Click **NEW**, click **Data + Analytics**, and then click **HDInsight**.
 
-    ![Creating a new cluster in the Azure preview portal](./media/hdinsight-apache-spark-jupyter-spark-sql/HDI.CreateCluster.1.png "Creating a new cluster in the Azure preview portal")
+    ![Creating a new cluster in the Azure preview portal](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.1.png "Creating a new cluster in the Azure preview portal")
 
 3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, from the **Cluster Operating System** drop-down menu, select **Ubuntu**, and then select the version of Spark. A green check appears beside the cluster name if it is available.
 
-	![Enter cluster name and type](./media/hdinsight-apache-spark-jupyter-spark-sql/HDI.CreateCluster.2.png "Enter cluster name and type")
+	![Enter cluster name and type](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.2.png "Enter cluster name and type")
 
 4. If you have more than one subscription, click the **Subscription** entry to select the Azure subscription to use for the cluster.
 
@@ -65,7 +66,7 @@ In this section, you provision an HDInsight version 3.3 cluster, which is based 
 
 6. Click **Credentials** and then enter a password for the admin user. You must also enter an **SSH Username**. For **SSH Authentication Type**, click **PASSWORD** and specify a password for the SSH user. Click **Select** at the bottom to save the credentials configuration.
 
-	![Provide cluster credentials](./media/hdinsight-apache-spark-jupyter-spark-sql/HDI.CreateCluster.3.png "Provide cluster credentials")
+	![Provide cluster credentials](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.3.png "Provide cluster credentials")
 
     > [AZURE.NOTE] SSH is used to remotely access the HDInsight cluster using a command-line. The user name and password you use here is used when connecting to the cluster through SSH. Also, the SSH user name must be unique, as it creates a user account on all the HDInsight cluster nodes. The following are some of the account names reserved for use by services on the cluster, and cannot be used as the SSH user name:
     >
@@ -77,9 +78,9 @@ In this section, you provision an HDInsight version 3.3 cluster, which is based 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
-7. Click **Data Source** to choose an existing data source for the cluster, or create a new one. When you provision a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated as the default file system, like in the Hadoop distributed file system (HDFS). By default, the HDInsight cluster is provisioned in the same data center as the storage account you specify. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage]
+7. Click **Data Source** to choose an existing data source for the cluster, or create a new one. When you create a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated as the default file system, like in the Hadoop distributed file system (HDFS). By default, the HDInsight cluster is provisioned in the same data center as the storage account you specify. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage]
 
-	![Data source blade](./media/hdinsight-apache-spark-jupyter-spark-sql/HDI.CreateCluster.4.png "Provide data source configuration")
+	![Data source blade](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.4.png "Provide data source configuration")
 
 	Currently you can select an Azure Storage Account as the data source for an HDInsight cluster. Use the following to understand the entries on the **Data Source** blade.
 
@@ -97,19 +98,19 @@ In this section, you provision an HDInsight version 3.3 cluster, which is based 
 
 8. Click **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Set the number of worker nodes that you need for the cluster. The estimated cost of the cluster will be shown within the blade.
 
-	![Node pricing tiers blade](./media/hdinsight-apache-spark-jupyter-spark-sql/HDI.CreateCluster.5.png "Specify number of cluster nodes")
+	![Node pricing tiers blade](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.5.png "Specify number of cluster nodes")
 
 	Click **Select** to save the node pricing configuration.
 
-9. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This creates the cluster and adds a tile for it to the Startboard of your Azure portal. The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.
+9. On the **New HDInsight Cluster** blade, ensure that **Pin to Startboard** is selected, and then click **Create**. This creates the cluster and adds a tile for it to the Startboard of your Azure portal. The icon will indicate that the cluster is being created, and will change to display the HDInsight icon once creation has completed.
 
-	| While provisioning | Provisioning complete |
+	| While creating | creation complete |
 	| ------------------ | --------------------- |
 	| ![Provisioning indicator on startboard](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioned.png) |
 
-	> [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the provisioning process.
+	> [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process.
 
-10. Once the provisioning is complete, click the tile for the Spark cluster from the Startboard to launch the cluster blade.
+10. Once the creation is complete, click the tile for the Spark cluster from the Startboard to launch the cluster blade.
 
 
 
@@ -127,11 +128,11 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 
 2. Create a new notebook. Click **New**, and then click **Python2**.
 
-	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/HDI.Spark.Note.Jupyter.CreateNotebook.png "Create a new Jupyter notebook")
+	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
 3. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
 
-	![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/HDI.Spark.Note.Jupyter.Notebook.Name.png "Provide a name for the notebook")
+	![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
 4. Import the required modules and create the Spark and SQL contexts. Paste the following code example in an empty cell, and then press **SHIFT + ENTER**.
 
@@ -145,9 +146,9 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 
 	Every time you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **Python 2** text in the top-right corner. After the job is completed, this will change to a hollow circle.
 
-	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-jupyter-spark-sql/HDI.Spark.Jupyter.Job.Status.png "Status of a Jupyter notebook job")
+	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
 
-4. Load sample data into a temporary table. When you provision a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
+4. Load sample data into a temporary table. When you create a Spark cluster in HDInsight, the sample data file, **hvac.csv**, is copied to the associated storage account under **\HdiSamples\HdiSamples\SensorSampleData\hvac**.
 
 	In an empty cell, paste the following code example and press **SHIFT + ENTER**. This code example registers the data into a temporary table called **hvac**.
 

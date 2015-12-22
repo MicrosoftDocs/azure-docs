@@ -21,78 +21,117 @@
 
 This document keeps track of all the known issues for the Spark public preview.  
 
-##Livy could leak interactive session 
+##Livy leaks interactive session
+ 
+**Symptom:**  
 
-**Problem symptom:**  
+When Livy is restarted with an interactive session (from Ambari or due to headnode 0 virtual machine reboot) still alive, an interactive job session will be leaked. Because of this, new jobs can stuck in the Accepted state, and cannot be started.
 
-When Livy is restarted (explicitly or due to headnode 0 reboot) with interactive session still alive, an interactive job session will be leaked. Ultimately it could cause new job submitted stuck in Accepted state and not starting. 
+**Mitigation:**
 
-Manual workaround: 
+Use the following procedure to workaround the issue:
 
-i. Ssh into headnode and do a “yarn application –list” 
+1. Ssh into headnode. 
+2. Run the following command to find the application IDs of the interactive jobs started through Livy. 
 
-ii. Find all the application Ids of the interactive jobs started through livy. By default, when starting a livy interactive session and no explicit name is passed in, the name of the job will be ‘livy’. For livy session started by jupyter notebook, the job name will start with “remotesparkmagics_*”. 
+        yarn application –list
 
-iii. Do “yarn application –kill <Application ID>” to kill those jobs. New jobs will then run. 
+    The default job names will be Livy if the jobs were started with a Livy interactive session with no explicit names specified, For the Livy session started by Jupyter notebook, the job name will start with remotesparkmagics_*. 
 
-2. Spark history server not started 
+3. Run the following command to kill those jobs. 
 
-Problem symptom: 
+        yarn application –kill <Application ID>
 
-Spark job history server is not running by default sometimes after a cluster is created.  
+New jobs will start running. 
 
-Manual workaround: 
+##Spark History Server not started 
 
-Restart history server manually in ambari UI. 
+**Symptom:**
+ 
+Spark History Server is not started automatically after a cluster is created.  
 
-3. Notebook initial startup takes a minute 
+**Mitigation:** 
 
-Problem symptom: 
+Manually start the history server from Ambari. 
 
-First statement in Jupyter notebook using spark magic could take more than a minute.  
+##Notebook initial startup takes longer than expected 
 
-Manual workaround: 
+**Symptom:** 
 
-No workaround. Customer just need to wait a bit. 
+First statement in Jupyter notebook using Spark Magic could take more than a minute.  
 
-4. You will not be able to specify different core/memory configs than the default from the Spark/Pyspark kernels. This is a feature that’s coming. 
+**Mitigation:**
+ 
+No workaround. It takes a minute sometimes. 
 
-5. If the Spark cluster is out of resources, the Spark and Pyspark kernels in the Jupyter notebook will timeout trying to create the session. To recover: 
+##Cannot customize core/memory configurations
 
-i. Free up some resources in your Spark cluster by: 
+**Symptom:**
+ 
+You cannot specify different core/memory configurations than the default from the Spark/Pyspark kernels. 
 
-i. Stopping other Spark notebooks by going to the “Close and Halt” menu item or the “Shutdown” button in the notebook explorer. 
+**Mitigation:**
+ 
+This feature is coming. 
 
-ii. Stopping other Spark applications from YARN. 
+##Jupyter notebook timeout in creating the session
 
-ii. Restart the notebook you were trying to start up. Enough resources should be available for you to create a session now. 
+**Symptom:** 
 
-6. Notebook output results will be badly formatted after executing a cell from the Spark and Pyspark Jupyter kernels. This includes successful results from cell executions as well as Spark stacktraces or other errors. 
+When Spark cluster is out of resources, the Spark and Pyspark kernels in the Jupyter notebook will timeout trying to create the session. 
+Mitigations: 
 
-7. There are some typos in sample notebooks: 
+1. Free up some resources in your Spark cluster by:
 
-* In Python notebook 4 (Analyze logs with Spark using a custom library), a comment says "Let us assume you copy it over to wasb:///example/data/iislogparser.py". It should say "Let us assume you copy it over to wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py". 
+    - Stop other Spark notebooks by going to the Close and Halt menu or clicking Shutdown in the notebook explorer.
+    - Stop other Spark applications from YARN.
 
-* In Python notebook 5 (Spark Machine Learning - Predictive analysis on food inspection data using MLLib), the cell following the sentence "A quick visualization can help us reason about the distribution of these outcomes" contains some incorrect code that will not run.  It should be edited to the following: 
+2. Restart the notebook you were trying to start up. Enough resources should be available for you to create a session now.
 
-o countResults = df.groupBy('results').count().withColumnRenamed('count', 'cnt').collect() labels = [row.results for row in countResults] sizes = [row.cnt for row in countResults] colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral'] plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors) plt.axis('equal') 
+##Notebook output results formatting issue
 
-* In Python notebook 5 (Spark Machine Learning - Predictive analysis on food inspection data using MLLib), the final comment notes that the false negative rate and false positive rate are 12.6% and 16.0% respectively.  These numbers are inaccurate; run the code to display the pie graph with the true percentages. 
+**Symptom:**
+ 
+Notebook output results are badly formatted after executing a cell from the Spark and Pyspark Jupyter kernels. This includes successful results from cell executions as well as Spark stacktraces or other errors. 
 
-* In Python notebooks 6 & 7, the first cell fails to register the sc.stop() method to be called when the notebook exits.  Under certain circumstances this could cause Spark resources to leak.  You can avoid this by making sure to run import atexit; atexit.register(lambda: sc.stop()) in those notebooks before stopping them.  If you have accidentally leaked resources, then follow the instructions above to kill leaked YARN applications. 
+**Mitigation:**
+ 
+This issue will be addressed in a future release.
 
-8. Permission issue in Spark log directory 
+##Typos in sample notebooks:
+ 
+- **Python notebook 4 (Analyze logs with Spark using a custom library)**
 
-Problem symptom: 
+    "Let us assume you copy it over to wasb:///example/data/iislogparser.py" should be "Let us assume you copy it over to wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py". 
 
+- **Python notebook 5 (Spark Machine Learning - Predictive analysis on food inspection data using MLLib)**
+
+    "A quick visualization can help us reason about the distribution of these outcomes" contains some incorrect code that will not run.  It should be edited to the following: 
+
+        countResults = df.groupBy('results').count().withColumnRenamed('count', 'cnt').collect() labels = [row.results for row in countResults] sizes = [row.cnt for row in countResults] colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral'] plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors) plt.axis('equal') 
+        
+- **Python notebook 5 (Spark Machine Learning - Predictive analysis on food inspection data using MLLib)**
+
+    The final comment notes that the false negative rate and false positive rate are 12.6% and 16.0% respectively.  These numbers are inaccurate; run the code to display the pie graph with the true percentages. 
+
+- **Python notebooks 6 and 7**
+
+    The first cell fails to register the sc.stop() method to be called when the notebook exits.  Under certain circumstances this could cause Spark resources to leak.  You can avoid this by making sure to run import atexit; atexit.register(lambda: sc.stop()) in those notebooks before stopping them.  If you have accidentally leaked resources, then follow the instructions above to kill leaked YARN applications.
+     
+## Permission issue in Spark log directory 
+
+**Symptom:**
+ 
 When hdiuser submits a job with spark-submit, there is an error java.io.FileNotFoundException: /var/log/spark/sparkdriver_hdiuser.log (Permission denied) and the driver log is not written. 
 
-Manual workaround: 
+**Mitigation:**
+ 
+1. Add hdiuser to the Hadoop group. 
+2. Provide 777 permissions on /var/log/spark after cluster creation. 
+3. Update the spark log location using Ambari to be a directory with 777 permissions.  
+4. Run spark-submit as sudo. 
 
-i. Add hdiuser to the Hadoop group. 
+##See also
 
-ii. Provide 777 permissions on /var/log/spark after cluster creation. 
-
-iii. Update the spark log location using Ambari to be a directory with 777 permissions 
-
-iv. Run spark-submit as sudo 
+[Overview: Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
+[Get started: Provision Apache Spark on Azure HDInsight (Linux) and run interactive queries using Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
