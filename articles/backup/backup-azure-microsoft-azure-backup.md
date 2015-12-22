@@ -98,7 +98,7 @@ After you've downloaded all the files, click **MicrosoftAzureBackupInstaller.exe
 > [AZURE.WARNING] At least 4GB of free space is required to extract the setup files.
 
 
-![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/extract/01.gif)
+![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
 Once the extraction process complete, check the box to launch the freshly extracted *setup.exe* to begin installing Microsoft Azure Backup Server and click on the **Finish** button.
 
@@ -110,11 +110,11 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
 2. On the Welcome screen click the **Next** button. This takes you to the *Prerequisite Checks* section. On this screen, click on the **Check** button to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all of the prerequisites are have been met successfully, you will see a message indicating that the machine meets the requirements. Click on the **Next** button.
 
-    ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/welcome-and-prereq.gif)
+    ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
 3. Microsoft Azure Backup Server requires SQL Server Standard, and the Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries needed. When starting with a new Azure Backup Server installation, you should pick the option **Install new Instance of SQL Server with this Setup** and click the **Check and Install** button. Once the prerequisites are successfully installed, click **Next**.
 
-    ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/sql-check.gif)
+    ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
     If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**.
 
@@ -144,11 +144,11 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you will have to provide your the vault credentials to register the machine to the backup vault. You will also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 
-    ![Azure Backup Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/mars-install-configure.gif)
+    ![Azure Backup Serer PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 
 9. Once registration of the Microsoft Azure Backup server successfully completes, the overall setup wizard proceeds to the installation and configuration of SQL Server and the Azure Backup Server components. Once the SQL Server component installation completes, the Azure Backup Server components are installed.
 
-    ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/install.gif)
+    ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 
 When the installation step is completely, the product's desktop icons would have been created as well. Just double-click the icon to launch the product.
@@ -203,12 +203,9 @@ If Microsoft Azure Backup server fails with errors during the setup phase (or ba
 You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 
-## Learn more
-
-> [AZURE.NOTE] You can get detailed information about [preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx) on the Microsoft TechNet site. It also contains information about supported configurations on which Azure Backup Server can be deployed and used.
-
-
 ## Next steps
+
+You can get detailed information about [preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx) on the Microsoft TechNet site. It also contains information about supported configurations on which Azure Backup Server can be deployed and used.
 
 You can use these articles to gain a deeper understanding of workload protection using Microsoft Azure Backup server.
 
