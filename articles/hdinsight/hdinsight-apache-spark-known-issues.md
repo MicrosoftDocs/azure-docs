@@ -108,7 +108,11 @@ This issue will be addressed in a future release.
 
     "A quick visualization can help us reason about the distribution of these outcomes" contains some incorrect code that will not run.  It should be edited to the following: 
 
-        countResults = df.groupBy('results').count().withColumnRenamed('count', 'cnt').collect() labels = [row.results for row in countResults] sizes = [row.cnt for row in countResults] colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral'] plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors) plt.axis('equal') 
+        countResults = df.groupBy('results').count().withColumnRenamed('count', 'cnt').collect() 
+        labels = [row.results for row in countResults] 
+        sizes = [row.cnt for row in countResults] 
+        colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral'] 
+        plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors) plt.axis('equal') 
         
 - **Python notebook 5 (Spark Machine Learning - Predictive analysis on food inspection data using MLLib)**
 
