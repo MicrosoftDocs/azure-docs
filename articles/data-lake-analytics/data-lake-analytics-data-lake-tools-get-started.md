@@ -291,7 +291,7 @@ To see more development topics:
 The following PowerShell script prepares an Azure Data Lake Analytics account and the source data for you, So you can skip to [Develop U-SQL scipts](data-lake-analytics-data-lake-tools-get-started.md#develop-u-sql-scripts).
 
     #region - used for creating Azure service names
-    $nameToken = "jgao" #"<Enter an alias>" 
+    $nameToken = "<Enter an alias>" 
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
     #endregion
 
