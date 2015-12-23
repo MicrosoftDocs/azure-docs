@@ -299,7 +299,7 @@ The following example converts the user-provided parameter value to String.
 <a id="substring" />
 ### substring
 
-**substring(stringToParse, startIndex, length)
+**substring(stringToParse, startIndex, length)**
 
 Returns a substring that starts at the specified character position and contains the specified number of characters.
 
