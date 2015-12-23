@@ -1,6 +1,6 @@
 <properties
    pageTitle="How to view Azure Service Fabric entities' aggregated health | Microsoft Azure"
-   description="Describes how to query, view, and evaluate the Azure Service Fabric entities' aggregated health, through health queries and general queries."
+   description="Describes how to query, view, and evaluate Azure Service Fabric entities' aggregated health, through health queries and general queries."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -19,17 +19,17 @@
 # View Service Fabric health reports
 Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) comprised of health entities on which system components and watchdogs can report local conditions they are monitoring. The [health store](service-fabric-health-introduction.md#health-store) aggregates all health data to determine whether entities are healthy.
 
-Out of the box, the cluster is populated with health reports sent by the system components. Read more at [Use System health reports to troubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+Out of the box, the cluster is populated with health reports sent by the system components. Read more at [Use system health reports to troubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric provides multiple ways to get the entities aggregated health:
+Service Fabric provides multiple ways to get the aggregated health of the entities:
 
 - [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) or other visualization tools
 
-- Health queries (through PowerShell, the API,and REST)
+- Health queries (through PowerShell, the API, or REST)
 
-- General queries that return a list of entities that have health as one of the properties (through Powershell/API/REST)
+- General queries that return a list of entities that have health as one of the properties (through PowerShell, the API, or REST)
 
-To demonstrate these options, let's use a local cluster with **5 nodes**. Next to **fabric:/System** application (which exists out of the box), there are some other applications deployed, one of which is **fabric:/WordCount**. This application contains a stateful service configured with 7 replicas. Since there are only 5 nodes, system components will flag that the partition is below target count with an Warning.
+To demonstrate these options, let's use a local cluster with five nodes. Next to the **fabric:/System** application (which exists out of the box), some other applications are deployed. One of these is **fabric:/WordCount**. This application contains a stateful service configured with seven replicas. Because there are only five nodes, the system components will show a warning that the partition is below the target count.
 
 ```xml
 <Service Name="WordCount.Service">
@@ -40,15 +40,15 @@ To demonstrate these options, let's use a local cluster with **5 nodes**. Next t
 ```
 
 ## Health in Service Fabric Explorer
-Service Fabric Explorer provides a visual view of the cluster. In the picture below, you can see that:
+Service Fabric Explorer provides a visual view of the cluster. In the image below, you can see that:
 
-- Application **fabric:/WordCount** is "red" (at Error) because it has an error event reported by MyWatchdog for property Availability.
+- The application **fabric:/WordCount** is red (in error) because it has an error event reported by **MyWatchdog** for the property **Availability**.
 
-- One of its services, **fabric:/WordCount/WordCount.Service** is "yellow" (at Warning). As described above, the service is configured with 7 replicas, which can't all be placed (since we only have 5 nodes). Though not shown here, the service partition is "yellow" because of the System report. The "yellow" partition triggers the "yellow" service.
+- One of its services, **fabric:/WordCount/WordCount.Service** is yellow (at warning). As described above, the service is configured with seven replicas, and they can't all be placed (since there are only five nodes). Although it's not shown here, the service partition is yellow because of the system report. The yellow partition triggers the yellow service.
 
-- The **cluster** is "red" because of the "red" application.
+- The cluster is red because of the red application.
 
-The evaluation uses default policies from cluster manifest and application manifest, which are the strict policies (do not tolerate any failure).
+The evaluation uses default policies from the cluster manifest and application manifest, which are strict policies. (They do not tolerate any failure.)
 
 ![View of the cluster with ServiceFabricExplorer.][1]
 
