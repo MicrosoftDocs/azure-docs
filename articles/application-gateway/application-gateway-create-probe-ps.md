@@ -38,7 +38,7 @@ Use Login-AzureRmAccount to authenticate
 
 Check the subscriptions for the account 
 
-		PS C:\> get-AzureRmSubscription 
+		get-AzureRmSubscription 
 
 You will be prompted to Authenticate with your credentials.<BR>
 
@@ -47,7 +47,7 @@ You will be prompted to Authenticate with your credentials.<BR>
 Choose which of your Azure subscriptions to use. <BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Step 4
@@ -73,7 +73,7 @@ Assigns the Address range 10.0.0.0/24 to subnet variable to be used to create a 
 ### Step 2	
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-Creates a virtual network named "appgwvnet" in resource group "appw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24	
+Creates a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24	
 
 ### Step 3
 	
@@ -83,7 +83,7 @@ Creates a virtual network named "appgwvnet" in resource group "appw-rg" for the 
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
-Creates a public IP resource "publicIP01" in resource group "appw-rg" for the West US region. 
+Creates a public IP resource "publicIP01" in resource group "appgw-rg" for the West US region. 
 
 
 ## Create an application gateway configuration object with custom probe 

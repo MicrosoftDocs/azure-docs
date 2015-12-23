@@ -114,7 +114,7 @@ It assigns the Address range 10.0.0.0/24 to a subnet variable to be used to crea
 ### Step 2	
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-It creates a virtual network named "appgwvnet" in resource group "appw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24	
+It creates a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24	
 
 ### Step 3
 
@@ -126,7 +126,7 @@ Assigns the subnet object to variable $subnet for the next steps.
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
-It creates a public IP resource "publicIP01" in resource group "appw-rg" for the West US region. 
+It creates a public IP resource "publicIP01" in resource group "appgw-rg" for the West US region. 
 
 
 ## Create an application gateway configuration object
@@ -190,184 +190,9 @@ It configures the instance size of the application gateway.
 
 ## Create application gateway using New-AzureApplicationGateway
 
-	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
+	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
 It creates an application gateway with all configuration items from the steps above. In the example, the application gateway is called "appgwtest". 
-
-
-## Start application gateway
-
-Once the gateway has been configured, use the `Start-AzureRmApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
-
-
-**Note:** The `Start-AzureRmApplicationGateway` cmdlet might take up to 15-20 minutes to complete. 
-
-For the example below, the application gateway is called "appgwtest" and the resource group is "app-rg":
-
-
-### Step 1
-
-Get the application gateway object and associate to a variable "$getgw":
- 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName app-rg
-
-### Step 2
-	 
-Use `Start-AzureRmApplicationGateway` to start the application gateway:
-
-	 Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
-
-	
-
-## Verify the application gateway status
-
-Use the `Get-AzureRmApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Succeeded*.
-
-	Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-	Sku                               : Microsoft.Azure.Commands.Network.Models.PSApplicationGatewaySku
-	GatewayIPConfigurations           : {gatewayip01}
-	SslCertificates                   : {}
-	FrontendIPConfigurations          : {frontendip01}
-	FrontendPorts                     : {frontendport01}
-	BackendAddressPools               : {pool01}
-	BackendHttpSettingsCollection     : {setting01}
-	HttpListeners                     : {listener01}
-	RequestRoutingRules               : {rule01}
-	OperationalState                  : 
-	ProvisioningState                 : Succeeded
-	GatewayIpConfigurationsText       : [
-                                      {
-                                        "Subnet": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/virtualNetworks/vnet01/subnets/subnet01"
-                                        },
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "gatewayip01",
-                                        "Etag": "W/\"ddb0408e-a54c-4501-a7f8-8487c3530bd7\"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/gatewayIPConfigurations/gatewayip
-                                    01"
-                                      }
-                                    ]
-	SslCertificatesText               : []
-	FrontendIpConfigurationsText      : [
-                                      {
-                                        "PrivateIPAddress": null,
-                                        "PrivateIPAllocationMethod": "Dynamic",
-                                        "Subnet": null,
-                                        "PublicIPAddress": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/publicIPAddresses/publicip01"
-                                        },
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "frontendip01",
-                                        "Etag": "W/\"ddb0408e-a54c-4501-a7f8-8487c3530bd7\"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/frontend
-                                    ip01"
-                                      }
-                                    ]
-	FrontendPortsText                 : [
-                                      {
-                                        "Port": 80,
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "frontendport01",
-                                        "Etag": "W/\"ddb0408e-a54c-4501-a7f8-8487c3530bd7\"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/frontendPorts/frontendport01"
-                                      }
-                                    ]
-	BackendAddressPoolsText           : [
-                                      {
-                                        "BackendAddresses": [
-                                          {
-                                            "Fqdn": null,
-                                            "IpAddress": "134.170.185.46"
-                                          },
-                                          {
-                                            "Fqdn": null,
-                                            "IpAddress": "134.170.188.221"
-                                          },
-                                          {
-                                            "Fqdn": null,
-                                            "IpAddress": "134.170.185.50"
-                                          }
-                                        ],
-                                        "BackendIpConfigurations": [],
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "pool01",
-                                        "Etag": "W/\"ddb0408e-a54c-4501-a7f8-8487c3530bd7\"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/backendAddressPools/pool01"
-                                      }
-                                    ]
-	BackendHttpSettingsCollectionText : [
-                                      {
-                                        "Port": 80,
-                                        "Protocol": "Http",
-                                        "CookieBasedAffinity": "Disabled",
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "setting01",
-                                        "Etag": "W/\"ddb0408e-a54c-4501-a7f8-8487c3530bd7\"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/backendHttpSettingsCollection/set
-                                    ting01"
-                                      }
-                                    ]
-	HttpListenersText                 : [
-                                      {
-                                        "FrontendIpConfiguration": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fronte
-                                    ndip01"
-                                        },
-                                        "FrontendPort": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/applicationGateways/appgwtest/frontendPorts/frontendport01"
-                                        },
-                                        "Protocol": "Http",
-                                        "SslCertificate": null,
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "listener01",
-                                        "Etag": "W/\"ddb0408e-a54c-4501-a7f8-8487c3530bd7\"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/httpListeners/listener01"
-                                      }
-                                    ]
-	RequestRoutingRulesText           : [
-                                      {
-                                        "RuleType": "Basic",
-                                        "BackendAddressPool": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/applicationGateways/appgwtest/backendAddressPools/pool01"
-                                        },
-                                        "BackendHttpSettings": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/applicationGateways/appgwtest/backendHttpSettingsCollection/s
-                                    etting01"
-                                        },
-                                        "HttpListener": {
-                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
-                                    /providers/Microsoft.Network/applicationGateways/appgwtest/httpListeners/listener01"
-                                        },
-                                        "ProvisioningState": "Succeeded",
-                                        "Name": "rule01",
-                                        "Etag": "W/\"ddb0408e-a54c-4501-a7f8-8487c3530bd7\"",
-                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
-                                    roviders/Microsoft.Network/applicationGateways/appgwtest/requestRoutingRules/rule01"
-                                      }
-                                    ]
-	ResourceGroupName                 : appgw-rg
-	Location                          : westus
-	Tag                               : {}
-	TagsTable                         : 
-	Name                              : appgwtest
-	Etag                              : W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"
-	Id                                : /subscriptions/###############################/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest
-
-
-
 
 ## Next Steps
 
