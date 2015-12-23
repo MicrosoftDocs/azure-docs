@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/23/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to manage the backup catalog
 
 ## Overview
 
-The primary function of StorSimple Snapshot Manager is to allow you to create application-consistent backup copies of Azure StorSimple volumes in the form of snapshots. Snapshots are then listed in an XML file called a *backup catalog*. The backup catalog organizes snapshots by volume group, and then by local snapshot or cloud snapshot. 
+The primary function of StorSimple Snapshot Manager is to allow you to create application-consistent backup copies of Azure StorSimple volumes in the form of snapshots. Snapshots are then listed in an XML file called a *backup catalog*. The backup catalog organizes snapshots by volume group and then by local snapshot or cloud snapshot. 
 
 You can view the backup catalog by expanding the **Backup Catalog** node in the **Scope** pane, and then expanding the volume group.
 
