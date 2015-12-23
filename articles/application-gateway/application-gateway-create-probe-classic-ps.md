@@ -156,7 +156,7 @@ The configuration parameters are:
 
 - **Name** - reference name for custom probe
 - **Protocol** - protocol used (possible values are Http or Https)
-- **Host** and **Path** - If your web site or web farm doesn't have an HTTP response just for the IP address, you need to configure a probe host name and path for a valid healthy HTTP response. For example: you have a web site http://contoso.com/ but this doesn't yield a valid HTTP response. A host name and path have to be configured to provide the valid healthy HTTP response to validate the web server instance is healthy. In this case, the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have successful HTTP response. 
+- **Host** and **Path** - Complete URL path which is invoked by Application Gateway to determine health of the instance. For example: you have a web site http://contoso.com/ then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have successful HTTP response. 
 - **Interval** - configures the probe interval checks in seconds 
 - **Timeout** - defines the probe timeout for an HTTP response check
 - **UnhealthyThreshold** - the number of failed HTTP responses it's needed to flag the back end instance as *unhealthy*

@@ -110,7 +110,7 @@ the parameters used are:
 
 - **-Interval** - configures the probe interval checks in seconds 
 - **-Timeout** - defines the probe timeout for an HTTP response check
-- **-Hostname and -path** - If your web site or web farm doesn't have an HTTP response just for the IP address, you need to configure a probe host name and path for a valid healthy HTTP response. For example: you have a web site http://contoso.com/ but this doesn't yield a valid HTTP response. A host name and path have to be configured to provide the valid healthy HTTP response to validate the web server instance is healthy. In this case, the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have successful HTTP response.
+- **-Hostname and -path** - Complete URL path which is invoked by Application Gateway to determine health of the instance. For example: you have a web site http://contoso.com/ then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have successful HTTP response. 
 - **-UnhealthyThreshold** - the number of failed HTTP responses it's needed to flag the back end instance as *unhealthy*
 
 ### Step 4
@@ -165,14 +165,14 @@ Once the gateway has been configured, use the `Start-AzureRmApplicationGateway` 
 
 **Note:** The `Start-AzureRmApplicationGateway` cmdlet might take up to 15-20 minutes to complete. 
 
-For the example below, the Application Gateway is called "appgwtest" and the resource group is "app-rg":
+For the example below, the Application Gateway is called "appgwtest" and the resource group is "appgw-rg":
 
 
 ### Step 1
 
 Get the Application Gateway object and associate to a variable "$getgw":
  
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Step 2
 	 
@@ -189,6 +189,48 @@ You have three steps to add a custom probe to an existing application gateway.
 
 Load the application gateway resource into a PowerShell variable using `Get-AzureRmApplicationGateway`
 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
+### Step 2
+
+Add a probe to the existing gateway configuration. 
+
+	$probe = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+
+   
+In the example, the custom probe is configured to check for URL path contoso.com/path/custompath.htm every 30 seconds. A timeout threshold of 120 seconds is configured and 8 as the maximum number of failed probe requests.
+
+### Step 3
+
+Add the probe to the back end pool setting configuration to add probe and timeout using `-Set-AzureRmApplicationGatewayBackendHttpSettings`
+
+
+	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 66
+
+### Step 4
+
+Save the configuration to the application gateway using `Set-AzureRmApplicationGateway`
+
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+
+You will get the following output when using verbose for the command:
+
+	Sku                               : Microsoft.Azure.Commands.Network.Models.PSApplicationGatewaySku
+	GatewayIPConfigurations           : {gatewayIP01}
+	SslCertificates                   : {}
+	FrontendIPConfigurations          : {fipconfig01}
+	FrontendPorts                     : {frontendport01}
+	Probes                            : {probe01}
+	BackendAddressPools               : {pool01}
+	BackendHttpSettingsCollection     : {poolsetting01}
+	HttpListeners                     : {listener01}
+	UrlPathMaps                       : {}
+	RequestRoutingRules               : {rule01}
+	OperationalState                  :
+	ProvisioningState                 : Succeeded
+	GatewayIpConfigurationsText       : [
+                                      {
+
+
+	
