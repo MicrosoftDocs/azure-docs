@@ -167,9 +167,38 @@ Once the containers have been created, the application can now upload the files 
 ![Upload task application and input (data) files to containers][2]
 <br/>
 
-In the file upload operation, the application first defines collections of *application* and *input* file paths on the local machine, then uploads these files to the containers created in step #1 above. Two helper methods are involved in the upload process:
+In the file upload operation, *DotNetTutorial* first defines collections of **application** and **input** file paths as they exist on the local machine, then uploads these files to the containers created in the previous step.
 
-- `UploadFilesToContainerAsync` - This method returns a collection of [ResourceFile][net_resourcefile] objects, and internally calls `UploadFileToContainerAsync` to upload each file passed in the *filePaths* parameter. The collection of ResourceFiles returned by this method is discussed below.
+```
+// Paths to the executable and its dependencies that will be executed by the tasks
+List<string> applicationFilePaths = new List<string>
+{
+    // The DotNetTutorial project includes a project reference to TaskApplication, allowing us to
+    // determine the path of the task application binary dynamically
+    typeof(TaskApplication.Program).Assembly.Location,
+    "Microsoft.WindowsAzure.Storage.dll"
+};
+
+// The collection of data files that are to be processed by the tasks
+List<string> inputFilePaths = new List<string>
+{
+    @"..\..\taskdata1.txt",
+    @"..\..\taskdata2.txt",
+    @"..\..\taskdata3.txt"
+};
+
+// Upload the application and its dependencies to Azure Storage. This is the application that will
+// process the data files, and will be executed by each of the tasks on the compute nodes.
+List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(blobClient, appContainerName, applicationFilePaths);
+
+// Upload the data files. This is the data that will be processed by each of the tasks that are
+// executed on the compute nodes within the pool.
+List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(blobClient, inputContainerName, inputFilePaths);
+```
+
+There are two methods in `Program.cs` that are involved in the upload process:
+
+- `UploadFilesToContainerAsync` - This method returns a collection of [ResourceFile][net_resourcefile] objects, and internally calls `UploadFileToContainerAsync` to upload each file passed in the *filePaths* parameter. The collection of ResourceFiles is needed when we define the tasks, and is discussed below.
 - `UploadFileToContainerAsync` - This is the method that actually performs the file upload and creates the [ResourceFile][net_resourcefile] objects. After uploading the file, it obtains a Shared Access Signature (SAS) for the file and returns a ResourceFile object representing it. Shared access signatures are also discussed below.
 
 ```
@@ -212,7 +241,7 @@ The DotNetTutorial sample application does not use the JobPreparationTask or Job
 
 ### Shared Access Signatures (SAS)
 
-Shared access signatures are strings which - when included as part of a URL - provide secure access to either containers or blobs in Azure Storage. The DotNetTutorial application uses both blob and container SAS URLs, and demonstrates how to obtain these SAS strings from the Storage service.
+Shared access signatures are strings which - when included as part of a URL - provide secure access to containers and blobs in Azure Storage. The DotNetTutorial application uses both blob and container SAS URLs, and demonstrates how to obtain these SAS strings from the Storage service.
 
 - **Blob SAS** - The tasks in DotNetTutorial use blob shared access signatures when downloading the application binaries and input data files from Storage. The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's SAS, and does so by calling [CloudblobData.GetSharedAccessSignature][net_sas_blob].
 
