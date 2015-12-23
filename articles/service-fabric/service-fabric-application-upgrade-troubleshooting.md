@@ -18,25 +18,25 @@
 
 # Troubleshoot application upgrades
 
-This article covers some of the common issues around upgrading a Service Fabric application and how to resolve them.
+This article covers some of the common issues around upgrading an Azure Service Fabric application and how to resolve them.
 
 ## Troubleshoot a failed application upgrade
 
 When an upgrade fails, the output of the **Get-ServiceFabricApplicationUpgrade** command will contain some additional information for debugging the failure. This information can be used to:
 
-1. Identify the failure type
-2. Identify the failure reason
-3. Isolate the failing component(s) for further investigation
+1. Identify the failure type.
+2. Identify the failure reason.
+3. Isolate the failing component(s) for further investigation.
 
-This information will be available as soon as Service Fabric detects the failure regardless of whether the **FailureAction** is to rollback or suspend the upgrade.
+This information will be available as soon as Service Fabric detects the failure regardless of whether the **FailureAction** is to roll back or suspend the upgrade.
 
 ### Identify the failure type
 
-In the output of **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifies the timestamp (in UTC) at which an upgrade failure was detected by Service Fabric and the **FailureAction** was triggered. The **FailureReason** identifies one of three potential high-level causes of the failure:
+In the output of **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifies the timestamp (in UTC) at which an upgrade failure was detected by Service Fabric and  **FailureAction** was triggered. **FailureReason** identifies one of three potential high-level causes of the failure:
 
 1. UpgradeDomainTimeout - Indicates that a particular upgrade domain took too long to complete and **UpgradeDomainTimeout** expired.
 2. OverallUpgradeTimeout - Indicates that the overall upgrade took too long to complete and **UpgradeTimeout** expired.
-3. HealthCheck - Indicates that after upgrading an Upgrade Domain, the application remained unhealthy according to the specified health policies and **HealthCheckRetryTimeout** expired.
+3. HealthCheck - Indicates that after upgrading an udpate domain, the application remained unhealthy according to the specified health policies and **HealthCheckRetryTimeout** expired.
 
 These entries will only show up in the output when the upgrade fails and starts rolling back. Further information will be displayed depending on the type of the failure.
 
@@ -78,15 +78,17 @@ ForceRestart                   : False
 UpgradeReplicaSetCheckTimeout  : 00:00:00
 ~~~
 
-In this example, we can see that the upgrade failed at upgrade domain *MYUD1* and two partitions (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* and *4b43f4d8-b26b-424e-9307-7a7a62e79750*) were stuck, unable to place primary replicas (*WaitForPrimaryPlacement*) on target nodes *Node1* and *Node4*. The **Get-ServiceFabricNode** command can be used to verify that these two nodes are in upgrade domain *MYUD1*. The *UpgradePhase* says *PostUpgradeSafetyCheck*, which means that these safety checks are occurring after all nodes in the upgrade domain had finished upgrading. All this information combined points to a potential issue with the new version of the application code. The most common issues are service errors in the open or promotion to primary code paths.
+In this example, we can see that the upgrade failed at upgrade domain *MYUD1* and that two partitions (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* and *4b43f4d8-b26b-424e-9307-7a7a62e79750*) were stuck, unable to place primary replicas (*WaitForPrimaryPlacement*) on target nodes *Node1* and *Node4*.
 
-An *UpgradePhase* of *PreUpgradeSafetyCheck* means there were issues preparing the upgrade domain before actually performing the upgrade. The most common issues in this case are service errors in the close or demotion from primary code paths.
+The **Get-ServiceFabricNode** command can be used to verify that these two nodes are in upgrade domain *MYUD1*. The *UpgradePhase* says *PostUpgradeSafetyCheck*, which means that these safety checks are occurring after all nodes in the upgrade domain have finished upgrading. All this information points to a potential issue with the new version of the application code. The most common issues are service errors in the open or promotion to primary code paths.
+
+An *UpgradePhase* of *PreUpgradeSafetyCheck* means there were issues preparing the upgrade domain before it was actually performed. The most common issues in this case are service errors in the close or demotion from primary code paths.
 
 The current **UpgradeState** is *RollingBackCompleted*, so the original upgrade must have been performed with a rollback **FailureAction**, which automatically rolled back the upgrade upon failure. If the original upgrade had been performed with a manual **FailureAction**, then the upgrade would instead be in a suspended state to allow live debugging of the application.
 
 ### Investigate health check failures
 
-Health check failures can be triggered by a variety of additional issues that can happen after all nodes in an upgrade domain finish upgrading, passing all safety checks. The output below is typical of an upgrade failure due to failed health checks. The **UnhealthyEvaluations** field captures a snapshot of all failing health checks at the time of the upgrade failure according the user-specified [Health Policy](service-fabric-health-introduction.md).
+Health check failures can be triggered by a variety of additional issues that can happen after all nodes in an upgrade domain finish upgrading and passing all safety checks. The output below is typical of an upgrade failure due to failed health checks. The **UnhealthyEvaluations** field captures a snapshot of all failing health checks at the time of the upgrade failure according the user-specified [health policy](service-fabric-health-introduction.md).
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -140,13 +142,13 @@ MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
 ~~~
 
-Investigating health check failures first requires an understanding of the Service Fabric health model, but even without such an in-depth understanding, we can see that two services are unhealthy: *fabric:/DemoApp/Svc3* and *fabric:/DemoApp/Svc2* along with the error health reports ("InjectedFault" in this case). In this example, 2 out of 4 services are unhealthy, below the default target of 0% unhealthy (*MaxPercentUnhealthyServices*).
+Investigating health check failures first requires an understanding of the Service Fabric health model. But even without such an in-depth understanding, we can see that two services are unhealthy: *fabric:/DemoApp/Svc3* and *fabric:/DemoApp/Svc2*, along with the error health reports ("InjectedFault" in this case). In this example, two out of four services are unhealthy, which is below the default target of 0% unhealthy (*MaxPercentUnhealthyServices*).
 
-The upgrade was suspended upon failing by specifying a **FailureAction** of manual when starting the upgrade, so we can investigate the live system in the failed state if desired before taking any further actions.
+The upgrade was suspended upon failing by specifying a **FailureAction** of manual when starting the upgrade, so we can investigate the live system in the failed state, if desired, before taking any further actions.
 
 ### Recover from a suspended upgrade
 
-With a rollback **FailureAction**, there is no recovery needed since the upgrade will automatically rollback upon failing. With a manual **FailureAction**, there are several recovery options:
+With a rollback **FailureAction**, there is no recovery needed since the upgrade will automatically roll back upon failing. With a manual **FailureAction**, there are several recovery options:
 
 1. Manually trigger a rollback
 2. Proceed through the remainder of the upgrade manually
@@ -154,7 +156,7 @@ With a rollback **FailureAction**, there is no recovery needed since the upgrade
 
 The **Start-ServiceFabricApplicationRollback** command can be used at any time to start rolling back the application. Once the command returns successfully, the rollback request has been registered in the system and will start shortly.
 
-The **Resume-ServiceFabricApplicationUpgrade** command can be used to proceed through the remainder of the upgrade manually, one upgrade domain at a time. In this mode, only safety checks will be performed by the system - no more health checks will be performed. This command can only be used when the *UpgradeState* shows *RollingForwardPending*, which means that the current upgrade domain has finished upgrading but the next upgrade domain has not started yet (pending).
+The **Resume-ServiceFabricApplicationUpgrade** command can be used to proceed through the remainder of the upgrade manually, one upgrade domain at a time. In this mode, only safety checks will be performed by the system. No more health checks will be performed. This command can only be used when the *UpgradeState* shows *RollingForwardPending*, which means that the current upgrade domain has finished upgrading but the next upgrade domain has not started yet (pending).
 
 The **Update-ServiceFabricApplicationUpgrade** command can be used to resume the monitored upgrade with both safety and health checks being performed.
 
@@ -180,49 +182,50 @@ ServiceTypeHealthPolicyMap              :
 PS D:\temp>
 ~~~
 
-The upgrade will continue from the upgrade domain where it was last suspended and use the same upgrade parameters and health policies as before. If needed, any of the upgrade parameters and health policies shown in the output above can be changed in the same command when resuming the upgrade. In this example, the upgrade was resumed in Monitored mode leaving all other parameters unchanged, thereby using the same parameters and health policies as before.
+The upgrade will continue from the upgrade domain where it was last suspended and use the same upgrade parameters and health policies as before. If needed, any of the upgrade parameters and health policies shown in the output above can be changed in the same command when the upgrade resumes. In this example, the upgrade was resumed in Monitored mode, leaving all other parameters unchanged, and using the same parameters and health policies as before.
 
 ## Further troubleshooting
 
-### Service Fabric is not following the health policies specified
+### Service Fabric is not following the specified health policies 
 
 Possible Cause 1:
 
-Service Fabric translates all percentages into actual numbers of entities (e.g. replicas, partitions, and services) for health evaluation and always rounds up to the nearest number of whole entities. For example, if the maximum _MaxPercentUnhealthyReplicasPerPartition_ is 21% and there are 5 replicas, then Service Fabric will allow up to 2 replicas (i.e., `Math.Ceiling (5\*0.21)`) to be unhealthy when evaluating partition health. Health policies should be set accordingly to account for this.
+Service Fabric translates all percentages into actual numbers of entities (e.g. replicas, partitions, and services) for health evaluation and always rounds up to the nearest number of whole entities. For example, if the maximum _MaxPercentUnhealthyReplicasPerPartition_ is 21% and there are five replicas, then Service Fabric will allow up to two replicas (i.e., `Math.Ceiling (5\*0.21)`) to be unhealthy when evaluating partition health. Health policies should be set accordingly to account for this.
 
 Possible Cause 2:
 
-Health policies are specified in terms of percentages of total services and not specific service instances. For example, before an upgrade, assume that an application has four service instances A, B, C, and D, where service D is unhealthy but with no significant impact on the application. We want to ignore the known unhealthy service D during upgrade and set the parameter *MaxPercentUnhealthyServices* to be 25% assuming only A, B, and C need to be healthy. However, during the upgrade, D may become healthy while C becomes unhealthy. The upgrade would still complete successfully in this case since only 25% of the services are unhealthy, which might result in unanticipated errors due to C being unexpectedly unhealthy instead of D. In this situation, D should be modeled as a different Service Type from A, B, and C. Since health policies can be specified on a per-Service Type basis, this would allow applying different unhealthy percentage thresholds to different services based on their roles in the application.
+Health policies are specified in terms of percentages of total services and not specific service instances. For example, before an upgrade, assume that an application has four service instances A, B, C, and D, where service D is unhealthy but with no significant impact on the application. We want to ignore the known unhealthy service D during upgrade and set the parameter *MaxPercentUnhealthyServices* to be 25%, assuming only A, B, and C need to be healthy.
 
-### I did not specify a health policy for application upgrade, but the upgrade still fails for some timeouts which I never specified
+However, during the upgrade, D may become healthy while C becomes unhealthy. The upgrade would still finish successfully in this case since only 25% of the services are unhealthy, but it might result in unanticipated errors due to C being unexpectedly unhealthy instead of D. In this situation, D should be modeled as a different service type from A, B, and C. Since health policies can be specified on a per-service type basis, this would allow  different unhealthy percentage thresholds to be applied to different services based on their roles in the application.
 
-When health policies aren't provided to the upgrade request, they are taken from the *ApplicationManifest.xml* of the current application version (for example, if upgrading Application X from v1 to v2, application health policies specified for Application X in v1 are used). If a different health policy should be used for the upgrade, then the policy needs to be specified as part of the application upgrade API call. Note that the policies specified as part of the API call only apply for the duration of the upgrade. Once the upgrade is completed, the policies specified in the *ApplicationManifest.xml* are used.
+### I did not specify a health policy for application upgrade, but the upgrade still fails for some time-outs that I never specified
 
-### Incorrect Timeouts specified.
+When health policies aren't provided to the upgrade request, they are taken from the *ApplicationManifest.xml* of the current application version. For example, if you're upgrading Application X from v1 to v2, application health policies specified for Application X in v1 are used. If a different health policy should be used for the upgrade, then the policy needs to be specified as part of the application upgrade API call. Note that the policies specified as part of the API call only apply for the duration of the upgrade. Once the upgrade is complete, the policies specified in the *ApplicationManifest.xml* are used.
 
-Users may have wondered about what happens if the timeouts are set inconsistently, for example, having an *UpgradeTimeout* less than the *UpgradeDomainTimeout*. The answer is that an error is returned. Other cases where this may happen is if *UpgradeDomainTimeout* is less than the sum of *HealthCheckWaitDuration* and *HealthCheckRetryTimeout* or if *UpgradeDomainTimeout* is less than the sum of *HealthCheckWaitDuration* and *HealthCheckStableDuration*.
+### Incorrect time-outs are specified
+
+Users may have wondered about what happens if the time-outs are set inconsistently, for example, if you have an *UpgradeTimeout* that's less than the *UpgradeDomainTimeout*. The answer is that an error is returned. Other cases where this may happen is if *UpgradeDomainTimeout* is less than the sum of *HealthCheckWaitDuration* and *HealthCheckRetryTimeout*, or if *UpgradeDomainTimeout* is less than the sum of *HealthCheckWaitDuration* and *HealthCheckStableDuration*.
 
 ### My upgrades are taking too long
 
-The time it takes for an upgrade to complete is dependent on the various health checks and timeouts specified, which in turn are dependent on the time it takes for your application to upgrade (including copying the package, deploying, and stabilizing). Being too aggressive with timeouts might mean more failed upgrades, and thus starting conservatively with longer timeouts is recommended.
+The time it takes for an upgrade to finish is dependent on the various health checks and time-outs specified, which in turn are dependent on the time it takes for your application to upgrade (including copying the package, deploying, and stabilizing). Being too aggressive with time-outs might mean more failed upgrades, so we recommend starting conservatively with longer time-outs.
 
-A quick refresher on how the timeouts interact with the upgrade times:
+Here's a quick refresher on how the time-outs interact with the upgrade times:
 
-Upgrade for a upgrade domain cannot complete faster than *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
+Upgrades for an upgrade domain cannot complete faster than *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
 
 Upgrade failure cannot occur faster than *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
-The upgrade time for a upgrade domain is limited by *UpgradeDomainTimeout*.  If *HealthCheckRetryTimeout* and *HealthCheckStableDuration* are both non-zero and the health of the application keeps switching back and forth, then the upgrade will eventually timeout on *UpgradeDomainTimeout*. *UpgradeDomainTimeout* starts counting down once the upgrade for the current upgrade domain begins.
+The upgrade time for an upgrade domain is limited by *UpgradeDomainTimeout*.  If *HealthCheckRetryTimeout* and *HealthCheckStableDuration* are both non-zero and the health of the application keeps switching back and forth, then the upgrade will eventually time out on *UpgradeDomainTimeout*. *UpgradeDomainTimeout* starts counting down once the upgrade for the current upgrade domain begins.
 
 ## Next steps
 
-[Service Fabric Application Upgrade using Visual Studio](service-fabric-application-upgrade.md)
+[Service Fabric application upgrade using Visual Studio](service-fabric-application-upgrade.md)
 
-[Service Fabric Application Upgrade using PowerShell](service-fabric-application-upgrade-powershell.md)
+[Service Fabric application upgrade using PowerShell](service-fabric-application-upgrade-powershell.md)
 
-[Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
+[Upgrade parameters](service-fabric-application-upgrade-parameters.md)
 
-[Manual Upgrade and Upgrading with a Diff Package](service-fabric-application-upgrade-advanced.md)
+[Manual upgrade and upgrading with a diff package](service-fabric-application-upgrade-advanced.md)
 
-[Data Serialization](service-fabric-application-upgrade-data-serialization.md)
- 
+[Data serialization](service-fabric-application-upgrade-data-serialization.md)
