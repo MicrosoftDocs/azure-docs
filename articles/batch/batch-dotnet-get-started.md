@@ -596,7 +596,7 @@ if (response != "n" && response != "no")
 
 Now that you are familiar with the basic workflow of a Batch solution, it's time to dig in to the additional features of the Batch service.
 
-- [Overview of Azure Batch features](batch-api-basics) - This article provides an overview of many of the features of Batch, and is recommended reading for those new to the service.
+- [Overview of Azure Batch features](batch-api-basics.md) - This article provides an overview of many of the features of Batch, and is recommended reading for those new to the service.
 - Start on the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path]
 - Check out a different implementation of processing the "top N words" workload using Batch in the [TopNWords][github_topnwords] sample
 
