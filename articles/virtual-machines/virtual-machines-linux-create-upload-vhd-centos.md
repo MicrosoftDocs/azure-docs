@@ -322,11 +322,21 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 12.	Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-13. Install the Azure Linux Agent by running the following command:
+13.	**Only if building the image from VMWare, VirtualBox or KVM:** Add Hyper-V modules into initramfs: 
+
+    Edit `/etc/dracut.conf`, add content:
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    Rebuild the initramfs:
+
+        # dracut –f -v
+
+14. Install the Azure Linux Agent by running the following command:
 
 		# sudo yum install WALinuxAgent
 
-14.	Do not create swap space on the OS disk
+15.	Do not create swap space on the OS disk
 
 	The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
@@ -336,10 +346,10 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+16.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+17. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
