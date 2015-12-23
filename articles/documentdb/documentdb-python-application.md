@@ -25,13 +25,7 @@
 - [Java](documentdb-java-application.md)
 - [Python](documentdb-python-application.md)
 
-To highlight how customers can efficiently leverage Azure DocumentDB to
-store and retrieve JSON documents, this document provides an end-to-end Python web application
-tutorial showing how to build a voting web application using Azure DocumentDB.
-
-This tutorial shows you how to use the DocumentDB service provided by
-Azure to store and access data from a Python web application hosted on
-Azure and presumes that you have some prior experience using Python and
+This tutorial shows you how to use Azure DocumentDB to store and access data from a Python web application hosted on Azure and presumes that you have some prior experience using Python and
 Azure websites.
 
 This database tutorial covers:
@@ -55,9 +49,9 @@ that you have the following installed:
 - [Visual Studio 2013](http://www.visualstudio.com/) or higher, or [Visual Studio Express](), which is the free version. The instructions in this tutorial are written specifically for Visual Studio 2015. 
 - Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015. 
 - Azure Python SDK for Visual Studio, version 2.4 or higher available from [azure.com](https://azure.microsoft.com/downloads/). We used Microsoft Azure SDK for Python 2.7.
-- Python 2.7 from [python.org][2]. Do not use Python 3 as there is no C++ compiler for it. We used Python 2.7.11. 
+- Python 2.7 from [python.org][2]. We used Python 2.7.11. 
 
-> [AZURE.IMPORTANT] If you are installing Python 2.7 for the first time, ensure that in the Customize Python 2.7.11 screen, you select Add python.exe to Path.
+> [AZURE.IMPORTANT] If you are installing Python 2.7 for the first time, ensure that in the Customize Python 2.7.11 screen, you select **Add python.exe to Path**.
 > 
 >    ![Screen shot of the Customize Python 2.7.11 screen, where you need to select Add python.exe to Path](./media/documentdb-python-application/addtopath.png)
 
@@ -353,7 +347,7 @@ serves as the landing page for your application.
 4. Back in the Azure portal, in the **Keys** blade, copy the value of the **Primary Key** or the **Secondary Key**, and paste it into the **config.py** file, as the value for the **DOCUMENTDB\_KEY** property.
 5. In the **\_\_init\_\_.py** file, add the following line. 
 
-    app.config.from_object('config')
+        app.config.from_object('config')
 
     So that the content of the file is:
 
