@@ -97,12 +97,12 @@ You can use the [**Write-Output**](https://technet.microsoft.com/library/hh84992
 
 4. Create two parameters with the following properties that will be used by the **Get-AzureVM** activity:
 
-    1. **Parameter1:** 
+    * **Parameter1:** 
     Name – VMName,
     Type – String,
     Mandatory – No
 	
-    2. **Parameter2:** 
+    * **Parameter2:** 
     Name – ServiceName,
     Type – String,
     Mandatory – No,
@@ -220,15 +220,15 @@ A runbook job can be created and started with the Azure Automation REST API usin
 
 In the Request URI, replace the following parameters:
  
-    * **subscription-id:** Your Azure subscription ID.  
-    * **cloud-service-name:** Name of the cloud service to which request should be sent.  
-    * **automation-account-name:** Name of your automation account hosted within the specified cloud service.  
-    * **job-id:** The GUID for the job. GUID in PowerShell can be created using **[GUID]::NewGuid().ToString()** cmdlet.
+* **subscription-id:** Your Azure subscription ID.  
+* **cloud-service-name:** Name of the cloud service to which request should be sent.  
+* **automation-account-name:** Name of your automation account hosted within the specified cloud service.  
+* **job-id:** The GUID for the job. GUID in PowerShell can be created using **[GUID]::NewGuid().ToString()** cmdlet.
 	
 In order to pass parameters to the runbook job, use the request body, and it takes two properties provided in JSON format:
 
-    a. **Runbook Name** – Required. Name of the runbook for the job to start.  
-    b. **Runbook Parameters** – Optional. A dictionary of the parameter list in (name, value) format where name should be of String type and value can be any valid JSON value. 
+* **Runbook Name** – Required. Name of the runbook for the job to start.  
+* **Runbook Parameters** – Optional. A dictionary of the parameter list in (name, value) format where name should be of String type and value can be any valid JSON value. 
 
 If you want to start the **Get-AzureVMTextual** runbook created earlier with VMName and ServiceName as parameters, use the following JSON format for the request body. 
 
