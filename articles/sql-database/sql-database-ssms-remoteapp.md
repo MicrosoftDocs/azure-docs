@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Use SQL Server Management Studio in Azure RemoteApp for Security and Performance when connecting to SQL Database" 
-	description="Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for Security and Performance when connecting to SQL Database" 
+	pageTitle="Connect to SQL Database using SQL Server Management Studio in Azure RemoteApp | Microsoft Azure" 
+	description="Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for security and performance when connecting to SQL Database" 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="adhurwit" 
@@ -16,7 +16,7 @@
 	ms.date="11/20/2015" 
 	ms.author="adhurwit"/>
 
-# Use SQL Server Management Studio in Azure RemoteApp for Security and Performance when connecting to SQL Database
+# Use SQL Server Management Studio in Azure RemoteApp to connect to SQL Database
 
 ## Introduction  
 This tutorial is going to show you how you can use SQL Server Management Studio (SSMS) in Azure RemoteApp to connect to SQL Database. It walks you through the process of setting up SQL Server Management Studio in Azure RemoteApp, explains the benefits, and shows security features that you can use in Azure Active Directory. 
