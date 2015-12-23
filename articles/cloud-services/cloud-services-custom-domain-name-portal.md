@@ -139,7 +139,7 @@ For example, the following A record forwards all traffic from **contoso.com** to
 This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
 
 >[AZURE.WARNING]
->IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](..\virtual-network\virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
+>IP addresses in Azure are dynamic by default. You will probably want to use a [reserved IP address](../virtual-network/virtual-networks-reserved-public-ip.md) to ensure that your IP address does not change.
 
 ## Next steps
 
