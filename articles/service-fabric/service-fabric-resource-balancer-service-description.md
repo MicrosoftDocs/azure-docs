@@ -19,7 +19,7 @@
 # Service description overview
 
 ## Placement constraints
-[Placement constraints](service-fabric-placement-constraint) on a service are the mechanism that a particular service instance uses to select the node properties it requires. Just like node properties, they are key/value pairs that describe the property name and the service’s requirements for the value. Individual statements can be grouped together with simple Boolean logic to create the necessary constraint. Note that the Service Fabric resource balancer interprets the constraints.
+[Placement constraints](service-fabric-placement-constraint.md) on a service are the mechanism that a particular service instance uses to select the node properties it requires. Just like node properties, they are key/value pairs that describe the property name and the service’s requirements for the value. Individual statements can be grouped together with simple Boolean logic to create the necessary constraint. Note that the Service Fabric resource balancer interprets the constraints.
 
 Service placement constraints can be defined via either the service or application manifest or directly in code.
 
