@@ -177,7 +177,7 @@ Add a probe to the existing gateway configuration.
 	$probe = Add-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/custompath.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
    
-In the example, the custom probe is configured to check for URL path contoso.com/path/custompath.htm every 30 seconds. A timeout threshold of 120 seconds is configured and 8 as the maximum number of failed probe requests.
+In the example, the custom probe is configured to check for URL path contoso.com/path/custompath.htm every 30 seconds. A timeout threshold of 120 seconds is configured with the maximum number of 8 failed probe requests.
 
 ### Step 3
 
