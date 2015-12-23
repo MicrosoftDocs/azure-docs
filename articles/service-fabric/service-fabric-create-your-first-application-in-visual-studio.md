@@ -62,7 +62,7 @@ Now that you have an application, you can try running it.
 
 1. Press F5 in Visual Studio to deploy the application for debugging.
 
-	>[AZURE.NOTE] This will take a while the first time as Visual Studio is creating a local cluster for development. A local cluster runs the same platform code that you will build on in a multinode cluster, just on a single computer. You will see the cluster creation status in the Visual Studio output window.
+	>[AZURE.NOTE] This will take a while the first time as Visual Studio is creating a local cluster for development. A local cluster runs the same platform code that you will build on in a multi-machine cluster, just on a single machine. You will see the cluster creation status in the Visual Studio output window.
 
 	When the cluster is ready, you will get a notification from the local cluster system tray manager application that is included with the SDK.
 
@@ -74,11 +74,11 @@ Now that you have an application, you can try running it.
 
 	In the case of the stateful service template, the messages simply show the counter value that is being incremented in the `RunAsync` method of MyStatefulService.cs.
 
-3. Expand one of the events to see more details, including the node where the code is running. In this case, it is node 2, though it may differ on your computer.
+3. Expand one of the events to see more details, including the node where the code is running. In this case, it is node 2, though it may differ on your machine.
 
 	![Diagnostic events viewer detail][6]
 
-	The local cluster is made up of five nodes that are hosted on a single computer, which mimics a five-node cluster, where nodes are on distinct computers. Let's take down one of the nodes on the local cluster to simulate the loss of a computer and exercise the Visual Studio debugger at the same time.
+	The local cluster is made up of five nodes that are hosted on a single machine, which mimics a five-node cluster, where nodes are on distinct machines. Let's take down one of the nodes on the local cluster to simulate the loss of a machine and exercise the Visual Studio debugger at the same time.
 
     >[AZURE.NOTE] The application diagnostic events that are emitted by the project template use the included `ServiceEventSource` class. For more information, see [How to monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally).
 
@@ -94,7 +94,7 @@ Now that you have an application, you can try running it.
 
 6. In the left pane, expand **Cluster > Nodes** and find the node where your code is running.
 
-7. Click **Actions > Deactivate (Restart)** to simulate a computer restarting.
+7. Click **Actions > Deactivate (Restart)** to simulate a machine restarting.
 
 	![Stop a node in Service Fabric Explorer][sfx-stop-node]
 
@@ -106,7 +106,7 @@ Now that you have an application, you can try running it.
 
 ### Cleaning up
 
-  Before wrapping up, it's important to remember that the local cluster is very real. Even after stopping the debugger and closing Visual Studio, your applications will keep running in the background. Depending on the nature of your apps, this background activity can take up significant resources on your computer. You have several options to manage this:
+  Before wrapping up, it's important to remember that the local cluster is very real. Even after stopping the debugger and closing Visual Studio, your applications will keep running in the background. Depending on the nature of your apps, this background activity can take up significant resources on your machine. You have several options to manage this:
 
   1. To remove an individual application and all of its data, use the **Remove application** action in Service Fabric Explorer.
 
