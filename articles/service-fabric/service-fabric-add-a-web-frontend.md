@@ -49,7 +49,7 @@ To get a sense of what we've done, let's deploy the new application and take a l
 
 1. Press F5 in Visual Studio to debug the app.
 
-2. When deployment is complete, Visual Studio will launch the browser to the root of the ASP.NET Web API service--something like http://localhost:33003 (the port number is randomly assigned and may be different on your computer). The ASP.NET 5 Web API template doesn't provide default behavior for the root, so you will get an error in the browser.
+2. When deployment is complete, Visual Studio will launch the browser to the root of the ASP.NET Web API service--something like http://localhost:33003 (the port number is randomly assigned and may be different on your machine). The ASP.NET 5 Web API template doesn't provide default behavior for the root, so you will get an error in the browser.
 
 3. Add `/api/values` to the location in the browser. This will invoke the `Get` method on the ValuesController in the Web API template. It will return the default response that is provided by the template--a JavaScript Object Notation (JSON) array containing two strings:
 
@@ -181,7 +181,7 @@ Our stateful service is now ready to receive traffic from other services. So all
 
     The service name is a URI of the form fabric:/&lt;application_name&gt;/&lt;service_name&gt;.
 
-    With these two pieces of information, Service Fabric can uniquely identify the computer that requests should be sent to. The `ServiceProxy` class also seamlessly handles the case where the computer that hosts our stateful service partition fails and another computer must be promoted to take its place. This abstraction makes it significantly simpler to write the client code to deal with other services.
+    With these two pieces of information, Service Fabric can uniquely identify the machine that requests should be sent to. The `ServiceProxy` class also seamlessly handles the case where the machine that hosts our stateful service partition fails and another machine must be promoted to take its place. This abstraction makes it significantly simpler to write the client code to deal with other services.
 
     Once we have the proxy, we simply invoke the `GetCountAsync` method and return its result.
 
@@ -200,9 +200,9 @@ When you create an actor project, Visual Studio automatically generates an inter
 
 ## Running web services on a local cluster
 
-In general, you can deploy exactly the same Service Fabric application to a multinode cluster that you deployed on your local cluster and be highly confident that it will work as you expect. This is because your local cluster is simply a five-node configuration that is collapsed to a single node.
+In general, you can deploy exactly the same Service Fabric application to a multi-machine cluster that you deployed on your local cluster and be highly confident that it will work as you expect. This is because your local cluster is simply a five-node configuration that is collapsed to a single machine.
 
-When it comes to web services, however, there is one key nuance. When your cluster sits behind a load balancer, as it does in Azure, you must ensure that your web services are deployed on every node since the load balancer will simply round-robin traffic across the nodes. This can be done by setting the `InstanceCount` for the service to the special value of "-1".
+When it comes to web services, however, there is one key nuance. When your cluster sits behind a load balancer, as it does in Azure, you must ensure that your web services are deployed on every machine since the load balancer will simply round-robin traffic across the machines. This can be done by setting the `InstanceCount` for the service to the special value of "-1".
 
 By contrast, when you run a web service locally, you need to ensure that only one instance of the service is running. Otherwise, you will run into conflicts from multiple processes that are listening on the same path and port. As a result, the web service instance count should be set to "1" for local deployments.
 
