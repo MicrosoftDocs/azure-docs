@@ -15,30 +15,30 @@
 	ms.date="01/06/2016"
     ms.author="awills"/>
 
-# Deployment annotations in Application Insights
+# Release annotations in Application Insights
 
-Deployment markers on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs).
+Release annotations on [Metrics Explorer](app-insights-metrics-explorer.md) charts show where you deployed a new build. They make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Visual Studio Team Services build system](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs).
 
 ![Example of annotations with visible correlation with server response time](./media/app-insights-annotations/00.png)
 
-Deployment markers are a feature of the cloud-based build and release service of Visual Studio Team Services. 
+Release annotations are a feature of the cloud-based build and release service of Visual Studio Team Services. 
 
 ## Install the Annotations extension (one time)
 
-To be able to create deployment markers, you'll need to install one of the many Team Service extensions available in the Visual Studio Marketplace.
+To be able to create release annotations, you'll need to install one of the many Team Service extensions available in the Visual Studio Marketplace.
 
 1. Sign in to your [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) project.
 2. Open Visual Studio Marketplace, find the Application Insights Annotations extension, and add it to your Team Services account.
 
 ![At top right of Team Services web page, open Marketplace. Search for and install Application Insights Annotations in your account.](./media/app-insights-annotations/10.png)
 
-You only need to do this once for your Visual Studio Team Services account. Deployment markers can now be configured for any project in your account. 
+You only need to do this once for your Visual Studio Team Services account. Release annotations can now be configured for any project in your account. 
 
 
 
-## Add a marker task to your release template
+## Add an annotation task to your release template
 
-You need to do this for each release template that you want to create deployment markers.
+You need to do this for each release template that you want to create release annotations.
 
 Open (or create) the release template that manages your deployments from Visual Studio Team Services. 
 
@@ -64,4 +64,4 @@ Finally, **Save** the release definition.
 
 ## Deployment markers
 
-Now, whenever you use the release template to deploy a new release, a marker will be sent to Application Insights. The markers will appear on charts in Metrics Explorer.
+Now, whenever you use the release template to deploy a new release, an annotation will be sent to Application Insights. The annotations will appear on charts in Metrics Explorer.
