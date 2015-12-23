@@ -16,7 +16,7 @@
 	ms.date="11/20/2015" 
 	ms.author="adhurwit"/>
 
-# Use SQL Server Management Studio in Azure RemoteApp for Security and Performance when connecting to SQL Database #
+# Use SQL Server Management Studio in Azure RemoteApp for Security and Performance when connecting to SQL Database
 
 ## Introduction  
 This tutorial is going to show you how you can use SQL Server Management Studio (SSMS) in Azure RemoteApp to connect to SQL Database. It walks you through the process of setting up SQL Server Management Studio in Azure RemoteApp, explains the benefits, and shows security features that you can use in Azure Active Directory. 
@@ -77,14 +77,14 @@ When sysprep completes, it will shut down the VM.
 To learn more about creating a Azure RemoteApp image, see: [How to create a RemoteApp template image in Azure](http://blogs.msdn.com/b/rds/archive/2015/03/17/how-to-create-a-remoteapp-template-image-in-azure.aspx)
 
 
-### 4. Capture Image
+### 4. Capture image
 
-When the VM has stopped running, find it in the current portal and Capture it. 
+When the VM has stopped running, find it in the current portal and capture it. 
 
 To learn more about capturing an image, see [Capture an image of an Azure Windows virtual machine created with the classic deployment model](../virtual-machines-capture-image-windows-server.md)
 
 
-### 5. Add to Azure RemoteApp Template Images
+### 5. Add to Azure RemoteApp Template images
 
 In the Azure RemoteApp section of the current portal, go to the Template Images tab and click Add. In the pop-up box, select "Import an image from your Virtual Machines library" and then choose the Image that you just created. 
 
@@ -141,7 +141,7 @@ When you go to a user in your Azure Active Directory, you can then go to the Act
 
 
 
-## Summary
+## Next steps
 
 After completing all the above steps, you will be able to run the Azure RemoteApp client and log-in with an assigned user. You will be presented with SSMS as one of your applications, and you can run it as you would if it were installed on your computer with access to Azure SQL Server. 
 
