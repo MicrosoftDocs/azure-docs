@@ -221,3 +221,11 @@ Update the back end pool setting to remove the probe and timeout setting using `
 Save the configuration to the application gateway using `Set-AzureRmApplicationGateway`
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+
+
+## Next steps
+
+If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-ssl.md).
+
+If you want to configure an Application Gateway to use with ILB, see [Create an Application Gateway with an Internal Load Balancer (ILB)](application-gateway-ilb.md).
+

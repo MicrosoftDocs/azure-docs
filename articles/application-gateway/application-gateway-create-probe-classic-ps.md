@@ -213,4 +213,10 @@ Update application gateway configuration with the new XML file using set-AzureAp
 
 	set-AzureApplicationGatewayConfig -Name <application gateway name> -Configfile "<path to file>"
 
+## Next steps
+
+If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-ssl.md).
+
+If you want to configure an Application Gateway to use with ILB, see [Create an Application Gateway with an Internal Load Balancer (ILB)](application-gateway-ilb.md).
+
 
