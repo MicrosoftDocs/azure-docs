@@ -94,6 +94,10 @@ Creates a public IP resource "publicIP01" in resource group "appgw-rg" for the W
 
 ## Create an application gateway configuration object with custom probe 
 
+You need to setup all configuration items before creating the application
+application gateway. The following steps create the configuration items needed for an application gateway resource
+
+
 ### Step 1
 
 Creates an Application Gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind each instance will take one IP address.

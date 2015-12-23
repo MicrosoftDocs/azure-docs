@@ -208,12 +208,9 @@ The following example shows how to use a configuration file to set up the Applic
 	</ApplicationGatewayConfiguration>
 
 
-
-
-
 ### Step 2
 
-Next, you'll set the Application Gateway. You will use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration XML file.
+Next, set the Application Gateway. Use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration XML file.
 
 
 	Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
