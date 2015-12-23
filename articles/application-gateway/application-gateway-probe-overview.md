@@ -36,19 +36,33 @@ If the default probe check fails for server A, the application gateway removes i
 
 The default probe uses only the IP addresses to check on the status. If you want to verify health by testing connectivity to a URL, you must use custom probe.
 
+### Default health probe settings
+
+|Probe properties | Value | Description|
+|---|---|---|
+| Probe URL| http[s]://127.0.0.1/ | URL path |
+| Interval | 30 | probe interval in seconds |
+| Timeout  | 30 | probe timeout in seconds |
+| Unhealthy Threshold | 3 | Probe retry count. Back end server is marked down after consecutive probe failure count reaches an unhealthy threshold |
+
 
 ## Custom health probe 
 
 Custom probes allow you to have a more granular control over the heath monitoring. When using custom probes you can configure the probe interval, the URL and path to test, and how many failed responses to accept before marking the back end pool instance as unhealthy.
 
 
-Custom probe settings:
+### Custom health probe settings
 
-- **Probe interval** - configures the probe interval checks.
-- **Probe timeout** - defines the probe timeout for an HTTP request check.
-- **Failed health probes** - specifies how many failed requests is needed to flag the instance as unhealthy.  
-- **Host name and path** - Complete URL path which is invoked by Application Gateway to determine health of the instance. For example: you have a web site http://contoso.com/ then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have successful HTTP response. 
+|Probe properties| Description|
+|---|---|
+| Name | Name of probe. This name is used to refer probe in backend Http settings |
+| Protocol | Protocol used to send probe. Http is the only valid protocols. We might support Https in future release |
+| Host |  Host name to send probe |
+| Path | Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host><path> |
+| Interval | Probe interval in seconds. This is the time interval between two consecutive probes| 
+| Timeout | Probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period |
+| Unhealthy Threshold | Probe retry count. Back end server is marked down after consecutive probe failure count reaches an unhealthy threshold |
 
 ## Next steps
 
-You can configure a [custom health probe](application-gateway-create-probe-ps.md) for Azure Resource manager or configure [custom health probe](application-gateway-create-probe-classic-ps.md) for Azure classic deployment model.
+After lerning about monitoring, you can configure a [custom health probe](application-gateway-create-probe-ps.md) for Azure Resource manager or configure [custom health probe](application-gateway-create-probe-classic-ps.md) for Azure classic deployment model.
