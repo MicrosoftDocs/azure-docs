@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create Hadoop clusters in HDInsight | Microsoft Azure"
-   	description="Learn how to create clusters for Azure HDInsight by using the Azure Portal, Azure PowerShell, a command line, or a .NET SDK."
+   pageTitle="Create Windows-based Hadoop clusters in HDInsight using .NET SDK | Microsoft Azure"
+   	description="Learn how to create HDInsight clusters for Azure HDInsight using .NET SDK."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -14,10 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="12/23/2015"
    ms.author="jgao"/>
 
-# Create Hadoop clusters in HDInsight
+# Create Windows-based Hadoop clusters in HDInsight using .NET SDK
+
+[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
+
 
 Learn how to plan for creating HDInsight clusters.
 

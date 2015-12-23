@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="12/23/2015"
 	ms.author="jgao"/>
 
 # Customize HDInsight clusters using Bootstrap
@@ -106,9 +106,21 @@ Some more samples on customizing other configuration files:
 
 For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creationg](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
-## Use .NET SDK
-
 ## Use Azure ARM template
+
+You can use bootstrap in ARM template:
+
+    "configurations": {
+        …
+        "hive-site": {
+            "hive.metastore.client.connect.retry.delay": "5",
+            "hive.execution.engine": "mr",
+            "hive.security.authorization.manager": "org.apache.hadoop.hive.ql.security.authorization.DefaultHiveAuthorizationProvider"
+        }
+    }
+
+
+![hdinsight hadoop customize cluster bootstrap arm template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## See also
 

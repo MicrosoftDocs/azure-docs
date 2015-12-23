@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create Windows-based Hadoop clusters in HDInsight | Microsoft Azure"
+   pageTitle="Create Windows-based Hadoop clusters in HDInsight using Azure PowerShell| Microsoft Azure"
    	description="Learn how to create clusters for Azure HDInsight by using Azure PowerShell."
    services="hdinsight"
    documentationCenter=""
@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/11/2015"
+   ms.date="12/23/2015"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using Azure PowerShell
+
+[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 Learn how to create HDInsight clusters using Azure PowerShell.
 
@@ -26,13 +28,13 @@ Learn how to create HDInsight clusters using Azure PowerShell.
 
 Before you begin the instructions in this article, you must have the following:
 
-- An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-
+- Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Azure PowerShell.  See [Install Azure PowerShell 1.0](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 
 
 ## Create using Azure PowerShell
-Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This section provides instructions on how to provision an HDInsight cluster by using Azure PowerShell. For information on configuring a workstation to run HDInsight Windows PowerShell cmdlets, see [Install and configure Azure PowerShell](../install-configure-powershell.md). For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This section provides instructions on how to create an HDInsight cluster by using Azure PowerShell. For information on configuring a workstation to run HDInsight Windows PowerShell cmdlets, see [Install and configure Azure PowerShell](../install-configure-powershell.md). For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md). For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference](https://msdn.microsoft.com/library/azure/dn858087.aspx).
 
 
 The following procedures are needed to create an HDInsight cluster by using Azure PowerShell:
@@ -94,7 +96,7 @@ Azure Resource Manager (ARM) template makes it easier to deploy and redeploy clu
 2. Make the parameters if needed.
 3. Run the template using the following PowerShell script:
 
-		$subscriptionId = "<Azure Subscription ID"
+		$subscriptionId = "<Azure Subscription ID>"
 		
 		$newResourceGroupName = "<Azure Resource Group Name>"
 		$Location = "EAST US 2" # for creating ARM group
@@ -122,7 +124,7 @@ Azure Resource Manager (ARM) template makes it easier to deploy and redeploy clu
 		# List cluster
 		Get-AzureRmHDInsightCluster -ResourceGroupName $newResourceGroupName -ClusterName $newClusterName 
 
-	The PowerShell script only configures the cluster name and the storage account name.  You can set other values in the ARM template. 
+	The PowerShell script only configures the cluster name and the storage account name.  You can set other values in the ARM template. See [hdinsight-hadoop-create-windows-clusters-powershell.md#appx-a:arm-template].
 	
 For deploying an ARM template using other methods, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 
@@ -138,7 +140,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 
 
-##Appendix A - ARM template
+##Appx-A: ARM template
 
 The following Azure Resource Manger template creates a Hadoop cluster with the dependent Azure storage account.
 
