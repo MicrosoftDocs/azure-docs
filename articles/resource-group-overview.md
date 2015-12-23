@@ -49,7 +49,7 @@ A resource group is a container that holds related resources for an application.
 
 There are some important factors to consider when defining your resource group:
 
-1. All of the resources in your group must share the same lifecycle. You will deploy, update and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group.
+1. All of the resources in your group should share the same lifecycle. You will deploy, update and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group.
 2. Each resource can only exist in one resource group.
 3. You can add or remove a resource to a resource group at any time.
 4. You can move a resource from one resource group to another group. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
