@@ -1,8 +1,8 @@
 
 
 <properties 
-   pageTitle="Create custom probe for Application Gateway using PowerShell in Resource Manager | Microsoft Azure"
-   description="Learn how to create custom probe for Application Gateway using PowerShell in Resource Manager"
+   pageTitle="Health monitoring overview for Azure Application Gateway | Microsoft Azure"
+   description="Learn about the monitoring capabilities in Azure Application Gateway"
    services="application-gateway"
    documentationCenter="na"
    authors="joaoma"
@@ -34,13 +34,13 @@ For example: You configure your application gateway to use back end servers A, B
 
 If the default probe check fails for server A, the application gateway removes it from its back end pool, and network traffic stops flowing to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, it is added back as healthy to the back end pool and traffic starts flowing to the server again.
 
-The default probe uses only the IP addresses to check on the status. If you want to verify health by testing connectivity to a URL, you must use custom probe.
+The default probe only looks at http://127.0.0.1:<port> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use Custom probes as described below.
 
 ### Default health probe settings
 
 |Probe properties | Value | Description|
 |---|---|---|
-| Probe URL| http[s]://127.0.0.1/ | URL path |
+| Probe URL| http://127.0.0.1/ | URL path |
 | Interval | 30 | probe interval in seconds |
 | Timeout  | 30 | probe timeout in seconds |
 | Unhealthy Threshold | 3 | Probe retry count. Back end server is marked down after consecutive probe failure count reaches an unhealthy threshold |
@@ -56,13 +56,13 @@ Custom probes allow you to have a more granular control over the heath monitorin
 |Probe properties| Description|
 |---|---|
 | Name | Name of probe. This name is used to refer probe in backend Http settings |
-| Protocol | Protocol used to send probe. Http is the only valid protocols. We might support Https in future release |
+| Protocol | Protocol used to send probe. Http is the only valid protocol |
 | Host |  Host name to send probe |
-| Path | Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host><path> |
+| Path | Relative path of probe. Valid path starts from '/'. Probe is sent to <protocol>://<host>:<port><path> |
 | Interval | Probe interval in seconds. This is the time interval between two consecutive probes| 
 | Timeout | Probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period |
 | Unhealthy Threshold | Probe retry count. Back end server is marked down after consecutive probe failure count reaches an unhealthy threshold |
 
 ## Next steps
 
-After lerning about monitoring, you can configure a [custom health probe](application-gateway-create-probe-ps.md) for Azure Resource manager or configure [custom health probe](application-gateway-create-probe-classic-ps.md) for Azure classic deployment model.
+After learning about application gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-ps.md) for Azure Resource manager or configure [custom health probe](application-gateway-create-probe-classic-ps.md) for Azure classic deployment model.
