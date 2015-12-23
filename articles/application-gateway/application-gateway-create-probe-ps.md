@@ -211,7 +211,7 @@ Remove the probe configuration from application gateway using `Remove-AzureRmApp
 
 ### Step 3 
 
-Change the back end pool setting to remove the probe and timeout setting using `-Set-AzureRmApplicationGatewayBackendHttpSettings`
+Update the back end pool setting to remove the probe and timeout setting using `-Set-AzureRmApplicationGatewayBackendHttpSettings`
 
 
 	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
