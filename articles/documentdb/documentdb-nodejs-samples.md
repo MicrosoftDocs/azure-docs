@@ -76,8 +76,6 @@ Task | API reference
 
 The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.IndexManagement/app.js) file of the [DocumentDB.Samples.IndexManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.IndexManagement) project shows how to perform the following tasks.
 
-As a reminder, the default indexing policy sets [IndexingPolicy.automatic](http://azure.github.io/azure-documentdb-node/global.html#IndexingPolicy) to **True** by default.
-
 Task | API reference
 --- | ---
 Create a collection with default indexing | [DocumentClient.createDocument](http://azure.github.io/azure-documentdb-node/DocumentClient.html)
