@@ -62,21 +62,26 @@ In the example above we created a resource group called "appgw-RG" and location 
 
 ## Create virtual network and subnet for application gateway
 
-The following example shows how to create a virtual network using Resource manager: 
+The following steps create a virtual network and a subnet for application gateway
 
 ### Step 1	
 	
-	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 Assigns the Address range 10.0.0.0/24 to subnet variable to be used to create a virtual network
 
+	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+
 ### Step 2	
+
+Creates a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24
+
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-Creates a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24	
 
 ### Step 3
-	
+
+Assign a subnet variable for the next steps creating an application gateway
+		
 	$subnet=$vnet.Subnets[0]
 
 ## Create public IP address for front end configuration
@@ -87,7 +92,6 @@ Creates a public IP resource "publicIP01" in resource group "appgw-rg" for the W
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
  
 
-
 ## Create an application gateway configuration object with custom probe 
 
 ### Step 1
@@ -95,7 +99,6 @@ Creates a public IP resource "publicIP01" in resource group "appgw-rg" for the W
 Creates an Application Gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind each instance will take one IP address.
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
-
 
  
 ### Step 2
@@ -111,7 +114,7 @@ This step will configure the back end IP address pool named "pool01" with IP add
 
 The custom probe is configured in this step. 
 
-the parameters used are: 
+The parameters used are: 
 
 - **-Interval** - configures the probe interval checks in seconds 
 - **-Timeout** - defines the probe timeout for an HTTP response check
@@ -125,9 +128,10 @@ the parameters used are:
 
 ### Step 4
 
+Configures application gateway settings "poolsetting01" for the traffic in the back end pool. This step also has a timeout configuration which is for the back end pool response to an application gateway request. When a back end response hits a timeout limit, application gateway will cancel the request. This is different from probe timeout which is only for the back end response to probe checks.
+
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
 
-Configures application gateway settings "poolsetting01" for the traffic in the back end pool. This step also has a timeout configuration which is for the back end pool response to an application gateway request. When a back end response hits a timeout limit, application gateway will cancel the request. This is different from probe timeout which is only for the back end response to probe checks.
 
 ### Step 5
 
@@ -142,13 +146,11 @@ Creates the front end IP configuration named "fipconfig01" and associates the pu
 
 	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-
 ### Step 7
 
 Creates the listener name "listener01" and associates the front end port to the frontend IP configuration.
 
 	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
-
 
 ### Step 8 
 
@@ -156,15 +158,14 @@ Creates the load balancer routing rule named "rule01" configuring the load balan
 
 	$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-
 ### Step 9
 
 Configures the instance size of the Application Gateway
 
->[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium and Standard_Large.
-
-
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+
+
+>[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium and Standard_Large.
 
 ## Create an application gateway using New-AzureRmApplicationGateway
 
@@ -172,10 +173,7 @@ Creates an Application Gateway will all configuration items from the steps above
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
-
-
 ## Add a probe to an existing application gateway
-
 
 You have four steps to add a custom probe to an existing application gateway.
 
@@ -184,7 +182,6 @@ You have four steps to add a custom probe to an existing application gateway.
 Load the application gateway resource into a PowerShell variable using `Get-AzureRmApplicationGateway`
 
 	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
 
 ### Step 2
 
@@ -237,11 +234,4 @@ Update the back end pool setting to remove the probe and timeout setting using `
 Save the configuration to the application gateway using `Set-AzureRmApplicationGateway`
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
-
-
-## Next steps
-
-If you want to configure SSL offload, see [Configure Application Gateway for SSL offload](application-gateway-ssl.md).
-
-If you want to configure an Application Gateway to use with ILB, see [Create an Application Gateway with an Internal Load Balancer (ILB)](application-gateway-ilb.md).
 

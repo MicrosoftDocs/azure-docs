@@ -71,7 +71,7 @@ Here follows the steps needed to create an Application Gateway:
 
 ## Create a resource group for Resource Manager
 
-Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at Using [Windows Powershell with Resource Manager](powershell-azure-resource-manager.md).
+Make sure you are using the latest version of Azure PowerShell. More info is available at Using [Windows Powershell with Resource Manager](powershell-azure-resource-manager.md).
 
 ### Step 1
 
