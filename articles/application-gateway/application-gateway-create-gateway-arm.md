@@ -75,7 +75,7 @@ Make sure you switch PowerShell mode to use the ARM cmdlets. More info is availa
 
 ### Step 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 
 
@@ -83,7 +83,7 @@ Make sure you switch PowerShell mode to use the ARM cmdlets. More info is availa
 
 Check the subscriptions for the account 
 
-		PS C:\> get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 You will be prompted to Authenticate with your credentials.<BR>
 
@@ -92,7 +92,7 @@ You will be prompted to Authenticate with your credentials.<BR>
 Choose which of your Azure subscriptions to use. <BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Step 4

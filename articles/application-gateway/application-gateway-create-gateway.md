@@ -70,7 +70,7 @@ To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing t
 The following example creates a new Application Gateway using a virtual network called "testvnet1" and a subnet called "subnet-1".
 
 
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -87,7 +87,7 @@ The following example creates a new Application Gateway using a virtual network 
 
 
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
 	Description   :
 	VnetName      : testvnet1
@@ -216,7 +216,7 @@ The following example shows how to use a configuration file to set up the Applic
 Next, you'll set the Application Gateway. You will use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration XML file.
 
 
-	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
+	Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -338,7 +338,7 @@ Once the gateway has been configured, use the `Start-AzureApplicationGateway` cm
 
 
 
-	PS C:\> Start-AzureApplicationGateway AppGwTest
+	Start-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -352,7 +352,7 @@ Use the `Get-AzureApplicationGateway` cmdlet to check the status of the gateway.
 
 The following example shows an Application Gateway that is up, running, and ready to take traffic destined to `http://<generated-dns-name>.cloudapp.net`.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -377,7 +377,7 @@ To delete an Application Gateway:
 
 The following example shows the `Stop-AzureApplicationGateway` cmdlet on the first line, followed by the output.
 
-	PS C:\> Stop-AzureApplicationGateway AppGwTest
+	Stop-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
@@ -388,7 +388,7 @@ The following example shows the `Stop-AzureApplicationGateway` cmdlet on the fir
 Once the Application Gateway is in a Stopped state, use the `Remove-AzureApplicationGateway` cmdlet to remove the service.
 
 
-	PS C:\> Remove-AzureApplicationGateway AppGwTest
+	Remove-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -399,7 +399,7 @@ Once the Application Gateway is in a Stopped state, use the `Remove-AzureApplica
 To verify that the service has been removed, you can use the `Get-AzureApplicationGateway` cmdlet. This step is not required.
 
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
