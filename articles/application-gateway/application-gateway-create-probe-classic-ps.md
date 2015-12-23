@@ -28,7 +28,7 @@
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 
-## Create a new Application Gateway (with custom probe)
+## Create a new application gateway 
 
 There is an order of steps you will have to follow to create an Application Gateway:
 
@@ -36,7 +36,7 @@ There is an order of steps you will have to follow to create an Application Gate
 2. Create configuration XML file or configuration object.
 3. Commit the configuration to newly created Application Gateway resource.
 
-### Create an Application Gateway Resource
+### Create an application gateway Resource
 
 To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
@@ -74,11 +74,11 @@ The following example creates a new Application Gateway using a virtual network 
 
  *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state.
 
-## Configure Application Gateway
+## Configure an application gateway
 
 You can configure Application Gateway using XML or a configuration object.
 
-## Configure Application Gateway using XML
+## Configure an application gateway using XML
 
 In the following example, you will use an XML file to configure all Application Gateway settings and commit them to the Application Gateway resource.  
 

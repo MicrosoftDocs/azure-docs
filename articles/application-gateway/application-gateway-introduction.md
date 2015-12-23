@@ -68,9 +68,7 @@ The table below shows an average performance throughput for each application gat
 ## Health monitoring
  
 
-Azure Application Gateway monitors the health of the back end instances every 30 seconds. It sends a HTTP health probe request to each instance at the port configured in *BackendHttpSettings* elements of the configuration. The health probe expects a successful HTTP response with response status code in range of 200-399.
-
-When a successful HTTP response is received, the back end server is marked as healthy and continues to receives traffic from Azure Application Gateway. If the probe fails, the back end instance is removed from the healthy pool, and traffic stops flowing to this server. The health probe still continues every 30 seconds to the failed back end instance to check its current health status. When the back end instance responds successfully to the health probe, it is added back as healthy to the back end pool, and traffic starts flowing to the instance again.
+Azure Application Gateway automatically monitors the health of the back end instances. Go to [probes and Application Gateway health monitoring](application-gateway-probe-overview.md) for more information.
 
 ## Configuring and managing
 

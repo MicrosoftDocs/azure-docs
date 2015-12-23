@@ -60,7 +60,7 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 In the example above we created a resource group called "appgw-RG" and location "West US". 
 
-## Create virtual network and subnet for Application Gateway
+## Create virtual network and subnet for application gateway
 
 The following example shows how to create a virtual network using Resource manager: 
 
@@ -86,7 +86,7 @@ Creates a virtual network named "appgwvnet" in resource group "appw-rg" for the 
 Creates a public IP resource "publicIP01" in resource group "appw-rg" for the West US region. 
 
 
-## Create an Application Gateway configuration object with custom probe 
+## Create an application gateway configuration object with custom probe 
 
 ### Step 1
 
@@ -151,34 +151,12 @@ Configures the instance size of the Application Gateway
 
 >[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium and Standard_Large.
 
-## Create Application Gateway using New-AzureApplicationGateway
+## Create an application gateway using New-AzureRmApplicationGateway
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -Probes $probe -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 Creates an Application Gateway will all configuration items from the steps above. In the example the Application Gateway is called "appgwtest". 
 
-
-## Start Application Gateway
-
-Once the gateway has been configured, use the `Start-AzureRmApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
-
-
-**Note:** The `Start-AzureRmApplicationGateway` cmdlet might take up to 15-20 minutes to complete. 
-
-For the example below, the Application Gateway is called "appgwtest" and the resource group is "appgw-rg":
-
-
-### Step 1
-
-Get the Application Gateway object and associate to a variable "$getgw":
- 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-### Step 2
-	 
-Use `Start-AzureRmApplicationGateway` to start the Application Gateway:
-
-	 Start-AzureRmApplicationGateway -ApplicationGateway $getgw 
 
 ## Add a probe to an existing application gateway
 
@@ -206,7 +184,7 @@ In the example, the custom probe is configured to check for URL path contoso.com
 Add the probe to the back end pool setting configuration to add probe and timeout using `-Set-AzureRmApplicationGatewayBackendHttpSettings`
 
 
-	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 66
+	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
 
 ### Step 4
 
