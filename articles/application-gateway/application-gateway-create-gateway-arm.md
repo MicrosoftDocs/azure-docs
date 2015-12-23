@@ -18,7 +18,7 @@
 
 # Create, start, or delete an Application Gateway using Azure Resource Manager
 
-Application Gateway is load balancer layer 7. It provides failover, performance routing HTTP requests between different servers, whether they are on the cloud or on premise. Application gateway has the following application delivery features: HTTP load balancing, Cookie based session affinity, SSL offload. 
+Application Gateway is layer 7 load balancer. It provides failover, performance routing HTTP requests between different servers, whether they are on the cloud or on premise. Application gateway has the following application delivery features: HTTP load balancing, Cookie based session affinity, SSL offload. 
 
 
 > [AZURE.SELECTOR]
