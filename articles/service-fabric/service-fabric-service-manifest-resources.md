@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Specifying Service Fabric Service Endpoints | Microsoft Azure"
-   description="How to describe endpoint resources in a service manifest, including setting up HTTPS endpoints"
+   pageTitle="Specifying Service Fabric service endpoints | Microsoft Azure"
+   description="How to describe endpoint resources in a service manifest, including how to set up HTTPS endpoints"
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -20,7 +20,7 @@
 
 ## Overview
 
-The service manifest allows resources that are used by the service to be declared/changed without changing the compiled code. Azure Service Fabric supports configuration of endpoint resources for the service. The access to the resources that are specified in the service manifest can be controlled via the SecurityGroup in the application manifest. The declaration of resources allows these resources to be changed at deployment time, rather than requiring the service to introduce a new configuration mechanism.
+The service manifest allows resources that are used by the service to be declared/changed without changing the compiled code. Azure Service Fabric supports configuration of endpoint resources for the service. The access to the resources that are specified in the service manifest can be controlled via the SecurityGroup in the application manifest. The declaration of resources allows these resources to be changed at deployment time, meaning the service doesn't need to introduce a new configuration mechanism.
 
 ## Endpoints
 
@@ -95,7 +95,7 @@ The HTTPS protocol provides server authentication and is also used for encryptin
 >[AZURE.NOTE] A service’s protocol cannot be changed during application upgrade, since this would be a breaking change.
 
 
-Here is an example ApplicationManifest that you need to set for HTTPS (you will need to provide the thumbprint for your certificate). The EndpointRef is a reference to EndpointResource in ServiceManifest for which you set the HTTPS protocol. You can add more than one Endpointcertificates.  
+Here is an example ApplicationManifest that you need to set for HTTPS (you will need to provide the thumbprint for your certificate). The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one Endpointcertificates.  
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -120,9 +120,9 @@ Here is an example ApplicationManifest that you need to set for HTTPS (you will 
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- The section below creates instances of service types, when an instance of this
-         application type is created. You can also create one or more instances of service type using the
-         ServiceFabric PowerShell module.
+    <!-- The section below creates instances of service types when an instance of this
+         application type is created. You can also create one or more instances of service type by using the
+         Service Fabric PowerShell module.
 
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Stateful1">
