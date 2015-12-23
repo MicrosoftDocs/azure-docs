@@ -32,7 +32,7 @@ Sample solutions that perform CRUD operations and other common operations on Doc
 2. You also need the [Microsoft.Azure.DocumentDB NuGet package](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
 > [AZURE.NOTE]
-Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issues multiple calls to CreateDocumentCollectionAsync(). Each time this is done your subscription will be billed for 1 hour of usage per the performance tier of the collection being created. 
+Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issue multiple calls to CreateDocumentCollectionAsync(). Each time this is done your subscription is billed for 1 hour of usage per the performance tier of the collection being created. 
 
 ## Database samples
 
