@@ -21,7 +21,7 @@
 
 # Service Fabric application upgrade using PowerShell
 
-The most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Azure Service Fabric monitors the health of the application being upgraded based on a set of health policies. When the applications in an upgrade domain (UD) have been upgraded, Service Fabric evaluates the application health and determines whether to proceed to the next upgrade domain or fail the upgrade based on the health policies.
+The most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Azure Service Fabric monitors the health of the application being upgraded based on a set of health policies. When the applications in an update domain (UD) have been upgraded, Service Fabric evaluates the application health and determines whether to proceed to the next update domain or fail the upgrade based on the health policies.
 
 A monitored application upgrade can be performed using the managed or native APIs, PowerShell, or REST. For instructions on performing an upgrade using Visual Studio, please see [Upgrading your application using Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
@@ -73,7 +73,7 @@ Now, build the project by selecting just the **ActorService** project, and then 
 
 Please familiarize yourself with the [application upgrade parameters](service-fabric-application-upgrade-parameters.md) and the [upgrade process](service-fabric-application-upgrade.md) to get a good understanding of the various upgrade parameters, time-outs, and health criterion applied. For this walkthrough, we will leave the service health evaluation criterion to be the default (and recommended) values, which means that all services and instances should be _healthy_ after the upgrade.  
 
-However, let's increase the *HealthCheckStableDuration* to 60 seconds (so that the services will be healthy for at least 20 seconds before the upgrade proceeds to the next upgrade domain).  Let's also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds.
+However, let's increase the *HealthCheckStableDuration* to 60 seconds (so that the services will be healthy for at least 20 seconds before the upgrade proceeds to the next update domain).  Let's also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds.
 
 Finally, let's also set the *UpgradeFailureAction* to rollback, thereby requesting that Service Fabric roll back the application to the previous version if it encounters any issues during upgrade. Thus, the upgrade parameters we'll specify when starting the upgrade (in Step 4) will be the following:
 
@@ -120,7 +120,7 @@ Note that the application name is the same as it was described in the *Applicati
 
 Now, as the application upgrade proceeds, you can monitor it using Service Fabric Explorer, or by using the following PowerShell command: **Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects**.
 
-In a few minutes, the status that you got by using the PowerShell command above, should state that all upgrade domains were upgraded (completed). And you should find that the visual objects in your browser window will now have started rotating!
+In a few minutes, the status that you got by using the PowerShell command above, should state that all update domains were upgraded (completed). And you should find that the visual objects in your browser window will now have started rotating!
 
 You may want to try changing the versions and moving from version 2 to version 3 as an exercise, or even from version 2 back to version 1 (yes, you can upgrade from v2 to v1). Play with time-outs and health policies to make yourself familiar with them. When you are deploying to an Azure cluster, the parameters used will be different than those used when deploying to a local cluster, so it's a good idea to set the time-outs conservatively.
 
