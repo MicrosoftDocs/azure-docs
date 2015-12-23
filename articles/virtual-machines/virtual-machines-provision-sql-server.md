@@ -119,7 +119,7 @@ Once you are connected to the virtual machine with Windows Remote Desktop, the v
 
 ##<a id="SSMS">Connect to the SQL Server VM instance from SSMS on another computer</a>
 
-The following steps demonstrate how to connect to the SQL Server instance in over the internet using SQL Server Management Studio (SSMS). However, the same steps apply to making your SQL Server virtual machine accessible for your applications, running both on-premises and in Azure classic deployment model.
+The following steps demonstrate how to connect to the SQL Server instance in over the internet using SQL Server Management Studio (SSMS). However, the same steps apply to making your SQL Server virtual machine accessible for your applications, running both on-premises and in Azure classic deployment model. If your virtual machine is deployed in resource manager model see [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-sql-server-connectivity-resource-manager.md)
 
 Before you can connect to the instance of SQL Server from another VM or the internet, you must complete the following tasks as described in the sections that follow:
 
