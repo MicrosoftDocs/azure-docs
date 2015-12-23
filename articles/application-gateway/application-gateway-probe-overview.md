@@ -19,7 +19,7 @@
    ms.date="12/17/2015"
    ms.author="joaoma" />
 
-# Health monitoring
+# Application gateway health monitoring overview 
 
 
 Azure Application Gateway by default monitors the health of all resources in its back end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to healthy back end pool, once they become available and respond to health probes.

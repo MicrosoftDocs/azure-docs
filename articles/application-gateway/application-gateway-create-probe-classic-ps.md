@@ -84,6 +84,8 @@ In the following example, you will use an XML file to configure all Application 
 
 ### Step 1  
 
+Copy the following text to Notepad.
+
 
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
@@ -147,6 +149,10 @@ In the following example, you will use an XML file to configure all Application 
 	</ApplicationGatewayConfiguration>
 
 
+Edit the values between the parenthesis for the configuration items. Save the file with extension .xml
+
+The following example shows how to use a configuration file to set up the Application Gateway to load balance Http traffic on public port 80 and send network traffic to back end port 80 between 2 IP addresses using custom probe.
+
 >[AZURE.IMPORTANT] The protocol item Http or Https is case sensitive.
 
 
@@ -169,49 +175,46 @@ Changing the current configuration of an application gateway requires three step
 
 ### Step 1
 
-Get the xml file using get-AzureApplicationGatewayConfig
+Get the xml file using get-AzureApplicationGatewayConfig. This will export the configuration XML to be modified to add a probe setting
 	
 	get-AzureApplicationGatewayConfig -Name <application gateway name> -Exporttofile "<path to file>"
 
 
 ### Step 2 
 
-Modify XML file to add probe settings
-
-Using the example above, add a `<probe>` section after `<frontendport>` 
-
-	 <Probes>
+Open the XML file in a text editor. Add `<probe>` section after `<frontendport>`
+	
+	<Probes>
         <Probe>
-            <Name>"probe name"</Name>
+            <Name>Probe01</Name>
             <Protocol>Http</Protocol>
-            <Host>"FQDN for the web site"</Host>
-            <Path>"custom path"</Path>
+            <Host>contoso.com</Host>
+            <Path>/path/custompath.htm</Path>
             <Interval>15</Interval>
             <Timeout>15</Timeout>
             <UnhealthyThreshold>5</UnhealthyThreshold>
         </Probe>
 
-modify `<backendhttpsettings>` adding probe name
-
-    <BackendHttpSettingsList>
+On backendHttpSettings section of the XML, Add the probe name as it shows in the example below:
+    
         <BackendHttpSettings>
-            <Name>"setting name"</Name>
+            <Name>setting1</Name>
             <Port>80</Port>
             <Protocol>Http</Protocol>
             <CookieBasedAffinity>Enabled</CookieBasedAffinity>
             <RequestTimeout>120</RequestTimeout>
-            <Probe>"probe name"</Probe>
+            <Probe>Probe01</Probe>
         </BackendHttpSettings>
-    </BackendHttpSettingsList>
 
 Save XML file
 
 
 ### Step 3 
 
-Update application gateway configuration with the new XML file using set-AzureApplicationGatewayConfig
+Update application gateway configuration with the new XML file using `Set-AzureApplicationGatewayConfig`. This will update your application gateway with the new configuration.
 
 	set-AzureApplicationGatewayConfig -Name <application gateway name> -Configfile "<path to file>"
+
 
 ## Next steps
 
