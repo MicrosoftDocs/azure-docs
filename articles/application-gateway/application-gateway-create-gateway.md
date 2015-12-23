@@ -30,12 +30,6 @@ Application Gateway is load balancer layer 7. It provides failover, performance 
 This article walks you through the steps to create and configure, start, and delete an Application Gateway.
 
 
->[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an Application Gateway using Azure Classic deployment. To use the Resource Manager version, go to [create an Application Gateway deployment using Resource Manager](application-gateway-create-gateway-arm.md).
-
-
-
-
-
 ## Before you begin
 
 1. Install the latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).

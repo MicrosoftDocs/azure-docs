@@ -33,11 +33,6 @@ You will learn how to download and modify and existing ARM template from GitHub,
 If you are simply deploying the ARM template directly from GitHub, without any changes, skip to deploy a template from github.
 
 
->[AZURE.IMPORTANT] Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Resource Manager, and classic. Make sure you understand [deployment models and tools](azure-classic-rm.md) before working with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.This document will cover creating an Application Gateway using Azure Resource Manager. To use the classic version, go to [create an Application Gateway classic deployment using PowerShell](application-gateway-create-gateway.md).
-
-
-
-
 ## Scenario
 
 In this scenario you will create:
