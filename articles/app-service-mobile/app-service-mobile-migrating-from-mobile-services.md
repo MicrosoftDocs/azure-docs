@@ -326,6 +326,35 @@ The following additional app settings are migrated from your Mobile Service and 
 The application key and master key should be identical to the Application Keys from your original Mobile Service.  In particular, the Application Key is
 sent by mobile clients to validate their use of the mobile API.
 
+### <a name="cliequivalents"></a>Command Line Equivalents
+
+You will no longer be able to utilize the _azure mobile_ command to manage your Azure Mobile Services site.  Instead, many functions have been replaced
+with the _azure site_ command.  Use the below table to find equivalents for common commands:
+
+| _Azure Mobile_ Command                     | Equivalent _Azure Site_ command            |
+| :----------------------------------------- | :----------------------------------------- |
+| mobile locations                           | site location list                         |
+| mobile list                                | site list                                  |
+| mobile show _name_                         | site show _name_                           |
+| mobile restart _name_                      | site restart _name_                        |
+| mobile redeploy _name_                     | site deployment redeploy _commitId_ _name_ |
+| mobile key set _name_ _type_ _value_       | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
+| mobile config list _name_                  | site appsetting list _name_                |
+| mobile config get _name_ _key_             | site appsetting show _key_ _name_          |
+| mobile config set _name_ _key_             | site appsetting delete _key_ _name_ <br/> site appsetting add _key_=_value_ _name_ |
+| mobile domain list _name_                  | site domain list _name_                    |
+| mobile domain add _name_ _domain_          | site domain add _domain_ _name_            |
+| mobile domain delete _name_                | site domain delete _domain_ _name_         |
+| mobile scale show _name_                   | site show _name_                           |
+| mobile scale change _name_                 | site scale mode _mode_ _name_ <br /> site scale instances _instances_ _name_ |
+| mobile appsetting list _name_              | site appsetting list _name_                |
+| mobile appsetting add _name_ _key_ _value_ | site appsetting add _key_=_value_ _name_   |
+| mobile appsetting delete _name_ _key_      | site appsetting delete _key_ _name_        |
+| mobile appsetting show _name_ _key_        | site appsetting delete _key_ _name_        |
+
+Update authentication or push notification settings by updating the appropriate Application Setting.
+Edit files and publish your site via ftp or git.
+
 ### <a name="diagnostics"></a>Diagnostics and Logging
 
 Diagnostic Logging is normally disabled in an Azure App Service.  To enable diagnostic logging:

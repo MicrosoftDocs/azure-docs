@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight | Microsoft Azure"
-   	description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using a browser, the Azure CLI, Azure PowerShell, REST, or through an SDK."
+   	pageTitle="Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight | Microsoft Azure"
+   	description="Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a browser, the Azure CLI, Azure PowerShell, REST, or through an SDK."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="12/08/2015"
    	ms.author="nitinme"/>
 
 
@@ -39,9 +39,9 @@ There are several types of HDInsight available:
 | Hadoop       | query and analysis (batch jobs)     |
 | HBase        | NoSQL data storage            |
 | Storm        | Real-time event processing |
-| Spark (Windows-only preview) | In-memory processing, interactive queries, micro-batch stream processing |
+| Spark (Preview) | In-memory processing, interactive queries, micro-batch stream processing |
 
-During configuration, you will select one of these types for the cluster. You can add other technologies such as Hue, Spark, or R to these basic types by using [Script Actions](#scriptaction).
+During configuration, you will select one of these types for the cluster. You can add other technologies such as Hue or R to these basic types by using [Script Actions](#scriptaction).
 
 Each cluster type has its own terminology for nodes within the cluster, as well as the number of nodes and the default VM size for each node type:
 
@@ -102,9 +102,9 @@ Cluster type allows you to select special purpose configurations for the cluster
 | Hadoop       | query and analysis (batch jobs)     |
 | HBase        | NoSQL data storage            |
 | Storm        | Real-time event processing |
-| Spark (Windows-only preview) | In-memory processing, interactive queries, micro-batch stream processing |
+| Spark (Preview) | In-memory processing, interactive queries, micro-batch stream processing |
 
-You can add other technologies such as Hue, Spark, or R to these basic types by using [Script Actions](#scriptaction).
+You can add other technologies such as Hue or R to these basic types by using [Script Actions](#scriptaction).
 
 ###Cluster operating system
 
@@ -167,7 +167,7 @@ Different cluster types have different node types, number of nodes, and node siz
 
 > [AZURE.IMPORTANT] If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
 
-When using the Azure Portal to configure the cluster, the Node size is available through the __Node Pricing Tier__ blade, and will also display the cost associated with the different node sizes. 
+When using the Azure preview portal to configure the cluster, the Node size is available through the __Node Pricing Tier__ blade, and will also display the cost associated with the different node sizes. 
 
 > [AZURE.IMPORTANT] Billing starts once a cluster is created, and only stops when the cluster is deleted. For more information on pricing, see [HDInsight pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -206,7 +206,7 @@ For more information on Virtual Network features, benefits, and capabilities, se
 >
 > Currently (8/25/2015,) you can only create one Linux-based cluster in an Azure Virtual Network.
 >
-> You cannot use a v1 (Classic,) Azure Virtual Network with Linux-based HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure Portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell.
+> You cannot use a v1 (Classic,) Azure Virtual Network with Linux-based HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure preview portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell.
 >
 > If you have resources on a v1 network, and you wish to make HDInsight directly accessible to those resources through a virtual network, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) for information on how to connect a v2 Virtual Network to a v1 Virtual Network. Once this connection is established, you can create the HDInsight cluster in the v2 Virtual Network.
 
@@ -236,7 +236,7 @@ In this article, you have learned basic information about creating a Linux-based
 
 | Use this to create a cluster... | Using a web browser... | Using a command-line | Using the REST API | Using an SDK | From Linux, Mac OS X, or Unix | From Windows |
 | ------------------------------- |:----------------------:|:--------------------:|:------------------:|:------------:|:-----------------------------:|:------------:|
-| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔      | ✔ |
+| [Azure preview portal](hdinsight-hadoop-create-linux-clusters-portal.md) | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔      | ✔ |
 | [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)         | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔      | ✔ |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) | &nbsp; | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔ |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl.md) | &nbsp; | ✔     | ✔ | &nbsp; | ✔      | ✔ |
@@ -289,4 +289,4 @@ In this article, you have learned basic information about creating a Linux-based
 
 [img-hdi-cluster]: ./media/hdinsight-hadoop-provision-linux-clusters/HDI.Cluster.png
 
-[89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
+  [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
