@@ -126,7 +126,7 @@ The table below shows each resource type with the possible allocation methods (d
 
 ## Limits
 
-The table below shows the limits imposed on IP addressing in Azure per region, per subscription. You can [contact support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
+The table below shows the limits imposed on IP addressing in Azure per region, per subscription. You can [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
 
 ||Default limit|Maximum limit|
 |---|---|---|
@@ -141,15 +141,15 @@ Make sure you read the full set of [limits for Networking](azure-subscription-se
 
 In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
-In summary, the following pricing structures are applied to public IP resources:
+In summary, the following pricing structure applies to public IP resources:
 
-- VPN gateways and application gateways can have only one dynamic public IP, which is free of cost.
-- VMs can use only one public IP, which is free as long as it is a dynamic IP address. If VMs use a static public IP, it gets counted towards Reserved IP usage.
-- Load balancers can have multiple public IPs. The first public IP is free of cost. Additional dynamic IPs are charged at $0.004/hr. Static public IPs get counted towards Reserved IP usage.
-- For static public IPs: 
-	- the first 5 (in use) are free. Additional static public IPs are charged at $0.004/hr. 
-	- unused static public IPs are charged at $0.004/hr. 
-	- charge is based on total number of static public IPs in the subscription.
+- VPN gateways and application gateways use only one dynamic public IP, which is free of cost.
+- VMs use only one public IP, which is free as long as it is a dynamic IP address. If a VM uses a static public IP, it gets counted towards Static (Reserved) Public IP usage.
+- Each load balancer can use multiple public IPs. The first public IP is free of cost. Additional dynamic IPs are charged at $0.004/hr. Static public IPs get counted towards Static (Reserved) Public IP usage.
+- Static (Reserved) Public IP usage: 
+	- First 5 (in-use) are free. Additional static public IPs are charged at $0.004/hr. 
+	- Static public IPs not assigned to any resource are charged at $0.004/hr.
+	- Usage is calculated based on the total number of static public IPs in the subscription.
 
 ## Next steps
 - [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-arm-template.md)
