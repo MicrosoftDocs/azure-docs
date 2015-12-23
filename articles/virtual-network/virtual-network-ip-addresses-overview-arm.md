@@ -25,7 +25,7 @@ Private IP addresses are used for communication within an Azure virtual network 
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
 
-I you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
+If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
 ## Public IP addresses
 Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [SQL databases](sql-database-technical-overview.md), and [Azure storage](storage-introduction.md).
@@ -47,8 +47,8 @@ To ensure the IP address for the associated resource remains the same, you can s
 Static public IP addresses are commonly used in the following scenarios:
 
 - end-users need to update firewall rules to communicate with your Azure resources.
-- you DNS name resolution, where a change in IP address would require updating A records.
-- your Azure resources communicate with other web services which use IP based security model.
+- DNS name resolution, where a change in IP address would require updating A records.
+- your Azure resources communicate with other apps or services that use an IP address based security model.
 - you use SSL certificates linked to an IP address.
 
 >[AZURE.NOTE] The list of IP ranges from which public IP addresses (dynamic/static) are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).

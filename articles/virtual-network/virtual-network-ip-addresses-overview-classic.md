@@ -80,7 +80,7 @@ The table below shows each resource type with the possible allocation methods (d
 ## Private IP addresses
 Private IP addresses allow Azure resources to communicate with other resources in a cloud service or a [virtual network](virtual-networks-overview.md)(VNet), or to on-premises network (through a VPN gateway or ExpressRoute circuit), without using an Internet-reachable IP address.
 
-In Azure classic deployment model, a private IP address is assigned to various Azure resources.
+In Azure classic deployment model, a private IP address can be assigned to the following Azure resources:
 
 - IaaS VMs and PaaS role instances
 - Internal load balancer
@@ -101,7 +101,7 @@ In case of a cloud service deployed within a virtual network, resources get priv
 
 Additionally, in case of cloud services within a VNet, a private IP address is allocated *dynamically* (using DHCP) by default. It can change when the resource is stopped and started. To ensure the IP address remains the same, you need to set the allocation method to *static*, and provide a valid IP address within the corresponding address range.
 
- Static private IP addresses are commonly used for:
+Static private IP addresses are commonly used for:
 
  - VMs that act as domain controllers or DNS servers.
  - VMs that require firewall rules using IP addresses.
