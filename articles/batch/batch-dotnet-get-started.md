@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="01/01/2016"
+	ms.date="12/22/2015"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch library for .NET  
@@ -52,7 +52,7 @@ The *DotNetTutorial* code sample is a Visual Studio 2013 solution consisting of 
 
 - **DotNetTutorial** is the client application that interacts with the Batch and Storage services to execute a parallel workload on compute nodes (virtual machines). DotNetTutorial runs on your local workstation.
 
-- **TaskApplication** is the executable that runs on the compute nodes to perform the actual work. In the sample, `TaskApplication.exe` parses the text in a text file downloaded from Azure Storage (the input file), and produces a text file (the output file) that contains a list of the top three words appearing in the input file. After creating the output file, TaskApplication then uploads the file to Azure Storage, making it available to the client application for download. TaskApplication runs in parallel on multiple compute nodes in the Batch service.
+- **TaskApplication** is the executable that runs on compute nodes in Azure to perform the actual work. In the sample, `TaskApplication.exe` parses the text in a file downloaded from Azure Storage (the input file), and produces a text file (the output file) that contains a list of the top three words appearing in the input file. After creating the output file, TaskApplication then uploads the file to Azure Storage, making it available to the client application for download. TaskApplication runs in parallel on multiple compute nodes in the Batch service.
 
 The following diagram illustrates the primary operations performed by the client application, *DotNetTutorial*, and the application that is executed by the tasks, *TaskApplication*. This basic workflow is typical of many compute solutions created with Batch, and while it does not demonstrate every feature available in the Batch service, nearly every Batch scenario will include similar processes.
 
@@ -568,7 +568,8 @@ if (response != "n" && response != "no")
 Now that you are familiar with the basic workflow of a Batch solution, it's time to dig in to the additional features of the Batch service.
 
 - [Overview of Azure Batch features](batch-api-basics) - This article provides an overview of many of the features of Batch, and is recommended reading for those new to the service.
-- Check out the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path]
+- Start on the other Batch development articles under **Development in-depth** in the [Batch learning path][batch_learning_path]
+- Check out a different implementation of processing the "top N words" workload using Batch in the [TopNWords][github_topnwords] sample
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_portal]: https://portal.azure.com
@@ -578,6 +579,7 @@ Now that you are familiar with the basic workflow of a Batch solution, it's time
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
+[github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
 [net_api]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_api_storage]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
