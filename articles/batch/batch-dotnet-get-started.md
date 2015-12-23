@@ -198,7 +198,7 @@ List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(blobClient, in
 
 There are two methods in `Program.cs` that are involved in the upload process:
 
-- `UploadFilesToContainerAsync` - This method returns a collection of [ResourceFile][net_resourcefile] objects, and internally calls `UploadFileToContainerAsync` to upload each file passed in the *filePaths* parameter. The collection of ResourceFiles is needed when we define the tasks, and is discussed below.
+- `UploadFilesToContainerAsync` - This method returns a collection of [ResourceFile][net_resourcefile] objects (discussed below) and internally calls `UploadFileToContainerAsync` to upload each file passed in the *filePaths* parameter.
 - `UploadFileToContainerAsync` - This is the method that actually performs the file upload and creates the [ResourceFile][net_resourcefile] objects. After uploading the file, it obtains a Shared Access Signature (SAS) for the file and returns a ResourceFile object representing it. Shared access signatures are also discussed below.
 
 ```
@@ -418,15 +418,15 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 ![Monitor tasks][6]<br/>
 *Client application (1) monitors the tasks for completion and success status, and (2) the tasks upload result data to Azure Storage*
 
-When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes within the pool associated with the job. Batch handles all task queuing and scheduling, retrying, and other task administration duties for you. There are many approaches to monitoring task execution, and DotNetTutorial shows a simple example that reports only on completion and task failure or success states.
+When tasks are added to a job, they are automatically queued and scheduled for execution on compute nodes within the pool associated with the job. Based on the settings you specify, Batch handles all task queuing, scheduling, retrying, and other task administration duties for you. There are many approaches to monitoring task execution - DotNetTutorial shows a simple example that reports only on completion and task failure or success states.
 
 Within the `MonitorTasks` method in DotNetTutorial's `Program.cs`, there are three Batch .NET concepts that warrant discussion, listed below in their order of appearance:
 
-1. **ODATADetailLevel** - Specifying an [ODATADetailLevel][net_odatadetaillevel] in list operations (such as obtaining a list of the tasks here in `MonitorTasks`) is essential in ensuring Batch application performance. Add [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to your reading list if you plan on doing any sort of monitoring within your Batch applications.
+1. **ODATADetailLevel** - Specifying an [ODATADetailLevel][net_odatadetaillevel] in list operations (such as obtaining a list of a job's tasks) is essential in ensuring Batch application performance. Add [Query the Azure Batch service efficiently](batch-efficient-list-queries.md) to your reading list if you plan on doing any sort of status monitoring within your Batch applications.
 
 2. **TaskStateMonitor** - The [TaskStateMonitor][net_taskstatemonitor] provides Batch .NET applications with helper utilities for monitoring task states. In `MonitorTasks`, *DotNetTutorial* waits for all tasks to reach [TaskState.Completed][net_taskstate] within a time limit, then terminates the job.
 
-3. **TerminateJobAsync** - Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. Explicitly terminating a job marks the job as complete, and is essential if your Batch solution uses a [JobReleaseTask][net_jobreltask], a special type of task detailed in [Job preparation and completion tasks](batch-job-prep-release).
+3. **TerminateJobAsync** - Terminating a job with [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] (or the blocking JobOperations.TerminateJob) will mark that job as completed. Doing so is essential if your Batch solution uses a [JobReleaseTask][net_jobreltask], a special type of task detailed in [Job preparation and completion tasks](batch-job-prep-release).
 
 The `MonitorTasks` method from *DotNetTutorial*'s `Program.cs` appears below:
 
