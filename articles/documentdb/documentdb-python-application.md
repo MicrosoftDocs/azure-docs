@@ -53,7 +53,7 @@ that you have the following installed:
 
 > [AZURE.IMPORTANT] If you are installing Python 2.7 for the first time, ensure that in the Customize Python 2.7.11 screen, you select **Add python.exe to Path**.
 > 
->    ![Screen shot of the Customize Python 2.7.11 screen, where you need to select Add python.exe to Path](./media/documentdb-python-application/addtopath.png)
+>    ![Screen shot of the Customize Python 2.7.11 screen, where you need to select Add python.exe to Path](./media/documentdb-python-application/image2.png)
 
 - Microsoft Visual C++ Compiler for Python 2.7 from the [Microsoft Download Center][3].
 
