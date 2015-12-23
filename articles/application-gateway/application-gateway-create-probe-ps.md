@@ -181,7 +181,7 @@ In the example, the custom probe is configured to check for URL path contoso.com
 
 ### Step 3
 
-Add the probe to the back end pool setting configuration to add probe and timeout using `-Set-AzureRmApplicationGatewayBackendHttpSettings`
+Add the probe to the back end pool setting configuration and timeout using `-Set-AzureRmApplicationGatewayBackendHttpSettings`
 
 
 	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
