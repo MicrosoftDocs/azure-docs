@@ -1,6 +1,6 @@
 <properties
    pageTitle="Service Fabric programming models | Microsoft Azure"
-   description="Azure Service Fabric offers two frameworks for building services: the actor framework and the services framework. They offer distinct tradeoffs in simplicity and control."
+   description="Service Fabric offers two frameworks for building services: the actor framework and the services framework. They offer distinct tradeoffs in simplicity and control."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -18,14 +18,14 @@
 
 # Choose a framework for your service
 
-Azure Service Fabric offers two high-level frameworks for building services--the Reliable Actors APIs and the Reliable Services APIs. While both are built on the same Service Fabric core, they make different tradeoffs between simplicity and flexibility in terms of concurrency, partitioning, and communication. It is useful to understand both models so that you can choose the appropriate framework for a particular service within your application.
+Azure Service Fabric offers two high-level frameworks for building services: the Reliable Actors APIs and the Reliable Services APIs. While both are built on the same Service Fabric core, they make different tradeoffs between simplicity and flexibility in terms of concurrency, partitioning, and communication. It is useful to understand both models so that you can choose the appropriate framework for a particular service within your application.
 
 ## Comparing the Reliable Actors APIs and the Reliable Services APIs
 
 |**When to choose Reliable Actors APIs**|**When to choose Reliable Services APIs**|
 |-----------------------|--------------------------|
 |Your problem space involves many small, independent units of state and logic.|You need to maintain logic across multiple components.|
-|You want to work with single-threaded objects while still being able to scale and maintain consistency.|You want to use reliable collections (like .NET Dictionary and Queue) to store and manage your state.|
+|You want to work with single-threaded objects while still being able to scale and maintain consistency.|You want to use Reliable Collections (like .NET Dictionary and Queue) to store and manage your state.|
 |You want the framework to manage the concurrency and granularity of state.|You want to control the granularity and concurrency of your state.|
 |You want the platform to manage communication for you.|You want to manage communication and control the partitioning scheme for your service.|
 
