@@ -132,7 +132,8 @@ Professional broadcasters typically work with high-end on-premises live encoders
 
 Considerations:
 
-- The use of a single program transport stream (SPTS) input is strongly recommended. The use of multiple language audio tracks, however, is supported
+- The use of a single program transport stream (SPTS) input is strongly recommended. 
+- You can input up to 8 audio streams using MPEG-2 TS over RTP. 
 - The video stream should have an average bitrate below 15 Mbps
 - The aggregate average bitrate of the audio streams should be below 1 Mbps
 - Following are the supported codecs:
