@@ -62,7 +62,7 @@ The administrator access control type has full access to all the FabricClient AP
 * **ReportFabricUpgradeHealth**: resuming cluster upgrades with the current upgrade progress 							
 * **StartInfrastructureTask**: starting infrastructure tasks 							
 * **FinishInfrastructureTask**: finishing infrastructure tasks 							
-* **InvokeInfrastructureCommand**: managing infrastructure tasks  							
+* **InvokeInfrastructureCommand**: infrastructure task management commands  							
 * **ActivateNode**: activating a node 							
 * **DeactivateNode**: deactivating a node 							
 * **DeactivateNodesBatch**: deactivating multiple nodes 							
@@ -90,11 +90,11 @@ The user access control type is, by default, limited to the following operations
 * **EnumerateSubnames**: naming URI enumeration 							
 * **EnumerateProperties**: naming property enumeration 							
 * **PropertyReadBatch**: naming property read operations 							
-* **GetServiceDescription**: providing long-poll service notifications and reading service descriptions 							
-* **ResolveService**: resolving complaint-based service  							
+* **GetServiceDescription**: long-poll service notifications and reading service descriptions 							
+* **ResolveService**: complaint-based service resolution 							
 * **ResolveNameOwner**: resolving naming URI owner 							
 * **ResolvePartition**: resolving system services 							
-* **ServiceNotifications**: providing event-based service notifications 							
+* **ServiceNotifications**: event-based service notifications 							
 * **GetUpgradeStatus**: polling application upgrade status 							
 * **GetFabricUpgradeStatus**: polling cluster upgrade status 							
 * **InvokeInfrastructureQuery**: querying infrastructure tasks 							
