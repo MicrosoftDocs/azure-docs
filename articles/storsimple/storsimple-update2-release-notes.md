@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/17/2015"
+   ms.date="12/22/2015"
    ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 2 release notes  
@@ -98,7 +98,7 @@ The following table provides a summary of known issues in this release.
 | 17 | Locally pinned volumes | Your restore job exposes the temporary snapshot backup in the Backup Catalog, but only for the duration of the restore job. | This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. | Yes | No |
 | 18 | Locally pinned volumes | If you cancel a restore job and a controller failover occurs immediately afterwards, the restore job will show **Failed** instead of **Canceled**. If a restore job fails and a controller failover occurs immediately afterwards, the restore job will show **Canceled** instead of **Failed**. | This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. | Yes | No |
 | 19 |Locally pinned volumes | If you cancel a restore job or if a restore fails and then a controller failover occurs, an additional restore job appears on the **Jobs** page. | This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required. | Yes | No |
-| 20 |Preview message on creation of the StorSimple Manager Service | The preview message that is displayed on creation of a StorSimple Manager Service is applicable only to the Microsoft Azure StorSimple Virtual Array series. The Virtual Array series was launched recently and is a preview offering at this time, covered by the [preview supplemental terms](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/). The StorSimple Manager Service and the StorSimple physical device series are general availability solutions and the preview supplemental terms do not apply to them. | |  |
+| 20 |Preview message on creation of the StorSimple Manager Service | The preview message that is displayed on creation of a StorSimple Manager Service is applicable only to the Microsoft Azure StorSimple Virtual Array series. The Virtual Array series was launched recently and is a preview offering at this time, covered by the [preview supplemental terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The StorSimple Manager Service and the StorSimple physical device series are general availability solutions and the preview supplemental terms do not apply to them. | |  |
 | 21 |Locally pinned volumes | Your restore job exposes a virtual disk group with prefix **tmpCollection** on the **Backup Policies** page, but only for the duration of the restore job.|This behavior can occur if your restore job has only locally pinned volumes or a mix of locally pinned and tiered volumes. If the restore job includes only tiered volumes, then this behavior will not occur. No user intervention is required.|
 
 ## Controller and firmware updates in Update 2
