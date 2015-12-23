@@ -14,21 +14,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="12/22/2015" 
 	ms.author="nitinme"/>
 
 # Analyze logs in HDInsight Spark using a custom library (Linux)
 
 This notebook demonstrates how to analyze log data using a custom library with Spark on HDInsight. The custom library we use is a Python library called **iislogparser.py**.
 
-> [AZURE.TIP] This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, provision a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Analyze logs with Spark using a custom library.ipynb** under the **Python** folder.
+> [AZURE.TIP] This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Analyze logs with Spark using a custom library.ipynb** under the **Python** folder.
 
 **Prerequisites:**
 
 You must have the following:
 
 - An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- An Apache Spark cluster on HDInsight Linux. For instructions, see [Provision Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
+- An Apache Spark cluster on HDInsight Linux. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 ## Save raw data as an RDD
 
@@ -46,11 +46,11 @@ Once your data is saved as a Hive table, in the next section we will connect to 
 
 2. Create a new notebook. Click **New**, and then click **Python 2**.
 
-	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-custom-library-website-log-analysis/HDI.Spark.Note.Jupyter.CreateNotebook.png "Create a new Jupyter notebook")
+	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
 3. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
 
-	![Provide a name for the notebook](./media/hdinsight-apache-spark-custom-library-website-log-analysis/HDI.Spark.Note.Jupyter.Notebook.Name.png "Provide a name for the notebook")
+	![Provide a name for the notebook](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
 4. Import the required modules and create the Spark and SQL contexts. Paste the following snippet in an empty cell, and then press **SHIFT + ENTER**.
 

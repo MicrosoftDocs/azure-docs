@@ -67,7 +67,7 @@ Example:
 ##<a name="seealso"></a>See also
 
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
-* [Provision a Spark on HDInsight cluster](hdinsight-apache-spark-provision-clusters.md)
+* [Create a Spark on HDInsight cluster](hdinsight-apache-spark-provision-clusters.md)
 * [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools-v1.md)
 * [Use Spark in HDInsight for building machine learning applications](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
 * [Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)

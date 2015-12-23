@@ -33,7 +33,7 @@ In this tutorial, you will learn how to create an Azure Event Hub, how to ingest
 You must have the following:
 
 - An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- An Apache Spark cluster. For instructions, see [Provision Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
+- An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 - An [Azure Event Hub](service-bus-event-hubs-csharp-ephcs-getstarted.md).
 - A workstation with Microsoft Visual Studio 2013. For instructions, see [Install Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -43,13 +43,13 @@ You must have the following:
 
 2. On the **Add a new Event Hub** screen, enter an **Event Hub Name**, select the **Region** to create the hub in, and create a new namespace or select an existing one. Click the **Arrow** to continue.
 
-	![wizard page 1](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub.png "Create an Azure Event Hub")
+	![wizard page 1](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub.png "Create an Azure Event Hub")
 
 	> [AZURE.NOTE] You should select the same **Location** as your Apache Spark cluster in HDInsight to reduce latency and costs.
 
 3. On the **Configure Event Hub** screen, enter the **Partition count** and **Message Retention** values, and then click the check mark. For this example, use a partition count of 10 and a message retention of 1. Note the partition count because you will need this value later.
 
-	![wizard page 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub2.png "Specify partition size and retention days for Event Hub")
+	![wizard page 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Specify partition size and retention days for Event Hub")
 
 4. Click the Event Hub that you created, click **Configure**, and then create two access policies for the event hub.
 
@@ -61,16 +61,16 @@ You must have the following:
 
 	After You create the permissions, select the **Save** icon at the bottom of the page. This creates the shared access policies that will be used to send (**mysendpolicy**) and listen (**myreceivepolicy**) to this Event Hub.
 
-	![policies](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "Create Event Hub policies")
+	![policies](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Create Event Hub policies")
 
 	
 5. On the same page, take a note of the policy keys generated for the two policies. Save these keys because they will be used later.
 
-	![policy keys](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Keys.png "Save policy keys")
+	![policy keys](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Save policy keys")
 
 6. On the **Dashboard** page, click **Connection Information** from the bottom to retrieve and save the connection strings for the Event Hub using the two policies.
 
-	![policy keys](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Connection.Strings.png "Save policy connection strings")
+	![policy keys](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Save policy connection strings")
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
@@ -104,13 +104,13 @@ For instructions on how to allocate resources in a Spark cluster, see [Manage re
 
 2. Create a new notebook. From the header pane, click **Notebook**, and from the drop-down, click **Create New Note**.
 
-	![Create a new Zeppelin notebook](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "Create a new Zeppelin notebook")
+	![Create a new Zeppelin notebook](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.createnewnote.png "Create a new Zeppelin notebook")
 
 	On the same page, under the **Notebook** heading, you should see a new notebook with the name starting with **Note XXXXXXXXX**. Click the new notebook.
 
 3. On the web page for the new notebook, click the heading, and change the name of the notebook if you want to. Press ENTER to save the name change. Also, make sure the notebook header shows a **Connected** status in the top-right corner.
 
-	![Zeppelin notebook status](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Zeppelin notebook status")
+	![Zeppelin notebook status](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.newnote.connected.png "Zeppelin notebook status")
 
 4. In the empty paragraph that is created by default in the new notebook, paste the following snippet and replace the placeholders to use your event hub configuration. In this snippet, you receive the stream from Event Hub and register the stream into a temporary table, called **mytemptable**. In the next section, we will start the sender application. You can then read the data directly from the table.
 
@@ -147,7 +147,7 @@ For instructions on how to allocate resources in a Spark cluster, see [Manage re
 
 	The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED. The output will show up in the bottom of the same paragraph. The screenshot looks like the following:
 
-	![Output of the snippet](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Code.Output.png "Output of the snipet")
+	![Output of the snippet](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.zeppelin.code.output.png "Output of the snipet")
 
 2. Run the **Sender** project and press **Enter** in the console window to start sending messages to the Event Hub.
 
@@ -158,11 +158,11 @@ For instructions on how to allocate resources in a Spark cluster, see [Manage re
 
 	The following screen capture shows the messages received in the **mytemptable**.
 
-	![Receive the messages in Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Output.png "Receive messages in Zeppelin notebook")
+	![Receive the messages in Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.zeppelin.output.png "Receive messages in Zeppelin notebook")
 
 4. Restart the Spark SQL interpreter to exit the application. Click the **Interpreter** tab at the top, and for the Spark interpreter, click **Restart**.
 
-	![Restart the Zeppelin intepreter](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Zeppelin.Restart.Interpreter.png "Restart the Zeppelin intepreter")
+	![Restart the Zeppelin intepreter](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.zeppelin.restart.interpreter.png "Restart the Zeppelin intepreter")
 
 ##<a name="sparkstreamingha"></a>Run the streaming application with high availability
 
@@ -180,7 +180,7 @@ Instructions on how to perform these steps and a sample streaming application ca
 
 
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
-* [Quick Start: Provision Apache Spark on HDInsight and run interactive queries using Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [Quick Start: create Apache Spark on HDInsight and run interactive queries using Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 * [Use Spark in HDInsight for building machine learning applications](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
 * [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools-v1.md)
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)
