@@ -104,7 +104,7 @@ On the **Create Virtual Machine** blade under **Settings**, configure Azure stor
 
 - Azure enables **Monitoring** by default with the same storage account designated for the VM. You can change these settings here.
 
-- Under **Availability set** specify an availability set. For the purposes of this tutorial, you can select **none**. If you plan to set up SQL AlwaysOn Availabiltiy Groups, configure the availability to avoid recreating the virtual machine.  For more information, see [Manage the Availability of Virtual Machines](virtual-machines-manage-availability.md).
+- Under **Availability set** specify an availability set. For the purposes of this tutorial, you can select **none**. If you plan to set up SQL AlwaysOn Availability Groups, configure the availability to avoid recreating the virtual machine.  For more information, see [Manage the Availability of Virtual Machines](virtual-machines-manage-availability.md).
 
 ## 4. Configure SQL Server
 On the **Create Virtual Machine** blade under **Configure SQL Server** configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include:
