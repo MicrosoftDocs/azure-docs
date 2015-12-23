@@ -86,12 +86,12 @@ In the following example, you will use an XML file to configure all Application 
 
 
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
-               <FrontendIPConfigurations>
-                                <FrontendIPConfiguration>
-                                                <Name>fip1</Name>
-                                                <Type>Private</Type>
-                                </FrontendIPConfiguration>
-                </FrontendIPConfigurations>    
+    <FrontendIPConfigurations>
+        <FrontendIPConfiguration>
+            <Name>fip1</Name>
+            <Type>Private</Type>
+        </FrontendIPConfiguration>
+    </FrontendIPConfigurations>    
 	<FrontendPorts>
         <FrontendPort>
             <Name>port1</Name>

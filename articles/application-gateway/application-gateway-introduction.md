@@ -30,23 +30,12 @@ Application Gateway currently supports layer 7 application delivery for the foll
 
 ![Application Gateway](./media/application-gateway-introduction/appgateway1.png)
 
-## HTTP layer 7 load balancing
-
-Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service. The Application Gateway then will apply the routing rules to HTTP traffic, providing level 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) will be associated and used as public IP for ingress network traffic.
-
-The Application Gateway will route the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, web app or an external IP address.
-
-The diagram below explains how traffic flows for Application Gateway:
-
- 
-![Application Gateway2](./media/application-gateway-introduction/appgateway2.png)
-
 HTTP layer 7 load balancing is useful for:
-
 
 - Applications that require requests from the same user/client session to reach the same back-end VM. Examples of this would be shopping cart apps and web mail servers.
 - Applications that want to free web server farms from SSL termination overhead.
 - Applications, such as CDN, that require multiple HTTP requests on the same long-running TCP connection to be routed/load balanced to different backend servers.
+
 
 ## Gateway sizes and instances
 

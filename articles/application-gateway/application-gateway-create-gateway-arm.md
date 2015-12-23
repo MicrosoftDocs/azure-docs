@@ -187,36 +187,12 @@ Configures the instance size of the Application Gateway
 
 >[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium and Standard_Large.
 
-## Create Application Gateway using New-AzureApplicationGateway
+## Create Application Gateway using New-AzureRmApplicationGateway
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 Creates an Application Gateway will all configuration items from the steps above. In the example the Application Gateway is called "appgwtest". 
 
-
-## Start Application Gateway
-
-Once the gateway has been configured, use the `Start-AzureRmApplicationGateway` cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started. 
-
-
-**Note:** The `Start-AzureRmApplicationGateway` cmdlet might take up to 15-20 minutes to complete. 
-
-For the example below, the Application Gateway is called "appgwtest" and the resource group is "app-rg":
-
-
-### Step 1
-
-Get the Application Gateway object and associate to a variable "$getgw":
- 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName app-rg
-
-### Step 2
-	 
-Use `Start-AzureRmApplicationGateway` to start the Application Gateway:
-
-	 Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
-
-	
 
 ## Verify the Application Gateway status
 

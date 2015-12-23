@@ -161,7 +161,7 @@ Creates an Application Gateway will all configuration items from the steps above
 ## Add a probe to an existing application gateway
 
 
-You have three steps to add a custom probe to an existing application gateway.
+You have four steps to add a custom probe to an existing application gateway.
 
 ### Step 1 
 
@@ -192,23 +192,32 @@ Save the configuration to the application gateway using `Set-AzureRmApplicationG
 
 	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
 
-You will get the following output when using verbose for the command:
+## Remove a probe from an existing application gateway
 
-	Sku                               : Microsoft.Azure.Commands.Network.Models.PSApplicationGatewaySku
-	GatewayIPConfigurations           : {gatewayIP01}
-	SslCertificates                   : {}
-	FrontendIPConfigurations          : {fipconfig01}
-	FrontendPorts                     : {frontendport01}
-	Probes                            : {probe01}
-	BackendAddressPools               : {pool01}
-	BackendHttpSettingsCollection     : {poolsetting01}
-	HttpListeners                     : {listener01}
-	UrlPathMaps                       : {}
-	RequestRoutingRules               : {rule01}
-	OperationalState                  :
-	ProvisioningState                 : Succeeded
-	GatewayIpConfigurationsText       : [
-                                      {
+Here are the steps to remove a custom probe from an existing application gateway.
+
+### Step 1 
+
+Load the application gateway resource into a PowerShell variable using `Get-AzureRmApplicationGateway`
+
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 
+### Step 2 
+
+Remove the probe configuration from application gateway using `Remove-AzureRmApplicationGatewayProbeConfig`
+
+	$getgw = Remove-AzureRmApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name $getgw.Probes.name
+
+### Step 3 
+
+Change the back end pool setting to remove the probe and timeout setting using `-Set-AzureRmApplicationGatewayBackendHttpSettings`
+
+
+	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
+
+### Step 4
 	
+Save the configuration to the application gateway using `Set-AzureRmApplicationGateway`
+
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
