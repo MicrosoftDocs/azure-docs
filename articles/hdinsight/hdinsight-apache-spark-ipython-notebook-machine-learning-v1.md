@@ -29,7 +29,7 @@ Learn how to build a machine learning application using an Apache Spark cluster 
 You must have the following:
 
 - An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- An Apache Spark cluster. For instructions, see [Provision Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md). 
+- An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md). 
 
 ##<a name="data"></a>Show me the data
 
@@ -227,7 +227,7 @@ Apache Spark clusters on HDInsight include Anaconda libraries. This also include
 ##<a name="seealso"></a>See also
 
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
-* [Provision a Spark on HDInsight cluster](hdinsight-apache-spark-provision-clusters.md)
+* [Create a Spark on HDInsight cluster](hdinsight-apache-spark-provision-clusters.md)
 * [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools-v1.md)
 * [Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)

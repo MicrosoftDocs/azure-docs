@@ -39,7 +39,7 @@ Learn how to create an Apache Spark cluster in HDInsight and then use [Jupyter](
 	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 
-## <a name="provision"></a>Create a Spark Cluster on HDInsight Linux
+##>Create a Spark Cluster on HDInsight Linux
 
 In this section, you create an HDInsight version 3.3 cluster, which is based on Spark version 1.5.1. For information about HDInsight versions and their SLAs, see [HDInsight component versioning](hdinsight-component-versioning.md).
 
@@ -78,7 +78,7 @@ In this section, you create an HDInsight version 3.3 cluster, which is based on 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 
-7. Click **Data Source** to choose an existing data source for the cluster, or create a new one. When you create a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated as the default file system, like in the Hadoop distributed file system (HDFS). By default, the HDInsight cluster is provisioned in the same data center as the storage account you specify. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage]
+7. Click **Data Source** to choose an existing data source for the cluster, or create a new one. When you create a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated as the default file system, like in the Hadoop distributed file system (HDFS). By default, the HDInsight cluster is created in the same data center as the storage account you specify. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage]
 
 	![Data source blade](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.createcluster.4.png "Provide data source configuration")
 
@@ -106,7 +106,7 @@ In this section, you create an HDInsight version 3.3 cluster, which is based on 
 
 	| While creating | creation complete |
 	| ------------------ | --------------------- |
-	| ![Provisioning indicator on startboard](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioned.png) |
+	| ![Creating indicator on startboard](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioning.png) | ![Provisioned cluster tile](./media/hdinsight-apache-spark-jupyter-spark-sql/provisioned.png) |
 
 	> [AZURE.NOTE] It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process.
 
