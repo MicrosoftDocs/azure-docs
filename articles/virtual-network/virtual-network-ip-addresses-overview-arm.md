@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/23/2015"
    ms.author="telmos" />
 
 # IP addresses in Azure Resource Manager
@@ -24,6 +24,8 @@ Public IP addresses are used for communication with the Internet, including Azur
 Private IP addresses are used for communication within an Azure virtual network (VNet), and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+
+I you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
 ## Public IP addresses
 Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [SQL databases](sql-database-technical-overview.md), and [Azure storage](storage-introduction.md).
@@ -122,19 +124,22 @@ The table below shows each resource type with the possible allocation methods (d
 |Internal Load balancer front end|Yes|Yes|Yes|
 |Application gateway front end|Yes|Yes|Yes|
 
-## Comparison between Resource Manager and Classic deployments
-Below is a comparison of IP address in resource manager with the classic deployment model.
+## Limits
 
-||Resource|Classic|Resource Manager|
-|---|---|---|---|
-|**Public IP Address**|VM|Referred to as an ILPIP (dynamic only)|Referred to as a public IP (dynamic or static)|
-|||Assigned to an IaaS VM or a PaaS role instance|Associated to the VM's NIC|
-||Internet facing load balancer|Referred to as VIP (dynamic) or Reserved IP (static)|Referred to as a public IP (dynamic or static)|
-|||Assigned to a cloud service|Associated to the load balancer's front end config|
-||||
-|**Private IP Address**|VM|Referred to as a DIP|Referred to as a private IP address|
-|||Assigned to an IaaS VM or a PaaS role instance|Assigned to the VM's NIC|
-||Internal load balancer (ILB)|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end configuration (dynamic or static)|
+The table below shows the limits imposed on IP addressing in Azure per region, per subscription. You can call support to increase the default limits up to the maximum limits based on your business needs.
+
+||Default limit|Maximum limit|
+|---|---|---|
+|Public IP addresses (dynamic)|60|contact support|
+|Public IP addresses (static)|20|contact support|
+|Public front end IP per load balancer|5|contact support|
+|Private front end IP per load balancer|1|contact support|
+
+Make sure you read the full set of [limits for Networking](azure-subscription-service-limits.md#networking-limits) in Azure.
+
+## Pricing
+
+Public IP addresses incur an extra cost to your Azure infrastructure. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Next steps
 - [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-arm-template.md)
