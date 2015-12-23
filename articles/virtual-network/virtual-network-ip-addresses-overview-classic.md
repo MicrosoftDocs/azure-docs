@@ -130,7 +130,7 @@ The table below shows each resource type with the possible allocation methods (d
 
 ## Limits
 
-The table below shows the limits imposed on IP addressing in Azure per subscription. You can call support to increase the default limits up to the maximum limits based on your business needs.
+The table below shows the limits imposed on IP addressing in Azure per subscription. You can [contact support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
 
 ||Default limit|Maximum limit|
 |---|---|---|
@@ -143,7 +143,7 @@ Make sure you read the full set of [limits for Networking](azure-subscription-se
 
 ## Pricing
 
-Public IP addresses incur an extra cost to your Azure infrastructure. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).
+In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Differences between Resource Manager and classic deployments
 Below is a comparison of IP addressing features in Resource Manager and the classic deployment model.
