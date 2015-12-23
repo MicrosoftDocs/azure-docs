@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/22/2015"
+   ms.date="12/23/2015"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using the Azure Portal
@@ -35,7 +35,7 @@ Before you begin the instructions in this article, you must have the following:
 
 **To create an HDInsight cluster**
 
-1. Sign in to the [Azure Portal][azure-preview-portal].
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
     ![Creating a new cluster in the Azure Portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
