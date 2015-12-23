@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/09/2015"
+   ms.date="12/08/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -65,7 +65,7 @@ Within the template, you define the infrastructure for your app, how to configur
 
 You do not have to define your entire infrastructure in a single template. Often, it makes sense to divide your deployment requirements into a set of targeted, purpose-specific templates. You can easily re-use these templates for different solutions. To deploy a particular solution, you create a master template that links all of the required templates. For more information, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
-You can also use the template for updates to the infrastructure. For example, you can add a new resource to your app and add configuration rules for the resources that are already deployed. If the template specifies creating a new resource but that resource already exists, Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager updates the existing asset to the same state as it would be as new.
+You can also use the template for updates to the infrastructure. For example, you can add a new resource to your app and add configuration rules for the resources that are already deployed. If the template specifies creating a new resource but that resource already exists, Azure Resource Manager performs an update instead of creating a new asset. Azure Resource Manager updates the existing asset to the same state as it would be as new. Or, you can specify that Resource Manager delete any resources that are not specified in the template. To understand the differences options when deploying, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md). 
 
 You can specify parameters in your template to allow for customization and flexibility in deployment. For example, you can pass parameter values that tailor deployment for your test environment. By specifying the parameters, you can use the same template for deployment to all of your app’s environments.
 
@@ -99,9 +99,7 @@ Resource Manager enables you to control who has access to specific actions for y
 
 Resource Manager automatically logs user actions for auditing. For informatin about working with the audit logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 
-For more information about role-based access control, see [Role-based access control in the Microsoft Azure preview portal](role-based-access-control-configure.md). This topic contains a list of the built-in roles and the permitted actions. The built-in roles include general roles such as Owner, Reader, and Contributor; as well as, service-specific roles such as Virtual Machine Contributor, Virtual Network Contributor, and SQL Security Manager (to name just a few of the available roles).
-
-For examples of assigning roles, see [Managing access to resources](resource-group-rbac.md).
+For more information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). The [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md) topic contains a list of the built-in roles and the permitted actions. The built-in roles include general roles such as Owner, Reader, and Contributor; as well as, service-specific roles such as Virtual Machine Contributor, Virtual Network Contributor, and SQL Security Manager (to name just a few of the available roles).
 
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 

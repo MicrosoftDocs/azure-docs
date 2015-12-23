@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/11/2015" 
 	ms.author="cephalin"/>
 
 # Continuous deployment using GIT in Azure App Service

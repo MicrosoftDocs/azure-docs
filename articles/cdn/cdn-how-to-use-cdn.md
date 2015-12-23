@@ -136,10 +136,15 @@ You can map the CDN HTTP endpoint to a custom domain name and use that name to r
 
 For more information on mapping a custom domain, see [How to Map Content Delivery Network (CDN) Content to a Custom Domain](cdn-map-content-to-custom-domain.md).
 
+## Managing CDN programmatically
+
+Microsoft Azure CDN can be managed programmatically using the [CDN Resource Provider REST API](https://msdn.microsoft.com/library/mt634456.aspx). 
+
+
 ## See also
 
 - [How to Enable the Content Delivery Network for Azure](cdn-create-new-endpoint.md)
 - [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
 - [Purge an Azure CDN Endpoint](cdn-purge-endpoint.md)
- 
+- [CDN Resource Provider REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 

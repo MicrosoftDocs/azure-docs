@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="12/22/2015"
    ms.author="shkurhek"/>
 
 # What is SQL Database? Introduction to SQL Database, technical details, and an explanation of DTUs

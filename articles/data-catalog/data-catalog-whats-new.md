@@ -13,12 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
+
+## What's new for the week of December 18, 2015 release
+
+As of the week of December 18, 2015, the following capabilities have been added to Azure Data Catalog:
+
+- Support for data profiles for Azure SQL Data Warehouse data sources. When registering Azure SQL Data Warehouse tables and views, users can choose to include data profile metrics with the metadata extracted from the data source.
+- Support for registering and discovering MySQL objects and databases. Users can register MySQL data sources using the **Azure Data Catalog** data source registration tool, and can annotate and discover registered MySQL data sources using the **Azure Data Catalog** portal.
+
+## What's new for the week of December 4, 2015 release
+
+As of the week of December 4, 2015, the following capabilities have been added to Azure Data Catalog:
+
+- Support for SPNEGO and Windows authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using SPNEGO and Windows as well as LDAP and TD2 authentication.
+- Support for Azure Data Lake Store data sources. Users can now register and discover Azure Data Lake Store data sources using Azure Data Catalog.
+- Support for manually specifying network proxy settings in the Azure Data Catalog data source registration tool. Users can select "Modify proxy settings" from the tool's welcome page, and can specify the proxy address and port to be used by the tool.
+
+> [AZURE.NOTE] "Open in Power BI Desktop" requires a current version of the Power BI Desktop application to be installed. If you encounter problems or errors using this feature, please ensure that you have the latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com/).
+
 
 ## What's new for the week of November 20, 2015 release
 

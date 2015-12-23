@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos" />
 
 # Restore a StorSimple volume from a backup set
+
+[AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
 ## Overview
 

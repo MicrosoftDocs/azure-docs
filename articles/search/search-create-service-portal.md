@@ -19,13 +19,13 @@
 
 # Create an Azure Search service in the Azure Classic Portal
 
-Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you can access and manage through the Azure Classic Portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, scoring profiles, and multi-language support. For more information about what Azure Search does, see [What is Azure Search](seach-what-is-search.md).
+Microsoft Azure Search is a hosted cloud search service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you can access and manage through the Azure Classic Portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, scoring profiles, and multi-language support. For more information about what Azure Search does, see [What is Azure Search](search-what-is-azure-search.md).
 
 ## Add Azure Search to your subscription for free
 
 As an administrator, you can add Azure Search to an existing Azure subscription at no cost when choosing the shared service, or at the standard rate when opting in for dedicated resources.
 
-1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** > **Data + storage** > **Search**.
 
@@ -92,10 +92,7 @@ After the service is created, you can return to the Azure Classic Portal to get 
 <a id="sub-4"></a>
 ## Test service operations
 
-Confirming that your service is operational and accessible from a client application is the final step in configuring Azure Search. You can use either of the following links for a code-free approach to verifying service availability.
-
-- [How to use Chrome Postman with Azure Search](search-chrome-postman.md)
-- [How to use Telerik Fiddler with Azure Search](search-fiddler.md)
+Confirming that your service is operational and accessible from a client application is the final step in configuring Azure Search. You can use [Fiddler with Azure Search](search-fiddler.md) to verify service availability.
 
 <!--Next steps and links -->
 <a id="next-steps"></a>

@@ -163,7 +163,7 @@ DocumentDB supports the following Open Geospatial Consortium (OGC) built-in func
 </tr>
 </table>
 
-Spatial functions can be used to perform proximity querries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. 
+Spatial functions can be used to perform proximity queries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. 
 
 **Query**
 

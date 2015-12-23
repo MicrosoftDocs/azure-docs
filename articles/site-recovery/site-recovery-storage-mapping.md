@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="11/24/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
 
@@ -35,7 +35,7 @@ Storage mapping is only relevant when you're replicating Hyper-V virtual machine
 	- **Replica virtual machine placement**—Storage mapping is used to optimally place replica virtual machines on Hyper-V host servers. Replica virtual machines will be placed on hosts that can access the mapped storage classification.
 	- **No storage mapping**—If you don’t configure storage mapping, virtual machines will be replicated to the default storage location specified on the Hyper-V host server associated with the replica virtual machine.
 
-- **On-premises to on-premises replication with SAN**—You set up storage mapping by mapping storage arrays pools on a source and target VMM servers specify which 
+- **On-premises to on-premises replication with SAN**—You set up storage mapping by mapping storage arrays pools on a source and target VMM servers.
 	- **Specify pool**—Specifies which secondary storage pool receives replication data from the primary pool.
 	- **Identify target storage pools**—Ensures that LUNs in a source replication group are replicated to mapped target storage pool of your choice.
 
