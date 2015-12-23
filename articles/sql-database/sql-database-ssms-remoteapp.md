@@ -19,7 +19,7 @@
 # Use SQL Server Management Studio in Azure RemoteApp to connect to SQL Database
 
 ## Introduction  
-This tutorial is going to show you how you can use SQL Server Management Studio (SSMS) in Azure RemoteApp to connect to SQL Database. It walks you through the process of setting up SQL Server Management Studio in Azure RemoteApp, explains the benefits, and shows security features that you can use in Azure Active Directory. 
+This tutorial shows you how to use SQL Server Management Studio (SSMS) in Azure RemoteApp to connect to SQL Database. It walks you through the process of setting up SQL Server Management Studio in Azure RemoteApp, explains the benefits, and shows security features that you can use in Azure Active Directory. 
 
 **Estimated time to complete:** 45 minutes
 
