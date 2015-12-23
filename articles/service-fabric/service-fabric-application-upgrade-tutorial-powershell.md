@@ -18,6 +18,7 @@
 
 
 
+
 # Service Fabric application upgrade using PowerShell
 
 The most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Azure Service Fabric monitors the health of the application being upgraded based on a set of health policies. When the applications in an upgrade domain (UD) have been upgraded, Service Fabric evaluates the application health and determines whether to proceed to the next upgrade domain or fail the upgrade based on the health policies.
