@@ -98,7 +98,7 @@ Notebook output results are badly formatted after executing a cell from the Spar
  
 This issue will be addressed in a future release.
 
-##Typos in sample notebooks:
+##Typos in sample notebooks
  
 - **Python notebook 4 (Analyze logs with Spark using a custom library)**
 
@@ -137,5 +137,5 @@ When hdiuser submits a job with spark-submit, there is an error java.io.FileNotF
 
 ##See also
 
-[Overview: Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
-[Get started: Provision Apache Spark on Azure HDInsight (Linux) and run interactive queries using Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
+- [Overview: Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-overview.md)
+- [Get started: Provision Apache Spark on Azure HDInsight (Linux) and run interactive queries using Spark SQL](hdinsight-apache-spark-jupyter-spark-sql.md)
