@@ -66,6 +66,9 @@ There is an order of steps you will have to follow to create an Application Gate
 2. Create configuration XML file or configuration object.
 3. Commit the configuration to newly created Application Gateway resource.
 
+>[AZURE.NOTE] If you need to configure a custom probe for application gateway, go to the article [how to create an an application gateway with custom probes using PowerShell](application-gateway-create-probe-classic-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
+
+
 ### Create an Application Gateway Resource
 
 To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.

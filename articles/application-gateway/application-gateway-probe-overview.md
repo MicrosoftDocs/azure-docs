@@ -65,4 +65,4 @@ Custom probes allow you to have a more granular control over the heath monitorin
 
 ## Next steps
 
-After learning about application gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-ps.md) for Azure Resource manager or configure [custom health probe](application-gateway-create-probe-classic-ps.md) for Azure classic deployment model.
+After learning about application gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-ps.md) for Azure Resource manager or [custom health probe](application-gateway-create-probe-classic-ps.md) for Azure classic deployment model.
