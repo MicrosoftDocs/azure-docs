@@ -4,8 +4,8 @@ Traffic manager and its child endpoint resource enable DNS routing to endpoints 
 
 | Property | Description |
 |---|---|
-|**Traffic routing method**| possible values are *Performance*, *Weighted*, and *Priority* | 
-| **DNS configuration** | FQDN for the profile | 
+|**trafficRoutingMethod**| possible values are *Performance*, *Weighted*, and *Priority* | 
+| **dnsConfig** | FQDN for the profile | 
 | **Protocol** | monitoring protocol, possible values are *HTTP* and *HTTPS*|
 | **Port** | monitoring port |  
 | **Path** | monitoring path |
@@ -18,7 +18,7 @@ An endpoint is a child resource of a Traffic Manager Profile. It represents a se
 | Property | Description | 
 |---|---| 
 | **Type** |  the type of the endpoint, possible values are *Azure End point*, *External Endpoint*, and  *Nested Endpoint* | 
-| **Target Resource ID** |  public IP address of a service or web endpoint. This can be an Azure or external endpoint. | 
+| **targetResourceId** |  public IP address of a service or web endpoint. This can be an Azure or external endpoint. | 
 | **Weight** | endpoint weight used in traffic management. | 
 | **Priority** | priority of the endpoint, used to define a failover action |
 

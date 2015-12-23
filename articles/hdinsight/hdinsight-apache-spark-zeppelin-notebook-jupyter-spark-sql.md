@@ -14,15 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/30/2015"
+	ms.date="12/08/2015"
 	ms.author="nitinme"/>
 
 
 # Get started: Provision Apache Spark on Azure HDInsight and run interactive queries using Spark SQL
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
-
-* [Provision Apache Spark on HDInsight and run interactive queries using Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
+> [AZURE.NOTE] HDInsight now provides Spark clusters on Linux. For information on how to get started with Spark clusters on HDInsight Linux, see [Get started: Provision Apache Spark on Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 Learn how to provision an Apache Spark cluster in HDInsight using the Quick Create option and then use the web-based [Zeppelin](https://zeppelin.incubator.apache.org) and [Jupyter](https://jupyter.org) notebooks to run Spark SQL interactive queries on the Spark cluster.
 

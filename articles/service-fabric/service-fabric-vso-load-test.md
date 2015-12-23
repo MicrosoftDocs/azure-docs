@@ -1,6 +1,6 @@
-<properties
-    pageTitle="Load test your application using Visual Studio Online | Microsoft Azure"
-    description="Learn how to stress test your Azure Service Fabric applications by using Visual Studio Online."
+﻿<properties
+    pageTitle="Load test your application using Visual Studio Team Services | Microsoft Azure"
+    description="Learn how to stress test your Azure Service Fabric applications by using Visual Studio Team Services."
     services="service-fabric"
     documentationCenter="na"
     authors="cawams"
@@ -16,7 +16,7 @@
     ms.date="10/28/2015"
     ms.author="cawa" />
 
-# Load test your application by using Visual Studio Online
+# Load test your application by using Visual Studio Team Services
 
 This article shows how to use Visual Studio Load Testing features to stress test an application. It uses a Service Fabric stateful service backend and a stateless service web frontend. The example application used here is an airplane location simulator. You provide an airplane ID, departure and destination location. The application’s backend processes the requests and the frontend displays the airplane matching the criteria on a map.
 
@@ -27,7 +27,7 @@ The following diagram illustrates the Service Fabric application you'll be testi
 ## Prerequisites
 Before getting started, you need to do the following.
 
-- Get a Visual Studio Online (VSO) account. You can get one for free at [Visual Studio Online](https://www.visualstudio.com).
+- Get a Visual Studio Team Services (VSTS) account. You can get one for free at [Visual Studio Team Services](https://www.visualstudio.com).
 - Get and install Visual Studio 2013 or Visual Studio 2015. This article uses Visual Studio 2015 Enterprise edition, but Visual Studio 2013 and other editions should work similarly.
 - Deploy your application to a staging environment. See [How to deploy applications to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md) for information about this.
 - Understand your application’s usage pattern. This information is used to simulate the load pattern.
@@ -94,13 +94,13 @@ A load test project is composed of one or more scenarios described by the Web Pe
 1. In the **Run Settings** section, specify the load test duration.
     >[AZURE.NOTE] The **Test Iterations** option is available only when you run load test locally using Visual Studio.
 
-1. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your VSO account. Log in using your VSO account, and then choose a geographic location. When you're done, choose the **Finish** button.
+1. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Services account. Log in using your Team Services account, and then choose a geographic location. When you're done, choose the **Finish** button.
 
 1. After the load test is created, open the .loadtest project and choose the current run setting, such as **Run Settings** > **Run Settings1 [Active]**. This opens the run settings in the **Properties** window.
 
-1. In the **Results** section of the **Run Settings** properties window, the **Timing Details Storage** setting should have **None** as its default value. Change this value to **All Individual Details** to get more information on the load test result. See [Load Testing](https://www.visualstudio.com/load-testing.aspx) for more information on how to connect to Visual Studio Online and run a load test.
+1. In the **Results** section of the **Run Settings** properties window, the **Timing Details Storage** setting should have **None** as its default value. Change this value to **All Individual Details** to get more information on the load test result. See [Load Testing](https://www.visualstudio.com/load-testing.aspx) for more information on how to connect to Visual Studio Team Services and run a load test.
 
-### Run load test using Visual Studio Online
+### Run load test using Visual Studio Team Services
 
 Choose the **Run Load Test** command to start the test run.
 
@@ -124,7 +124,7 @@ See [Analyzing Load Test Results in the Graphs View of the Load Test Analyzer](h
 
 ## Automate your Load Test
 
-Visual Studio Online Load Test provides APIs to enable you to manage load tests and analyze results in a VSO account. See [Cloud Load Testing Rest APIs](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) for more information.
+Visual Studio Team Services Load Test provides APIs to enable you to manage load tests and analyze results in a Team Services account. See [Cloud Load Testing Rest APIs](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/03/cloud-load-testing-rest-apis-are-here.aspx) for more information.
 
 ## Next Steps
 - [Monitoring and Diagnosing Services in a local machine development setup](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
