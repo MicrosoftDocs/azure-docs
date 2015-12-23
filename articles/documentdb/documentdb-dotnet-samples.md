@@ -36,7 +36,7 @@ Each sample is self-contained, it sets itself up and cleans up after itself. As 
 
 ## Database samples
 
-The [RunDatabaseDemo()](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) method of the sample of the DatabaseManagement project, shows how to perform the following tasks.
+The [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) method of the sample of the DatabaseManagement project shows how to perform the following tasks.
 
 Task | API reference
 --- | ---
@@ -48,7 +48,7 @@ Task | API reference
 
 ## Collection samples 
 
-The [RunCollectionDemo()](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) method of the sample CollectionManagement project, shows how to do the following tasks.
+The [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) method of the sample CollectionManagement project shows how to do the following tasks.
 
 Task | API reference
 --- | ---
@@ -61,7 +61,7 @@ Task | API reference
 
 ## Document samples
 
-The [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102), method of the sample DocumentManagement project, shows how to do the following tasks.
+The [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) method of the sample DocumentManagement project shows how to do the following tasks.
 
 Task | API reference
 --- | ---
@@ -76,7 +76,7 @@ Task | API reference
 
 ## Indexing samples
 
-The [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117), method of the sample IndexManagement project, shows how to perform the following tasks.
+The [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) method of the sample IndexManagement project shows how to perform the following tasks.
 
 Task | API reference
 --- | ---
