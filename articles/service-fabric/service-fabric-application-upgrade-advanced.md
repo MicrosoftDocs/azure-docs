@@ -20,33 +20,38 @@
 
 ## Manual upgrade mode
 
-> [AZURE.NOTE] Only for a failed or suspended upgrade, should the Unmonitored Manual mode be even considered. The Monitored mode is the upgrade mode recommended for Service Fabric applications.
+> [AZURE.NOTE]  The unmonitored manual mode should  be considered only for a failed or suspended upgrade. The monitored mode is the recommended upgrade mode for Service Fabric applications.
 
-Service Fabric provides multiple upgrade modes to support development and production clusters. Each of the deployment options are ideal for different environments. Monitored Rolling Application Upgrade is the most typical upgrade to be used in production. When the upgrade policy is specified, Service Fabric ensures that the application is healthy before the upgrade proceeds. In certain situation, where there are more customize or complex health evaluation policy is required or a non-conventional upgrade (application is already in data loss or etc.), the application administrator can use the Manual Rolling Application Upgrade mode to have total control over the progress of upgrade through the various upgrade domains. Finally, the Automated Rolling Application Upgrade is useful for development or testing environment to provide a fast iteration cycle during service development.
+Azure Service Fabric provides multiple upgrade modes to support development and production clusters. Each of the deployment options are ideal for different environments.
 
-**Manual**- Stop the application upgrade at the current UD and change the upgrade mode to Unmonitored Manual. The administrator needs to manually call **MoveNextApplicationUpgradeDomainAsync** to proceed with the upgrade or trigger a roll-back by initiating a new upgrade. Once the upgrade enters into the Manual mode, it stays in the Manual mode until a new upgrade is initiated. The **GetApplicationUpgradeProgressAsync**command returns FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
+The monitored rolling application upgrade is the most typical upgrade to use in production. When the upgrade policy is specified, Service Fabric ensures that the application is healthy before the upgrade proceeds.
 
-## Upgrading with a Diff package
+ The application administrator can use the manual rolling application upgrade mode to have total control over the upgrade progress through the various upgrade domains. This mode is useful for certain situations where a more customized or complex health evaluation policy is required, or where there's a non-conventional upgrade (for example, application is already in data loss).
 
-A Service Fabric application can be upgraded by provisioning with a full, self-contained application package. An application can also be upgraded by using a diff package that contains only the updated application files, and updated application manifest and service manifest files.
+Finally, the automated rolling application upgrade is useful for development or testing environments to provide a fast iteration cycle during service development.
 
-A full application package contains all the files necessary to start and run a Service Fabric application. A diff package contains only the files that changed between the last provision and the current upgrade, plus the full application manifest and service manifest files. Any reference in the application manifest or service manifest which Service Fabric cannot find in the build layout, Service Fabric will search for the reference in the ImageStore (link TBA).
+**Manual**- Stop the application upgrade at the current UD and change the upgrade mode to Unmonitored Manual. The administrator needs to manually call **MoveNextApplicationUpgradeDomainAsync** to proceed with the upgrade or trigger a rollback by initiating a new upgrade. Once the upgrade enters into the Manual mode, it stays in the Manual mode until a new upgrade is initiated. The **GetApplicationUpgradeProgressAsync** command returns FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
 
-Full application packages are required for the first install of an application to the cluster. Subsequent updates can be either a full application package or a diff package.
+## Upgrade with a diff package
+
+A Service Fabric application can be upgraded by provisioning with a full, self-contained application package. An application can also be upgraded by using a diff package that contains only the updated application files, the updated application manifest, and the service manifest files.
+
+A full application package contains all the files necessary to start and run a Service Fabric application. A diff package contains only the files that changed between the last provision and the current upgrade, plus the full application manifest and the service manifest files. Any reference in the application manifest or service manifest that Service Fabric can't find in the build layout, Service Fabric will search for in the image store.
+
+Full application packages are required for the first installation of an application to the cluster. Subsequent updates can be either a full application package or a diff package.
 
 Occasions when using a diff package would be a good choice:
 
-* A diff package is preferred when you have a large application package which references several service manifest files and/or several code packages, config packages, or data packages.
+* A diff package is preferred when you have a large application package that references several service manifest files and/or several code packages, config packages, or data packages.
 
-* A diff package is preferred when you have a deployment system which generates the build layout directly from your application build process. In this case, even though nothing in the code has changed, newly built assemblies will have a different checksum. Using a full application package would require you to update the version on all code packages. Using a diff package, you only provide the files that changed and the manifest files where the version has changed.
+* A diff package is preferred when you have a deployment system that generates the build layout directly from your application build process. In this case, even though nothing in the code has changed, newly built assemblies will have a different checksum. Using a full application package would require you to update the version on all code packages. Using a diff package, you only provide the files that changed and the manifest files where the version has changed.
 
 ## Next steps
 
-[Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
+[Upgrade tutorial](service-fabric-application-upgrade-tutorial.md)
 
-[Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
+[Upgrade parameters](service-fabric-application-upgrade-parameters.md)
 
-[Data Serialization](service-fabric-application-upgrade-data-serialization.md)
+[Data serialization](service-fabric-application-upgrade-data-serialization.md)
 
-[Troubleshooting Application Upgrade](service-fabric-application-upgrade-troubleshooting.md)
- 
+[Troubleshooting application upgrades](service-fabric-application-upgrade-troubleshooting.md)
