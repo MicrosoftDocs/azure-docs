@@ -302,38 +302,40 @@ Setup.ps1 script creates 2 Azure Event Hubs and Azure SQL database server. The f
 In PowerShell window type “.\Cleanup.ps1” This will start the script that deletes resources used in the lab.
 Please note, that resources are identified by the name. Make sure you carefully review each item before confirming removal.
 38
-APPENDIX
+
+
+## Appendix ##
 PROVISIONING EVENT HUB INPUT SOURCES
 We will use Azure Event Hub to receive input data streams with the toll data.
 Log in to the Azure portal (http://manage.windowsazure.com) and create a new Service Bus namespace in West Europe region that is unique. Specify that it is for Messaging and select Standard Tier.
 Note: Event Hub is not present in all Data Centers. If you pick a DC for the namespace where EventHub currently not available, you will not be able to create an Event Hub.
 With the Service Bus namespace selected, click on it and go to the Event Hub tab to now create the two Event Hubs.
-39
+
 Now create two Event Hubs with the name entry and exit.
 Now you should see both your event hubs created. Go into each event hub and create its shared access policy.
-40
+
 You should select “Manage” for the shared access policy.
 Repeat the same process to create the shared access policy for the second event hub.
 PROVISIONING A WINDOWS AZURE SQL DATABASE
 Stream Analytics job will process the input data and produce the output stream. We will be outputting data into Sql Azure Database in this lab.
 In the Azure Management Portal click Sql Databases and click New at the bottom of the page.
-41
+
 Enter a name for the database as TollDataDB and select your subscription if asked.
 Choose New SQL database server as the Server and set Region to “West Europe”.
 Enter “tolladmin” as login name and “streamanalytics2014!” as the password.
 Click on the TollDataDB database you just created. You are now in the database overview page for your new database.
-42
+
 In order for your computer to access the SQL Database, you need to open a firewall connection.
 Click on the Set up Windows Azure firewall rules for this IP address link and add a rule with IP range 0.0.0.0 - 255.255.255.255
-43
+
 PROVISION A WINDOWS AZURE STORAGE ACCOUNT
 Go to the Storage service and create a new Storage account.
 Now click on the Storage account and go to Containers tab to create a new container.
 Create a container named tolldata.
-44
+
 Use your favorite tool like Azure Storage Explorer to upload the registration.csv file to this container.
 STARTING THE TOLL BOOTH EVENT GENERATOR
 Open your Visual Studio solution for the TollApp project and go to the App.config file.
 Copy Service Bus Root connection string and copy it in the App.config file.
-45
+
 Now start the application to start pushing Toll Booth events to Event Hub.
