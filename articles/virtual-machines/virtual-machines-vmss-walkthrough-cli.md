@@ -31,7 +31,7 @@ Virtual Machine Scale Sets make it easy for you to deploy and manage identical v
 
 This tutorial shows you how to create a Virtual Machine Scale Set of Linux virtual machines using the latest patched version of Ubuntu Linux and automatically scale the machines in the set. You do this by creating an Azure Resource Manager template and deploying it using Azure PowerShell. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
-The template that you build in this tutorial is similar to a template that can be found in the template gallery. To learn more, see [Deploy a simple VM Scale Set with Linux VMs and a Jumpbox](https://azure.microsoft.com/en-us/documentation/templates/201-vmss-linux-jumpbox/).
+The template that you build in this tutorial is similar to a template that can be found in the template gallery. To learn more, see [Deploy a simple VM Scale Set with Linux VMs and a Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-linux-jumpbox/).
 
 Before you get started with the steps in this tutorial, [install the Azure CLI](../xplat-cli-install.md).
 
@@ -543,18 +543,18 @@ The template can be uploaded from your command-line interface as long as you kno
 
 1. In your command-line interface (Bash, Terminal, Command prompt), run these commands to set the environment variables needed to access the storage account:
 
-	export AZURE_STORAGE_ACCOUNT=<account_name>
-	export AZURE_STORAGE_ACCESS_KEY=<key>
+		export AZURE_STORAGE_ACCOUNT={account_name}
+		export AZURE_STORAGE_ACCESS_KEY={key}
 
 	You can get the key by clicking the key icon when viewing the storage account resource in the Azure portal. When using a Windows command prompt, type **set** instead of export.
 
 2. Create the container to store the template:
 
-	azure storage container create -p Blob templates
+		azure storage container create -p Blob templates
 
 3. Upload the template file to the new container.
 
-	azure storage blob upload VMSSTemplate.json templates VMSSTemplate.json
+		azure storage blob upload VMSSTemplate.json templates VMSSTemplate.json
 
 ## Step 4: Deploy the template
 
