@@ -34,7 +34,7 @@ Entry data stream contains information about cars entering toll stations.
     
     
 | Toll Id | EntryTime | License Plate | State | Make | Model | Vehicle Type | Vehicle Weight | Toll | Tag |    
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |    
+| ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |    
 | 1 | 2014-09-10 12:01:00.000 | JNB7001 | NY | Honda | CRV | 1 | 0 | 7 |   |    
 | 1 | 2014-09-10 12:02:00.000 | YXZ1001 | NY | Toyota | Camry | 1 | 0 | 4 | 123456789 |    
 | 3 | 2014-09-10 12:02:00.000 | ABC1004 | CT | Ford | Taurus | 1 | 0 | 5 | 456789123 |    
