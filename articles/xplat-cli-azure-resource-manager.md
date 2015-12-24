@@ -90,6 +90,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 
 2. Open the azuredeploy.parameters.json file in a text editor and enter parameter values suitable for your environment (leaving the **ubuntuOSVersion** value unchanged).
 
+
 ```
 			{
 			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -110,6 +111,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 			  }
 			}
 	```
+
 3.  Now that the deployment parameters have been modified you will deploy the Ubuntu VM into the resource group that was created earlier.  Choose a name for the deployment and then use the following command to kick it off.
 
 		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
