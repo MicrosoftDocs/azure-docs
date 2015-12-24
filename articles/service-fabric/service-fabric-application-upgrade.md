@@ -25,7 +25,7 @@ An Azure Service Fabric application is a collection of services. During an upgra
 
 In a rolling application upgrade, the upgrade is performed in stages. At each stage, the upgrade is applied to a subset of nodes in the cluster, called an update domain. As a result, the application remains available throughout the upgrade. During the upgrade, the cluster may contain a mix of the old and new versions.
 
-For that reason, the two versions must be forward- and backward-compatible. If they are not compatible, the application administrator is responsible for staging a multiple-phase upgrade to maintain availability. The administrator does this before upgrading to the final version, by doing an upgrade with an intermediate version of the application that is compatible with the previous version.
+For that reason, the two versions must be forward and backward compatible. If they are not compatible, the application administrator is responsible for staging a multiple-phase upgrade to maintain availability. The administrator does this before upgrading to the final version, by doing an upgrade with an intermediate version of the application that is compatible with the previous version.
 
 Update domains are specified in the cluster manifest when you configure the cluster. You should not assume that update domains will receive updates in a particular order. An update domain is a logical unit of deployment for an application. Update domains allow the services to remain at high availability during an upgrade.
 
@@ -33,17 +33,17 @@ Non-rolling upgrades are possible if the upgrade is applied to all nodes in the 
 
 ## Health checks during upgrades
 
-For an upgrade, health policies have to be set (or default values may be used). An upgrade is termed successful when all update domains are upgraded within the specified time-outs, and when all update domains are deemed healthy.  A healthy update domain means that the update domain passed all the health checks specified in the health policy. For example, a health policy may mandate that all services within an application instance must be <em>healthy</em>, as health is defined by Service Fabric.
+For an upgrade, health policies have to be set (or default values may be used). An upgrade is termed successful when all update domains are upgraded within the specified time-outs, and when all update domains are deemed healthy.  A healthy update domain means that the update domain passed all the health checks specified in the health policy. For example, a health policy may mandate that all services within an application instance must be *healthy*, as health is defined by Service Fabric.
 
-Health policies and checks during upgrade by Service Fabric are service- and application- agnostic. That is, no service-specific tests are done.  For example, your service might have a minimal throughput requirement. However, Service Fabric does not have the information to test for that, and so will not check throughput as defined for your application.   Please refer to the [Health articles](service-fabric-health-introduction.md) for the checks that are performed. The checks that happen during an upgrade include tests for whether the application package was copied correctly, whether the instance was started, and so on.
+Health policies and checks during upgrade by Service Fabric are service and application agnostic. That is, no service-specific tests are done.  For example, your service might have a minimal throughput requirement. However, Service Fabric does not have the information to test for that, and so will not check throughput as defined for your application.   Please refer to the [health articles](service-fabric-health-introduction.md) for the checks that are performed. The checks that happen during an upgrade include tests for whether the application package was copied correctly, whether the instance was started, and so on.
 
-The application health is an aggregation of the child entities of the application. In short, Service Fabric evaluates the health of the application through the health that is reported on the application. It also evaluates the health of all the services for the application this way. The health of the application services are further evaluated by aggregating the health of their children, such as the service replica. Once the application health policy is satisfied, the upgrade can proceed. If the health policy is violated, the application upgrade fails.
+The application health is an aggregation of the child entities of the application. In short, Service Fabric evaluates the health of the application through the health that is reported on the application. It also evaluates the health of all the services for the application this way. Service Fabric further evaluates the health of the application services by aggregating the health of their children, such as the service replica. Once the application health policy is satisfied, the upgrade can proceed. If the health policy is violated, the application upgrade fails.
 
 ## Upgrade modes
 
-The mode we recommend for upgrades is monitored mode, which is the most commonly used mode. Monitored mode performs the upgrade on one update domain, and if all health checks pass (per the policy specified), moves on to the next update domain automatically.  If the health checks fail and/or time-outs are reached, the upgrade is either rolled back for the update domain, or the mode changed to unmonitored manual (if that is the option selected at the time of upgrade).
+The mode that we recommend for upgrades is monitored mode, which is the most commonly used mode. Monitored mode performs the upgrade on one update domain, and if all health checks pass (per the policy specified), moves on to the next update domain automatically.  If the health checks fail and/or time-outs are reached, the upgrade is either rolled back for the update domain, or the mode is changed to unmonitored manual (if that is the option selected at the time of upgrade).
 
-Unmonitored manual mode needs manual intervention after every upgrade on an update domain, to kick off the upgrade on the next update domain. There are no Service Fabric health checks that are performed, and it's dependent on the administrator to perform the health or status checks before starting the upgrade in the next update domain.
+Unmonitored manual mode needs manual intervention after every upgrade on an update domain, to kick off the upgrade on the next update domain. No Service Fabric health checks are performed. The administrator performs the health or status checks before starting the upgrade in the next update domain.
 
 ## Application upgrade flowchart
 
@@ -60,9 +60,9 @@ The flowchart below can help you understand the upgrade process of a Service Fab
 
 [Data serialization](service-fabric-application-upgrade-data-serialization.md)
 
-[Manual upgrade and upgrading with a diff packages](service-fabric-application-upgrade-advanced.md)
+[Manual upgrade and upgrading with diff packages](service-fabric-application-upgrade-advanced.md)
 
-[Troubleshooting application upgrade ](service-fabric-application-upgrade-troubleshooting.md)
+[Troubleshooting an application upgrade ](service-fabric-application-upgrade-troubleshooting.md)
 
 
 
