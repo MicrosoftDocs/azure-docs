@@ -73,7 +73,7 @@ Browse these sites known to have Azure Search code samples:
 
 - [https://github.com/Azure-Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=+only%3Asources+search)
 - [https://github.com/AzureSearch](https://github.com/AzureSearch) 
-- [https://github.com/liamca/AzureSearchDemos](https://github.com/liamca/AzureSearchDemosA)
+- [https://github.com/liamca/AzureSearchDemos](https://github.com/liamca/AzureSearchDemos)
 - [https://github.com/MicrosoftLearning/AzureSearch-MVA](https://github.com/MicrosoftLearning/AzureSearch-MVA)
 
 ##Code sample list
