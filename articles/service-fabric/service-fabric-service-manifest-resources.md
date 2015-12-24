@@ -42,7 +42,7 @@ Refer to [Configuring stateful Reliable Services](../Service-Fabric/service-fabr
 
 The following service manifest defines one TCP endpoint resource and two HTTP endpoint resources in the &lt;Resources&gt; element.
 
-HTTP endpoints are automatically ACL'd by Service-Fabric.
+HTTP endpoints are automatically ACL'd by Service Fabric.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -53,7 +53,7 @@ HTTP endpoints are automatically ACL'd by Service-Fabric.
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
-         This name must match the string used in RegisterServiceType call in Program.cs. -->
+         This name must match the string used in the RegisterServiceType call in Program.cs. -->
     <StatefulServiceType ServiceTypeName="Stateful1Type" HasPersistedState="true" />
   </ServiceTypes>
 
@@ -67,20 +67,20 @@ HTTP endpoints are automatically ACL'd by Service-Fabric.
   </CodePackage>
 
   <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
-       independently-updateable and versioned set of custom configuration settings for your service. -->
+       independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to
-           listen. Please note that if your service is partitioned, this port is shared with
+      <!-- This endpoint is used by the communication listener to obtain the port number on which to
+           listen. Note that if your service is partitioned, this port is shared with
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
       <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
       <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
 
       <!-- This endpoint is used by the replicator for replicating the state of your service.
-           This endpoint is configured through a ReplicatorSettings config section in the Settings.xml
+           This endpoint is configured through the ReplicatorSettings config section in the Settings.xml
            file under the ConfigPackage. -->
       <Endpoint Name="ReplicatorEndpoint" />
     </Endpoints>
@@ -95,7 +95,7 @@ The HTTPS protocol provides server authentication and is also used for encryptin
 >[AZURE.NOTE] A service’s protocol cannot be changed during application upgrade, since this would be a breaking change.
 
 
-Here is an example ApplicationManifest that you need to set for HTTPS (you will need to provide the thumbprint for your certificate). The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one Endpointcertificates.  
+Here is an example ApplicationManifest that you need to set for HTTPS. (You will need to provide the thumbprint for your certificate.) The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one Endpointcertificates.  
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
