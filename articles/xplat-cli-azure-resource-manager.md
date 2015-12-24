@@ -110,7 +110,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 			    }
 			  }
 			}
-	```
+```
 
 3.  Now that the deployment parameters have been modified you will deploy the Ubuntu VM into the resource group that was created earlier.  Choose a name for the deployment and then use the following command to kick it off.
 
