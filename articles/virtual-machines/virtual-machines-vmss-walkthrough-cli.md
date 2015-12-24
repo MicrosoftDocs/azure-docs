@@ -23,6 +23,7 @@
 - [Azure CLI](virtual-machines-vmss-walkthrough-cli.md)
 - [Azure PowerShell](virtual-machines-vmss-walkthrough.md)
 
+<br>
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
@@ -33,8 +34,6 @@ This tutorial shows you how to create a Virtual Machine Scale Set of Linux virtu
 The template that you build in this tutorial is similar to a template that can be found in the template gallery. To learn more, see [Deploy a simple VM Scale Set with Linux VMs and a Jumpbox](https://azure.microsoft.com/en-us/documentation/templates/201-vmss-linux-jumpbox/).
 
 Before you get started with the steps in this tutorial, [install the Azure CLI](../xplat-cli-install.md).
-
-[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
 
 ## Step 1: Create a resource group and a storage account
 
@@ -544,32 +543,24 @@ The template can be uploaded from your command-line interface as long as you kno
 
 1. In your command-line interface (Bash, Terminal, Command prompt), run these commands to set the environment variables needed to access the storage account:
 
-	```
 	export AZURE_STORAGE_ACCOUNT=<account_name>
 	export AZURE_STORAGE_ACCESS_KEY=<key>
-	```
 
 	You can get the key by clicking the key icon when viewing the storage account resource in the Azure portal. When using a Windows command prompt, type **set** instead of export.
 
 2. Create the container to store the template:
 
-	```
 	azure storage container create -p Blob templates
-	```
 
 3. Upload the template file to the new container.
 
-	```
 	azure storage blob upload VMSSTemplate.json templates VMSSTemplate.json
-	```
 
 ## Step 4: Deploy the template
 
 Now that you created the template, you can get started deploying the resources. Use this command the start the process:
 
-	```
 	azure group deployment create --template-uri https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json vmsstestrg1 vmsstestdp1
-	```
 
 When you press enter, you are prompted to provide values for the variables you assigned. Provide these values:
 
