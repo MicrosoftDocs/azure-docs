@@ -17,9 +17,7 @@
    ms.author="mfussell"/>
 
 # Why a microservices approach to building applications?
-For software developers, there’s nothing new in how we think about breaking down applications into their component parts. This central idea shapes object orientation, software abstraction, componentization, and more. Today, such thinking can also be seen in classes and interfaces among shared libraries and layers of technology, expressed in a tiered approach that typically includes a back-end store, middle-tier business logic, and front-end UI.
-
-What has changed over the past few years is that we, as developers, are building distributed applications for the cloud, driven by the business.
+As software developers, there is nothing new in how we think about factoring an application into component parts. It is the central paradigm of object orientation, software abstractions, and componentization. Today, this factorization tends to take the form of classes and interfaces between shared libraries and technology layers, typically through a tiered approach with a back-end store, middle-tier business logic, and a front-end UI. What *has* changed over the last few years is that we, as developers, are building distributed applications for the cloud, driven by the business.
 
 The changing business needs are:
 
