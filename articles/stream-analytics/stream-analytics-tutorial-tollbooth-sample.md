@@ -32,6 +32,7 @@ The data input for this tutorial consists of two data streams produced by sensor
 ### ENTRY DATA STREAM ###
 Entry data stream contains information about cars entering toll stations.    
     
+    
 | Toll Id | EntryTime | License Plate | State | Make | Model | Vehicle Type | Vehicle Weight | Toll | Tag |    
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |    
 | 1 | 2014-09-10 12:01:00.000 | JNB7001 | NY | Honda | CRV | 1 | 0 | 7 |   |    
@@ -40,7 +41,8 @@ Entry data stream contains information about cars entering toll stations.
 | 2 | 2014-09-10 12:03:00.000 | XYZ1003 | CT | Toyota | Corolla | 1 | 0 | 4 |   |    
 | 1 | 2014-09-10 12:03:00.000 | BNJ1007 | NY | Honda | CRV | 1 | 0 | 5 | 789123456 |    
 | 2 | 2014-09-10 12:05:00.000 | CDE1007 | NJ | Toyota | 4x4 | 1 | 0 | 6 | 321987654 |    
-    
+      
+
 The data field definitions are as follows:    
   
 | Data Field | Data Definition |  
