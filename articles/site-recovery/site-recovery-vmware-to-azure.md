@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="12/24/2015"
 	ms.author="raynew"/>
 
 # Set up protection between on-premises VMware virtual machines or physical servers and Azure
