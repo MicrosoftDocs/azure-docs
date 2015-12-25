@@ -31,7 +31,7 @@ At this point you will have a basic ASP.Net web app ready to use as part of your
 
 ###Create MSDeploy package
 
-Next step is to create the package to deploy this web app to Azure. To do this, save your project and then run the following from the command line:
+Next step is to create the package to deploy the web app to Azure. To do this, save your project and then run the following from the command line:
 
 	msbuild yourwebapp.proj /t:Package /p:PackageLocation="path\to\package.zip"
 
