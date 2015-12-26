@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Troubleshoot with System health reports | Microsoft Azure"
+   pageTitle="Troubleshoot with system health reports | Microsoft Azure"
    description="Describes the health reports sent by Azure Service Fabric components and their usage for troubleshooting cluster or application issues."
    services="service-fabric"
    documentationCenter=".net"
@@ -16,43 +16,44 @@
    ms.date="10/23/2015"
    ms.author="oanapl"/>
 
-# Using System health reports for troubleshooting
+# Use system health reports to troubleshoot
 
-Service Fabric components report out of the box on all entities in the cluster. The [Health Store](service-fabric-health-introduction.md#health-store) creates and deletes entities based on the system reports, and organizes them in an hierarchy that captures entity interactions.
+Azure Service Fabric components report out of the box on all entities in the cluster. The [health store](service-fabric-health-introduction.md#health-store) creates and deletes entities based on the system reports. It also organizes them in a hierarchy that captures entity interactions.
 
-> [AZURE.NOTE] Read more about the [Service Fabric Health Model](service-fabric-health-introduction.md) to understand health related concepts.
+> [AZURE.NOTE] Read more about the [Service Fabric health model](service-fabric-health-introduction.md) to understand health-related concepts.
 
-The System health reports provide visibility into cluster and application functionality and flag issues through health. For application and services, the System health reports verify that entities are implemented and are behaving correctly from Service Fabric perspective. The reports do not provide any health monitoring of the business logic of the service or detection of hung processes. User services can enrich the health data with information specific to their logic.
+System health reports provide visibility into cluster and application functionality and flag issues through health. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the Service Fabric perspective. The reports do not provide any health monitoring of the business logic of the service or detection of hung processes. User services can enrich the health data with information specific to their logic.
 
-> [AZURE.NOTE] Watchdogs health reports are only visible **after** the system components create an entity. When an entity is deleted, the Health Store automatically deletes all health reports associated with it. Same when a new instance of the entity is created (eg. a new service replica instance is created): all reports associated with the old instance are deleted and cleaned up from store.
+> [AZURE.NOTE] Watchdogs health reports are visible only *after* the system components create an entity. When an entity is deleted, the health store automatically deletes all health reports associated with it. The same is true when a new instance of the entity is created (for example, a new service replica instance is created). All reports associated with the old instance are deleted and cleaned up from the store.
 
-The System components reports are identified by the source, which starts with *"System."* prefix. Watchdogs can't use the same prefix for their sources, as reports will be rejected with invalid parameters.
-Let's look at some system reports and understand what triggers them and how to correct possible issues they represent.
+The system component reports are identified by the source, which starts with the "**System.**" prefix. Watchdogs can't use the same prefix for their sources, as reports with invalid parameters will be rejected.
+Let's look at some system reports to understand what triggers them and how to correct the possible issues they represent.
 
-> [AZURE.NOTE] Service Fabric continues to add reports for conditions of interest that would improve visibility into what is happening in the cluster/application.
+> [AZURE.NOTE] Service Fabric continues to add reports on conditions of interest that improve visibility into what is happening in the cluster and application.
 
-## Cluster System health reports
-The cluster health entity is created automatically in the health store, so if everything works properly it doesn't have a system report.
+## Cluster system health reports
+The cluster health entity is created automatically in the health store, so if everything works properly, it doesn't have a system report.
 
 ### Neighborhood loss
-System.Federation reports an Error when it detects a neighborhood loss. The report is from individual nodes and node id is included in the property name. If there is one neighborhood loss in the entire Service Fabric ring, typically we can expect two events (both sides of the gap will report). If there are more neighborhoods lost, there will be more events.
-The report specifies Global Lease timeout as the TTL and the report is re-sent every half of the TTL as long as the condition is still active. The event is automatically removed when expired, so if the reporting node is down, it is still correctly cleaned up from Health Store.
+**System.Federation** reports an error when it detects a neighborhood loss. The report is from individual nodes, and the node ID is included in the property name. If one neighborhood is lost in the entire Service Fabric ring, you can typically expect two events (both sides of the gap will report). If more neighborhoods are lost, there will be more events.
 
-- SourceId: System.Federation
-- Property: starts with "Neighborhood" and includes node information.
-- Next steps: investigate why the neighborhood is lost. Eg. Check communication between cluster nodes.
+The report specifies the global lease timeout as the time to live. The report is resent every half of the TTL duration for as long as the condition remains active. The event is automatically removed when it expires, so if the reporting node is down, it is still cleaned up from the health store correctly.
 
-## Node System health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Any node should have one report from System.FM showing its state. The node entities are removed when the node is disabled.
+- **SourceId**: System.Federation
+- **Property**: Starts with **Neighborhood** and includes node information
+- **Next steps**: Investigate why the neighborhood is lost (for example, check the communication between cluster nodes).
+
+## Node system health reports
+**System.FM**, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node is disabled.
 
 ### Node up/down
-System.FM reports Ok when the node joins the ring (it's up and running) and Error when the node departs the ring (it's down, either for upgrading, or simply failed).  The health hierarchy built by the Health Store takes action on deployed entities in correlation with System.FM node reports. It considers node a virtual parent of all deployed entities. The deployed entities on that node are not exposed through queries if the node is down or not reported, or the node has a different instance than the instance associated with the entities. When FM reports the node down or restarted (new instance), the Health Store automatically cleans up the deployed entities that can only exist on the down node or the previous instance of the node.
+System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store takes action on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are not exposed through queries if the node is down or not reported, or if the node has a different instance than the instance associated with the entities. When System.FM reports that the node is down or restarted (a new instance), the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
 
-- SourceId: System.FM
-- Property: State
-- Next steps: If the node is down for upgrade, it should come up once upgraded, in which case the health state should be switched back to Ok. If the node doesn't come back or it failed, it needs more investigation.
+- **SourceId**: System.FM
+- **Property**: State
+- **Next steps**: If the node is down for an upgrade, it should come back up once it has been upgraded. In this case, the health state should be switched back to OK. If the node doesn't come back or it fails, the problem needs more investigation.
 
-The following shows the System.FM event with health state Ok for node up:
+The following shows the System.FM event with a health state of OK for node up:
 
 ```powershell
 
@@ -76,31 +77,30 @@ HealthEvents          :
 
 
 ### Certificate expiration
-System.FabricNode reports Warning when certificates used by the node are close to expiration. There are three certificates per node: Certificate_cluster, Certificate_server and Certificate_default_client.
-When the expiration is at least two weeks away, the report type is OK; if the expiration is within two weeks, the report type is Warning. TTL of these events is infinite, they are removed when a node leaves the cluster.
+**System.FabricNode** reports a warning when certificates used by the node are near expiration. There are three certificates per node: **Certificate_cluster**, **Certificate_server**, and **Certificate_default_client**. When the expiration is at least two weeks away, the report health state is OK. When the expiration is within two weeks, the report type is a warning. TTL of these events is infinite, and they are removed when a node leaves the cluster.
 
-- SourceId: System.FabricNode
-- Property: starts with "Certificate" and contains more information about certificate type.
-- Next steps: Update the certificates if they are close to expiration.
+- **SourceId**: System.FabricNode
+- **Property**: Starts with **Certificate** and contains more information about the certificate type
+- **Next steps**: Update the certificates if they are near expiration.
 
 ### Load capacity violation
-The Service Fabric load balancer reports Warning if it detects a node capacity violation.
+The Service Fabric Load Balancer reports a warning if it detects a node capacity violation.
 
- - SourceId: System.PLB
- - Property: starts with "Capacity".
- - Next steps: Check provided metrics and view the current capacity on the node.
+ - **SourceId**: System.PLB
+ - **Property**: Starts with **Capacity**
+ - **Next steps**: Check provided metrics and view the current capacity on the node.
 
-## Application System health reports
-System.CM, which represents the Cluster Manager service, is the authority that manages information about application.
+## Application system health reports
+**System.CM**, which represents the Cluster Manager service, is the authority that manages information about an application.
 
 ### State
-System.CM reports Ok when the application is created or updated. It informs the Health Store when the application is deleted, so it can be removed from store.
+System.CM reports as OK when the application has been created or updated. It informs the health store when the application has been deleted, so that it can be removed from store.
 
-- SourceId: System.CM
-- Property: State
-- Next steps: If the application is created, it should have the CM health report. Otherwise, check the state of the application by issuing a query (eg Powershell cmdlet Get-ServiceFabricApplication -ApplicationName <applicationName>).
+- **SourceId**: System.CM
+- **Property**: State
+- **Next steps**: If the application has been created, it should include the Cluster Manager health report. Otherwise, check the state of the application by issuing a query (for example, the PowerShell cmdlet **Get-ServiceFabricApplication -ApplicationName *applicationName***).
 
-The following shows the State event on fabric:/WordCount application.
+The following shows the state event on the **fabric:/WordCount** application:
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
@@ -123,16 +123,16 @@ HealthEvents                    :
                                   Transitions           : ->Ok = 4/24/2015 6:12:51 PM
 ```
 
-## Service System health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about services.
+## Service system health reports
+**System.FM**, which represents the Failover Manager service, is the authority that manages information about services.
 
 ### State
-System.FM reports Ok when the service is created. It deletes the entity from Health Store when the service is deleted.
+System.FM reports as OK when the service has been created. It deletes the entity from the health store when the service has been deleted.
 
-- SourceId: System.FM
-- Property: State.
+- **SourceId**: System.FM
+- **Property**: State
 
-The following shows the State event on the service fabric:/WordCount/WordCountService.
+The following shows the state event on the service **fabric:/WordCount/WordCountService**:
 
 ```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
@@ -158,27 +158,27 @@ HealthEvents          :
 ```
 
 ### Unplaced replicas violation
-System.PLB reports Warning if it was unable to find a placement for one or more of the service replica. The report is removed when expired.
+**System.PLB** reports a warning if it cannot find a placement for one or more service replicas. The report is removed when it expires.
 
-- SourceId: System.FM
-- Property: State.
-- Next steps: Check the service constraints. Check the current state of the placement.
+- **SourceId**: System.FM
+- **Property**: State
+- **Next steps**: Check the service constraints and the current state of the placement.
 
-## Partition System health reports
-System.FM, which represents the Failover Manager service, is the authority that manages information about service partitions.
+## Partition system health reports
+**System.FM**, which represents the Failover Manager service, is the authority that manages information about service partitions.
 
 ### State
-System.FM reports Ok when the partition is created and healthy. It deletes the entity from Health Store when the partition is deleted.
-If the partition is below min replica count, it reports Error.
-If the partition is not below min replica count, but it is below target replica count, it reports Warning.
-If the partition is in quorum loss, FM reports error.
-Other important events are: Warning when the reconfiguration takes longer than expected and when the build is taking longer than expected. The expected times for build or reconfiguration are configurable based on service scenarios. Eg. if a service has TB of state, like SQL Azure, the build will take longer than a service with a small amount of state.
+System.FM reports as OK when the partition has been created and is healthy. It deletes the entity from the health store when the partition is deleted.
 
-- SourceId: System.FM
-- Property: State.
-- Next steps: if health state is not Ok, it's possible some replicas are not created/opened/promoted to primary or secondary correctly. In many instances, the root cause is a service bug in the open or change role implementation.
+If the partition is below the minimum replica count, it reports an error. If the partition is not below the minimum replica count, but it is below the target replica count, it reports a warning. If the partition is in quorum loss, System.FM reports an error.
 
-The following shows a healthy partition.
+Other important events include a warning when the reconfiguration takes longer than expected and when the build takes longer than expected. The expected times for the build and reconfiguration are configurable based on service scenarios. For example, if a service has a terabyte of state, such as SQL Database, the build will take longer than it would for a service with a small amount of state.
+
+- **SourceId**: System.FM
+- **Property**: State
+- **Next steps**: If the health state is not OK, it's possible that some replicas have not been created, opened, or promoted to primary or secondary correctly. In many instances, the root cause is a service bug in the open or change-role implementation.
+
+The following shows a healthy partition:
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
@@ -199,7 +199,7 @@ HealthEvents          :
                         Transitions           : ->Ok = 4/24/2015 6:33:31 PM
 ```
 
-The following shows the health of a partition that is below target replica count. Next steps: get the partition description, which shows how it was configured: MinReplicaSetSize is 2, TargetReplicaSetSize is 7. Then get the number of nodes in the cluster: 5. So in this case, 2 replicas can't be placed.
+The following shows the health of a partition that is below target replica count. The next step is to get the partition description, which shows how it is configured: **MinReplicaSetSize** is two and **TargetReplicaSetSize** is seven. Then get the number of nodes in the cluster: five. So in this case, two replicas can't be placed.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
@@ -243,19 +243,19 @@ PS C:\> @(Get-ServiceFabricNode).Count
 ```
 
 ### Replica constraint violation
-System.PLB reports Warning if it detects replica constraint violation and can't place replicas of the partition.
+**System.PLB** reports a warning if it detects a replica constraint violation and can't place replicas of the partition.
 
-- SourceId: System.PLB
-- Property: starts with "ReplicaConstraintViolation".
+- **SourceId**: System.PLB
+- **Property**: Starts with **ReplicaConstraintViolation**
 
-## Replica System health reports
-System.RA, which represents the Reconfiguration Agent component, is the authority for replica state.
+## Replica system health reports
+**System.RA**, which represents the reconfiguration agent component, is the authority for the replica state.
 
 ### State
-System.RA reports Ok when the replica is created.
+**System.RA** reports as OK when the replica has been created.
 
-- SourceId: System.RA
-- Property: State.
+- **SourceId**: System.RA
+- **Property**: State
 
 The following shows a healthy replica:
 
@@ -279,21 +279,22 @@ HealthEvents          :
 ```
 
 ### Replica open status
-The description of this health report contains the start time (UTC) when the API call was invoked.
-System.RA reports Warning if replica open takes longer than the configured period (default: 30 minutes). If the API impacts service availability, the report is issued much faster (configurable interval, default 30 seconds). This time includes time taken for replicator open and service open. The property changes to Ok if open completes.
+The description of this health report contains the start time (Coordinated Universal Time) when the API call was invoked.
 
-- SourceId: System.RA
-- Property: ReplicaOpenStatus.
-- Next steps: If health state is not Ok, check why the replica open takes longer than expected.
+**System.RA** reports a warning if the replica open takes longer than the configured period (default: 30 minutes). If the API impacts service availability, the report is issued much faster (a configurable interval, with a default of 30 seconds). This includes the time taken for the replicator open and the service open. The property changes to OK if the open completes.
+
+- **SourceId**: System.RA
+- **Property**: **ReplicaOpenStatus**
+- **Next steps**: If the health state is not OK, investigate why the replica open takes longer than expected.
 
 ### Slow service API call
-System.RAP and System.Replicator report Warning if a call into user service code takes longer than configured time. The warning is cleared when the call completes.
+**System.RAP** and **System.Replicator** report a warning if a call to the user service code takes longer than the configured time. The warning is cleared when the call completes.
 
-- SourceId: System.RAP or System.Replicator
-- Property: the name of the slow API. The description gives more detail about the time the API has been pending.
-- Next steps: investigate why the call it takes longer than expected.
+- **SourceId**: System.RAP or System.Replicator
+- **Property**: The name of the slow API. The description provides more details about the time the API has been pending.
+- **Next steps**: Investigate why the call takes longer than expected.
 
-The following example shows a partition in quorum loss and investigation steps done to figure out why. One of the replicas has Warning health state, so we get its health. It shows that service operation takes longer than expected, event reported by System.RAP. After this information, next step is to look at service code and investigate. For this case, the RunAsync implementation of the stateful service throws an unhandled exception. Note that replicas are recycling, so you may not see any replicas in Warning state. Retry getting the health and look whether there are any differences in replica id, this gives clues in certain cases.
+The following example shows a partition in quorum loss, as well as the investigation steps done to figure out why. One of the replicas has a warning health state, so you get its health. It shows that the service operation takes longer than expected, an event reported by System.RAP. After this information is received, the next step is to look at the service code and investigate there. For this case, the **RunAsync** implementation of the stateful service throws an unhandled exception. Note that the replicas are recycling, so you may not see any replicas in the warning state. You can retry getting the health state and look for any differences in the replica ID. In certain cases, this can give you clues.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
@@ -387,30 +388,30 @@ HealthEvents          :
                         Transitions           : ->Warning = 4/24/2015 7:00:59 PM
 ```
 
-When starting the faulty application under debugger, the Diagnostic Events windows show the exception thrown from RunAsync:
+When you start the faulty application under the debugger, the diagnostic events windows show the exception thrown from RunAsync:
 
-![Visual Studio 2015 Diagnostic Events: RunAsync failure in fabric:/HelloWorldStatefulApplication.][1]
+![Visual Studio 2015 diagnostic events: RunAsync failure in fabric:/HelloWorldStatefulApplication.][1]
 
-Visual Studio 2015 Diagnostic Events: RunAsync failure in fabric:/HelloWorldStatefulApplication.
+Visual Studio 2015 diagnostic events: RunAsync failure in **fabric:/HelloWorldStatefulApplication**.
 
 [1]: ./media/service-fabric-understand-and-troubleshoot-with-system-health-reports/servicefabric-health-vs-runasync-exception.png
 
 
 ### Replication queue full
-System.Replicator reports Warning if replication queue is full. On the primary, this usually happens because one or more replicas secondary replicas are slow to ack operations. On secondary, this usually happens when the service is slow to apply the operations. The Warning is cleared when the queue is no longer full.
+**System.Replicator** reports a warning if the replication queue is full. On the primary, this usually happens because one or more secondary replicas are slow to acknowledge operations. On the secondary, this usually happens when the service is slow to apply the operations. The warning is cleared when the queue is no longer full.
 
-- SourceId: System.Replicator
-- Property: PrimaryReplicationQueueStatus or SecondaryReplicationQueueStatus, depending on the replica role.
+- **SourceId**: System.Replicator
+- **Property**: **PrimaryReplicationQueueStatus** or **SecondaryReplicationQueueStatus**, depending on the replica role
 
-## DeployedApplication System health reports
-System.Hosting is the authority on deployed entities.
+## DeployedApplication system health reports
+**System.Hosting** is the authority on deployed entities.
 
 ### Activation
-System.Hosting reports Ok when an application is successfully activated on the node, Error otherwise.
+System.Hosting reports as OK when an application has been successfully activated on the node. Otherwise, it reports an error.
 
-- SourceId: System.Hosting
-- Property: Activation. Includes the rollout version.
-- Next steps: If unhealthy, investigate why the activation failed.
+- **SourceId**: System.Hosting
+- **Property**: Activation, including the rollout version
+- **Next steps**: If the application is unhealthy, investigate why the activation failed.
 
 The following shows successful activation:
 
@@ -440,36 +441,35 @@ HealthEvents                       :
 ```
 
 ### Download
-System.Hosting reports Error is the application package download failed.
+**System.Hosting** reports an error if the application package download fails.
 
-- SourceId: System.Hosting
-- Property: Download:<RolloutVersion>
-- Next steps: Investigate why download failed on the node.
+- **SourceId**: System.Hosting
+- **Property**: **Download:*RolloutVersion***
+- **Next steps**: Investigate why the download failed on the node.
 
-## DeployedServicePackage System health reports
-System.Hosting is the authority on deployed entities.
+## DeployedServicePackage system health reports
+**System.Hosting** is the authority on deployed entities.
 
 ### Service package activation
-System.Hosting reports Ok if the service package activation on the node is successful, Error otherwise.
+System.Hosting reports as OK if the service package activation on the node is successful. Otherwise, it reports an error.
 
-- SourceId: System.Hosting
-- Property: Activation.
-- Next steps: Investigate why the activation failed.
+- **SourceId**: System.Hosting
+- **Property**: Activation
+- **Next steps**: Investigate why the activation failed.
 
 ### Code package activation
-System.Hosting reports Ok for each code package if activation is successful. If the activation fails, it reports Warning as configured; if the CodePackage failed to activate or terminated with an error more than the configured 'CodePackageHealthErrorThreshold', Hosting reports Error.
-If there are multiple code packages in a service package, there will be an Activation report generated for each one.
+**System.Hosting** reports as OK for each code package if the activation is successful. If the activation fails, it reports a warning as configured. If **CodePackage** fails to activate or terminates with an error greater than the configured **CodePackageHealthErrorThreshold**, hosting reports an error. If a service package contains multiple code packages, an activation report will be generated for each one.
 
-- SourceId: System.Hosting
-- Property: prefix CodePackageActivation and contains the name of the code package and te entry point. CodePackageActivation:<CodePackageName>:<SetupEntryPoint/EntryPoint>. Eg. CodePackageActivation:Code:SetupEntryPoint.
+- **SourceId**: System.Hosting
+- **Property**: Uses the prefix **CodePackageActivation** and contains the name of the code package and the entry point as **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** (for example, **CodePackageActivation:Code:SetupEntryPoint**)
 
 ### Service type registration
-System.Hosting reports Ok if the service type was registered successfully. It reports Error if the registration wasn't done in time (configured with ServiceTypeRegistrationTimeout). If the service type is unregistered from the node, because the runtime was closed. Hosting reports Warning.
+**System.Hosting** reports as OK if the service type has been registered successfully. It reports an error if the registration wasn't done in time (as configured by using **ServiceTypeRegistrationTimeout**). If the service type is unregistered from the node, this is because the run time has been closed. Hosting reports a warning.
 
-- SourceId: System.Hosting
-- Property: prefix ServiceTypeRegistration and contains the service type name. Eg. "ServiceTypeRegistration:FileStoreServiceType"
+- **SourceId**: System.Hosting
+- **Property**: Uses the prefix **ServiceTypeRegistration** and contains the service type name (for example, **ServiceTypeRegistration:FileStoreServiceType**)
 
-The following shows a healthy deployed service package.
+The following shows a healthy deployed service package:
 
 ```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
@@ -518,23 +518,22 @@ HealthEvents          :
 ```
 
 ### Download
-System.Hosting reports Error is the service package download failed.
+**System.Hosting** reports an error if the service package download fails.
 
-- SourceId: System.Hosting
-- Property: Download:<RolloutVersion>
-- Next steps: Investigate why download failed on the node.
+- **SourceId**: System.Hosting
+- **Property**: **Download:*RolloutVersion***
+- **Next steps**: Investigate why the download failed on the node.
 
 ### Upgrade validation
-System.Hosting reports Error if validation during upgrade fails or if upgrade fails on the node.
+**System.Hosting** reports an error if validation during the upgrade fails or if the upgrade fails on the node.
 
-- SourceId: System.Hosting
-- Property: prefix FabricUpgradeValidation, contains the upgrade version.
-- Description: points to the error encountered.
+- **SourceId**: System.Hosting
+- **Property**: Uses the prefix **FabricUpgradeValidation** and contains the upgrade version
+- **Description**: Points to the error encountered
 
 ## Next steps
-[How to view Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
+[View Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
 
-[How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Service Fabric Application Upgrade](service-fabric-application-upgrade.md)
- 
+[Service Fabric application upgrade](service-fabric-application-upgrade.md)
