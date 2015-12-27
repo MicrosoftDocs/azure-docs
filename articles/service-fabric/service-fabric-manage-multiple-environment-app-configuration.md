@@ -18,17 +18,17 @@
 
 # Managing application parameters for multiple environments
 
-Service Fabric clusters can be formed using anywhere from one to many thousands of machines. While application binaries can run without modification across this wide spectrum of environments, you will often wish to configure the application differently depending on the number of machines you're deploying to.
+You can create Azure Service Fabric clusters by using anywhere from one to many thousands of machines. While application binaries can run without modification across this wide spectrum of environments, you will often want to configure the application differently depending on the number of machines you're deploying to.
 
-As a simple example, consider the `InstanceCount` for a stateless service. When running in Azure, you will generally want to set this paramater to the special value of -1, ensuring that your service is running on every node in the cluster. This configuration is not suitable for a one-box cluster, however, since you can't have multiple processes listening on the same endpoint on a single machine. Instead, you will typically set the `InstanceCount` to 1.
+As a simple example, consider `InstanceCount` for a stateless service. When you are running applications in Azure, you will generally want to set this parameter to the special value of "-1". This ensures that your service is running on every node in the cluster. This configuration is not suitable for a single-machine cluster, however, since you can't have multiple processes listening on the same endpoint on a single machine. Instead, you will typically set `InstanceCount` to "1".
 
 ## Specifying environment-specific parameters
 
-The solution to this is a set of parameterized default services and application parameters files that fill in those parameter values for a given environment.
+The solution to this configuration issue is a set of parameterized default services and application parameter files that fill in those parameter values for a given environment.
 
 ### Default services
 
-Service Fabric applications are made up of a collection of service instances. While it is possible to create an empty application and then create all service instances dynamically, most applications have a set of core services that should always be created when the application is instantiated. These are referred to as "default services" and are specified in the application manifest, with placeholders for per-environment configuration included in spare brackets:
+Service Fabric applications are made up of a collection of service instances. While it is possible for you to create an empty application and then create all service instances dynamically, most applications have a set of core services that should always be created when the application is instantiated. These are referred to as "default services". They are specified in the application manifest, with placeholders for per-environment configuration included in square brackets:
 
     <DefaultServices>
         <Service Name="Stateful1">
@@ -43,7 +43,7 @@ Service Fabric applications are made up of a collection of service instances. Wh
     </Service>
   </DefaultServices>
 
-Each of the named parameters must defined within the Parameters element of the application manifest:
+Each of the named parameters must be defined within the Parameters element of the application manifest:
 
     <Parameters>
         <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
@@ -51,23 +51,23 @@ Each of the named parameters must defined within the Parameters element of the a
         <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
     </Parameters>
 
-The DefaultValue attributes specifies the value to be used in the absence of a more specific parameter for a given environment.
+The DefaultValue attribute specifies the value to be used in the absence of a more specific parameter for a given environment.
 
 >[AZURE.NOTE] Not all service instance parameters are suitable for per-environment configuration. In the example above, the LowKey and HighKey values for the service's partitioning scheme are explicitly defined for all instances of the service since the partition range is a function of your data domain, not of the environment.
 
 
 ### Per-environment service configuration settings
 
-The [Service Fabric application model](service-fabric-application-model.md) enables services to include configuration packages containing custom key-value pairs readable at runtime. The values of these settings can also be differentiated by environment by specifying a `ConfigOverride` in the application manifest.
+The [Service Fabric application model](service-fabric-application-model.md) enables services to include configuration packages that contain custom key-value pairs that are readable at run time. The values of these settings can also be differentiated by environment by specifying a `ConfigOverride` in the application manifest.
 
-Suppose that you have the following setting in Config\Settings.xml for the `Stateful1` service:
+Suppose that you have the following setting in the Config\Settings.xml file for the `Stateful1` service:
 
 
     <Section Name="MyConfigSection">
       <Parameter Name="MaxQueueSize" Value="25" />
     </Section>
 
-To override this value for a specific application/environment pair, create a `ConfigOverride` when importing the service manifest in the application manifest.
+To override this value for a specific application/environment pair, create a `ConfigOverride` when you import the service manifest in the application manifest.
 
     <ConfigOverrides>
      <ConfigOverride Name="Config">
@@ -79,14 +79,14 @@ To override this value for a specific application/environment pair, create a `Co
      </ConfigOverride>
   </ConfigOverrides>
 
-This parameter can then be configured by environment as shown above, by declaring it in the parameters section of the application manifest and specifying environment-specific values in the application parameters files.
+This parameter can then be configured by environment as shown above. You can do this by declaring it in the parameters section of the application manifest and specifying environment-specific values in the application parameter files.
 
->[AZURE.NOTE] In the case of service configuration settings, there are three places where the value of a key can be set: the service configuration package, the application manifest, and the application parameters file. Service Fabric will always choose from the application parameters file first (if specified), then the application manifest, and finally the configuration package.
+>[AZURE.NOTE] In the case of service configuration settings, there are three places where the value of a key can be set: the service configuration package, the application manifest, and the application parameter file. Service Fabric will always choose from the application parameter file first (if specified), then the application manifest, and finally the configuration package.
 
 
 ### Application parameter files
 
-The Service Fabric application project can include one or more application parameter files, each of which defines the specific values for the parameters defined in the application manifest:
+The Service Fabric application project can include one or more application parameter files. Each of them defines the specific values for the parameters that are defined in the application manifest:
 
     <!-- ApplicationParameters\Local.xml -->
 
@@ -98,31 +98,31 @@ The Service Fabric application project can include one or more application param
         </Parameters>
     </Application>
 
-By default, a new application includes two parameters files, named Local.xml and Cloud.xml:
+By default, a new application includes two application parameter files, named Local.xml and Cloud.xml:
 
-![Application parameters files in Solution Explorer][app-parameters-solution-explorer]
+![Application parameter files in Solution Explorer][app-parameters-solution-explorer]
 
-To create a new parameters file, simply copy and past an existing one and give it a new name.
+To create a new parameter file, simply copy and paste an existing one and give it a new name.
 
 ## Identifying environment-specific parameters during deployment
 
-At deployment time, you need to choose the appropriate parameters file to apply with your application. You can do this through the Publish dialog in Visual Studio or in PowerShell.
+At deployment time, you need to choose the appropriate parameter file to apply with your application. You can do this through the Publish dialog in Visual Studio or through PowerShell.
 
-### Deploying from Visual Studio
+### Deploy from Visual Studio
 
-You can choose from the list of available parameters files when publishing your application in Visual Studio.
+You can choose from the list of available parameter files when you publish your application in Visual Studio.
 
-![Choose a parameters file in the Publish dialog][publishdialog]
+![Choose a parameter file in the Publish dialog][publishdialog]
 
-### Deploying from PowerShell
+### Deploy from PowerShell
 
-The `DeployCreate-FabricApplication.ps1` PowerShell script accepts an parameters file as a paramater.
+The `DeployCreate-FabricApplication.ps1` PowerShell script accepts a parameter file as a parameter.
 
     ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
 
-## Next Steps
+## Next steps
 
-To learn more about some of the core concepts discussed in this topic, see the [Service Fabric Technial Overview](service-fabric-technical-overview.md). For information about other app management capabilities available in Visual Studio, see [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+To learn more about some of the core concepts that are discussed in this topic, see the [Service Fabric technical overview](service-fabric-technical-overview.md). For information about other app management capabilities that are available in Visual Studio, see how to [manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
