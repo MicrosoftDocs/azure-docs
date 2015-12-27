@@ -3,7 +3,7 @@
 	description="Use an Azure Resource Manager template to deploy a web app using MSDeploy and setting up custom hostname and a SSL certificate"
 	services="app-service\web"
 	documentationCenter=""
-	authors="johndehavilland"
+	authors="jodehavi"
 	/>
 
 <tags
