@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/23/2015"
+   ms.date="12/28/2015"
    ms.author="v-sharos" />
 
 # StorSimple Snapshot Manager user interface
@@ -379,7 +379,7 @@ To see the following example, in the **Scope** pane, expand the **Jobs** node an
 To see more options, in the **Scope** pane, expand the **Jobs** node, click **Scheduled**, and then click a scheduled job in the **Results** pane. The **Actions** pane displays the available actions for the scheduled job, as shown in the following example.
 
 ![Actions pane job actions example](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
-#  #
+
 ## Keyboard navigation and shortcuts
 
 StorSimple Snapshot Manager enables the accessibility features of the Windows operating system and the Microsoft Management Console (MMC). It also includes some keyboard navigation features and shortcuts that are specific to the StorSimple Snapshot Manager, as described in the following sections.
