@@ -149,7 +149,8 @@ Click on “SQL Databases” menu item on the left side of the Azure Management 
 ## Connect Visual Studio to Azure SQL Database
 Visual Studio will be leveraged to review the query results in the output database.  
   
-To do so connect to the Azure database (the destination) from Visual Studio:
+To do so connect to the Azure database (the destination) from Visual Studio:  
+  
 1. Open Visual Studio then click “Tools” and then “Connect to Database…” menu item.  
 2. If prompted, select “Microsoft SQL Server” as a data source.  
 3. In the Server Name field paste the name of the SQL Server copied in the previous section from Azure Portal (i.e. <serverName>.database.windows.net).  
@@ -171,7 +172,7 @@ For “Regional Monitoring Storage Account” setting, select “Create new stor
 
 ## Define Input Sources
 Select the created analytics job in the portal. Then select the  “Inputs” tab to define the source data and select “Add an Input”.
-
+  
 1. Select “Data Stream” on the first page.  
 2. Select “Event Hub” on the second page of the wizard.  
 3. Enter “EntryStream” as Input Alias.  
@@ -236,7 +237,8 @@ Our sample query uses TumblingWindow function to specify the size of the window
 GROUP BY TUMBLINGWINDOW(minute,3) 7. TESTING AZURE STREAM ANALYTICS QUERIES
 Now that we have written our first Azure Stream Analytics query, it is time to test it out using sample data files located in your TollApp folder in the path below:
 ..\TollApp\TollApp\LabSetup\Data
-This folder contains the following files:
+This folder contains the following files:  
+  
 1. Entry.json
 2. Exit.json
 3. Registration.json
