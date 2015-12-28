@@ -92,6 +92,7 @@ A load test project is composed of one or more scenarios described by the web pe
 3. In the **Test Mix** section, choose the **Add** button and then select the test that you want to include in the load test. You can use the **Distribution** column to specify the percentage of total tests run for each test.
 
 4. In the **Run Settings** section, specify the load test duration.
+
     >[AZURE.NOTE] The **Test Iterations** option is available only when you run a load test locally using Visual Studio.
 
 5. In the **Location** section of **Run Settings**, specify the location where load test requests are generated. The wizard may prompt you to log in to your Team Services account. Log in and then choose a geographic location. When you're done, choose the **Finish** button.
