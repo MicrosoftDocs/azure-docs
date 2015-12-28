@@ -25,7 +25,7 @@ Azure Stream Analytics data stream processing service enables developers to easi
 
 This tutorial describes a toll booth scenario. Tolling stations are a common phenomenon encountered worldwide. Each toll station has multiple toll booths, which may be manual – meaning that the vehicle stops at the toll to pay, or automated – where a sensor placed on top of the booth scans a sensor affixed to the windshield of a vehicle as it passes the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
 
-## CONFIGURE ENVIRONMENT FOR AZURE STREAM ANALYTICS  
+## Configure environment
 To perform this lab, a Microsoft Azure subscription is required. Microsoft offers free trial for Microsoft Azure services as described below.
 If you do not have an Azure account, you can request a free trial version by going to [http://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/ "Build a real time processing job in Stream Analytics - Free Trial Link").  
 
@@ -33,11 +33,11 @@ Note that to sign up for a free trial, you will need a mobile device that can re
 
 A download of data will be necessary for this tutorial. The current version can be found in the [Stream Analytics GitHub Samples](https://github.com/streamanalytics/samples/releases) area. Download the zip and extract to a local working directory for later use.
 
-## Input data
+## Data streams
 
 The data input for this tutorial consists of two data streams produced by sensors installed in the entrance and exit of the toll stations In addition, a static look up data set with vehicle registration data is leveraged.
 
-### ENTRY DATA STREAM
+### Entry data stream
 Entry data stream contains information about cars entering toll stations.  
   
 | Toll Id | EntryTime               | License Plate | State | Make   | Model   | Vehicle Type | Vehicle Weight | Toll  | Tag       |
@@ -66,7 +66,7 @@ The data field definitions are as follows:
 | Toll          | The toll value in USD                                                                          |
 | Tag           | e-Tag on the automobile that automates payment, left blank where the payment was done manually |
   
-### EXIT DATA STREAM
+### Exit data stream
 Exit data stream contains information about cars exiting the toll station.  
   
 | TollId | ExitTime | LicensePlate |
@@ -86,7 +86,7 @@ The data field definitions are as follows:
 | ExitTime | The date and time of exit of the vehicle from Toll Booth in UTC format |
 | LicensePlate | License Plate number of the vehicle |
 
-### COMMERCIAL VEHICLE REGISTRATION DATA  
+### Commercial vehicle data (reference data)
 In addition to the streamed data from the toll sensors, a static snapshot of the commercial vehicle registrations database is leveraged as reference data.  
   
 | LicensePlate | RegistrationId | Expired |
@@ -106,7 +106,7 @@ In addition to the streamed data from the toll sensors, a static snapshot of the
 | RegistrationID | Registration number of the vehicle |
 | Expired | This field is 0 if the vehicle registration is active, 1 if it is expired |
   
-## PROVISIONING AZURE RESOURCES REQUIRED FOR THE LAB
+## Provision Resources
 This tutorial will walk through the creation of 2 Azure Event Hubs to receive the “Entry” and “Exit” data streams. Azure SQL Database is used to output the job results. Azure Blob Storage will be used to  store reference data about vehicle registrations.
 
 The `Setup.ps1` PowerShell script in the TollApp sample folder on GitHub can be used to create all the required resources. In the interest of time, we recommend that you run it. If you would like to learn more about configuring these resources in Azure portal, please refer to the appendix “Configuring Lab resources in Azure Portal”
