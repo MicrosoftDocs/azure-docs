@@ -47,7 +47,7 @@ Before you get started with the steps in this tutorial, [install the Azure CLI](
 	azure group create vmsstestrg1 westus
 	```
 
-3. **Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Create a storage account named **vmsstestsa**. Keep the command interface window open for steps later in this tutorial.:
+3. **Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Create a storage account named **vmsstestsa**. Keep the command interface window open for steps later in this tutorial:
 
 	```
 	azure storage account create --type LRS -g vmsstestrg1 -l westus vmsstestsa
@@ -236,7 +236,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	},
 	```
 
-7. Add the load balancer resource that is used by the scale set. For more information, see [Azure Resource Manager Support for Load Balancer](../load-balancer/oad-balancer-arm.md).
+7. Add the load balancer resource that is used by the scale set. For more information, see [Azure Resource Manager Support for Load Balancer](../load-balancer/load-balancer-arm.md).
 
 	```
 	{
@@ -281,7 +281,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	},
 	```
 
-8. Add the network interface resource that is used by the jumpbox virtual machine.
+8. Add the network interface resource that is used by the jumpbox virtual machine. Because machines in a virtual machine scale set are not directly accessible using a public IP address, a jumpbox virtual machine is created in the same virtual network as the scale set and is used to remotely access the machines in the set.
 
 	```
 	{
@@ -313,7 +313,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	```
 
 
-9. Add the virtual machine resource in the same network as the scale set. Because machines in a virtual machine scale set are not directly accessible using a public IP address, a jumpbox virtual machine is created in the same virtual network as the scale set and is used to remotely access the machines in the set.
+9. Add the jumpbox virtual machine in the same network as the scale set.
 
 	```
 	{
@@ -558,7 +558,7 @@ The template can be uploaded from your command-line interface as long as you kno
 
 ## Step 4: Deploy the template
 
-Now that you created the template, you can get started deploying the resources. Use this command the start the process:
+Now that you created the template, you can start deploying the resources. Use this command to start the process:
 
 	azure group deployment create --template-uri https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json vmsstestrg1 vmsstestdp1
 
@@ -591,7 +591,7 @@ You can get some information about virtual machine scale sets using these method
 
  - Connect to the jumpbox virtual machine just like you would any other machine and then you can remotely access the virtual machines in the scale set to monitor individual processes.
 
->[AZURE.NOTE]A complete REST API for obtaining information about scale sets can be found in [Virtual Machine Scale Sets](https://msdn.microsoft.com/library/mt589023.aspx)
+>[AZURE.NOTE]A complete REST API for obtaining information about scale sets can be found in [Virtual Machine Scale Sets](https://msdn.microsoft.com/library/mt589023.aspx).
 
 ## Step 5: Remove the resources
 

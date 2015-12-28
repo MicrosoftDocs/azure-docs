@@ -41,7 +41,7 @@ The template that you build in this tutorial is similar to a template that can b
 
 1. **Sign in to Microsoft Azure**. Open the Microsoft Azure PowerShell window and run **Login-AzureRmAccount**.
 
-2. **Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmsstest1**. See [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+2. **Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmsstestrg1**. See [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
 
 3. **Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) to create a storage account named **vmsstestsa**. Keep the Azure PowerShell window open for steps later in this tutorial.
 
@@ -228,7 +228,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	},
 	```
 
-7. Add the load balancer resource that is used by the scale set. For more information, see [Azure Resource Manager Support for Load Balancer](../load-balancer/oad-balancer-arm.md).
+7. Add the load balancer resource that is used by the scale set. For more information, see [Azure Resource Manager Support for Load Balancer](../load-balancer/load-balancer-arm.md).
 
 	```
 	{
@@ -273,7 +273,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	},
 	```
 
-8. Add the network interface resource that is used by the jumpbox virtual machine.
+8. Add the network interface resource that is used by the jumpbox virtual machine. Because machines in a virtual machine scale set are not directly accessible using a public IP address, a jumpbox virtual machine is created in the same virtual network as the scale set and is used to remotely access the machines in the set.
 
 
 	```
@@ -306,7 +306,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	```
 
 
-9. Add the virtual machine resource in the same network as the scale set. Because machines in a virtual machine scale set are not directly accessible using a public IP address, a jumpbox virtual machine is created in the same virtual network as the scale set and is used to remotely access the machines in the set.
+9. Add the virtual machine in the same network as the scale set.
 
 	```
 	{
@@ -353,7 +353,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	},
 	```
 
-10.	Add the virtual machine scale set resource and specify the Diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. Here are the main differences:
+10.	Add the virtual machine scale set and specify the Diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. Here are the main differences:
 
 	- **capacity** - specifies how many virtual machines should be initialized in the scale set. You set this value by specifying a value for the instanceCount parameter.
 
@@ -535,7 +535,7 @@ The template can be uploaded from the Microsoft Azure PowerShell window as long 
 
 1.	In the Microsoft Azure PowerShell window, set a variable that specifies the name of the storage account that you deployed in step 1.
 
-		$StorageAccountName = "vmssstore1"
+		$StorageAccountName = "vmstestsa"
 
 2.	Set a variable that specifies the primary key of the storage account.
 
@@ -560,9 +560,9 @@ The template can be uploaded from the Microsoft Azure PowerShell window as long 
 
 ## Step 4: Deploy the template
 
-Now that you created the template, you can get started deploying the resources. Use this command the start the process:
+Now that you created the template, you can start deploying the resources. Use this command to start the process:
 
-		New-AzureRmResourceGroupDeployment -Name "vmss-testdeployment1" -ResourceGroupName "vmss-test1" -TemplateUri "https://vmssstore1.blob.core.windows.net/templates/VMSSTemplate.json"
+		New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
 
 When you press enter, you are prompted to provide values for the variables you assigned. Provide these values:
 
@@ -585,11 +585,11 @@ You can get some information about virtual machine scale sets using these method
  - The Azure portal - You can currently get a limited amount of information using the portal.
  - The [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool to explore the current state of your scale set. Follow this path and you should see the instance view of the scale set that you created:
 
-		subscriptions > {your subscription} > resourceGroups > vmss-test1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
  - Azure PowerShell - Use this command to get some information:
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmss-test1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
 
  - Connect to the jumpbox virtual machine just like you would any other machine and then you can remotely access the virtual machines in the scale set to monitor individual processes.
 
@@ -599,8 +599,8 @@ You can get some information about virtual machine scale sets using these method
 
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. You can delete the resource group and all of its resources will automatically be deleted.
 
-	Remove-AzureRmResourceGroup -Name vmss-test1
+	Remove-AzureRmResourceGroup -Name vmsstestrg1
 
 If you want to keep your resource group, you can delete the scale set only.
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmss-test1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
