@@ -40,7 +40,7 @@ By default, your application will include two publish profiles: Local.xml and Cl
 
 A folder in the Service Fabric application project called **ApplicationParameters** contains XML files for user-specified application manifest parameter values. Application manifest files can be parameterized so that you can use different values for deployment settings. To learn more about parameterizing your application, see [Manage multiple environments in Service Fabric](service-fabric-manage-multiple-environment-app-configuration.md).
 
->[AZURE.NOTE] For actor services, you should build the project first to generate the parameters in the manifest file.
+>[AZURE.NOTE] For actor services, you should build the project first before attempting to edit the file in an editor or through the publish dialog box. This is because part of the manifest files will be generated during the build.
 
 ## To publish an application by using the Publish Service Fabric Application dialog box
 
