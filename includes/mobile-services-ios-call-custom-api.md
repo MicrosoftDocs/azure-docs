@@ -32,5 +32,26 @@ For example, to send a JSON request to a custom API named "sendEmail", pass an `
 	     parameters:emailHeader
 	     headers:nil
 	     completion:completion ];
+	    
+If you need the data returned then you can use something like this:
+	[self.client invokeAPI:apiName
+                 body:yourBody
+           HTTPMethod:httpMethod
+           parameters:parameters
+              headers:headers
+           completion:  ^(NSData *result,
+                          NSHTTPURLResponse *response,
+                          NSError *error){
+               // error is nil if no error occured
+               if(error) { 
+                   NSLog(@"ERROR %@", error);
+               } else {
+                   
+		// do something with the result
+               }
+               
+               
+           }];
+
 		
 
