@@ -458,7 +458,7 @@ In this section you configure Azure Storage and SQL connection strings for testi
 
 	* Name: ContosoAdsDbConnectionString
 	* Type: String
-	* Value: Paste the same connection string you used for the web role project:
+	* Value: Paste the same connection string you used for the web role project. (The following example is for Visual Studio 2013; don't forget to change the Data Source if you copy this example and you're using Visual Studio 2015.)
 
 			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
 
