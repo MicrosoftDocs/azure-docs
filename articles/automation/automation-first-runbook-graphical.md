@@ -22,6 +22,7 @@
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
 - [PowerShell Workflow](automation-first-runbook-textual.md)
+- [PowerShell](automation-first-runbook-textual-PowerShell.md)
 
 This tutorial walks you through the creation of a [graphical runbook](automation-runbook-types.md#graphical-runbooks) in Azure Automation.  We'll start with a simple runbook that we'll test and publish while we explain how to track the status of the runbook job.  Then we'll modify the runbook to actually manage Azure resources, in this case starting an Azure virtual machine.  We'll then make the runbook more robust by adding runbook parameters and a conditional link.  
 
@@ -201,5 +202,5 @@ We will now modify the runbook so that it will only attempt to start the runbook
 
 - [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 - [My first PowerShell Workflow runbook](automation-first-runbook-textual.md)
-
+- [My first PowerShell runbook](automation-first-runbook-textual-PowerShell.md)
  
