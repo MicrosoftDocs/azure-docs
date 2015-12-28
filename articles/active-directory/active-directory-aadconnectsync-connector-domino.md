@@ -248,7 +248,7 @@ If a new Assistant named **David Alexander** is assigned to this person object, 
 
 **Import**
 
-The Export operation option supports two modes:
+The Import operation option supports two modes:
 
 - Default
 - Multivalued to Single Value
