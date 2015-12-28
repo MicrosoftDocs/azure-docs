@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="12/28/2015"
    ms.author="andkjell"/>
 
 # Lotus Domino Connector technical reference
@@ -34,7 +34,7 @@ From a high level perspective, the following features are supported by the curre
 
 | Feature | Support |
 | --- | --- |
-| Connected data source | Server: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client:<li>Lotus Notes 8.5.x</li><li>Lotus Notes 9.x</li> |
+| Connected data source | Server: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client:<li>Lotus Notes 9.x</li> |
 | Scenarios	| <li>Object Lifecycle Management</li><li>Group Management</li><li>Password Management</li> |
 | Operations | <li>Full and Delta Import</li><li>Export</li><li>Set and change password on HTTP password</li> |
 | Schema | <li>Person (Roaming user, Contact (persons with no certificate))</li><li>Group</li><li>Resource (Resource, Room, Online meeting)</li><li>Mail-in database</li><li>Dynamic discovery of attributes for supported objects</li> |

@@ -32,13 +32,14 @@ Azure AD Connect sync is set to synchronize identity data every 3 hours. During 
 
 - It is **unsupported** to make changes to the scheduled task. The password for the service account is not known. See [changes to the service account](#changes-to-the-service-account)
 - It is **unsupported** to synchronize more frequently than the default 3 hours.
+	- It is supported to do one-off synchronization runs when you test a new configuration. But you should not run exports to Azure AD on a more frequent schedule.
 
 ## Changes to Synchronization Rules
 The installation wizard provides a configuration which is supposed to work for the most common scenarios. In case you need to make changes to the configuration, then you must follow these rules to still have a supported configuration.
 
 - You can [change attribute flows](#change-attribute-flows) if the default direct attribute flows are not suitable for your organization.
 - If you want to [not flow an attribute](#do-not-flow-an-attribute) and remove any existing attribute values in Azure AD, then you need to create a rule for this.
-- [Disable an unwanted Sync Rule](#disable-an-unwanted-rule) rather than deleting it. A deleted rule will be recreated during un upgrade.
+- [Disable an unwanted Sync Rule](#disable-an-unwanted-sync-rule) rather than deleting it. A deleted rule will be recreated during un upgrade.
 - To [change an out-of-box rule](#change-an-out-of-box-rule) you should make a copy of the original rule and disable the out-of-box rule. The Sync Rule Editor will prompt you and help you with this.
 - Export your custom synchronization rules using the Synchronization Rules Editor. This provides you with a PowerShell script you can use to easily recreate them in the case of a disaster recovery scenario.
 
