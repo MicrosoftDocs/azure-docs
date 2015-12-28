@@ -1,4 +1,4 @@
-1. **Objective-C**: On your Mac, open `QSTodoListViewController.m` in Xcode and add the following method. Change _facebook_ to _microsoftaccount_, _twitter_, _google_, or _windowsazureactivedirectory_ if you're not using Facebook as your identity provider.
+1. **Objective-C**: On your Mac, open _QSTodoListViewController.m_ in Xcode and add the following method. Change _facebook_ to _microsoftaccount_, _twitter_, _google_, or _windowsazureactivedirectory_ if you're not using Facebook as your identity provider.
 
         - (void) loginAndGetData
         {
@@ -12,11 +12,11 @@
             }];
         }
 
-2. **Objective-C**: Replace `[self refresh]` in `viewDidLoad` in `QSTodoListViewController.m` with the following:
+2. **Objective-C**: Replace `[self refresh]` in `viewDidLoad` in _QSTodoListViewController.m_ with the following:
 
         [self loginAndGetData];
 
-3. **Swift**: On your Mac, open `ToDoTableViewController.swift` in Xcode and add the following method. Change _facebook_ to _microsoftaccount_, _twitter_, _google_, or _windowsazureactivedirectory_ if you're not using Facebook as your identity provider. Replace %APPURL% with the URL of the Azure Mobile App.
+3. **Swift**: On your Mac, open _ToDoTableViewController.swift_ in Xcode and add the following method. Change _facebook_ to _microsoftaccount_, _twitter_, _google_, or _windowsazureactivedirectory_ if you're not using Facebook as your identity provider. Replace %APPURL% with the URL of the Azure Mobile App.
         
             
         func loginAndGetData()
@@ -32,7 +32,7 @@
             })
         }
 
-4. **Swift**: Replace the lines `self.refreshControl?.beginRefreshing()` and `self.onRefresh(self.refreshControl)` at the end of `viewDidLoad()` in `ToDoTableViewController.swift` with a call to this new method:
+4. **Swift**: Replace the lines `self.refreshControl?.beginRefreshing()` and `self.onRefresh(self.refreshControl)` at the end of `viewDidLoad()` in _ToDoTableViewController.swift_ with a call to this new method:
 
         loginAndGetData();
                 
