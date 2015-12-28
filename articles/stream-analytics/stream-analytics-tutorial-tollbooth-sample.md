@@ -21,7 +21,7 @@
 
 # Build a real time processing job in Stream Analytics
 
-Follow this tutorial to gain insights on real-time data streams and leverage reference data sets for thresholds and comparisons. Azure Stream Analytics data stream processing service enables developers to easily tackle the space of data in motion by combining streams of data such as click-streams, logs and device generated events with historical records or reference data to derive business insights easily and quickly. Being a fully managed, real-time stream computation service hosted in Microsoft Azure, Stream Analytics provides built-in resiliency, low latency, and scalability to quickly address a variety of use cases.
+Azure Stream Analytics data stream processing service enables developers to easily tackle the space of data in motion by combining streams of data such as click-streams, logs and device generated events with historical records or reference data to derive business insights easily and quickly. Follow this tutorial to gain insights on real-time data streams and leverage reference data sets for thresholds and comparisons. Being a fully managed, real-time stream computation service hosted in Microsoft Azure, Stream Analytics provides built-in resiliency, low latency, and scalability to quickly address a variety of use cases.
 
 This tutorial describes a toll booth scenario. Tolling stations are a common phenomenon encountered worldwide. Each toll station has multiple toll booths, which may be manual – meaning that the vehicle stops at the toll to pay, or automated – where a sensor placed on top of the booth scans a sensor affixed to the windshield of a vehicle as it passes the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
 
@@ -67,8 +67,8 @@ The data field definitions are as follows:
 
 ### EXIT DATA STREAM
 Exit data stream contains information about cars exiting the toll station.   
-  
-| TollId |  ExitTime | LicensePlate |  
+
+| TollId | ExitTime | LicensePlate |  
 |---|---|---|  
 | 1 | 2014-09-10T12:03:00.0000000Z | JNB7001 |  
 | 1 | 2014-09-10T12:03:00.0000000Z | YXZ1001 |  
