@@ -219,6 +219,10 @@ For an example exercise, count the number of vehicles that enter a toll booth. S
 
 
 From the example above, one can observe that Stream Analytics utilizes a SQL-like query language with a few additional extensions to enable specifying time related aspects of the query.
+
+
+
+
 The next sections will describe Timestamp and TumblingWindow constructs used in the query in detail.
 APPLICATION TIME - TIMESTAMP
 In any temporal system like Azure Stream Analytics, it’s essential to understand the progress of time. Every event that flows through the system comes with a timestamp. In other words, every event in the system depicts a point in time.
