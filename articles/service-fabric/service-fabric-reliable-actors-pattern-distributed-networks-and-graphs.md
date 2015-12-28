@@ -1,6 +1,6 @@
 <properties
    pageTitle="Distributed networks and graphs pattern | Microsoft Azure"
-   description="Design pattern on how Service Fabric Reliable Actors can be used to model applications as distributed networks and graphs."
+   description="The design pattern for how Service Fabric Reliable Actors can be used to model applications as distributed networks and graphs."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -16,20 +16,21 @@
    ms.date="09/29/2015"
    ms.author="claudioc"/>
 
-# Reliable Actors design pattern: distributed networks and graphs
-Service Fabric Reliable Actors is a natural fit for modeling complex solutions involving relations and modeling those relations as objects.  
+# Reliable Actors design pattern: Distributed networks and graphs
+Azure Service Fabric Reliable Actors are a natural fit for modeling complex solutions involving relations and for modeling those relations as objects.  
 
-![][1]
+![Azure Service Fabric Reliable Actors modeling][1]
 
-As the diagram illustrates it is straightforward to model a user as an actor instance (node in the network). For example, the “Friends Feed” (sometimes referred as the "follower" problem) allows users to view status updates from people they are connected to, similar to how Facebook and Twitter work.
-The Actor model provides flexibility to approach the materialization problem. We can populate the Friends Feed at event time, updating the Friends Feed of all my friends at the moment an update is posted, as illustrated below:
+As the diagram above illustrates, modeling a user as an Actor instance (a node in the network) is straightforward. For example, the “Friends Feed” (sometimes referred to as the "follower" problem) allows users to view status updates from people they are connected to, similar to the way Facebook and Twitter work.
 
-![][2]
+The Actor model provides a flexible approach to the materialization problem. We can populate the Friends Feed at event time, updating the Friends Feed of all friends at the moment an update is posted, as illustrated below:
+
+![The Reliable Actor model and Friends Feed population][2]
 
 
-## Smart Cache code sample – Social Network Friends Feed (event time)
+## Smart Cache code sample: Social network Friends Feed (event time)
 
-Sample code populating Friends Feed:
+Sample code for populating the Friends Feed:
 
 ```csharp
 public interface ISocialPerson : IActor
@@ -123,12 +124,14 @@ public class SocialPerson : StatefulActor<SocialPersonState>, ISocialPerson
 }
 ```
 
-Alternatively we can model our Actors to fan out and compile the Friends Feed at the query timer, in other words when the user asks for their friends feed. Another method we can use is materializing the Friends Feed on a timer, for example, every 5 minutes. Or, we can optimize the model and combine both event time and query time processing with a timer-based model depending on user habits, such as how often they login or post an update.
-When modelling an actor in a social network, one should also consider “super users,” users with millions of followers. Developers should model the state and behaviour of such users differently to meet the demand.
-Similarly, if we want to model an activity that connects many user actors to a single activity actor (hub and spoke) that can be done as well. Group chat or game hosting scenarios are two examples.
-Let’s take the group chat example; a set of participants create a group chat actor that can distribute messages from one participant to the group as in the example below:
+Alternatively, you can model Actors to fan out and compile the Friends Feed at the query timer, when the user asks for the Friends Feed. You can also materialize the Friends Feed on a timer (for example, every five minutes). Or you can optimize the model and combine both event-time and query-time processing with a timer-based model that's dependent on user habits, such as how often they log in or post an update.
 
-## Smart Cache code sample – GroupChat
+When you model an Actor in a social network, you should also consider “super users,” those users with millions of followers. Developers should model the state and behavior of such users differently to meet the greater demand.
+
+Similarly, if you want to model an activity that connects many user Actors to a single activity Actor (hub and spoke), you can do that as well. Group-chat and game-hosting scenarios are two examples.
+Let’s look at the group chat example. A set of participants creates a group chat Actor that can distribute messages from one participant to the group. This is shown in the example below:
+
+## Smart Cache code sample: Group chat
 
 ```csharp
 public interface IGroupChat : IActor
@@ -206,20 +209,20 @@ public Task PublishMessageAsync(long participantId, string message)
 }
 ```
 
-All it really does is leverage Reliable Actors' ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialization, or routing.
+This approach leverages Reliable Actors' ability to allow any Actor to address any other Actor in the cluster by ID and communicate with it without needing to worry about placement, addressing, caching, messaging, serialization, or routing.
 
-## Next Steps
-[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
+## Next steps
+[Pattern: Smart cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
-[Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
+[Pattern: Resource governance](service-fabric-reliable-actors-pattern-resource-governance.md)
 
-[Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
+[Pattern: Stateful service composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
 [Pattern: Internet of Things](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Pattern: Distributed Computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
+[Pattern: Distributed computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md)
+[Some antipatterns](service-fabric-reliable-actors-anti-patterns.md)
 
 [Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
 
