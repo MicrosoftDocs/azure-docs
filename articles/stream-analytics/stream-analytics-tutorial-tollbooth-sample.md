@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/23/2015" 
+	ms.date="12/28/2015" 
 	ms.author="jeffstok"
 />
 
@@ -24,6 +24,14 @@
 Follow this tutorial to gain insights on real-time data streams and leverage reference data sets for thresholds and comparisons. Azure Stream Analytics data stream processing service enables developers to easily tackle the space of data in motion by combining streams of data such as click-streams, logs and device generated events with historical records or reference data to derive business insights easily and quickly. Being a fully managed, real-time stream computation service hosted in Microsoft Azure, Stream Analytics provides built-in resiliency, low latency, and scalability to quickly address a variety of use cases.
 
 This tutorial describes a toll booth scenario. Tolling stations are a common phenomenon encountered worldwide. Each toll station has multiple toll booths, which may be manual – meaning that the vehicle stops at the toll to pay, or automated – where a sensor placed on top of the booth scans a sensor affixed to the windshield of a vehicle as it passes the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
+
+## CONFIGURE ENVIRONMENT FOR AZURE STREAM ANALYTICS ##  
+To perform this lab, a Microsoft Azure subscription is required. Microsoft offers free trial for Microsoft Azure services as described below.
+If you do not have an Azure account, you can request a free trial version by going to [http://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/ "Build a real time processing job in Stream Analytics - Free Trial Link").  
+
+Note that to sign up for a free trial, you will need a mobile device that can receive text messages and a valid credit card. Also be sure to follow the “Clean up your Azure account” section steps at the end of this exercise so that you can make the most use of your $200 free Azure credit.
+
+A download of data will be necessary for this tutorial. The current version can be found in the [Stream Analytics GitHub Samples](https://github.com/streamanalytics/samples/releases) area. Download the zip and extract to a local working directory for later use.
 
 ## Input data
 
@@ -95,12 +103,6 @@ In addition to the streamed data from the toll sensors, a static snapshot of the
 | LicensePlate | License Plate number of the vehicle |  
 | RegistrationID | Registration number of the vehicle |  
 | Expired | This field is 0 if the vehicle registration is active, 1 if it is expired |   
-
-### CONFIGURE ENVIRONMENT FOR AZURE STREAM ANALYTICS ###  
-To perform this lab, a Microsoft Azure subscription is required. Microsoft offers free trial for Microsoft Azure services as described below.
-If you do not have an Azure account, you can request a free trial version by going to [http://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/ "Build a real time processing job in Stream Analytics - Free Trial Link").  
-
-Note that to sign up for a free trial, you will need a mobile device that can receive text messages and a valid credit card. Also be sure to follow the “Clean up your Azure account” section steps at the end of this exercise so that you can make the most use of your $200 free Azure credit.
 
 ### PROVISIONING AZURE RESOURCES REQUIRED FOR THE LAB ###
 This tutorial will walk through the creation of 2 Azure Event Hubs to receive the “Entry” and “Exit” data streams. Azure SQL Database is used to output the job results. Azure Blob Storage will be used to  store reference data about vehicle registrations.
@@ -204,10 +206,16 @@ At this point in the tutorial, all data inputs are defined.
 ## Azure Stream Analytics Job Query ##
 The Query tab contains a T-SQL query that performs the transformation over the incoming data. Throughout the lab questions will be presented and addressed by using the toll booth data stream and Stream Analytics queries to provide an answer. Before starting the first Azure Stream Analytics job, explore a few scenarios and query syntax.
 
-## Introduction to Azure Stream Analytics Query Language ##
-Let’s say, we need to count the number of vehicles that enter a toll booth. Since this is a continuous stream of events, it is essential we define a “period of time”. So we need to modify our question to be “Number of vehicles entering a toll booth every 3 minutes”. This is commonly referred to as the Tumbling Count.
-Let’s look at the Azure Stream Analytics query answering this question:
-As you can see, Azure Stream Analytics is using a SQL-like query language with a few additional extensions to enable specifying time related aspects of the query.
+For an example exercise, count the number of vehicles that enter a toll booth. Since this is a continuous stream of events, it is essential that a “period of time” be defined. Therefore the question would to be “Number of vehicles entering a toll booth every 3 minutes”. In Stream Analytics Query Language this is referred to as the Tumbling Count. Examine the query that could be used to answer this question:
+
+    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
+    FROM EntryStream TIMESTAMP BY EntryTime
+    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
+
+
+
+
+From the example above, one can observe that Stream Analytics utilizes a SQL-like query language with a few additional extensions to enable specifying time related aspects of the query.
 The next sections will describe Timestamp and TumblingWindow constructs used in the query in detail.
 APPLICATION TIME - TIMESTAMP
 In any temporal system like Azure Stream Analytics, it’s essential to understand the progress of time. Every event that flows through the system comes with a timestamp. In other words, every event in the system depicts a point in time.
