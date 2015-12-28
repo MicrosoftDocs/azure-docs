@@ -104,7 +104,7 @@ In addition to the streamed data from the toll sensors, a static snapshot of the
 | RegistrationID | Registration number of the vehicle |  
 | Expired | This field is 0 if the vehicle registration is active, 1 if it is expired |   
 
-### PROVISIONING AZURE RESOURCES REQUIRED FOR THE LAB ###
+## PROVISIONING AZURE RESOURCES REQUIRED FOR THE LAB ##
 This tutorial will walk through the creation of 2 Azure Event Hubs to receive the “Entry” and “Exit” data streams. Azure SQL Database is used to output the job results. Azure Blob Storage will be used to  store reference data about vehicle registrations.
 
 The `Setup.ps1` PowerShell script in the TollApp sample folder on GitHub can be used to create all the required resources. In the interest of time, we recommend that you run it. If you would like to learn more about configuring these resources in Azure portal, please refer to the appendix “Configuring Lab resources in Azure Portal”
@@ -129,19 +129,19 @@ Another window will be present, similar to the screen shot below. This is the si
 
 The created resources should populate in Azure Management Portal and be visible. To verify and see the objects go to [https://manage.windowsazure.com](https://manage.windowsazure.com "Build a real time processing job in Stream Analytics manage Windows Azure link") and login with the same account credentials used for the script setup.
 
-## Event Hub Review ##
+### Event Hub Review ###
 Click on “Service Bus” menu item on the left side of the Azure Management Portal to see Event Hubs created by the script from the previous section.
 Note that by default all available namespaces in the subscription are visible. Click on the one starting with “TollData”. (TollData4637388511 in this example). Click on “Event Hubs” tab.
 
 Two Event Hubs should be visible, named entry and exit created in this namespace.
 
-## Azure Storage Container Review ##
+### Azure Storage Container Review ###
 Click on “Storage” menu item on the left side of the Azure Management Portal to see storage container used in the Lab.
 Click on the one starting with “tolldata”. (tolldata4637388511 in this example). Open “Containers” tab to see the created container.
 
 Click on “tolldata” container to see uploaded JSON file with vehicle registration data.
 
-## Azure SQL Database Review ##
+### Azure SQL Database Review ###
 Click on “SQL Databases” menu item on the left side of the Azure Management Portal to see Azure SQL Database that will be used in the Lab. Click on “TollDataDB” and copy the server name without the port number (<serverName>.database.windows.net for example). This will be needed in the next step.
 
 ## Connect Visual Studio to Azure SQL Database ##
