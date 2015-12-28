@@ -111,7 +111,7 @@ The `Setup.ps1` PowerShell script in the TollApp sample folder on GitHub can be 
 
 Download and save the supporting TollApp folder and files. Be sure to download the latest available release.
 
-Open a “Microsoft Azure PowerShell” window as Administrator. If you do not yet have Azure PowerShell, follow the instructions here to install it: [http://azure.microsoft.com/documentation/articles/install-configure-powershell/](./install-configure-powershell.md).
+Open a “Microsoft Azure PowerShell” window as Administrator. If Azure PowerShell is not yet installed, follow the instructions at [http://azure.microsoft.com/documentation/articles/install-configure-powershell/](./install-configure-powershell.md) install it.
 
 Now one must set the ExecutionPolicy for PowerShell so the script can run. Be sure the Azure PowerShell window is running as Administrator. Type `Set-ExecutionPolicy unrestricted` and hit enter. When prompted, type “Y”. Next type `Get-ExecutionPolicy` and hit enter to make sure the command worked.
 
