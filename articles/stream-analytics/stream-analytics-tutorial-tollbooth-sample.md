@@ -50,7 +50,7 @@ Entry data stream contains information about cars entering toll stations.
 | 2 | 2014-09-10 12:05:00.000 | CDE1007 | NJ | Toyota | 4x4 | 1 | 0 | 6 | 321987654 |  
   
   
-The data field definitions are as follows:    
+The data field definitions are as follows:  
   
 | Data Field | Data Definition |  
 |---|---|  
@@ -64,10 +64,10 @@ The data field definitions are as follows:
 | VehicleWeight | Vehicle weight in tons; 0 for passenger vehicles |  
 | Toll | The toll value in USD |  
 | Tag | e-Tag on the automobile that automates payment, left blank where the payment was done manually |  
-
+  
 ### EXIT DATA STREAM
-Exit data stream contains information about cars exiting the toll station.   
-
+Exit data stream contains information about cars exiting the toll station.  
+  
 | TollId | ExitTime | LicensePlate |  
 |---|---|---|  
 | 1 | 2014-09-10T12:03:00.0000000Z | JNB7001 |  
@@ -76,9 +76,9 @@ Exit data stream contains information about cars exiting the toll station.
 | 2 | 2014-09-10T12:07:00.0000000Z | XYZ1003 |  
 | 1 | 2014-09-10T12:08:00.0000000Z | BNJ1007 |  
 | 2 | 2014-09-10T12:07:00.0000000Z | CDE1007 |  
-
+  
 The data field definitions are as follows:  
-
+  
 | Data Field | Data Definition |  
 |---|---|  
 | TollID | Toll booth ID uniquely identifying a toll booth |  
@@ -87,7 +87,7 @@ The data field definitions are as follows:
 
 ### COMMERCIAL VEHICLE REGISTRATION DATA  
 In addition to the streamed data from the toll sensors, a static snapshot of the commercial vehicle registrations database is leveraged as reference data.  
-
+  
 | LicensePlate | RegistrationId | Expired |  
 |---|---|---|  
 | SVT6023 | 285429838 | 1 |  
@@ -96,13 +96,15 @@ In addition to the streamed data from the toll sensors, a static snapshot of the
 | RIV8632 | 992711956 | 0 |  
 | SNY7188 | 592133890 | 0 |  
 | ELH9896 | 678427724 | 1 |  
-
+  
+  
+  
 | Data Field | Data Definition |  
 |---|---|  
 | LicensePlate | License Plate number of the vehicle |  
 | RegistrationID | Registration number of the vehicle |  
-| Expired | This field is 0 if the vehicle registration is active, 1 if it is expired |   
-
+| Expired | This field is 0 if the vehicle registration is active, 1 if it is expired |  
+  
 ## PROVISIONING AZURE RESOURCES REQUIRED FOR THE LAB
 This tutorial will walk through the creation of 2 Azure Event Hubs to receive the “Entry” and “Exit” data streams. Azure SQL Database is used to output the job results. Azure Blob Storage will be used to  store reference data about vehicle registrations.
 
