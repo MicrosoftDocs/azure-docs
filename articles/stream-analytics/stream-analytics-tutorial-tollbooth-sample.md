@@ -37,10 +37,9 @@ A download of data will be necessary for this tutorial. The current version can 
 
 The data input for this tutorial consists of two data streams produced by sensors installed in the entrance and exit of the toll stations In addition, a static look up data set with vehicle registration data is leveraged.
 
-### ENTRY DATA STREAM ###
+### ENTRY DATA STREAM
 Entry data stream contains information about cars entering toll stations.    
-    
-    
+
 | Toll Id | EntryTime | License Plate | State | Make | Model | Vehicle Type | Vehicle Weight | Toll | Tag |    
 | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |    
 | 1 | 2014-09-10 12:01:00.000 | JNB7001 | NY | Honda | CRV | 1 | 0 | 7 |   |    
@@ -125,7 +124,7 @@ Please note that if the Azure account has access to multiple subscriptions, the 
 
 The script can take several minutes to run. Once completed, the output should look like the screenshot below.
 
-Another window will be present, similar to the screen shot below. This is the simulator application that sends events to EventHub. It is required to run the lab exercises. **Do not stop the application or close this window until the the lab is finished.**
+Another window will be present, similar to the screen shot below. This is the simulator application that sends events to Event Hub. It is required to run the lab exercises. **Do not stop the application or close this window until the the lab is finished.**
 
 The created resources should populate in Azure Management Portal and be visible. To verify and see the objects go to [https://manage.windowsazure.com](https://manage.windowsazure.com "Build a real time processing job in Stream Analytics manage Windows Azure link") and login with the same account credentials used for the script setup.
 
