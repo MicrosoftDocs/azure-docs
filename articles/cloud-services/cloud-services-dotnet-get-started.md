@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="12/28/2015"
 	ms.author="tdykstra"/>
 
 # Get started with Azure Cloud Services and ASP.NET
@@ -58,9 +58,9 @@ You can run the app locally without an Azure subscription, but you'll need one i
 The tutorial instructions work with either of the following products:
 
 * Visual Studio 2013
-* Visual Studio 2013 Express for Web
+* Visual Studio 2015
 
-If you don't have one of these, Visual Studio 2013 Express for Web will be installed automatically when you install the Azure SDK.
+If you don't have one of these, Visual Studio 2015 will be installed automatically when you install the Azure SDK. 
 
 ## Application architecture
 
@@ -72,7 +72,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
 
 ## Download and run the completed solution
 
@@ -87,6 +87,8 @@ When a user uploads an image, the front-end running in a web role stores the ima
 	By default, Visual Studio automatically restores the NuGet package content, which was not included in the *.zip* file. If the packages don't restore, install them manually by going to the **Manage NuGet Packages for Solution** dialog box and clicking the **Restore** button at the top right.
 
 3. In **Solution Explorer**, make sure that **ContosoAdsCloudService** is selected as the startup project.
+
+2. If you're using Visual Studio 2015, change the SQL Server connection string in the application *Web.config* file of the ContosoAdsWeb project and in the *ServiceConfiguration.Local.cscfg* file of the ContosoAdsCloudService project. In each case, change "(localdb)\v11.0" to "(localdb)\MSSQLLocalDB".
 
 1. Press CTRL+F5 to run the application.
 
@@ -252,7 +254,7 @@ You'll use a [Web.config transform](http://www.asp.net/mvc/tutorials/deployment/
 
 7. Change **Service Configuration** to **Cloud**.
 
-7. Select the text in the `ContosoAdsDbConnectionString` setting, and then paste the connection string that you copied from the previous section of the tutorial.
+7. Select the **Value** field for the `ContosoAdsDbConnectionString` setting, and then paste the connection string that you copied from the previous section of the tutorial.
 
 	![Database connection string for worker role](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 
@@ -341,7 +343,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 	![Azure Activity Log window](./media/cloud-services-dotnet-get-started/waal.png)
 
-1. When the deployment status is complete, click the **Website URL** to start the application.
+1. When the deployment status is complete, click the **Web app URL** to start the application.
 
 9. You can now test the app by creating, viewing, and editing some ads, as you did when you ran the application locally.
 
@@ -388,7 +390,7 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 9. In **Solution Explorer**, right-click the solution (not one of the projects), and choose **Add - New Project**.
 
-11. In the **Add New Project** dialog box, choose **Windows Desktop** under **Visual C#** in the left pane, and then click the **Class Library** template.  
+11. In the **Add New Project** dialog box, choose **Windows** under **Visual C#** in the left pane, and then click the **Class Library** template.  
 
 10. Name the project *ContosoAdsCommon*, and then click **OK**.
 
@@ -398,15 +400,13 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 11. Open the **Manage NuGet Packages** dialog box for the solution.
 
-12. In the left pane, select **Updates**.
+12. At the top of the window, select **Updates**.
 
-13. Look for the *WindowsAzure.Storage* package, and if it's in the list, click **Update** to get the latest version of the storage client library.
-
-	![Update SCL](./media/cloud-services-dotnet-get-started/updstg.png)
+13. Look for the *WindowsAzure.Storage* package, and if it's in the list, select it and select the web and worker projects to update it in, and then click **Update**.
 
 	The storage client library is updated more frequently than Visual Studio project templates, so you'll often find that the version in a newly created projected needs to be updated.
 
-14. In the left pane, select **Online**.
+14. At the top of the window, select **Browse**.
 
 16. Find the *EntityFramework* NuGet package, and install it in all three projects.
 
@@ -433,6 +433,8 @@ In this section you configure Azure Storage and SQL connection strings for testi
 		<connectionStrings>
 		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
 		</connectionStrings>
+
+	If you're using Visual Studio 2015, replace "v11.0" with "MSSQLLocalDB".
 
 3. Save your changes.
 
@@ -594,13 +596,13 @@ In the *AdController.cs* file the constructor calls the `InitializeStorage` meth
 Then the code gets a reference to the *images* blob container as you saw earlier in *Global.asax.cs*. While doing that it sets a default [retry policy](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) appropriate for a web app. The default exponential backoff retry policy could hang the web app for longer than a minute on repeated retries for a transient fault. The retry policy specified here waits 3 seconds after each try for up to 3 tries.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
-		blobClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesBlobContainer = blobClient.GetContainerReference("images");
 
 Similar code gets a reference to the *images* queue.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		queueClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("images");
 
 Most of the controller code is typical for working with an Entity Framework data model using a DbContext class. An exception is the HttpPost `Create` method, which uploads a file and saves it in blob storage. The model binder provides an [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) object to the method.
@@ -801,7 +803,7 @@ The Contoso Ads application has intentionally been kept simple for a getting-sta
 Here are some cloud service sample applications that demonstrate more real-world coding practices, listed from less complex to more complex:
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Similar in concept to Contoso Ads but implements more features and more real-world coding practices.
-* [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduces Azure Storage tables as well as blobs and queues, and comes with a [step-by-step tutorial series](../cloud-services-dotnet-multi-tier-app-storage-1-overview.md).
+* [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduces Azure Storage tables as well as blobs and queues. Based on an older version of the Azure SDK for .NET, will require some modifications to work with the current version.
 * [Cloud Service Fundamentals in Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). A comprehensive sample demonstrating a wide range of best practices, produced by the Microsoft Patterns and Practices group.
 
 For general information about developing for the cloud, see [Building Real-World Cloud Apps with Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
