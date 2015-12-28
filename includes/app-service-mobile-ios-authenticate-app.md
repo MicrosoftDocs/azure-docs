@@ -32,7 +32,7 @@
             })
         }
 
-4. **Swift**: Replace  `self.refreshControl?.beginRefreshing()` and `self.onRefresh(self.refreshControl)` at the end of `viewDidLoad()` in _ToDoTableViewController.swift_ with a call to `loginAndGetData()` instead:
+4. **Swift**: Remove the lines `self.refreshControl?.beginRefreshing()` and `self.onRefresh(self.refreshControl)` at the end of `viewDidLoad()` _ToDoTableViewController.swift_. Add a call to `loginAndGetData()` in their place:
 
         loginAndGetData();
                 
