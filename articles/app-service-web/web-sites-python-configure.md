@@ -4,7 +4,7 @@
 	services="app-service" 
 	documentationCenter="python" 
 	tags="python"
-	authors="huvalo" 
+	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
