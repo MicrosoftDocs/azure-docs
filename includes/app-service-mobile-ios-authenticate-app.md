@@ -16,12 +16,12 @@
 
         [self loginAndGetData];
 
-3. **Swift**: On your Mac, open **ToDoTableViewController.swift** in Xcode and add the following method. Change _facebook_ to _microsoftaccount_, _twitter_, _google_, or _windowsazureactivedirectory_ if you're not using Facebook as your identity provider.
+3. **Swift**: On your Mac, open **ToDoTableViewController.swift** in Xcode and add the following method. Change _facebook_ to _microsoftaccount_, _twitter_, _google_, or _windowsazureactivedirectory_ if you're not using Facebook as your identity provider. Replace %APPURL% with the URL of the Azure Mobile App.
         
             
         func loginAndGetData()
         {
-            let client = MSClient(applicationURLString: "https://test911518.azurewebsites.net")
+            let client = MSClient(applicationURLString: "%APPURL%")
             if client.currentUser != nil {
                 return
             }
@@ -32,7 +32,7 @@
             })
         }
 
-4. **Swift**: Replace the two lines `self.refreshControl?.beginRefreshing()` and `self.onRefresh(self.refreshControl)` in `viewDidLoad()` with the following:
+4. **Swift**: Replace the lines `self.refreshControl?.beginRefreshing()` and `self.onRefresh(self.refreshControl)` at the end of `viewDidLoad()` with a call to this new method:
 
         loginAndGetData();
                 
