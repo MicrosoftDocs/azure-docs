@@ -40,70 +40,71 @@ The data input for this tutorial consists of two data streams produced by sensor
 ### ENTRY DATA STREAM
 Entry data stream contains information about cars entering toll stations.  
   
-| Toll Id | EntryTime | License Plate | State | Make | Model | Vehicle Type | Vehicle Weight | Toll | Tag |  
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|  
-| 1 | 2014-09-10 12:01:00.000 | JNB7001 | NY | Honda | CRV | 1 | 0 | 7 |   |  
-| 1 | 2014-09-10 12:02:00.000 | YXZ1001 | NY | Toyota | Camry | 1 | 0 | 4 | 123456789 |  
-| 3 | 2014-09-10 12:02:00.000 | ABC1004 | CT | Ford | Taurus | 1 | 0 | 5 | 456789123 |  
-| 2 | 2014-09-10 12:03:00.000 | XYZ1003 | CT | Toyota | Corolla | 1 | 0 | 4 |   |  
-| 1 | 2014-09-10 12:03:00.000 | BNJ1007 | NY | Honda | CRV | 1 | 0 | 5 | 789123456 |  
-| 2 | 2014-09-10 12:05:00.000 | CDE1007 | NJ | Toyota | 4x4 | 1 | 0 | 6 | 321987654 |  
+| Toll Id | EntryTime               | License Plate | State | Make   | Model   | Vehicle Type | Vehicle Weight | Toll  | Tag       |
+|---------|-------------------------|---------------|-------|--------|---------|--------------|----------------|-------|-----------|
+| 1       | 2014-09-10 12:01:00.000 | JNB7001       | NY    | Honda  | CRV     | 1            | 0              | 7     |           |
+| 1       | 2014-09-10 12:02:00.000 | YXZ1001       | NY    | Toyota | Camry   | 1            | 0              | 4     | 123456789 |
+| 3       | 2014-09-10 12:02:00.000 | ABC1004       | CT    | Ford   | Taurus  | 1            | 0              | 5     | 456789123 |
+| 2       | 2014-09-10 12:03:00.000 | XYZ1003       | CT    | Toyota | Corolla | 1            | 0              | 4     |           |
+| 1       | 2014-09-10 12:03:00.000 | BNJ1007       | NY    | Honda  | CRV     | 1            | 0              | 5     | 789123456 |
+| 2       | 2014-09-10 12:05:00.000 | CDE1007       | NJ    | Toyota | 4x4     | 1            | 0              | 6     | 321987654 |
   
   
 The data field definitions are as follows:  
   
-| Data Field | Data Definition |  
-|---|---|  
-| TollID | Toll booth ID uniquely identifying a toll booth |  
-| EntryTime | The date and time of entry of the vehicle to Toll Booth in UTC format |  
-| LicensePlate | License Plate number of the vehicle |  
-| State | Is a State in United States |  
-| Make | The manufacturer of the automobile |    
-| Model | Model number of the automobile |  
-| VehicleType | 1 for Passenger and 2 for Commercial vehicles |  
-| VehicleWeight | Vehicle weight in tons; 0 for passenger vehicles |  
-| Toll | The toll value in USD |  
-| Tag | e-Tag on the automobile that automates payment, left blank where the payment was done manually |  
+| Data Field    | Data Definition                                                                                |
+|---------------|------------------------------------------------------------------------------------------------|
+| ---           | ---                                                                                            |
+| TollID        | Toll booth ID uniquely identifying a toll booth                                                |
+| EntryTime     | The date and time of entry of the vehicle to Toll Booth in UTC format                          |
+| LicensePlate  | License Plate number of the vehicle                                                            |
+| State         | Is a State in United States                                                                    |
+| Make          | The manufacturer of the automobile                                                             |
+| Model         | Model number of the automobile                                                                 |
+| VehicleType   | 1 for Passenger and 2 for Commercial vehicles                                                  |
+| VehicleWeight | Vehicle weight in tons; 0 for passenger vehicles                                               |
+| Toll          | The toll value in USD                                                                          |
+| Tag           | e-Tag on the automobile that automates payment, left blank where the payment was done manually |
   
 ### EXIT DATA STREAM
 Exit data stream contains information about cars exiting the toll station.  
   
-| TollId | ExitTime | LicensePlate |  
-|---|---|---|  
-| 1 | 2014-09-10T12:03:00.0000000Z | JNB7001 |  
-| 1 | 2014-09-10T12:03:00.0000000Z | YXZ1001 |  
-| 3 | 2014-09-10T12:04:00.0000000Z | ABC1004 |  
-| 2 | 2014-09-10T12:07:00.0000000Z | XYZ1003 |  
-| 1 | 2014-09-10T12:08:00.0000000Z | BNJ1007 |  
-| 2 | 2014-09-10T12:07:00.0000000Z | CDE1007 |  
+| TollId | ExitTime | LicensePlate |
+|---|---|---|
+| 1 | 2014-09-10T12:03:00.0000000Z | JNB7001 |
+| 1 | 2014-09-10T12:03:00.0000000Z | YXZ1001 |
+| 3 | 2014-09-10T12:04:00.0000000Z | ABC1004 |
+| 2 | 2014-09-10T12:07:00.0000000Z | XYZ1003 |
+| 1 | 2014-09-10T12:08:00.0000000Z | BNJ1007 |
+| 2 | 2014-09-10T12:07:00.0000000Z | CDE1007 |
   
 The data field definitions are as follows:  
   
-| Data Field | Data Definition |  
-|---|---|  
-| TollID | Toll booth ID uniquely identifying a toll booth |  
-| ExitTime | The date and time of exit of the vehicle from Toll Booth in UTC format |  
-| LicensePlate | License Plate number of the vehicle |  
+| Data Field | Data Definition |
+|---|---|
+| TollID | Toll booth ID uniquely identifying a toll booth |
+| ExitTime | The date and time of exit of the vehicle from Toll Booth in UTC format |
+| LicensePlate | License Plate number of the vehicle |
 
 ### COMMERCIAL VEHICLE REGISTRATION DATA  
 In addition to the streamed data from the toll sensors, a static snapshot of the commercial vehicle registrations database is leveraged as reference data.  
   
-| LicensePlate | RegistrationId | Expired |  
-|---|---|---|  
-| SVT6023 | 285429838 | 1 |  
-| XLZ3463 | 362715656 | 0 |  
-| BAC1005 | 876133137 | 1 |  
-| RIV8632 | 992711956 | 0 |  
-| SNY7188 | 592133890 | 0 |  
-| ELH9896 | 678427724 | 1 |  
+| LicensePlate | RegistrationId | Expired |
+|---|---|---|
+| SVT6023 | 285429838 | 1 |
+| XLZ3463 | 362715656 | 0 |
+| BAC1005 | 876133137 | 1 |
+| RIV8632 | 992711956 | 0 |
+| SNY7188 | 592133890 | 0 |
+| ELH9896 | 678427724 | 1 |
   
   
   
-| Data Field | Data Definition |  
-|---|---|  
-| LicensePlate | License Plate number of the vehicle |  
-| RegistrationID | Registration number of the vehicle |  
-| Expired | This field is 0 if the vehicle registration is active, 1 if it is expired |  
+| Data Field | Data Definition |
+|---|---|
+| LicensePlate | License Plate number of the vehicle |
+| RegistrationID | Registration number of the vehicle |
+| Expired | This field is 0 if the vehicle registration is active, 1 if it is expired |
   
 ## PROVISIONING AZURE RESOURCES REQUIRED FOR THE LAB
 This tutorial will walk through the creation of 2 Azure Event Hubs to receive the “Entry” and “Exit” data streams. Azure SQL Database is used to output the job results. Azure Blob Storage will be used to  store reference data about vehicle registrations.
