@@ -299,7 +299,7 @@ You can enable the ExpressRoute premium add-on for your existing circuit using t
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		$ckt.Sku.Name = "Premium"
+		$ckt.Sku.Tier = "Premium"
 		$ckt.sku.Name = "Premium_MeteredData"
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
