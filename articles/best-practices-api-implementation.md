@@ -641,7 +641,7 @@ In a distributed environment such as that involving a web server and client appl
 
 	```HTTP
 	PUT http://adventure-works.com/orders/1 HTTP/1.1
-	If-None-Match: "2282343857"
+	If-Match: "2282343857"
 	Content-Type: application/x-www-form-urlencoded
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
