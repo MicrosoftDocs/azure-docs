@@ -17,7 +17,7 @@
    ms.author="seanmck"/>
 
 # Prepare your development environment
- In order to build and run Azure [Service Fabric applications][1] on your development machine, you need to install the runtime, SDK, and tools. You also need to set up a local cluster.
+ In order to build and run [Azure Service Fabric applications][1] on your development machine, you need to install the runtime, SDK, and tools. You also need to set up a local cluster.
 
 ## Prerequisites
 ### Supported operating system versions
@@ -29,7 +29,7 @@ The following operating system versions are supported:
 
 ### Visual Studio 2015
 
-The tools for Service Fabric depend on Visual Studio 2015, which you can find on the [download page][2].
+The tools for Service Fabric depend on Visual Studio 2015, which you can find on the [download site][2].
 
 > [AZURE.NOTE] If you aren't running one of the supported operating system versions or would prefer not to install Visual Studio 2015 on your computer, you can set up an Azure virtual machine with Windows Server 2012 R2 and Visual Studio 2015 preinstalled. You can do this by using an image from the Azure virtual machine gallery.
 
@@ -39,7 +39,7 @@ The Web Platform Installer performs the installation of the Service Fabric compo
 
 1. [Download the SDK][3] by using the Web Platform Installer.
 
-2. Click **Install** to begin the install process.
+2. Click **Install** to begin the installation process.
 
 3. Review and accept the EULA.
 
