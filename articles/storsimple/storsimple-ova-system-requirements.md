@@ -1,4 +1,4 @@
-properties
+<properties
    pageTitle="StorSimple Virtual Array system requirements"
    description="Learn about the software and networking requirements for your StorSimple Virtual Array"
    services="storsimple"
@@ -14,7 +14,7 @@ properties
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="12/28/2015"
-   ms.author="alkohli"
+   ms.author="alkohli"/>
 
 # StorSimple Virtual Array system requirements
 
@@ -30,7 +30,7 @@ The system requirements include:
 
 The StorSimple system requirements information published in this article applies to StorSimple Virtual Arrays only.
 
-- For 8000 series devices, go to [System requirements for your StorSimple 8000 series device](https://azure.microsoft.com/en-us/documentation/articles/storsimple-system-requirements).
+- For 8000 series devices, go to [System requirements for your StorSimple 8000 series device](storsimple-system-requirements.md).
  
 - For 7000 series devices, go to [System requirements for your StorSimple 5000-7000 series device](http://onlinehelp.storsimple.com/1_StorSimple_System_Requirements).
 

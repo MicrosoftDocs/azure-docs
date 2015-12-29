@@ -1,4 +1,4 @@
-properties
+<properties
    pageTitle="Deploy StorSimple Virtual Array 1 - Portal Preparation"
    description="First tutorial to deploy StorSimple virtual array involves preparing the portal"
    services="storsimple"
@@ -14,7 +14,7 @@ properties
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="12/28/2015"
-   ms.author="alkohli"
+   ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array 1 - Portal Preparation
 
@@ -82,7 +82,7 @@ Use the following step-by-step instructions to prepare your portal for the StorS
 
 ## Step 1: Create a new service
 
-A single instance of the StorSimple Manager service can manage multiple StorSimple 1200 devices. Perform the following steps to create a new instance of the StorSimple Manager service. If you have an existing StorSimple Manager service to manage your 1200 devices, skip this step and go to [Step2: Get the service registration key](#_Step_2:_Get_1).
+A single instance of the StorSimple Manager service can manage multiple StorSimple 1200 devices. Perform the following steps to create a new instance of the StorSimple Manager service. If you have an existing StorSimple Manager service to manage your 1200 devices, skip this step and go to [Step2: Get the service registration key](#step-2:-get-the-service-registration-key).
 
 #### To create a new service
 
@@ -100,7 +100,7 @@ A single instance of the StorSimple Manager service can manage multiple StorSimp
 
 	 -   If you have other workloads in Azure that you intend to deploy with your StorSimple device, we recommend that you use that datacenter.
 
-   	 -   The StorSimple Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in portal and follow the steps in [Create an Azure Storage account](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#Configure-a-new-storage-account-for-the-service).
+   	 -   The StorSimple Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account/#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#Configure-a-new-storage-account-for-the-service).
 	
 	1.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present when you have only one subscription.
 

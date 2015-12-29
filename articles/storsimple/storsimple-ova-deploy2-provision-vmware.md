@@ -1,4 +1,4 @@
-properties
+<properties
    pageTitle="Deploy StorSimple Virtual Array 2 - Provision a virtual device in VMware"
    description="This second tutorial in StorSimple Virtual Array deployment series involves provisioning a virtual device in VMware."
    services="storsimple"
@@ -14,7 +14,7 @@ properties
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="12/28/2015"
-   ms.author="alkohli"
+   ms.author="alkohli"/>
 
 
 # Deploy StorSimple Virtual Array 2 - Provision a virtual device in VMware
@@ -118,7 +118,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image6.png)
 
-1.  In the tool bar, click ![](./media/image7.png) icon to create a new folder. Specify the folder name and make a note of it. You will use this folder name later when creating a virtual machine (recommended best practice). Click **OK**.
+1.  In the tool bar, click ![](./media/storsimple-ova-deploy2-provision-vmware/image7.png) icon to create a new folder. Specify the folder name and make a note of it. You will use this folder name later when creating a virtual machine (recommended best practice). Click **OK**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image8.png)
 
@@ -126,7 +126,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image9.png)
 
-1.  Click the Upload icon ![](./media/image10.png) and select **Upload File**.
+1.  Click the Upload icon ![](./media/storsimple-ova-deploy2-provision-vmware/image10.png) and select **Upload File**.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image11.png)
 
@@ -220,7 +220,9 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image34.png)
 
-1.  You will now return to the Virtual Machine Properties page. A new hard disk is added to your virtual machine. Click **Finish**.![](./media/image35.png)
+1.  You will now return to the Virtual Machine Properties page. A new hard disk is added to your virtual machine. Click **Finish**.
+  
+	![](./media/storsimple-ova-deploy2-provision-vmware/image35.png)
 
 2.  With your virtual machine selected in the right pane, navigate to the **Summary** tab. Review the settings for your virtual machine.
 

@@ -1,4 +1,4 @@
-properties
+<properties
    pageTitle="Deploy StorSimple Virtual Array 4 - Connect to the virtual device file server"
    description="This fourth tutorial in StorSimple Virtual Array deployment series instructs you to connect to your virtual device file server."
    services="storsimple"
@@ -14,7 +14,7 @@ properties
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="12/28/2015"
-   ms.author="alkohli"
+   ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array 4 - Connect to the virtual device file server
 

@@ -1,4 +1,4 @@
-properties
+<properties
    pageTitle="Deploy StorSimple Virtual Array 2 - Provision a virtual device in Hyper-V"
    description="This second tutorial in StorSimple Virtual Array deployment involves provisioning a virtual device in Hyper-V."
    services="storsimple"
@@ -14,7 +14,7 @@ properties
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="12/28/2015"
-   ms.author="alkohli"
+   ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array 2 - Provision a virtual device in Hyper-V
 
@@ -244,7 +244,7 @@ Perform the following steps to start your virtual device and connect to it.
 
  	`Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
- 	![](./media/image30.png)
+ 	![](./media/storsimple-ova-deploy2-provision-hyperv/image30.png)
 
 1.  After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. You will use this IP address to connect to the web UI of your virtual device and complete the local setup and registration.
 

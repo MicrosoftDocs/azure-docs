@@ -1,4 +1,4 @@
-properties
+<properties
    pageTitle="Deploy StorSimple Virtual Array 3 - Set up the virtual device as file server"
    description="This third tutorial in StorSimple Virtual Array deployment instructs you to set up a virtual device as file server."
    services="storsimple"
@@ -14,7 +14,7 @@ properties
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="12/28/2015"
-   ms.author="alkohli"
+   ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array 3 - Set up the virtual device as file server
 
