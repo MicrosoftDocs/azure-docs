@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of the Azure Service Fabric Reliable Actors KVSActorStateProvider Configuration | Microsoft Azure"
-   description="Learn about configuring Azure Service Fabric Stateful actors of type 'KVSActorStateProvider'"
+   pageTitle="Overview of the Azure Service Fabric Reliable Actors KVSActorStateProvider configuration | Microsoft Azure"
+   description="Learn about configuring Azure Service Fabric stateful actors of type KVSActorStateProvider."
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
