@@ -71,6 +71,8 @@ let table = client.tableWithName("TodoItem")
 
 To create a database query, query the `MSTable` object. The following query gets all the items in `TodoItem` and logs the text of each item.
 
+**Objective-C**:
+
 ```
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
 		if(error) { // error is nil if no error occured
@@ -81,6 +83,21 @@ To create a database query, query the `MSTable` object. The following query gets
 				}
 		}
 }];
+```
+
+**Swift**:
+
+```
+table.readWithCompletion({(result, error) in
+    if error != nil { // error is nil if no error occured
+        NSLog("ERROR %@", error!)
+    } else {
+        for item in (result?.items)! {
+            NSLog("Todo Item: %@", item["text"] as! String)
+        }
+    }
+    
+})
 ```
 
 ##<a name="filtering"></a>How to: Filter Returned Data
