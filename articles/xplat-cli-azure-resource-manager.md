@@ -86,7 +86,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 
 >[AZURE.TIP] These steps show you just one way to use a VM template with the Azure CLI. For other examples, see [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-1. Download the files azuredeploy.json and azuredeploy.parameters.json from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) to a working folder on your local computer.
+1. Download the files azuredeploy.json and azuredeploy.parameters.json from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) to a working folder on your local computer.
 
 2. Open the azuredeploy.parameters.json file in a text editor and enter parameter values suitable for your environment (leaving the **ubuntuOSVersion** value unchanged).
 
@@ -110,6 +110,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 			    }
 			  }
 			}
+
 ```
 
 3.  Now that the deployment parameters have been modified you will deploy the Ubuntu VM into the resource group that was created earlier.  Choose a name for the deployment and then use the following command to kick it off.
