@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/23/2015"
    ms.author="tomfitz"/>
 
 # Deploy an application with Azure Resource Manager template
@@ -38,7 +38,7 @@ Through Azure PowerShell or the REST API, you can specify a complete update to t
 - **adds** resources that are specified in the template but do not exist in the resource group 
 - **does not re-provision** resources that exist in the resource group in the same condition defined in the template
  
-You specify the type of deployment through the **Mode** property.
+You specify the type of deployment through the **Mode** property, as shown in the examples below for PowerShell and REST API.
 
 ## Deploy with PowerShell
 
@@ -100,9 +100,9 @@ You specify the type of deployment through the **Mode** property.
           Mode              : Incremental
           ...
 
-     To run a complete deployment, set **Mode** to **Complete**.
+     To run a complete deployment, set **Mode** to **Complete**. Notice you are asked to confirm that you want to use the Complete mode which may involve deleting resources. 
 
-          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -Mode Complete
+          PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -Mode Complete -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> 
           Confirm
           Are you sure you want to use the complete deployment mode? Resources in the resource group 'ExampleResourceGroup' which are not
           included in the template will be deleted.
@@ -203,7 +203,7 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
              }
            }
    
-3. Create a new resource group deployment. Provide your subscription id, the name of the resource group to deploy, the name of the deployment, and the location of your template. For information about the template file, see [Parameter file](./#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx). To run a complete deployment, set **mode** to **Complete**.
+3. Create a new resource group deployment. Provide your subscription id, the name of the resource group to deploy, the name of the deployment, and the location of your template. For information about the template file, see [Parameter file](./#parameter-file). For more information about the REST API to create a resource group, see [Create a template deployment](https://msdn.microsoft.com/library/azure/dn790564.aspx). Notice the **mode** is set to **Incremental**. To run a complete deployment, set **mode** to **Complete**.
     
          PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
             <common headers>

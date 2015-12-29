@@ -79,7 +79,9 @@ More platform specific troubleshooting instructions below:
 
 	- Ensure that the certificates are valid and unexpired for iOS Push Notifications. 
 	- Ensure that you are correctly configuring a *Production* certificate in your Mobile Engagement app. 
+	- Ensure that you are testing on a *real, physical device.* The iOS simulator cannot process push messages.
 	- Ensure that the Bundle Identifier is correctly configured in the mobile app. See the instructions [here](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+	- When testing, use "Ad Hoc" distribution in your mobile provisioning profile. You will not be able to receive notification if your app is compiled using "Debug"
 
 2. **Android**
 

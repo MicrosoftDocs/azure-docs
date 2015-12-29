@@ -43,13 +43,13 @@ This tutorial is designed for web developers that understand the basics of creat
 
 
 ## <a id="packages"></a>Add Nuget Packages ##
-There are three packages that your web application needs to have installed. 
+There are two packages that your web application needs to have installed. 
 
 - Active Directory Authentication Library - contains methods for interacting with Azure Active Directory and managing user identity
 - Azure Key Vault Library - contains methods for interacting with Azure Key Vault
 
 
-All three of these packages can be installed using the Package Manager Console using the Install-Package command. 
+Both of these packages can be installed using the Package Manager Console using the Install-Package command. 
 
 	// this is currently the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
@@ -142,7 +142,7 @@ For our purposes we will make a test certificate. Here are a couple of commands 
 
 Make note of the end date and the password for the .pfx (in this example: 07/31/2016 and test123). You will need them below. 
 
-For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/en-in/library/ff699202.aspx)
+For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 
 
 **Associate the Certificate with an Azure AD application**

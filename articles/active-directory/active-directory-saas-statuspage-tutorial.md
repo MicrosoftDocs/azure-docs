@@ -108,7 +108,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     > [AZURE.NOTE] Contact the StatusPage support team at [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)to request metadata necessary to configure single sign-on.
 
 
-    a. From the metadata, copy the Issuer value, and then paste it into the **Issuer** textbox.
+    a. From the metadata, copy the Issuer value, and then paste it into the **Identifier** textbox.
 
     b. From the metadata, copy the Reply URL, and then paste it into the **Reply URL** textbox.
 

@@ -31,7 +31,7 @@ As an identity management as a service (IDMaaS) platform, Azure Active Directory
 
 1. [Azure Active Directory Graph API](active-directory-graph-api.md): Use the Azure Active Directory Graph API to programmatically access Azure Active Directory through REST API endpoints. Note that Azure AD Graph API is also accessible through [Microsoft Graph](https://graph.microsoft.io/), a unified API that  enables access to multiple Microsoft cloud service APIs through a single REST API endpoint, and with a single access token.
 
-1. [Azure Active Directory authentication libraries](active-directory-authentication-libraries.md): Easily authenticate users to obtain access tokens by using the Azure authentication libraries.
+1. [Azure Active Directory authentication libraries](active-directory-authentication-libraries.md): Easily authenticate users to obtain access tokens by using Azure authentication libraries for [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx), [JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js), [Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc), [Android](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/o), and [more](active-directory-authentication-libraries.md).
 
 
 ## Getting started
@@ -86,7 +86,7 @@ These articles provide a foundation reference for REST and authentication librar
 
 - [Azure Active Directory open-source libraries](http://github.com/AzureAD): The easiest way to find a library’s source is by using our [library list](active-directory-authentication-libraries.md).
 
-- [Azure Active Directory samples](http://github.com/AzureADSamples): The easiest way to navigate the list of samples is by using the [index of code samples](active-directory-code-samples.md).
+- [Azure Active Directory samples](https://github.com/azure-samples?query=active-directory): The easiest way to navigate the list of samples is by using the [index of code samples](active-directory-code-samples.md).
 
 
 ### Graph API
@@ -95,6 +95,9 @@ These articles provide a foundation reference for REST and authentication librar
 
 - [Graph API permission scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): OAuth 2.0 permission scopes that are used to control the access that an app has to directory data in a tenant.
 
+### Authentication libraries
+
+- [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx): Documentation for the .NET authentication libary.
 
 ### Authentication protocols
 
