@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/17/2015" 
 	ms.author="stefsch"/>	
 
 # Network Architecture Overview of App Service Environments
@@ -44,7 +44,7 @@ If the endpoint being called is **outside** of the virtual network topology, the
  
 ![Outbound IP Address][OutboundIPAddress]
 
-This address can also be determined by creating an app in the App Service Environment, and then performing an *nslookup* on the app's address. The resultant IP address is the both the public VIP, as well as the App Service Environment's outbound NAT address.
+This address can also be determined by creating an app in the App Service Environment, and then performing an *nslookup* on the app's address. The resultant IP address is both the public VIP, as well as the App Service Environment's outbound NAT address.
 
 If the endpoint being called is **inside** of the virtual network topology, the outbound address of the calling app will be the internal IP address of the individual compute resource running the app.  However there is not a persistent mapping of virtual network internal IP addresses to apps.  Apps can move around across different compute resources, and the pool of available compute resources in an App Service Environment can change due to scaling operations.
 
