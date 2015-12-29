@@ -234,12 +234,4 @@ In this article, you have learned basic information about creating a Windows-bas
 | [.NET SDK](hdinsight-hadoop-create-windows-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔      | ✔ |
 | [ARM Templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md) | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔      | ✔ |
 
-## See also
-
-- [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
-- [azure-preview-portal]: https://manage.windowsazure.com
-- [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-- [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
-- [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
-- [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
