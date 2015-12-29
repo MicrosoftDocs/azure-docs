@@ -1,4 +1,5 @@
 > [AZURE.SELECTOR]
+- [Windows-based](hdinsight-provision-clusters.md)
 - [Overview](hdinsight-hadoop-provision-linux-clusters.md)
 - [Azure preview portal](hdinsight-hadoop-create-linux-clusters-portal.md)
 - [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
