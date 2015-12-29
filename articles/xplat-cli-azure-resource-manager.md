@@ -80,9 +80,9 @@ When working with templates, you can either [create your own](resource-group-aut
 
 Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
 
-* An admin user name for the VM
-* A password
-* A domain name for the VM
+* An admin user name for the VM = `adminUsername`
+* A password = `adminPassword`
+* A domain name for the VM = `dnsLabelPrefix`
 
 >[AZURE.TIP] These steps show you just one way to use a VM template with the Azure CLI. For other examples, see [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
