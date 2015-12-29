@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Automatically Scale Compute Nodes in an Azure Batch Pool | Microsoft Azure"
+	pageTitle="Automatically scale compute nodes in an Azure Batch pool | Microsoft Azure"
 	description="Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool."
 	services="batch"
 	documentationCenter=""
@@ -14,48 +14,54 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="12/04/2015"
+	ms.date="12/23/2015"
 	ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
 
-Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. This ease of adjustment saves you time and money. To learn more about compute nodes and pools, see [Azure Batch basics](batch-technical-overview.md).
+Automatic scaling in Azure Batch is the automatic adjustment of processing power used by your application, dynamically adding or removing compute nodes during job execution. This automatic adjustment can save you both time and money.
 
-Automatic scaling occurs when it is enabled on a pool and a formula is associated with the pool. The formula is used to determine the number of compute nodes that are needed to process the application. Acting on samples that are collected periodically, the number of available compute nodes in the pool are adjusted every 15 minutes based on the associated formula.
+Automatic scaling is enabled on a pool of compute nodes by associating an autoscaling formula with the pool, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET library](batch-dotnet-get-started.md). The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. Acting on service metric data samples that are collected periodically, the number of compute nodes in the pool is adjusted at a configurable interval based on the associated formula.
 
-Automatic scaling can be set when a pool is created, or enabled later on an existing pool. The formula can also be updated on a pool where automatic scaling was previously enabled. It’s always good practice to evaluate a formula before assigning it to a pool, and it’s important to monitor the status of the automatic scaling runs; we discuss each of these topics below.
+Automatic scaling can be enabled when a pool is created or on an existing pool, and you can modify an existing formula on an autoscale-enabled pool. Batch provides you with the ability to evaluate your formulas before assigning them to pools, as well as for monitoring the status of automatic scaling runs, and we discuss each of these topics in the article below.
 
-> [AZURE.NOTE] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The system will create nodes only up to that limit, and therefore may not reach the target numbers specified by a formula.
+> [AZURE.NOTE] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The Batch service will create nodes only up to that limit, and therefore may not reach the target number specified by a formula.
 
 ## Scale compute resources automatically
 
-The scaling formulas you define determine the number of available compute nodes in a pool for the next interval of processing. An automatic scaling formula is simply a string value assigned to a pool's [autoScaleFormula](https://msdn.microsoft.com/library/azure/dn820173.aspx) element in a request body (REST API) or [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) property (.NET API). This formula string cannot exceed 8KB in size, can include up to 100 statements separated by semicolons, and can include line breaks and comments.
+An automatic scaling formula is a string value containing one or more statements, assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element in a REST API request body, or the Batch .NET API's [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property. You define these formulas, and when assigned to a pool, they determine the number of available compute nodes in a pool for the next interval of processing (more on intervals later). The formula string cannot exceed 8KB in size, can include up to 100 statements separated by semicolons, and can include line breaks and comments. You can see some example formulas in the [Example formulas](#examples) section below.
 
-Statements in a formula are free-formed expressions. They can include any system-defined variables, user-defined variables, constant values, and supported operations on these variables or constants.
+You can think of automatic scaling formulas as using a Batch autoscale "language." Formula statements are free-formed expressions, can include system- and user-defined variables as well as constants, and can perform various operations on these values using built-in types, operators, and functions. For example, a statement might take the following form:
 
-	VAR = Expression(system-defined variables, user-defined variables);
+`VAR = Expression(system-defined variables, user-defined variables);`
 
-Complex formulas are created by using multiple statements and variables:
+Formulas generally contain multiple statements that perform operations on values obtained in previous statements:
 
-	VAR₀ = Expression₀(system-defined variables);
-	VAR₁ = Expression₁(system-defined variables, VAR₀);
+```
+VAR₀ = Expression₀(system-defined variables);
+VAR₁ = Expression₁(system-defined variables, VAR₀);
+```
 
-> [AZURE.NOTE] An automatic scaling formula is comprised of [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API variables, types, operations, and functions. These are used in formula strings even while working with the [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) library.
+Using the statements in your formula, your goal is to arrive at a number of compute nodes to which the pool should be scaled, the **target** number of **dedicated** nodes. This "target dedicated" number may be higher, lower, or the same as the current number of nodes in the pool. Batch evaluates a pool's autoscale formula at a specific interval, and will adjust the target number of nodes in the pool to the number your autoscale formula specifies at the time of evaluation.
+
+The next few sections of the article discuss the various entities that will make up your autoscale formulas, including variables, operators, operations, and functions. You'll find out how to obtain various job, task, and load metrics within Batch so that you can intelligently adjust your pool's node count based on those metrics. You'll then learn how to construct a formula and enable automatic scaling on a pool using both the Batch REST and .NET APIs, and we'll finish up with a few example formulas.
+
+> [AZURE.NOTE] An automatic scaling formula is comprised of [Batch REST][rest_api] API variables, types, operations, and functions. These are used in formula strings even while working with the [Batch .NET][net_api] library.
 
 ### Variables
 
-Both system-defined and user-defined variables can be used in a formula.
+Both system-defined and user-defined variables can be used in a formula. The two tables below show both read-write and read-only variables that are defined by the Batch service.
 
-*Get* and *set* the value of these **system-defined variables** to manage the number of compute nodes in a pool.
+*Get* and *set* the value of these **system-defined variables** to manage the number of compute nodes in a pool:
 
 <table>
   <tr>
-    <th>Variable</th>
+    <th>Variables (read-write)</th>
     <th>Description</th>
   </tr>
   <tr>
     <td>$TargetDedicated</td>
-    <td>The target number of dedicated compute nodes for the pool. The value can be changed based upon actual usage for tasks.</td>
+    <td>The target number of dedicated compute nodes for the pool. This is the number of compute nodes to which the pool should scaled. It is a "target" number as it is possible for a pool not to reach the target number of nodes before the target number is again modified by a subsequent autoscale evaluation, or due to a Batch account node or core quota being reached.</td>
   </tr>
   <tr>
     <td>$NodeDeallocationOption</td>
@@ -70,11 +76,11 @@ Both system-defined and user-defined variables can be used in a formula.
    </tr>
 </table>
 
-*Get* the value of these **system-defined variables** to make adjustments based on metrics from compute nodes in the samples. These variables are read-only.
+*Get* the value of these **system-defined variables** to make adjustments based on metrics from compute nodes in the samples:
 
 <table>
   <tr>
-    <th>Variable</th>
+    <th>Variables (read-only)</th>
     <th>Description</th>
   </tr>
   <tr>
@@ -455,6 +461,24 @@ Here's the complete formula:
 	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
 	$TargetDedicated = min(400, $TotalNodes)
 
+### A note on GetSample()
+
+As mentioned in the *Obtain sample data* table above, it is **strongly recommended that you avoid using `GetSample(1)` in your autoscale formulas**.
+
+This is because `GetSample(1)` essentially says, "Give me the last sample you have, no matter how long ago you got it." Since you will use these samples to grow/shrink your pool (and your pool costs you money) we recommend that you base the formula on more than 1 sample worth of data. We instead suggest that you use a trending type analysis, and grow or shrink your pool based on the range of samples obtained.
+
+You can use `GetSample(interval lookback start, interval lookback end)` to return a vector of samples, for example:
+
+`runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second);`
+
+When this line of the autoscale formula is evaluated, it might return something like:
+
+`runningTasksSample=[1,1,1,1,1,1,1,1,1,1,1,1];`
+
+For additional certainty, you can force the evaluation to fail if there are less than a certain percentage of samples available. Here, percentage means that if in a given time interval, 60 samples are expected, due to networking failures or other issues we were only able to gather 30 samples, the percentage would be 50%).
+
+A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds, but as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.
+
 ## Create a pool with automatic scaling enabled
 
 To enable automatic scaling when creating a pool, use one of the following techniques:
@@ -476,7 +500,7 @@ The following code snippet shows the creation of an autoscale-enabled [CloudPool
 
 If you've already set up a pool with a specified number of compute nodes using the *targetDedicated* parameter, you can update the existing pool at a later time to automatically scale. Do this in one of these ways:
 
-- [BatchClient.PoolOperations.EnableAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.enableautoscale.aspx) – This .NET method requires the ID of an existing pool and the automatic scaling formula to apply to the pool.
+- [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] – This .NET method requires the ID of an existing pool and the automatic scaling formula to apply to the pool.
 - [Enable automatic scaling on a pool](https://msdn.microsoft.com/library/azure/dn820173.aspx) – This REST API request requires the ID of the existing pool in the URI and the automatic scaling formula in the request body.
 
 > [AZURE.NOTE] If a value was specified for the *targetDedicated* parameter when the pool was created, it is ignored when the automatic scaling formula is evaluated.
@@ -551,7 +575,7 @@ Periodically checking the results of automatic scaling runs should be done to a 
   - [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
 - [Get information about a pool](https://msdn.microsoft.com/library/dn820165.aspx) – This REST API request returns information about the pool, which includes the latest automatic scaling run.
 
-## Example formulas
+## <a name="examples"></a>Example formulas
 
 Let's take a look at some examples showing just a few ways formulas can be used to automatically scale compute resources in a pool.
 
@@ -645,3 +669,10 @@ The formula in the above code snippet has the following characteristics:
         * [Get a remote desktop protocol file from a node](https://msdn.microsoft.com/library/dn820120.aspx) – This REST API request requires the name of the pool and the name of the compute node. The response contains the contents of the RDP file.
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – This PowerShell cmdlet gets the RDP file from the specified compute node and saves it to the specified file location or to a stream.
 2.	Some applications produce large amounts of data that can be difficult to process. One way to solve this is through [efficient list querying](batch-efficient-list-queries.md).
+
+[net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_cloudpool_autoscaleformula]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx
+[net_enableautoscale]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.enableautoscale.aspx
+
+[rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
+[rest_autoscaleformula]: https://msdn.microsoft.com/library/azure/dn820173.aspx
