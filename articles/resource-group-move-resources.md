@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/18/2015" 
+	ms.date="12/29/2015" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -53,7 +53,7 @@ For now, the services that support moving to both a new resource group and subsc
 - Operational Insights
 - Redis Cache
 - Search
-- SQL Database
+- SQL Database Server (when moving a server all of its databases are also moved, individual databases cannot be moved)
 - Web Apps (some [limitations](app-service-web/app-service-move-resources.md) apply)
 
 The services that support moving to a new resource group but not a new subscription are:
@@ -66,11 +66,14 @@ The services that currently do not support moving a resource are:
 - Virtual Machines
 - Virtual Networks
 - Storage
+- Cloud Services
 
 When working with web apps, you cannot move only an App Service plan. To move web apps, your options are:
 
 - Move all of the resources from one resource group to a different resource group, if the destination resource group does not already have Microsoft.Web resources.
 - Move the web apps to a different resource group, but keep the App Service plan in the original resource group.
+
+As noted above, you cannot move a SQL database separately from its server. The database and server must reside in the same resource group. When you mmove a SQL server, all of its databases are also moved. 
 
 ## Using PowerShell to move resources
 
