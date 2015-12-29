@@ -96,7 +96,6 @@ table.readWithCompletion({(result, error) in
             NSLog("Todo Item: %@", item["text"] as! String)
         }
     }
-    
 })
 ```
 
