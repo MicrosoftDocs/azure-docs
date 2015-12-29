@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/28/2015"
+   ms.date="12/29/2015"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using Azure CLI
@@ -33,13 +33,13 @@ Before you begin the instructions in this article, you must have the following:
 
 ##Connect to Azure
 
-Use the following command:
+Use the following command to connect to Azure:
 
-		azure login
+	azure login
 
-	For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
+For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI](xplat-cli-connect.md).
 	
-- **Switch to the Azure Resource Manager mode**, using the following command:
+Use the following command to switch to the ARM mode:
 
 		azure config mode arm
 

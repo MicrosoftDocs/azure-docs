@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/29/2015"
 	ms.author="nitinme"/>
 
-# Customize HDInsight clusters using Script Action (Windows)
+# Customize Windows-based HDInsight clusters using Script Action
 
-[AZURE.INCLUDE [usescriptaction-selector](../../includes/hdinsight-selector-use-script-action.md)]
+[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 **Script Action** can be used to invoke [custom scripts](hdinsight-hadoop-script-actions.md) 
 during the cluster creation process for installing additional software on a cluster.

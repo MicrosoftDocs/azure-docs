@@ -39,11 +39,6 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 
 The following procedures are needed to create an HDInsight cluster by using Azure PowerShell:
 
-- Create an Azure resource group
-- Create an Azure Storage account
-- Create an Azure Blob container
-- Create an HDInsight cluster
-
 	$subscriptionId = "<Azure Subscription ID>"
 	
 	$newResourceGroupName = "<Azure Resource Group Name>"

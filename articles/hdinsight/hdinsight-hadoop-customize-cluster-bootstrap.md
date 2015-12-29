@@ -19,11 +19,7 @@
 
 # Customize HDInsight clusters using Bootstrap
 
-[AZURE.INCLUDE [usescriptaction-selector](../../includes/hdinsight-selector-use-script-action.md)]
-
-
-
-
+[AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
 Sometimes, you want to configure the configuration files which include:
 
