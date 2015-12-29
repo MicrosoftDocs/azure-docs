@@ -44,6 +44,30 @@ For Oracle Linux, make sure the add-on repository enabled in file `/etc/yum.repo
 
     #sudo yum install WALinuxAgent
 
+If you don't find the add-on repository you can simply add these lines at the end of your .repo file according to your Oracle Linux release:
+
+For Oracle Linux 6 virtual machines:
+
+  [ol6_addons]
+  name=Add-Ons for Oracle Linux $releasever ($basearch)
+  baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL6/addons/x86_64
+  gpgkey=http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol6
+  gpgcheck=1
+  enabled=1
+
+For Oracle Linux 7 virtual machines:
+
+  [ol7_addons]
+  name=Oracle Linux $releasever Add ons ($basearch)
+  baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
+  gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
+  gpgcheck=1
+  enabled=0
+
+Then type:
+
+    #sudo yum update WALinuxAgent
+
 Typically this is all you need, but if for some reason you need to install it from https://github.com directly, use the following steps.
 
 
@@ -97,7 +121,7 @@ Open [the release of Azure Linux Agent in GitHub](https://github.com/Azure/WALin
     #sudo cp waagent /usr/share/oem/bin/
 
   If this is the new installation of Azure Linux Agent, run below:
- 
+
     #sudo /usr/sbin/waagent -install -verbose
 
 ###For the version 2.1.x, use:
