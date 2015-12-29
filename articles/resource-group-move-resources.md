@@ -60,13 +60,13 @@ The services that support moving to a new resource group but not a new subscript
 
 - Virtual Machines (classic)
 - Storage (classic)
+- Cloud Services
 
 The services that currently do not support moving a resource are:
 
 - Virtual Machines
 - Virtual Networks
 - Storage
-- Cloud Services
 
 When working with web apps, you cannot move only an App Service plan. To move web apps, your options are:
 
