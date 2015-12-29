@@ -121,7 +121,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 1.  Check **I agree that failover is a permanent operation and once the failover is successfully completed, the source device will be deleted**.
 
-2.  Click the check icon ![](./media/image1.png).
+2.  Click the check icon ![](./media/storsimple-ova-failover-dr/image1.png).
 
 
 1.  A failover job will be initiated and you will be notified. Click **View job** to monitor the failover.
@@ -130,7 +130,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 1.  In the **Jobs** page, you will see a failover job created for the source device. This job performs the DR prechecks.
 
-	![](./media/image23.png)
+	![](./media/storsimple-ova-failover-dr/image23.png)
 
  	After the DR prechecks are successful, the failover job will spawn restore jobs for each share/volume that exists on your source device.
 

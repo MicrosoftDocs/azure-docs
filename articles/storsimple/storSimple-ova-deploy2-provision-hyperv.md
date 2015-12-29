@@ -143,7 +143,7 @@ Perform the following steps to provision a device in your hypervisor.
 
     b.  Click **Next**.
 
-	![](./media/image8.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image8.png)
 
 1.  Review the **Summary** presented to you. Click **Finish** to create the virtual machine.
 
