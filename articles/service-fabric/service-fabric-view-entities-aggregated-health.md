@@ -1,7 +1,7 @@
 <properties
    pageTitle="How to view Azure Service Fabric entities' aggregated health | Microsoft Azure"
    description="Describes how to query, view, and evaluate Azure Service Fabric entities' aggregated health, through health queries and general queries."
-   services="service-fabric"
+   services="service-fabric"HealthManager
    documentationCenter=".net"
    authors="oanapl"
    manager="timlt"
@@ -17,7 +17,7 @@
    ms.author="oanapl"/>
 
 # View Service Fabric health reports
-Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) comprised of health entities on which system components and watchdogs can report local conditions they are monitoring. The [health store](service-fabric-health-introduction.md#health-store) aggregates all health data to determine whether entities are healthy.
+Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) that comprises health entities on which system components and watchdogs can report local conditions that they are monitoring. The [health store](service-fabric-health-introduction.md#health-store) aggregates all health data to determine whether entities are healthy.
 
 Out of the box, the cluster is populated with health reports sent by the system components. Read more at [Use system health reports to troubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
@@ -50,9 +50,9 @@ Service Fabric Explorer provides a visual view of the cluster. In the image belo
 
 The evaluation uses default policies from the cluster manifest and application manifest. They are strict policies and do not tolerate any failure.
 
-![View of the cluster with ServiceFabricExplorer.][1]
+View of the cluster with Service Fabric Explorer:
 
-View of the cluster with ServiceFabricExplorer.
+![View of the cluster with Service Fabric Explorer.][1]
 
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
@@ -60,17 +60,17 @@ View of the cluster with ServiceFabricExplorer.
 > [AZURE.NOTE] Read more about [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Health queries
-Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed through the API (the methods can be found on **FabricClient.HealthManager**), PowerShell cmdlets and REST. These queries return complete health information about the entity, including aggregated health state, health events reported on the entity, child health states (when applicable), and unhealthy evaluations when the entity is not healthy.
+Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed through the API (the methods can be found on **FabricClient.HealthManager**), PowerShell cmdlets, and REST. These queries return complete health information about the entity, including aggregated health state, health events reported on the entity, child health states (when applicable), and unhealthy evaluations when the entity is not healthy.
 
-> [AZURE.NOTE] A health entity is returned to the user when it is completely populated in the health store. The entity must be active (not deleted) and have a system report, and its parent entities on the hierarchy chain must also have system reports. If any of these conditions is not satisfied, the health queries return an exception showing why the entity is not returned.
+> [AZURE.NOTE] A health entity is returned to the user when it is completely populated in the health store. The entity must be active (not deleted) and have a system report. Its parent entities on the hierarchy chain must also have system reports. If any of these conditions is not satisfied, the health queries return an exception that shows why the entity is not returned.
 
 The health queries must pass in the entity identifier, which depends on the entity type. The queries accept optional health policy parameters. If these are not specified, the [health policies](service-fabric-health-introduction.md#health-policies) from the cluster or application manifest are used for evaluation. The queries also accept filters for returning only partial children or events--the ones that respect the specified filters.
 
-> [AZURE.NOTE] The output filters are applied on the server side, so the message reply size is reduced. It is recommended that you use the output filters to limit the data returned, rather than apply filters on the client side.
+> [AZURE.NOTE] The output filters are applied on the server side, so the message reply size is reduced. We recommended that you use the output filters to limit the data returned, rather than apply filters on the client side.
 
 An entity's health contains the following information:
 
-- The aggregated health state of the entity. This is computed by the health store based on entity health reports, child health states (when applicable), and health policies. Read more about [Entity health evaluation](service-fabric-health-introduction.md#entity-health-evaluation).  
+- The aggregated health state of the entity. This is computed by the health store based on entity health reports, child health states (when applicable), and health policies. Read more about [entity health evaluation](service-fabric-health-introduction.md#entity-health-evaluation).  
 
 - The health events on the entity.
 
@@ -83,7 +83,7 @@ This returns the health of the cluster entity and contains the health states of 
 
 - [Optional] The application health policy map, with the health policies used to override the application manifest policies.
 
-- [Optional] Filters that return events, nodes and applications only with certain health states (for example, errors only, or both warnings and errors).
+- [Optional] Filters for events, nodes, and applications that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). Note that all events, nodes, and applications are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
 To get cluster health, create a **FabricClient** and call the **GetClusterHealthAsync** method on its **HealthManager**.
@@ -94,7 +94,7 @@ The following gets cluster health:
 ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync().Result;
 ```
 
-The following gets cluster health using a custom cluster health policy and filters for nodes and applications. Note that it creates **System.Fabric.Description.ClusterHealthQueryDescription**, which contains all of the input data.
+The following gets cluster health by using a custom cluster health policy and filters for nodes and applications. Note that it creates **System.Fabric.Description.ClusterHealthQueryDescription**, which contains all of the input data.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -123,7 +123,7 @@ The cmdlet to get the cluster health is **Get-ServiceFabricClusterHealth**. Firs
 
 The state of the cluster is five nodes, the system application, and fabric:/WordCount configured as above.
 
-The following cmdlet gets cluster health using default health policies. The aggregated health state is in warning, because the fabric:/WordCount application is in warning. Note how the unhealthy evaluations provide details on the conditions that triggered the aggregated health.
+The following cmdlet gets cluster health by using default health policies. The aggregated health state is in warning, because the fabric:/WordCount application is in warning. Note how the unhealthy evaluations provide details on the conditions that triggered the aggregated health.
 
 ```xml
 PS C:\> Get-ServiceFabricClusterHealth
@@ -217,7 +217,7 @@ This returns the health of a node entity and contains the health events reported
 
 - [Optional] The cluster health policy settings used to evaluate health.
 
-- [Optional] Filters that return events only with certain health states (for example, errors only, or both warnings and errors).
+- [Optional] Filters for events, nodes, and applications that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). Note that all events, nodes, and applications are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
 To get node health through the API, create a FabricClient and call the **GetNodeHealthAsync** method on its HealthManager.
@@ -242,7 +242,7 @@ NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(queryDescr
 
 ### PowerShell
 The cmdlet to get the node health is **Get-ServiceFabricNodeHealth**. First, connect to the cluster by using the **Connect-ServiceFabricCluster** cmdlet.
-The following cmdlet gets the node health using default health policies:
+The following cmdlet gets the node health by using default health policies:
 
 ```powershell
 PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
@@ -284,18 +284,18 @@ This returns the health of an application entity. It contains the health states 
 
 - [Optional] The application health policy used to override the application manifest policies.
 
-- [Optional] Filters that return events, services, and deployed applications only with certain health states (for example, errors only, or both warnings and errors).
+- [Optional] Filters for events, nodes, and applications that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). Note that all events, nodes, and applications are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
 To get application health, create a FabricClient and call the **GetApplicationHealthAsync** method on its HealthManager.
 
-The following gets the application health for the specified application name URI:
+The following gets the application health for the specified application name (URI):
 
 ```csharp
 ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationHealthAsync(applicationName).Result;
 ```
 
-The following gets the application health for the specified application name URI, with filters and custom policies specified via **System.Fabric.Description.ApplicationHealthQueryDescription**.
+The following gets the application health for the specified application name (URI), with filters and custom policies specified via **System.Fabric.Description.ApplicationHealthQueryDescription**.
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -390,7 +390,7 @@ HealthEvents                    :
                                   Transitions           : ->Ok = 4/20/2015 9:57:06 PM
 ```
 
-The following PowerShell passes in custom policies. It also filters children and events.
+The following PowerShell cmdlet passes in custom policies. It also filters children and events.
 
 ```powershell
 PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
@@ -422,7 +422,7 @@ This returns the health of a service entity. It contains the partition health st
 
 - [Required] The service name (URI) that identifies the service.
 - [Optional] The application health policy used to override the application manifest policy.
-- [Optional] Filters that return events and partitions only with certain health states (for example, errors only, or both warnings and errors).
+- [Optional] Filters for events, nodes, and applications that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). Note that all events, nodes, and applications are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
 To get service health through the API, create a FabricClient and call the **GetServiceHealthAsync** method on its HealthManager.
@@ -433,7 +433,7 @@ The following example gets the health of a service with specified service name (
 ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(serviceName).Result;
 ```
 
-The following gets the service health for the specified service name (URI), employing filters and custom policy via System.Fabric.Description.ServiceHealthQueryDescription:
+The following gets the service health for the specified service name (URI), specifying filters and custom policy via System.Fabric.Description.ServiceHealthQueryDescription:
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -448,7 +448,7 @@ ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(q
 ### PowerShell
 The cmdlet to get the service health is **Get-ServiceFabricServiceHealth**. First, connect to the cluster by using the **Connect-ServiceFabricCluster** cmdlet.
 
-The following cmdlet gets the service health using default health policies:
+The following cmdlet gets the service health by using default health policies:
 
 ```powershell
 PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
@@ -488,7 +488,7 @@ This returns the health of a partition entity. It contains the replica health st
 
 - [Optional] The application health policy used to override the application manifest policy.
 
-- [Optional] Filters that return events and replicas only with certain health states (for example, errors only, or both warnings and errors).
+- [Optional] Filters for events, nodes, and applications that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). Note that all events, nodes, and applications are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
 To get partition health through the API, create a FabricClient and call the **GetPartitionHealthAsync** method on its HealthManager. To specify optional parameters, create **System.Fabric.Description.PartitionHealthQueryDescription**.
@@ -547,7 +547,7 @@ This returns the health of a replica. Input:
 
 - [Optional] The application health policy parameters used to override the application manifest policies.
 
-- [Optional] Filters that return events only with certain health states (for example, errors only, or both warnings and errors).
+- [Optional] Filters for events, nodes, and applications that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). Note that all events, nodes, and applications are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
 To get the replica health through the API, create a FabricClient and call the **GetReplicaHealthAsync** method on its HealthManager. To specify advanced parameters, use **System.Fabric.Description.ReplicaHealthQueryDescription**.
@@ -588,7 +588,7 @@ This returns the health of an application deployed on a node entity. It contains
 
 - [Optional] The application health policy used to override the application manifest policies.
 
-- [Optional] Filters that return events and deployed service packages only with certain health states (for example, errors only, or both warning and errors).
+- [Optional] Filters for events, nodes, and applications that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). Note that all events, nodes, and applications are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
 To get the health of an application deployed on a node through the API, create a FabricClient and call the **GetDeployedApplicationHealthAsync** method on its HealthManager. To specify optional parameters, use **System.Fabric.Description.DeployedApplicationHealthQueryDescription**.
@@ -634,11 +634,11 @@ HealthEvents                       :
 ## Get deployed service package health
 This returns the health of a deployed service package entity. Input:
 
-- [Required] The application name (URI), node name (string) and service manifest name (string) that identify the deployed service package.
+- [Required] The application name (URI), node name (string), and service manifest name (string) that identify the deployed service package.
 
 - [Optional] The application health policy used to override the application manifest policy.
 
-- [Optional] Filters that return events only with certain health states (for example, errors only, or both warnings or errors).
+- [Optional] Filters for events, nodes, and applications that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). Note that all events, nodes, and applications are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
 To get the health of a deployed service package through the API, create a FabricClient and call the **GetDeployedServicePackageHealthAsync** method on its HealthManager.
@@ -766,10 +766,10 @@ ServiceStatus          : Active
 HealthState            : Warning
 ```
 
-## Cluster and application upgrade
-During a monitored upgrade of the cluster and application, Service Fabric checks health to ensure that everything remains healthy. If something is unhealthy as set by configured policy, the upgrade may be paused. The upgrade also may allow user interaction or automatically roll back.
+## Cluster and application upgrades
+During a monitored upgrade of the cluster and application, Service Fabric checks health to ensure that everything remains healthy. If an entity is unhealthy as evaluated by using configured health policies, the upgrade applies upgrade-specific policies to determine the next action. The upgrade may be paused to allow user interaction (such as fixing error conditions or changing policies), or it may automatically roll back to the previous good version.
 
-During a *cluster* upgrade, you can get the cluster upgrade status. This will include any unhealthy evaluations, which point to what is unhealthy in the cluster. If the upgrade is rolled back due to health issues, the upgrade status will keep the last unhealthy reasons. This allows administrators can investigate what went wrong.
+During a *cluster* upgrade, you can get the cluster upgrade status. This will include any unhealthy evaluations, which point to what is unhealthy in the cluster. If the upgrade is rolled back due to health issues, the upgrade status will keep the last unhealthy reasons. This keeps information that can help administrators investigate what went wrong.
 
 Similarly, during an *application* upgrade, any unhealthy evaluations are contained in the application upgrade status.
 
@@ -828,8 +828,8 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 
 Read more about the [Service Fabric application upgrade](service-fabric-application-upgrade.md).
 
-## Troubleshoot with health
-Whenever there is an issue with the cluster or an application, look at the cluster or application health to pinpoint what is wrong. The unhealthy evaluations will provide details about what triggered the current unhealthy state. If you need to, you can drill down into unhealthy child entities to resolve related issues.
+## Use health evaluations to troubleshoot
+Whenever there is an issue with the cluster or an application, look at the cluster or application health to pinpoint what is wrong. The unhealthy evaluations will provide details about what triggered the current unhealthy state. If you need to, you can drill down into unhealthy child entities to identify the root cause.
 
 ## Next steps
 [Use system health reports to troubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
