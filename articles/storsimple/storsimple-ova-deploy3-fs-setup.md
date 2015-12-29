@@ -1,0 +1,177 @@
+properties
+   pageTitle="Deploy StorSimple Virtual Array 3 - Set up the virtual device as file server"
+   description="This third tutorial in StorSimple Virtual Array deployment instructs you to set up a virtual device as file server."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carmon"
+   editor=""/>
+
+<tags
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="12/28/2015"
+   ms.author="alkohli"
+
+# Deploy StorSimple Virtual Array 3 - Set up the virtual device as file server
+
+## Introduction 
+
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only. This article describes how to perform initial setup, register your StorSimple file server, and complete the device setup.
+
+The setup and configuration process can take anywhere from 15-30 minutes to complete.
+
+> [AZURE.IMPORTANT]
+> 
+> This public preview is intended for evaluation only. Installing this preview in a production environment is not supported.
+
+## Setup prerequisites
+
+Before you configure and setup your StorSimple virtual device, make sure that:
+
+-   You have provisioned a virtual device and connected to it as detailed in the [Deploy StorSimple Virtual Array 2 - Provision in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array 2 - Provision in VMware](storsimple-ova-deploy2-provision-vmware.md).
+
+-   You have the service registration key from the StorSimple Manager service that you created to manage StorSimple virtual devices. For more information, see **Step 2: Get the service registration key** in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
+
+-   If this is the second or subsequent virtual device that you are registering with an existing StorSimple Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see **Get the service data encryption key** in [Manage your StorSimple Virtual Array](storsimple-ova-manager-service-admin.md).
+
+## Step-by-step setup
+
+Use the following step-by-step instructions to set up and configure your StorSimple virtual device.
+
+## Step 1: Complete the local web UI setup and register your device 
+
+
+#### To complete the setup and register the device
+
+1.  Open a browser window and connect to the local web UI by typing:
+
+ 	*https://<ip-address of network interface>*
+
+	Use the connection URL noted in the previous step. You will see an error indicating that there is a problem with the website’s security certificate. Click **Continue to this webpage**.
+
+	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
+
+1.  Sign in to the web UI of your virtual device as **StorSimpleAdmin**. Enter the device administrator password that you changed in the Step 3: Start the virtual device in [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or in [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
+
+	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
+
+1.  You will be taken to the **Home** page. This page describes the various settings required to configure and register the virtual device with StorSimple Manager service. Note that the **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Device settings** and **Cloud settings**.
+
+	![](./media/storsimple-ova-deploy3-fs-setup/image4.png)
+
+1.  In the **Network settings** page under **Network interfaces**, DATA 0 will be automatically configured for you. Each network interface is set by default to get IP address automatically (DHCP). Hence, an IP address, subnet, and gateway will be automatically assigned (for both IPv4 and IPv6).
+
+	![](./media/storsimple-ova-deploy3-fs-setup/image5.png)
+
+	If you added more than one network interface during the provisioning of the device, you can configure them here.
+
+1.  DNS servers are required because they are used when your device attempts to communicate with your cloud storage service providers or to resolve your device by name when configured as a file server. In the **Network settings** page under the **DNS servers**:
+
+    1.  A primary and secondary DNS server will be automatically configured. If you choose to configure static IP addresses, you can specify DNS servers. For high availability, we recommend that you configure a primary and a secondary DNS server.
+
+    2.  Click **Apply**. This will apply and validate the network settings.
+
+2.  In the **Device settings** page:
+
+    1.  Assign a unique **Name** to your device. This name can be 1-15 characters and can contain letter, numbers and hyphens.
+
+    2.  Click the **File server** icon ![](./media/storsimple-ova-deploy3-fs-setup/image6.png) for the **Type** of device that you are creating. A file server will allow you to create shared folders.
+
+    3.  As your device is a file server, you will need to join the device to a domain. Enter a **Domain name**.
+
+	1.  Click **Apply**.
+
+2.  A dialog box will appear. Enter your domain credentials in the specified format. Click the check icon. The domain credentials will be verified. You will see an error message if the credentials are incorrect.
+
+	![](./media/storsimple-ova-deploy3-fs-setup/image7.png)
+
+1.  Click **Apply**. This will apply and validate the device settings.
+
+	![](./media/storsimple-ova-deploy3-fs-setup/image8.png)
+
+1.  (Optionally) configure your web proxy server. Although web proxy configuration is optional, be aware that if you use a web proxy, you can only configure it here.
+
+	![](./media/storsimple-ova-deploy3-fs-setup/image9.png)
+
+	In the **Web proxy** page:
+
+	1.  Supply the **Web proxy URL** in this format: *http://&lt;host-IP address or FDQN&gt;:Port number*. Note that HTTPS URLs are not supported.
+
+	2.  Specify **Authentication** as **Basic**, **NTLM**, or **None**.
+
+	3.  If using authentication, you will also need to provide a **Username** and **Password**.
+
+	4.  Click **Apply**. This will validate and apply the configured web proxy settings.
+
+1.  (Optionally) configure the time settings for your device, such as time zone and the primary and secondary NTP servers. NTP servers are required because your device must synchronize time so that it can authenticate with your cloud service providers.
+
+	![](./media/storsimple-ova-deploy3-fs-setup/image10.png)
+
+	In the **Time settings** page:
+
+	1.  From the dropdown list, select the **Time zone** based on the geographic location in which the device is being deployed. The default time zone for your device is PST. Your device will use this time zone for all scheduled operations.
+
+	2.  Specify a **Primary NTP server** for your device or accept the default value of time.windows.com. Ensure that your network allows NTP traffic to pass from your datacenter to the Internet.
+
+	3.  Optionally specify a **Secondary NTP server** for your device.
+
+	4.  Click **Apply**. This will validate and apply the configured time settings.
+
+1.  Configure the cloud settings for your device. In this step, you will complete the local device configuration and then register the device with your StorSimple Manager service.
+
+    1.  Enter the **Service registration key** that you got in **Step 2: Get the service registration key** in [Prepare the portal for StorSimple Virtual Array)[storsimple-ova-deploy1-portal-prep].
+
+    2.  If this is the first device that you are registering with your StorSimple Manager service, a **Service data encryption key** will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** If this is not the first device that you are registering with this service, then you will need to provide the service data encryption key (that you saved during the registration of the first device).
+
+    3.  Click **Register**. This will restart the device. You may need to wait for 2-3 minutes before the device is successfully registered. After the device has restarted, you will be taken to the sign in page.
+
+		![](./media/storsimple-ova-deploy3-fs-setup/image12.png)
+
+
+## Step 2: Complete the required device setup
+
+To complete the device configuration of your StorSimple device, you need to:
+
+-   Select a storage account to associate with your device.
+
+-   Choose encryption settings for the data that is sent to cloud.
+
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) to complete the required device setup.
+
+#### To complete the minimum device setup
+
+1.  From the **Devices** page, select the device you just created. This device would show up as **Active**. Click the arrow against the device name and then click **Quick Start**.
+
+2.  Click **complete device setup** to start the Configure device wizard.
+
+3.  In the Configure device wizard on the **Basic Settings** page, do the following:
+
+	1.  Specify a storage account to be used with your device. You can select an existing storage account in this subscription from the dropdown list or specify **Add more** to choose an account from a different subscription.
+
+	2.  Define the encryption settings for all the data that will be sent to the cloud. To encrypt your data, check the combo box to **enable cloud storage encryption key**. Enter a cloud storage encryption that contains 32 characters. Reenter the key to confirm it.
+
+	3.  Click the check icon ![](./media/storsimple-ova-deploy3-fs-setup/image15.png).
+
+		![](./media/storsimple-ova-deploy3-fs-setup/image16.png)
+
+The settings will now be updated. After settings are updated successfully, the complete device setup button will be grayed out. You will return to the device **Quick Start** page.
+
+ ![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
+
+
+> [AZURE.NOTE]                                                              
+>
+> You can modify all the other device settings at any time by accessing the **Configure** page.
+
+
+## Next steps
+
+The next step is to add shares, then map and connect to the shares on the file server. Follow the instructions detailed in 
+
+-   [Connect to your StorSimple Virtual Array file server](storsimple-ova-deploy4-fs-connect.md)
+
+

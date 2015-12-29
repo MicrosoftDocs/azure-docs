@@ -1,0 +1,213 @@
+properties
+   pageTitle="Deploy StorSimple Virtual Array 1 - Portal Preparation"
+   description="First tutorial to deploy StorSimple virtual array involves preparing the portal"
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carmon"
+   editor=""/>
+
+<tags
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="12/28/2015"
+   ms.author="alkohli"
+
+# Deploy StorSimple Virtual Array 1 - Portal Preparation
+
+## Introduction 
+
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only. This series of tutorials describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a StorSimple virtual device. This is the first article in the series and it links out to a deployment configuration checklist as well as configuration prerequisites.
+
+You will need administrator privileges to complete the setup and configuration process. We recommend that you review the deployment configuration checklist before you begin. The portal preparation can take approximately 15-30 minutes.
+
+The StorSimple deployment information published in this article applies to StorSimple Virtual Arrays only.
+
+> [AZURE.IMPORTANT]
+> 
+> This public preview is intended for evaluation and deployment planning purposes only. Installing this preview in a production environment is not supported.
+
+## Configuration checklist
+
+The configuration checklist describes the information that you need to collect before you configure the software on your StorSimple device. Preparing this information ahead of time will help streamline the process of deploying the StorSimple device in your environment. Depending upon whether your StorSimple virtual device will be deployed as a file server or an iSCSI server, you will need one of the following checklists.
+
+-   Download the [StorSimple Virtual Array File Server Configuration Checklist](storsimple-ova-fs-config-checklist.md).
+
+-   Download the [StorSimple Virtual Array iSCSI Server Configuration Checklist](storsimple-ova-iscsi-config-checklist.md).
+
+## Prerequisites
+
+Here you will find the configuration prerequisites for your StorSimple Manager service, your StorSimple virtual device, and the datacenter network.
+
+### For the StorSimple Manager service
+
+Before you begin, make sure that:
+
+-   You have your Microsoft account with access credentials.
+
+-   You have your Microsoft Azure storage account with access credentials.
+
+-   Your Microsoft Azure subscription should be enabled for StorSimple Manager service.
+
+### For the StorSimple virtual device 
+
+Before you deploy a virtual device, make sure that:
+
+-   You have access to a host system running Hyper-V (2008 R2 or above) or VMware (ESXi 5.5 or above) that can be used to a provision a device.
+
+-   The host system is able to dedicate the following resources to provision your virtual device:
+	
+	-   A minimum of 4 cores.
+	
+	-   At least 8 GB of RAM.
+	
+	-   One network interface.
+	
+	-   A 500 GB virtual disk for system data.
+
+### For the datacenter network 
+
+Before you begin, make sure that:
+
+-   The network in your datacenter is configured as per the networking requirements for your StorSimple device. For more information, see the [StorSimple Virtual Array System Requirements](storsimple-ova-system-requirements.md).
+
+-   Your StorSimple virtual device has a dedicated 5 Mbps Internet bandwidth (or more) available at all times. This bandwidth should not be shared with any other applications.
+
+## Step-by-step preparation
+
+Use the following step-by-step instructions to prepare your portal for the StorSimple Manager service.
+
+## Step 1: Create a new service
+
+A single instance of the StorSimple Manager service can manage multiple StorSimple 1200 devices. Perform the following steps to create a new instance of the StorSimple Manager service. If you have an existing StorSimple Manager service to manage your 1200 devices, skip this step and go to [Step2: Get the service registration key](#_Step_2:_Get_1).
+
+#### To create a new service
+
+1.  Using your Microsoft account credentials, log on to the Azure classic portal at this URL: <https://manage.windowsazure.com/>
+
+2.  In the portal, click **New > Data Services > StorSimple Manager > Quick Create**.
+
+3.  In the form that is displayed, do the following:
+
+	1.  Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
+
+	2.  For a service to manage a StorSimple virtual device, from the drop down list for **Managed devices type**, choose **Virtual device series**.
+
+	3.  Supply a **Location** for your service. Location refers to the geographical region where you want to deploy your device.
+
+	 -   If you have other workloads in Azure that you intend to deploy with your StorSimple device, we recommend that you use that datacenter.
+
+   	 -   The StorSimple Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in portal and follow the steps in [Create an Azure Storage account](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](https://azure.microsoft.com/documentation/articles/storsimple-deployment-walkthrough/#Configure-a-new-storage-account-for-the-service).
+	
+	1.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present when you have only one subscription.
+
+	1.  Select **Create a new Azure storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf". If you need your data in a different location, clear this check box.
+
+	1.  Click **Create StorSimple Manager** to create the service.
+
+		![](./media/storsimple-ova-deploy1-portal-prep/image1.png)
+
+	You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately.
+
+	![](./media/storsimple-ova-deploy1-portal-prep/image2.png)
+
+	The status of the service will change to **Active**.
+
+	![](./media/storsimple-ova-deploy1-portal-prep/image3.png)
+
+> [AZURE.IMPORTANT]
+> 
+> If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service.
+> 
+
+> - If you did not create a storage account automatically, go to [Configure a new storage account for the service](#configure-a-new-storage-account-for-the-service) for detailed instructions.
+> 
+
+> - If you enabled the automatic creation of a storage account, go to [Step 2: Get the service registration key](#step-2:-get-the-service-registration-key).
+
+
+## Step 2: Get the service registration key
+
+
+After the StorSimple Manager service is up and running, you will need to get the service registration key. This key is used to register and connect your StorSimple device with the service.
+
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/).
+
+#### To get the StorSimple service registration key
+
+1.  On the **StorSimple Manager service** page, click **Registration Key** at the bottom of the page.
+
+2.  You will have to wait for a few minutes while the key is retrieved. The **Service Registration Key** dialog box appears.
+
+
+	1.  Locate the **Service Registration Key**.
+
+	2.  Click the copy icon ![](./media/storsimple-ova-deploy1-portal-prep/image6.png) to copy the key and save it for later use.
+
+> [AZURE.NOTE]
+> 
+> The service registration key is used to register all the StorSimple Manager devices that need to register with your StorSimple Manager service.
+
+## Step 3: Download the virtual device image
+
+After you have the service registration key, you will need to download the appropriate virtual device image to provision a virtual device on your host system. The virtual device images are operating system specific and can be downloaded from the Quick Start page in the Azure classic portal.
+
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/).
+
+#### To get the virtual device image
+
+1.  On the **StorSimple Manager service** page, click the service that you created. This will take you to the **Quick Start** page. (You can click the quick start icon ![](./media/storsimple-ova-deploy1-portal-prep/image8.png) to access the **Quick Start** page at any time.)
+
+
+1.  Download the appropriate VHD on a network share on your datacenter. Separate VHDs are available for:
+
+	-   Hyper-V 2008 R2 and later
+
+	-   VMWare ESXi 5.5 and later
+
+1.  Click on the image for your host operating system that you will use to provision the virtual device. This will take you to Microsoft Download Center.
+
+1.  If using Hyper-V, download the VHD for Hyper-V 2008 R2 and above. If using VMware, download the VMDK. The VHD is a 4.77 GB zipped file and the VMDK is a 4.75 GB file. The time to download the file depends on your Internet connection.
+
+2.  Unzip the file and make a note of the unzipped location on your local drive.
+
+
+## Next step
+
+The next step is to provision a virtual machine for your StorSimple virtual device. Depending on your host operating system, see the detailed instructions in:
+
+-   [StorSimple Virtual Array Provisioning in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
+
+-   [StorSimple Virtual Array Provisioning in VMware](storsimple-ova-deploy2-provision-vmware.md)
+
+
+## Appendix A: Configure a new storage account for the service
+
+This is an optional step that needs to be performed only if you did not enable the automatic creation of a storage account with your service.
+
+If you need to create an Azure storage account in a different region, see [How to create a storage account](storage-create-storage-account/#create) for step-by-step instructions.
+
+Perform the following steps in the [Azure classic portal](https://manage.windowsazure.com/) on the StorSimple Manager service page to add an existing Microsoft Azure storage account.
+
+#### To add a storage account
+
+1.  On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+
+2.  Click **Add/edit storage account**. In the **Add/Edit Storage Account** dialog box, do the following:
+
+	1.  Click **Add new**.
+
+	1.  Provide a name for your storage account.
+
+	1.  Supply the primary **Access Key** for your Microsoft Azure storage account.
+
+	1.  Select **Enable SSL mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL mode** check box only if you are operating within a private cloud.
+
+	1.  Click the check icon ![](./media/storsimple-ova-deploy1-portal-prep/image7.png). You will be notified after the storage account is successfully created.
+
+		![](./media/storsimple-ova-deploy1-portal-prep/image11.png)
+
+1.  The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the newly created storage account. Click **OK** when prompted for confirmation.
