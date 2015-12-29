@@ -109,7 +109,7 @@ To filter using a predicate, use an `NSPredicate` and `readWithPredicate`. The f
 ```
 // Create a predicate that finds items where complete is false
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-// Query the TodoItem table and update the items property with the results from the service
+// Query the TodoItem table 
 [table readWithPredicate:predicate completion:^(MSQueryResult *result, NSError *error) {
 		if(error) {
 				NSLog(@"ERROR %@", error);
@@ -125,7 +125,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 ```
 // Create a predicate that finds items where complete is false
 let predicate =  NSPredicate(format:"complete == NO")
-// Query the TodoItem table and update the items property with the results from the service
+// Query the TodoItem table 
 table.readWithPredicate(predicate, completion: { (result, error) -> Void in
     if error != nil {
         NSLog("ERROR %@", error!)
@@ -141,9 +141,16 @@ table.readWithPredicate(predicate, completion: { (result, error) -> Void in
 
 To perform a complex query (including sorting and paging), create an `MSQuery` object, directly or by using a predicate:
 
+**Objective-C**:
 ```
 MSQuery *query = [table query];
 MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
+```
+
+**Swift**:
+```
+let query = table.query()
+let query = table.queryWithPredicate(NSPredicate(format:"complete == NO"))
 ```
 
 `MSQuery` lets you control several query behaviors, including the following. Execute an `MSQuery` query by calling `readWithCompletion` on it, as shown in the next example.
