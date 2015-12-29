@@ -53,7 +53,7 @@ For now, the services that support moving to both a new resource group and subsc
 - Operational Insights
 - Redis Cache
 - Search
-- SQL Database server (when moving a server all of its databases are also moved, individual databases cannot be moved)
+- SQL Database server (Moving a server also moves all of its databases. Databases cannot be moved separately from the server.)
 - Web Apps (some [limitations](app-service-web/app-service-move-resources.md) apply)
 
 The services that support moving to a new resource group but not a new subscription are:
