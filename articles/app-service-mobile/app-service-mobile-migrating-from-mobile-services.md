@@ -165,6 +165,25 @@ This is an optional task, but provides for a better management experience going 
 > [AZURE.TIP]  One of the advantages of using an Azure App Service is that you can run your web site and mobile service on the same site.  See
 > the [next steps](#next-steps) section for more information.
 
+### <a name="download-publish-profile"></a>Download a new Publishing Profile
+
+The publishing profile of your site is changed when migrating to Azure App Service.  You will need a new publishing profile if you intend to publsh
+your site from within Visual Studio.  To download the new publishing profile:
+
+  1.  Log into the [Azure Portal].
+  2.  Select **All resoures** or **App Services** then click on the name of your migrated Mobile Service.
+  3.  Click on **Get publish profile**.
+  
+The PublishSettings file will be downloaded to your computer.  It will normally be called _sitename_.PublishSettings.  You can then import the publish settings into your existing project:
+
+  1.  Open Visual Studio and your Azure Mobile Service project.
+  2.  Right-click on your project in the **Solution Explorer** and select **Publish...**
+  3.  Click on **Import**
+  4.  Click on **Browse** and select your downloaded publish settings file.  Click on **OK**
+  5.  Click on **Validate Connection** to ensure the publish settings work.
+  6.  Click on **Publish** to publish your site.
+
+
 ## <a name="working-with-your-site"></a>Working with your site post-migration
 
 You will start working with your new App Service in the [Azure Portal] post-migration.  The following are some notes on specific operations that
