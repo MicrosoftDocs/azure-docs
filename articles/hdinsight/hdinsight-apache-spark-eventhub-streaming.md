@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="12/29/2015" 
 	ms.author="nitinme"/>
 
 
@@ -112,7 +112,7 @@ A Sample Scala application to receive the event and route it to different destin
 
 	![Project View](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
 	
-2. Open the pom.xml and make sure the Spark version is correct. Under <properties> node, look for the following snippet and verify the Spark version.
+4. Open the pom.xml and make sure the Spark version is correct. Under <properties> node, look for the following snippet and verify the Spark version.
 
 		<scala.version>2.10.4</scala.version>
     	<scala.compat.version>2.10.4</scala.compat.version>
@@ -121,7 +121,7 @@ A Sample Scala application to receive the event and route it to different destin
 
 	Make sure the value for **spark.version** is set to **1.5.1**.
 
-3. The application requires two dependency jars:
+5. The application requires two dependency jars:
 
 	* **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. This jar is available on your Spark Linux cluster at `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`. You can use pscp to copy the jar to your local computer.
 
@@ -131,7 +131,10 @@ A Sample Scala application to receive the event and route it to different destin
 
 	* **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx).
 
+
+
 	Add reference to these jars in the project library. Perform the following steps:
+
 
 	1. From IntelliJ IDEA window where you have the application open, click **File**, click **Project Structure**, and then click **Libraries**. 
 
@@ -145,7 +148,7 @@ A Sample Scala application to receive the event and route it to different destin
 
 	3. Click **Apply**.
 
-4. Create the output jar file. Perform the following steps.
+6. Create the output jar file. Perform the following steps.
 	1. In the **Project Structure** dialog box, click **Artifacts** and then click the plus symbol. From the pop-up dialog box, click **JAR**, and then click **From modules with dependencies**.
 
 		![Create JAR](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-1.png)
