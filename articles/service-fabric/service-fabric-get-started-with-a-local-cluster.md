@@ -48,7 +48,7 @@ The SDK provides two ways to set up a local cluster: a Windows PowerShell script
 ## Deploy an application
 The Service Fabric SDK includes a rich set of frameworks and developer tooling for creating applications. If you are interested in learning how to create applications in Visual Studio, see [Create your first Service Fabric application in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
-In this tutorial, we will use an existing sample application (called WordCount) so that we can focus on the management aspects of the platform, including deployment, monitoring, and upgrade.
+In this tutorial, we will use an existing sample application (called WordCount) so that we can focus on the management aspects of the platform--including deployment, monitoring, and upgrade.
 
 
 1. Launch a new PowerShell window as an administrator.
@@ -111,7 +111,7 @@ Now that we have deployed the application, let's look at some of the app details
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
     ```
 
-    ![List services for the applicatin in PowerShell][ps-getsfsvc]
+    ![List services for the application in PowerShell][ps-getsfsvc]
 
     Note that the application is made up of two services--the web front end and the stateful service that manages the words.
 
@@ -134,7 +134,7 @@ The new version of the application will now only count words that begin with a v
 
 1. Download the WordCount v2 package from the [download site](http://aka.ms/servicefabric-wordcountappv2) to the same location where you downloaded the v1 package.
 
-2. Return to your PowerShell window and use the SDK's upgrade command to register the new version in the cluster. Then begin upgrading fabric:/WordCount.
+2. Return to your PowerShell window and use the SDK's upgrade command to register the new version in the cluster. Then begin upgrading the fabric:/WordCount application.
 
     ```powershell
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
@@ -150,7 +150,7 @@ The new version of the application will now only count words that begin with a v
 
     Note that the Upgrade Progress indicator represents the state of the upgrade within the upgrade domains of your cluster. As the upgrade proceeds through each domain, health checks are performed to ensure that the application is behaving properly before proceeding.
 
-4. If you rerun the earlier query for the set of services that are included in the fabric:/WordCount application, you will notice that while the version of the WordCountService changed, the version of the WordCountWebService did not:
+4. If you rerun the earlier query for the set of services that are included in the fabric:/WordCount application, you will notice that while the version of WordCountService changed, the version of WordCountWebService did not:
 
     ```powershell
     Get-ServiceFabricService -ApplicationName 'fabric:/WordCount'
