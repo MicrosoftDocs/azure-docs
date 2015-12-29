@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carmon"
+   manager="carmonm"
    editor=""/>
 
 <tags
