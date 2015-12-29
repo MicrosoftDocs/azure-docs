@@ -171,7 +171,7 @@ The publishing profile of your site is changed when migrating to Azure App Servi
 your site from within Visual Studio.  To download the new publishing profile:
 
   1.  Log into the [Azure Portal].
-  2.  Select **All resoures** or **App Services** then click on the name of your migrated Mobile Service.
+  2.  Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
   3.  Click on **Get publish profile**.
   
 The PublishSettings file will be downloaded to your computer.  It will normally be called _sitename_.PublishSettings.  You can then import the publish settings into your existing project:
