@@ -1,6 +1,6 @@
 <properties
    pageTitle="Manage multiple environments in Service Fabric | Microsoft Azure"
-   description="Service Fabric applications can be run on clusters ranging in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application parameters per environment."
+   description="Service Fabric applications can be run on clusters that range in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application parameters per environment."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -18,9 +18,9 @@
 
 # Managing application parameters for multiple environments
 
-You can create Azure Service Fabric clusters by using anywhere from one to many thousands of machines. While application binaries can run without modification across this wide spectrum of environments, you will often want to configure the application differently depending on the number of machines you're deploying to.
+You can create Azure Service Fabric clusters by using anywhere from one to many thousands of machines. While application binaries can run without modification across this wide spectrum of environments, you will often want to configure the application differently, depending on the number of machines you're deploying to.
 
-As a simple example, consider `InstanceCount` for a stateless service. When you are running applications in Azure, you will generally want to set this parameter to the special value of "-1". This ensures that your service is running on every node in the cluster. This configuration is not suitable for a single-machine cluster, however, since you can't have multiple processes listening on the same endpoint on a single machine. Instead, you will typically set `InstanceCount` to "1".
+As a simple example, consider `InstanceCount` for a stateless service. When you are running applications in Azure, you will generally want to set this parameter to the special value of "-1". This ensures that your service is running on every node in the cluster. However, this configuration is not suitable for a single-machine cluster since you can't have multiple processes listening on the same endpoint on a single machine. Instead, you will typically set `InstanceCount` to "1".
 
 ## Specifying environment-specific parameters
 
@@ -51,9 +51,9 @@ Each of the named parameters must be defined within the Parameters element of th
         <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
     </Parameters>
 
-The DefaultValue attribute specifies the value to be used in the absence of a more specific parameter for a given environment.
+The DefaultValue attribute specifies the value to be used in the absence of a more-specific parameter for a given environment.
 
->[AZURE.NOTE] Not all service instance parameters are suitable for per-environment configuration. In the example above, the LowKey and HighKey values for the service's partitioning scheme are explicitly defined for all instances of the service since the partition range is a function of your data domain, not of the environment.
+>[AZURE.NOTE] Not all service instance parameters are suitable for per-environment configuration. In the example above, the LowKey and HighKey values for the service's partitioning scheme are explicitly defined for all instances of the service since the partition range is a function of the data domain, not the environment.
 
 
 ### Per-environment service configuration settings
@@ -122,7 +122,7 @@ The `DeployCreate-FabricApplication.ps1` PowerShell script accepts a parameter f
 
 ## Next steps
 
-To learn more about some of the core concepts that are discussed in this topic, see the [Service Fabric technical overview](service-fabric-technical-overview.md). For information about other app management capabilities that are available in Visual Studio, see how to [manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+To learn more about some of the core concepts that are discussed in this topic, see the [Service Fabric technical overview](service-fabric-technical-overview.md). For information about other app management capabilities that are available in Visual Studio, see [Manage your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
