@@ -37,16 +37,25 @@ This guide assumes that you have created a backend with a table. This guide assu
 
 To access an Azure Mobile Apps backend in your project, create an `MSClient`. Replace `AppUrl` with the app URL. You may leave `gatewayURLString` and `applicationKey` empty. If you set up a gateway for authentication, populate `gatewayURLString` with the gateway URL.
 
+**Objective-C**:
+
 ```
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
 ```
 
-##<a name="table-reference"></a>How to: Create Table Reference
-
-To access or update data, create a reference to the backend table. Replace `TodoItem` with the name of your table.
+**Swift**:
 
 ```
-	MSTable *table = [client tableWithName:@"TodoItem"];
+let client = MSClient(applicationURLString: "https://test911518.azurewebsites.net")
+```
+
+
+##<a name="table-reference"></a>How to: Create Table Reference
+
+To access or update data, create a reference to the backend table. Replace `TodoItem` with the name of your table
+
+```
+MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
 ##<a name="querying"></a>How to: Query Data
