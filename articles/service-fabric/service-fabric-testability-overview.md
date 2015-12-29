@@ -18,7 +18,7 @@
 
 # Testability overview
 
-Testability is a suite of tools specifically designed for testing services built on Microsoft Azure Service Fabric. The tools enable the developer to easily induce meaningful faults and run test scenarios to exercise and validate the numerous states and transitions a service will experience throughout its lifetime, all in a controlled and safe manner.
+The Testability subsystem is designed for testing services that are built on Microsoft Azure Service Fabric. With Testability you can induce meaningful faults and run scenarios. These faults and scenarios exercise and validate the numerous states and transitions that a service will experience throughout its lifetime, all in a controlled, safe, and consistent manner.
 
 Testability provides actions and scenarios that enable those capabilities. Actions are the individual faults targeting a service for testing it.  A service developer can use these as building blocks to write complicated scenarios. For example:
 
@@ -27,19 +27,19 @@ Testability provides actions and scenarios that enable those capabilities. Actio
   * Invoke quorum loss on a stateful service to create a situation where write operations can't proceed because there aren't enough "back-up" or "secondary" replicas to accept new data.
   * Invoke data loss on a stateful service to create a situation where all in-memory state is completely wiped out.
 
-Scenarios are complete tests that are composed of one or more actions, and because actions are simply PowerShell commands and C# functions, they can take any shape or form: long-running services, PowerShell commands, command-line applications, and so forth. In Testability we provide two scenarios out of the box:
+Scenarios are complex operations composed of one or more actions. As these actions are PowerShell commands and C# API calls, they can take any shape or form: long-running services, PowerShell commands, command-line applications, and so forth. In Testability we provide two scenarios out of the box:
 
-  * Chaos Test
-  * Failover Test
+  * Chaos Scenario
+  * Failover Scenario
 
-Testability exposes both PowerShell and C# APIs. This enables the service developer to have greater agility with scripting PowerShell and greater control with C# APIs as needed.
+Testability exposes both PowerShell and C# APIs. This gives the service developer greater agility with scripting PowerShell and greater control with C# APIs as needed.
 
 ## Importance of Testability
 
 Service Fabric makes the job of writing and managing distributed scalable applications significantly easier. The Testability component in Service Fabric makes testing a distributed application similarly easier. There are three main issues that need to be solved while testing:
 
 1. Simulating/generating failures that might occur in real-world scenarios: One of the important aspects of Service Fabric is that it enables distributed applications to recover from various failures. However, to test that the application is able to recover from these failures, we need a mechanism to simulate/generate these real-world failures in a controlled test environment.
-2. The ability to generate the correlated failures: Like the basic failures in the system, such as network failure, machine failures are easy to produce individually. Generating the significant number of scenarios that can happen in the real world as a result of the interactions of these individual failures is non-trivial.
+2. The ability to generate the correlated failures: Basic failures in the system, such as network failures and machine failures, are easy to produce individually. Generating the significant number of scenarios that can happen in the real world as a result of the interactions of these individual failures is non-trivial.
 3. Unified experience across various levels of development and deployment: There are many fault injection systems that can do various types of failures. However, the experience in all of these is poor when moving from one-box developer scenarios, to running the same tests in large test environments, to using them for tests in production.
 
 While there are many mechanisms to solve these problems, a system that does the same with required guarantees - all the way from a one-box developer environment to test in production clusters -  is missing. The Testability component helps the application developers concentrate on testing their business logic. The Testability feature provides all the capabilities needed to test the interaction of the service with the underlying distributed system.
