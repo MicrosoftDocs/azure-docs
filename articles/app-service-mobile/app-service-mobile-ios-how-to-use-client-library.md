@@ -46,7 +46,7 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURL
 **Swift**:
 
 ```
-let client = MSClient(applicationURLString: "https://test911518.azurewebsites.net")
+let client = MSClient(applicationURLString: "AppUrl")
 ```
 
 
@@ -54,9 +54,18 @@ let client = MSClient(applicationURLString: "https://test911518.azurewebsites.ne
 
 To access or update data, create a reference to the backend table. Replace `TodoItem` with the name of your table
 
+**Objective-C**:
+
 ```
 MSTable *table = [client tableWithName:@"TodoItem"];
 ```
+
+**Swift**:
+
+```
+let table = client.tableWithName("TodoItem")
+```
+
 
 ##<a name="querying"></a>How to: Query Data
 
