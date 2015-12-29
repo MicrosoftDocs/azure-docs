@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/23/2015"
+	ms.date="12/29/2015"
 	ms.author="jgao"/>
 
 # Customize HDInsight clusters using Bootstrap
