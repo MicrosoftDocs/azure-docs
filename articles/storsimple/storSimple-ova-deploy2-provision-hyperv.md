@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/28/2015"
+   ms.date="12/29/2015"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array 2 - Provision a virtual device in Hyper-V
@@ -123,7 +123,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 1.  On the **Assign memory** page:
 
-    a.  Specify a **Startup memory** of 8192 MB or higher. The minimum memory requirement for an 	on-premises StorSimple virtual device is 8 GB or higher. Do not check the option to **Use 	Dynamic Memory for this virtual machine**.
+    a.  Specify a **Startup memory** of 8192 MB or higher. The minimum memory requirement for an 	on-premises StorSimple virtual device is 8 GB or higher. Do not check the option to **Use Dynamic Memory for this virtual machine**.
 
     b.  Click **Next**.
 
@@ -174,7 +174,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 1.  On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**. This screen will not be presented if running Hyper-V 2008 R2.
 
-	![](./media/image15.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
 1.  On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding**. Click **Next**. Note that this is default in Hyper-V 2012 and Hyper-V 2012 R2. In Hyper-V 2008 R2, default is **Fixed size**.
 
@@ -182,7 +182,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 1.  On the **Specify Name and Location** page, provide a **name** as well as **location** (you can browse to one) for the data disk. Click **Next**.
 
-	![](./media/image17.png)
+	![](./media/storsimple-ova-deploy2-provision-hyperv/image17.png)
 
 1.  On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **500 GB** (or more). Click **Next**.
 
