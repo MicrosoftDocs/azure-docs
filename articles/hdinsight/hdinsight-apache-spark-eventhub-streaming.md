@@ -97,7 +97,7 @@ In this section you use a standalone local Scala application to send a stream of
 
 ## Update the Scala streaming application for receiving the events
 
-A Sample Scala application to receive the event and route it to different destinations is available at [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Follow the steps below to update the application and create the output jar.
+A sample Scala application to receive the event and route it to different destinations is available at [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Follow the steps below to update the application and create the output jar.
 
 1. Launch IntelliJ IDEA and from the launch screen select **Check out from Version Control** and then click **Git**.
 		
@@ -131,10 +131,7 @@ A Sample Scala application to receive the event and route it to different destin
 
 	* **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx).
 
-
-
 	Add reference to these jars in the project library. Perform the following steps:
-
 
 	1. From IntelliJ IDEA window where you have the application open, click **File**, click **Project Structure**, and then click **Libraries**. 
 
