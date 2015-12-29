@@ -258,7 +258,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 1.  Steps 6-8 only apply when booting up in a non DHCP environment. If you are in a DHCP environment, then skip these steps and go to step 9. If you booted up your device in non DHCP environment, you will see the following screen. 
 
-	![](./media/image42.png)
+	![](./media/storsimple-ova-deploy2-provision-vmware/image42.png)
 
 	You will now need to configure the network.
 
