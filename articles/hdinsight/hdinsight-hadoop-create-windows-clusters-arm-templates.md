@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/23/2015"
+   ms.date="12/29/2015"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using ARM templates
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Learn how to create HDInsight clusters using Azure Resource Manager(ARM) templates.
+Learn how to create HDInsight clusters using Azure Resource Manager(ARM) templates. For more information, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
 
 ###Prerequisites:
 
@@ -42,57 +42,93 @@ For more information about ARM template, see
 - [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
 
 
-## Call templates using PowerShell
+## Deploy with PowerShell
 
- The following procedure creates Linux-based HDInsight cluster.
+The following procedure creates Linux-based HDInsight cluster.
 
 **To deploy a cluster using ARM template**
 
 1. Save the json file in [Appendix A](#appendix-a---arm-template) to your workstation.
-2. Make the parameters if needed.
+2. Set the parameters if needed.
 3. Run the template using the following PowerShell script:
 
-		$subscriptionId = "<Azure Subscription ID>"
-		
-		$newResourceGroupName = "<Azure Resource Group Name>"
-		$Location = "EAST US 2" # for creating ARM group
-				
-		$armDeploymentName = "New-HDInsigt-Cluster-" + (Get-Date -Format MMdd)
-		$newClusterName = "<HDInsight Cluster Name>"
-		$clusterStorageAccountName = "<Default Storage Account Name>"
-				
-		# Connect to Azure
-		#Login-AzureRmAccount
-		#Select-AzureRmSubscription -SubscriptionId $subscriptionId
-				
-		# Create a resource group
-		New-AzureRmResourceGroup -Name $newResourceGroupName -Location $Location
-				
-		# Create cluster and the dependent storage accounge
-		$parameters = @{clusterName="$newClusterName";clusterStorageAccountName="$clusterStorageAccountName"}
-				
-		New-AzureRmResourceGroupDeployment `
-			-Name $armDeploymentName `
-			-ResourceGroupName $newResourceGroupName `
-			-TemplateFile E:\HDITutorials-ARM\Create-clusters\hdinsight-arm-template.json `
-			-TemplateParameterObject $parameters
-				
-		# List cluster
-		Get-AzureRmHDInsightCluster -ResourceGroupName $newResourceGroupName -ClusterName $newClusterName 
+        ####################################
+        # Set these variables
+        ####################################
+        #region - used for creating Azure service names
+        $nameToken = "<Enter an Alias>" 
+        $templateFile = "C:\HDITutorials-ARM\hdinsight-arm-template.json"
+        #endregion
+
+        ####################################
+        # Service names and varialbes
+        ####################################
+        #region - service names
+        $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+
+        $resourceGroupName = $namePrefix + "rg"
+        $hdinsightClusterName = $namePrefix + "hdi"
+        $defaultStorageAccountName = $namePrefix + "store"
+        $defaultBlobContainerName = $hdinsightClusterName
+
+        $location = "East US 2"
+
+        $armDeploymentName = $namePrefix
+        #endregion
+
+        ####################################
+        # Connect to Azure
+        ####################################
+        #region - Connect to Azure subscription
+        Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+        try{Get-AzureRmContext}
+        catch{Login-AzureRmAccount}
+        #endregion
+
+        # Create a resource group
+        New-AzureRmResourceGroup -Name $resourceGroupName -Location $Location
+
+        # Create cluster and the dependent storage accounge
+        $parameters = @{clusterName="$hdinsightClusterName";clusterStorageAccountName="$defaultStorageAccountName"}
+
+        New-AzureRmResourceGroupDeployment `
+            -Name $armDeploymentName `
+            -ResourceGroupName $resourceGroupName `
+            -TemplateFile $templateFile `
+            -TemplateParameterObject $parameters
+
+        # List cluster
+        Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName 
 
 	The PowerShell script only configures the cluster name and the storage account name.  You can set other values in the ARM template. 
 	
-For deploying an ARM template using other methods, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+For more information, see  [Deploy with PowerShell](resource-group-template-deploy.md#deploy-with-powershell).
 
-## Call templates using CLI
+## Deploy with Azure CLI
 
+
+    azure config mode arm
+    azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-domain-join/azuredeploy.json
+
+## Deploy with REST API
+
+See [Deploy with the REST API](resource-group-template-deploy.md#deploy-with-the-rest-api).
+
+## Deploy with Visual Studio
+
+With Visual Studio, you can create a resource group project and deploy it to Azure through the user interface. You select the type of resources to include in your project and those resources are automatically added to Resource Manager template. The project also provides a PowerShell script to deploy the template.
+
+For an introduction to using Visual Studio with resource groups, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ##Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
-- [Get started with Azure HDInsight](hdinsight-get-started.md) - Learn how to start working with your HDInsight cluster
-- [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md) - Learn how to work with HDInsight by using Azure PowerShell
-- [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
+- For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](arm-template-deployment.md).
+- For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](app-service-deploy-complex-application-predictably.md).
+- For guidance on deploying your solution to different environments, see [Development and test environments in Microsoft Azure](solution-dev-test-environments-preview-portal.md).
+- To learn about the sections of the Azure Resource Manager template, see [Authoring templates](resource-group-authoring-templates.md).
+- For a list of the functions you can use in an Azure Resource Manager template, see [Template functions](resource-group-template-functions.md).
+
 
 ##Appx-A: ARM template
 
