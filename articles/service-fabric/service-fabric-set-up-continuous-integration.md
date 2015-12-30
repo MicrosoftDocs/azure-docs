@@ -39,6 +39,7 @@ Before you can set up the build machine, you need to create a "Service Principal
 
 1.	Install Azure PowerShell.
     - Install PowerShellGet. To do this, install [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), which includes PowerShellGet.
+
     >[AZURE.NOTE] You can skip this step if you are running Windows 10 with the latest updates.
 
 2.	Install and update the AzureRM module.
@@ -138,6 +139,7 @@ Install the [Service Fabric SDK](https://azure.microsoft.com/campaigns/service-f
     ```
 
 3.	If NuGet.config does not already exist, create it with the following contents. Replace `<path to service fabric SDK>` with the path to Service Fabric SDK on the build machine.
+
 >[AZURE.NOTE] By default, `<path to service fabric SDK>` is `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config:
