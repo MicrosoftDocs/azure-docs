@@ -44,6 +44,8 @@ The following diagram shows the relationship between applications and service in
 ![Partitions and replicas within a service][cluster-application-instances]
 
 
+>[AZURE.TIP] You can view the layout of applications in a cluster using the Service Fabric Explorer tool available at http://&lt;yourclusteraddress&gt;:19080/Explorer. For more details, see [Visualizing your cluster with Service Fabric Explorer][service-fabric-visualizing-your-cluster.md].
+
 ## Describe a service
 
 The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
