@@ -86,7 +86,7 @@ This returns the health of the cluster entity and contains the health states of 
 - [Optional] Filters for events, nodes, and applications that specify which entries are of interest and should be returned in the result (for example, errors only, or both warnings and errors). Note that all events, nodes, and applications are used to evaluate the entity aggregated health, regardless of the filter.
 
 ### API
-To get cluster health, create a **FabricClient** and call the [**GetClusterHealthAsync**](https://msdn.microsoft.com/en-us/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthasync.aspx) method on its **HealthManager**.
+To get cluster health, create a **FabricClient** and call the [**GetClusterHealthAsync**](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.healthclient.getclusterhealthasync.aspx) method on its **HealthManager**.
 
 The following gets cluster health:
 
@@ -94,7 +94,7 @@ The following gets cluster health:
 ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync().Result;
 ```
 
-The following gets cluster health by using a custom cluster health policy and filters for nodes and applications. Note that it creates **System.Fabric.Description.[ClusterHealthQueryDescription](https://msdn.microsoft.com/en-us/library/azure/system.fabric.description.clusterhealthquerydescription.aspx)**, which contains all of the input data.
+The following gets cluster health by using a custom cluster health policy and filters for nodes and applications. Note that it creates **System.Fabric.Description.[ClusterHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.clusterhealthquerydescription.aspx)**, which contains all of the input data.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -119,7 +119,7 @@ ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync(q
 ```
 
 ### PowerShell
-The cmdlet to get the cluster health is **[Get-ServiceFabricClusterHealth](https://msdn.microsoft.com/en-us/library/mt125850.aspx)**. First, connect to the cluster by using the **Connect-ServiceFabricCluster** cmdlet.
+The cmdlet to get the cluster health is **[Get-ServiceFabricClusterHealth](https://msdn.microsoft.com/library/mt125850.aspx)**. First, connect to the cluster by using the **Connect-ServiceFabricCluster** cmdlet.
 
 The state of the cluster is five nodes, the system application, and fabric:/WordCount configured as above.
 
@@ -228,7 +228,7 @@ The following gets the node health for the specified node name:
 NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(nodeName).Result;
 ```
 
-The following gets the node health for the specified node name and passes in an events filter and custom policy through **System.Fabric.Description.[NodeHealthQueryDescription](https://msdn.microsoft.com/en-us/library/azure/system.fabric.description.nodehealthquerydescription.aspx)**:
+The following gets the node health for the specified node name and passes in an events filter and custom policy through **System.Fabric.Description.[NodeHealthQueryDescription](https://msdn.microsoft.com/library/azure/system.fabric.description.nodehealthquerydescription.aspx)**:
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
