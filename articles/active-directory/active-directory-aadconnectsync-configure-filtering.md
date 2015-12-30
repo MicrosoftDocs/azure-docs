@@ -91,7 +91,7 @@ Domain-based filtering configuration consists of these steps:
 ![Connector properties](./media/active-directory-aadconnectsync-configure-filtering/connectorproperties.png)
 -  Click **Configure Directory Partitions**.
 - In the **Select directory partitions** list, select and unselect the domains as needed. Verify that only the partitions you want to synchronize are selected.  
-![Partitions](./media/active-directory-aadconnectsync-configure-filtering/connectorpartitions.png)
+![Partitions](./media/active-directory-aadconnectsync-configure-filtering/connectorpartitions.png)  
 If you have changed your on-premises AD infrastructure and added or removed domains from the forest, then click on the **Refresh** button to get an updated list. When you refresh you are asked for credentials; provide any credentials with read access to your on-premises Active Directory. It does not have to be the user which is pre-populated in the dialog box.  
 ![Refresh needed](./media/active-directory-aadconnectsync-configure-filtering/refreshneeded.png)
 - When you are done, close the **Properties** dialog by clicking **OK**. If you have removed domains from the forest a message will pop-up saying a domain was removed and that configuration will be cleaned up.
