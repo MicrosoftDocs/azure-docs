@@ -28,10 +28,10 @@ Objects can instead keep state in local variables, and these objects can be snap
 ## Explore the leaderboard example
 
 Let's look at leaderboards as an example. A leaderboard object needs to maintain a sorted list of players and their scores, so that the list can be queried. A query can find the top 100 players. It can also find a player’s position in the leaderboard relative to a specified number of players above and below him or her. A traditional solution would require getting the leaderboard object (a collection that supports inserting a new tuple `<Player, Points>` named **Score**) by using GET, sorting it, and finally putting it back to the cache by using PUT. You would probably lock (GETLOCK, PUTLOCK) the leaderboard object for consistency.
-Let’s look at an Actor-based solution where state and behavior are together. There are two options:
+Let’s look at an actor-based solution where state and behavior are together. There are two options:
 
-* Implement the leaderboard collection as part of the Actor.
-* Use the Actor as an interface to the collection that we can keep in a member variable.
+* Implement the leaderboard collection as part of the actor.
+* Use the actor as an interface to the collection that we can keep in a member variable.
 
 The following code sample shows what the interface could look like.
 
@@ -52,9 +52,9 @@ public interface ILeaderboard : IActor
 
 ```
 
-Next, you can implement this interface by using the latter option and encapsulating the collection's behavior in the Actor:
+Next, you can implement this interface by using the latter option and encapsulating the collection's behavior in the actor:
 
-### Smart cache code sample: Leaderboard Actor
+### Smart cache code sample: Leaderboard actor
 
 ```
 public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
@@ -81,7 +81,7 @@ public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
 
 ```
 
-The state member of the class provides the state of the Actor. In the sample code above, it also provides methods to read and write data.
+The state member of the class provides the state of the actor. In the sample code above, it also provides methods to read and write data.
 
 ### Smart cache code sample: LeaderboardCollection
 
@@ -113,7 +113,7 @@ public class LeaderboardCollection
 
 There are no locks or data shipping in this approach. It just manipulates remote objects in a distributed runtime, which services multiple clients as if they were single objects in a single application servicing only one client. The following code sample focuses on the sample client.
 
-### Smart cache code sample: Calling the leaderboard Actor
+### Smart cache code sample: Calling the leaderboard actor
 
 ```
 // Get reference to Leaderboard
@@ -138,9 +138,9 @@ Player = 2 Points = 100
 ```
 
 ## Scale the architecture
-It may seem that the example above could create a bottleneck in the leaderboard instance. For example, what if you plan to support thousands of players? One way to deal with that would be to introduce stateless aggregators that act as buffers. These aggregators would hold partial scores (subtotals), and then periodically send them to the leaderboard Actor, which would maintain the final leaderboard. We will discuss this technique in more detail later. Also, we do not have to consider mutexes, semaphores, or other concurrency constructs that are traditionally required by concurrent programs that are behaving correctly.
+It may seem that the example above could create a bottleneck in the leaderboard instance. For example, what if you plan to support thousands of players? One way to deal with that would be to introduce stateless aggregators that act as buffers. These aggregators would hold partial scores (subtotals), and then periodically send them to the leaderboard actor, which would maintain the final leaderboard. We will discuss this technique in more detail later. Also, we do not have to consider mutexes, semaphores, or other concurrency constructs that are traditionally required by concurrent programs that are behaving correctly.
 
-Below is another cache example that demonstrates the rich semantics you can implement with Actors. This time, we implement the logic of a priority queue (the lower the number, the higher the priority) as part of the Actor implementation.
+Below is another cache example that demonstrates the rich semantics you can implement with actors. This time, we implement the logic of a priority queue (the lower the number, the higher the priority) as part of the actor implementation.
 The following code sample provides a look at the interface for **IJobQueue**.
 
 ### Smart cache code sample: Job queue interface
@@ -177,7 +177,7 @@ public class Job : IComparable<Job>
 }
 ```
 
-Finally, we implement the IJobQueue interface in the Actor. Note that we omitted the implementation details of the priority queue here for clarity. A look at implementation is provided in the accompanying samples.
+Finally, we implement the IJobQueue interface in the actor. Note that we omitted the implementation details of the priority queue here for clarity. A look at implementation is provided in the accompanying samples.
 
 ### Smart cache code sample: Job queue
 
@@ -242,18 +242,18 @@ Job = 6 Priority = 0.962653734238191
 Job = 1 Priority = 0.97444181375878
 ```
 
-## Use Actors to provide flexibility
+## Use actors to provide flexibility
 In the leaderboard and job queue samples above, we used two different techniques:
 
-* In the leaderboard sample, we encapsulated a leaderboard object as a private member variable in the Actor. We then merely provided an interface to this object, to both its state and its functionality.
+* In the leaderboard sample, we encapsulated a leaderboard object as a private member variable in the actor. We then merely provided an interface to this object, to both its state and its functionality.
 
-* In the job queue sample, we instead implemented the Actor as a priority queue itself, rather than by referencing another object defined elsewhere.
+* In the job queue sample, we instead implemented the actor as a priority queue itself, rather than by referencing another object defined elsewhere.
 
-Actors provide developer with the flexibility to define rich object structures as part of the Actors or reference object graphs outside of the Actors. In caching terms, Actors can write behind or write through, or they can employ different techniques at the granularity of member variables. You have full control over what to persist and when to persist it. You don’t have to persist transient state or state that you can build from saved state.
+Actors provide developer with the flexibility to define rich object structures as part of the actors or reference object graphs outside of the actors. In caching terms, actors can write behind or write through, or they can employ different techniques at the granularity of member variables. You have full control over what to persist and when to persist it. You don’t have to persist transient state or state that you can build from saved state.
 
-How are the caches of these Actors populated? There are number of ways to achieve this. Actors provide the virtual methods **OnActivateAsync()** and **OnDeactivateAsync()** to let you know when an instance of the Actor is activated and deactivated. Note that the Actor is activated on demand when a request is first sent to it.
+How are the caches of these actors populated? There are number of ways to achieve this. Actors provide the virtual methods **OnActivateAsync()** and **OnDeactivateAsync()** to let you know when an instance of the actor is activated and deactivated. Note that the actor is activated on demand when a request is first sent to it.
 
-You can use OnActivateAsync() to populate state on demand, as in read-through, such as from an external stable store. You can also populate state on a timer, for example, by using an exchange rate Actor that provides a conversion function based on the latest currency rates. Such an Actor can populate its state from an external service periodically, say every five seconds, and it can use the state for the conversion function. The following code sample shows how this can be done.
+You can use OnActivateAsync() to populate state on demand, as in read-through, such as from an external stable store. You can also populate state on a timer, for example, by using an exchange rate actor that provides a conversion function based on the latest currency rates. Such an actor can populate its state from an external service periodically, (for example, every five seconds), and it can use the state for the conversion function. The following code sample shows how this can be done.
 
 ### Smart cache code sample: Rate converter
 
@@ -308,7 +308,7 @@ Essentially, the smart cache approach provides:
 
 [Some antipatterns](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
+[Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
