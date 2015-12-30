@@ -122,6 +122,7 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[Advantech Co., LTD UNO-1372G](http://www.advantech.com/products/gf-bvl2/uno-1372g/mod_8e63b3c9-b606-4725-a1af-94fccb98bb1a) |[Windows 10 | C#|
 |[Advantech Co., TREK-674](http://www.advantech.com/products/1-2jsj5t/trek-674/mod_88a737dd-819b-4c8e-8f2e-2bb75b04619b) |Windows 10 | C#|
 |[Advantech Co., UTX-3115](http://www.advantech.com/products/bda911fe-28bc-4171-aed3-67f76f6a12c8/utx-3115/mod_fa00d5cd-7d2b-430b-8983-c232bfb9f315) |Windows 10 | C#|
+|[Arduino Zero](https://www.arduino.cc/en/Guide/ArduinoZero) |WiFi 101 shield | C|
 |[Arrow DragonBoard 410c](http://partners.arrow.com/campaigns-na/qualcomm/dragonboard-410c/) |Windows 10 IoT Core | C#|
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | C, Javascript, Java|
 |[BeagleBone Green](http://beagleboard.org/green) |Debian | C, Javascript, Java|
@@ -132,17 +133,14 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[HPE Edgeline EL20](https://www.hpe.com) |Windows 10 | C#|
 |[Ilevia Eve Raspberry](http://www.ilevia.com/overview/) |Debian | C|
 |[Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) |Yocto | C, Javascript|
-|[KG PARTNERS SRL Arietta G25](http://www.acmesystems.it/arietta) |Debian | C|
-|[Mert Yazilim Bilgisayar Ltd. Şti Trex NGP](http://www.trex.com.tr/) |Windows 10 | C#|
 |[Minnowboard Max](http://www.minnowboard.org/meet-minnowboard-max/) |Windows 7,8, 10 | C#|
 |[NEXCOM NISE 50C](http://www.nexcom.com/Products/industrial-computing-solutions/industrial-fanless-computer/atom-compact/fanless-computer-nise-50c) |Windows 10 IoT Core | C#|
-|[OpenRB LogicMachine Series](http://openrb.com/products/) |Custom Linux | C|
+|[embedded systems LogicMachine Series](http://openrb.com/products/) |Custom Linux | C|
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Raspbian | C, Javascript, Java |
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Windows 10 IoT Core|  C, Javascript, C#|
 |[Samsung ARTIK](http://developer.samsung.com/artik) |Fedora | C|
-|[SOTEC CloudPlug](https://docs.google.com/file/d/0B5oWvtxLoSG2WHAyTVRmVlFmdU0/edit) |YOCTO | C|
+|[SOTEC CloudPlug](http://cloudplug.info/) |YOCTO | C|
 |[STMicroelectronics STM32 Nucleo](http://www.st.com/stm32nucleo) |STM32Cube | C|
-|[Techlan Reti s.r.l. Trueverit](https://www.trueverit.com) |Custom Linux | C, Javascript|
 |[TI CC3200](http://www.ti.com/product/cc3200) |TI-RTOS 2.x | C|
 |[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto)  | Javascript, Java|
 |[Toradex Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto)  | Javascript, Java|
