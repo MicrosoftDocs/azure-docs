@@ -14,15 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/29/2015"
+   ms.date="12/30/2015"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using Azure CLI
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Learn how to create HDInsight clusters using Azure CLI.
-
+Learn how to create HDInsight clusters using Azure CLI. For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ###Prerequisites:
 
@@ -49,7 +48,7 @@ To get help, use the **-h** switch.  For example:
 	
 ##Create clusters
 
-You must have a Azure Resource Management (ARM), and a Azure Blob storage account before you can create a HDInsight cluster. To create a HDInsight cluster, you must specify the following:
+You must have a Azure Resource Management (ARM), and a Azure Blob storage account before you can create an HDInsight cluster. To create an HDInsight cluster, you must specify the following:
 
 - **Azure Resource Group**: A Data Lake Analytics account must be created within a Azure Resource group. Azure Resource Manager enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation. 
 
@@ -127,7 +126,7 @@ For general script action information, see [Customize HDInsight clusters using S
 
 ## Create clusters using ARM templates
 
-See [Deploy with Azure CLI](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
+You can use CLI to create clusters by calling ARM templates. See [Deploy with Azure CLI](hdinsight-hadoop-create-windows-clusters-arm-templates.md#deploy-with-azure-cli).
 
 ## See also
 

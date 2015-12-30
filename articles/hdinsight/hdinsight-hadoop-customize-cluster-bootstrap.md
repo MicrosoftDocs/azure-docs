@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/29/2015"
+	ms.date="12/30/2015"
 	ms.author="jgao"/>
 
 # Customize HDInsight clusters using Bootstrap
@@ -130,7 +130,7 @@ You can use bootstrap in ARM template:
 
 The following sample demonstrates how to install Spark on Windows based HDInsight cluster. To install other software, you will need to replace the script file in the code.
 
-**To create a HDInsight cluster with Spark** 
+**To create an HDInsight cluster with Spark** 
 
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.

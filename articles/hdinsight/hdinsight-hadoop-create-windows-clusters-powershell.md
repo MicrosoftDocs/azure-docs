@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/29/2015"
+   ms.date="12/30/2015"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using Azure PowerShell
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Learn how to create HDInsight clusters using Azure PowerShell. Azure PowerShell is a module that provides cmdlets to manage Azure with Windows PowerShell. 
+Learn how to create HDInsight clusters using Azure PowerShell. Azure PowerShell is a module that provides cmdlets to manage Azure with Windows PowerShell. For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 
 ###Prerequisites:
@@ -39,47 +39,83 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 
 The following procedures are needed to create an HDInsight cluster by using Azure PowerShell:
 
-	$subscriptionId = "<Azure Subscription ID>"
-	
-	$newResourceGroupName = "<Azure Resource Group Name>"
-	$location = "<Azure Location>" # for example, "East US 2"
-	$newDefaultStorageAccountName = "<Azure Storage Account Name>"
-	$newClusterName = "<Azure HDInsight Cluster Name>"
-	$clusterSizeInNodes = 1
-	
-	###########################################
-	# login Azure
-	###########################################
-	Login-AzureRmAccount
-	Select-AzureRmSubscription -SubscriptionId $subscriptionId
-	
-	###########################################
-	# Create the resource group
-	###########################################
-	New-AzureRmResourceGroup -Name $newRresourceGroupName -Location $location
-	
-	###########################################
-	# Preapre default storage account and container
-	###########################################
-	New-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName -Location $location
-	
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName |  %{ $_.Key1 }
-	$defaultStorageContext = New-AzureStorageContext -StorageAccountName $newDefaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
-	New-AzureStorageContainer -Name $newClusterName -Context $defaultStorageContext #use the cluster name as the container name
-		
-	###########################################
-	# Create the cluster
-	###########################################
-	$httpCredential =Get-Credential -Message "Enter the HTTP account credential:"
-	New-AzureRmHDInsightCluster `
-		-ResourceGroupName $newResourceGroupName `
-		-ClusterName $newClusterName `
-		-Location $location `
-		-ClusterSizeInNodes $clusterSizeInNodes `
-		-ClusterType Hadoop `
-		-OSType Windows `
-		-Version "3.2" `
-		-HttpCredential $httpCredential 
+    ####################################
+    # Set these variables
+    ####################################
+    #region - used for creating Azure service names
+    $nameToken = "<Enter an Alias>" 
+    #endregion
+
+    #region - cluster user accounts
+    $httpUserName = "admin"  #HDInsight cluster username
+    $httpPassword = "<Enter a Password>"
+
+    #endregion
+
+    ###########################################
+    # Service names and varialbes
+    ###########################################
+    #region - service names
+    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+
+    $resourceGroupName = $namePrefix + "rg"
+    $hdinsightClusterName = $namePrefix + "hdi"
+    $defaultStorageAccountName = $namePrefix + "store"
+    $defaultBlobContainerName = $hdinsightClusterName
+
+    $location = "East US 2"
+    $clusterSizeInNodes = 1
+    #endregion
+
+    # Treat all errors as terminating
+    $ErrorActionPreference = "Stop"
+
+    ###########################################
+    # Connect to Azure
+    ###########################################
+    #region - Connect to Azure subscription
+    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    try{Get-AzureRmContext}
+    catch{Login-AzureRmAccount}
+    #endregion
+
+    ###########################################
+    # Create the resource group
+    ###########################################
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
+    ###########################################
+    # Preapre default storage account and container
+    ###########################################
+    New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $defaultStorageAccountName `
+        -Type Standard_GRS `
+        -Location $location
+
+    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+                                    -ResourceGroupName $resourceGroupName `
+                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+    $defaultStorageContext = New-AzureStorageContext `
+                                    -StorageAccountName $defaultStorageAccountName `
+                                    -StorageAccountKey $defaultStorageAccountKey
+    New-AzureStorageContainer `
+        -Name $hdinsightClusterName ` #use the cluster name as the container name
+        -Context $defaultStorageContext 
+
+    ###########################################
+    # Create the cluster
+    ###########################################
+    $httpCredential =Get-Credential -Message "Enter the HTTP account credential:"
+    New-AzureRmHDInsightCluster `
+        -ResourceGroupName $resourceGroupName `
+        -ClusterName $hdinsightClusterName `
+        -Location $location `
+        -ClusterSizeInNodes $clusterSizeInNodes `
+        -ClusterType Hadoop `
+        -OSType Windows `
+        -Version "3.2" `
+        -HttpCredential $httpCredential 
 
 ## Create clusters using ARM template
 

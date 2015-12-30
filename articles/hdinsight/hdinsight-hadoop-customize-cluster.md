@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/29/2015"
+	ms.date="12/30/2015"
 	ms.author="nitinme"/>
 
 # Customize Windows-based HDInsight clusters using Script Action
@@ -113,7 +113,7 @@ This following PowerShell script demonstrates how to install Spark on Windows ba
 	
 	$hdinsightClusterName = $namePrefix + "spark"
 	$httpUserName = "admin"
-	$httpPassword = "Pass@word111"
+	$httpPassword = "<Enter a Password>"
 	
 	$defaultStorageAccountName = "$namePrefix" + "store"
 	$defaultBlobContainerName = $hdinsightClusterName
@@ -138,13 +138,23 @@ This following PowerShell script demonstrates how to install Spark on Windows ba
 	New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 	
 	# Create storage account
-	New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName -Location $location -Type Standard_LRS
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName |  %{ $_.Key1 }
-	$defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $storageAccountKey  
-	New-AzureStorageContainer -Name $defaultBlobContainerName -Context $defaultStorageAccountContext
+	New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $defaultStorageAccountName `
+        -Location $location `
+        -Type Standard_GRS
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+                                    -ResourceGroupName $resourceGroupName `
+                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+	$defaultStorageAccountContext = New-AzureStorageContext `
+                                    -StorageAccountName $defaultStorageAccountName `
+                                    -StorageAccountKey $storageAccountKey  
+	New-AzureStorageContainer `
+        -Name $defaultBlobContainerName `
+        -Context $defaultStorageAccountContext
 	
 	#############################################################
-	# Create cluster with Spark
+	# Create cluster with ApacheSpark
 	#############################################################
 	
 	# Specify the configuration options
@@ -181,7 +191,7 @@ When prompted, enter the credentials for the cluster. It can take several minute
 
 The following sample demonstrates how to install Spark on Windows based HDInsight cluster. To install other software, you will need to replace the script file in the code.
 
-**To create a HDInsight cluster with Spark** 
+**To create an HDInsight cluster with Spark** 
 
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.

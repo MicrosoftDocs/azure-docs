@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/29/2015"
+   ms.date="12/30/2015"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using ARM templates
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Learn how to create HDInsight clusters using Azure Resource Manager(ARM) templates. For more information, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
+Learn how to create HDInsight clusters using Azure Resource Manager(ARM) templates. For more information, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md). For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ###Prerequisites:
 

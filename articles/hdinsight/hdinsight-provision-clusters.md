@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/22/2015"
+   ms.date="12/30/2015"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight
@@ -32,7 +32,7 @@ Before you begin the instructions in this article, you must have the following:
 
 ## Basic configuration options
 
-The following are the basic configuration options for creating a HDInsight cluster.
+The following are the basic configuration options for creating an HDInsight cluster.
 
 - **Cluster name**
 
