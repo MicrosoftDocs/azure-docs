@@ -2,19 +2,17 @@
 
 1. On your Mac, open _QSTodoListViewController.m_ in Xcode and add the following method. Change _facebook_ to _microsoftaccount_, _twitter_, _google_, or _windowsazureactivedirectory_ if you're not using Facebook as your identity provider.
 
-```
-- (void) loginAndGetData
-{
-    MSClient *client = self.todoService.client;
-    if (client.currentUser != nil) {
-        return;
-    }
-
-    [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
-        [self refresh];
-    }];
-}
-```
+            - (void) loginAndGetData
+            {
+                MSClient *client = self.todoService.client;
+                if (client.currentUser != nil) {
+                    return;
+                }
+            
+                [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+                    [self refresh];
+                }];
+            }
 
 
 2. Replace `[self refresh]` in `viewDidLoad` in _QSTodoListViewController.m_ with the following:
