@@ -359,7 +359,7 @@ To send notifications utilizing these registered templates, work with [Notificat
 
 When you call a mobile service, the completion block contains an `NSError` parameter. When an error occurs, this parameter is non-nil. In your code, you should check this parameter and handle the error as needed, as demonstrated in the code snippets above.
 
-The file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) defines the constants `MSErrorResponseKey`, `MSErrorRequestKey`, and `MSErrorServerItemKey` to get more data related to the error. 
+The file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) defines the constants `MSErrorResponseKey`, `MSErrorRequestKey`, and `MSErrorServerItemKey` to get more data related to the error, obtainable as follows:
 
 **Objective-C**:
 ```
@@ -371,7 +371,7 @@ NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 let serverItem = error?.userInfo[MSErrorServerItemKey];
 ```
 
-In addition, the file defines constants for each error code. 
+In addition, the file defines constants for each error code, which may be used as shown below:
 
 **Objective-C**:
 ```
