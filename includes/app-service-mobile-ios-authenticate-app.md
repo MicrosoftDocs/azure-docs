@@ -17,10 +17,7 @@
 
 2. Replace `[self refresh]` in `viewDidLoad` in _QSTodoListViewController.m_ with the following:
 
-```
-[self loginAndGetData];
-```
-
+            [self loginAndGetData];
 
 3. Press  **Run** to start the app, and then log in. When you are logged in, you should be able to view the Todo list and make updates.
 
