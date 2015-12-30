@@ -232,7 +232,7 @@ To insert a new table row, create a new `NSDictionary` and invoke `table insert`
 
 If `id` is not provided, the backend automatically generates a new unique ID. Provide your own `id` to use email addresses, usernames, or your own custom values as ID. Providing your own ID may ease joins and business-oriented database logic.
 
-**Objective-C*::
+**Objective-C**:
 ```
 NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
 [self.table insert:newItem completion:^(NSDictionary *result, NSError *error) {
