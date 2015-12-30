@@ -272,10 +272,27 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 
 Alternatively, supply the row ID and the updated field:
 
+**Objective-C**:
 ```
-[table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
-	// Handle error or perform additional logic as needed
+[table update:@{@"id":@"custom-id", @"text":"my EDITED item"} completion:^(NSDictionary *item, NSError *error) {
+	if(error) {
+		NSLog(@"ERROR %@", error);
+	} else {
+		NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
+	}
 }];
+```
+
+**Swift**:
+```
+table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) -> Void in
+    if error != nil {
+        NSLog("ERROR %@", error!)
+    } else {
+        NSLog("Todo Item: %@", result!["text"] as! String)
+    }
+    
+}
 ```
 
 At minimum, the `id` attribute must be set when making updates.
