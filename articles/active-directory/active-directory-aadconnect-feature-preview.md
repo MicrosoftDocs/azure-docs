@@ -56,9 +56,7 @@ This group will be represented as a distribution group in on-premises AD DS. You
 User writeback is in early preview. It can only be used when Azure AD is the source for all user objects and on-premises Active Directory is empty before you enable the feature (green-field deployment).
 
 > [AZURE.WARNING] This feature should only be evaluated in a test environment and should not be used in an Azure AD directory used for production usage.
-
-.
-
+  
 >[AZURE.NOTE] A subscription to Azure AD Premium is required for user writeback.
 
 ## Next steps
