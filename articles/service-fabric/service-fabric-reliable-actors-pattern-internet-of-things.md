@@ -22,23 +22,23 @@ Since the Internet of Things (IoT) has become the new trend alongside the techno
 
 ![Service Fabric Reliable Actors key scenarios][1]
 
-Service Fabric Reliable Actors are the key building blocks (as a middle tier) in a system that combines a messaging system front end that supports multiple transports, such as HTTPS, MQTT, and AMQP, and communication with Actors that represent individual devices. Because Actors can maintain state, modeling streams--especially stateful stream processing--and aggregation per device is straightforward. If the data must be persisted, you can also easily flush on demand or on a timer. This can occur while you still maintain the latest N bits of data in another variable for quick querying.
+Service Fabric Reliable Actors are the key building blocks (as a middle tier) in a system that combines a messaging system front end that supports multiple transports, such as HTTPS, MQTT, and AMQP, and communication with actors that represent individual devices. Because actors can maintain state, modeling streams--especially stateful stream processing--and aggregation per device is straightforward. If the data must be persisted, you can also easily flush on demand or on a timer. This can occur while you still maintain the latest N bits of data in another variable for quick querying.
 
-Note that to keep the focus on the Actor model in our examples, we have deliberately omitted details of the event/messaging tier, which allows Actors to communicate with devices. There are essentially two scenarios, and they are usually composed together:
+Note that to keep the focus on the Reliable Actors model in our examples, we have deliberately omitted details of the event/messaging tier, which allows actors to communicate with devices. There are essentially two scenarios, and they are usually composed together:
 
-* **Collect telemetry and state data from a single device or set of devices and maintain their state**. Think about tens of thousands of mousetraps (this is a real customer scenario) sending data. This data is as basic as whether or not the device has trapped a pest inside. Such data is aggregated by region, and when enough mice are trapped in one region, an engineer is dispatched to clean up the devices. A mousetrap as an Actor? Yes. A group Actor per region as the aggregator? Absolutely.
+* **Collect telemetry and state data from a single device or set of devices and maintain their state**. Think about tens of thousands of mousetraps (this is a real customer scenario) sending data. This data is as basic as whether or not the device has trapped a pest inside. Such data is aggregated by region, and when enough mice are trapped in one region, an engineer is dispatched to clean up the devices. A mousetrap as an actor? Yes. A group actor per region as the aggregator? Absolutely.
 
 * **Push device behavior and configuration to a single device or set of devices**. Think about home solar-power devices, where the vendor pushes different configurations based on consumption patterns and seasonality.
 
 ## Telemetry data and device grouping
 
-First, let’s have a look at a case where devices (think tens of thousands) are grouped together, and they are all sending telemetry data to their associated group. In the following example, the customer has deployed devices to each region. When a device is switched on, the first thing it does is send an **ActivateMe** message with relevant information that includes location and version. The Actor associated with the device (through the device ID) sets up the initial state for the device, such as saving state locally (this can also be persisted), and registering a group Actor. In this case, we have assigned a random group for our simulation.
+First, let’s have a look at a case where devices (think tens of thousands) are grouped together, and they are all sending telemetry data to their associated group. In the following example, the customer has deployed devices to each region. When a device is switched on, the first thing it does is send an **ActivateMe** message with relevant information that includes location and version. The actor associated with the device (through the device ID) sets up the initial state for the device, such as saving state locally (this can also be persisted), and registering a group actor. In this case, we have assigned a random group for our simulation.
 
-As part of the initialization process, we can configure the device by retrieving configuration data from a group Actor or some other agent. This way, the devices can initially be pretty "dumb" and get their "smarts" on initialization. Once this is done, the device and Actor are ready to send and process telemetry data.
+As part of the initialization process, we can configure the device by retrieving configuration data from a group actor or some other agent. This way, the devices can initially be pretty "dumb" and get their "smarts" on initialization. Once this is done, the device and actor are ready to send and process telemetry data.
 
-All of the devices periodically send their telemetry information to their corresponding Actors. If an Actor is already activated, then the same Actor will be used. If not, it will be activated. At this point, it can recover state from a stable store, if that's required. When the Actor receives telemetry information, it stores it to a local variable.
+All of the devices periodically send their telemetry information to their corresponding actors. If an actor is already activated, then the same actor will be used. If not, it will be activated. At this point, it can recover state from a stable store, if that's required. When the actor receives telemetry information, it stores it to a local variable.
 
-We are doing this to simplify the example. In a real implementation, we would probably save it to an external store. This would allow operations to monitor and diagnose device health and performance. Finally, we push telemetry data to the group Actor to which the device Actor logically belongs.
+We are doing this to simplify the example. In a real implementation, we would probably save it to an external store. This would allow operations to monitor and diagnose device health and performance. Finally, we push telemetry data to the group actor to which the device actor logically belongs.
 
 ## IoT code sample: Telemetry
 
@@ -99,7 +99,7 @@ public class Thing : StatefulActor<ThingState>, IThing
 }
 ```
 
-At the group level, the goal in our example is to monitor the devices in the group and aggregate telemetry data to produce alerts for engineers. In this case, our customer would like to send engineers to the specific regions where a certain number of devices is faulty. Of course, our customer would also like to reduce costs by minimizing the engineering time spent on the road. For this reason, each group Actor maintains an aggregated state of faulty devices per region. When this number hits a threshold, our customer dispatches an engineer to the region to repair or replace the faulty devices.
+At the group level, the goal in our example is to monitor the devices in the group and aggregate telemetry data to produce alerts for engineers. In this case, our customer would like to send engineers to the specific regions where a certain number of devices is faulty. Of course, our customer would also like to reduce costs by minimizing the engineering time spent on the road. For this reason, each group actor maintains an aggregated state of faulty devices per region. When this number hits a threshold, our customer dispatches an engineer to the region to repair or replace the faulty devices.
 
 Let’s have a look how it is done:
 
@@ -187,22 +187,22 @@ Sending an engineer to repair/replace devices in Richmond
 
 You may think that it would have been better if the devices were grouped by region. It's entirely up to you how you choose to group and/or partition devices, whether by geolocation, device type, version, tenant, or other criteria.
 
-A point of caution here on device state versus reporting and analysis: You must avoid fan-out queries to Actors to build reporting Actors. This can cause unnecessary instantiations and performance issues, to name just two drawbacks. This is why we made the pattern illustration explicit. We recommend two approaches for reporting:
+A point of caution here on device state versus reporting and analysis: You must avoid fan-out queries to actors to build reporting actors. This can cause unnecessary instantiations and performance issues, to name just two drawbacks. This is why we made the pattern illustration explicit. We recommend two approaches for reporting:
 
-* Use a group level Actor, such as an aggregator, to maintain a view for the group. Let each Actor proactively push only relevant data to this Actor. The group-level Actor can be used to view the status of the devices in the group.
+* Use a group level actor, such as an aggregator, to maintain a view for the group. Let each actor proactively push only relevant data to this actor. The group-level actor can be used to view the status of the devices in the group.
 
 * Maintain an explicit store that is designed for reporting. An aggregator can buffer and periodically push data to a reporting store for further querying and analysis.
 
 ## Device operation
-So far, so good. But what about operations on these devices? As with devices, Actors can expose operational interfaces so an administrator can carry out operations on devices. For example, consider an administrator who wants to push a new configuration to a group of home solar-energy devices (another real-life scenario) based on seasonal and regional changes.
+So far, so good. But what about operations on these devices? As with devices, actors can expose operational interfaces so an administrator can carry out operations on devices. For example, consider an administrator who wants to push a new configuration to a group of home solar-energy devices (another real-life scenario) based on seasonal and regional changes.
 
-The key idea here is to maintain granular control over each device by using “Thing” Actors, as well as control over group operations by using “ThingGroup” Actors. This is true whether you are aggregating data such as telemetry coming in from devices, or you are sending data such as configuration to a large number of devices. The platform takes care of the distribution of the device Actors, as well as the messaging between them. This remains totally transparent to the developer.
+The key idea here is to maintain granular control over each device by using “Thing” actors, as well as control over group operations by using “ThingGroup” actors. This is true whether you are aggregating data such as telemetry coming in from devices, or you are sending data such as configuration to a large number of devices. The platform takes care of the distribution of the device actors, as well as the messaging between them. This remains totally transparent to the developer.
 
-For machine-to-machine (M2M) communications, both the hub-and-spoke pattern we discussed in [the section on distributed networks and graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md) and direct Actor-to-Actor interaction work well. For M2M scenarios, you could model a “Directory/Index” Actor for a group of devices that would allow them to discover and send messages to each other, as illustrated below:
+For machine-to-machine (M2M) communications, both the hub-and-spoke pattern we discussed in [the section on distributed networks and graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md) and direct actor-to-actor interaction work well. For M2M scenarios, you could model a “Directory/Index” actor for a group of devices that would allow them to discover and send messages to each other, as illustrated below:
 
-![Model of a Directory/Index Actor for a group of devices][2]
+![Model of a Directory/Index actor for a group of devices][2]
 
-Service Fabric Actors also take care of the lifetimes of the Actors. Think of it this way: If you have always-on devices, as well as occasionally connected devices, why should you keep in memory an Actor that looks after a device that connects every 14 hours? Service Fabric allows you to save and restore the state of a device when you want it and where you want it.
+The Service Fabric Reliable Actors model also take care of the lifetimes of the actors. Think of it this way: If you have always-on devices, as well as occasionally connected devices, why should you keep in memory an actor that looks after a device that connects every 14 hours? Service Fabric allows you to save and restore the state of a device when you want it and where you want it.
 
 More and more, customers will look to Service Fabric Reliable Actors as key building blocks for their IoT implementations.
 

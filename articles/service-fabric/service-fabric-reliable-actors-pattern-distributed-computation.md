@@ -25,11 +25,11 @@ However, Service Fabric is a good fit for parallel asynchronous messaging, easil
 
 ![Service Fabric parallel asynchronous messaging, state distribution, and parallel computation][1]
 
-In the following example, we simply calculate pi using a Monte Carlo Simulation. We employ the following Actors:
+In the following example, we simply calculate pi using a Monte Carlo Simulation. We employ the following actors:
 
-* A processor responsible for calculating pi using PoolTask Actors
+* A processor responsible for calculating pi using pooled task actors
 
-* A PoolTask responsible for Monte Carlo simulation and sending results to an aggregator
+* A pooled task responsible for Monte Carlo simulation and sending results to an aggregator
 
 * An aggregator responsible for aggregating results and sending them to a finalizer
 
@@ -91,7 +91,7 @@ public class PooledTask : StatelessActor, IPooledTask
 }
 ```
 
-A common way of aggregating results in Service Fabric is to use timers. We are using stateless Actors for two main reasons: The runtime will decide how many aggregators are needed dynamically, giving us scale on demand, and it will instantiate those Actors “locally.” In other words, this will occur in the same silo as that of the calling Actor, thus reducing network hops.
+A common way of aggregating results in Service Fabric is to use timers. We are using stateless actors for two main reasons: The runtime will decide how many aggregators are needed dynamically, giving us scale on demand, and it will instantiate those actors “locally.” In other words, this will occur in the same silo as that of the calling actor, thus reducing network hops.
 
 Here is how the aggregator and finalizer look:
 

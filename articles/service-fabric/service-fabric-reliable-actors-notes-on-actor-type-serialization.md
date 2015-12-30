@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Reliable Actors notes on Actor type serialization | Microsoft Azure"
+   pageTitle="Reliable Actors notes on actor type serialization | Microsoft Azure"
    description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actor states and interfaces"
    services="service-fabric"
    documentationCenter=".net"
@@ -18,11 +18,11 @@
 
 # Notes on Service Fabric Reliable Actors type serialization
 
-You should keep a few important aspects in mind when you define an Actor's interface(s) and state. Types need to be data contract serializable. More information about data contracts [can be found on MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
+You should keep a few important aspects in mind when you define an actor's interface(s) and state. Types need to be data contract serializable. More information about data contracts [can be found on MSDN](https://msdn.microsoft.com/library/ms731923.aspx).
 
-## Types used in Actor interfaces
+## Actor interface types
 
-The arguments of all the methods, as well as the result types of the tasks returned by each method as defined in the [Actor interface](service-fabric-reliable-actors-introduction.md#actors), need to be data contract serializable. This also applies to the arguments of the methods defined in [Actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void.)
+The arguments of all the methods, as well as the result types of the tasks returned by each method as defined in the [actor interface](service-fabric-reliable-actors-introduction.md#actors), need to be data contract serializable. This also applies to the arguments of the methods defined in [Actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void.)
 For instance, if the `IVoiceMail` interface defines a method as:
 
 ```csharp
@@ -52,7 +52,7 @@ public class Voicemail
 
 ## Actor state class
 
-The Actor state needs to be data contract serializable. For example, you have an Actor class definition that looks like this:
+The actor's state needs to be data-contract serializable. For example, an actor class definition can look like this:
 
 ```csharp
 
