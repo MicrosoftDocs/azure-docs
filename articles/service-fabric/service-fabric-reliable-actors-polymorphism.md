@@ -66,7 +66,7 @@ Subtypes of `Shape` can use subtypes of `ShapeType` for storing more-specific pr
        ...
     }
 
-Note the `ActorService` attribute on the actor type. This attribute tells the Service Fabric SDK that it should automatically create a service for hosting actors of this type. In some cases, you may wish to create a base type that is solely intended for sharing functionality with subtypes and will never be used to instantiate concrete actors. In those cases, you should use the `abstract` keyword to indicate that you will never create an actor based on that type.
+Note the `ActorService` attribute on the actor type. This attribute tells the Azure Service Fabric SDK that it should automatically create a service for hosting actors of this type. In some cases, you may wish to create a base type that is solely intended for sharing functionality with subtypes and will never be used to instantiate concrete actors. In those cases, you should use the `abstract` keyword to indicate that you will never create an actor based on that type.
 
 
 ## Next steps
