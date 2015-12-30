@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/29/2015"
+	ms.date="12/30/2015"
 	ms.author="krisragh"/>
 
 # How to Use iOS Client Library for Azure Mobile Apps
@@ -249,7 +249,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 
 **Swift**:
 ```
-let newItem = ["text": "my new item", "complete": false, "userId":"my-id"]
+let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
 table.insert(newItem) { (result, error) -> Void in
     if error != nil {
         NSLog("ERROR %@", error!)
