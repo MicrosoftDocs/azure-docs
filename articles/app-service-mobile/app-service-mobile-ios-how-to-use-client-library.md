@@ -266,7 +266,7 @@ To update an existing row, modify an item and call `update`:
 ```
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 [newItem setValue:@"Updated text" forKey:@"text"];
-[table update:newItem completion:^(NSDictionary *item, NSError *error) {
+[table update:newItem completion:^(NSDictionary *result, NSError *error) {
 	if(error) {
 		NSLog(@"ERROR %@", error);
 	} else {
