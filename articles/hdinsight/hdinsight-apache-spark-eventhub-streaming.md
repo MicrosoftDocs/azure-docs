@@ -129,19 +129,22 @@ A sample Scala application to receive the event and route it to different destin
 
 		This will copy the jar file from the Spark cluster on to your local computer. 
 
-	* **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx). Add reference to these jars in the project library. Perform the following steps:
-
-	1. From IntelliJ IDEA window where you have the application open, click **File**, click **Project Structure**, and then click **Libraries**. 
-
-		![add missing dependencies](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Add missing dependency jars")
-
-		Click the add icon (![add icon](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), click **Java**, and then navigate to the location where you downloaded the EventHub receiver jar. Follow the prompts to add the jar file to the project library.
-
-	2. Repeat the previous step to add the JDBC jar as well to the project library.
+	* **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx). 
 	
-		![add missing dependencies](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Add missing dependency jars")
 
-	3. Click **Apply**.
+		Add reference to these jars in the project library. Perform the following steps:
+
+		1. From IntelliJ IDEA window where you have the application open, click **File**, click **Project Structure**, and then click **Libraries**. 
+
+			![add missing dependencies](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Add missing dependency jars")
+
+			Click the add icon (![add icon](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), click **Java**, and then navigate to the location where you downloaded the EventHub receiver jar. Follow the prompts to add the jar file to the project library.
+
+		1. Repeat the previous step to add the JDBC jar as well to the project library.
+	
+			![add missing dependencies](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Add missing dependency jars")
+
+		1. Click **Apply**.
 
 6. Create the output jar file. Perform the following steps.
 	1. In the **Project Structure** dialog box, click **Artifacts** and then click the plus symbol. From the pop-up dialog box, click **JAR**, and then click **From modules with dependencies**.
