@@ -106,6 +106,7 @@ To filter results, there are many available options.
 To filter using a predicate, use an `NSPredicate` and `readWithPredicate`. The following filters returned data to find only incomplete Todo items.
 
 **Objective-C**:
+
 ```
 // Create a predicate that finds items where complete is false
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
@@ -122,6 +123,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 ```
 
 **Swift**:
+
 ```
 // Create a predicate that finds items where complete is false
 let predicate =  NSPredicate(format:"complete == NO")
@@ -142,12 +144,14 @@ table.readWithPredicate(predicate, completion: { (result, error) -> Void in
 To perform a complex query (including sorting and paging), create an `MSQuery` object, directly or by using a predicate:
 
 **Objective-C**:
+
 ```
 MSQuery *query = [table query];
 MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
 **Swift**:
+
 ```
 let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format:"complete == NO"))
@@ -167,6 +171,7 @@ let query = table.queryWithPredicate(NSPredicate(format:"complete == NO"))
 To sort results, let's look at an example. To first ascendingly by field `text` and then descendingly by field `completion`, invoke `MSQuery` like so:
 
 **Objective-C**:
+
 ```
 [query orderByAscending:@"text"];
 [query orderByDescending:@"complete"];
@@ -182,6 +187,7 @@ To sort results, let's look at an example. To first ascendingly by field `text` 
 ```
 
 **Swift**:
+
 ```        
 query.orderByAscending("text")
 query.orderByDescending("complete")
@@ -202,11 +208,13 @@ query.readWithCompletion { (result, error) -> Void in
 To limit fields to be returned in a query, specify the names of the fields in the **selectFields** property. This returns only the text and completed fields:
 
 **Objective-C**:
+
 ```
 query.selectFields = @[@"text", @"complete"];
 ```
 
 **Swift**:
+
 ```
 query.selectFields = ["text", "complete"]
 ```
@@ -214,6 +222,7 @@ query.selectFields = ["text", "complete"]
 To include additional query string parameters in the server request (for example, because a custom server-side script uses them), populate `query.parameters` like so:
 
 **Objective-C**:
+
 ```
 query.parameters = @{
 	@"myKey1" : @"value1",
@@ -222,6 +231,7 @@ query.parameters = @{
 ```
 
 **Swift**:
+
 ```
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
@@ -235,6 +245,7 @@ If `id` is not provided, the backend automatically generates a new unique ID. Pr
 The `result` contains the new item that was inserted; depending on your server logic, it may have additional or modified data compared to what was passed to the server.
 
 **Objective-C**:
+
 ```
 NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
 [table insert:newItem completion:^(NSDictionary *result, NSError *error) {
@@ -247,6 +258,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 ```
 
 **Swift**:
+
 ```
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
 table.insert(newItem) { (result, error) -> Void in
@@ -263,6 +275,7 @@ table.insert(newItem) { (result, error) -> Void in
 To update an existing row, modify an item and call `update`:
 
 **Objective-C**:
+
 ```
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 [newItem setValue:@"Updated text" forKey:@"text"];
@@ -276,6 +289,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 ```
 
 **Swift**:
+
 ```
 let newItem = oldItem.mutableCopy() as! NSMutableDictionary // oldItem is NSDictionary
 newerItem["text"] = "Updated text"
@@ -291,6 +305,7 @@ table.update(newerItem  as [NSObject : AnyObject]) { (result, error) -> Void in
 Alternatively, supply the row ID and the updated field:
 
 **Objective-C**:
+
 ```
 [table update:@{@"id":@"custom-id", @"text":"my EDITED item"} completion:^(NSDictionary *result, NSError *error) {
 	if(error) {
@@ -302,6 +317,7 @@ Alternatively, supply the row ID and the updated field:
 ```
 
 **Swift**:
+
 ```
 table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) -> Void in
     if error != nil {
@@ -320,6 +336,7 @@ At minimum, the `id` attribute must be set when making updates.
 To delete an item, invoke `delete` with the item:
 
 **Objective-C**:
+
 ```
 [table delete:item completion:^(id itemId, NSError *error) {
 	if(error) {
@@ -331,6 +348,7 @@ To delete an item, invoke `delete` with the item:
 ```
 
 **Swift**:
+
 ```
 table.delete(item as [NSObject : AnyObject]) { (itemId, error) -> Void in
 	if error != nil {
@@ -344,6 +362,7 @@ table.delete(item as [NSObject : AnyObject]) { (itemId, error) -> Void in
 Alternatively, delete by providing a row ID:
 
 **Objective-C**:
+
 ```
 [table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
 	if(error) {
@@ -355,6 +374,7 @@ Alternatively, delete by providing a row ID:
 ```
 
 **Swift**:
+
 ```
 table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) -> Void in
         if error != nil {
@@ -372,6 +392,7 @@ At minimum, the `id` attribute must be set when making deletes.
 To register templates, simply pass along templates with your **client.push registerDeviceToken** method in your client app.
 
 **Objective-C**:
+
 ```
 [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
 	if(error) {
@@ -381,6 +402,7 @@ To register templates, simply pass along templates with your **client.push regis
 ```
 
 **Swift**:
+
 ```
 client.push!.registerDeviceToken(deviceToken, template: iOSTemplate, completion: { (error) -> Void in
             if error != nil {
@@ -392,11 +414,13 @@ client.push!.registerDeviceToken(deviceToken, template: iOSTemplate, completion:
 Your templates will be of type NSDictionary and can contain multiple templates in the following format:
 
 **Objective-C**:
+
 ```
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
 **Swift**:
+
 ```
 let iOSTemplate: [NSObject : AnyObject] = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
@@ -412,11 +436,13 @@ When you call a mobile service, the completion block contains an `NSError` param
 The file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) defines the constants `MSErrorResponseKey`, `MSErrorRequestKey`, and `MSErrorServerItemKey` to get more data related to the error, obtainable as follows:
 
 **Objective-C**:
+
 ```
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
 **Swift**:
+
 ```
 let serverItem = error?.userInfo[MSErrorServerItemKey];
 ```
@@ -424,11 +450,13 @@ let serverItem = error?.userInfo[MSErrorServerItemKey];
 In addition, the file defines constants for each error code, which may be used as shown below:
 
 **Objective-C**:
+
 ```
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
 **Swift**:
+
 ```
 if (error?.code == MSErrorPreconditionFailed) {
 ```
