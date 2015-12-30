@@ -49,7 +49,6 @@ The following procedures are needed to create an HDInsight cluster by using Azur
     #region - cluster user accounts
     $httpUserName = "admin"  #HDInsight cluster username
     $httpPassword = "<Enter a Password>"
-
     #endregion
 
     ###########################################
@@ -106,7 +105,10 @@ The following procedures are needed to create an HDInsight cluster by using Azur
     ###########################################
     # Create the cluster
     ###########################################
-    $httpCredential =Get-Credential -Message "Enter the HTTP account credential:"
+
+    $httpPW = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
+    $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$httpPW)
+
     New-AzureRmHDInsightCluster `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $hdinsightClusterName `
@@ -115,7 +117,15 @@ The following procedures are needed to create an HDInsight cluster by using Azur
         -ClusterType Hadoop `
         -OSType Windows `
         -Version "3.2" `
-        -HttpCredential $httpCredential 
+        -HttpCredential $httpCredential `
+        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+        -DefaultStorageAccountKey $defaultStorageAccountKey `
+        -DefaultStorageContainer $hdinsightClusterName 
+
+    ####################################
+    # Verify the cluster
+    ####################################
+    Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName 
 
 ## Create clusters using ARM template
 
@@ -125,9 +135,8 @@ You can use Azure PowerShell to deploy an ARM template which creates an HDInsigh
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
 
 * [Get started with Azure HDInsight](hdinsight-get-started.md) - Learn how to start working with your HDInsight cluster
-* [Use Sqoop with HDInsight](hdinsight-use-sqoop.md) - Learn how to copy data between HDInsight and SQL Database or SQL Server
-* [Administer HDInsight using PowerShell](hdinsight-administer-use-powershell.md) - Learn how to work with HDInsight by using Azure PowerShell
 * [Submit Hadoop jobs programmatically](hdinsight-submit-hadoop-jobs-programmatically.md) - Learn how to programmatically submit jobs to HDInsight
+* [Manage Hadoop clusters in HDInsight using PowerShell](hdinsight-administer-use-powershell.md) - Learn how to work with HDInsight by using Azure PowerShell
 * [Azure HDInsight SDK documentation] [hdinsight-sdk-documentation] - Discover the HDInsight SDK
 
 
