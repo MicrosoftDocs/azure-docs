@@ -332,11 +332,11 @@ To delete an item, invoke `delete` with the item:
 
 **Swift**:
 ```
-table.delete(item as [NSObject : AnyObject]) { (result, error) -> Void in
+table.delete(item as [NSObject : AnyObject]) { (itemId, error) -> Void in
 	if error != nil {
 		NSLog("ERROR %@", error!)
 	} else {
-		NSLog("Todo Item ID: %@", result! as! String)
+		NSLog("Todo Item ID: %@", itemId! as! String)
 	}
 }
 ```
@@ -346,8 +346,23 @@ Alternatively, delete by providing a row ID:
 **Objective-C**:
 ```
 [table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
-	// Handle error or perform additional logic as needed
+	if(error) {
+		NSLog(@"ERROR %@", error);
+	} else {
+		NSLog(@"Todo Item ID: %@", itemId);
+	}
 }];   
+```
+
+**Swift**:
+```
+table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) -> Void in
+        if error != nil {
+        	NSLog("ERROR %@", error!)
+        } else {
+        	NSLog("Todo Item ID: %@", itemId! as! String)
+        }
+}
 ```
 
 At minimum, the `id` attribute must be set when making deletes.
