@@ -278,7 +278,7 @@ Alternatively, supply the row ID and the updated field:
 	if(error) {
 		NSLog(@"ERROR %@", error);
 	} else {
-		NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
+		NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
 	}
 }];
 ```
