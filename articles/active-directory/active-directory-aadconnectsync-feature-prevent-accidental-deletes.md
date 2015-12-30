@@ -23,7 +23,7 @@ When installing Azure AD Connect, prevent accidental deletes will be enabled by 
 
 Common scenarios when you see this include:
 
-- Changes to [filtering](active-directory-aadconnectsync-configure-filtering.md) where an entire [OU](active-directory-aadconnectsync-configure-filtering.md#configure-organizational-unitbased-filtering) or [domain](active-directory-aadconnectsync-configure-filtering.md#configure-domain-based-filtering) is unselected.
+- Changes to [filtering](active-directory-aadconnectsync-configure-filtering.md) where an entire [OU](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) or [domain](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) is unselected.
 - All objects in an OU are deleted.
 - An OU is renamed so all objects in it are considered to be out of scope for synchronization.
 
