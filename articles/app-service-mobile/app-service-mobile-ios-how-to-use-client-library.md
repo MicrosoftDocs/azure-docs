@@ -274,11 +274,11 @@ Alternatively, supply the row ID and the updated field:
 
 **Objective-C**:
 ```
-[table update:@{@"id":@"custom-id", @"text":"my EDITED item"} completion:^(NSDictionary *item, NSError *error) {
+[table update:@{@"id":@"custom-id", @"text":"my EDITED item"} completion:^(NSDictionary *result, NSError *error) {
 	if(error) {
 		NSLog(@"ERROR %@", error);
 	} else {
-		NSLog(@"Todo Item: %@", [item objectForKey:@"text"]);
+		NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
 	}
 }];
 ```
