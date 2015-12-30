@@ -52,7 +52,7 @@ public interface ILeaderboard : IActor
 
 ```
 
-Next, you can implement this interface by using the latter option and encapsulating this collection's behavior in the Actor:
+Next, you can implement this interface by using the latter option and encapsulating the collection's behavior in the Actor:
 
 ### Smart cache code sample: Leaderboard Actor
 
