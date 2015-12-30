@@ -22,7 +22,7 @@
 
 ## Clean up your local cluster
 
- Service Fabric does not currently support upgrading the Service Fabric runtime while a local cluster is running. In order to ensure a clean upgrade, it is important to clean up your local cluster first.
+ Service Fabric does not currently support upgrading the Service Fabric runtime while a local cluster is running. In order to ensure a clean upgrade, it is important that you clean up your local cluster first.
 
  > [AZURE.NOTE] Cleaning your local cluster will remove all deployed applications and their data.
 
