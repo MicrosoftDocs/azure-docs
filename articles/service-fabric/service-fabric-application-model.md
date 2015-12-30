@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/10/2015"   
+   ms.date="12/29/2015"   
    ms.author="seanmck"/>
 
 # Model an application in Service Fabric
@@ -239,7 +239,7 @@ Once the application is packaged correctly and passes verification, then it's re
 [RunAs: Running a Service Fabric application with different security permissions][12]
 
 <!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.jpg
+[1]: ./media/service-fabric-application-model/application-model.png
 [2]: ./media/service-fabric-application-model/vs-package-command.png
 [Image1]: media/service-fabric-application-model/Service1.jpg
 [Image2]: media/service-fabric-application-model/Service2.jpg
