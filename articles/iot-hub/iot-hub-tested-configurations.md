@@ -128,6 +128,7 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[BeagleBone Green](http://beagleboard.org/green) |Debian | C, Javascript, Java|
 |[Dell Edge Gateway 5000 Series](http://www.dell.com/) |Ubuntu | Java|
 |[e-con Systems Ankaa](http://www.e-consystems.com/iMX6-development-board.asp) |Ubuntu | C|
+|[embedded systems LogicMachine Series](http://openrb.com/products/) |Custom Linux | C|
 |[Freescale FRDM K64](http://www.freescale.com/products/arm-processors/kinetis-cortex-m/k-series/k6x-ethernet-mcus/freescale-freedom-development-platform-for-kinetis-k64-k63-and-k24-mcus:FRDM-K64F) |mbed 2.0 | C|
 |[HPE Edgeline EL10](https://www.hpe.com) |Windows 10 | C#|
 |[HPE Edgeline EL20](https://www.hpe.com) |Windows 10 | C#|
@@ -135,7 +136,6 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) |Yocto | C, Javascript|
 |[Minnowboard Max](http://www.minnowboard.org/meet-minnowboard-max/) |Windows 7,8, 10 | C#|
 |[NEXCOM NISE 50C](http://www.nexcom.com/Products/industrial-computing-solutions/industrial-fanless-computer/atom-compact/fanless-computer-nise-50c) |Windows 10 IoT Core | C#|
-|[embedded systems LogicMachine Series](http://openrb.com/products/) |Custom Linux | C|
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Raspbian | C, Javascript, Java |
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Windows 10 IoT Core|  C, Javascript, C#|
 |[Samsung ARTIK](http://developer.samsung.com/artik) |Fedora | C|
