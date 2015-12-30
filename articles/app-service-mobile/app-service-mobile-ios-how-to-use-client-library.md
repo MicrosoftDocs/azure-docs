@@ -166,6 +166,7 @@ let query = table.queryWithPredicate(NSPredicate(format:"complete == NO"))
 
 To sort results, let's look at an example. To first ascendingly by field `text` and then descendingly by field `completion`, invoke `MSQuery` like so:
 
+**Objective-C**:
 ```
 [query orderByAscending:@"text"];
 [query orderByDescending:@"complete"];
@@ -180,22 +181,37 @@ To sort results, let's look at an example. To first ascendingly by field `text` 
 }];
 ```
 
+**Swift**:
+```        
+query.orderByAscending("text")
+query.orderByDescending("complete")
+query.readWithCompletion { (result, error) -> Void in
+    if error != nil {
+        NSLog("ERROR %@", error!)
+    } else {
+        for item in (result?.items)! {
+            NSLog("Todo Item: %@", item["text"] as! String)
+        }
+    }
+}
+```
+
 
 ## <a name="selecting"></a><a name="parameters"></a>How to: Limit Fields and Expand Query String Parameters with MSQuery
 
 To limit fields to be returned in a query, specify the names of the fields in the **selectFields** property. This returns only the text and completed fields:
 
 ```
-	query.selectFields = @[@"text", @"completed"];
+query.selectFields = @[@"text", @"completed"];
 ```
 
 To include additional query string parameters in the server request (for example, because a custom server-side script uses them), populate `query.parameters` like so:
 
 ```
-	query.parameters = @{
-		@"myKey1" : @"value1",
-		@"myKey2" : @"value2",
-	};
+query.parameters = @{
+	@"myKey1" : @"value1",
+	@"myKey2" : @"value2",
+};
 ```
 
 ##<a name="inserting"></a>How to: Insert Data
@@ -205,17 +221,17 @@ To insert a new table row, create a new `NSDictionary` and invoke `table insert`
 If `id` is not provided, the backend automatically generates a new unique ID. Provide your own `id` to use email addresses, usernames, or your own custom values as ID. Providing your own ID may ease joins and business-oriented database logic.
 
 ```
-	NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
-	[self.table insert:newItem completion:^(NSDictionary *result, NSError *error) {
-		// The result contains the new item that was inserted,
-		// depending on your server scripts it may have additional or modified
-		// data compared to what was passed to the server.
-		if(error) {
-				NSLog(@"ERROR %@", error);
-		} else {
-						NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
-		}
-	}];
+NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
+[self.table insert:newItem completion:^(NSDictionary *result, NSError *error) {
+	// The result contains the new item that was inserted,
+	// depending on your server scripts it may have additional or modified
+	// data compared to what was passed to the server.
+	if(error) {
+			NSLog(@"ERROR %@", error);
+	} else {
+					NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
+	}
+}];
 ```
 
 ##<a name="modifying"></a>How to: Modify Data
@@ -223,19 +239,19 @@ If `id` is not provided, the backend automatically generates a new unique ID. Pr
 To update an existing row, modify an item and call `update`:
 
 ```
-	NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
-	[newItem setValue:@"Updated text" forKey:@"text"];
-	[self.table update:newItem completion:^(NSDictionary *item, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];
+NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
+[newItem setValue:@"Updated text" forKey:@"text"];
+[self.table update:newItem completion:^(NSDictionary *item, NSError *error) {
+	// Handle error or perform additional logic as needed
+}];
 ```
 
 Alternatively, supply the row ID and the updated field:
 
 ```
-	[self.table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];
+[self.table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
+	// Handle error or perform additional logic as needed
+}];
 ```
 
 At minimum, the `id` attribute must be set when making updates.
@@ -245,17 +261,17 @@ At minimum, the `id` attribute must be set when making updates.
 To delete an item, invoke `delete` with the item:
 
 ```
-	[self.table delete:item completion:^(id itemId, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];
+[self.table delete:item completion:^(id itemId, NSError *error) {
+	// Handle error or perform additional logic as needed
+}];
 ```
 
 Alternatively, delete by providing a row ID:
 
 ```
-	[self.table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
-		// Handle error or perform additional logic as needed
-	}];   
+[self.table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
+	// Handle error or perform additional logic as needed
+}];   
 ```
 
 At minimum, the `id` attribute must be set when making deletes.
@@ -264,13 +280,17 @@ At minimum, the `id` attribute must be set when making deletes.
 
 To register templates, simply pass along templates with your **client.push registerDeviceToken** method in your client app.
 
-        [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
-        	...
-        }];
+```
+[client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
+	...
+}];
+```
 
 Your templates will be of type NSDictionary and can contain multiple templates in the following format:
 
-        NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
+```
+NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
+```
 
 Note that all tags will be stripped away for security. To add tags to installations or templates within installations, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
