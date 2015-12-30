@@ -23,7 +23,7 @@ Automatic scaling in Azure Batch is the automatic adjustment of processing power
 
 Automatic scaling is enabled on a pool of compute nodes by associating an *autoscaling formula* with the pool, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET](batch-dotnet-get-started.md) library. The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. Acting on service metrics data samples that are collected periodically, the number of compute nodes in the pool is adjusted at a configurable interval based on the associated formula.
 
-Automatic scaling can be enabled when a pool is created, or on an existing pool, and you can change an existing formula on an autoscale-enabled pool. Batch provides you with the ability to evaluate your formulas before assigning them to pools, as well as for monitoring the status of automatic scaling runs, and we discuss each of these topics in the article below.
+Automatic scaling can be enabled when a pool is created, or on an existing pool, and you can change an existing formula on an autoscale-enabled pool. Batch provides you with the ability to evaluate your formulas before assigning them to pools, as well as for monitoring the status of automatic scaling runs. Each of these topics is discussed in the article below.
 
 ## Scale compute resources automatically
 
@@ -42,11 +42,11 @@ VAR₁ = Expression₁(system-defined variables, VAR₀);
 
 Using the statements in your formula, your goal is to arrive at a number of compute nodes to which the pool should be scaled, the **target** number of **dedicated nodes**. This "target dedicated" number may be higher, lower, or the same as the current number of nodes in the pool. Batch evaluates a pool's autoscale formula at a specific interval, and will adjust the target number of nodes in the pool to the number your autoscale formula specifies at the time of evaluation.
 
-The next few sections of the article discuss the various entities that will make up your autoscale formulas, including variables, operators, operations, and functions. You'll find out how to obtain various job, task, and load metrics within Batch so that you can intelligently adjust your pool's node count based on those metrics. You'll then learn how to construct a formula and enable automatic scaling on a pool using both the Batch REST and .NET APIs, and we'll finish up with a few example formulas.
+The next few sections of the article discuss the various entities that will make up your autoscale formulas, including variables, operators, operations, and functions. You'll find out how to obtain various compute resource and task metrics within Batch so that you can intelligently adjust your pool's node count based on those metrics. You'll then learn how to construct a formula and enable automatic scaling on a pool using both the Batch REST and .NET APIs, and we'll finish up with a few example formulas.
 
 > [AZURE.NOTE] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The Batch service will create nodes only up to that limit, and therefore may not reach the target number specified by a formula.
 
-### Variables
+## Variables
 
 Both system-defined and user-defined variables can be used in a formula. The two tables below show both read-write and read-only variables that are defined by the Batch service.
 
@@ -148,7 +148,7 @@ Both system-defined and user-defined variables can be used in a formula. The two
 
 > [AZURE.TIP] The read-only system-defined variables shown above are *objects* that provide various methods to access data associated with each. See [Get sample data](#getsampledata) below for more information.
 
-### Types
+## Types
 
 These **types** are supported in a formula.
 
@@ -175,7 +175,7 @@ These **types** are supported in a formula.
 	- TimeInterval_Week
 	- TimeInterval_Year
 
-### Operations
+## Operations
 
 These **operations** are allowed on the types listed above.
 
@@ -254,7 +254,7 @@ These **operations** are allowed on the types listed above.
   </tr>
 </table>
 
-### Functions
+## Functions
 
 These predefined **functions** are available for defining an automatic scaling formula.
 
@@ -346,7 +346,7 @@ Some of the functions described in the table above can accept a list as an argum
 
 The *doubleVecList* value is converted to a single *doubleVec* prior to evaluation. For example, if `v = [1,2,3]`, then calling `avg(v)` is equivalent to calling `avg(1,2,3)` and calling `avg(v, 7)` is equivalent to calling `avg(1,2,3,7)`.
 
-### <a name="getsampledata"></a>Obtain sample data
+## <a name="getsampledata"></a>Obtain sample data
 
 Autoscale formulas act on metrics data - samples - provided by the Batch service, growing or shrinking pool size based on the values your formula obtains from the service. The system-defined variables described above are objects that provide various methods to access data associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
@@ -391,7 +391,7 @@ Autoscale formulas act on metrics data - samples - provided by the Batch service
   </tr>
 </table>
 
-### Metrics
+## Metrics
 
 You can use both resource and task **metrics** when defining a formula, and these metrics can be used to manage the compute nodes in a pool.
 
