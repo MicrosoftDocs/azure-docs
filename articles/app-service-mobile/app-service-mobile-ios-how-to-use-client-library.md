@@ -380,7 +380,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 **Swift**:
 ```
-if (error?.code == MSErrorPreconditionFailed)
+if (error?.code == MSErrorPreconditionFailed) {
 ```
 
 
