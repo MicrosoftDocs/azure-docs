@@ -192,7 +192,7 @@ If you use Visual Studio 2015 to create your application, you can use the Packag
 
 To create a package, right-click the application project in Solution Explorer and choose the Package command, as shown below:
 
-![][2]
+![Packaging an application with Visual Studio][vs-package-command]
 
 When packaging is complete, you will find the location of the package in the **Output** window. Note that the packaging step occurs automatically when you deploy or debug your application in Visual Studio.
 
@@ -247,6 +247,7 @@ Once the application is packaged correctly and passes verification, then it's re
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
 [cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
+[vs-package-command]: ./media/service-fabric-application-model/vs-package-command.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
