@@ -18,7 +18,7 @@
 
 # Polymorphism in the Reliable Actors framework
 
-The Reliable Actors framework simplifies distributed systems programming. It does this by allowing you to build your service using many of the same techniques that you would use in object-oriented design. One of those techniques is polymporphism, which allows types and interfaces to inherit from more generalized parents. Inheritance in the Reliable Actors framework generally follows the .NET model with a few additional constraints.
+The Reliable Actors framework simplifies distributed systems programming. It does this by allowing you to build your service using many of the same techniques that you would use in object-oriented design. One of those techniques is polymorphism, which allows types and interfaces to inherit from more generalized parents. Inheritance in the Reliable Actors framework generally follows the .NET model with a few additional constraints.
 
 ## Interfaces
 
@@ -66,12 +66,12 @@ Subtypes of `Shape` can use subtypes of `ShapeType` for storing more-specific pr
        ...
     }
 
-Note the `ActorService` attribute on the actor type. This tells the Service Fabric SDK that it should automatically create a service for hosting actors of this type. In some cases, you may wish to create a base type that is solely intended for sharing functionality with subtypes and will never be used to instantiate concrete actors. In those cases, you should use the `abstract` keyword to indicate that you will never create an actor based on that type.
+Note the `ActorService` attribute on the actor type. This attribute tells the Service Fabric SDK that it should automatically create a service for hosting actors of this type. In some cases, you may wish to create a base type that is solely intended for sharing functionality with subtypes and will never be used to instantiate concrete actors. In those cases, you should use the `abstract` keyword to indicate that you will never create an actor based on that type.
 
 
 ## Next steps
 
-- See [how the Reliable Actors framework leverages the Service Fabric platform](service-fabric-reliable-actors-platform.md) to provide reliability, scalability, and a consistent state.
+- See [how the Reliable Actors framework leverages the Service Fabric platform](service-fabric-reliable-actors-platform.md) to provide reliability, scalability, and consistent state.
 - Learn about the [actor lifecycle](service-fabric-reliable-actors).
 
 <!-- Image references -->
