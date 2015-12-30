@@ -34,7 +34,7 @@ The diagram below illustrates this scenario:
 
 You can model access to resources by using an Actor or multiple Actors that act as proxies to a resource or a group of resources (a connection, for example). You can then either manage the resource directly through individual Actors or use a coordination Actor that manages the resource Actors.
 
-To make this concept more concrete, we will address the common need to work against a partitioned (sharded) storage tier for reasons of performance and scalability. Your first option is fairly basic. You can use a static function to map and resolve our Actors to downstream resources. Such a function can, for example, return a connection string with a given input. It is up to you how to implement that function. This approach comes with drawbacks, though, such as static affinity that makes it difficult to repartition resources or remap an Actor to resources.
+To make this concept more concrete, we will address the common need to work against a partitioned (sharded) storage tier for reasons of performance and scalability. Your first option is fairly basic. You can use a static function to map and resolve your Actors to downstream resources. Such a function can, for example, return a connection string with a given input. It is up to you how to implement that function. But this approach comes with drawbacks, such as static affinity that makes it difficult to repartition resources or remap Actors to resources.
 
 Here is a simple example. We do modular arithmetic to determine the database name by using **userId**, and we use **region** to identify the database server.
 
