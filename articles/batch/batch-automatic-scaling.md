@@ -25,7 +25,7 @@ Automatic scaling is enabled on a pool of compute nodes by associating an *autos
 
 Automatic scaling can be enabled when a pool is created, or on an existing pool, and you can change an existing formula on an autoscale-enabled pool. Batch provides you with the ability to evaluate your formulas before assigning them to pools, as well as for monitoring the status of automatic scaling runs. Each of these topics is discussed in the article below.
 
-## Scale compute resources automatically
+## About automatic scaling formulas
 
 An automatic scaling formula is a string value containing one or more statements, assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element in a REST API request body, or the Batch .NET API's [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property. You define these formulas, and when assigned to a pool, they determine the number of available compute nodes in a pool for the next interval of processing (more on intervals later). The formula string cannot exceed 8KB in size, can include up to 100 statements separated by semicolons, and can include line breaks and comments. You can see some example formulas in the [Example formulas](#examples) section below.
 
@@ -391,6 +391,28 @@ Autoscale formulas act on metrics data - samples - provided by the Batch service
   </tr>
 </table>
 
+### A note on *GetSample()*
+
+As mentioned above, it is **strongly recommended that you avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you have, no matter how long ago you got it." Because you will use these samples to grow and shrink your pool (and your pool costs you money), we recommend that you base your formula on more than 1 sample worth of data to ensure a more reliable measure of metrics data. We suggest instead that you use a trending type analysis, and grow or shrink your pool based on the range of samples obtained.
+
+To do so, use `GetSample(interval lookback start, interval lookback end)` to return a vector of samples:
+
+`runningTasksSample = $RunningTasks.GetSample(TimeInterval_Second * 60, TimeInterval_Second * 120);`
+
+When the above line is evaluated by Batch, it will return a range of samples as a vector of values, for example:
+
+`runningTasksSample=[1,1,1,1,1,1,1,1,1,1,1,1];`
+
+For even more certainty, you can force formula evaluation to fail if less than a certain percentage of samples are available. Percentage in this case means that if, for a given time interval, 100 samples are expected but (due to networking failures or other issues) the Batch service was only able to gather 50 samples, the percentage would be 50%. Forcing formula evaluation to fail specifies that - if the specified percentage of samples is not available - further evaluation of the formula ceases, and no change to pool size will be made.
+
+To specify a required percentage of samples for the evaluation to succeed, specify it as the third parameter to *GetSample*. Here, a requirement of 70% of samples is specified:
+
+`runningTasksSample = $RunningTasks.GetSample(TimeInterval_Second * 60, TimeInterval_Second * 120, 70);`
+
+When specifying a time range, always specify a lookback start time older than one minute. This is because it takes approximately one minute for samples to propagate through the system, so samples in the range `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` will often not be available. Again, you can use the percentage parameter of `GetSample` to force a particular sample percentage requirement.
+
+> [AZURE.NOTE] Autoscale is not currently intended as a sub-one minute response to changes, but rather to adjust the size of your pool gradually as you run a workload.
+
 ## Metrics
 
 You can use both resource and task **metrics** when defining a formula, and these metrics can be used to manage the compute nodes in a pool.
@@ -443,45 +465,25 @@ Constructing an autoscaling formula is done by forming statements using the abov
 
 For the *increase* of nodes during high CPU usage, we define the statement that populates a user-defined variable ($TotalNodes) with a value that is 110% of the current target number of nodes if the minimum average CPU usage during the last 10 minutes was above 70%:
 
-	$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
+`$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;`
 
 The next statement sets the same variable to 90% of the current target number of nodes if the average CPU usage of the past 60 minutes was *under* 20%, lowering the target number during low CPU usage. Note that this statement also references the user-defined variable *$TotalNodes* from the statement above.
 
-	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
+`$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;`
 
 Now limit the target number of dedicated compute nodes to a **maximum** of 400:
 
-	$TargetDedicated = min(400, $TotalNodes)
+`$TargetDedicated = min(400, $TotalNodes)`
 
 Here's the complete formula:
 
-	$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
-	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
-	$TargetDedicated = min(400, $TotalNodes)
+```
+$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
+$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
+$TargetDedicated = min(400, $TotalNodes)
+```
 
 > [AZURE.NOTE] An automatic scaling formula is comprised of [Batch REST][rest_api] API variables, types, operations, and functions. These are used in formula strings even while working with the [Batch .NET][net_api] library.
-
-### A note on GetSample()
-
-As mentioned in the *Obtain sample data* table above, it is **strongly recommended that you avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you have, no matter how long ago you got it." Because you will use these samples to grow and shrink your pool (and your pool costs you money), we recommend that you base your formula on more than 1 sample worth of data to ensure a more reliable measure of metrics data. We suggest instead that you use a trending type analysis, and grow or shrink your pool based on the range of samples obtained.
-
-To do so, use `GetSample(interval lookback start, interval lookback end)` to return a vector of samples:
-
-`runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second);`
-
-When the above line is evaluated by Batch, it will return a range of samples as a vector of values, for example:
-
-`runningTasksSample=[1,1,1,1,1,1,1,1,1,1,1,1];`
-
-For even more certainty, you can force formula evaluation to fail if less than a certain percentage of samples are available. Percentage in this case means that if, for a given time interval, 100 samples are expected but (due to networking failures or other issues) the Batch service was only able to gather 50 samples, the percentage would be 50%. Forcing formula evaluation to fail specifies that - if the specified percentage of samples is not available - further evaluation of the formula ceases, and no change to pool size will be made.
-
-To specify a required percentage of samples for the evaluation to succeed, specify it as the third parameter to *GetSample*. Here, a requirement of 70% of samples is specified:
-
-`runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 70);`
-
-When specifying a time range, always specify a lookback start time older than one minute. This is because it takes approximately one minute for samples to propagate through the system, so samples in the range `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` will often not be available. Again, you can use the percentage parameter of `GetSample` to force a particular sample percentage requirement.
-
-> [AZURE.NOTE] Autoscale is not currently intended as a sub-one minute response to changes, but rather to adjust the size of your pool gradually as you run a workload.
 
 ## Create a pool with automatic scaling enabled
 
@@ -571,7 +573,7 @@ Successful evaluation of the formula in this snippet will result in output simil
 
 ## Obtain information about automatic scaling runs
 
-Periodically checking the results of automatic scaling runs should be done to a formula is performing as expected. Do this in one of these ways:
+Periodically check the results of automatic scaling runs to ensure a formula is performing as expected.
 
 - [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx) – When using the .NET library, this property of a pool provides an instance of the [AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx) class which provides the following properties of the latest automatic scaling run:
   - [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
