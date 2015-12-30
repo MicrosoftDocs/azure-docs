@@ -201,8 +201,14 @@ query.readWithCompletion { (result, error) -> Void in
 
 To limit fields to be returned in a query, specify the names of the fields in the **selectFields** property. This returns only the text and completed fields:
 
+**Objective-C**:
 ```
-query.selectFields = @[@"text", @"completed"];
+query.selectFields = @[@"text", @"complete"];
+```
+
+**Swift**:
+```
+query.selectFields = ["text", "complete"]
 ```
 
 To include additional query string parameters in the server request (for example, because a custom server-side script uses them), populate `query.parameters` like so:
