@@ -19,7 +19,7 @@
 
             [self loginAndGetData];
 
-3. Press  **Run** to start the app, and then log in. When you are logged in, you should be able to view the Todo list and make updates.
+3. Press  _Run_ to start the app, and then log in. When you are logged in, you should be able to view the Todo list and make updates.
 
 **Swift**:
 
@@ -42,4 +42,4 @@
 
             loginAndGetData();
 
-3. Press  **Run** to start the app, and then log in. When you are logged in, you should be able to view the Todo list and make updates.
+3. Press  _Run_ to start the app, and then log in. When you are logged in, you should be able to view the Todo list and make updates.
