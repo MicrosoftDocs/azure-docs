@@ -68,9 +68,9 @@ To access Azure, your app must have the INTERNET permission enabled. If it's not
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
-## Deep dive into the basics
+## The basics deep dive  
 
-This section discusses some of the code in the Quickstart app. If you did not complete it, you will need to add it. 
+This section discusses some of the code in the Quickstart app. If you did not complete the Quickstart, you will need to add this code to your app. 
 
 > [AZURE.NOTE] The string "MobileServices" occurs frequently in the code: the code actually references the Mobile Apps SDK, it's just a temporary carry-over from the past.
 
@@ -92,6 +92,29 @@ The corresponding typed client-side object is the following:
 	}
 
 The code will reside in a file called **ToDoItem.java**.
+
+If your SQL Azure table contains more columns, you would add fields corresponding to them here.
+
+For example if it had an integer Priority column, then you might add this field, along with its getter and setter methods:
+
+		private Integer priority;
+
+	    /**
+	     * Returns the item priority
+	     */
+	    public Integer getPriority() {
+	        return mPriority;
+	    }
+	
+	    /**
+	     * Sets the item priority
+	     *
+	     * @param priority
+	     *            priority to set
+	     */
+	    public final void setPriority(Integer priority) {
+	        mPriority = priority;
+	    }
 
 To learn how to create additional tables in your Mobile Apps backend, see [How to: Define a table controller](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET backend) or [Define Tables using a Dynamic Schema](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js backend). For a Node.js backend, you can also use the **Easy tables** setting in the [Azure portal].
 
