@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carmon"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/29/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli"/>
 
 # Restore from a backup of your StorSimple Virtual Array (Preview)

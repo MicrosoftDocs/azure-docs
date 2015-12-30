@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carmon"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/28/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array 3 - Set up the virtual device as file server
+# Deploy StorSimple Virtual Array 3 - Set up the virtual device as file server (Preview)
 
 ## Introduction 
 

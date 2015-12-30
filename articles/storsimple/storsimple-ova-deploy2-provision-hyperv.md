@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/29/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array 2 - Provision a virtual device in Hyper-V
+# Deploy StorSimple Virtual Array 2 - Provision a virtual device in Hyper-V (Preview)
 
 ## Overview 
 

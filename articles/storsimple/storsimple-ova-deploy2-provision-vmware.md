@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carmon"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/28/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli"/>
 
 
-# Deploy StorSimple Virtual Array 2 - Provision a virtual device in VMware
+# Deploy StorSimple Virtual Array 2 - Provision a virtual device in VMware (Preview)
 
 ## Overview 
 These provisioning tutorials apply to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. These tutorials describe how to provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.

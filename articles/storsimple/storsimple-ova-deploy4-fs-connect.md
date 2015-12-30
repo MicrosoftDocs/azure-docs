@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/28/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array 4 - Connect to the virtual device file server
+# Deploy StorSimple Virtual Array 4 - Connect to the virtual device file server (Preview)
 
 ## Overview
 
