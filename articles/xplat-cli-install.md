@@ -47,7 +47,7 @@ If Node.js is already installed on your system, use the following command to ins
 
 > [AZURE.NOTE] On Linux distributions, you may need to use `sudo` to successfully run the __npm__ command.
 
-### Install node.js and npm on Linux distributions that use [dpkg](http://en.wikipedia.org/wiki/Dpkg) package management
+### Install Node.js and npm on Linux distributions that use [dpkg](http://en.wikipedia.org/wiki/Dpkg) package management
 
 The most common of these distributions use either the [advanced packaging tool (apt)](http://en.wikipedia.org/wiki/Advanced_Packaging_Tool) or other tools based on the `.deb` package format. Some examples are Ubuntu and Debian.
 
@@ -57,18 +57,18 @@ Most of the more recent of these distributions require installing **nodejs-legac
 	sudo apt-get install npm
 	sudo npm install -g azure-cli
 
-Some of the older distributions, such as Ubuntu 12.04, require installing the current binary distribution of node.js. The following code shows how to do that by installing and using **curl**.
+Some of the older distributions, such as Ubuntu 12.04, require installing the current binary distribution of Node.js. The following code shows how to do that by installing and using **curl**.
 
->[AZURE.NOTE] The commands here are taken from the Joyent installation instructions found [here](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). However, when using **sudo** as a pipe target, you should always check the scripts that you are installing and validate that they do exactly what you expect before running them through **sudo**. With great power comes great responsibility.
+>[AZURE.NOTE] The commands are taken from the installation instructions found [here](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). However, when using **sudo** as a pipe target, you should always check the scripts that you are installing and validate that they do exactly what you expect before running them through **sudo**. With great power comes great responsibility.
 
 	sudo apt-get install curl
 	curl -sL https://deb.nodesource.com/setup | sudo bash -
 	sudo apt-get install -y nodejs
 	sudo npm install -g azure-cli
 
-### Install node.js and npm on Linux distributions that use [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager) package management
+### Install Node.js and npm on Linux distributions that use [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager) package management
 
-Installing node.js on RPM-based distributions requires enabling the EPEL repository. The following code shows the best practices for installation on CentOS 7. (Note that in the first line below, the '-' (hyphen) is important!)
+Installing Node.js on RPM-based distributions requires enabling the EPEL repository. The following code shows the best practices for installation on CentOS 7. (Note that in the first line below, the '-' (hyphen) is important!)
 
 	su -
 	yum update [enter]
@@ -78,13 +78,13 @@ Installing node.js on RPM-based distributions requires enabling the EPEL reposit
 	yum install npm [enter]
 	npm install -g azure-cli  [enter]
 
-### Install node.js and npm on Windows and Mac OS X
+### Install Node.js and npm on Windows and Mac OS X
 
-You can install node.js and npm on Windows and OS X using the installers from [Nodejs.org](https://nodejs.org/en/download/). You might need to restart the computer to complete the installation. Check if node and npm were installed properly by opening a Command or Terminal window and typing
+You can install Node.js and npm on Windows and OS X using the installers from [Nodejs.org](https://nodejs.org/en/download/). You might need to restart the computer to complete the installation. Check if node and npm were installed properly by opening a Command or Terminal window and typing
 
 	npm -v
 
-If it shows the version of the npm installed, you can go ahead and install Azure CLI with
+If it shows the version of the npm installed, you can go ahead and install the Azure CLI with
 
 	npm install -g azure-cli
 
