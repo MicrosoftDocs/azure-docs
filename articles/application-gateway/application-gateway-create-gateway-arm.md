@@ -110,7 +110,7 @@ In the example above, we created a resource group called "appgw-RG" and location
 
 
 
-## Create a virtual network and subnet for the application gateway
+## Create a virtual network and a subnet for the application gateway
 
 The following example shows how to create a virtual network by using Resource Manager.
 
@@ -147,7 +147,7 @@ You need to set up all configuration items before creating the application gatew
 
 ### Step 1
 
-Create an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the backend IP pool. Keep in mind that each instance will take one IP address.
+Create an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it will pick up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance will take one IP address.
 
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -163,7 +163,7 @@ Configure the back-end IP address pool named "pool01" with IP addresses "134.170
 
 ### Step 3
 
-Configure application gateway settings "poolsetting01" for the load-balanced network traffic in the backend pool.
+Configure application gateway settings "poolsetting01" for the load-balanced network traffic in the back-end pool.
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 

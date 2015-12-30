@@ -160,12 +160,12 @@ A new configuration item <Probe> is added to configure custom probes.
 
 The configuration parameters are:
 
-- **Name** - reference name for custom probe
-- **Protocol** - protocol used (possible values are HTTP or HTTPS)
-- **Host** and **Path** - Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a web site http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have successful HTTP response.
-- **Interval** - configures the probe interval checks in seconds
-- **Timeout** - defines the probe time-out for an HTTP response check
-- **UnhealthyThreshold** - the number of failed HTTP responses needed to flag the back-end instance as *unhealthy*
+- **Name** - Reference name for custom probe.
+- **Protocol** - Protocol used (possible values are HTTP or HTTPS).
+- **Host** and **Path** - Complete URL path that is invoked by the application gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.
+- **Interval** - Configures the probe interval checks in seconds.
+- **Timeout** - Defines the probe time-out for an HTTP response check.
+- **UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.
 
 The probe name is referenced in the <BackendHttpSettings> configuration to assign which back-end pool will use custom probe settings.
 
