@@ -357,9 +357,33 @@ To send notifications utilizing these registered templates, work with [Notificat
 
 ##<a name="errors"></a>How to: Handle Errors
 
-When you call a mobile service, the completion block contains an `NSError *error` parameter. When an error occurs, this parameter is non-nil. In your code, you should check this parameter and handle the error as needed.
+When you call a mobile service, the completion block contains an `NSError` parameter. When an error occurs, this parameter is non-nil. In your code, you should check this parameter and handle the error as needed, as demonstrated in the code snippets above.
 
-The file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) defines the constants `MSErrorResponseKey`, `MSErrorRequestKey`, and `MSErrorServerItemKey` to get more data related to the error. In addition, the file defines constants for each error code. For an example on how to use these constants, see [Conflict-Handler] for its usage of `MSErrorServerItemKey` and `MSErrorPreconditionFailed`.
+The file [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h) defines the constants `MSErrorResponseKey`, `MSErrorRequestKey`, and `MSErrorServerItemKey` to get more data related to the error. 
+
+**Objective-C**:
+```
+NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
+```
+
+**Swift**:
+```
+let serverItem = error?.userInfo[MSErrorServerItemKey];
+```
+
+In addition, the file defines constants for each error code. 
+
+**Objective-C**:
+```
+if (error.code == MSErrorPreconditionFailed) {
+```
+
+**Swift**:
+```
+if (error?.code == MSErrorPreconditionFailed)
+```
+
+
 
 <!-- Anchors. -->
 
