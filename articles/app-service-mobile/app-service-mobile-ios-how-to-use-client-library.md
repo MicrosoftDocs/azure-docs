@@ -374,13 +374,15 @@ To register templates, simply pass along templates with your **client.push regis
 **Objective-C**:
 ```
 [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
-	...
+	if(error) {
+		NSLog(@"ERROR %@", error);
+	}
 }];
 ```
 
 **Swift**:
 ```
-client.push!.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) -> Void in
+client.push!.registerDeviceToken(deviceToken, template: iOSTemplate, completion: { (error) -> Void in
             if error != nil {
                 NSLog("ERROR %@", error!)
             }
