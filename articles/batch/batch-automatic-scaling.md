@@ -25,9 +25,9 @@ Automatic scaling is enabled on a pool of compute nodes by associating an *autos
 
 Automatic scaling can be enabled when a pool is created, or on an existing pool, and you can change an existing formula on an autoscale-enabled pool. Batch provides you with the ability to evaluate your formulas before assigning them to pools, as well as for monitoring the status of automatic scaling runs. Each of these topics is discussed in the article below.
 
-## About automatic scaling formulas
+## Automatic scaling formulas
 
-An automatic scaling formula is a string value containing one or more statements, assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element in a REST API request body, or the Batch .NET API's [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property. You define these formulas, and when assigned to a pool, they determine the number of available compute nodes in a pool for the next interval of processing (more on intervals later). The formula string cannot exceed 8KB in size, can include up to 100 statements separated by semicolons, and can include line breaks and comments. You can see some example formulas in the [Example formulas](#examples) section below.
+An automatic scaling formula is a string value containing one or more statements, assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element (Batch REST API), or the [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property (Batch .NET API). You define these formulas, and when assigned to a pool, they determine the number of available compute nodes in a pool for the next interval of processing (more on [intervals](#interval) later). The formula string cannot exceed 8KB in size, can include up to 100 statements separated by semicolons, and can include line breaks and comments. You can see some example formulas in the [Example formulas](#examples) section below.
 
 You can think of automatic scaling formulas as using a Batch autoscale "language." Formula statements are free-formed expressions, can include system- and user-defined variables as well as constants, and can perform various operations on these values using built-in types, operators, and functions. For example, a statement might take the following form:
 
@@ -146,7 +146,7 @@ Both system-defined and user-defined variables can be used in a formula. The two
   </tr>
 </table>
 
-> [AZURE.TIP] The read-only system-defined variables shown above are *objects* that provide various methods to access data associated with each. See [Get sample data](#getsampledata) below for more information.
+> [AZURE.TIP] The read-only system-defined variables shown above are *objects* that provide various methods to access data associated with each. See [Obtain sample data](#getsampledata) below for more information.
 
 ## Types
 
@@ -493,25 +493,37 @@ To enable automatic scaling when creating a pool, use one of the following techn
 - [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx) – After this .NET method is called to create a pool, you'll then set the pool's [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) and [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) properties to enable automatic scaling.
 - [Add a pool to an account](https://msdn.microsoft.com/library/azure/dn820174.aspx) – The enableAutoScale and autoScaleFormula elements are used in this REST API request to set up automatic scaling for the pool when it is created.
 
-> [AZURE.NOTE] If you set up automatic scaling when the pool is created using one of the techniques above, the *targetDedicated* parameter for the pool is not (and must not) be specified when created. Also note that if you wish to manually resize an autoscale-enabled pool (for example with [BatchClient.PoolOperations.ResizePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.resizepool.aspx)) then you must first disable automatic scaling on the pool, then resize the pool.
+> [AZURE.IMPORTANT] If you create an automatic scaling-enabled pool using one of the above techniques, the *targetDedicated* parameter for the pool must **not** be specified. Also note that if you wish to manually resize an autoscale-enabled pool (for example, with [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]) then you must first **disable** automatic scaling on the pool, then resize it.
 
-The following code snippet shows the creation of an autoscale-enabled [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx) using the [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) library whose formula sets the target number of nodes to 5 on Mondays, and 1 on every other day of the week. In the snippet, "myBatchClient" is a properly initialized instance of [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx)):
+The following code snippet shows the creation of an autoscale-enabled [CloudPool][net_cloudpool] using the [Batch .NET][net_api] library whose formula sets the target number of nodes to 5 on Mondays, and 1 on every other day of the week. In addition, the automatic scaling interval is set to 30 minutes (see [Automatic scaling interval](#interval) below). In the snippet, "myBatchClient" is a properly initialized instance of [BatchClient][net_batchclient].
 
-		CloudPool pool myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
-		pool.AutoScaleEnabled = true;
-		pool.AutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
-		pool.Commit();
+```
+CloudPool pool = myBatchClient.PoolOperations.CreatePool("mypool", "3", "small");
+pool.AutoScaleEnabled = true;
+pool.AutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
+pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
+pool.Commit();
+```
+
+### <a name="interval"></a>Automatic scaling interval
+
+By default, the Batch service adjusts a pool's size according to its autoscale formula every **15 minutes**. This interval is configurable, however, by using the following pool properties:
+
+- REST API - [autoScaleEvaluationInterval][rest_autoscaleinterval]
+- .NET API - [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval]
+
+The minimum interval is 5 minutes, and the maximum is 168 hours. If an interval outside this range is specified, the Batch service will return a Bad Request (400) error.
 
 ## Enable automatic scaling after a pool was created
 
 If you've already set up a pool with a specified number of compute nodes using the *targetDedicated* parameter, you can update the existing pool at a later time to automatically scale. Do this in one of these ways:
 
 - [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale] – This .NET method requires the ID of an existing pool and the automatic scaling formula to apply to the pool.
-- [Enable automatic scaling on a pool](https://msdn.microsoft.com/library/azure/dn820173.aspx) – This REST API request requires the ID of the existing pool in the URI and the automatic scaling formula in the request body.
+- [Enable automatic scaling on a pool][rest_enableautoscale] – This REST API request requires the ID of the existing pool in the URI and the automatic scaling formula in the request body.
 
 > [AZURE.NOTE] If a value was specified for the *targetDedicated* parameter when the pool was created, it is ignored when the automatic scaling formula is evaluated.
 
-This code snippet demonstrates enabling autoscaling on an existing pool using the [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) library. Note that both enabling and updating the formula on an existing pool use the same method. As such, this technique would *update* the formula on the specified pool if autoscaling had already been enabled. This snippet assumes that "myBatchClient" is a properly initialized instance of [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx), and "mypool" is the ID of an existing [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx).
+This code snippet demonstrates enabling autoscaling on an existing pool using the [Batch .NET][net_api] library. Note that both enabling and updating the formula on an existing pool use the same method. As such, this technique would *update* the formula on the specified pool if autoscaling had already been enabled. This snippet assumes that "myBatchClient" is a properly initialized instance of [BatchClient][net_batchclient], and "mypool" is the ID of an existing [CloudPool][net_cloudpool].
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week
@@ -639,7 +651,7 @@ $NodeDeallocationOption = taskcompletion;
 
 ### Example 4
 
-This example shows an autoscale formula that sets the pool size to a certain number of nodes for an initial time period, then adjusts the pool size based on the number of running and active tasks after the initial time period has elapsed.
+This example shows a C# code snippet with an autoscale formula that sets the pool size to a certain number of nodes for an initial time period, then adjusts the pool size based on the number of running and active tasks after the initial time period has elapsed.
 
 ```
 string now = DateTime.UtcNow.ToString("r");
@@ -677,8 +689,14 @@ The formula in the above code snippet has the following characteristics:
 2.	Some applications produce large amounts of data that can be difficult to process. One way to solve this is through [efficient list querying](batch-efficient-list-queries.md).
 
 [net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[net_batchclient]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
+[net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_cloudpool_autoscaleformula]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx
+[net_cloudpool_autoscaleevalinterval]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval.aspx
 [net_enableautoscale]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.enableautoscale.aspx
+[net_poolops_resizepool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.resizepool.aspx
 
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_autoscaleformula]: https://msdn.microsoft.com/library/azure/dn820173.aspx
+[rest_autoscaleinterval]: https://msdn.microsoft.com/en-us/library/azure/dn820173.aspx
+[rest_enableautoscale]: https://msdn.microsoft.com/library/azure/dn820173.aspx
