@@ -48,7 +48,7 @@ The following procedure creates Linux-based HDInsight cluster.
 
 **To deploy a cluster using ARM template**
 
-1. Save the json file in [Appendix A](#appendix-a---arm-template) to your workstation.
+1. Save the json file in [Appendix A](#appx-a-arm-template) to your workstation.
 2. Set the parameters if needed.
 3. Run the template using the following PowerShell script:
 
