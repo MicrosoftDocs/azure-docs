@@ -129,9 +129,7 @@ A sample Scala application to receive the event and route it to different destin
 
 		This will copy the jar file from the Spark cluster on to your local computer. 
 
-	* **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx).
-
-	Add reference to these jars in the project library. Perform the following steps:
+	* **JDBC driver jar**. This is required to write the messages received from Event Hub into an Azure SQL database. You can download v4.1 or later of this jar file from [here](https://msdn.microsoft.com/en-us/sqlserver/aa937724.aspx). Add reference to these jars in the project library. Perform the following steps:
 
 	1. From IntelliJ IDEA window where you have the application open, click **File**, click **Project Structure**, and then click **Libraries**. 
 
