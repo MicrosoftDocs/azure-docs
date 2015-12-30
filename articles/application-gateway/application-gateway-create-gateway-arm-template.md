@@ -160,8 +160,6 @@ If needed, create a new resource group by using the **New-AzureResourceGroup** c
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-### Step 5
-
 Run the **New-AzureRmResourceGroupDeployment** cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified above.
 
 		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
