@@ -69,8 +69,8 @@ This is illustrated below:
 
 ![Liking a product and Wish List, Profile, and Catalog services][3]
 
-## How Actors composition and asynchronous communication can help
-The Service Fabric Reliable Actors programming model shines when a developer wants to compose request/response-style operations together with asynchronous operations. For example, while liking a product immediately adds the liked item to the user’s wish list, posting to social networks and triggering the next set of recommendation operations can be made asynchronous by using buffers and timers.
+## Employ actors in composition and asynchronous communication
+The Service Fabric Reliable Actors programming model shines when a developer wants to compose request/response-style operations together with asynchronous operations. For example, while liking a product immediately adds the liked item to the user’s wish list, posting to social networks and triggering the next set of recommendation operations can be done asynchronously by using buffers and timers.
 
 Another key benefit of using a user actor for services is that the actor provides a natural location for cached state. Most importantly, the actor also reacts to changes in its state asynchronously. This is a particularly challenging scenario with stateless services.
 For example, a user can carry out a series of actions as part of a "user journey," and these events can be captured in real time in an actor. A stream can then be assembled that can be queried at event time or asynchronously on a timer to change the behavior of the actor.
