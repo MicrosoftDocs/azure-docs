@@ -235,7 +235,7 @@ If `id` is not provided, the backend automatically generates a new unique ID. Pr
 **Objective-C**:
 ```
 NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
-[self.table insert:newItem completion:^(NSDictionary *result, NSError *error) {
+[table insert:newItem completion:^(NSDictionary *result, NSError *error) {
 	// The result contains the new item that was inserted,
 	// depending on your server scripts it may have additional or modified
 	// data compared to what was passed to the server.
@@ -266,7 +266,7 @@ To update an existing row, modify an item and call `update`:
 ```
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 [newItem setValue:@"Updated text" forKey:@"text"];
-[self.table update:newItem completion:^(NSDictionary *item, NSError *error) {
+[table update:newItem completion:^(NSDictionary *item, NSError *error) {
 	// Handle error or perform additional logic as needed
 }];
 ```
@@ -274,7 +274,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 Alternatively, supply the row ID and the updated field:
 
 ```
-[self.table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
+[table update:@{@"id":@"37BBF396-11F0-4B39-85C8-B319C729AF6D", @"Complete":@YES} completion:^(NSDictionary *item, NSError *error) {
 	// Handle error or perform additional logic as needed
 }];
 ```
@@ -286,7 +286,7 @@ At minimum, the `id` attribute must be set when making updates.
 To delete an item, invoke `delete` with the item:
 
 ```
-[self.table delete:item completion:^(id itemId, NSError *error) {
+[table delete:item completion:^(id itemId, NSError *error) {
 	// Handle error or perform additional logic as needed
 }];
 ```
@@ -294,7 +294,7 @@ To delete an item, invoke `delete` with the item:
 Alternatively, delete by providing a row ID:
 
 ```
-[self.table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
+[table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
 	// Handle error or perform additional logic as needed
 }];   
 ```
