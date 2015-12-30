@@ -213,11 +213,17 @@ query.selectFields = ["text", "complete"]
 
 To include additional query string parameters in the server request (for example, because a custom server-side script uses them), populate `query.parameters` like so:
 
+**Objective-C**:
 ```
 query.parameters = @{
 	@"myKey1" : @"value1",
 	@"myKey2" : @"value2",
 };
+```
+
+**Swift**:
+```
+query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
 ##<a name="inserting"></a>How to: Insert Data
