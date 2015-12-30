@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/29/2015"   
+   ms.date="12/30/2015"   
    ms.author="seanmck"/>
 
 # Model an application in Service Fabric
@@ -24,14 +24,16 @@ This article provides an overview of the Azure Service Fabric application model.
 
 An application is a collection of constituent services that perform a certain function or functions. A service performs a complete and standalone function (it can start and run independently of other services) and is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at run time, and data consists of arbitrary static data to be consumed by the service. Each component in this hierarchical application model can be versioned and upgraded independently.
 
-![][1]
+![The Service Fabric application model][appmodel-diagram]
 
 
 An application type is a categorization of an application and consists of a bundle of service types. A service type is a categorization of a service. The categorization can have different settings and configurations, but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
 
-Classes (or "types") of applications and services are described through XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how application types are composed of service types, which in turn are composed of code, configuration, and packages.
+Classes (or "types") of applications and services are described through XML files (application manifests and service manifests) that are the templates against which applications can be instantiated from the cluster's image store.
 
-![Service Fabric application types and service types][Image1]
+The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how application types are composed of service types, which in turn are composed of code, configuration, and packages. To simplify the diagram, only the code/config/data packages for `ServiceType4` are shown, though each service type would include some or all of those package types.
+
+![Service Fabric application types and service types][cluster-imagestore-apptypes]
 
 Two different manifest files are used to describe applications and services: the service manifest and application manifest. These are covered in detail in the ensuing sections.
 
@@ -39,7 +41,7 @@ There can be one or more instances of a service type active in the cluster. For 
 
 The following diagram shows the relationship between applications and service instances, partitions, and replicas.
 
-![Partitions and replicas within a service][Image2]
+![Partitions and replicas within a service][cluster-application-instances]
 
 
 ## Describe a service
@@ -105,6 +107,7 @@ For more information about other features supported by service manifests, refer 
 
 
 The application manifest declaratively describes the application type and version. It specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load-balancing domains into which the application is placed are also described.
+
 Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is a simple example application manifest:
 
 ~~~
@@ -239,10 +242,9 @@ Once the application is packaged correctly and passes verification, then it's re
 [RunAs: Running a Service Fabric application with different security permissions][12]
 
 <!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.png
-[2]: ./media/service-fabric-application-model/vs-package-command.png
-[Image1]: media/service-fabric-application-model/Service1.jpg
-[Image2]: media/service-fabric-application-model/Service2.jpg
+[appmodel-diagram]: ./media/service-fabric-application-model/application-model.png
+[cluster-imagestore-apptypes]: ./media/service-fabric-application-model/cluster-imagestore-apptypes.png
+[cluster-application-instances]: media/service-fabric-application-model/cluster-application-instances.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
