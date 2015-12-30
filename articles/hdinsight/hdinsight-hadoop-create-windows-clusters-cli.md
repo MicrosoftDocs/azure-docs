@@ -41,7 +41,7 @@ For more information on authenticating using a work or school account, see [Conn
 	
 Use the following command to switch to the ARM mode:
 
-		azure config mode arm
+	azure config mode arm
 
 To get help, use the **-h** switch.  For example:
 
@@ -121,13 +121,9 @@ For general script action information, see [Customize HDInsight clusters using S
 
 ## Create clusters using ARM templates
 
-    azure group deployment create <my-resource-group> <my-deployment-name> --template-file "c:\mytemplate\azuredeploy.json"
-
-For more information, see [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](xplat-cli-azure-resource-manager.md).
-
-An HDInsight ARM template sample can be found at ....
-
+See [Deploy with ](hdinsight-hadoop-create-windows-cluster-arm-templates.md#deploy-with-azure-cli).
 
 ## See also
 
-- []()
+- [Manage Hadoop clusters in HDInsight using the Azure CLI](hdinsight-administer-use-command-line.md)
+- [Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management](virtual-machines-command-line-tools.md)

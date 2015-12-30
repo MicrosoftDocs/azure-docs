@@ -21,14 +21,13 @@
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-windows-cluster-selector.md)]
 
-Learn how to create an Hadoop cluster in HDInsight using Azure Portal.
+Learn how to create an Hadoop cluster in HDInsight using Azure Portal. The Microsoft [Azure portal](azure-portal-overview.md) is a central place where you can provision and manage your Azure resources. Azure Portal is one of the tools you can use to create either Linux-based or Windows-based Hadoop cluster in HDInsight.
 
 ###Prerequisites:
 
 Before you begin the instructions in this article, you must have the following:
 
 - An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- See [Overview](hdinsight-provision-clusters.md).
 
 ## Create using the Portal
 
@@ -44,8 +43,8 @@ Before you begin the instructions in this article, you must have the following:
 
   * **Cluster Name**: Enter a name for the cluster. A green check will appear beside the cluster name if the name is available.
   * **Cluster Type**: Select **Hadoop**. Other options inclue **HBase**, **Storm**, and **Spark**.
-  * **Cluster Operating System**: Select **Windows**.
-  * **Version**: 
+  * **Cluster Operating System**: Select **Windows**. To create a Linux-base cluster, select **Linux**.
+  * **Version**: See [HDInsight versions](hdinsight-component-versioning.md).
   * **Subscription**: Select the Azure subscription that will be used for creating this cluster.
   * **Resource Group**: Select an existing or create a new resource group. This entry will default to one of your existing resource groups, if any are available.
   * **Credentials**: Configure the username and the password for the Hadoop user (HTTP user). If you enable remote desktop for the cluster, you will need to configure the remote desktop user username and password, and an account expiration date. Click **Select** at the bottom to save the changes.

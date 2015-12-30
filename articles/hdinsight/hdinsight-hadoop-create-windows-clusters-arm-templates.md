@@ -106,9 +106,12 @@ For more information, see  [Deploy with PowerShell](resource-group-template-depl
 
 ## Deploy with Azure CLI
 
+The following sample creates a cluster and its dependent storage account and container by calling an ARM template:
 
-    azure config mode arm
-    azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-vm-domain-join/azuredeploy.json
+	azure login
+	azure config mode arm
+    azure group create -n hdi1229rg -l "East US 2"
+    azure group deployment create "hdi1229rg" "hdi1229" --template-file "C:\HDITutorials-ARM\hdinsight-arm-windows-template.json" -p "{\"clusterName\":{\"value\":\"hdi1229win\"},\"clusterStorageAccountName\":{\"value\":\"hdi1229store\"},\"location\":{\"value\":\"East US 2\"},\"clusterLoginPassword\":{\"value\":\"Pass@word1\"}}"
 
 ## Deploy with REST API
 

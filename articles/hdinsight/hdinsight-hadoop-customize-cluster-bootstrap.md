@@ -118,18 +118,6 @@ You can use bootstrap in ARM template:
 
 ![hdinsight hadoop customize cluster bootstrap arm template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## See also
-
-
-
-
-
-
-
-
-
-
-
 
 
 
