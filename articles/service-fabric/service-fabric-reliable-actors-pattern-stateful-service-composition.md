@@ -1,7 +1,7 @@
 
 <properties
    pageTitle="Stateful service composition pattern | Microsoft Azure"
-   description="Service Fabric Reliable Actors design pattern that uses stateful actors to maintain state between service calls as well as cache previous service results."
+   description="Service Fabric Reliable Actors design pattern that uses stateful actors to maintain state between service calls and to cache previous service results."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,7 +17,7 @@
    ms.date="08/05/2015"
    ms.author="vturecek"/>
 
-# Reliable Actors design pattern: stateful service composition
+# Reliable Actors design pattern: Stateful service composition
 
 Developers spent the last decade and a half building N-Tier stateless services in the enterprise. They built services on top of databases, they built high order services on top of other services, and they built orchestration engines and message oriented middleware to coordinate these services. As the user workloads evolve, whether demanding more interactivity or scale, stateless service-oriented architecture began to show its weaknesses.
 
