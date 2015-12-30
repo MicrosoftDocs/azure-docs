@@ -44,7 +44,7 @@ The following diagram shows the relationship between applications and service in
 ![Partitions and replicas within a service][cluster-application-instances]
 
 
->[AZURE.TIP] You can view the layout of applications in a cluster using the Service Fabric Explorer tool available at http://&lt;yourclusteraddress&gt;:19080/Explorer. For more details, see [Visualizing your cluster with Service Fabric Explorer][service-fabric-visualizing-your-cluster.md].
+>[AZURE.TIP] You can view the layout of applications in a cluster using the Service Fabric Explorer tool available at http://&lt;yourclusteraddress&gt;:19080/Explorer. For more details, see [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Describe a service
 
