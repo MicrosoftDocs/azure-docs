@@ -41,11 +41,11 @@ Close the current PowerShell window and open a new PowerShell window as an admin
 
 ## Cluster connection failures
 
-### Type Initialization Exception
+### Type Initialization exception
 
 #### Problem
 
-When you are connecting to the cluster in PowerShell or Service Fabric Explorer, you see a TypeInitializationException for System.Fabric.Common.AppTrace.
+When you are connecting to the cluster in PowerShell or Service Fabric Explorer, you see the error TypeInitializationException for System.Fabric.Common.AppTrace.
 
 #### Solution
 
@@ -68,11 +68,11 @@ A call to Connect-ServiceFabricCluster fails with an error like this:
 
 Close the current PowerShell window and open a new PowerShell window as an administrator. You should now be able to successfully connect.
 
-### FabricConnectionDeniedException
+### Fabric Connection Denied exception
 
 #### Problem
 
-When debugging from Visual Studio, you get a FabricConnectionDeniedException.
+When debugging from Visual Studio, you get this error: FabricConnectionDeniedException.
 
 #### Solution
 
@@ -83,5 +83,5 @@ Ensure that you do not have any service projects set as startup projects in your
 
 ## Next steps
 
-- [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-- [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+- [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+- [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
