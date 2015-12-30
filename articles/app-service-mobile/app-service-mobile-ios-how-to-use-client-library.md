@@ -262,12 +262,30 @@ table.insert(newItem) { (result, error) -> Void in
 
 To update an existing row, modify an item and call `update`:
 
+**Objective-C**:
 ```
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 [newItem setValue:@"Updated text" forKey:@"text"];
 [table update:newItem completion:^(NSDictionary *item, NSError *error) {
-	// Handle error or perform additional logic as needed
+	if(error) {
+		NSLog(@"ERROR %@", error);
+	} else {
+		NSLog(@"Todo Item: %@", [result objectForKey:@"text"]);
+	}
 }];
+```
+
+**Swift**:
+```
+let newItem = oldItem.mutableCopy() as! NSMutableDictionary // oldItem is NSDictionary
+newerItem["text"] = "Updated text"
+table.update(newerItem  as [NSObject : AnyObject]) { (result, error) -> Void in
+    if error != nil {
+        NSLog("ERROR %@", error!)
+    } else {
+        NSLog("Todo Item: %@", result!["text"] as! String)
+    }
+}
 ```
 
 Alternatively, supply the row ID and the updated field:
