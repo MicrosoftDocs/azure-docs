@@ -287,7 +287,7 @@ Scheduled jobs will be listed with the frequency you specified prior to migratio
 
   1. Select the job you wish to run.
   2. If necessary, click on **Enable** to enable the job.
-  3. Click on *Settings**, then **Schedule**.
+  3. Click on **Settings**, then **Schedule**.
   4. Select a Recurrence of **Once**, then click on **Save**
 
 Your on-demand jobs are located in `App_Data/config/scripts/scheduler post-migration`.  We recommend that you convert all on-demand jobs to [WebJobs].
