@@ -18,7 +18,7 @@
 
 # Polymorphism in the Reliable Actors framework
 
-The Reliable Actors framework simplifies distributed systems programming. It does this by allowing you to build your service using many of the same techniques that you would use in object-oriented design. One of those techniques is polymorphism, which allows types and interfaces to inherit from more generalized parents. Inheritance in the Reliable Actors framework generally follows the .NET model with a few additional constraints.
+The Reliable Actors framework simplifies distributed systems programming. It does this by allowing you to build your service by using many of the same techniques that you would use in object-oriented design. One of those techniques is polymorphism, which allows types and interfaces to inherit from more generalized parents. Inheritance in the Reliable Actors framework generally follows the .NET model with a few additional constraints.
 
 ## Interfaces
 
@@ -72,7 +72,7 @@ Note the `ActorService` attribute on the actor type. This attribute tells the Az
 ## Next steps
 
 - See [how the Reliable Actors framework leverages the Service Fabric platform](service-fabric-reliable-actors-platform.md) to provide reliability, scalability, and consistent state.
-- Learn about the [actor lifecycle](service-fabric-reliable-actors).
+- Learn about the [actor lifecycle](service-fabric-reliable-actors-lifecycle.md).
 
 <!-- Image references -->
 
