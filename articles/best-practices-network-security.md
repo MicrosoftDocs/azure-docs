@@ -315,7 +315,13 @@ Once the routing tables are created they are bound to their subnets. For the Fro
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE] There is a limitation using User Defined Routing (UDR) with ExpressRoute due to the complexity of dynamic routing used in the Azure Virtual Gateway. The gateway subnet on which the ExpressRoute linked Azure Virtual Gateway is connected should not have UDR applied. Also, the ExpressRoute linked Azure Virtual Gateway cannot be the NextHop device for other UDR bound subnets. The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release, examples of how to enable your DMZ with ExpressRoute or Site-to-Site networking are discussed below in Examples 3 and 4.
+>[AZURE.NOTE] There are certain restrictions when using User Defined Routing (UDR) with ExpressRoute due to the complexity of dynamic routing used in the Azure Virtual Gateway. These are listed below:
+>
+> 1. UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure Virtual Gateway is connected.
+> 2. The ExpressRoute linked Azure Virtual Gateway cannot be the NextHop device for other UDR bound subnets.
+>
+>The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release, examples of how to enable your DMZ with ExpressRoute or Site-to-Site networking are discussed below in Examples 3 and 4.
+
 
 #### IP Forwarding Description
 A companion feature to UDR, is IP Forwarding. This is a setting on a Virtual Appliance that allows it to receive traffic not specifically addressed to the appliance and then forward that traffic to its ultimate destination.
@@ -444,7 +450,12 @@ Hybrid networking using an ExpressRoute private peering connection can be added 
 
 As shown in the figure above, ExpressRoute private peering provides a direct connection between your on-premise network and the Azure Virtual Network. Traffic transits only the service provider network and the Microsoft/Azure network, never touching the internet.
 
->[AZURE.NOTE] There is a limitation using User Defined Routing (UDR) with ExpressRoute due to the complexity of dynamic routing used in the Azure Virtual Gateway. The gateway subnet on which the ExpressRoute linked Azure Virtual Gateway is connected should not have UDR applied. Also, the ExpressRoute linked Azure Virtual Gateway cannot be the NextHop device for other UDR bound subnets. The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release.
+>[AZURE.NOTE] There are certain restrictions when using User Defined Routing (UDR) with ExpressRoute due to the complexity of dynamic routing used in the Azure Virtual Gateway. These are listed below:
+>
+> 1. UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure Virtual Gateway is connected.
+> 2. The ExpressRoute linked Azure Virtual Gateway cannot be the NextHop device for other UDR bound subnets.
+>
+>The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release, examples of how to enable your DMZ with ExpressRoute or Site-to-Site networking are discussed below in Examples 3 and 4.
 
 </br>
 >[AZURE.TIP] Using ExpressRoute keeps corporate network traffic off of the internet for better security, significantly increased performance, and allows for SLAs from your ExpressRoute provider. As it relates to ExpressRoute performance, the Azure Gateway can pass up to 2Gbps with ExpressRoute, whereas with Site-to-Site VPNs the Azure Gateway maximum throughput is 200Mbps.
