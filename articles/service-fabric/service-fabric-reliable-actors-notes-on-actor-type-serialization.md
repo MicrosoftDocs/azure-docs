@@ -1,6 +1,6 @@
 <properties
    pageTitle="Reliable Actors notes on actor type serialization | Microsoft Azure"
-   description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actor states and interfaces"
+   description="Discusses basic requirements for defining serializable classes that can be used to define Service Fabric Reliable Actors states and interfaces"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -22,7 +22,7 @@ You should keep a few important aspects in mind when you define an actor's inter
 
 ## Actor interface types
 
-The arguments of all the methods, as well as the result types of the tasks returned by each method as defined in the [actor interface](service-fabric-reliable-actors-introduction.md#actors), need to be data contract serializable. This also applies to the arguments of the methods defined in [Actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void.)
+The arguments of all the methods, as well as the result types of the tasks returned by each method as defined in the [actor interface](service-fabric-reliable-actors-introduction.md#actors), need to be data contract serializable. This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md#actor-events). (Actor event interface methods always return void.)
 For instance, if the `IVoiceMail` interface defines a method as:
 
 ```csharp
@@ -52,7 +52,7 @@ public class Voicemail
 
 ## Actor state class
 
-The actor's state needs to be data-contract serializable. For example, an actor class definition can look like this:
+The actor's state needs to be data contract serializable. For example, an actor class definition can look like this:
 
 ```csharp
 
@@ -62,7 +62,7 @@ public class VoiceMailActor : StatefulActor<VoicemailBox>, IVoiceMail
 
 ```
 
-The state class *is* going to be defined with the class, *and* its members will be annotated with the **DataContract** and **DataMember** attributes, respectively.
+The state class is going to be defined with the class, and its members will be annotated with the **DataContract** and **DataMember** attributes, respectively.
 
 ```csharp
 

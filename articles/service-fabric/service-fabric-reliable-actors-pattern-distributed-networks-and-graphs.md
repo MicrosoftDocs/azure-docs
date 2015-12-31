@@ -1,6 +1,6 @@
 <properties
    pageTitle="Distributed networks and graphs pattern | Microsoft Azure"
-   description="The design pattern for how Service Fabric Reliable Actors can be used to model applications as distributed networks and graphs."
+   description="Design pattern for how Service Fabric Reliable Actors can be used to model applications as distributed networks and graphs."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -28,7 +28,7 @@ The Reliable Actors model provides a flexible approach to the materialization pr
 ![The Reliable Actors model and Friends Feed population][2]
 
 
-## Smart Cache code sample: Social network Friends Feed (event time)
+## Smart Cache code sample--social network Friends Feed (event time)
 
 Sample code for populating the Friends Feed:
 
@@ -124,14 +124,14 @@ public class SocialPerson : StatefulActor<SocialPersonState>, ISocialPerson
 }
 ```
 
-Alternatively, you can model actors to fan out and compile the Friends Feed at the query timer, when the user asks for the Friends Feed. You can also materialize the Friends Feed on a timer (for example, every five minutes). Or you can optimize the model and combine both event-time and query-time processing with a timer-based model that's dependent on user habits, such as how often they log in or post an update.
+Alternatively, you can model actors to fan out and compile the Friends Feed at the query timer, when the user asks for the Friends Feed. You can also materialize the Friends Feed on a timer (for example, every five minutes). Or you can optimize the model and combine both event-time and query-time processing with a timer-based model that's dependent on user habits, such as how often they log on or post an update.
 
 When you model an actor in a social network, you should also consider “super users,” those users with millions of followers. Developers should model the state and behavior of such users differently to meet the greater demand.
 
-Similarly, if you want to model an activity that connects many user actors to a single activity actor (hub and spoke), you can do that as well. Group-chat and game-hosting scenarios are two examples.
+Similarly, if you want to model an activity that connects many user actors to a single activity actor (hub and spoke), you can do that as well. Group chat and game hosting are two examples.
 Let’s look at the group chat example. A set of participants creates a group chat actor that can distribute messages from one participant to the group. This is shown in the example below:
 
-## Smart Cache code sample: Group chat
+## Smart Cache code sample--group chat
 
 ```csharp
 public interface IGroupChat : IActor

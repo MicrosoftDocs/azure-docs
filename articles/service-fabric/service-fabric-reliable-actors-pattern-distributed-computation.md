@@ -17,25 +17,25 @@
    ms.author="vturecek"/>
 
 # Reliable Actors design pattern: Distributed computation
-We owe this one in part to watching a real-life customer whip out a financial calculation in Azure Service Fabric Reliable Actors in an absurdly short amount of time. It was a Monte Carlo simulation for risk calculation.
+We owe this one in part to watching a real-life customer create a financial calculation in Azure Service Fabric Reliable Actors in an absurdly short amount of time. It was a Monte Carlo simulation for risk calculation.
 
 If you don't have domain-specific knowledge, the benefits of using Service Fabric to handle this kind of workload instead of a more-traditional approach (such as MapReduce or Message Passing Interface) may not be immediately obvious.
 
-However, Service Fabric is a good fit for parallel asynchronous messaging, easily managed state distribution, and parallel computation, as the following diagram depicts:
+However, Service Fabric is a good fit for parallel asynchronous messaging, easily managed distributed state, and parallel computation, as the following diagram depicts:
 
-![Service Fabric parallel asynchronous messaging, state distribution, and parallel computation][1]
+![Service Fabric parallel asynchronous messaging, distributed state, and parallel computation][1]
 
-In the following example, we simply calculate pi using a Monte Carlo Simulation. We employ the following actors:
+In the following example, we simply calculate pi by using a Monte Carlo Simulation. We employ the following actors:
 
-* A processor responsible for calculating pi using pooled task actors
+* A processor responsible for calculating pi by using pooled task actors
 
 * A pooled task responsible for Monte Carlo simulation and sending results to an aggregator
 
 * An aggregator responsible for aggregating results and sending them to a finalizer
 
-* A finalizer responsible for calculating the final result and printing it on-screen
+* A finalizer responsible for calculating the final result and printing it on the screen
 
-## Distributed computation code sample: Monte Carlo simulation
+## Distributed computation code sample--Monte Carlo simulation
 
 ```csharp
 public interface IProcessor : IActor
@@ -95,7 +95,7 @@ A common way of aggregating results in Service Fabric is to use timers. We are u
 
 Here is how the aggregator and finalizer look:
 
-## Distributed computation code sample: Aggregator
+## Distributed computation code sample--aggregator
 
 ```csharp
 public interface IAggregator : IActor
@@ -187,7 +187,7 @@ public class Finaliser : StatefulActor<FinalizerState>, IFinaliser
 
 At this point, it should be clear how you can enhance the leaderboard example with an aggregator for scale and performance.
 
-We aren't asserting that Service Fabric is a drop-in replacement for other distributed computation of big-data frameworks or high-performance computing. It's built to handle some things better than others. However, you can model workflows and distributed parallel computation in Service Fabric while still benefiting from the simplicity it provides.
+We aren't asserting that Service Fabric is a drop-in replacement for other distributed computation of big-data frameworks or high-performance computing. It's built to handle some things better than others. However, you can model workflows and distributed parallel computation in Service Fabric while still benefiting from the simplicity that it provides.
 
 ## Next steps
 [Pattern: Smart cache](service-fabric-reliable-actors-pattern-smart-cache.md)
@@ -202,7 +202,7 @@ We aren't asserting that Service Fabric is a drop-in replacement for other distr
 
 [Some antipatterns](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
+[Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
