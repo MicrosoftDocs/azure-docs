@@ -56,15 +56,15 @@ This article walks you through the steps to create, configure, start, and delete
 
 ## Create a new application gateway
 
-The difference between using Azure Classic and Azure Resource Manager will be the order in which you will create the application gateway and the items needed to be configured.
+The difference between using Azure Classic and Azure Resource Manager is the order in which you will create the application gateway and the items that need to be configured.
 
 With Resource Manager, all items that will make an application gateway will be configured individually and then put together to create the application gateway resource.
 
 
-Here are the steps needed to create an application gateway:
+Here are the steps that are needed to create an application gateway:
 
 1. Create a resource group for Resource Manager.
-2. Create a virtual network, subnet and public IP for the application gateway.
+2. Create a virtual network, subnet, and public IP for the application gateway.
 3. Create an application gateway configuration object.
 4. Create an application gateway resource.
 
@@ -163,7 +163,7 @@ Configure the back-end IP address pool named "pool01" with IP addresses "134.170
 
 ### Step 3
 
-Configure application gateway settings "poolsetting01" for the load-balanced network traffic in the back-end pool.
+Configure application gateway setting "poolsetting01" for the load-balanced network traffic in the back-end pool.
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
