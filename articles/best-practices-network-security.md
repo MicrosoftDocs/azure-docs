@@ -455,7 +455,7 @@ As shown in the figure above, ExpressRoute private peering provides a direct con
 > 1. UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure Virtual Gateway is connected.
 > 2. The ExpressRoute linked Azure Virtual Gateway cannot be the NextHop device for other UDR bound subnets.
 >
->The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release, examples of how to enable your DMZ with ExpressRoute or Site-to-Site networking are discussed below in Examples 3 and 4.
+>The ability to fully integrate UDR and ExpressRoute will be enabled in a future Azure release.
 
 </br>
 >[AZURE.TIP] Using ExpressRoute keeps corporate network traffic off of the internet for better security, significantly increased performance, and allows for SLAs from your ExpressRoute provider. As it relates to ExpressRoute performance, the Azure Gateway can pass up to 2Gbps with ExpressRoute, whereas with Site-to-Site VPNs the Azure Gateway maximum throughput is 200Mbps.
