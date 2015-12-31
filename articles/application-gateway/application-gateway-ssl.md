@@ -121,7 +121,7 @@ The values are:
 
 **Additional configuration notes**
 
-For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCert** element needs to be added to **HttpListener** with the value set to the same name as used in upload of SSL certificates section above. The front-end port should be updated to 443.
+For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCert** element needs to be added to **HttpListener** with the value set to the same name as used in the upload of SSL certificates section above. The front-end port should be updated to 443.
 
 **To enable cookie based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
 
