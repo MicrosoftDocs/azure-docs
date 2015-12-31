@@ -72,7 +72,7 @@ Close the current PowerShell window and open a new PowerShell window as an admin
 
 #### Problem
 
-When debugging from Visual Studio, you get this error: FabricConnectionDeniedException.
+When debugging from Visual Studio, you get a FabricConnectionDeniedException error.
 
 #### Solution
 
@@ -83,5 +83,5 @@ Ensure that you do not have any service projects set as startup projects in your
 
 ## Next steps
 
-- [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
-- [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+- [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
