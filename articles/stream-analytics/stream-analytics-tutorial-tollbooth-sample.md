@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/28/2015" 
+	ms.date="12/30/2015" 
 	ms.author="jeffstok"
 />
 
@@ -214,8 +214,6 @@ For an example exercise, count the number of vehicles that enter a toll booth. S
     SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
     FROM EntryStream TIMESTAMP BY EntryTime
     GROUP BY TUMBLINGWINDOW(minute, 3), TollId
-
-
 
 
 From the example above, one can observe that Stream Analytics utilizes a SQL-like query language with a few additional extensions to enable specifying time related aspects of the query.
