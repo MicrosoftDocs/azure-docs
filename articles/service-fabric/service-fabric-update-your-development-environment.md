@@ -31,9 +31,7 @@
 
  1. Close all PowerShell windows and open a new one as an administrator.
 
- 2. Navigate to the cluster setup directory by using:
-
- `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`
+ 2. Navigate to the cluster setup directory by using `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`.
 
  3. Run `.\CleanCluster.ps1`.
 
@@ -45,9 +43,7 @@
 
  1. Start the Web Platform Installer to [update to the new release][1].
 
- 2. Upon completion, open a new PowerShell window as an administrator and navigate to the cluster setup directory by using:
-
-  `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`
+ 2. Upon completion, open a new PowerShell window as an administrator and navigate to the cluster setup directory by using `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`.
 
  3. Run `.\DevClusterSetup.ps1` to set up your local cluster.
 
