@@ -18,9 +18,9 @@
 
 # Reliable Actors design pattern: Some antipatterns
 
-We've identified the following potential pitfalls for customers learning Azure Service Fabric Reliable Actors:
+We've identified the following potential pitfalls for customers who are learning Azure Service Fabric Reliable Actors:
 
-* Treat Reliable Actors as a transactional system. Service Fabric Reliable Actors isn't a two-phase, commit-based system offering atomicity, consistency, isolation, and durability (ACID). If you don't implement the optional persistence, and the machine where the actor is running dies, its current state will die with it. The actor will come up on another node very quickly, but unless you have implemented the backing persistence, the state will be gone. By leveraging retries, duplicate filtering, and/or idempotent design, though, you can still achieve a high level of reliability and consistency.
+* Treat Reliable Actors as a transactional system. Service Fabric Reliable Actors isn't a two-phase, commit-based system that offers atomicity, consistency, isolation, and durability (ACID). If you don't implement the optional persistence, and the machine where the actor is running dies, its current state will die with it. The actor will come up on another node very quickly, but unless you have implemented the backing persistence, the state will be gone. However, by leveraging retries, duplicate filtering, and/or idempotent design, you can still achieve a high level of reliability and consistency.
 
 * Block. Everything you do in Reliable Actors should be asynchronous. This is usually easy, because asynchronous APIs are prolific now in the Microsoft platform. But if you have to interact with a system that provides only a blocking API, you need to put that in a wrapper that explicitly uses the .NET thread pool.
 
