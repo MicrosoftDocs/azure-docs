@@ -166,7 +166,7 @@ This FAQ is split into the following sections:
 ## Password Writeback
  - **Q:  How does Password Writeback work behind the scenes?**
  
- > **A:** See [How Password Writeback works](active-directory-passwords-learn-more.md#how-password-writeback-works) for a detailed explanation of what happens when you enable Password Writeback, as well as how data flows through the system back into your on-premises environment. See [Password Writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-mode) in How Password Writeback works to learn how we ensure Password Writeback is a highly secure service.
+ > **A:** See [How Password Writeback works](active-directory-passwords-learn-more.md#how-password-writeback-works) for a detailed explanation of what happens when you enable Password Writeback, as well as how data flows through the system back into your on-premises environment. See [Password Writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model) in How Password Writeback works to learn how we ensure Password Writeback is a highly secure service.
 
  - **Q:  How long does Password Writeback take to work?  Is there a synchronization delay like with password hash sync?**
  
