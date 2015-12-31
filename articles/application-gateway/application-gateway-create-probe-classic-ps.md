@@ -153,7 +153,7 @@ Edit the values between the parentheses for the configuration items. Save the fi
 
 The following example shows how to use a configuration file to set up the application gateway to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses by using a custom probe.
 
->[AZURE.IMPORTANT] The protocol item HTTP or HTTPS is case-sensitive.
+>[AZURE.IMPORTANT] The protocol item Http or Https is case-sensitive.
 
 
 A new configuration item <Probe> is added to configure custom probes.

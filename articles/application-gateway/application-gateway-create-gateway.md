@@ -47,7 +47,7 @@ The values are:
 - **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
 - **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-- **Listener:** The listener has a front-end port, a protocol (HTTP or HTTPS, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+- **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 - **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 
@@ -160,7 +160,7 @@ Copy the following text to Notepad.
 
 Edit the values between the parentheses for the configuration items. Save the file with extension .xml.
 
->[AZURE.IMPORTANT] The protocol item HTTP or HTTPS is case-sensitive.
+>[AZURE.IMPORTANT] The protocol item Http or Https is case-sensitive.
 
 The following example shows how to use a configuration file to set up the application gateway to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses.
 
