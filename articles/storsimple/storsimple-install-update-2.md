@@ -66,7 +66,7 @@ After you have successfully completed these manual pre-checks, you can proceed t
 
 This is the recommended procedure to update your device. Perform the following steps.
 
-[AZURE.INCLUDE [storsimple-install-update-via-portal](../../includes/storsimple-install-update-via-portal.md)]
+[AZURE.INCLUDE [storsimple-install-update-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
 ## Install Update 2 as a hotfix 
 

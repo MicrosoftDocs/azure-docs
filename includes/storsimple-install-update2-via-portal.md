@@ -6,7 +6,7 @@
 
 2. At the bottom of the page, click **Scan Updates**. A job will be created to scan for available updates. You will be notified when the job has completed successfully.
 
-3. In the **Software Updates** section on the same page, you will see that new software updates are available. We recommend that you review the release notes before you apply Update 1.2 on your device.
+3. In the **Software Updates** section on the same page, you will see that new software updates are available. We recommend that you review the release notes before you apply Update 2 on your device.
 
     ![Install software updates](./media/storsimple-install-update2-via-portal/InstallUpdate12_11M.png)
 
@@ -38,7 +38,7 @@
 
    	 ![Pre-check failed](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
-	> [AZURE.NOTE] After you have applied Update 1.2 on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required.
+	> [AZURE.NOTE] If you are updating from a pre-Update 1 software, after you have applied Update 2 on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required. If you updated from Update 1 or later, the DATA2/DATA3 and geateway pre-checks are not performed.
 
 
 8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
