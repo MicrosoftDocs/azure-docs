@@ -418,7 +418,7 @@ Your autoscale formulas are going to be growing and shrinking - adding nodes to 
 
 To do so, use `GetSample(interval look-back start, interval look-back end)` to return a **vector** of samples:
 
-`runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 11 * TimeInterval_Minute);`
+`runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);`
 
 When the above line is evaluated by Batch, it will return a range of samples as a vector of values, for example:
 
