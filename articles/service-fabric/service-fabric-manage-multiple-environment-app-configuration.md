@@ -16,7 +16,7 @@
    ms.date="11/25/2015"
    ms.author="seanmck"/>
 
-# Managing application parameters for multiple environments
+# Manage application parameters for multiple environments
 
 You can create Azure Service Fabric clusters by using anywhere from one to many thousands of machines. While application binaries can run without modification across this wide spectrum of environments, you will often want to configure the application differently, depending on the number of machines you're deploying to.
 
