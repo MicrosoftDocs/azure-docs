@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015"    
+	ms.date="12/05/2015"    
 	ms.author="juliako"/>
 
 #Troubleshooting live streaming guide
@@ -65,7 +65,7 @@ This section gives suggestions on how to troubleshoot problems related to on-pre
 
 	**Troubleshooting steps**: Navigate to the "Streaming Endpoint" tab in the AMSE tool, and confirm there is a Streaming Endpoint running with one streaming unit. 
 	
->[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Management Portal.
+>[AZURE.NOTE] If after following the troubleshooting steps you still cannot successfully stream, submit a support ticket using the Azure Classic Portal.
 
 ##Media Services learning paths
 

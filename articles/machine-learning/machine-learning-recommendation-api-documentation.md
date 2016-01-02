@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="12/10/2015" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
@@ -26,37 +26,22 @@ This document depicts Microsoft Azure Machine Learning Recommendations APIs.
 ##1. General overview
 This document is an API reference. You should start with the “Azure Machine Learning Recommendation – Quick Start” document.
 
-The Azure Machine Learning Recommendations API can be divided into 10 logical groups:
+The Azure Machine Learning Recommendations API can be divided into the following logical groups:
 
-1.	<ins>Model Basic</ins> – APIs that enable you to do the basic operations on model (e.g. create, update and delete a model).
-2.	<ins>Model Advanced</ins> – APIs that enable you to get advanced data insights on the model.
-3.	<ins>Model Business Rules</ins> – APIs that enable you to manage business rules on the model recommendation results.
-4.	<ins>Catalog</ins> – APIs that enable you to do basic operations on a model catalog. A catalog contains metadata information on the items of the usage data.
-5.	<ins>Feature</ins> - APIs that enable to get insights on item into the catalog and how to use this information to build better recommendations.
-6.	<ins>Usage Data</ins> – APIs that enable you to do basic operations on the model usage data. Usage data in the basic form consists of rows that include pairs of &#60;userId&#62;,&#60;itemId&#62;.
-7.	<ins>Build</ins> – APIs that enable you to trigger a model build and do basic operations that are related to this build. You can trigger a model build once you have valuable usage data.
-8.	<ins>Recommendation</ins> – APIs that enable you to consume recommendations once the build of a model ends.
-9.	<ins>User Data</ins> - APIs that enable you to fetch information on the user usage data.
-10.	<ins>Notifications</ins> – APIs that enable you to receive notifications on problems related to your API operations. (For example, you are reporting usage data via Data Acquisition and most of the events processing are failing. An error notification will be raised.)
+- <ins>Limitations</ins> - Recommendations API limitations.
+- <ins>General Information</ins> - Information on authentication, service URI and versioning.
+- <ins>Model Basic</ins> – APIs that enable you to do the basic operations on model (e.g. create, update and delete a model).
+- <ins>Model Advanced</ins> – APIs that enable you to get advanced data insights on the model.
+- <ins>Model Business Rules</ins> – APIs that enable you to manage business rules on the model recommendation results.
+- <ins>Catalog</ins> – APIs that enable you to do basic operations on a model catalog. A catalog contains metadata information on the items of the usage data.
+- <ins>Feature</ins> - APIs that enable to get insights on item into the catalog and how to use this information to build better recommendations.
+- <ins>Usage Data</ins> – APIs that enable you to do basic operations on the model usage data. Usage data in the basic form consists of rows that include pairs of &#60;userId&#62;,&#60;itemId&#62;.
+- <ins>Build</ins> – APIs that enable you to trigger a model build and do basic operations that are related to this build. You can trigger a model build once you have valuable usage data.
+- <ins>Recommendation</ins> – APIs that enable you to consume recommendations once the build of a model ends.
+- <ins>User Data</ins> - APIs that enable you to fetch information on the user usage data.
+- <ins>Notifications</ins> – APIs that enable you to receive notifications on problems related to your API operations. (For example, you are reporting usage data via Data Acquisition and most of the events processing are failing. An error notification will be raised.)
 
-##2. Advanced topics
-
-###2.1. Recommendation quality
-
-Creating a recommendation model is usually enough to allow the system to provide recommendations. Nevertheless, recommendation quality varies based on the usage processed and the coverage of the catalog. For example if you have a lot of cold items (items without significant usage), the system will have difficulties providing a recommendation for such an item or using such an item as a recommended one. In order to overcome the cold item problem, the system allows the use of metadata of the items to enhance the recommendations. This metadata is referred to as features. Typical features are a book's author or a movie's actor. Features are provided via the catalog in the form of key/value strings. For the full format of the catalog file, please refer to the [import catalog section](#81-import-catalog-data). The following section explains the usage of features to enhance the recommendation model.
-
-###2.2. Rank build
-
-Features can enhance the recommendation model, but to do so requires the use of meaningful features. For this purpose a new build was introduced - a rank build. This build will rank the usefulness of features. A meaningful feature is a feature with a rank score of 2 and up.
-After understanding which of the features are meaningful, trigger a recommendation build with the list (or sublist) of meaningful features. It is possible to use these feature for the enhancement of both warm items and cold items. In order to use them for warm items, the `UseFeatureInModel` build parameter should be set up. In order to use features for cold items, the `AllowColdItemPlacement` build parameter should be enabled.
-Note: It is not possible to enable `AllowColdItemPlacement` without enabling `UseFeatureInModel`.
-
-###2.3. Recommendation reasoning
-
-Recommendation reasoning is another aspect of feature usage. Indeed, the Azure Machine Learning Recommendations engine can use features to provide recommendation explanations (a.k.a. reasoning), leading to more confidence in the recommended item from the recommendation consumer.
-To enable reasoning, the `AllowFeatureCorrelation` and `ReasoningFeatureList` parameters should be setup prior to requesting a recommendation build.
-
-##3. Limitations
+##2. Limitations
 
 - The maximum number of models per subscription is 10.
 - The maximum number of items that a catalog can hold is 100,000.
@@ -64,21 +49,39 @@ To enable reasoning, the `AllowFeatureCorrelation` and `ReasoningFeatureList` pa
 - The maximum size of data that can be sent in POST (e.g. import catalog data, import usage data) is 200MB.
 - The number of transactions per second for a recommendation model build that is not active is ~2TPS. A recommendation model build that is active can hold up to 20TPS.
 
-##4. APIs - general information
+##3. APIs - general information
 
-###4.1. Authentication
+###3.1. Authentication
 Please follow the Microsoft Azure Marketplace guidelines regarding authentication. The marketplace supports either the Basic or OAuth authentication method.
 
-###4.2. Service URI
+###3.2. Service URI
 The service root URI for the Azure Machine Learning Recommendations APIs is [here.](https://api.datamarket.azure.com/amla/recommendations/v3/)
 
 The full service URI is expressed using elements of the OData specification.  
 
-###4.3. API version
+###3.3. API version
 Each API call will have, at the end, a query parameter called apiVersion that should be set to 1.0.
 
-###4.4. IDs are case sensitive
+###3.4. IDs are case sensitive
 IDs, returned by any of the APIs, are case sensitive and should be used as such when passed as parameters in subsequent API calls. For instance, model IDs and catalog IDs are case sensitive.
+
+##4. Recommendations Quality and Cold Items
+
+###4.1. Recommendation quality
+
+Creating a recommendation model is usually enough to allow the system to provide recommendations. Nevertheless, recommendation quality varies based on the usage processed and the coverage of the catalog. For example if you have a lot of cold items (items without significant usage), the system will have difficulties providing a recommendation for such an item or using such an item as a recommended one. In order to overcome the cold item problem, the system allows the use of metadata of the items to enhance the recommendations. This metadata is referred to as features. Typical features are a book's author or a movie's actor. Features are provided via the catalog in the form of key/value strings. For the full format of the catalog file, please refer to the [import catalog section](#81-import-catalog-data). 
+
+###4.2. Rank build
+
+Features can enhance the recommendation model, but to do so requires the use of meaningful features. For this purpose a new build was introduced - a rank build. This build will rank the usefulness of features. A meaningful feature is a feature with a rank score of 2 and up.
+After understanding which of the features are meaningful, trigger a recommendation build with the list (or sublist) of meaningful features. It is possible to use these feature for the enhancement of both warm items and cold items. In order to use them for warm items, the `UseFeatureInModel` build parameter should be set up. In order to use features for cold items, the `AllowColdItemPlacement` build parameter should be enabled.
+Note: It is not possible to enable `AllowColdItemPlacement` without enabling `UseFeatureInModel`.
+
+###4.3. Recommendation reasoning
+
+Recommendation reasoning is another aspect of feature usage. Indeed, the Azure Machine Learning Recommendations engine can use features to provide recommendation explanations (a.k.a. reasoning), leading to more confidence in the recommended item from the recommendation consumer.
+To enable reasoning, the `AllowFeatureCorrelation` and `ReasoningFeatureList` parameters should be setup prior to requesting a recommendation build.
+
 
 ##5. Model Basic
 
@@ -798,12 +801,17 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
+
+
+
 ##7. Model Business Rules
-There are 4 types of rules:
-<strong>BlockList</strong> - BlockList enables you to provide a list of items that you do not want to return in the recommendation results.
-<strong>Upsale</strong> - Upsale enables you to enforce items to return in the recommendation results.
-<strong>WhiteList</strong> - White List enables you to provide list of items that only them can be return as recommendation results (opposite of BlockList).
-<strong>PerSeedBlockList</strong> - Per Seed Block List enables you to provide per item a list of items that cannot be returned as recommendation results.
+These are the types of rules supported:
+- <strong>BlockList</strong> - BlockList enables you to provide a list of items that you do not want to return in the recommendation results.
+- <strong>FeatureBlockList</strong> - Feature BlockList enables you to block items based on the values of its features.
+- <strong>Upsale</strong> - Upsale enables you to enforce items to return in the recommendation results.
+- <strong>WhiteList</strong> - White List enables you to only suggest recommendations from a list of items.
+- <strong>FeatureWhiteList</strong> - Feature White List enables you to only recommend items that have specific feature values.
+- <strong>PerSeedBlockList</strong> - Per Seed Block List enables you to provide per item a list of items that cannot be returned as recommendation results.
 
 
 ###7.1.	Get Model Rules
@@ -877,7 +885,18 @@ OData XML
 |||
 | Request Body | 
 <ins>Whenever providing Item Ids for business rules, make sure to use the External Id of the item (the same Id that you used in the catalog file)</ins><br>
-<ins>For adding BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>For adding Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>For adding WhiteList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>For adding PerSeedBlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>To add a BlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>To add a FeatureBlockList rule:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins>
+To add an Upsale rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br>
+<ins>To add a WhiteList rule:</ins><br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>To add a FeatureWhiteList rule:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins>
+To add a PerSeedBlockList rule:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+
 
 **Response**:
 
@@ -970,7 +989,7 @@ Note: The maximum file size is 200MB.
 | Item Name | Yes | Any alphanumeric characters<br> Max length: 255 | Item name. | 
 | Item Category | Yes | Any alphanumeric characters <br> Max length: 255 | Category to which this item belongs (e.g. Cooking Books, Drama…); can be empty. |
 | Description | No, unless features are present (but can be empty) | Any alphanumeric characters <br> Max length: 4000 | Description of this item. |
-| Features list | No | Any alphanumeric characters <br> Max length: 4000 | Comma-separated list of feature name=feature value that can be used to enhance model recommendation; see [Advanced topics](#2-advanced-topics) section. |
+| Features list | No | Any alphanumeric characters <br> Max length: 4000; Max number of features:20 | Comma-separated list of feature name=feature value that can be used to enhance model recommendation; see [Advanced topics](#2-advanced-topics) section. |
 
 
 | HTTP Method | URI |
@@ -1868,6 +1887,8 @@ The table below depicts the build parameters for recommendation build.
 |FbtSupportThreshold | How conservative the model is. Number of co-occurrences of items to be considered for modeling.| Integer | 3-50 (6) |
 |FbtMaxItemSetSize | Bounds the number of items in a frequent set.| Integer | 2-3 (2) |
 |FbtMinimalScore | Minimal score that a frequent set should have in order to be included in the returned results. The higher the better.| Double | 0 and above (0) |
+|FbtSimilarityFunction | Defines the similarity function to be used by the build. Lift favors serendipity, Co-occurrence favors predictability, and Jaccard is a nice compromise between the two. | String | cooccurrence, lift, jaccard (lift) |
+
 
 ###11.2. Trigger a Recommendation Build
 
@@ -2818,7 +2839,7 @@ Notes:
 
 | HTTP Method | URI |
 |:--------|:--------|
-|GET     |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+|GET     |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemsIds=%27<itemsIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>Example:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemsIds=%271003%2C1000%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
 
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|

@@ -18,16 +18,16 @@
 
 # Simulate failures during service workloads
 
-The scenarios shipping with Testability enable developers to not worry about dealing with individual faults. There are scenarios however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults, ensures that the service is actually performing some action when failure happens. Given the level of control testability provides these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.
+The testability scenarios in Azure Service Fabric enable developers to not worry about dealing with individual faults. There are scenarios, however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults ensures that the service is actually performing some action when failure happens. Given the level of control that testability provides, these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.
 
 ## Sample custom scenario
-This test shows a scenario where the interleaving of business workload with [graceful and ungraceful failures](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). The faults should be induced while in the middle of service operations or compute for best results.
+This test shows a scenario that interleaves the business workload with [graceful and ungraceful failures](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). The faults should be induced in the middle of service operations or compute for best results.
 
-Lets walk through an example of a serice that exposes four workloads A, B, C and D. Each corresponds to a set of workflows and could be compute, storage or a mix. For the sake of simplicity we will abstract out the workloads in our example. The different faults executed in this example are.
-  + RestartNode: Ungraceful fault to simulate a machine restart
-  + RestartDeployedCodePackage: Ungraceful fault to simulate service host process crashes
-  + RemoveReplica: Graceful fault to simulate replica removal
-  + MovePrimary: Graceful fault to simulate replica moves triggered by Service Fabric Load Balancer
+Let's walk through an example of a service that exposes four workloads: A, B, C, and D. Each corresponds to a set of workflows and could be compute, storage, or a mix. For the sake of simplicity, we will abstract out the workloads in our example. The different faults executed in this example are:
+  + RestartNode: Ungraceful fault to simulate a machine restart.
+  + RestartDeployedCodePackage: Ungraceful fault to simulate service host process crashes.
+  + RemoveReplica: Graceful fault to simulate replica removal.
+  + MovePrimary: Graceful fault to simulate replica moves triggered by the Service Fabric load balancer.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -43,7 +43,7 @@ class Test
 {
     public static int Main(string[] args)
     {
-        // Replace these strings with the actual version for your cluster and appliction.
+        // Replace these strings with the actual version for your cluster and application.
         string clusterConnection = "localhost:19000";
         Uri applicationName = new Uri("fabric:/samples/PersistentToDoListApp");
         Uri serviceName = new Uri("fabric:/samples/PersistentToDoListApp/PersistentToDoListService");
@@ -88,33 +88,33 @@ class Test
 
     public static async Task RunTestAsync(string clusterConnection, Uri applicationName, Uri serviceName)
     {
-        // Create FabricClient with connection & security information here.
+        // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
-        // Maximum time to wait for a service to stabilize
+        // Maximum time to wait for a service to stabilize.
         TimeSpan maxServiceStabilizationTime = TimeSpan.FromSeconds(120);
 
-        // How many loops of faults you want to execute
+        // How many loops of faults you want to execute.
         uint testLoopCount = 20;
         Random random = new Random();
 
         for (var i = 0; i < testLoopCount; ++i)
         {
             var workload = SelectRandomValue<ServiceWorkloads>(random);
-            // Start workload and while it is running go and induce some fault
+            // Start the workload.
             var workloadTask = RunWorkloadAsync(workload);
 
-            // While task is executing induce faults into the service. It can be ungraceful faults like
-            // RestartNode and RestartDeployedCodePackage or graceful faults like RemoveReplica or MovePrimary
+            // While the task is running, induce faults into the service. They can be ungraceful faults like
+            // RestartNode and RestartDeployedCodePackage or graceful faults like RemoveReplica or MovePrimary.
             var fault = SelectRandomValue<ServiceFabricFaults>(random);
 
-            // Create a replica selector which will select a Primary replica from the given service to test
+            // Create a replica selector, which will select a primary replica from the given service to test.
             var replicaSelector = ReplicaSelector.PrimaryOf(PartitionSelector.RandomOf(serviceName));
-            // Run the selected random fault
+            // Run the selected random fault.
             await RunFaultAsync(applicationName, fault, replicaSelector, fabricClient);
             // Validate the health and stability of the service.
             await fabricClient.ServiceManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
 
-            // Wait for the workload to complete successfully
+            // Wait for the workload to finish successfully.
             await workloadTask;
         }
     }
@@ -141,10 +141,10 @@ class Test
     private static Task RunWorkloadAsync(ServiceWorkloads workload)
     {
         throw new NotImplementedException();
-        // This is where you trigger and complete your service workload
-        // Please note the faults induced while your service workload is running will
-        // fault the Primary service hence you will need to reconnect to complete or check
-        // the status of the workload
+        // This is where you trigger and complete your service workload.
+        // Note that the faults induced while your service workload is running will
+        // fault the primary service. Hence, you will need to reconnect to complete or check
+        // the status of the workload.
     }
 
     private static T SelectRandomValue<T>(Random random)
@@ -155,4 +155,3 @@ class Test
     }
 }
 ```
- 

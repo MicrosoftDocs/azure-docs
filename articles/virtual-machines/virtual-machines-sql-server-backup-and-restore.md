@@ -14,17 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/05/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Backup and Restore for SQL Server in Azure Virtual Machines
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
-
-
 ## Overview
 
 Backing up data in SQL Server databases is an important part of the strategy in protecting against data loss due to application or user errors. This is equally true for SQL Server running on Azure Virtual Machines (VMs).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 For SQL Server running in Azure VMs, you can use native backup and restore techniques using attached disks for the destination of the backup files. However, there is a limit to the number of disks you can attach to an Azure virtual machine, based on the [size of the virtual machine](virtual-machines-size-specs.md). There is also the overhead of disk management to consider.
 
@@ -42,11 +41,11 @@ The reasons for the performing database backups and the underlying backup techno
 
 - You still need to perform database backups to provide protection against user errors, or for archival purposes, regulatory reasons, or administrative purposes.
 
-- You can perform nearly instantaneous backups and rapid restores using the SQL Server File-Snapshot Backup feature in Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2). For more information, see [File-Snapshot Backups for Database Files in Azure](https://msdn.microsoft.com/library/mt169363.aspx).
+- You can perform nearly instantaneous backups and rapid restores using the SQL Server File-Snapshot Backup feature in Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3). For more information, see [File-Snapshot Backups for Database Files in Azure](https://msdn.microsoft.com/library/mt169363.aspx).
 
-## Backup and Restore in Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2)
+## Backup and Restore in Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3)
 
-Microsoft SQL Server 2016 Community Technology Preview 2 (CTP2) supports the [backup and restore with Azure blobs](https://msdn.microsoft.com/library/jj919148.aspx) features found in SQL Server 2014 and described below. But it also includes the following enhancements:
+Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3) supports the [backup and restore with Azure blobs](https://msdn.microsoft.com/library/jj919148.aspx) features found in SQL Server 2014 and described below. But it also includes the following enhancements:
 
 - **Striping**: When backing up to Microsoft Azure blob storage, SQL Server 2016 supports backing up to multiple blobs to enable backing up large databases, up to a maximum of 12.8 TB.
 

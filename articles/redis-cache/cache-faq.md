@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -27,9 +27,9 @@ Each Azure Redis Cache offering provides different levels of **size**, **bandwid
 The following are considerations for choosing a Cache offering.
 
 -	**Memory**: The Basic and Standard tiers offer 250 MB – 53 GB. The Premium tier offers up to 530 GB with more available [on request](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). For more information see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/).
--	**Network Performance**: If you have a workload that requires high throughput the Premium tier offers more bandwidth compared to Standard or Basic. Also within each tier larger sizes caches have more bandwidth because of the underlying VM that hosts the cache. Please see the following table for more information.
+-	**Network Performance**: If you have a workload that requires high throughput the Premium tier offers more bandwidth compared to Standard or Basic. Also within each tier larger sizes caches have more bandwidth because of the underlying VM that hosts the cache. Please see the [following table](#cache-performance) for more information.
 -	**Throughput**: The Premium tier offers the maximum available throughput. If the cache server or client reaches the bandwidth limits, you will receive timeouts on the client side. Please see the following table for more information.
--	**High Availability/SLA**: Azure Redis Cache guarantees that a Standard/Premium (no SLA for Premium until after the preview period) cache will be available at least 99.9% of the time. To learn more about our SLA,  see [Azure Redis Cache Pricing](https://azure.microsoft.com/pricing/details/cache/). The SLA only covers connectivity to the Cache endpoints. The SLA does not cover protection from data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss.
+-	**High Availability/SLA**: Azure Redis Cache guarantees that a Standard/Premium cache will be available at least 99.9% of the time. To learn more about our SLA,  see [Azure Redis Cache Pricing](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). The SLA only covers connectivity to the Cache endpoints. The SLA does not cover protection from data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss.
 -	**Redis Data Persistence**: The Premium tier allows you to persist the cache data in an Azure Storage account. In a Basic/Standard cache all the data is stored only in memory. In case of underlying infrastructure issues there can be potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Redis Cache offers RDB and AOF (coming soon) options in Redis persistence. For more information, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md).
 -	**Redis Cluster**: If you want to create caches larger than 53 GB or want to shard data across multiple Redis nodes, you can use Redis clustering which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 -	**Enhanced security and network isolation**: Azure Virtual Network (VNET) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
@@ -39,6 +39,7 @@ The following are considerations for choosing a Cache offering.
 -	**Redis is single-threaded** so having more than two cores does not provide additional benefit over having just two cores, but larger VM sizes typically have more bandwidth than smaller sizes. If the cache server or client reaches the bandwidth limits, then you will receive timeouts on the client side.
 -	**Performance improvements**: Caches in the Premium tier are deployed on hardware which have faster processors and gives better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies.
 
+<a name="cache-performance"></a>
 The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. Note that these values are not guaranteed and there is no SLA for these numbers, but should be typical. You should load test your own application to determine the right cache size for your application.
 
 From this table we can draw the following conclusions.
@@ -47,9 +48,9 @@ From this table we can draw the following conclusions.
 -	With Redis clustering, throughput increases linearly as you increase the number of shards (nodes) in the cluster. Eg. If you create a P4 cluster of 10 shards, then the available throughput is 250K *10 = 2.5 Million RPS
 -	Throughput for bigger key sizes is higher in Premium tier as compared to Standard Tier.
 
-| Pricing tier         | Size   | Available bandwidth (Mbps) | 1 KB Key size                  |
+| Pricing tier         | Size   | Available bandwidth        | 1 KB Key size                  |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Standard cache sizes** | &nbsp;       |      &nbsp;                      | **Requests per second (RPS)**            |
+| **Standard cache sizes** | &nbsp;       |**Megabits per second (Mbps)** | **Requests per second (RPS)**            |
 | C0                   | 250 MB | 5                          | 600                            |
 | C1                   | 1 GB   | 100                        | 12200                          |
 | C2                   | 2.5 GB | 200                        | 24000                          |
@@ -84,7 +85,7 @@ Timeouts happen in the client that you use to talk to Redis. For the most part R
 <a name="cache-monitor"></a>
 ## How do I monitor the health and performance of my cache?
 
-Microsoft Azure Redis Cache instances can be monitored in the [Azure preview portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information on monitoring your caches, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
+Microsoft Azure Redis Cache instances can be monitored in the [Azure Portal](https://portal.azure.com). You can view metrics, pin metrics charts to the Startboard, customize the date and time range of monitoring charts, add and remove metrics from the charts, and set alerts when certain conditions are met. These tools enable you to monitor the health of your Azure Redis Cache instances and help you manage your caching applications. For more information on monitoring your caches, see [Monitor Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn763945.aspx).
 
 <a name="cache-disconnect"></a>
 ## Why was my client disconnected from the cache?
@@ -157,7 +158,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 <a name="cache-benchmarking"></a>
 ## How can I benchmark and test the performance of my cache?
 
--	[Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache. You can view the metrics in the preview portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
+-	[Enable cache diagnostics](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) so you can [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) the health of your cache. You can view the metrics in the Azure Portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
 -	You can use redis-benchmark.exe to load test your Redis server.
 	-	Ensure that the load testing client and the Redis cache are in the same region.
 -	Use redis-cli.exe and monitor the cache using the INFO command.
@@ -169,7 +170,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 You can use any of the commands listed at [Redis commands](http://redis.io/commands#) except for the commands listed at [Redis commands not supported in Azure Redis Cache](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). To run Redis commands you have several options.
 
--	If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the preview portal.
+-	If you have a Standard or Premium cache, you can run Redis commands using the [Redis Console](cache-configure.md#redis-console). This provides a secure way to run Redis commands in the Azure Portal.
 -	You can also use the Redis command line tools. To use them, perform the following steps.
 	-	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
 	-	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
@@ -189,7 +190,7 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 
 Microsoft Azure Redis Cache is based on the popular open source Redis Cache, giving you access to a secure, dedicated Redis cache, managed by Microsoft. A variety of [Redis clients](http://redis.io/clients) are available for many programming languages. Each client has its own API that makes calls to the Redis cache instance using [Redis commands](http://redis.io/commands).
 
-Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials on Azure.com showing how to get started with Azure Redis Cache using different languages and cache clients on the [Redis Cache documentation](http://azure.microsoft.com/documentatgion/services/redis-cache/) page.
+Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials on Azure.com showing how to get started with Azure Redis Cache using different languages and cache clients on the [Redis Cache documentation](http://azure.microsoft.com/documentation/services/redis-cache/) page.
 
 
 ## Which Azure Cache offering is right for me?
@@ -202,9 +203,20 @@ Azure Cache currently has three offerings:
 -	Azure Managed Cache service
 -	Azure In-Role Cache
 
+>[AZURE.IMPORTANT]We’re announcing the November 30, 2016, retirement for Azure Managed Cache Service and Azure In-Role Cache. We recommend that you migrate to Azure Redis Cache in preparation for this retirement. 
+>
+>Azure Redis Cache has been the recommended caching solution in Azure since the service became generally available, and it’s is now available in all Azure regions, including China and US Government. Because of this availability, we’re announcing the upcoming retirement for Managed Cache Service and In-Role Cache service. 
+>
+>Managed Cache Service and In-Role Cache service will remain available for existing customers for a maximum of 12 months from the date of this announcement on November 30, 2015—the end of service date for both will end on November 30, 2016. After this date, Managed Cache Service will be shut down, and In-Role Cache service will no longer be supported. 
+>
+>We’ll remove support for creating new in-role caches in the first Azure SDK release that happens after February 1, 2016. Customers will be able to open existing projects that have in-role caches. 
+>
+>During this period, we encourage all existing Managed Cache Service and In-Role Cache service customers to migrate to Azure Redis Cache. Azure Redis Cache provides more features and a better value overall. For more information on migrating, please visit the [Migrate from Managed Cache Service to Azure Redis Cache](cache-migrate-to-redis.md) documentation webpage. 
+>
+>If you have any questions, please [contact us](https://azure.microsoft.com/support/options/?WT.mc_id=azurebg_email_Trans_933). 
 
 ### Azure Redis Cache
-Azure Redis Cache is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier.md) is in preview and offers sizes up to 530 GB and support for clustering, VNET, and persistence.
+Azure Redis Cache is Generally Available in sizes up to 53 GB and has an availability SLA of 99.9%. The new [premium tier](cache-premium-tier.md) offers sizes up to 530 GB and support for clustering, VNET, and persistence, with a 99.9% SLA.
 
 Azure Redis Cache gives customers the ability to use a secure, dedicated Redis cache, managed by Microsoft. With this offer, you get to leverage the rich feature set and ecosystem provided by Redis, and reliable hosting and monitoring from Microsoft.
 
@@ -215,7 +227,7 @@ Another key aspect to Redis success is the healthy, vibrant open source ecosyste
 For more information about getting started with Azure Redis Cache, see [How to Use Azure Redis Cache](cache-dotnet-how-to-use-azure-redis-cache.md) and [Azure Redis Cache documentation](https://azure.microsoft.com/documentation/services/redis-cache/).
 
 ### Managed Cache service
-If you are an existing Azure Managed Cache Service customer, you can continue using the existing service or choose to migrate to Azure Redis Cache to leverage its rich feature set. Azure Managed Cache Service is also Generally Available and also offers an availability SLA of 99.9%.
+Managed Cache service is set to be retired November 30, 2016.
 
 ### In-Role Cache
-If you are self-hosting cache using In-Role Cache, you can continue to do so as well. Because In-Role Cache is a self-hosted software component and not a Microsoft hosted service, it does not offer any SLA. In-Role Cache users can choose to migrate to Azure Redis Cache to leverage its rich feature set and get an SLA.
+In-Role Cache is set to be retired November 30, 2016.

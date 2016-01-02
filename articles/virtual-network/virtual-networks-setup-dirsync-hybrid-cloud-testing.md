@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/11/2015" 
 	ms.author="josephd"/>
 
 # Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing
@@ -32,11 +32,11 @@ This configuration simulates a DirSync server in Azure production environment fr
 - A cross-premises virtual network hosted in Azure (TestVNET).
 - A site-to-site VPN connection.
 - An Office 365 FastTrack trial subscription.
-- A DirSync server and secondary domain controller in the TestVNET virtual network.
+- A DirSync server running the Azure AD Connect tool and a secondary domain controller in the TestVNET virtual network.
 
 This configuration provides a basis and common starting point from which you can:
 
-- Develop and test applications for Office 365 that rely on synchronization with an on-premises Active Directory domain using password sync.
+- Develop and test applications for Office 365 that rely on synchronization with an on-premises Active Directory domain using password synchronization.
 - Perform testing of this cloud-based IT workload.
 
 There are three major phases to setting up this hybrid cloud test environment:
@@ -59,22 +59,21 @@ This is your current configuration.
 
 ## Phase 2: Configure the Office 365 FastTrack Trial
 
-To start your Office 365 FastTrack trial, you need a fictitious company name and a Microsoft account. We recommend that you use a variant of the company name Contoso for your company name, which is a fictitious company used in Microsoft sample content, but this isnâ€™t required.
+To start your Office 365 FastTrack trial, you need a fictitious company name and a Microsoft account. We recommend that you use a variant of the company name Contoso for your company name, which is a fictitious company used in Microsoft sample content, but this isn't required.
 
 Next, sign up for a new Microsoft account. Go to **http://outlook.com** and create an account with an email address like user123@outlook.com. You will sign up for an Office 365 FastTrack trial using this account.
 
-Next, sign up for a new Office 365 FastTrack trial.
+Next, sign up for a new Office 365 Enterprise E3 trial.
 
 1.	Log on to CLIENT1 with the CORP\User1 account credentials.
-2.	Open Internet Explorer and go to **http://fasttrack.office.com**.
-3.	Click **Getting started with FastTrack**.
-4.	On the Getting Started with FastTrack page, under **First, sign up for an Office 365 trial**, click **For enterprises, sign up here**.
-5.	On the Step 1 page, fill in the page, specifying your new Microsoft account in **Business email address**, and then click **Next**.
-6.	On the Step 2 page, type the name of an initial Office 365 account in the first field, your fictitious company name, and then a password. Record the resulting email address (such as user123@contoso123.onmicrosoft.com) and the password in a secure location. You will need this information to complete the Active Directory Sync tool Configuration Wizard in Phase 3. Click **Next**.
-7.	On the Step 3 page, type the phone number of your text message-capable cellular or smart phone, and then click **Text me**.
-8.	After you receive the text message on your phone, type the verification code, and then click **Create my account**. 
-9.	When Office 365 is done creating your account, click **You're ready to go**.
-10.	You should now see the main Office 365 portal page. In the top ribbon, click **Admin**, and then click **Office 365**. The Office 365 admin center page appears. Keep this page open on CLIENT1.
+2.	Open Internet Explorer and go to **https://go.microsoft.com/fwlink/p/?LinkID=403802**.
+3.	Step through the process of signing up for the Office 365 Enterprise E3 trial.
+
+When prompted for the **Business email address**, specify your new Microsoft account.
+
+When prompted to create an ID, type the name of an initial Office 365 account, your fictitious company name, and then a password. Record the resulting email address (such as user123@contoso123.onmicrosoft.com) and the password in a secure location. You will need this information to complete the Azure AD Connect configuration in Phase 3.
+
+When complete, you you should see the main Office 365 portal page. In the top ribbon, click **Admin**, and then click **Office 365**. The Office 365 admin center page appears. Keep this page open on CLIENT1.
 
 This is your current configuration.
 
@@ -82,16 +81,16 @@ This is your current configuration.
 
 ## Phase 3: Configure the DirSync server (DS1)
 
-First, create an Azure Virtual Machine for DS1 with these commands at the Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
+First, create an Azure virtual machine for DS1 with these commands at the Azure PowerShell command prompt on your local computer. Prior to running these commands, fill in the variable values and remove the < and > characters.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential â€“Message "Type the name and password of the local administrator account for DS1."
-	$cred2=Get-Credential â€“UserName "CORP\User1" â€“Message "Now type the password for the CORP\User1 account."
+	$cred1=Get-Credential -Message "Type the name and password of the local administrator account for DS1."
+	$cred2=Get-Credential -UserName "CORP\User1" -Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM â€“ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 Next, connect to the DS1 virtual machine.
 
@@ -115,16 +114,6 @@ Next, install .NET 3.5 on DS1 with this command at the Windows PowerShell comman
 
 	Add-WindowsFeature NET-Framework-Core
 
-Next, install Directory Sync on DS1.
-
-1.	Run Internet Explorer, type **http://go.microsoft.com/fwlink/?LinkID=278924** in the Address bar, and then press ENTER. When prompted to run dirsync.exe, click the arrow next to **Save**, click **Save As**, and then click **Save** to save the file in the Downloads folder. For more information about installing the tool, see [Install or upgrade the Directory Sync tool](http://technet.microsoft.com/library/jj151800).
-2.	Open the **Downloads** folder, right-click the **dirsync** file, and then click **Run as administrator**.
-3.	On the Welcome page of the Active Directory Sync Setup wizard, click **Next**. 
-4.	On the License Terms page, click **I accept**, and then click **Next**.
-5.	On the Select Folder Installation page, click **Next**. It may take a several minutes to complete the installation.
-6.	On the Finished page, clear **Start Configuration Wizard now**, and then click **Finish**.
-7.	From the Start screen, click **user1**, and then click **Sign out**.
-
 Next, enable Directory Synchronization for your Office 365 FastTrack trial.
 
 1.	On CLIENT1, on the **Office 365 admin center** page, in the left pane, click **Users**, and then click **Active Users**.
@@ -139,22 +128,21 @@ Next, log on to DC1 with the CORP\User1 account and open an administrator-level 
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName lyndam -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Lynda Meyer" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
 
-When you run each Windows PowerShell command, you are prompted for the new userâ€™s password. Record these passwords and store them in a secure location. You will need them later.
+When you run each Windows PowerShell command, you are prompted for the new user's password. Record these passwords and store them in a secure location. You will need them later.
 
-Next, configure Directory Sync on DS1.
+Next, install and configure the Azure AD Connect tool on DS1.
 
-1.	Log in to DS1 with the CORP\User1 account.
-2.	On the **Start** screen, type **Directory Sync**.
-3.	Right-click **Directory Sync Configuration**, and then click **Run as administrator**. This starts the configuration wizard.
-4.	On the Welcome page, click **Next**.
-5.	On the Microsoft Azure Active Directory Credentials page, type the email address and password of the initial account you created when you set up the Office 365 FastTrack trial in Phase 2. Click Next. 
-6.	On the Active Directory Credentials page, type **CORP\User1** in **User name** and the User1 account password in **Password**. Click **Next**.
-7.	On the Hybrid Deployment page, select **Enable Hybrid Deployment**, and then click **Next**.
-8.	On the Password Synchronization page, select **Enable Password Sync**, and then click **Next**.
-9.	The Configuration page displays. When configuration is complete, click **Next**.
-10.	On the Finished page, click **Finish**. When prompted, click **OK**.
+1.	Run Internet Explorer, type **https://www.microsoft.com/download/details.aspx?id=47594** in the **Address** bar, and then press ENTER.
+2.	Run the Microsoft Azure AD Connect Setup program.
+3.	From the desktop, double-click **Azure AD Connect**.
+4.	On the **Welcome** page, select **I agree to the license terms and privacy notice**, and then click **Continue**.
+5.	On the **Express Settings** page, click **Use express settings**.
+6.	On the **Connect to Azure AD** page, type the email address and password of the initial account you created when you set up the Office 365 FastTrack trial in Phase 2. Click **Next**.
+7.	On the **Connect to AD DS** page, type **CORP\User1** in **Username** and the User1 account password in **Password**. Click Next.
+8.	On the **Ready to configure** page, review the settings, and then click **Install**.
+9.	On the **Configuration complete** page, click **Exit**.
 
-Next, verify that the user accounts in the CORP domain are synchronized to Office 365. Note that it can take a few hours before synchronization occurs.
+Next, verify that the user accounts in the CORP domain are synchronized to Office 365. Note that it can take a few minutes before synchronization occurs.
 
 On CLIENT1, on the **Set up and manage Active Directory synchronization** page, click the **users** link in step 6 of this page. If directory synchronization has occurred successfully, you should see something similar to this.
 
@@ -162,7 +150,7 @@ On CLIENT1, on the **Set up and manage Active Directory synchronization** page, 
 
 The **Status** column indicates that the account was obtained through synchronization with an Active Directory domain.
 
-Next, demonstrate Office 365 password sync with the Lynda Myer Active Directory account.  
+Next, demonstrate Office 365 password synchronization with the Lynda Myer Active Directory account.  
 
 1.	On CLIENT1, on the **Active Users** page, select the **Lynda Meyer** account.
 2.	In the properties of the Lynda Meyer account, under **Assigned license**, click **Edit**.
@@ -170,7 +158,7 @@ Next, demonstrate Office 365 password sync with the Lynda Myer Active Directory 
 4.	Select **Microsoft Office 365 Plan E3**, and then click **Save**.
 5.	Close Internet Explorer.
 6.	Run Internet Explorer and go to **http://portal.microsoftonline.com**. 
-7.	Log on with Lynda Meyerâ€™s Office 365 credentials. Her user name will be lyndam@<*Your Fictional Name*>.onmicrosoft.com. The password is the Lynda Meyer Active Directory user account password.
+7.	Log on with Lynda Meyer's Office 365 credentials. Her user name will be lyndam@<*Your Fictional Name*>.onmicrosoft.com. The password is the Lynda Meyer Active Directory user account password.
 8.	After the successful logon, you see the Office 365 main portal page with **Let's make a difference today**.
 
 This is your current configuration.
@@ -196,6 +184,3 @@ This environment is now ready for you to perform testing of Office 365 applicati
 [Azure hybrid cloud test environments](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
 
 [Azure infrastructure services implementation guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-
- 

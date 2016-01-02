@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/23/2015"
 	ms.author="raynew"/>
 
 # Set up protection between on-premises VMware virtual machines or physical servers and Azure
@@ -280,7 +280,7 @@ The configuration server is deployed in an automatically created Azure cloud ser
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net
 		- *.store.core.windows.net
-	- If you have IP address-based firewall rules ensure that the rules are set to allow communication from the configuration server to the IP addresses described in [Azure Datacenter IP Ranges](https://msdn.microsoft.com/en-us/library/azure/dn175718.aspx) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use, and that of West US.
+	- If you have IP address-based firewall rules ensure that the rules are set to allow communication from the configuration server to the IP addresses described in [Azure Datacenter IP Ranges](https://msdn.microsoft.com/library/azure/dn175718.aspx) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use, and that of West US.
 
 	![Proxy registration](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -469,8 +469,11 @@ Before proceeding, ensure that you have the latest updates installed. Remember t
 1. Configuration server
 2. Process server
 3. Master target server
+4. Failback tool (vContinuum)
 
 You can get the updates on the Site Recovery **Dashboard **. For Linux installation extract the files from the gzipped installer and run the command “sudo ./install” to install the update
+
+Download the latest update for the **failback tool(vContinuum)** from [here](http://go.microsoft.com/fwlink/?LinkID=533813)
 
 If you are running virtual machines or physical servers that already have the Mobility service installed, you can get updates for the service as follows:
 
