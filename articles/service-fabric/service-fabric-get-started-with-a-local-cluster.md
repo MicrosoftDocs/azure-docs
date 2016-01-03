@@ -17,7 +17,7 @@
    ms.author="seanmck"/>
 
 # Get started with deploying and upgrading applications on your local cluster
-By using the Azure Service Fabric SDK, which includes a full local development environment, you can quickly get started with deploying and managing applications on a local cluster. In this article, you will create a local cluster, deploy an existing application to it, and then upgrade that application to a new version, all from Windows PowerShell.
+The Azure Service Fabric SDK includes a full local development environment that you can use to quickly get started with deploying and managing applications on a local cluster. In this article, you will create a local cluster, deploy an existing application to it, and then upgrade that application to a new version, all from Windows PowerShell.
 
 > [AZURE.NOTE] This article assumes that you already [set up your development environment](service-fabric-get-started.md).
 
@@ -66,7 +66,7 @@ In this tutorial, we will use an existing sample application (called WordCount) 
     cd c:\ServiceFabric\
     ```
 
-4. Download the WordCount application from this [download site](http://aka.ms/servicefabric-wordcountapp) to the location you created.
+4. [Download the WordCount application](http://aka.ms/servicefabric-wordcountapp) to the location you created.
 
 5. Connect to the local cluster:
 
@@ -80,7 +80,7 @@ In this tutorial, we will use an existing sample application (called WordCount) 
   Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
     ```
 
-    If the process completes successfully, you should see output like the following:
+    If all goes well, you should see output like the following:
 
     ![Deploy an application to the local cluster][deploy-app-to-local-cluster]
 
@@ -130,9 +130,9 @@ Now that we have deployed the application, let's look at some of the app details
 ## Upgrade an application
 Service Fabric provides no-downtime upgrades by monitoring the health of the application as it rolls out across the cluster. Let's perform a simple upgrade of the WordCount application.
 
-The new version of the application will now only count words that begin with a vowel. As the upgrade rolls out, we will see two changes in the application's behavior. First, the rate at which the count grows should slow, since fewer words are being counted. Second, since the first partition has two vowels (A and E) and all other partitions contain only one each, its count should eventually start to outpace the others.
+The new version of the application will now count only words that begin with a vowel. As the upgrade rolls out, we will see two changes in the application's behavior. First, the rate at which the count grows should slow, since fewer words are being counted. Second, since the first partition has two vowels (A and E) and all other partitions contain only one each, its count should eventually start to outpace the others.
 
-1. Download the WordCount v2 package from the [download site](http://aka.ms/servicefabric-wordcountappv2) to the same location where you downloaded the v1 package.
+1. [Download the WordCount v2 package](http://aka.ms/servicefabric-wordcountappv2) to the same location where you downloaded the v1 package.
 
 2. Return to your PowerShell window and use the SDK's upgrade command to register the new version in the cluster. Then begin upgrading the fabric:/WordCount application.
 
@@ -148,7 +148,7 @@ The new version of the application will now only count words that begin with a v
 
     ![Upgrade progress in Service Fabric Explorer][sfx-upgradeprogress]
 
-    Note that the Upgrade Progress indicator represents the state of the upgrade within the upgrade domains of your cluster. As the upgrade proceeds through each domain, health checks are performed to ensure that the application is behaving properly before proceeding.
+    Note that the Upgrade Progress indicator represents the state of the upgrade within the upgrade domains of your cluster. As the upgrade proceeds through each domain, health checks are performed to ensure that the application is behaving properly.
 
 4. If you rerun the earlier query for the set of services that are included in the fabric:/WordCount application, you will notice that while the version of WordCountService changed, the version of WordCountWebService did not:
 
@@ -158,7 +158,7 @@ The new version of the application will now only count words that begin with a v
 
     ![Query application services after upgrade][ps-getsfsvc-postupgrade]
 
-    This highlights how Service Fabric manages application upgrades. It only touches the set of services (or code/configuration packages within those services) that have changed, which makes the process of upgrading faster and more reliable.
+    This highlights how Service Fabric manages application upgrades. It touches only the set of services (or code/configuration packages within those services) that have changed, which makes the process of upgrading faster and more reliable.
 
 5. Finally, return to the browser to observe the behavior of the new application version. As expected, the count progresses more slowly, and the first partition ends up with slightly more of the volume.
 
