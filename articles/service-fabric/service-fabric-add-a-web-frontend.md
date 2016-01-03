@@ -51,7 +51,7 @@ To get a sense of what we've done, let's deploy the new application and take a l
 
 2. When deployment is complete, Visual Studio will launch the browser to the root of the ASP.NET Web API service--something like http://localhost:33003. The port number is randomly assigned and may be different on your machine. The ASP.NET 5 Web API template doesn't provide default behavior for the root, so you will get an error in the browser.
 
-3. Add `/api/values` to the location in the browser. This will invoke the `Get` method on the ValuesController in the Web API template. It will return the default response that is provided by the template--a JavaScript Object Notation (JSON) array that contains two strings:
+3. Add `/api/values` to the location in the browser. This will invoke the `Get` method on the ValuesController in the Web API template. It will return the default response that is provided by the template--a JSON array that contains two strings:
 
     ![Default values returned from ASP.NET 5 Web API template][browser-aspnet-template-values]
 
@@ -136,7 +136,7 @@ With the `ICounter` interface implemented, the final step in enabling the statef
 
 >[AZURE.NOTE] The equivalent method for opening a communication channel to stateless services is called `CreateServiceInstanceListeners`.
 
-In this case, we will provide `ServiceRemotingListener`, which creates an RPC endpoint that is callable from clients through the `ServiceProxy` class.
+In this case, we will provide an instance of `ServiceRemotingListener`, which creates an RPC endpoint that is callable from clients through the `ServiceProxy` class.
 
 ```c#
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -175,13 +175,11 @@ Our stateful service is now ready to receive traffic from other services. So all
 
     The first line of code is the key one. To create the ICounter proxy to the stateful service, you need to provide two pieces of information: a partition ID and the name of the service.
 
-    You can use partitioning to scale stateful services by breaking up their state into different buckets, based on a key that you define, such as a customer ID or postal code.  
-
-    In our trivial application, the stateful service only has one partition, so the key doesn't matter. Any key that you provide will lead to the same partition. To learn more about partitioning services, see [How to partition Service Fabric Reliable Services](service-fabric-concepts-partitioning).
+    You can use partitioning to scale stateful services by breaking up their state into different buckets, based on a key that you define, such as a customer ID or postal code. In our trivial application, the stateful service only has one partition, so the key doesn't matter. Any key that you provide will lead to the same partition. To learn more about partitioning services, see [How to partition Service Fabric Reliable Services](service-fabric-concepts-partitioning).
 
     The service name is a URI of the form fabric:/&lt;application_name&gt;/&lt;service_name&gt;.
 
-    With these two pieces of information, Service Fabric can uniquely identify the machine that requests should be sent to. The `ServiceProxy` class also seamlessly handles the case where the machine that hosts our stateful service partition fails and another machine must be promoted to take its place. This abstraction makes writing the client code to deal with other services significantly simpler.
+    With these two pieces of information, Service Fabric can uniquely identify the machine that requests should be sent to. The `ServiceProxy` class also seamlessly handles the case where the machine that hosts the stateful service partition fails and another machine must be promoted to take its place. This abstraction makes writing the client code to deal with other services significantly simpler.
 
     Once we have the proxy, we simply invoke the `GetCountAsync` method and return its result.
 
@@ -198,7 +196,7 @@ This tutorial focused on adding a web front end that communicated with a statefu
 
 When you create an actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically. So you do not need to do anything that is equivalent to establishing a `ServiceRemotingListener` like you did for the stateful service in this tutorial.
 
-## Run web services on a local cluster
+## How web services work on your local cluster
 
 In general, you can deploy exactly the same Service Fabric application to a multi-machine cluster that you deployed on your local cluster and be highly confident that it will work as you expect. This is because your local cluster is simply a five-node configuration that is collapsed to a single machine.
 
@@ -210,7 +208,7 @@ To learn how to configure different values for different environment, see [Manag
 
 ## Next steps
 
-- [Create a cluster in Azure that deploys your application to the cloud](service-fabric-cluster-creation-via-portal.md)
+- [Create a cluster in Azure for deploying your application to the cloud](service-fabric-cluster-creation-via-portal.md)
 - [Learn more about communicating with services](service-fabric-connect-and-communicate-with-services.md)
 - [Learn more about partitioning stateful services](service-fabric-concepts-partitioning.md)
 
