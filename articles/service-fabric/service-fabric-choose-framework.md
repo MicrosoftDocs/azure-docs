@@ -18,14 +18,14 @@
 
 # Choose a framework for your service
 
-Azure Service Fabric offers two high-level frameworks for building services: the Reliable Actors APIs and the Reliable Services APIs. While both are built on the same Service Fabric core, they make different tradeoffs between simplicity and flexibility in terms of concurrency, partitioning, and communication. It is useful to understand both models so that you can choose the appropriate framework for a particular service within your application.
+Azure Service Fabric offers two high-level frameworks for building services: the Reliable Actors API and the Reliable Services API. While both are built on the same Service Fabric core, they make different tradeoffs between simplicity and flexibility in terms of concurrency, partitioning, and communication. It is useful to understand both models so that you can choose the appropriate framework for a particular service within your application.
 
-## Comparing the Reliable Actors APIs and the Reliable Services APIs
+## Comparing the Reliable Actors API and the Reliable Services API
 
-|**When to choose Reliable Actors APIs**|**When to choose Reliable Services APIs**|
+|**When to choose Reliable Actors API**|**When to choose Reliable Services API**|
 |-----------------------|--------------------------|
 |Your problem space involves many small, independent units of state and logic.|You need to maintain logic across multiple components.|
-|You want to work with single-threaded objects while still being able to scale and maintain consistency.|You want to use Reliable Collections (like .NET Dictionary and Queue) to store and manage your state.|
+|You want to work with single-threaded objects while still being able to scale and maintain consistency.|You want to use Reliable Collections (like .NET Reliable Dictionary and Reliable Queue) to store and manage your state.|
 |You want the framework to manage the concurrency and granularity of state.|You want to control the granularity and concurrency of your state.|
 |You want the platform to manage communication for you.|You want to manage communication and control the partitioning scheme for your service.|
 
@@ -33,5 +33,5 @@ Keep in mind that it is perfectly reasonable to use different frameworks for dif
 
 ## Next steps
 
-- [Learn more about the Reliable Actors APIs](service-fabric-reliable-actors-introduction.md)
-- [Learn more about the Reliable Services APIs](../Service-Fabric/service-fabric-reliable-services-introduction.md)
+- [Learn more about the Reliable Actors API](service-fabric-reliable-actors-introduction.md)
+- [Learn more about the Reliable Services API](../Service-Fabric/service-fabric-reliable-services-introduction.md)
