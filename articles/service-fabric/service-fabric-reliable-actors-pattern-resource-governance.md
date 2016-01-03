@@ -20,7 +20,7 @@
 
 This pattern and related scenarios are easily recognizable by developers--enterprise or otherwise--who have constrained resources on-premises or in the cloud that they cannot immediately scale. They are also familiar to developers who want to ship large-scale applications and data to the cloud.
 
-In the enterprise, these constrained resources, such as databases, run on scale-up hardware. Anyone with a long enterprise history knows that this is a common situation on-premises. Even at cloud scale, developers see this situation occur when a cloud service attempts to exceed the 64K TCP limit of connections between an address/port tuple. This also occurs in attempts to connect to a cloud-based database that limits the number of concurrent connections.
+In the enterprise, these constrained resources, such as databases, run on scale-up hardware. Anyone with a long enterprise history knows that this is a common situation on-premises. Even at cloud scale, developers see this situation occur when a cloud service attempts to exceed the 64,000 TCP limit of connections between an address/port tuple. This also occurs in attempts to connect to a cloud-based database that limits the number of concurrent connections.
 
 In the past, this was typically solved by throttling through message-based middleware or by using custom-built pooling and façade mechanisms. These are hard to get right, though, especially when you need to scale the middle tier but still maintain the correct connection counts. It’s a fragile and complex solution.
 
@@ -28,7 +28,7 @@ Like the smart cache pattern, this pattern spans multiple scenarios and customer
 
 The diagram below illustrates this scenario:
 
-![Stateless actors, partitioning and constrained resources][1]
+![Stateless actors, partitioning, and constrained resources][1]
 
 ## Model cache scenarios with actors
 
@@ -54,9 +54,9 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-This is simple, but it's not very flexible. Now let’s take a look at a more-advanced and more-useful approach.
+This is simple, but it's not very flexible. Now let’s take a look at a more advanced and useful approach.
 
-First, model the affinity among physical resources and actors. This is done through an actor called a **resolver**. It understands the mapping among users, logical partitions, and physical resources. The resolver maintains its data in a persisted store, but it is cached so it can be looked up easily. As discussed in [the exchange rate sample in the smart cache pattern](service-fabric-reliable-actors-pattern-smart-cache.md), a resolver can proactively fetch the latest information by using a timer. Once the user actor resolves the resource it needs to use, it caches it in a local variable called **_resolution** and uses it during its lifetime.
+First, model the affinity among physical resources and actors. This is done through an actor called a **resolver**. It understands the mapping among users, logical partitions, and physical resources. The resolver maintains its data in a persisted store, but it is cached so it can be looked up easily. As discussed in [the exchange rate sample in the smart cache pattern](service-fabric-reliable-actors-pattern-smart-cache.md), a resolver can proactively fetch the latest information by using a timer. Once the user actor resolves the resource it needs to use, it caches the resource in a local variable called **_resolution** and uses the resource during its lifetime.
 
 We chose a look-up-based resolution (illustrated below) over simple hashing or range hashing because of the flexibility it provides in operations. This can include scaling in or out and moving a user from one resource to another.
 
@@ -149,10 +149,10 @@ public class Resolver : StatefulActor<ResolverState>, IResolver
 }
 ```
 
-## Access resources with finite capability
+## Access resources that have finite capability
 
-Now let’s look at another example: exclusive access to precious resources, such as databases, storage accounts, and file systems with finite throughput capability.
-In this scenario, we want to process events by using an actor called **EventProcessor**. This actor is responsible for processing and persisting the event, in this case to a .CSV file for simplicity. We can follow the partitioning approach discussed above to scale out your resources, but we still have to deal with concurrency issues. We chose a file-based example to illustrate this point because writing to a single file from multiple actors will raise concurrency issues. To address this problem, we introduce another actor, called **EventWriter**, that has exclusive ownership of the constrained resources. The scenario is illustrated below:
+Now let’s look at another example: exclusive access to precious resources, such as databases, storage accounts, and file systems that have finite throughput capability.
+In this scenario, we want to process events by using an actor called EventProcessor. This actor is responsible for processing and persisting the event, in this case to a .csv file for simplicity. We can follow the partitioning approach discussed above to scale out your resources, but we still have to deal with concurrency issues. We chose a file-based example to illustrate this point because writing to a single file from multiple actors will raise concurrency issues. To address this problem, we introduce another actor, called EventWriter, that has exclusive ownership of the constrained resources. The scenario is illustrated below:
 
 ![Writing and processing events by using EventWriter and EventProcessor][3]
 
@@ -187,7 +187,7 @@ public class EventProcessor : StatelessActor, IEventProcessor
 }
 ```
 
-Now let’s have a look at the EventWriter actor. It controls exclusive access to the constrained resource--in this case, the file and writing events to it--but it doesn't do much more.
+Now let’s look at the EventWriter actor. It controls exclusive access to the constrained resource--in this case, the file and writing events to it--but it doesn't do much more.
 
 ### Resource governance code sample: EventWriter
 
@@ -295,7 +295,7 @@ public class EventWriter : StatefulActor<EventWriterState>, IEventWriter
 }
 ```
 
-The code above will work well, but clients won't know whether their event made it to the underlying store. To allow buffering and provide clients with information on what is happening to their request, the following approach lets clients wait until their event is written to the .CSV file.
+The code above will work well, but clients won't know whether their event made it to the underlying store. To allow buffering and provide clients with information about what is happening to their request, the following approach lets clients wait until their event is written to the .csv file.
 
 ### Resource governance code sample: Asynchronous batching
 
@@ -410,9 +410,9 @@ The ease of this approach belies the enterprise power. By using this architectur
 * Scalable pool addition (just add actors that represent the new resource).
 * Actors that can cache results from back-end resources on demand or pre-cache by using a timer, as demonstrated earlier. This reduces the need to hit back-end resources.
 * Efficient asynchronous dispatch.
-* A coding environment familiar to any developer, not just middleware specialists.
+* A coding environment that's familiar to any developer, not just middleware specialists.
 
-This pattern is common in scenarios where developers have constrained resources they need to develop against. It is also common when developers build large scale-out systems.
+This pattern is common in scenarios where developers have constrained resources that they need to develop against. It is also common when developers build large scale-out systems.
 
 
 ## Next steps
