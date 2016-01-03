@@ -90,7 +90,7 @@ In this tutorial, we will use an existing sample application (called WordCount) 
 
     The WordCount application is very simple. It includes client-side JavaScript code to generate random five-character "words", which are then relayed to the application via ASP.NET Web API. A stateful service keeps track of the number of words counted. They are partitioned based on the first character of the word.
 
-    The application that we deployed contains four partitions. So words beginning with "A" through "G" are stored in the first partition, words beginning with "H" through "N" are stored in the second partition, and so on.
+    The application that we deployed contains four partitions. So words beginning with A through G are stored in the first partition, words beginning with H through N are stored in the second partition, and so on.
 
 ## View application details and status
 Now that we have deployed the application, let's look at some of the app details in PowerShell.
