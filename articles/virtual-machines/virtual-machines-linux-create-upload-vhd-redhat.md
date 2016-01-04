@@ -266,7 +266,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 8.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 9.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open `/boot/grub/menu.lst` in a text editor and ensure that the default kernel includes the following parameters:
 
@@ -389,7 +389,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 7.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 8.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor and edit the **GRUB_CMDLINE_LINUX** parameter, for example:
 
@@ -407,12 +407,22 @@ The Azure Linux Agent can automatically configure swap space using the local res
 9.	Once you are done editing `/etc/default/grub` per above, run the following command to rebuild the grub configuration:
 
         # grub2-mkconfig -o /boot/grub2/grub.cfg
+        
+10.	Add Hyper-V modules into initramfs: 
 
-10.	Uninstall cloud-init:
+    Edit `/etc/dracut.conf`, add content:
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    Rebuild the initramfs:
+
+        # dracut –f -v
+        
+11.	Uninstall cloud-init:
 
         # yum remove cloud-init
 
-11.	Ensure that the SSH server is installed and configured to start at boot time: 
+12.	Ensure that the SSH server is installed and configured to start at boot time: 
 
         # systemctl enable sshd
 
@@ -425,12 +435,12 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         systemctl restart sshd	
 
-12.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
+13.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
 
-13.	Install the Azure Linux Agent by running the following command:
+14.	Install the Azure Linux Agent by running the following command:
 
         # yum install WALinuxAgent
 
@@ -438,7 +448,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         # systemctl enable waagent.service
 
-14.	Do not create swap space on the OS disk. The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
+15.	Do not create swap space on the OS disk. The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -446,19 +456,19 @@ The Azure Linux Agent can automatically configure swap space using the local res
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	Unregister the subscription(if necessary) by running the following command:
+16.	Unregister the subscription(if necessary) by running the following command:
 
         # subscription-manager unregister
 
-16.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+17.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-17.	Shut down the virtual machine in KVM.
+18.	Shut down the virtual machine in KVM.
 
-18.	Convert the qcow2 image to vhd format:
+19.	Convert the qcow2 image to vhd format:
 
     First convert the image to raw format:
 

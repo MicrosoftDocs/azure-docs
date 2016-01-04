@@ -22,14 +22,14 @@ Azure AD Privileged Identity Management lets you manage, control and monitor you
 
 To enable users to carry out privileged operations, organizations have often needed to give many of their users permanent privileged access in Azure AD, or for Azure or Office 365 resources, or other SaaS apps. For many customers, this is a growing security risk for their cloud-hosted resources because they cannot sufficiently monitor what those users are doing with their admin privileges. In addition, a compromised user account that has privileged access could impact their overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk.  
 
-Azure AD Privileged Identity Management in this preview lets you:  
+Azure AD Privileged Identity Management lets you:  
 
 - Discover which users are the Azure AD admins
 - Enable on-demand, "just in time" administrative access to directory resources
 - Get reports about administrator access history and about changes in administrator assignments
 - Get alerts about access to a privileged role
 
-In this preview, Azure AD Privileged Identity Management can manage the built-in Azure Active Directory organizational roles:  
+Azure AD Privileged Identity Management can manage the built-in Azure Active Directory organizational roles:  
 
 - Global Administrator
 - Billing Administrator
@@ -43,18 +43,19 @@ Historically, you could assign a user to an admin role through the Azure Managem
 
 ## Enabling Privileged Identity Management for your directory
 
-You can start using Azure AD Privileged Identity Management by accessing the [Microsoft Azure portal](https://portal.azure.com/). For now, Azure AD Privileged Identity Management only appears in the Microsoft Azure portal. You must be a global administrator to enable Azure AD Privileged Identity Management for a directory.
+You can start using Azure AD Privileged Identity Management by accessing the [Azure portal](https://portal.azure.com/). For now, Azure AD Privileged Identity Management only appears in the Azure portal.  It doesn not appear in the classic portal. You must be a global administrator to enable Azure AD Privileged Identity Management for a directory.
 
 ![][1]
 
-After initializing this extension, you will automatically become  the first **Security administrator** of the directory. Only a security administrator can access this extension to manage the access for other administrators.  
-During initialization, a tile of Azure AD Privileged Identity Management will be added to the startboard of the Azure Preview portal.
+After initializing this extension, you will automatically become the first **Security administrator** of the directory. Only a security administrator can access this extension to manage the access for other administrators.  
+
+During initialization, a tile of Azure AD Privileged Identity Management will be added to the start board of the Azure portal.
 
 ## Privileged Identity Management dashboard
 
-Azure AD Privileged Identity Manager provides a dashboard which gives you importatnt information such as:
+Azure AD Privileged Identity Manager provides a dashboard which gives you important information such as:
 
-- The number of  users who are assigned to each privileged role  
+- The number of users who are assigned to each privileged role  
 - The number of temporary and permanent admins
 - The administrator's access history
 
@@ -80,7 +81,7 @@ Using the role activation setting you can configure the temporary role activatio
 
 In order to activate a role, a temporary admin needs to request a time-bound "activation" for the role. The activation can be requested using the **Activate my role** option in Azure AD Privileged Identity Management.
 
-An admin who wants to activate a role needs to initialize Azure AD Privileged Identity Management in the Azure Preview portal.
+An admin who wants to activate a role needs to initialize Azure AD Privileged Identity Management in the Azure portal.
 
 Any type of admin can use Azure AD Privileged Identity Management to activate his or her role.
 

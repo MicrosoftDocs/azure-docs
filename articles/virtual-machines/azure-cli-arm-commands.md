@@ -49,7 +49,7 @@ The set-up requirements to use the Resource Manager mode with the Azure CLI are:
 
 Once you have an account and have installed the Azure CLI, you must
 
-- [configure the Azure CLI](../xplat-cli-connect.md) to use a work or school account or a Microsoft account identity 
+- [configure the Azure CLI](../xplat-cli-connect.md) to use a work or school account or a Microsoft account identity
 - switch to the Resource Manager mode by typing `azure config mode arm`
 
 
@@ -1691,15 +1691,15 @@ Parameter options:
 
 	vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>
 
-**Lists the virtual machines within a resource group**
+**List the virtual machines within an account**
 
-	vm list [options] <resource-group>
+	vm list [options]
 
-**Gets one virtual machine within a resource group**
+**Get one virtual machine within a resource group**
 
 	vm show [options] <resource-group> <name>
 
-**Deletes one virtual machine within a resource group**
+**Delete one virtual machine within a resource group**
 
 	vm delete [options] <resource-group> <name>
 
@@ -1707,11 +1707,11 @@ Parameter options:
 
 	vm stop [options] <resource-group> <name>
 
-**Restarts one virtual machine within a resource group**
+**Restart one virtual machine within a resource group**
 
 	vm restart [options] <resource-group> <name>
 
-**Starts one virtual machine within a resource group**
+**Start one virtual machine within a resource group**
 
 	vm start [options] <resource-group> <name>
 
@@ -1719,7 +1719,7 @@ Parameter options:
 
 	vm deallocate [options] <resource-group> <name>
 
-**Lists available virtual machine sizes**
+**List available virtual machine sizes**
 
 	vm sizes [options]
 
@@ -1727,19 +1727,19 @@ Parameter options:
 
 	vm capture [options] <resource-group> <name> <vhd-name-prefix>
 
-**Sets the state of the VM to Generalized**
+**Set the state of the VM to Generalized**
 
 	vm generalize [options] <resource-group> <name>
 
-**Gets instance view of the VM**
+**Get instance view of the VM**
 
 	vm get-instance-view [options] <resource-group> <name>
 
-**Enables you to reset Remote Desktop Access or SSH settings on a Virtual Machine and to reset the password for the account that has administrator or sudo authority**
+**Enable you to reset Remote Desktop Access or SSH settings on a Virtual Machine and to reset the password for the account that has administrator or sudo authority**
 
 	vm reset-access [options] <resource-group> <name>
 
-**Updates VM with new data**
+**Update VM with new data**
 
 	vm set [options] <resource-group> <name>
 
@@ -1784,7 +1784,7 @@ Example: Create a configuration file that contains a script action to run when c
 	 
 Example: Create a Storm on Linux cluster
 
-	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 	
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...
@@ -1792,7 +1792,7 @@ Example: Create a Storm on Linux cluster
 
 Example: Create a cluster with a script action
 
-	azure hdinsight cluster create -g mahirg001 -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
+	azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 	
 	info:    Executing command hdinsight cluster create
 	+ Submitting the request to create cluster...

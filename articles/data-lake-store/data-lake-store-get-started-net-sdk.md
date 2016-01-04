@@ -66,7 +66,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 
 7. Open **Program.cs** and replace the existing code block with the following code. Also, provide the values for parameters in the code snippet. 
 
-	This code goes through the process of creating a Data Lake Store, creating folders in the store, uploading files, downloading files, and finally deleting the account. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	This code goes through the process of creating a Data Lake Store, creating folders in the store, uploading files, downloading files, and finally deleting the account. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](	https://github.com/MicrosoftBigData/usql/tree/master/Examples/AmbulanceDemos/AmbulanceDemos/1-Ambulance-Unstructured%20Data).
 	
 		using System;
 		using System.Collections.Generic;
