@@ -108,7 +108,7 @@ You [created a volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-v
 
 3. Click **Add** at the bottom of the page. The Add a volume wizard starts.
 
-     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes-u2/AddVolume1.png)
+     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
 4. In the Add a volume wizard, under **Basic Settings**, do the following:
 
@@ -119,7 +119,7 @@ You [created a volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-v
 
     If you are configuring a locally pinned volume, you will see the following message.
 
-    ![Change Volume type message](./media/storsimple-manage-volumes-u2/LocalVolMessage.png)
+    ![Change Volume type message](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
 
     The following page appears.
 
