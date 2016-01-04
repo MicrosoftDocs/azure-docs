@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for linking resources | Microsoft Azure"
-   description="Shows the resource manager template schema for creating links between related resources."
+   description="Shows the Resource Manager schema for deploying links between related resources through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Resource links - template schema
+# Resource links resource type template schema
 
 Creates a link between two resources. The link is applied to a resource known as the source resource. The second resource in the link is known as the target resource.
 
