@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="12/17/2015"
 	ms.author="v-shysun"/>
 
 # Troubleshoot database performance using Azure SQL Database
@@ -22,7 +22,7 @@ You can change the [service tier](sql-database-service-tiers.md) of a single dat
 ## Steps to evaluate and tune database performance
 1.	In the [Azure Portal](https://portal.azure.com), click **SQL databases**, select the database, and then use the Monitoring chart to look for resources approaching their maximum. DTU consumption is shown by default. Click **Edit** to change the time range and values shown.
 2.	Use [Query Performance Insight](sql-database-query-performance.md) to evaluate the queries using DTUs, and then use [Index Advisor](sql-database-index-advisor.md) to recommend and create indexes.
-3.	You can use dynamic management views (DMVs), Extended Events (Xevents), and the Query Store in SSMS to get performance parameters in real time. See the performance guidance topic for detailed monitoring and tuning tips.
+3.	You can use dynamic management views (DMVs), Extended Events (Xevents), and the Query Store in SSMS to get performance parameters in real time. See the [performance guidance topic](sql-database-performance-guidance.md) for detailed monitoring and tuning tips.
 
 ## Steps to improve database performance with more resources
 1.	For single databases, you can [change service tiers](sql-database-scale-up.md) on-demand to improve database performance.

@@ -26,10 +26,10 @@ It is very easy to review privileged access once a [security review has been sta
 ### Me Review
 1. In the PIM main menu, click **Review administrative access**. A list of security reviews will appear.
 2. Select the **user(s)** in the list for which you want to change access. NOTE: Access will actually be changed.  This process is simply building a checklist for those who would change the access for the role.  Once at least one user has been selected the **Approve access** and **Deny access** buttons will be enabled.
-3. Click either  **Approve access** or **Deny access** for the users you have selected.  A notification will appear in the portal main menu and the review list will disappear.  Close the **Review Azure AD roles** blade.
+3. Click either  **Approve access** or **Deny access** for the users you have selected.  A notification will appear in the Azure portal main menu and the review list will disappear.  Close the **Review Azure AD roles** blade.
 
 ### Self-review
-1. The user will receive an email indicating that they should review their access.  The email will contain a link for logging in to the portal.
+1. The user will receive an email indicating that they should review their access.  The email will contain a link for logging in to the Azure portal.
 2. Once there, the user can approve or deny their own access by clicking on the  **Approve access** or **Deny access** buttons.  Their name will disappear from the list.
 
 ## For Review Managers: Managing Security Reviews

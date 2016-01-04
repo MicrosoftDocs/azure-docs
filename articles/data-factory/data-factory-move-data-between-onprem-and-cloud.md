@@ -73,7 +73,7 @@ These are caused by the improper configuration of the firewall or proxy server, 
 The two firewalls that are possibly in scope are: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed. Here are the some considerations:
 
 - There is no need to change the inbound policy for corporate firewall.
-- Both corporate firewall and Windows firewall should enable outbound rule for TCP ports: 80, 443, and from 9305 to 9354. These are used by Microsoft Azure Service Bus to establish connection between the cloud services and Data Management Gateway.
+- Both corporate firewall and Windows firewall should enable outbound rule for TCP ports: 80, 443, and from 9350 to 9354. These are used by Microsoft Azure Service Bus to establish connection between the cloud services and Data Management Gateway.
 
 The MSI setup will automatically configure Windows firewall rules for inbound ports for the gateway machine (see ports and security considerations section above).
 
