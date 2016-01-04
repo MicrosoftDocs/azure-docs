@@ -131,7 +131,7 @@ The following is a list of components that Azure AD Connect will install on the 
 - Microsoft SQL Server 2012 Command Line Utilities
 - Microsoft SQL Server 2012 Native Client
 - Microsoft SQL Server 2012 Express LocalDB
-- Azure Active Directory Module for Microsoft PowerShell
+- Azure Active Directory Module for Windows PowerShell
 - Microsoft Online Services Sign-In Assistant for IT Professionals
 - Microsoft Visual C++ 2013 Redistribution Package
 
