@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/31/2015"
+   ms.date="01/04/2016"
    ms.author="alkohli" />
 
 # Install Update 2 on your StorSimple device
@@ -66,7 +66,7 @@ After you have successfully completed these manual pre-checks, you can proceed t
 
 This is the recommended procedure to update your device. Perform the following steps.
 
-[AZURE.INCLUDE [storsimple-install-update-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
+[AZURE.INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
 ## Install Update 2 as a hotfix 
 
@@ -82,7 +82,7 @@ The software versions that can be upgraded using this method are Update 0.1, Upd
 
 Before using this procedure to apply the update, make sure that both device controllers are online. Perform the following steps to apply Update 2 as a hotfix. 
 
-[AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
+[AZURE.INCLUDE [storsimple-install-update2-hotfix](../../includes/storsimple-install-update2-hotfix.md)]
 
 
 ## Troubleshooting update failures

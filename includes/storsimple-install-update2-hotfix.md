@@ -161,58 +161,59 @@ Perform the following steps to download the software update.
 
 	A sample output is shown below.
 
-    -----------------------MAINTENANCE MODE------------------------
-    Microsoft Azure StorSimple Appliance Model 8100
-    Name: TD178-Doc-QFE3-8100-SHG0997879L76YD
-    Software Version: 6.3.9600.17664
-    Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-    You are connected to Controller1
-    ---------------------------------------------------------------
-    
-    Controller1>Get-HcsFirmwareVersion
-    
-    
-    Controller0 : TalladegaFirmware
-      ActiveBIOS:0.45.0006
-      BackupBIOS:0.45.0008
-      MainCPLD:17.0.0005
-      ActiveBMCRoot:2.0.000E
-      BackupBMCRoot:2.0.000E
-      BMCBoot:2.0.0001
-      LsiFirmware:19.00.00.00
-      LsiBios:07.37.00.00
-      Battery1Firmware:06.29
-      Battery2Firmware:06.29
-      DomFirmware:X231600
-      CanisterFirmware:3.5.0.32
-      CanisterBootloader:5.03
-      CanisterConfigCRC:0xD1B030A4
-      CanisterVPDStructure:0x06
-      CanisterGEMCPLD:0x17
-      CanisterVPDCRC:0xEE3504B4
-      MidplaneVPDStructure:0x0C
-      MidplaneVPDCRC:0xA6BD4F64
-      MidplaneCPLD:0x10
-      PCM1Firmware:1.00|1.05
-      PCM1VPDStructure:0x05
-      PCM1VPDCRC:0x41BEF99C
-      PCM2Firmware:1.00|1.05
-      PCM2VPDStructure:0x05
-      PCM2VPDCRC:0x41BEF99C
-    
-      DisksFirmware
-      SEAGATE:ST400FM0073:XGEG
-      SEAGATE:ST400FM0073:XGEG
-      SEAGATE:ST400FM0073:XGEG
-      SEAGATE:ST400FM0073:XGEG
-      SEAGATE:ST4000NM0023:XMGG
-      SEAGATE:ST4000NM0023:XMGG
-      SEAGATE:ST4000NM0023:XMGG
-      SEAGATE:ST4000NM0023:XMGG
-      SEAGATE:ST4000NM0023:XMGG
-      SEAGATE:ST4000NM0023:XMGG
-      SEAGATE:ST4000NM0023:XMGG
-      SEAGATE:ST4000NM0023:XMGG
+
+	    -----------------------MAINTENANCE MODE------------------------
+	Microsoft Azure StorSimple Appliance Model 8100
+	Name: TD178-Doc-QFE3-8100-SHG0997879L76YD
+	Software Version: 6.3.9600.17664
+	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
+	You are connected to Controller1
+	---------------------------------------------------------------
+	
+	Controller1>Get-HcsFirmwareVersion
+	
+	
+	Controller0 : TalladegaFirmware
+	  ActiveBIOS:0.45.0006
+	  BackupBIOS:0.45.0008
+	  MainCPLD:17.0.0005
+	  ActiveBMCRoot:2.0.000E
+	  BackupBMCRoot:2.0.000E
+	  BMCBoot:2.0.0001
+	  LsiFirmware:19.00.00.00
+	  LsiBios:07.37.00.00
+	  Battery1Firmware:06.29
+	  Battery2Firmware:06.29
+	  DomFirmware:X231600
+	  CanisterFirmware:3.5.0.32
+	  CanisterBootloader:5.03
+	  CanisterConfigCRC:0xD1B030A4
+	  CanisterVPDStructure:0x06
+	  CanisterGEMCPLD:0x17
+	  CanisterVPDCRC:0xEE3504B4
+	  MidplaneVPDStructure:0x0C
+	  MidplaneVPDCRC:0xA6BD4F64
+	  MidplaneCPLD:0x10
+	  PCM1Firmware:1.00|1.05
+	  PCM1VPDStructure:0x05
+	  PCM1VPDCRC:0x41BEF99C
+	  PCM2Firmware:1.00|1.05
+	  PCM2VPDStructure:0x05
+	  PCM2VPDCRC:0x41BEF99C
+	
+	  DisksFirmware
+	  SEAGATE:ST400FM0073:XGEG
+	  SEAGATE:ST400FM0073:XGEG
+	  SEAGATE:ST400FM0073:XGEG
+	  SEAGATE:ST400FM0073:XGEG
+	  SEAGATE:ST4000NM0023:XMGG
+	  SEAGATE:ST4000NM0023:XMGG
+	  SEAGATE:ST4000NM0023:XMGG
+	  SEAGATE:ST4000NM0023:XMGG
+	  SEAGATE:ST4000NM0023:XMGG
+	  SEAGATE:ST4000NM0023:XMGG
+	  SEAGATE:ST4000NM0023:XMGG
+	  SEAGATE:ST4000NM0023:XMGG
 
 	 You can run this command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller: 
 
