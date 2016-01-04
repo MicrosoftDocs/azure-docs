@@ -31,7 +31,7 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 ## News Updates
 
 ###### **December 29 2015**
-November 201511-02 Guest OS has been released on December 29 2015 for deployment expect US Gov and China environments. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. This OS version will be made avaliable for US Gov and China on Jan 4, 2016.
+November 201511-02 Guest OS has been released on December 29, 2015 for deployment expect U.S. Government and China environments. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. This OS version will be made avaliable for U.S. Government and China on Jan 4, 2016.
 
 ###### **December 18 2015**
 November 201511-02 Guest OS release date has been postponed from Dec 16 2015 to Jan 4 2016.
