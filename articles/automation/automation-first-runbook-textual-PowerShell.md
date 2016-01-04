@@ -42,7 +42,7 @@ We'll start by creating a simple runbook that outputs the text *Hello World*.
 1. In the Azure Preview Portal, open your Automation account.  
 The Automation account page gives you a quick view of the resources in this account. You should already have some Assets.  Most of those are the modules that are automatically included in a new Automation account.  You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
 2. Click on the **Runbooks** tile to open the list of runbooks.  
-    ![Runbooks Control](media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
+    ![RunbooksControl](media/automation-first-runbook-textual-powershell/automation-runbooks-control.png)  
 3. Create a new runbook by clicking on the **Add a runbook** button and then **Create a new runbook**.
 4. Give the runbook the name *MyFirstRunbook-PowerShell*.
 5. In this case, we're going to create a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) so select **Powershell** for **Runbook type**.  
