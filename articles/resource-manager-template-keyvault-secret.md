@@ -16,7 +16,7 @@
    ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Key vault secret resource type template schema
+# Key vault secret template schema
 
 Creates a secret that is stored in a key vault. This resource type is frequently deployed as a child resource of [key vault](resource-manager-template-keyvault.md).
 
