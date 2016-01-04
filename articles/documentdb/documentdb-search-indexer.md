@@ -267,5 +267,5 @@ Congratulations! You have just learned how to integrate Azure DocumentDB with Az
 
  - To learn how more about Azure DocumentDB, see the [DocumentDB service page](https://azure.microsoft.com/services/documentdb/).
 
- - To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
+ - To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/en-us/services/search/).
  
