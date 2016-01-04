@@ -95,15 +95,15 @@
 2. In **AppDelegate.swift**, add the following handler methods. Your app is now updated to support push notifications.
         
 
-    func application(application: UIApplication,
-        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-    }
-    
-    func application(application: UIApplication,
-        didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-    }
-    
-    func application(application: UIApplication,
-        didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-    }
+            func application(application: UIApplication,
+                didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+            }
+            
+            func application(application: UIApplication,
+                didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+            }
+            
+            func application(application: UIApplication,
+                didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+            }
     
