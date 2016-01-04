@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Key vault resource type template schema
