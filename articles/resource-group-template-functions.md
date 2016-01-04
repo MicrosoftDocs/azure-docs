@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/23/2015"
+   ms.date="12/31/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template expressions
@@ -409,7 +409,7 @@ Unique based on deployment for a resource group
 The following example shows how to create a unique name for a storage account based on your resource group.
 
     "resources": [{ 
-        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
