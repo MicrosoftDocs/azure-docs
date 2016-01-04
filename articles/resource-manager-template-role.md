@@ -16,7 +16,7 @@
    ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Role assignments resource type template schema
+# Role assignments template schema
 
 Assigns a user, group, or service principal to a role at a specified scope.
 
