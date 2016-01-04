@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Cortana Analytics Solution Template Playbook for predictive maintenance in aerospace and other businesses | Microsoft Azure"
 	description="A Solution Template with Microsoft Cortana Analytics for predictive maintenance in aerospace, utilities, and transportation."
 	services="cortana-analytics"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="1/4/2016"
 	ms.author="garye" />
 
 # Cortana Analytics Solution Template Playbook for predictive maintenance in aerospace and other businesses
@@ -153,13 +153,13 @@ requirements for building a successful predictive maintenance solution.
 When building predictive models, we use historical data to train the
 model which will then recognize hidden patterns and further identify
 these patterns in the future data. These models are trained with
-examples descried by their features and the target of prediction. The
+examples described by their features and the target of prediction. The
 trained model is expected to make predictions on the target by only
 looking at the features of the new examples. It is crucial that the
 model capture the relationship between features and the target of
 prediction. In order to train an effective machine learning model, we
 need training data which includes features that actually have predictive
-power towards target of prediction meaning the data should be relevant
+power towards the target of prediction meaning the data should be relevant
 to the prediction goal to expect accurate predictions.
 
 For example, if the target is to predict failures of train wheels, the
@@ -205,11 +205,11 @@ business problem to be suitable for a predictive maintenance solution:
 Additionally, we require data that is directly related to the operating
 conditions of the target asset of prediction. The decision of target is
 based on both business needs and data availability. Taking the train
-wheel failure prediction as example, we may predict "if the wheel is
+wheel failure prediction as an example, we may predict "if the wheel is
 going to have a failure" or "if the whole train is going have a
 failure". The first one targets a more specific component whereas the
 second one targets failure of the train. The second one is a more general question
-that will require a lot more dispersed data elements then the first one,
+that will require a lot more dispersed data elements than the first one,
 making it harder to build a model. Conversely, trying to predict wheel
 failures just by looking at the high level train condition data may not
 be feasible as it does not contain information at the component level.
@@ -386,7 +386,7 @@ and best courses of maintenance actions to fix the elevator doors as
 fast as possible.
 
 ### Transportation and Logistics
-#### Use Case 1: Break disk failures
+#### Use Case 1: Brake disc failures
 ##### *Business Problem and Data Sources*
 Typical maintenance policies for vehicles include corrective and
 preventive maintenance. Corrective maintenance implies that the vehicle
@@ -396,12 +396,12 @@ the time wasted on a visit to mechanic. Most vehicles are also subject
 to a preventive maintenance policy, which requires performing certain
 inspections at a schedule which does not take into account the actual
 condition of the car subsystems. None of these approaches are successful
-in fully eliminating problems. The specific use case here is break disc
+in fully eliminating problems. The specific use case here is brake disc
 failure prediction based on data collected through sensors installed in
-the tire system of a car which keep track of historical driving patterns
+the tire system of a car which keeps track of historical driving patterns
 and other conditions that the car is exposed to. The most important data
 source for this case is the sensor data that measure, for instance,
-accelerations, breaking patterns, driving distances, velocity, etc. This
+accelerations, braking patterns, driving distances, velocity, etc. This
 information, coupled with other static information such as car features,
 help build a good set of predictors that can be used in a predictive model. Another set
 of essential information is the failure data which is inferred from the
@@ -470,7 +470,7 @@ Some examples of above data elements from use cases are:
 
 Failure history: fight delay dates, aircraft component failure dates and
 types, ATM cash withdrawal transaction failures, train/elevator door
-failures, break disk replacement order dates, wind turbine failure dates
+failures, brake disk replacement order dates, wind turbine failure dates
 and circuit breaker command failures.
 
 Maintenance history: Flight error logs, ATM transaction error logs,
@@ -655,7 +655,7 @@ date, model number, location, etc. While lag features are mostly numeric
 in nature, static features usually become categorical variables in the
 models. As an example, circuit breaker properties such as voltage,
 current and power specifications along with transformer types, power
-sources etc. were used. For break disk failures, the type of tire wheels
+sources etc. were used. For brake disc failures, the type of tire wheels
 such as if they are alloy or steel were used as some of the static
 features.
 

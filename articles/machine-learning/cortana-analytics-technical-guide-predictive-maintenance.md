@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="1/4/2016"
 	ms.author="garye" />
 
 # Technical guide to the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses
@@ -27,7 +27,7 @@ and build the relationships between them. It also seeds the data
 pipeline with sample data generated from a data simulation application which you will download and install on
 your local machine after you deploy the solution template.The data generated from the simulator will hydrate the
 data pipeline and start generating machine learning predictions which can
-then be visualized on the PowerBI dashboard. The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.  
+then be visualized on the Power BI dashboard. The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.  
 
 The goal of this document is to explain the reference architecture and
 different components provisioned in your subscription as part of this
@@ -36,7 +36,7 @@ sample data with real data of your own to be able to see insights and
 predictions from your own data. Additionally, the document discusses the
 parts of the Solution Template that would need to be modified if you
 wanted to customize the solution with your own data. Instructions on how
-to build the PowerBI dashboard for this Solution Template are provided
+to build the Power BI dashboard for this Solution Template are provided
 at the end.
 
 >[AZURE.TIP] You can download and print a [PDF version of this document](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
@@ -65,8 +65,7 @@ with data points, or events, that will be used in the rest of the solution flow.
 source is comprised of or derived from publicly available data from the
 [NASA data
 repository](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)
-using the [PHM08 Challenge Data
-Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#phm08_challenge).
+using the [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
 The event generation application will populate the Azure Event Hub only
 while it's executing on your computer.
@@ -131,7 +130,7 @@ Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) servic
 predictions stored in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) that
 were produced using the [Azure Machine
 Learning](https://azure.microsoft.com/services/machine-learning/)
-service. For Instructions on how to build the PowerBI dashboard for this
+service. For Instructions on how to build the Power BI dashboard for this
 Solution Template, refer to the section below.
 
 ## **How to bring in your own data**
@@ -141,8 +140,8 @@ areas would require changes for the data you bring into this
 architecture.
 
 It's unlikely that any dataset you bring would match the dataset used by
-the [PHM08 Challenge Data
-Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#phm08_challenge)
+the [Turbofan Engine Degradation Simulation Data
+Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)
 used for this solution template. Understanding your data and the
 requirements will be crucial in how you modify this template to work
 with your own data. If this is your first exposure to the Azure Machine
@@ -407,7 +406,7 @@ containing data (*e.g.*. prediction results) for visualization.
     the server and database names as in the above steps and click OK.
 
     -   Once you're guided back to the previous page, close the window. A message will pop out - click **Apply**. Lastly, click the **Save** button to save
-    the changes. Your PowerBI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you will only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
+    the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you will only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
 
 3.  (Optional) Publish the cold path dashboard to [Power BI
     online](http://www.powerbi.com/). Note that this step needs a Power
@@ -464,7 +463,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 
     -   On the left panel Datasets section in My Workspace, the
     ***DATASET*** names **aircraftmonitor**, **aircraftalert**, and
-    **flightsbyhour** previously defined in the PowerBI output settings
+    **flightsbyhour** previously defined in the Power BI output settings
     in the ASA job should appear.
 
     -   Make sure the ***Visualizations*** pane is open and is shown on the
