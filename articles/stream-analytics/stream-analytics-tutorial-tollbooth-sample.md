@@ -140,7 +140,7 @@ The created resources should populate in Azure Management Portal and be visible.
 Click on “Service Bus” menu item on the left side of the Azure Management Portal to see Event Hubs created by the script from the previous section.
 Note that by default all available namespaces in the subscription are visible. Click on the one starting with “TollData”. (TollData4637388511 in this example). Click on “Event Hubs” tab.
   
-![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-08.png)  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-09.png)  
   
 Two Event Hubs should be visible, named entry and exit created in this namespace.
   
