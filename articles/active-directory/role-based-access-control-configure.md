@@ -98,6 +98,9 @@ Access can be managed used Azure RBAC commands in the Azure Command-Line Interfa
 
 See [Manage access using the Azure CLI](role-based-access-control-manage-access-azure-cli.md) for more detailed examples of managing access using the Azure CLI.
 
+## Manage access using the REST API
+See [Managing Role-Based Access Control with the REST API](role-based-access-control-manage-access-rest.md) for more detailed examples of managing access with the REST API.
+
 ## Using the Access Change History Report
 All access changes happening in your Azure subscriptions get logged in Azure events.
 
