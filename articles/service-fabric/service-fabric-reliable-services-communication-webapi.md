@@ -18,19 +18,19 @@
 
 # Get started: Service Fabric Web API services with OWIN self-hosting
 
-Azure Service Fabric puts the power in your hands when you decide how you want your services to communicate with users and with each other. This tutorial focuses on how service communication can be implemented by using the ASP.NET Web API with Open Web Interface for .NET (OWIN) self-hosting in Service Fabric's Reliable Services API. We'll delve deeply into the Reliable Services pluggable communication API. We'll also use a web API in a step-by-step example to show you how to set up a custom communication listener. For a complete example of a web API communication listener, see the [Service Fabric WebApplication sample on GitHub](https://github.com/Azure/servicefabric-samples/tree/master/samples/Services/VS2015/WebApplication).
+Azure Service Fabric puts the power in your hands when you decide how you want your services to communicate with users and with each other. This tutorial focuses on how service communication can be implemented by using the ASP.NET Web API with Open Web Interface for .NET (OWIN) self-hosting in Service Fabric's Reliable Services API. We'll delve deeply into the Reliable Services pluggable communication API. We'll also use a Web API in a step-by-step example to show you how to set up a custom communication listener. For a complete example of a Web API communication listener, see the [Service Fabric WebApplication sample on GitHub](https://github.com/Azure/servicefabric-samples/tree/master/samples/Services/VS2015/WebApplication).
 
 
-## Introduction to web APIs in Service Fabric
+## Introduction to Web APIs in Service Fabric
 
-The ASP.NET Web API is a popular and powerful framework for building HTTP APIs on top of the .NET framework. if you're not familiar with it already, see [Getting started with ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) to learn more.
+The ASP.NET Web API is a popular and powerful framework for building HTTP APIs on top of the .NET framework. If you're not already familiar with the framework , see [Getting started with ASP.NET Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) to learn more.
 
-A web API in Service Fabric is the same ASP.NET Web API you know and love. The difference is in how you *host* a web API application (you won't be using Microsoft Internet Information Services). To better understand the difference, let's break it into two parts:
+A Web API in Service Fabric is the same ASP.NET Web API you know and love. The difference is in how you *host* a Web API application (you won't be using Microsoft Internet Information Services). To better understand the difference, let's break it into two parts:
 
- 1. The web API application (including controllers and models)
+ 1. The Web API application (including controllers and models)
  2. The host (the web server, usually IIS)
 
-The web API application itself doesn't change. It's no different from web API applications you may have written in the past, and you should be able to simply move over most of your application code. But if you're used to hosting on IIS, where you host the application may be a little different from what you're used to. Before we get to the hosting part, let's start with something more familiar: a web API application.
+The Web API application itself doesn't change. It's no different from Web API applications you may have written in the past, and you should be able to simply move over most of your application code. But if you're used to hosting on IIS, where you host the application may be a little different from what you're used to. Before we get to the hosting part, let's start with something more familiar: a Web API application.
 
 
 ### Create the application
@@ -45,7 +45,7 @@ This gives us an empty stateless service that will host the Web API application.
 
 The first step is to pull in some NuGet packages for the Web API. The package we want to use is Microsoft.AspNet.WebApi.OwinSelfHost. This package includes all the necessary Web API packages and the *host* packages. This will be important later.
 
-![Create a web API by using the NuGet Package Manager](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
+![Create a Web API by using the NuGet Package Manager](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
 After the packages have been installed, you can begin building out the basic Web API project structure. If you've used a Web API, the project structure should look very familiar. Start by creating the basic Web API directories:
 
@@ -123,7 +123,7 @@ namespace WebApiService.Controllers
 
 ```
 
-Finally, add a startup class at the project root to register the routing, formatters, and any other configuration setup. This is also where the web API plugs in to the *host*, which will be revisited again later. When you set up the startup class, create an interface called IOwinAppBuilder for the startup class that defines the configuration method. Although this is not technically required for the web API to work, it will allow for more flexible use of the startup class later.
+Finally, add a startup class at the project root to register the routing, formatters, and any other configuration setup. This is also where the Web API plugs in to the *host*, which will be revisited again later. When you set up the startup class, create an interface called IOwinAppBuilder for the startup class that defines the configuration method. Although this is not technically required for the Web API to work, it will allow for more flexible use of the startup class later.
 
 **Startup.cs**
 
@@ -166,7 +166,7 @@ namespace WebApiService
 
 ```
 
-That's it for the application part. At this point, we've set up just the basic web API project layout. So far, it shouldn't look much different from web API projects you may have written in the past or from the basic Web API template. Your business logic goes in the controllers and models as usual.
+That's it for the application part. At this point, we've set up just the basic Web API project layout. So far, it shouldn't look much different from Web API projects you may have written in the past or from the basic Web API template. Your business logic goes in the controllers and models as usual.
 
 Now what do we do about hosting so that we can actually run it?
 
@@ -208,9 +208,9 @@ Further details about the service host process and service registration are beyo
 
 Given that your Web API application code is hosted in its own process, how do you hook it up to a web server? Enter [OWIN](http://owin.org/). OWIN is simply a contract between .NET web applications and web servers. Traditionally when ASP.NET (up to MVC 5) is used, the web application is tightly coupled to IIS through System.Web. However, the Web API implements OWIN, so you can write a web application that is decoupled from the web server that hosts it. Because of this, you can use a *self-host* OWIN web server that you can start in your own process. This fits perfectly with the Service Fabric hosting model we just described.
 
-In this article, we'll use Katana as the OWIN host for the web API application. Katana is an open-source OWIN host implementation.
+In this article, we'll use Katana as the OWIN host for the Web API application. Katana is an open-source OWIN host implementation.
 
-> [AZURE.NOTE] To learn more about Katana, go to the [Katana site](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). For a quick overview of how to use Katana to self-host a web API, see [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
+> [AZURE.NOTE] To learn more about Katana, go to the [Katana site](http://www.asp.net/aspnet/overview/owin-and-katana/an-overview-of-project-katana). For a quick overview of how to use Katana to self-host a Web API, see [Use OWIN to Self-Host ASP.NET Web API 2](http://www.asp.net/web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api).
 
 
 ### Set up the web server
