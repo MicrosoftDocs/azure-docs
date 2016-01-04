@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prepare the physical machine" 
 	description="Prepare the physical machine" 
 	services="" 
@@ -80,7 +80,7 @@
 
     3.  Confirm that **Hotfix for Microsoft Windows (KB625402) (FOR TESTING PURPOSES ONLY)** is in the list.
 
-**Note**: If the script fails, restart the script. If it continues to fail, wipe and restart.
+>[AZURE.NOTE] If the script fails, restart the script. If it continues to fail, wipe and restart.
 
 You can find the script logs on the POC host `C:\ProgramData\microsoft\azurestack`.
 

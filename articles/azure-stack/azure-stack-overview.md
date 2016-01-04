@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Overview: Microsoft Azure Stack" 
 	description="Overview: Microsoft Azure Stack" 
 	services="" 
@@ -22,7 +22,7 @@ Microsoft Azure Stack is a cloud-optimized hybrid application platform which emp
 
 Microsoft Azure Stack brings proven innovation from Microsoft’s hyper-scale public cloud (Azure) into your datacenter. For more information about Microsoft Azure, visit [www.Azure.com](http://www.Azure.com).
 
-Note: Some of these features will come at different times of the preview cycle and may not be available at TP1.
+>[AZURE.NOTE] Some of these features will come at different times of the preview cycle and may not be available at TP1.
 
 ## Develop once, deploy anywhere
 

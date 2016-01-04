@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Deploy templates with the command line" 
 	description="Deploy templates with the command line" 
 	services="" 
@@ -20,11 +20,11 @@
 
 You can do use the cross-platform command line interface (CLI) to deploy templates from inside the ClientVM or after using the VPN to connect to the Azure Stack POC.
 
-**Note**: On Mac, you may need to disable certificate validation in the terminal using:
-
-	set NODE_TLS_REJECT_UNAUTHORIZED=0
-	
-	export NODE_TLS_REJECT_UNAUTHORIZED=0
+>[AZURE.NOTE] On Mac, you may need to disable certificate validation in the terminal using:
+>
+>	`set NODE_TLS_REJECT_UNAUTHORIZED=0`
+>	
+>	`export NODE_TLS_REJECT_UNAUTHORIZED=0`
 
 
 1.  Download the cross-platform CLI from <https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/>

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Deploy Azure Stack POC (service administrator)" 
 	description="Deploy Azure Stack POC (service administrator)" 
 	services="" 
@@ -89,7 +89,7 @@ Save these credentials for use in step 7 of the [Run the PowerShell script](azur
 
 You should also create at least one account so you can sign in to the Azure Stack POC as a tenant. Or add users from other AD accounts into your tenant accounts. See Appendix A for instructions on how to add a user in Azure Active Directory.
 
-**Note**: The Azure Stack POC supports Azure Active Directory authentication only.
+>[AZURE.NOTE] The Azure Stack POC supports Azure Active Directory authentication only.
 
 | **Azure Active Directory account**  | **Supported?** |
 |---|---|
