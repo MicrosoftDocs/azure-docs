@@ -106,7 +106,7 @@ A good alternative to [copying filse manually](#ftp) is syncing files and folder
 like OneDrive and DropBox. In the Azure Portal, you can configure a special folder in your cloud storage, work with your app
 code and content in that folder, and sync to App Service with the click of a button whenever you're ready.
 
-[How to deploy by syncing with a cloud folder](#howtodropbox)
+> [How to deploy by syncing with a cloud folder](#howtodropbox)
 
 The pros of syncing with a cloud folder are:
 
@@ -135,8 +135,8 @@ and [Eclipse](https://www.eclipse.org), you can deploy to Azure directly from wi
 help minimize the tooling for your end-to-end application life-cycle, since you can develop, debug, track, and deploy your app to Azure all 
 from without moving outside of your IDE. This option is ideal for an individual developer.
 
-[How to deploy from Visual Studio directly](#vs)  
-[How to deploy from WebMatrix directly](#webmatrix)
+> [How to deploy from Visual Studio directly](#vs)  
+> [How to deploy from WebMatrix directly](#webmatrix)
 
 The pros of deploying using an IDE are:
 
@@ -193,8 +193,8 @@ or [Mercurial](http://mercurial.selenic.com/), you can configure App Service to 
 directly to App Service in your source control workflow. If you use TFS, you can also configure it to deploy continuously 
 to App Service.   
 
-[How to deploy continuously with TFS](#tfs)  
-[How to deploy from an on-premises Git or Mercurial repository](gitmercurial)
+> [How to deploy continuously with TFS](#tfs)  
+> [How to deploy from an on-premises Git or Mercurial repository](gitmercurial)
 
 Pros of deploying from an on-premises source control system are:
 
@@ -240,8 +240,8 @@ If you work on a development team of any size and uses a cloud-based source code
 [GitHub](https://www.github.com), [GitLab](https://gitlab.com), [BitBucket](https://bitbucket.org/), 
 [CodePlex](https://www.codeplex.com/), [Codebase](https://www.codebasehq.com), and [Kiln](https://www.fogcreek.com/kiln/).
 
-[How to deploy continuously with Visual Studio Team Services](#vsts)  
-[How to deploy from a cloud-based Git or Mercurial repository](#cloudgitmercurial)  
+> [How to deploy continuously with Visual Studio Team Services](#vsts)  
+> [How to deploy from a cloud-based Git or Mercurial repository](#cloudgitmercurial)  
 
 Pros of deploying from a cloud-based source control service are:
 
