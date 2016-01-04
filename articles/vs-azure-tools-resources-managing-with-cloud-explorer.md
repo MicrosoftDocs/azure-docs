@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Managing Azure resources with Cloud Explorer"
+   pageTitle="Managing Azure resources with Cloud Explorer | Microsoft Azure"
    description="Learn how to use Cloud Explorer to browse and manage Azure resources within Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # Managing Azure resources with Cloud Explorer
