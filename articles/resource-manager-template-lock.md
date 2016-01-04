@@ -16,7 +16,7 @@
    ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Resource locks resource type template schema
+# Resource locks template schema
 
 Creates a new lock on a resource and its child resources.
 
