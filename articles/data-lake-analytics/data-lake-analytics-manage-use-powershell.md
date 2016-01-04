@@ -209,7 +209,7 @@ created an Analytics account, you can add additional Data Lake Storage accounts 
 	$AzureStorageAccountName = "<AzureStorageAccountName>"
 	$AzureStorageAccountKey = "<AzureStorageAccountKey>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -AccountName $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
 ### Add additional Data Lake Store accounts
 
@@ -217,7 +217,7 @@ created an Analytics account, you can add additional Data Lake Storage accounts 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	$AzureDataLakeName = "<DataLakeStoreName>"
 	
-	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -AccountName $dataLakeAnalyticName -DataLake $AzureDataLakeName 
+	Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticName -DataLake $AzureDataLakeName 
 
 ### List data sources:
 
@@ -239,49 +239,49 @@ You must have an Data Lake Analytics account before you can create a job.  For m
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -State Running, Queued
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -State Running, Queued
 	#States: Accepted, Compiling, Ended, New, Paused, Queued, Running, Scheduling, Starting
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Result Cancelled
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Result Cancelled
 	#Results: Cancelled, Failed, None, Successed 
 	
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Name <Job Name>
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -Submitter <Job submitter>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Name <Job Name>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -Submitter <Job submitter>
 
 	# List all jobs submitted on January 1 (local time)
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-SubmittedAfter "2015/01/01"
 		-SubmittedBefore "2015/01/02"	
 
 	# List all jobs that succeeded on January 1 after 2 pm (UTC time)
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-State Ended
 		-Result Succeeded
 		-SubmittedAfter "2015/01/01 2:00 PM -0"
 		-SubmittedBefore "2015/01/02 -0"
 
 	# List all jobs submitted in the past hour
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-SubmittedAfter (Get-Date).AddHours(-1)
 
 ### Get job details
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
-	Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName -JobID <Job ID>
+	Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName -JobID <Job ID>
 	
 ### Submit jobs
 
 	$dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
 	#Pass script via path
-	Submit-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-Name $jobName `
 		-ScriptPath $scriptPath
 
 	#Pass script contents
-	Submit-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Submit-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-Name $jobName `
 		-Script $scriptContents
 
@@ -290,7 +290,7 @@ You must have an Data Lake Analytics account before you can create a job.  For m
 
 ### Cancel jobs
 
-	Stop-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticName `
+	Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticName `
 		-JobID $jobID
 
 
@@ -302,14 +302,14 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
 
 	#List databases
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Database
 	
 	
 	
 	#List tables
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Table `
 		-Path "master.dbo"
 
@@ -317,32 +317,32 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
 
 	#Get a database
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Database `
 		-Path "master"
 	
 	#Get a table
 	Get-AzureRmDataLakeAnalyticsCatalogItem `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Table `
 		-Path "master.dbo.mytable"
 
 ###Test existence of  catalog item
 
 	Test-AzureRmDataLakeAnalyticsCatalogItem  `
-		-AccountName $adlAnalyticsAccountName `
+		-Account $adlAnalyticsAccountName `
 		-ItemType Database `
 		-Path "master"
 
 ###Create catalog secret
 	New-AzureRmDataLakeAnalyticsCatalogSecret  `
-			-AccountName $adlAnalyticsAccountName `
+			-Account $adlAnalyticsAccountName `
 			-DatabaseName "master" `
 			-Secret (Get-Credential -UserName "username" -Message "Enter the password")
 
 ### Modify catalog secret
 	Set-AzureRmDataLakeAnalyticsCatalogSecret  `
-			-AccountName $adlAnalyticsAccountName `
+			-Account $adlAnalyticsAccountName `
 			-DatabaseName "master" `
 			-Secret (Get-Credential -UserName "username" -Message "Enter the password")
 
@@ -350,7 +350,7 @@ The U-SQL catalog is used to structure data and code so they can be shared by U-
 
 ###Delete catalog secret
 	Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
-			-AccountName $adlAnalyticsAccountName `
+			-Account $adlAnalyticsAccountName `
 			-DatabaseName "master"
 
 
