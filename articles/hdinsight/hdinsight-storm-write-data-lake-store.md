@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="12/02/2015"
+ms.date="04/04/2016"
 ms.author="larryfr"/>
 
 #Use Azure Data Lake Store with Apache Storm with HDInsight
@@ -55,7 +55,7 @@ The example used in this document is written in Java, and uses the following com
 
 * __ADLStoreBolt__: Writes data to Azure Data Lake Store using the [HdfsBolt](http://storm.apache.org/javadoc/apidocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) component.
 
-The project containing this topology is available as a download from [TBD].
+The project containing this topology is available as a download from [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
 ###Understanding ADLStoreBolt
 
