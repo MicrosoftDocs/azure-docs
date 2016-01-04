@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="01/04/2016"
    ms.author="hascipio; v-shresh"/>
 
 # Guide to creating a developer service for the Azure Marketplace

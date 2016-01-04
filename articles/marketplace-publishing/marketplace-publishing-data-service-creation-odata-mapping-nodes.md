@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/17/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # Understanding the nodes schema for mapping an existing web service to OData through CSDL
