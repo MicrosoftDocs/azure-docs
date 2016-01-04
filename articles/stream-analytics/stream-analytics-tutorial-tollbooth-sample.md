@@ -144,17 +144,17 @@ Note that by default all available namespaces in the subscription are visible. C
   
 Two Event Hubs should be visible, named entry and exit created in this namespace.
   
-![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-09.png)  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-10.png)  
   
 ### Azure Storage Container Review
 Click on “Storage” menu item on the left side of the Azure Management Portal to see storage container used in the Lab.
 Click on the one starting with “tolldata”. (tolldata4637388511 in this example). Open “Containers” tab to see the created container.
   
-![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-11.png)  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-12.png)  
   
 Click on “tolldata” container to see uploaded JSON file with vehicle registration data.
   
-![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-12.png)  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-13.png)  
   
 ### Azure SQL Database Review
 Click on “SQL Databases” menu item on the left side of the Azure Management Portal to see Azure SQL Database that will be used in the Lab. Click on “TollDataDB” and copy the server name without the port number (<serverName>.database.windows.net for example). This will be needed in the next step.
