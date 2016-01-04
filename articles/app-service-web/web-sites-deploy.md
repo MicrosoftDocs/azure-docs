@@ -69,7 +69,7 @@ If you are already used to deploy your files by manually copying files, a common
 an [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) utility to copy files, such as Windows Explorer or 
 [FileZilla](https://filezilla-project.org/).
 
->[AZURE.IMPORTANT] [How to deploy by copying files to Azure manually](#howtoftp)
+>[AZURE.IMPORTANT] [How to deploy by copying files to Azure manually](#howtoftp) 
 
 The pros of copying files manually are:
 
