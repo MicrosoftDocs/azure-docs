@@ -173,7 +173,7 @@ Now what do we do about hosting so that we can actually run it?
 
 ### Host the service
 
-In Service Fabric, your service runs in a *service host process*, an executable that runs your service code. When you write a service by using the Reliable Services API, your service project just compiles to an executable file that registers your service type and runs your code. This is true in most cases when you write a service on Service Fabric in .NET. When you open Program.cs in the stateless service project, you should see:
+In Service Fabric, your service runs in a *service host process*, an executable file that runs your service code. When you write a service by using the Reliable Services API, your service project just compiles to an executable file that registers your service type and runs your code. This is true in most cases when you write a service on Service Fabric in .NET. When you open Program.cs in the stateless service project, you should see:
 
 ```csharp
 
@@ -204,7 +204,7 @@ If that looks suspiciously like the entry point to a console application, that's
 
 Further details about the service host process and service registration are beyond the scope of this article. But it's important to know for now that *your service code is running in its own process*.
 
-## Self-host a Web API with an OWIN host
+### Self-host a Web API with an OWIN host
 
 Given that your Web API application code is hosted in its own process, how do you hook it up to a web server? Enter [OWIN](http://owin.org/). OWIN is simply a contract between .NET web applications and web servers. Traditionally when ASP.NET (up to MVC 5) is used, the web application is tightly coupled to IIS through System.Web. However, the Web API implements OWIN, so you can write a web application that is decoupled from the web server that hosts it. Because of this, you can use a *self-host* OWIN web server that you can start in your own process. This fits perfectly with the Service Fabric hosting model we just described.
 
@@ -292,7 +292,7 @@ public class OwinCommunicationListener : ICommunicationListener
 
 ```
 
-### Implementation
+### Implement OpenAsync
 
 To set up the web server, you need two pieces of information:
 
@@ -313,7 +313,7 @@ Configure an HTTP endpoint in PackageRoot\ServiceManifest.xml:
 
 ```
 
-This step is important because the service host process runs under restricted credentials (Network Service on Windows). This means that your service won't have access to set up an HTTP endpoint on its own. By using the endpoint configuration, Service Fabric knows to set up the proper access control list (ACL) for the URL that the service will listen on. Service Fabriuc also provides a standard place to configure endpoints.
+This step is important because the service host process runs under restricted credentials (Network Service on Windows). This means that your service won't have access to set up an HTTP endpoint on its own. By using the endpoint configuration, Service Fabric knows to set up the proper access control list (ACL) for the URL that the service will listen on. Service Fabric also provides a standard place to configure endpoints.
 
 
 Back in OwinCommunicationListener.cs, you can start implementing OpenAsync. This is where you start the web server. First, get the endpoint information and create the URL that the service will listen on.
@@ -338,7 +338,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
 Note that `http://+` is used here. This is to make sure that the web server is listening on all available addresses, including localhost, FQDN, and the machine IP.
 
-The OpenAsync implementation is one of the most important reasons why the web server (or any communication stack) is implemented as an ICommunicationListener, rather than just by opening it directly from `RunAsync()` in the service. The return value from OpenAsync is the address that the web server is listening on. When this address is returned to the system, it registers the address with the service. Service Fabric provides an API that allows clients and other services to then ask for this address by service name. This is important because  the service address is not static. Services are moved around in the cluster for resource balancing and availability purposes. This is the mechanism that allows clients to resolve the listening address for a service.
+The OpenAsync implementation is one of the most important reasons why the web server (or any communication stack) is implemented as an ICommunicationListener, rather than just by opening it directly from `RunAsync()` in the service. The return value from OpenAsync is the address that the web server is listening on. When this address is returned to the system, it registers the address with the service. Service Fabric provides an API that allows clients and other services to then ask for this address by service name. This is important because the service address is not static. Services are moved around in the cluster for resource balancing and availability purposes. This is the mechanism that allows clients to resolve the listening address for a service.
 
 With that in mind, OpenAsync starts the web server and returns the address it's listening on. Note that it listens on `http://+`, but before OpenAsync returns the address, the "+" is replaced with the IP or FQDN of the node it is currently on. The address that is returned by using this method is what's registered with the system. It's also what clients and other service see when they ask for a service's address. For clients to correctly connect to it, they need an actual IP or FQDN in the address.
 
@@ -360,7 +360,7 @@ Note that this references the startup class that was passed in to the OwinCommun
 
 The `ServiceEventSource.Current.Message()` line will appear in the diagnostic events window later, when you run the application to confirm that the web server has started successfully.
 
-### CloseAsync and Abort
+### Implement CloseAsync and Abort
 
 Finally, implement both CloseAsync and Abort to stop the web server. The web server can be stopped by disposing the server handle that was created during OpenAsync.
 
@@ -415,9 +415,9 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 This is where the Web API *application* and the OWIN *host* finally meet. The host (OwinCommunicationListener) is given an instance of the *application* (the Web API via startup). Service Fabric then manages its lifecycle. This same pattern can typically be followed with any communication stack.
 
-## Put it all together
+### Put it all together
 
-In this example, you don't need to do anything in the RunAsync() method, so that override can simply be removed.
+In this example, you don't need to do anything in the `RunAsync()` method, so that override can simply be removed.
 
 The final service implementation should be very simple. It only needs to create the communication listener:
 
