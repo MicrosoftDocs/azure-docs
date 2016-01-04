@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for storage | Microsoft Azure"
-   description="Shows the resource manager schema for storage accounts."
+   description="Shows the resource manager schema for deploying storage accounts through a template."
    services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2015"
    ms.author="tomfitz"/>
 
-# Storage account - template schema
+# Storage account resource type schema
 
 Creates a storage account.
 
