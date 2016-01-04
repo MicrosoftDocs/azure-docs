@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="04/04/2016"
+ms.date="01/04/2016"
 ms.author="larryfr"/>
 
 #Use Azure Data Lake Store with Apache Storm with HDInsight
