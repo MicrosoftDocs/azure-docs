@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Provide Sign up and Sign in to Consumers with Facebook Accounts
@@ -25,8 +25,8 @@
 To use Facebook as an identity provider in Azure Active Directory (AD) B2C, you will first need to create a Facebook application and supply it with the right parameters. You will need a Facebook account to do this; if you don’t have one, you can get it at [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Go to the [Facebook Developers website](https://developers.facebook.com/) and sign in with your Facebook account credentials.
-2. If you have not already done so, click **Apps** then click **Register as a Developer**, accept the policy and follow the registration steps.
-3. Click **Apps** and then **Add a new App**. Then choose **Website** as the platform, and then click **Skip and Create App ID**.
+2. If you have not already done so, you need to register as a Facebook Developer. To do this, click **Register** (on the top right corner of the page), accept Facebook's policies and complete the registration steps.
+3. Click **My Apps** and then **Add a new App**. Then choose **Website** as the platform, and then click **Skip and Create App ID**.
 
     ![FB - Add a new app](./media/active-directory-b2c-setup-fb-app/fb-add-new-app.png)
 
@@ -57,13 +57,15 @@ To use Facebook as an identity provider in Azure Active Directory (AD) B2C, you 
 
     ![FB - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-oauth-redirect-uri.png)
 
-10. To make your Facebook application usable by Azure AD B2C, you need to make it publicly available. You can do this by clicking on **Status & Review** on the left navigation and turning the switch at the top of the page to **YES**. And click **Confirm**.
+10. To make your Facebook application usable by Azure AD B2C, you need to make it publicly available. You can do this by clicking on **Status & Review** on the left navigation and submitting the application for review (click the **Start a Submission** button). Once your application has been approved by Facebook, you can make it public by turning the switch at the top of the page to **YES**. And clicking **Confirm**.
 
-    ![FB - OAuth Redirect URI](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
+    ![FB - App submission](./media/active-directory-b2c-setup-fb-app/fb-app-submission.png)
+
+    ![FB - App public](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
 
 ## Configure Facebook as an Identity Provider in your Directory
 
-1. [Navigate to the B2C features blade on the Azure preview portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For example, enter "FB".

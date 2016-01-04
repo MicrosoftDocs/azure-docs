@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: enable Multi-Factor Authentication in your Consumer-facing Applications
@@ -32,7 +32,7 @@ By utilizing this feature, applications can handle scenarios such as the followi
 
 ## Modify your Sign-up Policy to enable Multi-Factor Authentication
 
-1. [Navigate to the B2C features blade on the Azure preview portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)..
+1. [Navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)..
 2. Click **Sign-up policies**.
 3. Open your sign-up policy (for example, "B2C_1_SiUp") by clicking on it.
 4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
@@ -44,7 +44,7 @@ A consumer account gets created in your directory before the multi-factor authen
 
 ## Modify your Sign-in Policy to enable Multi-Factor Authentication
 
-1. Navigate to the B2C features blade on the [Azure preview portal](htts://portal.azure.com/). Read [here](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on how to do this.
+1. Navigate to the B2C features blade on the [Azure Portal](htts://portal.azure.com/). Read [here](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on how to do this.
 2. Click **Sign-in policies**.
 3. Open your sign-in policy (for example, "B2C_1_SiIn") by clicking on it. Click **Edit** at the top of the blade.
 4. Click **Multi-factor authentication** and turn the **State** to **ON**. Click **OK**.
