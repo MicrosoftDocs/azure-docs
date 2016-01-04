@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 12/31/15-->
+<!--author=alkohli last changed: 01/04/15-->
 
 #### To install Update 2 as a hotfix from Windows PowerShell for StorSimple
 
@@ -10,7 +10,7 @@ Perform the following steps to download the software update.
     
    	![Install catalog](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. You will see a catalog search screen. Enter **3121900** in the search box, and click **Search**.
+3. You will see a catalog search screen. Enter **3121901** in the search box, and click **Search**.
 
     ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog-include.png)
 
@@ -22,13 +22,13 @@ Perform the following steps to download the software update.
  
     ![View basket](./media/storsimple-install-update2-hotfix/HCS_InstallBasket-include.png) 
 
-6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update will be downloaded in a **StorSimple Update 2 Appliance Update bundle** (KB3063418) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device. 
+6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update will be downloaded in a **StorSimple Update 2 Appliance Update bundle** (KB3121901) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device. 
     
 	This procedure describes how to install software, LSI driver and firmware, and disk firmware updates all as hotfixes.  
     
 	> [AZURE.NOTE] 
 	> 
-	> - You will need to download StorSimple 2 LSI Driver Update (KB3121900) and StorSimple 2 Disk Firmware Update (KB 3121899) and copy to the same shared folder.
+	> - You will also need to download StorSimple 2 LSI Driver Update (KB3121900), Storport Update (KB3080728), Spaceport Update (KB3090322), and StorSimple 2 Disk Firmware Update (KB3121899) and copy to the same shared folder.
 	> - The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller. 
             
 2. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
@@ -107,9 +107,9 @@ Perform the following steps to download the software update.
     
 9. Repeat steps 5-7 to next install and monitor 
 
-	- The LSI driver and firmware using the `HcsLsiUpdate.exe` package.
-	- The Storport fix using the `Storport-KB3080728-x64.msu` package.
-	- The Spaceport fix using the `spaceport-KB3090322-x64.msu` package.
+	- The LSI driver and firmware using the `HcsLsiUpdate.exe` package (KB3121900).
+	- The Storport fix using the `Storport-KB3080728-x64.msu` package (KB3080728).
+	- The Spaceport fix using the `spaceport-KB3090322-x64.msu` package (KB3090322).
 	
 10. Finally install the disk firmware updates using the `DiskFirmwarePackage.exe` package. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.To install disk firmware updates, follow the instructions below.
 
@@ -162,58 +162,58 @@ Perform the following steps to download the software update.
 	A sample output is shown below.
 
 
-	    -----------------------MAINTENANCE MODE------------------------
-	Microsoft Azure StorSimple Appliance Model 8100
-	Name: TD178-Doc-QFE3-8100-SHG0997879L76YD
-	Software Version: 6.3.9600.17664
-	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-	You are connected to Controller1
-	---------------------------------------------------------------
-	
-	Controller1>Get-HcsFirmwareVersion
-	
-	
-	Controller0 : TalladegaFirmware
-	  ActiveBIOS:0.45.0006
-	  BackupBIOS:0.45.0008
-	  MainCPLD:17.0.0005
-	  ActiveBMCRoot:2.0.000E
-	  BackupBMCRoot:2.0.000E
-	  BMCBoot:2.0.0001
-	  LsiFirmware:19.00.00.00
-	  LsiBios:07.37.00.00
-	  Battery1Firmware:06.29
-	  Battery2Firmware:06.29
-	  DomFirmware:X231600
-	  CanisterFirmware:3.5.0.32
-	  CanisterBootloader:5.03
-	  CanisterConfigCRC:0xD1B030A4
-	  CanisterVPDStructure:0x06
-	  CanisterGEMCPLD:0x17
-	  CanisterVPDCRC:0xEE3504B4
-	  MidplaneVPDStructure:0x0C
-	  MidplaneVPDCRC:0xA6BD4F64
-	  MidplaneCPLD:0x10
-	  PCM1Firmware:1.00|1.05
-	  PCM1VPDStructure:0x05
-	  PCM1VPDCRC:0x41BEF99C
-	  PCM2Firmware:1.00|1.05
-	  PCM2VPDStructure:0x05
-	  PCM2VPDCRC:0x41BEF99C
-	
-	  DisksFirmware
-	  SEAGATE:ST400FM0073:XGEG
-	  SEAGATE:ST400FM0073:XGEG
-	  SEAGATE:ST400FM0073:XGEG
-	  SEAGATE:ST400FM0073:XGEG
-	  SEAGATE:ST4000NM0023:XMGG
-	  SEAGATE:ST4000NM0023:XMGG
-	  SEAGATE:ST4000NM0023:XMGG
-	  SEAGATE:ST4000NM0023:XMGG
-	  SEAGATE:ST4000NM0023:XMGG
-	  SEAGATE:ST4000NM0023:XMGG
-	  SEAGATE:ST4000NM0023:XMGG
-	  SEAGATE:ST4000NM0023:XMGG
+        -----------------------MAINTENANCE MODE------------------------
+    	Microsoft Azure StorSimple Appliance Model 8100
+    	Name: TD178-Doc-QFE3-8100-SHG0997879L76YD
+    	Software Version: 6.3.9600.17664
+    	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
+    	You are connected to Controller1
+    	---------------------------------------------------------------
+    	
+    	Controller1>Get-HcsFirmwareVersion
+    	
+    	
+    	Controller0 : TalladegaFirmware
+    	  ActiveBIOS:0.45.0006
+    	  BackupBIOS:0.45.0008
+    	  MainCPLD:17.0.0005
+    	  ActiveBMCRoot:2.0.000E
+    	  BackupBMCRoot:2.0.000E
+    	  BMCBoot:2.0.0001
+    	  LsiFirmware:19.00.00.00
+    	  LsiBios:07.37.00.00
+    	  Battery1Firmware:06.29
+    	  Battery2Firmware:06.29
+    	  DomFirmware:X231600
+    	  CanisterFirmware:3.5.0.32
+    	  CanisterBootloader:5.03
+    	  CanisterConfigCRC:0xD1B030A4
+    	  CanisterVPDStructure:0x06
+    	  CanisterGEMCPLD:0x17
+    	  CanisterVPDCRC:0xEE3504B4
+    	  MidplaneVPDStructure:0x0C
+    	  MidplaneVPDCRC:0xA6BD4F64
+    	  MidplaneCPLD:0x10
+    	  PCM1Firmware:1.00|1.05
+    	  PCM1VPDStructure:0x05
+    	  PCM1VPDCRC:0x41BEF99C
+    	  PCM2Firmware:1.00|1.05
+    	  PCM2VPDStructure:0x05
+    	  PCM2VPDCRC:0x41BEF99C
+    	
+    	  DisksFirmware
+    	  SEAGATE:ST400FM0073:XGEG
+    	  SEAGATE:ST400FM0073:XGEG
+    	  SEAGATE:ST400FM0073:XGEG
+    	  SEAGATE:ST400FM0073:XGEG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
+    	  SEAGATE:ST4000NM0023:XMGG
 
 	 You can run this command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller: 
 

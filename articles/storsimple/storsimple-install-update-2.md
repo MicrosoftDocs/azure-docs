@@ -72,7 +72,7 @@ This is the recommended procedure to update your device. Perform the following s
 
 You should use this procedure only if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1. 
 
-The software versions that can be upgraded using this method are Update 0.1, Update 0.2, and Update 0.3, Update 1, Update 1.1, and Update 1.2. You will download Update 2 hotfixes and apply those by using the `Start-HcsHotfix` cmdlet from the Windows PowerShell interface of the device. 
+The software versions that can be upgraded using the hotfix method are Update 0.1, Update 0.2, and Update 0.3, Update 1, Update 1.1, and Update 1.2. You will download Update 2 hotfixes and apply those by using the `Start-HcsHotfix` cmdlet from the Windows PowerShell interface of the device. 
 
 > [AZURE.IMPORTANT] 
 > 
