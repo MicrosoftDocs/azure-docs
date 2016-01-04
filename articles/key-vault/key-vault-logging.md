@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/14/2015"
+	ms.date="01/04/2016"
 	ms.author="cabailey"/>
 
 # Azure Key Vault Logging #
@@ -209,7 +209,7 @@ The following table lists the field names and descriptions.
 | category      | For Key Vault logs, AuditEvent is the single, available value.|
 | resultType      | Result of REST API request.|
 | resultSignature      | HTTP status.|
-| resultDescription     | al description about result when available.|
+| resultDescription     | Additional description about the result, when available.|
 | durationMs      | Time it took to service the REST API request, in milliseconds. This does not include the network latency, so the time you measure on the client side might not match this time.|
 | callerIpAddress      | IP address of the client who made the request.|
 | correlationId      | An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs.|
@@ -221,19 +221,18 @@ The following table lists the field names and descriptions.
 
 The **operationName** field values are in ObjectVerb format. For example:
 
-- All key vault operations have the 'Vault<action' format, such as `VaultGet` and `VaultCreate`. 
+- All key vault operations have the 'Vault`<action>`' format, such as `VaultGet` and `VaultCreate`. 
 
-- All  key operations have the 'Key<action>' format, such as `KeySign` and `KeyList`. 
+- All  key operations have the 'Key`<action>`' format, such as `KeySign` and `KeyList`. 
 
-- All secret operations have the 'Secret<action>' format, such as `SecretGet` and `SecretListVersions`.
+- All secret operations have the 'Secret`<action>`' format, such as `SecretGet` and `SecretListVersions`.
 
 The following table lists the operationName and corresponding REST API command.
 
 | operationName        | REST API Command |
 | ------------- |-------------|
 | Authentication      | Via Azure Active Directory endpoint|
-| VaultGet      | Via Azure Active Directory endpoint|
-| Authentication      | [Get information about a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx)|
+| VaultGet      | [Get information about a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620026.aspx)|
 | VaultPut      | [Create or update a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620025.aspx)|
 | VaultDelete      | [Delete a key vault](https://msdn.microsoft.com/en-us/library/azure/mt620022.aspx)|
 | VaultPatch      | [Update a key vault](https://msdn.microsoft.com/library/azure/mt620025.aspx)|
