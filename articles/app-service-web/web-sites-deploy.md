@@ -240,8 +240,8 @@ If you work on a development team of any size and uses a cloud-based source code
 [GitHub](https://www.github.com), [GitLab](https://gitlab.com), [BitBucket](https://bitbucket.org/), 
 [CodePlex](https://www.codeplex.com/), [Codebase](https://www.codebasehq.com), and [Kiln](https://www.fogcreek.com/kiln/).
 
-[How to deploy continuously with Visual Studio Team Services](#vsts)
-[How to deploy from a cloud-based Git or Mercurial repository](#cloudgitmercurial)
+[How to deploy continuously with Visual Studio Team Services](#vsts)  
+[How to deploy from a cloud-based Git or Mercurial repository](#cloudgitmercurial)  
 
 Pros of deploying from a cloud-based source control service are:
 
