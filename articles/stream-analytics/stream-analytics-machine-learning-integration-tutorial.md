@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/14/2015" 
+	ms.date="12/30/2015" 
 	ms.author="jeffstok"
 /> 
 
@@ -142,7 +142,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 
 In this tutorial, a Stream Analytics job was created that reads streaming text data and applying sentiment analytics on it in real time. You were able to do all this without having to worry about intricacies of building a Sentiment Analytics model. This is one of the advantages of the Cortana Analytics suite.
 
-The Azure Machine Language function related metrics are also able to be observed.  Click on the **MONITOR** tab. Three function related metrics are present.  
+The Azure Machine Learning function related metrics are also able to be observed.  Click on the **MONITOR** tab. Three function related metrics are present.  
   
 - FUNCTION REQUESTS indicates the number of requests to machine learning web service.  
 - FUNCTION EVENTS indicates the number of events in the request – By default, each request to ML web service contains up to 1000 events.  
