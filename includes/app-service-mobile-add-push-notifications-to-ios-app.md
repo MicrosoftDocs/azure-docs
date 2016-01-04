@@ -85,15 +85,15 @@
 
 
 
-       func application(application: UIApplication,
-           didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-             
-           application.registerUserNotificationSettings(
-               UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound],
-                   categories: nil))
-             
-           application.registerForRemoteNotifications()
-           return true
-       }
+                func application(application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+                     
+                   application.registerUserNotificationSettings(
+                       UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound],
+                           categories: nil))
+                     
+                   application.registerForRemoteNotifications()
+                   return true
+                }
        
 
