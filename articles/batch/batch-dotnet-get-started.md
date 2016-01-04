@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="12/22/2015"
+	ms.date="01/08/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch library for .NET  
@@ -65,7 +65,7 @@ The following diagram illustrates the primary operations performed by the client
 **4.** Create Batch **job**<br/>
 **5.** Add **tasks** to job<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** The tasks are scheduled to execute on nodes<br/>
-	&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage before it begins automatic execution<br/>
 **6.** Monitor tasks<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** As tasks complete, they upload their output data to Azure Storage<br/>
 **7.** Download task output from Storage
@@ -108,7 +108,7 @@ Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's 
 ![Create containers in Azure Storage][1]
 <br/>
 
-Batch includes built-in support for interacting with Azure Storage, and blob containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute, as well as a place to store the output data they produce. The first thing the *DotNetTutorial* client application does is create three block blob containers in Azure Storage:
+Batch includes built-in support for interacting with Azure Storage, and containers within your Storage account will provide tasks that run in your Batch account with the files they need to execute, as well as a place to store the output data they produce. The first thing the *DotNetTutorial* client application does is create three containers in Azure Blob Storage:
 
 - **application** - This container will house the application that will be run by the tasks, as well as any of its dependencies such as DLLs.
 - **input** - Tasks will download the data files they are to process from the *input* container.
@@ -243,7 +243,7 @@ The DotNetTutorial sample application does not use the JobPreparationTask or Job
 
 Shared access signatures are strings which - when included as part of a URL - provide secure access to containers and blobs in Azure Storage. The DotNetTutorial application uses both blob and container SAS URLs, and demonstrates how to obtain these SAS strings from the Storage service.
 
-- **Blob SAS** - The tasks in DotNetTutorial use blob shared access signatures when downloading the application binaries and input data files from Storage. The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's SAS, and does so by calling [CloudblobData.GetSharedAccessSignature][net_sas_blob].
+- **Blob SAS** - The pool's StartTask in DotNetTutorial uses blob shared access signatures when downloading the application binaries and input data files from Storage (see Step #3 below). The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's SAS, and does so by calling [CloudblobData.GetSharedAccessSignature][net_sas_blob].
 
 - **Container SAS** - As each task finishes its work on the compute node, it uploads its output file to the *output* container in Azure Storage. To do so, the TaskApplication uses a container SAS that provides write-access to the container as part of the path when uploading the file. Obtaining the container SAS is done in a similar fashion as when obtaining the blob SAS, and in DotNetTutorial, you will find that the `GetContainerSasUrl` helper method calls [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] to do so. You'll read more about how TaskApplication uses the container SAS in Step 6 below, "Monitor Tasks."
 
@@ -288,7 +288,7 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
         // of pre-defined environment variables that can be referenced by commands or applications
         // run by tasks.
 
-        // Since a successful execution of robocopy return a non-zero exit code (e.g. 1 when one or
+        // Since a successful execution of robocopy can return a non-zero exit code (e.g. 1 when one or
         // more files were succesfully copied) we need to manually exit with a 0 for Batch to recognize
         // StartTask execution success.
         CommandLine = "cmd /c (robocopy %AZ_BATCH_TASK_WORKING_DIR% %AZ_BATCH_NODE_SHARED_DIR%) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
@@ -338,7 +338,7 @@ Now that a job has been created, tasks are added to perform the work.
 ![Add tasks to job][5]<br/>
 *(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
 
-To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured with a command line and, as with the pool's StartTask, [ResourceFiles][net_task_resourcefiles] that the task downloads to the node before its command line is executed. In the *DotNetTutorial* sample project, each task processes only one file, thus its ResourceFiles collection contains a single element.
+To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured with a command line and, as with the pool's StartTask, [ResourceFiles][net_task_resourcefiles] that the task downloads to the node before its command line is automatically executed. In the *DotNetTutorial* sample project, each task processes only one file, thus its ResourceFiles collection contains a single element.
 
 ```
 private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient, string jobId, List<ResourceFile> inputFiles, string outputContainerSasUrl)
@@ -369,7 +369,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 }
 ```
 
-> [AZURE.IMPORTANT] In order to ensure that environment variables such as `%AZ_BATCH_NODE_SHARED_DIR%` are properly expanded, you must prefix task command lines with `cmd /c` to explicitly execute the command interpreter and instruct it to terminate after carrying out your command. This requirement is unnecessary if your task command line does not include environment variables.
+> [AZURE.IMPORTANT] When executing an application not found in the node's `PATH`, or when using environment variables such as `%AZ_BATCH_NODE_SHARED_DIR%`, task command lines must be prefixed with `cmd /c` to explicitly execute the command interpreter and instruct it to terminate after carrying out your command. This requirement is unnecessary if your tasks execute an application in the node's PATH (such as *robocopy.exe* or *powershell.exe*), and no environment variables are used.
 
 Within the `foreach` loop in the code snippet above, you can see that the command line for the task is constructed such that three command line arguments are passed to *TaskApplication.exe*:
 
