@@ -114,37 +114,53 @@ Also download and save the supporting TollApp folder and files. Be sure to downl
 
 Open a “Microsoft Azure PowerShell” window as Administrator. If Azure PowerShell is not yet installed, follow the instructions at [http://azure.microsoft.com/documentation/articles/install-configure-powershell/](./install-configure-powershell.md) install it.
 
-Now set the ExecutionPolicy for PowerShell so the script can run. Be sure the Azure PowerShell window is running as Administrator. Type `Set-ExecutionPolicy unrestricted` and hit enter. When prompted, type “Y”. Next type `Get-ExecutionPolicy` and hit enter to make sure the command worked.
+Now set the ExecutionPolicy for PowerShell so the script can run. Be sure the Azure PowerShell window is running as Administrator. Type `Set-ExecutionPolicy unrestricted` and hit enter. When prompted, type “Y”. Next type `Get-ExecutionPolicy` and hit enter to validate the command worked.
 
 Change directories in the PowerShell window to the directory with the downloaded scripts and generator application.
 
 Type `.\Setup.ps1` to set up the Azure account, create and configure all required resources and start generating events.
 
 The script will open the “Sign In” page for Windows Azure. Enter account credentials as requested.
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-05.png)  
+  
 Please note that if the Azure account has access to multiple subscriptions, the script will prompt to enter the subscription name for use in the lab.
 
 The script can take several minutes to run. Once completed, the output should look like the screenshot below.
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-06.png)  
+  
 Another window will be present, similar to the screen shot below. This is the simulator application that sends events to Event Hub. It is required to run the lab exercises. **Do not stop the application or close this window until the the lab is finished.**
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-07.png)  
+  
 The created resources should populate in Azure Management Portal and be visible. To verify and see the objects go to [https://manage.windowsazure.com](https://manage.windowsazure.com "Build a real time processing job in Stream Analytics manage Windows Azure link") and login with the same account credentials used for the script setup.
 
 ### Event Hub Review
 Click on “Service Bus” menu item on the left side of the Azure Management Portal to see Event Hubs created by the script from the previous section.
 Note that by default all available namespaces in the subscription are visible. Click on the one starting with “TollData”. (TollData4637388511 in this example). Click on “Event Hubs” tab.
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-08.png)  
+  
 Two Event Hubs should be visible, named entry and exit created in this namespace.
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-09.png)  
+  
 ### Azure Storage Container Review
 Click on “Storage” menu item on the left side of the Azure Management Portal to see storage container used in the Lab.
 Click on the one starting with “tolldata”. (tolldata4637388511 in this example). Open “Containers” tab to see the created container.
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-11.png)  
+  
 Click on “tolldata” container to see uploaded JSON file with vehicle registration data.
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-12.png)  
+  
 ### Azure SQL Database Review
 Click on “SQL Databases” menu item on the left side of the Azure Management Portal to see Azure SQL Database that will be used in the Lab. Click on “TollDataDB” and copy the server name without the port number (<serverName>.database.windows.net for example). This will be needed in the next step.
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-14.png)  
+  
 ## Connect Visual Studio to Azure SQL Database
 Visual Studio will be leveraged to review the query results in the output database.  
   
@@ -163,14 +179,22 @@ To do so connect to the Azure database (the destination) from Visual Studio:
 
 ## Event Generator - TollApp Sample Project
 The PowerShell script automatically starts sending events using the TollApp sample application program. No additional steps are needed. However, if you are interested in the implementation details, you can find the source code of the TollApp application under in GitHub samples/TollApp.
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-20.png)  
+  
 ## Create the Stream Analytics Job
 In the Azure portal select Stream Analytics and click “New” in the bottom left hand corner of the page to create a new job. Then click “Quick Create” and select "South Central US" as the region.
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-21.png)  
+  
 For “Regional Monitoring Storage Account” setting, select “Create new storage account” and give it any unique name. Azure Stream Analytics will use this account to store monitoring information for your future jobs. Then click “Create Stream Analytics Job” at the bottom of the page.
-
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-22.png)  
+  
 ## Define Input Sources
 Select the created analytics job in the portal. Then select the  “Inputs” tab to define the source data and select “Add an Input”.
+  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-23.png)  
   
 1. Select “Data Stream” on the first page.  
 2. Select “Event Hub” on the second page of the wizard.  
