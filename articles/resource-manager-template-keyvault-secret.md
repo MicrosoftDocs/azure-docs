@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for a secret in a key vault | Microsoft Azure"
-   description="Shows the resource manager schema for key vault secrets."
+   description="Shows the Resource Manager schema for deploying key vault secrets through a template."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Key vault secret template schema
+# Key vault secret resource type template schema
 
 Creates a secret that is stored in a key vault. This resource type is frequently deployed as a child resource of [key vault](resource-manager-template-keyvault.md).
 
