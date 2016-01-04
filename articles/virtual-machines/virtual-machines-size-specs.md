@@ -66,13 +66,11 @@ The following considerations might help you decide on a size:
 
 ## Performance considerations
 
-We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A11) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
+We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
 
 >[AZURE.IMPORTANT] The ACU is only a guideline.  The results for your workload may vary. 
 
 <br>
-
-
 
 |SKU Family	|ACU/Core |
 |---|---|
