@@ -266,7 +266,7 @@ namespace WebApi
 The ICommunicationListener interface provides three methods to manage a communication listener for your service:
 
  - *OpenAsync*. Start listening for requests.
- - **CloseAsync*. Stop listening for requests, finish any in-flight requests, and shut down gracefully.
+ - *CloseAsync*. Stop listening for requests, finish any in-flight requests, and shut down gracefully.
  - *Abort*. Cancel everything and stop immediately.
 
 To get started, add private class members for a URL path prefix and the startup class that was created earlier. These will be initialized through the constructor and used later when you set up the listening URL. Also, add private class members to save the listening address that is created during initialization and to save the server handle that is created when the server is started.
