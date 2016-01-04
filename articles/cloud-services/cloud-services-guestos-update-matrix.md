@@ -16,7 +16,7 @@
    ms.date="12/29/2015"
    ms.author="yuemlu"/>
 
-# Azure Guest OS Releases and SDK Compatibility Matrix
+# Azure Guest OS releases and SDK compatibility matrix
 Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a a Guest OS is disabled.
 
 > [AZURE.IMPORTANT] This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does not apply to IaaS Virtual Machines. If you configure your roles to use automatic Guest OS updates as described in [Azure Guest OS Update Settings][], it is not vital that you read this page.
@@ -28,7 +28,7 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 
 
 
-## News Updates
+## News updates
 
 ###### **December 29 2015**
 November 201511-02 Guest OS has been released on December 29, 2015 for deployment expect U.S. Government and China environments. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. This OS version will be made avaliable for U.S. Government and China on Jan 4, 2016.
