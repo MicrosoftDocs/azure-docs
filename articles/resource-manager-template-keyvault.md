@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for key vault | Microsoft Azure"
-   description="Shows the resource manager schema for key vaults."
+   description="Shows the Resource Manager schema for deploying key vaults through a template."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="01/04/2015"
    ms.author="tomfitz"/>
 
-# Key vault template schema
+# Key vault resource type template schema
 
 Creates a key vault.
 
