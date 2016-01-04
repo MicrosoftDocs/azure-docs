@@ -154,10 +154,6 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 * [Azure HDInsight SDK documentation] [hdinsight-sdk-documentation] - Discover the HDInsight SDK
 
 
-
-
-
-
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
 [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx

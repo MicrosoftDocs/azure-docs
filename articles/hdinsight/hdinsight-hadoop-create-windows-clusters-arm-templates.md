@@ -135,7 +135,159 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 ##Appx-A: ARM template
 
-The following Azure Resource Manger template creates a Hadoop cluster with the dependent Azure storage account.
+The following Azure Resource Manger template creates a Windows-based Hadoop cluster with the dependent Azure storage account.
+
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+        "type": "string",
+        "defaultValue": "East US 2",
+        "allowedValues": [
+            "Central US",
+            "North Europe",
+            "East US",
+            "East US 2",
+            "North Central US",
+            "South Central US",
+            "West US",
+            "North Europe",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia",
+            "Japan East",
+            "Japan West",
+            "Brizil South",
+            "Australia East",
+            "Australia Southeast",
+            "Central India"
+        ],
+        "metadata": {
+            "description": "The location where all azure resources will be deployed."
+        }
+        },
+        "clusterName": {
+        "type": "string",
+        "metadata": {
+            "description": "The name of the HDInsight cluster to create."
+        }
+        },
+        "clusterLoginUserName": {
+        "type": "string",
+        "defaultValue": "admin",
+        "metadata": {
+            "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
+        }
+        },
+        "clusterLoginPassword": {
+        "type": "securestring",
+        "metadata": {
+            "description": "The password for the cluster login."
+        }
+        },
+        "clusterStorageAccountName": {
+        "type": "string",
+        "metadata": {
+            "description": "The name of the storage account to be created and be used as the cluster's storage."
+        }
+        },
+        "clusterStorageType": {
+        "type": "string",
+        "defaultValue": "Standard_LRS",
+        "allowedValues": [
+            "Standard_LRS",
+            "Standard_GRS",
+            "Standard_ZRS"
+        ]
+        },
+        "clusterWorkerNodeCount": {
+        "type": "int",
+        "defaultValue": 4,
+        "metadata": {
+            "description": "The number of nodes in the HDInsight cluster."
+        }
+        }
+    },
+        "variables": {},
+        "resources": [
+            {
+            "name": "[parameters('clusterStorageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "location": "[parameters('location')]",
+            "apiVersion": "2015-05-01-preview",
+            "dependsOn": [],
+            "tags": {},
+            "properties": {
+                "accountType": "[parameters('clusterStorageType')]"
+            }
+            },
+            {
+            "name": "[parameters('clusterName')]",
+            "type": "Microsoft.HDInsight/clusters",
+            "location": "[parameters('location')]",
+            "apiVersion": "2015-03-01-preview",
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/',parameters('clusterStorageAccountName'))]"
+            ],
+            "tags": {},
+            "properties": {
+                "clusterVersion": "3.2",
+                "osType": "Windows",
+                "clusterDefinition": {
+                "kind": "hadoop",
+                "configurations": {
+                    "gateway": {
+                    "restAuthCredential.isEnabled": true,
+                    "restAuthCredential.username": "[parameters('clusterLoginUserName')]",
+                    "restAuthCredential.password": "[parameters('clusterLoginPassword')]"
+                    }
+                }
+                },
+                "storageProfile": {
+                "storageaccounts": [
+                    {
+                    "name": "[concat(parameters('clusterStorageAccountName'),'.blob.core.windows.net')]",
+                    "isDefault": true,
+                    "container": "[parameters('clusterName')]",
+                    "key": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('clusterStorageAccountName')), '2015-05-01-preview').key1]"
+                    }
+                ]
+                },
+                "computeProfile": {
+                "roles": [
+                    {
+                    "name": "headnode",
+                    "targetInstanceCount": "1",
+                    "hardwareProfile": {
+                        "vmSize": "Large"
+                    }
+                    },
+                    {
+                    "name": "workernode",
+                    "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
+                    "hardwareProfile": {
+                        "vmSize": "Large"
+                    }
+                    }
+                ]
+                }
+            }
+            }
+        ],
+        "outputs": {
+            "cluster": {
+            "type": "object",
+            "value": "[reference(resourceId('Microsoft.HDInsight/clusters',parameters('clusterName')))]"
+            }
+        }
+    }
+
+
+
+##Appx-B: ARM template for Linux-based cluster
+
+The following Azure Resource Manger template creates a Linux-based Hadoop cluster with the dependent Azure storage account.
 
 	{
 	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
