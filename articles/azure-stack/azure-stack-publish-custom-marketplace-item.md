@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="Publish a custom marketplace item (service administrator)" 
+	description="Publish a custom marketplace item (service administrator)" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # Publish a custom marketplace item (service administrator)
 
 The Microsoft Azure Stack Marketplace is a catalog of organizational, open source, and community software applications, developer services, and data pre-configured for Microsoft Azure Stack. Tenants use these items to enable various scenarios.

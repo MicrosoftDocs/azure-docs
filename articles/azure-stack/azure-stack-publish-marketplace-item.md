@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="Publish a marketplace item" 
+	description="Publish a marketplace item" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # Publish a marketplace item
 
 1.  On the Client VM in Microsoft Azure Stack environment, ensure that your PowerShell Session is set up right for service administrator credentials.

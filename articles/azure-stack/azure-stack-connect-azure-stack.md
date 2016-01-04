@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="How to connect to Microsoft Azure Stack POC" 
+	description="How to connect to Microsoft Azure Stack POC" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # How to connect to Microsoft Azure Stack POC
 
 The Microsoft Azure Stack POC is a single-computer environment provided for evaluation purposes. As such, you have the following options when connecting to the environment:

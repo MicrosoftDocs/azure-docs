@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="Deploy templates with the portal" 
+	description="Deploy templates with the portal" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # Deploy templates with the portal
 
 You can use the Microsoft Azure Stack portal to deploy templates.

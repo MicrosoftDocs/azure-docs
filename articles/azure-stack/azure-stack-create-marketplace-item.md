@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="To create a new marketplace item" 
+	description="To create a new marketplace item" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # To create a new marketplace item
 
 1.  Create an Azure Resource Manager template or choose a template from GitHub. For more information and guidance, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).

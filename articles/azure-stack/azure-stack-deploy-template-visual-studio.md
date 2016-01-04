@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="Deploy templates with Visual Studio" 
+	description="Deploy templates with Visual Studio" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # Deploy templates with Visual Studio
 
 1.  Open Visual Studio 2015 Update 1.

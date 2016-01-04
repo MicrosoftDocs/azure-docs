@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="Deploy templates with the command line" 
+	description="Deploy templates with the command line" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # Deploy templates with the command line
 
 You can do use the cross-platform command line interface (CLI) to deploy templates from inside the ClientVM or after using the VPN to connect to the Azure Stack POC.

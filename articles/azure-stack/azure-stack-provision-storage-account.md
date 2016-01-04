@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="Storage accounts" 
+	description="Storage accounts" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # Storage accounts
 
 A storage account gives you access to the Blob and Table services. Your storage account provides the unique namespace for your storage data objects. By default, the data in your account is available only to you, the account owner. For more information about storage accounts, see [About Azure storage accounts](../storage/storage-create-storage-account.md).

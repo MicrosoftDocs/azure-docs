@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="Subscribe to an offer and then provision a VM (tenant)" 
+	description="Subscribe to an offer and then provision a VM (tenant)" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # Subscribe to an offer and then provision a VM (tenant)
 
 Now that the service administrator has created an offer, tenants can subscribe to it. The tenant can then use the subscription to provision a virtual machine.

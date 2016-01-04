@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="First scenarios to try" 
+	description="First scenarios to try" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # First scenarios to try
 
 The primary objects in Microsoft Azure Stack – plans, offers, and subscriptions – provide IaaS services to tenants, such as virtual machines, web sites, and so on. It is these services that provide value to your tenants. Below are four common tasks used by service administrators and tenants in this area (or something like that)

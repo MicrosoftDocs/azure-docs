@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="Deploy Azure Stack POC (service administrator)" 
+	description="Deploy Azure Stack POC (service administrator)" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # Deploy Azure Stack POC (service administrator)
 
 The deployment process for Azure Stack POC has been simplified into a PowerShell script that you can run on a computer that fulfills the prerequisites below.

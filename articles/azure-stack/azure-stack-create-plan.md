@@ -1,4 +1,22 @@
-### <span id="_Toc437554545" class="anchor"><span id="_Toc437530583" class="anchor"><span id="_Toc438046831" class="anchor"></span></span></span>Create a plan (service administrator)
+<properties 
+	pageTitle="Create a plan (service administrator)" 
+	description="Create a plan (service administrator)" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
+# Create a plan (service administrator)
 
 In this step, you’ll create a plan that includes the compute, network, and storage resource providers. This will give subscribers to the plan the ability to provision virtual machines.
 

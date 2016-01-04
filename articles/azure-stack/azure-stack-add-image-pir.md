@@ -1,5 +1,22 @@
-Add an image to the Platform Image Repository
-=============================================
+<properties 
+	pageTitle="Add an image to the Platform Image Repository" 
+	description="Add an image to the Platform Image Repository" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
+# Add an image to the Platform Image Repository
 
 Before you can add an image to the PIR, you must prepare a virtual hard disk image with either a Windows or Linux operating system. This virtual hard disk must be in the VHD format (not VHDX). 
 
@@ -7,8 +24,7 @@ Before you can add an image to the PIR, you must prepare a virtual hard disk ima
 
 -   To prepare a Linux VHD, follow Step 1 from the [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd/) article.
 
-To add an image to the PIR, follow these steps: 
-------------------------------------------------
+## To add an image to the PIR, follow these steps: 
 
 1.  Get the drive letter of the DATAIMAGE disk from “This PC”. For this example, we will use X:\\
 

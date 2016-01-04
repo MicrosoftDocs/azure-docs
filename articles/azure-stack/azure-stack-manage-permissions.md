@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="Manage permissions to resources per user (service administrator and tenant)" 
+	description="Manage permissions to resources per user (service administrator and tenant)" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # Manage permissions to resources per user (service administrator and tenant)
 
 For each subscription, resource group, or service, you can assign any user in Microsoft Azure Stack one of three different roles: Reader, Owner, or Contributor.

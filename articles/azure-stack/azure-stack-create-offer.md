@@ -1,3 +1,21 @@
+<properties 
+	pageTitle="Create an offer (service administrator)" 
+	description="Create an offer (service administrator)" 
+	services="" 
+	documentationCenter="" 
+	authors="v-anpasi" 
+	manager="v-kiwhit" 
+	editor=""/>
+
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/04/2016" 
+	ms.author="v-anpasi"/>
+
 # Create an offer (service administrator)
 
 Now that you have a plan, you can create and include it in an offer.
