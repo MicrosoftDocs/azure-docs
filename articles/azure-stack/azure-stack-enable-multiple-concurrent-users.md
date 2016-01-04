@@ -70,7 +70,7 @@ This step explains how to configure a point to site VPN connection into the Azur
 		netsh nps se np name="Connections to Microsoft Routing and Remote Access server" state="enable" profileid="0x100f" profiledata="true" 
 		Write-host "VM external IP is $externalNicIp" 
 
-	[AZURE.NOTE] These commands produce some output including **The following helper DLL cannot be loaded: WCNNETSH.DLL.** You may ignore this.
+	>[AZURE.NOTE] These commands produce some output including **The following helper DLL cannot be loaded: WCNNETSH.DLL.** You may ignore this.
 
 2.  For the VPN users, you must set up a local user account on the NATVM. Open **Control Panel**, click **User Accounts,** click **User Accounts,** click **User Accounts** again**,** click **Manage another account**, and then click **Add a user account.** Note: You may have to add additional accounts to increase the amount of concurrent users.
 

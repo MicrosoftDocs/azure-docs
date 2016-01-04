@@ -66,4 +66,4 @@ For both of these steps, you must be signed in as a tenant. If you haven’t cre
 
 	![](media/azure-stack-subscribe-plan-provision-vm/image9.png)
 
-[AZURE.NOTE] When you subscribe to an offer, you have to wait till subscription state is InSync **then** refresh the portal or login/logout to see the services as part of that subscription.
+>[AZURE.NOTE] When you subscribe to an offer, you have to wait till subscription state is InSync **then** refresh the portal or login/logout to see the services as part of that subscription.

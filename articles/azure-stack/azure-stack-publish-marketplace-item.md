@@ -30,4 +30,4 @@
 
 4.  You can remove a marketplace item by using the Remove-AzureRMGalleryItem cmdlet.
 
-[AZURE.NOTE] Do not upload the same package with different names in the cmdlet, it will cause the resources to be orphaned.
+>[AZURE.NOTE] Do not upload the same package with different names in the cmdlet, it will cause the resources to be orphaned.

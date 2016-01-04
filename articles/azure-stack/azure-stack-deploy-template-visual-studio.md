@@ -26,7 +26,7 @@
 
 4.  In the **Select Azure Template** dialog box, click **Windows Virtual Machine**, and then click **OK**.
 
-    [AZURE.NOTE] You can see a list of templates available in your new project by expanding the **Templates** node in the **Solution Explorer** pane.
+    >[AZURE.NOTE] You can see a list of templates available in your new project by expanding the **Templates** node in the **Solution Explorer** pane.
 
 5.  In the **Solution Explorer** pane, right-click the name of your project, click **Deploy**, then click **New Deployment**.
 
