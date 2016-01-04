@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for resource locks | Microsoft Azure"
-   description="Shows the resource manager schema for resource locks."
+   description="Shows the Resource Manager schema for deploying resource locks through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Resource locks - template schema
+# Resource locks resource type template schema
 
 Creates a new lock on a resource and its child resources.
 
