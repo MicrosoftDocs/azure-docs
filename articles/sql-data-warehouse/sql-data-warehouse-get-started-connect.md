@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/22/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;barbkess"/>
 
 # Connect to SQL Data Warehouse with Visual Studio
