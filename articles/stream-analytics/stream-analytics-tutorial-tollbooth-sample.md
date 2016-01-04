@@ -194,7 +194,7 @@ For “Regional Monitoring Storage Account” setting, select “Create new stor
 ## Define Input Sources
 Select the created analytics job in the portal. Then select the  “Inputs” tab to define the source data and select “Add an Input”.
   
-![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-23.png)  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-23.jpg)  
   
 1. Select “Data Stream” on the first page.  
 2. Select “Event Hub” on the second page of the wizard.  
