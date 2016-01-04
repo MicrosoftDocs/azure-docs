@@ -175,10 +175,12 @@ Use `Get-AzureRmProviderOperation` or `azure provider operations show` commands 
 ### Not Actions
 If the set of operations that you wish to allow is easily expressed by excluding specific operations rather than including all operations operations except than the ones you wish to exclude, then use the **NotActions** property of a custom role. The effective access granted by a custom role is computed by excluding the **NotActions** operations from the Actions operations.
 
-Note that if a user is assigned a role that excludes an operation in **NotActions** and is assigned a second role that grants access to the same operation – the user will be allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
+> [AZURE.NOTE] If a user is assigned a role that excludes an operation in **NotActions** and is assigned a second role that grants access to the same operation – the user will be allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
 
 ### AssignableScopes
-The **AssignableScopes** property of the custom role specifies the scopes (subscriptions, or resource groups, or resources) within which the custom role is available for assignment to users, groups, and applications. Using **AssignableScopes** you can make the custom role available for assignment in only the subscriptions or resource groups that require it, and not clutter user experience for the rest of the subscriptions or resource groups. *Note that you must use at least one subscription, resource group or resource ID.*  **AssignableScopes** of a custom role also control who is allowed to view, update, and delete the role. Following are some valid assignable scopes:
+The **AssignableScopes** property of the custom role specifies the scopes (subscriptions, or resource groups, or resources) within which the custom role is available for assignment to users, groups, and applications. Using **AssignableScopes** you can make the custom role available for assignment in only the subscriptions or resource groups that require it, and not clutter user experience for the rest of the subscriptions or resource groups.
+
+> [AZURE.NOTE] You must use at least one subscription, resource group or resource ID.*  **AssignableScopes** of a custom role also control who is allowed to view, update, and delete the role. Following are some valid assignable scopes:
 
 -	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624”: makes the role available for assignment in two subscriptions.
 -	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”: makes the role available for assignment in a single subscription.
