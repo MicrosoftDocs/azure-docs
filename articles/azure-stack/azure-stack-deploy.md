@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Deploy Azure Stack POC (service administrator)" 
 	description="Deploy Azure Stack POC (service administrator)" 
 	services="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/04/2016" 
+	ms.date="01/04/2016" 
 	ms.author="v-anpasi"/>
 
 # Deploy Azure Stack POC (service administrator)
@@ -81,7 +81,7 @@ Port 443 (HTTPS) must be open for your network. The client end-point is https://
 
 ### Microsoft Azure Active Directory accounts requirements
 
-To deploy Azure Stack POC, you must have a valid Microsoft Azure AD account that is the directory administrator for at least one Azure Active Directory. If you don’t have any existing Azure AD account, you can create one for free at [*http://azure.microsoft.com/en-us/pricing/free-trial/*](http://azure.microsoft.com/en-us/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
+To deploy Azure Stack POC, you must have a valid Microsoft Azure AD account that is the directory administrator for at least one Azure Active Directory. If you don’t have any existing Azure AD account, you can create one for free at [*http://azure.microsoft.com/en-us/pricing/free-trial/*](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
 
 This Azure AD account is used as the service administrator account for the environment. The service administrator can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
 
@@ -121,17 +121,17 @@ These requirements apply to the Azure Stack POC only and might change for future
 
 **Supported bus and media type combinations**
 
-• SATA HDD
+-	SATA HDD
 
-• SAS HDD
+-	SAS HDD
 
-• RAID HDD
+-	RAID HDD
 
-• RAID SSD (If the media type is unspecified/unknown\*)
+-	RAID SSD (If the media type is unspecified/unknown\*)
 
-• SATA SSD + SATA HDD
+-	SATA SSD + SATA HDD
 
-• SAS SSD + SAS HDD
+-	SAS SSD + SAS HDD
 
 \* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the Microsoft Azure Stack POC on those SSDs.
 

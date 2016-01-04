@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Create an offer (service administrator)" 
 	description="Create an offer (service administrator)" 
 	services="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/04/2016" 
+	ms.date="01/04/2016" 
 	ms.author="v-anpasi"/>
 
 # Create an offer (service administrator)

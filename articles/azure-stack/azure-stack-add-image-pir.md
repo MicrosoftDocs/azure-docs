@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Add an image to the Platform Image Repository" 
 	description="Add an image to the Platform Image Repository" 
 	services="" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/04/2016" 
+	ms.date="01/04/2016" 
 	ms.author="v-anpasi"/>
 
 # Add an image to the Platform Image Repository
 
 Before you can add an image to the PIR, you must prepare a virtual hard disk image with either a Windows or Linux operating system. This virtual hard disk must be in the VHD format (not VHDX). 
 
--   To prepare a Windows VHD, follow Step 1 from the [Create and upload a Windows Server VHD to Azure](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/) article.
+-   To prepare a Windows VHD, follow Step 1 from the [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server.md) article.
 
--   To prepare a Linux VHD, follow Step 1 from the [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd/) article.
+-   To prepare a Linux VHD, follow Step 1 from the [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/virtual-machines-linux-create-upload-vhd/) article.
 
 ## To add an image to the PIR, follow these steps: 
 

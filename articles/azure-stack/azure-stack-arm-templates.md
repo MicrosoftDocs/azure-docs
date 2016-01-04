@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Use Azure Resource Manager templates (tenant developers)" 
 	description="Use Azure Resource Manager templates (tenant developers)" 
 	services="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/04/2016" 
+	ms.date="01/04/2016" 
 	ms.author="v-anpasi"/>
 
 # Use Azure Resource Manager templates (tenant developers)
@@ -28,17 +28,17 @@ SharePoint 2013 farm with PowerShell DSC Extension.
 
 Creates a SharePoint 2013 farm using the PowerShell DSC Extension. It creates the following resources:
 
-• A virtual network
+-	A virtual network
 
-• Three storage accounts
+-	Three storage accounts
 
-• Two external load balancers
+-	Two external load balancers
 
-• One VM configured as domain controller for a new forest with a single domain
+-	One VM configured as domain controller for a new forest with a single domain
 
-• One VM configured as SQL Server 2014 stand alone
+-	One VM configured as SQL Server 2014 stand alone
 
-• One VM configured as a one machine SharePoint 2013 farm
+-	One VM configured as a one machine SharePoint 2013 farm
 
 ## Deploy AD/SQL template
 
@@ -46,13 +46,13 @@ Create an AD domain controller server non-HA with PowerShell DSC Extension.
 
 Creates an AD domain controller Server using the PowerShell DSC Extension. It creates the following resources:
 
-• A Virtual Network
+-	A Virtual Network
 
-• One Storage Account
+-	One Storage Account
 
-• One external load balancer
+-	One external load balancer
 
-• One VM configured as Domain Controller for a new forest with a single domain
+-	One VM configured as Domain Controller for a new forest with a single domain
 
 ## Deploy AD/SQL template
 
@@ -60,15 +60,15 @@ Create a SQL Server 2014 Stand alone with PowerShell DSC Extension.
 
 PowerShell DSC Extension. It creates the following resources:
 
-• A Virtual Network
+-	A Virtual Network
 
-• Two Storage Accounts
+-	Two Storage Accounts
 
-• One external load balancer
+-	One external load balancer
 
-• One VM configured as Domain Controller for a new forest with a single domain
+-	One VM configured as Domain Controller for a new forest with a single domain
 
-• One VM configured as SQL Server 2014 stand alone
+-	One VM configured as SQL Server 2014 stand alone
 
 ## VM-DSC-Extension-Azure-Automation-Pull-Server template
 
@@ -88,6 +88,6 @@ Very simple deployment of a Windows VM.
 
 Deploys a simple Windows VM. This template also deploys a Virtual Network (with DNS), Public IP address, and a Network Interface.
 
-For more information on templates, see the [Azure Resource Manager overview](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/) topic.
+For more information on templates, see the [Azure Resource Manager overview](../resource-group-overview.md) topic.
 
 Azure Resource Manager templates can be used with the Microsoft Azure Stack portal, PowerShell, the command line, PowerShell, and Visual Studio.

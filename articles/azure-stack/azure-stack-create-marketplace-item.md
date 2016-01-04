@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="To create a new marketplace item" 
 	description="To create a new marketplace item" 
 	services="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/04/2016" 
+	ms.date="01/04/2016" 
 	ms.author="v-anpasi"/>
 
 # To create a new marketplace item
