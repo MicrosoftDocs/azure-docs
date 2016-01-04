@@ -54,7 +54,9 @@ This article assumes that you have the following items:
 Azure supports a variety of Linux distributions (see [Endorsed Distributions](../linux-endorsed-distributions.md)). The following articles will guide you through how to prepare the various Linux distributions that are supported on Azure:
 
 - **[CentOS-based Distributions](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 - **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md)**
@@ -73,7 +75,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 The latest Azure CLI defaults into Resource Manager deployment model, so make sure you are in the classic deployment model by using this command:
 
-		azure change mode asm  
+		azure config mode asm  
 
 Next, use any of the following login methods to connect to your Azure subscription. 
 
@@ -155,7 +157,7 @@ Use the Azure CLI to upload the image. You can upload an image by using the foll
 
 You will need a storage account to upload your VHD file to. You can either pick an existing one or create a new one. To create a storage account please refer to [Create a Storage Account](../storage-create-storage-account.md)
 
-When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account you plan to use, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the [Management Portal](http://manage.windowsazure.com) to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file.
+When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account you plan to use, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the [Azure classic portal](http://manage.windowsazure.com) to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file.
 
 From the Azure PowerShell window you used in the previous step, type:
 
@@ -163,7 +165,7 @@ From the Azure PowerShell window you used in the previous step, type:
 
 For more information, see [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
-> [AZURE.NOTE] The [Azure Powershell 1.0 Preview version](https://azure.microsoft.com/en-us/blog/azps-1-0-pre/) significantly changes the way it handles cmdlets for the classic and Resource Manager deployment model. This article does not use the Preview version yet. 
+> [AZURE.NOTE] The [Azure Powershell 1.0 Preview version](https://azure.microsoft.com/blog/azps-1-0-pre/) significantly changes the way it handles cmdlets for the classic and Resource Manager deployment model. This article does not use the Preview version yet. 
 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage

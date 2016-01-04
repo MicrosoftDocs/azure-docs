@@ -47,7 +47,7 @@ The data gateway provides the following capabilities:
 Due to the fact that copy activity runs happen on a specific frequency, the resource usage (CPU, memory) on the machine also follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress you will observe resource usage go up during peak times. While above is the minimum configuration it is always better to have a configuration with more resources than the min configuration described above depending on your specific load for data movement.
 
 ## Installation
-Data Management Gateway can be installed by downloading an MSI setup package from the Microsoft Download Center.  The MSI can also be used to upgrade existing Data Management Gateway to the latest version, with all settings preserved. You can find the link to the MSI package from Azure portal by following the step by step walkthrough below.
+Data Management Gateway can be installed by downloading an MSI setup package from the Microsoft Download Center.  The MSI can also be used to upgrade existing Data Management Gateway to the latest version, with all settings preserved. You can find the link to the MSI package from Azure Classic Portal by following the step by step walkthrough below.
 
 ### Installation Best practices:
 1.	Configure power plan on the host machine for the gateway so that the machine does not hibernate. If the host machine hibernates, the gateway won’t be able to respond to data requests.
@@ -73,7 +73,7 @@ These are caused by the improper configuration of the firewall or proxy server, 
 The two firewalls that are possibly in scope are: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed. Here are the some considerations:
 
 - There is no need to change the inbound policy for corporate firewall.
-- Both corporate firewall and Windows firewall should enable outbound rule for TCP ports: 80, 443, and from 9305 to 9354. These are used by Microsoft Azure Service Bus to establish connection between the cloud services and Data Management Gateway.
+- Both corporate firewall and Windows firewall should enable outbound rule for TCP ports: 80, 443, and from 9350 to 9354. These are used by Microsoft Azure Service Bus to establish connection between the cloud services and Data Management Gateway.
 
 The MSI setup will automatically configure Windows firewall rules for inbound ports for the gateway machine (see ports and security considerations section above).
 
@@ -85,9 +85,9 @@ If your company uses a proxy server, then you need to add Microsoft Azure to the
 In this walkthrough, you create a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. 
 
 ### Step 1: Create an Azure data factory
-In this step, you use the Azure Management Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
+In this step, you use the Azure Classic Portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**. You can also create a data factory by using Azure Data Factory cmdlets. 
 
-1.	After logging into the [Azure Preview Portal](https://portal.azure.com), click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** on the **Data analytics** blade.
+1.	After logging into the [Azure Portal](https://portal.azure.com), click **NEW** from the bottom-left corner, select **Data analytics** in the **Create** blade, and click **Data Factory** on the **Data analytics** blade.
 
 	![New->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png) 
   
@@ -157,7 +157,7 @@ In this step, you use the Azure Management Portal to create an Azure Data Factor
 	![Diagnostics tab](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
 	You can also use this page to **test connection** to an on-premises data source using the gateway.
-10. In the Azure Portal, click **OK** on the **Configure** blade and then on the **New data gateway** blade.
+10. In the Azure Classic Portal, click **OK** on the **Configure** blade and then on the **New data gateway** blade.
 6. You should see **adftutorialgateway** under **Data Gateways** in the tree view on the left.  If you click on it, you should see the associated JSON. 
 	
 
@@ -402,7 +402,7 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 **Congratulations!** You have successfully created an Azure data factory, linked services, tables, and a pipeline and scheduled the pipeline.
 
 #### View the data factory in a Diagram View 
-1. In the **Azure Preview Portal**, click **Diagram** tile on the home page for the **ADFTutorialOnPremDF** data factory. :
+1. In the **Azure Portal**, click **Diagram** tile on the home page for the **ADFTutorialOnPremDF** data factory. :
 
 	![Diagram Link](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 
@@ -413,9 +413,9 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 	You can zoom in, zoom out, zoom to 100%, zoom to fit, automatically position pipelines and tables, and show lineage information (highlights upstream and downstream items of selected items).  You can double-blick on an object (input/output table or pipeline) to see properties for it. 
 
 ### Step 6: Monitor the datasets and pipelines
-In this step, you will use the Azure Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about monitoring, see [Monitor and Manage Pipelines](monitor-manage-pipelines.md).
+In this step, you will use the Azure Classic Portal to monitor what’s going on in an Azure data factory. You can also use PowerShell cmdlets to monitor datasets and pipelines. For details about monitoring, see [Monitor and Manage Pipelines](monitor-manage-pipelines.md).
 
-1. Navigate to **Azure Preview Portal** (if you have closed it)
+1. Navigate to **Azure Portal** (if you have closed it)
 2. If the blade for **ADFTutorialOnPremDF** is not open, open it by clicking **ADFTutorialOnPremDF** on the **Startboard**.
 3. You should see the **count** and **names** of tables and pipeline you created on this blade.
 
@@ -431,7 +431,7 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
     
 
-	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+	-  You update the status of the slice manually, for example, by using the **Set-AzureRmDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
 	-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
  
 	Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
@@ -526,9 +526,9 @@ You can also create a SQL Server linked service using the Linked Services blade 
 
 If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source. 
 
-When you use the “Setting Credentials” application launched from Azure Portal to set credentials for an on-premises data source, the portal encrypts the credentials with the certificate you specified in the Certificate tab of the Data Management Gateway Configuration Manager on the gateway machine. 
+When you use the “Setting Credentials” application launched from Azure Classic Portal to set credentials for an on-premises data source, the portal encrypts the credentials with the certificate you specified in the Certificate tab of the Data Management Gateway Configuration Manager on the gateway machine. 
 
-If you are looking for an API based approach for encrypting the credentials you can  use the [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You can the encrypted credentials returned by this cmdlet and add it to EncryptedCredential element of the connectionString in the JSON file that you will use with the [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) cmdlet or in the JSON snippet in the Data Factory Editor in the portal. 
+If you are looking for an API based approach for encrypting the credentials you can  use the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You can the encrypted credentials returned by this cmdlet and add it to EncryptedCredential element of the connectionString in the JSON file that you will use with the [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet or in the JSON snippet in the Data Factory Editor in the portal. 
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -546,14 +546,14 @@ This section describes how to create and register a gateway using Azure PowerShe
         switch-azuremode AzureResourceManager
 
 
-2. Use the **New-AzureDataFactoryGateway** cmdlet to create a logical gateway as follows:
+2. Use the **New-AzureRmDataFactoryGateway** cmdlet to create a logical gateway as follows:
 
-		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
+		New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
 	**Example command and output**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -567,15 +567,15 @@ This section describes how to create and register a gateway using Azure PowerShe
 		ProvisioningState : Succeeded
 
 
-3. Use the **New-AzureDataFactoryGatewayKey** cmdlet to generate a registration key for the newly created gateway, and store the key in a local variable **$Key**:
+3. Use the **New-AzureRmDataFactoryGatewayKey** cmdlet to generate a registration key for the newly created gateway, and store the key in a local variable **$Key**:
 
-		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
+		New-AzureRmDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
 	**Example command output:**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureRmDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
 4. In Azure PowerShell, switch to the folder: **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript\** and Run **RegisterGateway.ps1** script associated with the local variable **$Key** as shown in the following command to register the client agent installed on your machine with the logical gateway you create earlier.
@@ -584,11 +584,11 @@ This section describes how to create and register a gateway using Azure PowerShe
 		
 		Agent registration is successful!
 
-5. You can use the **Get-AzureDataFactoryGateway** cmdlet to get the list of Gateways in your data factory. When the **Status** shows **online**, it means your gateway is ready to use.
+5. You can use the **Get-AzureRmDataFactoryGateway** cmdlet to get the list of Gateways in your data factory. When the **Status** shows **online**, it means your gateway is ready to use.
 
-		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
+		Get-AzureRmDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-You can remove a gateway using the **Remove-AzureDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzureDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
+You can remove a gateway using the **Remove-AzureRmDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzureRmDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
 
 
 ## Data flow for copy Using Data Management Gateway
@@ -597,7 +597,7 @@ When you use a copy activity in a data pipeline to ingest on-premises data to cl
 Here high level data flow for and summary of steps for copy with data gateway:
 ![Data flow using gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
-1.	Data developer creates a new gateway for an Azure Data Factory using either the [Azure Portal](http://portal.azure.com) or [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx). 
+1.	Data developer creates a new gateway for an Azure Data Factory using either the [Azure Classic Portal](http://portal.azure.com) or [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Data developer uses “Linked services” panel to define a new linked service for an on-premises data store with the gateway. As part of setting up the linked service data developer uses the Setting Credentials application as show in the step by step walkthrough to specify authentication types and credentials.  The Setting Credentials application dialog will communicate with the data store to test connection and the gateway to save credentials.
 3.	Gateway will encrypt the credentials with the certificate associated with the gateway (supplied by data developer), before saving the credentials in the cloud.
 4.	Data factory movement service communicates with the gateway for scheduling & management of jobs via a control channel that uses a shared Azure service bus queue. When copy activity job needs to be kicked off, data factory queues up the request along with credential information. Gateway kicks off the job after polling the queue.
@@ -609,7 +609,7 @@ Here high level data flow for and summary of steps for copy with data gateway:
 1. As mentioned above in the step by step walkthrough there are multiple ways of setting credentials for on-prem data stores with data factory. The port considerations vary for these options.	
 
 	- Using the **Setting Credentials** App: The Data Management Gateway installation program by default opens **8050** and **8051** ports on the local windows firewall for the gateway machine. These ports are used by the Setting Credentials application to relay the credentials to the gateway. These ports are only opened for the machine on local windows firewall. They cannot be reached from internet and you do not need have these opened in the corporate wide firewall.
-	2.	Using the [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) powershell commandlet: a.	If you are using powershell command to encrypt the credentials and as a result you do not want gateway installation to open the inbound ports on gateway machine in windows firewall you can do that by using the following command during installation:
+	2.	Using the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) powershell commandlet: a.	If you are using powershell command to encrypt the credentials and as a result you do not want gateway installation to open the inbound ports on gateway machine in windows firewall you can do that by using the following command during installation:
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	If you are using the **Setting Credentials** application you must launch it on a computer that is able to connect to the Data Management Gateway to be able to set credentials for the data source and to test connection to the data source.
@@ -617,9 +617,6 @@ Here high level data flow for and summary of steps for copy with data gateway:
 	- 	Firewall on the gateway machine allows outgoing TCP communication on **TCP** port **1433**.
 	- 	Configure [Azure SQL firewall settings](https://msdn.microsoft.com/library/azure/jj553530.aspx) to add the **IP address of the gateway** machine to the **allowed IP addresses**.
 5.	When copying data to/from on-premises SQL Server to any destination and the gateway and SQL Server machines are different, do the following: [configure Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) on the SQL Server machine so that the gateway can access the database via ports that the SQL Server instance listens on. For the default instance, it is port 1433.
-
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md). 
 
 
 

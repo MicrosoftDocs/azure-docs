@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/23/2015"
+   ms.date="10/06/2015"
    ms.author="lodipalm"/>
 
 # Use Power BI with SQL Data Warehouse
@@ -33,11 +33,11 @@ These restrictions and notes may change as we continue to improve the experience
 ## Using the ‘Open in Power BI’ button
 The easiest way to move between your SQL Data Warehouse and Power BI is with the Open in Power BI button. This button allows you to seamlessly begin creating new dashboards in Power BI.  
 
-1.	To get started navigate to your SQL Data Warehouse instance in the Azure Portal.
+1.	To get started navigate to your SQL Data Warehouse instance in the Azure Classic Portal.
 2.	Click the Open in Power BI button.
 3.	If we are not able to sign you in directly, or if you do not have a Power BI account, you will need to sign-in.  
 4.	You will be directed to the SQL Data Warehouse connection page, with the information from your SQL Data Warehouse pre-populated.
-5.  After entering your credentials you will be fully conected to your SQL Data Warehouse. 
+5.  After entering your credentials you will be fully connected to your SQL Data Warehouse. 
 
 ## Connecting through the Power BI portal
 In addition to using the Open in Power BI button, users can also connect to their SQL Data Warehouse through the Power BI Portal. 
@@ -50,7 +50,7 @@ In addition to using the Open in Power BI button, users can also connect to thei
 6.	 You can click on the new dataset to explore all of the tables, and views in your database. Selecting a column will send a query back to the source, dynamically creating your visual. These visuals can be saved in a new report, and pinned back to your dashboard.
 
 ## Finding parameter values
-Your fully qualified server name and database name can be found in the Azure Portal.  Please note that SQL Data Warehouse only has a presence in the Azure Preview portal at this time.
+Your fully qualified server name and database name can be found in the Azure Classic Portal.  Please note that SQL Data Warehouse only has a presence in the Azure Portal at this time.
 
 
 <!--Image references-->

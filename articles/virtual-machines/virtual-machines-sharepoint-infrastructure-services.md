@@ -29,21 +29,21 @@ Set up your first or next dev/test or production SharePoint farm in Microsoft Az
 
 This automatically-created environment consists of three servers in a cloud-only Azure virtual network: a domain controller, a SQL server, and the SharePoint server.
 
-See the [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) item in the Azure Marketplace of the Azure Preview portal. This creates a basic dev/test farm for an Internet-facing SharePoint website. See [Create SharePoint server farms](virtual-machines-sharepoint-farm-azure-preview.md) for additional details.
+See the [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) item in the Azure Marketplace of the Azure portal. This creates a basic dev/test farm for an Internet-facing SharePoint website. See [Create SharePoint server farms](virtual-machines-sharepoint-farm-azure-preview.md) for additional details.
 
 You can also use an Azure Resource Manager template. See [Deploy a three-server SharePoint farm](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-> [AZURE.NOTE] The **SharePoint Server Farm** item in the Azure Marketplace of the Azure Preview portal has been removed.
+> [AZURE.NOTE] The **SharePoint Server Farm** item in the Azure Marketplace of the Azure portal has been removed.
 
 ## High-availability SharePoint dev/test farm
 
 This automatically-created environment consists of nine servers in a cloud-only Azure virtual network: two for domain controllers, three for a SQL server cluster, two application-tier SharePoint servers, and two web-tier SharePoint servers.
 
-See the [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) item in the Azure Marketplace of the Azure Preview portal. This creates a high-availability dev/test farm for an Internet-facing SharePoint website. See [Create SharePoint server farms](virtual-machines-sharepoint-farm-azure-preview.md) for additional details.
+See the [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) item in the Azure Marketplace of the Azure portal. This creates a high-availability dev/test farm for an Internet-facing SharePoint website. See [Create SharePoint server farms](virtual-machines-sharepoint-farm-azure-preview.md) for additional details.
 
 You can also use an Azure Resource Manager template. See [Deploy a nine-server SharePoint farm](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
-> [AZURE.NOTE] The **SharePoint Server Farm** item in the Azure Marketplace of the Azure Preview portal has been removed.
+> [AZURE.NOTE] The **SharePoint Server Farm** item in the Azure Marketplace of the Azure portal has been removed.
 
 ## Hybrid cloud dev/test farm
 

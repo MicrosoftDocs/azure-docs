@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/17/2015"
 	ms.author="wesmc"/>
 
-# Get started with Notification Hubs
+# Get started with Notification Hubs with Xamarin for Android
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -26,6 +26,15 @@ This tutorial shows you how to use Azure Notification Hubs to send push notifica
 You'll create a blank Xamarin.Android app that receives push notifications by using Google Cloud Messaging (GCM). When you're finished, you'll be able to use your notification hub to broadcast push notifications to all the devices running your app. The finished code is available in the [NotificationHubs app][GitHub] sample.
 
 This tutorial demonstrates the simple broadcast scenario in using Notification Hubs.
+
+
+## Before you begin
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+The completed code for this tutorial can be found on GitHub [here](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid).
+
+
 
 ##Prerequisites
 
@@ -106,8 +115,8 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 1. Gather the following information for your Android app and notification hub:
 
 	- **GoogleProjectNumber**:  Get this Project Number value from the overview of your app on the Google Developer Portal. You made a note of this value earlier when you created the app on the portal.
-	- **Listen connection string**: On the dashboard in the Azure portal, click **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
-	- **Hub name**: This is the name of your hub from the Azure portal. For example, *mynotificationhub2*.
+	- **Listen connection string**: On the dashboard in the [Azure Classic Portal], click **View connection strings**. Copy the *DefaultListenSharedAccessSignature* connection string for this value.
+	- **Hub name**: This is the name of your hub from the [Azure Classic Portal]. For example, *mynotificationhub2*.
 
 	Create a **Constants.cs** class for your Xamarin project and define the following constant values in the class. Replace the placeholders with your values.
 
@@ -370,7 +379,7 @@ If you run this app in the emulator, make sure that you use an Android Virtual D
 ##Send notifications from your backend
 
 
-You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.
+You can test receiving notifications in your app by sending notifications in the [Azure Classic Portal] via the debug tab on the notification hub, as shown in the screen below.
 
 ![][30]
 
@@ -410,7 +419,7 @@ In this section, we will send notifications by using a .NET console app
 
         using Microsoft.Azure.NotificationHubs;
 
-5. In your `Program` class, add the following method. Update the placeholder text with your *DefaultFullSharedAccessSignature* connection string and hub name from the Azure portal.
+5. In your `Program` class, add the following method. Update the placeholder text with your *DefaultFullSharedAccessSignature* connection string and hub name from the [Azure Classic Portal].
 
         private static async void SendNotificationAsync()
         {
@@ -431,7 +440,7 @@ In this section, we will send notifications by using a .NET console app
 
 1. Follow [Get started with Mobile Services].
 
-1. Sign in to the [Azure portal], and select your mobile service.
+1. Sign in to the [Azure Classic Portal], and select your mobile service.
 
 2. Select the **Scheduler** tab on the top.
 
@@ -499,7 +508,7 @@ In this simple example, you broadcasted notifications to all your Android device
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx

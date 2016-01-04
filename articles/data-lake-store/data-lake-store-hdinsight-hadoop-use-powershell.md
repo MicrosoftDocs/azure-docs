@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/06/2015"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Provision an HDInsight cluster with Data Lake Store using Azure PowerShell
@@ -43,10 +43,41 @@ Configuring HDInsight to work with Data Lake Store using PowerShell involves the
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 - **Windows SDK**. You can install it from [here](https://dev.windows.com/en-us/downloads). You use this to create a security certificate.
-- **Azure PowerShell 1.0 or above**. See [Install and configure Azure PowerShell](../install-configure-powershell.md) for instructions.
+
+
+##Install Azure PowerShell 1.0 and greater
+
+To begin with, you must uninstall the 0.9x versions of Azure PowerShell. To check the version of the installed PowerShell, run the following command from a PowerShell window:
+
+	Get-Module *azure*
+	
+To uninstall the older version, run **Programs and Features** in the control panel and remove the installed version if it's earlier than PowerShell 1.0. 
+
+There are two main options for installing Azure PowerShell. 
+
+- [PowerShell Gallery](https://www.powershellgallery.com/). Run the following commands from elevated PowerShell ISE or elevated Windows PowerShell console:
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	For more information, see [PowerShell Gallery](https://www.powershellgallery.com/).
+
+- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires the modules be removed prior to installation to ensure a consistent Azure PowerShell Environment. For the instructions, see [Install Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
+
+WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. If you are comfortable with installing from PowerShell Gallery, that will be the first channel for the latest and greatest in Azure PowerShell.
  
 
 ## Create an Azure Data Lake Store
@@ -87,7 +118,7 @@ Follow these steps to create a Data Lake Store.
 
 	The output for this should be **True**.
 
-4. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Upload some sample data to Azure Data Lake. We'll use this later in this article to verify that the data is accessible from an HDInsight cluster. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -96,7 +127,7 @@ Follow these steps to create a Data Lake Store.
 
 ## Set up authentication for role-based access to Data Lake Store
 
-Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the Azure Data Lake Store account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
+Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure Classic Portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the Azure Data Lake Store account you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
 
 To set up Active Directory authentication for Azure Data Lake, you must perform the following tasks.
 
@@ -265,7 +296,7 @@ The job output resembles the following:
 
 Once you have configured the HDInsight cluster to use Data Lake Store, you can use the HDFS shell commands to access the store.
 
-1. Sign on to the new [Azure preview portal](https://portal.azure.com).
+1. Sign on to the new [Azure Portal](https://portal.azure.com).
 
 2. Click **Browse**, click **HDInsight clusters**, and then click the HDInsight cluster that you created.
 
@@ -291,5 +322,5 @@ Once you have configured the HDInsight cluster to use Data Lake Store, you can u
 
 * [Portal: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

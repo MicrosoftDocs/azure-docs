@@ -154,7 +154,7 @@ Now that you've learned the basics of asynchronous messaging in Service Bus, rea
 
   [ServerBusyException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx
   [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
-  [MessagingException]: https://msdn.microsoft.com/en-us/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
+  [MessagingException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
   [Best Practices for Insulating Service Bus Applications Against Service Bus Outages and Disasters]: service-bus-outages-disasters.md
   [Microsoft.ServiceBus.Messaging.MessagingFactory]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx
   [MessageReceiver]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx

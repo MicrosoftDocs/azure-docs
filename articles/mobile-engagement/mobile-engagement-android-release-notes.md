@@ -19,6 +19,14 @@
 
 #Release notes
 
+##4.1.3 (12/9/2015)
+
+- Stability improvements.
+
+##4.1.2 (11/25/2015)
+
+- Stability improvements.
+
 ##4.1.1 (11/04/2015)
 
 - Stability improvements.

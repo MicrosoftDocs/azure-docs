@@ -27,7 +27,7 @@ The first step is to create a service namespace, and to obtain a [Shared Access 
 
 1. For complete information about how to create a service namespace, see the topic [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh690931.aspx) in the [Managing Service Bus Service Namespaces](https://msdn.microsoft.com/library/azure/hh690928.aspx) section.
 
-1. In the main window of the Azure portal, click the name of the namespace you created in the previous step.
+1. In the main window of the [Azure classic portal][], click the name of the namespace you created in the previous step.
 
 1. Click the **Configure** tab.
 
@@ -183,7 +183,8 @@ The next step is to write a method that uses the REST-style HTTP PUT command to 
 Paste the following code directly after the `GetSASToken()` code you added in the previous step:
 
 ```
-// Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
+// Uses HTTP PUT to create the queue
+private static string CreateQueue(string queueName, string token)
 {
     // Create the URI of the new queue, note that this uses the HTTPS schemestring queueAddress = baseAddress + queueName;
     WebClient webClient = new WebClient();
@@ -210,7 +211,8 @@ In this step, you add a method that uses the REST-style HTTP POST command to sen
 
 	```
 	// Sends a message to the "queueName" queue, given the name and the value to enqueue
-	// Uses an HTTP POST request.privatestaticvoid SendMessage(string queueName, string body)
+	// Uses an HTTP POST request.
+	private static void SendMessage(string queueName, string body)
 	{
 	    string fullAddress = baseAddress + queueName + "/messages" + "?timeout=60&api-version=2013-08 ";
 	    Console.WriteLine("\nSending message {0} - to address {1}", body, fullAddress);
@@ -628,3 +630,5 @@ See the following articles to learn more:
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Azure Service Bus fundamentals](fundamentals-service-bus-hybrid-solutions.md)
 - [Service Bus relay REST tutorial](service-bus-relay-rest-tutorial.md)
+
+[Azure classic portal]: http://manage.windowsazure.com

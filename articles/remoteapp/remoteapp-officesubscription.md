@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/24/2015" 
+    ms.date="12/14/2015" 
     ms.author="elizapo" />
 
 
@@ -21,6 +21,9 @@
 # How to use your Office 365 subscription with Azure RemoteApp
 
 Did you know that you can use your existing Office 365 subscription in Azure RemoteApp to share Office apps from the cloud? Read on for information on your Office 365 + Azure RemoteApp options, including links to articles about Office 365 that help you make the most of your subscription.
+
+## How do I use Office 365 accounts for Azure RemoteApp?
+Check out Peter's new article for all the information: [How to use Azure RemoteApp with Office 365 user accounts](remoteapp-o365user.md)
 
 ## Can I use my Office 365 subscription to run Office applications in Azure RemoteApp?
 

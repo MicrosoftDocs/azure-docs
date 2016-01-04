@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 #Design for business continuity
@@ -49,19 +49,19 @@ You should use the Geo-Replication if your application meets the following crite
 
 ##When to choose Standard vs. Active Geo-Replication
 
-Standard tier databases do not have the option of using Active Geo-Replication so if your application uses standard databases and meets the above criteria it should enable Standard Geo-Replication. Premium databases on the other hand can choose either option. Standard Geo-Replication has been designed as a simpler and less expensive disaster recovery solution, particularly suited to applications that use it only to protect from unplanned events such as outages. With Standard Geo-Replication you can only use the DR paired region for the recovery and do have the ability to create more than one secondary. This latter feature is critical for the application upgrade scenario. So if this scenario is critical for your application you should enable Active Geo-Replication instead. Please refer to [Upgrade application without downtime](sql-database-business-continuity-application-upgrade.md) for additional details. 
+Standard tier databases do not have the option of using Active Geo-Replication so if your application uses standard databases and meets the above criteria it should enable Standard Geo-Replication. Premium databases on the other hand can choose either option. Standard Geo-Replication has been designed as a simpler and less expensive disaster recovery solution, particularly suited to applications that use it only to protect from unplanned events such as outages. With Standard Geo-Replication you can only use the DR paired region for the recovery and can create only one secondary for each primary. An additional secondary may be necessary for the application upgrade scenario. So if this scenario is critical for your application you should enable Active Geo-Replication instead. Please refer to [Upgrade application without downtime](sql-database-business-continuity-application-upgrade.md) for additional details. 
 
 > [AZURE.NOTE] Active Geo-Replication also supports read-only access to the secondary database thus providing additional capacity for the read-only workloads. 
 
 ##How to enable Geo-Replication
 
-You can enable Geo-Replicatiom using Azure Portal or by calling REST API or PowerShell command.
+You can enable Geo-Replication using Azure Classic Portal or by calling REST API or PowerShell command.
 
-###Azure Portal
+###Azure Classic Portal
 
 [AZURE.VIDEO sql-database-enable-geo-replication-in-azure-portal]
 
-1. Log in to the [Azure Portal](https://portal.Azure.com)
+1. Log in to the [Azure Classic Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Databases**
 3. Navigate to your database blade, select the **Geo Replication map** and click **Configure Geo-Replication**.
 4. Navigate to Geo-Replication blade. Select the target region. 
@@ -74,29 +74,26 @@ You can enable Geo-Replicatiom using Azure Portal or by calling REST API or Powe
 
 ###PowerShell
 
-Use the [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) PowerShell cmdlet to automate Geo-Replication configuration.
+Use the [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) PowerShell cmdlet to create Geo-Replication configuration. This command is synchronous an returns when the primary and secondary databases are in sync. 
 
-To create Geo-Replication with a non-readable secondary for a Premium or Standard database:
+To configure Geo-Replication with a non-readable secondary for a Premium or Standard database:
 		
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy -OfflineSecondary
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+
 To create Geo-Replication with a readable secondary for a Premium database:
 
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 		 
-This command is asynchronous. After it returns use the [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) cmdlet to check the status of this operation. The ReplicationState field of the returned object will have the value CATCH_UP when the operation is completed.
-
-		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
-
 
 ###REST API 
 
-Use [Start Database Copy](https://msdn.microsoft.com/library/azure/dn509576.aspx) API to programmatically create a Geo-Replication configuration.
+Use [Create Database](https://msdn.microsoft.com/library/mt163685.aspx) API with *createMode* set to *NonReadableSecondary* or *Secondary* to programmatically create a Geo-Replication secondary database.
 
-This API is asynchronous. After it returns use the [Get Database Copy](https://msdn.microsoft.com/library/azure/dn509570.aspx) API check the status of this operation. The ReplicationState field of the response body will have the value CATCH_UP when the operation is completed.
+This API is asynchronous. After it returns use the [Get Replication Link](https://msdn.microsoft.com/library/mt600778.aspx) API to check the status of this operation. The *replicationState* field of the response body will have the value CATCHUP when the operation is completed.
 
 
 ##How to choose the failover configuration 
 
 When designing your application for business continuity you should consider several configuration options. The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage. Please refer to [Designing Cloud Solutions for Disaster Recovery Using  Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) for guidance.
-
- 

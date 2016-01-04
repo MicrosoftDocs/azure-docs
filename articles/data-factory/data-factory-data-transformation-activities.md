@@ -41,5 +41,3 @@ You need to create a linked service for the compute environment and then use the
 
 See [Compute Linked Services](data-factory-compute-linked-services.md) article to learn about compute linked services supported by Data Factory. 
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md). 

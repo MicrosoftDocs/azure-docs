@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Power BI dashboard on Stream Analytics | Microsoft Azure" 
 	description="Use a real-time streaming Power BI dashboard to gather business intelligence and analyze high-volume data from a Stream Analytics job." 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
+	keywords="analytics dashboard, real-time dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,16 +14,16 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 	
-# Azure Stream Analytics & Power BI: Live dashboard for analytics in real-time on streaming data
+# Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data
 
-Azure Stream Analytics allows you to take advantage of one of the leading business intelligence tools, Microsoft Power BI. Learn how to use Azure Stream Analytics to analyze high-volume, streaming data and get the insight in a real-time Power BI dashboard.
+Azure Stream Analytics allows you to take advantage of one of the leading business intelligence tools, Microsoft Power BI. Learn how to use Azure Stream Analytics to analyze high-volume, streaming data and get the insight in a real-time Power BI analytics dashboard.
 
 Use [Microsoft Power BI](https://powerbi.com/) to build a live dashboard quickly. [Watch a video illustrating the scenario](https://www.youtube.com/watch?v=SGUpT-a99MA). 
 
-In this article, learn how create your own custom business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. 
+In this article, learn how create your own custom business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs and utilize a real-time dashboard.
 
 > [AZURE.NOTE] Power BI output is a preview feature of Azure Stream Analytics. At this time, creation and configuration of Power BI outputs is not supported in the Azure Preview Portal.
 
@@ -161,7 +161,7 @@ Now when you view the dashboard with this pinned report, you will see report upd
 
 Note that this tutorial demonstrated how to create but one kind of chart for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
 
-Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
+For further information on configuring a Power BI output and to utilize Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
 ## Limitations and best practices ##
 Power BI employs both concurrency and throughput constraints as described here: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI Pricing")

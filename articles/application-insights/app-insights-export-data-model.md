@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="awills"/>
 
 # Application Insights Export Data Model
@@ -317,7 +317,7 @@ view, request, and so on.
 
     string context.application.version      Max: 100
 * 
-     The application version of the client application 
+     The application version of the client application. Not available if set to Unknown. 
 
     *Examples*<br/> 2015.5.21.3<br/>NokiaMailBye_CD_20150227.4 
 
@@ -377,39 +377,12 @@ view, request, and so on.
 * 
      The deployment id of the server 
 
-**deviceId**
-
-    string context.device.id      Max: 100
-* 
-     A unique identify of the client.  A generated id and should stored locally on the device and should not be PII such as MAC address or similar non-changeable id.   
-
-**deviceModel**
-
-    string context.device.devicemodel      Max: 100
-* 
-     The devicemodel for the mobile hardware client 
-
-    *Examples*<br/> Other<br/>iPad<br/>Nokia 503s 
 
 **deviceName**
 
     string context.device.name      Max: 100
 * 
      The name of the device the app is executing on 
-
-**deviceType**
-
-    string context.device.type      Max: 100
-* 
-     The device type of the client hardware 
-
-    *Examples*<br/> PC<br/>Mobile<br/>Tablet 
-
-**language**
-
-    string context.device.language      Max: 100
-* 
-     The language of the app on the client.  If not provided explicitly on the telemetry item, it is sourced by processing of the user agent field. 
 
 **locale**
 
@@ -425,17 +398,6 @@ view, request, and so on.
 * 
      The machine name of the server.  For virtualized compute, this data item is equivalent to the underlying host.  For dedicated compute, this is the machine name. 
 
-**networkType**
-
-    string context.device.network      Max: 100
-* 
-     The network type of the client 
-
-**oemName**
-
-    string context.device.oemname      Max: 100
-* 
-     The oem name for the mobile hardware client 
 
 **operatingSystem**
 
@@ -593,7 +555,8 @@ view, request, and so on.
 
 **accountAcquisitionDate**
 
-    datetime context.user.accountAcquisitionDate      
+    datetime context.user.accountAcquisitionDate  
+    
 **anonUserId**
 
     string context.user.anonId      Max: 100
@@ -605,9 +568,11 @@ view, request, and so on.
 **anonymousUserAcquisitionDate**
 
     datetime context.user.anonAcquisitionDate      
+
 **authenticatedUserAcquisitionDate**
 
-    datetime context.user.authAcquisitionDate      
+    datetime context.user.authAcquisitionDate     
+ 
 **authUserId**
 
     string context.user.authId      Max: 100

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/22/2015"
     ms.author="wesmc"/>
 
 # Enable offline sync for your Xamarin.Android mobile app
@@ -43,12 +43,13 @@ The Xamarin client project that you downloaded when you completed the tutorial [
 * Before any table operations can be performed, the local store must be initialized. The local store database is initialized when `ToDoActivity.OnCreate()` executes `ToDoActivity.InitLocalStoreAsync()`. This creates a new local SQLite database using the `MobileServiceSQLiteStore` class provided by the Azure Mobile Apps client SDK. 
  
 	The `DefineTable` method creates a table in the local store that matches the fields in the provided type, `ToDoItem` in this case. The type doesn't have to include all of the columns that are in the remote database. It is possible to store just a subset of columns.  
-		// ToDoActivity.cs
 
+		// ToDoActivity.cs
         private async Task InitLocalStoreAsync()
         {
             // new code to initialize the SQLite store
-            string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
+            string path = Path.Combine(System.Environment
+				.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
 
             if (!File.Exists(path))
             {
@@ -59,7 +60,8 @@ The Xamarin client project that you downloaded when you completed the tutorial [
             store.DefineTable<ToDoItem>();
 
             // Uses the default conflict handler, which fails on conflict
-            // To use a different conflict handler, pass a parameter to InitializeAsync. For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
+            // To use a different conflict handler, pass a parameter to InitializeAsync. 
+			// For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
 
@@ -77,7 +79,6 @@ The Xamarin client project that you downloaded when you completed the tutorial [
 
 
 		// ToDoActivity.cs
-
         private async Task SyncAsync()
         {
 			try {
@@ -99,11 +100,11 @@ Run the client application  at least once to to populate the local store databas
 
 In this section, you will modify the client app to simulate an offline scenario by using an invalid application URL for your backend. When you add or change data items, these changes will be held in the local store, but not synced to the backend data store until the connection is re-established.
 
-1. At the top of `ToDoActivity.cs`, change the initialization of `applicationURL` and `gatewayURL` to point to invalid URLs:
+1. At the top of `ToDoActivity.cs`, change the initialization of `applicationURL` to point to an invalid URL:
 
-        const string applicationURL = @"https://your-service.azurewebsites.xxx/"; 
-        const string gatewayURL = @"https://your-gateway.azurewebsites.xxx";
+        const string applicationURL = @"https://your-service.azurewebsites.fail/"; 
 
+	Note that when your app is also using authentication, this will cause sign in to fail. You can also demonstrate offline behavior by disabling wifi and celluar networks on the device or use airplane mode.
 
 2. Update `ToDoActivity.SyncAsync` so that `MobileServicePushFailedException` are caught and simply ignored assuming you are offline.
 
@@ -139,7 +140,7 @@ In this section, you will modify the client app to simulate an offline scenario 
 
 In this section you will reconnect the app to the mobile backend, which simulates the app coming back to an online state. When you perform the refresh gesture, data will be synced to your mobile backend.
 
-1. Open `ToDoActivity.cs`. Correct the `applicationURL` and `gatewayURL` to point to the correct URLs.
+1. Open `ToDoActivity.cs`. Correct the `applicationURL` to point to the correct URLs.
 
 2. Rebuild and run the app. The app attempts to sync with the Azure Mobile App backend after launching. Verify no exception dialogs are created.
 

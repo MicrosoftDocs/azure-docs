@@ -14,14 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
-	ms.author="szarkos"/>
+	ms.date="11/13/2015"
+	ms.author="szark"/>
 
 # Prepare a SLES or openSUSE Virtual Machine for Azure
-
-
-- [Prepare a SLES 11 SP3 Virtual Machine for Azure](#sles11)
-- [Prepare a openSUSE 13.1+ Virtual Machine for Azure](#osuse)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -29,13 +25,16 @@
 
 This article assumes that you have already installed a SUSE or openSUSE Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
-
-**SLES / openSUSE Installation Notes**
-
  - [SUSE Studio](http://www.susestudio.com) can easily create and manage your SLES / openSUSE images for Azure and Hyper-V. This is the recommended approach for customizing your own SUSE and openSUSE images. The following official images in the SUSE Studio Gallery can be downloaded or cloned into your own SUSE Studio:
 
   - [SLES 11 SP3 for Azure on SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
   - [openSUSE 13.1 for Azure on SUSE Studio Gallery](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
+
+
+- As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your Own Subscription) images for SLES at [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
+
+
+**SLES / openSUSE Installation Notes**
 
 - The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
@@ -46,7 +45,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
 
-## <a id="sles11"> </a>Prepare SUSE Linux Enterprise Server 11 SP3 ##
+## Prepare SUSE Linux Enterprise Server 11 SP3 ##
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
@@ -100,7 +99,7 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 
 ----------
 
-## <a id="osuse"> </a>Prepare openSUSE 13.1+ ##
+## Prepare openSUSE 13.1+ ##
 
 1. In the center pane of Hyper-V Manager, select the virtual machine
 
