@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for role assignments | Microsoft Azure"
-   description="Shows the resource manager schema for creating a role assignment during deployment."
+   description="Shows the Resource Manager schema for deploying a role assignment through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Role assignments - template schema
+# Role assignments resource type template schema
 
 Assigns a user, group, or service principal to a role at a specified scope.
 
