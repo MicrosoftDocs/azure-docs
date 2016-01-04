@@ -92,7 +92,7 @@ Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. Depen
   - .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
 - Windows Server 2008
   - The latest supported version of PowerShell is available in **Windows Management Framework 3.0**, available on [Microsoft Download Center](http://www.microsoft.com/downloads).
- - .Net 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
+ - .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
 
 ## Prerequisites for federation installation and configuration
 
