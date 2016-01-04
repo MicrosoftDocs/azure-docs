@@ -34,7 +34,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
 - Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server if using express settings. If you use custom settings, the server can also be stand-alone and does not have to be joined to a domain.
 - If you install Azure AD Connect on Windows Server 2008, make sure to apply the latest hotfixes from Windows Update. The installation will not be able to start with an unpatched server.
 - If you plan to use the feature **password synchronization**, the Azure AD Connect server must be on Windows Server 2008 R2 SP1 or later.
-- The Azure AD Connect server must have [.Net 4.5.1](#component-prerequisites) or later and [PowerShell 3.0](#component-prerequisites) or later installed.
+- The Azure AD Connect server must have [.NET Framework 4.5.1](#component-prerequisites) or later and [Microsoft PowerShell 3.0](#component-prerequisites) or later installed.
 - If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy will be installed must be Windows Server 2012 R2 or later. [Windows remote management](#windows-remote-management) must be enabled on these servers for remote installation.
 - If Active Directory Federation Services is being deployed, you need [SSL Certificates](#ssl-certificate-requirements).
 - Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed and the service account for the service is created on the local machine. SQL Server Express has a 10GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, you need to point the installation wizard to a different installation of SQL Server. Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with SP4) to SQL Server 2014.
@@ -82,14 +82,14 @@ See MSDN for more information about the [default proxy Element](https://msdn.mic
 - Optional:  A test user account to verify synchronization.
 
 ## Component prerequisites
-Azure AD Connect depends on PowerShell and .Net 4.5.1. Depending on your Windows Server version, do the following:
+Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. Depending on your Windows Server version, do the following:
 
 - Windows Server 2012R2
-  - PowerShell is installed by default, no action is required.
-  - .Net 4.5.1 and later releases are offered through Windows Update. Make sure you have installed the latest updates to Windows Server in the Control Panel.
+  - Microsoft PowerShell is installed by default, no action is required.
+  - .NET Framework 4.5.1 and later releases are offered through Windows Update. Make sure you have installed the latest updates to Windows Server in the Control Panel.
 - Windows Server 2008R2 and Windows Server 2012
-  - The latest version of PowerShell is available in **Windows Management Framework 4.0**, available on [Microsoft Download Center](http://www.microsoft.com/downloads).
-  - .Net 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
+  - The latest version of Microsoft PowerShell is available in **Windows Management Framework 4.0**, available on [Microsoft Download Center](http://www.microsoft.com/downloads).
+  - .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
 - Windows Server 2008
   - The latest supported version of PowerShell is available in **Windows Management Framework 3.0**, available on [Microsoft Download Center](http://www.microsoft.com/downloads).
  - .Net 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
@@ -131,7 +131,7 @@ The following is a list of components that Azure AD Connect will install on the 
 - Microsoft SQL Server 2012 Command Line Utilities
 - Microsoft SQL Server 2012 Native Client
 - Microsoft SQL Server 2012 Express LocalDB
-- Azure Active Directory Module for Windows PowerShell
+- Azure Active Directory Module for Microsoft PowerShell
 - Microsoft Online Services Sign-In Assistant for IT Professionals
 - Microsoft Visual C++ 2013 Redistribution Package
 
