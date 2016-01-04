@@ -1,6 +1,6 @@
 <properties
-	pageTitle="My first graphical runbook in Azure Automation"
-	description="Tutorial that walks you through the creation, testing, and publishing of a simple graphical runbook.  Several concepts are covered such as authenticating to Azure resources, input parameters, and conditional links."
+	pageTitle="My first graphical runbook in Azure Automation | Microsoft Azure"
+	description="Tutorial that walks you through the creation, testing, and publishing of a simple graphical runbook."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"

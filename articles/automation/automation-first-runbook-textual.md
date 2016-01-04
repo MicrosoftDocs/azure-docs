@@ -1,6 +1,6 @@
 <properties
 	pageTitle="My first PowerShell Workflow runbook in Azure Automation | Microsoft Azure"
-	description="Tutorial that walks you through the creation, testing, and publishing of a simple text runbook using PowerShell Workflow.  Several concepts are covered such as authenticating to Azure resources and input parameters."
+	description="Tutorial that walks you through the creation, testing, and publishing of a simple text runbook using PowerShell Workflow."
 	services="automation"
 	documentationCenter=""
 	authors="bwren"
