@@ -476,8 +476,8 @@ To learn more, see the following articles:
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
 [hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
-[hdinsight-get-started]: ../hdinsight-get-started.md 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-get-started]: ../hdinsight/hdinsight-hadoop-tutorial-get-started-windows.md 
+[hdinsight-storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
 [hdinsight-use-hive]: ../hdinsight/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: ../hdinsight/hdinsight-use-mapreduce.md
 [hdinsight-use-pig]: ../hdinsight/hdinsight-use-pig.md
@@ -490,5 +490,5 @@ To learn more, see the following articles:
 [image-mapreduce-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/mapreducequeryresults.PNG
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
-[powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../powershell-install-configure.md
  
