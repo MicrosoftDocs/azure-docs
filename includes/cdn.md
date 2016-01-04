@@ -18,7 +18,7 @@ The benefits of using CDN to cache Azure data include:
 -   Better performance and user experience for end users who are far from a content source, and are using applications where many 'internet trips' are required to load content
 -   Large distributed scale to better handle instantaneous high load, say, at the start of an event such as a product launch
 
-Existing CDN customers can now use the Azure CDN in the [Azure Management Portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
+Existing CDN customers can now use the Azure CDN in the [Azure classic portal]. The CDN is an add-on feature to your subscription and has a separate [billing plan].
 
 <a id="Step1"> </a>
 <h2>Step 1: Create a storage account</h2>
@@ -39,7 +39,7 @@ Azure Service Management API, see the [Create Storage Account](http://msdn.micro
 
 **To create a storage account for an Azure subscription**
 
-1.  Log into the [Azure Management Portal].
+1.  Log into the [Azure classic portal].
 2.  In the lower left corner, click **New**. In the **New** Dialog, select **Data Services**, then click **Storage**, then **Quick Create**.
 
     The **Create Storage Account** dialog appears.
@@ -81,7 +81,7 @@ when the cached content time-to-live period expires.
 
 **To create a new CDN endpoint for your storage account**
 
-1. In the [Azure Management Portal], in the navigation pane, click **CDN**.
+1. In the [Azure classic portal], in the navigation pane, click **CDN**.
 
 2. On the ribbon, click **New**. In the **New** dialog, select **App Services**, then **CDN**, then **Quick Create**.
 
@@ -92,7 +92,7 @@ when the cached content time-to-live period expires.
 5. Once the endpoint is created, it appears in a list of endpoints for the subscription. The list view shows the URL to use to access cached content, as well as the origin domain. 
 
 	The origin domain is the location from which the CDN caches
-    content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. See [How to Manage Expiration of Blob Content](http://msdn.microsoft.com/library/gg680306.aspx) for more information. 
+    content. The origin domain can be either a storage account or a cloud service; a storage account is used for the purposes of this example. Storage content is cached to edge servers according either to a cache-control setting that you specify, or to the default heuristics of the caching network. 
 
 
     > [AZURE.NOTE] The configuration created for the endpoint will not
@@ -116,7 +116,7 @@ Delivery Network (CDN), you can take one of the following steps:
 
 -   For an Azure blob, you can delete the blob from the public
     container.
--   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://msdn.microsoft.com/library/dd179354.aspx) for more information.
+-   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) for more information.
 -   You can disable or delete the CDN endpoint using the Management
     Portal.
 -   You can modify your hosted service to no longer respond to requests for the
@@ -137,14 +137,12 @@ The ability to immediately purge content is currently not supported on Azure Man
 -   [About the Service Management API]
 -   [How to Map CDN Content to a Custom Domain]
 
-  [Create Storage Account]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
+  [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
   [Azure CDN Node Locations]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-  [Azure Management Portal]: https://manage.windowsazure.com/
+  [Azure classic portal]: https://manage.windowsazure.com/
   [billing plan]: /pricing/calculator/?scenario=full
-  [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: http://msdn.microsoft.com/library/windowsazure/ee795179.aspx
   [How to Create an Affinity Group in Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
-  [How to: Manage Storage Accounts for an Azure Subscription]: http://msdn.microsoft.com/library/windowsazure/hh531567.aspx
   [About the Service Management API]: http://msdn.microsoft.com/library/windowsazure/ee460807.aspx
   [How to Map CDN Content to a Custom Domain]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
 

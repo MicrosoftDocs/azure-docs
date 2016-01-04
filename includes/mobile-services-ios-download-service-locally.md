@@ -1,4 +1,4 @@
-1. In the [Azure Management Portal], click your new Mobile Service or its cloud icon tab to go to the overview page.
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click your new Mobile Service or its cloud icon tab to go to the overview page.
 
     ![](./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png)
 
@@ -20,9 +20,4 @@
     ![](./media/mobile-services-ios-download-service-locally/download-publish-profile.png)
 
 
-
-
-
-<!-- URLs. -->
-[Azure Management Portal]: https://manage.windowsazure.com/
 

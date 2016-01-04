@@ -5,7 +5,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 		compile 'com.android.support:support-v4:21.0.3'
     	compile 'com.google.code.gson:gson:2.2.2'
 	    compile 'com.google.guava:guava:18.0'
-	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2+'
 
 
 2. Now rebuild the project by clicking on **Sync Project with Gradle Files**.
@@ -15,11 +15,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 		<uses-permission android:name="android.permission.INTERNET" />
 
 
-6. Open the AndroidManifest.xml file and add the following line, which enables the app to access Mobile Services in Azure.
-
-		<uses-permission android:name="android.permission.INTERNET" />
-
-5. In Project Explorer, open the TodoActivity.java file located in  the **GetStartedWithData => app => src => java** folder, and uncomment the following lines of code: 
+4. In Project Explorer, open the TodoActivity.java file located in  the **GetStartedWithData => app => src => java** folder, and uncomment the following lines of code: 
 
 
 
@@ -56,7 +52,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 9. Find the *ProgressFilter* class at the bottom of the file and uncomment it. This class displays a 'loading' indicator while *MobileServiceClient* is running network operations.
 
 
-10. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
+10. In the Azure classic portal, click **Mobile Services**, and then click the mobile service you just created.
 
 11. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
 

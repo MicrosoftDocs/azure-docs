@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to make a phone call from Twilio (PHP) - Azure" 
+	pageTitle="How to make a phone call from Twilio (PHP) | Microsoft Azure" 
 	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Samples are for PHP application." 
 	documentationCenter="php" 
 	services="" 

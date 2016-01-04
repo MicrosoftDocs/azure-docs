@@ -15,11 +15,11 @@ Here's what you need to know:
 + [Standard examples]
 + [Special file naming convention for the Azure preview portal]
 + [Marketplace content]
-+ [File name approval] 
++ [File name approval]
 
 ##Rules
 
-- No spaces or punctuation characters. Use hyphens to separate the words in the file name. 
+- No spaces or punctuation characters. Use hyphens to separate the words in the file name.
 - Use all lowercase letters
 - No more than 80 characters - this is a publishing system limit
 - Use action verbs that are specific such as develop, buy, build, troubleshoot. No -ing words.
@@ -30,15 +30,15 @@ Here's what you need to know:
 
 Here's the general pattern:
 
- **service-platform-language-content-product-version.md** 
+ **service-platform-language-content-product-version.md**
 
 Use the parts of the pattern that apply, and review the list of articles in the repository to get an idea of existing names. Names that don't start with a dev platform or a service name are probably suspect and slipped through.
 
 ##Standard examples
 
-Here are a few examples of valid names that follow the pattern. : 
+Here are a few examples of valid names that follow the pattern. :
 
-- cloud-services-dotnet-continuous-delivery.md 
+- cloud-services-dotnet-continuous-delivery.md
 - mobile-services-ios-get-started.md
 - documentdb-manage-account.md
 - mobile-services-dotnet-backend-get-started-settings-sync.md
@@ -50,7 +50,7 @@ Here are a few examples of valid names that follow the pattern. :
 
 Right now, we have two portals running - the [general availability portal](https://manage.windowsazure.com) and the [Azure preview portal](https://portal.azure.com). To clearly identify content that has been written for the preview portal without hiding it in the metadata, we need to follow some slightly customized file naming guidance:
 
-- If the service is available only in the Azure preview portal, it's easy. Just follow the standard naming guidance. 
+- If the service is available only in the Azure preview portal, it's easy. Just follow the standard naming guidance.
 
 - If the service is available in both portals, and you are writing an article about the service in the preview portal, add **preview-portal** at the end of the file name before the .md extension. This will help us separate the content for that service in the old portal from content for that service in the new portal. (Don't mix portal content!)
 
@@ -65,7 +65,7 @@ Here are some examples:
 
 To distinguish content that focuses on partner contributions to the Azure marketplace, start the file names with "marketplace". This content should not be too common, as most partner content should be created on the partners' own web sites.
 
-- marketplace-mongodb-virtual-machines-install-windows-server-2008r2.md 
+- marketplace-mongodb-virtual-machines-install-windows-server-2008r2.md
 
 ##File name approval
 
@@ -73,7 +73,7 @@ It's the job of our group of pull request reviewers to review file names when a 
 
 ###Contributors' Guide Links
 
-- [Overview article](./../CONTRIBUTING.md)
+- [Overview article](./../README.md)
 - [Index of guidance articles](./contributor-guide-index.md)
 
 
@@ -83,4 +83,4 @@ It's the job of our group of pull request reviewers to review file names when a 
 [Standard examples]: #standard-examples
 [Special file naming convention for the Azure preview portal]: #special-file-naming-convention-for-the-azure-preview-portal
 [Marketplace content]: #marketplace-content
-[File name approval]: #file-name-approval 
+[File name approval]: #file-name-approval
