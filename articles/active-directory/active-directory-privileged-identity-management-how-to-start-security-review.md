@@ -38,7 +38,7 @@ When you click on the **Review** button, the **Start to review a role** and the 
 
 ### Select the Role to Review
 
-1. Select role from the roles list in the **Select a role to review** blade.  You can only choose one role at a time.  The **Select a role to review** blade will be replaced by the **Select reviewers blade**.  You have two options when selecting reviewers:
+1. Select the role from the roles list in the **Select a role to review** blade.  You can only choose one role at a time.  The **Select a role to review** blade will be replaced by the **Select reviewers blade**.  You have two options when selecting reviewers:
   - Me - use this feature if you would like to preview how security reviews work without involving other administrators.
   - Self review by role members - use this feature to have the users review their own role assignments themselves.
 2. Select either of these to start working with the review details. The **Change defaults** blade will appear.
@@ -51,7 +51,7 @@ When you click on the **Review** button, the **Start to review a role** and the 
   - How many people are being reviewed?
   - How quickly will the users be able to add the extension and complete the review?
 4. Click the OK button in the **Change defaults** blade. It will close.
-5. Click the  OK button in the **Start a review of a role** blade.  It will close. A notification will appear in the portal main menu, refresh the dashboard by clicking the **Refresh** button and the security review will appear in the **Security reviews** section.
+5. Click the  OK button in the **Start a review of a role** blade.  It will close. A notification will appear in the Azure portal main menu, refresh the dashboard by clicking the **Refresh** button and the security review will appear in the **Security reviews** section.
 6. Notify the individuals in the role that they will need to add the extension and then review their own administrative access.  See next step.
 6. [Review administrative access](active-directory-privileged-identity-management-how-to-perform-security-review.md)
 
