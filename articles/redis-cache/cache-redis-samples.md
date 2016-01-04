@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/17/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache samples 
@@ -35,6 +35,7 @@ This sample shows how to:
 -	Work with Redis lists and sorted sets
 -	Store .NET objects using JsonConvert serializers
 -	Use Redis sets to implement tagging
+-	Work with Redis Cluster
 
 For more information, see the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) documentation on github, and for more usage scenarios see the [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) unit tests.
 

@@ -13,15 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/16/2015"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
-Learn how to use Azure Security Center capabilities to manage and respond to security alerts using this walkthrough.
+This document helps you to use Azure Security Center capabilities to manage and respond to security alerts.
 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
-## How does Azure Security Center manage security alerts?
+## What is Azure Security Center?
+Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+
+## What are security alerts?
 Azure Security Center automatically collects, analyzes and integrates log data from your Azure resources, the network, and partner solutions like antimalware and firewalls to detect real threats and reduce false positives. A list of prioritized alerts is surfaced as Security Alerts.  
 
 You can review the current alerts by looking at the Security Alerts tile. Follow the steps below to see more details about each alert:
@@ -47,7 +50,7 @@ In the bottom part of this blade you have the details for each alert. You can so
 - **Severity**: shows the severity level, which can be high, medium or low.
   
 
-### Responding to a security alert
+### Responding to security alerts
 Many activities could indicate a possible attack on your organization. For example, a network administrator performing a legitimate network capture might appear similar to someone launching some form of attack. In other cases, a badly configured system might lead to a number of false positives in an intrusion detection system, which could make it more difficult to spot genuine incidents. After you review the security alerts using Azure Security Center, you can start to take actions based on the alert’s severity.
 
 To take an action, select the alert that you want to respond and a new blade will open on the right with more details as shown below: 
@@ -60,7 +63,7 @@ In this case, the alerts that was triggered refers to suspicious Remote Desktop 
   
 > [AZURE.NOTE] The remediation suggested by Azure Security Center will vary according to the security alert and in some cases, you may have to use other Azure capabilities in order to implement the recommended remediation. For example, the remediation for this attack is to blacklist the IP address that is generating this attack by using [Network ACL](virtual-networks-acl.md) or a [Network Security Group](virtual-networks-nsg.md) rule.
 
-### Additional tasks
+### Managing security alerts
 You can filter alerts based on date, state and severity. Under the Security Alerts blade, click Filter and enable the options that you want as shown below:
 
 ![Enabling data collection](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5.png)
@@ -71,8 +74,6 @@ While the majority of the security alerts will have recommendations that should 
 To dismiss a task, click on the resource to apply the view additional information or apply the recommended configuration. Right click on the task to dismiss it and you see the **Dismiss** option similar to the image below:
 
 ![Enabling data collection](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6.png)
-
-### Alerts
 
 In a collection of alerts, each one will have very specific description and remediation. The alerts you see in Azure Security Center are based on the attack scenario. The attack scenarios that follow are triggered by the Microsoft engine: 
 

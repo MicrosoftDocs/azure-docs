@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="12/18/2015" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -29,9 +29,9 @@ There are some important considerations when moving a resource:
 1. You cannot change the location of the resource. Moving a resource only moves it to a new resource group. The new resource group may have a different location, but that does 
 not change the location of the resource.
 2. The destination resource group should contain only resources that share the same application lifecycle as the resources you are moving.
-3. If you are using Azure PowerShell, make sure you are using the latest version. The **Move-AzureRmResource** command is updated frequently. To update your version, run the Microsoft Web Platform Installer and check if a 
-new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
-4. The move operation can take a while to complete and during that time your PowerShell prompt will wait until the operation has completed.
+3. If you are using Azure PowerShell or Azure CLI, make sure you are using the latest version. To update your version, run the Microsoft Web Platform Installer and check if a 
+new version is available. For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md) and [Install the Azure CLI]( xplat-cli-install.md).
+4. The move operation can take a while to complete and during that time your prompt will wait until the operation has completed.
 5. When moving resources, both the source group and the target group are locked for the duration of the operation. Write and delete operations are blocked on the groups until the move completes.
 
 ## Supported services
@@ -90,6 +90,16 @@ The second example shows how to move multiple resources to a new resource group.
     PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 To move to a new subscription, include a value for the **DestinationSubscriptionId** parameter.
+
+## Using Azure CLI to move resources
+
+To move existing resources to another resource group or subscription, use the **azure resource move** command. The following example shows how to move a Redis Cache to a new resource group. In the **-i** parameter, provide a comma-separated list of the resource id's to move.
+
+    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
+    info:    Executing command resource move
+    Move selected resources in OldRG to NewRG? [y/n] y
+    + Moving selected resources to NewRG
+    info:    resource move command OK
 
 ## Using REST API to move resources
 

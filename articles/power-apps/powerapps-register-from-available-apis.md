@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="12/09/2015"
+   ms.date="12/17/2015"
    ms.author="guayan"/>
 
 # Register a Microsoft managed API or an IT managed API
@@ -55,8 +55,8 @@ API | Description | Steps Link
 ![][33] | **Excel**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-excel.md)
 ![][34] | **Google Drive**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-googledrive.md)
 ![][35] | **Microsoft Translator**<br/><br/>Translates text, detects languages, and more. | [**Get Started**](powerapps-create-api-microsofttranslator.md)
-![][36] | **Office365 Outlook**<br/><br/>Manage your email. | [**Get Started**](powerapps-create-api-office365-outlook.md)
-![][37] | **Office365 Users**<br/><br/>Access user profiles, their managers, their direct reports, and more. | [**Get Started**](powerapps-create-api-office365-users.md)
+![][36] | **Office 365 Outlook**<br/><br/>Manage your email. | [**Get Started**](powerapps-create-api-office365-outlook.md)
+![][37] | **Office 365 Users**<br/><br/>Access user profiles, their managers, their direct reports, and more. | [**Get Started**](powerapps-create-api-office365-users.md)
 ![][38] | **OneDrive**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-onedrive.md)
 ![][39] | **Salesforce**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-salesforce.md)
 ![][40] | **SharePoint Online**<br/><br/> You can get, update, delete items, and more. | [**Get Started**](powerapps-create-api-sharepointonline.md)
@@ -69,8 +69,8 @@ The **IT managed** APIs are controlled by you and managed by you. They do not ru
 Some additional benefits include:
 
 - The resources, including network, memory, or security configurations, are monitored by you. For example, if you need more memory to display Excel data in your app, you control how much more memory to add in your environment. 
-- You set up the trust and control the security between your apps and the API. For example, you determine if the Office365 API can be Microsoft managed (an automatic trust) or use the Office365 API within your own environment (create your own trust). 
-- **All** of the Microsoft managed APIs can also be IT managed. For example, if you want to create your own instance of Office365 and have full control over this instance, you can. You can then use your Office365 IT managed API and the Office365 Microsoft managed API in the same environment. It really depends on the needs of your app.
+- You set up the trust and control the security between your apps and the API. For example, you determine if the Office 365 API can be Microsoft managed (an automatic trust) or use the Office 365 API within your own environment (create your own trust). 
+- **All** of the Microsoft managed APIs can also be IT managed. For example, if you want to create your own instance of Office 365 and have full control over this instance, you can. You can then use your Office 365 IT managed API and the Office 365 Microsoft managed API in the same environment. It really depends on the needs of your app.
 - When connecting to on-premises systems or using the Bing Search API, you control security, authentication, licensing, and more.
 
 

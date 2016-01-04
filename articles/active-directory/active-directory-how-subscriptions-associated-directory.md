@@ -101,7 +101,7 @@ In this case, just [sign up for Azure](sign-up-organization.md) using the same w
 
 ### I do have a subscription for Azure using my Microsoft account
 
-If you signed up for Office 365 using a work or school account and then signed up for Azure using a Microsoft account, then you have two directories: one for your work or school and a Default directory that was created when you signed for Azure.
+If you signed up for Office 365 using a work or school account and then signed up for Azure using a Microsoft account, then you have two directories: one for your work or school and a Default directory that was created when you signed up for Azure.
 
 To manage both of the directories in the Azure classic portal, complete these steps.
 
