@@ -126,7 +126,7 @@ var listenAddress = new Uri(
 
 ```
 
-For a complete walkthrough of how to write an `ICommunicationListener`, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
+For a complete walk-through of how to write an `ICommunicationListener`, see [Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
 
 ### Client-to-service communication
 The Reliable Services API provides the following abstractions that make it easy to write clients that communicate with services.
