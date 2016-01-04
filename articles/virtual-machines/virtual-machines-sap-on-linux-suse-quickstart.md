@@ -74,7 +74,7 @@ information about installing it manually (e.g. when uploading a SLES OS VHD from
 
 - [OpenSUSE] (http://software.opensuse.org/package/WALinuxAgent)
 
-- [Azure] (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-endorsed-distributions/)
+- [Azure] (virtual-machines-linux-endorsed-distributions.md)
 
 - [SUSE] (https://www.suse.com/communities/blog/suse-linux-enterprise-server-configuration-for-windows-azure/)
 
@@ -90,7 +90,7 @@ file system in case an external Azure data disk wasn't mounted during the boot.
 
 ## Uploading a SUSE VM from on-premises to Azure
 
-[This article] (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd-suse/) describes the steps for uploading a SUSE VM from on-premises to Azure.
+[This article] (virtual-machines-linux-create-upload-vhd-suse.md) describes the steps for uploading a SUSE VM from on-premises to Azure.
 
 If you want to upload a VM without the deprovision step at the end to keep, for example, an existing SAP
 installation as well as the hostname, check the following items:
@@ -114,9 +114,9 @@ file is created, you can deploy the VM by using the following CLI command as an 
    azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
 
    ```
-You can find more details about JSON template files in [this article] (https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) and [this webpage] (https://azure.microsoft.com/documentation/templates/).
+You can find more details about JSON template files in [this article] (resource-group-authoring-templates.md) and [this webpage] (https://azure.microsoft.com/documentation/templates/).
 
-You can find more details about CLI and Azure Resource Manager in [this article] (https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/).
+You can find more details about CLI and Azure Resource Manager in [this article] (xplat-cli-azure-resource-manager.md).
 
 ## SAP license and hardware key
 
@@ -144,7 +144,7 @@ if "no_root_squash" is set for the share. This was the solution in an internal t
 
 Logical Volume Manager (LVM) isn't fully validated on Azure. If you need a big logical volume across multiple Azure
 data disks (e.g. for the SAP database), you should use mdadm. [This article]
-(https://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-raid/) describes how to set up Linux RAID on Azure by using mdadm.
+(virtual-machines-linux-configure-raid.md) describes how to set up Linux RAID on Azure by using mdadm.
 
 
 ## Azure SUSE repository
