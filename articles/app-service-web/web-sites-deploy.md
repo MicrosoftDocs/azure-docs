@@ -49,7 +49,7 @@ for WebJobs). Azure App Service supports the following three main deployment pro
 industry supports one or more of these deployment processes.
 
 - [FTP or FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol): You can use your favorite FTP or FTPS enabled tool to move your 
-files to Azure, from [FileZilla][https://filezilla-project.org] to full-featured IDEs like [NetBeans](https://netbeans.org). This is strictly
+files to Azure, from [FileZilla](https://filezilla-project.org) to full-featured IDEs like [NetBeans](https://netbeans.org). This is strictly
 a file upload process. No additional services are provided by App Service, such as version control, file structure management, etc. 
 - [Kudu](https://github.com/projectkudu/kudu/wiki/Deployment): This is the native [git deployment engine](https://github.com/projectkudu/kudu/wiki) 
 in App Service. It enables you to push your code to Azure directly from any git repository. Kudu also provides added services whenever code is 
@@ -129,8 +129,8 @@ The cons of syncing with a cloud folder are:
 * [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
 ## Deploy using an IDE
-If you are already using [Visual Studio](https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx) 
-with an [Azure SDK](https://azure.microsoft.com/en-us/downloads/) or WebMatrix, or other IDE suites like [Xcode](https://developer.apple.com/xcode/) 
+If you are already using [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 
+with an [Azure SDK](https://azure.microsoft.com/downloads/) or WebMatrix, or other IDE suites like [Xcode](https://developer.apple.com/xcode/) 
 and [Eclipse](https://www.eclipse.org), you can deploy to Azure directly from within your IDE. This approach can 
 help minimize the tooling for your end-to-end application life-cycle, since you can develop, debug, track, and deploy your app to Azure all 
 from without moving outside of your IDE. This option is ideal for an individual developer.
@@ -187,7 +187,7 @@ For more information, see the following resources:
 
 ## <a name="onprem"></a>Deploy from an on-premises source control system
 If you work on a development team of any size and uses an on-premises source code management (SCM) system like 
-[Team Foundation Server (TFS)](https://www.visualstudio.com/en-us/products/tfs-overview-vs.aspx), 
+[Team Foundation Server (TFS)](https://www.visualstudio.com/products/tfs-overview-vs.aspx), 
 [Git](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs), 
 or [Mercurial](http://mercurial.selenic.com/), you can configure App Service to integrate with your repository and deploy
 directly to App Service in your source control workflow. If you use TFS, you can also configure it to deploy continuously 
@@ -221,7 +221,7 @@ to code, rich dashboards for easy reporting.
 - Support for custom tooling or services, including a set of ready-made integrations for [Jenkins](https://jenkins-ci.org), 
 [Slack](https://slack.com), [ZenDesk](https://www.zendesk.com), [Trello](https://trello.com), 
 [Azure Service Bus](/services/service-bus/), and much more. 
-- [Team Foundation Server Express](https://www.microsoft.com/en-us/download/details.aspx?id=48259) is free for a team of up to 5 developers.
+- [Team Foundation Server Express](https://www.microsoft.com/download/details.aspx?id=48259) is free for a team of up to 5 developers.
 
 ###<a name="tfs"></a>How to deploy continuously with TFS
 
@@ -267,11 +267,11 @@ on software projects of all shapes and sizes.
 - Support for Git for distributed version control or Team Foundation version control (TFVC) for centralized version control. 
 - Rich tools for agile deployment, including backlogs customizable, Kanban boards, work items that link directly 
 to code.
-- Rich dashboards for easy reporting with [connection to Power BI](https://www.visualstudio.com/en-us/get-started/report/report-on-vso-with-power-bi-vs).
+- Rich dashboards for easy reporting with [connection to Power BI](https://www.visualstudio.com/get-started/report/report-on-vso-with-power-bi-vs).
 - Support for custom tooling or services, including a set of ready-made integrations for [Jenkins](https://jenkins-ci.org), 
 [Slack](https://slack.com), [ZenDesk](https://www.zendesk.com), [Trello](https://trello.com), 
 [Azure Service Bus](/services/service-bus/), and much more. 
-- [Team Foundation Server Express](https://www.microsoft.com/en-us/download/details.aspx?id=48259) is free for a team of up to 5 developers.
+- [Team Foundation Server Express](https://www.microsoft.com/download/details.aspx?id=48259) is free for a team of up to 5 developers.
 
 ###<a name="vsts"></a>How to deploy continuously with Visual Studio Team Services
 
