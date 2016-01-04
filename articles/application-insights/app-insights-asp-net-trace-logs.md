@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Explore .NET trace logs in Application Insights  
@@ -79,6 +79,7 @@ You can, for example:
 * Find other telemetry relating to the same user request (that is, with the same OperationId) 
 * Save the configuration of this page as a Favorite
 
+> [AZURE.NOTE] **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
 
 ## Next steps
 
@@ -103,6 +104,10 @@ It can sometimes take a while for all the events and requests to get through the
 ### <a name="limits"></a>How much data is retained?
 
 Up to 500 events per second from each application. Events are retained for seven days.
+
+### I'm not seeing some of the log entries that I expect
+
+If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
 
 ## <a name="add"></a>Next steps
 

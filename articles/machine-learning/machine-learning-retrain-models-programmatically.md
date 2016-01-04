@@ -66,7 +66,7 @@ Click on the Experiments icon in the left pane, then click on the experiment cal
 	We next click on the Publish Web Service button, then click Yes. This will publish the Training Experiment as a Web Service that produces a trained model and model evaluation results. The Web Service Dashboard will be displayed with the API Key and the API help page for Batch Execution. Note that only the Batch Execution method can be used for creating Trained Models.  
 4. *Add a new Endpoint*  
 	The Scoring Web Service we published in Step 2 above was created with a default endpoint. The default endpoints are kept in sync with the original training and scoring experiments, and therefore a default endpoint's trained model cannot be replaced.
-To create an updatable endpoint visit the Azure Portal and click on Add Endpoint (more details [here](machine-learning-create-endpoint.md)).
+To create an updatable endpoint visit the Azure Classic Portal and click on Add Endpoint (more details [here](machine-learning-create-endpoint.md)).
 
 5. *Retrain the model with new data and BES*  
 	To call the Retraining APIs, we create a new C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).  
@@ -92,7 +92,7 @@ To create an updatable endpoint visit the Azure Portal and click on Add Endpoint
 	1. Provide Azure Storage info
 The sample code for BES will upload a file from a local drive (e.g. “C:\temp\CensusIpnput.csv”) to Azure Storage, process it, and write the results back to Azure Storage.  
 
-		To accomplish that, you need to retrieve the Storage account name, key, and container information from the Azure Management Portal for your Storage account and the update the code here. You also need to ensure the input file is available at the location you specify in the code.  
+		To accomplish that, you need to retrieve the Storage account name, key, and container information from the Azure Classic Portal for your Storage account and the update the code here. You also need to ensure the input file is available at the location you specify in the code.  
 
 		We had set up this Training Experiment with two outputs, so the results will include storage location information for both of them, as seen below. “output1” is the output of the Trained Model, “output2” the output of Evaluate Model.  Also note that the file extention of the Output for the Trained Model (Output1) is ".ilearner" and not ".csv".
 

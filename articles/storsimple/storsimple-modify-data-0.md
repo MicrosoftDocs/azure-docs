@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/02/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Modify the DATA 0 network interface settings on your StorSimple device
@@ -41,7 +41,7 @@ You can reconfigure DATA 0 network settings by connecting to the Windows PowerSh
 
 3. A setup wizard will appear to help you configure the DATA 0 interface of your device. Provide new values for the IP address, gateway, and netmask.
 
-> [AZURE.NOTE] The fixed controllers IPs will need to be reconfigured through the **Configure** page of the StorSimple device in the Azure Management Portal. For more information, go to [Modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces).
+> [AZURE.NOTE] The fixed controllers IPs will need to be reconfigured through the **Configure** page of the StorSimple device in the Azure classic portal. For more information, go to [Modify network interfaces](storsimple-modify-device-config.md#modify-network-interfaces).
 
 
 ## Modify DATA 0 network settings through Set-HcsNetInterface cmdlet
@@ -69,5 +69,6 @@ An alternate way to reconfigure DATA 0 network interface is through the use of  
 
 ## Next steps
 
-To configure network interfaces other than DATA 0, you can use the [Configure page in the Management Portal](storsimple-modify-device-config.md). If you experience any issues when configuring your network interfaces, refer to [Troubleshoot deployment issues](storsimple-troubleshoot-deployment.md).
+- To configure network interfaces other than DATA 0, you can use the [Configure page in the Azure classic portal](storsimple-modify-device-config.md). 
+- If you experience any issues when configuring your network interfaces, refer to [Troubleshoot deployment issues](storsimple-troubleshoot-deployment.md).
 

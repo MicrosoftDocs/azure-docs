@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/25/2015"
    ms.author="seanmck"/>
 
 # Managing application parameters for multiple environments
@@ -55,11 +55,12 @@ The DefaultValue attributes specifies the value to be used in the absence of a m
 
 >[AZURE.NOTE] Not all service instance parameters are suitable for per-environment configuration. In the example above, the LowKey and HighKey values for the service's partitioning scheme are explicitly defined for all instances of the service since the partition range is a function of your data domain, not of the environment.
 
+
 ### Per-environment service configuration settings
 
 The [Service Fabric application model](service-fabric-application-model.md) enables services to include configuration packages containing custom key-value pairs readable at runtime. The values of these settings can also be differentiated by environment by specifying a `ConfigOverride` in the application manifest.
 
-Suppose that you have the following setting in the service manifest for the `Stateful1` service:
+Suppose that you have the following setting in Config\Settings.xml for the `Stateful1` service:
 
 
     <Section Name="MyConfigSection">
@@ -81,6 +82,7 @@ To override this value for a specific application/environment pair, create a `Co
 This parameter can then be configured by environment as shown above, by declaring it in the parameters section of the application manifest and specifying environment-specific values in the application parameters files.
 
 >[AZURE.NOTE] In the case of service configuration settings, there are three places where the value of a key can be set: the service configuration package, the application manifest, and the application parameters file. Service Fabric will always choose from the application parameters file first (if specified), then the application manifest, and finally the configuration package.
+
 
 ### Application parameter files
 

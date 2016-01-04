@@ -38,7 +38,7 @@ This walk-through shows you how to use the DocumentDB service provided by Azure 
 
 Before following the instructions in this article, you should ensure that you have the following:
 
-- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
+- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) Update 4 or higher.
 - Azure SDK for .NET version 2.5.1 or higher, available through the [Microsoft Web Platform Installer][].
 
@@ -82,9 +82,9 @@ Now that you have an account, let's create our new ASP.NET project.
 
 8. If you chose to host this in the cloud you will see at least one additional screen asking you to login to your Azure account and provide some values for your new website. Supply all the additional values and continue. 
 
-  	I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Azure Preview portal.
+  	I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Azure Portal.
 
-	For more information about choosing an **App Service plan** and **Resource group**, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	For more information about choosing an **App Service plan** and **Resource group**, see [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
   	![Screen shot of the Configure Microsoft Azure Website dialog box](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -403,12 +403,12 @@ The first thing to do here is add a class that contains all the logic to connect
 
 3. We're reading some values from configuration, so open the **Web.config** file of your application and add the following lines under the `<AppSettings>` section.
 	
-    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Preview portal"/>
-    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Preview portal"/>
+    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
+    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. Now, update the values for *endpoint* and *authKey* using the Keys blade of the Azure Preview portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade as the value of the authKey setting.
+4. Now, update the values for *endpoint* and *authKey* using the Keys blade of the Azure Portal. Use the **URI** from the Keys blade as the value of the endpoint setting, and use the **PRIMARY KEY**, or **SECONDARY KEY** from the Keys blade as the value of the authKey setting.
 
 
     That takes care of wiring up the DocumentDB repository, now let's add our application logic.

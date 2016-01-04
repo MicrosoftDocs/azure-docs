@@ -22,7 +22,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-configure-firewall-settings.md)
+- [Azure Portal](sql-database-configure-firewall-settings.md)
 - [TSQL](sql-database-configure-firewall-settings-tsql.md)
 - [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 - [REST API](sql-database-configure-firewall-settings-rest.md)

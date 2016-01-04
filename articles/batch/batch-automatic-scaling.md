@@ -4,7 +4,7 @@
 	description="Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool."
 	services="batch"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="mmacy"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,18 +14,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="08/26/2015"
-	ms.author="davidmu"/>
+	ms.date="12/04/2015"
+	ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
 
-Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. This ease of adjustment saves you time and money. To learn more about compute nodes and pools, see the [Azure Batch technical overview](batch-technical-overview.md).
+Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. This ease of adjustment saves you time and money. To learn more about compute nodes and pools, see [Azure Batch basics](batch-technical-overview.md).
 
 Automatic scaling occurs when it is enabled on a pool and a formula is associated with the pool. The formula is used to determine the number of compute nodes that are needed to process the application. Acting on samples that are collected periodically, the number of available compute nodes in the pool are adjusted every 15 minutes based on the associated formula.
 
 Automatic scaling can be set when a pool is created, or enabled later on an existing pool. The formula can also be updated on a pool where automatic scaling was previously enabled. It’s always good practice to evaluate a formula before assigning it to a pool, and it’s important to monitor the status of the automatic scaling runs; we discuss each of these topics below.
 
-> [AZURE.NOTE] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The system will create nodes only up to that limit and therefore may not reach the target numbers specified by a formula.
+> [AZURE.NOTE] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The system will create nodes only up to that limit, and therefore may not reach the target numbers specified by a formula.
 
 ## Scale compute resources automatically
 
@@ -336,15 +336,15 @@ These predefined **functions** are available for defining an automatic scaling f
 
 Some of the functions described in the table above can accept a list as an argument. The comma separated list is any combination of *double* and *doubleVec*. For example:
 
-	doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?
+`doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-The *doubleVecList* value is converted to a single *doubleVec* prior to evaluation. For example, if v = [1,2,3], then calling avg(v) is equivalent to calling avg(1,2,3) and calling avg(v, 7) is equivalent to calling avg(1,2,3,7).
+The *doubleVecList* value is converted to a single *doubleVec* prior to evaluation. For example, if `v = [1,2,3]`, then calling `avg(v)` is equivalent to calling `avg(1,2,3)` and calling `avg(v, 7)` is equivalent to calling `avg(1,2,3,7)`.
 
 ### Obtain sample data
 
 The system-defined variables described above are objects that provide methods to access the associated data. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
-	$CPUPercent.GetSample(TimeInterval_Minute*5)
+`$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
 These methods can be used to get sample data.
 
@@ -359,15 +359,17 @@ These methods can be used to get sample data.
   </tr>
   <tr>
     <td>GetSample()</td>
-    <td><p>Returns a vector of data samples. For example:</p>
+    <td><p>Returns a vector of data samples.
+	<p>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds, but as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.
         <ul>
-          <li><p><b>doubleVec GetSample(double count)</b> - Specifies the number of samples that are required from the most recent samples.</p>
-				  <p>A sample is 5 seconds worth of metrics data. GetSample(1) returns the last available sample, but for metrics like $CPUPercent you shouldn’t use this because it isn’t possible to know when the sample was collected. It might be recent, or because of system issues, it might be much older. It is better to use a time interval as shown below.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – Specifies a time frame for gathering sample data and optionally specifies the percentage of samples that must be in the requested range.</p>
-          <p>$CPUPercent.GetSample(TimeInterval\_Minute\*10), should return 200 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history is still not present, only 180 samples are returned.</p>
-					<p>$CPUPercent.GetSample(TimeInterval\_Minute\*10, 80) succeeds, and $CPUPercent.GetSample(TimeInterval_Minute\*10,95) fails.</p></li>
+          <li><p><b>doubleVec GetSample(double count)</b> - Specifies the number of samples to obtain from the most recent samples collected.</p>
+				  <p>GetSample(1) returns the last available sample. For metrics like $CPUPercent, however, this should not be used because it is impossible to know <em>when</em> the sample was collected - it might be recent, or, because of system issues, it may be much older. It is better in such cases to use a time interval as shown below.</p></li>
+          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – Specifies a time frame for gathering sample data, and optionally specifies the percentage of samples that must be available in the requested time frame.</p>
+          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> would return 20 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned, in which case:<br/>
+		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> would fail because only 90% of the samples are available, and<br/>
+		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> would succeed.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b> – Specifies a time frame for gathering data with both a start time and an end time.</p></li></ul>
-		  <p>Note that there is a delay between when a sample is collected and when it is available to a formula; this must be considered when using the GetSample method; see GetSamplePercent below.</td>
+		  <p>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. This must be considered when using the <em>GetSample</em> method - see <em>GetSamplePercent</em> below.</td>
   </tr>
   <tr>
     <td>GetSamplePeriod()</td>
@@ -557,11 +559,13 @@ Let's take a look at some examples showing just a few ways formulas can be used 
 
 Perhaps you want to adjust the pool size based on the day of the week and time of day, increasing or decreasing the number of nodes in the pool accordingly:
 
-		$CurTime=time();
-		$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
-		$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
-		$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
-		$TargetDedicated=$IsWorkingWeekdayHour?20:10;
+```
+$CurTime=time();
+$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
+$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
+$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
+$TargetDedicated=$IsWorkingWeekdayHour?20:10;
+```
 
 This formula first obtains the current time. If it's a weekday (1-5) and within working hours (8AM-6PM), the target pool size is set to 20 nodes. Otherwise, the pool size is targeted at 10 nodes.
 
@@ -569,35 +573,65 @@ This formula first obtains the current time. If it's a weekday (1-5) and within 
 
 In this example, the pool size is adjusted based on the number of tasks in the queue. Note that both comments and line breaks are acceptable in formula strings.
 
-	    // Get pending tasks for the past 15 minutes.
-	    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
-	    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of
-		// last sample point and the history average.
-	    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
-	    // If number of pending tasks is not 0, set targetVM to pending tasks, otherwise half of current dedicated.
-	    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
-	    // The pool size is capped at 20, if target VM value is more than that, set it to 20. This value
-		// should be adjusted according to your use case.
-	    $TargetDedicated = max(0,min($TargetVMs,20));
-	    // Set node deallocation mode - keep nodes active only until tasks finish
-	    $NodeDeallocationOption = taskcompletion;
+```
+// Get pending tasks for the past 15 minutes.
+$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+// If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of
+// last sample point and the history average.
+$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+// If number of pending tasks is not 0, set targetVM to pending tasks, otherwise half of current dedicated.
+$TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+// The pool size is capped at 20, if target VM value is more than that, set it to 20. This value
+// should be adjusted according to your use case.
+$TargetDedicated = max(0,min($TargetVMs,20));
+// Set node deallocation mode - keep nodes active only until tasks finish
+$NodeDeallocationOption = taskcompletion;
+```
 
 ### Example 3
 
 Another example that adjusts the pool size based on the number of tasks, this formula also takes into account the [MaxTasksPerComputeNode](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx) value that has been set for the pool. This is particularly useful in situations where parallel task execution on compute nodes is desired.
 
-		// Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
-		$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
-		$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
-		// Set the number of nodes to add to one-fourth the number of active tasks (the MaxTasksPerComputeNode
-		// property on this pool is set to 4, adjust this number for your use case)
-		$Cores = $TargetDedicated * 4;
-		$ExtraVMs = ($Tasks - $Cores) / 4;
-		$TargetVMs = ($TargetDedicated+$ExtraVMs);
-		// Attempt to grow the number of compute nodes to match the number of active tasks, with a maximum of 3
-		$TargetDedicated = max(0,min($TargetVMs,3));
-		// Keep the nodes active until the tasks finish
-		$NodeDeallocationOption = taskcompletion;
+```
+// Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
+$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+// Set the number of nodes to add to one-fourth the number of active tasks (the MaxTasksPerComputeNode
+// property on this pool is set to 4, adjust this number for your use case)
+$Cores = $TargetDedicated * 4;
+$ExtraVMs = (($Tasks - $Cores) + 3) / 4;
+$TargetVMs = ($TargetDedicated+$ExtraVMs);
+// Attempt to grow the number of compute nodes to match the number of active tasks, with a maximum of 3
+$TargetDedicated = max(0,min($TargetVMs,3));
+// Keep the nodes active until the tasks finish
+$NodeDeallocationOption = taskcompletion;
+```
+
+### Example 4
+
+This example shows an autoscale formula that sets the pool size to a certain number of nodes for an initial time period, then adjusts the pool size based on the number of running and active tasks after the initial time period has elapsed.
+
+```
+string now = DateTime.UtcNow.ToString("r");
+string formula = string.Format(@"
+
+	$TargetDedicated = {1};
+	lifespan         = time() - time(""{0}"");
+	span             = TimeInterval_Minute * 60;
+	startup          = TimeInterval_Minute * 10;
+	ratio            = 50;
+
+	$TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+	", now, 4);
+```
+
+The formula in the above code snippet has the following characteristics:
+
+- Sets the initial pool size to 4 nodes
+- Does not adjust the pool size within the first 10 minutes of the pool's lifecycle
+- After 10 minutes, obtains the max value of the number of running and active tasks within the past 60 minutes
+  - If both values are 0 (indicating no tasks were running or active in the last 60 minutes) the pool size is set to 0
+  - If either value is greater than zero, no change is made
 
 ## Next Steps
 

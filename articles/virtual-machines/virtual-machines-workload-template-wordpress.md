@@ -1,6 +1,6 @@
 <properties
 	pageTitle="WordPress on Ubuntu with ARM template | Microsoft Azure"
-	description="Easily deploy a single WordPress server running Ubuntu using a Resource Manager Template and the Azure Preview Portal, Azure PowerShell, or the Azure CLI."
+	description="Easily deploy a single WordPress server running Ubuntu using a Resource Manager Template and the Azure portal, Azure PowerShell, or the Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -25,11 +25,11 @@ Use the instructions in this article to deploy a WordPress server running on Ubu
 
 ![](./media/virtual-machines-workload-template-wordpress/one-server-wordpress.png)
 
-You can run the template with the Azure Preview portal, Azure PowerShell, or the Azure CLI.
+You can run the template with the Azure portal, Azure PowerShell, or the Azure CLI.
 
-## Azure Preview portal
+## Azure portal
 
-To deploy this workload using a Resource Manager template and the Azure Preview portal, click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
+To deploy this workload using a Resource Manager template and the Azure portal, click [here](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
 

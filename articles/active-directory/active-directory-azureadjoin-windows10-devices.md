@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Using Windows 10 devices in your workplace | Microsoft Azure" 
-	description="provides a snapshot of capabilities users and IT get, contrasting the different ways a device can be provisioned and used in an enterprise with Windows 10." 
+	description="Provides a snapshot of capabilities users and IT get, contrasting the different ways a device can be provisioned and used in an enterprise with Windows 10." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Using Windows 10 devices in your workplace

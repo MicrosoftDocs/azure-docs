@@ -45,10 +45,6 @@ SSH is a utility for logging in to, and remotely executing, commands on a remote
 
 An SSH user name is the name you use to authenticate to the HDInsight cluster. When you specify an SSH user name during cluster creation, this user is created on all nodes in the cluster. Once the cluster is created, you can use this user name to connect to the HDInsight cluster head nodes. From the head nodes, you can then connect to the individual worker nodes.
 
-> [AZURE.NOTE] An SSH user name must be unique. Since an SSH user name creates a user account on the HDInsight cluster, it cannot conflict with existing users that are created by HDInsight. The following are names that are reserved for use by services running on the HDInsight cluster, and cannot be used as the SSH user name:
->
-> root, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
-
 ###SSH password or Public key
 
 An SSH user can use either a password or public key for authentication. A password is just a string of text you make up, while a public key is part of a cryptographic key pair generated to uniquely identify you.
@@ -89,15 +85,15 @@ Use the following information if you plan on using SSH keys with your cluster. I
 
 When creating a Linux-based HDInsight cluster, you must provide the public key created previously. From Linux, Unix, or OS X clients, there are two ways to create an HDInsight cluster:
 
-* **Azure preview portal** - Uses a web-based portal to create the cluster.
+* **Azure Portal** - Uses a web-based portal to create the cluster.
 
 * **Azure CLI for Mac, Linux and Windows** - Uses command-line commands to create the cluster.
 
 Each of these methods will require either a password or a public key. For complete information on creating a Linux-based HDInsight cluster, see [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
-###Azure preview portal
+###Azure Portal
 
-When using the [Azure preview portal][preview-portal] to create a Linux-based HDInsight cluster, you must enter an **SSH USER NAME**, and select to enter a **PASSWORD** or **SSH PUBLIC KEY**.
+When using the [Azure Portal][preview-portal] to create a Linux-based HDInsight cluster, you must enter an **SSH USER NAME**, and select to enter a **PASSWORD** or **SSH PUBLIC KEY**.
 
 If you select **SSH PUBLIC KEY**, you can either paste the public key (contained in the file with the **.pub** extension) into the __SSH PublicKey__ field, or select __Select a file__ to browse and select the public key file.
 
@@ -112,7 +108,7 @@ This creates a login for the specified user, by using the password or public key
 
 ###Azure Command-Line Interface for Mac, Linux and Windows
 
-You can use the [Azure CLI for Mac, Linux and Windows](../xplat.md) to create a new cluster by using the `azure hdinsight cluster create` command.
+You can use the [Azure CLI for Mac, Linux and Windows](../xplat-cli.md) to create a new cluster by using the `azure hdinsight cluster create` command.
 
 For more information on using this command, see [Provision Hadoop Linux clusters in HDInsight using custom options](hdinsight-hadoop-provision-linux-clusters.md).
 

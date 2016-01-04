@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/15/2015"
 	ms.author="saurabh"/>
 
 # Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)] This article covers using the Resource Manager deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. 
 
 The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities on a Windows based Azure virtual machine. You can enable these capabilities on the virtual machine by including the extension as part of the azure resource manager template. See [Authoring Azure Resource Manager Templates with VM Extensions](virtual-machines-extensions-authoring-templates.md) for more information on including any extension as part of a virtual machine template. This article describes how you can add the Azure Diagnostics extension to a windows virtual machine template.  
   
@@ -72,7 +72,7 @@ For Virtual Machine Scale Sets the extensions configuration is specified in the 
    
 The *publisher* property with the value of **Microsoft.Azure.Diagnostics** and the *type* property with the value of **IaaSDiagnostics** uniquely identify the Azure Diagnostics extension.
 
-The value of the *name* property can be used to refer to the extension in the resource group. Setting it specifically to **Microsoft.Insights.VMDiagnosticsSettings** will enable it to be easily identified by the Azure Portal portal ensuring that the monitoring charts show up correctly in the Azure Portal.
+The value of the *name* property can be used to refer to the extension in the resource group. Setting it specifically to **Microsoft.Insights.VMDiagnosticsSettings** will enable it to be easily identified by the Azure classic portal portal ensuring that the monitoring charts show up correctly in the Azure classic portal.
 
 The *typeHandlerVersion* specifies the version of the extension you would like to use. Setting *autoUpgradeMinorVersion* minor version to **true** ensures that you will get the latest Minor version of the extension that is available. It is highly recommended that you always set *autoUpgradeMinorVersion* to always be **true** so that you always get to use the latest available diagnostics extension with all the new features and bug fixes. 
 
@@ -120,7 +120,9 @@ The following describes the diagnostics configuration xml that collects standard
         "wadmetricsresourceid": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name , '/providers/', 'Microsoft.Compute/virtualMachines/')]",
         "wadcfgxend": "\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>"
 
-The Metrics definition xml node in the above configuration is an important configuration element as it defines how the performance counters defined earlier in the xml in *PerformanceCounter* node will be aggregated and stored. These metrics are what drives the charts and alerts in thew Azure preview portal so its important to include this in the configuration if you want to see the monitoring data in the portal. 
+The Metrics definition xml node in the above configuration is an important configuration element as it defines how the performance counters defined earlier in the xml in *PerformanceCounter* node will be aggregated and stored. 
+
+> [AZURE.IMPORTANT] These metrics drive the monitoring charts and alerts in the Azure portal.  The **Metrics** node with the *resourceID* and **MetricAggregation** must be included in the diagnostics configuration for your VM if you want to see the VM monitoring data in the Azure portal. 
 
 The following is an example of the xml for metrics definitions: 
 
@@ -135,8 +137,9 @@ If you are creating multiple Virtual Machines in a loop then you will have to po
 
 	"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), concat(parameters('vmNamePrefix'), copyindex()), variables('wadcfgxend')))]", 
 
-
 The MetricAggregation value of *PT1H* and *PT1M* signify an aggregation over a minute and an aggregation over an hour.
+
+## WADMetrics tables in storage
 
 The Metrics configuration above will generate tables in your diagnostics storage account with the following naming conventions:
 

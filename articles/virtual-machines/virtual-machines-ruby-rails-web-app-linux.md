@@ -3,7 +3,7 @@
 	description="Set up and host a Ruby on Rails-based website on Azure using a Linux virtual machine."
 	services="virtual-machines"
 	documentationCenter="ruby"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
@@ -34,11 +34,11 @@ This tutorial was validated using Ubuntu Server 14.04 LTS. If you use a differen
 
 Start by creating an Azure VM with a Linux image.
 
-To create the VM, you can use the Azure portal or the Azure Command-Line Interface (CLI).
+To create the VM, you can use the Azure classic portal or the Azure Command-Line Interface (CLI).
 
 ### Azure Management Portal
 
-1. Sign into the [Azure portal](http://manage.windowsazure.com)
+1. Sign into the [Azure classic portal](http://manage.windowsazure.com)
 2. Click **New** > **Compute** > **Virtual Machine** > **Quick Create**. Select a Linux image.
 3. Enter a password.
 
@@ -97,7 +97,7 @@ You should see output similar to the following.
 
 ## Add an endpoint
 
-1. Go to the [Azure portal][management-portal] and select your VM.
+1. Go to the [Azure classic portal][management-portal] and select your VM.
 
 	![virtual machine list][vmlist]
 

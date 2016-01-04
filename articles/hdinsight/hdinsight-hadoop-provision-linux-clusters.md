@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Create Hadoop, HBase, or Storm clusters on Linux in HDInsight | Microsoft Azure"
-   	description="Learn how to create Hadoop, HBase, or Storm clusters on Linux for HDInsight using a browser, the Azure CLI, Azure PowerShell, REST, or through an SDK."
+   	pageTitle="Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight | Microsoft Azure"
+   	description="Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a browser, the Azure CLI, Azure PowerShell, REST, or through an SDK."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -14,11 +14,11 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="12/08/2015"
    	ms.author="nitinme"/>
 
 
-#Create Linux-based clusters in HDInsight
+#Create Linux-based Hadoop clusters in HDInsight
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
@@ -39,9 +39,9 @@ There are several types of HDInsight available:
 | Hadoop       | query and analysis (batch jobs)     |
 | HBase        | NoSQL data storage            |
 | Storm        | Real-time event processing |
-| Spark (Windows-only preview) | In-memory processing, interactive queries, micro-batch stream processing |
+| Spark (Preview) | In-memory processing, interactive queries, micro-batch stream processing |
 
-During configuration, you will select one of these types for the cluster. You can add other technologies such as Hue, Spark, or R to these basic types by using [Script Actions](#scriptaction).
+During configuration, you will select one of these types for the cluster. You can add other technologies such as Hue or R to these basic types by using [Script Actions](#scriptaction).
 
 Each cluster type has its own terminology for nodes within the cluster, as well as the number of nodes and the default VM size for each node type:
 
@@ -102,9 +102,9 @@ Cluster type allows you to select special purpose configurations for the cluster
 | Hadoop       | query and analysis (batch jobs)     |
 | HBase        | NoSQL data storage            |
 | Storm        | Real-time event processing |
-| Spark (Windows-only preview) | In-memory processing, interactive queries, micro-batch stream processing |
+| Spark (Preview) | In-memory processing, interactive queries, micro-batch stream processing |
 
-You can add other technologies such as Hue, Spark, or R to these basic types by using [Script Actions](#scriptaction).
+You can add other technologies such as Hue or R to these basic types by using [Script Actions](#scriptaction).
 
 ###Cluster operating system
 

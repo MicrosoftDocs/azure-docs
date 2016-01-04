@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect FAQ | Microsoft Azure"
+	pageTitle="Azure AD Connect: FAQ | Microsoft Azure"
 	description="This page has frequently asked questions about Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/02/2015"
 	ms.author="billmath"/>
 
-# Azure Active Directory Connect FAQ
+# Azure AD Connect FAQ
 
 ## General installation
 **Q: Will installation work if the Azure AD Global Admin has 2FA enabled?**

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="12/17/2015"
 	ms.author="mmercuri"/>
 
 # Best practices for designing Azure Resource Manager templates

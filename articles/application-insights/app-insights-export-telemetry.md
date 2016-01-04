@@ -75,6 +75,8 @@ Other calculated metrics are not included. For example, we don't export average 
 
 The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) you have set up. 
 
+> [AZURE.NOTE] **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
+
 ## <a name="get"></a> Inspect the data
 
 You can inspect the storage directly in the portal. Click **Browse**, select your storage account, and then open **Containers**.

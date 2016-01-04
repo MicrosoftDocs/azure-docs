@@ -35,7 +35,7 @@ HDInsight currently supports only the Ambari monitoring feature. Ambari API 1.0 
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 
 - (Optional) [cURL][curl]. To install it, see [cURL Releases and Downloads][curl-download].
@@ -147,7 +147,7 @@ Get configuration info.|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/confi
 
 Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 
-- [Manage HDInsight clusters using the Azure preview portal][hdinsight-admin-portal]
+- [Manage HDInsight clusters using the Azure Portal][hdinsight-admin-portal]
 - [Manage HDInsight clusters using Azure PowerShell][hdinsight-admin-powershell]
 - [Manage HDInsight clusters using command-line interface][hdinsight-admin-cli]
 - [HDInsight documentation][hdinsight-documentation]

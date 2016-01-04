@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Set up a Windows 10 device with Azure AD from Settings| Microsoft Azure" 
-	description="Explains how users can join to Azure AD through the settings menu in Windows 10." 
+	description="Explains how users can join to Azure AD through the settings menu." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Set up a Windows 10 device with Azure AD from Settings
@@ -35,14 +35,16 @@ To join to Azure AD from the settings menu
 <center>
 ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center>
 5. If your organization has configured multi-factor authenticaion for joining to Azure AD, you will have to provide the second factor before being able to proceed.
-6. Click **Accept** on the **Allow this device to be managed** screen.
+6. Click **Accept** on the** Allow this device to be managed** screen.
 7. you should see the message "Your device is now joined to your organization in Azure AD".
 
 
 ## Additional Information
-* [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
+* [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
 * [Authenticating identities without passwords through Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
+

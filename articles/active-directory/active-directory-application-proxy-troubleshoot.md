@@ -3,8 +3,8 @@
 	description="Covers how to troubleshoot errors in Azure AD Application Proxy."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="StevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 

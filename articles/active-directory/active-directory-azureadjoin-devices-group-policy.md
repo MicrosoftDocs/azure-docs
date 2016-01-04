@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Connect domain-joined devices to Azure AD for Windows 10 experiences | Microsoft Azure" 
-	description="A topic that explains how administrators can configure group policies to enable devices to be domain-joined to the enterprise network." 
+	description="Explains how administrators can configure group policies to enable devices to be domain-joined to the enterprise network." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,9 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+
+	ms.date="11/19/2015" 
+
 	ms.author="femila"/>
 
 # Connect domain-joined devices to Azure AD for Windows 10 experiences
@@ -53,14 +55,16 @@ To enable conditional access, you can create policy that allow access to ‘doma
 
 ## Deployment instructions
 
-1. Deploy Azure Active Directory Connect: Azure AD Connect will enable computers on-premises to be provisioned as device objects in the cloud. To deploy Azure AD Connect please refer to Enabling your directory for hybrid management with Azure AD Connect.
 
+## Step 1: Deploy Azure Active Directory Connect
 
-If you followed a [custom installation for Azure AD Connect](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-get-started-custom/) (not the Express installation), you must follow the procedure, **Create a service connection point (SCP) in on-premise Active Directory**, described below.
+Azure AD Connect will enable computers on-premises to be provisioned as device objects in the cloud. To deploy Azure AD Connect please refer to Enabling your directory for hybrid management with Azure AD Connect.
 
-If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before) you will have to follow the **Configure AD FS claim rules** procedure below.
+ - If you followed a [custom installation for Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (not the Express installation), you must follow the procedure, **Create a service connection point (SCP) in on-premise Active Directory**, described below.
+ - If you have a federated configuration with Azure AD before installing Azure AD Connect (for example, if you have deployed Active Directory Federation Services (AD FS) before) you will have to follow the **Configure AD FS claim rules** procedure below.
 
 ### Create a service connection point (SCP) in on-premises Active Directory
+
 Domain joined devices will use this object to discover Azure AD tenant information at the time of auto-registration with Azure device registration service. On the Azure AD Connect server run the following PowerShell commands: 
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
@@ -116,7 +120,9 @@ On the AD FS server run the following PowerShell commands (or on a session conne
 >[AZURE.NOTE]
 Windows 10 computers will authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS.  You must ensure this endpoint is enabled. If you are using the Web Authentication Proxy, you must also ensure this endpoint is published through the proxy. You can do this by checking that the adfs/services/trust/13/windowstransport shows as enabled in the AD FS management console under Service > Endpoints.
 
-## Configure automatic device registration via Group Policy in Active Directory
+
+## Step 2: Configure automatic device registration via Group Policy in Active Directory
+
 You can use an Active Directory Group Policy to configure your Windows 10 domain joined devices to automatically register with Azure AD. To do this please see the following step-by-step instructions:
 
 1. 	Open Server Manager and navigate to **Tools** > **Group Policy Management**.

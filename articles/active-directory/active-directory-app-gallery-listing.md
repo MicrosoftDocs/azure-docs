@@ -33,7 +33,7 @@ To integrate your application with Azure AD, following the [developer instructio
 
 * Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
 
-* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework). 
+* Provide instructions on how the Azure AD team can sign in and connect an instance of Azure AD to your application using the [Azure AD consent framework](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework). 
 
 * Provide any further instructions required for the Azure AD team to test single sign-on with your application. 
 
@@ -65,11 +65,11 @@ To integrate your application with Azure AD, following the [developer instructio
 
 ##SAML Integration
 
-Any app that supports SAML 2.0 can be integrated directly with an Azure AD tenant using [these instructions to add a custom application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). Once you have tested that your application integration works with Azure AD, send the following information to <waadpartners@microsoft.com>.
+Any app that supports SAML 2.0 can be integrated directly with an Azure AD tenant using [these instructions to add a custom application](active-directory-saas-custom-apps.md). Once you have tested that your application integration works with Azure AD, send the following information to <waadpartners@microsoft.com>.
 
 * Provide credentials for a test tenant or account with your application that can be used by the Azure AD team to test the integration.  
 
-* Provide the SAML Sign-On URL, Issuer URL (entity ID), and Reply URL (assertion consumer service) values for your application, as described [here](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). If you typically provide these values as part of a SAML metadata file, then please send that as well.
+* Provide the SAML Sign-On URL, Issuer URL (entity ID), and Reply URL (assertion consumer service) values for your application, as described [here](active-directory-saas-custom-apps.md). If you typically provide these values as part of a SAML metadata file, then please send that as well.
 
 * Provide a brief description of how to configure Azure AD as an identity provider in your application using SAML 2.0. If your application supports configuring Azure AD as an identity provider through a self-service administrative portal, then please ensure the credentials provided above include the ability to set this up.
 
@@ -89,7 +89,7 @@ Any app that supports SAML 2.0 can be integrated directly with an Azure AD tenan
 > 
 > Application Sign-Up URL where customers go to sign up for and /or purchase the application:
 > 
-> Choose up to three categories for your application to be listed under (for available categories see the [Azure Active Directory Marketplace](https://azure.microsoft.com/en-us/marketplace/active-directory/))):
+> Choose up to three categories for your application to be listed under (for available categories see the [Azure Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/))):
 > 
 > Attach Application Small Icon (PNG file, 45px by 45px, solid background color):
 > 

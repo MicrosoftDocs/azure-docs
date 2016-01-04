@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="trinadhk";"aashishr"/>
+	ms.date="12/15/2015"
+	ms.author="trinadhk;aashishr;jimpark"/>
 
 
 # Troubleshoot Azure virtual machine backup
@@ -31,7 +31,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup operation | Error details | Workaround |
 | -------- | -------- | -------|
 | Register | Number of data disks attached to the virtual machine exceeded the supported limit - Please detach some data disks on this virtual machine and retry the operation. Azure backup supports up to 16 data disks attached to an Azure virtual machine for backup | None |
-| Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configurations: <ol><li>Premium LRS <li>Multi NIC <li>Load balancer (internal and internet-facing)</ol> |
+| Register | Microsoft Azure Backup encountered an internal error - Wait for a few minutes and then try the operation again. If the issue persists, contact Microsoft Support. | You can get this error due to one of the following unsupported configuration: <ul><li>Premium LRS </ul> |
 | Register | Registration failed with Install Agent operation timeout | Check if the OS version of the virtual machine is supported. |
 | Register | Command execution failed - Another operation is in progress on this item. Please wait until the previous operation is completed | None |
 | Register | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
@@ -49,8 +49,6 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup | Extension installation failed with the error "COM+ was unable to talk to the Microsoft Distributed Transaction Coordinator | This usually means that the COM+ service is not running. Contact Microsoft support for help on fixing this issue. |
 | Backup | Snapshot operation failed with the VSS operation error "This drive is locked by BitLocker Drive Encryption. You must unlock this drive from Control Panel. | Turn off BitLocker for all drives on the VM and observe if the VSS issue is resolved |
 | Backup | Virtual machines having virtual hard disks stored on Premium storage are not supported for backup | None |
-| Backup | Backup of a virtual machine with a load balancer configuration is not supported. | None <br><br>This applies to internal load balancers and internet-facing load balancers.|
-| Backup | Backup of a virtual machine with more than one NIC is not supported. | None |
 | Backup | Azure Virtual Machine Not Found. | This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li>Recreate the virtual machine with the same name and same resource group name [cloud service name], <br>(OR) <li> Disable protection for this VM so that backup jobs will not be created </ol> |
 | Backup | Virtual machine agent is not present on the virtual machine - Please install the required pre-requisite, VM agent and restart the operation. | [Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
 
@@ -66,7 +64,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 ## Restore
 | Operation | Error details | Workaround |
 | -------- | -------- | -------|
-| Restore | Restore failed with Cloud Internal error | <ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" 	Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
+| Restore | Restore failed with Cloud Internal error | <ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" 	Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>You are trying to restore a virtual machine with following special network configurations in to same cloud service. <br>- Virtual machines under load balancer configuration ( Internal adn external)<br>- Virtual machines with multiple Reserved IPs<br>- Virtual machines with multiple NICs<br>Please select a new cloud service in the UI or please refer to [restore considerations](backup-azure-restore-vms.md/#restoring-vms-with-special-network-configurations) for VMs with special network configurations</ol> |
 | Restore | The selected DNS name is already taken - Please specify a different DNS name and try again. | The DNS name here refers to the cloud service name (usually ending with .cloudapp.net). This needs to be unique. If you encounter this error, you need to choose a different VM name during restore. <br><br> Note that this error is shown only to users of the Azure portal. The restore operation through PowerShell will succeed because it only restores the disks and doesn't create the VM. The error will be faced when the VM is explicitly created by you after the disk restore operation. |
 | Restore | The specified virtual network configuration is not correct - Please specify a different virtual network configuration and try again. | None |
 | Restore | The specified cloud service is using a reserved IP, which doesn't match with the configuration of the virtual machine being restored - Please specify a different cloud service which is not using reserved IP, or choose another recovery point to restore from. | None |
@@ -117,7 +115,7 @@ How to check for the VM Agent version on Windows VMs:
 2. Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher
 
 ## Networking
-Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of of ways:
+Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of ways:
 
 - The extension installation can fail
 - The backup operations (like disk snapshot) can fail
@@ -125,7 +123,12 @@ Like all extensions, Backup extension need access to the public internet to work
 
 The need for resolving public internet addresses has been articulated [here](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). You will need to check the DNS configurations for the VNET and ensure that the Azure URIs can be resolved.
 
-Once the name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow these steps:
+Once the name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow one of these steps:
 
-1. Get the list of [Azure datacenter IPs](https://msdn.microsoft.com/library/azure/dn175718.aspx) to be whitelisted.
-2. Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) commandlet. Run this commandlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
+1. WhiteList the Azure datacenter IP ranges.
+    - Get the list of [Azure datacenter IPs](https://www.microsoft.com/download/details.aspx?id=41653) to be whitelisted.
+    - Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
+    - Add rules to the NSG (if you have one in place) to allow access to the IPs.
+2. Create a path for HTTP traffic to flow
+    - If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy a HTTP Proxy server can found [here](backup-azure-vms-prepare.md#2-network-connectivity).
+    - Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.

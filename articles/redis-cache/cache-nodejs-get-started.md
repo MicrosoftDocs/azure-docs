@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/23/2015"
+	ms.date="12/03/2015"
 	ms.author="sdanie"/>
 
 # How to use Azure Redis Cache with Node.js
@@ -39,34 +39,35 @@ This tutorial uses [node_redis](https://github.com/mranney/node_redis), but you 
 
 ## Create a Redis cache on Azure
 
-In the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
+In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
 
   ![][1]
 
-Enter a DNS hostname. It will have the form `<name>.redis.cache.windows.net`. Click **Create**.
+Enter a DNS hostname. It will have the form `<name>
+  .redis.cache.windows.net`. Click **Create**.
 
   ![][2]
 
 
-Once you create the cache, click on it in the preview portal to view the cache settings. Click the link under **Keys** and copy the primary key. You need this to authenticate requests.
+  Once you create the cache, [browse to it](cache-configure.md#configure-redis-cache-settings) to view the cache settings. Click the link under **Keys** and copy the primary key. You need this to authenticate requests.
 
   ![][4]
 
 
-## Enable the non-SSL endpoint
+  ## Enable the non-SSL endpoint
 
 
-Click the link under **Ports**, and click **No** for "Allow access only via SSL". This enables the non-SSL port for the cache. The node_redis client currently does not support SSL.
+  Click the link under **Ports**, and click **No** for "Allow access only via SSL". This enables the non-SSL port for the cache. The node_redis client currently does not support SSL.
 
   ![][3]
 
 
-## Add something to the cache and retrieve it
+  ## Add something to the cache and retrieve it
 
-	var redis = require("redis");
+  var redis = require("redis");
 
-    // Add your cache name and access key.
-	var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth_pass: '<key>' });
+  // Add your cache name and access key.
+  var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth_pass: '<key>' });
 
 	client.set("foo", "bar", function(err, reply) {
 	    console.log(reply);

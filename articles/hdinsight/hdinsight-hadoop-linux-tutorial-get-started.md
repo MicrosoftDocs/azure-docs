@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="12/03/2015"
    	ms.author="nitinme"/>
 
 # Hadoop tutorial: Get started using Hadoop with Hive in HDInsight on Linux
@@ -23,7 +23,7 @@
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-This docuent gets you started quickly with Azure HDInsight on Linux by showing you how to create a Linux-based Hadoop cluster, connect to the cluster using a Secure Shell (SSH,) and then run a Hive query against example data that is included with the cluster.
+This document gets you started quickly with Azure HDInsight on Linux by showing you how to create a Linux-based Hadoop cluster, open the Ambari Web UI, and then run a Hive query using Ambari Hive View.
 
 > [AZURE.NOTE] If you are new to Hadoop and big data, you can read more about the terms [Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084), [MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086), [Hadoop Distributed File System (HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087), and [Hive](http://go.microsoft.com/fwlink/?LinkId=510085). To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
 
@@ -33,16 +33,6 @@ Before you begin this Linux tutorial for Hadoop, you must have the following:
 
 - **An Azure subscription**: See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **A Secure Shell (SSH) client**: Linux, Unix, and OS X systems provied an SSH client through the `ssh` command. For Windows systems, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-
-    > [AZURE.NOTE] The steps in this document use SSH to connect to the HDInsight cluster, as SSH is available for all client operating systems. For other methods of connecting to the HDInsight cluster, such as using the HDInsight Tools for Visual Studio or REST APIs, see the Hive, Pig, and MapReduce links in the [Next Steps](#nextsteps) section of this document.
-    
-- **Secure Shell (SSH) keys (optional)**: You can secure the SSH account used to connect to the cluster using either a password or a public key. Using a password gets you started quickly, and you should use this option if you want to quickly provision a cluster and run some test jobs. Using a key is more secure, however it requires additional setup. You might want to use this approach when provisioning a production cluster. In this article, we use the password approach. For instructions on how to create and use SSH keys with HDInsight, refer to the following articles:
-
-	-  From a Linux computer - [Use SSH with Linux-based HDInsight (Hadoop) from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-    
-	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
-
 ## <a name="provision"></a>Provision an HDInsight cluster on Linux
 
 When you provision a cluster, you create the Azure compute resources that contain Hadoop services and resources. In this section, you provision an HDInsight version 3.2 cluster, which contains Hadoop version 2.2. For information about HDInsight versions and their SLAs, see [HDInsight component versioning](hdinsight-component-versioning.md). For more detailed information on creating an HDInsight cluster, see [Provision HDInsight clusters using custom options][hdinsight-provision].
@@ -51,10 +41,10 @@ When you provision a cluster, you create the Azure compute resources that contai
 
 Use the following steps to create a new cluster:
 
-1. Sign in to the [Azure Preview Portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure Portal](https://ms.portal.azure.com/).
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
-    ![Creating a new cluster in the Azure Preview Portal](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
+    ![Creating a new cluster in the Azure Portal](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
 
 3. Enter a **Cluster Name**, select **Hadoop** for the **Cluster Type**, and from the **Cluster Operating System** drop-down, select **Ubuntu**. A green check will appear beside the cluster name if it is available.
 
@@ -70,9 +60,7 @@ Use the following steps to create a new cluster:
 
 	![Provide cluster credentials](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Provide cluster credentials")
 
-    > [AZURE.NOTE] SSH is used to remotely access the HDInsight cluster using a command-line. The user name and password you use here is used when connecting to the cluster through SSH. Also, the SSH user name must be unique, as it creates a user account on all the HDInsight cluster nodes. The following are some of the account names reserved for use by services on the cluster, and cannot be used as the SSH user name:
-    >
-    > root, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+    > [AZURE.NOTE] SSH is used to remotely access the HDInsight cluster using a command-line. The user name and password you use here is used when connecting to the cluster through SSH.
 
 	For more information on using SSH with HDInsight, see one of the following documents:
 
@@ -118,47 +106,31 @@ While provisioning|Provisioning complete
 
 Once the provisioning is completed, click the tile for the cluster from the Startboard to launch the cluster blade.
 
-## <a name="connect"></a> To connect to the cluster
+##Connect to the Hive View
 
-You can connect to an HDInsight cluster on Linux from a Linux computer or a Windows-based computer by using SSH.
+Ambari Views provide several utilities through a web page. In the following sections, you'll use the Hive view to run Hive queries on your HDInsight cluster.
 
-###To connect from a Linux computer
+> [AZURE.NOTE] Ambari is a management and monitoring utility provided with Linux-based HDInsight clusters. Ambari has a lot of capabilities that won't be discussed in this document. For more information, see [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md).
 
-1. Open a terminal and enter the following command:
+You can Ambari Views from the Azure Portal, select your HDInsight cluster and then select __Ambari Views__ from the __Quick Links__ section.
 
-		ssh <username>@<clustername>-ssh.azurehdinsight.net
+![quick links section](./media/hdinsight-hadoop-linux-tutorial-get-started/quicklinks.png)
 
-	Replace &lt;username> with the SSH user name you used when creating the cluster. Replace &lt;clustername> with the name of the cluster
+You can also navigate directly to Ambari by going to https://CLUSTERNAME.azurehdinsight.net in a web browser (where __CLUSTERNAME__ is the name of your HDInsight cluster,) and then select the set of squares from the page menu (next to the __Admin__ link and button on the left of the page,) to list available views. Select the __Hive view__.
 
-2. When prompted, enter the password that you provided while provisioning the cluster. After you are successfully connected, the prompt will change to the following:
+![Selecting ambari views](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png).
 
-		hdiuser@hn0-clustername:~$
+> [AZURE.NOTE] When accessing Ambari, you will be prompted to authenticate to the site. Enter the admin (default `admin`,) account name and password you used when creating the cluster.
 
-    > [AZURE.NOTE] The `@hn0-clustername` portion of the prompt may be different on your cluster.
+You should see a page similar to the following:
 
-###To connect from a Windows-based computer
-
-1. Download [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) for Windows-based clients.
-
-2. Open PuTTY. In **Category**, click **Session**. From the **Basic options for your PuTTY session** screen, enter the SSH address of your HDInsight server in the **Host Name (or IP address)** field. The SSH address is your cluster name, followed by**-ssh.azurehdinsight.net**. For example, **myhdinsightcluster-ssh.azurehdinsight.net**.
-
-	![Connect to an HDInsight cluster on Linux using PuTTY](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.linux.connect.putty.png)
-
-3. To save the connection information for future use, enter a name for this connection under **Saved Sessions**, and then click **Save**. The connection will be added to the list of saved sessions.
-
-4. Click **Open** to connect to the cluster. When prompted for the user name, enter the SSH user name you used when creating the cluster. For the password, enter the password you specified when creating the cluster. After you are successfully connected, the prompt will change to the following:
-
-		hdiuser@hn0-clustername:~$
+![Image of the hive view page, containing a query editor section](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png)
 
 ##<a name="hivequery"></a>Run a Hive query
 
-Once you are connected to the cluster via SSH, use the following commands to run a Hive query:
+Use the following steps from the Hive view to run a Hive query against data included with the cluster.
 
-1. Start the Hive command-line interface (CLI) by using the following command at the prompt:
-
-		hive
-
-2. Using the CLI, enter the following statements to create a new table named **log4jLogs** by using the sample data already available on the cluster:
+1. In the __Query Editor__ section of the page, paste the following HiveQL statements into the worksheet:
 
 		DROP TABLE log4jLogs;
 		CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -176,63 +148,66 @@ Once you are connected to the cluster via SSH, use the following commands to run
 
 	>[AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source, such as an automated data upload process, or by another MapReduce operation, but you always want Hive queries to use the latest data. Dropping an external table does *not* delete the data, only the table definition.
 
-	This returns the following output:
+2. Use the __Execute__ button at the bottom of the Query Editor to start the query. It should turn orange and the text will change to __Stop execution__. A __Query Process Results__ section should appear beneath the Query Editor and display information about the job.
 
-		Query ID = username_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
-		Total jobs = 1
-		Launching Job 1 out of 1
-		Number of reduce tasks not specified. Estimated from input data size: 1
-		In order to change the average load for a reducer (in bytes):
-		  set hive.exec.reducers.bytes.per.reducer=<number>
-		In order to limit the maximum number of reducers:
-		  set hive.exec.reducers.max=<number>
-		In order to set a constant number of reducers:
-		  set mapreduce.job.reduces=<number>
-		Starting Job = job_1421200049012_0006, Tracking URL = <URL>:8088/proxy/application_1421200049012_0006/
-		Kill Command = /usr/hdp/2.2.1.0-2165/hadoop/bin/hadoop job  -kill job_1421200049012_0006
-		Hadoop job information for Stage-1: number of mappers: 1; number of reducers: 1
-		2015-01-16 00:02:40,823 Stage-1 map = 0%,  reduce = 0%
-		2015-01-16 00:02:55,488 Stage-1 map = 100%,  reduce = 0%, Cumulative CPU 3.32 sec
-		2015-01-16 00:03:05,298 Stage-1 map = 100%,  reduce = 100%, Cumulative CPU 5.62 sec
-		MapReduce Total cumulative CPU time: 5 seconds 620 msec
-		Ended Job = job_1421200049012_0006
-		MapReduce Jobs Launched:
-		Stage-Stage-1: Map: 1  Reduce: 1   Cumulative CPU: 5.62 sec   HDFS Read: 0 HDFS Write: 0 SUCCESS
-		Total MapReduce CPU Time Spent: 5 seconds 620 msec
-		OK
-		[ERROR]    3
-		Time taken: 60.991 seconds, Fetched: 1 row(s)
+    > [AZURE.IMPORTANT] Some browsers may not correctly refresh the log or results information. If you run a job and it appears to run forever without updating the log or returning results, try using Mozilla FireFox or Google Chrome instead.
+    
+3. Once the query has finished, The __Query Process Results__ section will display the results of the operation. The __Stop execution__ button will also change back to a green __Execute__ button. The __Results__ tab should contain the following information:
 
-	Note that the output contains **[ERROR]  3**, as there are three rows that contain this value.
+        sev       cnt
+        [ERROR]   3
 
-3. Use the following statements to create a new "internal" table named **errorLogs**:
+    The __Logs__ tab can be used to view the logging information created by the job. You can use this for troubleshooting if there are problems with a query.
+    
+    > [AZURE.TIP] Note the __Save results__ dropdown in the upper left of the __Query Process Results__ section; you can use this to either download the results, or save them to HDInsight storage as a CSV file.
+
+3. Select the first four lines of this query, then select __Execute__. Notice that there are no results when the job completes. This is because using the __Execute__ button when part of the query is selected will only run the selected statements. In this case, the selection didn't include the final statement that retrieves rows from the table. If you select just that line and use __Execute__, you should see the expected results.
+
+3. Use the __New Worksheet__ button at the bottom of the __Query Editor__ to create a new worksheet. In the new worksheet, enter the following HiveQL statements:
 
 		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
 		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
-
 
 	These statements perform the following actions:
 
 	- **CREATE TABLE IF NOT EXISTS** - Creates a table, if it does not already exist. Since the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive. Unlike external tables, dropping an internal table will delete the underlying data as well.
 	- **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
 	- **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain [ERROR], and then inserts the data into the **errorLogs** table.
+    
+    Use the __Execute__ button to run this query. The __Results__ tab will not contain any information as no rows are returned by this query, but the status should show as __SUCCEEDED__.
+    
+4. To the right of the Query Editor is a row of icons. Select the one that looks like a chain.
 
-4. To verify that only rows containing [ERROR] in column t4 were stored to the **errorLogs** table, use the following statement to return all the rows from **errorLogs**:
+    ![icons](./media/hdinsight-hadoop-linux-tutorial-get-started/icons.png)
+    
+    This is the __Visual Explain__ view of the query, which can be helpful in understanding the flow of complex queries. You can view a textual equivalent of this view by using the __Explain__ button in the Query Editor.
+    
+    ![visual explain image](./media/hdinsight-hadoop-linux-tutorial-get-started/visualexplain.png)
+    
+    The other icons are as follows:
+    
+        * Settings: The gear icon allows you to change Hive settings, such as setting `hive.execution.engine` or Tez parameters.
+        * Tez: Displays the Directed Acyclic Graph (DAG) that Tez used to perform the query. If you want to view the DAG for queries you've ran in the past, use the __Tez View__ instead.
+        * Notifications: Displays notifications, such as "Query has been submitted" or if an error occurs when running a query.
 
-		SELECT * from errorLogs;
+5. Select the __SQL__ icon to switch back to the Query Editor, then create a new worksheet and enter the following query:
 
-	The following output should be displayed on the console:
+        SELECT * from errorLogs;
+    
+    Use the __Save as__ button at the bottom of the editor. Name this query __Errorlogs__ and select __OK__. Note that the name of the worksheet changes to __Errorlogs__.
+    
+    Saved queries also appear in the __Saved Queries__ tab at the top of the page. Select this and you should see __Errorlogs__ listed. Selecting the name will open the query in the Query Editor.
 
-		2012-02-03	18:35:34	SampleClass0	[ERROR]	 incorrect		id
-		2012-02-03	18:55:54	SampleClass1	[ERROR]	 incorrect		id
-		2012-02-03	19:25:27	SampleClass4	[ERROR]	 incorrect		id
-		Time taken: 0.987 seconds, Fetched: 3 row(s)
+4. Execute the __Errorlogs__ query. The results will be as follows:
 
-	The returned data should all correspond to [ERROR] logs.
+        errorlogs.t1 	errorlogs.t2 	errorlogs.t3 	errorlogs.t4 	errorlogs.t5 	errorlogs.t6 	errorlogs.t7
+        2012-02-03 	18:35:34 	SampleClass0 	[ERROR] 	incorrect 	id 	
+        2012-02-03 	18:55:54 	SampleClass1 	[ERROR] 	incorrect 	id 	
+        2012-02-03 	19:25:27 	SampleClass4 	[ERROR] 	incorrect 	id
 
 ## <a name="nextsteps"></a>Next steps
 
-In this document, you have learned how to create a Linux-based HDInsight cluster using the Azure preview portal, connect to the cluster using SSH, and how to perform basic Hive queries.
+In this document, you have learned how to create a Linux-based HDInsight cluster using the Azure Portal, connect to the cluster using SSH, and how to perform basic Hive queries.
 
 To learn more about analyzing data with HDinsight, see the following:
 

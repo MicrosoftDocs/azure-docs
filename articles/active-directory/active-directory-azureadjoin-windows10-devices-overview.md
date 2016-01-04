@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows 10 for the enterprise: Ways to use devices for work | Microsoft Azure" 
-	description="provides an overview of deploying Windows 10 devices for enterprises, contrasting the different ways a device can be provisioned and used in an enterprise." 
+	description="Provides an overview of deploying Windows 10 devices for enterprises, contrasting the different ways a device can be provisioned and used in an enterprise." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Windows 10 for the enterprise: Ways to use devices for work

@@ -317,8 +317,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	        ],
 	        "typeProperties": {
 	          "source": {
-	            "type": "BlobSource",
-	            "blobColumnSeparators": ","
+	            "type": "BlobSource"
 	          },
 	          "sink": {
 	            "type": "AzureTableSink",
@@ -348,7 +347,7 @@ You can link an Azure storage account to an Azure data factory with Azure Storag
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | type | The type property must be set to: AzureStorage | Yes |
-| connectionString | Specify information needed to connect to Azure storage for the connectionString property. You can get the connectionString for the Azure storage from the Azure Portal. | Yes |
+| connectionString | Specify information needed to connect to Azure storage for the connectionString property. You can get the connectionString for the Azure storage from the Azure Classic Portal. | Yes |
 
 ## Azure Table Dataset type properties
 

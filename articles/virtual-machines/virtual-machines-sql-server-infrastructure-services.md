@@ -28,9 +28,9 @@ To create a SQL Server virtual machine in Azure, you must first obtain an Azure 
 
 ### Deploy a SQL Server instance on a single VM
 
-After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure Management Portal](virtual-machines-provision-sql-server.md). Those images include licensing of SQL Server in the pricing for the VM.
+After signing up for a subscription, the easiest way to deploy a SQL Server virtual machine in Azure is to [provision a SQL Server machine gallery image in the Azure classic portal](virtual-machines-provision-sql-server.md). Those images include licensing of SQL Server in the pricing for the VM.
 
->[AZURE.NOTE] Use the [new Portal](https://manage.windowsazure.com) to provision and manage SQL Server Virtual Machines. It defaults to using Premium Storage and offers Automated Patching, Automated Backup, and AlwaysOn configurations.
+>[AZURE.NOTE] Use the Azure portal to provision and manage SQL Server Virtual Machines. It defaults to using Premium Storage and offers Automated Patching, Automated Backup, and AlwaysOn configurations.
 
 The following table provides a matrix of available SQL Server images in the virtual machine gallery.
 
@@ -61,7 +61,7 @@ After your SQL Server virtual machine is up and running, you might want to migra
 
 ## High availability
 
-If you require high availability, consider configuring SQL Server AlwaysOn Availability Groups. This involves multiple Azure VMs in a virtual network. The Azure Preview Portal has a template that sets up this configuration for you. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure Portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). 
+If you require high availability, consider configuring SQL Server AlwaysOn Availability Groups. This involves multiple Azure VMs in a virtual network. The Azure portal has a template that sets up this configuration for you. For more information, see [SQL Server AlwaysOn Offering in Azure Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). 
 
 If you want to manually configure your Availability Group and associated listener, see the following articles:
 
@@ -138,7 +138,7 @@ The [Customer Experience Improvement Program (CEIP)](https://technet.microsoft.c
 
 If you create a virtual machine by using a platform-provided SQL Server image, you can find the SQL Server setup media saved on the virtual machine in the **C:\SqlServer_SQLMajorVersion.SQLMinorVersion_Full** directory. You can run setup from this directory to perform any setup actions including add or remove features, add a new instance, or repair the instance if the disk space permits.
 
->[AZURE.NOTE] Azure provides multiple versions of the SQL Server images on the portal. If the version release date of SQL Server platform-provided image is May 15th, 2014 or later, it contains the product key by default. If you provision a virtual machine by using a platform-provided SQL Server image that is published before this date, that VM does not contain the product key. As a best practice, we recommend that you always select the latest image version when you provision a new VM.
+>[AZURE.NOTE] Azure provides multiple versions of the SQL Server images. If the version release date of SQL Server platform-provided image is May 15th, 2014 or later, it contains the product key by default. If you provision a virtual machine by using a platform-provided SQL Server image that is published before this date, that VM does not contain the product key. As a best practice, we recommend that you always select the latest image version when you provision a new VM.
 
 ## Resources
 

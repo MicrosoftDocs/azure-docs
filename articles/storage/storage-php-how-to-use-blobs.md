@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 # How to use blob storage from PHP
@@ -290,16 +290,15 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
 
 Now that you've learned the basics of the Azure blob service, follow these links to learn about more complex storage tasks.
 
-- See the MSDN reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - Visit the [Azure Storage team blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - See the PHP block blob example at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
 - See the PHP page blob example at <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
-
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+ 
 For more information, see also the [PHP Developer Center](/develop/php/).
 
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
 [error-codes]: http://msdn.microsoft.com/library/azure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents

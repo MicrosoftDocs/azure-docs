@@ -62,7 +62,7 @@ If you have experience with Linux distributions, you may already have these file
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-2. Upload your certificate's .cer file to Azure. In the [Azure Portal](https://manage.windowsazure.com), click **Settings** in the bottom left of the service area (shown below)
+2. Upload your certificate's .cer file to Azure. In the [Azure classic portal](https://manage.windowsazure.com), click **Settings** in the bottom left of the service area (shown below)
 
 	![][portalsettingsitem]
 
