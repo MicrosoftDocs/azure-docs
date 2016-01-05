@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # Install Update 2 on your StorSimple device
@@ -28,6 +28,7 @@ Update 2 includes device software updates, LSI driver and firmware updates, and 
 > -  You may not see Update 2 immediately because we do a phased rollout of the updates. Scan for updates in a few days again as this Update will become available soon.
 > - A set of manual and automatic pre-checks are done prior to the install to determine the device health in terms of hardware state and network connectivity. These pre-checks are performed only if you apply the updates from the Azure classic portal. 
 > - We recommend that you install the software and driver updates via the Azure  classic portal. You should only go to the Windows PowerShell interface of the device (to install updates) if the pre-update gateway check fails in the portal. The updates may take 4-7 hours to install (including the Windows Updates). The maintenance mode updates must be installed via the Windows PowerShell interface of the device. As maintenance mode updates are disruptive updates, these will result in a down time for your device.
+> - If running the optional StorSimple Snapshot Manager, ensure that you have upgraded your Snapshot Manager version to Update 2 prior to updating the device.
 
 ## Preparing for updates
 You will need to perform the following steps before you scan and apply the update:
@@ -70,17 +71,34 @@ This is the recommended procedure to update your device. Perform the following s
 
 ## Install Update 2 as a hotfix 
 
-You should use this procedure only if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1. 
+Use this procedure only if you fail the gateway check when trying to install the updates through the Azure classic portal. The check fails as you have a gateway assigned to a non-DATA 0 network interface and your device is running a software version prior to Update 1. 
 
-The software versions that can be upgraded using the hotfix method are Update 0.1, Update 0.2, and Update 0.3, Update 1, Update 1.1, and Update 1.2. You will download Update 2 hotfixes and apply those by using the `Start-HcsHotfix` cmdlet from the Windows PowerShell interface of the device. 
+The software versions that can be upgraded using the hotfix method are Update 0.1, Update 0.2, and Update 0.3, Update 1, Update 1.1, and Update 1.2. The hotfix method involves the following three steps:
+
+- Download the hotfixes from the Catalog Update server
+- Install and verify the regular mode hotfixes
+- Install and verify the maintenance mode hotfix
+
+The hotfixes applied through this method are as tabulated below:
+
+| Order  | KB        | Name                    | Package description         | Update type |
+|--------|-----------|-------------------------|-----------------------------|-------------|
+| 1      | KB3121901 | Software update         | HcsMdsSfotwareUpdate.exe    | Regular     |
+| 2      | KB3121901 | Software update         | CisMdcAgentUpdateBundle.exe | Regular     |
+| 3      | KB3121900 | LSI driver and firmware | HcsLsiUpdate.exe            | Regular     |
+| 4      | KB3080728 | Storport fix            | Storport-KB3080728-x64.msu  | Regular     |
+| 5      | KB3090322 | Spaceport fix           | Spaceport-KB3090322-x64.msu | Regular     |
+| 6      | KB3121899 | Disk firmware           | DiskFirmwarePackage.exe     | Maintenance |
+
 
 > [AZURE.IMPORTANT] 
 > 
 > - If your device is running Release (GA) version, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with the update.
 > - This procedure needs to be performed only once to apply Update 2. You can use the Azure classic portal to apply subsequent updates.
 > - The updates could take around 1.5 hours to complete (approximately 30 minutes for software, 30 minutes for driver, 30 minutes for disk firmware).
+> - Before using this procedure to apply the update, make sure that both device controllers are online.
 
-Before using this procedure to apply the update, make sure that both device controllers are online. Perform the following steps to apply Update 2 as a hotfix. 
+Perform the following steps to apply Update 2 as a hotfix. 
 
 [AZURE.INCLUDE [storsimple-install-update2-hotfix](../../includes/storsimple-install-update2-hotfix.md)]
 

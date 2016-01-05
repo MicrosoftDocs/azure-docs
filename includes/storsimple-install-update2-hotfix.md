@@ -1,8 +1,8 @@
-<!--author=alkohli last changed: 01/04/15-->
+<!--author=alkohli last changed: 01/05/15-->
 
-#### To install Update 2 as a hotfix from Windows PowerShell for StorSimple
+#### To download hotfixes
 
-Perform the following steps to download the software update.
+Perform the following steps to download the software update from the Microsoft Update Catalog.
 
 1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
 
@@ -28,12 +28,14 @@ Perform the following steps to download the software update.
     
 	> [AZURE.NOTE] 
 	> 
-	> - You will also need to download StorSimple 2 LSI Driver Update (KB3121900), Storport Update (KB3080728), Spaceport Update (KB3090322), and StorSimple 2 Disk Firmware Update (KB3121899) and copy to the same shared folder.
-	> - The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller. 
-            
-2. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+	> - You will also need to download LSI Driver Update (KB3121900), Storport Update (KB3080728), Spaceport Update (KB3090322), and Disk Firmware Update (KB3121899) and copy to the same shared folder.
+	> - The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller.
 
-3. At the command prompt, press **Enter**.
+#### To install and  verify regular mode hotfixes
+
+Perform the following steps to install and verify the regular hotfixes.
+
+1. To install the hotfixes, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). At the command prompt, press **Enter**.
 
 4. Select **Option 1** to log on to the device with full access.
 
@@ -91,7 +93,7 @@ Perform the following steps to download the software update.
 
 	> [AZURE.NOTE] Occasionally, the cmdlet reports `False` when the update is still in progress. To ensure that the hotfix is complete, wait for a few minutes, rerun this command and verify that the `RunInProgress` is `False`. If it is, then the hotfix has completed. 
 	
-8. After the software update is complete, repeat steps 5-7 to install and monitor the SaaS agent and MDS agent using the `CisMdsAgentUpdateBundle.exe`. Ensure that `HcsMdsSoftwareUpdate.exe` is installed before `CisMdsAgentUpdateBundle.exe`. 
+8. After the software update is complete, repeat steps 3-5 to install and monitor the SaaS agent and MDS agent using the `CisMdsAgentUpdateBundle.exe`. Ensure that `HcsMdsSoftwareUpdate.exe` is installed before `CisMdsAgentUpdateBundle.exe`. 
 
 9. Verify the system software versions. Type:
 
@@ -105,13 +107,15 @@ Perform the following steps to download the software update.
     
 	If the version numbers do not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) for further assistance.
     
-9. Repeat steps 5-7 to next install and monitor 
+9. Repeat steps 3-5 to install and monitor the remaining regular hotfixes.
 
 	- The LSI driver and firmware using the `HcsLsiUpdate.exe` package (KB3121900).
 	- The Storport fix using the `Storport-KB3080728-x64.msu` package (KB3080728).
 	- The Spaceport fix using the `spaceport-KB3090322-x64.msu` package (KB3090322).
-	
-10. Finally install the disk firmware updates using the `DiskFirmwarePackage.exe` package. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.To install disk firmware updates, follow the instructions below.
+
+#### To install and verify maintenance mode hotfix
+
+Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.To install disk firmware updates, follow the instructions below.
 
 1. Place the device in the Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. You will need to run this cmdlet on the device controller when connected through the device serial console. Type:
 		
@@ -140,7 +144,12 @@ Perform the following steps to download the software update.
 		[4] Change language
 		Please enter your choice>
 
-2. Both the controllers will be rebooted. After the reboot is complete, both controllers will be in the Maintenance mode. Repeat step 5-6 to install the disk firmware update. A sample output is shown below.
+2. Both the controllers will be rebooted. After the reboot is complete, both controllers will be in the Maintenance mode. 
+3. To install the disk firmware update, type:
+
+	`Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
+
+	A sample output is shown below.
 
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
 		Enter Password:
@@ -151,7 +160,8 @@ Perform the following steps to download the software update.
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 	
 
-1.  Use step 7 to monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`. After the installation is complete, the controller on which the maintenance mode hotfix was installed will be rebooted. Log in as option 1 with full access and verify the disk firmware version. Type the following command:
+1.  Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`. 
+2.  After the installation is complete, the controller on which the maintenance mode hotfix was installed will be rebooted. Log in as option 1 with full access and verify the disk firmware version. Type:
 	
 	`Get-HcsFirmwareVersion`
   
