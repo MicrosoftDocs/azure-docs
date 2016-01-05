@@ -21,7 +21,9 @@
 
 This article describes the various physical and logical components in your on-premises StorSimple device. It also explains how to monitor the device component status by using the **Maintenance** page in the StorSimple Manager service. 
 
-The **Maintenance** page shows the hardware status of all the StorSimple device components. Under the list of components for 8100, there are three sections that describe:
+The **Maintenance** page shows the hardware status of all the StorSimple device components. 
+
+Under the list of components for 8100, there are three sections that describe:
 
 - **Shared Components** – These are not part of the controllers, such as disk drives, enclosure, PCM components and PCM temperature, line voltage, and line current sensors.
 
@@ -44,15 +46,16 @@ An 8600 device has additional components that correspond to the Extended Bunch o
 
 Perform the following steps to view the hardware status of a device component:
 
-1. Navigate to **Devices**, select a specific StorSimple device. Click to go into the device-level menu and then click the **Maintenance** tab. 
+1. Navigate to **Devices**, select a specific StorSimple device. Click to go into the device-level menu and then click **Maintenance**. 
 2. Locate the **Hardware Status** section and choose from the available components (as described above). Simply click an arrow preceding the component label to expand the list and view the status of the various device components. See the [detailed component list for the primary enclosure](#component-list-for-primary-enclosure-of-storsimple-device) and the [detailed component list for the EBOD enclosure](#component-list-for-ebod-enclosure-of-storsimple-device).
+
 2. Use the following color coding scheme to interpret the  component status:
 	-  **Green check** – Denotes a **Healthy** or **OK** component.
 	-  **Yellow** – Denotes a component in **Warning** state.
 	-  **Red exclamation** – Denotes a component that has a **Failure** or **Needs Attention** status.
 	-  **White with black text** – Denotes a component that is not present.
 
-3. If you encounter a component that is not in a **Healthy** state, please contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+3. If you encounter a component that is not in a **Healthy** state, contact Microsoft Support. If alerts are enabled on your device, you will receive an email alert. If you need to replace a failed hardware component, see [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 
 
 ## Component list for primary enclosure of StorSimple device
@@ -125,7 +128,7 @@ The following table outlines the physical and logical components contained in th
 |Connection to device controller|I/O|Physical|Controller|No|Indicates the state of the connection between the EBOD I/O module and the device controller.|
 
 ## Next steps
-- To learn more about using the StorSimple Manager service, go to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- To use the StorSimple Manager service to administer your device, go to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  
 - If you need to troubleshoot a device component that has a degraded or failed status, refer to 
 [StorSimple monitoring indicators](storsimple-monitoring-indicators.md). 
