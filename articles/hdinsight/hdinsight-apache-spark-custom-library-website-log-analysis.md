@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/04/2016" 
 	ms.author="nitinme"/>
 
 # Analyze logs in HDInsight Spark using a custom library (Linux)
@@ -106,7 +106,7 @@ logs could be complicated. So, we use a custom Python library
 	You must then run the following snippet to distribute the library to all worker nodes in the Spark cluster.
 
 
-		sc.addPyFile('wasb:///example/data/iislogparser.py')
+		sc.addPyFile('wasb:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
 
 
 9. `iislogparser` provides a function `parse_log_line` that returns `None` if a log

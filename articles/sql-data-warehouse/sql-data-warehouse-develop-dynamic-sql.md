@@ -31,6 +31,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 If the string is short you can use [sp_executesql][] as normal.
 
+> [AZURE.NOTE] Statements executed as dynamic SQL will still be subject to all TSQL validation rules. 
 
 ## Next steps
 For more development tips, see [development overview][].
