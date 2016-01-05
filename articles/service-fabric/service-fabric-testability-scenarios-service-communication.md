@@ -32,7 +32,7 @@ Whether you use one of the built-in service communication components provided by
 
 ## Prepare for services to move
 
-Service instances may move around over time. This is especially true when they are configured by using load metrics for optimal resource balancing. Service Fabric moves your service instances to maximize their availability even during upgrades, failovers, scale-out, and other situations that occur over the lifetime of a distributed system.
+Service instances may move around over time. This is especially true when they are configured by using load metrics for custom-tailored optimal resource balancing. Service Fabric moves your service instances to maximize their availability even during upgrades, failovers, scale-out, and other situations that occur over the lifetime of a distributed system.
 
 As services move around in the cluster, your clients and other services should be prepared to handle two scenarios when they talk to a service:
 
@@ -79,7 +79,7 @@ Stateful services use a quorum-based system to replicate state for high availabi
 
 ### Test it: Write operation unavailability
 
-By using the testability tools in Service Fabric, you can inject a fault that induces quorum loss as a test. Although such a scenario is rare, it is important that clients and services that depend on stateful service are prepared to handle situations where they cannot make write requests to the stateful service. It is also important that the stateful service itself is aware of the possibility and can gracefully communicate it to callers.
+By using the testability tools in Service Fabric, you can inject a fault that induces quorum loss as a test. Although such a scenario is rare, it is important that clients and services that depend on a stateful service are prepared to handle situations where they cannot make write requests to it. It is also important that the stateful service itself is aware of the possibility and can gracefully communicate it to callers.
 
 Quorum loss can be induced using the PowerShell **Invoke-ServiceFabricPartitionQuorumLoss** cmdlet:
 
