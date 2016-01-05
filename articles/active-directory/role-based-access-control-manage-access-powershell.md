@@ -17,10 +17,10 @@
 	ms.author="inhenk"/>
 
 # Manage Role Based Access Control (RBAC) with Azure PowerShell
-<!-- Azure Selector -->
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+- [REST API](role-based-access-control-manage-access-rest.md)
 
 ## List RBAC roles
 ### List all available roles
