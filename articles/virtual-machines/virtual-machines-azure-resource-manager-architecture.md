@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="davidmu"/>
 
 # Azure Resource Manager Architecture
@@ -73,12 +73,4 @@ You can also see the componentization and dependent relationships between resour
 
 ## Next steps
 
-[Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[Deploy and Manage Azure Virtual Machines using Resource Manager Templates and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## Additional resources
-
-[Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure Resource Manager Overview](resource-group-overview.md)
+Learn about the resources that can be deployed with the resource manager deployment model by reviewing [Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
