@@ -180,7 +180,7 @@ The following code example uses Media Services .NET SDK to perform the following
 
 ##<a id="thumbnails"></a>Generate thumbnails
 
-This section shows how to customize a preset that generates thumbnails. The XML and JSON defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and add code that generates thumbnails.  
+This section shows how to customize a preset that generates thumbnails. The preset defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and add code that generates thumbnails.  
 
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
 
