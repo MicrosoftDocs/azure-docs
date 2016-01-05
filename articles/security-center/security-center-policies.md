@@ -45,7 +45,9 @@ Security policies are configured for each subscription. To modify a security pol
 
 4. Make sure **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources.
 
-      >[AZURE.NOTE] It is strongly recommended that you turn Data Collection on for each of your subscriptions as this will ensure that security monitoring is available for all existing and new VMs. If you choose not to enable Data Collection in the security policy, a recommendation will be created that enables you to turn on Data Collection for select VMs.
+      >[AZURE.NOTE] It is strongly recommended that you turn data collection on for each of your subscriptions as this will ensure that security monitoring is available for all existing and new VMs. If you choose not to enable data collection in the security policy, a recommendation will be created that enables you to turn on data collection for select VMs.
+
+      >[AZURE.NOTE] Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the health and recommendations views. You can also enable it for the subscription or just for a select VM. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs.
 
 5. If your storage account is not configured yet, you may see a similar warning showed in the figure below when you open the **Security Policy**:
 
@@ -64,19 +66,17 @@ Security policies are configured for each subscription. To modify a security pol
 9. In the **Security Policy** blade click **On** to enable the security recommendations that you want to use on this subscription. Use the table below as a reference to understand what each option will do:  
 
 | Policy | State On |
-    |----- |-----|
-    | System Updates | Retrieves a list of available updates from Windows Update or WSUS, depending on which service is configured for that virtual machine, every 12 hours and recommends missing updates be installed on your Windows virtual machines. |
-    | Baseline Rules | Analyzes all supported virtual machines every 12 hours to identify any OS configurations that could make the virtual machine more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. |
-    | Antimalware | Recommends antimalware be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software. |
-    | Access Control List on endpoints | Recommends that an [Access Controls List](virtual-machines-set-up-endpoints.md) (ACL) be configured to limit access to a Classic virtual machine endpoints. This would typically be used to ensure that only users who are connected to the corporate network can access the virtual machines. |
-    | Network security groups on Subnets and Network Interface | Recommends that [Network Security Groups](virtual-networks-nsg.md) (NSGs) be configured to control inbound and outbound traffic to subnets and network interfaces for Resource Manager virtual machines. NSGs configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that an NSG has been configured, Inbound Security Rules are assessed to identify rules that allow Any incoming traffic. |
-    | Web Application Firewall | Recommends a Web Application Firewall be provisioned on Resource Manager virtual machines when: [Instance Level Public IP](virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the associated NSG Inbound Security Rules are configured to allow access to port 80/443. Load Balanced IP (VIP) is used and the associated load balancing and inbound NAT rules are configured to allow access to port 80/443 (for more information, see [Azure Resource Manager Support for Load Balancer](load-balancer-arm.md)) |
-    | SQL Auditing | Recommends that auditing of access to Azure SQL Servers and Databases be enabled for compliance, advanced detection and investigation purposes. |
-    | SQL Transparent Data Encryption | Recommends that encryption at rest be enabled for your Azure SQL databases, associated backups and transaction log files so that even if your data is breached, it will not be readable. |
+|----- |-----|
+| System Updates | Retrieves a list of available updates from Windows Update or WSUS, depending on which service is configured for that virtual machine, every 12 hours and recommends missing updates be installed on your Windows virtual machines. |
+| Baseline Rules | Analyzes all supported virtual machines every 12 hours to identify any OS configurations that could make the virtual machine more vulnerable to attack and recommends configuration changes to address these vulnerabilities. See the [list of recommended baselines](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for more information on the specific configurations being monitored. |
+| Antimalware | Recommends antimalware be provisioned for all Windows virtual machines to help identify and remove viruses, spyware, and other malicious software. |
+| Access Control List on endpoints | Recommends that an [Access Controls List](virtual-machines-set-up-endpoints.md) (ACL) be configured to limit access to a Classic virtual machine endpoints. This would typically be used to ensure that only users who are connected to the corporate network can access the virtual machines. |
+| Network security groups on Subnets and Network Interface | Recommends that [Network Security Groups](virtual-networks-nsg.md) (NSGs) be configured to control inbound and outbound traffic to subnets and network interfaces for Resource Manager virtual machines. NSGs configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that an NSG has been configured, Inbound Security Rules are assessed to identify rules that allow Any incoming traffic. |
+| Web Application Firewall | Recommends a Web Application Firewall be provisioned on Resource Manager virtual machines when: [Instance Level Public IP](virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the associated NSG Inbound Security Rules are configured to allow access to port 80/443. Load Balanced IP (VIP) is used and the associated load balancing and inbound NAT rules are configured to allow access to port 80/443 (for more information, see [Azure Resource Manager Support for Load Balancer](load-balancer-arm.md)) |
+| SQL Auditing | Recommends that auditing of access to Azure SQL Servers and Databases be enabled for compliance, advanced detection and investigation purposes. |
+| SQL Transparent Data Encryption | Recommends that encryption at rest be enabled for your Azure SQL databases, associated backups and transaction log files so that even if your data is breached, it will not be readable. |
 
-    10. Once you finish configuring all options, click **Save** to commit those changes.
-
->[AZURE.NOTE] Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the health and recommendations views. You can also enable it for the subscription or just for a select VM. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs. 
+&nbsp;10. Once you finish configuring all options, click **Save** to commit those changes.
 
 ## Next steps
 
