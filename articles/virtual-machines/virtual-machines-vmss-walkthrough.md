@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="1/5/2015"
 	ms.author="davidmu"/>
 
 # Automatically scale machines in a Virtual Machine Scale Set
@@ -35,7 +35,7 @@ The template that you build in this tutorial is similar to a template that can b
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+[AZURE.INCLUDE [virtual-machines-vmss-preview-ps](../../includes/virtual-machines-vmss-preview-ps-include.md)]
 
 ## Step 1: Create a resource group and a storage account
 

@@ -35,6 +35,8 @@ The template that you build in this tutorial is similar to a template that can b
 
 Before you get started with the steps in this tutorial, [install the Azure CLI](../xplat-cli-install.md).
 
+[AZURE.INCLUDE [virtual-machines-vmss-preview-cli](../../includes/virtual-machines-vmss-preview-cli-include.md)]
+
 ## Step 1: Create a resource group and a storage account
 
 1. **Sign in to Microsoft Azure** - In your command-line interface (Bash, Terminal, Command prompt), make sure you're in Resource Manager mode by typing `azure config mode arm`, and then [log in with your work or school id](../xplat-cli-connect.md#use-the-log-in-method) by typing `azure login` and following the prompts for an interactive login experience to your Azure account.
