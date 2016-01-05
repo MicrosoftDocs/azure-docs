@@ -33,13 +33,6 @@ The standard sizes consist of several series: A, D, DS, G, and GS. Consideration
 
 *   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
-    Dv2-series regional availability will be based on this schedule:
-        Oct'15: US East 2, US Central, US North Central, US West
-        Nov'15: US East, Europe North, Europe West
-        Jan'16: US South Central, APAC East, APAC Southeast, Japan East, Japan West,
-                Australia East, Australia Southeast, Brazil South
-
-
 *   G-series VMs offer the biggest size and best performance and run on hosts that have Intel Xeon E5 V3 family processors.
 
 *   DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage-premium-storage-preview-portal.md).
