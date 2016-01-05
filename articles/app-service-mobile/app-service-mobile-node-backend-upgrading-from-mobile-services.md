@@ -3,7 +3,7 @@
 	description="Learn how to easily upgrade your Mobile Services application to an App Service Mobile App"
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="christopheranderson"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -28,7 +28,7 @@ When a mobile backend is upgraded to Azure App Service, it has access to all App
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP] It is recommended that you [perform a migration](app-service-mobile-dotnet-backend-migrating-from-mobile-services.md) before going through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional cost.
+>[AZURE.TIP] It is recommended that you [perform a migration](app-service-mobile-migrating-from-mobile-services.md) before going through an upgrade. This way, you can put both versions of your application on the same App Service Plan and incur no additional cost.
 
 ### Improvements in Mobile Apps Node.js server SDK
 
@@ -42,13 +42,13 @@ Upgrading to the new [Mobile Apps SDK](https://www.npmjs.com/package/azure-mobil
 
 - Built for cross-platform and local development, the Mobile Apps SDK can be developed and run locally on Windows, Linux, and OSX platforms. It's now easy to use common Node development techniques like running [Mocha](https://mochajs.org/) tests prior to deployment.
 
-- You can use Redis with native modules like [hiredis](https://www.npmjs.com/package/hiredis); and because App Service will install your npm packages for you, when you deploy, there's no need to include binaries in your deployment packages.
+- You can use Redis with native modules like [hiredis](https://www.npmjs.com/package/hiredis).  There is no need to include binaries in your deployment packages as App Service will install your npm packages for you.
 
 ## <a name="overview"></a>Basic upgrade overview
 
 Unlike the .NET Mobile Apps SDK, upgrading a Node backend from Mobile Services to Mobile Apps isn't as simple as swapping out packages. You now own your whole application stack, as opposed to Azure controlling it, and thus you need to create a basic Express app to host your mobile backend. For the table and API controllers, the concepts are similar, but you now must export table objects and the function APIs have changed somewhat. This article will walk through the basic strategies of upgrading, but before you migrate, you'll want to read the [Node Backend How-To](app-service-mobile-node-backend-how-to-use-server-sdk.md) prior to getting started.
 
->[AZURE.TIP] It is advised that you read and understand the rest of this topic completely before starting an upgrade. Make note of any features you use which are called out below.
+>[AZURE.TIP] Please read and understand the rest of this topic completely before starting an upgrade. Make note of any features you use that are called out below.
 
 The Mobile Services client SDKs are **not** compatible with the new Mobile Apps server SDK. In order to provide continuity of service for your app, you should not publish changes to a site currently serving published clients. Instead, you should create a new mobile app that serves as a duplicate. You can put this application on the same App Service plan to avoid incurring additional financial cost.
 
@@ -56,10 +56,13 @@ You will then have two versions of the application: one which stays the same and
 
 The full outline for the upgrade process is as follows:
 
-1. Create a new Mobile App
-2. Update the project to use the new Server SDKs
-3. Release a new version of your client application
-4. (Optional) Delete your original migrated mobile service app
+1. Create a new Mobile App.
+2. Update the project to use the new Server SDKs.
+3. Publish your project on the new Mobile App.
+4. Release a new version of your client application that use the new Mobile App
+5. (Optional) Delete your original migrated mobile service app.
+
+Deletion can occur when you don't see any traffic on your original migrated mobile service app.
 
 ## <a name="mobile-app-version"></a> Starting the Upgrade
 The first step in upgrading is to create the Mobile App resource which will host the new version of your application. If you have already migrated an existing mobile service, you will want to create this version on the same hosting plan. Open the [Azure portal] and navigate to your migrated application. Make note of the App Service Plan it is running on.
@@ -110,10 +113,13 @@ Every Azure App Service Mobile App Node.js backend starts as an ExpressJS applic
            app.use(mobile);
 
            // Start listening on HTTP
-           app.listen(process.env.PORT || 3000);
-           console.log('Now listening on ' + (process.env.PORT || 3000)));
+           var port = process.env.PORT || 3000;
+           app.listen(port, function () {
+               console.log('Now listening on ', port)
+           });
         });
 
+For more samples, refer to our [GitHub repository](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples).
 
 ## Updating the server project
 
@@ -144,10 +150,10 @@ To start porting some of your logic over, for each of your `<tablename>.<operati
 
 In a Mobile Service with a TodoItem table and a read operation which filters items based on userid, like this:
 
-  function(query, user, request) {
-    query.where({ userId: user.userId});
-    request.execute();
-  }
+    function(query, user, request) {
+        query.where({ userId: user.userId});
+        request.execute();
+    }
 
 The function we add to the Azure Mobile Apps table code would look like this:
 
@@ -156,7 +162,22 @@ The function we add to the Azure Mobile Apps table code would look like this:
         return context.execute();
     });
 
-Inspecting the code, you can see that most of the function parameters from
+The query, user and request are combined into a context.  The following fields are available within the context object:
+
+| Field   | Type                   | Description |
+| :------ | :--------------------- | :---------- |
+| query   | queryjs/Query          | The parsed OData query |
+| id      | string or number       | The ID associated with the request |
+| item    | object                 | The item being inserted or deleted |
+| req     | express.Request        | The current express request object |
+| res     | express.Response       | The current express response object |
+| data    | data                   | The configured data provider |
+| tables  | function               | A function that accepts a string table name and returns a table access object |
+| user    | auth/user              | The authenticated user object |
+| results | object                 | The results of the execute operation |
+| push    | NotificationHubService | The Notification Hubs Service, if configured |
+
+For more information, refer to the [current API documentation](http://azure.github.io/azure-mobile-apps-node).
 
 ### CORS
 
@@ -247,10 +268,9 @@ When you have the new client version ready, try it out against your upgraded ser
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
 [Web Job]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [App Service pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 

@@ -99,6 +99,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- HANDAN BroadInfoCom Co., Ltd.
 - Infomir GMBH
 - Inside Secure
 - Irdeto USA Inc.
@@ -125,7 +126,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - VimpelCom (OJSC)
 - VisualOn, Inc.
-- WOOJEON & HANDAN Co., Ltd
 - ZTE Corporation
 
 ##Microsoft Smooth Streaming Client Final Product Agreement Licensees
@@ -150,6 +150,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
 - Homecast Co.,Ltd
 - Hon Hai Precision Industry Co., Ltd.
@@ -181,7 +182,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Virgin Media Limited
 - VIZIO, Inc.
 - Wistron Corporation
-- WOOJEON & HANDAN Co., Ltd
 - WOOX Innovations Limited
 - ZTE Corporation
 

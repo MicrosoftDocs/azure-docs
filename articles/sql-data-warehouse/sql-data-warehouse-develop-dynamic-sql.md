@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Dynamic SQL in SQL Data Warehouse
@@ -31,6 +31,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 If the string is short you can use [sp_executesql][] as normal.
 
+> [AZURE.NOTE] Statements executed as dynamic SQL will still be subject to all TSQL validation rules. 
 
 ## Next steps
 For more development tips, see [development overview][].
@@ -41,6 +42,6 @@ For more development tips, see [development overview][].
 [development overview]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[sp_executesql]: https://msdn.microsoft.com/en-us/library/ms188001.aspx
+[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
 
 <!--Other Web references-->

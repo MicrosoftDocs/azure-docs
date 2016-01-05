@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL | Microsoft Azure" 
-	description="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL | Microsoft Azure" 
+   description="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) TSQL" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # Get started with Transparent Data Encryption (TDE)
 > [AZURE.SELECTOR]
@@ -66,7 +66,7 @@ A result of ```1``` indicates an encrypted database, ```0``` indicates a non-enc
 
  
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/en-us/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
 
 # Management Tools for SQL Data Warehouse
@@ -43,7 +43,7 @@ To start using these tools, head over to the [connection][] topic.
 [connection]: sql-data-warehouse-develop-connections.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/en-us/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
 <!--Other web references-->
 [Azure Classic Portal]: http://portal.azure.com/

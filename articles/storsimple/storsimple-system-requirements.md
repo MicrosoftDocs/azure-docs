@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple system requirements | Microsoft Azure" 
-   description="Describes system requirements and best practices for software,  high availability, and networking for an Azure StorSimple solution." 
+   description="Describes software, networking, and high availability requirements and best practices for a Microsoft Azure StorSimple solution." 
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
-   manager="carolz" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/30/2015"
+   ms.date="12/18/2015"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
 
 ## Overview
 
-Welcome to Microsoft Azure StorSimple. This article describes important system requirements and best practices for your StorSimple device and for the storage clients accessing the device. We recommend that you review the information carefully before you deploy your Azure StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
+Welcome to Microsoft Azure StorSimple. This article describes important system requirements and best practices for your StorSimple device and for the storage clients accessing the device. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
 
 The system requirements include:
 
@@ -60,7 +60,7 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 |TCP 443 (HTTPS)<sup>3</sup>| Out | WAN | Yes |<ul><li>Outbound port is used for accessing data in the cloud.</li><li>The outbound web proxy is user configurable.</li><li>To allow system updates, this port must also be open for the controller fixed IPs.</li></ul>|
 |UDP 53 (DNS) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based DNS server. |
 | UDP 123 (NTP) | Out | WAN | In some cases; see notes. |This port is required only if you are using an Internet-based NTP server. |
-| TCP 9354 | Out | WAN | In some cases; see notes. |The outbound port is used by the StorSimple device to communicate with the StorSimple Manager service. This port is required if your current network does not support using HTTP 1.1 to connect to the Internet; for instance if you are using an HTTP 1.0-based proxy server.<br> If connecting via a proxy server, refer to [service bus requirements](https://msdn.microsoft.com/library/azure/ee706729.aspx) for detailed information. |
+| TCP 9354 | Out | WAN | Yes |The outbound port is used by the StorSimple device to communicate with the StorSimple Manager service. |
 | 3260 (iSCSI) | In | LAN | No | This port is used to access data over iSCSI.|
 | 5985 | In | LAN | No | Inbound port is used by StorSimple Snapshot Manager to communicate with the StorSimple device.<br>This port is also used when you remotely connect to Windows PowerShell for StorSimple over HTTP. |
 | 5986 | In | LAN | No | This port is used when you remotely connect to Windows PowerShell for StorSimple over HTTPS. |
@@ -73,19 +73,78 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 
 > [AZURE.IMPORTANT] Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
 
-### Port routing
+### Routing metric
 
-Port routing is different depending on the software version running on your StorSimple device.
+A routing metric is associated with the interfaces and the gateway that route the data to the specified networks. Routing metric is used by the routing protocol to calculate the best path to a given destination, if it learns multiple paths exist to the same destination. The lower the routing metric, the higher the preference.
 
-- If the device is running a software version earlier that Update 1, such as the GA, 0.1, 0.2, or 0.3 release, then the port routing is decided as follows:
+In the context of StorSimple, if multiple network interfaces and gateways are configured to channel traffic, the routing metrics will come into play to determine the relative order in which the interfaces will get used. The routing metrics cannot be changed by the user. You can however use the `Get-HcsRoutingTable` cmdlet to print out the routing table (and metrics) on your StorSimple device. More information on [Get-HcsRoutingTable cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet)
 
-     Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface
+The routing metric algorithms are different depending on the software version running on your StorSimple device.
 
-- If the device is running Update 1, then the port routing is decided as follows:
+**Releases prior to Update 1**
 
-     DATA 0 > Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface
+This includes software versions prior to Update 1 such as the GA, 0.1, 0.2, or 0.3 release. The order based on routing metrics is as follows:
 
-    In Update 1, the routing metric of DATA 0 is made the lowest; therefore, all the cloud-traffic is routed through DATA 0. Make a note of this if there are more than one cloud-enabled network interface on your StorSimple device.
+   *Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface*
+
+
+**Releases starting from Update 1 and prior to Update 2** 
+
+This includes software versions such as 1, 1.1, or 1.2. The order based on routing metrics is decided as follows:
+
+   *DATA 0 > Last configured 10 GbE network interface > Other 10 GbE network interface > Last configured 1 GbE network interface > Other 1 GbE network interface*
+
+   In Update 1, the routing metric of DATA 0 is made the lowest; therefore, all the cloud-traffic is routed through DATA 0. Make a note of this if there are more than one cloud-enabled network interface on your StorSimple device.
+
+
+**Releases starting from Update 2** 
+
+Update 2 has several networking-related improvements and the routing metrics has changed. The behavior can be explained as follows.
+
+- A set of predetermined values have been assigned to network interfaces. 	
+		
+- Consider an example table shown below with values assigned to the various network interfaces when they are cloud-enabled or cloud-disabled but with a configured gateway. Note the values assgined here are example values only.
+
+		
+	| Network interface | Cloud-enabled | Cloud-disabled with gateway |
+	|-----|---------------|---------------------------|
+	| Data 0  | 1            | -                        |
+	| Data 1  | 2            | 20                       |
+	| Data 2  | 3            | 30                       |
+	| Data 3  | 4            | 40                       |
+	| Data 4  | 5            | 50                       |
+	| Data 5  | 6            | 60                       |
+
+
+- The order in which the cloud traffic will be routed through the network interfaces is:
+	 
+	*Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
+
+	This can be explained by the following example.
+
+	Consider a StorSimple device with two cloud-enabled network interfaces, Data 0 and Data 5. Data 1 through Data 4 are cloud-disabled but have a configured gateway. The order in which traffic will be routed for this device will be:
+
+	*Data 0 (1) > Data 5 (6) > Data 1 (20) > Data 2 (30) > Data 3 (40) > Data 4 (50)*
+	
+	*where the numbers in parentheses indicate the respective routing metrics.*
+	
+	If Data 0 fails, the cloud traffic will get routed through Data 5. Given that a gateway is configured on all other network, if both Data 0 and Data 5 were to fail, the cloud traffic will go through Data 1. 
+ 
+
+- If a cloud-enabled network interface fails, then are 3 retries with a 30 second delay to connect to the interface. If all the retries fail, the traffic is routed to the next available cloud-enabled interface as determined by the routing table. If all the cloud-enabled network interfaces fail, then the device will fail over to the other controller (no reboot in this case). 
+	
+- If there is a VIP failure for an iSCSI-enabled network interface, there will be 3 retries with a 2 seconds delay. This behavior has stayed the same from the previous releases. If all the iSCSI network interfaces fail, then a controller failover will occur (accompanied by a reboot).
+
+
+- An alert is also raised on your StorSimple device when there is a VIP failure. For more information, go to [alert quick reference](storsimple-manage-alerts.md).
+	
+- In terms of retries, iSCSI will take precedence over cloud.
+
+	Consider the following example:
+	A StorSimple device has two network interfaces enabled, Data 0 and Data 1. Data 0 is cloud-enabled whereas Data 1 is both cloud and iSCSI-enabled. No other network interfaces on this device are enabled for cloud or iSCSI. 
+		
+	If Data 1 fails, given it is the last iSCSI network interface, this will result in a controller failover to Data 1 on the other controller.
+
 
 ### Networking best practices
 
@@ -102,7 +161,7 @@ In addition to the above networking requirements, for the optimal performance of
 
 ## High availability requirements for StorSimple
 
-The hardware platform that is included with the StorSimple solution has availability and reliability features that provide a foundation for a highly available, fault-tolerant storage infrastructure in your datacenter. However, there are requirements and best practices that you should comply with to help ensure the availability of your Azure StorSimple solution. Before you deploy Azure StorSimple, carefully review the following requirements and best practices for the StorSimple device and connected host computers.
+The hardware platform that is included with the StorSimple solution has availability and reliability features that provide a foundation for a highly available, fault-tolerant storage infrastructure in your datacenter. However, there are requirements and best practices that you should comply with to help ensure the availability of your StorSimple solution. Before you deploy StorSimple, carefully review the following requirements and best practices for the StorSimple device and connected host computers.
 
 For more information about monitoring and maintaining the hardware components of your StorSimple device, go to [Use the StorSimple Manager service to monitor hardware components and status](storsimple-monitor-hardware-status.md) and [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
 

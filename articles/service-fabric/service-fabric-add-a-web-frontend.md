@@ -60,7 +60,7 @@ To get a sense of what we've done, let's deploy the new application and take a l
 
 ## Connect the services
 
-Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services which are accessible via TCP, others via a HTTP REST API, and still others via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with Services](service-fabric-connect-and-communicate-with-services.md). In this tutorial, we will follow one of the simpler approaches and use the `ServiceProxy`/`ServiceCommunicationListener` classes provided in the SDK.
+Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services which are accessible via TCP, others via a HTTP REST API, and still others via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with Services](service-fabric-connect-and-communicate-with-services.md). In this tutorial, we will follow one of the simpler approaches and use the `ServiceProxy`/`ServiceRemotingListener` classes provided in the SDK.
 
 In the `ServiceProxy` approach (modeled on remote procedure calls or RPC) you define an interface to act as the public contract for the service and then use that interface to generate a proxy class for interacting with the service.
 
@@ -130,13 +130,13 @@ Now that we have defined the interface, we need to implement it in our stateful 
     ```
 
 
-### Expose the stateful service using ServiceCommunicationListener
+### Expose the stateful service using ServiceRemotingListener
 
 With the `ICounter` interface implemented, the final step in enabling the stateful service to be callable from other services is to open a communication channel. For stateful services, Service Fabric provides an overrideable method called `CreateServiceReplicaListeners` where you can specify one or more communication listeners based on the type of communication you want to enable to your service.
 
 >[AZURE.NOTE] The equivalent method for opening a communication channel to stateless services is called `CreateServiceInstanceListeners`.
 
-In this case, we will provide a `ServiceCommunicationListener`, which creates an RPC endpoint callable from clients using the `ServiceProxy`.
+In this case, we will provide a `ServiceRemotingListener`, which creates an RPC endpoint callable from clients using the `ServiceProxy`.
 
 ```c#
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -145,7 +145,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     {
         new ServiceReplicaListener(
             (initParams) =>
-                new ServiceCommunicationListener<ICounter>(initParams, this))
+                new ServiceRemotingListener<ICounter>(initParams, this))
     };
 }
 ```
@@ -194,7 +194,7 @@ Our stateful service is now ready to receive traffic from other services so all 
 
 This tutorial focused on adding a web front-end that communicated with a stateful service, but you can follow a very similar model to talk to actors. In fact, it is somewhat simpler.
 
-When you create an actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically so you do not need to do anything equivalent to establishing a `ServiceCommunicationListener` as you did for the stateful service in this tutorial.
+When you create an actor project, Visual Studio automatically generates an interface project for you. You can use that interface to generate an actor proxy in the web project to communicate with the actor. The communication channel is provided automatically so you do not need to do anything equivalent to establishing a `ServiceRemotingListener` as you did for the stateful service in this tutorial.
 
 ## Running web services on a local cluster
 

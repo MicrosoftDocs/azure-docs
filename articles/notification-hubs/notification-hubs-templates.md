@@ -36,7 +36,7 @@ This section provides two in-depth examples of how to use templates to send plat
 
 The standard way to send push notifications is to send, for each notification that is to be sent, a specific payload to platform notification services (WNS, APNS). For example, to send an alert to APNS, the payload is a Json object of the following form:
 
-	{“aps”: {“alert” : “Hello!” }}
+	{"aps": {"alert" : "Hello!" }}
 
 To send a similar toast message on a Windows Store application, the XML payload is as follows:
 
@@ -61,7 +61,7 @@ The following picture illustrates the above process:
 
 The template for the iOS client app registration is as follows:
 
-	{“aps”:{“alert”:”$(message)”}}
+	{"aps": {"alert": "$(message)"}}
 
 The corresponding template for the Windows Store client app is:
 

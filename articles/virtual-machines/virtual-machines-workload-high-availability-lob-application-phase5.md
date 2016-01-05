@@ -21,7 +21,6 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
-
 In this final phase of deploying a high-availability line of business application in Azure infrastructure services, you create a new SQL Server AlwaysOn Availability Group and add the databases of the application.
 
 See [Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md) for all of the phases.
@@ -116,14 +115,6 @@ You can optionally create a listener configuration for the AlwaysOn Availability
 
 Once the listener is configured, you need to configure all the web server virtual machines to use the listener, instead of the name of the first SQL server in the cluster. Rather than using a new DNS name and record that maps to the virtual IP address of the internal load balancing instance, configure the web server virtual machines to use a SQL Alias. For details and steps, see [SQL Alias for SharePoint](http://blogs.msdn.com/b/priyo/archive/2013/09/13/sql-alias-for-sharepoint.aspx).
 
-## Additional resources
+## Next step
 
-[Deploy a high-availability line of business application in Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Line of Business Applications architecture blueprint](http://msdn.microsoft.com/dn630664)
-
-[Set up a web-based LOB application in a hybrid cloud for testing](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Azure infrastructure services implementation guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Azure Infrastructure Services Workload: SharePoint Server 2013 farm](virtual-machines-workload-intranet-sharepoint-farm.md)
+- See these [guidelines](virtual-machines-infrastructure-services-implementation-guidelines.md) if you are deploying your own IT workload in Azure.

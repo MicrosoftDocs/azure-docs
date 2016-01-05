@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integrate with an on-premises SAP server in Microsoft Azure App Service"
+	pageTitle="Integrate with an on-premises SAP server in Azure App Service | Microsoft Azure"
 	description="Learn how to integrate with an on-premises SAP server"
 	authors="rajeshramabathiran"
 	manager="dwrede"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/17/2015"
 	ms.author="sameerch"/>
 
 
@@ -36,19 +36,18 @@ The following actions are supported:
 - Send IDoc
 
 ## Prerequisites
-The SAP specific client libraries are required on the client machine where the hybrid listener is installed and running. The precise details are captured [here][9] under the section titled **For the SAP adapter**.
+The SAP specific client libraries are required on the client machine where the hybrid listener is installed and running. The precise details are in the [BizTalk Adapter Pack Installation Guide][9] under the section titled **For the SAP adapter**.
 
 
 ## Create a new SAP Connector
-1. Sign in to the Microsoft Azure portal.
+1. Sign in to the Azure portal.
 2. Select **New**.
 3. In the create blade, select **Compute** > **Azure Marketplace**.
-4. In the marketplace blade, select **API Apps**, and search for SAP in the search bar:
-
+4. In the marketplace blade, select **API Apps**, and search for SAP in the search bar:  
 	![SAP Connector API App][2]
 5. Select the **SAP Connector** published by Microsoft.
 6. In the SAP connector blade, select **Create**.
-7. In the new blade that opens, enter the following:
+7. In the new blade that opens, enter the following:  
 	1. **Location** - Choose the geographic location where you would like the connector to deploy
 	2. **Subscription** - Choose a subscription you want this connector to be created in
 	3. **Resource group** - Select or create a resource group where the connector should reside
@@ -71,9 +70,9 @@ The SAP specific client libraries are required on the client machine where the h
 
 
 ## Install the hybrid listener
-Browse to the SAP connector you created through **Browse** > **API Apps** > *name of your connector*
+Browse to the SAP connector you created: **Browse** > **API Apps** > *name of your connector*
 
-In the connector blade, notice that the Hybrid connection status is pending. Select Hybrid Connection. The Hybrid Connection blade opens:
+In the connector blade, notice that the Hybrid connection status is pending. Select Hybrid Connection. The Hybrid Connection blade opens:  
 
 ![Hybrid connection blade][3]
 
@@ -83,7 +82,7 @@ Select the **Download and configure** link. The click once installer opens:
 
 ![Hybrid connection click once installer][4]
 
-Select **Install**, and then enter the primary gateway configuration string you copied earlier:
+Select **Install**, and then enter the primary gateway configuration string you previously copied:
 
 ![Relay listen connection string][5]
 
@@ -93,8 +92,8 @@ Select **Install** to complete the Hybrid connection manager setup:
 
 ![Hybrid connection manager installation completed][7]
 
-## Validate hybrid connection
-Browse to the SAP connector you created through **Browse** > **API Apps** > *name of your connector*
+## Validate the hybrid connection
+Browse to the SAP connector you created: **Browse** > **API Apps** > *name of your connector*
 
 In the connector blade, notice that the Hybrid connection status is *Connected*:
 
@@ -102,7 +101,7 @@ In the connector blade, notice that the Hybrid connection status is *Connected*:
 
 
 ## Using the SAP connector in Logic Apps
-Once the SAP connector is created, it can be used inside your Logic Apps workflow. To do this, create a new Logic App through **New** > **Logic Apps** > **Create**. Enter the metadata for the Logic App including resource group.
+Once the SAP connector is created, it can be used inside your Logic Apps workflow. To do this, create a new Logic App through **New** > **Logic Apps** > **Create**. Enter the metadata for the Logic App, including the resource group.
 
 Select **Triggers and actions**. The Logic Apps workflow designer opens.
 
@@ -121,4 +120,4 @@ For the selected action, you see the input and output parameters. You can enter 
 [6]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.InProgress.PNG
 [7]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.Completed.PNG
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
-[9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
+[9]: http://www.microsoft.com/download/details.aspx?id=35552
