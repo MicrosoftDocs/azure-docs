@@ -65,7 +65,7 @@ The following diagram illustrates the primary operations performed by the client
 **4.** Create Batch **job**<br/>
 **5.** Add **tasks** to job<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** The tasks are scheduled to execute on nodes<br/>
-	&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage before it begins automatic execution<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;**5b.** Each task downloads its input data from Azure Storage, then begins execution<br/>
 **6.** Monitor tasks<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** As tasks complete, they upload their output data to Azure Storage<br/>
 **7.** Download task output from Storage
@@ -338,7 +338,7 @@ Now that a job has been created, tasks are added to perform the work.
 ![Add tasks to job][5]<br/>
 *(1) Tasks are added to the job, (2) the tasks are scheduled to run on nodes, and (3) the tasks download the data files to process*
 
-To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured with a command line and, as with the pool's StartTask, [ResourceFiles][net_task_resourcefiles] that the task downloads to the node before its command line is automatically executed. In the *DotNetTutorial* sample project, each task processes only one file, thus its ResourceFiles collection contains a single element.
+To actually perform work, tasks must be added to a job. Each [CloudTask][net_task] is configured with a command line and, as with the pool's StartTask, [ResourceFiles][net_task_resourcefiles] that the task downloads to the node before its command line is automatically  executed. In the *DotNetTutorial* sample project, each task processes only one file, thus its ResourceFiles collection contains a single element.
 
 ```
 private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient, string jobId, List<ResourceFile> inputFiles, string outputContainerSasUrl)
@@ -369,7 +369,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(BatchClient batchClient
 }
 ```
 
-> [AZURE.IMPORTANT] When executing an application not found in the node's `PATH`, or when using environment variables such as `%AZ_BATCH_NODE_SHARED_DIR%`, task command lines must be prefixed with `cmd /c` to explicitly execute the command interpreter and instruct it to terminate after carrying out your command. This requirement is unnecessary if your tasks execute an application in the node's PATH (such as *robocopy.exe* or *powershell.exe*), and no environment variables are used.
+> [AZURE.IMPORTANT] When accessing environment variables such as `%AZ_BATCH_NODE_SHARED_DIR%` or executing an application not found in the node's `PATH`, task command lines must be prefixed with `cmd /c` to explicitly execute the command interpreter and instruct it to terminate after carrying out your command. This requirement is unnecessary if your tasks execute an application in the node's PATH (such as *robocopy.exe* or *powershell.exe*), and no environment variables are used.
 
 Within the `foreach` loop in the code snippet above, you can see that the command line for the task is constructed such that three command line arguments are passed to *TaskApplication.exe*:
 
