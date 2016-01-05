@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="01/04/2016ß"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)
