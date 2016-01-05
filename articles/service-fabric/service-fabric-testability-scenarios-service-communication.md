@@ -22,17 +22,17 @@ Microservices and service-oriented architectural styles surface naturally in Azu
 
 Service-to-service communication is a critical integration point of an application, because each service exposes a remote API to other services. It requires some care, and a good amount of testing and validation, to work with a set of API boundaries that involve I/O.
 
-Numerous considerations must be made when these service boundaries are wired together in a distributed system. These considerations include:
+Numerous considerations must be made when these service boundaries are wired together in a distributed system. These include:
 
- - *Transport protocol*. Will you use HTTP for increased interoperability or a custom binary protocol for maximum throughput?
+ - *Transport protocol*. Will you use HTTP for increased interoperability, or a custom binary protocol for maximum throughput?
  - *Error handling*. How will permanent and transient errors be handled? What will happen when a service moves to a different node?
  - *Timeouts and latency*. In multitiered applications, how will each service layer handle latency through the stack and to the user?
 
-Whether you use one of the built-in service communication components provided by Service Fabric or build your own, testing the interactions between your services is critical to ensuring resiliency in your application.
+Whether you use one of the built-in service communication components provided by Service Fabric or you build your own, testing the interactions between your services is critical to ensuring resiliency in your application.
 
 ## Prepare for services to move
 
-Service instances may move around over time. This is especially true when they are configured by using load metrics for optimal resource balancing. Service Fabric moves your service instances to maximize availability even during upgrades, failovers, scale-out, and other situations that occur over the lifetime of a distributed system.
+Service instances may move around over time. This is especially true when they are configured by using load metrics for optimal resource balancing. Service Fabric moves your service instances to maximize their availability even during upgrades, failovers, scale-out, and other situations that occur over the lifetime of a distributed system.
 
 As services move around in the cluster, your clients and other services should be prepared to handle two scenarios when they talk to a service:
 
@@ -47,7 +47,7 @@ It is important that these scenarios be handled gracefully so that the system ru
 
 ### Test it: Move service instances
 
-By using Service Fabric's Testability tools, you can author a test scenario to test these situations in different ways.
+By using Service Fabric's testability tools, you can author a test scenario to test these situations in different ways.
 
 1. **Move a stateful service's primary replica.**
 
@@ -63,17 +63,13 @@ By using Service Fabric's Testability tools, you can author a test scenario to t
 
     When a node is stopped, Service Fabric moves all of the service instances or partitions that were on that node to one of the other available nodes in the cluster. Use this to test a situation where a node is lost from your cluster and all of the service instances and replicas on that node have to move.
 
-    You can stop a node by using the **Stop-ServiceFabricNode** PowerShell cmdlet:
+    You can stop a node by using the PowerShell **Stop-ServiceFabricNode** cmdlet:
 
     ```powershell
 
     PS > Restart-ServiceFabricNode -NodeName Node.1
 
     ```
-
-
-
-
 
 ## Maintain service availability
 
@@ -85,7 +81,7 @@ Stateful services use a quorum-based system to replicate state for high availabi
 
 By using the testability tools in Service Fabric, you can inject a fault that induces quorum loss as a test. Although such a scenario is rare, it is important that clients and services that depend on stateful service are prepared to handle situations where they cannot make write requests to the stateful service. It is also important that the stateful service itself is aware of the possibility and can gracefully communicate it to callers.
 
-Quorum loss can be induced using the **Invoke-ServiceFabricPartitionQuorumLoss** PowerShell cmdlet:
+Quorum loss can be induced using the PowerShell **Invoke-ServiceFabricPartitionQuorumLoss** cmdlet:
 
 ```powershell
 
