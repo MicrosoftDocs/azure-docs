@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="1/5/2015"
+	ms.date="01/05/2015"
 	ms.author="genli"/>
 
 # How to add or change Azure Administrator Roles
