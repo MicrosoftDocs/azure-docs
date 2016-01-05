@@ -75,9 +75,9 @@ Use this procedure only if you fail the gateway check when trying to install the
 
 The software versions that can be upgraded using the hotfix method are Update 0.1, Update 0.2, and Update 0.3, Update 1, Update 1.1, and Update 1.2. The hotfix method involves the following three steps:
 
-- Download the hotfixes from the Catalog Update server
-- Install and verify the regular mode hotfixes
-- Install and verify the maintenance mode hotfix
+- Download the hotfixes from the Microsoft Update Catalog.
+- Install and verify the regular mode hotfixes.
+- Install and verify the maintenance mode hotfix.
 
 The hotfixes applied through this method are as tabulated below:
 

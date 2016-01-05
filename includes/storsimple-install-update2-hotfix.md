@@ -23,9 +23,7 @@ Perform the following steps to download the software update from the Microsoft U
     ![View basket](./media/storsimple-install-update2-hotfix/HCS_InstallBasket-include.png) 
 
 6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update will be downloaded in a **StorSimple Update 2 Appliance Update bundle** (KB3121901) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device. 
-    
-	This procedure describes how to install software, LSI driver and firmware, and disk firmware updates all as hotfixes.  
-    
+       
 	> [AZURE.NOTE] 
 	> 
 	> - You will also need to download LSI Driver Update (KB3121900), Storport Update (KB3080728), Spaceport Update (KB3090322), and Disk Firmware Update (KB3121899) and copy to the same shared folder.
@@ -144,7 +142,8 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
 		[4] Change language
 		Please enter your choice>
 
-2. Both the controllers will be rebooted. After the reboot is complete, both controllers will be in the Maintenance mode. 
+	Both the controllers will be rebooted. After the reboot is complete, both controllers will be in the Maintenance mode. 
+
 3. To install the disk firmware update, type:
 
 	`Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -160,7 +159,8 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
 		WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 	
 
-1.  Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`. 
+1.  Monitor the install progress using `Get-HcsUpdateStatus` command. The update is complete when the `RunInProgress` changes to `False`.
+ 
 2.  After the installation is complete, the controller on which the maintenance mode hotfix was installed will be rebooted. Log in as option 1 with full access and verify the disk firmware version. Type:
 	
 	`Get-HcsFirmwareVersion`
@@ -225,7 +225,7 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
     	  SEAGATE:ST4000NM0023:XMGG
     	  SEAGATE:ST4000NM0023:XMGG
 
-	 You can run this command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller: 
+	 Run this command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller: 
 
     `Exit-HcsMaintenanceMode`
      
