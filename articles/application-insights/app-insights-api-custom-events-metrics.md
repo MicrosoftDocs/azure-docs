@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/05/2016" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
