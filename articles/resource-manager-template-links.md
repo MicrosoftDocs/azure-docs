@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for linking resources | Microsoft Azure"
-   description="Shows the resource manager template schema for creating links between related resources."
+   description="Shows the Resource Manager schema for deploying links between related resources through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Resource links - template schema
+# Resource links template schema
 
 Creates a link between two resources. The link is applied to a resource known as the source resource. The second resource in the link is known as the target resource.
 
@@ -126,6 +126,17 @@ The following example applies a read-only lock to a web app.
         ],
         "outputs": {}
     }
+
+## Quickstart templates
+
+The following quickstart templates deploy resources with a link.
+
+- [Alert to queue with Logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+- [Alert to Slack with Logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+- [Provision an API app with an existing gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
+- [Provision an API app with a new gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
+- [Create a Logic App plus API app using a template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
+- [Logic app that sends a text message when an alert fires](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 
 
 ## Next steps

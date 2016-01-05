@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2015"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # Using the Docker VM Extension from the Azure Command-line Interface (Azure CLI)
@@ -24,14 +24,9 @@
 
 This topic describes how to create a VM with the Docker VM Extension from the service management (asm) mode in Azure CLI on any platform. [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) to create a Docker VM that hosts any number of containers for your applications on Azure. To see a high-level discussion of containers and their advantages, see the [Docker High Level Whiteboard](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
-+ [How to use the Docker VM Extension with Azure]
-+ [Virtual Machine Extensions for Linux and Windows]
-+ [Container and Container Management Resources for Azure]
-+ [Next steps]
 
 ##How to use the Docker VM Extension with Azure
 To use the Docker VM extension with Azure, you must install a version of the [Azure Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat) (Azure CLI) higher than 0.8.6 (as of this writing the current version is 0.8.10). You can install the Azure CLI on Mac, Linux, and Windows.
-
 
 
 The complete process to use Docker on Azure is simple:
@@ -166,10 +161,6 @@ You are ready to go to the [Docker User Guide] and use your Docker VM. To create
 [Virtual Machine Extensions for Linux and Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 [Container and Container Management Resources for Azure]: #Container-and-Container-Management-Resources-for-Azure
 
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
 
 
 <!--Link references-->
