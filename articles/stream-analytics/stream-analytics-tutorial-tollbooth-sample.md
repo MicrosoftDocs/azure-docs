@@ -311,13 +311,13 @@ View the output of the query:
 
 Now as we have written our first Azure Stream Analytics query, it is time to finish the configuration and start the job. Save the query from Question 3, which will produce output that matches the schema of our output table TollDataRefJoin. Navigate to the job Dashboard and click Start.
 
-In the dialog that appears, change the Start Output time to Custom Time. Edit the Hour and set it to an hour back. This will ensure that we process all events from the Event Hub since the moment we started generating the events in the beginning of the lab. Now click the check mark to start the job. Starting the job can take a few minutes. You will be able to see the status on the top-level page for Stream Analytics.
+In the dialog that appears, change the Start Output time to Custom Time. Edit the Hour and set it to an hour back. This will ensure that all events are processed from the Event Hub since the moment the job started generating the events in the beginning of the lab. Now click the check mark to start the job. Starting the job can take a few minutes. The status on the top-level page for Stream Analytics should update.
 
-### CHECK RESULTS IN VISUAL STUDIO
+## CHECK RESULTS IN VISUAL STUDIO
 
-Open Visual Studio Server Explorer and right click TollDataRefJoin table. Select “Show Table Data” to see the output of your job.
+Open Visual Studio Server Explorer and right click TollDataRefJoin table. Select “Show Table Data” to see the output of the job.
 
-### SCALING OUT AZURE STREAM ANALYTICS JOBS
+## SCALING OUT AZURE STREAM ANALYTICS JOBS
 
 Azure Stream Analytics is designed to elastically scale and be able to handle high load of data. The Azure Stream Analytics query can use a PARTITION BY clause to tell the system that this step will scale out. PartitionId is a special column added by the system that matches the partition id of the input (Event Hub)
 Stop the current job, update the query in Query tab and open Scale tab. Streaming units define the amount of compute power the job can receive. Move the slider to 6.
@@ -327,21 +327,25 @@ SELECT TollId, System.Timestamp AS WindowEnd , COUNT (*) AS Count
 FROM EntryStream TIMESTAM P BY EntryTime PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW (minute,3), TollId , PartitionId
 
-### Monitoring jobs
+## Monitoring jobs
 
 Monitoring tab contains statistics about the running job. You can access Operation Logs from the Dashboard tab. To see additional information about a particular event, select the event and click “Details” button.
 
-### Ordering events
+## Ordering events
 
 The order of the events is very important for the Stream Analytics query to produce correct answers. Since all the events are transmitted over the network, there is no guarantee that they will arrive in the same order as they were sent. There are two types of policies that can be used to specify how out of order events should be handled. They are Adjust (default) and Drop.
-ADJUST POLICY (DEFAULT)
+
+**ADJUST POLICY (DEFAULT)**
 The Adjust Policy is the default policy setting for an Azure Stream Analytics job. In this mode, the timestamp of any late arriving out of order event is changed and adjusted to the timestamp of the last received event.
-DROP POLICY
+
+**DROP POLICY**
 Setting the policy as Drop instructs Stream Analytics to drop all events that occur out of order. This is especially useful if the job needs to prioritize low latency over absolute correctness.
-TOLERANCE WINDOW
+
+**TOLERANCE WINDOW**
 There are cases where the amount of expected disorder can be estimated by the user. For example if you think your events are not going to be delayed for more than 30 sec, you can set that as your Tolerance Window and provide a leeway for your incoming events. In this case all events arriving within 30 seconds will be sent to the engine in proper order. It is important to understand that you are introducing a latency for the amount of time you set in the tolerance window and if you have a high throughput of events, you are also adding memory pressure.
 
-### Conclusion
+## Conclusion
+
 In this lab we provided introduction to the Azure Stream Analytics service. We demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data sample scenario we explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. We described SQL extension constructs for working with temporal data. We showed how to join data streams, how to enrich the data stream with static reference data. We explained how to scale out a query to achieve higher throughput.
 While this lab provides good introductory coverage, it is not complete by any means. Please refer to documentation on MSDN to learn more about Azure Stream Analytics.
 
