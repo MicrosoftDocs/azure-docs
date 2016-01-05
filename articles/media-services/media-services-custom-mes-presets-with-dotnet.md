@@ -180,7 +180,7 @@ The following code example uses Media Services .NET SDK to perform the following
 
 ##<a id="thumbnails"></a>Generate thumbnails
 
-This section shows how to customize a preset in order to generate thumbnails. The XML and JSON defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/en-US/library/mt269960.aspx) and add code that generates thumbnails.  
+This section shows how to customize a preset in order to generate thumbnails. The XML and JSON defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and add code that generates thumbnails.  
 
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
 
@@ -385,7 +385,7 @@ The following considerations apply:
 
 ##<a id="trim_video"></a>Trim video (sub-clipping)
 
-This section shows how to customize a preset in order to trim a video. You can take any of the MES presets documented [here](https://msdn.microsoft.com/en-US/library/mt269960.aspx) and modify the **Sources** element.
+This section shows how to customize a preset in order to trim a video. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element.
 
 ###<a id="json"></a>JSON preset
 	
@@ -509,7 +509,7 @@ This section shows how to customize a preset in order to trim a video. You can t
 
 ##<a id="silent_audio"></a>Insert a silent audio track when input has no audio
 
-By default, if you send an input to "Media Encoder Standard" that contains only video, and no audio, then the output asset will contain files that contain only video data. Some players may not be able to handle such output streams. You can force the encoder to add a silent audio track to the output. You can take any of the MES presets documented [here](https://msdn.microsoft.com/en-US/library/mt269960.aspx), and make the following modification:
+By default, if you send an input to "Media Encoder Standard" that contains only video, and no audio, then the output asset will contain files that contain only video data. Some players may not be able to handle such output streams. You can force the encoder to add a silent audio track to the output. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx), and make the following modification:
 
 ###JSON preset
 
