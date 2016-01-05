@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="01/04/2015"
+	ms.date="01/08/2015"
 	ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
