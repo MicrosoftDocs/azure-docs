@@ -444,7 +444,7 @@ NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 **Swift**:
 
 ```
-let serverItem = error?.userInfo[MSErrorServerItemKey];
+let serverItem = error?.userInfo[MSErrorServerItemKey]
 ```
 
 In addition, the file defines constants for each error code, which may be used as shown below:
