@@ -21,7 +21,7 @@
 
 This tutorial explains how to install Update 2 on a StorSimple device running an earlier software version via the Azure classic portal. The tutorial also covers the steps required for the update when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version. 
 
-Update 2 includes device software updates, LSI driver and firmware updates, and disk firmware updates. The device software and LSI updates are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
+Update 2 includes device software updates, LSI driver updates, and disk firmware updates. The device software and LSI updates are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
 
 > [AZURE.IMPORTANT]
  
@@ -83,19 +83,18 @@ The hotfixes applied through this method are as tabulated below:
 
 | Order  | KB        | Name                    | Package description         | Update type |
 |--------|-----------|-------------------------|-----------------------------|-------------|
-| 1      | KB3121901 | Software update         | HcsMdsSfotwareUpdate.exe    | Regular     |
-| 2      | KB3121901 | Software update         | CisMdcAgentUpdateBundle.exe | Regular     |
-| 3      | KB3121900 | LSI driver and firmware | HcsLsiUpdate.exe            | Regular     |
-| 4      | KB3080728 | Storport fix            | Storport-KB3080728-x64.msu  | Regular     |
-| 5      | KB3090322 | Spaceport fix           | Spaceport-KB3090322-x64.msu | Regular     |
-| 6      | KB3121899 | Disk firmware           | DiskFirmwarePackage.exe     | Maintenance |
+| 1      | KB3121901 | Software update         | HcsMdsSfotwareUpdate.exe <br></br>  CisMdsAgentUpdateBundle.exe    | Regular     |
+| 2      | KB3121900 | LSI driver              | HcsLsiUpdate.exe            										| Regular     |
+| 3      | KB3080728 | Storport fix            | Storport-KB3080728-x64.msu  										| Regular     |
+| 4      | KB3090322 | Spaceport fix           | Spaceport-KB3090322-x64.msu 										| Regular     |
+| 5      | KB3121899 | Disk firmware           | DiskFirmwarePackage.exe     										| Maintenance |
 
 
 > [AZURE.IMPORTANT] 
 > 
 > - If your device is running Release (GA) version, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with the update.
 > - This procedure needs to be performed only once to apply Update 2. You can use the Azure classic portal to apply subsequent updates.
-> - The updates could take around 1.5 hours to complete (approximately 30 minutes for software, 30 minutes for driver, 30 minutes for disk firmware).
+> - Each hotfix installation can take about 20 minutes to complete. 
 > - Before using this procedure to apply the update, make sure that both device controllers are online.
 
 Perform the following steps to apply Update 2 as a hotfix. 

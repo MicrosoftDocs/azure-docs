@@ -12,7 +12,7 @@ Perform the following steps to download the software update from the Microsoft U
 
 3. You will see a catalog search screen. Enter **3121901** in the search box, and click **Search**.
 
-    ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog-include.png)
+    ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
 4. You will see the **StorSimple Update 2 Appliance Update** bundle. Click **Add**. The update will be added to the basket. 
 
@@ -26,7 +26,7 @@ Perform the following steps to download the software update from the Microsoft U
        
 	> [AZURE.NOTE] 
 	> 
-	> - You will also need to download LSI Driver Update (KB3121900), Storport Update (KB3080728), Spaceport Update (KB3090322), and Disk Firmware Update (KB3121899) and copy to the same shared folder.
+	> - You will also need to download LSI driver update (KB3121900), Storport update (KB3080728), Spaceport update (KB3090322), and Disk firmware update (KB3121899) and copy to the same shared folder.
 	> - The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller.
 
 #### To install and  verify regular mode hotfixes
