@@ -98,7 +98,7 @@ This orchestration is managed by the system to keep your service highly availabl
 
 `RunAsync()` is executed in its own task. Note that in the code snippet above, we jumped right into a *while* loop. There is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish up any work, and exit `RunAsync()` as quickly as possible when the system requests cancellation.
 
-In this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's stored exists only for the current lifecycle of the service instance. When the service moves or restarts, the value is lost.
+In this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's stored exists only for the current lifecycle of its service instance. When the service moves or restarts, the value is lost.
 
 ## Create a stateful service
 
@@ -194,13 +194,13 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, including LINQ. However, operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections are *replicated*. For high availability, these operations are sent to other replicas of the service on different nodes.
 
-They also support *transactional* operations, so you can keep state consistent among multiple Reliable Collections. For example, you may de-queue a work item from a reliable queue, perform an operation on it, and save the result in a reliable dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or none of it will. If an error occurs after you de-queue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
+They also support *transactional* operations, so that you can keep state consistent among multiple Reliable Collections. For example, you may de-queue a work item from a reliable queue, perform an operation on it, and save the result in a reliable dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or none of it will. If an error occurs after you de-queue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 
 ## Run the application
 
 We now return to the *HelloWorld* application. You can now build and deploy your services. When you press **F5**, your application will be built and deployed to your local cluster.
 
-After the services have begun running, you can view the generated Event Tracing for Windows (ETW) events in a diagnostic events window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
+After the services start running, you can view the generated Event Tracing for Windows (ETW) events in a diagnostic events window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
 
 >[AZURE.NOTE] Before you run the application, ensure that you have a local development cluster running. Check out the [getting started guide](service-fabric-get-started.md) for more on how to set up your local environment.
 
