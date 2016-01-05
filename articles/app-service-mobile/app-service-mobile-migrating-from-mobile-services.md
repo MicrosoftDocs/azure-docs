@@ -48,7 +48,6 @@ There are a few reasons why you should not migrate your Azure Mobile Services no
   *  You are currently in a busy period and cannot afford a site restart at this time.
   *  You do not wish to affect your production site before testing the migration process.
   *  You have multiple sites in the Free or Basic pricing tiers and do not want to migrate all sites at the same time.
-  *  You have scheduled jobs configured as on demand that you wish to migrate.
 
 In you are in a busy period, then please plan to migrate during a scheduled maintenance window.  The migration process restarts your
 site as part of the process and your users may notice this momentary availability disruption.
@@ -165,6 +164,25 @@ This is an optional task, but provides for a better management experience going 
 > [AZURE.TIP]  One of the advantages of using an Azure App Service is that you can run your web site and mobile service on the same site.  See
 > the [next steps](#next-steps) section for more information.
 
+### <a name="download-publish-profile"></a>Download a new Publishing Profile
+
+The publishing profile of your site is changed when migrating to Azure App Service.  You will need a new publishing profile if you intend to publsh
+your site from within Visual Studio.  To download the new publishing profile:
+
+  1.  Log into the [Azure Portal].
+  2.  Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
+  3.  Click on **Get publish profile**.
+
+The PublishSettings file will be downloaded to your computer.  It will normally be called _sitename_.PublishSettings.  You can then import the publish settings into your existing project:
+
+  1.  Open Visual Studio and your Azure Mobile Service project.
+  2.  Right-click on your project in the **Solution Explorer** and select **Publish...**
+  3.  Click on **Import**
+  4.  Click on **Browse** and select your downloaded publish settings file.  Click on **OK**
+  5.  Click on **Validate Connection** to ensure the publish settings work.
+  6.  Click on **Publish** to publish your site.
+
+
 ## <a name="working-with-your-site"></a>Working with your site post-migration
 
 You will start working with your new App Service in the [Azure Portal] post-migration.  The following are some notes on specific operations that
@@ -255,35 +273,25 @@ The _API_ tab in Mobile Services has been replaced by _Easy APIs_ within the Azu
 Your migrated APIs will already be listed in the blade.  You can also add a new API from this blade.  To manage a specific API, click on the API.
 From the new blade, you can adjust the permissions and edit the scripts for the API.
 
-### <a name="on-demand-jobs"></a>On-Demand Scheduled Jobs
+### <a name="on-demand-jobs"></a>Scheduler Jobs
 
-On-demand scheduled jobs are triggered through a web request.  We recommend using a HTTP client such as [Postman], [Fiddler] or [curl].  If your site
-is called 'contoso' then you will have an endpoint https://contoso.azure-mobile.net/jobs/_yourjobname_ that you can use to trigger the on-demand job.
-You will need to submit an additional header **X-ZUMO-MASTER** with your master key.
-
-The master key can be obtained as follows:
+All scheduler jobs are available through the Scheduler Job Collections section.  To access your scheduler jobs:
 
   1. Log into the [Azure Portal].
-  2. Select **All resources** or **App Services** then click on the name of your migrated Mobile Service.
-  3. The Settings blade will open by default - if it doesn't, click on **Settings**.
-  4. Click on **Application settings** in the GENERAL menu.
-  5. Look for the **MS_MasterKey** application setting.
+  2. Select **Browse>**, enter **Schedule** in the _Filter_ box, then select **Scheduler Collections**.
+  3. Select the Job Collection for your site.  It will be named _sitename_-Jobs.
+  4. Click on **Settings**.
+  5. Click on **Scheduler Jobs** under MANAGE.
 
-You can cut-and-paste the master key into your Postman session.  Here is an example of triggering an on-demand job in a migrated mobile service:
+Scheduled jobs will be listed with the frequency you specified prior to migration.  On-demand jobs will be disabled.  To run an on-demand job:
 
-  ![Trigger an On-demand Job with Postman][2]
-
-Note the settings:
-
-  * Method: **POST**
-  * URL: https://_yoursite_.azure-mobile.net/jobs/_yourjobname_
-  * Headers: X-ZUMO-MASTER: _your-master-key_
-
-Alternatively you can use [curl] to trigger the on-demand job on a command line:
-
-    curl -H 'X-ZUMO-MASTER: yourmasterkey' --data-ascii '' https://yoursite.azure-mobile.net/jobs/yourjob
+  1. Select the job you wish to run.
+  2. If necessary, click on **Enable** to enable the job.
+  3. Click on **Settings**, then **Schedule**.
+  4. Select a Recurrence of **Once**, then click on **Save**
 
 Your on-demand jobs are located in `App_Data/config/scripts/scheduler post-migration`.  We recommend that you convert all on-demand jobs to [WebJobs].
+You should write new scheduler jobs as [WebJobs].
 
 ### <a name="notification-hubs"></a>Notification Hubs
 

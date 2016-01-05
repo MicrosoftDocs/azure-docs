@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/23/2015"
    ms.author="telmos" />
 
-# IP addresses in Azure Resource Manager
+# IP addresses in Azure
 You can assign IP addresses to Azure resources to communicate with other Azure resources, your on-premises network, and the Internet. There are two types of IP addresses you can use in Azure: public and private.
 
 Public IP addresses are used for communication with the Internet, including Azure public-facing services.
@@ -24,6 +24,8 @@ Public IP addresses are used for communication with the Internet, including Azur
 Private IP addresses are used for communication within an Azure virtual network (VNet), and your on-premises network when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
+
+If you are familiar with the classic deployment model, check the [differences in IP addressing between classic and Resource Manager](virtual-network-ip-addresses-overview-classic.md#Differences-between-Resource-Manager-and-classic-deployments).
 
 ## Public IP addresses
 Public IP addresses allow Azure resources to communicate with Internet and Azure public-facing services such as [Azure Redis Cache](https://azure.microsoft.com/services/cache), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs), [SQL databases](sql-database-technical-overview.md), and [Azure storage](storage-introduction.md).
@@ -45,8 +47,8 @@ To ensure the IP address for the associated resource remains the same, you can s
 Static public IP addresses are commonly used in the following scenarios:
 
 - end-users need to update firewall rules to communicate with your Azure resources.
-- you DNS name resolution, where a change in IP address would require updating A records.
-- your Azure resources communicate with other web services which use IP based security model.
+- DNS name resolution, where a change in IP address would require updating A records.
+- your Azure resources communicate with other apps or services that use an IP address based security model.
 - you use SSL certificates linked to an IP address.
 
 >[AZURE.NOTE] The list of IP ranges from which public IP addresses (dynamic/static) are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -122,19 +124,32 @@ The table below shows each resource type with the possible allocation methods (d
 |Internal Load balancer front end|Yes|Yes|Yes|
 |Application gateway front end|Yes|Yes|Yes|
 
-## Comparison between Resource Manager and Classic deployments
-Below is a comparison of IP address in resource manager with the classic deployment model.
+## Limits
 
-||Resource|Classic|Resource Manager|
-|---|---|---|---|
-|**Public IP Address**|VM|Referred to as an ILPIP (dynamic only)|Referred to as a public IP (dynamic or static)|
-|||Assigned to an IaaS VM or a PaaS role instance|Associated to the VM's NIC|
-||Internet facing load balancer|Referred to as VIP (dynamic) or Reserved IP (static)|Referred to as a public IP (dynamic or static)|
-|||Assigned to a cloud service|Associated to the load balancer's front end config|
-||||
-|**Private IP Address**|VM|Referred to as a DIP|Referred to as a private IP address|
-|||Assigned to an IaaS VM or a PaaS role instance|Assigned to the VM's NIC|
-||Internal load balancer (ILB)|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end configuration (dynamic or static)|
+The table below shows the limits imposed on IP addressing in Azure per region, per subscription. You can [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to increase the default limits up to the maximum limits based on your business needs.
+
+||Default limit|Maximum limit|
+|---|---|---|
+|Public IP addresses (dynamic)|60|contact support|
+|Public IP addresses (static)|20|contact support|
+|Public front end IP per load balancer|5|contact support|
+|Private front end IP per load balancer|1|contact support|
+
+Make sure you read the full set of [limits for Networking](azure-subscription-service-limits.md#networking-limits) in Azure.
+
+## Pricing
+
+In most cases, public IP addresses are free. There is a nominal charge to use additional and/or static public IP addresses. Make sure you understand the [pricing structure for public IPs](https://azure.microsoft.com/pricing/details/ip-addresses/).
+
+In summary, the following pricing structure applies to public IP resources:
+
+- VPN gateways and application gateways use only one dynamic public IP, which is free of cost.
+- VMs use only one public IP, which is free as long as it is a dynamic IP address. If a VM uses a static public IP, it gets counted towards Static (Reserved) Public IP usage.
+- Each load balancer can use multiple public IPs. The first public IP is free of cost. Additional dynamic IPs are charged at $0.004/hr. Static public IPs get counted towards Static (Reserved) Public IP usage.
+- Static (Reserved) Public IP usage: 
+	- First 5 (in-use) are free. Additional static public IPs are charged at $0.004/hr. 
+	- Static public IPs not assigned to any resource are charged at $0.004/hr.
+	- Usage is calculated based on the total number of static public IPs in the subscription.
 
 ## Next steps
 - [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-arm-template.md)

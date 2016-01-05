@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/07/2015"
+   ms.date="12/31/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template expressions
@@ -167,6 +167,7 @@ Resource Manager provides the following expressions for working with strings:
 - [replace](#replace)
 - [split](#split)
 - [string](#string)
+- [substring](#substring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [trim](#trim)
@@ -295,6 +296,28 @@ The following example converts the user-provided parameter value to String.
         "stringValue": "[string(parameters('appId'))]"
     }
 
+<a id="substring" />
+### substring
+
+**substring(stringToParse, startIndex, length)**
+
+Returns a substring that starts at the specified character position and contains the specified number of characters.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| stringToParse                     |   Yes    | The original string from which the substring is extracted.
+| startIndex                         | No      | The zero-based starting character position for the substring.
+| length                             | No      | The number of characters for the substring.
+
+The following example extracts the first three characters from a parameter.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "prefix": "[substring(parameters('inputString'), 0, 3)]"
+    }
+
 <a id="tolower" />
 ### toLower
 
@@ -386,7 +409,7 @@ Unique based on deployment for a resource group
 The following example shows how to create a unique name for a storage account based on your resource group.
 
     "resources": [{ 
-        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
