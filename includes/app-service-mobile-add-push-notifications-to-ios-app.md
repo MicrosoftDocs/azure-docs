@@ -104,7 +104,7 @@
             }
             
     
-    func application(application: UIApplication,
+        func application(application: UIApplication,
         didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
             
             NSLog("%@", userInfo)
@@ -131,5 +131,5 @@
             
             currentViewController?.presentViewController(alert, animated: true){}
             
-    }
+        }
     
