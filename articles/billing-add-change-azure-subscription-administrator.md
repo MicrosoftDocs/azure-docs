@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/21/2015"
+	ms.date="1/5/2015"
 	ms.author="genli"/>
 
 # How to add or change Azure Administrator Roles
@@ -45,13 +45,13 @@ The following email address can be added as a Co-Administrator:
 
 **Note**
 
- * Each subscription is associated with an Azure Active Directory (aks Default Directory). To find the Default Directory which the subscription is associated with, go to [Azure classic portal](https://manage.windowsazure.com/), select **Settings** > **Subscriptions**, check the subscription ID to find the Default Directory the subscription is associated with.
+ * Each subscription is associated with an Azure Active Directory (aks the Default Directory). To find the Default Directory the subscription is associated with, go to the [Azure classic portal](https://manage.windowsazure.com/), select **Settings** > **Subscriptions**. Check the subscription ID to find the Default Directory.
 
  * If you are logged in with a Microsoft Account, you can only add other Microsoft Accounts or users within the Default Directory as Co-Administrator.
  * If you are logged in with an organizational account, you can add other organizational accounts in your organization as Co-Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator or Co-Administrator, but cannot add john@notcontoso.com unless john@noncontoso.com is the user in Default Directory. Users logged in with organizational accounts can continue to add Microsoft Account users as Service Administrator or Co-Administrator.
  * Now that it is possible to log into Azure with an organizational account, here are the changes to Service Administrator and Co-administrator account requirements:
 
-| Login Method| Add Microsoft Account or users within Default Directory as Co-Administrator or Service Administrator?  |Add organizational account in the same organization as Co-Administrator or Service Administrator? |Add organizational account in different organization as Co-Administrator or Service Administrator?
+| Login Method| Add Microsoft Account or users within Default Directory as CA or SA?  |Add organizational account in the same organization as CA or SA? |Add organizational account in different organization as CA or SA?
 | ------------- | ------------- |---------------|---------------|
 |Microsoft Account |Yes|No|No|
 |Organizational Account|Yes|Yes|No|
