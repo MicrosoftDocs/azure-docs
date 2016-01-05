@@ -259,15 +259,13 @@ If you didn't use the default SSH port of 22 when you created the VM, you can di
 
 ### Example: Output of SSH session using .pem keys and classic deployment
 
-If you created a VM using a .pem file created from your `~/.ssh/id_rsa` file, you can directly ssh into that VM. Note that when you do, the certificate handshake will use your private key at `~/.ssh/id_rsa`. It might look like the following example:
+If you created a VM using a .pem file created from your `~/.ssh/id_rsa` file, you can directly ssh into that VM. Note that when you do, the certificate handshake will use your private key at `~/.ssh/id_rsa`. (The VM creation process computes the public key from the .pem and places the ssh-rsa form of the public key in `~/.ssh/authorized_users`.) Connecting might look like the following example:
 
 	ssh ops@testpemasm.cloudapp.net -p 22
 	The authenticity of host 'testpemasm.cloudapp.net (40.83.178.221)' can't be established.
 	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
-	Saving password to keychain failed
-	Identity added: /Users/user/.ssh/id_rsa.pub (/Users/user/.ssh/id_rsa.pub)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
 
 	* Documentation:  https://help.ubuntu.com/
