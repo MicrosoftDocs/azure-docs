@@ -16,7 +16,7 @@
    ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Key vault resource type template schema
+# Key vault template schema
 
 Creates a key vault.
 
@@ -233,6 +233,12 @@ The following example deploys a key vault and secret.
             }]
         }]
     }
+
+## Quickstart templates
+
+The following quickstart template deploys a key vault.
+
+- [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 
 
 ## Next steps
