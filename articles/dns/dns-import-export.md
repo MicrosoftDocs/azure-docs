@@ -43,9 +43,9 @@ The format of the Azure CLI command to import a DNS zone is as follows:
 azure network `dns zone import [options] <resource group> <zone name> <zone file name>`
 where:
 
--	**resource group** is the name of the resource group for the zone in Azure DNS.
-- **zone name** is the name of the zone.
-- **zone file name** is the path/name of the zone file to be imported.
+-	**resource group** - is the name of the resource group for the zone in Azure DNS.
+- **zone name** - is the name of the zone.
+- **zone file name** - is the path/name of the zone file to be imported.
 
 
 The Azure CLI is a cross-platform command line tool used for managing Azure services.  It is available for Windows, Mac and Linux platforms from the Azure downloads page.  This cross-platform support is particularly important for zone file import and export since the most common name server software, ‘BIND’, typically runs on Linux.
@@ -93,7 +93,7 @@ It will report progress in the console window, as well as any errors or warnings
 
 ## Verify the DNS zone after import
 
-You can list the records via the Azure DNS API using the following Azure CLI command (you can also do this via PowerShell, using **Get-AzureRmDnsRecordSet**).
+You can list the records via the Azure DNS API using the following Azure CLI command (you can also do this via PowerShell, using `Get-AzureRmDnsRecordSet`).
 
 	azure network dns record-set list myresourcegroup contoso.com
 
