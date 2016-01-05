@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="1/5/2016"
+	ms.date="01/05/2016"
 	ms.author="davidmu"/>
 
 # Automatically scale machines in a Virtual Machine Scale Set
