@@ -27,7 +27,7 @@
         
             func loginAndGetData()
             {
-                let client = MSClient(applicationURLString: "%APPURL%")
+                let client = self.table.client
                 if client.currentUser != nil {
                     return
                 }
