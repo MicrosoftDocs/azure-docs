@@ -1,6 +1,6 @@
 ﻿<properties
 	pageTitle="Automatically Scale Virtual Machine Scale Sets | Microsoft Azure"
-	description="Get started creating and managing your first Azure Virtual Machine Scale Sets"
+	description="Get started creating and managing your first Azure Virtual Machine Scale Sets using Azure CLI"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="1/5/2016"
 	ms.author="davidmu"/>
 
 # Automatically scale machines in a Virtual Machine Scale Set
