@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="1/4/2016"
+   ms.date="01/05/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
