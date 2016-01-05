@@ -40,7 +40,7 @@ To access an Azure Mobile Apps backend in your project, create an `MSClient`. Re
 **Objective-C**:
 
 ```
-MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
+MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 ```
 
 **Swift**:
