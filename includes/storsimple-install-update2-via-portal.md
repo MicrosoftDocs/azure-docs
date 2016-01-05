@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 12/31/15-->
+<!--author=alkohli last changed: 01/04/16-->
 
 #### To install Update 2 from the Azure portal
 
@@ -30,7 +30,7 @@
 	
 	- **Gateway check** on any device running a version prior to Update 1. This check is performed on all the device running pre-update 1 software but fails on the devices that have a gateway configured for a network interface other than DATA 0.
  
-	Update 1.2 will only be applied if all the above pre-update checks are successfully completed. You will be notified that pre-update checks are in progress.
+	Update 2 will only be applied if all the above pre-update checks are successfully completed. You will be notified that pre-update checks are in progress.
   
     ![Pre-check notification](./media/storsimple-install-update2-via-portal/InstallUpdate12_3M.png)
 
@@ -38,7 +38,8 @@
 
    	 ![Pre-check failed](./media/storsimple-install-update2-via-portal/HCS_PreUpgradeChecksFailed-include.png)
 
-	> [AZURE.NOTE] If you are updating from a pre-Update 1 software, after you have applied Update 2 on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required. If you updated from Update 1 or later, the DATA2/DATA3 and geateway pre-checks are not performed.
+	
+> [AZURE.NOTE] If you are updating from a pre-Update 1 software, after you have applied Update 2 on your StorSimple device, DATA 2 and DATA 3 checks and the gateway check will no longer be necessary for the future updates. The other pre-checks will still be required. If you updated from Update 1 or later, the DATA 2, DATA 3, and gateway pre-checks are not performed.
 
 
 8. After the pre-upgrade checks are successfully completed, an update job will be created. You will be notified when the update job is successfully created.
@@ -61,7 +62,7 @@
 
     ![Maintenance page](./media/storsimple-install-update2-via-portal/InstallUpdate12_10M.png)
 
-13. You will now see that Maintenance mode updates are available. These updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the steps 9-10 to install these updates as a hotfix via the Windows PowerShell for StorSimple.
+13. You will now see that Maintenance mode updates are available. These updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. Follow the steps 16-20 to install these updates as a hotfix via the Windows PowerShell for StorSimple.
 
 > [AZURE.NOTE] In certain instances, the message indicating maintenance mode updates are available may be displayed up to 24 hours after the maintenance mode updates are successfully applied on the device.  
 
