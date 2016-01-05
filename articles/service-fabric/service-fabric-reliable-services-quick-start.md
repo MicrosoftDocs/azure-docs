@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Get started with reliable services | Microsoft Azure"
+   pageTitle="Get started by using Reliable Services | Microsoft Azure"
    description="Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services."
    services="service-fabric"
    documentationCenter=".net"
@@ -16,7 +16,7 @@
    ms.date="11/15/2015"
    ms.author="vturecek"/>
 
-# Get started with Microsoft Azure Service Fabric reliable services
+# Get started: Service Fabric Reliable Services
 
 An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications by using [Reliable Services](service-fabric-reliable-services-introduction.md).
 
@@ -24,7 +24,7 @@ An Azure Service Fabric application contains one or more services that run your 
 
 A stateless service is a type of service that exists mostly in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, then all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or an SQL database, for it to be made highly available and reliable.
 
-Launch Visual Studio 2015 RC as an administrator, and then create a new Service Fabric application project named *HelloWorld*:
+Launch Visual Studio 2015 RC as an administrator, and create a new Service Fabric application project named *HelloWorld*:
 
 ![Use the New Project dialog box to create a new Service Fabric application](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
@@ -116,7 +116,7 @@ Select **Stateful Service** and name it *HelloWorldStateful*. Click **OK**.
 
 Your application should now have two services: the stateless service *HelloWorld* and the stateful service *HelloWorldStateful*.
 
-Open **HelloWorldStateful.cs** in *HelloWorldStateful*, which contains the following `RunAsync` method:
+Open **HelloWorldStateful.cs** in *HelloWorldStateful*, which contains the following RunAsync method:
 
 ```C#
 protected override async Task RunAsync(CancellationToken cancelServicePartitionReplica)
@@ -173,7 +173,7 @@ Reliable Collections can store any .NET type, including your custom types, with 
 
  - Service Fabric makes your state highly available by *replicating* state across nodes and storing it to local disk. This means that everything that is stored in Reliable Collections must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure that your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when you use the default serializer.
 
- - Objects are replicated for high-availability when you commit a transaction on a Reliable Collection. Objects stored in Reliable Collections are kept in local memory in your service. This means that you have a local reference to the object.
+ - Objects are replicated for high availability when you commit transactions on Reliable Collections. Objects stored in Reliable Collections are kept in local memory in your service. This means that you have a local reference to the object.
 
     It is important that you do not mutate local instances of those objects without performing an update operation on the Reliable Collection in a transaction. This is because those changes will not be replicated automatically.
 
@@ -200,7 +200,7 @@ They also support *transactional* operations, so you can keep state consistent a
 
 We now return to the *HelloWorld* application. You can now build and deploy your services. When you press **F5**, your application will be built and deployed to your local cluster.
 
-After the services are running, you can view the generated Event Tracing for Windows (ETW) events in a diagnostic events window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
+After the services have begun running, you can view the generated Event Tracing for Windows (ETW) events in a diagnostic events window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
 
 >[AZURE.NOTE] Before you run the application, ensure that you have a local development cluster running. Check out the [getting started guide](service-fabric-get-started.md) for more on how to set up your local environment.
 
