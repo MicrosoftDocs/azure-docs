@@ -110,7 +110,7 @@ For more information about partitioning and sharding, see [Partition and scale d
 
 ## Geospatial samples  
 
-The geospatial sample file, [azure-documentdb-net/samples/code-samples/Queries.Spatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), shows how to do the following tasks.  
+The geospatial sample file, [azure-documentdb-net/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), shows how to do the following tasks.  
  
 Task | API reference  
 ---- | ---  
