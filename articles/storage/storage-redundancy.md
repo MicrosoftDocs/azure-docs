@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/20/2015" 
+  ms.date="01/05/2016" 
   ms.author="tamram"/>
 
 # Azure Storage replication
