@@ -31,7 +31,7 @@ The following information should help you avoid some potential pitfalls.
 
 ## SUSE images on Microsoft Azure for testing SAP
 
-For SAP testing on Azure, use only SUSE Linux Enterprise Server (SLES) 11 SP4 and SLES 12. A special SUSE image is in the Azure image gallery ("SLES 11 SP3 for SAP CAL"), but this is not intended for general usage. It's reserved for the [SAP Cloud Appliance Library]
+For SAP testing on Azure, use only SUSE Linux Enterprise Server (SLES) 11 SP4 and SLES 12. A special SUSE image is in the Azure Marketplace ("SLES 11 SP3 for SAP CAL"), but this is not intended for general usage. It's reserved for the [SAP Cloud Appliance Library]
 (https://cal.sap.com/) solution. There was no option
 to hide this image from the public. So just don't use it.
 
@@ -69,7 +69,7 @@ The PowerShell commands below are valid for Azure PowerShell version 1.0.1 or la
 
 ## Installing WALinuxAgent in a SUSE VM
 
-The agent called WALinuxAgent is part of the SLES images in the Azure gallery. Here are places where you can find
+The agent called WALinuxAgent is part of the SLES images in the Azure Marketplace. Here are places where you can find
 information about installing it manually (e.g. when uploading a SLES OS VHD from on-premises):
 
 - [OpenSUSE] (http://software.opensuse.org/package/WALinuxAgent)
