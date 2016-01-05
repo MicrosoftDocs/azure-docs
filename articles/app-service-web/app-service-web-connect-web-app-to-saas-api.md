@@ -18,7 +18,7 @@
 
 # Connect a web app to an API app in Azure App Service
 
-This tutorial shows how to consume an API app from an ASP.NET web app hosted in [App Service](https://azure.microsoft.com/en-us/services/app-service/).
+This tutorial shows how to consume an API app from an ASP.NET web app hosted in [App Service](https://azure.microsoft.com/services/app-service/).
 
 ## Prerequisites
 
@@ -28,11 +28,6 @@ This tutorial builds upon the series from the API App tutorials:
 3. [Deploy an Azure API App](../app-service-dotnet-deploy-api-app)
 4. [Debug an Azure API App](../app-service-dotnet-remotely-debug-api-app)
 
-## Make the API app publicly accessible
-
-In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), select the API app. Click on the **Settings** button in the command bar. In the **Application Settings** blade, change the **Access Level** to **Public (anonymous)**.
-
-![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
 ## Create an ASP.NET MVC Application in Visual Studio
 
