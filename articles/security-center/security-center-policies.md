@@ -74,8 +74,7 @@ Security policies are configured for each subscription. To modify a security pol
 | SQL Auditing | Recommends that auditing of access to Azure SQL Servers and Databases be enabled for compliance, advanced detection and investigation purposes. |
 | SQL Transparent Data Encryption | Recommends that encryption at rest be enabled for your Azure SQL databases, associated backups and transaction log files so that even if your data is breached, it will not be readable. |
 
-10.Once you finish configuring all options, click **Save** to commit those changes.
-
+10. Once you finish configuring all options, click **Save** to commit those changes.
    >[AZURE.NOTE] Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the health and recommendations views. You can also enable it for the subscription or just for a select VM. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs.
 
 ## Next steps
