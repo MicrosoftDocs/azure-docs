@@ -141,7 +141,6 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Windows 10 IoT Core|  C, Javascript, C#|
 |[Samsung ARTIK](http://developer.samsung.com/artik) |Fedora | C|
 |[SOTEC CloudPlug](http://cloudplug.info/) |YOCTO | C|
-|[STMicroelectronics STM32 Nucleo](http://www.st.com/stm32nucleo) |STM32Cube | C|
 |[TI CC3200](http://www.ti.com/product/cc3200) |TI-RTOS 2.x | C|
 |[Toradex Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto)  | Javascript, Java|
 |[Toradex Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto)  | Javascript, Java|
