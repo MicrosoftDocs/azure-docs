@@ -34,45 +34,45 @@ Follow these steps to create a Windows VM using a Resource Manager template in t
 
 In the following commands, fill in a name that you want to use for the deployment, a name for the new resource group, and the location where the resource should be created.
 
-	```
-	$deployName="<deployment name>"
-	$RGName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureRmResourceGroup –Name $RGName –Location $locName
-	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-	```
+
+		$deployName="<deployment name>"
+		$RGName="<resource group name>"
+		$locName="<Azure location, such as West US>"
+		$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+		New-AzureRmResourceGroup –Name $RGName –Location $locName
+		New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+
 
 When you run the **New-AzureRmResourceGroupDeployment** command, you are prompted to supply the values of parameters in the "parameters" section of the JSON file. When you specify all the parameter values, the command creates the resource group and the virtual machine.
 
 You should see something like this:
 
-	```
-	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	newStorageAccountName: newsaacct
-	adminUsername: WinAdmin1
-	adminPassword: *********
-	dnsNameForPublicIP: contoso
-	VERBOSE: 10:56:59 AM - Template is valid.
-	VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
-	VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
-	VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
-	VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is running
-	VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is succeeded
-	VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
-	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
-	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
-	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
 
-	DeploymentName    : TestDeployment
-	ResourceGroupName : TestRG
-	ProvisioningState : Succeeded
-	Timestamp         : 4/28/2015 6:02:13 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
+		cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+		Supply values for the following parameters:
+		(Type !? for Help.)
+		newStorageAccountName: newsaacct
+		adminUsername: WinAdmin1
+		adminPassword: *********
+		dnsNameForPublicIP: contoso
+		VERBOSE: 10:56:59 AM - Template is valid.
+		VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
+		VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
+		VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
+		VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is running
+		VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is succeeded
+		VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
+		VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
+		VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
+		VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
+
+		DeploymentName    : TestDeployment
+		ResourceGroupName : TestRG
+		ProvisioningState : Succeeded
+		Timestamp         : 4/28/2015 6:02:13 PM
+		Mode              : Incremental
+		TemplateLink      :
+		Parameters        :
 											Name                   Type                       Value
 											===============        =========================  ==========
 											newStorageAccountName  String                     newsaacct
@@ -80,9 +80,8 @@ You should see something like this:
 											adminPassword          SecureString
 											dnsNameForPublicIP     String                     contoso
 											windowsOSVersion       String                     2012-R2-Datacenter
+		Outputs           :
 
-	Outputs           :
-	```
 
 ## Next Steps
 
