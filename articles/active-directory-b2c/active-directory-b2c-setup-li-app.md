@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory (AD) B2C preview: Provide Sign up and Sign in to Consumers with LinkedIn Accounts
@@ -34,18 +34,18 @@ To use LinkedIn as an identity provider in Azure Active Directory (AD) B2C, you 
 
     ![LinkedIn - Register app](./media/active-directory-b2c-setup-li-app/linkedin-register-app.png)
 
-5. Copy the values of **Client ID** and **Client Secret** (you can find them under the **Authentication Keys** section). You will need both of them to configure LinkedIn as an identity provider in your directory.
+5. Copy the values of **Client ID** and **Client Secret** (you can find them under the **Authentication Keys** section). You will need both of them to configure LinkedIn as an identity provider in your tenant.
 
     > [AZURE.NOTE]
     **Client Secret** is an important security credential.
 
-6. Enter [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) in the **Authorized Redirect URLs** field (under the **OAuth 2.0** section), where **{directory}** is to be replaced with your directory's name (for example, contoso.onmicrosoft.com) and click **Add**. Then click **Update**.
+6. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized Redirect URLs** field (under the **OAuth 2.0** section), where **{tenant}** is to be replaced with your tenant's name (for example, contoso.onmicrosoft.com) and click **Add**. Then click **Update**.
 
     ![LinkedIn - Setup app](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
-## Configure LinkedIn as an Identity Provider in your Directory
+## Configure LinkedIn as an Identity Provider in your Tenant
 
-1. [Navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For example, enter "LI".

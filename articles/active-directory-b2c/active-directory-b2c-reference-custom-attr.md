@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 #  Azure Active Directory B2C preview: use Custom Attributes to collect Information about your Consumers
@@ -27,7 +27,7 @@ Custom attributes use [Azure AD Graph API Directory Schema Extensions](https://m
 
 ## How to create a Custom Attribute
 
-1. [Navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)..
+1. [Follow these steps to navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **User attributes**.
 3. Click **+Add** at the top of the blade.
 4. Provide a **Name** for the custom attribute (for example, "ShoeSize") and optionally, a **Description**. Click **Create**. You're done!
@@ -39,7 +39,7 @@ The custom attribute is now available in the list of **User attributes** and for
 
 ## How to use a Custom Attribute in your Sign-up Policy
 
-1. Navigate to the B2C features blade on the [Azure Portal](htts://portal.azure.com/). Read [here](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) on how to do this.
+1. [Follow these steps to navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-up policies**.
 3. Open your sign-up policy (for example, "B2C_1_SiUp") by clicking on it. Click **Edit** at the top of the blade.
 4. Click **Sign-up attributes** and select the custom attribute (for example, "ShoeSize"). Click **OK**.
