@@ -25,10 +25,10 @@ Service-to-service communication is a critical integration point of an applicati
 Numerous considerations must be made when these service boundaries are wired together in a distributed system. These considerations include:
 
  - *Transport protocol*. Will you use HTTP for increased interoperability or a custom binary protocol for maximum throughput?
- - *Error handling*. How will permanent and transient errors be  handled? What will happen when a service moves to a different node?
+ - *Error handling*. How will permanent and transient errors be handled? What will happen when a service moves to a different node?
  - *Timeouts and latency*. In multitiered applications, how will each service layer handle latency through the stack and to the user?
 
-Whether you use one of the built-in service communication components provided by Service Fabric or build your own, testing the the interactions between your services is critical to ensuring resiliency in your application.
+Whether you use one of the built-in service communication components provided by Service Fabric or build your own, testing the interactions between your services is critical to ensuring resiliency in your application.
 
 ## Prepare for services to move
 
@@ -39,7 +39,7 @@ As services move around in the cluster, your clients and other services should b
 - The service instance or partition replica has moved since the last time you talked to it. This is a normal part of a service lifecycle, and it should be expected to happen during the lifetime of your application.
 - The service instance or partition replica is in the process of moving. Failover of a service from one node to another occurs very quickly in Service Fabric, but there may be a delay in availability if the communication component of your service is slow to start.
 
-it is important that these scenarios be handled gracefully so that the system runs smoothly. To do so, keep in mind that:
+It is important that these scenarios be handled gracefully so that the system runs smoothly. To do so, keep in mind that:
 
 - Every service that can be connected to has an *address* that it listens on (for example, HTTP or WebSockets). When a service instance or partition moves, its address endpoint changes (it moves to a different node with a different IP address). If you're using the built-in communication components, they will handle re-resolving service addresses for you.
 - There may be a temporary increase in service latency as the service instance starts up its listener again. This depends on how quickly the service opens the listener after the service instance is moved.
@@ -93,7 +93,7 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-In this example, we set `QuorumLossMode` to `PartialQuorumLoss` to indicate we want to induce quorum loss without taking down all replicas, so that read operations are still possible. To test a scenario where an entire partition is unavailable, you can set this switch to `FullQuorumLoss`.
+In this example, we set `QuorumLossMode` to `PartialQuorumLoss` to indicate that we want to induce quorum loss without taking down all replicas, This way, read operations are still possible. To test a scenario where an entire partition is unavailable, you can set this switch to `FullQuorumLoss`.
 
 ## Next steps
 
