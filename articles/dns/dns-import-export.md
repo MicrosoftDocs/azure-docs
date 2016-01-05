@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Import  domain to Azure DNS | Microsoft Azure"
+   pageTitle="Import and export a domain zone file with Azure DNS | Microsoft Azure"
    description="Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI"
    services="dns"
    documentationCenter="na"
@@ -93,7 +93,7 @@ It will report progress in the console window, as well as any errors or warnings
 
 ## Verify the DNS zone after import
 
-You can list the records via the Azure DNS API using the following Azure CLI command (you can also do this via PowerShell, using **Get-AzureRmDnsRecordSet**):
+You can list the records via the Azure DNS API using the following Azure CLI command (you can also do this via PowerShell, using **Get-AzureRmDnsRecordSet**).
 
 	azure network dns record-set list myresourcegroup contoso.com
 
@@ -176,5 +176,8 @@ Azure DNS is an Azure Resource Manager (ARM) -only service,  Azure CLI must be s
 	azure config mode arm
 ### Step 4
 To export the existing Azure DNS zone ‘contoso.com’ in resource group ‘myresourcegroup’ to the file ‘contoso.com.txt’ (in the current folder), run `azure network dns zone export`.
+
 	azure network dns zone export myresourcegroup contoso.com contoso.com.txt
+
 This command will call the Azure DNS service to enumerate record sets in the zone and export the results to a BIND-compatible zone file.
+
