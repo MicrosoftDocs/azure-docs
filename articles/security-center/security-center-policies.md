@@ -44,7 +44,8 @@ Security policies are configured for each subscription. To modify a security pol
     ![Enabling data collection](./media/security-center-policies/security-center-policies-fig1.png)
 
 4. Make sure **Collect data from virtual machines** options is **On**. This option enables automatic log collection for existing and new resources.
-> [AZURE.NOTE] It is strongly recommended that you turn Data Collection on for each of your subscriptions as this will ensure that security monitoring is available for all existing and new VMs. If you choose not to enable Data Collection in the security policy, a recommendation will be created that enables you to turn on Data Collection for select VMs.
+
+  > [AZURE.NOTE] It is strongly recommended that you turn Data Collection on for each of your subscriptions as this will ensure that security monitoring is available for all existing and new VMs. If you choose not to enable Data Collection in the security policy, a recommendation will be created that enables you to turn on Data Collection for select VMs.
 
 5. If your storage account is not configured yet, you may see a similar warning showed in the figure below when you open the **Security Policy**:
 
@@ -74,7 +75,8 @@ Security policies are configured for each subscription. To modify a security pol
 | SQL Transparent Data Encryption | Recommends that encryption at rest be enabled for your Azure SQL databases, associated backups and transaction log files so that even if your data is breached, it will not be readable. |
 
 10.Once you finish configuring all options, click **Save** to commit those changes.
-> [AZURE.NOTE] Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the health and recommendations views. You can also enable it for the subscription or just for a select VM. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs.
+
+  > [AZURE.NOTE] Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the health and recommendations views. You can also enable it for the subscription or just for a select VM. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs.
 
 ## Next steps
 In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
