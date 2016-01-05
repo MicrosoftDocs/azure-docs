@@ -161,6 +161,7 @@ These **types** are supported in a formula.
 
 - double
 - doubleVec
+- doubleVecList
 - string
 - timestamp -- timestamp is a compound structure which contains the following members:
 	- year
