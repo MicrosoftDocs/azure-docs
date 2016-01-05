@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="1/5/2016" 
+	ms.date="01/05/2016" 
 	ms.author="ricksal"/>
 
 
