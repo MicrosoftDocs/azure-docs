@@ -19,7 +19,7 @@
 
 #Perform advanced encoding tasks by customizing Media Encoder Standard presets
 
-This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets. The topic shows [how to use .NET to create an encoding task and a job that executes this task](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). It also shows how to supply custom presets to the encoding task. [This](https://msdn.microsoft.com/library/mt269962.aspx) document contains descriptions of elements that are used by these presets. 
+This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets. The topic shows [how to use .NET to create an encoding task and a job that executes this task](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). It also shows how to supply custom presets to the encoding task. For description of elements that are used by the presets, see [this document](https://msdn.microsoft.com/library/mt269962.aspx). 
 
 The custom presets that perform the following encoding tasks are demonstrated:
 
@@ -34,11 +34,11 @@ The following code example uses Media Services .NET SDK to perform the following
 
 - Create an encoding job.
 - Get a reference to the Media Encoder Standard encoder.
-- Load the custom XML or JSON preset. You can save the XML or JSON (for example, [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) or [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) in a file and use the following code to load the file.
+- Load the custom XML or JSON preset. You can save the XML or JSON (for example, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) or [JSON](media-services-custom-mes-presets-with-dotnet.md#json) in a file and use the following code to load the file.
 
 			// Load the XML (or JSON) from the local file.
 		    string configuration = File.ReadAllText(fileName);  
-- Add a single encoding task to the job. 
+- Add an encoding task to the job. 
 - Specify the input asset to be encoded.
 - Create an output asset that will contain the encoded asset.
 - Add an event handler to check the job progress.
@@ -180,11 +180,11 @@ The following code example uses Media Services .NET SDK to perform the following
 
 ##<a id="thumbnails"></a>Generate thumbnails
 
-This section shows how to customize a preset in order to generate thumbnails. The XML and JSON defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and add code that generates thumbnails.  
+This section shows how to customize a preset that generates thumbnails. The XML and JSON defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and add code that generates thumbnails.  
 
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
 
-Make sure to review the [Considerations](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) section.
+Make sure to review the [Considerations](media-services-custom-mes-presets-with-dotnet.md#considerations) section.
 
 ###<a id="json"></a>JSON preset
 
