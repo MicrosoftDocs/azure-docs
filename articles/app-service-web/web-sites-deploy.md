@@ -22,12 +22,13 @@ This article helps you determine the best option to deploy the files for your we
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), and then direct you to appropriate articles and 
 blogs with how-to instructions specific to your preferred option.
 
+<!--
 Briefly, the best way to deploy a web app is to set up a 
 [continuous delivery workflow](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) 
 integrated with your [source control system](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). 
 Automation not only makes the development process more efficient but also can make your backup and restore processes more 
 manageable and reliable.
-
+-->
 ## Overview of deployment processes
 
 As soon as you create or provision an app in Azure App Service, before you deploy any code to it, Azure App Service maintains the
@@ -76,6 +77,10 @@ with an [Azure SDK](https://azure.microsoft.com/downloads/) or WebMatrix, or oth
 and [Eclipse](https://www.eclipse.org), you can deploy to Azure directly from within your IDE. This approach can 
 help minimize the tooling for your end-to-end application life-cycle, since you can develop, debug, track, and deploy your app to Azure all 
 from without moving outside of your IDE. This option is ideal for an individual developer.
+
+Furthermore, The Azure SDK makes Azure resources first-class citizens in Visual Studio. You can create, delete, edit, start, and stop apps, 
+query the backend SQL database, live-debug the Azure app, and much more. It is the one-stop shop for all your DevOps needs when working
+with App Service apps. 
 
 <!--
 > [How to deploy from Visual Studio directly](#vs)  
@@ -135,6 +140,12 @@ For more information, see the following resources:
 * [Create a PHP-MySQL web app and deploy using FTP](web-sites-php-mysql-deploy-use-ftp.md).
 
 ## <a name="onprem"></a>Deploy from an on-premises source control system
+
+<div class="dev-center-tutorial-selector sublanding">
+	<a href="#tfs">How to deploy continuously with TFS</a>
+	<a href="#gitmercurial">How to deploy from an on-premises Git or Mercurial repository</a>
+</div>
+
 If you work on a development team of any size and uses an on-premises source code management (SCM) system like 
 [Team Foundation Server (TFS)](https://www.visualstudio.com/products/tfs-overview-vs.aspx), 
 [Git](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs), 
