@@ -27,7 +27,7 @@
         
             func loginAndGetData()
             {
-                let client = self.table.client
+                let client = self.table!.client
                 if client.currentUser != nil {
                     return
                 }
