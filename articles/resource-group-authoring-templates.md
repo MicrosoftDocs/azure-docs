@@ -36,7 +36,7 @@ Before getting started with the template, you should take some time to figure ou
 6. Whether you need to return values from the deployment
 
 To help you discover which resource types are available for deployment, which regions are supported for the type, and the available API versions for each type, 
-see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services). This topic provides examples and links that will help you determine the values you need to provide within your template.
+see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md). This topic provides examples and links that will help you determine the values you need to provide within your template.
 
 If a resource must be deployed after another resource, you can mark it as dependent on the other resource. You will see how to do this in [Resources](#resources) section below.
 
@@ -227,7 +227,7 @@ The next example shows a variable that is a complex JSON type, and variables tha
 ## Resources
 
 In the resources section, you define the resources are deployed or updated. This is where your template can get more complicated because you must understand the types you are deploying to provide the right values. To learn 
-much of what you need to know about resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services).
+much of what you need to know about resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
 
 You define resources with the following structure:
 
@@ -258,7 +258,7 @@ You define resources with the following structure:
 | tags                     |   No     | Tags that are associated with the resource.
 | comments                 |   No     | Your notes for documenting the resources in your template
 | dependsOn                |   No     | Resources that the resource being defined depends on. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The value can be a comma separated list of a resource names or resource unique identifiers.
-| properties               |   No     | Resource specific configuration settings. The values for the properties are exactly the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. For links to resource schema documentation or REST API, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services).
+| properties               |   No     | Resource specific configuration settings. The values for the properties are exactly the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. For links to resource schema documentation or REST API, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
 | resources                |   No     | Child resources that depend on the resource being defined. You can provide only resource types that are permitted by the schema of the parent resource. The fully-qualified name of the child resource type includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource is not implied; you must explicitly define that dependency. 
 
 
@@ -268,21 +268,21 @@ The resources section contains an array of the resources to deploy. Within each 
 
     "resources": [
        {
-           resource A
+           <resource A>
        },
        {
-           resource B
+           <resource B>
            "resources": [
                {
-                   child resource B-1
+                   <child resource B-1>
                },
                {   
-                   child resource B-2
+                   <child resource B-2>
                }
            ]
        },
        {
-           resource C
+           <resource C>
        }
     ]
 
