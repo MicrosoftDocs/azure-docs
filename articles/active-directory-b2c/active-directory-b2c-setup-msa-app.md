@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/23/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Provide Sign up and Sign in to Consumers with Microsoft Accounts
@@ -37,7 +37,7 @@ To use Microsoft Account as an identity provider in Azure Active Directory (AD) 
 
     ![MSA - API Settings](./media/active-directory-b2c-setup-msa-app/msa-api-settings.png)
 
-5. Enter [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) in the **Redirect URLs** field, where **{directory}** is to be replaced with your directory's name (for example, contosob2c.onmicrosoft.com). Click **Save** at the bottom of the page.
+5. Enter `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Redirect URLs** field, where **{tenant}** is to be replaced with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Save** at the bottom of the page.
 
     ![MSA - Redirect URL](./media/active-directory-b2c-setup-msa-app/msa-redirect-url.png)
 
@@ -48,9 +48,9 @@ To use Microsoft Account as an identity provider in Azure Active Directory (AD) 
 
     ![MSA - Client secret](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
 
-## Configure Microsoft Account as an Identity Provider in your Directory
+## Configure Microsoft Account as an Identity Provider in your Tenant
 
-1. [Navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Follow these steps to navigate to the B2C features blade on the Azure Portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. On the B2C features blade, click **Identity providers**.
 3. Click **+Add** at the top of the blade.
 4. Provide a friendly **Name** for the identity provider configuration. For example, enter "MSA".
