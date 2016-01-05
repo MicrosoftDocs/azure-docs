@@ -18,9 +18,9 @@
     
 # Deploy your app to Azure App Service
 
-This article gives you guidance on deploying the files for your web app, mobile app backend, or API app to 
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). It also provides links to articles and blogs 
-that contain how-to instructions. 
+This article helps you determine the best option to deploy the files for your web app, mobile app backend, or API app to 
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), and then direct you to appropriate articles and 
+blogs with how-to instructions specific to your preferred option.
 
 Briefly, the best way to deploy a web app is to set up a 
 [continuous delivery workflow](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) 
@@ -28,22 +28,16 @@ integrated with your [source control system](http://asp.net/aspnet/overview/deve
 Automation not only makes the development process more efficient but also can make your backup and restore processes more 
 manageable and reliable.
 
->[AZURE.NOTE] This article focuses on how to get your code running in App Service, and doesn't 
-offer a complete treatment of the provisioning of all the Azure resources that your app may need, 
-such as provisioning the resources, such as App Service plan, resource group, SQL database and Azure CDN. 
-Certain tools enable you to provision Azure resources as part of the app deployment workflow, such as 
-Visual Studio with Azure SDK and automation with Azure Resource Managment templates. 
-
 ## Overview of deployment processes
 
-When you deploy apps to Azure App Service, you deploy the application code itself, while Azure App Service maintains the
-application framework for you (ASP.NET, PHP, Node.js, etc). Some framework are enabled by default
+As soon as you create or provision an app in Azure App Service, before you deploy any code to it, Azure App Service maintains the
+application framework for you (ASP.NET, PHP, Node.js, etc). Some frameworks are enabled by default
 while others, like Java and Python, may need a simple checkmark configuration to enable it. In addition you can customize your
 application framework, such as the PHP version or the bitness of your runtime. For more information, see 
 [Configure your app in Azure App Service](web-sites-configure.md).
 
-Since you don't have to worry about the application framework, making your web pages or app code run in Azure App Service is simply 
-a matter of deploying your files and their respective directory structure, to the 
+Since you don't have to worry about the web server or application framework, deploying your app to Azure App Service is simply 
+a matter of deploying your code, content files, and their respective directory structure, to the 
 [**/site/wwwroot** directory in Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (or the **/Data/Jobs** directory 
 for WebJobs). Azure App Service supports the following three main deployment processes. The most commonly web development tools in the 
 industry supports one or more of these deployment processes.
@@ -56,7 +50,8 @@ in App Service. It enables you to push your code to Azure directly from any git 
 deployed from git, including version control, npm install (for Node.js), NuGet package restore and msbuild (for ASP.NET), and 
 [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) for continuous deployment and other automation tasks. All these services are
 triggered 
-    - every time **git push** is executed from a configured origin repository like GitHub or BitBucket, or
+    - every time **git push** is executed from a configured Git repository,
+	- every time **hg push** is executed from a configured Mercurial repository, or 
     - every time a linked cloud storage like DropBox or OneDrive is synced with App Service. 
 - [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): This is the same tool that automates web 
 application deployment to on-premises IIS servers. This means that you can deploy code to Azure directly from your favorite Microsoft IDEs, 
@@ -64,69 +59,16 @@ such as Visuall Studio, WebMatrix, and Visual Studio Team Services. This tool su
 connection strings and app settings, etc. Web Deploy differs from Kudu in that application binaries are built before they are deployed to Azure. 
 Similar to FTP, no additional services are provided by App Service.
 
-## <a name="ftp"></a>Deploy by copying files to Azure manually
-If you are already used to deploy your files by manually copying files, a common workflow for PHP developers, you can use the familiarity of 
-an [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) utility to copy files, such as Windows Explorer or 
-[FileZilla](https://filezilla-project.org/).
+While the deployment option you choose determines which deployment processes you can leverage, the actual DevOps functionality
+at your disposal depends on the combination of the the deployment process and the specific tools you choose. For example, if you perform 
+Web Deploy from [Visual Studio with Azure SDK](#vspros), you also get NuGet package restore and msbuild automation (built-in with Kudu) that Visual 
+Studio provides. In addition, the Azure SDK provides an easy-to-use wizard to help you create the Azure resources 
+you need directly within the Visual Studio interface.
 
-> [How to deploy by copying files to Azure manually](#howtoftp) 
-
-The pros of copying files manually are:
-
-- simplicity and familiarity of FTP tooling. You know exactly where your files are going and there is no complex tooling and process to learn.
-- added security with FTPS
-- good deployment solution if you like minimal tool for web development (e.g. develop web apps using NotePad).
-
-The cons of copying files manually are:
-
-- you are responsible for deploying files to the correct directories in Azure, with the correct file structure
-- no version control for the desired roll-back when deployment failures occur
-- you must manage app settings and connection strings to Azure resources manually
-- many FTP tools don't provide diff-only copying and simply copy all the files. For large apps, this leads to long deployment times even for 
-minor updates.
-
-### <a name="howtoftp"></a>How to deploy by copying files to Azure manually
-Copying files to Azure involves a few simple steps:
-
-1. Create deployment credentials for your app in the Azure Portal. To do this, in your app's blade, click **Settings** > **Deployment Credentials**.
-2. After you have configured deployment credentials, obtain the FTP connection information by going to **Settings** > **Properties**, and then
-copying the values for **FTP/Development User**, **FTP Host Name**, and **FTPS Host Name**.
-3. From youre FTP client, use the connection information you gathered to connect to your app.
-4. Copy your files and their respective directory structure to the 
-[**/site/wwwroot** directory in Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (or the **/Data/Jobs** directory 
-for WebJobs).
-5. Browse to your app's URL to verify the app is running properly. 
-
-You can also use FTP batch scripts to upload your files to Azure. For more information, see the following resource:
-
-* [Using FTP Batch Scripts](http://support.microsoft.com/kb/96269).
-
-## <a name="dropbox"></a>Deploy by syncing with a cloud folder
-A good alternative to [copying filse manually](#ftp) is syncing files and folders to App Service from a cloud storage service
-like OneDrive and DropBox. In the Azure Portal, you can configure a special folder in your cloud storage, work with your app
-code and content in that folder, and sync to App Service with the click of a button whenever you're ready.
-
-> [How to deploy by syncing with a cloud folder](#howtodropbox)
-
-The pros of syncing with a cloud folder are:
-
-- simplicity web deployment. Services like OneDrive and DropBox provide desktop sync clients, so you can 
-work with files in your Azure configured folder directly on your development machine, using your favorite 
-development tools.
-- simplicity of one-click sync 
-- Kudu managed sync process with all of Kudu's functionality (e.g. deployment versioning, rollback, package restore, automation)
-- good deployment solution if you like minimal tool for web development
-
-The cons of syncing with a cloud folder are:
-
-- you must manage app settings and connection strings to Azure resources manually
-- Not a good solution for a team project
-
-### <a name="howtodropbox"></a>How to deploy by syncing with a cloud folder
- 
-* [Deploy To Web Apps from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) to set up Dropbox deployment.
-* [Dropbox Deployment to Web Apps](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). This video walks through the process of connecting a Dropbox folder to a web app and shows how quickly you can get a web app up and running or maintain it using simple drag-and-drop deployment.
-* [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
+>[AZURE.NOTE] These deployment processes focus on getting your code running in App Service, and don't actually [provision the Azure resources](resource-group-portal)
+that your app may need, such as App Service plan, App Service app, and SQL database. However, Most of the linked how-to articles show you how to 
+provision the app AND deploy your code to it end-to-end. You can also find additional options for provisioning Azure resources in the
+[Automate deployment by using command-line tools](#automate) section.
 
 ## Deploy using an IDE
 If you are already using [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 
@@ -135,8 +77,14 @@ and [Eclipse](https://www.eclipse.org), you can deploy to Azure directly from wi
 help minimize the tooling for your end-to-end application life-cycle, since you can develop, debug, track, and deploy your app to Azure all 
 from without moving outside of your IDE. This option is ideal for an individual developer.
 
+<!--
 > [How to deploy from Visual Studio directly](#vs)  
 > [How to deploy from WebMatrix directly](#webmatrix)
+-->
+<div class="dev-center-tutorial-selector sublanding">
+	<a href="#vs">How to deploy from Visual Studio directly</a>
+	<a href="#webmatrix">How to deploy from WebMatrix directly</a>
+</div>
 
 The pros of deploying using an IDE are:
 
@@ -150,6 +98,7 @@ The cons of deploying using an IDE are:
 - The IDE of your choice may provide limited diff functionality for FTP
 - Not a good solution for a team project without a source control system
 
+<a name="vspros"></a>
 Additional pros of deploying using Visual Studio with Azure SDK are:
 
 - Support for all three deployment processes (FTP, [Kudu/Git](#onprem), and Web Deploy), depending on your preference
@@ -291,7 +240,71 @@ For more information, see the following resources:
 
 - [Publishing from Source Control to Web Apps with Git](web-sites-publish-source-control.md). How to use Git to publish directly from your local computer to Web Apps (in Azure, this method of publishing is called Local Git). 
 
-## Automate deployment by using command-line tools
+## <a name="ftp"></a>Deploy by copying files to Azure manually
+If you are already used to deploy your files by manually copying files, a common workflow for PHP developers, you can use the familiarity of 
+an [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) utility to copy files, such as Windows Explorer or 
+[FileZilla](https://filezilla-project.org/).
+
+> [How to deploy by copying files to Azure manually](#howtoftp) 
+
+The pros of copying files manually are:
+
+- simplicity and familiarity of FTP tooling. You know exactly where your files are going and there is no complex tooling and process to learn.
+- added security with FTPS
+- good deployment solution if you like minimal tool for web development (e.g. develop web apps using NotePad).
+
+The cons of copying files manually are:
+
+- you are responsible for deploying files to the correct directories in Azure, with the correct file structure
+- no version control for the desired roll-back when deployment failures occur
+- you must manage app settings and connection strings to Azure resources manually
+- many FTP tools don't provide diff-only copying and simply copy all the files. For large apps, this leads to long deployment times even for 
+minor updates.
+
+### <a name="howtoftp"></a>How to deploy by copying files to Azure manually
+Copying files to Azure involves a few simple steps:
+
+1. Create deployment credentials for your app in the Azure Portal. To do this, in your app's blade, click **Settings** > **Deployment Credentials**.
+2. After you have configured deployment credentials, obtain the FTP connection information by going to **Settings** > **Properties**, and then
+copying the values for **FTP/Development User**, **FTP Host Name**, and **FTPS Host Name**.
+3. From youre FTP client, use the connection information you gathered to connect to your app.
+4. Copy your files and their respective directory structure to the 
+[**/site/wwwroot** directory in Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (or the **/Data/Jobs** directory 
+for WebJobs).
+5. Browse to your app's URL to verify the app is running properly. 
+
+You can also use FTP batch scripts to upload your files to Azure. For more information, see the following resource:
+
+* [Using FTP Batch Scripts](http://support.microsoft.com/kb/96269).
+
+## <a name="dropbox"></a>Deploy by syncing with a cloud folder
+A good alternative to [copying filse manually](#ftp) is syncing files and folders to App Service from a cloud storage service
+like OneDrive and DropBox. In the Azure Portal, you can configure a special folder in your cloud storage, work with your app
+code and content in that folder, and sync to App Service with the click of a button whenever you're ready.
+
+> [How to deploy by syncing with a cloud folder](#howtodropbox)
+
+The pros of syncing with a cloud folder are:
+
+- simplicity web deployment. Services like OneDrive and DropBox provide desktop sync clients, so you can 
+work with files in your Azure configured folder directly on your development machine, using your favorite 
+development tools.
+- simplicity of one-click sync 
+- Kudu managed sync process with all of Kudu's functionality (e.g. deployment versioning, rollback, package restore, automation)
+- good deployment solution if you like minimal tool for web development
+
+The cons of syncing with a cloud folder are:
+
+- you must manage app settings and connection strings to Azure resources manually
+- Not a good solution for a team project
+
+### <a name="howtodropbox"></a>How to deploy by syncing with a cloud folder
+ 
+* [Deploy To Web Apps from Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). How to use the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) to set up Dropbox deployment.
+* [Dropbox Deployment to Web Apps](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). This video walks through the process of connecting a Dropbox folder to a web app and shows how quickly you can get a web app up and running or maintain it using simple drag-and-drop deployment.
+* [Azure Forum for Git, Mercurial, and Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
+
+## <a name="automate"></a>Automate deployment by using command-line tools
 
 * [Automate deployment with MSBuild](#msbuild)
 * [Copy files with FTP tools and scripts](#ftp)
