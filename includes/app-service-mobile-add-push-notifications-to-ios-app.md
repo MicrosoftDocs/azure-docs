@@ -103,7 +103,33 @@
                 didFailToRegisterForRemoteNotificationsWithError error: NSError) {
             }
             
-            func application(application: UIApplication,
-                didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+    
+    func application(application: UIApplication,
+        didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+            
+            NSLog("%@", userInfo)
+            
+            let apsNotification = userInfo["aps"] as! NSDictionary
+            let apsString       = apsNotification["alert"] as! String
+            
+            
+            let alert = UIAlertController(title: "Alert", message:apsString, preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default) { _ in
+                NSLog("OK")
             }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { _ in
+                NSLog("Cancel")
+            }
+            
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            
+            var currentViewController = UIApplication.sharedApplication().delegate?.window??.rootViewController
+            while currentViewController?.presentedViewController != nil {
+                currentViewController = currentViewController?.presentedViewController
+            }
+            
+            currentViewController?.presentViewController(alert, animated: true){}
+            
+    }
     
