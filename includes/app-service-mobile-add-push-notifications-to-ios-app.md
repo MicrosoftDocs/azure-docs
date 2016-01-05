@@ -99,11 +99,11 @@
                 didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
             }
             
-            func application(application: UIApplication,
-                didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-            }
-            
-    
+        func application(application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+            NSLog("Failed to register for remote notifications: \n%@", error.description)
+        }
+
         func application(application: UIApplication,
         didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
             
