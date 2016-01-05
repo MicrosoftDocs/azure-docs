@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Working with the Mobile Apps Android Client Library"
-	description="Learn how to use an Android client for Azure Mobile Apps."
-	services="mobile-apps"
+	pageTitle="How to use the Android Mobile Apps Client Library"
+	description="How to use Android client SDK for Azure Mobile Apps."
+	services="app-service\mobile"
 	documentationCenter="android"
 	authors="RickSaling"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="mobile-apps"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/22/2015" 
+	ms.date="1/5/2016" 
 	ms.author="ricksal"/>
 
 
@@ -24,7 +24,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as querying for data (inserting, updating, and deleting), authenticating users, handling errors, and customizing the client. It also does a deep-dive into several common Mobile Apps client methods.
+This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as querying for data (inserting, updating, and deleting), authenticating users, handling errors, and customizing the client. It also does a deep-dive into common client code used in most mobile apps.
 
 This guide focuses on the client-side Android SDK.  To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or [How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
@@ -57,11 +57,11 @@ Change both **build.gradle** files:
 		    }
 		} 
 
-2. Add this to the *Module app* level **build.gradle** file inside the *dependencies* tag:
+2. Add this code to the *Module app* level **build.gradle** file inside the *dependencies* tag:
 
-		compile 'com.microsoft.azure:azure-mobile-android:**version**'
+		compile 'com.microsoft.azure:azure-mobile-android:3.0'
 
-	Replace the **version** placeholder with one of the supported versions, listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034). Currently the latest version is 3.0.
+	Currently the latest version is 3.0. The supported versions are listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034). 
 
 ###<a name="enable-internet"></a>Enable internet permission
 To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the following line of code to your **AndroidManifest.xml** file:
@@ -93,7 +93,7 @@ The corresponding typed client-side object is the following:
 
 The code will reside in a file called **ToDoItem.java**.
 
-If your SQL Azure table contains more columns, you would add fields corresponding to them here.
+If your SQL Azure table contains more columns, you would add the corresponding fields  to this class.
 
 For example if it had an integer Priority column, then you might add this field, along with its getter and setter methods:
 
