@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/19/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # Temporary tables in SQL Data Warehouse
