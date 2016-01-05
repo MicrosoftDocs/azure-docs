@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
-	ms.date="09/15/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Connect a web app to an API app in Azure App Service
 
-This tutorial shows how to consume an API app from an ASP.NET web app hosted in [App Service](../app-service.md).
+This tutorial shows how to consume an API app from an ASP.NET web app hosted in [App Service](https://azure.microsoft.com/en-us/services/app-service/).
 
 ## Prerequisites
 
@@ -44,11 +44,11 @@ In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), select the
 
 	![New ASP.NET Application](./media/app-service-web-connect-web-app-to-saas-api/2-Change-Auth-To-No-Auth.png)
 
-1. In Solution Explorer, right-click the newly created Web Application project and select **Add Azure App Reference**.
+1. In Solution Explorer, right-click the newly created Web Application project and select **Add** > **REST API Client...**.
 
 	![Add Azure API App Reference...](./media/app-service-web-connect-web-app-to-saas-api/3-Add-Azure-API-App-SDK.png)
 
-1. In the **Existing API Apps** dropdown list, select the API App you would like to connect to.
+1. In the **Add REST API Client** select download from Microsoft Azure API App and click browse. select the API App you would like to connect to.
 
 	![Select Existing API App](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
@@ -57,15 +57,14 @@ In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), select the
 1. To leverage the generated API code, open the HomeController.cs file and replace the `Contact` action with the following:
 
 	    public async Task<ActionResult> Contact()
-	    {
-	        ViewBag.Message = "Your contact page.";
-	
-	        var contacts = new ContactsList();
-	        var response = await contacts.Contacts.GetAsync();
-	        var contactList = response.Body;
-	
-	        return View(contactList);
-	    }
+        {
+            ViewBag.Message = "Your contact page.";
+
+            var contacts = new ContactsList12242015();
+            var contactList = await contacts.Contacts.GetAsync();
+            
+            return View(contactList);
+        }
 
 	![HomeController.cs Code Updates](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
