@@ -81,6 +81,14 @@
 
 **Swift**:
 
+1. Add file **ClientManager.swift**
+
+
+class ClientManager {
+    static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
+}
+
+ 
 1. In **AppDelegate.swift**, replace the body of `func application` as follows:
 
         func application(application: UIApplication,
