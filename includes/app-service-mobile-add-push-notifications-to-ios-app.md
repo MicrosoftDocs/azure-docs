@@ -81,7 +81,7 @@
 
 **Swift**:
 
-1. Add file **ClientManager.swift** with the following contents:
+1. Add file **ClientManager.swift** with the following contents. Replace _%AppUrl%_ with the URL of the Azure Mobile App backend.
         
         class ClientManager {
             static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
