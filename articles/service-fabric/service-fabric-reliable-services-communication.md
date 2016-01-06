@@ -18,7 +18,7 @@
 
 # The Reliable Services communication model
 
-Azure Service Fabric as a platform is completely agnostic about communication between services. All protocols and stacks are fair game, from UDP to HTTP. It's up to the service developer to choose how services should communicate. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to roll out your custom communication stack. These include abstractions that clients can use to discover and communicate with service endpoints.
+Azure Service Fabric as a platform is completely agnostic about communication between services. All protocols and stacks are acceptable, from UDP to HTTP. It's up to the service developer to choose how services should communicate. The Reliable Services application framework provides a few prebuilt communication stacks and tools that you can use to roll out your custom communication stack. These include abstractions that clients can use to discover and communicate with service endpoints.
 
 ## Set up service communication
 
