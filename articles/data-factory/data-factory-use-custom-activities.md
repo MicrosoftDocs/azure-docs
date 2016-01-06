@@ -669,7 +669,7 @@ Debugging consists of a few basic techniques:
 ## Update the custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.
 
-## Extended properties
+## Declaring and accessing extended properties
 You can declare extended properties in the activity JSON as shown below: 
 
 	"typeProperties": {
