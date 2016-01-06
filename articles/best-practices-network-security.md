@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="1/6/2016"
+   ms.date="01/06/2016"
    ms.author="jonor;sivae"/>
 
 # Microsoft Cloud Services and Network Security
