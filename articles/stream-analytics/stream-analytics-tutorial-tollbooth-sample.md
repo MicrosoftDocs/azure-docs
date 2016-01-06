@@ -159,7 +159,7 @@ Click on “tolldata” container to see uploaded JSON file with vehicle registr
 ### Azure SQL Database Review
 Click on “SQL Databases” menu item on the left side of the Azure Management Portal to see Azure SQL Database that will be used in the Lab. Click on “TollDataDB” and copy the server name without the port number (<serverName>.database.windows.net for example). This will be needed in the next step.
   
-![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-14.png)  
+![Authenticate Azure Account](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-15.png)  
   
 ## Connect Visual Studio to Azure SQL Database
 Visual Studio will be leveraged to review the query results in the output database.  
