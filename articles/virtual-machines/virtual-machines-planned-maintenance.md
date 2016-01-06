@@ -3,7 +3,7 @@
 	description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="kenazk"
+	authors="drewm"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="01/05/2016"
+	ms.author="drewm"/>
 
 
 # Planned maintenance for Azure virtual machines
@@ -72,6 +72,11 @@ After a virtual machine is restored, here is an example of what your Windows Eve
 <!--Image reference-->
 ![][image2]
 
+To determine which virtual machines are configured in a multi-instance configuration using the Azure portal, Azure PowerShell or Azure CLI. For example to determine which virtual machines are in a multi-instance configuration you can browse the list of virtual machines with the Availability Set column added to the virtual machines browse dialog. In the below example the virtual machines Example-VM1 and Example-VM2 are in a muilti-instance configuration:
+
+<!--Image reference-->
+![][image4]
+
 ## Single-instance configuration updates
 
 After the multi-instance configuration updates are complete, Azure will perform single-instance configuration updates. This update also causes a reboot to your virtual machines that are not running in availability sets.
@@ -114,6 +119,7 @@ For example, during a planned maintenance, Azure will not roll out an update to 
 [image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
+[image4]: ./media/virtual-machines-planned-maintenance/AvailabilitySetExample.PNG
 
 
 <!--Link references-->
