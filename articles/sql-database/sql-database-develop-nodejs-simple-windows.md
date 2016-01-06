@@ -1,33 +1,39 @@
-<properties 
-	pageTitle="Connect to SQL Database by using Node.js on Windows" 
+<properties
+	pageTitle="Connect to SQL Database by using Node.js on Windows"
 	description="Presents a Node.js code sample you can use to connect to Azure SQL Database. The sample runs on a Windows client computer."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="meet-bhagdev" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="meet-bhagdev"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="11/19/2015"
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Connect to SQL Database by using Node.js on Windows
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
 
 This topic presents a Node.js code sample that you can use to connect to Azure SQL Database. The Node.js program runs on a Windows client computer. To manage the connection, the msnodesql driver is used.
 
 
-## Requirements
+## Prerequisites
 
 
 The following software items must exist on your client development computer.

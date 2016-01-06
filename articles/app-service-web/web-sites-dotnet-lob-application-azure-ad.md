@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="10/14/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Create a .NET MVC web app in Azure App Service with Azure Active Directory authentication #
@@ -46,8 +46,8 @@ You need the following to complete this tutorial:
 
 - An Azure Active Directory tenant with users in various groups
 - Permissions to create applications on the Azure Active Directory tenant
-- Visual Studio 2013
-- [Azure SDK 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) or later
+- Visual Studio 2013 or later
+- [Azure SDK 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) or later
 
 <a name="bkmk_sample"></a>
 ## Use sample application for line-of-business template ##
@@ -91,9 +91,17 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 4. Once signed in, click **New** to create a new web app in Azure.
 
-5. Fill in all required fields. You will need a database connection for this application to store role mappings, cached tokens, and any application data.
+5. In **Hosting**, Fill in all required fields. 
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
+
+5. You will need a database connection for this application to store role mappings, cached tokens, and any application data. In **Create App Service** dialog, click **Services**.  Next to the **SQL Database** click the plus sign to add a new database.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-database.png)
+
+5. In the **Configure SQL Database** dialog, select or create a server, set a name and click **OK**.
+
+	 ![](./media/web-sites-dotnet-lob-application-azure-ad/4-config-database.png)
 
 6. Click **Create**. Once the web app is created, the **Publish Web** dialog is opened.
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="BizTalk Transform" 
-	description="Learn how to transform XML documents from one schema to another." 
+	pageTitle="Using the BizTalk Transform in logic apps in Azure App Service| Microsoft Azure" 
+	description="Learn how to transform XML documents from one schema to another" 
 	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="12/07/2015"
 	ms.author="anuragdalmia"/>
 
-#BizTalk Transform
+# BizTalk Transform
 
 
 ## Overview
@@ -47,7 +47,7 @@ Transforms or Maps are created in Visual Studio using the [Microsoft Azure BizTa
 
 For help creating a Map, see [Create a Map in Visual Studio](http://aka.ms/createamapinvs). After the map is created and ready for production, you can add the Map (.trfm file) to the BizTalk Transform API App you created in the Azure portal. 
 
-If the map changes or is modified after it is uploaded, you can upload the updated map and it replaces the existing map in the Transform API App.
+If the map changes or is modified after it is uploaded, you can upload the updated map to replace the existing map in the Transform API App.
 
 1.	Select **Browse** on Azure portal (left of the screen) and select **API Apps**. If **API Apps** isn't displayed, select **Everything**, and select **API Apps** from the available list:
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/23/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Recover a database from user error in SQL Data Warehouse
@@ -132,6 +132,6 @@ To learn about the business continuity features of other Azure SQL Database edit
 [Database operation status]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Get restorable dropped database]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [List restorable dropped databases]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/en-us/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/library/dn720218.aspx
 
 <!--Other Web references-->

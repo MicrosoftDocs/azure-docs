@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Provision HDInsight Hadoop clusters with Azure Data Lake Store using the portal | Azure" 
-   description="Use Azure Portal to configure and use HDInsight Hadoop clusters with Azure Data Lake Store" 
+   pageTitle="Create HDInsight Hadoop clusters with Azure Data Lake Store using the portal | Azure" 
+   description="Use Azure Portal to create and use HDInsight Hadoop clusters with Azure Data Lake Store" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Provision an HDInsight cluster with Data Lake Store using Azure Portal
+# Create an HDInsight cluster with Data Lake Store using Azure Portal
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Learn how to use Azure Portal to configure an HDInsight cluster (Hadoop, HBase, or Storm) to work with an Azure Data Lake Store. Some important considerations for this release:
+Learn how to use Azure Portal to create an HDInsight cluster (Hadoop, HBase, or Storm) with access to Azure Data Lake Store. Some important considerations for this release:
 
 * **For Hadoop and Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
 
@@ -92,7 +92,7 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 	Perform the following tasks under your Data Lake Store account. 
 
 	* [Create a folder in your Data Lake Store](data-lake-store-get-started-portal.md#createfolder).
-	* [Upload a file to you Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	* [Upload a file to you Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 	You will use the uploaded files later when you test the Data Lake Store account with the HDInsight cluster.
 
@@ -204,5 +204,5 @@ For instructions on how to add a service principal to a Data Lake Store file sys
 
 * [PowerShell: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
-[makecert]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

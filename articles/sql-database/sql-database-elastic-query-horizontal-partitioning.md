@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/06/2016"
     ms.author="sidneyh;torsteng" />
 
 # Elastic database queries for sharding (horizontal partitioning)
 
 This document explains how to setup elastic database queries for horizontal partitioning scenarios and how to perform your queries. For a definition of the horizontal partitioning scenario, see the [elastic database query overview (preview)](sql-database-elastic-query-overview.md).
+
+![Query across shards][1]
 
 The functionality is a part of the Azure SQL [Database Elastic Database feature set](sql-database-elastic-scale.md).  
  
@@ -236,4 +238,5 @@ Use regular SQL Server connection strings to connect your application, your BI a
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->

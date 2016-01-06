@@ -1,6 +1,6 @@
 <properties
    pageTitle="Create a virtual network with a site-to-site VPN connection using Azure Resource Manager and PowerShell | Microsoft Azure"
-   description="This article walks you through creating a VNet using the Resource Manager model and connecting it to your local on-premises network using a site-to-site VPN gateway connection. Includes additional steps to modify IP address prefixes for existing local sites."
+   description="This article walks you through creating a VNet using the Resource Manager model and connecting it to your local on-premises network using a S2S VPN gateway connection. Site to site connections can be used for hybrid configurations. Includes additional steps to modify IP address prefixes for existing local sites."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/30/2015"
+   ms.date="12/14/2015"
    ms.author="cherylmc"/>
 
 # Create a virtual network with a site-to-site VPN connection using PowerShell
@@ -23,9 +23,12 @@
 - [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the Azure Resource Manager deployment model. You can select the article for the deployment model and deployment tool by using the tabs above.
+This article will walk you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the Azure Resource Manager deployment model. If you are looking for a different deployment model for this configuration, use the tabs above to select the article you want. If you want to connect VNets together, but are not creating a connection to an on-premises location, see [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md).
 
->[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md).
+
+**About Azure deployment models**
+
+[AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 ## Before you begin
 
@@ -37,8 +40,11 @@ Verify that you have the following items before beginning configuration.
 	
 - An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-- Azure PowerShell cmdlets (1.0 or later). You can download and install this version from the Windows PowerShell section of the [Download page](http://azure.microsoft.com/downloads/). 
+## Install the PowerShell modules
+
+You'll need the latest version of the Azure Resource Manager PowerShell cmdlets to configure your connection.
 	
+[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)] 
 
 ## 1. Connect to your subscription 
 
@@ -47,15 +53,15 @@ Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For
 
 Open your PowerShell console and connect to your account. Use the following sample to help you connect:
 
-		    Login-AzureRmAccount
+	Login-AzureRmAccount
 
 Check the subscriptions for the account.
 
-		    Get-AzureRmSubscription 
+	Get-AzureRmSubscription 
 
 Specify the subscription that you want to use.
 
-		    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ## 2. Create a virtual network and a gateway subnet
@@ -70,28 +76,28 @@ Use the sample below to create a virtual network and a gateway subnet. Substitut
 First, create a resource group:
 
 	
-		New-AzureRmResourceGroup -Name testrg -Location 'West US'
+	New-AzureRmResourceGroup -Name testrg -Location 'West US'
 
 Next, create your virtual network. Verify that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network.
 
 The sample below creates a virtual network named *testvnet* and two subnets, one called *GatewaySubnet* and the other called *Subnet1*. It's important to create one subnet named specifically *GatewaySubnet*. If you name it something else, your connection configuration will fail. 
 
-		$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
-		$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
-		New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
+	$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
+	$subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
+	New-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $subnet1, $subnet2
 
 ### <a name="gatewaysubnet"></a>To add a gateway subnet to a VNet (optional)
 
-This step is required only if you need to add a gateway subnet to a VNet.
+This step is required only if you need to add a gateway subnet to a VNet that you previously created.
 
 If you already have an existing virtual network and you want to add a gateway subnet to it, you can create your gateway subnet by using the sample below. Be sure to name the gateway subnet 'GatewaySubnet'. If you name it something else, you'll create a subnet, but it won't be seen by Azure as a gateway subnet.
 
-		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
-		Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
 
 Now, set the configuration. 
 
-		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 ## 3. Add your local site
 
@@ -106,11 +112,11 @@ When using the PowerShell examples, note the following:
 
 To add a local site with a single address prefix:
 
-		New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+	New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 
 To add a local site with multiple address prefixes:
 
-		New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+	New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
 
 ### To modify IP address prefixes for your local site
 
@@ -123,20 +129,19 @@ Next, you'll request a public IP address to be allocated to your Azure VNet VPN 
 
 Use the PowerShell sample below. The Allocation Method for this address must be Dynamic. 
 
-		$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
+	$gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
 ## 5. Create the gateway IP addressing configuration
 
 The gateway configuration defines the subnet and the public IP address to use. Use the sample below to create your gateway configuration. 
 
-
-		$vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
-		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
+	$vnet = Get-AzureRmVirtualNetwork -Name testvnet -ResourceGroupName testrg
+	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+	$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
 ## 6. Create the gateway
 
-In this step, you'll create the virtual network gateway. Note that that creating a gateway takes a while to complete. 
+In this step, you'll create the virtual network gateway. Note that that creating a gateway can take a long time to complete. Often 20 minutes or more. 
 
 Use the following values:
 
@@ -157,10 +162,10 @@ To find the public IP address of your virtual network gateway, use the following
 
 Next, you'll create the site-to-site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values for your own. The shared key must match the value you used for your VPN device configuration.
 
-		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 After a short while, the connection will be established. 
 
@@ -170,7 +175,7 @@ At this time, the site-to-site VPN connections created with Resource Manager are
 
 You can use the following cmdlet example, configuring the values to match your own. When prompted, select *A* in order to run All.
 
-		Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
+	Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
  After the cmdlet has finished, scroll through to view the values. In the example below, the connection status shows as *Connected* and you can see ingress and egress bytes.
 
@@ -202,7 +207,7 @@ You can use the following cmdlet example, configuring the values to match your o
 	  }
 
 
-## To Modify IP address prefixes for a local site
+## To modify IP address prefixes for a local site
 
 If you need to change the prefixes for your local site, use the instructions below.  Two sets of instructions are provided and depend on whether you have already created your VPN gateway connection. 
 
@@ -217,7 +222,7 @@ If you need to change the prefixes for your local site, use the instructions bel
 
 - **To remove** an address prefix from a local site that doesn't have a VPN connection, use the example below. Leave out the prefixes that you no longer need. In this example, we no longer need prefix 20.0.0.0/24 (from the previous example), so we will update the local site and exclude that prefix.
 
-		local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
 ### Add or remove prefixes with a VPN gateway connection
@@ -232,18 +237,17 @@ If you have created your VPN connection and want to add or remove the IP address
 You can use the following sample as a guideline.
 
 
-		$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+	$gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-		remove-AzureRmVirtualNetworkGatewayConnection -Name vnetgw1 -ResourceGroupName testrg
+	Remove-AzureRmVirtualNetworkGatewayConnection -Name vnetgw1 -ResourceGroupName testrg
 
-		$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-		Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+	$local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+	Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
 	
-
-		New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
 ## Next steps
 
-Add a virtual machine to your virtual network. [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/virtual-machines-windows-tutorial.md) for steps.

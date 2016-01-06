@@ -13,20 +13,40 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/30/2015"
+   ms.date="01/05/2016"
    ms.author="tomfitz"/>
 
 # Authoring Azure Resource Manager templates
 
-Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
+Azure applications typically require a combination of resources (such as a database server, database, or website) to meet the desired goals. Rather than deploying and managing each resource separately, you can create an Azure Resource Manager template that deploys and provisions all of the resources for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment. This topic describes the sections of the template. 
 
-This topic describes the sections of the template. For the actual schemas, see [Azure Resource Manager Schemas](https://github.com/Azure/azure-resource-manager-schemas). Visual Studio provides tools to assist you with creating templates. For more information about using Visual Studio with your templates, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) and [Editing Resource Manager templates with Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
+Visual Studio provides tools to assist you with creating templates. For more information about using Visual Studio with your templates, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) and [Editing Resource Manager templates with Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
 You must limit the size your template to 1 MB, and each parameter file to 64 KB. The 1 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
 
+## Plan your template
+
+Before getting started with the template, you should take some time to figure out what you wish to deploy and how you will use the template. Specifically, you should consider:
+
+1. Which resources types you need to deploy
+2. Where those resources will reside
+3. Which version of the resource provider API you will use when deploying the resource
+4. Whether any of the resources must be deployed after other resources
+5. Which values you want to pass in during deployment, and which values you want to define directly in the template
+6. Whether you need to return values from the deployment
+
+To help you discover which resource types are available for deployment, which regions are supported for the type, and the available API versions for each type, 
+see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md). This topic provides examples and links that will help you determine the values you need to provide within your template.
+
+If a resource must be deployed after another resource, you can mark it as dependent on the other resource. You will see how to do this in [Resources](#resources) section below.
+
+You can vary the outcome of your template deployment by providing parameters values during execution. You will see how to do that in the [Parameters](#parameters) section below.
+
+You can return values from your deployment in the [Outputs](#outputs) section.
+
 ## Template format
 
-The following example shows the sections that make up the basic structure of a template.
+In its simplest structure, a template contains the following elements.
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -39,11 +59,11 @@ The following example shows the sections that make up the basic structure of a t
 
 | Element name   | Required | Description
 | :------------: | :------: | :----------
-| $schema        |   Yes    | Location of the JSON schema file that describes the version of the template language.
-| contentVersion |   Yes    | Version of the template (such as 1.0.0.0). When deploying resources using the template, this value can be used to make sure that the right template is being used.
+| $schema        |   Yes    | Location of the JSON schema file that describes the version of the template language. You should use the URL shown above.
+| contentVersion |   Yes    | Version of the template (such as 1.0.0.0). You can provide any value for this element. When deploying resources using the template, this value can be used to make sure that the right template is being used.
 | parameters     |   No     | Values that are provided when deployment is executed to customize resource deployment.
 | variables      |   No     | Values that are used as JSON fragments in the template to simplify template language expressions.
-| resources      |   Yes    | Types of services that are deployed or updated in a resource group.
+| resources      |   Yes    | Resource types that are deployed or updated in a resource group.
 | outputs        |   No     | Values that are returned after deployment.
 
 We will examine the sections of the template in greater detail later in this topic. For now, we will review some of the syntax that makes up the template.
@@ -67,9 +87,11 @@ For the full list of template functions, see [Azure Resource Manager template fu
 
 ## Parameters
 
-In the parameters section of the template, you specify which values a user can input when deploying the resources. You can use these parameter values throughout the template to set values for the deployed resources. Only parameters that are declared in the parameters section can be used in other sections of the template.
+In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You do not have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
 
-Within parameters section, you cannot use a parameter value to construct another parameter value. That type of operation typically happens in the variables section.
+You can use these parameter values throughout the template to set values for the deployed resources. Only parameters that are declared in the parameters section can be used in other sections of the template.
+
+Within parameters section, you cannot use a parameter value to construct another parameter value. You construct new values in the variables section.
 
 You define parameters with the following structure:
 
@@ -150,7 +172,7 @@ The following example shows how to define parameters:
 
 ## Variables
 
-In the variables section, you construct values that can be used to simplify template language expressions. Typically, these variables will be based on values provided from the parameters.
+In the variables section, you construct values that can be used throughout your template. Typically, these variables will be based on values provided from the parameters. You do not need to define variables, but they often simplify your template by reducing complex expressions.
 
 You define variables with the following structure:
 
@@ -204,7 +226,8 @@ The next example shows a variable that is a complex JSON type, and variables tha
 
 ## Resources
 
-In the resources section, you define the resources are deployed or updated.
+In the resources section, you define the resources are deployed or updated. This is where your template can get more complicated because you must understand the types you are deploying to provide the right values. To learn 
+much of what you need to know about resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
 
 You define resources with the following structure:
 
@@ -221,7 +244,7 @@ You define resources with the following structure:
          ],
          "properties": "<settings-for-the-resource>",
          "resources": [
-           "<array-of-dependent-resources>"
+           "<array-of-child-resources>"
          ]
        }
     ]
@@ -231,18 +254,47 @@ You define resources with the following structure:
 | apiVersion               |   Yes    | Version of the REST API to use for creating the resource. To determine the available version numbers for a particular resource type, see [Supported API versions](../resource-manager-supported-services/#supported-api-versions).
 | type                     |   Yes    | Type of the resource. This value is a combination of the namespace of the resource provider and the resource type that the resource provider supports.
 | name                     |   Yes    | Name of the resource. The name must follow URI component restrictions defined in RFC3986.
-| location                 |   No     | Supported geo-locations of the provided resource.
+| location                 |   No     | Supported geo-locations of the provided resource. To determine the available locations, see [Supported regions](../resource-manager-supported-services/#supported-regions).
 | tags                     |   No     | Tags that are associated with the resource.
 | comments                 |   No     | Your notes for documenting the resources in your template
 | dependsOn                |   No     | Resources that the resource being defined depends on. The dependencies between resources are evaluated and resources are deployed in their dependent order. When resources are not dependent on each other, they are attempted to be deployed in parallel. The value can be a comma separated list of a resource names or resource unique identifiers.
-| properties               |   No     | Resource specific configuration settings.
-| resources                |   No     | Child resources that depend on the resource being defined.
+| properties               |   No     | Resource specific configuration settings. The values for the properties are exactly the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. For links to resource schema documentation or REST API, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
+| resources                |   No     | Child resources that depend on the resource being defined. You can provide only resource types that are permitted by the schema of the parent resource. The fully-qualified name of the child resource type includes the parent resource type, such as **Microsoft.Web/sites/extensions**. Dependency on the parent resource is not implied; you must explicitly define that dependency. 
+
 
 If the resource name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
 
-The values for the **properties** element are exactly the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. See [Azure reference](https://msdn.microsoft.com/library/azure/mt420159.aspx) for the REST API operations for the resource you wish to deploy.
+The resources section contains an array of the resources to deploy. Within each resource, you can also define an array of child resources for that resources. Therefore, your resources section could have a structure like:
 
-The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a nested **Extensions** resource:
+    "resources": [
+       {
+           "name": "resourceA",
+           ...
+       },
+       {
+           "name": "resourceB",
+           ...
+           "resources": [
+               {
+                   "name": "firstChildResourceB",
+                   ...
+               },
+               {   
+                   "name": "secondChildResourceB",
+                   ...
+               }
+           ]
+       },
+       {
+           "name": "resourceC",
+           ...
+       }
+    ]
+
+
+
+The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a child **Extensions** resource. Notice that the site is marked as dependent on the server farm since the server
+farm must exist before the site can be deployed. Notice too that the **Extensions** resource is a child of the site.
 
     "resources": [
         {
@@ -278,6 +330,9 @@ The following example shows a **Microsoft.Web/serverfarms** resource and a **Mic
                   "apiVersion": "2014-06-01",
                   "type": "Extensions",
                   "name": "MSDeploy",
+                  "dependsOn": [
+                      "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
+                  ],
                   "properties": {
                     "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
                     "dbType": "None",

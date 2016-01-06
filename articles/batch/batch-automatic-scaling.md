@@ -4,7 +4,7 @@
 	description="Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool."
 	services="batch"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="mmacy"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="11/18/2015"
-	ms.author="davidmu;marsma"/>
+	ms.date="12/04/2015"
+	ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
 
@@ -559,11 +559,13 @@ Let's take a look at some examples showing just a few ways formulas can be used 
 
 Perhaps you want to adjust the pool size based on the day of the week and time of day, increasing or decreasing the number of nodes in the pool accordingly:
 
-		$CurTime=time();
-		$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
-		$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
-		$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
-		$TargetDedicated=$IsWorkingWeekdayHour?20:10;
+```
+$CurTime=time();
+$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
+$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
+$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
+$TargetDedicated=$IsWorkingWeekdayHour?20:10;
+```
 
 This formula first obtains the current time. If it's a weekday (1-5) and within working hours (8AM-6PM), the target pool size is set to 20 nodes. Otherwise, the pool size is targeted at 10 nodes.
 
@@ -571,35 +573,39 @@ This formula first obtains the current time. If it's a weekday (1-5) and within 
 
 In this example, the pool size is adjusted based on the number of tasks in the queue. Note that both comments and line breaks are acceptable in formula strings.
 
-	    // Get pending tasks for the past 15 minutes.
-	    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
-	    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of
-		// last sample point and the history average.
-	    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
-	    // If number of pending tasks is not 0, set targetVM to pending tasks, otherwise half of current dedicated.
-	    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
-	    // The pool size is capped at 20, if target VM value is more than that, set it to 20. This value
-		// should be adjusted according to your use case.
-	    $TargetDedicated = max(0,min($TargetVMs,20));
-	    // Set node deallocation mode - keep nodes active only until tasks finish
-	    $NodeDeallocationOption = taskcompletion;
+```
+// Get pending tasks for the past 15 minutes.
+$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+// If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of
+// last sample point and the history average.
+$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+// If number of pending tasks is not 0, set targetVM to pending tasks, otherwise half of current dedicated.
+$TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+// The pool size is capped at 20, if target VM value is more than that, set it to 20. This value
+// should be adjusted according to your use case.
+$TargetDedicated = max(0,min($TargetVMs,20));
+// Set node deallocation mode - keep nodes active only until tasks finish
+$NodeDeallocationOption = taskcompletion;
+```
 
 ### Example 3
 
 Another example that adjusts the pool size based on the number of tasks, this formula also takes into account the [MaxTasksPerComputeNode](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx) value that has been set for the pool. This is particularly useful in situations where parallel task execution on compute nodes is desired.
 
-		// Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
-		$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
-		$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
-		// Set the number of nodes to add to one-fourth the number of active tasks (the MaxTasksPerComputeNode
-		// property on this pool is set to 4, adjust this number for your use case)
-		$Cores = $TargetDedicated * 4;
-		$ExtraVMs = ($Tasks - $Cores) / 4;
-		$TargetVMs = ($TargetDedicated+$ExtraVMs);
-		// Attempt to grow the number of compute nodes to match the number of active tasks, with a maximum of 3
-		$TargetDedicated = max(0,min($TargetVMs,3));
-		// Keep the nodes active until the tasks finish
-		$NodeDeallocationOption = taskcompletion;
+```
+// Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
+$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
+$Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+// Set the number of nodes to add to one-fourth the number of active tasks (the MaxTasksPerComputeNode
+// property on this pool is set to 4, adjust this number for your use case)
+$Cores = $TargetDedicated * 4;
+$ExtraVMs = (($Tasks - $Cores) + 3) / 4;
+$TargetVMs = ($TargetDedicated+$ExtraVMs);
+// Attempt to grow the number of compute nodes to match the number of active tasks, with a maximum of 3
+$TargetDedicated = max(0,min($TargetVMs,3));
+// Keep the nodes active until the tasks finish
+$NodeDeallocationOption = taskcompletion;
+```
 
 ### Example 4
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: A Helper Tool used to demonstrate the Page User Interface (UI) Customization feature
@@ -36,7 +36,7 @@ You will need to [register an application](active-directory-b2c-app-registration
 
 - Build one of the Azure AD B2C Quick Start Applications listed [here](active-directory-b2c-overview.md#getting-started).
 - Use the pre-built [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) application.  If you choose to use the playground, you must register an application in your B2C tenant using the **redirect URI** `https://aadb2cplayground.azurewebsites.net/`
-- Use the **Run Now** button on your policy in the [Azure Preview Portal](https://portal.azure.com).
+- Use the **Run Now** button on your policy in the [Azure Portal](https://portal.azure.com).
 
 ## Customize your policy
 
@@ -44,7 +44,7 @@ In order to customize the look and feel of your policies, you need to first crea
 
 For the purposes of this tutorial, we've already created some sample content and hosted it on Azure Blob Storage.  The sample content is a very basic customization in the theme of our artificial company, "Contoso B2C".  To try it out in your own policy, follow these steps:
 
-1. Sign in to your tenant on the [Azure preview portal](https://portal.azure.com) and navigate to the B2C features blade.
+1. Sign in to your tenant on the [Azure Portal](https://portal.azure.com) and navigate to the B2C features blade.
 2. Click **Sign-up policies** and then click on your sign-up policy (for example, "b2c_1_sign_up").
 3. Click **Page UI customization** and then **Identity provider selection page**.
 4. Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter `https://contosob2c.blob.core.windows.net/static/Index.html`. Click **OK**.
@@ -59,7 +59,7 @@ If you would like to use Azure Blob Storage to host your page content, you can c
 
 #### Create a storage account
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com/).
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
 2. Click on **+ New** -> **Data + Storage** -> **Storage account**. You will need an Azure subscription to create an Azure Blob Storage account. You can sign up a free trial [here](https://azure.microsoft.com/pricing/free-trial/).
 3. Provide a **Name** for the storage account (for example, "contoso") and pick the appropriate selections for **Pricing tier**, **Resource Group** and **Subscription**. Make sure that you have the **Pin to Startboard** option checked. Click **Create**.
 4. Go back to the Startboard and click on the storage account that you just created.

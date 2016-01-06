@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="12/05/2015"  
 	ms.author="juliako"/>
 
 # Set up your environment
@@ -23,6 +23,8 @@
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
+
+The following steps describe prerequisites required for developing with Azure Media Services.
 
 ## Create a Media Services account
 
