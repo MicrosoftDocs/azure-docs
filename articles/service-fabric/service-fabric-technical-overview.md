@@ -28,7 +28,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to bui
 
 **Application/application type**: A collection of (micro)services. Think of an application type as a container for one or more service types.  Please refer to the [application model](service-fabric-application-model.md) article to understand how a cluster (which itself consists of multiple nodes) may consist of multiple application types.
 
-**Service/service type**: Code and configuration that perform a standalone function (it can start and run independently), for example, a queue service or database service. An application type may consist of one ore more service types. There are two kinds of services types:
+**Service/service type**: Code and configuration that perform a standalone function (it can start and run independently), for example, a queue service or database service. An application type may consist of one or more service types. There are two kinds of services types:
 
 - Stateless service: A service that has state where the state is persisted to external storage, such as Azure databases or Azure Table store. If a node on which an instance of this service is active goes down, another instance is automatically started on another node.
 
