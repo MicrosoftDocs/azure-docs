@@ -1,9 +1,7 @@
 To create a VNet based on the scenario above by using the Azure portal, follow the steps below.
 
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
-2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**, as seen in the figure below.
-
-	![Create VNet in preview portal](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure1.gif)
+2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**.
 
 3. On the **Create virtual network** blade, configure the VNet settings as shown in the figure below.
 
@@ -15,19 +13,16 @@ To create a VNet based on the scenario above by using the Azure portal, follow t
 
 5. If necessary, change the **Subscription** and **Location** settings for your VNet. 
 
-
 6. Click **Create** and notice the tile named **Creating Virtual network** as shown in the figure below.
 
 	![Creating virtual network tile](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure4.png)
 
-7. Wait for the VNet to be created, then in the **Virtual network** blade, click **All settings** > **Subnets** > **Add** as seen below.
-
-	![Adding subnet in the preview portal](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure5.gif)
+7. Wait for the VNet to be created, then in the **Virtual network** blade, click **All settings** > **Subnets** > **Add**.
 
 8. Specify the subnet settings for the *BackEnd* subnet, as shown below, and then click **OK**. 
 
 	![Subnet settings](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure6.png)
 
-9. Notice the list of subnets, as shown in the figure below.
+9. View the list of subnets.
 
 	![List of subnets in VNet](./media/vpn-gateway-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
