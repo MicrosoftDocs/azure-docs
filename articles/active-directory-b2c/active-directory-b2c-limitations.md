@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Limitations & Restrictions
@@ -22,13 +22,13 @@ There are several features & functionalities of Azure Active Directory (AD) B2C 
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Issues during Creation of Azure AD B2C Directories
+## Issues during Creation of Azure AD B2C Tenants
 
-There are known issues that you may encounter during the [creation of an Azure AD B2C tenant](active-directory-b2c-get-started). Check out this [article](active-directory-b2c-support-create-directory.md) for guidance.
+If you encounter during the [creation of an Azure AD B2C tenant](active-directory-b2c-get-started), check out this [article](active-directory-b2c-support-create-directory.md) for guidance.
 
-## Branding issues on Verification Emails and Self-service Password Reset Pages
+## Branding issues on Verification Email
 
-The default verification emails and self-service password reset pages contain "Microsoft" and "Azure" branding elements. We will remove these going forward. You can change the branding on these pages using the [company branding feature](./active-directory/active-directory-add-company-branding.md), upon which these branding elements will not appear.
+The default verification email contains "Microsoft" branding. We will remove it in the future. For now, you can remove it using the [company branding feature](./active-directory/active-directory-add-company-branding.md).
 
 ## Support for Production Applications
 
@@ -36,7 +36,7 @@ Applications that integrate with Azure AD B2C should not be released to the publ
 
 ## Restrictions on Applications
 
-The following types of applications are not currently supported in Azure AD B2C preview. For a description of the supported types of applications, refer to this [article](active-directory-b2c-apps).
+The following types of applications are not currently supported in Azure AD B2C preview. For a description of the supported types of applications, refer to this [article](active-directory-b2c-apps.md).
 
 ### Single Page Applications (Javascript)
 
@@ -64,26 +64,34 @@ If you wish to integrate an application with Azure AD B2C preview using another 
 
 ## Restriction on Protocols
 
-Azure AD B2C preview supports OpenID Connect and OAuth 2.0. However, not all features and capabilities of each protocol have been implemented. To better understand the scope of supported protocol functionality in Azure AD B2C preview, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-b2c-protocols.md).
+Azure AD B2C preview supports OpenID Connect and OAuth 2.0. However, not all features and capabilities of each protocol have been implemented. To better understand the scope of supported protocol functionality in Azure AD B2C preview, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-reference-b2c-protocols.md). SAML and WS-Fed protocol support is not available.
 
 ## Restriction on Tokens
 
 Many of the tokens issued by Azure AD B2C preview are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") is quite as it should be or is missing. Some examples include the "sub" and the "preferred_username" claims. You should expect things here to change quite a bit during the preview. To better understand the tokens emitted currently by the Azure AD B2C service, read through our [token reference](active-directory-b2c-tokens.md).
 
-## Issues with User Management on the Azure Portal
+## Issues with User Management on the Azure Classic Portal
 
-B2C features are accessible on the Azure preview portal. However, you can use the Azure portal to access other tenant features, including user management. Currently there are a couple of known issues with user management (the **Users** tab) on the Azure portal.
+B2C features are accessible on the Azure Portal. However, you can use the Azure Classic Portal to access other tenant features, including user management. Currently there are a couple of known issues with user management (the **Users** tab) on the Azure Classic Portal.
 
-- For a local account user (i.e., a consumer who signs up with an email address & password or a username & password), the **User Name** field doesn't correspond to the sign-in identifier (email address or username) used during sign-up. This is because the field displayed on the Azure portal is actually the User Principal Name (UPN), which is unused in B2C scenarios. To view the sign-in identifier of the local account, find the user object in [Graph Explorer](https://graphexplorer.cloudapp.net/). You will find the same issue with a social account user (i.e., a consumer who signs up with Facebook, Google+, etc.), but in that case, there is no sign-in identifier to speak of.
+- For a local account user (i.e., a consumer who signs up with an email address & password or a username & password), the **User Name** field doesn't correspond to the sign-in identifier (email address or username) used during sign-up. This is because the field displayed on the Azure Classic Portal is actually the User Principal Name (UPN), which is unused in B2C scenarios. To view the sign-in identifier of the local account, find the user object in [Graph Explorer](https://graphexplorer.cloudapp.net/). You will find the same issue with a social account user (i.e., a consumer who signs up with Facebook, Google+, etc.), but in that case, there is no sign-in identifier to speak of.
 
     ![Local account - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
 - For a local account user, you will not able to edit any of the fields and save changes on the **Profile** tab. We will fix this soon.
 
-## Issues with Admin-initiated Password Reset on the Azure Portal
+## Issues with Admin-initiated Password Reset on the Azure Classic Portal
 
-If you reset the password for a local account-based consumer on the Azure Portal (the **Reset Password** command on the **Users** tab), that consumer will not be able to change his or her password on the next sign-in & will be locked out of your applications. We are working on fixing this issue. As a workaround, use the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) to reset the consumer's password.
+If you reset the password for a local account-based consumer on the Azure Classic Portal (the **Reset Password** command on the **Users** tab), that consumer will not be able to change his or her password on the next sign-in & will be locked out of your applications. We are working on fixing this issue. As a workaround, use the [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) to reset the consumer's password.
 
-## Restriction on Deletion of Azure AD B2C Directories
+## Restriction on Deletion of Azure AD B2C Tenants
 
-You won't be able to delete an Azure AD B2C tenant in the Azure portal.
+You won't be able to delete an Azure AD B2C tenant in the Azure Classic Portal.
+
+## Issues with Verifying a Domain on the Azure Classic Portal
+
+Currently you can't verify a Domain successfully on the [Azure Classic Portal](https://manage.windowsazure.com/). We are working on a fix.
+
+## Warning Messages on the Azure Portal
+
+When you access the B2C settings blade on the Azure Portal, you will see a warning message under Notifications (on the top right corner); it will say: "You do not have any subscriptions in the <B2CTenantName> directory. You have other directories that you can switch to.", where <B2CTenantName> is the name of your B2C tenant. You can safely ignore this message and continue to acccess your B2C features. We are working with the Azure Portal team on a fix for this issue.
