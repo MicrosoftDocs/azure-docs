@@ -81,15 +81,18 @@
 
 **Swift**:
 
-1. Add file **ClientManager.swift**
+1. Add file **ClientManager.swift** with the following contents:
+        
+        class ClientManager {
+            static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
+        }
 
+2. In **ToDoTableViewController.swift**, change the `let client` line for initializing the MSClient as follows:
 
-class ClientManager {
-    static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
-}
-
+        let client = ClientManager.sharedClient;
  
-1. In **AppDelegate.swift**, replace the body of `func application` as follows:
+
+3. In **AppDelegate.swift**, replace the body of `func application` as follows:
 
         func application(application: UIApplication,
            didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
@@ -103,9 +106,13 @@ class ClientManager {
 2. In **AppDelegate.swift**, add the following handler methods. Your app is now updated to support push notifications.
         
 
-            func application(application: UIApplication,
-                didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-            }
+        func application(application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+            ClientManager.sharedClient.push?.registerDeviceToken(deviceToken, completion: { (error) -> Void in
+                NSLog("Error registering for notifications: %@", error!.description)
+            })
+        }
+
             
         func application(application: UIApplication,
         didFailToRegisterForRemoteNotificationsWithError error: NSError) {
