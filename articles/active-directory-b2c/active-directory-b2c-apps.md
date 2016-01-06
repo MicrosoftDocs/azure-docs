@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Types of Applications
@@ -23,7 +23,7 @@ Azure AD B2C supports authentication for a variety of modern app architectures, 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## The Basics
-Every app that uses Azure AD B2C will need to be registered in your [B2C directory](active-directory-b2c-get-started.md) via the [Azure Preview Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
+Every app that uses Azure AD B2C will need to be registered in your [B2C directory](active-directory-b2c-get-started.md) via the [Azure Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
 
 - An **Application Id** that uniquely identifies your app
 - A **Redirect URI** that can be used to direct responses back to your app
