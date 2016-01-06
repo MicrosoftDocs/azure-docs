@@ -87,11 +87,10 @@
             static let sharedClient = MSClient(applicationURLString: "%AppUrl%")
         }
 
-2. In **ToDoTableViewController.swift**, change the `let client` line for initializing the MSClient as follows:
+2. In **ToDoTableViewController.swift**, replace the `let client` line that initializes an `MSClient` with this line:
 
-        let client = ClientManager.sharedClient;
+        let client = ClientManager.sharedClient
  
-
 3. In **AppDelegate.swift**, replace the body of `func application` as follows:
 
         func application(application: UIApplication,
