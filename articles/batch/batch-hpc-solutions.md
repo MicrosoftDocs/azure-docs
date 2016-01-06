@@ -18,7 +18,7 @@
 
 # Batch and HPC solutions in the Azure cloud
 
-Azure offers efficient, scalable cloud solutions for batch and high performance computing (HPC) - also called *Big Compute*. Learn here about Big Compute workloads and Azure’s services to support them, or jump directly to [solution scenarios](#solution_scenarios) later in this article. Although the article is mainly for technical decision-makers, IT managers, and independent software vendors, other IT professionals and developers can use it to familiarize themselves with these solutions.
+Azure offers efficient, scalable cloud solutions for batch and high performance computing (HPC) - also called *Big Compute*. Learn here about Big Compute workloads and Azure’s services to support them, or jump directly to [solution scenarios](#solution-scenarios) later in this article. Although the article is mainly for technical decision-makers, IT managers, and independent software vendors, other IT professionals and developers can use it to familiarize themselves with these solutions.
 
 Organizations have large-scale computing problems including engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, and financial risk calculations. Azure helps organizations solve these problems and make decisions with the resources, scale, and schedule they need. With Azure, organizations can:
 
@@ -52,7 +52,7 @@ You can readily migrate many applications that are designed to run in on-premise
 
 * **Data access** - Data access techniques commonly available within an enterprise network cluster, such as NFS, may require special configuration in the cloud, or you might need to adopt different data access practices and patterns for the cloud.
 
-* **Data movement** - For applications that process large amounts of data, strategies are needed to move the data into cloud storage and to compute resources, and you might need to consider high-speed cross-premises networking such as [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/). Also consider legal, regulatory, or policy limitations for storing or accessing that data.
+* **Data movement** - For applications that process large amounts of data, strategies are needed to move the data into cloud storage and to compute resources, and you might need high-speed cross-premises networking such as [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/). Also consider legal, regulatory, or policy limitations for storing or accessing that data.
 
 
 * **Licensing** - Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need to plan for a licensing server in the cloud for your solution, or a connection to an on-premises license server.
