@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="01/05/2016"
 	ms.author="davidmu"/>
 
 # Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries
@@ -47,7 +47,7 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 			New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the Azure preview portal.
+	>[AZURE.NOTE] Take note of the application identifer that is returned after the application is created because you'll need it for the next step. You can also find the application identifier in the client id field of the application in the Active Directory section of the Azure portal.
 
 3. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
@@ -542,8 +542,8 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 2. Press **Enter** after each status code is returned to create each resource. After the virtual machine is created, do the next step before pressing Enter to delete all of the resources.
 
-	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure preview portal before you delete them.
+	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
 
-3. Browse to the Audit Logs in the Azure preview portal to see the status of the resources:
+3. Browse to the Audit Logs in the Azure portal to see the status of the resources:
 
 	![Create an AD application](./media/virtual-machines-arm-deployment/crpportal.png)
