@@ -168,17 +168,17 @@ To do so connect to the Azure database (the destination) from Visual Studio:
   
 1. Open Visual Studio then click “Tools” and then “Connect to Database…” menu item.  
 2. If prompted, select “Microsoft SQL Server” as a data source.  
-![Select SQL](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-16.png)
+    ![Select SQL](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-16.png)  
 3. In the Server Name field paste the name of the SQL Server copied in the previous section from Azure Portal (i.e. <serverName>.database.windows.net).  
 4. In the Authentication field choose SQL Server Authentication.  
 5. Enter a LOGIN NAME as “tolladmin” and LOGIN PASSWORD as “123toll!”.  
 6. Choose TollDataDB as the database.  
-![Add connection](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-17.jpg)
+    ![Add connection](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-17.jpg)  
 7. Click OK.  
-8. Open Server Explorer.
-![Server Explorer](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-18.png)
-9. Review the four tables created in the TollDataDB database.
-![Table View](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-19.jpg)
+8. Open Server Explorer.  
+    ![Server Explorer](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-18.png)  
+9. Review the four tables created in the TollDataDB database.  
+    ![Table View](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-19.jpg)  
 
 
 
