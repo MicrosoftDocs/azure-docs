@@ -104,7 +104,7 @@ Now that we have defined the interface, we need to implement it in our stateful 
 
     ![Adding a reference to the class library project in the stateful service][vs-add-class-library-reference]
 
-2. Locate the class which inherits from `StatefulService`, such as `MyStatefulService`, and extend it to implement the `ICounter` interface. Don't forget to add the namespace which contains the `ICounter` interface.
+2. Locate the class which inherits from `StatefulService`, such as `MyStatefulService`, and extend it to implement the `ICounter` interface.
 
     ```c#
     using MyStatefulService.Interfaces;
@@ -140,7 +140,7 @@ With the `ICounter` interface implemented, the final step in enabling the statef
 
 >[AZURE.NOTE] The equivalent method for opening a communication channel to stateless services is called `CreateServiceInstanceListeners`.
 
-In this case, we will replace the existing `CreateServiceReplicaListeners` method and provide a `ServiceRemotingListener`, which creates an RPC endpoint callable from clients using the `ServiceProxy`.  Also add the namespace that contains `ServiceRemotingListener`.
+In this case, we will replace the existing `CreateServiceReplicaListeners` method and provide a `ServiceRemotingListener`, which creates an RPC endpoint callable from clients using the `ServiceProxy`.  
 
 ```c#
 using Microsoft.ServiceFabric.Services.Remoting.Runtime;
@@ -167,7 +167,7 @@ Our stateful service is now ready to receive traffic from other services so all 
 
 2. Add the Microsoft.ServiceFabric.Services package to the ASP.NET project, just as you did for the class library project earlier. This will provide the `ServiceProxy` class.
 
-3. In the controllers folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2", which matches what we saw earlier in the browser. Replace this implementation with the following code (also add the namespaces for `ICounter` and `ServiceProxy`):
+3. In the controllers folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2", which matches what we saw earlier in the browser. Replace this implementation with the following code:
 
     ```c#
     using MyStatefulService.Interfaces;
