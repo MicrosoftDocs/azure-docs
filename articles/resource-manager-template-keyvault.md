@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for key vault | Microsoft Azure"
-   description="Shows the resource manager schema for key vaults."
+   description="Shows the Resource Manager schema for deploying key vaults through a template."
    services="azure-resource-manager,key-vault"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Key vault template schema
@@ -233,6 +233,12 @@ The following example deploys a key vault and secret.
             }]
         }]
     }
+
+## Quickstart templates
+
+The following quickstart template deploys a key vault.
+
+- [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 
 
 ## Next steps
