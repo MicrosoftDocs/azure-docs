@@ -32,7 +32,7 @@ Exceptions (optional) - relevant scenarios that are not covered in this article.
 How to use this article (optional) - Used when the article is long to describe what all is there and how its organized. Intent to help customer as a guiding para to decide where to jump to or start within the doc. 
 
 ```
-If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](http://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get Support** on the [Azure Support](http://azure.microsoft.com/support/options/) site.
+If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](http://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](http://azure.microsoft.com/support/options/) site.
 ```
 
 **Background (Optional) - Description**
