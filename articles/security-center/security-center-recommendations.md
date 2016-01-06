@@ -72,7 +72,7 @@ Use the table below as a reference to understand the available recommendations a
 
 | Recommendation | Description |
 |----- |-----|
-| Enable Data Collection for subscriptions/virtual machines | Recommends that you turn on Data Collection in the security policy for each of your subscriptions or if you prefer to enable Data Collection for select VMs. |
+| Enable Data Collection for subscriptions/virtual machines | Recommends that you turn on Data Collection in the security policy for each of your subscriptions or for select VMs. |
 | Resolve mismatch baseline rules | Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved. |
 | Apply system updates | Recommends that you deploy missing system updates to VMs (Windows VMs only). |
 | Configure ACLs for endpoints | Recommends that you configure an access control list to restrict inbound access to VMs (Classic VMs only). |
