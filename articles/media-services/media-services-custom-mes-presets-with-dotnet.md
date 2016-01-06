@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2015"    
+	ms.date="01/05/2015"    
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,8 @@ This topic shows how to perform advanced encoding by customizing Media Encoder S
 The custom presets that perform the following encoding tasks are demonstrated:
 
 - [Generate thumbnails](media-services-custom-mes-presets-with-dotnet.md#thumbnails)
-- [Trim a video (perform sub-clipping)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
+- [Trim a video (clipping)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
+- [Create an overlay](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Insert a silent audio track when input has no audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 
 
@@ -134,6 +135,39 @@ The following code example uses Media Services .NET SDK to perform the following
 				    return job.OutputMediaAssets[0];
 				}
 		
+		        static public IAsset EncodeWithOverlay(IAsset assetSource, IAsset assetOverlay, string customPresetFileName)
+		        {
+		            // Declare a new job.
+		            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
+		            // Get a media processor reference, and pass to it the name of the 
+		            // processor to use for the specific task.
+		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+		
+		
+		            // Load the XML (or JSON) from the local file.
+		            string configuration = File.ReadAllText(customPresetFileName);
+		
+		            // Create a task
+		            ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+		                processor,
+		                configuration,
+		                TaskOptions.None);
+		
+		            // Specify the input assets to be encoded.
+		            task.InputAssets.Add(assetSource);
+		            task.InputAssets.Add(assetOverlay);
+		
+		            // Add an output asset to contain the results of the job. 
+		            task.OutputAssets.AddNew("Output asset",
+		                AssetCreationOptions.None);
+		
+		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+		            job.Submit();
+		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
+		
+		            return job.OutputMediaAssets[0];
+		        }
+
 		        private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
 		        {
 		            Console.WriteLine("Job state changed event:");
@@ -385,9 +419,11 @@ The following considerations apply:
 	- Defaults: Start:{Best}
 - Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES will match JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
 
-##<a id="trim_video"></a>Trim video (sub-clipping)
+##<a id="trim_video"></a>Trim a video (clipping)
 
-This section shows how to customize a preset in order to trim a video. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element.
+This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset which is captured or archived from a live stream – the details for this are available in [this blog](https://azure.microsoft.com/en-us/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+
+To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below).
 
 ###<a id="json"></a>JSON preset
 	
@@ -509,9 +545,166 @@ This section shows how to customize a preset in order to trim a video. You can t
 	  ]
 	} 
 
+
+
+##<a id="overlay"></a>Create an overlay
+
+The Media Encoder Standard allows you to overlay an image (for example, jpg or gif) onto an existing video. The preset defined below is a basic example  of a video overlay.
+
+>[AZURE.NOTE]Currently, the overlay opacity setting is not supported.
+
+In addition to defining a preset file, you also have to let Media Services know which asset contains an overlay image and which asset contains the source video onto which you want to overlay the image. See the .NET example of the **EncodeWithOverlay** method defined above. 
+
+###JSON preset
+	
+	{
+	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "Streams": [],
+	      "Filters": {
+	        "VideoOverlay": {
+	          "Position": {
+	            "X": 100,
+	            "Y": 100,
+	            "Width": 100,
+	            "Height": 50
+	          },
+	          "AudioGainLevel": 0.0,
+	          "MediaParams": [
+	            {
+	              "OverlayLoopCount": 1
+	            },
+	            {
+	              "IsOverlay": true,
+	              "OverlayLoopCount": 1,
+	              "InputLoop": true
+	            }
+	          ],
+	          "Source": "Image001.jpg",
+	          "Clip": {
+	            "Duration": "00:00:05"
+	          },
+	          "FadeInDuration": {
+	            "Duration": "00:00:01"
+	          },
+	          "FadeOutDuration": {
+	            "StartTime": "00:00:03",
+	            "Duration": "00:00:04"
+	          }
+	        }
+	      },
+	      "Pad": true
+	    }
+	  ],
+	  "Codecs": [
+	    {
+	      "KeyFrameInterval": "00:00:02",
+	      "H264Layers": [
+	        {
+	          "Profile": "Baseline",
+	          "Level": "auto",
+	          "Bitrate": 1045,
+	          "MaxBitrate": 1045,
+	          "BufferWindow": "00:00:05",
+	          "ReferenceFrames": 3,
+	          "EntropyMode": "Cavlc",
+	          "AdaptiveBFrame": true,
+	          "Type": "H264Layer",
+	          "Width": "400",
+	          "Height": "400",
+	          "FrameRate": "0/1"
+	        }
+	      ],
+	      "Chapters": [],
+	      "Type": "H264Video"
+	    },
+	    {
+	      "Type": "CopyAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}{Extension}",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+
+###XML preset
+	
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	  <Grid Enabled="true" />
+	  <Sources>
+	    <Source>
+	      <Streams />
+	      <Filters>
+	        <VideoOverlay>
+	          <Source>Image001.jpg</Source>
+	          <Clip Duration="PT5S" />
+	          <FadeInDuration Duration="PT1S" />
+	          <FadeOutDuration StartTime="PT3S" Duration="PT4S" />
+	          <Position X="100" Y="100" Width="100" Height="50" />
+	          <Opacity>0</Opacity>
+	          <AudioGainLevel>0</AudioGainLevel>
+	          <MediaParams>
+	            <MediaParam>
+	              <IsOverlay>false</IsOverlay>
+	              <OverlayLoopCount>1</OverlayLoopCount>
+	              <InputLoop>false</InputLoop>
+	            </MediaParam>
+	            <MediaParam>
+	              <IsOverlay>true</IsOverlay>
+	              <OverlayLoopCount>1</OverlayLoopCount>
+	              <InputLoop>true</InputLoop>
+	            </MediaParam>
+	          </MediaParams>
+	        </VideoOverlay>
+	      </Filters>
+	      <Pad>true</Pad>
+	    </Source>
+	  </Sources>
+	  <Encoding>
+	    <H264Video>
+	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	      <H264Layers>
+	        <H264Layer>
+	          <Bitrate>1045</Bitrate>
+	          <Width>400</Width>
+	          <Height>400</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Baseline</Profile>
+	          <Level>auto</Level>
+	          <BFrames>0</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cavlc</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1045</MaxBitrate>
+	        </H264Layer>
+	      </H264Layers>
+	      <Chapters />
+	    </H264Video>
+	    <CopyAudio />
+	  </Encoding>
+	  <Outputs>
+	    <Output FileName="{Basename}{Extension}">
+	      <MP4Format />
+	    </Output>
+	  </Outputs>
+	</Preset>
+
 ##<a id="silent_audio"></a>Insert a silent audio track when input has no audio
 
-By default, if you send an input to "Media Encoder Standard" that contains only video, and no audio, then the output asset will contain files that contain only video data. Some players may not be able to handle such output streams. You can force the encoder to add a silent audio track to the output. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx), and make the following modification:
+By default, if you send an input to the encoder that contains only video, and no audio, then the output asset will contain files that contain only video data. Some players may not be able to handle such output streams. You can use this setting to force the encoder to add a silent audio track to the output in that scenario.
+
+To force the encoder to produce an asset that contains a silent audio track when input has no audio, specify the "InsertSilenceIfNoAudio" value.
+
+You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx), and make the following modification:
 
 ###JSON preset
 
