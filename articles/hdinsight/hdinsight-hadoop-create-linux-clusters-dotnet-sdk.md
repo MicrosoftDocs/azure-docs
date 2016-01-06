@@ -159,7 +159,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
 
-## Use 
+## Use bootstrap
 
 For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap).
 
@@ -217,11 +217,9 @@ Modify the sample in [Create clusters](#create-clusters) to configure a Hive set
             {"hive-site", hiveConfigs}
         };
 
-
         var serializedConfig = JsonConvert.SerializeObject(configurations);
         extendedParameters.Properties.ClusterDefinition.Configurations = serializedConfig;
 
-        //=====================
         var sshPublicKeys = new List<SshPublicKey>();
         var sshPublicKey = new SshPublicKey
         {
@@ -229,7 +227,6 @@ Modify the sample in [Create clusters](#create-clusters) to configure a Hive set
                 string.Format("ssh-rsa {0}", NewClusterSshPublicKey)
         };
         sshPublicKeys.Add(sshPublicKey);
-
 
         var headNode = new Role
         {
@@ -245,6 +242,7 @@ Modify the sample in [Create clusters](#create-clusters) to configure a Hive set
                 {
                     UserName = NewClusterSshUserName,
                     Password = NewClusterSshPassword //,
+                    // When use a SSH pulbic key, make sure to remove comments, headers and trailers, and concatenate the key into one line 
                     //SshProfile = new SshProfile
                     //{
                     //    SshPublicKeys = sshPublicKeys
