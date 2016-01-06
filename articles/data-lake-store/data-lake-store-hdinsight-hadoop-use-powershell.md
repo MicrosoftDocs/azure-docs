@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure HDInsight clusters with Azure Data Lake Store using PowerShell | Azure" 
-   description="Use Azure PowerShell to configure and use HDInsight Hadoop clusters with Azure Data Lake" 
+   pageTitle="Create HDInsight clusters with Azure Data Lake Store using PowerShell | Azure" 
+   description="Use Azure PowerShell to create and use HDInsight Hadoop clusters with Azure Data Lake" 
    services="data-lake" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/05/2016"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
 # Create an HDInsight cluster with Data Lake Store using Azure PowerShell
