@@ -106,8 +106,11 @@ XUF99EW9OIQOMV7Q7 | Family Saloon
 3.	Execute the application **CarEventGenerator.exe**.
 
 ### References
+
 [Vehicle Telematics Simulator Visual Studio Solution](http://go.microsoft.com/fwlink/?LinkId=717075) 
+
 [Azure Event Hub](http://azure.microsoft.com/services/event-hubs/)
+
 [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 
@@ -151,9 +154,12 @@ Once the pipeline executes successfully and ‘RawCarEventsTable’ dataset is m
 *Figure 10 - PrepareSampleDataPipeline Output*
 
 ### References
+
 [Azure Event Hub SDK for stream ingestion](event-hubs-csharp-ephcs-getstarted.md)
+
 [Azure Data Factory data movement capabilities](data-factory-data-movement-activities.md)
 [Azure Data Factory DotNet Activity](data-factory-use-custom-activities.md)
+
 [Azure Data Factory DotNet activity visual studio solution for preparing sample data](http://go.microsoft.com/fwlink/?LinkId=717077) 
 
 
