@@ -14,7 +14,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="12/11/2015"
+ ms.date="01/05/2016"
  ms.author="cynthn"/>
 
 # Sizes for virtual machines
@@ -33,14 +33,7 @@ The standard sizes consist of several series: A, D, DS, G, and GS. Consideration
 
 *   Dv2-series, a follow-on to the original D-series, features a more powerful CPU. The Dv2-series CPU is about 35% faster than the D-series CPU. It is based on the latest generation 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) processor, and with the Intel Turbo Boost Technology 2.0, can go up to 3.2 GHz. The Dv2-series has the same memory and disk configurations as the D-series.
 
-    Dv2-series regional availability will be based on this schedule:
-        Oct'15: US East 2, US Central, US North Central, US West
-        Nov'15: US East, Europe North, Europe West
-        Jan'16: US South Central, APAC East, APAC Southeast, Japan East, Japan West,
-                Australia East, Australia Southeast, Brazil South
-
-
-*   G-series VMs offer the biggest size and best performance and run on hosts that have Intel Xeon E5 V3 family processors.
+*   G-series VMs offer the most memory and run on hosts that have Intel Xeon E5 V3 family processors.
 
 *   DS-series and GS-series VMs can use Premium Storage, which provides high-performance, low-latency storage for I/O intensive workloads. These VMs use solid-state drives (SSDs) to host a virtual machine’s disks and also provide a local SSD disk cache. Premium Storage is available in certain regions. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../storage-premium-storage-preview-portal.md).
 
@@ -49,13 +42,36 @@ The size of the virtual machine affects the pricing. The size also affects the p
 The following considerations might help you decide on a size:
 
 
-*   Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11\. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See  [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
+* The A8-A11 sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. For detailed information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-a8-a9-a10-a11-specs.md).
 
-*   The A8/A10 and A9/A11 virtual machine sizes have the same physical capabilities. The A8 and A9 virtual machine instances include an additional network adapter that is connected to a remote direct memory access (RDMA) network for fast communication between virtual machines. The A8 and A9 instances are designed for high-performance computing applications that require constant and low-latency communication between nodes during execution, for example, applications that use the Message Passing Interface (MPI). The A10 and A11 virtual machine instances do not include the additional network adapter. A10 and A11 instances are designed for high-performance computing applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
 
 *	Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
 
+*   Some of the physical hosts in Azure data centers may not support larger virtual machine sizes, such as A5 – A11. As a result, you may see the error message **Failed to configure virtual machine <machine name>** or **Failed to create virtual machine <machine name>** when resizing an existing virtual machine to a new size; creating a new virtual machine in a virtual network created before April 16, 2013; or adding a new virtual machine to an existing cloud service. See  [Error: “Failed to configure virtual machine”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) on the support forum for workarounds for each deployment scenario.  
 
+
+## Performance considerations
+
+We have created the concept of the Azure Compute Unit (ACU) to provide a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs.  ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark. 
+
+>[AZURE.IMPORTANT] The ACU is only a guideline.  The results for your workload may vary. 
+
+<br>
+
+|SKU Family	|ACU/Core |
+|---|---|
+|[Standard_A0 (Extra Small)](#standard-tier-a-series)	|50 |
+|[Standard_A1-4 (Small – Large)] (#standard-tier-a-series)	|100 |
+|[Standard_A5-7](#standard-tier-a-series)	|100 |
+|[A8-A11](#standard-tier-a-series)	|225 *|
+|[D1-14](#standard-tier-d-series)	|160 |
+|[D1-14v2](#standard-tier-dv2-series)	|210 - 250 *|
+|[DS1-14](#standard-tier-ds-series)	|160 |
+|[G1-5](#standard-tier-g-series)	|180 - 240 *|
+|[GS1-5](#standard-tier-gs-series)	|180 - 240 *|
+
+
+ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
 
 
 
@@ -64,6 +80,8 @@ The following considerations might help you decide on a size:
 The following tables show the sizes and the capacities they provide.
 
 >[AZURE.NOTE] Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3.
+
+<br>
 
 
 
@@ -89,10 +107,18 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 |Standard_A5|2|14 GB|1|Temporary = 135 GB |4|4X500|
 |Standard_A6|4|28 GB|2|Temporary = 285 GB |8|8x500|
 |Standard_A7|8|56 GB|4|Temporary = 605 GB |16|16x500|
-|Standard_A8|8|56 GB|2| Temporary = 382 GB Note: For information and considerations about using this size, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
-|Standard_A9|16|112 GB|4| Temporary = 382 GB Note: For information and considerations about using this size, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
-|Standard_A10|8|56 GB|2| Temporary = 382 GB Note: For information and considerations about using this size, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
-|Standard_A11|16|112 GB|4| Temporary = 382 GB Note: For information and considerations about using this size, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042). |16|16x500|
+
+
+## Standard tier: A-series - compute-intensive instances
+
+Note: For information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-a8-a9-a10-a11-specs.md).
+
+|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
+|---|---|---|---|---|---|---|
+|Standard_A8|8|56 GB|2| Temporary = 382 GB  |16|16x500|
+|Standard_A9|16|112 GB|4| Temporary = 382 GB  |16|16x500|
+|Standard_A10|8|56 GB|2| Temporary = 382 GB  |16|16x500|
+|Standard_A11|16|112 GB|4| Temporary = 382 GB  |16|16x500|
 
 ## Standard tier: D-series
 
