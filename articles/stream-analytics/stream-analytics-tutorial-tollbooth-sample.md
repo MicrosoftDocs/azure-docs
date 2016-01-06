@@ -173,7 +173,7 @@ To do so connect to the Azure database (the destination) from Visual Studio:
 4. In the Authentication field choose SQL Server Authentication.  
 5. Enter a LOGIN NAME as “tolladmin” and LOGIN PASSWORD as “123toll!”.  
 6. Choose TollDataDB as the database.  
-![Add connection](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-17.png)
+![Add connection](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-17.jpg)
 7. Click OK.  
 8. Open Server Explorer.
 ![Server Explorer](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-18.png)
