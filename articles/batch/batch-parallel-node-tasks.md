@@ -32,21 +32,21 @@ By enabling concurrent task execution on a pool's compute nodes, you can maximiz
 
 ## Example scenario
 
-Here's an example that illustrates the benefits of parallel task execution. Let's say that your task application has CPU and memory requirements such that a Standard\_D1 node size is suitable, but in order to execute the job in the required time, 1000 such nodes are needed.
+Here's an example that illustrates the benefits of parallel task execution. Let's say that your task application has CPU and memory requirements such that a Standard\_D1 node size is suitable. But in order to execute the job in the required time, 1,000 such nodes are needed.
 
-Instead of using Standard\_D1 nodes, you could employ Standard\_D14 nodes with 16 cores and enable parallel task execution. In this case, *16 times fewer nodes* could therefore be used--instead of 1000 nodes, only 63 would be required. This will greatly improve job execution time and efficiency if large application files or reference data are required for each node.
+Instead of using Standard\_D1 nodes, you could employ Standard\_D14 nodes with 16 cores and enable parallel task execution. In this case, *16 times fewer nodes* could therefore be used--instead of 1,000 nodes, only 63 would be required. This will greatly improve job execution time and efficiency if large application files or reference data are required for each node.
 
 ## Enable parallel task execution
 
 You configure the compute nodes in your Batch solution for parallel task execution at the pool level. When working with the Batch .NET API, you set the [CloudPool.MaxTasksPerComputeNode][maxtasks_net] property when you create a pool. In the Batch REST API, you set the [maxTasksPerNode][maxtasks_rest] element in the request body during pool creation.
 
-Azure Batch allows a maximum-tasks-per-node setting of up to four times (4x) the number of node cores. For example, if the pool is configured with nodes of size "Large" (four cores), then `maxTasksPerNode` may be set to 16. For details on the number of cores for each of the node sizes, see [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). For more information on service limits, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md).
+Azure Batch allows you to set maximum tasks per node up to four times (4x) the number of node cores. For example, if the pool is configured with nodes of size "Large" (four cores), then `maxTasksPerNode` may be set to 16. For details on the number of cores for each of the node sizes, see [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). For more information on service limits, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md).
 
 > [AZURE.TIP] Be sure to take into account the `maxTasksPerNode` value when you construct an [autoscale formula][enable_autoscaling] for your pool. For example, a formula that evaluates `$RunningTasks` could be dramatically affected by an increase in tasks per node. See [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md) for more information.
 
 ## Distribution of tasks
 
-When the compute nodes within a pool are able to execute tasks concurrently, it is important to specify how you would like your tasks distributed across the nodes within the pool.
+When the compute nodes within a pool are able to execute tasks concurrently, it is important to specify how you want your tasks distributed across the nodes within the pool.
 
 By using the [CloudPool.TaskSchedulingPolicy][task_schedule] property, you can specify that tasks should be assigned evenly across all nodes in the pool ("spreading"). Or you can specify that as many tasks as possible should be assigned to each node before tasks are assigned to another node in the pool ("packing").
 
@@ -78,7 +78,7 @@ This [Batch REST][api_rest] API snippet shows a request to create a pool that co
           "maxTasksPerNode": 4
         }
 
-> [AZURE.NOTE] You can only set the `maxTasksPerNode` element and [MaxTasksPerComputeNode][maxtasks_net] property at pool creation time. They cannot be modified after a pool has already been created.
+> [AZURE.NOTE] You can set the `maxTasksPerNode` element and [MaxTasksPerComputeNode][maxtasks_net] property only at pool creation time. They cannot be modified after a pool has already been created.
 
 ## Explore the sample project
 
@@ -94,7 +94,7 @@ Tasks: 32
 Duration: 00:30:01.4638023
 ```
 
-The first execution of the sample application shows that with a single node in the pool and the default setting of one task per node, the job duration is over thirty minutes.
+The first execution of the sample application shows that with a single node in the pool and the default setting of one task per node, the job duration is over 30 minutes.
 
 ```
 Nodes: 1
@@ -104,13 +104,13 @@ Tasks: 32
 Duration: 00:08:48.2423500
 ```
 
-The second run of the sample shows a significant decrease in job duration. This is due to the pool being configured with four tasks per node, which allows for parallel task execution to complete the job in nearly a quarter of the time.
+The second run of the sample shows a significant decrease in job duration. This is because the pool was configured with four tasks per node, which allows for parallel task execution to complete the job in nearly a quarter of the time.
 
-> [AZURE.NOTE] The job durations in the summaries above do not include pool creation time. Each of the jobs above were submitted to previously created pools whose compute nodes were in the *Idle* state at submission time.
+> [AZURE.NOTE] The job durations in the summaries above do not include pool creation time. Each of the jobs above was submitted to previously created pools whose compute nodes were in the *Idle* state at submission time.
 
 ## Batch Explorer Heat Map
 
-[Batch Explorer][batch_explorer], one of the Azure Batch [sample applications][github_samples], contains a *Heat Map* feature that provides visualization of task execution. When executing the [ParallelTasks][parallel_tasks_sample] sample application, you can use the Heat Map feature to easily visualize the execution of parallel tasks on each node.
+[Batch Explorer][batch_explorer], one of the Azure Batch [sample applications][github_samples], contains a *Heat Map* feature that provides visualization of task execution. When you're executing the [ParallelTasks][parallel_tasks_sample] sample application, you can use the Heat Map feature to easily visualize the execution of parallel tasks on each node.
 
 ![Batch Explorer Heat Map][1]
 
