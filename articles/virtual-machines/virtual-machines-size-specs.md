@@ -42,7 +42,7 @@ The size of the virtual machine affects the pricing. The size also affects the p
 The following considerations might help you decide on a size:
 
 
-* The A8-A11 sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. For detailed information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042).
+* The A8-A11 sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. For detailed information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-a8-a9-a10-a11-specs.md).
 
 
 *	Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
@@ -111,7 +111,7 @@ In the classic deployment model, some VM sizes are slightly different in Powersh
 
 ## Standard tier: A-series - compute-intensive instances
 
-Note: For information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042).
+Note: For information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](virtual-machines-a8-a9-a10-a11-specs.md).
 
 |Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)|
 |---|---|---|---|---|---|---|
