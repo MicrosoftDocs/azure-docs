@@ -43,9 +43,7 @@ At the end of this tutorial you will run three Windows console applications:
 
 > [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages including C, Java, and JavaScript. Refer to the [Azure IoT Developer Center] for step by step instructions on how to replace the simulated device in this tutorial with a physical device, and generally how to connect devices to Azure IoT Hub.
 
-
-
-> [AZURE.NOTE] This tutorial is directly applicable to other ways to consume Event Hubs-compatible messages such as [HDInsight (Hadoop)] projects. Refer to [Azure IoT Hub developer guide - Device to cloud] for more information.
+This tutorial is directly applicable to other ways to consume Event Hubs-compatible messages such as [HDInsight (Hadoop)] projects. Refer to [Azure IoT Hub developer guide - Device to cloud] for more information.
 
 In order to complete this tutorial you'll need the following:
 
