@@ -27,7 +27,7 @@ As of the week of December 18, 2015, the following capabilities have been added 
 - The ability to pin and unpin data assets in the **Azure Data Catalog** portal. Users can choose to pin data assets to make them easier to re-discover and re-use.
 - A newly redesigned home page in the **Azure Data Catalog** portal. The new home page includes insight into the current users activity - including recently published assets, pinned assets, and saved searches - as well as insight into the activity in the Catalog as a whole.
 - Support for persistent user settings in the **Azure Data Catalog** portal. User experience settings - including grid or tile view, the number of results per page, and hit highlighting on or off - are persisted between user sessions.
-- Azure Data Catalog is now available in two new Azure regions. Customers can provision the Azure Data Catalog in the North Europe and Southeast Asia regions, in addition to East US, West US, West Europe, and Australia East. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
+- **Azure Data Catalog** is now available in two new Azure regions. Customers can provision the **Azure Data Catalog** in the North Europe and Southeast Asia regions, in addition to East US, West US, West Europe, and Australia East. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
 
 ## What's new for the week of December 18, 2015 release
 
