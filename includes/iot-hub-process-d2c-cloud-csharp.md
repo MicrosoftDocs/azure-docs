@@ -2,7 +2,7 @@
 
 In this section, you will create a Windows console app that processes device-to-cloud messages from IoT Hub. Iot Hub exposes an [Event Hubs]-compatible endpoint to enable an application to read device-to-cloud messages. This tutorial uses the [EventProcessorHost] class to process these messages in a console app. For more information on how to process messages from Event Hubs you can refer to the [Get Started with Event Hubs] tutorial.
 
-The main challenge you face when you implement reliable storage of data point messages or forwarding of interactive messages, is that Event Hubs event processing relies on the message consumer to checkpoint its progress. Moreover, in order to achieve a high throughput, when you read from Event Hubs, you should checkpoint in large batches. This creates the possibility of duplicate processing for a large number of messages. In this tutorial you will see how to synchronize Azure storage writes and Service Bus deduplication windows with Event Processor Host checkpoints.
+The main challenge you face when you implement reliable storage of data point messages or forwarding of interactive messages, is that Event Hubs event processing relies on the message consumer to checkpoint its progress. Moreover, in order to achieve a high throughput, when you read from Event Hubs you should checkpoint in large batches. This creates the possibility of duplicate processing for a large number of messages if there is a failure and you revert to the previous checkpoint. In this tutorial you will see how to synchronize Azure storage writes and Service Bus deduplication windows with **EventProcessorHost** checkpoints.
 
 To reliably write messages to Azure storage, the sample uses the individual block commit feature of [block blobs][Azure Block Blobs]. The event processor accumulates messages in memory until it is time to perform a checkpoint, such as after the accummulated buffer of messages reaches the maximum block size of 4Mb, or after the Service Bus deduplication time window elapses. Then, before checkpointing, the code commits a new block to the blob.
 
@@ -10,22 +10,22 @@ The event processor uses Event Hubs message offsets as block ids. This allows it
 
 > [AZURE.NOTE] This tutorial uses a single storage account to write all the messages retrieved from IoT Hub. Refer to [Azure Storage scalability Guidelines] to decide if you need to use multiple Azure Storage accounts in your solution.
 
-The application makes use of the Service Bus deduplication feature to avoid duplicates when it processes interactive messages. The simulated device stamps each interactive message with a unique **MessageId** to enable Service Bus to ensure that, in the specified deduplication time window, no two messages with the same **MessageId** are delivered to the receivers. This deduplication, together with the per-message completion semantics provided by Service Bus queues, makes it easy to implement reliably processing interactive messages.
+The application makes use of the Service Bus deduplication feature to avoid duplicates when it processes interactive messages. The simulated device stamps each interactive message with a unique **MessageId** to enable Service Bus to ensure that, in the specified deduplication time window, no two messages with the same **MessageId** are delivered to the receivers. This deduplication, together with the per-message completion semantics provided by Service Bus queues, makes it easy to implement the reliable processing of interactive messages.
 
-To ensure that no message is resubmitted outside of the deduplication window, the code synchronizes the Event Processor Host checkpointing mechanism with the Service Bus queue deduplication window. This is done by forcing a checkpoint at least once every time the deduplication window elapses (in this tutorial, one hour).
+To make sure that no message is resubmitted outside of the deduplication window, the code synchronizes the **EventProcessorHost** checkpointing mechanism with the Service Bus queue deduplication window. This is done by forcing a checkpoint at least once every time the deduplication window elapses (one hour in this tutorial).
 
-> [AZURE.NOTE] This tutorial uses a single partitioned Service Bus queue to process all the interactive messages retrieved from IoT Hub. Depending on your solution requirements, refer to the [Service Bus documentation] for more information on how to use Service Bus Queues.
+> [AZURE.NOTE] This tutorial uses a single partitioned Service Bus queue to process all the interactive messages retrieved from IoT Hub. Refer to the [Service Bus documentation] for more information on how to use Service Bus Queues to meet the scalability requirements of your solution.
 
 ### Provision an Azure Storage account and a Service Bus queue
-In order to use the [EventProcessorHost] class, you must have an Azure Storage account. You can use an existing one, or follow the instructions in [About Azure Storage] to create a new one. Make a note of the storage account connection string.
+In order to use the [EventProcessorHost] class, you must have an Azure Storage account to enable the **EventProcessorHost** to record checkpoint information. You can use an existing storage account, or follow the instructions in [About Azure Storage] to create a new one. Make a note of the storage account connection string.
 
 You also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically with a 1 hour deduplication window, as explained in [How to use Service Bus Queues][Service Bus Queue], or use the [Azure portal], following these steps:
 
-1. Click **NEW** in the bottom left corner, then **App Services**, then **Service Bus**, then **Queue**, then **Custom**, select the name **d2ctutorial**, then select a deduplication window of 1 hour.
+1. Click **NEW** in the bottom left corner, then **App Services**, then **Service Bus**, then **Queue**, then **Custom Create**, enter the name **d2ctutorial**, select a  region, use an existing namespace or create a new one, then on the next page select **Enable duplicate detection** and set the **Duplicate detection history time window** to one hour. Then click the check mark to save your queue configuration.
 
     ![][30]
 
-2. Click the name of the queue (**d2ctutorial**), then **Configure**, and create two shared access policies, one called **send** with **Send** permissions, and one called **listen** with **Listen** permissions. Click **Save** at the bottom, when done.
+2. In the list of Service Bus queues, click **d2ctutorial**, and then click **Configure**. Create two shared access policies, one called **send** with **Send** permissions, and one called **listen** with **Listen** permissions. Click **Save** at the bottom, when done.
 
     ![][31]
 
@@ -35,11 +35,11 @@ You also need a Service Bus queue to enable reliable processing of interactive m
 
 ### Create the event processor
 
-1. In the current Visual Studio solution, click **File**, then **Add**, and then **Project** to create a new Visual C# Desktop App project using the **Console Application** project template. Name the project **ProcessDeviceToCloudMessages**.
+1. In the current Visual Studio solution, click **File**, then **Add**, and then **New Project** to create a new Visual C# Windows project using the **Console Application** project template. Name the project **ProcessDeviceToCloudMessages**.
 
     ![][10]
 
-2. In Solution Explorer, right-click the **ProcessDeviceToCloudMessages** project, and then click **Manage NuGet Packages**. The **Manage NuGet Packages** dialog box appears.
+2. In Solution Explorer, right-click the **ProcessDeviceToCloudMessages** project, and then click **Manage NuGet Packages**. The **NuGet Package Manager** dialog box appears.
 
 3. Search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use. This downloads, installs, and adds a reference to the [Azure Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus), with all its dependencies.
 
@@ -82,6 +82,7 @@ You also need a Service Bus queue to enable reliable processing of interactive m
         var storageAccount = CloudStorageAccount.Parse(StorageConnectionString);
         blobClient = storageAccount.CreateCloudBlobClient();
         blobContainer = blobClient.GetContainerReference("d2ctutorial");
+        blobContainer.CreateIfNotExists();
         queueClient = QueueClient.CreateFromConnectionString(ServiceBusConnectionString, "d2ctutorial");
       }
 
@@ -193,14 +194,14 @@ You also need a Service Bus queue to enable reliable processing of interactive m
     }
     ```
 
-    The **EventProcessorHost** class call this class to process device-to-cloud messages received from IoT Hub, and implements the logic to reliably store messages in a blob container and forward interactive messages to the Service Bus queue.
+    The **EventProcessorHost** class calls this class to process device-to-cloud messages received from IoT Hub. The code in this class implements the logic to reliably store messages in a blob container and forward interactive messages to the Service Bus queue.
     The **OpenAsync** method, initializes the **currentBlockInitOffset** variable which tracks the current offset of the first message read by this event processor. Remember that each processor is responsible for a single partition.
     
     The **ProcessEventsAsync** method receives a batch of messages from IoT Hub and processes them as follows: it sends interactive messages to the Service Bus queue and appends data point messages to the memory buffer called **toAppend**. If the memory buffer reaches the 4Mb block limit, or the Service Bus deduplication time windows has elapsed since the last checkpoint (one hour in this tutorial), then it triggers a checkpoint.
 
     The method **AppendAndCheckpoint** first generates a blockId for the block to append. Azure storage requires all block ids to have the same length, so the method pads the offset with leading zeroes - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Then, if a block with this id is already in the blob, the method overwrites it with the current contents of the buffer.
 
-    > [AZURE.NOTE] To simplify the code, this tutorial uses a single blob file per partition to store the messages. A real solution would implement file rolling, by creating additional files when they reach a certain size (note Azure block blob can be at most 195Gb in size), or after a certain amount of time.
+    > [AZURE.NOTE] To simplify the code, this tutorial uses a single blob file per partition to store the messages. A real solution would implement file rolling by creating additional files when they reach a certain size (note Azure block blob can be at most 195Gb in size), or after a certain amount of time.
 
 8. In the **Program** class, add the following **using** statements at the top:
 
@@ -232,7 +233,7 @@ You also need a Service Bus queue to enable reliable processing of interactive m
     > [AZURE.NOTE] For the sake of simplicity, this tutorial uses a single instance of the [EventProcessorHost] class. Please refer to [Event Hubs Programming Guide] for more information.
 
 ## Receive interactive messages
-In this section, you'll write a Windows console app that receives interactive messages from the Service Bus queue. Refer to [Build multi-tier applications with Service Bus][] for more information on how to architect a solution using Service Bus.
+In this section, you'll write a Windows console app that receives the interactive messages from the Service Bus queue. Refer to [Build multi-tier applications with Service Bus][] for more information on how to architect a solution using Service Bus.
 
 1. In the current Visual Studio solution, create a new Visual C# Windows project using the **Console Application** project template. Name the project **ProcessD2CInteractiveMessages**.
 

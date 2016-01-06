@@ -20,28 +20,30 @@
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application backend. Other tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application backend. Other tutorials - [Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub] - show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
 This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial and shows two scalable patterns you can use to process device-to-cloud messages:
 
 - The reliable storage of device-to-cloud messages in [Azure Blob storage]. This is very common scenario when you implement *cold path* analytics, where you store data in blobs to use as input into analytics processes driven by tools such as [Azure Data Factory] or the [HDInsight (Hadoop)] stack.
 
-- The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the application backend, as compared to *data point* messages that feed into an analytics engine. For instance, an alarm coming from a device that must trigger inserting a ticket into a CRM system is an interactive device-to-cloud message, as compared to a data point message such as a telemetry message that contains temperature samples.
+- The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the application backend, as compared to *data point* messages that feed into an analytics engine. For instance, an alarm coming from a device that must trigger inserting a ticket into a CRM system is an interactive device-to-cloud message, as compared to telemetry such as temperature samples which is a data point device-to-cloud message.
 
-Because IoT Hub exposes an Event Hubs-compatible endpoint to receive device-to-cloud messages, this tutorial uses the [EventProcessorHost] class, which:
+Because IoT Hub exposes an Event Hubs-compatible endpoint to receive device-to-cloud messages, this tutorial uses an [EventProcessorHost] instance, which:
 
 * Reliably stores *data point* messages in Azure Blobs.
 * Forwards *interactive* device-to-cloud messages to a [Service Bus Queue] for immediate processing.
 
-[Service Bus][Service Bus Queue] is a great way to ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based deduplication.
+Service Bus is a great way to ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based deduplication.
 
 At the end of this tutorial you will run three Windows console applications:
 
 * **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, which sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds.
-* **ProcessDeviceToCloudMessages**, which uses the [EventProcessorHost] class to reliably store data point messages in an Azure blob and to forward interactive messages to a Service Bus queue.
+* **ProcessDeviceToCloudMessages**, which uses the [EventProcessorHost] class to retrieve messages from the Event Hub-compatible endpoint and then reliably store data point messages in an Azure blob and forward interactive messages to a Service Bus queue.
 * **ProcessD2CInteractiveMessages**, which dequeues the interactive messages from the Service Bus queue.
 
 > [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages including C, Java, and JavaScript. Refer to the [Azure IoT Developer Center] for step by step instructions on how to replace the simulated device in this tutorial with a physical device, and generally how to connect devices to Azure IoT Hub.
+
+
 
 > [AZURE.NOTE] This tutorial is directly applicable to other ways to consume Event Hubs-compatible messages such as [HDInsight (Hadoop)] projects. Refer to [Azure IoT Hub developer guide - Device to cloud] for more information.
 
