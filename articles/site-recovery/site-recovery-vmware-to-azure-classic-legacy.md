@@ -73,7 +73,7 @@ Migrate as follows:
 
 10. Site Recovery will migrate your replicated data to the Azure storage account that you provided. Optionally you can reuse the storage account you used in the legacy deployment.
 11. After the job finishes virtual machines will automatically synchronize. AFter synchronization completes you can delete the virtual machines from the legacy protection group.
-12. After all machines have migrate you can delete the legacy protection group.
+12. After all machines have migrated you can delete the legacy protection group.
 13. Remember to specify the failover properties for machines, and the Azure network settings after synchronization is complete.
 14. If you have existing recovery plans, you can migrate them to the enhanced deployment with Migrate Recovery Plan. You should only do this after all protected machines have been migrated. 
 
@@ -439,7 +439,7 @@ Note that the first four IP addresses in any subnet are reserved for internal Az
 
 1. Click Quick Start > **Install Process Server on-premises** > **Download and install the process server**.
 
-	![Install process server](./media/site-recovery-vmware-to-azure-classic-legacy/ASRVMWare_PSDeploy.png)
+	![Install process server](./media/site-recovery-vmware-to-azure-classic-legacy/ps-deploy.png)
 
 2.  Copy the downloaded zip file to the server on which you're going to install the process server. The zip file contains two installation files:
 
