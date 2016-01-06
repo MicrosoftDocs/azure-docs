@@ -159,37 +159,177 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 7. Press **F5** to run the application. A console window should open and display the status of the application. You will also be prompted to enter your Azure account credentials. It can take several minutes to create an HDInsight cluster, normally around 15.
 
+## Use 
+
+For more information, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap).
+
+Modify the sample in [Create clusters](#create-clusters) to configure a Hive setting:
+
+    static void Main(string[] args)
+    {
+        System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
+
+        var tokenCreds = GetTokenCloudCredentials();
+        var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+
+        _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+
+        var extendedParameters = new ClusterCreateParametersExtended
+        {
+            Location = NewClusterLocation,
+            Properties = new ClusterCreateProperties
+            {
+                ClusterDefinition = new ClusterDefinition
+                {
+                    ClusterType = NewClusterType.ToString()
+                },
+                ClusterVersion = NewClusterVersion,
+                OperatingSystemType = NewClusterOSType
+            }
+        };
+
+        var coreConfigs = new Dictionary<string, string>
+        {
+            {"fs.defaultFS", string.Format("wasb://{0}@{1}", ExistingBlobContainer, ExistingStorageName)},
+            {
+                string.Format("fs.azure.account.key.{0}", ExistingStorageName),
+                ExistingStorageKey
+            }
+        };
+
+        // bootstrap
+        var hiveConfigs = new Dictionary<string, string>
+        {
+            { "hive.metastore.client.socket.timeout", "90"}
+        };
+
+        var gatewayConfigs = new Dictionary<string, string>
+        {
+            {"restAuthCredential.isEnabled", "true"},
+            {"restAuthCredential.username", NewClusterUsername},
+            {"restAuthCredential.password", NewClusterPassword}
+        };
+
+        var configurations = new Dictionary<string, Dictionary<string, string>>
+        {
+            {"core-site", coreConfigs},
+            {"gateway", gatewayConfigs},
+            {"hive-site", hiveConfigs}
+        };
+
+
+        var serializedConfig = JsonConvert.SerializeObject(configurations);
+        extendedParameters.Properties.ClusterDefinition.Configurations = serializedConfig;
+
+        //=====================
+        var sshPublicKeys = new List<SshPublicKey>();
+        var sshPublicKey = new SshPublicKey
+        {
+            CertificateData =
+                string.Format("ssh-rsa {0}", NewClusterSshPublicKey)
+        };
+        sshPublicKeys.Add(sshPublicKey);
+
+
+        var headNode = new Role
+        {
+            Name = "headnode",
+            TargetInstanceCount = 2,
+            HardwareProfile = new HardwareProfile
+            {
+                VmSize = "Large"
+            },
+            OsProfile = new OsProfile
+            {
+                LinuxOperatingSystemProfile = new LinuxOperatingSystemProfile
+                {
+                    UserName = NewClusterSshUserName,
+                    Password = NewClusterSshPassword //,
+                    //SshProfile = new SshProfile
+                    //{
+                    //    SshPublicKeys = sshPublicKeys
+                    //}
+                }
+            }
+        };
+
+        var workerNode = new Role
+        {
+            Name = "workernode",
+            TargetInstanceCount = NewClusterNumNodes,
+            HardwareProfile = new HardwareProfile
+            {
+                VmSize = "Large"
+            },
+            OsProfile = new OsProfile
+            {
+                LinuxOperatingSystemProfile = new LinuxOperatingSystemProfile
+                {
+                    UserName = NewClusterSshUserName,
+                    Password = NewClusterSshPassword //,
+                    //SshProfile = new SshProfile
+                    //{
+                    //    SshPublicKeys = sshPublicKeys
+                    //}
+                }
+            }
+        };
+
+        extendedParameters.Properties.ComputeProfile = new ComputeProfile();
+        extendedParameters.Properties.ComputeProfile.Roles.Add(headNode);
+        extendedParameters.Properties.ComputeProfile.Roles.Add(workerNode);
+
+        _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, extendedParameters);
+
+        System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+        System.Console.ReadLine();
+    }
+
+
 ## Use Script Action
 
 For more inforamtion, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
-The following code calls Script Action to install R:
+Modify the sample in [Create clusters](#create-clusters) to call a Script Action to install R:
 
-    var parameters = new ClusterCreateParameters
+    static void Main(string[] args)
     {
-        ClusterSizeInNodes = NewClusterNumNodes,
-        Location = NewClusterLocation,
-        ClusterType = NewClusterType,
-        OSType = NewClusterOSType,
-        Version = NewClusterVersion,
+        System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
 
-        DefaultStorageAccountName = ExistingStorageName,
-        DefaultStorageAccountKey = ExistingStorageKey,
-        DefaultStorageContainer = ExistingContainer,
+        var tokenCreds = GetTokenCloudCredentials();
+        var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
 
-        UserName = NewClusterUsername,
-        Password = NewClusterPassword,
-        SshUserName = NewClusterSshUserName,
-        SshPublicKey = NewClusterSshPublicKey
-    };
+        _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+        
+        var parameters = new ClusterCreateParameters
+        {
+            ClusterSizeInNodes = NewClusterNumNodes,
+            Location = NewClusterLocation,
+            ClusterType = NewClusterType,
+            OSType = NewClusterOSType,
+            Version = NewClusterVersion,
 
-    ScriptAction rScriptAction = new ScriptAction("Install R",
-        new Uri("https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh"), "");
+            DefaultStorageAccountName = ExistingStorageName,
+            DefaultStorageAccountKey = ExistingStorageKey,
+            DefaultStorageContainer = ExistingContainer,
 
-    parameters.ScriptActions.Add(ClusterNodeType.HeadNode,new System.Collections.Generic.List<ScriptAction> { rScriptAction});
-    parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { rScriptAction });
-    
-    _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+            UserName = NewClusterUsername,
+            Password = NewClusterPassword,
+            SshUserName = NewClusterSshUserName,
+            SshPublicKey = NewClusterSshPublicKey
+        };
+
+        ScriptAction rScriptAction = new ScriptAction("Install R",
+            new Uri("https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh"), "");
+
+        parameters.ScriptActions.Add(ClusterNodeType.HeadNode,new System.Collections.Generic.List<ScriptAction> { rScriptAction});
+        parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { rScriptAction });
+        
+        _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+
+        System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+        System.Console.ReadLine();
+    }
 
 ##Next steps
 
