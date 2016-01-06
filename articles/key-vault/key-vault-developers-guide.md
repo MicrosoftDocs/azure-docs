@@ -19,9 +19,9 @@
 
 > [AZURE.VIDEO azure-key-vault-developer-quick-start]
 
-Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment. Key Vault supports multiple key types and algorithms and can be used with hardware security modules (HSM) for high-value customer keys. In addition, you can use Key Vault to securely store secrets which are limited size octet objects with no specific semantics. A key vault can contain a mix of keys and secrets. Access control for the types of objects is independently managed.
+As a developer, you can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment. Key Vault supports multiple key types and algorithms and can be used with hardware security modules (HSM) for high-value keys. In addition, you can use Key Vault to securely store secrets which are limited size octet objects with no specific semantics. Access control for the types of objects is independently managed.
 
-Users, subject to successful authorization, can do the following:
+You can, subject to successful authorization, can do the following:
 
 - Manage cryptographic keys using [Create](https://msdn.microsoft.com/library/azure/dn903634.aspx), [Import](https://msdn.microsoft.com/library/azure/dn903626.aspx), [Update](https://msdn.microsoft.com/library/azure/dn903616.aspx), [Delete](https://msdn.microsoft.com/library/azure/dn903611.aspx) and other operations
 
@@ -29,7 +29,7 @@ Users, subject to successful authorization, can do the following:
 
 - Use cryptographic keys with [Sign](https://msdn.microsoft.com/library/azure/dn878096.aspx)/[Verify](https://msdn.microsoft.com/library/azure/dn878082.aspx), [WrapKey](https://msdn.microsoft.com/library/azure/dn878066.aspx)/[UnwrapKey](https://msdn.microsoft.com/library/azure/dn878079.aspx) and [Encrypt](https://msdn.microsoft.com/library/azure/dn878060.aspx)/[Decrypt](https://msdn.microsoft.com/library/azure/dn878097.aspx) operations
 
-Operations against key vaults are authenticated and authorized by using Azure Active Directory.
+Operations against key vaults are authenticated and authorized through Azure Active Directory.
 
 ## Programming for Key Vault
 
@@ -65,4 +65,3 @@ The following articles provide task specific guidance:
 - [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) provides IKey and IKeyResolver interfaces for locating keys from identifiers and performing operations with keys.
 
 - [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) provides extended capabilities for Azure Key Vault.
-

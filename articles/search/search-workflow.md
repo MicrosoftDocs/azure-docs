@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="12/29/2015"
 	ms.author="heidist"/>
 
 # Typical workflow for Azure Search development
@@ -42,7 +42,7 @@ There are two pricing tiers to choose from. We recommend the shared (free) servi
 
 After you create the service, you are ready to create an index, starting with its schema definition.
 
-The fastest and easiest way to create an index is through the Azure Classic Portal. At a minimum, each document must have a unique key and at least one field that contains searchable data. To get started, see [Create an index in the portal](search-create-index-portal.md).
+The fastest and easiest way to create an index is through the Azure Portal. At a minimum, each document must have a unique key and at least one field that contains searchable data. To get started, see [Create an index in the portal](search-create-index-portal.md).
 
 > [AZURE.NOTE] Inside an Azure Search Index
 >
@@ -73,7 +73,7 @@ A second option is to write a simple program using either the REST API or the .N
 - [Add, update, or delete documents (REST API)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [DocumentOperationsExtensions Class](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-A third option that works for very small datasets is to use [Fiddler](search-fiddler.md) or [Chrome Postman](search-chrome-postman.md) to upload documents.
+A third option that works for very small datasets is to use [Fiddler](search-fiddler.md) to upload documents.
 
 A fourth option, perhaps the easiest one, is to borrow code from either the [Adventure Works C# REST API Example](https://azuresearchadventureworksdemo.codeplex.com/) that loads documents from an embedded database (.mdf) in the solution, or [Scoring Profiles C# REST API Example](https://azuresearchscoringprofiles.codeplex.com/) that loads data from JSON data files included in the solution.
 
@@ -83,7 +83,7 @@ A fourth option, perhaps the easiest one, is to borrow code from either the [Adv
 
 Once documents are loaded into the index, you can write your first query.
 
-The fastest way to get initial search results back from your Search service is to use [Fiddler](search-fiddler.md) or [Chrome Postman](search-chrome-postman.md) to view a response, but realistically, you will want to write some simple UI code to view the results in a readable format.
+The fastest way to get initial search results back from your Search service is to use [Fiddler](search-fiddler.md) to view a response, but realistically, you will want to write some simple UI code to view the results in a readable format.
 
 APIs for search operations include:
 
@@ -140,7 +140,8 @@ Azure Search provides two programming models: the .NET library for managed code,
 
 Currently, a small subset of features are not yet in the .NET library, so even if you prefer to write managed code, you might need to use the REST API to get the features you want. Features that are only available in the REST API include:
 
-- [Microsoft Natural Language processors - preview only](../search-api-2015-02-28-preview/)
+- [Custom Analyzers - preview only](https://msdn.microsoft.com/library/azure/mt605304.aspx)
+- [Lucene query analyzer - preview only](https://msdn.microsoft.com/library/azure/mt589323.aspx)
 - [moreLikeThis feature - preview only](../search-api-2015-02-28-preview/)
 - [Management API](https://msdn.microsoft.com/library/dn832684.aspx)
 
