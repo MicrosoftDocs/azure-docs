@@ -178,7 +178,7 @@ To do so connect to the Azure database (the destination) from Visual Studio:
 8. Open Server Explorer.
 ![Server Explorer](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-18.png)
 9. Review the four tables created in the TollDataDB database.
-![Table View](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-19.png)
+![Table View](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-19.jpg)
 
 
 
