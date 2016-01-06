@@ -472,11 +472,9 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio, right-cli
 -   Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
 -	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
--	Learn more about the programming model in the Development section of the [DocumentDB documentation page](../../services/documentdb/).
+-	Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
-[doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
