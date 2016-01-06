@@ -27,7 +27,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-##Prerequisites
+###Prerequisites
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
