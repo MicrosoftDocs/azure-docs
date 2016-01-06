@@ -1,6 +1,7 @@
 To create a VNet based on the scenario above by using the Azure portal, follow the steps below.
 
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+
 2. Click **NEW** > **Networking** > **Virtual network**, then click **Resource Manager** from the **Select a deployment model** list, and then click **Create**.
 
 3. On the **Create virtual network** blade, configure the VNet settings as shown in the figure below.
