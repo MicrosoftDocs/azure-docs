@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="12/30/2015"
    ms.author="joaoma" />
 
 
@@ -51,7 +51,6 @@ As the Azure Resource Manager support for Traffic Manager is a Preview service, 
 
 - 'Nested' Traffic Manager endpoints are not currently supported in the ARM API.
 
-- Azure Traffic Manager is not yet available in the Azure 'preview' portal, only on the 'classic' portal.
 
 ## Setting up Azure PowerShell
 
