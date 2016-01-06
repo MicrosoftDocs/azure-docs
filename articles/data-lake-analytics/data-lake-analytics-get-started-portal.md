@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="01/04/2016"
    ms.author="jgao"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using Azure Portal
@@ -37,7 +37,7 @@ separated values (CSV) file. To go through the same tutorial using other support
 4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
 in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
 
-**Prerequisites**
+###Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
