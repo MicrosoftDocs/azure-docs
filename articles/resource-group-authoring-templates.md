@@ -268,21 +268,26 @@ The resources section contains an array of the resources to deploy. Within each 
 
     "resources": [
        {
-           <resource A>
+           "name": "resourceA",
+           ...
        },
        {
-           <resource B>
+           "name": "resourceB",
+           ...
            "resources": [
                {
-                   <child resource B-1>
+                   "name": "firstChildResourceB",
+                   ...
                },
                {   
-                   <child resource B-2>
+                   "name": "secondChildResourceB",
+                   ...
                }
            ]
        },
        {
-           <resource C>
+           "name": "resourceC",
+           ...
        }
     ]
 
