@@ -42,7 +42,7 @@ The size of the virtual machine affects the pricing. The size also affects the p
 The following considerations might help you decide on a size:
 
 
-* The A8-A11 sizes are also known as **compute-intensive instances**. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. For detailed information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042).
+* The A8-A11 sizes are also known as *compute-intensive instances*. The hardware that runs these sizes is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) cluster applications, modeling, and simulations. For detailed information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](http://go.microsoft.com/fwlink/p/?linkid=328042).
 
 
 *	Dv2-series, D-series, G-series, and the DS/GS counterparts  are ideal for applications that demand faster CPUs, better local disk performance, or have higher memory demands.  They offer a powerful combination for many enterprise-grade applications.
