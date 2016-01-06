@@ -146,7 +146,7 @@ PowerShell runbooks have the same lifecycle, capabilities and management as Powe
 ## Next Steps
 
 - To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
-- To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-graphical.md)
+- To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 - To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
 - For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
