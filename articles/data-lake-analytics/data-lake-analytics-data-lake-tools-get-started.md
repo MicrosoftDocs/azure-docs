@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/21/2015"
+   ms.date="01/05/2015"
    ms.author="jgao"/>
 
 # Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
@@ -220,6 +220,10 @@ You will see a *Local* account in Visual Studio, and the installer creates a *Da
 - For a certain script: if a relative path is referenced in input/output paths, we will look up the DataRoot (as well as the script’s path if the it’s input)
 - The DataRoot folder will NOT be referenced if you are trying to register an assembly and use a relative path (see “Use assemblies when doing local run” part for more details)
 
+The following video demonstrates the U-SQL local run feature:
+
+>[AZURE.VIDEO usql-localrun]
+
 ### Known issues and limitations
 
 - U-SQL Local Run does not support querying filesets locally. See [U-SQL filesets](https://msdn.microsoft.com/library/azure/mt621294.aspx). This will be resolved in the future.
@@ -268,8 +272,6 @@ The following procedure only works in Visual Studio 2015. In older Visual Studio
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Set breakpoints in the C# code.
 4.	Press **F5** to debug the script with referencing the C# dll locally.  
- 
-
 
 ##See also
 
