@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/28/2015"
 	ms.author="mahender"/>
 
 # Get started with custom authentication
@@ -288,7 +288,7 @@ Next, you create an endpoint for your users to sign-in. The username and passwor
 
 	    }
 
-	This class represents a successfully login with the user ID and the authentication token. Note that this class has the same shape as the MobileServiceUser class on the client, which makes it easier to hand the login response on a strongly-typed client.
+	This class represents a successful login with the user ID and the authentication token. Note that this class has the same shape as the MobileServiceUser class on the client, which makes it easier to hand the login response on a strongly-typed client.
 
 2. Right-click **Controllers**, click **Add** and **Controller**, create a new **Microsoft Azure Mobile Services Custom Controller** named `CustomLoginController`, then add the following `using` statements:
 

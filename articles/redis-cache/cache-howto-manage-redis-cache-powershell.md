@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Manage Azure Redis Cache with Azure PowerShell
@@ -26,7 +26,7 @@ This topic shows you how to perform common tasks such as create, update, and sca
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](#classic) described later in this article.
 
-## Prerequisites ##
+## Prerequisites
 
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 1.0.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
@@ -75,7 +75,7 @@ The following table contains properties and descriptions for commonly used param
 | RedisConfiguration | Specifies Redis configuration settings for maxmemory-delta, maxmemory-policy, and notify-keyspace-events. Note that maxmemory-delta and notify-keyspace-events are available for Standard and Premium caches only. |          |
 | EnableNonSslPort   | Indicates whether the non-SSL port is enabled.                                                                                                                                                                     | False    |
 | MaxMemoryPolicy    | This parameter has been deprecated - use RedisConfiguration instead.                                                                                                                                              |          |
-| StaticIP           | When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache.                                                                                                                       |          |
+| StaticIP           | When hosting your cache in a VNET, specifies a unique IP address in the subnet for the cache. If not provided, one is chosen for you from the subnet.                                                                                                                     |          |
 | Subnet             | When hosting your cache in a VNET, specifies the name of the subnet in which to deploy the cache.                                                                                                                  |          |
 | VirtualNetwork     | When hosting your cache in a VNET, specifies the resource ID of the VNET in which to deploy the cache.                                                                                                             |          |
 | KeyType            | Specifies which access key to regenerate when renewing access keys. Valid values are: Primary, Secondary |  |                                                                                                                                                                                                              |          |
@@ -84,6 +84,10 @@ The following table contains properties and descriptions for commonly used param
 ## To create a Redis Cache
 
 New Azure Redis Cache instances are created using the [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx) cmdlet.
+
+>[AZURE.IMPORTANT] The first time you create a Redis cache in a subscription using the Azure portal, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Redis cache in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzureRmRedisCache` and `Get-AzureRmRedisCache` will fail.
+>
+>`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 To see a list of available parameters and their descriptions for `New-AzureRmRedisCache`, run the following command.
 
@@ -238,7 +242,8 @@ The following command updates the maxmemory-policy for the Redis Cache named myC
 
 	Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
-## Scale a Redis cache with PowerShell
+<a name="scale"></a>
+## To scale a Redis cache
 
 `Set-AzureRmRedisCache` can be used to scale an Azure Redis cache instance when the `Size`, `Sku`, or `ShardCount` properties are modified. 
 

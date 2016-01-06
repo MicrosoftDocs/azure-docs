@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Logic App features" 
+	pageTitle="Use Logic App features | Microsoft Azure" 
 	description="Learn how to use the advanced features of logic apps." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="01/04/2016"
 	ms.author="stepsic"/> 
 	
 # Use Logic Apps features
@@ -49,15 +49,15 @@ Repeat takes a list of items and executes the action for each item in that list.
 
 3. Click on the gear icon, and select **Repeat over a list**. 
  
-2. Next to the **Repeat** box click the `...` and select **Body**. This will input:
+2. Next to the **Repeat** box, click the `...` and select **Body**. This inputs:
 
     	@body('twitterconnector')
 
 	Into the text box. This function outputs a list of tweets. 
 
-3. Select all of the text in the **Content** text box and delete it. Then, click the `...` and select **Tweet Text**. This will insert the **repeatItem()** function, which returns each element in the list. 
+3. Select all of the text in the **Content** text box and delete it. Then, click the `...` and select **Tweet Text**. This inserts the **repeatItem()** function, which returns each element in the list. 
 
-Finally, note that the outputs of repeating actions are special. If you wanted to reference the results of the Dropbox operation, for example, you could *not* do the normal `@actions('dropboxconnector').outputs.body`, you would instead do: `@actions('dropboxconnector').outputs.repeatItems`. This returns a list of all of the times that the operation ran, along with the outputs of each. For example, `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` will return the path of the first file uploaded.
+Finally, note that the outputs of repeating actions are special. If you wanted to reference the results of the Dropbox operation, for example, you could *not* do the normal `@actions('dropboxconnector').outputs.body`. You would instead do: `@actions('dropboxconnector').outputs.repeatItems`. This returns a list of all of the times that the operation ran, along with the outputs of each. For example, `@first(actions('dropboxconnector').outputs.repeatItems).outputs.body.FilePath` returns the path of the first file uploaded.
 
 ### Conditional
 This logic app still results in a lot of files being uploaded to Dropbox. The following steps add additional logic to make sure that you only receive a file when the tweet has a certain number of retweets. 
@@ -98,7 +98,7 @@ The following updates your existing logic app to use parameters for the query te
 		    "defaultValue" : "MicrosoftAzure"
 	    }
     
-2. Scroll to the `twitterconnector` action, locate the query value and replace it with `#@{parameters('topic')}`.
+2. Scroll to the `twitterconnector` action, locate the query value, and replace it with `#@{parameters('topic')}`.
 	You could also use the  **concat** function to join together two or more strings, for example: `@concat('#',parameters('topic'))` is identical to the above. 
  
 3. Finally, go to the `dropboxconnector` action and add the topic parameter, as follows:
@@ -107,7 +107,7 @@ The following updates your existing logic app to use parameters for the query te
 
 Parameters are a good way to pull out values that you are likely to change a lot. They are especially useful when you need to override parameters in different environments. For more information on how to override parameters based on environment, see our [REST API documentation](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
-Now, when you click **Save**, every hour you will get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
+Now, when you click **Save**, every hour you get any new tweets that have more than 5 retweets delivered to a folder called **tweets** in your Dropbox.
 
 To learn more about Logic App definitions, see [author Logic App definitions](app-service-logic-author-definitions.md).
 
@@ -115,7 +115,7 @@ To learn more about Logic App definitions, see [author Logic App definitions](ap
 There are several different options for starting the workflow defined in you logic app. A workflow can always be started on-demand in the [Azure portal].
 
 ### Recurrence triggers
-A recurrence trigger run at an interval that you specify. When the trigger has conditional logic, the trigger determines whether or not the workflow needs to run. A trigger indicates it should run by returning a `200` status code. When is does not need to run, it returns `202` status code.
+A recurrence trigger runs at an interval that you specify. When the trigger has conditional logic, the trigger determines whether or not the workflow needs to run. A trigger indicates it should run by returning a `200` status code. When it does not need to run, it returns a `202` status code.
 
 ### Callback using REST APIs
 Services can call a logic app endpoint to start a workflow. You can find the endpoint to access by navigating to the **Properties** blade from the **Settings** command bar button in your logic app. 
@@ -130,12 +130,12 @@ You can use this callback to invoke a logic app from inside your custom applicat
             "outputs" : { "property" : "value" }
         }
 
-You can pass outputs to the workflow and reference them in the workflow. For example, with the above trigger, if you include `@triggers().outputs.property` you will get `value`.
+You can pass outputs to the workflow and reference them in the workflow. For example, with the above trigger, if you include `@triggers().outputs.property`, you get `value`.
 
 For more information, see [the REST documentation](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). 
 
 ### Manual execution
-You can define a logic app that does not have a trigger. In this case the workflow must be started on-demand. This kind of logic app is best suited for a process that only needs to run intermittently. To create a logic app without a trigger, check the **Run this logic manually** in the **Start logic** box in the designer. 
+You can define a logic app that does not have a trigger. In this case, the workflow must be started on-demand. This kind of logic app is best suited for a process that only needs to run intermittently. To create a logic app without a trigger, check the **Run this logic manually** in the **Start logic** box in the designer. 
 
 To start logic app on-demand, click the **Run now** button on the command bar. 
 

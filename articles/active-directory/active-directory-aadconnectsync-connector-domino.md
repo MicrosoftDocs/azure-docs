@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/10/2015"
+   ms.date="12/28/2015"
    ms.author="andkjell"/>
 
 # Lotus Domino Connector technical reference
@@ -34,7 +34,7 @@ From a high level perspective, the following features are supported by the curre
 
 | Feature | Support |
 | --- | --- |
-| Connected data source | Server: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client:<li>Lotus Notes 8.5.x</li><li>Lotus Notes 9.x</li> |
+| Connected data source | Server: <li>Lotus Domino 8.5.x</li><li>Lotus Domino 9.x</li>Client:<li>Lotus Notes 9.x</li> |
 | Scenarios	| <li>Object Lifecycle Management</li><li>Group Management</li><li>Password Management</li> |
 | Operations | <li>Full and Delta Import</li><li>Export</li><li>Set and change password on HTTP password</li> |
 | Schema | <li>Person (Roaming user, Contact (persons with no certificate))</li><li>Group</li><li>Resource (Resource, Room, Online meeting)</li><li>Mail-in database</li><li>Dynamic discovery of attributes for supported objects</li> |
@@ -248,7 +248,7 @@ If a new Assistant named **David Alexander** is assigned to this person object, 
 
 **Import**
 
-The Export operation option supports two modes:
+The Import operation option supports two modes:
 
 - Default
 - Multivalued to Single Value
@@ -456,7 +456,7 @@ This section lists the attributes that are mandatory for each supported object t
 | Group | <li>ListName</li> |
 | Main-In Database | <li>FullName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 | Person | <li>LastName</li><li>MailFile</li><li>ShortName</li><li>\_MMS_Password</li><li>\_MMS_IDStoreType</li><li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li><li>_MMS_UseAdminP</li> |
-| Contact (Person with no certifier) | <li>\_MMS_Certifier</li><li>\_MMS_IDRegType</li> |
+| Contact (Person with no certifier) | <li>\_MMS_IDRegType</li> |
 | Resource | <li>FullName</li><li>ResourceType</li><li>ConfDB</li><li>ResourceCapacity</li><li>Site</li><li>DisplayName</li><li>MailFile</li><li>MailServer</li><li>MailDomain</li> |
 
 ## Common issues and questions
