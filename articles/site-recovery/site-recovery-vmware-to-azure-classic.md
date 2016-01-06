@@ -172,7 +172,6 @@ The tables summarize the prerequisites for deploying this scenario.
 4. In **Name**, enter a friendly name to identify the vault.
 5. In **Region**, select the geographic region for the vault. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](pricing/details/site-recovery/)
 6. Click **Create vault**.
-
 	![New vault](./media/site-recovery-vmware-to-azure-classic/quick-start-create-vault.png)
 
 Check the status bar to confirm that the vault was successfully created. The vault will be listed as **Active** on the main **Recovery Services** page.
@@ -186,7 +185,7 @@ Set up an Azure network so that Azure VMs will be connected to a network after f
 
 [Read more](virtual-networks-overview.md) about Azure networks.
 
-## Step 2: Install the VMware components
+## Step 3: Install the VMware components
 
 If you want to replicate VMware virtual machines install the following VMware components on the management server:
 
@@ -194,7 +193,7 @@ If you want to replicate VMware virtual machines install the following VMware co
 2. Restart the server.
 
 
-## Step 3: Download a vault registration key
+## Step 4: Download a vault registration key
 
 1. From the management server open the Site Recovery console in Azure. In the **Recovery Services** page click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
 
@@ -203,7 +202,7 @@ If you want to replicate VMware virtual machines install the following VMware co
 2. On the **Quick Start** page click **Prepare Target Resources** > **Download a registration key**. The registration file is generated automatically. It's valid for 5 days after it's generated. 
 
 
-## Step 4: Install the management server
+## Step 5: Install the management server
 
 1. On the **Quick Start** page download the unified installation file to the server.
 2. Run the installation file to start setup in the Site Recovery Unified Setup wizard.
@@ -240,28 +239,28 @@ If you want to replicate VMware virtual machines install the following VMware co
 
 	![Prerequisites](./media/site-recovery-vmware-to-azure-classic/combined-wiz4.png)
 
-7. In **MySQL Configuration** create credentials to log onto the MySQL server instance. You can specify these special characters:  ‘_’ , ‘!’ , ‘@’ , ‘$’, ‘\’, ‘%’.
+8. In **MySQL Configuration** create credentials to log onto the MySQL server instance. You can specify these special characters:  ‘_’ , ‘!’ , ‘@’ , ‘$’, ‘\’, ‘%’.
 
 	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz5.png)
 
-8. In **Environment Details** specify whether you're going to replicate VMware VMs. If you are setup checks whether PowerCLI 6.0 is installed.
+9. In **Environment Details** specify whether you're going to replicate VMware VMs. If you are setup checks whether PowerCLI 6.0 is installed.
 
 	![MySQL](./media/site-recovery-vmware-to-azure-classic/combined-wiz6.png)
 
-9. In **Install Location** select where you want to install the binaries and store the cache. We recommend that the cache drive have 600 GB or greater of free space.
+10. In **Install Location** select where you want to install the binaries and store the cache. We recommend that the cache drive have 600 GB or greater of free space.
 
 	![Install location](./media/site-recovery-vmware-to-azure-classic/combined-wiz7.png)
 
-10. In **Network Selection** specify the listener (network adapter and SSL port) on which the server will send and receive replication data. You can modify the default port (9443). In addition to this port, port 443 will be opened on the server to send and receive information about replication orchestration. 443 shouldn't be used for replication data.
+11. In **Network Selection** specify the listener (network adapter and SSL port) on which the server will send and receive replication data. You can modify the default port (9443). In addition to this port, port 443 will be opened on the server to send and receive information about replication orchestration. 443 shouldn't be used for replication data.
 
 
 	![Network selection](./media/site-recovery-vmware-to-azure-classic/combined-wiz8.png)
 
-11. In **Registration** browse and select the registration key you downloaded from the vault.
+12. In **Registration** browse and select the registration key you downloaded from the vault.
 
 	![Registration](./media/site-recovery-vmware-to-azure-classic/combined-wiz9.png)
 
-12.  In **Summary** review the information.
+13.  In **Summary** review the information.
 
 	![Summary](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 
@@ -286,7 +285,7 @@ Where:
 
 
 
-## Step 5: Set up credentials for the vCenter server
+## Step 6: Set up credentials for the vCenter server
 
 The process server can automatically discover VMware VMs that are managed by a vCenter server. For automatic discovery Site Recovery needs an account and credentials that can access the vCenter server. This isn't relevant if you're replicating physical servers only.
 
@@ -306,7 +305,7 @@ Do this as follows:
 
 	![Details](./media/site-recovery-vmware-to-azure-classic/credentials2.png)
 
-## Step 6: Add vCenter servers and ESXi hosts
+## Step 7: Add vCenter servers and ESXi hosts
 
 If you're replicating VMware VMs you need to add a vCenter server (or ESXi host).
 
@@ -325,7 +324,7 @@ If you're replicating VMware VMs you need to add a vCenter server (or ESXi host)
 	![vCenter](./media/site-recovery-vmware-to-azure-classic/add-vcenter3.png)
 		
 
-## Step 7: Create a protection group
+## Step 8: Create a protection group
 
 A protection group contain virtual machines or physical servers that will share the same replication settings.
 
@@ -348,7 +347,7 @@ A protection group contain virtual machines or physical servers that will share 
 
 When you click on the checkmark a protection group will be created with the name you specified. In addition a second protection group is created with the name <protection-group-name-Failback). This protection group is used if you fail back to the on-premises site after failover to Azure. You can monitor the protection groups as they're created on the **Protected Items** page. 
 
-## Step 8: Install the Mobility service
+## Step 9: Install the Mobility service
 
 The first step in enabling protection for virtual machines and physical servers is to install the Mobility service. You can do this in two ways:
 
@@ -475,7 +474,7 @@ To install on the master target server:
     ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 443 -s y -c https -P passphrase.txt
 
 
-## Step 9: Enable protection for a machine
+## Step 10: Enable protection for a machine
 
 To enable protection you add virtual machines and physical servers to a protection group. Before you start,note the following if you're protecting VMware virtual machines:
 
@@ -523,7 +522,7 @@ In addition, protection status can be monitored in **Protected Items** > <protec
 ![Enable protection](./media/site-recovery-vmware-to-azure-classic/enable-protection6.png)
 
 
-## Step 10: Set protected machine properties
+## Step 11: Set protected machine properties
 
 1. After a machine has a **Protected** status you can configure its failover properties. In the protection group details select the machine and open the **Configure** tab.
 2. Site Recovery automatically suggests properties for the Azure VM and detects the on-premises network settings. 
@@ -545,7 +544,7 @@ In addition, protection status can be monitored in **Protected Items** > <protec
 		- Note that if you want to fail back you can’t retain the same IP address after failover of the source machine to Azure. Failback is only over VPN/ExpressRoute and you can’t have the same pool of addresses on both sides of the VPN connection.  
 		- You can't maintain the same IP address in Azure as you have on the on-premises site. A VPN connection is needed for failback and it can't have the same IP address ranges on both sides of the connection.
 
-## Step 11: Create a recovery plan and run a failover
+## Step 12: Create a recovery plan and run a failover
 
 You can run a failover for a single machine, or fail over multiple virtual machines that perform the same task or run the same workload. To fail over multiple machines at the same time you add them to a recovery plan.
 
