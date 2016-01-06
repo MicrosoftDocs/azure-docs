@@ -11,23 +11,23 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="11/06/2015"
+	ms.date="12/18/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create a scalable elastic database pool for SQL databases in Azure preview portal
+# Create a scalable elastic database pool for SQL databases in Azure portal
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) using the Azure preview portal. A SQL Database configuration with elastic database pools simplifies administration and resource sharing across multiple databases.
+This article shows you how to create a scalable [elastic database pool](sql-database-elastic-pool.md) using the Azure portal. A SQL Database configuration with elastic database pools simplifies administration and resource sharing across multiple databases.
 
-> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server.md) in one step.
+> [AZURE.NOTE] Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
 
 
 Before you start, you need a database on a SQL Database V12 server. If you don't have one, see [Create your first Azure SQL Database](sql-database-get-started.md) to create one in under five minutes. Or if you already have a SQL Database V11 server you can [upgrade to V12 in the portal](sql-database-v12-upgrade.md) and then come back and follow these directions to create a pool.
@@ -38,7 +38,7 @@ Before you start, you need a database on a SQL Database V12 server. If you don't
 Create an elastic database pool by adding a new pool to a server. You can add multiple pools to a server, but only one (1) server can be associated with each pool. Additionally, all or some of the databases on a server can be added to a pool.
 
 
-In the [Azure preview portal](https://ms.portal.azure.com/) click **SQL servers**, click server that hosts the databases you want to add to the pool, and then click **Add pool**.
+In the [Azure portal](https://portal.azure.com/) click **SQL servers**, click server that hosts the databases you want to add to the pool, and then click **Add pool**.
 
 ![Add pool to a server](./media/sql-database-elastic-pool-portal/elastic-pool-add-pool.png)
 
@@ -89,7 +89,9 @@ The service evaluates resource needs and cost effectiveness of moving the single
 
 ## Step 3: add databases to the pool
 
-At any time, you can select the specific databases you want to be included in the pool. When you create a new pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
+At any time, you can select the specific databases you want to be included in the pool. (To create a new database in a pool, see [Add and remove databases](sql-database-elastic-pool-portal.md#add-and-remove-databases-from-the-pool) below.)
+
+When you create a new pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
 
    ![Add databases][5]
 
@@ -99,7 +101,7 @@ When you select a database to be added to a pool, the following conditions must 
 - The current features used by the database must be available in the pool.
 
 
-## Step 4: tweaking performance characteristics
+## Step 4: setting performance characteristics of the pool
 
 You configure the performance of the pool by setting the performance parameters for both the pool and the elastic databases in the pool. Keep in mind that the **Elastic database settings** apply to all databases in the pool.
 
@@ -138,9 +140,23 @@ Just like elastic database pool pricing tier recommendations, recommended pools 
 
 ## Add and remove databases from the pool
 
-After the pool is created, you can add or remove databases in and out of the pool by selecting or clearing databases on the **Add Databases** page.
+### Add an existing database to the pool
+
+After the pool is created, you can add or remove existing databases in and out of the pool by adding or removing databases on the **Elastic databases** page (browse to your pool and click the **Elastic databases** link in **Essentials**).
 
 After creating a pool you can also use Transact-SQL to create new elastic databases in the pool and move databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+
+
+### Add a new database to the pool
+
+Create a new database in a pool by browsing to the desired pool and clicking **Create database**.
+
+The SQL database is already configured for the correct server and pool so enter a name and select your database options, then click **OK** to create the new database:
+
+
+   ![create elastic database][13]
+
+
 
 
 ## Monitor and manage an elastic database pool
@@ -201,3 +217,4 @@ After creating an elastic database pool, you can manage the databases in the poo
 [10]: ./media/sql-database-elastic-pool-portal/star.png
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
+[13]: ./media/sql-database-elastic-pool-portal/create-database.png

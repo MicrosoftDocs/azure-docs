@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # Load sample data into SQL Data Warehouse
@@ -25,7 +25,7 @@ The following will give you a brief view of how AdventureWorksDW can be loaded i
 ## Adding sample data during creation
 You can ensure that sample data is loaded into your SQL Data Warehouse during deployment by following these steps:   
 
-1. Start the creation process by finding SQL Data Warehouse in the [Azure Portal][] by clicking '+ New' and then 'Data and Storage' or in the Marketplace by searching for 'SQL Data Warehouse'. 
+1. Start the creation process by finding SQL Data Warehouse in the [Azure Classic Portal][] by clicking '+ New' and then 'Data and Storage' or in the Marketplace by searching for 'SQL Data Warehouse'. 
  
 2. Once the process is started, ensure that you click the 'Select source' option and set it to 'Sample'. If you are not creating a new server you will also be asked to provide the log-in for the server that you are using to create.  
 
@@ -35,7 +35,7 @@ You can ensure that sample data is loaded into your SQL Data Warehouse during de
 
 ## Using Power BI to analyze Adventureworks
 
-Using the sample data set can be a great way to get started with Power BI. After loading the sample data, you can open a connection to SQL Data Warehouse either by clicking the 'Open in Power BI' button in the Azure portal or going to [Power BI][]  and [connecting to SQL Data Warehouse][]. After connecting, a new dataset should be created with the same name as your data warehouse.  To make analysis easier we have created a view called 'AggregateSales' with a few of the metrics that are key to analyzing the sales of the company. You can click on the name of this view to expand it and see the columns that it contains and you can create some quick visualizations by following these steps:
+Using the sample data set can be a great way to get started with Power BI. After loading the sample data, you can open a connection to SQL Data Warehouse either by clicking the 'Open in Power BI' button in the Azure Classic Portal or going to [Power BI][]  and [connecting to SQL Data Warehouse][]. After connecting, a new dataset should be created with the same name as your data warehouse.  To make analysis easier we have created a view called 'AggregateSales' with a few of the metrics that are key to analyzing the sales of the company. You can click on the name of this view to expand it and see the columns that it contains and you can create some quick visualizations by following these steps:
 
 1. To get started, we can easily create a map of all our sales by clicking the 'PostalCode' and 'SalesAmount' columns. Power BI will even automatically recognize this as geographic data and put it in a map for you. 
 
@@ -84,7 +84,7 @@ Now that we've given you some time to warm up with the sample data check out how
 [connect and query]: ./sql-data-warehouse-get-started-connect.md
 [migrate code]: ./sql-data-warehouse-migrate-code.md
 [load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Azure Portal]: https://portal.azure.com/
+[Azure Classic Portal]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 

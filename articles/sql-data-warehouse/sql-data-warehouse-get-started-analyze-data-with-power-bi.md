@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Visualize SQL Data Warehouse data with Power BI | Microsoft Azure"
-    description="Visualize SQL Data Warehouse data with Power BI"
-    services="sql-data-warehouse"
-    documentationCenter="NA"
-    authors="lodipalm"
-    manager="barbkess"
-    editor=""/>
+   pageTitle="Visualize SQL Data Warehouse data with Power BI | Microsoft Azure"
+   description="Visualize SQL Data Warehouse data with Power BI"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""/>
 
 <tags
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/21/2015"
-    ms.author="lodipalm"/>
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="01/04/2016"
+   ms.author="lodipalm"/>
 
 # Visualize data with Power BI
 
@@ -30,7 +30,7 @@ This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and
 
 To open Power BI and connect to your AdventureWorksDW database:
 
-1. Sign into the [Azure preview portal][].
+1. Sign into the [Azure Portal][].
 2. Click **SQL databases** and choose your AdventureWorks SQL Data Warehouse database. 
 
     ![Find your database][1]
@@ -105,7 +105,7 @@ Now that we've given you some time to warm up with the sample data, see how to [
 [develop]: ./sql-data-warehouse-overview-develop.md
 [load]: ./sql-data-warehouse-overview-load.md
 [load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Azure preview portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="10/04/2015"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # How to Get Started Quickly with Docker in the Azure Marketplace
@@ -25,7 +25,7 @@ The fastest way to get started using [Docker] is to go to the Azure Marketplace 
 
 You can immediately connect to the VM using SSH and begin doing work with Docker directly without doing anything else.
 
-> [AZURE.NOTE]The VM created by the Azure Marketplace template does not host the Docker remote API for management by a remote docker client. To enable controlling the Docker Host on this VM remotely, see either [Running Docker with HTTPS](https://docs.docker.com/articles/https/) or follow the steps in [Using the Docker VM Extension from the Azure Portal](virtual-machines-docker-with-portal.md) or [Using the Docker VM Extension from the Azure CLI](virtual-machines-docker-with-xplat-cli-install.md). 
+> [AZURE.NOTE]The VM created by the Azure Marketplace template does not host the Docker remote API for management by a remote docker client. To enable controlling the Docker Host on this VM remotely, see either [Running Docker with HTTPS](https://docs.docker.com/articles/https/) or follow the steps in [Using the Docker VM Extension from the Azure classic portal](virtual-machines-docker-with-portal.md) or [Using the Docker VM Extension from the Azure CLI](virtual-machines-docker-with-xplat-cli.md). 
 <!-- -->
 If you want to automate your Azure Docker VM from Windows, you can [install the Docker Toolbox](https://docs.docker.com/installation/windows/) or get Docker.exe [from Chocolatey](https://chocolatey.org/packages/docker).
 

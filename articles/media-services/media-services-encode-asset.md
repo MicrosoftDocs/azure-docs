@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015"  
+	ms.date="01/05/2015"  
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
 
 ##Encoding overview
 
-Azure Media Services provides multiple options for the encoding of media in the cloud. 
+Azure Media Services provides multiple options for the encoding of media in the cloud.
 
-When starting out with Media Services, it is important to understand the difference between codecs and file formats. 
+When starting out with Media Services, it is important to understand the difference between codecs and file formats.
 Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
 
-Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats. 
+Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.
 
 To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to do the following:
 
@@ -35,7 +35,7 @@ To take advantage of [dynamic packaging](media-services-dynamic-packaging-overvi
 Media Services supports the following on demand encoders that are described in this article:
 
 - **Media Encoder Standard**
-- **Azure Media Encoder** 
+- **Azure Media Encoder**
 - **Media Encoder Premium Workflow**
 
 This article gives a brief overview of on demand media encoders and provides links to articles that give more detailed information. The topic also provides comparison of the encoders.
@@ -46,7 +46,7 @@ Note that by default each Media Services account can have one active encoding ta
 
 ###Overview
 
-It is recommended to use the Media Encoder Standard encoder. However, it is currently not exposed via the Azure portal.
+It is recommended to use the Media Encoder Standard encoder. However, it is currently not exposed via the Azure Classic Portal.
 
 When compared to Azure Media Encoder, this encoder supports more input and output formats and codecs. Other benefits include:
 
@@ -73,13 +73,17 @@ The encoders input metadata is described [here](http://msdn.microsoft.com/librar
 
 The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
-###Thumbnail
+###Generate thumbnails
 
-For information on how to generate thumbnails, see [How to generate thumbnails using Media Encoder Standard](media-services-dotnet-generate-thumbnail-with-mes.md).
+For information, see [How to generate thumbnails using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
 
-###Audio and/or video overlays
+###Trim videos (clipping)
 
-Currently, not supported.
+For information, see [How to trim videos using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#trim_video).
+
+###Create overlays
+
+For information, see [How to create overlays using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
 ###See also
 

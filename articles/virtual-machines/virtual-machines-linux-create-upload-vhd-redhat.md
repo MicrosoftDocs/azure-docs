@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create and upload a Red Hat Enterprise Linux VHD for use in Azure" 
-	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a RedHat Linux operating system." 
+	description="Learn to create and upload an Azure virtual hard disk (VHD) that contains a Red Hat Linux operating system." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="SuperScottz" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/23/2015" 
 	ms.author="mingzhan"/>
 
 
-# Prepare a RedHat-based Virtual Machine for Azure
-In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) Virtual Machine for for use in Azure.  Versions of RHEL covered in this article are 6.6, 6.7, 7.0 and 7.1 and hypervisors for preparation covered in this article are Hyper-V, KVM and VMWare.
+# Prepare a Red Hat-based Virtual Machine for Azure
+In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) Virtual Machine for for use in Azure.  Versions of RHEL covered in this article are 6.7, 7.1 and 7.2 and hypervisors for preparation covered in this article are Hyper-V, KVM and VMWare.  For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/articles/1989673). 
 
 
 
@@ -37,7 +37,10 @@ This section assumes that you have already installed a RHEL image from an ISO fi
 
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
-###RHEL 6.6/6.7
+- When using qemu-img to convert disk images to VHD format, note that there is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue will be fixed in an upcoming release of qemu-img.  For now it is recommended to use qemu-img version 2.2.0 or lower.
+
+
+###RHEL 6.7
 
 1.	In Hyper-V Manager, select the virtual machine.
 
@@ -133,9 +136,9 @@ The Azure Linux Agent can automatically configure swap space using the local res
 16.	Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
  
 
-###RHEL 7.0/7.1
+###RHEL 7.1/7.2
 
-1. In Hyper-V Manager, select the virtual machine.
+1.  In Hyper-V Manager, select the virtual machine.
 
 2.	Click Connect to open a console window for the virtual machine.
 
@@ -215,9 +218,9 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 
 ##Prepare an image from KVM 
-###RHEL 6.6/6.7
+###RHEL 6.7
 
-1.	Download the KVM image of RHEL 6.6/6.7 from Red Hat's web site.
+1.	Download the KVM image of RHEL 6.7 from Red Hat's web site.
 
 2.	Set a root password
 
@@ -263,7 +266,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 8.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 9.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open `/boot/grub/menu.lst` in a text editor and ensure that the default kernel includes the following parameters:
 
@@ -328,19 +331,23 @@ The Azure Linux Agent can automatically configure swap space using the local res
 18.	Convert the qcow2 image to vhd format:
     First convert the image to raw format:
          
-         # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
+         # qemu-img convert -f qcow2 –O raw rhel-6.7.qcow2 rhel-6.7.raw
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
 
-         # qemu-img resize rhel-6.6.raw $rounded_size
+         # qemu-img resize rhel-6.7.raw $rounded_size
 
     Convert the raw disk to fixed-sized vhd:
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
- 
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-###RHEL 7.0/7.1
 
-1.	Download the KVM image of RHEL 7.0 from the Red Hat web site.
+###RHEL 7.1/7.2
+
+1.	Download the KVM image of RHEL 7.1(or 7.2) from the Red Hat web site, we will use RHEL 7.1 as the example here.
 
 2.	Set a root password
 
@@ -382,7 +389,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 7.	Register your Red Hat subscription to enable installation of packages from the RHEL repository by running the following command:
 
-        # subscription-manager register –auto-attach --username=XXX --password=XXX
+        # subscription-manager register --auto-attach --username=XXX --password=XXX
 
 8.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open `/etc/default/grub` in a text editor and edit the **GRUB_CMDLINE_LINUX** parameter, for example:
 
@@ -400,12 +407,22 @@ The Azure Linux Agent can automatically configure swap space using the local res
 9.	Once you are done editing `/etc/default/grub` per above, run the following command to rebuild the grub configuration:
 
         # grub2-mkconfig -o /boot/grub2/grub.cfg
+        
+10.	Add Hyper-V modules into initramfs: 
 
-10.	Uninstall cloud-init:
+    Edit `/etc/dracut.conf`, add content:
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    Rebuild the initramfs:
+
+        # dracut –f -v
+        
+11.	Uninstall cloud-init:
 
         # yum remove cloud-init
 
-11.	Ensure that the SSH server is installed and configured to start at boot time: 
+12.	Ensure that the SSH server is installed and configured to start at boot time: 
 
         # systemctl enable sshd
 
@@ -418,12 +435,12 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         systemctl restart sshd	
 
-12.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
+13.	The WALinuxAgent package `WALinuxAgent-<version>` has been pushed to the Fedora EPEL 6 repository. Enable the epel repository by running the following command:
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
 
-13.	Install the Azure Linux Agent by running the following command:
+14.	Install the Azure Linux Agent by running the following command:
 
         # yum install WALinuxAgent
 
@@ -431,7 +448,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
         # systemctl enable waagent.service
 
-14.	Do not create swap space on the OS disk. The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
+15.	Do not create swap space on the OS disk. The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -439,31 +456,36 @@ The Azure Linux Agent can automatically configure swap space using the local res
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	Unregister the subscription(if necessary) by running the following command:
+16.	Unregister the subscription(if necessary) by running the following command:
 
         # subscription-manager unregister
 
-16.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+17.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-17.	Shut down the virtual machine in KVM.
+18.	Shut down the virtual machine in KVM.
 
-18.	Convert the qcow2 image to vhd format:
+19.	Convert the qcow2 image to vhd format:
 
     First convert the image to raw format:
 
-         # qemu-img convert -f qcow2 –O raw rhel-7.0.qcow2 rhel-7.0.raw
+         # qemu-img convert -f qcow2 –O raw rhel-7.1.qcow2 rhel-7.1.raw
 
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
 
-         # qemu-img resize rhel-7.0.raw $rounded_size
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
+
+         # qemu-img resize rhel-7.1.raw $rounded_size
 
     Convert the raw disk to fixed-sized vhd:
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##Prepare an image from VMWare
@@ -476,7 +498,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 - When creating the virtual hard disk, select **Store virtual disk as a single file**.
 
-###RHEL 6.6/6.7
+###RHEL 6.7
 1.	Uninstall NetworkManager by running the following command:
 
          # sudo rpm -e --nodeps NetworkManager
@@ -565,18 +587,21 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
     First convert the image to raw format:
 
-        # qemu-img convert -f vmdk –O raw rhel-6.6.vmdk rhel-6.6.raw
+        # qemu-img convert -f vmdk –O raw rhel-6.7.vmdk rhel-6.7.raw
 
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
 
-        # qemu-img resize rhel-6.6.raw $rounded_size
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
+                gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-6.7.raw $rounded_size
 
     Convert the raw disk to fixed-sized vhd:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-
-###RHEL 7.0/7.1
+###RHEL 7.1/7.2
 
 1.	Create a file named **network** in the /etc/sysconfig/ directory that contains the following text:
 
@@ -665,19 +690,23 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
     First convert the image to raw format:
 
-        # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
+        # qemu-img convert -f vmdk –O raw rhel-7.1.vmdk rhel-7.1.raw
 
     Make sure the size of raw image is aligned with 1MB, otherwise round up the size to align with 1MB:
 
-        # qemu-img resize rhel-7.0.raw $rounded_size
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
+                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+        # qemu-img resize rhel-7.1.raw $rounded_size
 
     Convert the raw disk to fixed-sized vhd:
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##Prepare from an ISO using kickstart file automatically
-###RHEL 7.0/7.1
+###RHEL 7.1/7.2
 
 1.	Create the kickstart file with below content, and save the file. For details about kickstart installation, please refer to the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
@@ -809,26 +838,22 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 7.	Wait for the installation to finish, when it’s finished, the VM will be shutdown automatically. Your Linux VHD is now ready to be uploaded to Azure.
 
-##Known issues:
-There are 2 known issues when you are using RHEL 6.6, 7.0 and 7.1 in Hyper-V and Azure.
+##Known issues
+There are known issues when you are using RHEL 7.1 in Hyper-V and Azure.
 
-###Issue 1: Provisioning time out
-This issue you may occur during boot-up with RHEL in Hyper-V and Azure.  This is more common with RHEL 6.6.
+###Issue: Disk I/O freeze 
 
-Repro Rate:
-
-Issue is intermittent. Most often reproduces on smaller VMs with a single vCPU and more often on busier servers.  
-
-
-###Issue 2: Disk I/O freeze 
-
-This issue may occur during frequent storage disk I/O acitivities with RHEL 6.6, 7.0 and 7.1 in Hyper-V and Azure.   
+This issue may occur during frequent storage disk I/O acitivities with RHEL 7.1 in Hyper-V and Azure.   
 
 Repro Rate:
 
-This issue is intermittent, however occurs more freqently during frequent disk I/O operations in Hyper-V and Azure.   
+This issue is intermittent, however, it occurs more freqently during frequent disk I/O operations in Hyper-V and Azure.   
 
     
-[AZURE.NOTE] These 2 known issues are already addressed by Red Hat.  To install the associated fixes, you can run below command:
+[AZURE.NOTE] This known issue has already been addressed by Red Hat. To install the associated fixes, run the following command:
 
     # sudo yum update
+
+
+## Next Steps
+You're now ready to use your Red Hat Enterprise Linux .vhd  to create new Azure Virtual Machines in Azure. For more details about the hypervisors that are certified to run Red Hat Enterprise Linux, visit [the Red Hat website](https://access.redhat.com/certified-hypervisors).

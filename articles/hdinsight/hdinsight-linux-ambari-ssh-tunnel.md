@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/02/2015"
+ms.date="01/05/2015"
 ms.author="larryfr"/>
 
 #Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's
@@ -149,6 +149,11 @@ If you have installed FoxyProxy Standard, use the following steps to configure i
 	* **URL pattern** - **\*internal.cloudapp.net\*** - This defines a pattern that matches the internal fully qualified domain name of the cluster nodes.
 
 	![foxyproxy pattern](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
+    
+    If you are using a Storm on HDInsight cluster, you should also add a pattern with the following values:
+    
+    * **Pattern Name** - **worker nodes**
+    * **URL Pattern** - **\*10.0.0\*** - Allows the Storm UI to access data on worker nodes by IP address.
 
 4. Click **OK** to add the proxy and close **Proxy Settings**.
 

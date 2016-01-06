@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="01/06/2015"
    ms.author="larryfr"/>
 
 # Information about using HDInsight on Linux
@@ -98,31 +98,35 @@ HDInsight also allows you to associate multiple Blob storage accounts with a clu
 
 During cluster creation, you selected to either use an existing Azure Storage account and container, or create a new one. Then, you probably forgot about it. You can find the default storage account and container by using the Ambari REST API.
 
-1. Use the following command to retrieve HDFS configuration information:
+1. Use the following command to retrieve HDFS configuration information using curl, and filter it using [jq](https://stedolan.github.io/jq/):
 
-        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'
+    
+    > [AZURE.NOTE] This will return the first configuration applied to the server (`service_config_version=1`,) which will contain this information. If you are retrieving a value that has been modified after cluster creation, you may need to list the configuration versions and retrieve the latest one.
 
-2. In the JSON data returned, find the `fs.defaultFS` entry. This will contain default container and storage account name in a format similar to the following:
+    This will return a value similar to the following, where __CONTAINER__ is the default container and __ACCOUNTNAME__ is the Azure Storage Account name:
 
-        wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
+        wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net
 
-	> [AZURE.TIP] If you have installed [jq](http://stedolan.github.io/jq/), you can use the following to return just the `fs.defaultFS` entry:
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+1. Get the resource group for the Storage Account, use the [Azure CLI](../xplat-cli-install.md). In the following command, replace __ACCOUNTNAME__ with the Storage Account name retrieved from Ambari:
 
-3. To find the key used to authenticate to the storage account, or to find any secondary storage accounts associated with the cluster, use the following:
+        azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
+    
+    This will return the resource group name for the account.
+    
+    > [AZURE.NOTE] If nothing is returned from this command, you may need to change the Azure CLI to Azure Resource Manager mode and run the command again. To switch to Azure Resource Manager mode, use the following command.
+    >
+    > `azure config mode arm`
+    
+2. Get the key for the Storage account. Replace __GROUPNAME__ with the Resource Group from the previous step. Replace __ACCOUNTNAME__ with the Storage Account name:
 
-		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
 
-4. In the JSON data returned, find the entries that begin with `fs.azure.account.key`. The remainder of the entry name is the storage account name. For example, `fs.azure.account.key.mystorage.blob.core.windows.net`. The value stored in this entry is the key used to authenticate to the storage account.
+    This will return the primary key for the account.
 
-	> [AZURE.TIP] If you have installed [jq](http://stedolan.github.io/jq/), you can use the following to return a list of the keys and values:
-	>
-	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
+You can also find the storage information using the Azure Portal:
 
-You can also find the storage information using the Azure preview portal:
-
-1. In the [Azure Preview Portal](https://portal.azure.com/), select your HDInsight cluster.
+1. In the [Azure Portal](https://portal.azure.com/), select your HDInsight cluster.
 
 2. From the __Essentials__ section, select __All settings__.
 
@@ -207,7 +211,7 @@ The different cluster types are affected by scaling as follows:
 
 For specific information on scaling your HDInsight cluster, see:
 
-* [Manage Hadoop clusters in HDInsight by using the Azure preview portal](hdinsight-administer-use-portal-linux.md#scaling)
+* [Manage Hadoop clusters in HDInsight by using the Azure Portal](hdinsight-administer-use-portal-linux.md#scaling)
 
 * [Manage Hadoop clusters in HDinsight by using Azure PowerShell](hdinsight-administer-use-command-line.md#scaling)
 

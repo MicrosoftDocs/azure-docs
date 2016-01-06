@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/04/2016" 
 	ms.author="ccompy"/>
 
 
@@ -33,7 +33,7 @@ At a high level an App Service Environment consists of several major components:
 - A classic "v1" Virtual Network with at least one subnet
 - subnet with the Azure App Environment hosted service running in it
 
-The compute resources are used for your 4 resource pools.  Each App Service Environment has a set of Front Ends and 3 Worker Pools.  You don't need to use all 3 Worker Pools and if you want can just use one.  The Front Ends are the HTTP endpoints for your apps held in your ASE.  The Workers are where your apps actually run.  The science on when you need to add more Front Ends or more Workers is tied to how the apps you put in the ASE perform.  As an example, let's say you only have one app on your ASE and it's a hello world app that gets a vast number of requests.  In that case you would need to scale up your Front Ends to handle the HTTP load but conversely would not need to scale up your Workers.  Trying to handle all of this by hand is rather daunting especially when you consider that each ASE likely has a mix of apps running on it with varied performance criteria.  Happily enough we have added autoscale to App Service Environments and this is what will make life a lot easier.  For details around scaling and autoscaling of App Service Environments follow the link here [How to configure autoscale in an App Service Environment][ASEAutoscale]
+The compute resources are used for your 4 resource pools.  Each App Service Environment has a set of Front Ends and 3 Worker Pools.  You don't need to use all 3 Worker Pools and if you want you can just use one.  The Front Ends are the HTTP endpoints for your apps held in your ASE.  The Workers are where your apps actually run.  The science on when you need to add more Front Ends or more Workers is tied to how the apps you put in the ASE perform.  As an example, let's say you only have one app on your ASE and it's a hello world app that gets a vast number of requests.  In that case you would need to scale up your Front Ends to handle the HTTP load but conversely would not need to scale up your Workers.  Trying to handle all of this by hand is rather daunting especially when you consider that each ASE likely has a mix of apps running on it with varied performance criteria.  Happily enough we have added autoscale to App Service Environments and this is what will make life a lot easier.  For details around scaling and autoscaling of App Service Environments follow the link here [How to configure autoscale in an App Service Environment][ASEAutoscale]
 
 Each ASE is configured with 500 Gb of storage.  This space is used across all the apps in the ASE.  This storage space is a part of the ASE and currently cannot be switched to use the customer's storage space.
 
@@ -41,11 +41,11 @@ The database holds the information that defines the environment as well as detai
 
 The virtual network that is used with your ASE can be one that you made when creating the ASE or one that you had ahead of time.  If you want your ASE to be in a resource group that is separate from the one used for your ASE then you need to make your VNET separately from the ASE creation flow.  It is a good idea to create the subnet you want to use at the same time as creating the subnet during ASE creation will force the ASE to be in the same resource group as the VNET.  Currently there is only support for V1 "classic" VNETs.  
 
-The UI to manage and monitor your App Service Environment is available from the Azure portal.  If you have an ASE then you are likely to see the App Service symbol on your sidebar.  This symbol is used to represent App Service Environments in the Azure portal.
+The UI to manage and monitor your App Service Environment is available from the Azure Portal.  If you have an ASE then you are likely to see the App Service symbol on your sidebar.  This symbol is used to represent App Service Environments in the Azure Portal.
 
 ![][1]
 
-You can use the icon or select the chevron (greater than symbol) at the bottom of the sidebar and select App Service Environments.  Both do the same thing which is to open up UI that lists all of your App Service Environments.  Selecting one of the ASEs listed opens up the UI used to monitor and manage it.
+You can use the icon or select the chevron (greater than symbol) at the bottom of the sidebar and select App Service Environments.  Both do the same thing which is to open up the UI that lists all of your App Service Environments.  Selecting one of the ASEs listed opens up the UI used to monitor and manage it.
 
 ![][2]
 

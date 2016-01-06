@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/23/2015"
+   ms.date="12/17/2015"
    ms.author="rajram"/>
 
 # Get started with the BizTalk Edifact Connector and add it to your Logic App  
@@ -32,7 +32,7 @@ To use the Edifact Connector, you need to first create an instance of the AS2 Co
 ## Configuring Edifact Connector
 Trading partners are the entities involved in B2B (Business-to-Business) communications. When two partners establish a relationship, this is referred to as an Agreement. The agreement defined is based on the communication the two partners wish to achieve and is protocol or transport specific.
 
-Steps involved in creating a trading partner agreement is documented [here][2].
+See the steps to [create a trading partner agreement][2].
 
 ## Using Edifact Connector in Logic Apps designer surface
 Edifact Connector can be used either as a trigger or as an action.

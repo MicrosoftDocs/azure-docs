@@ -44,6 +44,8 @@ This folder contains all the resources that Mobile Engagement needs. You can als
 
 ### /overlay folder
 
+- `EngagementBaseOverlay.cs` : The base code used by the `Announcement` and `Notification` overlays.
+
 - `EngagementOverlayAnnouncement.xaml` : The `Announcement` xaml design.
 
 - `EngagementOverlayAnnouncement.xaml.cs` : The `EngagementOverlayAnnouncement.xaml` linked code.

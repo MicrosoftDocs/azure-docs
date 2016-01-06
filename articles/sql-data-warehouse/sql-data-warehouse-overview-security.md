@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/15/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Secure a database in SQL Data Warehouse
@@ -24,7 +24,7 @@ This article walks through the basics of securing your Azure SQL Data Warehouse 
 
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
-Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow your application or client machine's public IP address to attempt connecting to a new database, you must first create a server-level firewall rule using the Azure Management Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible. For more information, see [Azure SQL Database firewall][].
+Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow your application or client machine's public IP address to attempt connecting to a new database, you must first create a server-level firewall rule using the Azure Classic Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible. For more information, see [Azure SQL Database firewall][].
 
 
 ## Authentication
@@ -72,7 +72,7 @@ There are ways to further limit what a user can do with Azure SQL Database:
 - Granular [Permissions][] let you control which operations you can do on individual columns, tables, views, procedures, and other objects in the database.
 - [Stored procedures][] can be used to limit the actions that can be taken on the database.
 
-Managing databases and logical servers from the Azure Management Portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure preview portal][].
+Managing databases and logical servers from the Azure Classic Portal or using the Azure Resource Manager API is controlled by your portal user account's role assignments. For more information on this topic, see [Role-based access control in Azure Portal][].
 
 
 
@@ -87,7 +87,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 ```
 
-You can also enable Transparent Data Encryption from database settings in the [Azure Portal][].
+You can also enable Transparent Data Encryption from database settings in the [Azure Classic Portal][].
 
 
 
@@ -114,7 +114,7 @@ For more development tips, see [development overview][].
 [Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx 
 [Transparent Data Encryption]: http://go.microsoft.com/fwlink/?LinkId=526242
 [Get started with SQL Database Auditing]: sql-database-auditing-get-started.md
-[Azure Portal]: https://portal.azure.com/
+[Azure Classic Portal]: https://portal.azure.com/
 
 <!--Other Web references-->
-[Role-based access control in Azure preview portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx
+[Role-based access control in Azure Portal]: http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure.aspx

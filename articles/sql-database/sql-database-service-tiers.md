@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/10/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth"/>
 
 # SQL Database options and performance: Understand what's available in each service tier
@@ -34,7 +34,7 @@ Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and 
 >[AZURE.NOTE] Web and Business editions are being retired. Find out how to [upgrade Web and Business editions](sql-database-upgrade-new-service-tiers.md). Please read the [Sunset FAQ](http://azure.microsoft.com/pricing/details/sql-database/web-business/) if you plan to continue using Web and Business Editions.
 
 ### Single database service tiers and performance levels
-For single databases there are multiple performance levels within each service tier, you have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database in the Azure Portal, with zero-downtime for your application. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
+For single databases there are multiple performance levels within each service tier, you have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database in the Azure Classic Portal, with zero-downtime for your application. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
 
 Performance characteristics listed here apply to databases created using [SQL Database V12](sql-database-v12-whats-new.md). In situations where the underlying hardware in Azure hosts multiple SQL databases, your database will still get a guaranteed set of resources, and the expected performance characteristics of your individual database is not affected.
 
@@ -63,11 +63,11 @@ Each database within a pool also adheres to the single-database characteristics 
 ## Monitoring database performance
 Monitoring the performance of a SQL database starts with monitoring the resource utilization relative to level of database performance you choose. This relevant data is exposed in the following ways:
 
-1.	The Microsoft Azure Management Portal.
+1.	The Microsoft Azure Classic Portal.
 
 2.	Dynamic Management Views in the user database, and in the master database of the server that contains the user database.
 
-In the [Azure Preview portal](https://portal.azure.com/), you can monitor a single database’s utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
+In the [Azure Portal](https://portal.azure.com/), you can monitor a single database’s utilization by selecting your database and clicking the **Monitoring** chart. This brings up a **Metric** window that you can change by clicking the **Edit chart** button. Add the following metrics:
 
 - CPU Percentage
 - DTU Percentage

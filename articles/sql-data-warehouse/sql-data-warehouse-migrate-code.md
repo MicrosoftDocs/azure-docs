@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Migrate your SQL code to SQL Data Warehouse
@@ -34,8 +34,8 @@ The following list summarizes the main features not supported in Azure SQL Data 
 - output clause
 - inline user-defined functions
 - multi-statement functions
+- [common table expressions](#Common-table-expressions)
 - [recursive common table expressions (CTE)](#Recursive-common-table-expressions-(CTE)
-- [updates through CTEs](#Updates-through-CTEs)
 - CLR functions and procedures
 - $partition function
 - table variables
@@ -52,13 +52,30 @@ The following list summarizes the main features not supported in Azure SQL Data 
 
 Happily most of these limitations can be worked around. Explanations are provided in the relevant development articles referenced above.
 
+### Common table expressions
+The current implementation of common table expressions (CTEs) within SQL Data Warehouse has the following funcationality and limitations:
+
+**CTE Functionality**
++ A CTE can be specified in a SELECT statement.
++ A CTE can be specified in a CREATE VIEW statement.
++ A CTE can be specified in a CREATE TABLE AS SELECT (CTAS) statement.
++ A CTE can be specified in a CREATE REMOTE TABLE AS SELECT (CRTAS) statement.
++ A CTE can be specified in a CREATE EXTERNAL TABLE AS SELECT (CETAS) statement.
++ A remote table can be referenced from a CTE.
++ An external table can be referenced from a CTE.
++ Multiple CTE query definitions can be defined in a CTE.
+
+**CTE Limitations**
++ A CTE must be followed by a single SELECT statement. INSERT, UPDATE, DELETE, and MERGE statements are not supported.
++ A common table expression that includes references to itself (a recursive common table expression) is not supported (see below section).
++ Specifying more than one WITH clause in a CTE is not allowed. For example, if a CTE_query_definition contains a subquery, that subquery cannot contain a nested WITH clause that defines another CTE.
++ An ORDER BY clause cannot be used in the CTE_query_definition, except when a TOP clause is specified.
++ When a CTE is used in a statement that is part of a batch, the statement before it must be followed by a semicolon.
++ When used in statements prepared by sp_prepare, CTEs will behave the same way as other SELECT statements in PDW. However, if CTEs are used as part of CETAS prepared by sp_prepare, the behavior can defer from SQL Server and other PDW statements because of the way binding is implemented for sp_prepare. If SELECT that references CTE is using a wrong column that does not exist in CTE, the sp_prepare will pass without detecting the error, but the error will be thrown during sp_execute instead.
+
 ### Recursive common table expressions (CTE)
 
-This is a complex scenario with no quick fix. The CTE will need to be broken down and handled in steps. You can typically use a fairly complex loop; populating a temporary table as you iterate over the recursive interim queries. Once the temporary table is populated you can then return the data as a single result set. A similar approach has been used to solve `GROUP BY WITH CUBE` in the [group by clause with rollup / cube / grouping sets options][] article.
-
-### Updates through CTEs
-
-If the CTE is non-recursive then you can re-write the query to use sub-queries. For recursive CTEs you will need to build up the resultset first as described above; then join the final resultset to the target table and perform the update.
+This is a complex migration scenario, and the best process is for the CTE to be broken down and handled in steps. You can typically use a loop and populate a temporary table as you iterate over the recursive interim queries. Once the temporary table is populated you can then return the data as a single result set. A similar approach has been used to solve `GROUP BY WITH CUBE` in the [group by clause with rollup / cube / grouping sets options][] article.
 
 ### System functions
 

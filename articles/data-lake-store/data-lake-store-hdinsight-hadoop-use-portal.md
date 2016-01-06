@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Provision HDInsight Hadoop clusters with Azure Data Lake Store using the portal | Azure" 
-   description="Use Azure Preview portal to configure and use HDInsight Hadoop clusters with Azure Data Lake Store" 
+   pageTitle="Create HDInsight Hadoop clusters with Azure Data Lake Store using the portal | Azure" 
+   description="Use Azure Portal to create and use HDInsight Hadoop clusters with Azure Data Lake Store" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Provision an HDInsight cluster with Data Lake Store using Azure preview portal
+# Create an HDInsight cluster with Data Lake Store using Azure Portal
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Learn how to use Azure Preview Portal to configure an HDInsight cluster (Hadoop, HBase, or Storm) to work with an Azure Data Lake Store. Some important considerations for this release:
+Learn how to use Azure Portal to create an HDInsight cluster (Hadoop, HBase, or Storm) with access to Azure Data Lake Store. Some important considerations for this release:
 
 * **For Hadoop and Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
 
 * **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
 
 
-In this article, we provision a Hadoop cluster with Data Lake Store as additional storage. Configuring HDInsight to work with Data Lake Store using the Azure Preview Portal involves the following steps:
+In this article, we provision a Hadoop cluster with Data Lake Store as additional storage. Configuring HDInsight to work with Data Lake Store using the Azure Portal involves the following steps:
 
 * Create an HDInsight cluster with authentication to an Azure Active Directory Service Principal
 * Configure Data Lake Store access using the same Service Principal
@@ -40,7 +40,7 @@ In this article, we provision a Hadoop cluster with Data Lake Store as additiona
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **Enable your Azure subscription** for Data Lake Store Public Preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 
 
@@ -48,7 +48,7 @@ Before you begin this tutorial, you must have the following:
 
 In this section, you create an HDInsight Hadoop cluster that uses the Data Lake Store as an additional storage. In this release, for a Hadoop cluster, Data Lake Store can only be used as an additional storage for the cluster. The default storage will still be the Azure storage blobs (WASB). So, we'll first create the storage account and storage containers required for the cluster.
 
-1. Sign on to the new [Azure preview portal](https://portal.azure.com).
+1. Sign on to the new [Azure Portal](https://portal.azure.com).
 
 2. Follow the steps at [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-provision-clusters.md#create-using-the-preview-portal) to start provisioning an HDInsight cluster.
  
@@ -83,16 +83,16 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 
 ## <a name="acl"></a>Configure service principal to access Data Lake Store file system
 
-1. Sign on to the new [Azure preview portal](https://portal.azure.com).
+1. Sign on to the new [Azure Portal](https://portal.azure.com).
 
-2. If you do not have a Data Lake Store account, create one. Follow the instructions at [Get started with Azure Data Lake Store using the Azure preview portal](data-lake-store-get-started-portal.md).
+2. If you do not have a Data Lake Store account, create one. Follow the instructions at [Get started with Azure Data Lake Store using the Azure Portal](data-lake-store-get-started-portal.md).
 
 	If you already have a Data Lake Store account, from the left pane, click **Browse**, click **Data Lake Store**, and then click the account name to which you want to grant access.
 
 	Perform the following tasks under your Data Lake Store account. 
 
 	* [Create a folder in your Data Lake Store](data-lake-store-get-started-portal.md#createfolder).
-	* [Upload a file to you Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	* [Upload a file to you Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 	You will use the uploaded files later when you test the Data Lake Store account with the HDInsight cluster.
 
@@ -167,7 +167,7 @@ After you have configured an HDInsight cluster, you can run test jobs on the clu
 
 Once you have configured the HDInsight cluster to use Data Lake Store, you can use the HDFS shell commands to access the store.
 
-1. Sign on to the new [Azure preview portal](https://portal.azure.com).
+1. Sign on to the new [Azure Portal](https://portal.azure.com).
 
 2. Click **Browse**, click **HDInsight clusters**, and then click the HDInsight cluster that you created.
 
@@ -204,5 +204,5 @@ For instructions on how to add a service principal to a Data Lake Store file sys
 
 * [PowerShell: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
-[makecert]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

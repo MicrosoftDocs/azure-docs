@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage passwords in Azure AD | Microsoft Azure"
-	description="How to manage passwords in Azure AD."
+	pageTitle="Manage passwords in Azure Active Directory | Microsoft Azure"
+	description="How to manage passwords in Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
-# Manage passwords in Azure AD
+# Manage passwords in Azure Active Directory
 
-If you are an administrator, you can reset a user’s password in Azure in the Azure classic portal. Click the name of your directory and on the Users page, click the name of the user and at the bottom of the portal click **Reset Password**.
+If you are an administrator, you can reset a user’s password in Azure Active Directory (Azure AD) in the Azure classic portal. Click the name of your directory and on the Users page, click the name of the user and at the bottom of the portal click **Reset Password**.
 
-This rest of this topic covers the full set of password management capabilities that Azure Active Directory supports, including:
+This rest of this topic covers the full set of password management capabilities that Azure AD supports, including:
 
 - **Self-service password** change allows end users or administrators to change their expired or non-expired passwords without calling an administrator or helpdesk for support.
 - **Self-service password** reset allows end users or administrators to reset their passwords automatically without calling an administrator or helpdesk for support. Self-service password reset requires Azure AD Premium or Basic. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-- **Administrator-initiated password reset** allows an administrator to reset an end user’s or another administrator’s password from within the Azure Management Portal.
+- **Administrator-initiated password reset** allows an administrator to reset an end user’s or another administrator’s password from within the Azure classic portal.
 - **Password management activity reports** give administrators insights into password reset and registration activity occurring in their organization.
 - **Password writeback** allows management of on-premises passwords from the cloud so all of the above scenarios can be performed by, or on the behalf of, federated or password synchronized users. Password writeback requires Azure AD Premium. For more information, see [Getting started with Azure Active Directory Premium](active-directory-get-started-premium.md).
 

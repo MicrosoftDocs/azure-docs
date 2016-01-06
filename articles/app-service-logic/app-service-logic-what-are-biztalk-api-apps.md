@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="12/01/2015" 
 	ms.author="mandia"/>
 
 # What are Connectors and BizTalk API Apps

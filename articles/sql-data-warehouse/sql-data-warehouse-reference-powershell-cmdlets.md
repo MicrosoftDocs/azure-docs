@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sidneyh"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="twounder;sidneyh;barbkess"/>
 
 # Getting started with Azure Data Warehouse cmdlets and REST APIs
 
 SQL Data Warehouse can be managed using either Azure PowerShell cmdlets or REST APIs. 
 
-The commands defined for **Azure SQL Database** are also used for **SQL Data Warehouse**. For a current list, see [Azure SQL Cmdlets](https://msdn.microsoft.com/library/azure/dn546726.aspx). The cmdlets **Suspend-AzureSqlDatabase** and **Resume-AzureSqlDatabase** (below) are additions designed for SQL Data Warehouse.
+The commands defined for **Azure SQL Database** are also used for **SQL Data Warehouse**. For a current list, see [Azure SQL Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx). The cmdlets **Suspend-AzureSqlDatabase** and **Resume-AzureSqlDatabase** (below) are additions designed for SQL Data Warehouse.
 
 Similarly, the REST APIs for **SQL Azure Database** can also be used for **SQL Data Warehouse** instances. For the current list, see [Operations for Azure SQL Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx).
 

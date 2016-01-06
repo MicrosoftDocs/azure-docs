@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Create and manage Azure Virtual Machines in Visual Studio"
+   pageTitle="Create and manage Azure Virtual Machines in Visual Studio | Microsoft Azure"
    description="Create and manage Azure Virtual Machines in Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="virtual-machines"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.date="01/05/2016"
+   ms.author="tarcher" />
 
 # Create and Manage Azure Virtual Machines in Visual Studio
 

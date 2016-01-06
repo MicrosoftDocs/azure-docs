@@ -13,11 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 
 #Data Warehouse Migration Utility (Preview)
+
+> [AZURE.SELECTOR]
+- [Download Migration Utility](https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip)
+
 The Data Warehouse Migration Utility is a tool designed to migrate schema and data from SQL Server and Azure SQL Database to Azure SQL Data Warehouse.  During schema migration, the tool automatically maps the corresponding schema from source to destination.  After the schema has been migrated, users are also presented with the option of moving data through automatically generated scripts.
 
 In addition to schema and data migration, this tool gives users the option to generate compatibility reports which summarize incompatibilities between the target and source instances which would prevent streamlined migration. 

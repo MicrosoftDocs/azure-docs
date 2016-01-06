@@ -24,11 +24,15 @@
 
 This guide will show how to manage your DNS zone. It will help understanding the sequence of operations to be done in order to administer your DNS zone.
 
+>[AZURE.NOTE] Azure DNS is an Azure Resource Manager-only service.  It does not have an ASM API.  You will therefore need to ensure the Azure CLI is configured to use Resource Manager mode, using the 'azure config mode arm' command.
+
+>If you see "error: 'dns' is not an azure command" it is most likely because you are using Azure CLI in ASM mode, not Resource Manager mode.
+ 
 ## Create a new DNS zone
 
 To create a new DNS zone to host your domain, use the `azure network dns zone create`:
 
-		Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 The operation creates a new DNS zone in Azure DNS. You can optionally specify an array of Azure Resource Manager tags, for more information see [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 

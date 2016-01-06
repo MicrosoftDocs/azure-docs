@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="barbkess"/>
 
 # Language elements
@@ -21,7 +21,7 @@
 ## Core elements
 
 - [syntax conventions](https://msdn.microsoft.com/library/ms177563.aspx)
-- object naming rules
+- [object naming rules](https://msdn.microsoft.com/library/ms175874.aspx)
 - [reserved keywords](https://msdn.microsoft.com/library/ms189822.aspx)
 - [collations](https://msdn.microsoft.com/library/ff848763.aspx)
 - [comments](https://msdn.microsoft.com/library/ms181627.aspx)
@@ -38,7 +38,7 @@
 
 - [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
 - [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
-- DECLARE
+- [DECLARE @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 - [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 - [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 - [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
@@ -70,7 +70,6 @@
 - [IS [NOT] NULL](https://msdn.microsoft.com/library/ms188795.aspx)
 - [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
 - [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
-- NULL and UNKNOWN
 - [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### Bitwise operators
@@ -80,8 +79,8 @@
 - [^ (Bitwise exclusive OR)](https://msdn.microsoft.com/library/ms190277.aspx)
 - [~ (Bitwise NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
 - [^= (Bitwise Exclusive OR EQUALS)](https://msdn.microsoft.com/library/cc627413.aspx)
-- |= (Bitwise OR EQUALS)
-- ? (Bitwise AND EQUALS)
+- [|= (Bitwise OR EQUALS)](https://msdn.microsoft.com/library/cc627409.aspx)
+- [&= (Bitwise AND EQUALS)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## Functions
 
@@ -172,7 +171,7 @@
 - [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
 - [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 - [RADIANS](https://msdn.microsoft.com/library/ms189742.aspx)
-- VRANK
+- [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
 - [REPLACE](https://msdn.microsoft.com/library/ms186862.aspx)
 - [REPLICATE](https://msdn.microsoft.com/library/ms174383.aspx)
 - [REVERSE](https://msdn.microsoft.com/library/ms180040.aspx)
@@ -183,8 +182,7 @@
 - [SCHEMA_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 - [SCHEMA_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 - [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
-- SESSION_ID
-- SESSION_USER
+- [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
 - [SIGN](https://msdn.microsoft.com/library/ms188420.aspx)
 - [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 - [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
@@ -219,7 +217,6 @@
 - [USER_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
 - [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
 - [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
-- VERSION
 - [YEAR](https://msdn.microsoft.com/library/ms186313.aspx)
 - [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 

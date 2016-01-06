@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/17/2015"
    ms.author="jesseb"/>
 
 # Use Visual Studio to simplify writing and managing your Service Fabric applications
 
-You can manage your Service Fabric applications and services through Visual Studio. Once you've [setup your development environment](service-fabric-setup-your-development-environment.md), you can use Visual Studio to create Service Fabric applications, add services, or package, register, and deploy applications in your local development cluster.
+You can manage your Azure Service Fabric applications and services through Visual Studio. Once you've [set up your development environment](service-fabric-setup-your-development-environment.md), you can use Visual Studio to create Service Fabric applications, add services, or package, register, and deploy applications in your local development cluster.
 
-To manage your application, in the Solution Explorer right-click on your application project.
+To manage an application, in Solution Explorer, right-click your application project.
 
-![Manage your Service Fabric application by right-clicking on the Application project][manageservicefabric]
+![Manage your Service Fabric application by right-clicking the application project][manageservicefabric]
 
-## Deploying your Service Fabric application
+## Deploy your Service Fabric application
 
-Deploying an application combines the following steps into one simple operation.
+Deploying an application combines the following steps into one simple operation:
 
 1. Creating the application package
 2. Uploading the application package to the image store
@@ -34,32 +34,32 @@ Deploying an application combines the following steps into one simple operation.
 4. Removing any running application instances
 5. Creating a new application instance
 
-In Visual Studio, pressing **F5** will also deploy your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or publish to a local or remote cluster using the publish profile. Please refer to [Publish an application to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md)
+In Visual Studio, pressing **F5** will also deploy your application and attach the debugger to all application instances. You can use **Ctrl+F5** to deploy an application without debugging, or you can publish to a local or remote cluster by using the publish profile. For more information, refer to [Publish an application to a remote cluster by using Visual Studio](service-fabric-publish-app-remote-cluster.md).
 
 ### Preserve data between test runs
 
-Often, you test services locally by adding test data input, modifying a few code blocks, and then debugging locally again. The Visual Studio Service Fabric Tools provide a handy property called **Preserve Data on Start** to keep the data you entered in the previous session and let you use it again.
+Often, you test services locally by adding test data input, modifying a few code blocks, and then debugging locally again. The Visual Studio Service Fabric Tools provide a handy property called **Preserve Data on Start** to keep the data that you entered in the previous session and let you use it again.
 
-### To enable the Preserve Data on Start property
+#### To enable the Preserve Data on Start property
 
-1. On the application project's shortcut menu, choose **Properties** (or choose the **F4** key).
+1. On the application project's shortcut menu, choose **Properties** (or press the **F4** key).
 1. In the **Properties** window, set the **Preserve Data on Start** property to **Yes**.
 
 	![Set the Preserve Data on Start property][preservedata]
 
-When you run your application again, the deployment script now treats the deployment as an upgrade using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data you entered in a previous debug session.
+When you run your application again, the deployment script now treats the deployment as an upgrade by using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data that you entered in a previous debug session.
 
 ![Example of new application version with date appended][preservedate]
 
-Data is preserved leveraging the upgrade capability from the Service Fabric platform. For more information about upgrade an application please refer to [Service Fabric application upgrade](service-fabric-application-upgrade.md)
+Data is preserved by leveraging the upgrade capability from the Service Fabric platform. For more information about upgrading an application, refer to [Service Fabric application upgrade](service-fabric-application-upgrade.md).
 
-## Adding a service to your Service Fabric application
+## Add a service to your Service Fabric application
 
-You can add new Fabric Services to your application to extend its functionality.  To ensure the service is included in your application package, add the service through the **New Fabric Service...** menu item.
+You can add new fabric services to your application to extend its functionality.  To ensure that the service is included in your application package, add the service through the **New Fabric Service...** menu item.
 
-![Add a new Fabric Service to your application][newservice]
+![Add a new fabric service to your application][newservice]
 
-Select a Service Fabric project type to add to your application, and specify a name for the service.  See [choosing a framework for your service](service-fabric-choose-framework.md) to help decide which service type to use.
+Select a Service Fabric project type to add to your application, and specify a name for the service.  See [Choosing a framework for your service](service-fabric-choose-framework.md) to help you decide which service type to use.
 
 ![Select a Fabric Service project type to add to your application][addserviceproject]
 
@@ -67,13 +67,13 @@ The new service will be added to your solution and existing application package.
 
 ![The new service will be added to your application manifest][newserviceapplicationmanifest]
 
-## Packaging your Service Fabric application
+## Package your Service Fabric application
 
-An application package needs to be created in order to deploy the application and its services to a cluster.  The package organizes the application manifest, service manifest(s), and other necessary files in a specific layout.  Visual Studio sets up and manages the package in the application project's folder, in the 'pkg' directory.  Clicking **Package**  from the **Application** context menu creates or updates the application package.  You may want to do this if you deploy the application using custom PowerShell scripts.
+To deploy the application and its services to a cluster, you need to create an application package.  The package organizes the application manifest, service manifest(s), and other necessary files in a specific layout.  Visual Studio sets up and manages the package in the application project's folder, in the 'pkg' directory.  Clicking **Package**  from the **Application** context menu creates or updates the application package.  You may want to do this if you deploy the application by using custom PowerShell scripts.
 
-## Removing an application
+## Remove an application
 
-You can unprovision an application type from your local cluster using Service Fabric Explorer.  This will revert the deployment steps described above:
+You can deprovision an application type from your local cluster by using Service Fabric Explorer.  The cluster explorer is accessible from the cluster's HTTP gateway endpoint (typically 19080 or 19007), e.g. http://localhost:19080/Explorer.  This will revert the deployment steps described above:
 
 1. Remove any running application instances
 2. Unregister the application type
@@ -87,7 +87,7 @@ You can unprovision an application type from your local cluster using Service Fa
 - [Service Fabric application deployment](service-fabric-deploy-remove-applications.md)
 - [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
 - [Debugging your Service Fabric application](service-fabric-debugging-your-application.md)
-- [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+- [Visualizing your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]:./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png

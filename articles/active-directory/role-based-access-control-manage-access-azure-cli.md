@@ -13,14 +13,15 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Manage Role Based Access Control (RBAC) with the Azure Command Line Interface (CLI)
-<!-- Azure Selector -->
+
 > [AZURE.SELECTOR]
 - [PowerShell](role-based-access-control-manage-access-powershell.md)
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+- [REST API](role-based-access-control-manage-access-rest.md)
 
 ## List RBAC roles
 ###	List all available roles
@@ -107,6 +108,49 @@ Following example removes the *Virtual Machine Contributor* role assignment from
 Then, it removes the role assignment from a group on the subscription.
 
 ![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
+
+## Create a custom role
+To create a custom role, use `azure role create` command.
+
+The following example creates a custom role called *Virtual Machine Operator* that grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers, and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions. This example employs a json file as an input.
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role create-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
+
+## Modify a custom role
+
+To modify a custom role first, use the azure role show command to retrieve role definition. Then, make desired changes to the role definition. Finally, use azure role set command to save the modified role definition.
+
+The following example adds the Microsoft.Insights/diagnosticSettings/* operation to the Actions, and an Azure subscription to the AssignableScopes of the Virtual Machine Operator custom role.
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
+
+## Delete a custom role
+
+To delete a custom role first, use the `azure role show` command to determine the **Id** of the role. Then, use `azure role delete` command to delete the role by specifying the **Id**.
+
+The following example removes the *Virtual Machine Operator* custom role.
+
+![](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
+
+## List custom roles
+
+To list the roles that are available for assignment at a scope, use the `azure role list` command.
+
+The following example lists all role available for assignment in the selected subscription.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+
+In the following example the *Virtual Machine Operator* custom role isn’t available in the *Production4* subscription because that subscription isn’t in the **AssignableScopes** of the role.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
+
+
+
+
 
 ## RBAC Topics
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]

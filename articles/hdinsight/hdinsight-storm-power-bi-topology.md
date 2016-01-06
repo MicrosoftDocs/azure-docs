@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/23/2015"
+ ms.date="01/06/2015"
  ms.author="larryfr"/>
 
 # Use Power BI (preview) to visualize data from an Apache Storm topology
@@ -55,9 +55,9 @@ The following files in this project implement the Power BI specific functionalit
 
 ## Register a Power BI application
 
-1. Follow the steps in the [Power BI quickstart](https://msdn.microsoft.com/en-US/library/dn931989.aspx) to sign up for Power BI.
+1. Follow the steps in the [Power BI quickstart](https://msdn.microsoft.com/library/dn931989.aspx) to sign up for Power BI.
 
-2. Follow the steps in [Register an app](https://msdn.microsoft.com/en-US/library/dn877542.aspx) to create an application registration. This will be used when accessing the Power BI REST API.
+2. Follow the steps in [Register an app](https://msdn.microsoft.com/library/dn877542.aspx) to create an application registration. This will be used when accessing the Power BI REST API.
 
     > [AZURE.IMPORTANT] Save the **Client ID** for the application registration.
 
@@ -67,7 +67,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Blackmist/
 
 ## Configure the sample
 
-1. Open the sample in Visual Studio. From **Solution Explorer**, open the **SCPHost.exe.config** file, and then find the **<OAuth .../>** element. Enter values for the following properties of this element.
+1. Open the sample in Visual Studio. From **Solution Explorer**, open the **App.config** file, and then find the **<OAuth .../>** element. Enter values for the following properties of this element.
 
     * **Client**: The Client ID for the application registration you created earlier.
 

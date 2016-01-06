@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create an Azure Search index in the portal | Microsoft Azure | Hosted cloud search service"
-	description="Add an index to Azure Search, a cloud hosted search service, by filling in field definitions in the Azure portal."
+	description="Add an index to Azure Search, a cloud hosted search service, by filling in field definitions in the Azure Classic Portal."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -17,18 +17,18 @@
 	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
-# Create an Azure Search index in the Azure portal
+# Create an Azure Search index in the Azure Classic Portal
 > [AZURE.SELECTOR]
 - [Overview](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST API](search-create-index-rest-api.md)
 
-You can quickly prototype an index in Azure Search by creating one in the Azure portal. Using the portal is great for proof-of-concept testing, but you can also use it to view schema definitions and resource usage for any index deployed to your service.
+You can quickly prototype an index in Azure Search by creating one in the Azure Classic Portal. Using the portal is great for proof-of-concept testing, but you can also use it to view schema definitions and resource usage for any index deployed to your service.
 
 To complete this task, make sure you have an Azure Search service that's ready to go. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you need help setting it up.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
 
 2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
 	- In the Jumpbar, click **Home**. The home page has tiles for every service in your subscription. Click the tile to open the service dashboard.
