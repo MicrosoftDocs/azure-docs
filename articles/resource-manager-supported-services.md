@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="01/05/2016"
    ms.author="tomfitz"/>
 
 # Resource Manager providers, regions, API versions and schemas
@@ -152,6 +152,46 @@ When working with web apps, you cannot move only an App Service plan. To move we
 | Resources | Yes | N/A | [Linked resources](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [Resource links](resource-manager-template-links.md) | [Microsoft.Resources](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Resources%22&type=Code) |
 
 
+## Resource providers and types
+
+When deploying resources, you frequently need to retrieve information about the resource providers and types. You can retrieve this information through REST API, Azure PowerShell, or Azure CLI.
+
+### REST API
+
+To get all of the available resource providers, including their types, locations, API versions, and registration status, use the [List all resource providers](https://msdn.microsoft.com/library/azure/dn790524.aspx) operation. 
+
+### PowerShell
+
+The following example shows how to get all of the available resource providers.
+
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+    
+The output will be similar to:
+
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    ...
+
+The next example shows how to get the resource types for a particular resource provider.
+
+    PS C:\> (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes
+    
+The output will be similar to:
+
+    ResourceTypeName                Locations                                         ApiVersions
+    ----------------                ---------                                         ------
+    sites/extensions                {Brazil South, East Asia, East US, Japan East...} {20...
+    sites/slots/extensions          {Brazil South, East Asia, East US, Japan East...} {20...
+    ...
+    
+### Azure CLI
+
+You can save the information for a resource provider to a file with the following command.
+
+    azure provider show Microsoft.Web -vv --json > c:\temp.json
+
 ## Supported regions
 
 When deploying resources, you typically need to specify a region for the resources. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there 
@@ -166,7 +206,7 @@ To discover which regions are available for a particular resource type in your s
 
 ### PowerShell
 
-The following example shows how to get the supported regions for web sites using Azure PowerShell 1.0. For more information about the 1.0 release, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/)
+The following example shows how to get the supported regions for web sites.
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -185,10 +225,6 @@ The output will be similar to:
     Southeast Asia
     Central US
     East US 2
-
-For Azure PowerShell 0.9.8, use the following command:
-
-    PS C:\> ((Get-AzureProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 
 ### Azure CLI
 
@@ -220,7 +256,7 @@ To discover which API versions are available for resource types, use the [List a
 
 ### PowerShell
 
-The following example shows how to get the available API versions for a paticular resource type using Azure PowerShell 1.0.
+The following example shows how to get the available API versions for a paticular resource type.
 
     ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
     
@@ -236,10 +272,6 @@ The output will be similar to:
     2014-06-01
     2014-04-01-preview
     2014-04-01
-
-For Azure PowerShell 0.9.8, use:
-
-    PS C:\> ((Get-AzureProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
 
 ### Azure CLI
 

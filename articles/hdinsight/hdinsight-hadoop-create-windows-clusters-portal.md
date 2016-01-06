@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="01/06/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using the Azure Portal
@@ -29,7 +29,7 @@ Before you begin the instructions in this article, you must have the following:
 
 - An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## Create using the Portal
+## Create clusters
 
 
 **To create an HDInsight cluster**
@@ -127,6 +127,11 @@ Before you begin the instructions in this article, you must have the following:
 		> [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
 		
 	* **Tags** (![tag icon](./media/hdinsight-provision-clusters/tags.png)): Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
+
+##Customize clusters
+
+- See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+- See [Customize Windows-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md).
 
 ##Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
