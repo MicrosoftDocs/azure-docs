@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Provision HDInsight Hadoop clusters with Azure Data Lake Store using the portal | Azure" 
-   description="Use Azure Portal to configure and use HDInsight Hadoop clusters with Azure Data Lake Store" 
+   pageTitle="Create HDInsight Hadoop clusters with Azure Data Lake Store using the portal | Azure" 
+   description="Use Azure Portal to create and use HDInsight Hadoop clusters with Azure Data Lake Store" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/05/2016"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
 # Create an HDInsight cluster with Data Lake Store using Azure Portal
