@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Create a virtual machine running Linux | Microsoft Azure"
 	description="Learn to create an Azure Linux virtual machine or Azure Ubuntu virtual machine by using an image from Azure and the Azure Command-Line Interface."
-	keywords="linux virtual machine,virtual machine linux,Azure Linux,azure ubuntu"
+	keywords="linux virtual machine,virtual machine linux,Azure Linux,azure ubuntu" 
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -168,7 +168,7 @@ Your VM is up and running and waiting for you to connect.
 
 ## Connect to the Linux virtual machine
 
-With Linux virtual machines, you typically connect using **ssh**.
+With Linux virtual machines, you typically connect using **ssh**. 
 
 > [AZURE.NOTE] This topic connects to a VM using usernames and passwords; to use public and private key pairs to communicate with your VM, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md). You can modify the **SSH** connectivity of VMs created with the `azure vm quick-create` command by using the `azure vm reset-access` command to reset **SSH** access completely, add or remove users, or add public key files to secure access. This article uses username and password with **SSH** for brevity.
 
@@ -316,7 +316,7 @@ The data disk is now ready to use as `/datadrive`.
 
 ## Next Steps
 
-Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file. If you want, you can add several more disks and [configure RAID](virtual-machines-linux-configure-raid.md).
+Remember, that your new disk will not typically be available to the VM if it reboots unless you write that information to your [fstab](http://en.wikipedia.org/wiki/Fstab) file. If you want, you can add several more disks and [configure RAID](virtual-machines-linux-configure-raid.md). 
 
 To learn more about Linux on Azure, see:
 
