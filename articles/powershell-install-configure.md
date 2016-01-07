@@ -162,11 +162,11 @@ Sign into your work or school account:
 
 ### View account and subscription details
 
-You can have multiple accounts and subscriptions available for use by Azure PowerShell. You can add multiple accounts by running **Add-AzureAccount** more than once.
+You can have multiple accounts and subscriptions available for use by Azure PowerShell. You can add multiple accounts by running **Add-AzureRmAccount** more than once.
 
 To display the available Azure accounts, type **Get-AzureAccount**.
 
-To display your Azure subscriptions, type **Get-AzureSubscription**.
+To display your Azure subscriptions, type **Get-AzureRmSubscription**.
 
 ##<a id="Help"></a>Getting help##
 
