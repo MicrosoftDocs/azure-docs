@@ -63,7 +63,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 	Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureRmExpressRouteServiceProvider* returns this information, which you’ll use in later steps.
 
-		PS C:\> Get-AzureRmExpressRouteServiceProvider
+		Get-AzureRmExpressRouteServiceProvider
 
 	Check to see if your connectivity provider is listed there. Make note of the following as you will need them to create circuits.
 	
