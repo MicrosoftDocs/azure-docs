@@ -52,29 +52,29 @@ Data Management Gateway can be installed by downloading an MSI setup package fro
 ## Port and Security Considerations
 
 ### General considerations
-There are two firewalls in scope here: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed. If you happen to replace the Windows firewall with a third party firewall, also take below as reference and configure the ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](@proxy-server-considerations) additionally. Here are some general considerations:
+There are two firewalls in scope here: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed. If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure the ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](@proxy-server-considerations) additionally. Here are some general considerations:
 
 **Prior to setting up the gateway:**
-For both **corporate firewall and Windows firewall**, you need to make sure that the outbound rule for TCP ports 80 and 443 are enabled, and optionally for ports 9350 to 9354. These are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway. The ports 9350 to 9354 are not must-have to open but enabling them likely results in better performance when communicating using Microsoft Azure Service Bus.
+
+- For both **corporate firewall and Windows firewall**, you need to make sure that the outbound rule for TCP ports 80 and 443 are enabled, and optionally for ports 9350 to 9354. These are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway. Opening the ports 9350 to 9354 is not mandatory, but enabling them may improve performance when using Microsoft Azure Service Bus for the communication.
 
 **During the gateway setup:**
 
-- By default, the Data Management Gateway installation setup will open the inbound port 8050 on the **local Windows firewall** on the gateway machine. The port will be used by the Setting Credentials application to relay the credentials to the gateway when you set up an on-premises linked service at a later step; it will not be reached from internet. Thus you do not need to have it opened in the corporate firewall.
+- By default, the Data Management Gateway installation opens the inbound port 8050 on the **local Windows firewall** on the gateway machine. The port will be used by the **Setting Credentials** application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure Portal at a later step; it will not be reachable from internet. Thus you do not need to open it in the corporate firewall.
 - If you do not want the gateway installation to open port 8050 on Windows firewall for the gateway machine, you can use the following command to install the gateway without configuring the firewall.
 		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-If inbound port 8050 is not opened on the gateway machine, then to set up an on-premises linked service, you need to use mechanisms other than the Setting Credentials application to configure the data store credentials, for example via [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#setting-credentials-and-security) section on how data store credentials can be set and the respective security guarantees
-
-
+If inbound port 8050 is not opened on the gateway machine, then to set up an on-premises linked service, you need to use mechanisms other than using the **Setting Credentials** application to configure the data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#setting-credentials-and-security) section on how data store credentials can be set and the respective security guarantees.
 
 
 **To copy data from a source data store to a sink data store:**
 
-- You need to make sure the firewall rules are enabled properly on the corporate firewall, the gateway machine’s Windows firewall and the data store itself, thus gateway can connect to both source and sink successfully. Such port requirements need to be checked per data store and you need to manually set it up.
-- For example, to copy from an **on-premises data store to Azure SQL Database sink or Azure SQL Data Warehouse sink**, you need to allow outbound TCP communication on port 1433 for both Windows firewall and cooperate firewall, and you need to configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the allowed IP addresses. 
+You need to make sure the firewall rules are enabled properly on the corporate firewall, Windows firewall on the gateway machine, and the data store itself. This enables the gateway to connect to both source and sink successfully. Such port requirements need to be checked per data store and you need to manually set it up.
+
+For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, you need to allow outbound TCP communication on port 1433 for both Windows firewall and cooperate firewall, and you need to configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses. 
 
 ### Proxy server considerations
-By default, Data Management Gateway will leverage the proxy settings from Internet Explorer and use default credentials to access it. If it cannot fulfill your case, you can further configure the **proxy server settings** to ensure the gateway is able to connect to Azure Data Factory:
+By default, Data Management Gateway will leverage the proxy settings from Internet Explorer and use default credentials to access it. If it does not suit your case, you can further configure **proxy server settings** as shown below to ensure the gateway is able to connect to Azure Data Factory:
 
 1.	After installing the Data Management Gateway, in File Explorer, make a safe copy of “C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\diahost.exe.config” to back up the original file.
 2.	Launch Notepad.exe running as administrator, and open text file “C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\diahost.exe.config”. You will find the default tag for system.net as following:
@@ -87,14 +87,14 @@ By default, Data Management Gateway will leverage the proxy settings from Intern
 			            <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
 			      </defaultProxy>
 			</system.net>
-	Additional properties are allowed inside the <proxy> tag to specify the required settings like scriptLocation. Refer to [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) on syntax.
+	Additional properties are allowed inside the proxy tag to specify the required settings like scriptLocation. Refer to [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) on syntax.
 			<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
-3. Save the configuration file into the original location, then restart the Data Management Gateway service to pick up the changes. You can do this from Start > Services.msc, or from the Data Management Gateway Configuration Manager > click the Stop Service button, then click the Start Service. If the service does not start, it is likely that an incorrect XML tag syntax has been added into the application configuration file that was edited. 	
+3. Save the configuration file into the original location, then restart the Data Management Gateway service to pick up the changes. You can do this from **Start** > **Services.msc**, or from the **Data Management Gateway Configuration Manager** > click the **Stop Service** button, then click the **Start Service**. If the service does not start, it is likely that an incorrect XML tag syntax has been added into the application configuration file that was edited. 	
 
-In addition to above, you as well need to make sure Microsoft Azure is in your company’s whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+In addition to above points, you also need to make sure Microsoft Azure is in your company’s whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Possible symptoms for firewall and proxy server related issues
-If you encounter errors such as below, it is likely because of the improper configuration of the firewall or proxy server, which blocks Data Management Gateway from connecting to Azure Data Factory to authenticate itself. Refer to above section to ensure your firewall and proxy server are properly configured.
+If you encounter errors such as the following ones, it is likely because of the improper configuration of the firewall or proxy server, which blocks Data Management Gateway from connecting to Azure Data Factory to authenticate itself. Refer to above section to ensure your firewall and proxy server are properly configured.
 
 1.	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
 2.	When you open Configuration Manager, you see status as “Disconnected” or “Connecting”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway” you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and will restart automatically. Component name: Gateway.”
