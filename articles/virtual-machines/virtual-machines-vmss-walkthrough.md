@@ -578,7 +578,7 @@ It should take about 15 minutes for all of the resources to successfully be depl
 >[AZURE.NOTE]You can also make use of the portal’s ability to deploy the resources. To do this, use this link:
 https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
 
-## Step 4: Monitor resources
+## Step 5: Monitor resources
 
 You can get some information about virtual machine scale sets using these methods:
 
@@ -595,7 +595,7 @@ You can get some information about virtual machine scale sets using these method
 
 >[AZURE.NOTE]A complete REST API for obtaining information about scale sets can be found in [Virtual Machine Scale Sets](https://msdn.microsoft.com/library/mt589023.aspx)
 
-## Step 5: Remove the resources
+## Step 6: Remove the resources
 
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. You can delete the resource group and all of its resources will automatically be deleted.
 
