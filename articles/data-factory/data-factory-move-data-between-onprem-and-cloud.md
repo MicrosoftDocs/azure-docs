@@ -84,6 +84,7 @@ By default, Data Management Gateway will leverage the proxy settings from Intern
 
 1.	After installing the Data Management Gateway, in File Explorer, make a safe copy of “C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\diahost.exe.config” to back up the original file.
 2.	Launch Notepad.exe running as administrator, and open text file “C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\diahost.exe.config”. You will find the default tag for system.net as following:
+
 			<system.net>
 				<defaultProxy useDefaultCredentials="true" />
 			</system.net>	
