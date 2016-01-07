@@ -22,7 +22,7 @@ An Azure Service Fabric application contains one or more services that run your 
 
 ## Create a stateless service
 
-A stateless service is a type of service that exists mostly in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or a SQL database, for it to be made highly available and reliable.
+A stateless service is a type of service that is currently the norm in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or a SQL database, for it to be made highly available and reliable.
 
 Launch Visual Studio 2015 RC as an administrator, and create a new Service Fabric application project named *HelloWorld*:
 
