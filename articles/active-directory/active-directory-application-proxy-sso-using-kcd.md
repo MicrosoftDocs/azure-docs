@@ -87,11 +87,11 @@ The Active Directory configuration varies, depending on whether your Application
 
 1. Publish your application according to the instructions described in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
 2. After your application appears in the list of applications, select it and click **Configure**.
-3. Under **Properties**, set **Internal Authentication Method** to **Integrated Windows Authentication**.
+3. Under **Properties**, set **Internal Authentication Method** to **Integrated Windows Authentication**.  
 
   ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 
-4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.
+4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.  
 
 >[AZURE.IMPORTANT] The UPNs in Azure Active Directory must be identical to the UPNs in your on-premises Active Directory in order for preauthentication to work. Make sure your Azure AD is synchronized with your on-premises AD.
 
