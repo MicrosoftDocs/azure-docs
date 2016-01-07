@@ -20,7 +20,7 @@
 
 When you deploy a Cloud Service application package to Azure, you can obtain information about the deployment from the **Properties** pane in the Azure portal. You can use the details in this pane to help you troubleshoot problems with the cloud service, and you can provide this information to Azure support when opening a new support request.
 
-The location of **Properties** pane:
+You can find the **Properties** pane as follows:
 
 * In the Azure portal: click the deployment of your cloud service, click **All settings**, and then click **Properties**.
 * In the Azure classic portal: click the deployment of your cloud service, click **DASHBOARD**, locate to the lower-right corner of the page (under **quick glance**). Be aware that there's no "Properties" text for this pane.
