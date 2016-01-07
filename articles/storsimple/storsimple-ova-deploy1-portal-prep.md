@@ -44,12 +44,12 @@ The deployment workflow consists of preparing the portal, provisioning a virtual
 
 #### Deployment videos
 
-| **Watch this video...** | **To do this.** |
+| **To do this step...** |  **Watch this video.**|
 |----------------|-------------|
-|[Get Started with the StorSimple Virtual Array](https://www.youtube.com/watch?v=teJxF0xmNcs&index=1&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) | Step-by-step instructions for getting started with the StorSimple Virtual Array. |
-| [Create a StorSimple Virtual Array](https://www.youtube.com/watch?v=iyGogUs-NXI&index=2&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) | Step-by-step instructions for creating a StorSimple Virtual Array on Hyper-V.|
-| [Configure a StorSimple Virtual Array](https://www.youtube.com/watch?v=2b3SVBVpXXQ&index=3&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) | Step-by-step instructions for configuring and registering a StorSimple Virtual Array |
-| [Use the StorSimple Virtual Array](https://www.youtube.com/watch?v=o_OX-5WzHIA&index=4&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) | Step-by-step instructions for creating shares, taking backups, and restoring data on a StorSimple Virtual Array |
+| Step-by-step instructions to get started with the StorSimple Virtual Array. |[Get Started with the StorSimple Virtual Array](https://www.youtube.com/watch?v=teJxF0xmNcs&index=1&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) 
+| Step-by-step instructions to provision a StorSimple Virtual Array in Hyper-V.|[Create a StorSimple Virtual Array](https://www.youtube.com/watch?v=iyGogUs-NXI&index=2&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) |
+|Step-by-step instructions to configure and register a StorSimple Virtual Array| [Configure a StorSimple Virtual Array](https://www.youtube.com/watch?v=2b3SVBVpXXQ&index=3&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) |
+|Step-by-step instructions to create shares, backup shares, and restore data on a StorSimple Virtual Array configured as a file server| [Use the StorSimple Virtual Array](https://www.youtube.com/watch?v=o_OX-5WzHIA&index=4&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) |
 
 The following section discusses the configuration checklist you can use to deploy your StorSimple Virtual Array.
 
