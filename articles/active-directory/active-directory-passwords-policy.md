@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/07/2016"
 	ms.author="curtand"/>
 
 
@@ -45,7 +45,7 @@ The following table describes the available password policy settings that can be
 | Password Expiry |  <ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. </li></ul> |
 |  Password history  | Last password cannot be used again. |
 |  Password history duration | Forever |
-|  Account Lockout | <ul><li>After 10 unsuccessful logon attempts (wrong password), the user will need to solve a CAPTCHA dialog as part of logon.</li><li>After a further 10 unsuccessful logon attempts (wrong password) and correct solving of the CAPTCHA dialog, the user will be locked out for a time period. Further incorrect passwords will result in an exponential increase in the lockout time period.</li></ul> |
+|  Account Lockout | After 10 unsuccessful logon attempts (wrong password), the user will be locked out for one minute. Further incorrect logon attempts will lock out the user for increasing durations. |
 
 
 ## Next Steps
