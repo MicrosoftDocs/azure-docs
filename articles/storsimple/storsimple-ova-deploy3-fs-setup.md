@@ -47,9 +47,9 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
 #### To complete the setup and register the device
 
-1.  Open a browser window and connect to the local web UI by typing:
+1.  Open a browser window and connect to the local web UI.Type:	
 
- 	*https://<ip-address of network interface>*
+    `https://<ip-address of network interface>`
 
 	Use the connection URL noted in the previous step. You will see an error indicating that there is a problem with the website’s security certificate. Click **Continue to this webpage**.
 
@@ -175,7 +175,7 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 1.  On the device **Quick Start** page, click **Add a share**. This starts the Add a share wizard.
 
-	![](./media/storsimple-ova-deploy4-fs-connect/image1.png)
+	![](./media/storsimple-ova-deploy3-fs-setup/image17.png)
 
 1.  On the **Basic Settings** page, do the following:
 
@@ -189,15 +189,15 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 1.  Specify the provisioned capacity for your share. Note that the specified capacity should be smaller than the available capacity. If using a tiered share, the share size should be between 500 GB and 20 TB. For a locally pinned share, specify a share size between 50 GB and 2 TB. Use the available capacity as a guide to provision a share. If the available local capacity is 0 GB, then you will not be allowed to provision local or tiered shares.
 
-	![](./media/storsimple-ova-deploy4-fs-connect/image2.png)
+	![](./media/torsimple-ova-deploy3-fs-setup/image18.png)
 
-1.  Click the arrow icon ![](./media/storsimple-ova-deploy4-fs-connect/image3.png) to go to the next page.
+1.  Click the arrow icon ![](./media/storsimple-ova-deploy3-fs-setup/image19.png) to go to the next page.
 
 1.  In the **Additional Settings** page, assign the permissions to the user or the group that will be accessing this share. Specify the name of the user or the user group in *<john@contoso.com>* format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use Windows Explorer to modify these permissions.
 
-	![](./media/storsimple-ova-deploy4-fs-connect/image4.png)
+	![](./media/storsimple-ova-deploy3-fs-setup/image20.png)
 
-1.  Click the check icon ![](./media/storsimple-ova-deploy4-fs-connect/image5.png). A share will be created with the specified settings. By default, monitoring and backup will be enabled for the share.
+1.  Click the check icon ![](./media/storsimple-ova-deploy3-fs-setup/image21.png). A share will be created with the specified settings. By default, monitoring and backup will be enabled for the share.
 
 ## Step 4: Map and connect to the share
 
@@ -205,13 +205,13 @@ You will now need to connect to the share(s) that you created in the previous st
 
 #### To map and connect to the share
 
-1.  Press ![](./media/storsimple-ova-deploy4-fs-connect/image6.png) + R. In the Run window, specify the *\\<file server name>* as the path, replacing *file server name* with the device name that you assigned to your file server. Click **OK**.
+1.  Press ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. In the Run window, specify the *\\<file server name>* as the path, replacing *file server name* with the device name that you assigned to your file server. Click **OK**.
 
-	![](./media/storsimple-ova-deploy4-fs-connect/image7.png)
+	![](./media/storsimple-ova-deploy3-fs-setup/image23.png)
 
 2.  This will open up Explorer. You should now be able to see the shares that you created as folders. Select and double-click a share (folder) to view the content.
 
-	![](./media/storsimple-ova-deploy4-fs-connect/image8.png)
+	![](./media/storsimple-ova-deploy3-fs-setup/image24.png)
 
 3.  You can now add files to these shares and take a backup.
 
