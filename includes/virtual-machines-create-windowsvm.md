@@ -6,12 +6,14 @@
 
 	![Navigate to From Gallery in the Command Bar](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 
-4. The first screen after this lets you **Choose an Image** for your virtual machine from the list of available images. (The available images may differ depending on the subscription you're using.)
+4. The first screen after this lets you **Choose an Image** for your virtual machine from the list of available images. You can choose an image from the gallery or select from images and disks that you have uploaded. The available images may differ depending on the subscription you're using.
 
 5. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. Here are some tips:
 
-	- **New User Name** refers to the administrative account that you use to manage the server. Certain user names like Administrator and Admin aren't allowed. Create a unique password for this account and make sure to remember it. A Windows Server password needs to contain at least 8 characters, including three of the following: an uppercase character, a lowercase character, a number, and a special character. **You'll need the user name and password to log on to the virtual machine**.
+	- **Virtual Machine Name** can only contain letters, numbers and hyphens. It also must start with a letter and end with a letter or a number.
 
+	- **New User Name** refers to the administrative account that you use to manage the server. The password must be at 8-123 characters long and have at least 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. **You'll need the user name and password to log on to the virtual machine**.
+	
 	- A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines-size-specs.md).
 
 6. The third screen lets you configure resources for networking, storage, and availability. Here are some tips:
