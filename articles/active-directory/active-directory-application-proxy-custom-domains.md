@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/07/2016"
 	ms.author="kgremban"/>
 
 # Working with custom domains in Azure AD Application Proxy
@@ -39,7 +39,7 @@ A: The certificate should be uploaded from the application configuration page. T
 ...  
 Q: Can ECC certs be used?  
 A: There is no explicit limitation on signature methods.  
-...
+...  
 Q: Can SAN certs be used?  
 A: Yes.  
 ...  

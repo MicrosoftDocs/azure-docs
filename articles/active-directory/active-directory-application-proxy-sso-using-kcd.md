@@ -93,12 +93,12 @@ The Active Directory configuration varies, depending on whether your Application
 
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.
 
-  >[AZURE.IMPORTANT] The UPNs in Azure Active Directory must be identical to the UPNs in your on-premises Active Directory in order for preauthentication to work. Make sure your Azure AD is synchronized with your on-premises AD.
+>[AZURE.IMPORTANT] The UPNs in Azure Active Directory must be identical to the UPNs in your on-premises Active Directory in order for preauthentication to work. Make sure your Azure AD is synchronized with your on-premises AD.
 
-| | |  
-| --- | --- |  
-| Internal Authentication Method | If you use Azure AD for preauthentication, you can set an internal authentication method to enable your users to benefit from single-sign on (SSO) to this application. <br><br> Select **Integrated Windows Authentication** (IWA) if your application uses IWA and you can configure Kerberos Constrained Delegation (KCD) to enable SSO for this application. Applications that use IWA must be configured using KCD, otherwise Application Proxy will not be able to publish these applications. <br><br> Select **None** if your application does not use IWA. |  
-| Internal Application SPN | This is the Service-Principal-Name (SPN) of the internal application as configured in the on-prem Azure AD. The SPN is used by the Application Proxy Connector to fetch Kerberos tokens for the application using KCD. |  
+|  |  |
+| --- | --- |
+| Internal Authentication Method | If you use Azure AD for preauthentication, you can set an internal authentication method to enable your users to benefit from single-sign on (SSO) to this application. <br><br> Select **Integrated Windows Authentication** (IWA) if your application uses IWA and you can configure Kerberos Constrained Delegation (KCD) to enable SSO for this application. Applications that use IWA must be configured using KCD, otherwise Application Proxy will not be able to publish these applications. <br><br> Select **None** if your application does not use IWA. |
+| Internal Application SPN | This is the Service-Principal-Name (SPN) of the internal application as configured in the on-prem Azure AD. The SPN is used by the Application Proxy Connector to fetch Kerberos tokens for the application using KCD. |
 
 
 ## SSO for non-Windows apps
@@ -132,11 +132,11 @@ It will also help with applications that do not accept addresses in the form of 
 
 ### Setting SSO for different cloud and on-prem identities
 
-1. Configure Azure AD Connect settings so the main identity will be the email address (mail). This is done as part of the customize process, by changing the **User Principle Name** field in the sync settings.
+1. Configure Azure AD Connect settings so the main identity will be the email address (mail). This is done as part of the customize process, by changing the **User Principle Name** field in the sync settings.  
 
-  ![Identifying users screenshot - User Principal Name dropdown](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)
+  ![Identifying users screenshot - User Principal Name dropdown](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 
-  NOTE: These settings also determine how users log in to Office365, Windows10 devices and other applications that use Azure AD as their identity store.
+  NOTE: These settings also determine how users log in to Office365, Windows10 devices and other applications that use Azure AD as their identity store.  
 
 2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:  
   - User Principle Name: joe@contoso.com  
@@ -145,7 +145,7 @@ It will also help with applications that do not accept addresses in the form of 
   - Username part of Alternate User Principle Name: joed  
   - On-premises SAM account name: depending on-prem domain controller configuration  
 
-  ![Delegated login identity drop-down menu screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
+  ![Delegated login identity drop-down menu screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)  
 
 ### Troubleshooting SSO for different identities
 If there is an error in the SSO process it will appear in the Connector machine event log as explained in [Troubleshooting](active-directory-application-proxy-troubleshoot.md).
