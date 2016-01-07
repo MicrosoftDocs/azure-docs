@@ -87,7 +87,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Screenshot that shows the summary of the configuration choices made for the Azure VM](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. While Azure creates the virtual machine, you can track the progress under *Virtual Machines* in the hub menu. 
+8. While Azure creates the virtual machine, you can track the progress under **Virtual Machines** in the hub menu. 
 
 ## Log on to the virtual machine
 
