@@ -20,10 +20,10 @@
 # Azure Windows VM Extension Configuration Samples
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
-- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+- [PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
 
-<br> 
+<br>
 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.

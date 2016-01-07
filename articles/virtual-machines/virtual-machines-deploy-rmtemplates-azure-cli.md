@@ -20,10 +20,10 @@
 # Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-<br> 
+<br>
 
 
 
@@ -49,7 +49,7 @@ Before you can use the Azure CLI with Azure resource groups, you need to have th
 
 ### Update your Azure CLI version to 0.9.0 or later
 
-Type `azure --version` to see whether you have already installed version 0.9.0 or later. 
+Type `azure --version` to see whether you have already installed version 0.9.0 or later.
 
 	azure --version
     0.9.0 (node: 0.10.25)
@@ -64,7 +64,7 @@ You can also run Azure CLI as a Docker container by using the following [Docker 
 
 If you don't already have an Azure subscription but you do have an MSDN subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-Now [log in to your Azure account interactively](../xplat-cli-connect.md#use-the-log-in-method) by typing `azure login` and following the prompts for an interactive login experience to your Azure account. 
+Now [log in to your Azure account interactively](../xplat-cli-connect.md#use-the-log-in-method) by typing `azure login` and following the prompts for an interactive login experience to your Azure account.
 
 > [AZURE.NOTE] If you have a work or school ID and you know you do not have two-factor authentication enabled, you can **also** use `azure login -u` along with the work or school ID to log in *without* an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](resource-group-create-work-id-from-personal.md) to log in the same way.
 

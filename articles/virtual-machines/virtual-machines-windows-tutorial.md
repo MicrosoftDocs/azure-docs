@@ -20,11 +20,11 @@
 # Create a virtual machine running Windows in the Azure portal#
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
-- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
-- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
-- [Azure CLI](virtual-machines-linux-tutorial.md)
+- [Portal - Windows](virtual-machines-windows-tutorial.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [CLI](virtual-machines-linux-tutorial.md)
 
 <br>
 
@@ -32,7 +32,7 @@
 
 This tutorial shows you how easy it is to create an Azure virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 You can also create virtual machines using your own images, with Resource Manager templates, or with automation tools. To learn about the different methods, see [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md).
 
@@ -72,7 +72,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Screenshot that shows the basic settings to configure for an Azure VM](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	
+
 2. Click **Size** and select an appropriate virtual machine size for your needs. Each size specifies the number of compute cores, memory, and other features, such as support for Premium Storage, which will affect the price. Azure recommends certain sizes automatically depending on the image you choose.
 
 	![Screenshot that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
@@ -87,7 +87,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 	![Screenshot that shows the summary of the configuration choices made for the Azure VM](./media/virtual-machines-windows-tutorial/create_vm_summary.PNG)
 
-8. While Azure creates the virtual machine, you can track the progress under **Virtual Machines** in the hub menu. 
+8. While Azure creates the virtual machine, you can track the progress under **Virtual Machines** in the hub menu.
 
 ## Log on to the virtual machine
 
