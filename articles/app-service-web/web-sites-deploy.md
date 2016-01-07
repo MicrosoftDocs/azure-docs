@@ -40,25 +40,25 @@ files to Azure, from [FileZilla](https://filezilla-project.org) to full-featured
 a file upload process. No additional services are provided by App Service, such as version control, file structure management, etc. 
 - [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment): The [deployment engine](https://github.com/projectkudu/kudu/wiki) 
 in App Service. Push your code to Kudu directly from any repository. Kudu also provides added services whenever code is 
-is pushed to it, including version control, package restore, MSBuild, and [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) 
+pushed to it, including version control, package restore, MSBuild, and [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) 
 for continuous deployment and other automation tasks. All these services are customizable and triggered 
     - every time **git push** is executed from a configured Git repository,
 	- every time **hg push** is executed from a configured Mercurial repository, or 
     - every time a linked cloud storage like Dropbox or OneDrive is synced with App Service. 
 - [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): The same tooling that automates deployment 
 to IIS servers. Deploy code to App Service directly from your favorite Microsoft tools, 
-such as Visuall Studio, WebMatrix, and Visual Studio Team Services. This tool supports diff-only deployment, database creation, transforms of 
+such as Visual Studio, WebMatrix, and Visual Studio Team Services. This tool supports diff-only deployment, database creation, transforms of 
 connection strings, etc. Web Deploy differs from Kudu in that application binaries are built before they are deployed to Azure. 
 Similar to FTP, no additional services are provided by App Service.
 
 Popular web development tools support one or more of these deployment processes. While the tool you choose determines the deployment 
-processes you can leverage, the actual DevOps functionality at your disposal depends on the combination of the the deployment process and the 
+processes you can leverage, the actual DevOps functionality at your disposal depends on the combination of the deployment process and the 
 specific tools you choose. For example, if you perform Web Deploy from [Visual Studio with Azure SDK](#vspros), even though you don't get automation 
 from Kudu, you do get package restore and MSBuild automation in Visual Studio. Azure SDK also provides an easy-to-use wizard to 
 help you create the Azure resources you need directly within the Visual Studio interface.
 
 >[AZURE.NOTE] These deployment processes don't actually [provision the Azure resources](resource-group-portal) that your app may need, such as 
-App Service plan, App Service app, and SQL database. However, Most of the linked how-to articles show you how to provision the app AND deploy 
+App Service plan, App Service app, and SQL database. However, most of the linked how-to articles show you how to provision the app AND deploy 
 your code to it end-to-end. You can also find additional options for provisioning Azure resources in the 
 [Automate deployment by using command-line tools](#automate) section.
 
@@ -90,7 +90,7 @@ Copying files to Azure involves a few simple steps:
 click **Settings** > **Deployment Credentials**.
 2. After you have configured deployment credentials, obtain the FTP connection information by going to **Settings** > **Properties**, and then
 copying the values for **FTP/Development User**, **FTP Host Name**, and **FTPS Host Name**.
-3. From youre FTP client, use the connection information you gathered to connect to your app.
+3. From your FTP client, use the connection information you gathered to connect to your app.
 4. Copy your files and their respective directory structure to the 
 [**/site/wwwroot** directory in Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (or the **/Data/Jobs** directory 
 for WebJobs).
@@ -102,7 +102,7 @@ For more information, see the following resources:
 * [Using FTP Batch Scripts](http://support.microsoft.com/kb/96269).
 
 ## <a name="dropbox"></a>Deploy by syncing with a cloud folder
-A good alternative to [copying filse manually](#ftp) is syncing files and folders to App Service from a cloud storage service
+A good alternative to [copying files manually](#ftp) is syncing files and folders to App Service from a cloud storage service
 like OneDrive and Dropbox. In the [Azure Portal](https://portal.azure.com), you can configure a special folder in your cloud storage, 
 work with your app code and content in that folder, and sync to App Service with the click of a button.
 
@@ -175,7 +175,7 @@ A 12-part tutorial series that covers a more complete range of deployment tasks 
 features have been added since the tutorial was written, but notes added later explain what's missing.
 * [Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). 
 Explains how to deploy an ASP.NET web project in Visual Studio, using the Git plug-in to commit the code to Git and connecting Azure to 
-the Git repository. Starting in Visual Studio 2013, Git support is built-in an doesn't require installation of a plug-in.
+the Git repository. Starting in Visual Studio 2013, Git support is built-in and doesn't require installation of a plug-in.
 
 ###<a name="webmatrix"></a>How to deploy from WebMatrix directly
 

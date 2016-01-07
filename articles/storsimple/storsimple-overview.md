@@ -101,7 +101,7 @@ The virtual device has the following features:
 
 With Update 2 and later, the StorSimple virtual device is available in two models: the 8010 device (formerly known as the 1100 model) and the 8020 device. THe 8010 device has a maximum capacity of 30 TB. The 8020 device, which takes advantage of Azure premium storage, has a maximum capacity of 64 TB. (Azure premium storage stores data on SSDs whereas standard storage stores data on HDDs.) Note that you must have an Azure premium storage account to use premium storage. For more information about premium storage, go to [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md).
 
-For more information about the StorSimple virtual device, go to [Deploy and manage a StorSimple virtual device in Azure](storsimple-virtual-device-u1).
+For more information about the StorSimple virtual device, go to [Deploy and manage a StorSimple virtual device in Azure](storsimple-virtual-device-u1.md).
 
 ## StorSimple Manager service
 
