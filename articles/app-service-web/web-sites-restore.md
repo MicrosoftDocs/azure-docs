@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="01/07/2015" 
 	ms.author="cephalin"/>
 
 # Restore an app in Azure App Service
