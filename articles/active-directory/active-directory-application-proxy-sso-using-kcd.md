@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/07/2016"
 	ms.author="kgremban"/>
 
 
@@ -89,7 +89,7 @@ The Active Directory configuration varies, depending on whether your Application
 2. After your application appears in the list of applications, select it and click **Configure**.
 3. Under **Properties**, set **Internal Authentication Method** to **Integrated Windows Authentication**.
 
-  ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)
+  ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.
 
@@ -108,6 +108,7 @@ The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD 
 
 ### Partial Delegated Identity
 Non-Windows applications typically get user identity in the form of a username or SAM account name, not an email address (username@domain) . This is different than most Windows based systems that prefer a UPN, which is more conclusive and ensures no duplication cross domains.  
+
 For this reason, Application Proxy enables you to select which identity appears in the Kerberos ticket, per application. Some of these options are suitable for systems that do not accept email address format.
 
 ![Delegated login identity parameter screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
@@ -117,6 +118,7 @@ If partial identity is used, and this identity might not be unique for all the d
 
 ## Working with SSO when on-premises and cloud identities are not identical
 Unless otherwise configured, Application Proxy assumes that users have exactly the same identity in the cloud and on-premises. You can configure, for each application, which identity should be used when performing single sign-on.  
+
 This capability allows many organizations that have different on-prem and cloud identities to have SSO from the cloud to on-prem apps without requiring the users to enter different usernames and passwords. This includes organizations that:
 
 - Have multiple domains internally (joe@us.contoso.com, joe@eu.contoso.com) and a single domain in the cloud (joe@contoso.com).
@@ -136,7 +138,7 @@ It will also help with applications that do not accept addresses in the form of 
 
   ![Identifying users screenshot - User Principal Name dropdown](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 
-  NOTE: These settings also determine how users log in to Office365, Windows10 devices and other applications that use Azure AD as their identity store.  
+  These settings also determine how users log in to Office365, Windows10 devices and other applications that use Azure AD as their identity store.  
 
 2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:  
   - User Principle Name: joe@contoso.com  
