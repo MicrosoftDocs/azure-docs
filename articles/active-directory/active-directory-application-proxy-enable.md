@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/06/2016"
 	ms.author="kgremban"/>
 
 # Enabling Azure AD Application Proxy
@@ -21,11 +21,11 @@
 
 Microsoft Azure Active Directory Application Proxy lets you publish applications, such as SharePoint sites, Outlook Web Access, and IIS-based apps inside your private network and provides secure access to users outside your network. Employees can log into your apps from home on their own devices and authenticate through this cloud-based proxy.
 
-Application Proxy works by installing a slim Windows service called a Connector inside your network. The Connector maintains an outbound connection from within your network to the proxy service. When users access a published application, they proxy uses this connection to provide access to the application.
+Application Proxy works by installing a slim Windows service called a Connector inside your network. The Connector maintains an outbound connection from within your network to the proxy service. When users access a published application, the proxy uses this connection to provide access to the application.
 
 This article walks you through enabling Microsoft Azure AD Application Proxy for your cloud directory in Azure AD, installing the Application Proxy Connector on your private network, and registering the Connector with your Microsoft Azure AD tenant subscription.
 
-##Application Proxy prerequisites
+## Application Proxy prerequisites
 Before you can enable and use Application Proxy services, you need to have:
 
 - A Microsoft Azure AD [basic or premium subscription](active-directory-editions.md) and an Azure AD directory for which you are a global administrator.
@@ -46,26 +46,30 @@ Port Number | Description
 If your firewall enforces traffic according to originating users, open these ports for traffic coming from Windows services running as a Network Service. Also, make sure to enable port 8080 for NT Authority\System.
 
 
-##Step 1: Enable Application Proxy in Azure AD
+## Step 1: Enable Application Proxy in Azure AD
 1. Sign in as an administrator in the Azure classic portal.
 2. Go to Active Directory and select the directory in which you want to enable Application Proxy.
 3. Click **Configure**, scroll down to Application Proxy and toggle Enable Application Proxy Services for this Directory to **Enabled**.
 
-	![Enable Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_enable.png) <p>
+	![Enable Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
+
 4. Click **Download now** at the bottom of the screen. This will take you to the download page. Read and accept the license terms and click **Download** to save the Windows Installer file (.exe) for the Application Proxy Connector.
 
-##Step 2: Install and register the Connector
+## Step 2: Install and register the Connector
 1. Run `AADApplicationProxyConnectorInstaller.exe` on the server you prepared (see Application Proxy prerequisites above).
 2. Follow the instructions in the wizard to install.
 3. During installation you will be prompted to register the Connector with the Application Proxy of your Azure AD tenant.
-<p>- Provide your Azure AD global administrator credentials.
-<p>- Make sure the admin who registers the Connector is in the same directory where you enabled the Application Proxy service, for example if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other alias on that domain. And that you are a global administrator of the Azure AD tenant. Your global administrator tenant may be different from your Microsoft Azure credentials.
-<p>- If IE Enhanced Security Configuration is set to **On** on the server where you are installing the Azure AD Connector, the registration screen might be blocked. If this happens, follow the instructions in the error message to allow access. Make sure that Internet Explorer Enhanced Security is off.
-<p>- If Connector registration does not succeed, see [Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md).
 
-4. When the installation completes, two new services are added to your server, as shown below. These are the Connector service, which enables connectivity, and an automated update service, which periodically checks for new versions of the Connector and updates the Connector as needed. Click Finish in the installation window to complete installation
-	![Application Proxy Connector Service!](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
-5. You are now ready to Publish applications with Application Proxy.
+  - Provide your Azure AD global administrator credentials. Your global administrator tenant may be different from your Microsoft Azure credentials.
+  - Make sure the admin who registers the Connector is in the same directory where you enabled the Application Proxy service, for example if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other alias on that domain.
+  - If IE Enhanced Security Configuration is set to **On** on the server where you are installing the Azure AD Connector, the registration screen might be blocked. If this happens, follow the instructions in the error message to allow access. Make sure that Internet Explorer Enhanced Security is off.
+  - If Connector registration does not succeed, see [Troubleshoot Application Proxy](active-directory-application-proxy-troubleshoot.md).  
+
+4. When the installation completes, two new services are added to your server, as shown below. These are the Connector service, which enables connectivity, and an automated update service, which periodically checks for new versions of the Connector and updates the Connector as needed. Click **Finish** in the installation window to complete installation
+
+	![Application Proxy Connector services](./media/active-directory-application-proxy-enable/app_proxy_services.png)
+
+5. You are now ready to [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
 
 For high availability purposes, you must deploy at least one additional Connector. To deploy an additional Connector, repeat steps 2 and 3, above. Each Connector must be registered separately.
 

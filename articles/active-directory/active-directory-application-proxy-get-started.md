@@ -13,18 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/06/2016"
 	ms.author="kgremban"/>
 
 # How to provide secure remote access to on-premises applications
 
-You want to provide access for remote users who have all kinds of devices – managed, unmanaged; tablets, smartphones and laptops. And providing secure access to a myriad of resources can be complex. In recent years, reverse proxies were a popular way to provide secure remote access, but they needed to be behind firewalls which were hard to secure and hard to make highly available.
+> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+
+You want to provide access for remote users who have all kinds of devices – managed, and unmanaged; tablets, smartphones, and laptops. But providing secure access to a myriad of resources can be complex. In recent years, reverse proxies were a popular way to provide secure remote access, but they needed to be behind firewalls which were hard to secure and hard to make highly available.
 
 ## Secure remote access in the cloud
 In a modern cloud environment, we take remote access to the next level using Application Proxy in Microsoft Azure Active Directory (AD). Application Proxy is a feature of Azure AD that is supplied as a service, meaning that it’s easy to deploy and use. It integrates with Azure AD, the same identity platform that is used by Office 365.
 
 ## What is Azure Active Directory Application Proxy?
-Application Proxy provides single sign-on (SSO) and secure remote access for web applications hosted on-premises, such as SharePoint sites and Outlook Web Access. Your on-premises web applications can now be accessed the same way as your SaaS apps in Azure Active Directory, without the need for a VPN or changing the network infrastructure. Application Proxy lets you publish applications. Employees can log into your apps from home, on their own devices and authenticate through this cloud-based proxy.
+Application Proxy provides single sign-on (SSO) and secure remote access for web applications hosted on-premises, such as SharePoint sites and Outlook Web Access. Your on-premises web applications can now be accessed the same way as your SaaS apps in Azure Active Directory, without the need for a VPN or changing the network infrastructure. Application Proxy lets you publish applications, and then employees can log into your apps from home or on their own devices, and authenticate through this cloud-based proxy.
 
 ## How does it work?
 ### Enabling Access
@@ -40,12 +42,11 @@ Make sure you have an Azure AD basic or premium subscription and an Azure AD dir
 ### Getting started enabling remote access to on-premises applications
 Setting up Application Proxy is accomplished in two steps:
 
-1. [Enable Application Proxy and configure the Connector](active-directory-application-proxy-enable.md)<br>
+1. [Enable Application Proxy and configure the Connector](active-directory-application-proxy-enable.md)  
 2. [Publish applications](active-directory-application-proxy-publish.md) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
 
 ## What's next?
 There's a lot more you can do with Application Proxy:
-
 
 - [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
 - [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/06/2016"
 	ms.author="kgremban"/>
 
 # How to silently install the Azure AD Application Proxy Connector
 
-You want to be able to send an installation script to multiple Windows servers or to Windows Servers that don't have user interface enabled. This topic explains how to create a Windows PowerShell script that enables unattended installation and installs and registers your Azure AD Application Proxy Connector.
+> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+
+You want to be able to send an installation script to multiple Windows servers or to Windows Servers that don't have user interface enabled. This topic explains how to create a Windows PowerShell script that enables unattended installation to install and register your Azure AD Application Proxy Connector.
 
 ## Enabling Access
 Application Proxy works by installing a slim Windows Server service called the Connector inside your network. For the Application Proxy Connector to work it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this is entered during Connector installation in a pop up dialog box. Instead, you can use Windows PowerShell to create a credential object to enter your registration information, or you can create your own token and use it to enter your registration information.
@@ -44,14 +46,14 @@ This can be accomplished using either of the following methods:
 ### Register the Connector using a Windows PowerShell credential object
 
 
-1. Create the Windows PowerShell Credentials object, by running the following, where "username" and "password" should be replaced with the username and password for your directory:
+1. Create the Windows PowerShell Credentials object by running the following, where "<username>" and "<password>" should be replaced with the username and password for your directory:
 
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 
-2. Go to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the script using the PowerShell credentials object you created: where $cred is the name of the PowerShell credentials object you created:
+2. Go to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the script using the PowerShell credentials object you created, where $cred is the name of the PowerShell credentials object you created:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
