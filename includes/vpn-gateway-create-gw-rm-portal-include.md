@@ -1,8 +1,8 @@
 1. In the portal, go to **New**, then **Browse**. Select **Virtual network gateways** from the list.
 2. Click **Add**.
-3. Name your gateway. This is not the same as naming a gateway subnet. This is the name of the gateway object. In this example, we'll name the gateway **GW1**.
+3. Name your gateway. This is not the same as naming a gateway subnet. This is the name of the gateway object. 
 4. In **Virtual network**, select the VNet that you want to connect to this gateway.
-5. In the settings for the VNet, for the **Public IP address** value, create a name your public IP address. Note that this is not asking for an IP address. The IP address will be assigned dynamically. Rather, this is the name of the IP address object that the address will be assigned to. In this example, we will name the IP address object **GW1PubIP**.
+5. In the settings for the VNet, for the **Public IP address** value, create a name your public IP address. Note that this is not asking for an IP address. The IP address will be assigned dynamically. Rather, this is the name of the IP address object that the address will be assigned to. 
 6. For **VPN type**, the choices are policy-based and route-based. Be sure to select the VPN gateway type that is both supported by the configuration scenario, and, if required for your configuration, supported by the VPN gateway device you plan to use.
 7. For **Resource Group**, choose **select existing** and choose the resource group that your VNet resides in, unless your configuration requires a different choice.
 8. For **Location**, make sure it's showing the location that both your Resource Group and VNet exist in.
