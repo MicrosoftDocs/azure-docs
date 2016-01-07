@@ -30,9 +30,7 @@ Host your Windows application in Azure RemoteApp. Below is a very high level ste
 1.     Create the [Azure RemoteApp template VM](remoteapp-imageoptions.md). 
 2.     Install the required application on the VM.
 3.     Configure the application so it connects to the SQL DB and confirm that it works.
-4.     Sysprep and shutdown the VM. Capture this as an image for use with Azure. 
-
-	**Note:** You will need to ensure that the application is able to retain the DB connectivity information through the sysprep process. If the application is unable to retain the DB connection information, you might want to engage the vendor of the application to check how we can specify the connection string.
+4.     Sysprep and shutdown the VM. Capture this as an image for use with Azure. **Note:** You will need to ensure that the application is able to retain the DB connectivity information through the sysprep process. If the application is unable to retain the DB connection information, you might want to engage the vendor of the application to check how we can specify the connection string.
 5.     Import the custom image into your Azure RemoteApp library selecting the proper geographical location that your SQL Azure deployment resides. 
 6.     Deploy a RemoteApp collection in the same data center as your SQL Azure deployment using the above template and publish the application. Deploying Azure RemoteApp in the same data center as your SQL Azure deployment helps ensure the fastest connection speeds and reduce latency. 
 
