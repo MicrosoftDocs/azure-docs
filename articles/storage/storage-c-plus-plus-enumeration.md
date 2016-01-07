@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/23/2015" 
+    ms.date="01/05/2016" 
     ms.author="zhimingyuan;tamram"/>
 
 # List Azure Storage Resources in C++
