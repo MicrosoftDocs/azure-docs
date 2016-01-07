@@ -1,4 +1,4 @@
-1. Sign in to the [Azure portal](http://manage.windowsazure.com). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you don't have a subscription yet.
+1. Sign in to the [Azure classic portal](http://manage.windowsazure.com). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you don't have a subscription yet.
 
 2. On the command bar at the bottom of the window, click **New**.
 
@@ -10,7 +10,7 @@
 
 5. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. Here are some tips:
 
-	- **New User Name** refers to the administrative account that you use to manage the server. Create a unique password for this account and make sure to remember it. **You'll need the user name and password to log on to the virtual machine**.
+	- **New User Name** refers to the administrative account that you use to manage the server. Certain user names like Administrator and Admin aren't allowed. Create a unique password for this account and make sure to remember it. A Windows Server password needs to contain at least 8 characters, including three of the following: an uppercase character, a lowercase character, a number, and a special character.  **You'll need the user name and password to log on to the virtual machine**.
 
 	- A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines-size-specs.md).
 
@@ -28,6 +28,6 @@
 
 	>[AZURE.NOTE] The VM agent provides the environment for you to install extensions that can help you interact with or manage the virtual machine. For details, see [About the VM agent and extensions](virtual-machines-extensions-agent-about.md).  
 
-8. After the virtual machine is created, the portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account also are created and are listed in those sections. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
+8. After the virtual machine is created, the classic portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account also are created and are listed in those sections. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
 
 	![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)
