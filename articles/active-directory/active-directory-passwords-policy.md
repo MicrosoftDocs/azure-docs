@@ -45,7 +45,7 @@ The following table describes the available password policy settings that can be
 | Password Expiry |  <ul><li>Default value: **false** days (indicates that password expiry is enabled) </li><li>Value can be configured for individual user accounts using the Set-MsolUser cmdlet. </li></ul> |
 |  Password history  | Last password cannot be used again. |
 |  Password history duration | Forever |
-|  Account Lockout | After 10 unsuccessful logon attempts (wrong password), the user will be locked out for one minute. Further incorrect logon attempts will lock out the user for increasing durations. |
+|  Account Lockout | After 10 unsuccessful sign-in attempts (wrong password), the user will be locked out for one minute. Further incorrect sign-in attempts will lock out the user for increasing durations. |
 
 
 ## Next Steps
