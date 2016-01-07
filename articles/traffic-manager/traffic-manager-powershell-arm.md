@@ -65,7 +65,7 @@ Install the latest Azure PowerShell, available from the Azure downloads page.
 ### Step 2
 Log in to your Azure account.
 
-	PS C:\> Login-AzureRmAccopunt
+	PS C:\> Login-AzureRmAccount
 
 You will be prompted to authenticate with your credentials.
 
@@ -141,7 +141,7 @@ For example, to change the profile TTL:
 	PS C:\> $profile.Ttl = 300
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
-## Add Traffic Manager Endpoints [](#adding-traffic-manager-endpoints)
+## Add Traffic Manager Endpoints
 There are three types of Traffic Manager endpoints:
 1. Azure endpoints: these represent services hosted in Azure.
 2. External endpoints: these represent services hosted outside of Azure.
@@ -152,6 +152,7 @@ In all three cases, endpoints can be added in two ways:
 2. Using the New-AzureRmTrafficManagerEndpoint cmdlet.  This adds an endpoint to an existing Traffic Manager profile in a single operation.
 
 ### Adding Azure Endpoints
+
 Azure endpoints reference other services hosted in Azure.  Currently, 3 types of Azure endpoint are supported:
 1. Azure Web Apps
 2. 'Classic' cloud services (which can contain either a PaaS service or IaaS virtual machines)
@@ -246,7 +247,7 @@ To enable a Traffic Manager endpoint, use Enable-AzureRmTrafficManagerEndpoint. 
 
 	PS C:\> Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup
 
-Similarly, to disable a Traffic Manager profile: 
+Similarly, to disable a Traffic Manager endpoint: 
 
  	PS C:\> Disable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyResourceGroup -Force
 

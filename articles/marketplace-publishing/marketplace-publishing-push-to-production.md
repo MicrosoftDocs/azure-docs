@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="AzureStore"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="01/04/2016"
    ms.author="hascipio" />
 
 # Deploy your offer to the Azure Marketplace

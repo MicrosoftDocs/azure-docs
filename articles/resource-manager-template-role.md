@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for role assignments | Microsoft Azure"
-   description="Shows the resource manager schema for creating a role assignment during deployment."
+   description="Shows the Resource Manager schema for deploying a role assignment through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Role assignments - template schema
+# Role assignments template schema
 
 Assigns a user, group, or service principal to a role at a specified scope.
 
@@ -58,7 +58,7 @@ The following tables describe the values you need to set in the schema.
 | scope | string | Yes | For resource group:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**<br /><br />For resource:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** | The scope at which this role assignment applies to. |
 
 
-## How to use the lock resource
+## How to use the role assignment resource
 
 You add a role assignment to your template when you need to add a user, group, or service principal to a role during deployment. Role assignments are inherited from higher levels of scope, so 
 if you have already added a principal to a role at the subscription level, you do not need to re-assign it for the resource group or resource.
@@ -120,6 +120,13 @@ The following example assigns a group to a role for the resource group.
         "outputs": {}
     }
 
+## Quickstart templates
+
+The following templates show how to use the role assignment resource:
+
+- [Assign built-in role to resource group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-resourcegroup)
+- [Assign built-in role to existing VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-virtualmachine)
+- [Assign built-in role to multiple existing VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)
 
 ## Next steps
 

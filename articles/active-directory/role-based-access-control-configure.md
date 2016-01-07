@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Azure Role-based Access Control
@@ -22,7 +22,7 @@
 Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs.
 
 ### Basics of access management in Azure
-Each Azure subscription is homed to an Azure Active Directory. Only users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription, using Azure portal, Azure Command-Line tools and Azure Management APIs.
+Each Azure subscription is associated with one Azure Active Directory. Only users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription, using Azure portal, Azure Command-Line tools and Azure Management APIs.
 
 Access is granted by assigning the appropriate RBAC role to users, groups, and applications, at the right scope. To grant access to the entire subscription, assign a role at the subscription scope. To grant access to a specific resource group within a subscription, assign a role at the resource group scope. You may assign roles at specific resources too, like websites, virtual machines and subnets, to grant access only to a resource.
 
@@ -70,7 +70,6 @@ Select access settings in the essentials section of the resource group blade. Th
 
 > [AZURE.NOTE] Inherited assignments can not be removed from child scopes. Navigate to the parent scope and remove such assignments.
 
-
 ![](./media/role-based-access-control-configure/remove-access2.png)
 
 ## Manage access using Azure PowerShell
@@ -98,6 +97,9 @@ Access can be managed used Azure RBAC commands in the Azure Command-Line Interfa
 -	Use `azure role assignment delete` to remove access.
 
 See [Manage access using the Azure CLI](role-based-access-control-manage-access-azure-cli.md) for more detailed examples of managing access using the Azure CLI.
+
+## Manage access using the REST API
+See [Managing Role-Based Access Control with the REST API](role-based-access-control-manage-access-rest.md) for more detailed examples of managing access with the REST API.
 
 ## Using the Access Change History Report
 All access changes happening in your Azure subscriptions get logged in Azure events.
@@ -173,10 +175,12 @@ Use `Get-AzureRmProviderOperation` or `azure provider operations show` commands 
 ### Not Actions
 If the set of operations that you wish to allow is easily expressed by excluding specific operations rather than including all operations operations except than the ones you wish to exclude, then use the **NotActions** property of a custom role. The effective access granted by a custom role is computed by excluding the **NotActions** operations from the Actions operations.
 
-Note that if a user is assigned a role that excludes an operation in **NotActions** and is assigned a second role that grants access to the same operation – the user will be allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
+> [AZURE.NOTE] If a user is assigned a role that excludes an operation in **NotActions** and is assigned a second role that grants access to the same operation – the user will be allowed to perform that operation. **NotActions** is not a deny rule – it is simply a convenient way to create a set of allowed operations when specific operations need to be excluded.
 
 ### AssignableScopes
-The **AssignableScopes** property of the custom role specifies the scopes (subscriptions, or resource groups, or resources) within which the custom role is available for assignment to users, groups, and applications. Using **AssignableScopes** you can make the custom role available for assignment in only the subscriptions or resource groups that require it, and not clutter user experience for the rest of the subscriptions or resource groups. **AssignableScopes** of a custom role also control who is allowed to view, update, and delete the role. Following are some valid assignable scopes:
+The **AssignableScopes** property of the custom role specifies the scopes (subscriptions, or resource groups, or resources) within which the custom role is available for assignment to users, groups, and applications. Using **AssignableScopes** you can make the custom role available for assignment in only the subscriptions or resource groups that require it, and not clutter user experience for the rest of the subscriptions or resource groups.
+
+> [AZURE.NOTE] You must use at least one subscription, resource group or resource ID.*  **AssignableScopes** of a custom role also control who is allowed to view, update, and delete the role. Following are some valid assignable scopes:
 
 -	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624”: makes the role available for assignment in two subscriptions.
 -	“/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”: makes the role available for assignment in a single subscription.

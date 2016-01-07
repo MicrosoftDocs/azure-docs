@@ -32,8 +32,8 @@ After completing this tutorial, you'll be able to answer the following questions
 Before following the instructions in this tutorial, ensure that you have the following:
 
 - An Azure subscription. Azure is a subscription-based platform.  For more information about obtaining a subscription, see [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), [Member Offers](http://azure.microsoft.com/pricing/member-offers/), or [Free Trial](http://azure.microsoft.com/pricing/free-trial/).
-- An Azure Storage Account. For instructions, see [About Azure Storage Accounts](../storage-whatis-account.md).
-- A workstation with Azure PowerShell 0.9.8. For instructions, see [Install and configure Azure PowerShell](../install-configure-powershell.md). This tutorial has not yet been updated for Azure PowerShell 1.0 Preview. 
+- An Azure Storage Account. For instructions, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md).
+- A workstation with Azure PowerShell 0.9.8. For instructions, see [Install and configure Azure PowerShell](../powershell-install-configure.md). This tutorial has not yet been updated for Azure PowerShell 1.0 Preview. 
 
 ##<a id="CreateDB"></a>Step 1: Download and extract the sample files ##
 Let's start by downloading the sample files we will use in this tutorial.

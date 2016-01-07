@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Managing Role-Based Access Control with the Azure Command-Line Interface (Azure CLI) #

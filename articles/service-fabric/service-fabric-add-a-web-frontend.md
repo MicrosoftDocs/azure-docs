@@ -107,6 +107,10 @@ Now that we have defined the interface, we need to implement it in the stateful 
 2. Locate the class that inherits from `StatefulService`, such as `MyStatefulService`, and extend it to implement the `ICounter` interface.
 
     ```c#
+    using MyStatefulService.Interfaces;
+
+    ...
+
     public class MyStatefulService : StatefulService, ICounter
     {        
           // ...
@@ -136,9 +140,13 @@ With the `ICounter` interface implemented, the final step in enabling the statef
 
 >[AZURE.NOTE] The equivalent method for opening a communication channel to stateless services is called `CreateServiceInstanceListeners`.
 
-In this case, we will provide an instance of `ServiceRemotingListener`, which creates an RPC endpoint that is callable from clients through the `ServiceProxy` class.
+In this case, we will replace the existing `CreateServiceReplicaListeners` method and provide an instance of `ServiceRemotingListener`, which creates an RPC endpoint that is callable from clients through `ServiceProxy`.  
 
 ```c#
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+
+...
+
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
     return new List<ServiceReplicaListener>()
@@ -162,6 +170,11 @@ Our stateful service is now ready to receive traffic from other services. So all
 3. In the **Controllers** folder, open the `ValuesController` class. Note that the `Get` method currently just returns a hard-coded string array of "value1" and "value2"--which matches what we saw earlier in the browser. Replace this implementation with the following code:
 
     ```c#
+    using MyStatefulService.Interfaces;
+    using Microsoft.ServiceFabric.Services.Remoting.Client;
+
+    ...
+
     public async Task<IEnumerable<string>> Get()
     {
         ICounter counter =
