@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Actions to fix transient connection loss | Microsoft Azure"
 	description="Actions to troubleshoot, diagnose, and prevent connection errors and other transient faults when interacting with Azure SQL Database."
 	services="sql-database"
@@ -160,7 +160,7 @@ The connection string necessary for connecting to Azure SQL Database is slightly
 ### .NET SqlConnection parameters for connection retry
 
 
-If you client program connects to to Azure SQL Database by using the .NET Framework class **System.Data.SqlClient.SqlConnection**, you should use .NET 4.5.1 or later so you can leverage its connection retry feature. Details of the feature are [here](http://go.microsoft.com/fwlink/?linkid=393996).
+If your client program connects to to Azure SQL Database by using the .NET Framework class **System.Data.SqlClient.SqlConnection**, you should use .NET 4.6.1 or later so you can leverage its connection retry feature. Details of the feature are [here](http://go.microsoft.com/fwlink/?linkid=393996).
 
 
 <!--
@@ -246,13 +246,13 @@ For background information about cofiguration of ports and IP address, see:
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-## Connection: ADO.NET 4.5
+## Connection: ADO.NET 4.6.1
 
 
-If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection** to connect to Azure SQL Database, we recommend that you use .NET Framework version 4.5 or higher.
+If your program uses ADO.NET classes like **System.Data.SqlClient.SqlConnection** to connect to Azure SQL Database, we recommend that you use .NET Framework version 4.6.1 or higher.
 
 
-ADO.NET 4.5:
+ADO.NET 4.6.1:
 - Adds support the TDS 7.4 protocol. This includes connection enhancements beyond those in 4.0.
 - Supports connection pooling. This includes an efficient verification that the connection object it gives your program is functioning.
 
@@ -261,7 +261,7 @@ When you use a connection object from a connection pool, we recommend that your 
 
 
 If you are using ADO.NET 4.0 or earlier, we recommend that you upgrade to the latest ADO.NET.
-- As of July 2015, you can [download ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+- As of November 2015, you can [download ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
