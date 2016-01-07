@@ -17,7 +17,7 @@
    ms.author="karolz@microsoft.com"/>
 
 # Set up a Service Fabric cluster by using Visual Studio
-This article describes how to set up an [**Azure Service Fabric**](http://azure.microsoft.com/documentation/services/service-fabric/) cluster using **Visual Studio** and an [**Azure Resource Manager (ARM)**](https://azure.microsoft.com/documentation/articles/resource-group-overview/) template. We will use a Visual Studio **Azure resource group project** to create the template. After the template has been created, it can be deployed directly to Azure from Visual Studio, but it can also be used from a script or as part of **continuous integration (CI)** facility.
+This article describes how to set up an Azure Service Fabric cluster by using Visual Studio and an Azure Resource Manager (ARM) template. We will use a Visual Studio Azure resource group project to create the template. After the template has been created, it can be deployed directly to Azure from Visual Studio, but it can also be used from a script or as part of continuous integration (CI) facility.
 
 ## Create a Service Fabric cluster template by using an Azure resource group project
 To get started, open Visual Studio and create an Azure resource group project (it is available in the **Cloud** folder):
@@ -48,7 +48,7 @@ Before the template is deployed to create the cluster, you must provide values f
 The Visual Studio Service Fabric Resource Manager template creates a secure cluster that is protected by a certificate. This certificate is identified by the last three template parameters (`certificateThumbprint`, `sourceVaultValue`, and `certificateUrlValue`), and it must exist in an **Azure Key Vault**. For more information on how to create the cluster security certificate, see [How to secure a Service Fabric cluster using certificates](service-fabric-cluster-security.md) article.
 
 ## Optional: Add public application ports
-You may also want to change the **public application ports** for the cluster before you deploy it. By default, the template opens up just two public TCP ports (80 and 8081). If you need more for your applications, modify the Azure Load Balancer definition in the template. The definition is stored in the main template file (`SecureFabricCluster.json`). Open that file and search for `loadBalancedAppPort`. You will notice that each port is associated with three artifacts:
+You may also want to change the public application ports for the cluster before you deploy it. By default, the template opens up just two public TCP ports (80 and 8081). If you need more for your applications, modify the Azure Load Balancer definition in the template. The definition is stored in the main template file (`SecureFabricCluster.json`). Open that file and search for `loadBalancedAppPort`. You will notice that each port is associated with three artifacts:
 
 1. A template parameter that defines the TCP port value for the port:
 	```json
@@ -93,7 +93,7 @@ You may also want to change the **public application ports** for the cluster bef
 	    }
 	}
     ```
-If the applications that you plan to deploy to the cluster need more ports, you can add them by creating additional probe and load-balancing rule definitions. For more information on how to work with Azure Load Balancer through Resource Manager templates, see [Get started configuring an internal Load Balancer using Azure Resource Manager](https://azure.microsoft.com/documentation/articles/load-balancer-internal-arm-powershell/) article.
+If the applications that you plan to deploy to the cluster need more ports, you can add them by creating additional probe and load-balancing rule definitions. For more information on how to work with Azure Load Balancer through Resource Manager templates, see [Get started configuring an internal Load Balancer using Azure Resource Manager](https://azure.microsoft.com/documentation/articles/load-balancer-internal-arm-powershell/).
 
 ## Deploy the template by using Visual Studio
 After you have saved all the required parameter values in the`ServiceFabricCluster.param.dev.json` file, you are ready to deploy the template and create your Service Fabric cluster. Right-click the resource group project in Visual Studio Solution Explorer and choose **Deploy**. Visual Studio will show the **Deploy to Resource Group** dialog box, asking you to authenticate to Azure, if necessary:
