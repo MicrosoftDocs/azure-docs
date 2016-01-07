@@ -88,9 +88,7 @@ The Active Directory configuration varies, depending on whether your Application
 1. Publish your application according to the instructions described in [Publish applications with Application Proxy](active-directory-application-proxy-publish.md). Make sure to select **Azure Active Directory** as the **Preauthentication Method**.
 2. After your application appears in the list of applications, select it and click **Configure**.
 3. Under **Properties**, set **Internal Authentication Method** to **Integrated Windows Authentication**.  
-
   ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
-
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.  
 
 >[AZURE.IMPORTANT] The UPNs in Azure Active Directory must be identical to the UPNs in your on-premises Active Directory in order for preauthentication to work. Make sure your Azure AD is synchronized with your on-premises AD.
@@ -134,19 +132,14 @@ It will also help with applications that do not accept addresses in the form of 
 
 ### Setting SSO for different cloud and on-prem identities
 
-1. Configure Azure AD Connect settings so the main identity will be the email address (mail). This is done as part of the customize process, by changing the **User Principle Name** field in the sync settings.  
-
+1. Configure Azure AD Connect settings so the main identity will be the email address (mail). This is done as part of the customize process, by changing the **User Principle Name** field in the sync settings. Note that these settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  
   ![Identifying users screenshot - User Principal Name dropdown](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
-
-  These settings also determine how users log in to Office365, Windows10 devices and other applications that use Azure AD as their identity store.  
-
 2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:  
   - User Principle Name: joe@contoso.com  
   - Alternate User Principle Name: joed@contoso.local  
   - Username part of User Principle Name: joe  
   - Username part of Alternate User Principle Name: joed  
   - On-premises SAM account name: depending on-prem domain controller configuration  
-
   ![Delegated login identity drop-down menu screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)  
 
 ### Troubleshooting SSO for different identities
