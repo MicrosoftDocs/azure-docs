@@ -134,12 +134,13 @@ It will also help with applications that do not accept addresses in the form of 
 
 1. Configure Azure AD Connect settings so the main identity will be the email address (mail). This is done as part of the customize process, by changing the **User Principle Name** field in the sync settings. Note that these settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  
   ![Identifying users screenshot - User Principal Name dropdown](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
-2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:  
+2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:
   - User Principle Name: joe@contoso.com  
   - Alternate User Principle Name: joed@contoso.local  
   - Username part of User Principle Name: joe  
   - Username part of Alternate User Principle Name: joed  
-  - On-premises SAM account name: depending on-prem domain controller configuration  
+  - On-premises SAM account name: depending on-prem domain controller configuration
+
   ![Delegated login identity drop-down menu screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)  
 
 ### Troubleshooting SSO for different identities
