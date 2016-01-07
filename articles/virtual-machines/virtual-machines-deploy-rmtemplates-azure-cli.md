@@ -23,7 +23,7 @@
 - [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
-<br>
+<br> 
 
 
 
