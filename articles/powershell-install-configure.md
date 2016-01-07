@@ -25,8 +25,11 @@ Azure PowerShell is a module that provides cmdlets to manage Azure with Windows 
 
 <a id="Install"></a>
 ## Step 1: Install
+
 Following are the two methods by which you can install Azure PowerShell. You can install it either from WebPI, or the PowerShell Gallery:
+
 > [AZURE.NOTE] You may need to reboot after installation in order to see all of the commands in the Windows PowerShell Integrated Scripting Environment (ISE).
+
 ###Installing Azure PowerShell from WebPI
 
 Installing Azure PowerShell 1.0 and greater from WebPI is the same as it was for 0.9.x. Download [Azure Powershell](http://aka.ms/webpi-azps) and start the install. If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires you to remove the modules before installation to ensure a consistent Azure PowerShell environment.
