@@ -49,10 +49,15 @@ Due to the fact that copy activity runs happen on a specific frequency, the reso
 ## Installation
 Data Management Gateway can be installed by downloading an MSI setup package from the Microsoft Download Center.  The MSI can also be used to upgrade existing Data Management Gateway to the latest version, with all settings preserved. You can find the link to the MSI package from Azure Classic Portal by following the step by step walkthrough below.
 
+
+### Installation Best practices:
+1.	Configure power plan on the host machine for the gateway so that the machine does not hibernate. If the host machine hibernates, the gateway won’t be able to respond to data requests.
+2.	You should backup the certificate associated with the gateway.
+
 ## Port and Security Considerations
 
 ### General considerations
-There are two firewalls in scope here: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed. If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure the ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](@proxy-server-considerations) additionally. Here are some general considerations:
+There are two firewalls in scope here: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed. If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure the ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](#proxy-server-considerations) additionally. Here are some general considerations:
 
 **Prior to setting up the gateway:**
 
@@ -62,6 +67,7 @@ There are two firewalls in scope here: corporate firewall running on the central
 
 - By default, the Data Management Gateway installation opens the inbound port 8050 on the **local Windows firewall** on the gateway machine. The port will be used by the **Setting Credentials** application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure Portal at a later step; it will not be reachable from internet. Thus you do not need to open it in the corporate firewall.
 - If you do not want the gateway installation to open port 8050 on Windows firewall for the gateway machine, you can use the following command to install the gateway without configuring the firewall.
+
 		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
 If inbound port 8050 is not opened on the gateway machine, then to set up an on-premises linked service, you need to use mechanisms other than using the **Setting Credentials** application to configure the data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#setting-credentials-and-security) section on how data store credentials can be set and the respective security guarantees.
@@ -81,14 +87,19 @@ By default, Data Management Gateway will leverage the proxy settings from Intern
 			<system.net>
 				<defaultProxy useDefaultCredentials="true" />
 			</system.net>	
+
 	You can then add the proxy server details e.g. proxy address inside that parent tag, for example:
+
 			<system.net>
 			      <defaultProxy enabled="true">
 			            <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
 			      </defaultProxy>
 			</system.net>
+
 	Additional properties are allowed inside the proxy tag to specify the required settings like scriptLocation. Refer to [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) on syntax.
+
 			<proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+
 3. Save the configuration file into the original location, then restart the Data Management Gateway service to pick up the changes. You can do this from **Start** > **Services.msc**, or from the **Data Management Gateway Configuration Manager** > click the **Stop Service** button, then click the **Start Service**. If the service does not start, it is likely that an incorrect XML tag syntax has been added into the application configuration file that was edited. 	
 
 In addition to above points, you also need to make sure Microsoft Azure is in your company’s whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -99,20 +110,8 @@ If you encounter errors such as the following ones, it is likely because of the 
 1.	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
 2.	When you open Configuration Manager, you see status as “Disconnected” or “Connecting”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway” you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and will restart automatically. Component name: Gateway.”
 
-
-
-### Installation Best practices:
-1.	Configure power plan on the host machine for the gateway so that the machine does not hibernate. If the host machine hibernates, the gateway won’t be able to respond to data requests.
-2.	You should backup the certificate associated with the gateway.
-
-### Installation Troubleshooting:
-If your company uses a firewall or proxy server, additional steps may be required in case Data Management Gateway cannot connect to Microsoft cloud services. 
-
-#### Looking at Gateway logs with Event Viewer:
-
-Gaetway configuration manager application shows status for gateway like “Disconnected” or “Connecting”.
-
-For more detailed information you can look at gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
+## Gateway Troubleshooting:
+You can find detailed information in gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
 
 
 ## Using the Data Gateway – Step by Step Walkthrough
