@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Introduction to Azure DPM backup | Microsoft Azure"
 	description="An introduction to backing up DPM servers using the Azure Backup service"
 	services="backup"
@@ -19,8 +19,8 @@
 # Preparing to back up workloads to Azure with DPM
 
 > [AZURE.SELECTOR]
-- [Azure Backup](backup-azure-microsoft-azure-backup.md)
-- [SCDPM](backup-azure-dpm-introduction.md)
+- [Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [System Center DPM](backup-azure-dpm-introduction.md)
 
 This article provides an introduction to using Microsoft Azure Backup to protect your System Center Data Protection Manager (DPM) servers and workloads. By reading it you’ll understand:
 

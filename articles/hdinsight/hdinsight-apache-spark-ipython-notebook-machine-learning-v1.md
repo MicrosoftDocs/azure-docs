@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="12/22/2015" 
 	ms.author="nitinme"/>
 
 
@@ -29,7 +29,7 @@ Learn how to build a machine learning application using an Apache Spark cluster 
 You must have the following:
 
 - An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- An Apache Spark cluster. For instructions, see [Provision Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md). 
+- An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md). 
 
 ##<a name="data"></a>Show me the data
 
@@ -37,7 +37,7 @@ Before we start building the application, let us understand the structure of the
 
 In this article, we use the sample **HVAC.csv** data file that is available on all HDInsight clusters by default at **\HdiSamples\SensorSampleData\hvac**. Download and open the CSV file to get a snapshot of the data.  
 
-![HVAC data snapshot](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/HDI.Spark.ML.Show.Data.png "Snapshot of the HVAC data")
+![HVAC data snapshot](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.ml.show.data.png "Snapshot of the HVAC data")
 
 The data shows the target temperature and the actual temperature of a building that has HVAC systems installed. Let's assume the **System** column represents the system ID and the **SystemAge** column represents the number of years the HVAC system has been in place at the building.
 
@@ -55,11 +55,11 @@ We use this data to predict whether a building will be hotter or colder based on
 
 2. Create a new notebook. Click **New**, and then click **Python 2**.
 
-	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/HDI.Spark.Note.Jupyter.CreateNotebook.png "Create a new Jupyter notebook")
+	![Create a new Jupyter notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
 
 3. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
 
-	![Provide a name for the notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/HDI.Spark.Note.Jupyter.Notebook.Name.png "Provide a name for the notebook")
+	![Provide a name for the notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
 3. Start building your machine learning application. In this application we use a Spark ML pipeline to perform a document classification. In the pipeline, we split the document into words, convert the words into a numerical feature vector, and finally build a prediction model using the feature vectors and labels.
 
@@ -94,7 +94,7 @@ We use this data to predict whether a building will be hotter or colder based on
 
 	Everytime you run a job in Jupyter, your web browser window title will show a **(Busy)** status along with the notebook title. You will also see a solid circle next to the **Python 2** text in the top-right corner. After the job completes, this will change to a hollow circle.
 
-	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/HDI.Spark.Jupyter.Job.Status.png "Status of a Jupyter notebook job")
+	 ![Status of a Jupyter notebook job](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
  
 4. You must now load the data (hvac.csv), parse it, and use it to train the model. For this, you define a function that checks whether the actual temperature of the building is greater than the target temperature. If the actual temperature is greater, the building is hot, denoted by the value **1.0**. If the actual temperature is lesser, the building is cold, denoted by the value **0.0**. 
 
@@ -178,7 +178,7 @@ We use this data to predict whether a building will be hotter or colder based on
 
 	Go back and verify the output against the raw CSV file. For example, the first row the CSV file has this data:
 
-	![HVAC data snapshot](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/HDI.Spark.ML.Show.Data.First.Row.png "Snapshot of the HVAC data")
+	![HVAC data snapshot](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.ml.show.data.first.row.png "Snapshot of the HVAC data")
 
 	Notice how the actual temperature is less than the target temperature suggesting the building is cold. Hence in the training output, the value for **label** in the first row is **0.0**, which means the building is not hot.
 
@@ -217,7 +217,7 @@ We use this data to predict whether a building will be hotter or colder based on
 
 11. You can now exit the notebook by restarting the kernel. From the top menu bar, click **Kernel**, click **Restart**, and then click **Restart** again at the prompt.
 
-	![Restart the Jupyter Kernel](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/HDI.Spark.Jupyter.Restart.Kernel.png "Restart the Jupyter Kernel")
+	![Restart the Jupyter Kernel](./media/hdinsight-apache-spark-ipython-notebook-machine-learning-v1/hdispark.jupyter.restart.kernel.png "Restart the Jupyter Kernel")
 	  	   
 
 ##<a name="anaconda"></a>Use Anaconda scikit-learn library for Machine Learning
@@ -227,7 +227,7 @@ Apache Spark clusters on HDInsight include Anaconda libraries. This also include
 ##<a name="seealso"></a>See also
 
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
-* [Provision a Spark on HDInsight cluster](hdinsight-apache-spark-provision-clusters.md)
+* [Create a Spark on HDInsight cluster](hdinsight-apache-spark-provision-clusters.md)
 * [Perform interactive data analysis using Spark in HDInsight with BI tools](hdinsight-apache-spark-use-bi-tools-v1.md)
 * [Use Spark in HDInsight for building real-time streaming applications](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)

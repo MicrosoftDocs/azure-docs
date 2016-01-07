@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article" 
-    ms.date="09/28/2015"
+    ms.date="01/05/2016"
     ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Using the Azure CLI with Azure Storage
