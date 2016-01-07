@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/05/2015"
+   ms.date="01/07/2015"
    ms.author="jgao"/>
 
 # Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
@@ -88,6 +88,8 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 
 	![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
+	>[AZURE.NOTE] Currently, the Data Lake Tools doesn't support UNC project paths in local run. 
+	
 3. Click **OK**. Visual studio creates a solution with a **Script.usql** file.
 4. Enter the following script into **Script.usql**:
 
