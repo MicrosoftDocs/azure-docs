@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Troubleshoot Azure virtual machine backup | Microsoft Azure"
 	description="Troubleshoot backup and restore of Azure virtual machines"
 	services="backup"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
-	ms.author="trinadhk;aashishr;jimpark"/>
+	ms.date="11/25/2015"
+	ms.author="trinadhk";"aashishr"/>
 
 
 # Troubleshoot Azure virtual machine backup
@@ -42,7 +42,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup operation | Error details | Workaround |
 | -------- | -------- | -------|
 | Backup | Copying VHDs from backup vault timed out - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support. | This happens when there is too much data to be copied. Please check if you have less than 16 data disks. |
-| Backup | Could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out. - Please see the troubleshooting guide on how to resolve this. | This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. <ul><li>Learn about [debugging VM Agent issues](#vm-agent) <li>Learn about [debugging networking issues](#networking) </ul><br>If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues and restarting the VM resets this "bad state" |
+| Backup | Could not communicate with the VM agent for snapshot status. Snapshot VM sub task timed out. - Please see the troubleshooting guide on how to resolve this. | This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. <ul> <li>Learn about [debugging up VM Agent issues](#vm-agent) <li>Learn about [debugging networking issues](#networking) <li>If VM agent is running fine, Learn about [troubleshooting VM Snapshot issues](#Troubleshoot-VM-Snapshot-Issues)</ul><br>If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues and restarting the VM resets this "bad state" |
 | Backup | Backup failed with an internal error - Please retry the operation in a few minutes. If the problem persists, contact Microsoft Support | You can get this error for 2 reasons: <ol><li> There is too much data to be copied. <li>The original VM has been deleted and therefore backup cannot be taken. In order to keep the backup data for a deleted VM but stop the backup errors, Unprotect the VM and choose the option to keep the data. This will stop the backup schedule and also the recurring error messages. |
 | Backup | Failed to install the Azure Recovery Services extension on the selected item - VM Agent is a pre-requisite for Azure Recovery Services Extension. Please install the Azure VM agent and restart the registration operation | <ol> <li>Check if the VM agent has been installed correctly. <li>Ensure that the flag on the VM config is set correctly.</ol> [Read more](#validating-vm-agent-installation) about VM agent installation, and how to validate the VM agent installation. |
 | Backup | Command execution failed - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry | An existing backup or restore job for the VM is running, and a new job cannot be started while the existing job is running. |
@@ -114,6 +114,29 @@ How to check for the VM Agent version on Windows VMs:
 1. Log on to the Azure virtual machine and navigate to the folder *C:\WindowsAzure\Packages*. You should find the WaAppAgent.exe file present.
 2. Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher
 
+## Troubleshoot VM Snapshot Issues
+VM backup relies on issuing snapshot command to underlying storage. Not having access to storage or delay in snapshot task execution can fail the backup. The following can cause snapshot task failure. 
+<ul>
+	<li> Network access to Storage is blocked using NSG<br>
+	Learn more on how to [enable network access](backup-azure-vms-prepare.md/#2-network-connectivity) to Storage using either WhiteListing of IPs or through proxy server. 
+	<li> VMs with Sql Server backup configured can cause snapshot task delay<br>
+	By default VM backup issues VSS Full backup on Windows VMs. On VMs which are running Sql Servers and Sql Server backup is configured, this might cause delay in snapshot execution. Please set following registry key if you are experiencing backup failures because of snapshot issues. <br>
+	
+```
+[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
+"USEVSSCOPYBACKUP"="TRUE"
+```
+
+<br>
+	<li> VM status reported incorrectly because VM is shutdown in RDP <br>
+	If you have Shut down the virtual machine in RDP, please check back in the portal that VM status is reflected correctly. If not, please shutdown the VM in portal using 'Shutdown' option in VM dashboard. 
+	<li> Many VMs from same cloud service are configured to backup at the same time. 
+	It is best practice to spread the VMs from same cloud service to have different backup schedules. 
+	<li> VM is running at High CPU/Memory
+	If the virtual machine is running at High CPU usage(>90%) or memory, snapshot task is queued, delayed and wil eventually gets timed-out. Try on-demand backup in such situations.
+</ul>
+<br>
+
 ## Networking
 Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of ways:
 
@@ -132,3 +155,4 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
 2. Create a path for HTTP traffic to flow
     - If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy a HTTP Proxy server can found [here](backup-azure-vms-prepare.md#2-network-connectivity).
     - Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
+
