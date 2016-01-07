@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/05/2016"
+	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
 # Create a virtual machine running Windows in the Azure portal#
@@ -66,7 +66,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 2. Enter a **Name** you want for the virtual machine. The name cannot contain special characters.
 
-3. Enter administrative **User name**, and a strong **Password**. The password must have at least 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. **You'll need the user name and password to log on to the virtual machine**
+3. Enter administrative **User name**, and a strong **Password**. The password must be at 8-123 characters long and have at least 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. **You'll need the user name and password to log on to the virtual machine**
 
 4. If you have more than one subscription, specify the one for the new virtual machine, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
 
