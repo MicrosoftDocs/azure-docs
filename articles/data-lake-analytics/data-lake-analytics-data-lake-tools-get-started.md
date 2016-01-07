@@ -60,7 +60,7 @@ You have uploaded some data in the **Prerequisite** section earlier in the tutor
 
 In case you want to use your own data, here are the procedures for uploading data from the Data Lake Tools.
 
-**To upload the file to the dependent Azure Data Lake account**
+**To upload files to the dependent Azure Data Lake account**
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**. You shall see the default Data Lake Storage account, and the linked Data Lake Storage accounts, and the linked Azure Storage accounts. The default Data Lake account has a label "Default Storage Account".
 2. Right-click the default Data Lake Storage account, and then click **Explorer**.  It opens the Data Lake Tools for Visual Studio Explorer pane.  In the left, it shows a tree view, the content view is on the right.
@@ -69,11 +69,11 @@ In case you want to use your own data, here are the procedures for uploading dat
 
 	![U-SQL Visual Studio project U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**To upload the file to a Azure Blob storage account**
+**To upload files to a linked Azure Blob storage account**
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**. You shall see the default Data Lake Storage account, and the linked Data Lake Storage accounts, and the linked Azure Storage accounts. 
 2. Expand the Azure Storage Account.
-3. Right-click the container where you want to upload files, and then click **Explorer**.
+3. Right-click the container where you want to upload files, and then click **Explorer**. If you don't have a container, you must first create one using the Azure portal, Azure PowerShell, or other tools.
 4. Browse to the folder where you want to upload files, 
 5. Right-click any blank space, and then click **Upload**. 
 
@@ -88,8 +88,6 @@ The Data Lake Analtyics jobs are written in the U-SQL language. To learn more ab
 
 	![new U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-	>[AZURE.NOTE] Currently, the Data Lake Tools doesn't support UNC project paths in local run. 
-	
 3. Click **OK**. Visual studio creates a solution with a **Script.usql** file.
 4. Enter the following script into **Script.usql**:
 
