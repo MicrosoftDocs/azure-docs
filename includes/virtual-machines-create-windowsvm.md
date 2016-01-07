@@ -10,7 +10,7 @@
 
 5. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. Here are some tips:
 
-	- **New User Name** refers to the administrative account that you use to manage the server. Certain user names like Administrator and Admin aren't allowed. Create a unique password for this account and make sure to remember it. A Windows Server password needs to contain at least 8 characters, including three of the following: an uppercase character, a lowercase character, a number, and a special character.  **You'll need the user name and password to log on to the virtual machine**.
+	- **New User Name** refers to the administrative account that you use to manage the server. Certain user names like Administrator and Admin aren't allowed. Create a unique password for this account and make sure to remember it. A Windows Server password needs to contain at least 8 characters, including three of the following: an uppercase character, a lowercase character, a number, and a special character. **You'll need the user name and password to log on to the virtual machine**.
 
 	- A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines-size-specs.md).
 
