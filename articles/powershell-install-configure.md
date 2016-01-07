@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="01/06/2016"
 	ms.author="coreyp"/>
 
 # How to install and configure Azure PowerShell#
@@ -31,7 +31,7 @@ Following are the two methods by which you can install Azure PowerShell. You can
 
 Installing Azure PowerShell 1.0 and greater from WebPI is the same as it was for 0.9.x. Download [Azure Powershell](http://aka.ms/webpi-azps) and start the install. If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires you to remove the modules before installation to ensure a consistent Azure PowerShell environment.
 
-If you installed Azure PowerShell via PowerShell Gallery but would instead want to use the WebPI installation, run the following commands before installing from WebPI.
+If you installed Azure PowerShell via PowerShell Gallery but instead want to use the WebPI installation, run the following commands before installing from WebPI.
 
     # Uninstall the AzureRM component modules
     Uninstall-AzureRM
