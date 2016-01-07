@@ -22,7 +22,7 @@ This article describes how to invoke a **MapReduce** program from an Azure Data 
 ## Introduction 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. This article describes using the HDInsight MapReduce Activity.
  
-See [Pig](data-factory-pig-activity) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on a Windows/Linux-based HDInsight cluster from an Azure data factory pipeline by using HDInsight Pig and Hive activities. 
+See [Pig](data-factory-pig-activity.md) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on a Windows/Linux-based HDInsight cluster from an Azure data factory pipeline by using HDInsight Pig and Hive activities. 
 
 ## JSON for HDInsight MapReduce Activity 
 
