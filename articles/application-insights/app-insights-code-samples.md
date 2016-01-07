@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: Code Samples and Walkthroughs
@@ -42,7 +42,9 @@ To analyze telemetry data with your own tools, [export it](app-insights-export-t
 
 ## Automate tasks
 
+* [Using PowerShell to send Azure Diagnostics to Application Insights](app-insights-powershell.md)
 * [Script to create a new Application Insights resource](app-insights-powershell-script-create-resource.md)
+* [Using PowerShell to send Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
 
