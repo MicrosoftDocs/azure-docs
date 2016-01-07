@@ -115,25 +115,6 @@ Gaetway configuration manager application shows status for gateway like “Disco
 For more detailed information you can look at gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
 
 
-#### Possible symptoms for firewall related issues:
-
-1. When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
-2. When you open Configuration Manager, you see status as “Disconnected” or “Connecting”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway” you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and will restart automatically. Component name: Gateway.”
-
-These are caused by the improper configuration of the firewall or proxy server, which blocks Data Management Gateway from connecting to cloud services to authenticate itself.
-
-The two firewalls that are possibly in scope are: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed. Here are the some considerations:
-
-- There is no need to change the inbound policy for corporate firewall.
-- Both corporate firewall and Windows firewall should enable outbound rule for TCP ports: 80, 443, and from 9350 to 9354. These are used by Microsoft Azure Service Bus to establish connection between the cloud services and Data Management Gateway.
-
-The MSI setup will automatically configure Windows firewall rules for inbound ports for the gateway machine (see ports and security considerations section above).
-
-But the setup assumes the above mentioned outbound ports are allowed by default on the local machine and corporate firewall. You need to enable these outbound ports if that is not the case. If you have replaced the Windows firewall with a third party firewall, these ports might need to be opened manually. 
-
-If your company uses a proxy server, then you need to add Microsoft Azure to the whitelist. You can download a list of valid Microsoft Azure IP addresses from the [Microsoft Download Center](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
-
-
 ## Using the Data Gateway – Step by Step Walkthrough
 In this walkthrough, you create a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. 
 
@@ -656,20 +637,4 @@ Here high level data flow for and summary of steps for copy with data gateway:
 4.	Data factory movement service communicates with the gateway for scheduling & management of jobs via a control channel that uses a shared Azure service bus queue. When copy activity job needs to be kicked off, data factory queues up the request along with credential information. Gateway kicks off the job after polling the queue.
 5.	The gateway decrypts the credentials with the same certificate and then connects to the on-premises data store with the proper authentication type.
 6.	The gateway copies data from the on-premises store to a cloud storage, or from a cloud storage to an on-premises data store depending on how the Copy Activity is configured in the data pipeline. Note: For this step the gateway directly communicates with cloud based storage service (e.g. Azure Blob, Azure SQL etc) over secure (HTTPS) channel.
-
-### Ports and security considerations
-
-1. As mentioned above in the step by step walkthrough there are multiple ways of setting credentials for on-prem data stores with data factory. The port considerations vary for these options.	
-
-	- Using the **Setting Credentials** App: The Data Management Gateway installation program by default opens **8050** and **8051** ports on the local windows firewall for the gateway machine. These ports are used by the Setting Credentials application to relay the credentials to the gateway. These ports are only opened for the machine on local windows firewall. They cannot be reached from internet and you do not need have these opened in the corporate wide firewall.
-	2.	Using the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) powershell commandlet: a.	If you are using powershell command to encrypt the credentials and as a result you do not want gateway installation to open the inbound ports on gateway machine in windows firewall you can do that by using the following command during installation:
-	
-			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
-3.	If you are using the **Setting Credentials** application you must launch it on a computer that is able to connect to the Data Management Gateway to be able to set credentials for the data source and to test connection to the data source.
-4.	When copying data from/to an on-premises SQL Server database to/from an Azure SQL database, ensure the following:	
-	- 	Firewall on the gateway machine allows outgoing TCP communication on **TCP** port **1433**.
-	- 	Configure [Azure SQL firewall settings](https://msdn.microsoft.com/library/azure/jj553530.aspx) to add the **IP address of the gateway** machine to the **allowed IP addresses**.
-5.	When copying data to/from on-premises SQL Server to any destination and the gateway and SQL Server machines are different, do the following: [configure Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) on the SQL Server machine so that the gateway can access the database via ports that the SQL Server instance listens on. For the default instance, it is port 1433.
-
-
 
