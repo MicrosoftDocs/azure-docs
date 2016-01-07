@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Create a virtual machine running Windows in the Azure portal | Microsoft Azure"
-	description="Learn how to create an Azure VM or virtual computer running Windows by using the Azure Marketplace in the Azure portal"
-	keywords="azure vm,create a virtual machine,virtual computer,setting up a virtual machine"
+	pageTitle="Create a Windows virtual machine in the Azure portal | Microsoft Azure"
+	description="Learn how to create a Windows virtual machine or virtual computer by using the Azure Marketplace in the Azure portal"
+	keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
-# Create a virtual machine running Windows in the Azure portal#
+# Create a Windows virtual machine in the Azure portal#
 
 > [AZURE.SELECTOR]
 - [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
@@ -30,7 +30,7 @@
 
 
 
-This tutorial shows you how easy it is to create an Azure virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
+This tutorial shows you how easy it is to create a Windows virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. 
 
@@ -44,7 +44,7 @@ Here's a walkthrough of this tutorial.
 
 [AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
 
-## Select the virtual machine image
+## Select the Windows virtual machine image
 
 1. Sign in to the Azure portal.
 
@@ -58,7 +58,7 @@ Here's a walkthrough of this tutorial.
 
 	![Screenshot that shows the deployment model to select for an Azure VM](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 
-## Create a virtual machine
+## Create the Windows virtual machine
 
 After you select the image, you can use Azure's default settings for most of the configuration and quickly create the virtual machine.
 
@@ -89,7 +89,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 8. While Azure creates the virtual machine, you can track the progress under **Virtual Machines** in the hub menu. 
 
-## Log on to the virtual machine
+## Log on to the Windows virtual machine
 
 After you create the virtual machine, you'll want to log on to it so you can manage its settings and the applications that you'll run on it.
 
