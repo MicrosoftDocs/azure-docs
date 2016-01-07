@@ -44,6 +44,7 @@ The Azure Machine Learning Recommendations API can be divided into the following
 ##2. Limitations
 
 - The maximum number of models per subscription is 10.
+- The maximum number of builds per model is 20.
 - The maximum number of items that a catalog can hold is 100,000.
 - The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
 - The maximum size of data that can be sent in POST (e.g. import catalog data, import usage data) is 200MB.
