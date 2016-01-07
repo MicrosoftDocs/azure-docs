@@ -88,7 +88,7 @@ In this section, you'll create a Java console app that creates a new device iden
 
 ## Receive device-to-cloud messages
 
-In this section, you'll create a Java console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-processd2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale and the [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs.
+In this section, you'll create a Java console app that reads device-to-cloud messages from IoT Hub. An IoT hub exposes an [Event Hubs][lnk-event-hubs-overview]-compatible endpoint to enable you to read device-to-cloud messages. To keep things simple, this tutorial creates a basic reader that is not suitable for a high throughput deployment. The [Process device-to-cloud messages][lnk-processd2c-tutorial] tutorial shows you how to process device-to-cloud messages at scale. The [Get Started with Event Hubs][lnk-eventhubs-tutorial] tutorial provides further information on how to process messages from Event Hubs and is applicable to the IoT Hub Event Hub-compatible endpoints.
 
 1. In the iot-java-get-started folder you created in the *Create a device identity* section, create a new Maven project called **read-d2c-messages** using the following command at your command-prompt. Note that this is a single, long command:
 
@@ -173,7 +173,7 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
     }
     ```
 
-    > [AZURE.NOTE] This method uses a filter when it creates the receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running.
+    > [AZURE.NOTE] This method uses a filter when it creates the receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running. This is useful in a test environment so you can see the current set of messages, but in a production environment your code should make sure that it processes all the messages - see the [How to process IoT Hub device-to-cloud messages][lnk-processd2c-tutorial] tutorial for more information.
 
 11. Modify the signature of the **main** method to include the exceptions shown below:
 
@@ -209,7 +209,7 @@ In this section, you'll create a Java console app that reads device-to-cloud mes
     client.close();
     ```
 
-    > [AZURE.NOTE] This code assumes you created a free IoT hub. A free IoT hub has two partitions named "0" and "1". If you created your IoT hub using one of the other pricing tiers, you must adjust the code accordingly.
+    > [AZURE.NOTE] This code assumes you created a free IoT hub. A free IoT hub has two partitions named "0" and "1". If you created your IoT hub using one of the other pricing tiers, you should adjust the code to create a **MessageReceiver** for each partition.
 
 13. Save and close the App.java file.
 
