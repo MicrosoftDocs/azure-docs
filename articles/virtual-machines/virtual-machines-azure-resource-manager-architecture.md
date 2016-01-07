@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Azure Resource Manager Architecture
@@ -73,4 +73,4 @@ You can also see the componentization and dependent relationships between resour
 
 ## Next steps
 
-Learn about the resources that can be deployed with the resource manager deployment model by reviewing [Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
+Learn about the resources that can be deployed with the resource manager deployment model by reviewing [Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).

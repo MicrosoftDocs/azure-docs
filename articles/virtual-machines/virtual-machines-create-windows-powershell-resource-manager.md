@@ -123,16 +123,6 @@ Here is an example of you might see:
 	RequestId           : 98c7b4fb-b26e-4a58-b17a-b0983d896aae
 	StatusCode          : OK
 
-## Additional Resources
+## Next Steps
 
-[Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure Resource Manager Overview](resource-group-overview.md)
-
-[Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
-
-[Create Windows virtual machines with Powershell and the classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md)
-
-[Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[How to install and configure Azure PowerShell](install-configure-powershell.md)
+Learn how to manage the virtual machine that you just created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md).

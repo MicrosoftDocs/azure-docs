@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/05/2016"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Deploy SQL Server AlwaysOn with an Azure Resource Manager template
@@ -91,18 +91,3 @@ Here is an example.
 When you run the **azure group deployment create** command, you will be prompted to supply the values for a series of parameters. When you have specified all the parameter values, Azure creates and configures the virtual machines.
 
 When the template execution is complete, you have a new five-server SQL Server AlwaysOn configuration in your new resource group.
-
-
-## Additional resources
-
-[Deploy and manage virtual machines using Azure Resource Manager templates and Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Azure Compute, Network and Storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure Resource Manager overview](../resource-group-overview.md)
-
-[Deploy and manage Virtual Machines using Azure Resource Manager templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)
