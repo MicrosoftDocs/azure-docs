@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="01/07/2015"
    ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit using Azure Resource Manager and PowerShell
@@ -220,7 +220,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 7. **Link a VNet to an ExpressRoute circuit.** 
 
-	Next, link a VNet to your ExpressRoute circuit. You can use [this template](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) when working with the Azure Resource Manager deployment mode. We're currently working on PowerShell steps.
+	Next, link a VNet to your ExpressRoute circuit. You can use the PowerShell steps in [this article](expressroute-howto-linkvnet-arm.md) to link your VNet.
 
 ##  To get the status of an ExpressRoute circuit
 
