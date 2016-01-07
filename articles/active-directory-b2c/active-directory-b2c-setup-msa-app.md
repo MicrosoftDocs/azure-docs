@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Provide Sign up and Sign in to Consumers with Microsoft Accounts
@@ -43,8 +43,8 @@ To use Microsoft Account as an identity provider in Azure Active Directory (AD) 
 
 6. Click **App Settings** on the left hand navigation. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Microsoft Account as an identity provider in your tenant.
 
-    > [AZURE.NOTE]
-    **Client secret** is an important security credential.
+> [AZURE.NOTE]
+**Client secret** is an important security credential.
 
     ![MSA - Client secret](./media/active-directory-b2c-setup-msa-app/msa-client-secret.png)
 
