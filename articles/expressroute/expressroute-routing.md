@@ -135,11 +135,14 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 | **Asia Pacific** |    |   |
 |    | East Asia | 12076:51010 |
 |    | Southeast Asia | 12076:51011 |
-| **Japan** | Japan East | 12076:51012 |
+| **Japan** |     |   |
+|    | Japan East | 12076:51012 |
 |    | Japan West | 12076:51013 |
-| **Australia** | Australia East | 12076:51015 |
+| **Australia** |    |   | 
+|    | Australia East | 12076:51015 |
 |    | Australia Southeast | 12076:51016 |
-| **India** | India South | 12076:51019 |
+| **India** |    |   |
+|    | India South | 12076:51019 |
 |    | India West | 12076:51018 |
 |    | India Central | 12076:51017 |
 
