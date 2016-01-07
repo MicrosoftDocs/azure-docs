@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/01/2015"
+   ms.date="01/06/2016"
    ms.author="jgao"/>
 
 # Manage Azure Data Lake Analytics using Azure PowerShell
@@ -35,46 +35,7 @@ Before you begin this tutorial, you must have the following:
 
 ##Install Azure PowerShell 1.0 and greater
 
-First you must unintall the 0.9x versions.
-
-To check the version of the installed PowerShell:
-
-	Get-Module *azure*
-	
-To uninstall the older version, run Programs and Features in the control panel. 
-
-There are two main options for installing Azure PowerShell. 
-
-- [PowerShell Gallery](https://www.powershellgallery.com/). Run the following commands from elevated PowerShell ISE or elevated Windows PowerShell console:
-
-		# Install the Azure Resource Manager modules from PowerShell Gallery
-		Install-Module AzureRM
-		Install-AzureRM
-		
-		# Install the Azure Service Management module from PowerShell Gallery
-		Install-Module Azure
-		
-		# Import AzureRM modules for the given version manifest in the AzureRM module
-		Import-AzureRM
-		
-		# Import Azure Service Management module
-		Import-Module Azure
-
-	For more information, see [PowerShell Gallery](https://www.powershellgallery.com/).
-
-- [Microsoft Web Platform Installer (WebPI)](http://aka.ms/webpi-azps). If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires the modules be removed prior to installation to ensure a consistent Azure PowerShell Environment. For the instructions, see [Install Azure PowerShell 1.0 via WebPI](https://azure.microsoft.com/blog/azps-1-0/).
-
-WebPI will receive monthly updates. PowerShell Gallery will receive updates on a continuous basis. If you are comfortable with installing from PowerShell Gallery, that will be the first channel for the latest and greatest in Azure PowerShell.
-
-**To list the cmdlets**:
-
-	Get-Command *Azure*DataLakeAnalytics*
-
-**To connect to Azure, use the following cmdlets**:
-
-	Login-AzureRmAccount
-	Get-AzureRmSubscription  # for finding the Azure Subscription ID
-	Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md#prerequisites).
 	
 ## Manage accounts
 
