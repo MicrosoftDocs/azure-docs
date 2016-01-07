@@ -189,7 +189,7 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 1.  Specify the provisioned capacity for your share. Note that the specified capacity should be smaller than the available capacity. If using a tiered share, the share size should be between 500 GB and 20 TB. For a locally pinned share, specify a share size between 50 GB and 2 TB. Use the available capacity as a guide to provision a share. If the available local capacity is 0 GB, then you will not be allowed to provision local or tiered shares.
 
-	![](./media/torsimple-ova-deploy3-fs-setup/image18.png)
+	![](./media/storsimple-ova-deploy3-fs-setup/image18.png)
 
 1.  Click the arrow icon ![](./media/storsimple-ova-deploy3-fs-setup/image19.png) to go to the next page.
 
