@@ -100,7 +100,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 	You can run the *Get-AzureRmExpressRouteCircuit* command to get a list of all ExpressRoute circuits you created.
 
-		#Getting service key
+		
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 	The response will be something similar to the example below:
@@ -227,6 +227,8 @@ This article walks you through the steps to create an ExpressRoute circuit using
 You can retrieve this information at any time using the *Get-AzureRmExpressRouteCircuit* cmdlet. Making the call without any parameters will list all circuits. 
 
 		Get-AzureRmExpressRouteCircuit
+
+The response will be similar to the example below:
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
