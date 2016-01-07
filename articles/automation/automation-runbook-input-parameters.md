@@ -81,7 +81,7 @@ You can use the [**Write-Output**](https://technet.microsoft.com/library/hh84992
     ![Automation graphical runbook](media/automation-runbook-input-parameters/automation_02_GraphicalRunbook.png)
 
 
-3. The Input and output blade displays a list of input parameters that are defined for the runbook.  On this blade, you can either add a new input parameter or edit the configuration of an existing input parameter. To add a new parameter for the runbook, click **Add input** to open the Runbook input parameter blade. There you can configure the parameters that are described below.  
+3. The Input and output blade displays a list of input parameters that are defined for the runbook.  On this blade, you can either add a new input parameter or edit the configuration of an existing input parameter. To add a new parameter for the runbook, click **Add input** to open the Runbook input parameter blade. There you can configure the following parameters.
 
     | **Property** | **Description** |
     |:--- |:---|
