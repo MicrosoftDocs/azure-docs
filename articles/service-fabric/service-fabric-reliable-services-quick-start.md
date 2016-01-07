@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Get started by using Reliable Services | Microsoft Azure"
+   pageTitle="Get started with Reliable Services | Microsoft Azure"
    description="Introduction to creating a Microsoft Azure Service Fabric application with stateless and stateful services."
    services="service-fabric"
    documentationCenter=".net"
@@ -16,13 +16,13 @@
    ms.date="11/15/2015"
    ms.author="vturecek"/>
 
-# Get started: Service Fabric Reliable Services
+# Get started with Service Fabric Reliable Services
 
 An Azure Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications by using [Reliable Services](service-fabric-reliable-services-introduction.md).
 
 ## Create a stateless service
 
-A stateless service is a type of service that exists mostly in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, then all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or an SQL database, for it to be made highly available and reliable.
+A stateless service is a type of service that exists mostly in cloud applications. It is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available. If an instance of a stateless service shuts down, all of its internal state is lost. In this type of service, state must be persisted to an external store, such as Azure Tables or a SQL database, for it to be made highly available and reliable.
 
 Launch Visual Studio 2015 RC as an administrator, and create a new Service Fabric application project named *HelloWorld*:
 
@@ -51,7 +51,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
- - A communication entry point where you can plug in your communication stack of choice, such as a Web API. This is where you can start receiving requests from users and other services.
+ - A communication entry point where you can plug in your communication stack of choice, such as ASP.NET Web API. This is where you can start receiving requests from users and other services.
 
 ```C#
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -91,12 +91,12 @@ The platform calls this method when an instance of a service is placed and ready
 
 - The system moves around your service instances for resource balancing.
 - Faults occur in your code.
-- The application or system upgrades.
+- The application or system is upgraded.
 - The underlying hardware experiences an outage.
 
 This orchestration is managed by the system to keep your service highly available and properly balanced.
 
-`RunAsync()` is executed in its own task. Note that in the code snippet above, we jumped right into a *while* loop. There is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish up any work, and exit `RunAsync()` as quickly as possible when the system requests cancellation.
+`RunAsync()` is executed in its own task. Note that in the code snippet above, we jumped right into a *while* loop. There is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish any work, and exit `RunAsync()` as quickly as possible when the system requests cancellation.
 
 In this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's stored exists only for the current lifecycle of its service instance. When the service moves or restarts, the value is lost.
 
@@ -151,7 +151,7 @@ protected override async Task RunAsync(CancellationToken cancelServicePartitionR
             await tx.CommitAsync();
         }
 
-        // Pause for 1 second before continue processing.
+        // Pause for one second before continuing processing.
         await Task.Delay(TimeSpan.FromSeconds(1), cancelServicePartitionReplica);
     }
 }
@@ -159,7 +159,7 @@ protected override async Task RunAsync(CancellationToken cancelServicePartitionR
 
 ### RunAsync
 
-A stateful service has the same entry points that a stateless service does. The main difference is the availability of Reliable Collections and the state manager. `RunAsync()` operates similarly in stateful and stateless services. However, in a stateful service, the platform performs additional work on your behalf before it executes `RunAsync()`. This work can include ensuring that the state manager and Reliable Collections are ready to use.
+A stateful service has the same entry points as a stateless service. The main difference is the availability of Reliable Collections and the state manager. `RunAsync()` operates similarly in stateful and stateless services. However, in a stateful service, the platform performs additional work on your behalf before it executes `RunAsync()`. This work can include ensuring that the state manager and Reliable Collections are ready to use.
 
 ### Reliable Collections and the state manager
 
@@ -167,7 +167,7 @@ A stateful service has the same entry points that a stateless service does. The 
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-*IReliableDictionary* is a dictionary implementation that lets you reliably store state in the service. This is part of the built-in [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) in Service Fabric. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. This approach makes your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
+*IReliableDictionary* is a dictionary implementation that you can use to reliably store state in the service. This is part of the built-in [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) in Service Fabric. With Service Fabric and Reliable Collections, you can store data directly in your service without the need for an external persistent store. This approach makes your data highly available. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you. It also provides an API that abstracts away the complexities of managing those replicas and their state transitions.
 
 Reliable Collections can store any .NET type, including your custom types, with a couple of caveats:
 
@@ -175,9 +175,9 @@ Reliable Collections can store any .NET type, including your custom types, with 
 
  - Objects are replicated for high availability when you commit transactions on Reliable Collections. Objects stored in Reliable Collections are kept in local memory in your service. This means that you have a local reference to the object.
 
-    It is important that you do not mutate local instances of those objects without performing an update operation on the Reliable Collection in a transaction. This is because those changes will not be replicated automatically.
+    It is important that you do not mutate local instances of those objects without performing an update operation on the reliable collection in a transaction. This is because those changes will not be replicated automatically.
 
-The state manager manages Reliable Collections for you. You can simply ask the state manager for a Reliable Collection by name at any time and at any place in your service. The state manager ensures that you get a reference back. It is not recommended that you save references to Reliable Collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The state manager handles this work for you, and it's optimized for repeat visits.
+The state manager manages Reliable Collections for you. You can simply ask the state manager for a reliable collection by name at any time and at any place in your service. The state manager ensures that you get a reference back. We don't recommended that you save references to reliable collection instances in class member variables or properties. Special care must be taken to ensure that the reference is set to an instance at all times in the service lifecycle. The state manager handles this work for you, and it's optimized for repeat visits.
 
 ### Transactional and asynchronous operations
 
@@ -194,22 +194,22 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 Reliable Collections have many of the same operations that their `System.Collections.Generic` and `System.Collections.Concurrent` counterparts do, including LINQ. However, operations on Reliable Collections are asynchronous. This is because write operations with Reliable Collections are *replicated*. For high availability, these operations are sent to other replicas of the service on different nodes.
 
-They also support *transactional* operations, so that you can keep state consistent among multiple Reliable Collections. For example, you may de-queue a work item from a reliable queue, perform an operation on it, and save the result in a reliable dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or none of it will. If an error occurs after you de-queue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
+They also support *transactional* operations, so that you can keep state consistent among multiple Reliable Collections. For example, you may dequeue a work item from a reliable queue, perform an operation on it, and save the result in a reliable dictionary, all within a single transaction. This is treated as an atomic operation, and it guarantees that either the entire operation will succeed or none of it will. If an error occurs after you dequeue the item but before you save the result, the entire transaction is rolled back and the item remains in the queue for processing.
 
 ## Run the application
 
 We now return to the *HelloWorld* application. You can now build and deploy your services. When you press **F5**, your application will be built and deployed to your local cluster.
 
-After the services start running, you can view the generated Event Tracing for Windows (ETW) events in a diagnostic events window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
+After the services start running, you can view the generated Event Tracing for Windows (ETW) events in a **Diagnostic Events** window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
 
->[AZURE.NOTE] Before you run the application, ensure that you have a local development cluster running. Check out the [getting started guide](service-fabric-get-started.md) for more on how to set up your local environment.
+>[AZURE.NOTE] Before you run the application, make sure that you have a local development cluster running. Check out the [getting started guide](service-fabric-get-started.md) for information on setting up your local environment.
 
-![View diagnostic events in Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
+![View Diagnostic Events in Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
 
 ## Next steps
 
-[Debug your Service Fabric application by using Visual Studio](service-fabric-debugging-your-application.md)
+[Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
 
 [Get started: Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
 
