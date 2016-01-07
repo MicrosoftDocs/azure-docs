@@ -45,7 +45,7 @@ Anybody with an Azure subscription can create and use key vaults. Although Key V
 
 + Create or import a key or secret
 + Revoke or delete a key or secret
-+ Authorize users or applications to manage or use keys and secrets
++ Authorize users or applications to access the key vault, so they can then manage or use its keys and secrets
 + Configure key usage (for example, sign or encrypt)
 + Monitor key usage
 
