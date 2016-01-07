@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Automatically Scale Compute Nodes in an Azure Batch Pool | Microsoft Azure"
-	description="Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool."
+	pageTitle="Automatically scale compute nodes in an Azure Batch pool | Microsoft Azure"
+	description="Enable automatic scaling in a cloud pool to dynamically adjust the number of compute nodes in the pool."
 	services="batch"
 	documentationCenter=""
 	authors="mmacy"
@@ -19,17 +19,17 @@
 
 # Automatically scale compute nodes in an Azure Batch pool
 
-Automatically scaling compute nodes in an Azure Batch pool is the dynamic adjustment of processing power used by your application. This ease of adjustment saves you time and money. To learn more about compute nodes and pools, see [Azure Batch basics](batch-technical-overview.md).
+You can automatically scale compute nodes in an Azure Batch pool to  dynamically adjust the processing power that is used by your application. This ease of adjustment saves you time and money. To learn more about compute nodes and pools, see [Azure Batch basics](batch-technical-overview.md).
 
-Automatic scaling occurs when it is enabled on a pool and a formula is associated with the pool. The formula is used to determine the number of compute nodes that are needed to process the application. Acting on samples that are collected periodically, the number of available compute nodes in the pool are adjusted every 15 minutes based on the associated formula.
+Automatic scaling occurs when it is enabled on a pool and a formula is associated with the pool. The formula is used to determine the number of compute nodes that are needed to process the application. The number of available compute nodes in the pool is adjusted every 15 minutes (responding to samples that are collected periodically), based on the associated formula.
 
-Automatic scaling can be set when a pool is created, or enabled later on an existing pool. The formula can also be updated on a pool where automatic scaling was previously enabled. It’s always good practice to evaluate a formula before assigning it to a pool, and it’s important to monitor the status of the automatic scaling runs; we discuss each of these topics below.
+You can set automatic scaling when a pool is created, or enable it later on an existing pool. You can also update the formula on a pool where automatic scaling was previously enabled. It’s always a good practice to evaluate a formula before assigning it to a pool. Also, it’s important to monitor the status of the automatic scaling runs. Each of these topics is discussed below.
 
-> [AZURE.NOTE] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The system will create nodes only up to that limit, and therefore may not reach the target numbers specified by a formula.
+> [AZURE.NOTE] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The system will create nodes only up to that limit. Therefore, it may not reach the target numbers specified by a formula.
 
 ## Scale compute resources automatically
 
-The scaling formulas you define determine the number of available compute nodes in a pool for the next interval of processing. An automatic scaling formula is simply a string value assigned to a pool's [autoScaleFormula](https://msdn.microsoft.com/library/azure/dn820173.aspx) element in a request body (REST API) or [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) property (.NET API). This formula string cannot exceed 8KB in size, can include up to 100 statements separated by semicolons, and can include line breaks and comments.
+The scaling formulas that you define determine the number of available compute nodes in a pool for the next interval of processing. An automatic scaling formula is simply a string value assigned to a pool's [autoScaleFormula](https://msdn.microsoft.com/library/azure/dn820173.aspx) element in a request body (REST API) or [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) property (.NET API). This formula string cannot exceed 8 KB in size, can include up to 100 statements separated by semicolons, and can include line breaks and comments.
 
 Statements in a formula are free-formed expressions. They can include any system-defined variables, user-defined variables, constant values, and supported operations on these variables or constants.
 
@@ -40,7 +40,7 @@ Complex formulas are created by using multiple statements and variables:
 	VAR₀ = Expression₀(system-defined variables);
 	VAR₁ = Expression₁(system-defined variables, VAR₀);
 
-> [AZURE.NOTE] An automatic scaling formula is comprised of [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API variables, types, operations, and functions. These are used in formula strings even while working with the [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) library.
+> [AZURE.NOTE] An automatic scaling formula is comprised of [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API variables, types, operations, and functions. These are used in formula strings even while you're working with the [Batch .NET](https://msdn.microsoft.com/library/azure/mt348682.aspx) library.
 
 ### Variables
 
@@ -62,10 +62,10 @@ Both system-defined and user-defined variables can be used in a formula.
     <td>The action that occurs when compute nodes are removed from a pool. Possible values are:
       <br/>
       <ul>
-        <li><p><b>requeue</b> – Terminate tasks immediately and put them back on the job queue so that they are rescheduled.</p></li>
-        <li><p><b>terminate</b> – Terminate tasks immediately and remove them from the job queue.</p></li>
-        <li><p><b>taskcompletion</b> – Wait for currently running tasks to finish and then remove the node from the pool.</p></li>
-        <li><p><b>retaineddata</b> - Wait for all the local task retained data on the node to be cleaned up before removing the node from the pool.</p></li>
+        <li><p><b>requeue</b>--Terminates tasks immediately and puts them back on the job queue so that they are rescheduled.</p></li>
+        <li><p><b>terminate</b>--Terminates tasks immediately and removes them from the job queue.</p></li>
+        <li><p><b>taskcompletion</b>--Waits for currently running tasks to finish and then removes the node from the pool.</p></li>
+        <li><p><b>retaineddata</b>--Waits for all the local task retained data on the node to be cleaned up before removing the node from the pool.</p></li>
       </ul></td>
    </tr>
 </table>
@@ -79,66 +79,66 @@ Both system-defined and user-defined variables can be used in a formula.
   </tr>
   <tr>
     <td>$CPUPercent</td>
-    <td>The average percentage of CPU usage</td>
+    <td>The average percentage of CPU usage.</td>
   </tr>
   <tr>
     <td>$WallClockSeconds</td>
-    <td>The number of seconds consumed</td>
+    <td>The number of seconds that are consumed.</td>
   </tr>
   <tr>
     <td>$MemoryBytes</td>
-    <td>The average number of megabytes used</td>
+    <td>The average number of megabytes that are used.</td>
   <tr>
     <td>$DiskBytes</td>
-    <td>The average number of gigabytes used on the local disks</td>
+    <td>The average number of gigabytes that are used on the local disks.</td>
   </tr>
   <tr>
     <td>$DiskReadBytes</td>
-    <td>The number of bytes read</td>
+    <td>The number of bytes that are read.</td>
   </tr>
   <tr>
     <td>$DiskWriteBytes</td>
-    <td>The number of bytes written</td>
+    <td>The number of bytes that are written.</td>
   </tr>
   <tr>
     <td>$DiskReadOps</td>
-    <td>The count of read disk operations performed</td>
+    <td>The count of read disk operations that are performed.</td>
   </tr>
   <tr>
     <td>$DiskWriteOps</td>
-    <td>The count of write disk operations performed</td>
+    <td>The count of write disk operations that are performed.</td>
   </tr>
   <tr>
     <td>$NetworkInBytes</td>
-    <td>The number of inbound bytes</td>
+    <td>The number of inbound bytes.</td>
   </tr>
   <tr>
     <td>$NetworkOutBytes</td>
-    <td>The number of outbound bytes</td>
+    <td>The number of outbound bytes.</td>
   </tr>
   <tr>
     <td>$SampleNodeCount</td>
-    <td>The count of compute nodes</td>
+    <td>The count of compute nodes.</td>
   </tr>
   <tr>
     <td>$ActiveTasks</td>
-    <td>The number of tasks that are in an active state</td>
+    <td>The number of tasks that are in an active state.</td>
   </tr>
   <tr>
     <td>$RunningTasks</td>
-    <td>The number of tasks in a running state</td>
+    <td>The number of tasks that are in a running state.</td>
   </tr>
   <tr>
     <td>$SucceededTasks</td>
-    <td>The number of tasks that finished successfully</td>
+    <td>The number of tasks that finished successfully.</td>
   </tr>
   <tr>
     <td>$FailedTasks</td>
-    <td>The number of tasks that failed</td>
+    <td>The number of tasks that failed.</td>
   </tr>
   <tr>
     <td>$CurrentDedicated</td>
-    <td>The current number of dedicated compute nodes</td>
+    <td>The current number of dedicated compute nodes.</td>
   </tr>
 </table>
 
@@ -149,12 +149,12 @@ These **types** are supported in a formula.
 - double
 - doubleVec
 - string
-- timestamp -- timestamp is a compound structure which contains the following members:
+- timestamp--timestamp is a compound structure which contains the following members:
 	- year
 	- month (1-12)
 	- day (1-31)
 	- weekday (in the format of number, e.g. 1 for Monday)
-	- hour (in 24-hour number format, e.g. 13 means 1PM)
+	- hour (in 24-hour number format, e.g. 13 means 1 PM)
 	- minute (00-59)
 	- second (00-59)
 - timeinterval
@@ -243,7 +243,7 @@ These **operations** are allowed on the types listed above.
     <td>&&, ||</td>
   </tr>
   <tr>
-    <td>test double only (non-zero is true, zero is false)</td>
+    <td>test double only (nonzero is true, zero is false)</td>
     <td>? :</td>
   </tr>
 </table>
@@ -259,18 +259,18 @@ These predefined **functions** are available for defining an automatic scaling f
   </tr>
   <tr>
     <td>double <b>avg</b>(doubleVecList)</td>
-    <td>The average value for all values in the doubleVecList.</td>
+    <td>The average value for all values in doubleVecList.</td>
   </tr>
   <tr>
     <td>double <b>len</b>(doubleVecList)</td>
-    <td>The length of the vector created from the doubleVecList.</td>
+    <td>The length of the vector that is created from doubleVecList.</td>
   <tr>
     <td>double <b>lg</b>(double)</td>
     <td>Log base 2.</td>
   </tr>
   <tr>
     <td>doubleVec <b>lg</b>(doubleVecList)</td>
-    <td>Componentwise log base 2. A vec(double) must be explicitly passed for single double parameter, otherwise the double lg(double) version is assumed.</td>
+    <td>Componentwise log base 2. A vec(double) must be explicitly passed for the single double parameter. Otherwise, the double lg(double) version is assumed.</td>
   </tr>
   <tr>
     <td>double <b>ln</b>(double)</td>
@@ -278,7 +278,7 @@ These predefined **functions** are available for defining an automatic scaling f
   </tr>
   <tr>
     <td>doubleVec <b>ln</b>(doubleVecList)</td>
-    <td>Componentwise log base 2.  A vec(double) must be explicitly passed for single double parameter, otherwise the double lg(double) version is assumed.</td>
+    <td>Componentwise log base 2.  A vec(double) must be explicitly passed for single double parameter. Otherwise, the double lg(double) version is assumed.</td>
   </tr>
   <tr>
     <td>double <b>log</b>(double)</td>
@@ -286,19 +286,19 @@ These predefined **functions** are available for defining an automatic scaling f
   </tr>
   <tr>
     <td>doubleVec <b>log</b>(doubleVecList)</td>
-    <td>Componentwise log base 10. A vec(double) must be explicitly passed for single double parameter, otherwise the double log(double) version is assumed.</td>
+    <td>Componentwise log base 10. A vec(double) must be explicitly passed for the single double parameter. Otherwise, the double log(double) version is assumed.</td>
   </tr>
   <tr>
     <td>double <b>max</b>(doubleVecList)</td>
-    <td>The maximum value in the doubleVecList.</td>
+    <td>The maximum value in doubleVecList.</td>
   </tr>
   <tr>
     <td>double <b>min</b>(doubleVecList)</td>
-    <td>The minimum value in the doubleVecList.</td>
+    <td>The minimum value in doubleVecList.</td>
   </tr>
   <tr>
     <td>double <b>norm</b>(doubleVecList)</td>
-    <td>The two-norm of the vector created from the doubleVecList.
+    <td>The two-norm of the vector created from doubleVecList.
   </tr>
   <tr>
     <td>double <b>percentile</b>(doubleVec v, double p)</td>
@@ -314,11 +314,11 @@ These predefined **functions** are available for defining an automatic scaling f
   </tr>
   <tr>
     <td>double <b>std</b>(doubleVecList)</td>
-    <td>The sample standard deviation of the values in the doubleVecList.</td>
+    <td>The sample standard deviation of the values in doubleVecList.</td>
   </tr>
   <tr>
     <td><b>stop</b>()</td>
-    <td>Stop auto-scaling expression evaluation.</td>
+    <td>Stop autoscaling expression evaluation.</td>
   </tr>
   <tr>
     <td>double <b>sum</b>(doubleVecList)</td>
@@ -326,15 +326,15 @@ These predefined **functions** are available for defining an automatic scaling f
   </tr>
   <tr>
     <td>timestamp <b>time</b>(string dateTime="")</td>
-    <td>The timestamp of the current time if no parameters passed, or the timestamp of the dateTime string if passed. Supported dateTime formats are W3CDTF and RFC1123.</td>
+    <td>The time stamp of the current time if no parameters are passed, or the timestamp of the dateTime string if it is passed. Supported dateTime formats are W3C-DTF and RFC 1123.</td>
   </tr>
   <tr>
     <td>double <b>val</b>(doubleVec v, double i)</td>
-    <td>The value of the element at location i in vector v with a starting index of zero.</td>
+    <td>The value of the element at location i in vector v, with a starting index of zero.</td>
   </tr>
 </table>
 
-Some of the functions described in the table above can accept a list as an argument. The comma separated list is any combination of *double* and *doubleVec*. For example:
+Some of the functions that are described in the table above can accept a list as an argument. The comma-separated list is any combination of *double* and *doubleVec*. For example:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -342,7 +342,7 @@ The *doubleVecList* value is converted to a single *doubleVec* prior to evaluati
 
 ### Obtain sample data
 
-The system-defined variables described above are objects that provide methods to access the associated data. For example, the following expression shows a request to get the last five minutes of CPU usage:
+The system-defined variables that are described above are objects that provide methods to access the associated data. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
@@ -360,16 +360,16 @@ These methods can be used to get sample data.
   <tr>
     <td>GetSample()</td>
     <td><p>Returns a vector of data samples.
-	<p>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds, but as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.
+	<p>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds. But as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.
         <ul>
-          <li><p><b>doubleVec GetSample(double count)</b> - Specifies the number of samples to obtain from the most recent samples collected.</p>
-				  <p>GetSample(1) returns the last available sample. For metrics like $CPUPercent, however, this should not be used because it is impossible to know <em>when</em> the sample was collected - it might be recent, or, because of system issues, it may be much older. It is better in such cases to use a time interval as shown below.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – Specifies a time frame for gathering sample data, and optionally specifies the percentage of samples that must be available in the requested time frame.</p>
-          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> would return 20 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned, in which case:<br/>
-		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> would fail because only 90% of the samples are available, and<br/>
+          <li><p><b>doubleVec GetSample(double count)</b>--Specifies the number of samples to obtain from the most recent samples collected.</p>
+				  <p>GetSample(1) returns the last available sample. For metrics like $CPUPercent, however, this should not be used because it is impossible to know <em>when</em> the sample was collected. It might be recent, or, because of system issues, it may be much older. It is better in such cases to use a time interval as shown below.</p></li>
+          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>--Specifies a time frame for gathering sample data. Optionally, it also specifies the percentage of samples that must be available in the requested time frame.</p>
+          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> would return 20 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned. In this case:<br/>
+		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> would fail because only 90% of the samples are available.<br/>
 		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> would succeed.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b> – Specifies a time frame for gathering data with both a start time and an end time.</p></li></ul>
-		  <p>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. This must be considered when using the <em>GetSample</em> method - see <em>GetSamplePercent</em> below.</td>
+          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>--Specifies a time frame for gathering data with both a start time and an end time.</p></li></ul>
+		  <p>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. This must be considered when you use the <em>GetSample</em> method. See <em>GetSamplePercent</em> below.</td>
   </tr>
   <tr>
     <td>GetSamplePeriod()</td>
@@ -377,19 +377,19 @@ These methods can be used to get sample data.
   </tr>
   <tr>
     <td>HistoryBeginTime()</td>
-    <td>Returns the timestamp  of the oldest available data sample for the metric.</td>
+    <td>Returns the time stamp  of the oldest available data sample for the metric.</td>
   </tr>
   <tr>
     <td>GetSamplePercent()</td>
-    <td><p>Returns the percent of samples a history currently has for a given time interval. For example:</p>
+    <td><p>Returns the percent of samples that a history currently has for a given time interval. For example:</p>
     <p><b>doubleVec GetSamplePercent( (timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime] )</b>
-	<p>Because the GetSample method fails if the percent of samples returned is less than the samplePercent specified, you can use the GetSamplePercent method to first check, then perform an alternate action when enough samples are not present without halting their automatic scaling evaluation.</p></td>
+	<p>Because the GetSample method fails if the percent of samples returned is less than the samplePercent specified, you can use the GetSamplePercent method to first check, then perform an alternate action when enough samples are not present--without halting their automatic scaling evaluation.</p></td>
   </tr>
 </table>
 
 ### Metrics
 
-You can use both resource and task **metrics** when defining a formula, and these metrics can be used to manage the compute nodes in a pool.
+You can use both resource and task **metrics** when you define a formula. You can use these metrics to manage the compute nodes in a pool.
 
 <table>
   <tr>
@@ -398,7 +398,7 @@ You can use both resource and task **metrics** when defining a formula, and thes
   </tr>
   <tr>
     <td>Resource</td>
-    <td><p>Resource metrics are based on CPU usage, bandwidth usage, memory usage, and the number of compute nodes. These system-defined variables (described in **Variables** above) are used in formulas to manage the compute nodes in a pool:</p>
+    <td><p>Resource metrics are based on CPU usage, bandwidth usage, memory usage, and the number of compute nodes. These system-defined variables (described in "Variables" above) are used in formulas to manage the compute nodes in a pool:</p>
     <p><ul>
       <li>$TargetDedicated</li>
       <li>$NodeDeallocationOption</li>
@@ -418,7 +418,7 @@ You can use both resource and task **metrics** when defining a formula, and thes
   </tr>
   <tr>
     <td>Task</td>
-    <td><p>Based on the status of tasks, such as Active, Pending, and Completed.</p>
+    <td><p>Task metrics are based on the status of tasks, such as Active, Pending, and Completed.</p>
     <p>These system-defined variables are used for making adjustments based on task metrics:</p>
     <p><ul>
       <li>$ActiveTasks</li>
@@ -472,7 +472,7 @@ The following code snippet shows the creation of an autoscale-enabled [CloudPool
 		pool.AutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
 		pool.Commit();
 
-## Enable automatic scaling after a pool was created
+## Enable automatic scaling after a pool is created
 
 If you've already set up a pool with a specified number of compute nodes using the *targetDedicated* parameter, you can update the existing pool at a later time to automatically scale. Do this in one of these ways:
 
@@ -633,15 +633,15 @@ The formula in the above code snippet has the following characteristics:
   - If both values are 0 (indicating no tasks were running or active in the last 60 minutes) the pool size is set to 0
   - If either value is greater than zero, no change is made
 
-## Next Steps
+## Next steps
 
-1. To fully assess the efficiency of your application, you might need to access a compute node. To take advantage of remote access, a user account must be added to the node that you want to access and an RDP file must be retrieved for that node.
+1. To fully assess the efficiency of your application, you might need to access a compute node. To take advantage of remote access, a user account must be added to the node that you want to access, and an RDP file must be retrieved for that node.
     - Add the user account in one of these ways:
-        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx) – This PowerShell cmdlet takes the pool name, compute node name, account name, and password as parameters.
-        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx) – This .NET method creates an instance of the [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx) class on which the account name and password can be set for the compute node, and [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx) is then called on the instance to create the user on that node.
-        * [Add a user account to a node](https://msdn.microsoft.com/library/dn820137.aspx) – The name of the pool and the compute node are specified in the URI and the account name and password are sent to the node in the request body of this REST API request.
+        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx)--This PowerShell cmdlet takes the pool name, compute node name, account name, and password as parameters.
+        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx)--This .NET method creates an instance of the [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx) class, on which the account name and password can be set for the compute node. [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx) is then called on the instance to create the user on that node.
+        * [Add a user account to a node](https://msdn.microsoft.com/library/dn820137.aspx)--The name of the pool and the compute node are specified in the URI. The account name and password are sent to the node in the request body of this REST API request.
     - Get the RDP file:
-        * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx) – This .NET method requires the ID of the pool, the node ID, and the name of the RDP file to create.
-        * [Get a remote desktop protocol file from a node](https://msdn.microsoft.com/library/dn820120.aspx) – This REST API request requires the name of the pool and the name of the compute node. The response contains the contents of the RDP file.
-        * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – This PowerShell cmdlet gets the RDP file from the specified compute node and saves it to the specified file location or to a stream.
+        * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx)--This .NET method requires the ID of the pool, the node ID, and the name of the RDP file to create.
+        * [Get a remote desktop protocol file from a node](https://msdn.microsoft.com/library/dn820120.aspx)--This REST API request requires the name of the pool and the name of the compute node. The response contains the contents of the RDP file.
+        * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx)--This PowerShell cmdlet gets the RDP file from the specified compute node and saves it to the specified file location or to a stream.
 2.	Some applications produce large amounts of data that can be difficult to process. One way to solve this is through [efficient list querying](batch-efficient-list-queries.md).
