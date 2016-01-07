@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/18/2015"
+   ms.date="1/8/2016"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -118,7 +118,7 @@ Update 2 has several networking-related improvements and the routing metrics has
 
 - The order in which the cloud traffic will be routed through the network interfaces is:
 	 
-	*Data 0 > Data 1 > Date 2 > Data 4 > Data 5*
+	*Data 0 > Data 1 > Date 2 > Data 3 > Data 4 > Data 5*
 
 	This can be explained by the following example.
 
