@@ -18,7 +18,7 @@
 
 # Get started: Service Fabric Web API services with OWIN self-hosting
 
-Azure Service Fabric puts the power in your hands when you're deciding how you want your services to communicate with users and with each other. This tutorial focuses on implementing service communication using ASP.NET Web API with Open Web Interface for .NET (OWIN) self-hosting in Service Fabric's Reliable Services API. We'll delve deeply into the Reliable Services pluggable communication API. We'll also use the Web API in a step-by-step example to show you how to set up a custom communication listener. For a complete example of the Web API communication listener, see the [Service Fabric WebApplication sample on GitHub](https://github.com/Azure/servicefabric-samples/tree/master/samples/Services/VS2015/WebApplication).
+Azure Service Fabric puts the power in your hands when you're deciding how you want your services to communicate with users and with each other. This tutorial focuses on implementing service communication using ASP.NET Web API with Open Web Interface for .NET (OWIN) self-hosting in Service Fabric's Reliable Services API. We'll delve deeply into the Reliable Services pluggable communication API. We'll also use the Web API in a step-by-step example to show you how to set up a custom communication listener.
 
 
 ## Introduction to Web APIs in Service Fabric
@@ -123,7 +123,7 @@ namespace WebApiService.Controllers
 
 ```
 
-Finally, add a startup class at the project root to register the routing, formatters, and any other configuration setup. This is also where the Web API plugs in to the *host*, which will be revisited again later. When you set up the startup class, create an interface called IOwinAppBuilder for the startup class that defines the configuration method. Although this is not technically required for the Web API to work, it will allow for more flexible use of the startup class later.
+Finally, add a Startup class at the project root to register the routing, formatters, and any other configuration setup. This is also where the Web API plugs in to the *host*, which will be revisited again later. When you set up the Startup class, create an interface called IOwinAppBuilder for the Startup class that defines the configuration method. Although this is not technically required for the Web API to work, it will allow for more flexible use of the Startup class later.
 
 **Startup.cs**
 
@@ -171,7 +171,7 @@ That's it for the application part. At this point, we've set up just the basic W
 Now what do we do about hosting so that we can actually run it?
 
 
-## Host the service
+## Service hosting
 
 In Service Fabric, your service runs in a *service host process*, an executable file that runs your service code. When you write a service by using the Reliable Services API, your service project just compiles to an executable file that registers your service type and runs your code. This is true in most cases when you write a service on Service Fabric in .NET. When you open Program.cs in the stateless service project, you should see:
 
@@ -269,7 +269,7 @@ The ICommunicationListener interface provides three methods to manage a communic
  - *CloseAsync*. Stop listening for requests, finish any in-flight requests, and shut down gracefully.
  - *Abort*. Cancel everything and stop immediately.
 
-To get started, add private class members for a URL path prefix and the startup class that was created earlier. These will be initialized through the constructor and used later when you set up the listening URL. Also, add private class members to save the listening address that is created during initialization and to save the server handle that is created when the server is started.
+To get started, add private class members for a URL path prefix and the Startup class that was created earlier. These will be initialized through the constructor and used later when you set up the listening URL. Also, add private class members to save the listening address that is created during initialization and to save the server handle that is created when the server is started.
 
 ```csharp
 
@@ -356,7 +356,7 @@ With that in mind, OpenAsync starts the web server and returns the address that 
 
 ```
 
-Note that this references the startup class that was passed in to the OwinCommunicationListener in the constructor. This startup instance is used by the web server to bootstrap the Web API application.
+Note that this references the Startup class that was passed in to the OwinCommunicationListener in the constructor. This startup instance is used by the web server to bootstrap the Web API application.
 
 The `ServiceEventSource.Current.Message()` line will appear in the Diagnostic Events window later, when you run the application to confirm that the web server has started successfully.
 
@@ -399,7 +399,7 @@ In this implementation example, both CloseAsync and Abort simply stop the web se
 
 ## Start the web server
 
-You're now ready to create and return an instance of OwinCommunicationListener to start the web server. Back in the service class (Service.cs), override the `CreateServiceInstanceListeners()` method:
+You're now ready to create and return an instance of OwinCommunicationListener to start the web server. Back in the Service class (Service.cs), override the `CreateServiceInstanceListeners()` method:
 
 ```csharp
 
