@@ -22,8 +22,8 @@ When you deploy a Cloud Service application package to Azure, you can obtain inf
 
 The location of **Properties** pane:
 
-* For Azure portal: click the deployment of your cloud service, click **All settings**, and then click **Properties**.
-* For Azure classic portal: click the deployment of your cloud service, click **DASHBOARD**, locate to the lower-right corner of the page (under **quick glance**). Be aware that there's no "Properties" text for this pane.
+* In the Azure portal: click the deployment of your cloud service, click **All settings**, and then click **Properties**.
+* In the Azure classic portal: click the deployment of your cloud service, click **DASHBOARD**, locate to the lower-right corner of the page (under **quick glance**). Be aware that there's no "Properties" text for this pane.
 
 > [AZURE.NOTE] You can copy the contents of the Properties pane to the clipboard by clicking the icon in the upper-right corner of the pane.
 
