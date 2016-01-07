@@ -30,28 +30,30 @@ The StorSimple deployment information published in this article applies to StorS
 > 
 > This public preview is intended for evaluation and deployment planning purposes only. Installing this preview in a production environment is not supported.
 
-### Deployment workflow
+### Deployment resources
 
 The deployment workflow consists of preparing the portal, provisioning a virtual array in your virtualized environment, and completing the setup. As you deploy your StorSimple Virtual Array as a file server or an iSCSI server, you will need to refer to the following tabulated resources (articles and videos).
 
 #### Deployment articles
 
-| **In this step**                                     | **You will do this …**                                                                                                                       | **Use these documents...**   
-|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
-| **Set up the Azure classic portal**       | Create and configure your StorSimple Manager service prior to provisioning a StorSimple virtual device.                                     |[Prepare the portal](storsimple-ova-deploy1-portal-prep.md)      |
-| **Provision the Virtual Array**           | For Hyper-V, provision and connect to a StorSimple virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2. <br></br> For VMware, provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.|  [Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> [Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md)|
-| **Set up the Virtual Array**              | For your file server, perform initial setup, register your StorSimple file server, and complete the device setup. You can then provision SMB shares. <br></br> For your iSCSI server, perform initial setup, register your StorSimple iSCSI server, and complete the device setup. You can then provision iSCSI volumes.| [Set up virtual array as file server](storsimple-deploy3-fs-setup.md)<br></br> [Set up virtual array as iSCSI server](storsimple-deploy3-iscsi-setup.md)|
+Refer to the following articles in the prescribed sequence to deploy your StorSimple Virtual Array.
+
+| **#**| **In this step**                                     | **You will do this …**                                                                                                                       | **Use these documents...**   
+|--|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| 1.| **Set up the Azure classic portal**       | Create and configure your StorSimple Manager service prior to provisioning a StorSimple virtual device.                                     |[Prepare the portal](storsimple-ova-deploy1-portal-prep.md)      |
+|2. | **Provision the Virtual Array**           | For Hyper-V, provision and connect to a StorSimple virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2. <br></br> For VMware, provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.|  [Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> [Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md)|
+| **Set up the Virtual Array**              | For your file server, perform initial setup, register your StorSimple file server, and complete the device setup. You can then provision SMB shares. <br></br> For your iSCSI server, perform initial setup, register your StorSimple iSCSI server, and complete the device setup. You can then provision iSCSI volumes.| [Set up virtual array as file server](storsimple-ova-deploy3-fs-setup.md)<br></br> [Set up virtual array as iSCSI server](storsimple-ova-deploy3-iscsi-setup.md)|
 
 #### Deployment videos
 
 | **To do this step...** |  **Watch this video.**|
 |----------------|-------------|
 | Step-by-step instructions to get started with the StorSimple Virtual Array. |<a target="_blank" href="https://www.youtube.com/watch?v=teJxF0xmNcs&index=1&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo.html">Get started with the StorSimple Virtual Array</a>|
-| Step-by-step instructions to provision a StorSimple Virtual Array in Hyper-V.|[Create a StorSimple Virtual Array](https://www.youtube.com/watch?v=iyGogUs-NXI&index=2&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) |
-|Step-by-step instructions to configure and register a StorSimple Virtual Array| [Configure a StorSimple Virtual Array](https://www.youtube.com/watch?v=2b3SVBVpXXQ&index=3&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) |
-|Step-by-step instructions to create shares, backup shares, and restore data on a StorSimple Virtual Array configured as a file server| [Use the StorSimple Virtual Array](https://www.youtube.com/watch?v=o_OX-5WzHIA&index=4&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) |
+| Step-by-step instructions to provision a StorSimple Virtual Array in Hyper-V.|<a target="_blank" href="https://www.youtube.com/watch?v=iyGogUs-NXI&index=2&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo.html">Create a StorSimple Virtual Array</a> |
+|Step-by-step instructions to configure and register a StorSimple Virtual Array|<a target="_blank" href="https://www.youtube.com/watch?v=2b3SVBVpXXQ&index=3&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo.html">Configure a StorSimple Virtual Array</a> |
+|Step-by-step instructions to create shares, backup shares, and restore data on a StorSimple Virtual Array configured as a file server|<a target="_blank" href="https://www.youtube.com/watch?v=o_OX-5WzHIA&index=4&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo.html">Use the StorSimple Virtual Array</a> |
 
-The following section discusses the configuration checklist you can use to deploy your StorSimple Virtual Array.
+The following section discusses the configuration checklist you can use before you begin to deploy your StorSimple Virtual Array.
 
 ## Configuration checklist
 

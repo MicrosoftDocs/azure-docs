@@ -236,11 +236,11 @@ Perform the following steps to start your virtual device and connect to it.
 
  	You will now need to configure the network.
 
-1.  Use the `Get-NetAdapter` command to list all the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
+1.  Use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image29.png)
 
-1.  Use the Set-HcsIpAddress cmdlet to configure the network. An example is shown below:
+1.  Use the `Set-HcsIpAddress` cmdlet to configure the network. An example is shown below:
 
  	`Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
 
