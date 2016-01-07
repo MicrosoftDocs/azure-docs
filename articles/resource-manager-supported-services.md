@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/06/2016"
+   ms.date="01/07/2016"
    ms.author="tomfitz"/>
 
 # Resource Manager providers, regions, API versions and schemas
@@ -82,6 +82,7 @@ Virtual Networks can be moved to new resource groups, but not new subscriptions.
 | API Management | Yes | Yes  | [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) |        | [Microsoft.ApiManagement](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ApiManagement%22&type=Code) | 
 | API Apps | Yes |   |   | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) | [API Apps](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22kind%22%3A+%22apiApp%22&type=Code) |
 | Web Apps | Yes | Yes, with limitations (see below) |          | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) | [Microsoft.Web](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Web%22&type=Code) |
+| Mobile Apps | Yes |  |  |  |   |
 | Notification Hubs | Yes | Yes  | [Notification Hub REST](https://msdn.microsoft.com/library/azure/dn495827.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) | [Microsoft.NotificationHubs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.NotificationHubs%22&type=Code) |
 | Logic Apps | Yes  | Yes   |          |        | [Microsoft.Logic](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Logic%22&type=Code) |
 | Mobile Engagements | Yes  |  Yes  |          |        | [Microsoft.MobileEngagements](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.MobileEngagement%22&type=Code) |
@@ -115,7 +116,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 | Service | Resource Manager Enabled | Move Resources | REST API | Schema | Quickstart Templates |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | BizTalk Services | Yes |        |          | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
-| Service Bus | Yes |     | [Service Bus REST](https://msdn.microsoft.com/library/azure/hh780717.aspx) |        | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
+| Service Bus | Yes |     |  |        | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
 | Backup | No | -              | -        | -       |
 | Site Recovery | No | -             | -        | -       |
 
