@@ -57,27 +57,27 @@ Data Management Gateway can be installed by downloading an MSI setup package fro
 ## Port and Security Considerations
 
 ### General considerations
-There are two firewalls in scope here: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed. If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure the ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](#proxy-server-considerations) additionally. Here are some general considerations:
+There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the gateway is installed. If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](#proxy-server-considerations) additionally. Here are some general considerations:
 
 **Prior to setting up the gateway:**
 
-- For both **corporate firewall and Windows firewall**, you need to make sure that the outbound rule for TCP ports 80 and 443 are enabled, and optionally for ports 9350 to 9354. These are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway. Opening the ports 9350 to 9354 is not mandatory, but enabling them may improve performance when using Microsoft Azure Service Bus for the communication.
+- For both **corporate firewall and Windows firewall**, you need to make sure that the outbound rule for **TCP** ports **80** and **443** are enabled, and optionally for ports **9350** to **9354**. These are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway. Opening the ports 9350 to 9354 is not mandatory, but opening them may improve performance of communication between Azure Data Factory and Data Management Gateway.
 
 **During the gateway setup:**
 
-- By default, the Data Management Gateway installation opens the inbound port 8050 on the **local Windows firewall** on the gateway machine. The port will be used by the **Setting Credentials** application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure Portal at a later step; it will not be reachable from internet. Thus you do not need to open it in the corporate firewall.
+- By default, the Data Management Gateway installation opens the inbound port **8050** on the **local Windows firewall** on the gateway machine. The port will be used by the **Setting Credentials** application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure Portal (details later in the article); it will not be reachable from internet, so you do not need to open it in the corporate firewall.
 - If you do not want the gateway installation to open port 8050 on Windows firewall for the gateway machine, you can use the following command to install the gateway without configuring the firewall.
 
 		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-If inbound port 8050 is not opened on the gateway machine, then to set up an on-premises linked service, you need to use mechanisms other than using the **Setting Credentials** application to configure the data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#setting-credentials-and-security) section on how data store credentials can be set and the respective security guarantees.
+If inbound port 8050 is not opened on the gateway machine, then to set up an on-premises linked service, you need to use mechanisms other than using the **Setting Credentials** application to configure the data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#setting-credentials-and-security) section on how data store credentials can be set.
 
 
 **To copy data from a source data store to a sink data store:**
 
-You need to make sure the firewall rules are enabled properly on the corporate firewall, Windows firewall on the gateway machine, and the data store itself. This enables the gateway to connect to both source and sink successfully. Such port requirements need to be checked per data store and you need to manually set it up.
+You need to make sure the firewall rules are enabled properly on the corporate firewall, Windows firewall on the gateway machine, and the data store itself. This enables the gateway to connect to both source and sink successfully. You need to enable rules for each data store that is involved in the copy operation.
 
-For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, you need to allow outbound TCP communication on port 1433 for both Windows firewall and cooperate firewall, and you need to configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses. 
+For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, you need to allow outbound **TCP** communication on port **1433** for both Windows firewall and cooperate firewall, and you need to configure the firewall settings of Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses. 
 
 ### Proxy server considerations
 By default, Data Management Gateway will leverage the proxy settings from Internet Explorer and use default credentials to access it. If it does not suit your case, you can further configure **proxy server settings** as shown below to ensure the gateway is able to connect to Azure Data Factory:
