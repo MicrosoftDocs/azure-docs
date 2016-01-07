@@ -23,7 +23,7 @@
 
 Single-sign-on is a key element of Azure AD Application Proxy. It provides the best user experience: a user signs in to the cloud, all security validations happen in the cloud (preauthentication) and then, when the request is sent to the on-prem application, the Application Proxy Connector impersonates the user so the backend application thinks that this is a regular user coming from a domain-joined device.
 
-![Access diagram from end user, through Application Proxy, to the corporate network](.media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
+![Access diagram from end user, through Application Proxy, to the corporate network](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
 Azure AD Application Proxy enables you to provide a single sign-on (SSO) experience for your users. Use the following instructions to publish your apps using SSO:
 
