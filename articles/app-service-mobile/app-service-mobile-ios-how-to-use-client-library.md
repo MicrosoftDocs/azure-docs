@@ -31,7 +31,7 @@ The reference documentation for the iOS client SDK is located here: [Azure Mobil
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
-This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those tutorials. This guide also assumes that in your code, you reference `WindowsAzureMobileServices.framework` and import `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
+This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those tutorials. This guide also assumes that in your code, you reference `MicrosoftAzureMobile.framework` and import `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
 
 ##<a name="create-client"></a>How to: Create Client
 
@@ -40,7 +40,7 @@ To access an Azure Mobile Apps backend in your project, create an `MSClient`. Re
 **Objective-C**:
 
 ```
-MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
+MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 ```
 
 **Swift**:
@@ -444,7 +444,7 @@ NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 **Swift**:
 
 ```
-let serverItem = error?.userInfo[MSErrorServerItemKey];
+let serverItem = error?.userInfo[MSErrorServerItemKey]
 ```
 
 In addition, the file defines constants for each error code, which may be used as shown below:

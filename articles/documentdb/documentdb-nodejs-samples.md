@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="01/06/2016" 
 	ms.author="mimig"/>
 
 
 # DocumentDB Node.js samples
+
+> [AZURE.SELECTOR]
+- [.NET Samples](documentdb-dotnet-samples.md)
+- [Node.js Samples](documentdb-nodejs-samples.md)
 
 Sample solutions that perform CRUD operations and other common operations on DocumentDB resources are included in the [azure-documentdb-nodejs](https://github.com/Azure/azure-documentdb-node/tree/master/samples) GitHub repository. This article provides:
 

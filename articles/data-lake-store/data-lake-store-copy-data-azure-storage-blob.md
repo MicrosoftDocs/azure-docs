@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
+   ms.date="01/05/2016"
    ms.author="nitinme"/>
 
 # Copy data from Azure Storage Blobs to Data Lake Store
 
-Azure Data Lake Store provides a command line tool, [AdlCopy](http://aka.ms/downloadadlcopy), to copy data from Azure Storage Blobs into Data Lake Store. You can use the tool in two ways:
+Azure Data Lake Store provides a command line tool, [AdlCopy](http://aka.ms/downloadadlcopy), to copy data **from Azure Storage Blobs into Data Lake Store**. You cannot use AdlCopy to copy data from Data Lake Store to Azure Storage blobs.
+
+You can use the AdlCopy tool in two ways:
 
 * **Standalone**, where the tool uses Data Lake Store resources to perform the task.
 * **Using a Data Lake Analytics account**, where the units assigned to your Data Lake Analytics account are used to perform the copy operation. You might want to use this option when you are looking to perform the copy tasks in a predictable manner.
