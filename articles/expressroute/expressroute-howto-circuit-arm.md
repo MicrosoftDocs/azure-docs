@@ -94,7 +94,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 	
 	The response will contain the service key. You can get detailed descriptions of all the parameters by running the following:
 
-		get-help New-AzureRmExpressRouteCircuit -detailed 
+		Get-Help New-AzureRmExpressRouteCircuit -detailed 
 
 4. **List all ExpressRoute circuits.**
 
@@ -160,7 +160,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 	You can get detailed descriptions of all the parameters by running the following:
 
-		get-help Get-AzureRmExpressRouteCircuit -detailed 
+		Get-Help Get-AzureRmExpressRouteCircuit -detailed 
 
 5. **Send the Service Key to your connectivity provider for provisioning.**
 
@@ -283,7 +283,7 @@ The response will be something similar to the example below:
 
 You can get detailed descriptions of all the parameters by running the following:
 
-		get-help get-azurededicatedcircuit -detailed 
+		Get-Help Get-azurededicatedcircuit -detailed 
 
 ## To modify an ExpressRoute circuit
 
