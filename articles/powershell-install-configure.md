@@ -31,6 +31,8 @@ Following are the two methods by which you can install Azure PowerShell. You can
 
 Installing Azure PowerShell 1.0 and greater from WebPI is the same as it was for 0.9.x. Download [Azure Powershell](http://aka.ms/webpi-azps) and start the install. If you have Azure PowerShell 0.9.x installed, you will be prompted to uninstall 0.9.x. If you installed Azure PowerShell modules from PowerShell Gallery, the installer requires you to remove the modules before installation to ensure a consistent Azure PowerShell environment.
 
+> [AZURE.NOTE] If you have installed the PowerShell Gallery Azure modules, you will be asked to uninstall them. This is to prevent confussion about which modules you have installed and where they are located. PowerShell Gallery modules will normally install in **%ProgramFiles%\WindowsPowerShell\Modules**. In contrast, the WebPI installer will install the Azure modules in **%ProgramFiles%\Microsoft SDKs\Azure\PowerShell\**. **PowerShellGet** will uninstall modules and leave behind locked .dlls and their folders if a module dependency is loaded when it's being uninstalled. If you have uninstalled your PowerShell Gallery modules and still receive the error on install, remove the Azure* folders in your **%ProgramFiles%\WindowsPowerShell\Modules** folder.
+
 If you installed Azure PowerShell via PowerShell Gallery but instead want to use the WebPI installation, run the following commands before installing from WebPI.
 
     # Uninstall the AzureRM component modules
@@ -46,8 +48,6 @@ If you installed Azure PowerShell via PowerShell Gallery but instead want to use
     # Uninstall-Module Azure* -Force
 
 > [AZURE.NOTE] There is a known issue with PowerShell **$env:PSModulePath** that occurs when installing from WebPI. If your computer requires a restart due to system updates or other installations, it may cause the **$env:PSModulePath** to not include the path where Azure PowerShell is installed. This can be corrected by restarting the machine or adding the Azure PowerShell path to the **$env:PSModulePath**.
-
-> [AZURE.NOTE] If you have installed the PowerShell Gallery Azure modules, you will be asked to uninstall them. This is to prevent confussion about which modules you have installed and where they are located. PowerShell Gallery modules will normally install in **%ProgramFiles%\WindowsPowerShell\Modules**. In contrast, the WebPI installer will install the Azure modules in **%ProgramFiles%\Microsoft SDKs\Azure\PowerShell\**. **PowerShellGet** will uninstall modules and leave behind locked .dlls and their folders if a module dependency is loaded when it's being uninstalled. If you have uninstalled your PowerShell Gallery modules and still receive the error on install, remove the Azure* folders in your **%ProgramFiles%\WindowsPowerShell\Modules** folder.
 
 ###Installing Azure PowerShell from the Gallery
 
