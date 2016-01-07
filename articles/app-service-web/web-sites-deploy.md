@@ -33,28 +33,28 @@ application framework, such as the PHP version or the bitness of your runtime. F
 Since you don't have to worry about the web server or application framework, deploying your app to App Service is 
 a matter of deploying your code, binaries, content files, and their respective directory structure, to the 
 [**/site/wwwroot** directory in Azure](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (or the **/Data/Jobs** directory 
-for WebJobs). App Service supports the following three main deployment processes. 
+for WebJobs). App Service supports the following three deployment processes. 
 
 - [FTP or FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol): Use your favorite FTP or FTPS enabled tool to move your 
 files to Azure, from [FileZilla](https://filezilla-project.org) to full-featured IDEs like [NetBeans](https://netbeans.org). This is strictly
 a file upload process. No additional services are provided by App Service, such as version control, file structure management, etc. 
-- [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment): This is the [deployment engine](https://github.com/projectkudu/kudu/wiki) 
-in App Service. You can push your code to Kudu directly from any repository. Kudu also provides added services whenever code is 
+- [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment): The [deployment engine](https://github.com/projectkudu/kudu/wiki) 
+in App Service. Push your code to Kudu directly from any repository. Kudu also provides added services whenever code is 
 is pushed to it, including version control, package restore, MSBuild, and [web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) 
 for continuous deployment and other automation tasks. All these services are customizable and triggered 
     - every time **git push** is executed from a configured Git repository,
 	- every time **hg push** is executed from a configured Mercurial repository, or 
     - every time a linked cloud storage like Dropbox or OneDrive is synced with App Service. 
-- [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): This is the same tooling that automates deployment 
-to IIS servers. This means that you can deploy code to App Service directly from your favorite Microsoft tools, 
+- [Web Deploy](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy): The same tooling that automates deployment 
+to IIS servers. Deploy code to App Service directly from your favorite Microsoft tools, 
 such as Visuall Studio, WebMatrix, and Visual Studio Team Services. This tool supports diff-only deployment, database creation, transforms of 
-connection strings and app settings, etc. Web Deploy differs from Kudu in that application binaries are built before they are deployed to Azure. 
+connection strings, etc. Web Deploy differs from Kudu in that application binaries are built before they are deployed to Azure. 
 Similar to FTP, no additional services are provided by App Service.
 
 Popular web development tools support one or more of these deployment processes. While the tool you choose determines the deployment 
 processes you can leverage, the actual DevOps functionality at your disposal depends on the combination of the the deployment process and the 
 specific tools you choose. For example, if you perform Web Deploy from [Visual Studio with Azure SDK](#vspros), even though you don't get automation 
-from Kudu, you do get NuGet package restore and MSBuild automation in Visual Studio. In addition, the Azure SDK provides an easy-to-use wizard to 
+from Kudu, you do get package restore and MSBuild automation in Visual Studio. Azure SDK also provides an easy-to-use wizard to 
 help you create the Azure resources you need directly within the Visual Studio interface.
 
 >[AZURE.NOTE] These deployment processes don't actually [provision the Azure resources](resource-group-portal) that your app may need, such as 
@@ -67,9 +67,12 @@ If you are used to manually copying your web content to web hosters, a common wo
 an [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) utility to copy files, such as Windows Explorer or 
 [FileZilla](https://filezilla-project.org/).
 
+Copying files manually utilizes the FTP protocol for deployment (see [Overview of deployment processes](#overview)).
+
 The pros of copying files manually are:
 
-- Familiarity of FTP tooling. You know exactly where your files are going and there is no new tooling and process to learn.
+- Familiarity of FTP tooling. 
+- You know exactly where your files are going.
 - Added security with FTPS.
 - Good deployment solution if you like minimal tool for web development (e.g. develop web apps using NotePad).
 
@@ -77,7 +80,6 @@ The cons of copying files manually are:
 
 - You are responsible for deploying files to the correct directories in App Service.
 - No version control for rollback when failures occur.
-- You must manage app settings and connection strings to Azure resources manually.
 - Many FTP tools don't provide diff-only copying and simply copy all the files. For large apps, this leads to long deployment times even for 
 minor updates.
 
@@ -106,13 +108,11 @@ work with your app code and content in that folder, and sync to App Service with
 
 Syncing with a cloud folder utilizes the Kudu process for deployment (see [Overview of deployment processes](#overview)).
 
-> [How to deploy by syncing with a cloud folder](#howtodropbox)
-
 The pros of syncing with a cloud folder are:
 
 - Simplicity of deployment. Services like OneDrive and Dropbox provide desktop sync clients, so your local working
 directory is also your deployment directory.
-- Turn-key file synchronization .
+- One-click deployment.
 - All functionality in Kudu is available (e.g. deployment versioning, rollback, package restore, automation).
 - Good deployment solution if you like minimal tool for web development.
 
@@ -144,21 +144,14 @@ without moving outside of your IDE.
 
 The cons of deploying using an IDE are:
 
-- Added complexity in tooling
-- Still requires a source control system for a team project
+- Added complexity in tooling.
+- Still requires a source control system for a team project.
 
 <a name="vspros"></a>
 Additional pros of deploying using Visual Studio with Azure SDK are:
 
 - Azure SDK makes Azure resources first-class citizens in Visual Studio. Create, delete, edit, start, and stop apps, 
 query the backend SQL database, live-debug the Azure app, and much more. 
-- Web Deploy wizard provides added features, such as:
-    - Provision Azure resources directly (e.g. Resource Group, App Service plan, Azure SQL database, etc.)
-    directly in a graphical wizard. No need to separately provision resources.
-    - Automate database creation through code-first migration.
-    - Automate transformation of app settings and connection strings.
-    - Automatically deploy file structure of code, content, and package dependencies to the right place. If the app runs in Visual Studio 
-    debugger, it will run in Azure after it is deployed, whether it's an app or a WebJob.
 - Live editing of code files on Azure.
 - Live debugging of apps on Azure.
 - Integrated Azure explorer.
@@ -211,9 +204,9 @@ and [Eclipse](https://www.eclipse.org).
 
 Cons of deploying from an on-premises source control system are:
 
-- Need knowledge of SCM system of choice
-- May provide more functionality and features than you need
-- Current Git and Mercurial client tools don't offer turn-key solutions for continuous deployment
+- Need knowledge of SCM system of choice.
+- May provide more functionality and features than you need.
+- Lack of turn-key solutions for continuous deployment and branch-specific deployment from Git and Mercurial client tools. 
 
 Additional pros of deploying using TFS are:
 
@@ -260,8 +253,8 @@ Pros of deploying from a cloud-based source control service are:
 
 Cons of deploying from a cloud-based source control service are:
 
-- Need knowledge of SCM service of choice
-- May provide more functionality and features than you need
+- Need knowledge of SCM service of choice.
+- May provide more functionality and features than you need.
 
 Additional pros of deploying using Visual Studio Team Services are:
 
