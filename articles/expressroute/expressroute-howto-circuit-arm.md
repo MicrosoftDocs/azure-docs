@@ -216,11 +216,11 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 6. **Create your routing configuration.**
 	
-	Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-arm.md) page for step-by-step instructions. 
+	Refer to [Create and modify routing for an ExpressRoute circuit](expressroute-howto-routing-arm.md) for step-by-step instructions. 
 
 7. **Link a VNet to an ExpressRoute circuit.** 
 
-	Next, link a VNet to your ExpressRoute circuit. You can use the PowerShell steps in [this article](expressroute-howto-linkvnet-arm.md) to link your VNet.
+	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) for step-by-step instructions.
 
 ##  To get the status of an ExpressRoute circuit
 
