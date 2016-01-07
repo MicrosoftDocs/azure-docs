@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="1/07/2016"
+   ms.date="01/07/2016"
    ms.author="daleche" />
 
 # How to troubleshoot Cloud Service deployment problems you may run into
