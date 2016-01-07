@@ -116,4 +116,4 @@ You can now work with the virtual machine just as you would with any other serve
 ## Next steps
 
 * Use Azure PowerShell and the Azure CLI to [find and select virtual machine images](resource-groups-vm-searching.md).
-* Automate virtual machine and workload deployment and management using [Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) and [Azure Resource Manager templates](http://azure.microsoft.com/documentation/templates/).
+* Automate virtual machine and workload deployment and management using [Azure Resource Manager templates](http://azure.microsoft.com/documentation/templates/).
