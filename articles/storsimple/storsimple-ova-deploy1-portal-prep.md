@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"
+   ms.date="01/07/2016"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array 1 - Portal Preparation (Preview)
+# Deploy StorSimple Virtual Array - Prepare the portal (Preview)
 
 ## Introduction 
 
-This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only. This series of tutorials describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a StorSimple virtual device. This is the first article in the series and it links out to a deployment configuration checklist as well as configuration prerequisites.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (Public Preview) only. This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server. This article describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist as well as configuration prerequisites.
 
 You will need administrator privileges to complete the setup and configuration process. We recommend that you review the deployment configuration checklist before you begin. The portal preparation can take approximately 15-30 minutes.
 
@@ -29,6 +29,29 @@ The StorSimple deployment information published in this article applies to StorS
 > [AZURE.IMPORTANT]
 > 
 > This public preview is intended for evaluation and deployment planning purposes only. Installing this preview in a production environment is not supported.
+
+### Deployment workflow
+
+The deployment workflow consists of preparing the portal, provisioning a virtual array in your virtualized environment, and completing the setup. As you deploy your StorSimple Virtual Array as a file server or an iSCSI server, you will need to refer to the following tabulated resources (articles and videos).
+
+#### Deployment articles
+
+| **In this step**                                     | **You will do this …**                                                                                                                       | **Use these documents...**   
+|------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| **Set up the Azure classic portal**       | Create and configure your StorSimple Manager service prior to provisioning a StorSimple virtual device.                                     |[Prepare the portal](storsimple-ova-deploy1-portal-prep.md)      |
+| **Provision the Virtual Array**           | For Hyper-V, provision and connect to a StorSimple virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2. <br></br> For VMware, provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.|  [Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> [Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md)|
+| **Set up the Virtual Array**              | For your file server, perform initial setup, register your StorSimple file server, and complete the device setup. You can then provision SMB shares. <br></br> For your iSCSI server, perform initial setup, register your StorSimple iSCSI server, and complete the device setup. You can then provision iSCSI volumes.| [Set up virtual array as file server](storsimple-deploy3-fs-setup.md)<br></br> [Set up virtual array as iSCSI server](storsimple-deploy3-iscsi-setup.md)|
+
+#### Deployment videos
+
+| **Watch this video...** | **To do this.** |
+|----------------|-------------|
+|[Get Started with the StorSimple Virtual Array](https://www.youtube.com/watch?v=teJxF0xmNcs&index=1&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) | Step-by-step instructions for getting started with the StorSimple Virtual Array. |
+| [Create a StorSimple Virtual Array](https://www.youtube.com/watch?v=iyGogUs-NXI&index=2&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) | Step-by-step instructions for creating a StorSimple Virtual Array on Hyper-V.|
+| [Configure a StorSimple Virtual Array](https://www.youtube.com/watch?v=2b3SVBVpXXQ&index=3&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) | Step-by-step instructions for configuring and registering a StorSimple Virtual Array |
+| [Use the StorSimple Virtual Array](https://www.youtube.com/watch?v=o_OX-5WzHIA&index=4&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) | Step-by-step instructions for creating shares, taking backups, and restoring data on a StorSimple Virtual Array |
+
+The following section discusses the configuration checklist you can use to deploy your StorSimple Virtual Array.
 
 ## Configuration checklist
 
@@ -101,6 +124,8 @@ A single instance of the StorSimple Manager service can manage multiple StorSimp
 	 -   If you have other workloads in Azure that you intend to deploy with your StorSimple device, we recommend that you use that datacenter.
 
    	 -   The StorSimple Manager and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account/#create-a-storage-account). After this account is created, add this account to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](#Configure-a-new-storage-account-for-the-service).
+   	 
+   	 -   Note that in this release, you can create StorSimple Manager service only in US West and Japan East.
 	
 	1.  Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present when you have only one subscription.
 
