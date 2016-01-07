@@ -46,7 +46,7 @@ The deployment workflow consists of preparing the portal, provisioning a virtual
 
 | **To do this step...** |  **Watch this video.**|
 |----------------|-------------|
-| Step-by-step instructions to get started with the StorSimple Virtual Array. |<a target="_blank" href="https://www.youtube.com/watch?v=teJxF0xmNcs&index=1&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo.html">Link</a>|
+| Step-by-step instructions to get started with the StorSimple Virtual Array. |<a target="_blank" href="https://www.youtube.com/watch?v=teJxF0xmNcs&index=1&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo.html">Get started with the StorSimple Virtual Array</a>|
 | Step-by-step instructions to provision a StorSimple Virtual Array in Hyper-V.|[Create a StorSimple Virtual Array](https://www.youtube.com/watch?v=iyGogUs-NXI&index=2&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) |
 |Step-by-step instructions to configure and register a StorSimple Virtual Array| [Configure a StorSimple Virtual Array](https://www.youtube.com/watch?v=2b3SVBVpXXQ&index=3&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) |
 |Step-by-step instructions to create shares, backup shares, and restore data on a StorSimple Virtual Array configured as a file server| [Use the StorSimple Virtual Array](https://www.youtube.com/watch?v=o_OX-5WzHIA&index=4&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo) |
