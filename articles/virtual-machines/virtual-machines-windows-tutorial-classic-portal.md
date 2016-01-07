@@ -25,6 +25,8 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
+<br>
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-windows-tutorial.md).
 
 This tutorial shows you how easy it is to create an Azure virtual machine (VM) running Windows in the Azure classic portal. We'll use a Windows Server image as an example, but that's just one of the many images Azure offers. Note that your image choices depend on your subscription. For example, Windows desktop images may be available to MSDN subscribers.
@@ -49,6 +51,6 @@ This section shows you how to use the **From Gallery** option in the Azure class
 
 ## Next steps
 
-- Log on to the virtual machine. For instructions, see [How to log on to a virtual machine running Windows Server](virtual-machines-log-on-windows-server.md).
+- Log on to the virtual machine. For instructions, see [Log on to a virtual machine running Windows Server](virtual-machines-log-on-windows-server.md).
 
-- Attach a disk to store data. You can attach both empty disks and disks that contain data. For instructions, see the [Attach a data disk tutorial](storage-windows-attach-disk.md).
+- Attach a disk to store data. You can attach both empty disks and disks that contain data. For instructions, see the [Attach a data disk to a Windows virtual machine created with the classic deployment model](storage-windows-attach-disk.md).
