@@ -28,7 +28,7 @@ You can quickly prototype an index in Azure Search by creating one in the Azure 
 
 To complete this task, make sure you have an Azure Search service that's ready to go. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you need help setting it up.
 
-1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 
 2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
 	- In the Jumpbar, click **Home**. The home page has tiles for every service in your subscription. Click the tile to open the service dashboard.
