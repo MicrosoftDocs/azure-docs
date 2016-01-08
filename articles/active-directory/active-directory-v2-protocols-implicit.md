@@ -16,74 +16,69 @@
 	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
-# App model v2.0 preview: Protocols - Implicit Flow
-With the Azure AD app model v2.0, you can sign users into your single page apps with both personal and work/school accounts from Microsoft.  Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
+# v2.0 Protocols - Implicit Flow
+With v2.0 apps, you can sign users into your single page apps with both personal and work/school accounts from Microsoft.  Single page and other JavaScript apps that run primarily in a browser face a few interesting challenges when it comes to authentication:
 
 - The security characteristics of these apps are significantly different from traditional server based web applications.
 - Many authorization servers & identity providers do not support CORS requests for well-documented security reasons.
 - Full page browser redirects away from the app become particularly invasive to the user experience.
 
-For these applications (think: AngularJS, Ember.js, React.js, etc) Azure AD support the OAuth 2.0 Implicit Grant flow.  The implicit flow is described in the [OAuth 2.0 Specification](http://tools.ietf.org/html/rfc6749#section-4.2).  Its primary benefit is that it allows the app to get tokens from Azure AD without performing a backend server credential exchange.  This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.  There are a few important security considerations to take into account when using the implicit flow - specifically around [client](http://tools.ietf.org/html/rfc6749#section-10.3) and [user impersonation](http://tools.ietf.org/html/rfc6749#section-10.3).
+For these applications (think: AngularJS, Ember.js, React.js, etc) Azure AD supports the OAuth 2.0 Implicit Grant flow.  The implicit flow is described in the [OAuth 2.0 Specification](http://tools.ietf.org/html/rfc6749#section-4.2).  Its primary benefit is that it allows the app to get tokens from Azure AD without performing a backend server credential exchange.  This allows the app to sign in the user, maintain session, and get tokens to other web APIs all within the client JavaScript code.  There are a few important security considerations to take into account when using the implicit flow - specifically around [client](http://tools.ietf.org/html/rfc6749#section-10.3) and [user impersonation](http://tools.ietf.org/html/rfc6749#section-10.3).
 
 If you want to use the implicit flow and Azure AD to add authentication to your JavaScript app, we recommend you use our open source JavaScript library, [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js).  There are few AngularJS tutorials available [here](active-directory-appmodel-v2-overview.md#getting-started) to help you get started.  
 
 However, if you would prefer not to use a library in your single page app and send protocol messages yourself, follow the general steps below.
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
-
+	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	
 ## Send the Sign-In Request
 
 To initially sign the user into your app, you can send an [OpenID Connect](active-directory-v2-protocols-oidc.md) authorization request and get an `id_token` from the v2.0 endpoint:
 
 ```
-// Line breaks for legibility only
-
-GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e		// Your registered Application Id
-&response_type=id_token
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
-&response_mode=fragment
-&scope=openid%20
-https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20
-&state=12345
-&nonce=678910
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910
 ```
+> [AZURE.TIP] Try pasting this request into a browser!
+
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | response_type | required | Must include `id_token` for OpenID Connect sign-in.  It may also include other response_types, such as `code`. |
-| redirect_uri | required | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
-| scope | required | A space-separated list of scopes.  For OpenID Connect, it must include the scope `openid`, which translates to the "Sign in & Read Your Profile" permission in the consent UI.  You may also include other scopes in this request for requesting consent.  |
-| nonce | required | A value included in the request, generated by the app, that will be included in the resulting id_token as a claim.  The app can then verify this value to mitigate token replay attacks.  The value is typically a randomized, unique string that can be used to identify the origin of the request.  |
-| response_mode | recommended | Specifies the method that should be used to send the resulting authorization_code back to your app.  Can be one of 'query', 'form_post', or 'fragment'.  
+| redirect_uri | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
+| scope | required | A space-separated list of scopes.  For OpenID Connect, it must include the scope `openid`, which translates to the "Sign you in" permission in the consent UI.  Optionally you may also want to include the `email` or `profile` [scopes](active-directory-v2-scopes.md) for gaining access to additional user data.  You may also include other scopes in this request for requesting consent to various resources.  |
+| response_mode | recommended | Specifies the method that should be used to send the resulting token back to your app.  Can be one of `query`, `form_post`, or `fragment`.  |
 | state | recommended | A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  A randomly generated unique value is typically used for preventing cross-site request forgery attacks.  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
+| nonce | required | A value included in the request, generated by the app, that will be included in the resulting id_token as a claim.  The app can then verify this value to mitigate token replay attacks.  The value is typically a randomized, unique string that can be used to identify the origin of the request.  |
 | prompt | optional | Indicates the type of user interaction that is required.  The only valid values at this time are 'login', 'none', and 'consent'.  `prompt=login` will force the user to enter their credentials on that request, negating single-sign on.  `prompt=none` is the opposite - it will ensure that the user is not presented with any interactive prompt whatsoever.  If the request cannot be completed silently via single-sign on, the v2.0 endpoint will return an error.  `prompt=consent` will trigger the OAuth consent dialog after the user signs in, asking the user to grant permissions to the app. |
-| login_hint | optional | Can be used to pre-fill the username/email address field of the sign in page for the user. |
+| login_hint | optional | Can be used to pre-fill the username/email address field of the sign in page for the user, if you know their username ahead of time.  Often apps will use this parameter during re-authentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
+| domain_hint | optional | Can be one of `consumers` or `organizations`.  If included, it will skip the email-based discovery process that user goes through on the v2.0 sign in page, leading to a slightly more streamlined user experience.  Often apps will use this parameter during re-authentication, by extracting the `tid` claim from the id_token.  If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad`, you should use `domain_hint=consumers`.  Otherwise, use `domain_hint=organizations`. |
 
 At this point, the user will be asked to enter their credentials and complete the authentication.  The v2.0 endpoint will also ensure that the user has consented to the permissions indicated in the `scope` query parameter.  If the user has not consented to any of those permissions, it will ask the user to consent to the required permissions.  Details of [permissions, consent, and multi-tenant apps are provided here](active-directory-v2-scopes.md).
 
 Once the user authenticates and grants consent, the v2.0 endpoint will return a response to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
-A successful response using `response_mode=fragment` looks like:
+#### Successful Response
+A successful response using `response_mode=fragment` looks like the following, with line breaks for legibility:
 
 ```
 GET https://localhost/myapp/#
-id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 	// the id_token, truncated
-&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF			   // a value generated by the v2.0 endpoint
-&state=12345												  	// the value provided in the request
+id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
+&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF
+&state=12345
 &id_token_expires_in=3600
-
 ```
 
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
-| id_token | The id_token that the  app requested. You can use the id_token to verify the user's identity and begin a session with the user.  More details on id_tokens and their contents is included in the [v2.0 endpoint token reference](active-directory-v2-tokens.md).  |
+| id_token | The id_token that the app requested. You can use the id_token to verify the user's identity and begin a session with the user.  More details on id_tokens and their contents is included in the [v2.0 endpoint token reference](active-directory-v2-tokens.md).  |
 | session_state | A unique value that identifies the current user session. This value is a GUID, but should be treated as an opaque value that is passed without examination. |
 | state | If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
 | id_token_expires_in | How long the id token is valid (in seconds). |
 
+
+#### Error Response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
 ```
@@ -102,22 +97,29 @@ Just receiving an id_token is not sufficient to authenticate the user; you must 
 
 The v2.0 app model has an OpenID Connect metadata endpoint, which allows an app to fetch information about the v2.0 app model at runtime.  This information includes endpoints, token contents, and token signing keys.  The metadata endpoint contains a JSON document located at:
 
-`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
-
+```
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
+```
 One of the properties of this configuration document is the `jwks_uri`, whose value for the v2.0 app model will be:
 
-`https://login.microsoftonline.com/common/discovery/v2.0/keys`.
+```
+https://login.microsoftonline.com/common/discovery/v2.0/keys
+```
+
+```
+// Pro Tip: Try pasting these URLs in a browser!
+```
 
 You can use the RSA256 public keys located at this endpoint to validate the signature of the id_token.  There are multiple keys listed at this endpoint at any given point in time, each identified by a `kid`.  The header of the id_token also contains a `kid` claim, which indicates which of these keys was used to sign the id_token.  
 
-See the [v2.0 app model token reference](active-directory-v2-tokens.md) for more information, including [Validating Tokens](active-directory-v2-tokens.md#validating-tokens) and [Important Information About Signing Key Rollover](active-directory-v2-tokens.md#validating-tokens).
+See the [v2.0 token reference](active-directory-v2-tokens.md) for more information, including [Validating Tokens](active-directory-v2-tokens.md#validating-tokens) and [Important Information About Signing Key Rollover](active-directory-v2-tokens.md#validating-tokens).
 <!--TODO: Improve the information on this-->
 
 You can choose to validate the `id_token` in the client code, but a common practice is to send the `id_token` to a backend server and perform the validation there.  There are many libraries available for parsing and validating JWT tokens.  Once you've validated the signature of the id_token, there are a few claims you will need to verify:
 
 - You should validate the `nonce` claim to prevent token replay attacks.  Its value should be what you specified in the sign-in request.
 - You should validate the `aud` claim to ensure the id_token was issued for your app.  Its value should be the `client_id` of your app.
-- You should validate the `iat` and `exp` claims to ensure the id_token has not expired.
+- You should validate the `nbf` and `exp` claims to ensure the id_token has not expired.
 
 You may also wish to validate additional claims depending on your scenario.  Some common validations include:
 
@@ -134,44 +136,38 @@ Once you have completely validated the id_token, you can begin a session with th
 Now that you've signed the user into your single page app, you can get access tokens for calling web APIs secured by Azure AD, such as the [Microsoft Graph](https://graph.microsoft.io).  In the normal OpenID Connect/OAuth flow, you would do this by making a request to the v2.0 `/token` endpoint.  However, the v2.0 endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is out of the question.  Instead, you can use the implicit flow in a hidden iframe to get new tokens for other web APIs: 
 
 ```
-// Line breaks for legibility only
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&domain_hint=organizations&login_hint=myuser@mycompany.com
+```
 
-GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e		// Your registered Application Id
-&response_type=token
-&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F 	  // Your registered Redirect Uri, url encoded
-&response_mode=fragment
-&scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read  // The space separated scope(s) you want an access token for
-&state=12345
-&prompt=none
-&login_hint=joe.user@outlook.com
-&domain_hint=consumers
+```
+// Pro Tip: Try pasting this request into a browser! (but if you want it to succeed, modify the domain_hint & login_hint values first)
 ```
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------- |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
-| response_type | required | Must be `token`for the implicit flow. |
-| redirect_uri | required | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
-| scope | required | A space-separated list of scopes you need in the access token. |
-| response_mode | recommended | Specifies the method that should be used to send the resulting authorization_code back to your app.  Can be one of 'query', 'form_post', or 'fragment'.  
+| response_type | required | Must include `id_token` for OpenID Connect sign-in.  It may also include other response_types, such as `code`. |
+| redirect_uri | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
+| scope | required | A space-separated list of scopes.  For getting tokens, include all [scopes](active-directory-v2-scopes.md) you require for the resource of interest.  |
+| response_mode | recommended | Specifies the method that should be used to send the resulting token back to your app.  Can be one of `query`, `form_post`, or `fragment`.  |
 | state | recommended | A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  A randomly generated unique value is typically used for preventing cross-site request forgery attacks.  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| prompt | required | Here we use `prompt=none` to specify that Azure AD should not present any UI.  Because this request takes place in a hidden iframe, you want to ensure that if the token cannot be silently acquired, Azure AD should return an error instead of asking the user to sign in. |
-| login_hint | required | Required for silent authentication.  This hint helps Azure AD to distinguish between multiple accounts if the user has an active session with more than one account.  The value provided here can be the exact value that you receive in the `preferred_uesrname` claim in the id_token.  |
-| domain_hint | required | Required for silent authentication.  For this flow, the domain_hint can be one of two values: `consumers` or `organizations`.  If the value of the `tid` claim in the `id_token` you received was exactly '9188040d-6c67-4c5b-b112-36a304b66dad', use `consumers` as the domain_hint.  Otherwise, use `organizations`. |
+| nonce | required | A value included in the request, generated by the app, that will be included in the resulting id_token as a claim.  The app can then verify this value to mitigate token replay attacks.  The value is typically a randomized, unique string that can be used to identify the origin of the request.  |
+| prompt | required | For refreshing & getting tokens in a hidden iframe, you should use `prompt=none` to ensure that the iframe does not hang on the v2.0 sign in page, and returns immediately. |
+| login_hint | required | For refreshing & getting tokens in a hidden iframe, you must include the username of the user in this hint in order to distinguish between multiple sessions the user may have at a given point in time. You can extract the username from a previous sign-in using the `preferred_username` claim. |
+| domain_hint | required | Can be one of `consumers` or `organizations`.  For refreshing & getting tokens in a hidden iframe, you must include the domain_hint in the request.  You should extract the `tid` claim from the id_token of a previous sign-in to determine which value to use.  If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad`, you should use `domain_hint=consumers`.  Otherwise, use `domain_hint=organizations`. |
 
 Thanks to the `prompt=none` parameter, this request will either succeed or fail immediately and return to your application.  A successful response will be sent to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
+#### Successful Response
 A successful response using `response_mode=fragment` looks like:
 
 ```
 GET https://localhost/myapp/#
-access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 	// the access_token, truncated
-&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF			   // a value generated by the v2.0 endpoint
-&state=12345												  	// the value provided in the request
+access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
+&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF
+&state=12345
 &expires_in=3600
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
-
 ```
 
 | Parameter | Description |
@@ -182,6 +178,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in | How long the access token is valid (in seconds). |
 | scope | The scopes that the access token is valid for. |
 
+#### Error Response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately.  In the case of `prompt=none`, an expected error will be:
 
 ```

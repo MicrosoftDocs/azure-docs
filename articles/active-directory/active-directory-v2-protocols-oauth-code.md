@@ -17,15 +17,15 @@
 	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
-# App model v2.0 preview: Protocols - OAuth 2.0 Authorization Code Flow
+# v2.0 Protocols - OAuth 2.0 Authorization Code Flow
 
 The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs.  Using the app model v2.0's implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps.  This guide is language-independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 <!-- TODO: Need link to libraries -->	
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
-
+	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
+	
 The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749).  It is used to perform authentication and authorization in the majority of app types, including [web apps](active-directory-v2-flows.md#web-apps) and [natively installed  apps](active-directory-v2-flows.md#mobile-and-native-apps).  It enables apps to securely acquire access_tokens which can be used to access resources that are secured using the v2.0 app model.  
 
 
@@ -34,51 +34,44 @@ The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAu
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint.  In this request, the client indicates the permissions it needs to acquire from the user:
 
 ```
-// Line breaks for legibility only
-
-GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e		  // Your registered Application Id
-&response_type=code
-&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob 	  // Your registered Redirect Uri, url encoded
-&response_mode=query							        // 'query', 'form_post', or 'fragment'
-&scope=											     // See table below
-openid%20
-offline_access%20
-https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20
-https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
-&state=12345						 				   // Any value provided by your app
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345
 ```
-
+```
+// Pro Tip: Try pasting this request into a browser!
+```
 | Parameter | | Description |
-| ----------------------- | ------------------------------- | ----------------------- |
+| ----------------------- | ------------------------------- | --------------- |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
 | response_type | required | Must include `code` for the authorization code flow. |
-| redirect_uri | required | The redirect_uri of your app, where authentication responses can be sent and receieved by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
-| scope | required | A space-separated list of scopes.  A single scope value indicates to the v2.0 endpoint both the resource and the permissions to that resource being requested.  Scopes take the form `<app identifier URI>/<scope value>`.  In the example above, the app identifier for the Azure AD Graph API is used, `https://graph.windows.net`, and two permissions are requested: `directory.read` and `directory.write`.  For a more detailed explanation of scopes, refer to the [app model v2.0 scope reference](active-directory-v2-scopes.md).  |
-| response_mode | recommended | Specifies the method that should be used to send the resulting authorization_code back to your app.  Can be one of 'query', 'form_post', or 'fragment'.
+| redirect_uri | recommended | The redirect_uri of your app, where authentication responses can be sent and received by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded.  For native & mobile apps, you should use the default value of `urn:ietf:wg:oauth:2.0:oob`. |
+| scope | required | A space-separated list of [scopes](active-directory-v2-scopes.md) that you want the user to consent to.  |
+| response_mode | recommended | Specifies the method that should be used to send the resulting token back to your app.  Can be one of `query`, `form_post`, or `fragment`.  |
 | state | recommended | A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  A randomly generated unique value is typically used for preventing cross-site request forgery attacks.  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 | prompt | optional | Indicates the type of user interaction that is required.  The only valid values at this time are 'login', 'none', and 'consent'.  `prompt=login` will force the user to enter their credentials on that request, negating single-sign on.  `prompt=none` is the opposite - it will ensure that the user is not presented with any interactive prompt whatsoever.  If the request cannot be completed silently via single-sign on, the v2.0 endpoint will return an error.  `prompt=consent` will trigger the OAuth consent dialog after the user signs in, asking the user to grant permissions to the app. |
-| login_hint | optional | Can be used to pre-fill the username/email address field of the sign in page for the user. |
+| login_hint | optional | Can be used to pre-fill the username/email address field of the sign in page for the user, if you know their username ahead of time.  Often apps will use this parameter during re-authentication, having already extracted the username from a previous sign-in using the `preferred_username` claim. |
+| domain_hint | optional | Can be one of `consumers` or `organizations`.  If included, it will skip the email-based discovery process that user goes through on the v2.0 sign in page, leading to a slightly more streamlined user experience.  Often apps will use this parameter during re-authentication, by extracting the `tid` from a previous sign-in.  If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad`, you should use `domain_hint=consumers`.  Otherwise, use `domain_hint=organizations`. |
 
 At this point, the user will be asked to enter their credentials and complete the authentication.  The v2.0 endpoint will also ensure that the user has consented to the permissions indicated in the `scope` query parameter.  If the user has not consented to any of those permissions, it will ask the user to consent to the required permissions.  Details of [permissions, consent, and multi-tenant apps are provided here](active-directory-v2-scopes.md).
 
 Once the user authenticates and grants consent, the v2.0 endpoint will return a response to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
+#### Successful Response
 A successful response using `response_mode=query` looks like:
 
 ```
 GET urn:ietf:wg:oauth:2.0:oob?
-code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq... 	// the authorization_code, truncated
-&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF			   // a value generated by the v2.0 endpoint
-&state=12345												      // the value provided in the request
+code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...]
+&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF
+&state=12345
 ```
 
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
-| code | The authorization_code that the  app requested. The  app can use the authorization code to request an access token for the target resource.  Authorization_codes are very short lived, typically they expire after about 10 minutes. |
+| code | The authorization_code that the app requested. The app can use the authorization code to request an access token for the target resource.  Authorization_codes are very short lived, typically they expire after about 10 minutes. |
 | session_state | A unique value that identifies the current user session. This value is a GUID, but should be treated as an opaque value that is passed without examination. |
 | state | If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
 
+#### Error Response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
 ```
@@ -103,11 +96,21 @@ Content-Type: application/json
 {
 	"grant_type": "authorization_code",
 	"client_id": "2d4d11a2-f814-46a7-890a-274a72a7309e",
-	"scope": "https://graph.windows.net/directory.read https://graph.windows.net/directory.write",
-	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq..."
+	"scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
+	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
+	"redirect_uri": "https://localhost/myapp",
 	"client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
 }
 ```
+
+```
+// Pro Tip: Try importing the below curl command into postman! (you'll need to replace the code with your own in order to have it succeed)
+```
+
+```
+curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=6731de76-14a6-49ae-97bc-6eba6914391e&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXrFgnryzZvcDbKTvyz36ono600tLhxSdnoOe50zSgxiIQhD36sIPLln7lNOMrUi1ralV_hOfZItjuwqeTOTFgXRG_rhkIzBfKmudQHD1KUodPD84a308LAfJ5ciLak9nlNVyVOL7gViWADpdZv_KrBXgaJXkxKZ4qxeYT_wf6yajHP2Gt4LPijuhqJIsqId7Xo8FkNIsmlvZkdArZDLgpZdunDmnis_623fu4vMeuWyVhrAoesilIqbwP_bKWNhGO_fcQ1Spsa-TDgfqUyrXnk3UYc-B3m6Npvkx3bYv3NrUSNxqdMONxR-3HowU3Uke-jM3Z8GR25HE4YAdfTqVxHtd6DEP9aamMIRH0LwuM4uxUrgeALqpbPenabekOZkkZ5-KKY4AyJKMOWxvMmqJRz9gYHnGUxqKcl2-F7250rHNGZTbJPurie_3WzNrRKFOQAF84mbsGoeYvSXlbI5uiH3Bw9kpOw302r26K4j-IKoMpw2BXU0mNxoGEL_wC0oTkVqRNg_sTTcsAPU1giW0hj-LONWc0ZgcKNI00fXaC5l6V8i2ERWyBy4Ys8gKIc7mynZnCpf2tgrxMBH5sloZ1Lf6P63CiAA&client_secret=JqQX2PNo9bpM0uEihUPzyrh&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&grant_type=authorization_code' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+```
+
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------------- |
@@ -115,8 +118,10 @@ Content-Type: application/json
 | grant_type | required | Must be `authorization_code` for the authorization code flow. |
 | scope | required | A space-separated list of scopes.  The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the first leg.  If the scopes specified in this request span multiple resource servers, then the v2.0 endpoint will return a token for the resource specified in the first scope.  For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](active-directory-v2-scopes.md).  |
 | code | required | The authorization_code that you acquired in the first leg of the flow.   |
-| client_secret | required for web apps | The application secret that you created in the app registration portal for your app.  It should not be used in a native  app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. |
+| redirect_uri | required | The same redirect_uri value that was used to acquire the authorization_code. |
+| client_secret | required for web apps | The application secret that you created in the app registration portal for your app.  It should not be used in a native app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. |
 
+#### Successful Response
 A successful token response will look like:
 
 ```
@@ -124,10 +129,9 @@ A successful token response will look like:
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
 	"token_type": "Bearer",
 	"expires_in": "3600",
-	"scope": "https://graph.windows.net/directory.read https://graph.windows.net/directory.write",
+	"scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
 	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
-	"id_token_expires_in": "3599"
 }
 ```
 | Parameter | Description |
@@ -138,9 +142,8 @@ A successful token response will look like:
 | scope | The scopes that the access_token is valid for. |
 | refresh_token |  An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [v2.0 token reference](active-directory-v2-tokens.md).  |
 | id_token | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 app model token reference](active-directory-v2-tokens.md). |
-| id_token_expires_in | How long the id token is valid (in seconds). |
 
-
+#### Error Response
 Error responses will look like:
 
 ```
@@ -159,9 +162,17 @@ Error responses will look like:
 Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs by including it in the `Authorization` header:
 
 ```
-GET /contoso.onmicrosoft.com/users
-Host: https://graph.windows.net
+GET /v1.0/me/messages
+Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
+```
+
+```
+// Pro Tip: Try the below command out! (but replace the token with your own)
+```
+
+```
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" -H "Cache-Control: no-cache" -H "Postman-Token: 40d8f06c-e83e-00c8-45d5-3fbd246c3ff1" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
 ## Refresh the Access Token
@@ -175,10 +186,19 @@ Content-Type: application/json
 {
 	"grant_type": "refresh_token",
 	"client_id": "2d4d11a2-f814-46a7-890a-274a72a7309e",
-	"scope": "https://graph.windows.net/directory.read https://graph.windows.net/directory.write",
+	"scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
 	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
+	"redirect_uri": "https://localhost/myapp",
 	"client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
 }
+```
+
+```
+// Pro Tip: Try importing the below curl command into postman! (you'll need to replace the refresh_token with your own in order to have it succeed)
+```
+
+```
+curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=6731de76-14a6-49ae-97bc-6eba6914391e&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXrFgnryzZvcDbKTvyz36ono600tLhxSdnoOe50zSgxiIQhD36sIPLln7lNOMrUi1ralV_hOfZItjuwqeTOTFgXRG_rhkIzBfKmudQHD1KUodPD84a308LAfJ5ciLak9nlNVyVOL7gViWADpdZv_KrBXgaJXkxKZ4qxeYT_wf6yajHP2Gt4LPijuhqJIsqId7Xo8FkNIsmlvZkdArZDLgpZdunDmnis_623fu4vMeuWyVhrAoesilIqbwP_bKWNhGO_fcQ1Spsa-TDgfqUyrXnk3UYc-B3m6Npvkx3bYv3NrUSNxqdMONxR-3HowU3Uke-jM3Z8GR25HE4YAdfTqVxHtd6DEP9aamMIRH0LwuM4uxUrgeALqpbPenabekOZkkZ5-KKY4AyJKMOWxvMmqJRz9gYHnGUxqKcl2-F7250rHNGZTbJPurie_3WzNrRKFOQAF84mbsGoeYvSXlbI5uiH3Bw9kpOw302r26K4j-IKoMpw2BXU0mNxoGEL_wC0oTkVqRNg_sTTcsAPU1giW0hj-LONWc0ZgcKNI00fXaC5l6V8i2ERWyBy4Ys8gKIc7mynZnCpf2tgrxMBH5sloZ1Lf6P63CiAA&client_secret=JqQX2PNo9bpM0uEihUPzyrh&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&grant_type=refresh_token' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
 | Parameter | | Description |
@@ -187,8 +207,10 @@ Content-Type: application/json
 | grant_type | required | Must be `refresh_token` for this leg of the authorization code flow. |
 | scope | required | A space-separated list of scopes.  The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the original authorization_code request leg.  If the scopes specified in this request span multiple resource servers, then the v2.0 endpoint will return a token for the resource specified in the first scope.  For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](active-directory-v2-scopes.md).  |
 | refresh_token | required | The refresh_token that you acquired in the second leg of the flow.   |
+| redirect_uri | required | The same redirect_uri value that was used to acquire the authorization_code. |
 | client_secret | required for web apps | The application secret that you created in the app registration portal for your app.  It should not be used in a native  app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. |
 
+#### Successful Response
 A successful token response will look like:
 
 ```
@@ -196,10 +218,9 @@ A successful token response will look like:
 	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
 	"token_type": "Bearer",
 	"expires_in": "3600",
-	"scope": "https://graph.windows.net/directory.read https://graph.windows.net/directory.write",
+	"scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
 	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
 	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
-	"id_token_expires_in": "3599"
 }
 ```
 | Parameter | Description |
@@ -210,8 +231,8 @@ A successful token response will look like:
 | scope | The scopes that the access_token is valid for. |
 | refresh_token |  A new OAuth 2.0 refresh token. You should replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible.  |
 | id_token | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 app model token reference](active-directory-v2-tokens.md). |
-| id_token_expires_in | How long the id token is valid (in seconds). |
 
+#### Error Response
 Error responses will look like:
 
 ```

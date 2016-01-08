@@ -16,11 +16,11 @@
 	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
-# App Model v2.0 Preview: Add sign-in to a nodeJS Web App
+# Add sign-in to a nodeJS Web App
 
 
-  > [AZURE.NOTE]
-    This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 
 Here we'll use Passport to:
@@ -31,12 +31,7 @@ Here we'll use Passport to:
 
 **Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Microsoft Azure Active Directory. We will install this module and then add the Microsoft Azure Active Directory `passport-azure-ad` plug-in.
 
-In order to do this, you'll need to:
-
-1. Register an app.
-2. Set up your app to use the Passport-azure-ad strategy.
-3. Use Passport to issue sign-in and sign-out requests to Azure AD.
-4. Print out data about the user.
+## Download
 
 The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs/archive/skeleton.zip) or clone the skeleton:
 
@@ -113,7 +108,7 @@ passport.use(new OIDCStrategy({
     responseType: config.creds.responseType,
     responseMode: config.creds.responseMode,
     skipUserProfile: config.creds.skipUserProfile
-    //scope: config.creds.scope
+    // scope: config.creds.scope
   },
   function(iss, sub, profile, accessToken, refreshToken, done) {
     log.info('Example: Email address we received was: ', profile.email);
@@ -419,8 +414,8 @@ For reference, the completed sample (without your configuration values) [is prov
 
 You can now move onto more advanced topics.  You may want to try:
 
-[Secure a Web API with the v2.0 app model in node.js >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
+[Secure a v2.0 Web API in node.js >>](active-directory-v2-devquickstarts-webapi-nodejs.md)
 
 For additional resources, check out:
-- [The App Model v2.0 Preview >>](active-directory-appmodel-v2-overview.md)
+- [The v2.0 developer guide >>](active-directory-appmodel-v2-overview.md)
 - [StackOverflow "azure-active-directory" tag >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

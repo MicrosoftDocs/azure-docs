@@ -17,11 +17,14 @@
 	ms.author="dastrock"/>
 
 
-# App model v2.0 preview: Add sign-in to an AngularJS single page app - NodeJS
+# Add sign-in to an AngularJS single page app - NodeJS
 
-In this article we'll add sign in with Microsoft powered accounts to an AngularJS app using Azure Active Directory's app model v2.0.  App model v2.0 enables you to perform a single integration in your app and authenticate users with both personal and work/school accounts.
+In this article we'll add sign in with Microsoft powered accounts to an AngularJS app using an Azure Active Directory v2.0 app. V2.0 apps enable you to perform a single integration in your app and authenticate users with both personal and work/school accounts.
 
 This sample is a simple To-Do List single page app that stores tasks in a backend REST API, written in NodeJS and secured using OAuth bearer tokens from Azure AD.  The AngularJS app will use our open source JavaScript authentication library [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) to handle the entire sign in process and acquire tokens for calling the REST API.  The same pattern can be applied to authenticate to other REST APIs, like the [Microsoft Graph](https://graph.microsoft.com) or the Azure Resource Manager APIs.
+
+> [AZURE.NOTE]
+	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Download
 
@@ -232,7 +235,7 @@ node server.js
 
 In a browser navigate to `http://localhost:8080`.  Sign in using either a personal Microsoft account or a work/school account.  Add tasks to the user's to-do list, and sign out.  Try signing in with the other type of account. If you need an Azure AD tenant to create work/school users, [learn how to get one here](active-directory-howto-tenant.md) (it's free).
 
-To continue learning about the app model v2.0 preview, head back to our [v2.0 developer guide](active-directory-appmodel-v2-overview.md).  For additional resources, check out:
+To continue learning about the v2.0 apps, head back to our [v2.0 developer guide](active-directory-appmodel-v2-overview.md).  For additional resources, check out:
 
 - [Azure-Samples on GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD on Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)

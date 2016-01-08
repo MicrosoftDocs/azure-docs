@@ -16,12 +16,12 @@
 	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
-# App model v2.0 preview: Token reference
+# V2.0 token reference
 
 The v2.0 endpoint emits several types of security tokens in the processing of each [authentication flow](active-directory-v2-flows.md). This document describes the format, security characteristics, and contents of each type of token.
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
 ## Types of Tokens
 
@@ -37,46 +37,34 @@ Id_tokens are a form of sign-in security token that your app receives when perfo
 
 Id_tokens are signed, but not encrypted at this time.  When your app receives an id_token, it must [validate the signature](#validating-tokens) to prove the token's authenticity and validate a few claims in the token to prove its validity.  The claims validated by an app vary depending on scenario requirements, but there are some [common claim validations](#validating-tokens) that your app must perform in every scenario.
 
-Full details on the claims in id_tokens are provided below, as well as a sample id_token.  Note that the claims in id_tokens are not returned in any particular order.  In addition, new claims can be introduced into id_tokens at any point in time - your app should not break as new claims are introduced.  The list below includes the claims that your app can reliably interpret at the time of this writing. For practice, try inspecting the claims in the sample id_token by pasting it into [calebb.net](https://calebb.net).  If necessary, even more detail can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
+Full details on the claims in id_tokens are provided below, as well as a sample id_token.  Note that the claims in id_tokens are not returned in any particular order.  In addition, new claims can be introduced into id_tokens at any point in time - your app should not break as new claims are introduced.  The list below includes the claims that your app can reliably interpret at the time of this writing.  If necessary, even more detail can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### Sample Id_Token
-```
-// Line breaks for display purposes only
 
-eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ
-19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI0OTIxMDI1My0wYmExLTRhOWEtYTQyNC02MTY5OTlmYWI2MjAiL
-CJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTAzMTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMW
-YzNzZlL3YyLjAvIiwiaWF0IjoxNDM4NTM1NTQzLCJuYmYiOjE0Mzg1MzU1NDMsImV4cCI6MTQzODUzOTQ0MywidmVyIjoiMi4
-wIiwidGlkIjoiYjk0MTAzMTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlIiwib2lkIjoiYTFlYmRkZTgtZTRmOS00NTcx
-LWFkOTMtMzA1OWUzNzUwZDIzIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2FtcGxlLmFkbWluQHN0cm9ja2lzZGV2Lm9ubWljc
-m9zb2Z0LmNvbSIsInN1YiI6IjJvMmQ5SVBGVzI5MGo0RVkySXg0RUdoaEtlWnVGaC1LcFhHS2tuZkNxRWMiLCJuYW1lIjoiU2
-FtcGxlIEFkbWluIiwibm9uY2UiOiIxMjM0NSIsImNfaGFzaCI6IngxeU92VTZRaXE0Y1lVcVIxeDBvM2cifQ.Qk9exyv04I6a
-P6Sju2xNG9O2sj8dG-aEoJeS5dmnjdLo8k1ZzgZd7w-6yCrKXgPh4FJ1YY-08DZnHNmP3oxm3zmEv3RUIBEyTmo3598PRYLWl
-vttis1KD5PoNgAyKfHqiOCL5q_Owd0m9oAKDagbJhRVZOS89phllA0AQnaI6hJOKvMsbOYJt-w00y6TXf1Nkzp_Yey8EmRiwN
-7gqvudL1UfZ7_UbST2DBjPIyZsv0gT8gpApz6CecCOyX1NNWpUg8ZRkNnOjGL-IMhq4okPCTTfYriOo93z9Y9v6NmaJxV5bBN
-V-DIguXSzLVKnnflfSLyvhinsjLKCnu9L3oXHxw
 ```
+eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
+```
+
+> [AZURE.TIP] For practice, try inspecting the claims in the sample id_token by pasting it into [calebb.net](https://calebb.net).
 
 #### Claims in Id_Tokens
 | Name | Claim | Example Value | Description |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
-| Audience | `aud` | `49210253-0ba1-4a9a-a424-616999fab620` | Identifies the intended recipient of the token.  In id_tokens, the audience is your app's Application Id, as assigned to your app in the app registration portal.  Your app should validate this value and reject the token if it does not match. |
-| Issuer | `iss` | `https://login.microsoftonline.com/b9410318-09af-49c2-b0c3-653adc1f376e/v2.0/` | Identifies the security token service (STS) that constructs and returns the token, as well as the Azure AD tenant in which the user was authenticated.  Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint.  It can also use the guid portion of the claim to restrict the set of tenants that are allowed to sign into the app. |
-| Issued At | `iat` | `1438535543` | The time at which the token was issued, represented in epoch time. |
-| Expiration Time | `exp` | `1438539443` | The time at which the token becomes invalid, represented in epoch time.  Your app should use this claim to verify the validity of the token lifetime.  |
+| Audience | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | Identifies the intended recipient of the token.  In id_tokens, the audience is your app's Application Id, as assigned to your app in the app registration portal.  Your app should validate this value and reject the token if it does not match. |
+| Issuer | `iss` | `https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0` | Identifies the security token service (STS) that constructs and returns the token, as well as the Azure AD tenant in which the user was authenticated.  Your app should validate the issuer claim to ensure that the token came from the v2.0 endpoint.  It can also use the guid portion of the claim to restrict the set of tenants that are allowed to sign into the app. |
+| Issued At | `iat` | `1452285331` | The time at which the token was issued, represented in epoch time. |
+| Expiration Time | `exp` | `1452289231` | The time at which the token becomes invalid, represented in epoch time.  Your app should use this claim to verify the validity of the token lifetime.  |
+| Not Before | `nbf` | `1452285331` |  The time at which the token becomes valid, represented in epoch time. It is usually the same as the issuance time.  Your app should use this claim to verify the validity of the token lifetime.  |
 | Version | `ver` | `2.0` | The version of the id_token, as defined by Azure AD.  For app model v2.0, The value will be `2.0`. |
-| Tenant Id | `tid` | `b9410318-09af-49c2-b0c3-653adc1f376e` | A guid representing the Azure AD tenant which the user is from.  For work and school accounts, the guid will be the immutable tenant ID of the organization that the user belongs to.  For personal accounts, the value will be `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+| Tenant Id | `tid` | `b9419818-09af-49c2-b0c3-653adc1f376e` | A guid representing the Azure AD tenant which the user is from.  For work and school accounts, the guid will be the immutable tenant ID of the organization that the user belongs to.  For personal accounts, the value will be `9188040d-6c67-4c5b-b112-36a304b66dad`.  The `profile` scope is required in order to receive this claim. |
 | Code Hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | The code hash is included in id_tokens only when the id_token is issued alongside an OAuth 2.0 authorization code.  It can be used to validate the authenticity of an authorization code.  See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on performing this validation. |
 | Access Token Hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | The access token hash is included in id_tokens only when the id_token is issued alongside an OAuth 2.0 access token.  It can be used to validate the authenticity of an access token.  See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on performing this validation. |
 | Nonce | `nonce` | `12345` | The nonce is a strategy for mitigating token replay attacks.  Your app can specify a nonce in an authorization request by using the `nonce` query parameter.  The value you provide in the request will be emitted in the id_token's `nonce` claim, unmodified.  This allows your app to verify the value against the value it specified on the request, which associates the app's session with a given id_token.  Your app should perform this validation during the id_token validation process. |
-| Name | `name` | `Leonardo DaVinci` | The name claim provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique, is mutable, and is designed to be used only for display purposes. |
-| Preferred Username | `preferred_username` | `leo@outlook.com` | The primary username that is used to represent the user in the v2.0 endpoint.  It could be an email address, phone number, or a generic username without a specified format.  Its value is mutable and may change for a given user over time. |
-| Subject | `sub` | `AAAAAAAAAAAAAAAAAAAAAOUtxUJsxQtHuMcFCIA1NC0` | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused, so it can be used to perform authorization checks safely, such as when the token is used to access a resource. Because the subject is always present in the tokens the Azure AD issues, we recommended using this value in a general purpose authorization system. |
-| ObjectId | `oid` | `27cb5cec-7c0c-40b4-a69a-22500b6ea853` | The object Id of the work or school account in the Azure AD system.  This claim will not be issued for personal Microsoft accounts. |
-
-<!---
-| Not Before | `nbf` | `1438535543` |  The time at which the token becomes valid, represented in epoch time. It is usually the same as the issuance time.  Your app should use this claim to verify the validity of the token lifetime.  |
--->
+| Name | `name` | `Babe Ruth` | The name claim provides a human readable value that identifies the subject of the token. This value is not guaranteed to be unique, is mutable, and is designed to be used only for display purposes.  The `profile` scope is required in order to receive this claim. |
+| Email | `email` | `thegreatbambino@nyy.onmicrosoft.com` | The primary email address associated with the user account, if one exists.  Its value is mutable and may change for a given user over time.  The `email` scope is required in order to receive this claim. |
+| Preferred Username | `preferred_username` | `thegreatbambino@nyy.onmicrosoft.com` | The primary username that is used to represent the user in the v2.0 endpoint.  It could be an email address, phone number, or a generic username without a specified format.  Its value is mutable and may change for a given user over time.  The `profile` scope is required in order to receive this claim. |
+| Subject | `sub` | `MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | The principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused, so it can be used to perform authorization checks safely, such as when the token is used to access a resource. Because the subject is always present in the tokens the Azure AD issues, we recommended using this value in a general purpose authorization system. |
+| ObjectId | `oid` | `a1dbdde8-e4f9-4571-ad93-3059e3750d23` | The object Id of the work or school account in the Azure AD system.  This claim will not be issued for personal Microsoft accounts.  The `profile` scope is required in order to receive this claim. |
 
 
 
@@ -116,25 +104,31 @@ Id_Tokens are signed using industry standard asymmetric encryption algorithms, s
 
 ```
 {
-		typ: "JWT",
-		alg: "RS256",
-		x5t: "GvnPApfWMdLRi8PDmisFn7bprKg"
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "MnC_VZcATfM5pOYiJHMba9goEKY"
 }
 ```
 
-The `alg` claim indicates the algorithm that was used to sign the token, while the `kid` or `x5t` claims indicate the particular public key that was used to sign the token.
+The `alg` claim indicates the algorithm that was used to sign the token, while the `kid` claim indicates the particular public key that was used to sign the token.
 
 At any given point in time, the v2.0 endpoint may sign an id_token using any one of a certain set of public-private key pairs.  The v2.0 endpoint rotates the possible set of keys on a periodic basis, so your app should be written to handle those key changes automatically.  A reasonable frequency to check for updates to the public keys used by the v2.0 endpoint is about 24 hours.
 
 You can acquire the signing key data necessary to validate the signature by using the OpenID Connect metadata document located at:
 
-`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
+```
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
+```
 
 This metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication.  It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens.  That location is provided below, but it is best to fetch that location dynamically by using the metadata document and parsing out the `jwks_uri`:
 
-`https://login.microsoftonline.com/common/discovery/v2.0/keys`
+```
+https://login.microsoftonline.com/common/discovery/v2.0/keys`
+```
 
-The JSON document located at this url contains all of the public key information in use at that particular moment in time.  Your app can use the `kid` or `x5t` claims in the JWT header to select which public key in this document has been used to sign a particular token.  It can then perform signature validation using the correct public key and the indicated algorithm.
+The JSON document located at this url contains all of the public key information in use at that particular moment in time.  Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token.  It can then perform signature validation using the correct public key and the indicated algorithm.
+
+> [AZURE.TIP] Try these URLs in a browser!
 
 Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
 
@@ -142,7 +136,7 @@ Performing signature validation is outside the scope of this document - there ar
 When your app receives an id_token upon user sign-in, it should also perform a few checks against the claims in the id_token.  These include:
 
 - The **Audience** claim - to verify that the id_token was intended to be given to your app.
-- The **Issued At** and **Expiration Time** claims - to verify that the id_token has not expired.
+- The **Not Before** and **Expiration Time** claims - to verify that the id_token has not expired.
 - The **Issuer** claim - to verify that the token was indeed issued to your app by the v2.0 endpoint.
 - The **Nonce** -  as a token replay attack mitigation.
 
