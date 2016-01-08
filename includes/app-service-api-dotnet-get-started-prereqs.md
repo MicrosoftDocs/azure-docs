@@ -2,7 +2,7 @@
 
 The tutorial assumes that you have a basic knowledge of how to work with ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) and [MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) in Visual Studio.
 
-## Visual Studio 2015
+### Visual Studio 2015
 
 The instructions and screen shots assume you're using Visual Studio 2015, but the same guidance works for Visual Studio 2013.
 
