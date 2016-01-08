@@ -157,8 +157,6 @@ For customers protecting data to a backup server (SCDPM or Azure Backup Server),
 
 ## Next steps
 
-- [Learn about the Azure Backup components](backup-components-deployments-scenarios.md#azure-backup-components)  
-- [Using Azure Backup for various backup scenarios ](backup-components-deployments-scenarios.md#backup-scenarios)  
 - [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
 - Frequently asked question on the Azure Backup service is listed [here](backup-azure-backup-faq.md).
 - Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
