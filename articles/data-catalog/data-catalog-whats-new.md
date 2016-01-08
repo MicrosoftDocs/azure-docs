@@ -22,7 +22,7 @@ Updates to **Azure Data Catalog** are released on a regular basis. Not every rel
 
 ## What's new for the week of January 8, 2016 release
 
-As of the week of December 18, 2015, the following capabilities have been added to Azure Data Catalog:
+As of the week of January 8, 2016, the following capabilities have been added to Azure Data Catalog:
 
 - The ability to pin and unpin data assets in the **Azure Data Catalog** portal. Users can choose to pin data assets to make them easier to re-discover and re-use.
 - A newly redesigned home page in the **Azure Data Catalog** portal. The new home page includes insight into the current users activity - including recently published assets, pinned assets, and saved searches - as well as insight into the activity in the Catalog as a whole.
