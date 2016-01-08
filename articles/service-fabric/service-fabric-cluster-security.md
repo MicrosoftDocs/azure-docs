@@ -24,69 +24,67 @@ A Service Fabric cluster is a resource that you own. To prevent unauthorized acc
 
 Service Fabric provides security for the following scenarios:
 
-1. **Node-to-node security** secures the communication between the VMs and computers in the cluster. This ensures that only computers that are authorized to join the cluster can participate in hosting applications and services in the cluster.
+1. **Node-to-node security:** This secures communication between the VMs and computers in the cluster. This ensures that only computers that are authorized to join the cluster can participate in hosting applications and services in the cluster.
 
-	![Node-to-Node][Node-to-Node]
+	![Diagram of node-to-node communication][Node-to-Node]
 
-2. **Client-to-node security** or Security a fabric client communicating with a particular node in the cluster. Authenticates and secures client communications, which ensures that only authorized users are able to access the cluster and applications deployed on Windows Fabric cluster. Clients are uniquely identified through either their Windows Security credentials or their certificate security credentials.
+2. **Client-to-node security:** This secures communication between a Service Fabric client and individual nodes in the cluster. This type of security authenticates and secures client communications, which ensures that only authorized users can access the cluster and the applications deployed on the cluster. Clients are uniquely identified through either their Windows Security credentials or their certificate security credentials.
 
-	![Client-to-Node][Client-to-Node]
+	![Diagram of client-to-node communication][Client-to-Node]
 
-	For either type of communication scenarios (Node to Node or Client to Node), Service Fabric provides support for using either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx). The choices for node-to-node or client-to-node security are independent, from each other, and could be the same or different for each.
+	For either node-to-node or client-to-node security, you can use either [Certificate Security](https://msdn.microsoft.com/library/ff649801.aspx) or [Windows Security](https://msdn.microsoft.com/library/ff649396.aspx). The choices for node-to-node or client-to-node security are independent from each other, and can be the same or different.
 
-	In Azure Service Fabric uses X.509 Server certificates that you specify as a part of the Node Type configurations when you create a cluster. For a quick overview of what these certificates are and how you can acquire/create them, scroll down to the bottom of this page.
+	Azure Service Fabric uses X.509 server certificates that you specify as a part of the node-type configurations when you create a cluster. A quick overview of what these certificates are and how you can acquire or create them is provided at the end of this article.
 
-3. **Role Based Access Control (RBAC)** : Ability to restrict the admin operations from the read only operations on the cluster to a set of certificates.
+3. **Role Based Access Control (RBAC):** This restricts admin operations on the cluster to a particular set of certificates.
 
-4. **Service accounts and RunAs** : Service Fabric itself runs as a Windows Service process (Fabric.exe) and the security account under which the Fabric.exe process runs is configurable. The process accounts that Fabric.exe runs under on each node in the cluster can be secured as well as the service host processes that are activated for each service. Refer to [Application Security and Runas](service-fabric-application-runas-security.md) doc for more details
+4. **Service accounts and RunAs:** Service Fabric itself runs as a Windows Service process (Fabric.exe), and the security account under which the Fabric.exe process runs is configurable. You can secure the process accounts that Fabric.exe runs under on each node in the cluster, and you can also secure the service host processes that are activated for each service. Refer to [Application Security and RunAs](service-fabric-application-runas-security.md) for more details.
 
 ## Secure a Service Fabric cluster by using certificates.
 
-In order to set up a secure service fabric cluster, you will need at least one server / X.509 certificate. That you then upload to the azure Key Vault and use it in the cluster creation process
+To set up a secure Service Fabric cluster, you need at least one server X.509 certificate, which you upload to Azure Key Vault and use in the cluster creation process.
 
-There are three distinct steps
+There are three distinct steps:
 
-1. Acquire the X.509 certificate
-2. Upload the certificate to the Azure Key Vault.
-3. Provide the location and details of the certificate to the service fabric cluster creation process.
+1. Acquire the X.509 certificate.
+2. Upload the certificate to Azure Key Vault.
+3. Provide the location and details of the certificate to the Service Fabric cluster creation process.
 
 ### Step 1: Acquire the X.509 certificate(s)
 
 1. For clusters running production workloads, you must use a [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority) signed X.509 certificate to secure the cluster. For details on obtaining these certificates go to [http://msdn.microsoft.com/library/aa702761.aspx](http://msdn.microsoft.com/library/aa702761.aspx).
-2. For clusters that you use for test purposes only, you can choose to use a self signed certificate. Step 2.5 will go through the steps on how to.
 
+2. For clusters that you use for test purposes only, you can use a self-signed certificate. Step 2.5 below explains how to do that.
 
-### Step 2 : Upload the X.509 certificate to Key Vault
+### Step 2 : Upload the X.509 certificate to the key vault
 
-This is an involved process, so we have a powershell Module uploaded to a Git Repo, that does this for you.
+This is an involved process, so we have a PowerShell module uploaded to a Git repository that does this for you.
 
-**Step 2.1**: Copy this folder down to your machine from this [Git repo](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
+**Step 2.1**: Copy this folder to your machine from this [Git repository](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
-**Step 2.2**: Make sure  Azure SDK 1.0+ installed on your machine.
+**Step 2.2**: Make sure  Azure SDK 1.0+ is installed on your machine.
 
-**Step 2.3**: Open a Powershell window and import the ServiceFabricRPHelpers.psm
+**Step 2.3**: Open a PowerShell window and import the ServiceFabricRPHelpers.psm.
 
 ```
 Remove-Module ServiceFabricRPHelpers
 ```
 
-Copy the following and change the path to the .psm1 to be that of your machine. Here is an example
+Copy the following example and change the path to the .psm1 to match the path on your machine.
 
 ```
 Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
 
+**Step 2.4**: If you are using a certificate that you have already  acquired, follow these steps. Otherwise, skip to Step 2.5.
 
-**Step 2.4**: If you are using a cert that you already have acquired, then follow these steps, Else skip to Step 2.5.
-
-
-Log in to your Azure Account
+Sign in to your Azure Account.
 
 ```
 Login-AzureRmAccount
 ```
 
-The script will create a new resource group and/or a vault if they are not already present.
+The following script will create a new resource group and/or a key vault if they are not already present.
 
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
@@ -97,30 +95,28 @@ Here is a filled out script as an example.
 Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password abcd123 -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx
 ```
 
-On successful completion of the script,you will now get an output like the one below, you need these for step #3.
+On successful completion of the script, you will get an output like the one below, which you will need for Step 3.
 
 1. **Certificate Thumbprint** : 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
 2. **SourceVault** /Resource ID of the KeyVault :  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
-3. **Certificate URL** /URL to the Certificate location in the key Vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
+3. **Certificate URL** /URL to the Certificate location in the key vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
 
-you are have the information you need to set up a secure cluster. Go to Step3.
+You now have the information you need to set up a secure cluster. Go to Step 3.
 
+**Step 2.5**: To create a new self-signed certificate and upload it to the key vault, do the following:
 
-**Step 2.5**: If want to create a new Self Signed Cert and upload it to the Key Vault.
-
-Log in to your Azure Account
+Sign in to your Azure Account.
 
 ```
 Login-AzureRmAccount
 ```
 
-The script will create a new resource group and/or a vault if they are not already present.
+The following script will create a new resource group and/or a key vault if they are not already present.
 
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -CreateSelfSignedCertificate -DnsName <string- see note below.> -OutputPath <Full path to the .pfx file>
 ```
-The OutputPath you gave to the script will contain the new self-signed certificate that we uploaded to the keyvault.
-
+The OutputPath that you gave to the script will contain the new self-signed certificate that was uploaded to the key vault.
 
 **Note** The DnsName <String[]> Specifies one or more DNS names to put into the subject alternative name extension of the certificate when a certificate to be copied is not specified via the CloneCert parameter. The first DNS name is also saved as the Subject Name. If no signing certificate is specified, the first DNS name is also saved as the Issuer Name.
 
@@ -193,7 +189,7 @@ Read Only Client - This information is used to validate that the client connecti
 <!-- Consider making this Step 4. SH -->
 
 Service fabric allows you to specify two certificates a primary and a secondary. The one that you specified at creation time is defaulted to primary.
-In order to add another certificate, you need deploy that certificate to the VMs in the cluster. Step #2 above outlines how you can upload a new cert to the the keyvalult. you can use the same keyvault for this, as you did with the first certificate.
+In order to add another certificate, you need deploy that certificate to the VMs in the cluster. Step #2 above outlines how you can upload a new cert to the the keyvalult. you can use the same key vault for this, as you did with the first certificate.
 
 Refer to  - [Deploy certificates to VMs from customer-managed key vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) document on how to.
 
@@ -222,7 +218,7 @@ X.509 digital certificates are commonly used to authenticate clients and servers
 
 ## Server certificates and client certificates
 
-**Server/X.509 certificates**
+**Server X.509 certificates**
 
 Server certificates have the primary task of authenticating the server (node) to clients or server (node) to server (node). One of the initial checks when a client or node authenticates a node is to compare the value of the common name in the Subject field to ensure that it is present in the list of allowed common names that has been configured. Either this common name or one of the certificates subject alternative names must be present in the list of allowed common names.
 
