@@ -1,6 +1,6 @@
 ﻿<properties
 	pageTitle="Automatically Scale Virtual Machine Scale Sets | Microsoft Azure"
-	description="Get started creating and managing your first Azure Virtual Machine Scale Sets using Azure PowerShell"
+	description="Get started creating and managing your first Azure Virtual Machine Scale Sets using Azure CLI"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -29,21 +29,31 @@
 
 Virtual Machine Scale Sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual Machine Scale Sets](virtual-machines-vmss-overview.md).
 
-This tutorial shows you how to create a Virtual Machine Scale Set of Windows virtual machines and automatically scale the machines in the set. You do this by creating an Azure Resource Manager template and deploying it using Azure PowerShell. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+This tutorial shows you how to create a Virtual Machine Scale Set of Linux virtual machines using the latest patched version of Ubuntu Linux and automatically scale the machines in the set. You do this by creating an Azure Resource Manager template and deploying it using Azure PowerShell. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
-The template that you build in this tutorial is similar to a template that can be found in the template gallery. To learn more, see [Deploy a simple VM Scale Set with Windows VMs and a Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-windows-jumpbox/).
+The template that you build in this tutorial is similar to a template that can be found in the template gallery. To learn more, see [Deploy a simple VM Scale Set with Linux VMs and a Jumpbox](https://azure.microsoft.com/documentation/templates/201-vmss-linux-jumpbox/).
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+Before you get started with the steps in this tutorial, [install the Azure CLI](../xplat-cli-install.md).
 
-[AZURE.INCLUDE [virtual-machines-vmss-preview-ps](../../includes/virtual-machines-vmss-preview-ps-include.md)]
+[AZURE.INCLUDE [virtual-machines-vmss-preview-cli](../../includes/virtual-machines-vmss-preview-cli-include.md)]
 
 ## Step 1: Create a resource group and a storage account
 
-1. **Sign in to Microsoft Azure**. Open the Microsoft Azure PowerShell window and run **Login-AzureRmAccount**.
+1. **Sign in to Microsoft Azure** - In your command-line interface (Bash, Terminal, Command prompt), make sure you're in Resource Manager mode by typing `azure config mode arm`, and then [log in with your work or school id](../xplat-cli-connect.md#use-the-log-in-method) by typing `azure login` and following the prompts for an interactive login experience to your Azure account.
 
-2. **Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmsstestrg1**. See [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+	> [AZURE.NOTE] If you have a work or school ID and you know you do not have two-factor authentication enabled, you can use `azure login -u` along with the work or school ID to log in without an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](resource-group-create-work-id-from-personal.md).
 
-3. **Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Use [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) to create a storage account named **vmsstestsa**. Keep the Azure PowerShell window open for steps later in this tutorial.
+2. **Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmsstest1**:
+
+	```
+	azure group create vmsstestrg1 westus
+	```
+
+3. **Deploy a storage account into the new resource group** – This tutorial uses several storage accounts to facilitate the virtual machine scale set. Create a storage account named **vmsstestsa**. Keep the command interface window open for steps later in this tutorial:
+
+	```
+	azure storage account create --type LRS -g vmsstestrg1 -l westus vmsstestsa
+	```
 
 ## Step 2: Create the template
 An Azure Resource Manager template makes it possible for you to deploy and manage Azure resources together by using a JSON description of the resources and associated deployment parameters.
@@ -70,7 +80,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	- A name for the jumpbox virtual machine that is used to access the machines in the scale set.
 	- A name for the storage account where the template is stored.
 	- The number of instances of virtual machines to initially create in the scale set.
-	- The name and password of the administrator account on the virtual machines.
+	- A name and password of the administrator account on the virtual machines.
 	- A prefix for the resources that are created in the resource group.
 
 
@@ -112,9 +122,9 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	"dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
 	"dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
 	"vmSize": "Standard_A0",
-	"imagePublisher": "MicrosoftWindowsServer",
-	"imageOffer": "WindowsServer",
-	"imageVersion": "2012-R2-Datacenter",
+	"imagePublisher": "Canonical",
+	"imageOffer": "UbuntuServer",
+	"imageVersion": "15.10",
 	"addressPrefix": "10.0.0.0/16",
 	"subnetName": "Subnet",
 	"subnetPrefix": "10.0.0.0/24",
@@ -134,8 +144,8 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	"storageAccountSuffix": [ "a", "g", "m", "s", "y" ],
 	"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
 	"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-	"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
-	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\% Processor Time\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"CPU utilization\" locale=\"en-us\"/></PerformanceCounterConfiguration>",
+	"wadlogs": "<WadCfg><DiagnosticMonitorConfiguration>",
+	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor\\PercentProcessorTime\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"CPU percentage guest OS\" locale=\"en-us\"/></PerformanceCounterConfiguration>",
 	"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
 	"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
 	"wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
@@ -160,7 +170,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	```
 	{
 		"type": "Microsoft.Storage/storageAccounts",
-		"name": "[concat(variables('resourcePrefix'), parameters('storageAccountSuffix')[copyIndex()])]",
+		"name": "[concat(parameters('resourcePrefix'), parameters('storageAccountSuffix')[copyIndex()])]",
 		"apiVersion": "2015-05-01-preview",
 		"copy": {
 			"name": "storageLoop",
@@ -275,7 +285,6 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 
 8. Add the network interface resource that is used by the jumpbox virtual machine. Because machines in a virtual machine scale set are not directly accessible using a public IP address, a jumpbox virtual machine is created in the same virtual network as the scale set and is used to remotely access the machines in the set.
 
-
 	```
 	{
 		"apiVersion": "2015-05-01-preview",
@@ -306,7 +315,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	```
 
 
-9. Add the virtual machine in the same network as the scale set.
+9. Add the jumpbox virtual machine in the same network as the scale set.
 
 	```
 	{
@@ -314,7 +323,8 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 		"type": "Microsoft.Compute/virtualMachines",
 		"name": "[parameters('vmName')]",
 		"location": "[resourceGroup().location]",
-      "dependsOn": [
+		"dependsOn": [
+			"storageLoop",
 			"[concat('Microsoft.Network/networkInterfaces/', variables('nicName1'))]"
 		],
 		"properties": {
@@ -339,7 +349,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 						"uri":  "[concat('https://',parameters('resourcePrefix'),'saa.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'osdisk1.vhd')]"
 					},
 					"caching": "ReadWrite",
-					"createOption": "FromImage"        
+					"createOption": "FromImage"
 				}
 			},
 			"networkProfile": {
@@ -353,7 +363,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	},
 	```
 
-10.	Add the virtual machine scale set and specify the Diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. Here are the main differences:
+10.	Add the virtual machine scale set resource and specify the Diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. Here are the main differences:
 
 	- **capacity** - specifies how many virtual machines should be initialized in the scale set. You set this value by specifying a value for the instanceCount parameter.
 
@@ -369,14 +379,14 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 		"location": "[resourceGroup().location]",
 		"dependsOn": [
 			"storageLoop",
-			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
-			"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
+			"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
 		],
 		"sku": {
 			"name": "[variables('vmSize')]",
 			"tier": "Standard",
 			"capacity": "[parameters('instanceCount')]"
-		},
+		}
 		"properties": {
 			"upgradePolicy": {
 				"mode": "Manual"
@@ -440,20 +450,20 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 				"extensionProfile": {
 					"extensions": [
 						{
-							"name": "Microsoft.Insights.VMDiagnosticsSettings",
+							"name":"LinuxDiagnostic",
 							"properties": {
-								"publisher": "Microsoft.Azure.Diagnostics",
-								"type": "IaaSDiagnostics",
-								"typeHandlerVersion": "1.5",
-								"autoUpgradeMinorVersion": true,
+								"publisher":"Microsoft.OSTCExtensions",
+								"type":"LinuxDiagnostic",
+								"typeHandlerVersion":"2.1",
+								"autoUpgradeMinorVersion":false,
 								"settings": {
-									"xmlCfg": "[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
-									"storageAccount": "[variables('diagnosticsStorageAccountName')]"
+									"xmlCfg":"[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
+									"storageAccount":"[variables('diagnosticsStorageAccountName')]"
 								},
 								"protectedSettings": {
-									"storageAccountName": "[variables('diagnosticsStorageAccountName')]",
-									"storageAccountKey": "[listkeys(variables('accountid'), variables('apiVersion')).key1]",
-									"storageAccountEndPoint": "https://core.windows.net"
+									"storageAccountName":"[variables('diagnosticsStorageAccountName')]",
+									"storageAccountKey":"[listkeys(variables('accountid'), variables('apiVersion')).key1]",
+									"storageAccountEndPoint":"https://core.windows.net"
 								}
 							}
 						}
@@ -464,9 +474,9 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	},
 	```
 
-11.	Add the autoscaleSettings resource that defines how the scale set adjusts based on the processor usage on the machines in the set. For this tutorial, these are the important values:
+11.	Add the autoscaleSettings resource that defines how the scale set adjusts based on processor usage on the machines in the set. For this tutorial, these are the important values:
 
- - **metricName** - This is the same as the performance counter that we defined in the wadperfcounter variable. Using that variable, the Diagnostics extension collects the  **Processor(_Total)\% Processor Time** counter.
+ - **metricName** - This is the same as the performance counter that we defined in the wadperfcounter variable. Using that variable, the Diagnostics extension collects the  **Processor\PercentProcessorTime** counter.
  - **metricResourceUri** - This is the resource identifier of the virtual machine scale set.
  - **timeGrain** – This is the granularity of the metrics that are collected. In this template, it is set to 1 minute.
  - **statistic** – This determines how the metrics are combined to accommodate the automatic scaling action. The possible values are: Average, Min, Max. In this template we are looking for the average total CPU usage among the virtual machines in the scale set.
@@ -502,7 +512,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 					"rules": [
 						{
 							"metricTrigger": {
-								"metricName": "\\Processor(_Total)\\% Processor Time",
+								"metricName": "\\Processor\\PercentProcessorTime",
 								"metricNamespace": "",
 								"metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]",
 								"timeGrain": "PT1M",
@@ -531,38 +541,28 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 
 ## Step 3: Upload the template to storage
 
-The template can be uploaded from the Microsoft Azure PowerShell window as long as you know the account name and the primary key of the storage account that you created in step 1.
+The template can be uploaded from your command-line interface as long as you know the account name and the primary key of the storage account that you created in step 1.
 
-1.	In the Microsoft Azure PowerShell window, set a variable that specifies the name of the storage account that you deployed in step 1.
+1. In your command-line interface (Bash, Terminal, Command prompt), run these commands to set the environment variables needed to access the storage account:
 
-		$StorageAccountName = "vmstestsa"
+		export AZURE_STORAGE_ACCOUNT={account_name}
+		export AZURE_STORAGE_ACCESS_KEY={key}
 
-2.	Set a variable that specifies the primary key of the storage account.
+	You can get the key by clicking the key icon when viewing the storage account resource in the Azure portal. When using a Windows command prompt, type **set** instead of export.
 
-		$StorageAccountKey = "<primary-account-key>"
+2. Create the container to store the template:
 
-	You can get this key by clicking the key icon when viewing the storage account resource in the Azure portal.
+		azure storage container create -p Blob templates
 
-3.	Create the storage account context object that is used to validate operations with the storage account.
+3. Upload the template file to the new container.
 
-		$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-
-4.	Create a new templates container where the template that you created can be stored.
-
-		$ContainerName = "templates"
-		New-AzureStorageContainer -Name $ContainerName -Context $ctx  -Permission Blob
-
-5.	Upload the template file to the new container.
-
-		$BlobName = "VMSSTemplate.json"
-		$fileName = "C:\" + $BlobName
-		Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
+		azure storage blob upload VMSSTemplate.json templates VMSSTemplate.json
 
 ## Step 4: Deploy the template
 
 Now that you created the template, you can start deploying the resources. Use this command to start the process:
 
-		New-AzureRmResourceGroupDeployment -Name "vmsstestdp1" -ResourceGroupName "vmsstestrg1" -TemplateUri "https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json"
+	azure group deployment create --template-uri https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json vmsstestrg1 vmsstestdp1
 
 When you press enter, you are prompted to provide values for the variables you assigned. Provide these values:
 
@@ -587,20 +587,20 @@ You can get some information about virtual machine scale sets using these method
 
 		subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
- - Azure PowerShell - Use this command to get some information:
+ - Azure CLI - Use this command to get some information:
 
-		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+		azure resource show -n vmsstest1 -r Microsoft.Compute/virtualMachineScaleSets -o 2015-06-15 -g vmsstestrg1
 
  - Connect to the jumpbox virtual machine just like you would any other machine and then you can remotely access the virtual machines in the scale set to monitor individual processes.
 
->[AZURE.NOTE]A complete REST API for obtaining information about scale sets can be found in [Virtual Machine Scale Sets](https://msdn.microsoft.com/library/mt589023.aspx)
+>[AZURE.NOTE]A complete REST API for obtaining information about scale sets can be found in [Virtual Machine Scale Sets](https://msdn.microsoft.com/library/mt589023.aspx).
 
 ## Step 6: Remove the resources
 
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. You can delete the resource group and all of its resources will automatically be deleted.
 
-	Remove-AzureRmResourceGroup -Name vmsstestrg1
+		azure group delete vmsstestrg1
 
-If you want to keep your resource group, you can delete the scale set only.
+## Next steps
 
-	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmsstestrg1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+Check out the [Autoscale a VM Scale Set running a Ubuntu/Apache/PHP app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) template that sets up a LAMP stack to exercise the automatic scaling functionality of Virtual Machine Scale Sets.
