@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create an Azure Mobile Engagement App Collection and start managing your apps | Microsoft Azure"
+	pageTitle="Create an Azure Mobile Engagement App | Microsoft Azure"
 	description="Describes how to create a new Mobile Engagement App Collection in Azure and start managing your apps with the Mobile Engagement portal."
 	services="mobile-engagement"
 	documentationCenter=""
@@ -17,9 +17,9 @@
 	ms.author="juliako"/>
 
 
-# Create an Azure Mobile Engagement App Collection and start managing your apps
+# Create an Azure Mobile Engagement App
 
-This article shows how to use the **Quick Create** method to create a new **Azure Mobile Engagement** App Collection. The article also shows how to navigate to your **Mobile Engagement** portal in order to start monitoring and managing your apps. 
+This article shows how to use the **Quick Create** method to create a new **Azure Mobile Engagement** App. The article also shows how to navigate to your **Mobile Engagement** portal in order to start monitoring and managing your apps. 
 
 Note that you must add a minimum set of "basic integration" in order to be able to collect data for your app and send push notifications. The complete integration documentation can be found in the [Mobile Engagement integration](mobile-engagement-windows-store-integrate-engagement.md).
 
