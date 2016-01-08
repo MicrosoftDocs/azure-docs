@@ -227,7 +227,7 @@ Follow the same sequence of steps to create the second Event Hub Input for the s
   
 You now have two input streams defined like the display below:
   
-![2 input streams](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-32.png)  
+![2 input streams](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-32.jpg)  
   
 Next, add “Reference” data input for the blob file with car registration data. Click “Add Input”. Select “Reference Data” On the next page, select the storage account starting with “tolldata”. Container name should be “tolldata” and blob name under Pattern Path should be “registration.json”. This file name is case sensitive and should be all in lowercase. Select the values as shown below on the next page and click OK to finish the wizard.
   
