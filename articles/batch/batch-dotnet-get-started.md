@@ -99,6 +99,8 @@ You can find your Batch and Storage account credentials within the account blade
 
 Now that you've updated the project with your credentials, right-click the solution in *Solution Explorer* and click **Build Solution**. Confirm the restoration of any NuGet packages, if prompted.
 
+> [AZURE.TIP] If the NuGet packages are not automatically restored, or if you see errors regarding a failure to restore the packages, ensure that you have the [NuGet Package Manager][nuget_packagemgr] installed, then enable the download of missing packages. See [Enabling Package Restore During Build][nuget_restore] to enable package download.
+
 In the following sections, we break the sample application down into the steps it performs to process a workload in the Batch service, and discuss those steps in detail. You are encouraged to refer to the open solution in Visual Studio while working your way through the rest of this article, since not every line of code in the sample is discussed.
 
 Navigate to the top of the `MainAsync` method in the *DotNetTutorial* project's `Program.cs` to start with Step #1. Each step below then roughly follows the progression of method calls in `MainAsync`.
@@ -594,7 +596,7 @@ if (response != "n" && response != "no")
 
 ## Run the *DotNetTutorial* sample
 
-When you run the sample application, the console output will be similar to the following. During execution, you will experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the [Batch Explorer][github_batchexplorer] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure Portal][azure_portal] or one of the [available Azure Storage explorers][storage_explorers] to view the Storage resources--containers and blobs--created by the application.
+When you run the sample application, the console output will be similar to the following. During execution, you will experience a pause at `Awaiting task completion, timeout in 00:30:00...` while the pool's compute nodes are started. Use the [Batch Explorer][github_batchexplorer] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure Portal][azure_portal] or one of the [available Azure Storage explorers][storage_explorers] to view the Storage resources (containers and blobs) created by the application.
 
 Typical execution time is **approximately 5 minutes** when running the application in its default configuration.
 
@@ -677,6 +679,8 @@ Now that you are familiar with the basic workflow of a Batch solution, it's time
 [net_cloudblobcontainer]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx
 [net_cloudstorageaccount]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.cloudstorageaccount.aspx
 [net_container_delete]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteifexistsasync.aspx
+[nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
+[nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 [storage_explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 
