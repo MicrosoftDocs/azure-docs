@@ -333,8 +333,6 @@ Click the checkbox to test the query and view output:
 ### QUESTION 3 – REPORT ALL COMMERCIAL VEHICLES WITH EXPIRED REGISTRATION
 Azure Stream Analytics can use static snapshots of data to join with temporal data streams. To demonstrate this capability we will use the following sample question.
 If a commercial vehicle is registered with the Toll Company, they can pass through the toll booth without being stopped for inspection. We will use Commercial Vehicle Registration lookup table to identify all commercial vehicles with expired registration.
-Note that testing a query with Reference Data requires that an input source for the Reference Data is defined, which we have done in Step 5.
-To test this query, paste the query into the Query tab, click Test, and specify the 2 input sources:
 
     SELECT EntryStream.EntryTime, LicensePlate, EntryStream.EntryTime, LicensePlate, Entr yStream.TollId, Registration .RegistrationId
     FROM EntryStream TIMESTAMP BY EntryTime EntryTime
@@ -342,32 +340,67 @@ To test this query, paste the query into the Query tab, click Test, and specify 
     ON EntryStream.LicensePlate = Registration.EntryStream.LicensePlate
     = Registration.WHERE Registration.Expired = ‘1’
 
+Note that testing a query with Reference Data requires that an input source for the Reference Data is defined, which we have done in Step 5.
+To test this query, paste the query into the Query tab, click Test, and specify the 2 input sources:
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-47.png)  
+  
 View the output of the query:
-
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-48.png)  
+  
 ## START THE STREAM ANALYTICS JOB
 
 Now as we have written our first Azure Stream Analytics query, it is time to finish the configuration and start the job. Save the query from Question 3, which will produce output that matches the schema of our output table TollDataRefJoin. Navigate to the job Dashboard and click Start.
-
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-49.png)  
+  
 In the dialog that appears, change the Start Output time to Custom Time. Edit the Hour and set it to an hour back. This will ensure that all events are processed from the Event Hub since the moment the job started generating the events in the beginning of the lab. Now click the check mark to start the job. Starting the job can take a few minutes. The status on the top-level page for Stream Analytics should update.
-
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-51.jpg)  
+  
 ## CHECK RESULTS IN VISUAL STUDIO
 
 Open Visual Studio Server Explorer and right click TollDataRefJoin table. Select “Show Table Data” to see the output of the job.
 
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-52.jpg)  
+  
 ## SCALING OUT AZURE STREAM ANALYTICS JOBS
 
-Azure Stream Analytics is designed to elastically scale and be able to handle high load of data. The Azure Stream Analytics query can use a PARTITION BY clause to tell the system that this step will scale out. PartitionId is a special column added by the system that matches the partition id of the input (Event Hub)
-Stop the current job, update the query in Query tab and open Scale tab. Streaming units define the amount of compute power the job can receive. Move the slider to 6.
-Please go to the output tab and change SQL table name to “TollDataTumblingCountPartitioned”
-Now, if you start the job, Azure Stream Analytics will be able to distribute work across more compute resources and achieve better throughput. Please note that TollApp application is also sending events partitioned by TollId.
-SELECT TollId, System.Timestamp AS WindowEnd , COUNT (*) AS Count
-FROM EntryStream TIMESTAM P BY EntryTime PARTITION BY PartitionId
-GROUP BY TUMBLINGWINDOW (minute,3), TollId , PartitionId
+Azure Stream Analytics is designed to elastically scale and be able to handle high load of data. The Azure Stream Analytics query can use a PARTITION BY clause to tell the system that this step will scale out. PartitionId is a special column added by the system that matches the partition id of the input (Event Hub).
 
+	SELECT TollId, System.Timestamp AS WindowEnd , COUNT (*) AS Count
+	FROM EntryStream TIMESTAM P BY EntryTime PARTITION BY PartitionId
+	GROUP BY TUMBLINGWINDOW (minute,3), TollId , PartitionId
+
+Stop the current job, update the query in Query tab and open Scale tab. Streaming units define the amount of compute power the job can receive. Move the slider to 6.
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-57.png)  
+  
+Please go to the output tab and change SQL table name to “TollDataTumblingCountPartitioned”.
+
+Now, if you start the job, Azure Stream Analytics will be able to distribute work across more compute resources and achieve better throughput. Please note that TollApp application is also sending events partitioned by TollId.
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-58.png)  
+  
 ## Monitoring jobs
 
-Monitoring tab contains statistics about the running job. You can access Operation Logs from the Dashboard tab. To see additional information about a particular event, select the event and click “Details” button.
-
+Monitoring tab contains statistics about the running job.
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-54.jpg)  
+  
+You can access Operation Logs from the Dashboard tab.
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-55.jpg)  
+  
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-56.png)  
+  
+To see additional information about a particular event, select the event and click “Details” button.
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-57.png)  
+  
 ## Ordering events
 
 The order of the events is very important for the Stream Analytics query to produce correct answers. Since all the events are transmitted over the network, there is no guarantee that they will arrive in the same order as they were sent. There are two types of policies that can be used to specify how out of order events should be handled. They are Adjust (default) and Drop.
@@ -380,6 +413,9 @@ Setting the policy as Drop instructs Stream Analytics to drop all events that oc
 
 **TOLERANCE WINDOW**
 There are cases where the amount of expected disorder can be estimated by the user. For example if you think your events are not going to be delayed for more than 30 sec, you can set that as your Tolerance Window and provide a leeway for your incoming events. In this case all events arriving within 30 seconds will be sent to the engine in proper order. It is important to understand that you are introducing a latency for the amount of time you set in the tolerance window and if you have a high throughput of events, you are also adding memory pressure.
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-58.jpg)  
+  
 
 ## Conclusion
 
@@ -391,3 +427,6 @@ While this lab provides good introductory coverage, it is not complete by any me
 Stop the Stream Analytics Job from the Azure Portal.
 To cleanup the Azure Account, in the PowerShell window type “.\Cleanup.ps1” This will start the script that deletes resources used in the lab.
 Please note, **that resources are identified by the name. Make sure you carefully review each item before confirming removal.**
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-59.png)  
+  
