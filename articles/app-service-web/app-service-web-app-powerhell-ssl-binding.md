@@ -45,7 +45,7 @@ Knowing the resource group name that contains the web app, the web app name, the
 
     New-AzureRmWebAppSSLBinding -ResourceGroupName WebAppAzureResourceGroup -WebAppName webappname -Thumbprint <certificate thumbprint> -Name <Custom Hostname>
 
-## Deleting an existing SSL binding ##
+## Deleting an existing SSL binding  ##
 
 Scenario: The user would like to delete an existing SSL binding.
 
