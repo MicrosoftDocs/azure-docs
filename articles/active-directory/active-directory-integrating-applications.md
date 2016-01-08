@@ -109,9 +109,9 @@ Using the consent framework described above, you can configure your application 
 
 ### Exposing Web APIs to Other Applications
 
-You can develop a web API and make it available to other organizations by exposing your permission scopes to other application developers. A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs. Your web API is made available by configuring an [application manifest](active-directory-application-manifest.md), which is a JSON file that represents your application’s identity configuration. You can expose your permission scopes by navigating to your application in the Azure Management Portal and clicking on the Application Manifest button on the command bar.  For more information, see [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md).
+You can develop a web API and make it available to other applications by exposing permission scopes. A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs. Permission scopes are exposed through your application's manifest, which is a JSON file that represents your application’s identity configuration. You can expose your permission scopes by navigating to your application in the Azure Management Portal and clicking on the Application Manifest button on the command bar.  
 
-#### To expose a web API to other applications
+#### Adding permission scopes to your application
 
 1. Sign in to the Azure Management Portal.
 
@@ -121,7 +121,7 @@ You can develop a web API and make it available to other organizations by exposi
 
 1. Click on the Manage manifest button in the command bar, and select Download manifest.
 
-1. Open the JSON application manifest file and replace “oauth2Permissions” node with the following JSON snippet. This snippet is an example of how to expose a permission scope known as user impersonation, make sure that you change the text and values for your own application:
+1. Open the JSON application manifest file and replace “oauth2Permissions” node with the following JSON snippet. This snippet is an example of how to expose a permission scope known as user impersonation. Make sure that you change the text and values for your own application:
 
 		"oauth2Permissions": [
 		{
@@ -129,7 +129,6 @@ You can develop a web API and make it available to other organizations by exposi
 			"adminConsentDisplayName": "Have full access to the Todo List service",
 			"id": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
 			"isEnabled": true,
-			“origin”: “Application”
 			"type": "User",
 			"userConsentDescription": "Allow the application full access to the todo service on your behalf",
 			"userConsentDisplayName": "Have full access to the todo service",
@@ -151,21 +150,13 @@ You can develop a web API and make it available to other organizations by exposi
 
 ![Todo List permissions are shown](./media/active-directory-integrating-applications/listpermissions.png)
 
-#### AppPermissions Schema for Application Manifest JSON File
+#### Permissions schema for the application manifest JSON file
+The application manifest actually serves as a mechanism for updating the Application entity, which defines all attributes of an Azure AD application's identity configuration, including the API permission scopes we discussed. For more information on the Application entity, please see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity). In it, you will find complete reference information on the Application entity members used to specify permissions for your API:  
 
-The following table lists the possible values for the oauth2Permissions portion of the Application Manifest JSON file.
+- the appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) entities that can be used to define the **Application Permissions** for a web API  
+- the oauth2Permissions member, which is a collection of  [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType) entities that can be used to define the **Delegated Permissions** for a web API
 
-|Element|Description|
-|---|---|
-|adminConsentDescription|The help description in the hover over in the administrator’s consent dialog and in the consented app’s properties page.|
-|adminConsentDisplayName|The friendly name for the permission shown in the application and/or delegation permission scope dropdowns, and to administrators during consent, and in the app’s properties page.|
-|id|Represents a unique internal identifier for the permission scope.  It must be unique amongst all permissions for the application, and it must also be a GUID.|
-|isEnabled|When creating or updating an OAuth2 permission, always set this to true. If you wish to delete a permission, you must first set this value to false, and upload the manifest. Then you may remove the permission in a subsequent manifest upload.|
-|origin|Reserved for future use. Always set to “application”.|
-|type|Can be one of the following values:“User”: may be consented to by end users“Admin”: must be consented to by a company administrator|
-|userConsentDescription|The help description in the hover over in the user’s consent dialog.|
-|userConsentDisplayName|The friendly name for the permission shown to end-users during consent, and in the app’s properties page in the App Access Panel.|
-|value|This value is placed in the scp claim of the OAuth 2.0 access token if this particular permission has been consented to by the user. The web API can use this value to scope the level of access that the application has when impersonating the user. It must not contain any white spaces and must be unique amongst all permissions in the application.|
+For more information on application manifest concepts in general, please refer to [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md).
 
 ### Accessing the Graph API
 
