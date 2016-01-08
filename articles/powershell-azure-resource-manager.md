@@ -411,34 +411,34 @@ After creating a resource group, you can use the cmdlets in the Resource Manager
 
       If you just want to get a particular resource group, provide the **Name** parameter.
       
-                PS C:> Get-AzureRmResourceGroup -Name TestRG1
+          PS C:> Get-AzureRmResourceGroup -Name TestRG1
 
 - To get the resources in the resource group, use the **Find-AzureRmResource** cmdlet and its **ResourceGroupNameContains** parameter. Without parameters, Find-AzureRmResource gets all resources in your Azure subscription.
 
-		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
+        PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
-                Name              : exampleserver
-                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
-                ResourceName      : exampleserver
-                ResourceType      : Microsoft.Sql/servers
-                Kind              : v12.0
-                ResourceGroupName : TestRG1
-                Location          : westus
-                SubscriptionId    : {guid}
+        Name              : exampleserver
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
+        ResourceName      : exampleserver
+        ResourceType      : Microsoft.Sql/servers
+        Kind              : v12.0
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
                 
-                ...
+        ...
 	        
-- The template above includes a tag on one resource. You can query your resources by tags with the **Find-AzureRmResource** and **Find-AzureRmResourceGroup** commands.
+- The template above includes a tag on one resource. You can use tags to logically organize the resources in your subscription. You use the **Find-AzureRmResource** and **Find-AzureRmResourceGroup** commands to query your resources by tags.
 
-                PS C:\> Find-AzureRmResource -TagName team
+        PS C:\> Find-AzureRmResource -TagName team
 
-                Name              : ExampleSiteuxq53xiz5etmq
-                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
-                ResourceName      : ExampleSiteuxq53xiz5etmq
-                ResourceType      : Microsoft.Web/sites
-                ResourceGroupName : TestRG1
-                Location          : westus
-                SubscriptionId    : {guid}
+        Name              : ExampleSiteuxq53xiz5etmq
+        ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
+        ResourceName      : ExampleSiteuxq53xiz5etmq
+        ResourceType      : Microsoft.Web/sites
+        ResourceGroupName : TestRG1
+        Location          : westus
+        SubscriptionId    : {guid}
                 
       There is much more you can do with tags. For more information, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
