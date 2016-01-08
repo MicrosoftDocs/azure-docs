@@ -31,9 +31,7 @@ This tutorial describes configuration requirements, as well as procedures for in
 
 ## StorSimple Snapshot Manager installation
 
-StorSimple Snapshot Manager can be installed on computers that are running the Windows Server® 2008 R2 SP1, Windows Server 2012, or Windows Server 2012 R2 operating system.
-
->[AZURE.NOTE] On servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0. 
+StorSimple Snapshot Manager can be installed on computers that are running the Windows Server® 2008 R2 SP1, Windows Server 2012, or Windows Server 2012 R2 operating system. On servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0. 
 
 Before you install or upgrade the StorSimple Snapshot Manager snap-in for the Microsoft Management Console (MMC), make sure that the Microsoft Azure StorSimple device and host server are configured correctly. 
 
@@ -55,7 +53,7 @@ The following steps provide a high-level overview of configuration tasks that yo
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    >[AZURE.NOTE] For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine. 
+    For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine. 
 
 3. Make sure that you meet all the Microsoft Azure StorSimple configuration requirements. For details, go to [Deployment prerequisites](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
