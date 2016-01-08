@@ -19,21 +19,19 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line of business applications that can be integrated with Azure Active Directory (Azure AD) to provide secure sign in and authorization for their services. To integrate an application or service with Azure AD, a developer must first register the details about their application with Azure AD by using the Azure classic portal.
+Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line of business applications that can be integrated with Azure Active Directory (Azure AD) to provide secure sign in and authorization for their services. To integrate an application or service with Azure AD, a developer must first register the details about their application with Azure AD through the Azure classic portal.
 
 This article shows you how to add, update, or remove an application in Azure AD. You will learn about the different types of applications that can be integrated with Azure AD, how to configure your applications to access other resources such as web APIs, and more.
 
-To more information about app properties, see [Application Objects and Service Principal Objects](active-directory-application-objects.md); to learn the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md); application manifests are explained in [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md).
+To learn more about the the two Azure AD objects that represent a registered application and the relationship between them, see [Application Objects and Service Principal Objects](active-directory-application-objects.md); to learn more about the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding Guidelines for Integrated Apps](active-directory-branding-guidelines.md).
 
 ## Adding an Application
 
-Any application that wants to use the capabilities of Azure AD must first be registered in a directory. This registration process involves giving Azure AD details about your application, such as the URL where it’s located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.
+Any application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application, such as the URL where it’s located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.
 
-If you’re building a web application that just needs sign-on for users in Azure AD, you can simply follow the instructions below. If your application needs access to a web API, you’re building a native application that needs to access a web API, or you want to make your application multi-tenant, you’ll need to continue reading in the [Updating an Application](#updating-an-application) section to continue configuring your application.
+If you’re building a web application that just needs to support sign-in for users in Azure AD, you can simply follow the instructions below. If your application needs access to a web API, or you want to enable your application as multi-tenant to allow users from other Azure AD tenants to access it, you’ll need to continue reading the [Updating an Application](#updating-an-application) section to continue configuring your application.
 
-If you want to make your application available to other organizations, you will also need to enable external access once the application has been added.
-
-### To register an application in the Azure classic portal
+### To register a new application in the Azure classic portal
 
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
@@ -43,9 +41,9 @@ If you want to make your application available to other organizations, you will 
 
 1. On the What do you want to do page, click on the link to Add an application my organization is developing.
 
-1. On the Tell us about your application page, you must specify a name for your application as well as indicate the type of application you are registering with Azure AD.  You can choose from a web application and/or web API (default) or native client application which represents an application that is installed on a device such as a phone or computer.Once finished, click the arrow icon on the bottom-right corner of the page.
+1. On the Tell us about your application page, you must specify a name for your application as well as indicate the type of application you are registering with Azure AD.  You can choose from a web application and/or web API (default, known as a confidential client in OAuth2 parliance) or native client application which represents an application that is installed on a device such as a phone or computer (known as a public client in OAuth2 parliance). Once finished, click the arrow icon on the bottom-right corner of the page.
 
-1. On the App properties page, provide the Sign-on URL and App ID URI for your web application (or just the Redirect URI for a native client application), then click the checkbox in the bottom-right hand corner of the page.
+1. On the App properties page, provide the Sign-on URL and App ID URI, for your web application (or just the Redirect URI for a native client application), then click the checkbox in the bottom-right hand corner of the page.
 
 1. Your application has been added, and you will be taken to the Quick Start page for your application. Depending on whether your application is a web or native application, you will see different options on how to add additional capabilities to your application. Once your application has been added, you can begin updating your application to enable users to sign in, access web APIs in other applications, or configure multi-tenant application (which allows other organizations to access your application).
 
@@ -57,7 +55,9 @@ Once your application has been registered with Azure AD, it may need to be updat
 
 ### Overview of the Consent Framework
 
-Azure AD’s consent framework makes it easy to develop multi-tenant web and native client applications that need to access web APIs secured by an Azure AD tenant, different from the one where the client application is registered. These web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data. For example, if a web client application needs to call an API on an Office 365 web resource application to read calendar information about the user, that user will be required to consent to the application. After consent is given, the web application will be able to call the Office 365 web API on behalf of the user, and use the calendar information as needed.
+Azure AD’s consent framework makes it easy to develop multi-tenant web and native client applications that need to access web APIs secured by an Azure AD tenant, different from the one where the client application is registered. These web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data. 
+
+For example, if a web client application needs to call an Office 365 web API/resource application to read calendar information about the user, that user will be required to consent to the client application. After consent is given, the client application will be able to call the Office 365 web API on behalf of the user, and use the calendar information as needed.
 
 The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients. By using OAuth 2.0, Azure AD makes it possible to build many different types of client applications, such as on a phone, tablet, server, or a web application, and gain access to the required resources.
 
@@ -179,7 +179,7 @@ It’s important to note the differences between a single tenant and multi-tenan
 
 If you are writing an application that you want to make available to your customers or partners outside of your organization, you will need to update the application definition in the Azure classic portal.
 
->[AZURE.NOTE] When enabling external access, you must ensure that your application’s App ID URI belongs in a verified domain. Additionally, the Return URL must begin with https://. For more information, see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
+>[AZURE.NOTE] When enabling multi-tenant, you must ensure that your application’s App ID URI belongs in a verified domain. Additionally, the Return URL must begin with https://. For more information, see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 
 ##### To enable access to your app for external users
 
@@ -187,9 +187,9 @@ If you are writing an application that you want to make available to your custom
 
 1. Click on the Active Directory icon on the left menu, then click on the desired directory.
 
-1. On the top menu, click Applications, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
+1. On the top menu, click Applications, and then click the application you want to configure. The Quick Start page will appear with configuration options.
 
-1. Expand the Configure multi-tenant application section of the Quick Start, then click the Configure it now link in the Enable Access section. The application properties page will appear.
+1. Expand the Configure Multi-tenant Application section of the Quick Start, then click the Configure it now link in the Enable Access section. The application properties page will appear.
 
 1. Click the Yes button next to Application is multi-tenant, then click the Save button on the command bar.
 
