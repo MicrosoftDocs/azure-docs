@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
@@ -314,6 +314,9 @@ You can copy the template and save it locally as a .json file. In this tutorial,
                 "name": "[variables('siteName')]",
                 "type": "Microsoft.Web/sites",
                 "location": "[resourceGroup().location]",
+                "tags": {
+                    "team": "webdev"
+                },
                 "dependsOn": [
                     "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
                 ],
@@ -396,9 +399,9 @@ After creating a resource group, you can use the cmdlets in the Resource Manager
 
 - To get all of the resource groups in your subscription, use the **Get-AzureRmResourceGroup** cmdlet:
 
-		PS C:>Get-AzureRmResourceGroup
+		PS C:> Get-AzureRmResourceGroup
 
-		ResourceGroupName : TestRG
+		ResourceGroupName : TestRG1
 		Location          : westus
 		ProvisioningState : Succeeded
 		Tags              :
@@ -406,11 +409,15 @@ After creating a resource group, you can use the cmdlets in the Resource Manager
 		
 		...
 
+      If you just want to get a particular resource group, provide the **Name** parameter.
+      
+                PS C:> Get-AzureRmResourceGroup -Name TestRG1
+
 - To get the resources in the resource group, use the **Find-AzureRmResource** cmdlet and its **ResourceGroupNameContains** parameter. Without parameters, Find-AzureRmResource gets all resources in your Azure subscription.
 
 		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
-		Name              : exampleserver
+                Name              : exampleserver
                 ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
                 ResourceName      : exampleserver
                 ResourceType      : Microsoft.Sql/servers
@@ -421,6 +428,19 @@ After creating a resource group, you can use the cmdlets in the Resource Manager
                 
                 ...
 	        
+- The template above includes a tag on one resource. You can query your resources by tags with the **Find-AzureRmResource** and **Find-AzureRmResourceGroup** commands.
+
+                PS C:\> Find-AzureRmResource -TagName team
+
+                Name              : ExampleSiteuxq53xiz5etmq
+                ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Web/sites/ExampleSiteuxq53xiz5etmq
+                ResourceName      : ExampleSiteuxq53xiz5etmq
+                ResourceType      : Microsoft.Web/sites
+                ResourceGroupName : TestRG1
+                Location          : westus
+                SubscriptionId    : {guid}
+                
+      There is much more you can do with tags. For more information, see [Using tags to organize your Azure resources](resource-group-using-tags.md).
 
 ## Add to a resource group
 
