@@ -289,7 +289,7 @@ The `MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` method includes 
 
 You also need to provide a lifetime for the issued token, as well as any claims you would like included. It is required that you provide a subject claim, as shown in the example code.
 
-You can also simplify the client code to use the `loginAsync()` method (naming may vary across platforms) instead of a manual HTTP POST. You would use the overload which takes an additional token parameter, which correlates to the assertion object you would POST. The provider in this case should be a custom name of your choosing. Then on the server, your login action should be on the _/.auth/login/<customProviderName>_ path which includes this custom name. To put your controller on this path, add a route to your HttpConfiguration before applying a MobileAppConfiguration. 
+You can also simplify the client code to use the `loginAsync()` method (naming may vary across platforms) instead of a manual HTTP POST. You would use the overload which takes an additional token parameter, which correlates to the assertion object you would POST. The provider in this case should be a custom name of your choosing. Then on the server, your login action should be on the _/.auth/login/{customProviderName}_ path which includes this custom name. To put your controller on this path, add a route to your HttpConfiguration before applying your MobileAppConfiguration. 
 
 		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" }); 
 		
