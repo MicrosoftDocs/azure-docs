@@ -133,6 +133,8 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 |---|---|
 |**[Nimbo](http://www.nimbo.com/)**|US||
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|EMEA|
+|**[Project Leadership](http://www.projectleadership.net/azure)** | US |
+|**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | US |
 
 ## Next steps
 
