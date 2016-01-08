@@ -26,8 +26,8 @@ Azure Backup is the service you use to back up and restore your data in the Micr
 Traditional backup solutions have evolved to treat the cloud as an endpoint similar to disk or tape. While this approach is simple, it has limited uses and does not take full advantage of the underlying cloud platform. This translates to an inefficient, expensive solution.
 Azure Backup, on the other hand, delivers all the advantages of a powerful & affordable cloud backup solution. Some of the key benefits that Azure Backup provides include:
 
-| FEATURE | BENEFIT |  
-| ------- | ------- |  
+| FEATURE | BENEFIT |
+| ------- | ------- |
 | Automatic storage management | No capital expenditure is needed for on-premises storage devices. Azure Backup automatically allocates and manages backup storage, with a pay-as-you-use consumption model. |  
 | Unlimited scaling | High availability guarantees without the overhead of maintenance and monitoring. Azure Backup uses the underlying power and scale of the Azure cloud, with non-intrusive auto scaling capabilities. |  
 | Multiple storage options | Choose the backup storage based on need: <br><ul><li>LRS (Locally Redundant Storage) block blob is ideal for price-conscious customers while still protecting data against local hardware failures. <li>GRS (Geo Replication storage) block blob provides 3 additional copies in a paired data center, ensuring that your backup data is highly available even in the event of an Azure-site-level disaster</ol> |  
@@ -53,16 +53,10 @@ To make a decision around backup and disaster recovery, a few important concepts
 ## Azure Backup components
 As Azure Backup is a hybrid backup solution, it consists of multiple components that work together to enable the end-to-end backup and restore workflows.
 
-<Azure Backup includes the following component parts:
-
-- Azure Backup agent –
-- System Center Data Protection Manager (SCDPM) -
-- Azure Backup Server -
-- Azure VM extension ->
-
 ![Azure Backup components](./media/backup-introduction-to-azure-backup/azure-backup-overview.png)
 
 ## Deployment scenarios
+
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported|
 | --- | --- | --- | --- |
 | Azure Backup agent | **Yes** <br><br>The Azure Backup agent can be deployed on any Windows Server VM running in Azure. | **Yes** <br><br>The Azure Backup agent can be deployed on any Windows Server VM or physical machine. | Azure Backup vault |
@@ -85,9 +79,10 @@ As Azure Backup is a hybrid backup solution, it consists of multiple components 
 | Azure IaaS VMs (Linux) | - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 
 ## Feature list
-This table summarizes the main Azure Backup features and how they're handled in each component:
+These tables summarize the main Azure Backup features and how they're handled in each component:
 
 ### Storage
+
 | Feature | Azure Backup agent | SCPDM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
 | Azure Backup vault | ![Yes][green] | ![Yes][green] | ![Yes][green] | ![Yes][green] |
@@ -110,6 +105,7 @@ Deduplication is supported for SCDPM and Azure Backup Server when [deployed with
 >[AZURE.WARNING] Deduplication is not available in Azure for any of the Azure Backup components! When SCDPM and Azure Backup Server are deployed in Azure, the storage disks attached to the VM cannot be deduplicated.
 
 ### Security
+
 | Feature | Azure Backup agent | SCPDM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
 | Network security (to Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
@@ -122,6 +118,7 @@ All backup traffic from your servers to the Azure Backup vault is encrypted usin
 For backup of Azure VMs, you must explicitly setup encryption *within* the virtual machine. Use BitLocker on Windows virtual machines and dm-crypt on Linux virtual machines. Azure Backup does not automatically encrypt backup data coming through this path.
 
 ### Supported workloads
+
 | Feature | Azure Backup agent | SCPDM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
 | Windows Server machine - files/folders | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
@@ -135,6 +132,7 @@ For backup of Azure VMs, you must explicitly setup encryption *within* the virtu
 | Azure virtual machine (Linux) | | | | ![Yes][green] |
 
 ### Network
+
 | Feature | Azure Backup agent | SCPDM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
 | Network compression (to backup server) | | ![Yes][green] | ![Yes][green] | |
