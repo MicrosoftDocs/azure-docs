@@ -25,7 +25,7 @@ Azure Stream Analytics data stream processing service enables developers to easi
 
 This tutorial describes a toll booth scenario. Tolling stations are a common phenomenon encountered worldwide. Each toll station has multiple toll booths, which may be manual – meaning that the vehicle stops at the toll to pay, or automated – where a sensor placed on top of the booth scans a sensor affixed to the windshield of a vehicle as it passes the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
   
-![Fluffy Tollbooth pic](./media/stream-analytics-tutorial-tollbooth-sample/sstream-analytics-tutorial-tollbooth-sample-image-01.jpg)  
+![Fluffy Tollbooth pic](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-01.jpg)  
   
 ## Configure environment
 To perform this lab, a Microsoft Azure subscription is required. Microsoft offers free trial for Microsoft Azure services as described below.
@@ -116,11 +116,11 @@ Open a “Microsoft Azure PowerShell” window as Administrator. If Azure PowerS
 
 Now set the ExecutionPolicy for PowerShell so the script can run. Be sure the Azure PowerShell window is running as Administrator. Type `Set-ExecutionPolicy unrestricted` and hit enter. When prompted, type “Y”.
   
-![Set-executionpolicy in powershell](./media/stream-analytics-tutorial-tollbooth-sample/sstream-analytics-tutorial-tollbooth-sample-image-02.png)  
+![Set-executionpolicy in powershell](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-02.png)  
   
 Next type `Get-ExecutionPolicy` and hit enter to validate the command worked.
   
-![Validate set-executionpolicy worked](./media/stream-analytics-tutorial-tollbooth-sample/sstream-analytics-tutorial-tollbooth-sample-image-03.png)  
+![Validate set-executionpolicy worked](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-03.png)  
   
 Change directories in the PowerShell window to the directory with the downloaded scripts and generator application.
   
