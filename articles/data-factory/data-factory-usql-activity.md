@@ -126,6 +126,7 @@ degreeOfParallelism | The maximum number of nodes that will be used simultaneous
 priority | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. | No 
 parameters | Parameters for the U-SQL script | No 
 
+See [SearchLogProcessing.txt Script Definition](#SearchLogProcessing.txt-Script-Definition) for the script definition. 
 
 ### Sample input and output datasets
 
@@ -187,3 +188,35 @@ Here is the definition of the sample Azure Data Lake Store linked service used b
 	}
 
 See [Move data to and from Azure Data Lake Store](data-factory-azure-datalake-connector.md) for descriptions of JSON properties in the above Azure Data Lake Store linked service and data set JSON snippets. 
+
+### SearchLogProcessing.txt Script Definition
+
+	@searchlog =
+	    EXTRACT UserId          int,
+	            Start           DateTime,
+	            Region          string,
+	            Query           string,
+	            Duration        int?,
+	            Urls            string,
+	            ClickedUrls     string
+	    FROM @in
+	    USING Extractors.Tsv(nullEscape:"#NULL#");
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @searchlog
+	WHERE Region == "en-gb";
+	
+	@rs1 =
+	    SELECT Start, Region, Duration
+	    FROM @rs1
+	    WHERE Start <= DateTime.Parse("2012/02/19");
+	
+	OUTPUT @rs1   
+	    TO @out
+	      USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
+
+The values for **@in** and **@out** parameters in the above U-SQL script are passed dynamically by ADF using the ‘parameters’ section. See the ‘parameters’ section above in the pipeline definition.
+
+You can specify other properties viz. degreeOfParallelism, priority etc. as well in your pipeline definition for the jobs that run on the Azure Data Lake Analytics service.
+
