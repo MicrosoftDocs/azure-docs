@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/10/2015"
+   ms.date="01/05/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -72,7 +72,7 @@ Use the table below as a reference to understand the available recommendations a
 
 | Recommendation | Description |
 |----- |-----|
-| Enable Data Collection for subscriptions/virtual machines | Recommends that you turn on Data Collection in the Security Policy for select VMs. |
+| Enable Data Collection for subscriptions/virtual machines | Recommends that you turn on Data Collection in the security policy for each of your subscriptions or for select VMs. |
 | Resolve mismatch baseline rules | Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved. |
 | Apply system updates | Recommends that you deploy missing system updates to VMs (Windows VMs only). |
 | Configure ACLs for endpoints | Recommends that you configure an access control list to restrict inbound access to VMs (Classic VMs only). |
