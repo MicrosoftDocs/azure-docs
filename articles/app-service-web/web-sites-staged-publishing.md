@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/08/2015"
 	ms.author="cephalin"/>
 
 # Set up staging environments for web apps in Azure App Service
@@ -45,7 +45,7 @@ Each App Service plan mode supports a different number of deployment slots. To f
 The web app must be running in the **Standard** or **Premium** mode in order for you to enable multiple deployment slots.
 
 1. In the [Azure Portal](https://portal.azure.com/), open your web app's blade.
-2. Click **Deployment slots**. Then, in the **Deployment slots** blade, click **Add Slot**.
+2. Click **Settings**, and then click **Deployment slots**. Then, in the **Deployment slots** blade, click **Add Slot**.
 
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
 
