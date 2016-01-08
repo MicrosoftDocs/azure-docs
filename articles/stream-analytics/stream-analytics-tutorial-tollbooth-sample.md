@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/06/2016" 
+	ms.date="01/08/2016" 
 	ms.author="jeffstok"
 />
 
@@ -24,7 +24,9 @@
 Azure Stream Analytics data stream processing service enables developers to easily tackle the space of data in motion by combining streams of data such as click-streams, logs and device generated events with historical records or reference data to derive business insights easily and quickly. Follow this tutorial to gain insights on real-time data streams and leverage reference data sets for thresholds and comparisons. Being a fully managed, real-time stream computation service hosted in Microsoft Azure, Stream Analytics provides built-in resiliency, low latency, and scalability to quickly address a variety of use cases.
 
 This tutorial describes a toll booth scenario. Tolling stations are a common phenomenon encountered worldwide. Each toll station has multiple toll booths, which may be manual – meaning that the vehicle stops at the toll to pay, or automated – where a sensor placed on top of the booth scans a sensor affixed to the windshield of a vehicle as it passes the toll booth. It is easy to visualize the passage of vehicles through these toll stations as an event stream over which interesting operations can be performed.
-
+  
+![Fluffy Tollbooth pic](./media/stream-analytics-tutorial-tollbooth-sample/sstream-analytics-tutorial-tollbooth-sample-image-01.jpg)  
+  
 ## Configure environment
 To perform this lab, a Microsoft Azure subscription is required. Microsoft offers free trial for Microsoft Azure services as described below.
 If you do not have an Azure account, you can request a free trial version by going to [http://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/ "Build a real time processing job in Stream Analytics - Free Trial Link").  
@@ -108,16 +110,22 @@ In addition to the streamed data from the toll sensors, a static snapshot of the
 ## Provision Resources
 This tutorial will walk through the creation of 2 Azure Event Hubs to receive the “Entry” and “Exit” data streams. Azure SQL Database is used to output the job results. Azure Blob Storage will be used to  store reference data about vehicle registrations.
 
-The `Setup.ps1` PowerShell script in the TollApp sample folder on GitHub can be used to create all the required resources. In the interest of time for this tutorial execute the script to setup the environment.
-
-Also download and save the supporting TollApp folder and files. Be sure to download the latest available release.
+The `Setup.ps1` PowerShell script in the TollApp sample folder on GitHub can be used to create all the required resources. In the interest of time for this tutorial execute the script to setup the environment. Download and save the supporting TollApp folder and files as well. Be sure to download the latest available release.
 
 Open a “Microsoft Azure PowerShell” window as Administrator. If Azure PowerShell is not yet installed, follow the instructions at [http://azure.microsoft.com/documentation/articles/install-configure-powershell/](./install-configure-powershell.md) install it.
 
-Now set the ExecutionPolicy for PowerShell so the script can run. Be sure the Azure PowerShell window is running as Administrator. Type `Set-ExecutionPolicy unrestricted` and hit enter. When prompted, type “Y”. Next type `Get-ExecutionPolicy` and hit enter to validate the command worked.
-
+Now set the ExecutionPolicy for PowerShell so the script can run. Be sure the Azure PowerShell window is running as Administrator. Type `Set-ExecutionPolicy unrestricted` and hit enter. When prompted, type “Y”.
+  
+![Fluffy Tollbooth pic](./media/stream-analytics-tutorial-tollbooth-sample/sstream-analytics-tutorial-tollbooth-sample-image-02.png)  
+  
+Next type `Get-ExecutionPolicy` and hit enter to validate the command worked.
+  
+![Fluffy Tollbooth pic](./media/stream-analytics-tutorial-tollbooth-sample/sstream-analytics-tutorial-tollbooth-sample-image-03.png)  
+  
 Change directories in the PowerShell window to the directory with the downloaded scripts and generator application.
-
+  
+![Fluffy Tollbooth pic](./media/stream-analytics-tutorial-tollbooth-sample/sstream-analytics-tutorial-tollbooth-sample-image-04.png)  
+  
 Type `.\Setup.ps1` to set up the Azure account, create and configure all required resources and start generating events.
 
 The script will open the “Sign In” page for Windows Azure. Enter account credentials as requested.
