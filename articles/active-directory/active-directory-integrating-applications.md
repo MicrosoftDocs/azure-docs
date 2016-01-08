@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/24/2015"
-   ms.author="mbaldwin" />
+   ms.date="01/08/2016"
+   ms.author="mbaldwin;bryanla" />
 
 # Integrating Applications with Azure Active Directory
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line of business applications that can be integrated with Azure Active Directory (Azure AD) to provide secure sign in and authorization for their services. To integrate an application or service with Azure AD, a developer must first register the details about their application with Azure AD by using the Azure Management Portal.
+Enterprise developers and software-as-a-service (SaaS) providers can develop commercial cloud services or line of business applications that can be integrated with Azure Active Directory (Azure AD) to provide secure sign in and authorization for their services. To integrate an application or service with Azure AD, a developer must first register the details about their application with Azure AD by using the Azure classic portal.
 
 This article shows you how to add, update, or remove an application in Azure AD. You will learn about the different types of applications that can be integrated with Azure AD, how to configure your applications to access other resources such as web APIs, and more.
 
@@ -33,9 +33,9 @@ If you’re building a web application that just needs sign-on for users in Azur
 
 If you want to make your application available to other organizations, you will also need to enable external access once the application has been added.
 
-### To register an application in the Azure Management Portal
+### To register an application in the Azure classic portal
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
 1. Click on the Active Directory icon on the left menu, and then click on the desired directory.
 
@@ -57,17 +57,17 @@ Once your application has been registered with Azure AD, it may need to be updat
 
 ### Overview of the Consent Framework
 
-Azure AD’s new consent framework makes it easy to develop web and native applications that need to access web APIs secured by Azure AD. These web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own web APIs. The framework is based on a user or an administrator giving consent to an application to be registered in their directory, which may involve accessing directory data. For example, if a web application needs to call Office 365’s web API to read calendar information about the user, that user will be required to consent to the application. After consent is given, the web application will be able to call the Office 365 web API on behalf of the user, and use the calendar information as needed.
+Azure AD’s consent framework makes it easy to develop multi-tenant web and native client applications that need to access web APIs secured by an Azure AD tenant, different from the one where the client application is registered. These web APIs include the Graph API, Office 365, and other Microsoft services, in addition to your own web APIs. The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory, which may involve accessing directory data. For example, if a web client application needs to call an API on an Office 365 web resource application to read calendar information about the user, that user will be required to consent to the application. After consent is given, the web application will be able to call the Office 365 web API on behalf of the user, and use the calendar information as needed.
 
 The consent framework is built on OAuth 2.0 and its various flows, such as authorization code grant and client credentials grant, using public or confidential clients. By using OAuth 2.0, Azure AD makes it possible to build many different types of client applications, such as on a phone, tablet, server, or a web application, and gain access to the required resources.
 
-For more detailed information about the consent framework, see [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md), and Office 365’s topic [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/library/office/dn605895(v=office.15).aspx).
+For more detailed information about the consent framework, see [OAuth 2.0 in Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md), and Office 365 topic [Understanding authentication with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks).
 
 #### Example of the consent experience
 
 The following steps will show you how the consent experience works for both the application developer and user.
 
-1. On your application’s configuration page in the Azure Management Portal, set the permissions your application requires by using the drop-down menus in the Permissions to other applications control.
+1. On your Web client application’s configuration page in the Azure classic portal, set the permissions your application requires by using the drop-down menus in the Permissions to other applications control.
 
     ![Permissions to other applications](./media/active-directory-integrating-applications/permissions.png)
 
@@ -77,7 +77,7 @@ The following steps will show you how the consent experience works for both the 
 
     ![User or administrator sign in to Azure AD](./media/active-directory-integrating-applications/useradminsignin.png)
 
-1. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD will prompt the user for consent and will display the required permissions it needs to function. The set of permissions that is displayed in the consent dialog are the same as what was selected in the Permissions to other applications control in the Azure Management Portal.
+1. After the user has signed in, Azure AD will determine if the user needs to be shown a consent page. This determination is based on whether the user (or their organization’s administrator) has already granted the application consent. If consent has not already been granted, Azure AD will prompt the user for consent and will display the required permissions it needs to function. The set of permissions that is displayed in the consent dialog are the same as what was selected in the Permissions to other applications control in the Azure classic portal.
 
     ![User consent experience](./media/active-directory-integrating-applications/userconsent.png)
 
@@ -93,7 +93,7 @@ Using the consent framework described above, you can configure your application 
 
 #### To add access to web APIs in other applications
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the [Azure classic portal.](https://manage.windowsazure.com)
 
 1. Click on the Active Directory icon on the left menu, then click on the desired directory.
 
@@ -109,11 +109,11 @@ Using the consent framework described above, you can configure your application 
 
 ### Exposing Web APIs to Other Applications
 
-You can develop a web API and make it available to other applications by exposing permission scopes. A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs. Permission scopes are exposed through your application's manifest, which is a JSON file that represents your application’s identity configuration. You can expose your permission scopes by navigating to your application in the Azure Management Portal and clicking on the Application Manifest button on the command bar.  
+You can develop a web API and make it available to other applications by exposing permission scopes. A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs. Permission scopes are exposed through your application's manifest, which is a JSON file that represents your application’s identity configuration. You can expose your permission scopes by navigating to your application in the Azure classic portal and clicking on the Application Manifest button on the command bar.  
 
 #### Adding permission scopes to your application
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
 1. Click on the Active Directory icon on the left menu, then click on the desired directory.
 
@@ -150,7 +150,7 @@ You can develop a web API and make it available to other applications by exposin
 
 ![Todo List permissions are shown](./media/active-directory-integrating-applications/listpermissions.png)
 
-#### Permissions schema for the application manifest JSON file
+#### Schema for the application manifest JSON file
 The application manifest actually serves as a mechanism for updating the Application entity, which defines all attributes of an Azure AD application's identity configuration, including the API permission scopes we discussed. For more information on the Application entity, please see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#EntityreferenceApplicationEntity). In it, you will find complete reference information on the Application entity members used to specify permissions for your API:  
 
 - the appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#AppRoleType) entities that can be used to define the **Application Permissions** for a web API  
@@ -158,18 +158,14 @@ The application manifest actually serves as a mechanism for updating the Applica
 
 For more information on application manifest concepts in general, please refer to [Understanding the Azure Active Directory application manifest](active-directory-application-manifest.md).
 
-### Accessing the Graph API
+### Accessing the Azure AD Graph and Office 365 APIs
 
-This section describes how to update your application to access the Graph API, which is called “Azure Active Directory” in the list of Permissions to other applications. It’s available by default for all applications that are registered with Azure AD. You can select from the following permissions with the Graph API:
+As mentioned earlier, in addition to exposing/accessing your own APIs, you can also update your client application to access APIs exposed by Microsoft services.  The Azure AD Graph API, which is called “Azure Active Directory” in the list of Permissions to other applications, is available by default for all applications that are registered with Azure AD. If you are registering your client application in an Azure AD tenant that was provisioned by Office 365, you can also access all of the permissions exposed by the APIs to various Office 365 resources.
 
-|Permission name|Description|Type|
-|---|---|---|
-|Enable sign-on and read users' profiles|Allow users to sign in to the application with their organizational accounts and let the application read the profiles of signed-in users, such as their email address and contact information.|Delegation permission only. Can be consented by users.|
-|Access your organization's directory|Allow the application to access your organization's directory on behalf of the signed-in user.|Delegation permission only. Can be consented by users in a native client and only by an administrator for web applications.|
-|Read directory data|Allow the application to read data in your organization's directory, such as users, groups and applications.|Delegation and application permission. Must be consented by an administrator.|
-|Read and write directory data|Allow the application to read and write data in your organization's directory, such as users and groups.|Delegation and application permission. Must be consented by an administrator.|
+For a complete discussion on permission scopes exposed by:  
 
-For existing users of the Azure Management Portal, setting the Read directory data and Read and write directory data application permissions through the new Permissions to other applications control is equivalent to the previous Manage Access wizard.  To see the permission scopes exposed by Office 365 please see the [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks) topic.
+- Azure AD Graph API, please see the [Permission scopes | Graph API concepts](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) article.
+- Office 365 APIs, please see the [Authentication and Authorization using Common Consent Framework](https://msdn.microsoft.com/office/office365/howto/application-manifest) article. See [Set up your Office 365 development environment](https://msdn.microsoft.com/office/office365/HowTo/setup-development-environment) for the larger discussion on how to build a client app that integrates with Office 365 APIs.
 
 >[AZURE.NOTE] Due to a current limitation, native client applications can only call into the Azure AD Graph API if they use the “Access your organization's directory” permission.  This restriction does not apply for web applications.
 
@@ -177,17 +173,17 @@ For existing users of the Azure Management Portal, setting the Read directory da
 
 When adding an application to Azure AD, you may want your application to be accessed only by users in your organization. Alternatively, you may want your application to be accessed by users in external organizations. These two application types are called single tenant and multi-tenant applications. You can modify the configuration of a single tenant application to make it a multi-tenant application, which this section discusses below.
 
-It’s important to note the differences between a single tenant and multi-tenant application. A single tenant application is intended for use in one organization. They are typically a line-of-business (LoB) application written by an enterprise developer. A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory. A multi-tenant application intended for use in many organizations. They are typically a software-as-a-service (SaaS) application written by an independent software vendor (ISV). Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them.
+It’s important to note the differences between a single tenant and multi-tenant application. A single tenant application is intended for use in one organization. They are typically a line-of-business (LoB) application written by an enterprise developer. A single tenant application only needs to be accessed by users in one directory, and as a result, it only needs to be provisioned in one directory. A multi-tenant application intended for use in many organizations. They are typically a software-as-a-service (SaaS) application written by an independent software vendor (ISV). Multi-tenant applications need to be provisioned in each directory where they will be used, which requires user or administrator consent to register them, supported via the Azure AD consent framework.
 
 #### Enabling External Users to Grant Access
 
-If you are writing an application that you want to make available to your customers or partners outside of your organization, you will need to update the application definition in the Azure Management Portal.
+If you are writing an application that you want to make available to your customers or partners outside of your organization, you will need to update the application definition in the Azure classic portal.
 
 >[AZURE.NOTE] When enabling external access, you must ensure that your application’s App ID URI belongs in a verified domain. Additionally, the Return URL must begin with https://. For more information, see [Application Objects and Service Principal Objects](active-directory-application-objects.md).
 
 ##### To enable access to your app for external users
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the [Azure classic portal.](https://manage.windowsazure.com)
 
 1. Click on the Active Directory icon on the left menu, then click on the desired directory.
 
@@ -213,7 +209,7 @@ Single Page Application’s (SPAs) are typically structured with a JavaScript-he
 
 ##### To enable OAuth 2.0 Implicit Grant
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the [Azure classic portal.](https://manage.windowsazure.com)
 1. Click on the **Active Directory** icon on the left menu, then click on the desired directory.
 1. On the top menu, click **Applications**, and then click the application you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 1. Click on the **Manage manifest** button in the command bar, and select **Download manifest**.
@@ -240,7 +236,7 @@ You can follow the steps in the [Developing Multi-Tenant Web Applications with A
 
 In order for external users to sign up for your app using their organizational accounts, you’ll need to update your app to show a button that links to the page on Azure AD that enables them to grant access. Branding guidance for this sign up button is discussed in the [Branding Guidelines for Integrated Applications](active-directory-branding-guidelines.md) topic. After the user either grants or denies access, the Azure AD grant access page will redirect the browser back to your app with a response. For more information about application properties, see [Application Objects and Service Principles](active-directory-application-objects.md).
 
-The grant access page is created by Azure AD, and you can find a link to it in your app’s Configuration page in the Management Portal. To get to the Configuration page, click on the Applications link in the top menu of your Azure AD tenant, click the app you want to configure, then click on Configure from the top menu of the Quick Start page.
+The grant access page is created by Azure AD, and you can find a link to it in your app’s Configuration page in the Azure classic portal. To get to the Configuration page, click on the Applications link in the top menu of your Azure AD tenant, click the app you want to configure, then click on Configure from the top menu of the Quick Start page.
 
 The link for your application will look like this: `http://account.activedirectory.windowsazure.com/Consent.aspx?ClientID=058eb9b2-4f49-4850-9b78-469e3176e247&RequestedPermissions=DirectoryReaders&ConsentReturnURL=https%3A%2F%2Fadatum.com%2FExpenseReport.aspx%3FContextId%3D123456`. The following table describes the parts of the link:
 
@@ -283,7 +279,7 @@ The following is an example response to an access grant request that was denied:
 
 During the lifetime of your app, you may need to change the keys that you use when you call into Azure AD to acquire an access token to call the Graph API.  Generally changing keys falls into two categories: emergency roll over where your key has been compromised or a roll over when your current key is about to expire. The following procedure should be followed to provide your app with uninterrupted access while you refresh your keys (primarily for the second case).
 
-1. In the Azure Management Portal, click on your directory tenant, click Applications from the top menu, then click the app you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
+1. In the Azure classic portal, click on your directory tenant, click Applications from the top menu, then click the app you want to configure. The Quick Start page will appear with single sign-on and other configuration information.
 
 1. Click on Configure in the top menu to see a list of your app’s properties, and you’ll see a list of your keys.
 
@@ -293,11 +289,11 @@ During the lifetime of your app, you may need to change the keys that you use wh
 
 1. You should now roll this change out across your production environment – verifying it first on one service node, before rolling it out across the rest.
 
-1. Once the update is complete across your production deployment, you are free to come back to the Azure Management Portal and remove the old key.
+1. Once the update is complete across your production deployment, you are free to come back to the Azure classic portal and remove the old key.
 
 #### Changing App Properties After Enabling Access (Legacy)
 
-Once you enable access for external users to your app, you may still continue to make changes to your app’s properties in the Azure Management Portal. However, customers who have already granted access to your app before you made app changes will not see those changes reflected when viewing details about your app in the Azure Management Portal. Once the app is made available to customers, you need to be very careful when making certain changes. For example, if you update the App ID URI, then your existing customers who granted access before this change will be unable to log in to your app using their company or school accounts.
+Once you enable access for external users to your app, you may still continue to make changes to your app’s properties in the Azure classic portal. However, customers who have already granted access to your app before you made app changes will not see those changes reflected when viewing details about your app in the Azure classic portal. Once the app is made available to customers, you need to be very careful when making certain changes. For example, if you update the App ID URI, then your existing customers who granted access before this change will be unable to log in to your app using their company or school accounts.
 
 If you make a change to the RequestedPermissions to request a greater access level, existing customers using app functionality that now leverages new API calls using this increased access level may get an access denied response from the Graph API.  Your app should handle these cases and ask the customer to grant access to your app with the request for an increased access level.
 
@@ -307,7 +303,7 @@ This section describes how to remove an application from your directory for both
 
 ### To remove a single tenant application from your directory
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the [Azure classic portal.](https://manage.windowsazure.com)
 
 1. Click on the Active Directory icon on the left menu, and then click on the desired directory.
 
@@ -319,7 +315,7 @@ This section describes how to remove an application from your directory for both
 
 ### To remove a multi-tenant application from your directory
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the [Azure classic portal.](https://manage.windowsazure.com)
 
 1. Click on the Active Directory icon on the left menu, and then click on the desired directory.
 
@@ -331,7 +327,7 @@ This section describes how to remove an application from your directory for both
 
 1. Click Yes in the confirmation message.
 
-In order for a company administrator to remove an app’s access to their directory (after having granted consent), the company administrator must have an Azure subscription to remove access through the Azure Management Portal. Alternatively, the company administrator can use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
+In order for a company administrator to remove an app’s access to their directory (after having granted consent), the company administrator must have an Azure subscription to remove access through the Azure classic portal. Alternatively, the company administrator can use the [Azure AD PowerShell Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151) to remove access.
 
 ## Next steps
 
