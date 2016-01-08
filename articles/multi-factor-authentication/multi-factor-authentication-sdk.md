@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/06/2016" 
 	ms.author="billmath"/>
 
 # Building Multi-Factor Authentication into Custom Apps (SDK)
@@ -33,7 +33,7 @@ Because the APIs do not have access to users registered in Azure Active Director
 
 ## Download the Azure Multi-Factor Authentication SDK 
 
-There are two different ways that you can download the Azure Multi-Factor Authentication SDK. Both are done via the Azure portal.  The first is by managing the Multi-Factor Auth Provider directly.  The second is via the service settings.  The second option requires either a Multi-Factor Auth Provider or an Azure AD Premium license.
+There are two different ways that you can download the Azure Multi-Factor Authentication SDK. Both are done via the Azure portal. The first is by managing the Multi-Factor Auth Provider directly. The second is via the service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license.
 
 
 ### To download the Azure Multi-Factor Authentication SDK from the Azure portal

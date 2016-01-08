@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2015" 
+	ms.date="01/06/2016" 
 	ms.author="billmath"/>
 
 # Reports in Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication provides several reports that can be used by you and your organization. These reports can be accessed through the Multi-Factor Authentication Management Portal. The following is a list of the available reports.
+Azure Multi-Factor Authentication provides several reports that can be used by you and your organization. These reports can be accessed through the Multi-Factor Authentication Management Portal, which requires that you have an Azure MFA Provider, or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license. The following is a list of the available reports.
 
 You can access reports through the Azure Management portal.
 
@@ -33,14 +33,13 @@ Queued|Lists reports queued for processing and their status. A link to download 
 
 ## To view reports
 
-1. Log on to [http://azure.microsoft.com](http://azure.microsoft.com)
-2. On the left, select Active Directory.
-3. At the top select Multi-Factor Auth Providers. This will bring up a list of your Multi-Factor Auth Providers.
-4. If you have more than one Multi-Factor Auth Provider, select the one you wish to view the fraud alert report and click Manage at the bottom of the page. If you have only one, just click Manage. This will open the Azure Multi-Factor Authentication Management Portal.
-5. On the Azure Multi-Factor Authentication Management Portal, on the left, you will see View a Report.  From here you can select the reports described above.
+1.	Log on to http://azure.microsoft.com
+2.	On the left, select Active Directory.
+3.	Select one of the following options:
+	- **Option 1**: Click the Multi-Factor Auth Providers tab. Select your MFA provider and click the Manage button at the bottom.
+	- **Option 2**: Select your directory and click the Configure tab. Under the multi-factor authentication section, select Manage service settings. At the bottom of the MFA Service Settings page, click the Go to the portal link.
+4.	In the Azure Multi-Factor Authentication Management Portal, you will see the View a Report section in the left navigation. From here you can select the reports described above.
 
-
- 
 <center>![Cloud](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 
