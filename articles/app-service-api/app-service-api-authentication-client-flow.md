@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/08/2015" 
 	ms.author="tdykstra"/>
 
 # Call an Azure API app from a web app client authenticated by Azure Active Directory
