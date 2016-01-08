@@ -248,7 +248,7 @@ At this point in the tutorial, all data inputs are defined.
 
 The settings should look as below:
   
-![SQL DB Settings](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-38.jpeg)  
+![SQL DB Settings](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-38.jpg)  
   
 ## Azure Stream Analytics Job Query
 The Query tab contains a T-SQL query that performs the transformation over the incoming data. Throughout the lab questions will be presented and addressed by using the toll booth data stream and Stream Analytics queries to provide an answer. Before starting the first Azure Stream Analytics job, explore a few scenarios and query syntax.
