@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="sameerch"/>
 
 # Enhance your API App for Logic Apps #

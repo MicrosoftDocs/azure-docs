@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2015" 
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # The Azure Command-line Interface (CLI) and API apps
