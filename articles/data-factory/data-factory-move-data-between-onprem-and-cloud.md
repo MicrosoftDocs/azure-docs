@@ -164,7 +164,7 @@ In this step, you use the Azure Portal to create an Azure Data Factory instance 
 	> [AZURE.NOTE] 
 	> Please use Internet Explorer or a Microsoft ClickOnce compatible web browser.
 	> 
-	> If you are using Chrome, go to the [Chrome web store](https://chrome.google.com/webstore/), search with "ClickOnce" keyword, choose one of the ClickOnce extensions, and install it.  There are many 3rd party ClickOnce extensions.
+	> If you are using Chrome, go to the [Chrome web store](https://chrome.google.com/webstore/), search with "ClickOnce" keyword, choose one of the ClickOnce extensions, and install it. 
 	>  
 	> You need to do the same for Firefox (install add-in). For example, you can install one from [here](https://addons.mozilla.org/firefox/addon/fxclickonce/).    
 
