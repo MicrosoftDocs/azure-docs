@@ -4,6 +4,8 @@ A Basic database has 5 DTUs, which means it can complete 5 transactions per seco
 
 ![Intro to SQL Database: Single database DTUs by tier and level.](./media/sql-database-understanding-dtus/single_db_dtus.png)
 
+>[AZURE.NOTE] If you are migrating an existing SQL Server database, you can use a third-party tool, [the Azure SQL Database DTU Calculator](http://dtucalculator.azurewebsites.net/), to get an estimate of the performance level and service tier your database might require in Azure SQL Database.
+
 ### DTU vs. eDTU
 
 The DTU for single databases translates directly to the eDTU for elastic databases. For example, a database in a Basic elastic database pool offers up to 5 eDTUs. That’s the same performance as a single Basic database. The difference is that the elastic database won’t consume any eDTUs from the pool until it has to. 

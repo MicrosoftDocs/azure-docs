@@ -33,6 +33,7 @@ When both the source and sink (destination) data stores reside in the cloud, the
 3.	Writes data to the destination data store
 
 ![Copy data between two cloud data stores](./media/data-factory-copy-activity-performance/copy-data-between-two-cloud-stores.png)
+
 **Note:** Dotted line shapes (compression, column mapping, etc.) are capabilities which may or may not be leveraged in your use case.
 
 
@@ -65,7 +66,7 @@ The typical steps we suggest you to do to tune performance of your Azure Data Fa
 	Once you are satisfied with the execution results and performance, you can expand the dataset definition and pipeline active period to cover the entire data in picture.
 
 ## Performance Reference
-> [AZURE.IMPORTANT] **Disclaimer:** Data below has been published for the sole purpose of guidance and planning. It assumes that bandwidth, hardware, configuration, etc. are among the best in their class. Use this as a reference only. The data movement throughput you observe will be affected by a range of variables. Refer to the sections later to learn about how you can possibly tune and achieve better performance for your data movement needs. These data will be updated when new features are available to boost the copy performance.
+> [AZURE.IMPORTANT] **Disclaimer:** Data below has been published for the sole purpose of guidance and high level planning only. It assumes that bandwidth, hardware, configuration, etc. are among the best in their class. Use this as a reference only. The data movement throughput you observe will be affected by a range of variables. Refer to the sections later to learn about how you can possibly tune and achieve better performance for your data movement needs. This data will be updated as and when performance boosting improvements and features are added.
 
 ![Performance matrix](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
@@ -79,15 +80,15 @@ Points to note:
 - In case of the hybrid (on-premises to cloud or cloud to on-premises) data movement, the Data Management Gateway (single instance) was hosted on a machine different than the on-premises data store, using the following configuration. Note with a single activity run being executed on the gateway, the copy operation only consumed a small portion of this machine's CPU/memory resource and network bandwidth.
 	<table>
 	<tr>
-		<td>**CPU**</td>
+		<td>CPU</td>
 		<td>32 Cores 2.20GHz Intel Xeon® E5-2660 v2</td>
 	</tr>
 	<tr>
-		<td>**Memory**</td>
+		<td>Memory</td>
 		<td>128GB</td>
 	</tr>
 	<tr>
-		<td>**Network**</td>
+		<td>Network</td>
 		<td>Internet interface: 10Gbps; Intranet interface: 40Gbps</td>
 	</tr>
 	</table>
@@ -221,8 +222,8 @@ In this case, BZIP2 data compression could be slowing the whole pipeline. Switch
 Here are some performance monitoring and tuning references for a few of the supported data stores:
 
 - Azure Storage (including Azure Blob and Azure Table): [Azure Storage scalability targets](../storage/storage-scalability-targets.md) and [Azure Storage Performance and Scalability Checklist](../storage//storage-performance-checklist.md)
-- Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-service-tiers.md?rnd=1#monitoring-performance) and check the Database Throughput Unit (DTU) percentage.
-- Azure SQL Data Warehouse: Its capability is measured by Data Warehouse Units (DWUs). Refer to [Elastic performance and scale with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale/).
-- Azure DocumentDB: [Performance level in DocumentDB](../documentdb/documentdb-performance-levels/).
+- Azure SQL Database: You can [monitor the performance](../sql-database/sql-database-service-tiers.md#monitoring-performance) and check the Database Throughput Unit (DTU) percentage.
+- Azure SQL Data Warehouse: Its capability is measured by Data Warehouse Units (DWUs). Refer to [Elastic performance and scale with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
+- Azure DocumentDB: [Performance level in DocumentDB](../documentdb/documentdb-performance-levels.md).
 - On-premises SQL Server: [Monitor and Tune for Performance](https://msdn.microsoft.com/library/ms189081.aspx).
 - On-premises File server: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
