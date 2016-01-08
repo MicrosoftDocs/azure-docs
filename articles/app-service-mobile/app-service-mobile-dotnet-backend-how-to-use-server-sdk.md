@@ -295,6 +295,8 @@ You can also simplify the client code to use the `loginAsync()` method (naming m
 		
 Replace the string "CustomAuth" above with the name of the contoller hosting your login action.
 
+>[AZURE.TIP] Using the loginAsync() approach ensures that the authentication token is attached to every subsequent call to the service.
+
 ###<a name="user-info"></a>How to: Retrieve authenticated user information
 
 When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This is useful for making authorization decisions for a given user in the backend, such as whether a specific user can access a table row or other resource. The following code shows how to obtain the 
