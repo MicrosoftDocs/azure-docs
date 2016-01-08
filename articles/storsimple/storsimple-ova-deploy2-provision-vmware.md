@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Deploy StorSimple Virtual Array 2 - Provision a virtual device in VMware"
+   pageTitle="Deploy StorSimple Virtual Array - Provision in VMware"
    description="This second tutorial in StorSimple Virtual Array deployment series involves provisioning a virtual device in VMware."
    services="storsimple"
    documentationCenter="NA"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"
+   ms.date="01/07/2016"
    ms.author="alkohli"/>
 
 
-# Deploy StorSimple Virtual Array 2 - Provision a virtual device in VMware (Preview)
+# Deploy StorSimple Virtual Array - Provision a virtual array in VMware (Preview)
 
 ## Overview 
-These provisioning tutorials apply to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. These tutorials describe how to provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.
+This provisioning tutorial applies to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above.
 
 You will need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take anywhere from 30-45 minutes to complete.
 
@@ -38,7 +38,7 @@ Before you begin, make sure that:
 
 -   You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
--   You have downloaded the virtual device image for VMware from the Azure portal. For more information, see **Step 3: Download the virtual device image** in [Prepare the portal for the deployment of StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
+-   You have downloaded the virtual device image for VMware from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep#step-3-download-the-virtual-device-image.md)..
 
 ### For the StorSimple virtual device 
 
@@ -146,7 +146,8 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image15.png)
 
-1.  ![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)A **Create New Virtual Machine** window will appear. On the **Configuration** page, select the **Custom** option. Click **Next**.
+1.  A **Create New Virtual Machine** window will appear. On the **Configuration** page, select the **Custom** option. Click **Next**.
+	![](./media/storsimple-ova-deploy2-provision-vmware/image16.png)
 
 2.  On the **Name and Location** page, specify the name of your virtual machine. This name should match the folder name (recommended best practice) you specified earlier in Step 8.
 
@@ -262,7 +263,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 	You will now need to configure the network.
 
-1.  Use the Get-NetAdapter command to list all the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is Ethernet.
+1.  Use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image43.png)
 
@@ -277,7 +278,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 	![](./media/storsimple-ova-deploy2-provision-vmware/image45.png)
 
-If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step1: Ensure that the host system meets minimum virtual device requirements](#_Step_1:_Ensure).
+If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/image46.png)
 

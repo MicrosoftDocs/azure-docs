@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Deploy StorSimple Virtual Array 2 - Provision a virtual device in Hyper-V"
+   pageTitle="Deploy StorSimple Virtual Array - Provision in Hyper-V"
    description="This second tutorial in StorSimple Virtual Array deployment involves provisioning a virtual device in Hyper-V."
    services="storsimple"
    documentationCenter="NA"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"
+   ms.date="01/07/2016"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array 2 - Provision a virtual device in Hyper-V (Preview)
+# Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V (Preview)
 
 ## Overview 
 
-These provisioning tutorials apply to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. These tutorials describe how to provision a StorSimple virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2.
+This provisioning tutorial applies to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2.
 
 You will need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take 30-45 minutes to complete.
 
@@ -38,7 +38,7 @@ Before you begin, make sure that:
 
 -   You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
--   You have downloaded the virtual device image for Hyper-V from the Azure portal. For more information, see **Step 3: Download the virtual device image** in [Prepare the portal for the deployment of StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
+-   You have downloaded the virtual device image for Hyper-V from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep#step-3-download-the-virtual-device-image.md).
 
 ### For the StorSimple virtual device 
 
@@ -60,7 +60,7 @@ Before you deploy a virtual device, make sure that:
 
 Before you begin, make sure that:
 
--   You have reviewed the networking requirements to deploy a StorSimple virtual device and configured the datacenter network as per the requirements. For more information, see [StorSimple Virtual Array System Requirements Guide](storsimple-ova-system-requirements.md).
+-   You have reviewed the networking requirements to deploy a StorSimple virtual device and configured the datacenter network as per the requirements. For more information, see [StorSimple Virtual Array networking requirements](storsimple-ova-system-requirements.md#networking-requirements).
 
 ## Step-by-step provisioning 
 
@@ -111,7 +111,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image3.png)
 
-1.  On the **Specify name and location** page, provide a **Name** for your on-premises StorSimple virtual device. Click **Next**.
+1.  On the **Specify name and location** page, provide a **Name** for your virtual device. Click **Next**.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image4.png)
 
@@ -123,7 +123,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 1.  On the **Assign memory** page:
 
-    a.  Specify a **Startup memory** of 8192 MB or higher. The minimum memory requirement for an 	on-premises StorSimple virtual device is 8 GB or higher. Do not check the option to **Use Dynamic Memory for this virtual machine**.
+    a.  Specify a **Startup memory** of 8192 MB or higher. The minimum memory requirement for a StorSimple virtual device is 8 GB or higher. Do not check the option to **Use Dynamic Memory for this virtual machine**.
 
     b.  Click **Next**.
 
@@ -176,7 +176,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
-1.  On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding**. Click **Next**. Note that this is default in Hyper-V 2012 and Hyper-V 2012 R2. In Hyper-V 2008 R2, default is **Fixed size**.
+1.  On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). Keep in mind that **Fixed size** disk will also work but you may need to wait a long time. Click **Next**. Note that **Dynamically expanding** is the default in Hyper-V 2012 and Hyper-V 2012 R2. In Hyper-V 2008 R2, default is **Fixed size**. 
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
 
@@ -250,15 +250,15 @@ Perform the following steps to start your virtual device and connect to it.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image31.png)
 
-	If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step1: Ensure that the host system meets minimum virtual device requirements](#_Step_1:_Ensure).
+	If your device does not meet the minimum configuration requirements, you will see an error in the banner text (shown below). You will need to modify the device configuration so that it has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual device requirements](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image32.png)
 
 If you face any other error during the initial configuration using the local web UI, refer to the following workflows in [Manage your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
 
--   Run diagnostic tests to troubleshoot web UI setup.
+-   Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
--   Generate log package and view log files.
+-   [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
 ## Next steps
 
