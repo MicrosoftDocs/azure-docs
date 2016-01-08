@@ -492,10 +492,12 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/TP by right-clicking **TCP/IP** and clicking **Enable**.
 
 	![Enable TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
+
+	See [Enable or Disable a Server Network Protocol](https://msdn.microsoft.com/library/ms191294.aspx) for details and alternate ways of enabling TCP/IP protocol. 
 3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.
-4. Switch to the IP Addresses tab. Scroll down to see **IPAll** section. Note down the **TCP Port **(default is 1433). 
+4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port **(default is **1433**). 
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.  
-6. Verify connection: use SQL Server Management Studio from a different machine to connect to the SQL Server using fully qualified name. For example: <machine>.<domain>.corp.<company>.com,1433.
+6. **Verify connection**: use SQL Server Management Studio from a different machine to connect to the SQL Server using fully qualified name. For example: <machine>.<domain>.corp.<company>.com,1433.
 
 	> [AZURE.IMPORTANT] See [Ports and Security Considerations](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) for detailed information.  
 
