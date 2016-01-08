@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Provide Sign up and Sign in to Consumers with Amazon Accounts
@@ -36,15 +36,15 @@ To use Amazon as an identity provider in Azure Active Directory (AD) B2C, you wi
 
 5. In the **Web Settings** section, copy the values of **Client ID** and **Client secret** (you will need to click the **Show Secret** button to see this). You will need both of them to configure Amazon as an identity provider in your tenant. Click **Edit** at the bottom of the section.
 
-    > [AZURE.NOTE]
-    **Client secret** is an important security credential.
+> [AZURE.NOTE]
+**Client secret** is an important security credential.
 
     ![Amazon - Client secret](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
 
 6. Enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Allowed JavaScript origins** field and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Allowed Return URLs** field, where **{tenant}** is to be replaced with your tenant's name (for example, contoso.onmicrosoft.com). Click **Save**.
 
-    > [AZURE.NOTE]
-    The **{tenant}** value is case-sensitive.
+> [AZURE.NOTE]
+The **{tenant}** value is case-sensitive.
 
     ![Amazon - URLs](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
