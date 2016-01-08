@@ -20,7 +20,7 @@
 # What is Azure Backup?
 Azure Backup is the service you use to back up and restore your data in the Microsoft cloud. It replaces your existing on-premises or offsite backup solution with a cloud-based solution that is reliable, secure, and cost competitive. It also protects assets running in the cloud. The Azure Backup provides recovery services built on a world class infrastructure that is scalable, durable and highly available.
 
-[Watch a video overview of Azure Backup](https://azure.microsoft.com/en-us/documentation/videos/what-is-azure-backup/)
+[Watch a video overview of Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
 
 ## Why use Azure Backup?
 Traditional backup solutions have evolved to treat the cloud as an endpoint similar to disk or tape. While this approach is simple, it has limited uses and does not take full advantage of the underlying cloud platform. This translates to an inefficient, expensive solution.
@@ -60,7 +60,7 @@ As Azure Backup is a hybrid backup solution, it consists of multiple components 
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported|
 | --- | --- | --- | --- |
 | Azure Backup agent | **Yes** <br><br>The Azure Backup agent can be deployed on any Windows Server VM running in Azure. | **Yes** <br><br>The Azure Backup agent can be deployed on any Windows Server VM or physical machine. | Azure Backup vault |
-| System Center Data Protection Manager (SCDPM) | **Yes** <br><br>Learn more about [protecting workloads in Azure using SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx). | **Yes** <br><br>Learn more about [protecting workloads and VMs in your datacenter](https://technet.microsoft.com/en-us/library/hh758173.aspx). | Locally attached disk,<br>Azure Backup vault,<br>Tape (on-premises only) |
+| System Center Data Protection Manager (SCDPM) | **Yes** <br><br>Learn more about [protecting workloads in Azure using SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx). | **Yes** <br><br>Learn more about [protecting workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx). | Locally attached disk,<br>Azure Backup vault,<br>Tape (on-premises only) |
 | Azure Backup Server | **Yes** <br><br>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md). | **Yes** <br><br>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md).. | Azure Backup vault |
 | Azure Backup (VM extension) | **Yes** <br><br>Specialized for [backup of Azure IaaS virtual machines](backup-azure-vms-introduction.md). | **No** <br><br>Use SCDPM to backup virtual machines in your datacenter. | Azure Backup vault |
 
