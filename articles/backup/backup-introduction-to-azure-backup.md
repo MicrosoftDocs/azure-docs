@@ -78,8 +78,8 @@ As Azure Backup is a hybrid backup solution, it consists of multiple components 
 | Azure IaaS VMs (Windows)|  - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 | Azure IaaS VMs (Linux) | - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 
-## Feature list
-These tables summarize the main Azure Backup features and how they're handled in each component:
+## Functionality
+These tables summarize how Azure Backup functionality is handled in each component:
 
 ### Storage
 
