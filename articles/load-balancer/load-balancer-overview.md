@@ -16,7 +16,7 @@
    ms.author="joaoma" />
 
 
-# Azure Load Balancer overview
+# What is Azure Load Balancer?
 
 Azure Load Balancer delivers high availability and network performance to your applications. It is a Layer 4 (TCP, UDP) load balancer that distributes incoming traffic among healthy service instances in cloud services or virtual machines defined in a load-balancer set.
 
