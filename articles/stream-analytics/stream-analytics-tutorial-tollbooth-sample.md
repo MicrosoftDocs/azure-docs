@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="01/08/2016" 
+	ms.date="01/11/2016" 
 	ms.author="jeffstok"
 />
 
@@ -124,7 +124,7 @@ Next type `Get-ExecutionPolicy` and hit enter to validate the command worked.
   
 Change directories in the PowerShell window to the directory with the downloaded scripts and generator application.
   
-![CD pic](./media/stream-analytics-tutorial-tollbooth-sample/sstream-analytics-tutorial-tollbooth-sample-image-04.png)  
+![CD pic](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-04.png)  
   
 Type `.\Setup.ps1` to set up the Azure account, create and configure all required resources and start generating events.
 
