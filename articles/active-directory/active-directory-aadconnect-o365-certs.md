@@ -21,7 +21,7 @@
 
 If you received an email or a portal notification asking you to renew your certificate for Office 365, this article is intended to help you resolve the issue and keep it from happening again.  This article assumes that you are using AD FS as your federation server.
 
->[AZURE.ALERT] Authentication through your proxy may fail in Windows Server 2012 or Windows Server 2008 R2 after doing one of the following: 
+>[AZURE.IMPORTANT] Authentication through your proxy may fail in Windows Server 2012 or Windows Server 2008 R2 after doing one of the following: 
 >
 - Your proxy renews its trust token after certificates rollover in AD FS
 - You manually replaced your AD FS certificates
