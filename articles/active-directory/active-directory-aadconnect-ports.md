@@ -77,5 +77,5 @@ This table describes the ports and protocols that are required for communication
 |Azure Service Bus|5671 (TCP/UDP)|
 
 ### 6b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
-For a list of endpoints see [the Requirements section for the Azure AD Connect Health agent](https://azure.microsoft.com/en-us/documentation/articles/active-directory-aadconnect-health/#requirements)
+For a list of endpoints see [the Requirements section for the Azure AD Connect Health agent](active-directory-aadconnect-health.md#requirements)
 
