@@ -32,10 +32,10 @@ This [Batch .NET][api_net] API code snippet retrieves all of the tasks that are 
 IPagedEnumerable<CloudTask> allTasks = batchClient.JobOperations.ListTasks("job-001");
 ```
 
-A much more efficient list query can be performed, however. You can do this by supplying an [ODATADetailLevel][odata] class to the [JobOperations.ListTasks][net_list_tasks] method. This snippet returns just the ID, command line, and compute node information properties of completed tasks only:
+A much more efficient list query can be performed, however. You can do this by supplying an [ODATADetailLevel][odata] object to the [JobOperations.ListTasks][net_list_tasks] method. This snippet returns just the ID, command line, and compute node information properties of completed tasks only:
 
 ```
-// Configure an ODATADetailLevel that specifies a subset of tasks and their properties to return
+// Configure an ODATADetailLevel specifying a subset of tasks and their properties to return
 ODATADetailLevel detailLevel = new ODATADetailLevel();
 detailLevel.FilterClause = "state eq 'completed'";
 detailLevel.SelectClause = "id,commandLine,nodeInfo";
@@ -47,7 +47,7 @@ IPagedEnumerable<CloudTask> completedTasks = batchClient.JobOperations.ListTasks
 In the above example scenario, if there are thousands of tasks in the job, the results from the second query will typically be returned much quicker than the first. More information about using ODATADetailLevel when you list items with the Batch .NET API is included below.
 
 > [AZURE.IMPORTANT]
-> We highly recommend that you *always* supply an ODATADetailLevel class to your .NET API list calls to ensure maximum efficiency and performance of your application. By specifying a detail level, you can help to lower Batch service response times, improve network utilization, and minimize memory usage by client applications.
+> We highly recommend that you *always* supply an ODATADetailLevel object to your .NET API list calls to ensure maximum efficiency and performance of your application. By specifying a detail level, you can help to lower Batch service response times, improve network utilization, and minimize memory usage by client applications.
 
 ## Tools for efficient querying
 
@@ -92,7 +92,7 @@ The following code snippet uses the Batch .NET API to efficiently query the Batc
 	// clause strings
 	ODATADetailLevel detailLevel = new ODATADetailLevel();
 
-	// We want to pull only the "test" pools, so we limit the number of items that are returned by using a
+	// We want to pull only the "test" pools, so we limit the number of items returned by using a
 	// FilterClause and specifying that the pool IDs must start with "test"
 	detailLevel.FilterClause = "startswith(id, 'test')";
 
@@ -174,7 +174,7 @@ The select string for including only the ID and command line with each listed ta
 
 ## Next steps
 
-Check out the [EfficientListQueries][efficient_query_sample] sample project on GitHub to see how efficient list querying can affect performance in an application. This C# console application creates and adds a large number of tasks to a job. Then, it queries the Batch service by using different [ODATADetailLevel][odata] specifications and displays output similar to the following:
+Check out the [EfficientListQueries][efficient_query_sample] sample project on GitHub to see how efficient list querying can affect performance in an application. This C# console application creates and adds a large number of tasks to a job. Then, it makes multiple calls to the JobOperations.ListTasks method and passes [ODATADetailLevel][odata] objects that are configured with different property values to vary the amount of data to be returned. It produces output similar to the following:
 
 		Adding 5000 tasks to job jobEffQuery...
 		5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
