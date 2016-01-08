@@ -296,15 +296,25 @@ This folder contains the following files:
 
 ### QUESTION 1 - NUMBER OF VEHICLES ENTERING A TOLL BOOTH
 Open the Azure Management portal and navigate to your created Azure Stream Analytic job. Open the Query tab and copy paste Query from the previous section.
-To validate this query against sample data, click the Test button. In the dialog that opens, navigate to Entry.json, a file with sample data from the EntryTime event stream.
+To validate this query against sample data, click the Test button. 
+  
+![Test Query](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-41.png)  
+  
+In the dialog that opens, navigate to Entry.json, a file with sample data from the EntryTime event stream.
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-42.png)  
+  
 Validate that the output of the query is as expected:
-
+  
+![Test Query output](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-43.png)  
+  
 ### QUESTION 2 - REPORT TOTAL TIME FOR EACH CAR TO PASS THROUGH THE TOLL BOOTH
 We want to find average time required for the car to pass the toll to assess efficiency and customer experience.
 For this we need to join the stream containing EntryTime with the stream containing ExitTime. We will join the streams on TollId and LicencePlate columns. JOIN operator requires specifying a temporal wiggle room describing acceptable time difference between the joined events. We will use DATEDIFF function to specify that events should be no more than 15 minutes from each other. We will also apply DATEDIFF function to Exit and Entry times to compute actual time a car spends in the toll. Note the difference of the use of DATEDIFF when used in a SELECT statement compared to a JOIN condition.
-
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-44.png)  
+  
 To test this query, update the query on the Query tab of your job:
-Click test and specify sample input files for EntryTime and ExitTime.
 
     SELECT EntryStream.TollId, EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream .ExitTime) AS Duration InMinutes
     FROM EntryStream TIMESTAMP BY EntryTime
@@ -312,8 +322,14 @@ Click test and specify sample input files for EntryTime and ExitTime.
     ON (Entry Stream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
     AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
+Click test and specify sample input files for EntryTime and ExitTime.
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-46.png)  
+  
 Click the checkbox to test the query and view output:
-
+  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-47.png)  
+  
 ### QUESTION 3 – REPORT ALL COMMERCIAL VEHICLES WITH EXPIRED REGISTRATION
 Azure Stream Analytics can use static snapshots of data to join with temporal data streams. To demonstrate this capability we will use the following sample question.
 If a commercial vehicle is registered with the Toll Company, they can pass through the toll booth without being stopped for inspection. We will use Commercial Vehicle Registration lookup table to identify all commercial vehicles with expired registration.
