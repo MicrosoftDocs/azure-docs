@@ -18,12 +18,12 @@
 	ms.author="trinadhk;jimpark"/>
 
 # What is Azure Backup?
-Azure Backup is the service you use to back up and restore your data in the Microsoft cloud. It replaces your existing on-premises or offsite backup solution with a cloud-based solution that is reliable, secure, and cost competitive. It also protects assets running in the cloud. The Azure Backup provides recovery services built on a world class infrastructure that is scalable, durable and highly available.
+Azure Backup is the service you use to back up and restore your data in the Microsoft cloud. It replaces your existing on-premises or offsite backup solution with a cloud-based solution that is reliable, secure, and cost competitive. It also protects assets running in the cloud. Azure Backup provides recovery services built on a world class infrastructure that is scalable, durable and highly available.
 
 [Watch a video overview of Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
 
 ## Why use Azure Backup?
-Traditional backup solutions have evolved to treat the cloud as an endpoint similar to disk or tape. While this approach is simple, it has limited uses and does not take full advantage of the underlying cloud platform. This translates to an inefficient, expensive solution.
+Traditional backup solutions have evolved to treat the cloud as an endpoint similar to disk or tape. While this approach is simple, it is limited and does not take full advantage of an underlying cloud platform. This translates to an inefficient, expensive solution.
 Azure Backup, on the other hand, delivers all the advantages of a powerful & affordable cloud backup solution. Some of the key benefits that Azure Backup provides include:
 
 | FEATURE | BENEFIT |
@@ -36,19 +36,6 @@ Azure Backup, on the other hand, delivers all the advantages of a powerful & aff
 | Data encryption | Secure transmission and storage of customer data in the public cloud. The encryption passphrase is stored at source and is never transmitted or stored in Azure. The encryption key is required to restore any of the data and only the customer has full access to the data in the service. |  
 | VSS integration | Application consistent backups on Windows ensure that fix-up is not needed at the time of restore. This reduces the RTO and allows customers to return a running state quicker. |
 | Long term retention | Rather than paying for offsite tape backup solutions, customers can backup to Azure which provides a compelling solution with tape-like-semantics at a very low cost. |
-
-## How does Azure Backup differ from Azure Site Recovery?
-Many customers confuse backup and disaster recovery. Both capture data and provide restore semantics, but the core value proposition is different for each.
-
-Azure Backup backs up data on-premises or in the cloud. Azure Site Recovery coordinates virtual machine and physical server replication, failover, and failback. You need both of these for a complete disaster recovery solution because your disaster recovery strategy needs to keep your data safe and recoverable (Azure Backup) AND keep your workloads available and accessible (Azure Site Recovery) when outages occur.
-
-To make a decision around backup and disaster recovery, a few important concepts need to be understood:
-
-| CONCEPT | DETAILS | BACKUP | DISASTER RECOVERY (DR) |
-| ------- | ------- | ------ | ----------------- |
-| Recovery Point Objective (RPO) | The amount of data loss that is acceptable in case a recovery needs to be done. | Backup solutions have a large variance in the RPO that is acceptable. Virtual machine backups usually have an RPO of 1 day, while database backups have RPOs as low as 15 minutes. | Disaster Recovery solutions have extremely low RPOs. The DR copy can be behind by few seconds or a few minutes. |
-| Recovery Time Objective (RTO) | The amount of time that it takes to complete a recovery/restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher - and this leads to longer RTOs. For example, restoring data from tapes can take days, depending on the time taken to transport the tape from an off-site location. | Disaster Recovery solutions have smaller RTOs as they are more in sync with the source, and fewer changes need to processed. |
-| Retention | How long data needs to be stored | <p>For scenarios that require operational recovery (data corruption, inadvertent file deletion, OS failures), the backup data is typically retained for 30 days or less.</p> <p>From a compliance standpoint, data might have to be stored for months or even years. Backup data is ideally suited for archival in such cases.</p> | Disaster Recovery needs only operational recovery data - typically a few hours or up to a day. Because of the fine-grained data capture used in DR solutions, long term retention is not recommended using DR data. |
 
 ## Azure Backup components
 As Azure Backup is a hybrid backup solution, it consists of multiple components that work together to enable the end-to-end backup and restore workflows.
@@ -154,6 +141,19 @@ For customers protecting data to a backup server (SCDPM or Azure Backup Server),
 | Recovery points in Azure vault | 366 | 366 | 366 |
 | Recovery points on local disk | Not applicable | 120 | Not applicable |
 | Recovery points on tape | Not applicable | 120? | Not applicable |
+
+## How does Azure Backup differ from Azure Site Recovery?
+Many customers confuse backup and disaster recovery. Both capture data and provide restore semantics, but the core value proposition is different for each.
+
+Azure Backup backs up data on-premises or in the cloud. Azure Site Recovery coordinates virtual machine and physical server replication, failover, and failback. You need both of these for a complete disaster recovery solution because your disaster recovery strategy needs to keep your data safe and recoverable (Azure Backup) AND keep your workloads available and accessible (Azure Site Recovery) when outages occur.
+
+To make decisions around backup and disaster recovery, a few important concepts should be understood:
+
+| CONCEPT | DETAILS | BACKUP | DISASTER RECOVERY (DR) |
+| ------- | ------- | ------ | ----------------- |
+| Recovery Point Objective (RPO) | The amount of data loss that is acceptable in case a recovery needs to be done. | Backup solutions have a large variance in the RPO that is acceptable. Virtual machine backups usually have an RPO of 1 day, while database backups have RPOs as low as 15 minutes. | Disaster Recovery solutions have extremely low RPOs. The DR copy can be behind by few seconds or a few minutes. |
+| Recovery Time Objective (RTO) | The amount of time that it takes to complete a recovery/restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher - and this leads to longer RTOs. For example, restoring data from tapes can take days, depending on the time taken to transport the tape from an off-site location. | Disaster Recovery solutions have smaller RTOs as they are more in sync with the source, and fewer changes need to processed. |
+| Retention | How long data needs to be stored | <p>For scenarios that require operational recovery (data corruption, inadvertent file deletion, OS failures), the backup data is typically retained for 30 days or less.</p> <p>From a compliance standpoint, data might have to be stored for months or even years. Backup data is ideally suited for archival in such cases.</p> | Disaster Recovery needs only operational recovery data - typically a few hours or up to a day. Because of the fine-grained data capture used in DR solutions, long term retention is not recommended using DR data. |
 
 ## Next steps
 
