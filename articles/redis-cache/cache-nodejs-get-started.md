@@ -54,7 +54,7 @@ Enter a DNS hostname. It will have the form `<name>
   ![][4]
 
 
-  ## Enable the non-SSL endpoint
+## Enable the non-SSL endpoint
 
 
   Click the link under **Ports**, and click **No** for "Allow access only via SSL". This enables the non-SSL port for the cache. The node_redis client currently does not support SSL.
@@ -62,20 +62,20 @@ Enter a DNS hostname. It will have the form `<name>
   ![][3]
 
 
-  ## Add something to the cache and retrieve it
+## Add something to the cache and retrieve it
 
-  var redis = require("redis");
+    var redis = require("redis");
 
-  // Add your cache name and access key.
-  var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth_pass: '<key>' });
+    // Add your cache name and access key.
+    var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth_pass: '<key>' });
 
-	client.set("foo", "bar", function(err, reply) {
-	    console.log(reply);
-	});
+    client.set("foo", "bar", function(err, reply) {
+        console.log(reply);
+    });
 
-	client.get("foo",  function(err, reply) {
-	    console.log(reply);
-	});
+    client.get("foo",  function(err, reply) {
+        console.log(reply);
+    });
 
 
 Output:
