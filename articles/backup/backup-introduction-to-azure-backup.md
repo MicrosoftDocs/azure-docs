@@ -28,13 +28,13 @@ Azure Backup, on the other hand, delivers all the advantages of a powerful & aff
 
 | FEATURE | BENEFIT |
 | ------- | ------- |
-| Automatic storage management | No capital expenditure is needed for on-premises storage devices. Azure Backup automatically allocates and manages backup storage, with a pay-as-you-use consumption model. |  
-| Unlimited scaling | High availability guarantees without the overhead of maintenance and monitoring. Azure Backup uses the underlying power and scale of the Azure cloud, with non-intrusive auto scaling capabilities. |  
-| Multiple storage options | Choose the backup storage based on need: <li>LRS (Locally Redundant Storage) block blob is ideal for price-conscious customers while still protecting data against local hardware failures. <li>GRS (Geo Replication storage) block blob provides 3 additional copies in a paired data center, ensuring that your backup data is highly available even in the event of an Azure-site-level disaster. |  
-| Unlimited data transfer | No charge for any egress (outbound) data transfer cost during a restore operation from the Azure Backup vault. Data inbound to Azure is also free.|  
-| Central management | Simplicity and familiarity of the Azure portal. As the service evolves, features like central management will allow you to manage your backup infrastructure from a single location. |  
+| Automatic storage management | No capital expenditure is needed for on-premises storage devices. Azure Backup automatically allocates and manages backup storage, with a pay-as-you-use consumption model. |
+| Unlimited scaling | High availability guarantees without the overhead of maintenance and monitoring. Azure Backup uses the underlying power and scale of the Azure cloud, with non-intrusive auto scaling capabilities. |
+| Multiple storage options | Choose the backup storage based on need: <li>LRS (Locally Redundant Storage) block blob is ideal for price-conscious customers while still protecting data against local hardware failures. <li>GRS (Geo Replication storage) block blob provides 3 additional copies in a paired data center, ensuring that your backup data is highly available even in the event of an Azure-site-level disaster. |
+| Unlimited data transfer | No charge for any egress (outbound) data transfer cost during a restore operation from the Azure Backup vault. Data inbound to Azure is also free. |
+| Central management | Simplicity and familiarity of the Azure portal. As the service evolves, features like central management will allow you to manage your backup infrastructure from a single location. |
 | Data encryption | Secure transmission and storage of customer data in the public cloud. The encryption passphrase is stored at source and is never transmitted or stored in Azure. The encryption key is required to restore any of the data and only the customer has full access to the data in the service. |  
-| VSS integration | Application consistent backups on Windows ensure that fix-up is not needed at the time of restore. This reduces the RTO and allows customers to return a running state quicker. |  
+| VSS integration | Application consistent backups on Windows ensure that fix-up is not needed at the time of restore. This reduces the RTO and allows customers to return a running state quicker. |
 | Long term retention | Rather than paying for offsite tape backup solutions, customers can backup to Azure which provides a compelling solution with tape-like-semantics at a very low cost. |
 
 ## How does Azure Backup differ from Azure Site Recovery?
@@ -48,7 +48,7 @@ To make a decision around backup and disaster recovery, a few important concepts
 | ------- | ------- | ------ | ----------------- |
 | Recovery Point Objective (RPO) | The amount of data loss that is acceptable in case a recovery needs to be done. | Backup solutions have a large variance in the RPO that is acceptable. Virtual machine backups usually have an RPO of 1 day, while database backups have RPOs as low as 15 minutes. | Disaster Recovery solutions have extremely low RPOs. The DR copy can be behind by few seconds or a few minutes. |
 | Recovery Time Objective (RTO) | The amount of time that it takes to complete a recovery/restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher - and this leads to longer RTOs. For example, restoring data from tapes can take days, depending on the time taken to transport the tape from an off-site location. | Disaster Recovery solutions have smaller RTOs as they are more in sync with the source, and fewer changes need to processed. |
-| Retention | How long data needs to be stored | For scenarios that require operational recovery (data corruption, inadvertent file deletion, OS failures), the backup data is typically retained for 30 days or less. <br><br>From a compliance standpoint, data might have to be stored for months or even years. Backup data is ideally suited for archival in such cases. | Disaster Recovery needs only operational recovery data - typically a few hours or up to a day. Because of the fine-grained data capture used in DR solutions, long term retention is not recommended using DR data. |
+| Retention | How long data needs to be stored | <p>For scenarios that require operational recovery (data corruption, inadvertent file deletion, OS failures), the backup data is typically retained for 30 days or less.</p> <p>From a compliance standpoint, data might have to be stored for months or even years. Backup data is ideally suited for archival in such cases.</p> | Disaster Recovery needs only operational recovery data - typically a few hours or up to a day. Because of the fine-grained data capture used in DR solutions, long term retention is not recommended using DR data. |
 
 ## Azure Backup components
 As Azure Backup is a hybrid backup solution, it consists of multiple components that work together to enable the end-to-end backup and restore workflows.
@@ -59,22 +59,22 @@ As Azure Backup is a hybrid backup solution, it consists of multiple components 
 
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported|
 | --- | --- | --- | --- |
-| Azure Backup agent | **Yes** <br><br>The Azure Backup agent can be deployed on any Windows Server VM running in Azure. | **Yes** <br><br>The Azure Backup agent can be deployed on any Windows Server VM or physical machine. | Azure Backup vault |
-| System Center Data Protection Manager (SCDPM) | **Yes** <br><br>Learn more about [protecting workloads in Azure using SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx). | **Yes** <br><br>Learn more about [protecting workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx). | Locally attached disk,<br>Azure Backup vault,<br>Tape (on-premises only) |
-| Azure Backup Server | **Yes** <br><br>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md). | **Yes** <br><br>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md).. | Azure Backup vault |
-| Azure Backup (VM extension) | **Yes** <br><br>Specialized for [backup of Azure IaaS virtual machines](backup-azure-vms-introduction.md). | **No** <br><br>Use SCDPM to backup virtual machines in your datacenter. | Azure Backup vault |
+| Azure Backup agent | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM running in Azure.</p> | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM or physical machine.</p> | Azure Backup vault |
+| System Center Data Protection Manager (SCDPM) | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [protecting workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx). | Locally attached disk,</p> <p>Azure Backup vault,</p> <p>Tape (on-premises only)</p> |
+| Azure Backup Server | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | Azure Backup vault |
+| Azure Backup (VM extension) | <p>Yes</p> <p>Specialized for [backup of Azure IaaS virtual machines](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use SCDPM to backup virtual machines in your datacenter. | Azure Backup vault</p> |
 
 ## Applications and workloads
 
 | Workload | Source machine | Azure Backup solution |
 | --- | --- |---|
-| Files & folders | Windows Server | [Azure Backup agent](backup-configure-vault.md),<br> [System Center DPM](backup-azure-dpm-introduction.md)<br> [Azure Backup Server](backup-azure-microsoft-azure-backup.md)  |
-| Files & folders | Windows client | [Azure Backup agent](backup-configure-vault.md),<br> [System Center DPM](backup-azure-dpm-introduction.md)<br> [Azure Backup Server](backup-azure-microsoft-azure-backup.md)  |
-| Hyper-V Virtual machine (Windows) | Windows Server | System Center DPM,<br> [Azure Backup Server](backup-azure-microsoft-azure-backup.md) |
-| Hyper-V Virtual machine (Linux) | Windows Server |  System Center DPM,<br> [Azure Backup Server](backup-azure-microsoft-azure-backup.md)  |
-| Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md),<br> [Azure Backup Server](backup-azure-microsoft-azure-backup.md)  |
-| Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sql.md),<br> [Azure Backup Server](backup-azure-microsoft-azure-backup.md)   |
-| Microsoft Exchange |  Windows Server | [System Center DPM](backup-azure-backup-sql.md),<br> [Azure Backup Server](backup-azure-microsoft-azure-backup.md)   |
+| Files & folders | Windows Server | <p>[Azure Backup agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>  |
+| Files & folders | Windows client | <p>[Azure Backup agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>  |
+| Hyper-V Virtual machine (Windows) | Windows Server | <p>System Center DPM,</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
+| Hyper-V Virtual machine (Linux) | Windows Server |  <p>System Center DPM,</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>  |
+| Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>  |
+| Microsoft SharePoint | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>   |
+| Microsoft Exchange |  Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>   |
 | Azure IaaS VMs (Windows)|  - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 | Azure IaaS VMs (Linux) | - | [Azure Backup (VM extension)](backup-azure-vms-introduction.md) |
 
@@ -148,7 +148,7 @@ For customers protecting data to a backup server (SCDPM or Azure Backup Server),
 
 | Backup Frequency (to Azure vault) | 3 backups per day | 2 backups per day | 1 backup per day |
 | --- | --- | --- | --- |
-| Backup Frequency (to disk) | Not applicable | Every 15 minutes for SQL Server<br>Every 1 hour for other workloads | Not applicable |
+| Backup Frequency (to disk) | Not applicable | <p>Every 15 minutes for SQL Server</p> <p>Every 1 hour for other workloads</p> | Not applicable |
 | Retention options | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly |
 | Retention period | Up to 99 years | Up to 99 years | Up to 99 years |
 | Recovery points in Azure vault | 366 | 366 | 366 |
