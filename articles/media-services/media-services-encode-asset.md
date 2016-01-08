@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015"  
+	ms.date="01/05/2015"  
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
@@ -73,13 +73,17 @@ The encoders input metadata is described [here](http://msdn.microsoft.com/librar
 
 The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
-###Thumbnail
+###Generate thumbnails
 
-For information on how to generate thumbnails, see [How to generate thumbnails using Media Encoder Standard](media-services-dotnet-generate-thumbnail-with-mes.md).
+For information, see [How to generate thumbnails using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
 
-###Audio and/or video overlays
+###Trim videos (clipping)
 
-Currently, not supported.
+For information, see [How to trim videos using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#trim_video).
+
+###Create overlays
+
+For information, see [How to create overlays using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
 ###See also
 
