@@ -216,23 +216,27 @@ Select the created analytics job in the portal. Then select the  “Inputs” ta
 5. Select “entry” as Event Hub name and “all” as Event Hub policy name.  
 
 The settings will look like:
-
+  
+![Event Hub Settings synopsis](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-28.png)  
+  
 On the next page verify the values are set as JSON and UTF8 encoding. Then simply select OK at the bottom of the dialog to finish the wizard.
 
 Follow the same sequence of steps to create the second Event Hub Input for the stream with toll exit events. Validate that on 3rd page values as as shown on the screenshot below.
-
+  
+![Event Hub Settings synopsis v2](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-31.png)  
+  
 You now have two input streams defined like the display below:
-
-Next, add “Reference” data input for the blob file with car registration data.
-
-Click “Add Input”. Select “Reference Data”
-
-On the next page, select the storage account starting with “tolldata”. Container name should be “tolldata” and blob name under Pattern Path should be “registration.json”. This file name is case sensitive and should be all in lowercase.
-
-Select the values as shown below on the next page and click OK to finish the wizard.
-
+  
+![2 input streams](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-32.png)  
+  
+Next, add “Reference” data input for the blob file with car registration data. Click “Add Input”. Select “Reference Data” On the next page, select the storage account starting with “tolldata”. Container name should be “tolldata” and blob name under Pattern Path should be “registration.json”. This file name is case sensitive and should be all in lowercase. Select the values as shown below on the next page and click OK to finish the wizard.
+  
+![ref data properties](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-34.png)  
+  
 At this point in the tutorial, all data inputs are defined.
-
+  
+![3 tolldata inputs](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-36.jpg)  
+  
 ## Define Output Data Connections
   
 1.  Go to “Output” tab and click “Add an output”.  
@@ -242,6 +246,10 @@ At this point in the tutorial, all data inputs are defined.
 5.  Enter “tolladmin” as the user name and “123toll!” as the password.  
 6.  The table name should be set to “TollDataRefJoin”.  
 
+The settings should look as below:
+  
+![SQL DB Settings](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-38.jpeg)  
+  
 ## Azure Stream Analytics Job Query
 The Query tab contains a T-SQL query that performs the transformation over the incoming data. Throughout the lab questions will be presented and addressed by using the toll booth data stream and Stream Analytics queries to provide an answer. Before starting the first Azure Stream Analytics job, explore a few scenarios and query syntax.
 
