@@ -43,7 +43,7 @@ This following procedures explain how to use the StorSimple **Volume containers*
 
 ## Add a volume container
 
-Perform the following steps to create a volume container.
+Perform the following steps to add a volume container.
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
