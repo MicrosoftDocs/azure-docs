@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="List Azure Storage Resources with the Microsoft Azure Storage Client Library for C++ | Microsoft Azure" 
-    description="Learn how to use the listing APIs in Microsoft Azure Storage Client Library for C++ to enumerate containers, blobs, queues, tables, and entities." 
-    documentationCenter=".net" 
+<properties
+    pageTitle="List Azure Storage Resources with the Microsoft Azure Storage Client Library for C++ | Microsoft Azure"
+    description="Learn how to use the listing APIs in Microsoft Azure Storage Client Library for C++ to enumerate containers, blobs, queues, tables, and entities."
+    documentationCenter=".net"
     services="storage"
-    authors="tamram" 
-    manager="carolz" 
-    editor=""/>
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="zhimingyuan;tamram"/>
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # List Azure Storage Resources in C++
 
@@ -54,7 +54,7 @@ It is therefore impractical to list all objects in a single response. Instead, y
 
 The response for a segmented listing operation includes:
 
--	<i>_segment</i>, which contains the set of results returned for a single call to the listing API. 
+-	<i>_segment</i>, which contains the set of results returned for a single call to the listing API.
 -	*continuation_token*, which is passed to the next call in order to get the next page of results. When there are no more results to return, the continuation token is null.
 
 For example, a typical call to list all blobs in a container may look like the following code snippet. The code is available in our [samples](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
@@ -75,15 +75,15 @@ For example, a typical call to list all blobs in a container may look like the f
 	        process_diretory(it->as_directory());
 	    }
 	}
-	
+
 	    token = segment.continuation_token();
 	}
 	while (!token.empty());
 
 Note that the number of results returned in a page can be controlled by the parameter *max_results* in the overload of each API, for example:
-	
-	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
-		blob_listing_details::values includes, int max_results, const continuation_token& token, 
+
+	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing,
+		blob_listing_details::values includes, int max_results, const continuation_token& token,
 		const blob_request_options& options, operation_context context)
 
 If you do not specify the *max_results* parameter, the default maximum value of up to 5000 results is returned in a single page.
@@ -102,7 +102,7 @@ Earlier versions of the Storage Client Library for C++ (versions 0.5.0 Preview a
 
 These methods were implemented as wrappers of segmented APIs. For each response of segmented listing, the code appended the results to a vector and returned all results after the full containers were scanned.
 
-This approach might work when the storage account or table contains a small number of objects. However, with an increase in the number of objects, the memory required could increase without limit, because all results remained in memory. One listing operation can take a very long time, during which the caller had no information about its progress. 
+This approach might work when the storage account or table contains a small number of objects. However, with an increase in the number of objects, the memory required could increase without limit, because all results remained in memory. One listing operation can take a very long time, during which the caller had no information about its progress.
 
 These greedy listing APIs in the SDK do not exist in C#, Java, or the JavaScript Node.js environment. To avoid the potential issues of using these greedy APIs, we removed them in version 0.6.0 Preview.
 
@@ -124,7 +124,7 @@ Then you should modify your code to use the segmented listing APIs:
 	    {
 	        process_entity(*it);
 	    }
-	
+
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
@@ -162,7 +162,7 @@ Note that lazy listing is only available in synchronous mode.
 
 Compared with greedy listing, lazy listing fetches data only when necessary. Under the covers, it fetches data from Azure Storage only when the next iterator moves into next segment. Therefore, memory usage is controlled with a bounded size, and the operation is fast.
 
-Lazy listing APIs are included in the Storage Client Library for C++ in version 1.0.0. 
+Lazy listing APIs are included in the Storage Client Library for C++ in version 1.0.0.
 
 ## Conclusion
 
