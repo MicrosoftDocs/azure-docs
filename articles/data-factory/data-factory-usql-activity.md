@@ -126,7 +126,7 @@ degreeOfParallelism | The maximum number of nodes that will be used simultaneous
 priority | Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. | No 
 parameters | Parameters for the U-SQL script | No 
 
-See [SearchLogProcessing.txt Script Definition](#SearchLogProcessing.txt-Script-Definition) for the script definition. 
+See [SearchLogProcessing.txt Script Definition](#script-definition) for the script definition. 
 
 ### Sample input and output datasets
 
@@ -189,7 +189,7 @@ Here is the definition of the sample Azure Data Lake Store linked service used b
 
 See [Move data to and from Azure Data Lake Store](data-factory-azure-datalake-connector.md) for descriptions of JSON properties in the above Azure Data Lake Store linked service and data set JSON snippets. 
 
-### SearchLogProcessing.txt Script Definition
+### Script Definition
 
 	@searchlog =
 	    EXTRACT UserId          int,
