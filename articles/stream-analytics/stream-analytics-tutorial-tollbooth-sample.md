@@ -306,7 +306,7 @@ In the dialog that opens, navigate to Entry.json, a file with sample data from t
   
 Validate that the output of the query is as expected:
   
-![Test Query output](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-43.png)  
+![Test Query output](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-43.jpg)  
   
 ### QUESTION 2 - REPORT TOTAL TIME FOR EACH CAR TO PASS THROUGH THE TOLL BOOTH
 We want to find average time required for the car to pass the toll to assess efficiency and customer experience.
