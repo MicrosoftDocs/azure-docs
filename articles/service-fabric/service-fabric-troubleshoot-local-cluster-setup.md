@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="01/08/2016"
    ms.author="seanmck"/>
 
 # Troubleshoot your local development cluster setup
@@ -41,11 +41,21 @@ Close the current PowerShell window and open a new PowerShell window as an admin
 
 ## Cluster connection failures
 
+### Service Fabric PowerShell cmdlets are not recognized in Azure PowerShell
+
+#### Problem
+
+If you try to run any of the Service Fabric PowerShell cmdlets, such as `Connect-ServiceFabricCluster` in an Azure PowerShell window, it fails, saying that the cmdlet is not recognized. The reason for this is that Azure PowerShell uses the 32-bit version of Windows PowerShell (even on 64-bit OS versions), whereas the Service Fabric cmdlets only work in 64-bit environments.
+
+#### Solution
+
+Always run Service Fabric cmdlets directly from Windows PowerShell.
+
 ### Type Initialization exception
 
 #### Problem
 
-When you are connecting to the cluster in PowerShell or Service Fabric Explorer, you see the error TypeInitializationException for System.Fabric.Common.AppTrace.
+When you are connecting to the cluster in PowerShell, you see the error TypeInitializationException for System.Fabric.Common.AppTrace.
 
 #### Solution
 
