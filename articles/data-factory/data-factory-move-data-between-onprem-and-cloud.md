@@ -161,7 +161,12 @@ In this step, you use the Azure Portal to create an Azure Data Factory instance 
 
 3. In the **Configure** blade, click **Install directly on this computer**. This will download the installation package for the gateway, install, configure, and register the gateway on the computer.  
 
-	> [AZURE.NOTE] Please use Internet Explorer or a Microsoft ClickOnce compatible web browser.
+	> [AZURE.NOTE] 
+	> Please use Internet Explorer or a Microsoft ClickOnce compatible web browser.
+	> 
+	> If you are using Chrome, go to the [Chrome web store](https://chrome.google.com/webstore/), search with "ClickOnce" keyword, choose one of the ClickOnce extensions, and install it.  There are many 3rd party ClickOnce extensions.
+	>  
+	> You need to do the same for Firefox (install add-in). For example, you can install one from [here](https://addons.mozilla.org/firefox/addon/fxclickonce/).    
 
 	![Gateway - Configure blade](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
