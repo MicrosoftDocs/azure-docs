@@ -8,12 +8,12 @@
    editor=""/>
 
    <tags
-      ms.service="marketplace-publishing"
+      ms.service="marketplace"
       ms.devlang="na"
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="12/03/2015"
+      ms.date="01/04/2016"
       ms.author="hascipio; avikova" />
 
 # Data Service Publishing Guide for the Azure Marketplace
@@ -23,7 +23,7 @@ After completing the step 1, [Account Creation and Registration][link-acct-creat
 
 Go to [https://publish.windowsazure.com](https://publish.windowsazure.com. )
 
-**For first time login to Publishing Portal, use the same account with which your company’s Seller Profile was registered in Developer Center.**  (Later you can add any employee of your company as a co-admin in the Publishing Portal). 
+**For first time login to Publishing Portal, use the same account with which your company’s Seller Profile was registered in Developer Center.**  (Later you can add any employee of your company as a co-admin in the Publishing Portal).
 
 Click on the **Publish a Data Services** tile if this is the first login into the publishing portal.
 
