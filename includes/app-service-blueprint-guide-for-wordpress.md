@@ -1,6 +1,6 @@
 ## WordPress and Azure App Service
-  
-* [What is WordPress? ](https://wordpress.org/)
+
+* [What is WordPress?](https://wordpress.org/)
 * [How to setup enterprise-class WordPress web app](web-sites-php-enterprise-wordpress.md)
 * [How to purchase ClearDB Shared MySQL hosting for your WordPress app](http://blog.syntaxc4.net/post/2012/12/03/provisioning-a-mysql-database-from-the-windows-azure-store.aspx)
 * [How to Purchase ClearDB dedicated MySQL cluster for your WordPress app ](https://azure.microsoft.com/blog/announcing-new-mysql-premium-tiers-from-cleardb/)
@@ -8,8 +8,7 @@
 * [Build your own Master-Master MySQL Cluster using Percona Cluster](/documentation/templates/mysql-ha-pxc/) and [learn more on how to manage the cluster](https://github.com/fanjeffrey/axiom.articles/tree/master/pxc)
 * [Deploy WordPress backed by MySQL replication cluster with master-slave configuration](/documentation/templates/mysql-replication/)
 * [Deploy a WordPress app backed by SQL Azure DB managed by ProjectNami](/marketplace/partners/projectnami/projectnami/)
-
-   
+  
 ## Chapter 2 : Troubleshooting WordPress Application
 
 * [How to troubleshoot your WordPress app](https://sunithamk.wordpress.com/2014/09/04/wordpress-troubleshooting-techniques-on-azure-websites/)
@@ -19,7 +18,6 @@
 * [Use various auto-heal rules to automate resolving real time incidents](http://microsoftazurewebsitescheatsheet.info/#auto-heal)
 * [How to backup your web app](web-sites-backup.md) and [How to restore your web app](web-sites-restore.md)
 
- 
 ## Chapter 3: Performance
 
 * [How to speed up WordPress web app](https://sunithamk.wordpress.com/2014/08/01/10-ways-to-speed-up-your-wordpress-site-on-azure-websites/)
