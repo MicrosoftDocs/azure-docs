@@ -382,7 +382,7 @@ Please go to the output tab and change SQL table name to “TollDataTumblingCoun
 
 Now, if you start the job, Azure Stream Analytics will be able to distribute work across more compute resources and achieve better throughput. Please note that TollApp application is also sending events partitioned by TollId.
   
-![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-58.png)  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-58.jpg)  
   
 ## Monitoring jobs
 
