@@ -312,7 +312,7 @@ Validate that the output of the query is as expected:
 We want to find average time required for the car to pass the toll to assess efficiency and customer experience.
 For this we need to join the stream containing EntryTime with the stream containing ExitTime. We will join the streams on TollId and LicencePlate columns. JOIN operator requires specifying a temporal wiggle room describing acceptable time difference between the joined events. We will use DATEDIFF function to specify that events should be no more than 15 minutes from each other. We will also apply DATEDIFF function to Exit and Entry times to compute actual time a car spends in the toll. Note the difference of the use of DATEDIFF when used in a SELECT statement compared to a JOIN condition.
   
-![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-44.png)  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-44.jpg)  
   
 To test this query, update the query on the Query tab of your job:
 
@@ -353,7 +353,7 @@ View the output of the query:
 
 Now as we have written our first Azure Stream Analytics query, it is time to finish the configuration and start the job. Save the query from Question 3, which will produce output that matches the schema of our output table TollDataRefJoin. Navigate to the job Dashboard and click Start.
   
-![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-49.png)  
+![Test Query entry](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-49.jpg)  
   
 In the dialog that appears, change the Start Output time to Custom Time. Edit the Hour and set it to an hour back. This will ensure that all events are processed from the Event Hub since the moment the job started generating the events in the beginning of the lab. Now click the check mark to start the job. Starting the job can take a few minutes. The status on the top-level page for Stream Analytics should update.
   
