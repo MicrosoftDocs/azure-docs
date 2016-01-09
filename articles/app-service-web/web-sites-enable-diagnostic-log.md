@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="01/06/2016"
 	ms.author="cephalin"/>
 
 # Enable diagnostics logging for web apps in Azure App Service
@@ -146,7 +146,7 @@ While developing an application, it is often useful to see logging information i
 
 ### Streaming with Azure PowerShell
 
-To stream logging information, start a new of Azure PowerShell and use the following command:
+To stream logging information, start a new instance of Azure PowerShell and use the following command:
 
 	Get-AzureWebSiteLog -Name webappname -Tail
 
@@ -227,14 +227,14 @@ Property name|Value/format
 Date|The date and time that the event occurred
 Level|Event level (e.g. error, warning, information)
 ApplicationName|The web app name
-InstanceId|Instance of the web app that the even occurred on
+InstanceId|Instance of the web app that the event occurred on
 EventTickCount|The date and time that the event occurred, in Tick format (greater precision)
 EventId|The event ID of this event<p><p>Defaults to 0 if none specified
 Pid|Process ID
 Tid|The thread ID of the thread that produced the event
 Message|Event detail message
 
-The data stored in a blob would similar to the following:
+The data stored in a blob would look similar to the following:
 
 	date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
 	2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
