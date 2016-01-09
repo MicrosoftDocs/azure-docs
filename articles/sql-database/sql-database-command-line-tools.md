@@ -54,10 +54,9 @@ The following commands will be run against the subscription you just selected ab
 
 Create the resource group that will contain the server. You can edit the next command to use any valid location. 
 
-For a list of valid Azure SQL Database server locations run the following cmdlets:
+For a list of valid Azure SQL Database server locations run the following cmdlet:
 
-	$AzureSQLLocations = Get-AzureRmLocation | Where-Object Name -Like "*SQL/Servers"
-	$AzureSQLLocations.Locations
+	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
 If you already have a resource group you can jump ahead to create a server, or you can edit and run the following command to create a new resource group:
 

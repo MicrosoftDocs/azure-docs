@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/15/2015" 
 	ms.author="rasquill"/>
 
 #How to Use SSH with Linux and Mac on Azure
@@ -89,7 +89,7 @@ Once you've created the files you need, there are many ways to create a VM to wh
 
 ### Example: Creating a VM with the id_rsa.pub file
 
-The most common usage is when imperatively creating a VM -- or uploading a template to create a VM. The following code example shows creating a new, secure Linux VM in Azure by passing the public file name (in this case, the default `~/.ssh/id_rsa` file) to the `azure vm create` command. (The other arguments were previously created.)
+The most common usage is when imperatively creating a VM -- or uploading a template to create a VM. The following code example shows creating a new, secure Linux VM in Azure by passing the public file name (in this case, the default `~/.ssh/id_rsa.pub` file) to the `azure vm create` command. (The other arguments were previously created.)
 
 	azure vm create \
 	--nic-name testnic \
@@ -99,7 +99,7 @@ The most common usage is when imperatively creating a VM -- or uploading a templ
 	--storage-account-name computeteststore 
 	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
 	--username ops \
-	-ssh-publickey-file ~/.ssh/id_rsa \
+	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
 
 The next example shows the use of the **ssh-rsa** format with a Resource Manager template and the Azure CLI to create an Ubuntu VM that is secured by a username and the contents of the `~/.ssh/id_rsa.pub` as a string. (In this case, the public key string is shortened to be more readable.) 
@@ -164,7 +164,7 @@ You can then use the .pem file with either the classic portal or with the classi
 
 ## Connect to your VM
 
-The **ssh** command takes a username to log on with, the network address of the computer, and the port at which to connect to the address -- as well as many other special variations. (For more information about **ssh**, you might start [here](https://en.wikipedia.org/wiki/Secure_Shell)) 
+The **ssh** command takes a username to log on with, the network address of the computer, and the port at which to connect to the address -- as well as many other special variations. (For more information about **ssh**, you might start with this [article on Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell)) 
 
 A typical usage with Resource Manager deployment might look like the following, if you've merely specified a subdomain and a deployment location:
 
@@ -259,15 +259,13 @@ If you didn't use the default SSH port of 22 when you created the VM, you can di
 
 ### Example: Output of SSH session using .pem keys and classic deployment
 
-If you created a VM using a .pem file created from your `~/.ssh/id_rsa` file, you can directly ssh into that VM. Note that when you do, the certificate handshake will use your private key at `~/.ssh/id_rsa`. It might look like the following example:
+If you created a VM using a .pem file created from your `~/.ssh/id_rsa` file, you can directly ssh into that VM. Note that when you do, the certificate handshake will use your private key at `~/.ssh/id_rsa`. (The VM creation process computes the public key from the .pem and places the ssh-rsa form of the public key in `~/.ssh/authorized_users`.) Connecting might look like the following example:
 
 	ssh ops@testpemasm.cloudapp.net -p 22
 	The authenticity of host 'testpemasm.cloudapp.net (40.83.178.221)' can't be established.
 	RSA key fingerprint is dc:bb:e4:cc:59:db:b9:49:dc:71:a3:c8:37:36:fd:62.
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
-	Saving password to keychain failed
-	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
 
 	* Documentation:  https://help.ubuntu.com/

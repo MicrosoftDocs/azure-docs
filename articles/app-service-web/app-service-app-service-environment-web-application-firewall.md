@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/24/2015" 
 	ms.author="naziml"/>	
 
 # Configuring a Web Application Firewall (WAF) for App Service Environment
@@ -66,7 +66,7 @@ Clicking on the Services tab will let you configure your WAF for services it is 
 > Note: Depending on how your applications are configured and what features are being used in your App Service Environment, you will need to forward traffic for TCP ports other than 80 and 443, e.g. if you have IP SSL setup for a Web App. For a list of network ports used in App Service Environments, please refer to [Control Inbound Traffic documentation's](app-service-app-service-environment-control-inbound-traffic.md) Network Ports section.
 
 ## Configuring Microsoft Azure Traffic Manager (OPTIONAL) ##
-If your application is available in multiple regions, then you would want to load balance them behind [Azure Traffic Manager](traffic-manager.md). To do so you can add and endpoint in the [Azure classic portal](https://manage.azure.com) using the Cloud Service name for your WAF in the Traffic Manager profile as shown in the image below. 
+If your application is available in multiple regions, then you would want to load balance them behind [Azure Traffic Manager](traffic-manager.md). To do so you can add an endpoint in the [Azure classic portal](https://manage.azure.com) using the Cloud Service name for your WAF in the Traffic Manager profile as shown in the image below. 
 
 ![Traffic Manager Endpoint][TrafficManagerEndpoint]
 

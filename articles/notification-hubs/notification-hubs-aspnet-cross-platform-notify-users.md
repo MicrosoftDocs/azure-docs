@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="12/11/2015" 
 	ms.author="wesmc"/>
 
 # Send cross-platform notifications to users with Notification Hubs
@@ -87,9 +87,6 @@ Now that you have completed this tutorial, find out more about Notification Hubs
 + **[Use Notification Hubs to send breaking news]** <br/>Demonstrates another scenario for using templates
 
 +  **[Azure Notification Hubs Overview][Templates]**<br/>Overview topic has more detailed information on templates.
-
-+  **[Notification Hub How to for Windows Store]**<br/>Includes a template expression language reference.
-
 
 
 <!-- Anchors. -->

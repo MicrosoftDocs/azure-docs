@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/24/2015" 
 	ms.author="yochayk"/>
 
 
@@ -61,7 +61,7 @@ The following table explains how existing Azure services map to App Service and 
 <td align="left">Mobile Apps</td>
 <td align="left"><p><li>Mobile Services continue to be available as a standalone service and remain fully supported.</p>
 <p><li>Mobile Apps is a new app type in App Service, which integrates all of the functionality of Mobile Services and more. Mobile Apps is in public preview.</p>
-<p><li>It is easy to <a href="http://azure.microsoft.com/documentation/articles/app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview/">migrate from Mobile Services to Mobile Apps</a>. Since Mobile Apps are still in preview it is not yet recommended for running production apps.</p>
+<p><li>It is easy to [Migrate from Mobile Services to Mobile Apps](../app-service-mobile/app-service-mobile-migrating-from-mobile-services.md). Since Mobile Apps are still in preview it is not yet recommended for running production apps.</p>
 <p><li>As part of App Service, Mobile Apps get new capabilities beyond Mobile Services, such as  integration with on-premises and SaaS systems, staging slots, WebJobs, better scaling options, and more.</p>
 <p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Learn more about Mobile Apps</a>.</p>
 </tr>
