@@ -106,7 +106,7 @@ In the snippet above, `creds` is an instance of [TokenCloudCredentials][azure_to
 
 ### Check a Batch account for compute resource quotas
 
-Prior to increasing compute resources within your Batch solution, you can check to ensure that the resources that you intend to allocate will not eclipse account quotas that are currently in place. In the code snippet below, we simply print the quota information for the Batch account named `mybatchaccount`. But in your own application, you could use such information to determine whether the account can handle the additional resources that you wish to create.
+Prior to increasing compute resources within your Batch solution, you can check to ensure that the resources that you intend to allocate will not exceed account quotas that are currently in place. In the code snippet below, we simply print the quota information for the Batch account named `mybatchaccount`. But in your own application, you could use such information to determine whether the account can handle the additional resources that you wish to create.
 
 ```
 // First obtain the Batch account
@@ -121,7 +121,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 
 > [AZURE.IMPORTANT] While there are default quotas for Azure subscriptions and services, many of these limits can be raised by issuing a request in the [Azure portal][azure_portal]. For example, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for instructions on increasing your Batch account quotas.
 
-## Work with Batch Management .NET, Azure Active Directory, and Resource Manager
+## Batch Management .NET, Azure AD, and Resource Manager
 
 When you work with the Batch Management .NET library, you will typically leverage the capabilities of both [Azure Active Directory][aad_about] (Azure AD) and the [Azure Resource Manager][resman_overview]. The sample project discussed below employs both Azure Active Directory and the Resource Manager while it demonstrates the Batch Management .NET API.
 
@@ -135,7 +135,7 @@ In the sample project discussed below, the Azure [Active Directory Authenticatio
 
 When you create Batch accounts with the Batch Management .NET library, you will typically be creating them within a [resource group][resman_overview]. You can create the resource group programmatically by using the [ResourceManagementClient][resman_client] class in the [Resource Manager .NET][resman_api] library. Or you can add an account to an existing resource group that you created previously by using the [Azure portal][azure_portal].
 
-### <a name="sample"></a>Sample project on GitHub
+## <a name="sample"></a>Sample project on GitHub
 
 Check out the [AccountManagment][acct_mgmt_sample] sample project on GitHub to see the Batch Management .NET library in action. This console application shows the creation and usage of  [BatchManagementClient][net_mgmt_client] and [ResourceManagementClient][resman_client]. It also demonstrates the usage of the Azure [Active Directory Authentication Library][aad_adal] (ADAL), which is required by both clients.
 
