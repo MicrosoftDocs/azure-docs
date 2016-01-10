@@ -33,7 +33,7 @@ Before you begin this tutorial, you must have the following:
 <!-- ################################ -->
 
 
-##Install Azure PowerShell 1.0 and greater
+##Install Azure PowerShell 1.0 or greater
 
 See the Prerequisite section of [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md#prerequisites).
 	

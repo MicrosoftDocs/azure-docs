@@ -21,13 +21,7 @@
 # Connect to SQL Database by using Python on Windows
 
 
-> [AZURE.SELECTOR]
-- [C#](sql-database-develop-dotnet-simple.md)
-- [PHP](sql-database-develop-php-simple-windows.md)
-- [Python](sql-database-develop-python-simple-windows.md)
-- [Ruby](sql-database-develop-ruby-simple-windows.md)
-- [Java](sql-database-develop-java-simple-windows.md)
-- [Node.js](sql-database-develop-nodejs-simple-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
 This topic presents a code sample written in Python. The sample runs on a Windows computer. The sample and connects to Azure SQL Database by using the **pymssql** driver.
