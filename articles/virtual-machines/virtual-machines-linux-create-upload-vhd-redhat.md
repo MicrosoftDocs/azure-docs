@@ -40,7 +40,7 @@ This section assumes that you have already installed a RHEL image from an ISO fi
 - When using qemu-img to convert disk images to VHD format, note that there is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue will be fixed in an upcoming release of qemu-img.  For now it is recommended to use qemu-img version 2.2.0 or lower.
 
 
-###RHEL 6.7
+###RHEL 6.7 
 
 1.	In Hyper-V Manager, select the virtual machine.
 
@@ -856,6 +856,6 @@ This issue is intermittent, however, it occurs more freqently during frequent di
 
 
 ## Next Steps
-You're now ready to use your Red Hat Enterprise Linux .vhd to create new Azure Virtual Machines in Azure. If this is the 1st time you use Azure and upload the .vhd file to Azure, you could follow the step 2 & 3 in [this guidance](virtual-machines-linux-create-upload-vhd).
+You're now ready to use your Red Hat Enterprise Linux .vhd to create new Azure Virtual Machines in Azure. If this is the 1st time you use Azure and upload the .vhd file to Azure, you could follow the step 2 & 3 in [this guidance](virtual-machines-linux-create-upload-vhd.md).
  
 For more details about the hypervisors that are certified to run Red Hat Enterprise Linux, visit [the Red Hat website](https://access.redhat.com/certified-hypervisors).

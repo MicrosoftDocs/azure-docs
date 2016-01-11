@@ -180,5 +180,5 @@ This article assumes that you have already installed a SUSE or openSUSE Linux op
 13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## Next Steps
-You're now ready to use your SUSE Linux .vhd to create new Azure Virtual Machines in Azure. If this is the 1st time you use Azure and upload the .vhd file to Azure, you could follow the step 2 & 3 in [this guidance](virtual-machines-linux-create-upload-vhd).
+You're now ready to use your SUSE Linux .vhd to create new Azure Virtual Machines in Azure. If this is the 1st time you use Azure and upload the .vhd file to Azure, you could follow the step 2 & 3 in [this guidance](virtual-machines-linux-create-upload-vhd.md).
  
