@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/06/2016"
+   ms.date="01/11/2016"
    ms.author="alkohli" />
 
 # Apply updates and hotfixes to the StorSimple Virtual Array (preview)
