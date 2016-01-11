@@ -33,7 +33,7 @@ In this article, learn how create your own custom business intelligence tools by
 * An input for the Stream Analytics job to consume streaming data from. Stream Analytics accepts input from Azure Event Hubs or Azure Blob storage.  
 * Work or school account for Power BI
 
-## Create Azure Stream Analytics Job
+## Create Azure Stream Analytics job
 
 From [Azure Portal](https://manage.windowsazure.com), click **New, Data Services, Stream Analytics, Quick Create**.
 
