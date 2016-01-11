@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Connect Ports"
-	description="This page is a technical reference page for ports that are required to be open"
+	description="This page is a technical reference page for ports that are required to be open for Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
