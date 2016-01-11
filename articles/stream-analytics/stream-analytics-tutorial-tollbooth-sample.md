@@ -380,7 +380,7 @@ Azure Stream Analytics is designed to elastically scale and be able to handle hi
 
 Stop the current job, update the query in Query tab and open Scale tab. Streaming units define the amount of compute power the job can receive. Move the slider to 6.
   
-![Scale to 6](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-53.png)  
+![Scale to 6](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-53.jpg)  
   
 Please go to the output tab and change SQL table name to “TollDataTumblingCountPartitioned”.
 
