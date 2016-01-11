@@ -3,7 +3,7 @@
 	description="Advanced Analytics Process and Technology in Action"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="xibingao,hangzh,weig,bradsev"
+	authors="hangzh,weig,bradsev"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -21,7 +21,7 @@
 
 In this tutorial, we walk you through building and deploying a machine learning model using SQL Data Warehouse (SQL DW) for a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip was paid for a trip, and models for multiclass classification and regression are also discussed.
 
-The procedure follows the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/en-us/documentation/learning-paths/cortana-analytics-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how to explore the data and engineer features in SQL DW and in an IPython Notebook. We then show how to build and deploy the model in Azure Machine Learning.
+The procedure follows the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how to explore the data and engineer features in SQL DW and in an IPython Notebook. We then show how to build and deploy the model in Azure Machine Learning.
 
 
 ## <a name="dataset"></a>The NYC Taxi Trips dataset
