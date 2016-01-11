@@ -27,7 +27,7 @@ A DNS zone file is a text file that contains details of every DNS record in the 
 
 Azure DNS supports zone file import and export via the Azure CLI.  This article explains how to use this feature.
 
-The Azure CLI is a cross-platform command line tool used for managing Azure services.  It is available for Windows, Mac and Linux platforms from the Azure downloads page.  This cross-platform support is particularly important for zone file import and export since the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
+The Azure CLI is a cross-platform command line tool used for managing Azure services.  It is available for Windows, Mac and Linux platforms from the [Azure downloads page](https://azure.microsoft.com/downloads/).  This cross-platform support is particularly important for zone file import and export since the most common name server software, [BIND](https://www.isc.org/downloads/bind/), typically runs on Linux.
 
 ## Obtaining your existing DNS zone file
 
