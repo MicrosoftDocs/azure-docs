@@ -71,13 +71,48 @@ In addition to the fields above, the authentication result (success/denial) and 
 
 All costs are rolled into the per-user or per-authentication cost of the service. Organizations are not charged for individual phone calls placed or text messages sent to your end users when using Azure Multi-Factor Authentication. Phone owners may incur roaming-related or other costs from their telephone carriers to receive the phone calls or text messages.
 
-**"Q: How is the organization billed for Azure Multi-Factor Authentication?"**
+**Q: How is the organization billed for Azure Multi-Factor Authentication?**
 
-The ‘per user’ or ‘per authentication’ billing/usage model is chosen when creating a Multi-Factor Auth Provider in the Azure Management Portal. It is a consumption-based resource that is billed against the organization’s Azure subscription, just like virtual machines, websites, etc. are billed against the subscription.
+Azure Multi-Factor Authentication is available as a stand-alone service with per-user and per-authentication billing options, or bundled with Azure Active Directory Premium, Enterprise Mobility Suite end Enterprise Cloud Suite. The stand-alone service is available on a consumption basis that is billed monthly against Azure monetary commitment, or as a per-user annual license available through a Microsoft Enterprise Agreement, the Open Volume License Program, the Cloud Solution Providers program and Direct.
+
+>[AZURE.IMPORTANT]
+>The Australia Regions are available to customers with a business presence in Australia or New Zealand.
+
+Billing Model  | Price
+------------- | ------------- |
+Per-user consumption (Azure monetary commitment)| $1.40 per month (unlimited authentications)
+Per-authentication consumption (Azure monetary commitment)|$1.40 per 10 authentications
+Per-user annual license (Direct)|$1.40 per month (unlimited authentications)
+Per-user annual license (Volume Licensing)|Contact your [Enterprise Agreement representative.](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx)
 
 **Q: Does the ‘per user’ billing model charge based on the number of users enabled for Multi-Factor Authentication or the number of users who perform the verifications?**
 
 Billing is based on the number of users enabled for Multi-Factor Authentication.
+
+**Q:How does Multi-Factor Authentication billing work?** 
+
+When using the per-user or per-authentication consumption billing/usage model, administrators choose the type of usage when creating a Multi-Factor Auth Provider in the Microsoft Azure classic portal. It is a resource that is billed against the organization’s Azure subscription, just like virtual machines, websites, etc. When using the license model, Azure Multi-Factor Authentication licenses are purchased and then assigned to users, just like Office 365 and other subscription products.
+
+**Q:Is there a free version of Azure Multi-Factor Authentication for administrators?** 
+
+A subset of Azure Multi-Factor Authentication capabilities known as ‘MFA for Azure Admins’ is offered at no cost to Azure Global Administrators when a consumption-based Azure Multi-Factor Auth Provider has not been linked to the corresponding Azure Active Directory. Using the Multi-Factor Auth Provider upgrades all admins and users in the directory that are enabled for MFA to the full version of Azure Multi-Factor Authentication.
+
+**Q:Is there a free version of Azure Multi-Factor Authentication for Office 365 users?**
+
+A subset of Azure Multi-Factor Authentication capabilities known as ‘MFA for Office 365’ is offered at no cost to users that have an O365 license assigned when a consumption-based Azure Multi-Factor Auth Provider has not been linked to the corresponding Azure Active Directory. Using the Multi-Factor Auth Provider upgrades all admins and users in the directory that are enabled for MFA to the full version of Azure Multi-Factor Authentication.
+
+**Q:Can I switch between per-user and per-authentication consumption billing models at any time?**
+
+The billing model is selected during resource creation and cannot be changed once the resource is provisioned. It is possible, however, to create a new Multi-Factor Authentication resource to replace the original. Please note that user settings and configuration options cannot be transferred to the new resource.
+
+**Q:Can I switch between the consumption billing and license models at any time?**
+
+You can purchase Azure Multi-Factor Authentication, Azure Active Directory Premium, Enterprise Mobility Suite and Enterprise Cloud Suite licenses at any time. When licenses are added to a directory that already has a per-user Azure Multi-Factor Auth Provider, the consumption-based billing is decremented by the number of licenses owned. If all users enabled for MFA have licenses assigned, the administrator can delete the Azure Multi-Factor Auth Provider. Organizations cannot mix per-authentication consumption billing with the license model. When a per-authentication Multi-Factor Auth Provider is linked to a directory, the organization is billed for all MFA verification requests, regardless of any licenses owned.
+
+**Q:Does my organization have to use and synchronize identities to use Azure Multi-Factor Authentication?**
+
+When using the consumption-based billing models, Azure Active Directory is not required. Linking a Multi-Factor Authentication provider to a directory is optional. When not linked to a directory, organizations can use the Azure Multi-Factor Authentication Server or SDK on-premises. When using the license model, Azure Active Directory is required since licenses are added to the directory when purchased and assigned to users in the directory.
+
 
 ## Usability
 
