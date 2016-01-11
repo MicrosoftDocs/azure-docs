@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using the Azure Portal
@@ -88,7 +88,7 @@ You can create folders under your Data Lake Store account to manage and store da
 
 You can upload your data to an Azure Data Lake Store account directly at the root level or to a folder that you created within the account. In the screen capture below, follow the steps to upload a file to a sub-folder from the **Data Explorer** blade. In this screen capture, the file is uploaded to a sub-folder shown in the breadcrumbs (marked in a red box).
 
-If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ![Upload data](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
 

@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/11/2015"
+   ms.date="01/05/2016"
    ms.author="nitinme"/>
 
 # Copy data from Azure Storage Blobs to Data Lake Store
 
-Azure Data Lake Store provides a command line tool, [AdlCopy](http://aka.ms/downloadadlcopy), to copy data from Azure Storage Blobs into Data Lake Store. You can use the tool in two ways:
+Azure Data Lake Store provides a command line tool, [AdlCopy](http://aka.ms/downloadadlcopy), to copy data **from Azure Storage Blobs into Data Lake Store**. You cannot use AdlCopy to copy data from Data Lake Store to Azure Storage blobs.
+
+You can use the AdlCopy tool in two ways:
 
 * **Standalone**, where the tool uses Data Lake Store resources to perform the task.
 * **Using a Data Lake Analytics account**, where the units assigned to your Data Lake Analytics account are used to perform the copy operation. You might want to use this option when you are looking to perform the copy tasks in a predictable manner.
@@ -68,9 +70,12 @@ The parameters in the syntax are described below:
 		Initializing Copy.
 		Copy Started.
 		...............
-		The total progress of copy operation is 0.00%.
+		0.00% data copied.
 		. . .
-		The total progress of copy operation is 100.00%.
+		. . .
+		100% data copied.
+		Finishing copy.
+		....
 		Copy Completed.
 
 1. You can also copy all the blobs from one container to the Data Lake Store account using the following command:
@@ -102,6 +107,10 @@ For example:
 * If you use the AdlCopy tool as standalone you will be billed for egress costs for moving data, if the source Azure Storage account is not in the same region as the Data Lake Store.
 
 * If you use the AdlCopy tool with your Data Lake Analytics account, standard [Data Lake Analytics billing rates](https://azure.microsoft.com/pricing/details/data-lake-analytics/) will apply. 
+
+## Considerations for using AdlCopy
+
+* AdlCopy does not support copying data from sources that have more than 1000 files and folders collectively. An alternate approach would be to distribute the files/folders into different sub-folders and use the path to those sub-folders as the source instead.
 
 ## Next steps
 

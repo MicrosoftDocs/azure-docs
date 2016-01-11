@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Getting Started with a Cordova mobile services project (Visual Studio Connected Services)"
+	pageTitle="Getting Started with a Cordova mobile services project (Visual Studio Connected Services) | Microsoft Azure"
 	description="Describes the first steps you can take after connecting your Cordova project to Azure Mobile Services by using Visual Studio Connected Services."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.date="01/05/2016"
 	ms.author="tarcher"/>
 
 # Getting Started with Mobile Services (Cordova Projects)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
-> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ##First steps
 The first step you need to do in order to follow the code in these examples depends on what type of mobile service you connected to.
@@ -33,8 +26,6 @@ The first step you need to do in order to follow the code in these examples depe
 - For a JavaScript backend mobile service, create a table called TodoItem.  To create a table,  locate the mobile service under the Azure node in Server Explorer, right-click the mobile service's node to open the context menu, and choose **Create Table**. Enter "TodoItem" as the table name.
 
 - If you have a .NET backend mobile service, there's already a TodoItem table in the default project template that Visual Studio created for you, but you need to publish it to Azure. To publish it, open the context menu for the mobile service project in Solution Explorer, and choose **Publish Web**. Accept the defaults, and choose the **Publish** button.
-
-
 
 ##Create a reference to a table
 

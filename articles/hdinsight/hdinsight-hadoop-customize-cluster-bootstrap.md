@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="01/06/2016"
 	ms.author="jgao"/>
 
 # Customize HDInsight clusters using Bootstrap
@@ -101,6 +101,10 @@ Some more samples on customizing other configuration files:
 	$OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
 For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creationg](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
+
+## Use .NET SDK
+
+See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk#use-bootstrap).
 
 ## Use Azure ARM template
 

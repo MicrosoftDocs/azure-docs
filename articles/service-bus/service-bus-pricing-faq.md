@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
-# Service Bus Pricing FAQ
+# Service Bus pricing FAQ
 
 This section answers some frequently-asked questions about the Service Bus pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Service Bus pricing, see [Service Bus pricing details](http://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -111,7 +111,7 @@ To learn more about Service Bus messaging, see the following topics.
 - [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus Architectural Overview](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure Service Bus architecture overview](service-bus-fundamentals-hybrid-solutions.md)
 - [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
 
 [Azure classic portal]: http://manage.windowsazure.com

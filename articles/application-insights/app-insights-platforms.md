@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="01/07/2016"
 	ms.author="awills"/>
 
 # Application Insights: languages, platforms and integrations
@@ -44,11 +44,13 @@ These are implementations we've heard about, including some by third parties.
 + [Azure web apps and VMs](../insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
 + [CRM Online from Microsoft Dynamics](app-insights-sample-mscrm.md)
++ [Docker](app-insights-docker.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - for apps that are already live](app-insights-java-live.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
++ [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
 + [Windows desktop applications, services, and worker roles](app-insights-windows-desktop.md)
