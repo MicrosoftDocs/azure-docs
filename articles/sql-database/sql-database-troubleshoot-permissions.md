@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="1/11/2016"
+	ms.date="01/11/2016"
 	ms.author="v-shysun"/>
 
 #Troubleshoot common Azure SQL database permissions and access issues
