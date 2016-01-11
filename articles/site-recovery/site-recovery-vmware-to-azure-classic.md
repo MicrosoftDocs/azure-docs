@@ -367,7 +367,7 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 
 1.  Create an account that can be used by the process server to access the machine. The account should have administrator privileges (local or domain). Note that these credentials are only used for push installation of the Mobility service.
 
-	>[AZURE.NOTE] If you're not using a domain account you'll need to disable Remote User Access control on the local machine. To do this, in the register under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System add the DWORD entry ocalAccountTokenFilterPolicy with a value of 1 under . To add the registry entry from a CLI open command or using PowerShell enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
+	>[AZURE.NOTE] If you're not using a domain account you'll need to disable Remote User Access control on the local machine. To do this, in the register under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System add the DWORD entry LocalAccountTokenFilterPolicy with a value of 1 under . To add the registry entry from a CLI open command or using PowerShell enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
 
 2.  On the Windows Firewall of the machine you want to protect, select **Allow an app or feature through Firewall** and enable **File and Printer Sharing** and **Windows Management Instrumentation**. For machines that belong to a domain you can configure the firewall policy with a GPO.
 
@@ -388,7 +388,7 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 
 	- Open **cspsconfigtool**. It's available as a shortcut on the desktop and located in the [INSTALL LOCATION]\home\svsystems\bin folder.
 	- In the **Manage Accounts** tab, click **Add Account**.
-	- Add the account you creaed. After adding the account you'll need to provide the credentials when you add a machine to a protection group.
+	- Add the account you created. After adding the account you'll need to provide the credentials when you add a machine to a protection group.
 
 3.	Check that the /etc/hosts file on the source Linux server contains entries that map the local hostname to IP addresses associated with all network adapters.
 4.	Install the latest openssh, openssh-server, openssl packages on the machine you want to protect.
@@ -409,10 +409,10 @@ The installers you need can be downloaded from xxx.
 
 Source operating system | Mobility service installation file
 --- | ---
-Windows Server (64 bit only) | Microsoft-ASR_UA_8.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (64 bit only) | Microsoft-ASR_UA_8.*.0.0_RHEL6-64_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3 (64 bit only) | Microsoft-ASR_UA_8.*.0.0_SLES11-SP3-64_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5 (64 bit only) | Microsoft-ASR_UA_8.*.0.0_OL6-64_*release.tar.gz
+Windows Server (64 bit only) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
+CentOS 6.4, 6.5, 6.6 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
 
 
 #### Install manually on a Windows server
