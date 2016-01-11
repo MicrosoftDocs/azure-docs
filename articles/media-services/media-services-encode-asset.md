@@ -284,7 +284,7 @@ To get help from the **Media Services** team, open a [support ticket](https://ms
 
 ##Related articles
 
-- [Perform advanced encoding tasks by customizing Media Encoder Standard presets](media-services-custom-mes-presets-with-dotnet)
+- [Perform advanced encoding tasks by customizing Media Encoder Standard presets](media-services-custom-mes-presets-with-dotnet.md)
 - [Quotas and Limitations](media-services-quotas-and-limitations.md)
 
  
