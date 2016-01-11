@@ -28,8 +28,8 @@ This table describes the ports and protocols that are required for communication
 
 | Protocol |Ports |Description
 | --------- | --------- |--------- |
-| DNS|53 (TCP/UDP)|DNS lookups on the destination forest.
-|Kerberos|88 (TCP/UDP)|Kerberos authentication to the AD forest.
+| DNS|53 (TCP/UDP)| DNS lookups on the destination forest.
+|Kerberos|88 (TCP/UDP)| Kerberos authentication to the AD forest.
 |MS-RPC |135 (TCP/UDP)| Used during the initial configuration of the Azure AD Connect wizard when it binds to the AD forest.
 |LDAP|389 (TCP/UDP)|Used for data import from AD.  Data is encrypted with Kerberos Sign & Seal.
 |LDAP/SSL|636 (TCP/UDP)|Used for data import from AD.  The data transfer is signed and encrypted.  Only used if you are using SSL.
