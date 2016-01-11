@@ -55,13 +55,14 @@ The following list describes the files that are relevant to this sample.
 
 All REST API calls into Azure Search require that you provide the service URL and an api-key. 
 
-1. Sign into the [Azure Portal](https://portal.azure.com).
-2. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard.
-3. On the service dashboard, you'll see tiles for essential information as well as the key icon for accessing the admin keys.
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
+3. Select the service you want to use.
+4. On the service dashboard, you'll see tiles for essential information as well as the key icon for accessing the admin keys.
 
   	![][3]
 
-3. Copy the service URL and an admin key. You will need them later, when you add them to the **config.properties** file.
+5. Copy the service URL and an admin key. You will need them later, when you add them to the **config.properties** file.
 
 ## Download the sample files
 

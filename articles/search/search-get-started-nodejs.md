@@ -39,13 +39,13 @@ In this application, the **DataIndexer** program builds and loads the index usin
 After you create the service, return to the portal to get the URL or `api-key`. Connections to your Search service require that you have both the URL and an `api-key` to authenticate the call.
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
-2. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard.
-
-2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
+2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
+3. Select the service you want to use.
+4. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
 
   	![][3]
 
-3. Copy the service URL, an admin key, and a query key. You'll need all three later, when you add them to the config.js file.
+5. Copy the service URL, an admin key, and a query key. You'll need all three later, when you add them to the config.js file.
 
 ## Download the sample files
 

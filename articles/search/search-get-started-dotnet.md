@@ -20,7 +20,7 @@
 
 Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search, a cloud hosted search service on Microsoft Azure, for its search experience. This tutorial uses the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in this exercise, as well as the Azure Search service REST API.
 
-To run this sample, you need an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). For step-by-step instructions, see [Create an Azure Search service in the portal](search-create-service-portal.md).
+To run this sample, you'll need an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). For step-by-step instructions, see [Create an Azure Search service in the portal](search-create-service-portal.md).
 
 ## About the data
 
@@ -28,7 +28,7 @@ This sample application uses data from the [United States Geological Services (U
 
 In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection information to the online data source is provided in the program code. No further configuration is necessary.
 
-> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use a different pricing tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
 
 
 <a id="sub-2"></a>
@@ -36,9 +36,9 @@ In this application, the **DataIndexer** program builds and loads the index usin
 
 After you create the service, return to the portal to get the URL or `api-key`. Connections to your Search service require that you have both the URL and an `api-key` to authenticate the call.
 
-1. 1. Sign in to the [Azure Portal](https://portal.azure.com).
-2. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard.
-
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
+3. Select the service you want to use.
 2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
 
   	![][3]

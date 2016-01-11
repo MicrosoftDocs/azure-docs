@@ -29,28 +29,28 @@ An alternative approach for .NET developers is to use the Azure Search.NET SDK. 
 > [AZURE.NOTE] Completing this tutorial requires an [Azure subscription](../includes/free-trial-note.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](https://tryappservice.azure.com/) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
  
 <a id="sub-1"></a>
-## Start with the free service
+## Create an Azure Search service
 
 As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. 
 
-Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. Sign up for the free version using these steps.
+Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. 
 
-1. Sign in to [Azure Portal](https://portal.azure.com) using your existing subscription. To follow step-by-step instructions, see [Create an Azure Search service in the portal](search-create-service-portal.md). 
+Sign in to [Azure Portal](https://portal.azure.com) using your existing subscription. To follow step-by-step instructions, see [Create an Azure Search service in the portal](search-create-service-portal.md). 
+
+## Get the service URL and an api-key
 
 After the service is created, you can return to the configuration settings to get the URL and api-keys. Connections to your Search service requires that you have both the URL and an api-key to authenticate the call. Here's how to quickly find these values:
 
-14. Go to **Home** to open the dashboard. Click the Search service to open the service dashboard. 
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
+3. Select the service you want to use.
+4.	On the service dashboard, you'll see tiles for **PROPERTIES** and **KEYS**, and usage information that shows resource usage at a glance. 
 
-  	![][13]
-
-15.	On the service dashboard, you'll see tiles for **PROPERTIES** and **KEYS**, and usage information that shows resource usage at a glance. 
-
-Continue on to [Test service operations](#sub-3) for instructions on how to connect to the service using these values.
 
 <a id="sub-3"></a>
 ## Test service operations
 
-Next, confirm that your service is operational and accessible from a client application. This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests and view responses. By using Fiddler, you can test the API immediately, without having to write any code. 
+As a validation step,test whether your service is operational and accessible from a client application. This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests and view responses. By using Fiddler, you can test the API immediately, without having to write any code. 
 
 In the steps below, you'll create an index, upload documents, query the index, and then query the system for service information.
 
