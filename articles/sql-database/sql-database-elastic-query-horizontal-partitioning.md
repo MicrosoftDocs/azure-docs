@@ -21,7 +21,7 @@ This document explains how to setup elastic database queries for horizontal part
 
 ![Query across shards][1]
 
-The functionality is a part of the Azure SQL [Database Elastic Database feature set](sql-database-elastic-scale.md).  
+The functionality is a part of the Azure SQL [Database Elastic Database feature set](sql-database-elastic-scale-introduction.md).  
  
 ## Creating database objects
 
