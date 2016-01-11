@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"    
+	ms.date="01/10/2015"    
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@ The custom presets that perform the following encoding tasks are demonstrated:
 - [Trim a video (clipping)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
 - [Create an overlay](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Insert a silent audio track when input has no audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
-
+- [Disable auto de-interlacing](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 
 ##<a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -841,6 +841,39 @@ You can take any of the MES presets documented [here](https://msdn.microsoft.com
       <SamplingRate>44100</SamplingRate>
       <Bitrate>96</Bitrate>
     </AACAudio>
+
+##<a id="deinterlacing"></a>Disable auto de-interlacing
+
+Customers don’t need to do anything if they like the interlace contents to be automatically de-interlaced. When the auto de-interlacing is on (default) the MES does the auto detection of interlaced frames and only de-interlaces frames marked as interlaced.
+
+You can turn the auto de-interlacing off. This option is not recommended.
+
+###JSON preset
+	
+	"Sources": [
+	{
+	 "Filters": {
+	    "Deinterlace": {
+	      "Mode": "Off"
+	    }
+	  },
+	}
+	]
+
+###XML preset
+	
+	<Sources>
+	<Source>
+	  <Filters>
+	    <Deinterlace>
+	      <Mode>Off</Mode>
+	    </Deinterlace>
+	  </Filters>
+	</Source>
+	</Sources>
+
+
+
 
 ##Media Services learning paths
 
