@@ -20,7 +20,7 @@
 Use this topic for quick steps to grant and remove access to an Azure SQL database. For more comprehensive information, see:
 
 - [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
-- [Securing your SQL database](sql-database-security)
+- [Securing your SQL database](sql-database-security.md)
 - [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
 ##To change the administrative password for a logical server
