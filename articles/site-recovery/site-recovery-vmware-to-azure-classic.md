@@ -181,7 +181,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 Set up an Azure network so that Azure VMs will be connected to a network after failover, and so that failback to the on-premises site can work as expected. 
 
 1. In the Azure portal > **Create virtual network** specify the network name. IP address range and subnet name.
-2. Ensure that the subnet shouldn’t be the same as your on-premises subnet. Failback must be over VPN/ExpressRoute and you can’t have the same ranges on both sides of the connection. 
+2. You would need to add VPN/ExpressRoute to the network if you need to do failback. VPN/ExpressRoute can be added to the network even after failover. 
 
 [Read more](virtual-networks-overview.md) about Azure networks.
 
@@ -203,6 +203,8 @@ If you want to replicate VMware virtual machines install the following VMware co
 
 
 ## Step 5: Install the management server
+
+[AZURE.VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration]
 
 1. On the **Quick Start** page download the unified installation file to the server.
 2. Run the installation file to start setup in the Site Recovery Unified Setup wizard.
