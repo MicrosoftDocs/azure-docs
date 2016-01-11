@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/08/2015" 
+	ms.date="01/11/2015" 
 	ms.author="cephalin;riande"/>
 
 
@@ -235,7 +235,7 @@ emulator. The mobile browser emulator shows the two changes you made
 
 ![][AllTagsMobile_LayoutMobile]
 
-In contrast, the desktop display has not changed (with titles from from *\_Layout.cshtml* and 
+In contrast, the desktop display has not changed (with titles from *\_Layout.cshtml* and 
 *AllTags.cshtml*).
 
 ![][AllTagsMobile_LayoutMobileDesktop]

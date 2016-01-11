@@ -36,7 +36,7 @@ always encrypted.
 - All communication between your App Service app and external resources, such as PowerShell management, command-line interface, Azure SDKs, REST APIs, and hybrid connections, are properly encrypted.
 - 24-hour threat management protects App Service resources from malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats. 
 
-For more information, see [Azure Trust Center](/support/trust-center/security/).
+For more information on infrastructure and platform security in Azure, see [Azure Trust Center](/support/trust-center/security/).
 
 #### Application security
 
@@ -63,7 +63,7 @@ obtain prior approval to perform the desired penetration tests.
 
 ##<a name="https"></a> Secure communication with customers
 
-If you use the ***.azurewebsites.net** domain name created for your App Service app, you can immediately use HTTPS, as an SSL certificate is provided for all ***.azurewebsites.net** domain names. If your site uses a [custom domain name](web-sites-custom-domain-name.md), you can upload an SSL certificate to [enable HTTPS](web-sites-configure-ssl-certificate.md) for the custom domain.
+If you use the **\*.azurewebsites.net** domain name created for your App Service app, you can immediately use HTTPS, as an SSL certificate is provided for all **\*.azurewebsites.net** domain names. If your site uses a [custom domain name](web-sites-custom-domain-name.md), you can upload an SSL certificate to [enable HTTPS](web-sites-configure-ssl-certificate.md) for the custom domain.
 
 Enabling [HTTPS](https://en.wikipedia.org/wiki/HTTPS) can help protect against MITM attacks on the communication between your app and its users.
 
@@ -110,12 +110,12 @@ are exposed to your application at runtime through *environment variables* for m
 configuration settings will remain encrypted unless you view or configure them using the [Azure Portal](http://portal.azure.com) or utilities such as PowerShell or the Azure CLI. 
 
 Storing configuration information in App Service makes it possible for the app's administrator to lock down sensitive information for the production apps. Developers can use a separate set of configuration settings
-for app development and the settings can be automatically superceded by the settings configured in App Service. Not even the developers need to know the secrets configured for the production app. For more information on 
+for app development and the settings can be automatically superseded by the settings configured in App Service. Not even the developers need to know the secrets configured for the production app. For more information on 
 configuring app settings and connection strings in App Service, see [Configuring web apps](web-sites-configure.md).
 
 ### FTPS
 
-Azure App Service provides secure FTP access access to the file system for your app through **FTPS**. This allows you to securely access the application code on the web app as well as diagnostics logs. It is recommended that you
+Azure App Service provides secure FTP access to the file system for your app through **FTPS**. This allows you to securely access the application code on the web app as well as diagnostics logs. It is recommended that you
 always use FTPS instead of FTP. 
 
 The FTPS link for your app can be found with the following steps:
