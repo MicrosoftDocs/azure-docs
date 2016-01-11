@@ -136,7 +136,7 @@ Optionally you can also set throttling using PowerShell. Here's an example:
 #### Maximizing bandwidth usage 
 To increase the bandwidth utilized for replication by Azure Site Recovery you would need to change a registry key.
 
-	![Upload Threads](./media/site-recovery-vmware-to-azure-classic/UploadThreads.png)
+	![Upload Threads](./media/site-recovery-vmware-to-azure-classic/upload-threads.png)
 
 
 
