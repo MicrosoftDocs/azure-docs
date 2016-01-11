@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Installing the Azure Toolkit for Eclipse"
-    description="Learn hot to install the Azure Toolkit for Eclipse."
-    services=""
-    documentationCenter="java"
-    authors="rmcmurray"
-    manager="wpickett"
-    editor=""/>
+	pageTitle="Installing the Azure Toolkit for Eclipse"
+	description="Learn hot to install the Azure Toolkit for Eclipse."
+	services=""
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
 <tags
-    ms.service="multiple"
-    ms.workload="na"
-    ms.tgt_pltfrm="multiple"
-    ms.devlang="Java"
-    ms.topic="article"
-    ms.date="11/19/2015" 
-    ms.author="robmcm"/>
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh690946.aspx -->
 
@@ -26,23 +26,7 @@ The Azure Toolkit for Eclipse provides templates and functionality that allow yo
 
 The following steps show you how to install the Azure Toolkit for Eclipse.
 
-## Prerequisites ##
-
-* Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>.
-* A Java Developer Kit (JDK), v1.7 or later. 
-* Operating Systems - the Azure Toolkit for Eclipse has been tested on the following operating systems:
-    * Windows 10
-    * Windows 8 and Windows 8.1
-    * Windows 7
-    * Windows Server 2012
-    * Windows Server 2008
-
-> [AZURE.IMPORTANT] If you are using the Azure Toolkit for Eclipse on Windows, the toolkit requires installing the Azure SDK 2.7 or later. You have two options for installing the Azure SDK:
-> 
-> * You can download and install the Azure SDK by using the [Web Platform Installer (WebPI)][].
-> * If you do not have the Azure SDK installed when you create your first Azure deployment project, you will be prompted to automatically download install the requisite version of the Azure SDK.
-> 
-> Note that the Azure SDK is only required on Windows.
+[AZURE.INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 ## To install the Azure Toolkit for Eclipse ##
 
