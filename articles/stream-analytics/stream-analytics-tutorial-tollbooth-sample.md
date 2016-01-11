@@ -357,7 +357,7 @@ Now as we have written our first Azure Stream Analytics query, it is time to fin
   
 In the dialog that appears, change the Start Output time to Custom Time. Edit the Hour and set it to an hour back. This will ensure that all events are processed from the Event Hub since the moment the job started generating the events in the beginning of the lab.
   
-![Time roll back](./media/stream-analytics-tutorial-tollbooth-samplstream-analytics-tutorial-tollbooth-sample-image-50.png)  
+![Time roll back](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-50.png)  
   
 Now click the check mark to start the job. Starting the job can take a few minutes. The status on the top-level page for Stream Analytics should update.
   
