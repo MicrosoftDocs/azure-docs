@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"
+   ms.date="01/07/2015"
    ms.author="alkohli"/>
 
 # StorSimple Virtual Array system requirements (Preview)
@@ -37,7 +37,7 @@ The StorSimple system requirements information published in this article applies
 > [AZURE.IMPORTANT]
 > 
 > - This public preview is intended for evaluation only. Installing this preview in a production environment is not supported.
-> - If you experience any issues with StorSimple Virtual Array, please post the issues on the [StorSimple MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=StorSimple).  |
+> - If you experience any issues with StorSimple Virtual Array, please post the issues on the [StorSimple MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=StorSimple).  
 
 ## Software requirements
 
@@ -100,4 +100,4 @@ The following table lists the ports that need to be opened in your firewall to a
 
 ## Next step
 
--   [Prepare the portal for StorSimple Virtual Array deployment](storsimple-ova-deploy1-portal-prep.md)
+-   [Prepare the portal to deploy your StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md)

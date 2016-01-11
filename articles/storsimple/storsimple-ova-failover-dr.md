@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"
+   ms.date="01/11/2016"
    ms.author="alkohli"/>
 
 # Disaster recovery and device failover for your StorSimple Virtual Array (Preview)
@@ -146,7 +146,7 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 ![](./media/storsimple-ova-failover-dr/image26.png)**Video available**
 
-To watch a video that demonstrates how you can failover a StorSimple on-premises virtual device to another virtual device, click [here](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+To watch a video that demonstrates how you can failover a StorSimple on-premises virtual device to another virtual device, click [here](https://www.youtube.com/watch?v=qVaGzFvbHos&index=5&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo).
 
 ## Business continuity disaster recovery (BCDR)
 
@@ -170,4 +170,4 @@ If one of the prechecks is not satisfied, then you will see precheck failures.
 
 ## Next steps
 
-Learn more about how to [Administer your StorSimple Virtual Array using StorSimple Manager service](storsimple-ova-manager-service-admin.md).
+Learn more about how to [Administer your StorSimple Virtual Array using local web UI](storsimple-ova-web-ui-admin.md).

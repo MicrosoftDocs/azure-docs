@@ -282,11 +282,11 @@ If your device does not meet the minimum configuration requirements, you will se
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/image46.png)
 
-If you face any other error during the initial configuration using the local web UI, refer to the following workflows in the [Microsoft Azure StorSimple Virtual Array Management Guide 5](MicrosoftAzureStorSimpleVirtualArrayManagementGuide5.docx).
+If you face any other error during the initial configuration using the local web UI, refer to the following workflows in [Manage your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).
 
--   Run diagnostic tests to troubleshoot web UI setup.
+-   Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
--   Generate log package and view log files.
+-   [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package)..
 
 ## Next steps
 

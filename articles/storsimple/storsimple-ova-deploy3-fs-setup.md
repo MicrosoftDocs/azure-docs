@@ -20,7 +20,7 @@
 
 ## Introduction 
 
-This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only. This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only. This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
 
 The setup and configuration process can take around 30-45 minutes to complete.
 
@@ -32,11 +32,11 @@ The setup and configuration process can take around 30-45 minutes to complete.
 
 Before you configure and setup your StorSimple virtual device, make sure that:
 
--   You have provisioned a virtual device and connected to it as detailed in the [Deploy StorSimple Virtual Array 2 - Provision in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array 2 - Provision in VMware](storsimple-ova-deploy2-provision-vmware.md).
+-   You have provisioned a virtual device and connected to it as detailed in the [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
--   You have the service registration key from the StorSimple Manager service that you created to manage StorSimple virtual devices. For more information, see **Step 2: Get the service registration key** in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
+-   You have the service registration key from the StorSimple Manager service that you created to manage StorSimple virtual devices. For more information, see [Step 2: Get the service registration key](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) for StorSimple Virtual Array.
 
--   If this is the second or subsequent virtual device that you are registering with an existing StorSimple Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see **Get the service data encryption key** in [Manage your StorSimple Virtual Array](storsimple-ova-manager-service-admin.md).
+-   If this is the second or subsequent virtual device that you are registering with an existing StorSimple Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your StorSimple Virtual Array.
 
 ## Step-by-step setup
 
@@ -218,6 +218,4 @@ You will now need to connect to the share(s) that you created in the previous st
 
 ## Next steps
 
-Manage your StorSimple virtual device using the [Administer your StorSimple Virtual Array](storsimple-ova-manager-service-admin.md).
-
-
+Learn how to [Administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md) using the local web UI.

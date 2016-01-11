@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/30/2015"
+   ms.date="01/11/2016"
    ms.author="alkohli"/>
 
 # Restore from a backup of your StorSimple Virtual Array (Preview)
 
 ## Overview 
 
-This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only. This article describes step-by-step how to restore from a backup set of your shares or volumes for your StorSimple Virtual Array. The article also details how the item-level recovery works on your StorSimple Virtual Array When it is configured as a file server.
+This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (Public Preview) only. This article describes step-by-step how to restore from a backup set of your shares or volumes for your StorSimple Virtual Array. The article also details how the item-level recovery works on your StorSimple Virtual Array that is configured as a file server.
 
 > [AZURE.IMPORTANT]
 > 
@@ -105,7 +105,9 @@ To restore from a backup, in the Azure classic portal, perform the following ste
 
 3.  You can track the progress of the restore job. When the restore is 100% complete, navigate back to the **Volumes** page on your device.
 
-4.  You can now view the new restored volume in the list of volumes on your device. Note that restore is done to the same type of volume. (A tiered volume is restored as tiered and a locally pinned volume is restored as a locally pinned volume.)
+4.  You can now view the new restored volume in the list of volumes on your device. 
+
+	> [AZURE.NOTE] Restore is done to the same type of volume. A tiered volume is restored as tiered and a locally pinned volume is restored as a locally pinned volume.
 
 ## Item-level recovery (ILR)
 
@@ -118,11 +120,12 @@ Every share has a *.backups* folder that contains the most recent backups. The u
 
 	The last 5 backups are displayed in this way. This includes both the default scheduled and the manual backups.
 
-	![](./media/storsimple-ova-restore/image14.png)
+	
+	-   **Scheduled backups** named as &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
 
--   **Scheduled backups** - &lt;Device name&gt;DailySchedule-YYYYMMDD-HHMMSS-UTC.
-
--   **Manual backups** – Ad-hoc-YYYYMMDD-HHMMSS-UTC.
+	-   **Manual backups** named as Ad-hoc-YYYYMMDD-HHMMSS-UTC.
+	
+		![](./media/storsimple-ova-restore/image14.png)
 
 1.  Identify the backup containing the most recent version of the deleted file. Though the folder name contains a UTC timestamp in each of the above cases, the time at which the folder was created is the actual device time when the backup started. Use the folder timestamp to locate and identify the backups.
 
@@ -133,4 +136,4 @@ Every share has a *.backups* folder that contains the most recent backups. The u
 
 ## Next steps
 
-Learn more about how to [Administer your StorSimple Virtual Array using StorSimple Manager service](storsimple-ova-manager-service-admin.md).
+Learn more about how to [Administer your StorSimple Virtual Array using local web UI](storsimple-ova-web-ui-admin.md).
