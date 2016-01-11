@@ -178,7 +178,7 @@ If uninstallation is required, delete the resource group. See [How to uninstall 
 
 ## Next steps
 
-Ensure a credential with the appropriate rights for script execution is created on each database in the group, for more information see [How to add users to all database in my group of databases](sql-database-elastic-jobs-add-logins-to-dbs.md). 
+Ensure a credential with the appropriate rights for script execution is created on each database in the group, for more information see [Securing your SQL Database](sql-database-security.md). 
 See [Creating and managing an Elastic Database jobs](sql-database-elastic-jobs-create-and-manage.md) to get started.
 
 <!--Image references-->
