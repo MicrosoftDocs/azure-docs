@@ -80,10 +80,10 @@ When you’re planning capacity, here's what you need to think about:
 
 - **The source environment**—Capacity planning or the VMware infrastructure and source machine requirements.
 - **The management server**—Planning for the on-premises management servers that run Site Recovery components.
+- **Network bandwidth from source to target**-Planning for network bandwidth required for replication between source and Azure
 
 ### Source environment considerations
 
-- **Machine disk size**—1023 GB is the maximum size for a disk that's attached to a VM. This means that the maximum size of a disk that can be replicated is also limited to 1023 GB.
 - **Maximum daily change rate**—A protected machine can only use one process server, and a single process server can a daily change rate up to 2 TB. Thus 2 TB is the maximum daily data change rate that’s supported for a protected machine.
 - **Maximum throughput**—A replicated machine can belong to one storage account in Azure. A standard storage account can handle a maximum of 20,000 requests per second, and we recommend that you keep the number of IOPS across a source machine to 20,000. For example if you have a source machine with 5 disks and each disk generates 120 IOPS (8K size) on the source then it will be within the Azure per disk IOPS limit of 500. The number of storage accounts required = total source IOPs/20000. 
  
@@ -109,6 +109,35 @@ Where:
 
 - Each source machine is configured with 3 disks of 100 GB each.
 - We used benchmarking storage of 8 SAS drives of 10 K RPM with RAID 10 for cache disk measurements.
+
+### Network bandwidth from source to target
+Make sure you calculate the bandwidth that would be required for initial replication and delta replication using the [capacity planner tool](site-recovery-capacity-planner.md)
+
+#### Throttling bandwidth used for replication
+
+VMware traffic replicated to Azure goes through a specific process server. You can throttle the bandwidth that's available for Site Recovery replication on that server as follows:
+
+1. Open the Microsoft Azure Backup MMC snap-in on the main management server or on a management server running additional provisioned process servers. By default a shortcut for Microsoft Azure Backup is created on desktop, or you can find it in: C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
+2. In the snap-in click **Change Properties**.
+
+	![Throttle bandwidth](./media/site-recovery-vmware-to-azure-classic/throttle1.png)
+
+3. On the **Throttling** tab specify the bandwidth that can be used for Site Recovery replication and the applicable scheduling.
+
+	![Throttle bandwidth](./media/site-recovery-vmware-to-azure-classic/throttle2.png)
+
+Optionally you can also set throttling using PowerShell. Here's an example:
+
+    Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024) 
+
+#### Maximizing bandwidth usage 
+To increase the bandwidth utilized for replication by Azure Site Recovery you would need to change a registry key. 
+
+	![Upload Threads](./media/site-recovery-vmware-to-azure-classic/UploadThreads.png)
+
+
+The “UploadThreadsPerVM” controls the number of threads per replicating disk that are used when replicating. In an “overprovisioned” network, this registry key needs to be changed from it’s default values. We support a maximum of 32.  
+
 
 [Learn more](site-recovery-capacity-planner.md) about detailed capacity planning.
 
@@ -571,7 +600,7 @@ Before you run a failover note that:
 	- If possible you should shut down primary machines before you run an unplanned failover. This ensures that you don't have both the source and replica machines running at the same time. If you're replicating VMware VMs then when you run an unplanned failover you can specify that Site Recovery should make best effort to shut down the source machines. Depending on the state of the primary site this might or might not work. If you're replicating physical servers Site Recovery doesn't offer this option. 
 	- When you perform an unplanned failover it stops data replication from primary machines so any data delta won't be transferred after an unplanned failover begins.
 	
-- If you want to connect to the replica virtual machine in Azure after failover, enable Remote Desktop Connection on the source machine before you run the failover, and allow RDP connection through the firewall. You'll also need to allow RDP on the public endpoint of the Azure virtual machine after failover.
+- If you want to connect to the replica virtual machine in Azure after failover, enable Remote Desktop Connection on the source machine before you run the failover, and allow RDP connection through the firewall. You'll also need to allow RDP on the public endpoint of the Azure virtual machine after failover. Follow these [best practices](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx) to ensure that RDP works after a failover. 
 
 
 ### Run a test failover
@@ -685,23 +714,6 @@ The process server can automatically discover VMs on a vCenter server. To perfor
 Azure_Site_Recovery role | VMware VM discovery |Assign these privileges for the v-Center server:<br/><br/>Datastore->Allocate space, Browse datastore, Low level file operations., Remove file, Update virtual machine files<br/><br/>Network-> Network assign<br/><br/>Resource -> Assign virtual machine to resource pool, Migrate powered off virtual machine, Migrate powered on virtual machine<br/><br/>Tasks -> Create task, update task<br/><br/>Virtual machine ->  Configuration<br/><br/>Virtual machine -> Interact -> Answer question , Device connection., Configure CD media, Configure floppy media, Power off, Power on, VMware tools install<br/><br/>Virtual machine -> Inventory -> Create, Register, Unregister<br/><br/>Virtual machine -> Provisioning -> Allow virtual machine download, Allow virtual machine files upload<br/><br/>Virtual machine -> Snapshots -> Remove snapshots
 vCenter user role | VMware VM discovery/Failover without shutdown of source VM | Assign these privileges for the v-Center server:<br/><br/>Data Center object –> Propagate to Child Object, role=Read-only <br/><br/>The user is assigned at datacenter level and thus has access to all the objects in the datacenter.  If you want to restrict the access, assign the **No access** role with the **Propagate to child** object to the child objects (ESX hosts, datastores, VMs and networks). 
 vCenter user role | Failover and failback | Assign these privileges for the v-Center server:<br/><br/>Datacenter object – Propagate to child object, role=Azure_Site_Recovery<br/><br/>The user is assigned at datacenter level and thus has access to all the objects in the datacenter.  If you want to restrict the access, assign  the **No access **role with  the **Propagate to child object** to the child object (ESX hosts, datastores, VMs and networks).  
-
-## Tuning performance with bandwidth throttling
-
-VMware traffic replicated to Azure goes through a specific process server. You can throttle the bandwidth that's available for Site Recovery replication on that server as follows:
-
-1. Open the Microsoft Azure Backup MMC snap-in on the main management server or on a management server running additional provisioned process servers. By default a shortcut for Microsoft Azure Backup is created on desktop, or you can find it in: C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin.
-2. In the snap-in click **Change Properties**.
-
-	![Throttle bandwidth](./media/site-recovery-vmware-to-azure-classic/throttle1.png)
-
-3. On the **Throttling** tab specify the bandwidth that can be used for Site Recovery replication and the applicable scheduling.
-
-	![Throttle bandwidth](./media/site-recovery-vmware-to-azure-classic/throttle1.png)
-
-Optionally you can also set throttling using PowerShell. Here's an example:
-
-    Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024) 
 
 
 
