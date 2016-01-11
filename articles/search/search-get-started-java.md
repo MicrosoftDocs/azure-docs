@@ -13,12 +13,14 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="01/11/2016"
 	ms.author="heidist"/>
 
 # Get started with Azure Search in Java
 
 Learn how to build a custom Java search application that uses Azure Search for its search experience. This tutorial uses the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
+
+To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). See [Create an Azure Search service in the portal](search-create-service-portal.md) for step-by-step instructions.
 
 We used the following software to build and test this sample:
 
@@ -27,10 +29,6 @@ We used the following software to build and test this sample:
 - [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
-
-To run this sample, you need an Azure Search service, which you can sign up for in the [Azure Classic Portal](https://portal.azure.com).
-
-> [AZURE.TIP] Download the source code for this tutorial at [Azure Search Java demo](http://go.microsoft.com/fwlink/p/?LinkId=530197) on Github.
 
 ## About the data
 
@@ -52,44 +50,14 @@ The following list describes the files that are relevant to this sample.
 - config.properties: Sets the Search service URL and api-key
 - Pom.xml: A Maven dependency
 
-
-## Create the service
-
-1. Sign in to the [Azure Classic Portal](https://portal.azure.com).
-
-2. In the Jumpbar, click **New** > **Data + storage** > **Search**.
-
-     ![][1]
-
-3. Configure the service name, pricing tier, resource group, subscription and location. These settings are required and cannot be changed once the service is provisioned.
-
-     ![][2]
-
-	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
-
-	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
-
-		- **Free**  runs on clusters that are shared with other subscribers. It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. Deploying a free service typically only takes a few minutes.
-		- **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created. Deploying a standard service takes longer, usually about fifteen minutes.
-
-	- **Resource Groups** are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you can create a resource group that keeps these services together in the portal management pages.
-
-	- **Subscription** allows you to choose among multiple subscriptions, if you have more than one subscription.
-
-	- **Location** is the data center region. Currently, all resources must run in the same data center. Distributing resources across multiple data centers is not supported.
-
-4. Click **Create** to provision the service.
-
-Watch for notifications in the Jumpbar. A notice appears when the service is ready to use.
-
 <a id="sub-2"></a>
 ## Find the service name and api-key of your Azure Search service
 
-After the service is created, you can return to the portal to get the URL and `api-key`. Connections to your Search service require that you have both the URL and an `api-key` to authenticate the call.
+All REST API calls into Azure Search require that you provide the service URL and an api-key. 
 
-1. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard.
-
-2. On the service dashboard, you'll see tiles for essential information as well as the key icon for accessing the admin keys.
+1. Sign into the [Azure Portal](https://portal.azure.com).
+2. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard.
+3. On the service dashboard, you'll see tiles for essential information as well as the key icon for accessing the admin keys.
 
   	![][3]
 
@@ -123,7 +91,7 @@ All subsequent file modifications and run statements will be made against files 
 
 1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and api-key.
 
-2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure Classic Portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
+2. Refer to the steps earlier in this article, where you found the service URL and api-key in the [Azure Portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
 
 3. In **config.properties**, replace "Api Key" with the api-key for your service. Next, service name (the first component of the URL http://servicename.search.windows.net) replaces "service name" in the same file.
 
