@@ -45,9 +45,9 @@ The format of the Azure CLI command to import a DNS zone is as follows:
 `azure network dns zone import [options] <resource group> <zone name> <zone file name>`
 where:
 
-- **<resource group>** - is the name of the resource group for the zone in Azure DNS.
-- **<zone name>** - is the name of the zone.
-- **<zone file name>** - is the path/name of the zone file to be imported.
+- **resource group** - is the name of the resource group for the zone in Azure DNS.
+- **zone name** - is the name of the zone.
+- **zone file name** - is the path/name of the zone file to be imported.
 
 If a zone with this name does not exist in the resource group, it will be created for you.  If the zone already exists, the imported record sets will be merged with existing record sets.  To overwrite the existing record sets instead, use the ‘--force' option.  Further details on [how record sets are merged](#merging-with-existing-data) are given below.
 
@@ -154,9 +154,9 @@ The format of the Azure CLI command to import a DNS zone is as follows:
 `azure network dns zone export [options] <resource group> <zone name> <zone file name>`
 where:
 
-- **<resource group>** - is the name of the resource group for the zone in Azure DNS.
-- **<zone name>** - is the name of the zone.
-- **<zone file name>** -  is the path/name of the zone file to be exported.
+- **resource group** - is the name of the resource group for the zone in Azure DNS.
+- **zone name** - is the name of the zone.
+- **zone file name** -  is the path/name of the zone file to be exported.
 
 ## Step by Step to export an Azure DNS file
  
