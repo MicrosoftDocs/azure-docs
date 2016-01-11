@@ -27,13 +27,13 @@ In this article, learn how create your own custom business intelligence tools by
 
 > [AZURE.NOTE] Power BI output is a preview feature of Azure Stream Analytics. At this time, creation and configuration of Power BI outputs is not supported in the Azure Preview Portal.
 
-## Prerequisites ##
+## Prerequisites
 
 * Microsoft Azure Account
 * An input for the Stream Analytics job to consume streaming data from. Stream Analytics accepts input from Azure Event Hubs or Azure Blob storage.  
 * Work or school account for Power BI
 
-## Create Azure Stream Analytics Job ##
+## Create Azure Stream Analytics Job
 
 From [Azure Portal](https://manage.windowsazure.com), click **New, Data Services, Stream Analytics, Quick Create**.
 
@@ -49,7 +49,7 @@ Click **Stream Analytics** in the left pane to list the Stream Analytics jobs.
 
 > [AZURE.TIP] The new job will be listed with a status of **Not Started**. Notice that the **Start** button on the bottom of the page is disabled. This is expected behavior as you must configure the job input, output, query, and so on before you can start the job.
 
-## Specify job input ##
+## Specify job input
 
 For this tutorial, we are assuming you are using Event Hub as an input with JSON serialization and UTF-8 encoding.
 
@@ -74,7 +74,7 @@ For this tutorial, we are assuming you are using Event Hub as an input with JSON
   *	**Encoding** - UTF8
 *	Click the check button to add this source and to verify that Stream Analytics can successfully connect to the Event Hub.
 
-## Add Power BI output ##
+## Add Power BI output
 
 1.  Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option.
 
@@ -106,7 +106,7 @@ Provide values as below:
 >	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
-## Write Query ##
+## Write query
 
 Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following SQL query:
 
@@ -127,7 +127,7 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
     
 Start your job. Validate that your event hub is receiving events and your query generates the expected results. If your query outputs 0 rows, Power BI dataset and tables will not be automatically created.
 
-## Create the Dashboard in Power BI ##
+## Create the dashboard in Power BI
 
 Go to [Powerbi.com](https://powerbi.com) and login with your work or school account. If the Stream Analytics job query outputs results, you will see your dataset is already created:
 
@@ -163,7 +163,7 @@ Note that this tutorial demonstrated how to create but one kind of chart for a d
 
 For further information on configuring a Power BI output and to utilize Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
-## Limitations and best practices ##
+## Limitations and best practices
 
 Power BI employs both concurrency and throughput constraints as described here: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI Pricing")
 
@@ -197,7 +197,7 @@ A common question is "Why doesn't the dashboard auto-update in PowerBI?".
 
 To achieve this, in PowerBI utilize Q&A and asking a question such as "Maximum value by temp where Timestamp is today" and pin that tile to the dashboard.
 
-### Renew Authorization
+### Renew authorization
 
 There is a temporary limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Power BI output.  You will also need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated.  A symptom of this issue is no job output and an "Authenticate user error" in the Operations Logs:
 
@@ -207,10 +207,10 @@ To resolve this issue, stop your running job and go to your Power BI output.  Cl
 
 ![graphic13][graphic13]
 
-## Get help ##
+## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
-## Next steps ##
+## Next steps
 
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 - [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
