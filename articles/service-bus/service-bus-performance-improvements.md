@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Best Practices for performance improvements using Service Bus brokered messaging
@@ -142,7 +142,7 @@ If a message containing critical information that must not be lost is sent to an
 
 ## Use of partitioned queues or topics
 
-Internally, Service Bus uses the same node and messaging store to process and store all messages for a messaging entity (queue or topic). A partitioned queue or topic, on the other hand, is distributed across multiple nodes and messaging stores. Partitioned queues and topics not only yield a higher throughput than regular queues and topics, they also exhibit superior availability. To create a partitioned entity, set the [EnablePartitioning][] property to **true**, as shown in the following example. For more information about partitioned entities, see [Partitioning Messaging Entities][].
+Internally, Service Bus uses the same node and messaging store to process and store all messages for a messaging entity (queue or topic). A partitioned queue or topic, on the other hand, is distributed across multiple nodes and messaging stores. Partitioned queues and topics not only yield a higher throughput than regular queues and topics, they also exhibit superior availability. To create a partitioned entity, set the [EnablePartitioning][] property to **true**, as shown in the following example. For more information about partitioned entities, see [Partitioned messaging entities][].
 
 ```
 // Create partitioned queue.
@@ -275,7 +275,7 @@ To maximize throughput, do the following:
 
 ## Next steps
 
-To learn more about optimizing Service Bus performance, see [Partitioning Messaging Entities][].
+To learn more about optimizing Service Bus performance, see [Partitioned messaging entities][].
 
   [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
   [MessageSender]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.aspx
@@ -288,5 +288,5 @@ To learn more about optimizing Service Bus performance, see [Partitioning Messag
   [SubscriptionClient.PrefetchCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.prefetchcount.aspx
   [ForcePersistence]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.forcepersistence.aspx
   [EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
-  [Partitioning Messaging Entities]: service-bus-partitioning.md
+  [Partitioned messaging entities]: service-bus-partitioning.md
   

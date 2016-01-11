@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="12/03/2015"
+   ms.date="12/17/2015"
    ms.author="sdanie" />
 
 # ASP.NET Session State Provider for Azure Redis Cache
@@ -29,7 +29,7 @@ To configure a client application in Visual Studio using the Redis Cache Session
 
 Type **RedisSessionStateProvider** into the Search Online text box, select it from the results, and click Install.
 
->[AZURE.IMPORTANT] If you are using the clustering feature from the premium tier, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 or higher or an exception is thrown. This is a breaking change; for more information see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+>[AZURE.IMPORTANT] If you are using the clustering feature from the premium tier, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. This is a breaking change; for more information see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ![Azure Redis Cache Session State Provider](./media/cache-asp.net-session-state-provider/IC751730.png)
 

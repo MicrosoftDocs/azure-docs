@@ -5,11 +5,11 @@ A load balancer is used when you want to scale your applications. Typical deploy
 
 | Property | Description |
 |---|---|
-| *Front end IP configuration* | a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic and can be public IP or private IP |
-|*Backend address pool* | these are IP addresses associated with the VM NICs to which load will be distributed |
-|*Load balancing rules* | a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with virtual machines. The rule is one port in the front end pool to many virtual machines in the back end pool |  
+| *frontendIPConfigurations* | a Load balancer can include one or more front end IP addresses, otherwise known as a virtual IPs (VIPs). These IP addresses serve as ingress for the traffic and can be public IP or private IP |
+|*backendAddressPools* | these are IP addresses associated with the VM NICs to which load will be distributed |
+|*loadBalancingRules* | a rule property maps a given front end IP and port combination to a set of back end IP addresses and port combination. With a single definition of a load balancer resource, you can define multiple load balancing rules, each rule reflecting a combination of a front end IP and port and back end IP and port associated with virtual machines. The rule is one port in the front end pool to many virtual machines in the back end pool |  
 | *Probes* | probes enable you to keep track of the health of VM instances. If a health probe fails, the virtual machine instance will be taken out of rotation automatically |
-| *Inbound NAT rules* | NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP to a specific virtual machine instance. NAT rule is one port in the front end pool to one virtual machine in the back end pool | 
+| *inboundNatRules* | NAT rules defining the inbound traffic flowing through the front end IP and distributed to the back end IP to a specific virtual machine instance. NAT rule is one port in the front end pool to one virtual machine in the back end pool | 
 
 Example of load balancer template in Json format:
 

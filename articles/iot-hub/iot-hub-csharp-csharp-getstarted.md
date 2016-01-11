@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/29/2015"
+     ms.date="12/14/2015"
      ms.author="dobett"/>
 
 # Tutorial: Get started with Azure IoT Hub

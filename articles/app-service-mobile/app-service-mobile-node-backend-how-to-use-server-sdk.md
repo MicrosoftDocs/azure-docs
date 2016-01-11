@@ -25,7 +25,7 @@
 
 This article provides detailed information and examples showing how to work with a Node.js backend in Azure App Service Mobile Apps.
 
-> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples in this document use v2.0.0-beta1 of [azure-mobile-apps].
+> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples in this document use v2.0.0-beta2 of [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -83,12 +83,13 @@ This application creates a simple mobile-optimized WebAPI with a single endpoint
 unauthenticated access to an underlying SQL data store using a dynamic schema.  It is suitable for following the
 client library quick starts:
 
+- [Android Client QuickStart]
 - [iOS Client QuickStart]
+- [Windows Store Client QuickStart]
 - [Xamarin.iOS Client QuickStart]
 - [Xamarin.Android Client QuickStart]
 - [Xamarin.Forms Client QuickStart]
-- [Windows Store Client QuickStart]
-- [HTML/Javascript Client QuickStart]
+
 
 You can find the code for this basic application in the [basicapp sample on GitHub].
 
@@ -331,6 +332,34 @@ An example _azureMobile.js_ file implementing the database settings given above 
 
 We recommend that you add _azureMobile.js_ to your _.gitignore_ file (or other source code control ignore file) to prevent passwords from
 being stored in the cloud.  Always configure production settings in App Settings within the [Azure Portal].
+
+### <a name="howto-appsettings"><a>App Settings for configuring your Mobile App
+
+Most settings in the _azureMobile.js_ file have an equivalent App Setting in the [Azure Portal].  Use the following list to configure your
+app in App Settings:
+
+| App Setting                 | _azureMobile.js_ Setting  | Description                               | Valid Values                                |
+| :-------------------------- | :------------------------ | :---------------------------------------- | :------------------------------------------ |
+| **MS_MobileAppName**        | name                      | The name of the app                       | string                                      |
+| **MS_MobileLoggingLevel**   | logging.level             | Minimum log level of messages to log      | error, warning, info, verbose, debug, silly |
+| **MS_DebugMode**            | debug                     | Enable or Disable debug mode              | true, false                                 |
+| **MS_TableSchema**          | data.schema               | Default schema name for SQL tables        | string (default: dbo)                       |
+| **MS_DynamicSchema**        | data.dynamicSchema        | Enable or Disable debug mode              | true, false                                 |
+| **MS_DisableVersionHeader** | version (set to undefined)| Disables the X-ZUMO-Server-Version header | true, false                                 |
+| **MS_SkipVersionCheck**     | skipversioncheck          | Disables the client API version check     | true, false                                 |
+
+To set an App Setting:
+
+1. Log into the [Azure Portal].
+2. Select **All resources** or **App Services** then click on the name of your Mobile App.
+3. The Settings blade will open by default - if it doesn't, click on **Settings**.
+4. Click on **Application settings** in the GENERAL menu.
+5. Scroll to the App Settings section.
+6. If your app setting already exists, click on the value of the app setting to edit the value.
+7. If you app setting does not exist, enter the App Setting in the Key box and the value in the Value box.
+8. Once you are complete, click on **Save**.
+
+Changing most app settings will require a service restart.
 
 ### <a name="howto-use-sqlazure"></a>How to: Use SQL Database as your production data store
 
@@ -678,6 +707,7 @@ From the editor, you can also execute the code on the site
 [6]: ../../includes/media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png
 
 <!-- URLs -->
+[Android Client QuickStart]: app-service-mobile-android-get-started.md
 [iOS Client QuickStart]: app-service-mobile-ios-get-started.md
 [Xamarin.iOS Client QuickStart]: app-service-mobile-xamarin-ios-get-started.md
 [Xamarin.Android Client QuickStart]: app-service-mobile-xamarin-android-get-started.md
@@ -690,7 +720,7 @@ From the editor, you can also execute the code on the site
 [How to configure Google Authentication]: app-service-mobile-how-to-configure-google-authentication.md
 [How to configure Microsoft Authentication]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [How to configure Twitter Authentication]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service Deployment Guide]: ../app-service-web/web-site-deploy.md
+[Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
 [Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
 [Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
