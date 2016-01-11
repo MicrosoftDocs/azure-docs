@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/06/2016"
+   ms.date="01/11/2016"
    ms.author="alkohli" />
 
 # Back up your StorSimple Virtual Array (preview)
@@ -100,4 +100,4 @@ Perform the following steps in the Azure classic portal to view the existing bac
 
 ## Next steps
 
-Learn more about [administering your StorSimple Virtual Array](storsimple-ova-manager-service-admin.md).
+Learn more about [administering your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).

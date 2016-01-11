@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/06/2016"
+   ms.date="01/11/2016"
    ms.author="alkohli" />
 
 # Use the Web UI to administer your StorSimple Virtual Array (preview)
@@ -132,4 +132,4 @@ You can shut down or restart your virtual device using the local web UI.
 
 ## Next steps
 
-[Learn how to use the StorSimple Manager service to manage your virtual device](storsimple-ova-manager-service-admin.md) 
+[Learn how to use the StorSimple Manager service to manage your device](storsimple-manager-service-administration.md) 

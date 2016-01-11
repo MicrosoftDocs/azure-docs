@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/06/2016"
+   ms.date="01/11/2016"
    ms.author="alkohli" />
 
 
-# Deploy StorSimple Virtual Array 3 – Set up your virtual device as an iSCSI server (preview)
+# Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server (preview)
 
 ## Overview
 
@@ -33,11 +33,11 @@ The procedures described here take approximately 30 minutes to 1 hour to complet
 
 Before you configure and setup your StorSimple virtual device, make sure that:
 
-- You have provisioned a virtual device and connected to it as detailed in  [Deploy StorSimple Virtual Array 2 - Provision a virtual device in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array 2 - Provision a virtual device in VMware](storsimple-ova-deploy2-provision-vmware.md).
+- You have provisioned a virtual device and connected to it as detailed in  [Deploy StorSimple Virtual Array - Provision a virtual device in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array  - Provision a virtual device in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
-- You have the service registration key from the StorSimple Manager service that you created to manage StorSimple virtual devices. For more information, see **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array 1 - Portal Preparation](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
+- You have the service registration key from the StorSimple Manager service that you created to manage StorSimple virtual devices. For more information, see **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array - Portal Preparation](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
-- If this is the second or subsequent virtual device that you are registering with an existing StorSimple Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see **Get the service data encryption key** in the [Microsoft Azure StorSimple Virtual Array Management Guide](storsimple-ova-manager-service-admin.md#get-the-service-data-encryption-key).
+- If this is the second or subsequent virtual device that you are registering with an existing StorSimple Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see **Get the service data encryption key** in [Use the Web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key).
 
 ## Step-by-step setup 
 
@@ -60,7 +60,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     ![security certificate error](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
 
-2. Sign in to the web UI of your virtual device as **StorSimpleAdmin**. Enter the device administrator password that you changed in Step 3: Start the virtual device in [Deploy StorSimple Virtual Array 2 - Provision a virtual device in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array 2 - Provision a virtual device in VMware](storsimple-ova-deploy2-provision-vmware.md).
+2. Sign in to the web UI of your virtual device as **StorSimpleAdmin**. Enter the device administrator password that you changed in Step 3: Start the virtual device in [Deploy StorSimple Virtual Array - Provision a virtual device in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array - Provision a virtual device in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
     ![Sign-in page](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 
@@ -166,7 +166,7 @@ Perform the following steps in the Azure classic portal to complete the required
 
    1. Specify a storage account to be used with your device. In this subscription, you can select an existing storage account from the drop-down list, or you can specify **Add more** to choose an account from a different subscription.
 
-   2. Define the encryption settings for all the data that will be sent to the cloud. To encrypt your data, check the combo box to **enable cloud storage encryption key**. Enter a cloud storage encryption that contains 32 characters. Reenter the key to confirm it.
+   2. Define the encryption settings for all the data at rest that will be sent to the cloud. (StorSimple uses AES-256 encryption.) To encrypt your data, check the combo box to **enable cloud storage encryption key**. Enter a cloud storage encryption that contains 32 characters. Reenter the key to confirm it.
 
    3. Click the check icon ![check icon](./media/storsimple-ova-deploy3-iscsi-setup/image15.png).
 
@@ -224,15 +224,7 @@ Perform the following steps in the Azure classic portal to create a volume.
 
 ## Step 4: Mount, initialize, and format a volume
 
-Perform these steps on your Windows Server host.
-
->[AZURE.NOTE]
->
->-   For high availability of your StorSimple solution, we recommend that you configure MPIO on your host servers (MPIO is optional) prior to configuring iSCSI. MPIO configuration on host servers will ensure that the servers can tolerate a link, network, or interface failure.
->
->- For MPIO and iSCSI installation and configuration instructions on Windows Server host, go to [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md) This tutorial will also include the steps to mount, initialize, and format StorSimple volumes.
-
-If you decide not to configure MPIO, perform the following steps to mount, initialize, and format your StorSimple volumes on a Windows Server host.
+Perform the following steps to mount, initialize, and format your StorSimple volumes on a Windows Server host.
 
 #### To mount, initialize, and format a volume
 
@@ -246,11 +238,11 @@ If you decide not to configure MPIO, perform the following steps to mount, initi
 
     ![IP address](./media/storsimple-ova-deploy3-iscsi-setup/image23.png)
 
-4. In the **iSCSI Initiator Properties** window, on the **Targets** tab, locate the **Discovered targets**. The device status should appear as **Inactive**.
+4. In the **iSCSI Initiator Properties** window, on the **Targets** tab, locate the **Discovered targets**. (Each volume will be a discovered target.) The device status should appear as **Inactive**.
 
     ![discovered targets](./media/storsimple-ova-deploy3-iscsi-setup/image24.png)
 
-5. Select the target device and then click **Connect**. After the device is connected, the status should change to **Connected**. (For more information about using the Microsoft iSCSI initiator, see [Installing and Configuring Microsoft iSCSI Initiator] [1].
+5. Select a target device and then click **Connect**. After the device is connected, the status should change to **Connected**. (For more information about using the Microsoft iSCSI initiator, see [Installing and Configuring Microsoft iSCSI Initiator] [1].
 
     ![select target device](./media/storsimple-ova-deploy3-iscsi-setup/image25.png)
 
@@ -292,7 +284,7 @@ If you decide not to configure MPIO, perform the following steps to mount, initi
 
 ## Next step
 
-Manage your device using the detailed instructions in the [Microsoft Azure StorSimple Virtual Array Management Guide](storsimple-ova-manager-service-admin.md).
+Manage your device using the detailed instructions in [Use the Web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ## Appendix A: Get the IQN of a Windows Server host
 

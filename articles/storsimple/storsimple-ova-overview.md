@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/06/2016"
+   ms.date="01/11/2016"
    ms.author="v-sharos" />
 
 # Introduction to the StorSimple Virtual Array (preview)
@@ -42,7 +42,7 @@ The following table summarizes the important features of the Virtual Array.
 |Installation requirements | Uses virtualization infrastructure (Hyper-V or VMware)|
 | Availability | Single node |
 | Total capacity (including cloud) |Up to 64 TB usable capacity per virtual device |
-| Local capacity | 390 GB to 6.4 TB usable capacity per virtual device (need to provision 500 GB to 8 TB)|
+| Local capacity | 390 GB to 6.4 TB usable capacity per virtual device (need to provision 500 GB to 8 TB of disk space)|
 | Native protocols | iSCSI or SMB |
 | Recovery time objective (RTO) | iSCSI: less than 2 minutes regardless of size |
 | Recovery point objective (RPO) | Daily backups and on-demand backups |
@@ -86,8 +86,6 @@ You can use the StorSimple Manager service running in the Azure classic portal t
 ### Location-independent backup
 
 With the Virtual Array, cloud snapshots provide a location-independent, point-in-time copy of a volume or share. Cloud snapshots are enabled by default and cannot be disabled. All volumes and shares are backup up at the same time through a single daily backup policy, and you can take additional adhoc backups whenever necessary.
-
-![location-independent backup](./media/storsimple-ova-overview/location-independent-backup.png)
 
 ### Data protection and disaster recovery
 
@@ -153,7 +151,7 @@ In addition to the Virtual Array and other components, the StorSimple solution u
 
 - [Automatic storage tiering](#automatic-storage-tiering) 
 - [Locally pinned shares and volumes](#locally-pinned-shares-and-volumes)
-- [Deduplication and compression for data tiered to the cloud](#deduplication-and-compression-for-data-tiered-to-the-cloud) 
+- [Deduplication and compression for data tiered or backed up to the cloud](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
 - [Scheduled and on-demand backups](#scheduled-and-on-demand-backups)
 
 ### Automatic storage tiering
@@ -177,7 +175,7 @@ You can restore a locally pinned share or volume as tiered or a tiered share or 
 
 For more information about locally pinned volumes, go to [Use the StorSimple Manager service to manage volumes](storsimple-manage-volumes-u2.md).
 
-### Deduplication and compression in the cloud
+### Deduplication and compression for data tiered or backed up to the cloud
 
 StorSimple uses deduplication and data compression to further reduce storage requirements in the cloud. Deduplication reduces the overall amount of data stored by eliminating redundancy in the stored data set. As information changes, StorSimple ignores the unchanged data and captures only the changes. In addition, StorSimple reduces the amount of stored data by identifying and removing duplicate information. 
 
