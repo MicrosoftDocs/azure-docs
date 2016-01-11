@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/13/2015"
+   ms.date="01/11/2016"
    ms.author="seanmck"/>
 
 # Create your first Azure Service Fabric application in Visual Studio
