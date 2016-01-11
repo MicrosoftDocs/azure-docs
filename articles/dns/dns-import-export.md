@@ -139,6 +139,7 @@ Importing a zone file will create a new zone in Azure DNS if one does not alread
 
 ## Additional technical details
 The follow notes provide additional technical details about the zone import process:
+
 1.	The $TTL directive is optional, and is supported.  Where no $TTL directive is given, records without an explicit TTL will be imported using a default TTL of 3600 seconds.  Where two records in the same record set specify different TTLs, the lower value is used.
 2.	The $ORIGIN directive is optional, and is supported. Where no $ORIGIN is set, the default value used is the zone name as specified on the command line (plus terminating ‘.’).
 3.	The $INCLUDE and $GENERATE directives are not supported.
