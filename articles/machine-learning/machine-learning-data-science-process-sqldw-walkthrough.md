@@ -72,24 +72,24 @@ To set up your Azure Data Science environment, follow these steps.
 Create your own **Azure blob storage account**. The NYC Taxi data used in this walkthrough is shared in a public blob storage container in Azure in a .csv format. In this walkthrough, the data will be copied to your own Azure blob storage before the data is uploaded to Azure SQL DW. The **public blob storage** is located at ***South Central US***. 
 
 - When you provision your own Azure blob storage, choose a geo-location for your Azure blob storage as close as possible to South Central US. The data will be copied from the public blob storage container to a container in your own storage account. The closer your Azure blob storage is to South Central US, the faster this task (Step 4) will be completed. 
-- To create your own Azure storage account, follow the steps at [About Azure storage accounts](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/). Be sure to make notes on the values for following storage account credentials as they will be needed later in the walkthrough. 
+- To create your own Azure storage account, follow the steps at [About Azure storage accounts](storage-create-storage-account.md). Be sure to make notes on the values for following storage account credentials as they will be needed later in the walkthrough. 
 
   - **Storage Account Name**
   - **Storage Account Key**
   - **Container Name** (which you want the data to be stored in the Azure blob storage)
 
-Provision your Azure SQL DW instance. Follow the documentation at [Create a SQL Data Warehouse](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-provision/) to provision a SQL Data Warehouse instance. Make sure that you make notations on the following SQL Data Warehouse credentials which will be used in later steps.
+Provision your Azure SQL DW instance. Follow the documentation at [Create a SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) to provision a SQL Data Warehouse instance. Make sure that you make notations on the following SQL Data Warehouse credentials which will be used in later steps.
  
   - **Server Name**
   - **SQLDW (Database) Name**
   - **User Name**
   - **Password**
 
-Install Visual Studio 2015 and SQL Server Data Tools. For instructions, see [Install Visual Studio 2015 and/or SSDT (SQL Server Data Tools) for SQL Data Warehouse](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-install-visual-studio/). 
+Install Visual Studio 2015 and SQL Server Data Tools. For instructions, see [Install Visual Studio 2015 and/or SSDT (SQL Server Data Tools) for SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md). 
 
-Make sure you can connect to your Azure SQL DW with Visual Studio. For instructions, see [Connect to Azure SQL Data Warehouse with Visual Studio](https://azure.microsoft.com/en-us/documentation/articles/sql-data-warehouse-get-started-connect/). 
+Make sure you can connect to your Azure SQL DW with Visual Studio. For instructions, see [Connect to Azure SQL Data Warehouse with Visual Studio](sql-data-warehouse-get-started-connect.md). 
 
-Create an Azure Machine Learning workspace under your Azure subscription. For instructions, see [Create an Azure Machine Learning workspace](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/).
+Create an Azure Machine Learning workspace under your Azure subscription. For instructions, see [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md).
 
 ## <a name="getdata"></a>Load the data into SQL Data Warehouse
 
@@ -136,7 +136,7 @@ When the PowerShell script runs for the first time, you will be asked to input t
 - If your data is in your on-premis machine in your real life application, you can still use AzCopy to upload on-premis data to your private Azure blob storage. You only need to change the **Source** location in the PowerShell script file to a local directory in the AzCopy command.	
 - If your data is already in your private Azure blob storage in your real life application, you can skip the AzCopy step in the PowerShell script and directly upload the data to Azure SQL DW. 
 
-This Powershell script also plugs the Azure SQL DW information into the data exploration example files ([SQL](./SQLDW_Explorations.sql) and [IPython notebook](./SQLDW_Explorations.ipynb)) so that these two files are ready to be tried out instantly after the PowerShell script completes. 
+This Powershell script also plugs the Azure SQL DW information into the data exploration example files SQL(./SQLDW_Explorations.sql) and IPython notebook(./SQLDW_Explorations.ipynb)) so that these two files are ready to be tried out instantly after the PowerShell script completes. 
 
 After a successful execution, you will see screen like below:
 
