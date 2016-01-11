@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/11/2016"
 	ms.author="raynew"/>
 
 # Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-vmware-to-azure-classic)
-- [Legacy](site-recovery-vmware-to-azure-classic-legacy)
+- [Enhanced](site-recovery-vmware-to-azure-classic.md)
+- [Legacy](site-recovery-vmware-to-azure-classic-legacy.md)
 
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md).
 
@@ -134,9 +134,10 @@ Optionally you can also set throttling using PowerShell. Here's an example:
     Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024) 
 
 #### Maximizing bandwidth usage 
-To increase the bandwidth utilized for replication by Azure Site Recovery you would need to change a registry key. 
+To increase the bandwidth utilized for replication by Azure Site Recovery you would need to change a registry key.
 
 	![Upload Threads](./media/site-recovery-vmware-to-azure-classic/UploadThreads.png)
+
 
 
 The “UploadThreadsPerVM” controls the number of threads per replicating disk that are used when replicating. In an “overprovisioned” network, this registry key needs to be changed from it’s default values. We support a maximum of 32.  
