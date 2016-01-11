@@ -24,12 +24,12 @@ Azure AD Connect depends on two different configuration methods to connect to Az
 
 In this article we will show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 
-First we need to make sure **machine.config** is correctly configured.  
+First we need to make sure [**machine.config**](active-directory-aadconnect-prerequisites.md#connectivity) is correctly configured.  
 ![machineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/machineconfig.png)
 
-> [Azure.Note] In some blogs it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system will stop working on first upgrade. For that reason the recommendation is to update machine.config instead.
+> [AZURE.NOTE] In some blogs it is documented that changes should be made to miiserver.exe.config instead. However, this file is overwritten on every upgrade so even if it works during initial install, the system will stop working on first upgrade. For that reason the recommendation is to update machine.config instead.
 
-Second we need to make sure winhttp is configured. This can be done with netsh.  
+Second we need to make sure winhttp is configured. This can be done with [**netsh**](active-directory-aadconnect-prerequisites.md#connectivity).  
 ![netsh](./media/active-directory-aadconnect-troubleshoot-connectivity/netsh.png)
 
 The proxy server must also have the required URLs opened. The official list is documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
@@ -52,14 +52,14 @@ These are the most common errors you will see in the installation wizard.
 This error will appear when the wizard itself cannot reach the proxy.
 ![nomachineconfig](./media/active-directory-aadconnect-troubleshoot-connectivity/nomachineconfig.png)
 
-- If you see this, verify the machine.config has been correctly configured.
+- If you see this, verify the [machine.config](active-directory-aadconnect-prerequisites.md#connectivity) has been correctly configured.
 - If that looks ok, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
 ### The Sign-in assistant has not been correctly configured
 This error appear when the Sign-in assistant cannot reach the proxy or the proxy is not allowing the request.
 ![nonetsh](./media/active-directory-aadconnect-troubleshoot-connectivity/nonetsh.png)
 
-- If you see this, look at the proxy configuration in netsh and verify it is correct.
+- If you see this, look at the proxy configuration in [netsh](active-directory-aadconnect-prerequisites.md#connectivity) and verify it is correct.
 ![netshshow](./media/active-directory-aadconnect-troubleshoot-connectivity/netshshow.png)
 - If that looks ok, follow the steps in [Verify proxy connectivity](#verify-proxy-connectivity) to see if the issue is present outside the wizard as well.
 
@@ -67,16 +67,15 @@ This error appear when the Sign-in assistant cannot reach the proxy or the proxy
 If the installation wizard is successful in connecting to Azure AD, but the password itself cannot be verified you will see this:
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-- Is the password a temporary password and must be changed? Is it actually the correct password? Try to login to login
+- Is the password a temporary password and must be changed? Is it actually the correct password? Try to login to https://login.microsoftonline.com (on another server than the Azure AD Connect server) and verify the account is usable.
 - Is MFA (Multi-Factor Authentication) enabled on the user? If it is, then disable it.
--
 
 ### Verify proxy connectivity
-To verify if the Azure AD Connect server has actual connectivity with the Proxy and the Internet we will use some PowerShell to see if the proxy is allowing web requests or not. In a PowerShell prompt, run `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technically the first call is to https://login.microsoftonline.com and this will work as well, but the other URI is faster to respond.)
+To verify if the Azure AD Connect server has actual connectivity with the Proxy and Internet we will use some PowerShell to see if the proxy is allowing web requests or not. In a PowerShell prompt, run `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Technically the first call is to https://login.microsoftonline.com and this will work as well, but the other URI is faster to respond.)
 
 PowerShell will use the configuration in machine.config to contact the proxy. The settings in winhttp/netsh should not impact these cmdlets.
 
-If the proxy is correctly configured, we should get a success status:
+If the proxy is correctly configured, you should get a success status:
 ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest200.png)
 
 If you receive **Unable to connect to the remote server** then PowerShell is trying to make a direct call without using the proxy or DNS is not correctly configured. Make sure the **machine.config** file is correctly configured.
@@ -88,8 +87,8 @@ If the proxy is not correctly configured, we will get an error:
 
 | Error | Error Text | Comment |
 | ---- | ---- | ---- |
-| 403 | Forbidden | The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure the URLs have been opened. |
-| 407 | Proxy Authentication Required | The proxy server required login. If your proxy server requires authentication, make sure to have this configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard as well as for the service account. |
+| 403 | Forbidden | The proxy has not been opened for the requested URL. Revisit the proxy configuration and make sure the [URLs](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) have been opened. |
+| 407 | Proxy Authentication Required | The proxy server required login and none was provided. If your proxy server requires authentication, make sure to have this configured in the machine.config. Also make sure you are using domain accounts for the user running the wizard as well as for the service account. |
 
 ## The communication pattern between Azure AD Connect and Azure AD
 If you have followed all these steps above and still cannot connect you might at this point start looking at network logs. This section is documenting a normal and successful connectivity pattern. It is also listing common red herrings which can be ignored if you are reading the network logs.

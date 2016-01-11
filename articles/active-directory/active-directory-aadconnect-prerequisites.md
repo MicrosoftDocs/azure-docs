@@ -80,9 +80,9 @@ See MSDN for more information about the [default proxy Element](https://msdn.mic
 - You also need to configure winhttp. Start a cmd-prompt and enter:
 
 ```
-    C:\>**netsh**
-    netsh>**winhttp**
-    netsh winhttp>**set proxy PROXYADDRESS:PROXYPORT**
+    C:\>netsh
+    netsh>winhttp
+    netsh winhttp>set proxy <PROXYADDRESS>:<PROXYPORT>
 ```
 
 If you have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troublehoot-connectivity.md).
