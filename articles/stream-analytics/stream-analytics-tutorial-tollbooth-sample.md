@@ -107,7 +107,7 @@ In addition to the streamed data from the toll sensors, a static snapshot of the
 | RegistrationID | Registration number of the vehicle |
 | Expired | This field is 0 if the vehicle registration is active, 1 if it is expired |
   
-## Provision Resources
+## Provision resources
 This tutorial will walk through the creation of 2 Azure Event Hubs to receive the “Entry” and “Exit” data streams. Azure SQL Database is used to output the job results. Azure Blob Storage will be used to  store reference data about vehicle registrations.
 
 Download the TollApp sample with manual. The current version can be found in the [Stream Analytics GitHub Samples](https://github.com/streamanalytics/samples/releases) area. Download the zip and extract to a local working directory. The `Setup.ps1` PowerShell script in the local working directory the zip is extracted to can be used to create all the required resources. In the interest of time for this tutorial execute the script to setup the environment. Download and save the supporting TollApp folder and files as well. Be sure to download the latest available release.
@@ -144,7 +144,7 @@ Another window will be present, similar to the screen shot below. This is the si
   
 The created resources should populate in Azure Management Portal and be visible. To verify and see the objects go to [https://manage.windowsazure.com](https://manage.windowsazure.com "Build a real time processing job in Stream Analytics manage Windows Azure link") and login with the same account credentials used for the script setup.
 
-### Event Hub Review
+### Event Hub review
 Click on “Service Bus” menu item on the left side of the Azure Management Portal to see Event Hubs created by the script from the previous section.
 Note that by default all available namespaces in the subscription are visible. Click on the one starting with “TollData”. (TollData4637388511 in this example). Click on “Event Hubs” tab.
   
@@ -154,7 +154,7 @@ Two Event Hubs should be visible, named entry and exit created in this namespace
   
 ![Witness 2 event hubs](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-10.png)  
   
-### Azure Storage Container Review
+### Azure Storage Container review
 Click on “Storage” menu item on the left side of the Azure Management Portal to see storage container used in the Lab.
 Click on the one starting with “tolldata”. (tolldata4637388511 in this example). Open “Containers” tab to see the created container.
   
@@ -164,7 +164,7 @@ Click on “tolldata” container to see uploaded JSON file with vehicle registr
   
 ![JSON regdata](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-13.png)  
   
-### Azure SQL Database Review
+### Azure SQL Database review
 Click on “SQL Databases” menu item on the left side of the Azure Management Portal to see Azure SQL Database that will be used in the Lab. Click on “TollDataDB” and copy the server name without the port number (<serverName>.database.windows.net for example). This will be needed in the next step.
   
 ![tolldb connection string data](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-15.png)  
@@ -190,12 +190,12 @@ To do so connect to the Azure database (the destination) from Visual Studio:
 
 
 
-## Event Generator - TollApp Sample Project
+## Event generator - TollApp Sample Project
 The PowerShell script automatically starts sending events using the TollApp sample application program. No additional steps are needed. However, if you are interested in the implementation details, you can find the source code of the TollApp application under in GitHub samples/TollApp.
   
 ![sourcecode in visual studio](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-20.png)  
   
-## Create the Stream Analytics Job
+## Create the Stream Analytics job
 In the Azure portal select Stream Analytics and click “New” in the bottom left hand corner of the page to create a new job. Then click “Quick Create” and select "South Central US" as the region.
   
 ![Create SA job](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-21.png)  
@@ -204,7 +204,7 @@ For “Regional Monitoring Storage Account” setting, select “Create new stor
   
 ![Create storage account and job](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-22.png)  
   
-## Define Input Sources
+## Define input sources
 Select the created analytics job in the portal. Then select the  “Inputs” tab to define the source data and select “Add an Input”.
   
 ![Input sources](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-23.jpg)  
@@ -237,7 +237,7 @@ At this point in the tutorial, all data inputs are defined.
   
 ![3 tolldata inputs](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-36.jpg)  
   
-## Define Output Data Connections
+## Define output data connections
   
 1.  Go to “Output” tab and click “Add an output”.  
 2.  Select “Sql Database”.  
@@ -250,7 +250,7 @@ The settings should look as below:
   
 ![SQL DB Settings](./media/stream-analytics-tutorial-tollbooth-sample/stream-analytics-tutorial-tollbooth-sample-image-38.jpg)  
   
-## Azure Stream Analytics Job Query
+## Azure Stream Analytics job query
 The Query tab contains a T-SQL query that performs the transformation over the incoming data. Throughout the lab questions will be presented and addressed by using the toll booth data stream and Stream Analytics queries to provide an answer. Before starting the first Azure Stream Analytics job, explore a few scenarios and query syntax.
 
 For an example exercise, count the number of vehicles that enter a toll booth. Since this is a continuous stream of events, it is essential that a “period of time” be defined. Therefore the question would to be “Number of vehicles entering a toll booth every 3 minutes”. In Stream Analytics Query Language this is referred to as the Tumbling Count. Examine the query that could be used to answer this question:
