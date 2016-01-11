@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="01/11/2016" 
 	ms.author="jeffstok"/>
 	
 # Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data
@@ -164,6 +164,7 @@ Note that this tutorial demonstrated how to create but one kind of chart for a d
 For further information on configuring a Power BI output and to utilize Power BI groups, review the [Power BI section](stream-analytics-define-outputs.md#power-bi) of [Understanding Stream Analytics outputs](stream-analytics-define-outputs.md "Understanding Stream Analytics outputs"). Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
 ## Limitations and best practices ##
+
 Power BI employs both concurrency and throughput constraints as described here: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI Pricing")
 
 Because of those Power BI lands itself most naturally to cases where Azure Stream Analytics does a significant data load reduction.
@@ -187,7 +188,13 @@ Which means we would change the original query to:
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
-## Renew Authorization
+### PowerBI view refresh
+
+A common question is "Why doesn't the dashboard auto-update in PowerBI?".
+
+To achieve this, in PowerBI utilize Q&A and asking a question such as "Maximum value by temp where Timestamp is today" and pin that tile to the dashboard.
+
+### Renew Authorization
 
 There is a temporary limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Power BI output.  You will also need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated.  A symptom of this issue is no job output and an "Authenticate user error" in the Operations Logs:
 
