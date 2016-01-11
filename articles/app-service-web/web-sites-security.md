@@ -23,10 +23,10 @@ This article helps you get started on securing your web app, mobile app backend,
 
 Security in Azure App Service has two levels: 
 
-- **Infrastructure and platform** - You trust Azure to have the services you need to actually run things securely in the cloud.
-- **Application** - You need to design the app itself securely. This includes how you integrate with Azure Active Directory, how you manage certificates, and how you make sure that you can securely talk to different services. 
+- **Infrastructure and platform security** - You trust Azure to have the services you need to actually run things securely in the cloud.
+- **Application security** - You need to design the app itself securely. This includes how you integrate with Azure Active Directory, how you manage certificates, and how you make sure that you can securely talk to different services. 
 
-### Infrastructure and platform security
+#### Infrastructure and platform security
 Because App Service maintains the Azure VMs, storage, network connections, web frameworks, management and integration features and much more, it is actively secured and hardened and goes 
 through vigorous compliance and checks on a continuous basis to make sure that:
 
@@ -38,7 +38,7 @@ always encrypted.
 
 For more information, see [Azure Trust Center](/support/trust-center/security/).
 
-### Application security
+#### Application security
 
 While Azure is responsible for securing the infrastructure and platform that your application runs on, it is your responsibility to secure your application itself. In other words, you need to develop, deploy, and manage your
 application code and content in a secure way. Without this, your application code or content can still be vulnerable to threats such as:
