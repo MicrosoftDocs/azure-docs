@@ -85,7 +85,7 @@ See MSDN for more information about the [default proxy Element](https://msdn.mic
     netsh winhttp>set proxy <PROXYADDRESS>:<PROXYPORT>
 ```
 
-If you have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troublehoot-connectivity.md).
+If you have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ### Other
 - Optional:  A test user account to verify synchronization.
