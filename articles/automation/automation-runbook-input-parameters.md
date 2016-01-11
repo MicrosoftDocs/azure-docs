@@ -92,7 +92,7 @@ You can use the [**Write-Output**](https://technet.microsoft.com/library/hh84992
     | Description | Optional. Description about the purpose of input parameter. |
     | Type | Optional. The data type that's expected for the parameter value. Supported parameter types are **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime**, and **Object**. If a data type is not selected, it defaults to **String**. |
     | Mandatory | Optional. Specifies whether a value must be provided for the parameter. If you choose **yes**, then a value must be provided when the runbook is started. If you choose **no**, then a value is not required when the runbook is started, and a default value may be set. |
-    | Default Value | Optional. Specifies a value that will be used for the parameter if a value is not passed in when the runbook is started. A default value can be set for a parameter, but it's not mandatory. To set a default value, choose **Custom**. This value is used unless another value is provided when the runbook is started. Choose **None** if you don’t want to provide any default value. |  
+    | Default Value | Optional. Specifies a value that will be used for the parameter if a value is not passed in when the runbook is started. A default value can be set for a parameter that's not mandatory. To set a default value, choose **Custom**. This value is used unless another value is provided when the runbook is started. Choose **None** if you don’t want to provide any default value. |  
 
     ![Add new input](media/automation-runbook-input-parameters/automation_03_AddNewInput.png)
 
