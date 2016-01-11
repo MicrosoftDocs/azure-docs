@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 #Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
