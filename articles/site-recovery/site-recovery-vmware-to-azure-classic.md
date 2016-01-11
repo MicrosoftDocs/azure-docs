@@ -136,7 +136,7 @@ Optionally you can also set throttling using PowerShell. Here's an example:
 #### Maximizing bandwidth usage 
 To increase the bandwidth utilized for replication by Azure Site Recovery you would need to change a registry key.
 
-The key is located under "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure\Backup\Replication"
+The key is located under "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication"
 
 The “UploadThreadsPerVM” controls the number of threads per replicating disk that are used when replicating. In an “overprovisioned” network, this registry key needs to be changed from it’s default values. We support a maximum of 32.  
 
