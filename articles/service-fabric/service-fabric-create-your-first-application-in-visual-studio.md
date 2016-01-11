@@ -24,6 +24,12 @@ The Service Fabric SDK includes an add-in for Visual Studio that provides templa
 
 Before you get started, make sure that you have [set up your development environment](service-fabric-get-started.md).
 
+## Video walkthrough
+
+The following video walks through the steps in this tutorial:
+
+>[AZURE.VIDEO creating-your-first-service-fabric-application-in-visual-studio]
+
 ## Create the application
 
 A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. By using the New Project wizard, you can create an application project, along with your first service project. You can add more services later.
