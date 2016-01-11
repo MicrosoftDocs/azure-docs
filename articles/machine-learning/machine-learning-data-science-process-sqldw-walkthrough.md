@@ -24,7 +24,7 @@ In this tutorial, we walk you through building and deploying a machine learning 
 The procedure follows the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/en-us/documentation/learning-paths/cortana-analytics-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how to explore the data and engineer features in SQL DW and in an IPython Notebook. We then show how to build and deploy the model in Azure Machine Learning.
 
 
-## <a name="dataset"></a>NYC Taxi Trips Dataset Description
+## <a name="dataset"></a>The NYC Taxi Trips dataset
 
 The NYC Taxi Trip data consists of about 20GB of compressed CSV files (~48GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and drop-off locations and times, anonymized hack (driver's) license number, and the medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
@@ -48,7 +48,7 @@ The NYC Taxi Trip data consists of about 20GB of compressed CSV files (~48GB unc
 
 The unique key to join trip\_data and trip\_fare is composed of the following three fields: medallion, hack\_license and pickup\_datetime.
 
-## <a name="mltasks"></a>Examples of Prediction Tasks
+## <a name="mltasks"></a>Examples of prediction tasks
 
 We will formulate three prediction problems based on the *tip\_amount*, namely:
 
@@ -65,7 +65,7 @@ We will formulate three prediction problems based on the *tip\_amount*, namely:
 3. **Regression task**: To predict the amount of tip paid for a trip.  
 
 
-## <a name="setup"></a>Set Up the Azure data science environment for advanced analytics
+## <a name="setup"></a>Set up the Azure data science environment for advanced analytics
 
 To set up your Azure Data Science environment, follow these steps.
 
@@ -142,7 +142,7 @@ After a successful execution, you will see screen like below:
 
 ![][20]
 
-## <a name="dbexplore"></a>Data Exploration and Feature Engineering in Azure SQL Data Warehouse
+## <a name="dbexplore"></a>Data exploration and feature engineering in Azure SQL Data Warehouse
 
 In this section, we perform data exploration and feature generation by running SQL queries against Azure SQL DW directly using **Visual Studio Data Tools**. All SQL queries used in this section can be found in the sample script named **SQLDW_Explorations.sql**. This file has already been downloaded to your local directory by the PowerShell script. You can also retrieve it from [Github](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). But the file in Github does not have the Azure SQL DW information plugged in.
 
@@ -185,7 +185,7 @@ This example identifies the medallions (taxi numbers) and hack_license numbers (
 	GROUP BY medallion, hack_license
 	HAVING COUNT(*) > 100
 
-### Data Quality Assessment: Verify records with incorrect longitude and/or latitude
+### Data quality assessment: Verify records with incorrect longitude and/or latitude
 
 This example investigates if any of the longitude and/or latitude fields either contain an invalid value (radian degrees should be between -90 and 90), or have (0, 0) coordinates.
 
@@ -198,7 +198,7 @@ This example investigates if any of the longitude and/or latitude fields either 
 	OR    (pickup_longitude = '0' AND pickup_latitude = '0')
 	OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-### Exploration: Tipped vs. Not Tipped Trips distribution
+### Exploration: Tipped vs. not tipped trips distribution
 
 This example finds the number of trips that were tipped vs. the number that were not tipped in a specified time period (or in the full dataset if covering the full year). This distribution reflects the binary label distribution to be later used for binary classification modeling.
 
@@ -208,7 +208,7 @@ This example finds the number of trips that were tipped vs. the number that were
 	  WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tipped
 
-### Exploration: Tip Class/Range Distribution
+### Exploration: Tip class/range distribution
 
 This example computes the distribution of tip ranges in a given time period (or in the full dataset if covering the full year). This is the distribution of the label classes that will be used later for multiclass classification modeling.
 
@@ -224,7 +224,7 @@ This example computes the distribution of tip ranges in a given time period (or 
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
 	GROUP BY tip_class
 
-### Exploration: Compute and Compare Trip Distance
+### Exploration: Compute and compare trip distance
 
 This example converts the pickup and drop-off longitude and latitude to SQL geography points, computes the trip distance using SQL geography points difference, and returns a random sample of the results for comparison. The example limits the results to valid coordinates only using the data quality assessment query covered earlier.
 
@@ -270,7 +270,7 @@ This example converts the pickup and drop-off longitude and latitude to SQL geog
 	AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
 	AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-### Feature Engineering using SQL Functions
+### Feature engineering using SQL functions
 
 Sometimes SQL functions can be an efficient option for feature engineering. In this walkthrough, we defined a SQL function to calculate the direct distance between the pickup and dropoff locations. You can run the following SQL scripts in **Visual Studio Data Tools**. 
 
@@ -320,7 +320,7 @@ Here is an example to call this function to generate features in your SQL query:
 	AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
 	AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-### Prepare Data for Model Building
+### Prepare data for model building
 
 The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a sample from the full joined dataset. The sampling is done by retrieving a subset of the trips based on pickup time.  This query can be copied then pasted directly in the [Azure Machine Learning Studio](https://studio.azureml.net) [Reader][reader] module for direct data ingestion from the SQL database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
 
@@ -345,7 +345,7 @@ When you are ready to proceed to Azure Machine Learning, you may either:
 2. Persist the sampled and engineered data you plan to use for model building in a new SQL DW table and use the new table in the [Reader][reader] module in Azure Machine Learning. The PowerShell script in earlier step has done this for you. You can read directly from this table in the Reader module. 
 
 
-## <a name="ipnb"></a>Data Exploration and Feature Engineering in IPython Notebook
+## <a name="ipnb"></a>Data exploration and feature engineering in IPython notebook
 
 In this section, we will perform data exploration and feature generation
 using both Python and SQL queries against the SQL DW created earlier. A sample IPython notebook named **SQLDW_Explorations.ipynb** and a Python script file **SQLDW_Explorations_Scripts.py** have been downloaded to your local directory. They are also available on [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). These two files are identical in Python scripts. The Python script file is provided to you in case you do not have an IPython Notebook server. These two sample Python files are designed under **Python 2.7**.
@@ -388,7 +388,7 @@ The recommended sequence when building advanced analytical solutions on AzureML 
 
 The followings are a few data exploration, data visualization, and feature engineering examples. More data explorations can be found in the sample IPython Notebook and the sample Python script file.
 
-### Initialize Database Credentials
+### Initialize database credentials
 
 Initialize your database connection settings in the following variables:
 
@@ -398,7 +398,7 @@ Initialize your database connection settings in the following variables:
     PASSWORD=<password>
     DB_DRIVER = <database driver>
 
-### Create Database Connection
+### Create database connection
 
 Here is the connection string that creates the connection to the database.
 
@@ -467,14 +467,14 @@ Here is the connection string that creates the connection to the database.
 Time to read the sample table is 14.096495 seconds.  
 Number of rows and columns retrieved = (1000, 21).
 
-### Descriptive Statistics
+### Descriptive statistics
 
 Now you are ready to explore the sampled data. We start with
 looking at some descriptive statistics for the **trip\_distance** (or any other fields you choose to specify).
 
     df1['trip_distance'].describe()
 
-### Visualization: Box Plot Example
+### Visualization: Box plot example
 
 Next we look at the box plot for the trip distance to visualize the quantiles.
 
@@ -482,7 +482,7 @@ Next we look at the box plot for the trip distance to visualize the quantiles.
 
 ![Plot #1][1]
 
-### Visualization: Distribution Plot Example
+### Visualization: Distribution plot example
 
 Plots that visualize the distribution and a histogram for the sampled trip distances.
 
@@ -494,7 +494,7 @@ Plots that visualize the distribution and a histogram for the sampled trip dista
 
 ![Plot #2][2]
 
-### Visualization: Bar and Line Plots
+### Visualization: Bar and line plots
 
 In this example, we bin the trip distance into five bins and visualize the binning results.
 
@@ -515,7 +515,7 @@ and
 
 ![Plot #4][4]
 
-### Visualization: Scatterplot Examples
+### Visualization: Scatterplot examples
 
 We show scatter plot between **trip\_time\_in\_secs** and **trip\_distance** to see if there
 is any correlation
@@ -531,7 +531,7 @@ Similarly we can check the relationship between **rate\_code** and **trip\_dista
 ![Plot #8][8]
 
 
-### Data Exploration on Sampled Data using SQL Queries in IPython Notebook
+### Data exploration on sampled data using SQL queries in IPython notebook
 
 In this section, we explore data distributions using the sampled data which is persisted in the new table we created above. Note that similar explorations can be performed using the original tables.
 
@@ -543,7 +543,7 @@ In this section, we explore data distributions using the sampled data which is p
 	ncols = pd.read_sql('''SELECT count(*) FROM information_schema.columns WHERE table_name = ('<nyctaxi_sample>') AND table_schema = '<schemaname>'''', conn)
 	print 'Number of columns in sample = %d' % ncols.iloc[0,0]
 
-#### Exploration: Tipped/Not Tipped Distribution
+#### Exploration: Tipped/not tripped Distribution
 
 	query = '''
         SELECT tipped, count(*) AS tip_freq
@@ -553,7 +553,7 @@ In this section, we explore data distributions using the sampled data which is p
 
 	pd.read_sql(query, conn)
 
-#### Exploration: Tip Class Distribution
+#### Exploration: Tip class distribution
 
 	query = '''
         SELECT tip_class, count(*) AS tip_freq
@@ -563,7 +563,7 @@ In this section, we explore data distributions using the sampled data which is p
 
 	tip_class_dist = pd.read_sql(query, conn)
 
-#### Exploration: Plot the Tip Distribution by class
+#### Exploration: Plot the tip distribution by class
 
 	tip_class_dist['tip_freq'].plot(kind='bar')
 
@@ -590,23 +590,23 @@ In this section, we explore data distributions using the sampled data which is p
 
 	pd.read_sql(query,conn)
 
-#### Exploration: Trip distribution by medallion and Hack License
+#### Exploration: Trip distribution by medallion and hack license
 
 	query = '''select medallion, hack_license,count(*) from <schemaname>.<nyctaxi_sample> group by medallion, hack_license'''
 	pd.read_sql(query,conn)
 
 
-#### Exploration: Trip Time Distribution
+#### Exploration: Trip time distribution
 
 	query = '''select trip_time_in_secs, count(*) from <schemaname>.<nyctaxi_sample> group by trip_time_in_secs order by count(*) desc'''
 	pd.read_sql(query,conn)
 
-#### Exploration: Trip Distance Distribution
+#### Exploration: Trip distance distribution
 
 	query = '''select floor(trip_distance/5)*5 as tripbin, count(*) from <schemaname>.<nyctaxi_sample> group by floor(trip_distance/5)*5 order by count(*) desc'''
 	pd.read_sql(query,conn)
 
-#### Exploration: Payment Type Distribution
+#### Exploration: Payment type distribution
 
 	query = '''select payment_type,count(*) from <schemaname>.<nyctaxi_sample> group by payment_type'''
 	pd.read_sql(query,conn)
@@ -616,7 +616,7 @@ In this section, we explore data distributions using the sampled data which is p
     query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
     pd.read_sql(query,conn)
 
-## <a name="mlmodel"></a>Build Models in Azure Machine Learning
+## <a name="mlmodel"></a>Build models in Azure Machine Learning
 
 We are now ready to proceed to model building and model deployment in [Azure Machine Learning](https://studio.azureml.net). The data is ready to be used in any of the prediction problems identified earlier, namely:
 
@@ -675,7 +675,7 @@ An example of a binary classification experiment reading data directly from the 
 >
 > To exclude any unnecessary columns or target leaks, you may use the [Project Columns][project-columns] module or the [Metadata Editor][metadata-editor]. For more information, see [Project Columns][project-columns] and [Metadata Editor][metadata-editor] reference pages.
 
-## <a name="mldeploy"></a>Deploy Models in Azure Machine Learning
+## <a name="mldeploy"></a>Deploy models in Azure Machine Learning
 
 When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure ML web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
@@ -704,7 +704,7 @@ A sample scoring experiment is provided in the figure below. When ready to deplo
 ## Summary
 To recap what we have done in this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset, taking it through the Cortana Analytics Process, all the way from data acquisition to model training, and then to the deployment of an Azure Machine Learning web service.
 
-### License Information
+### License information
 
 This sample walkthrough and its accompanying scripts and IPython notebook(s) are shared by Microsoft under the MIT license. Please check the LICENSE.txt file in in the directory of the sample code on GitHub for more details.
 
@@ -740,7 +740,7 @@ This sample walkthrough and its accompanying scripts and IPython notebook(s) are
 [23]: ./media/machine-learning-data-science-process-sqldw-walkthrough/ipnb-service-aml-2.png
 [24]: ./media/machine-learning-data-science-process-sqldw-walkthrough/ipnb-service-aml-3.png
 [25]: ./media/machine-learning-data-science-process-sqldw-walkthrough/ipnb-service-aml-4.png
-[26]: ./media/machine-learning-data-science-process-sqldw-walkthrough/tip_class_hist.png
+[26]: ./media/machine-learning-data-science-process-sqldw-walkthrough/tip_class_hist_1.png
 
 
 <!-- Module References -->
