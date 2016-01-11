@@ -27,7 +27,7 @@ Now that we have determined that we are using multi-factor authentication in the
 
 1. [Sign up for an Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
 	- If you do not already have an Azure subscription, you need to sign-up for one. If you are just starting out and using Azure MFA you can use a trial subscription
-2. [Create a Multi-Factor Auth Provider](#creating-an-azure-multi-factor-auth-provider)  or [assign licenses to users](#assigning-an-azure-ad-premium-or-enterprise-mobility-license-top-users)
+2. [Create a Multi-Factor Auth Provider](#creating-an-azure-multi-factor-auth-provider)  or [assign licenses to users](multi-factor-authentication-get-started-cloud.md#assigning-an-azure-ad-premium-or-enterprise-mobility-license-to-users)
 	- You will need to either create an Azure Multi-Factor Auth Provider and assign it to your directory or assign Azure MFA, Azure AD Premium and/or EMS licenses to your users. Azure Multi-Factor Authentication is included in Azure Active Directory Premium and as a result it is also included within the Enterprise Mobility Suite. If you own enough Azure MFA, Azure AD Premium and EMS licenses, to cover all uses that will use multi-factor authentication, you do not need to create a Multi-Factor Auth Provider. See the section below on how to assign licenses to users.
 3. [Turn on Multi-Factor Authentication for your users](#turn-on-multi-factor-authentication-for-users)
 	- Enable Azure MFA on your users either through the Office 365 or Azure portal. See the section below for information on how to do this.
@@ -94,7 +94,7 @@ State | Description |Non-browser apss affected| Notes
 Disabled | The default state for a new user not enrolled in multi-factor authentication.|No|The user is currently not using multi-factor authentication.
 Enabled |The user has been enrolled in multi-factor authentication.|No.  They will continue to work until the registration process is completed.|The user is enabled but has not completed the registration process. They will be prompted to complete the process at next sign-in.
 Enforced|The user has been enrolled and has completed the registration process for using multi-factor authentication.|Yes.  They will not work until app passwords are created and used. | The user may or may not have completed registration. If they have completed the registration process then they are using multi-factor authentication. Otherwise, the user will be prompted to completer the process at next sign-in
-Now that we have either an Auth provider or have assigned our users a licenses, the next step is to turn mfa on for the users in the directory.  Use the following procedure to enable mfa for you users.
+Now that we have either an Auth provider or have assigned our users a licenses, the next step is to turn MFA on for the users in the directory.  Use the following procedure to enable MFA for you users.
 
 ### To turn on multi-factor authentication
 --------------------------------------------------------------------------------

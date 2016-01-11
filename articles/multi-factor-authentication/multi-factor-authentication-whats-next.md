@@ -209,7 +209,7 @@ Outside corpnet|For browser flows, multi-factor authentication required.|For bro
 
 
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/trustedips.png)</center>
+![Cloud](./media/multi-factor-authentication-whats-next/trustedips2.png)
 
 
 

@@ -27,7 +27,7 @@ This FAQ answers questions about Azure Multi-Factor Authentication. This FAQ cov
 
 [Search the Microsoft Knowledge Base (KB)](http://search.microsoft.com/supportresults.aspx?form=mssupport&q=phonefactor)
 
-- Search the Microsoft Knowledge Base (KB) for technical solutions to common break-fix issues about Support for Microsoft Azure Multi-Factor Authentication Server (Phone Factor).
+- Search the Microsoft Knowledge Base (KB) for technical solutions to common break-fix issues about Support for Microsoft Azure Multi-Factor Authentication Server (PhoneFactor).
 
 [Microsoft Azure Active Directory Forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
 
@@ -35,15 +35,11 @@ This FAQ answers questions about Azure Multi-Factor Authentication. This FAQ cov
 
 [Password reset](mailto:phonefactorsupport@microsoft.com)
 
-- Legacy Phonefactor customers who have any queries around resetting your password or for help to get your password reset, please use the link below to open a support case.
+- Legacy PhoneFactor customers who have any queries around resetting your password or for help to get your password reset, please use the link below to open a support case.
 
-[Microsoft Azure Multi-Factor Authentication Server (Phone Factor) customer support](https://support.microsoft.com/oas/default.aspx?prid=14947)
+[Microsoft Azure Multi-Factor Authentication Server (PhoneFactor) customer support](https://support.microsoft.com/oas/default.aspx?prid=14947)
 
-- Use this link to contact a Microsoft support professional. We’ll ask you a few questions to help us determine what your support options are. The support options may include email, on-line submission or phone support. 
-
-[General inquiries about Microsoft Azure Multi-Factor Authentication Server (Phone Factor)](http://azure.microsoft.com/services/multi-factor-authentication)
-
-- To learn more about Microsoft Azure Multi-Factor Authentication Server (Phone Factor) or if you have questions around how to buy the product and different support options available, please either visit or email [pfsales@microsoft.com](mailto:pfsales@microsoft.com). 
+- Use this link to contact a Microsoft support professional. We’ll ask you a few questions to help us determine what your support options are. The support options may include email, on-line submission or phone support.
 
 
 
@@ -88,15 +84,6 @@ Billing is based on the number of users enabled for Multi-Factor Authentication.
 **Q: What do I do if I don’t receive a response on my phone or if I forgot my phone?**
 
 If you previously configured a backup phone, try again by selecting that phone when prompted from the sign in page.  If you don’t have another method configured, contact your admin and ask them to update the number assigned to your primary phone – mobile or office.
-
-**Q: I removed a user from an admin role but forgot to disable the multi-factor authentication and now it’s not showing in the list how do I remove this feature?**
-
-- Depending on which portal you are using, in the left pane, click either Users or Users and Groups.
-- Select the check box next to the user that you want to edit, and then click either Edit or the Edit icon.
-- Click Settings, under Assign role, select Yes, and add the user back to the previous admin role.
-- Go to the multi-factor authentication page. The account should now be showing up in the list on the page. 
-- Follow the steps above to disable multi-factor authentication for an account. 
-- At this point, you can now remove the account from the admin role.
 
 
 **Q: What do I do if a user contacts me, the administrator, with an account that has been locked out?**
