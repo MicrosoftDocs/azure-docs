@@ -46,7 +46,7 @@ This table describes the ports and protocols that are required for communication
 For a list of Office 365 ports and IP address see [Office 365 URLs and IP address ranges.](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
 
 ## Table 3 - Azure AD Connect and Federation Servers/WAP
-This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Federation/WAP servers.
+This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Federation/WAP servers.  Coming soon!
 
 ## Table 4 - WAP and Federation Servers
 This table describes the ports and protocols that are required for communication between the Federation servers and WAP servers.
