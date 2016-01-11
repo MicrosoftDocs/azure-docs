@@ -110,7 +110,7 @@ In addition to the streamed data from the toll sensors, a static snapshot of the
 ## Provision Resources
 This tutorial will walk through the creation of 2 Azure Event Hubs to receive the “Entry” and “Exit” data streams. Azure SQL Database is used to output the job results. Azure Blob Storage will be used to  store reference data about vehicle registrations.
 
-The `Setup.ps1` PowerShell script in the TollApp sample folder on GitHub can be used to create all the required resources. In the interest of time for this tutorial execute the script to setup the environment. Download and save the supporting TollApp folder and files as well. Be sure to download the latest available release.
+Download the TollApp sample with manual. The current version can be found in the [Stream Analytics GitHub Samples](https://github.com/streamanalytics/samples/releases) area. Download the zip and extract to a local working directory. The `Setup.ps1` PowerShell script in the local working directory the zip is extracted to can be used to create all the required resources. In the interest of time for this tutorial execute the script to setup the environment. Download and save the supporting TollApp folder and files as well. Be sure to download the latest available release.
 
 Open a “Microsoft Azure PowerShell” window as Administrator. If Azure PowerShell is not yet installed, follow the instructions at [http://azure.microsoft.com/documentation/articles/install-configure-powershell/](./install-configure-powershell.md) install it.
 
@@ -334,11 +334,11 @@ Click the checkbox to test the query and view output:
 Azure Stream Analytics can use static snapshots of data to join with temporal data streams. To demonstrate this capability we will use the following sample question.
 If a commercial vehicle is registered with the Toll Company, they can pass through the toll booth without being stopped for inspection. We will use Commercial Vehicle Registration lookup table to identify all commercial vehicles with expired registration.
 
-    SELECT EntryStream.EntryTime, LicensePlate, EntryStream.EntryTime, LicensePlate, Entr yStream.TollId, Registration .RegistrationId
-    FROM EntryStream TIMESTAMP BY EntryTime EntryTime
+    SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
+    FROM EntryStream TIMESTAMP BY EntryTime
     JOIN Registration
-    ON EntryStream.LicensePlate = Registration.EntryStream.LicensePlate
-    = Registration.WHERE Registration.Expired = ‘1’
+    ON EntryStream.LicensePlate = Registration.LicensePlate
+    WHERE Registration.Expired = '1'
 
 Note that testing a query with Reference Data requires that an input source for the Reference Data is defined, which we have done in Step 5.
 To test this query, paste the query into the Query tab, click Test, and specify the 2 input sources:
