@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/08/2016"
+   ms.date="01/11/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -75,8 +75,17 @@ If your proxy server requires authentication, then the section should look like 
 ```
 
 With this change in machine.config the installation wizard and sync engine will respond to authentication requests from the proxy server. In all installation wizard pages, excluding the **Configure** page, the signed in user's credentials are used. On the **Configure** page at the end of the installation wizard, the context is switched to the [service account](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) which was created.
-
 See MSDN for more information about the [default proxy Element](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
+
+- You also need to configure winhttp. Start a cmd-prompt and enter:
+
+```
+    C:\>**netsh**
+    netsh>**winhttp**
+    netsh winhttp>**set proxy PROXYADDRESS:PROXYPORT**
+```
+
+If you have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troublehoot-connectivity.md).
 
 ### Other
 - Optional:  A test user account to verify synchronization.

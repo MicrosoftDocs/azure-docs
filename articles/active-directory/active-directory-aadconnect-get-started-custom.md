@@ -71,6 +71,7 @@ This account is only used to create a service account in Azure AD and is not use
 
 ![User Signin](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
+If you receive an error and have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troublehoot-connectivity.md).
 
 ## Pages under the section Sync
 

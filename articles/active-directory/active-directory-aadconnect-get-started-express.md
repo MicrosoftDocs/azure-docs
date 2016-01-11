@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath;andkjell"/>
 
 # Getting started with Azure AD Connect using express settings
@@ -44,7 +44,7 @@ Selecting Express Settings is the default option and is one of the most common s
 3. On the Welcome screen, select the box agreeing to the licensing terms and click **Continue**.
 4. On the Express settings screen, click **Use express settings**.
 ![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/express.png)
-5. On the Connect to Azure AD screen, enter the username and password of an Azure global administrator for your Azure AD. Click **Next**.
+5. On the Connect to Azure AD screen, enter the username and password of an Azure global administrator for your Azure AD. Click **Next**. If you receive an error and have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troublehoot-connectivity.md).
 6. On the Connect to AD DS screen enter the username and password for an enterprise admin account.  Click **Next**.
 ![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)
 7. On the Ready to configure screen, click **Install**.
