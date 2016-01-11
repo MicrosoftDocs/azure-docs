@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="01/06/2016" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Getting started with the Azure Multi-Factor Authentication Server
