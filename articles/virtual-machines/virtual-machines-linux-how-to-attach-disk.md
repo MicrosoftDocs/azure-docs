@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/07/2016"
 	ms.author="dkshir"/>
 
 # How to Attach a Data Disk to a Linux Virtual Machine
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
-You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use. This article refers to virtual machines created using the classic deployment model.
+You can attach both empty disks and disks that contain data. In both cases, the disks are actually .vhd files that reside in an Azure storage account. Also in both cases, after you attach the disk, you'll need to initialize it so it's ready for use.
 
 > [AZURE.NOTE] It's a best practice to use one or more separate disks to store a virtual machine's data. When you create an Azure virtual machine, it has an operating system disk and a temporary disk. **Do not use the temporary disk to store data.** As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 > The temporary disk is typically managed by the Azure Linux Agent and automatically mounted to **/mnt/resource** (or **/mnt** on Ubuntu images). On the other hand, a data disk might be named by the Linux kernel something like `/dev/sdc`, and you'll need to partition, format, and mount this resource. See the [Azure Linux Agent User Guide][Agent] for details.
@@ -30,6 +30,8 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## How to: Initialize a new data disk in Linux
+
+You can use the same instructions to initialize multiple data disks, using the right device identifier as shown below.
 
 1. Connect to the virtual machine. For instructions, see [How to log on to a virtual machine running Linux][Logon].
 
@@ -87,7 +89,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	![Create new device](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. When prompted, type **p** to make the partition the primary partition, type **1** to make it the first partition, and then type enter to accept the default value for the cylinder.
+5. When prompted, type **p** to make the partition the primary partition, type **1** to make it the first partition, and then type enter to accept the default value for the cylinder. On some systems, it can show the default values of the first and the last sectors, instead of the cylinder. You can choose to accept these defaults.
 
 
 	![Create partition](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -106,7 +108,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	![Write the disk changes](./media/virtual-machines-linux-how-to-attach-disk/DiskWrite.png)
 
-8. Make the file system on the new partition. As an example, type the following command and then enter the account password:
+8. Make the file system on the new partition. Append the partition number (1) to the device id. For example, type the following command and then enter the account password:
 
 		# sudo mkfs -t ext4 /dev/sdc1
 
@@ -161,8 +163,8 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created you will need to enter them into /etc/fstab separately as well.
 
-	You will need to make the drive writable by using these commands:
-		# cd /datadrive
+	You will need to make the drive writable by using this command:
+
 		# sudo chmod go+w /datadrive
 
 >[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk fails to mount at boot time. Please consult your distribution's documentation for more information on these parameters.

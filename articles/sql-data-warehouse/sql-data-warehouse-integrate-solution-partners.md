@@ -3,7 +3,7 @@
    description="Lists of third-party partners with solutions that work with SQL Data Warehouse."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="joliang"
+   authors="jrowlandjones"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="joliang"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # SQL Data Warehouse solution partners
 
