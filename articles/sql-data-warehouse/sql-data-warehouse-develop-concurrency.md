@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="jrowlandjones"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Concurrency and workload management in SQL Data Warehouse
 To deliver predictable performance at scale SQL Data Warehouse implements mechanisms for managing both workload concurrency and computational resource assignment.
