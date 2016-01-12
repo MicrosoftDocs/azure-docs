@@ -21,8 +21,6 @@
 In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) Virtual Machine for for use in Azure.  Versions of RHEL covered in this article are 6.7, 7.1 and 7.2 and hypervisors for preparation covered in this article are Hyper-V, KVM and VMWare.  For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/articles/1989673). 
 
 
-
-
 ##Prepare an image from Hyper-V Manager 
 ###Prerequisites
 This section assumes that you have already installed a RHEL image from an ISO file obtained from Red Hat's website to a virtual hard disk (VHD). For more details on how to use Hyper-V manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx). 
@@ -40,7 +38,14 @@ This section assumes that you have already installed a RHEL image from an ISO fi
 - When using qemu-img to convert disk images to VHD format, note that there is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue will be fixed in an upcoming release of qemu-img.  For now it is recommended to use qemu-img version 2.2.0 or lower.
 
 
-###RHEL 6.7 
+
+[Prepare a RHEL 6.7 Virtual Machine from Hyper-V Manager](#rhel67hyperv)
+
+[Prepare a RHEL 7.1/7.2 Virtual Machine from Hyper-V Manager](#rhel7xhyperv)
+
+
+### <a id="rhel67hyperv"> </a>Prepare a RHEL 6.7 Virtual Machine from Hyper-V Manager###
+
 
 1.	In Hyper-V Manager, select the virtual machine.
 
@@ -136,7 +141,7 @@ The Azure Linux Agent can automatically configure swap space using the local res
 16.	Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
  
 
-###RHEL 7.1/7.2
+### <a id="rhel7xhyperv"> </a>Prepare a RHEL 7.1/7.2 Virtual Machine from Hyper-V Manager###
 
 1.  In Hyper-V Manager, select the virtual machine.
 
@@ -218,7 +223,14 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 
 ##Prepare an image from KVM 
-###RHEL 6.7
+
+[Prepare a RHEL 6.7 Virtual Machine from KVM](#rhel67kvm)
+
+[Prepare a RHEL 7.1/7.2 Virtual Machine from KVM](#rhel7xkvm)
+
+
+### <a id="rhel67kvm"> </a>Prepare a RHEL 6.7 Virtual Machine from KVM###
+
 
 1.	Download the KVM image of RHEL 6.7 from Red Hat's web site.
 
@@ -345,7 +357,8 @@ The Azure Linux Agent can automatically configure swap space using the local res
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.1/7.2
+### <a id="rhel7xkvm"> </a>Prepare a RHEL 7.1/7.2 Virtual Machine from KVM###
+
 
 1.	Download the KVM image of RHEL 7.1(or 7.2) from the Red Hat web site, we will use RHEL 7.1 as the example here.
 
@@ -498,7 +511,14 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 - When creating the virtual hard disk, select **Store virtual disk as a single file**.
 
-###RHEL 6.7
+
+[Prepare a RHEL 6.7 Virtual Machine from VMWare](#rhel67vmware)
+
+[Prepare a RHEL 7.1/7.2 Virtual Machine from VMWare](#rhel7xvmware)
+
+
+### <a id="rhel67vmware"> </a>Prepare a RHEL 6.7 Virtual Machine from VMWare###
+
 1.	Uninstall NetworkManager by running the following command:
 
          # sudo rpm -e --nodeps NetworkManager
@@ -601,7 +621,8 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-###RHEL 7.1/7.2
+
+### <a id="rhel7xvmware"> </a>Prepare a RHEL 7.1/7.2 Virtual Machine from VMWare###
 
 1.	Create a file named **network** in the /etc/sysconfig/ directory that contains the following text:
 
