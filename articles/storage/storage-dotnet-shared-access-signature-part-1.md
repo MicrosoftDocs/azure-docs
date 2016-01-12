@@ -51,8 +51,6 @@ Additionally, you will need to use a SAS to authenticate the source object in a 
 - When you copy a file to another file that resides in a different storage account, you must use a SAS to authenticate the source file. With version 2015-04-05, you can optionally use a SAS to authenticate the destination file as well.
 - When you copy a blob to a file, or a file to a blob, you must use a SAS to authenticate the source object, even if the source and destination objects reside within the same storage account.
 
->[AZURE.NOTE] Currently account SAS is supported only for the Blob and File services. It will be supported for the Table and Queue services in the near future.
-
 ## Types of shared access signatures
 
 Version 2015-04-05 of Azure Storage introduces a new type of shared access signature, the account SAS. You can now create either of two types of shared access signatures:

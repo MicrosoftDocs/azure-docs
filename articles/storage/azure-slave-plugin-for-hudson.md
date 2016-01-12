@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016"
 	ms.author="robmcm"/>
 
 # How to use the Azure slave plugin with Hudson Continuous Integration

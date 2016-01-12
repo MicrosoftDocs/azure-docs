@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/11/2016"
 	ms.author="jutang"/>
 
 # How to use File Storage from Java
