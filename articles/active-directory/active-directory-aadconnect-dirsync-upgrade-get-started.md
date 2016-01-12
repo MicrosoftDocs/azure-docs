@@ -102,7 +102,7 @@ The information regarding the existing SQL Server database server being used by 
 To proceed with an in-place upgrade, click the checkbox next to this message: **Continue upgrading DirSync on this computer.**
 To do a [parallel deployment](#parallel-deployment) instead you will export the DirSync configuration settings and move those to the new server.
 5. Provide the password for the account you currently use to connect to Azure AD. This must be the account currently used by DirSync.
-![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)
+![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)  
 If you receive an error and have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Provide an enterprise admin account for Active Directory.
 ![Enter your ADDS credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
