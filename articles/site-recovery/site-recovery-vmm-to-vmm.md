@@ -235,7 +235,7 @@ By default when you replicate a virtual machine on a source Hyper-V host server 
 
 
 
-1. Define storage classifications on both the source and target VMM servers. [Learn more](https://technet.microsoft.com/en-us/library/gg610685.aspx). Classifications must be available to the Hyper-V host servers in source and target clouds. Classifications don’t need to have the same type of storage. For example you can map a source classification that contains SMB shares to a target classification that contains CSVs.
+1. Define storage classifications on both the source and target VMM servers. [Learn more](https://technet.microsoft.com/library/gg610685.aspx). Classifications must be available to the Hyper-V host servers in source and target clouds. Classifications don’t need to have the same type of storage. For example you can map a source classification that contains SMB shares to a target classification that contains CSVs.
 2. After classifications are in place you can create mappings. To do this, on the **Quick Start** page > **Map storage**.
 3. Click the **Storage** tab > **Map storage classifications**.
 4. On the **Map storage classifications** tab, select classifications on the source and target VMM servers. Save your settings.
