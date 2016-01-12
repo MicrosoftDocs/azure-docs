@@ -23,7 +23,7 @@
 
 The Microsoft Data Science Virtual Machine is an Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
 
-- Revolution R Open
+- Microsoft R Server Developer Edition
 - Anaconda Python distribution
 - Visual Studio Community Edition
 - Power BI desktop
@@ -51,7 +51,7 @@ Before you can create a Microsoft Data Science Virtual Machine, you must have th
 
 Here are the steps to create an instance of the Microsoft Data Science Virtual Machine:
 
-1.	Navigate to the virtual machine listing on [Azure Classic Portal](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+1.	Navigate to the virtual machine listing on [Azure Portal](https://portal.azure.com/#gallery/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 2.	 Click on the **Create** button at the bottom to be taken into a wizard.![configure-data-science-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
 3.	 The following sections provide the **inputs** for each of the **5 steps** (enumerated on the right of the figure above) in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
@@ -83,23 +83,23 @@ Here are the steps to create an instance of the Microsoft Data Science Virtual M
    - Click on **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 
 
 
-The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure Classic Portal.
+The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure Portal.
 
 ## How to access the Microsoft Data Science Virtual Machine
 
 Once the VM is created you can login to it using remote desktop with the Admin account credentials you created in the Basics section of step 4. 
 
-Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are desktop icons and start menu tiles for many of the tools. 
+Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are start menu tiles and desktop icons for many of the tools. 
 
-## How to create a strong password on the Data Science Virtual Machine
+## How to create a strong password on the Jupyter notebook server 
 
-Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the machine.
+Run the following command from the a command prompt on the Data Science Virtual Machine to create your own strong password for the Jupyter notebook server installed on the machine.
 
 	c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
 
-Enter your password when prompted.
+Choose a strong password when prompted.
 
-You will see the password hash in the format "sha1:xxxxxx" in the output. Copy this password hash and replace the existing hash that is in your notebook config file located at: **C:\Aaqs\.ipython\profile_nbserver\ipython_notebook_config.py** with a parameter name ***c.NotebookApp.password***.
+You will see the password hash in the format "sha1:xxxxxx" in the output. Copy this password hash and replace the existing hash that is in your notebook config file located at: **C:\ProgramData\jupyter\jupyter_notebook_config.py** with a parameter name ***c.NotebookApp.password***.
 
 You should only replace the existing hash value that is within the quotes. The quotes and the ***sha1:*** prefix for the parameter value need to be retained.
 
@@ -107,19 +107,19 @@ Finally, you need to stop and restart the Ipython server which is running on the
 
 ## Tools installed on the Microsoft Data Science Virtual Machine
 
-### R
-If you wish to use R for your analytics, the VM has Revolution R Open (RRO) installed. This is an Open source distribution of R and it is completely compatible with CRAN-R. It contains the latest open source R engine along with the Intel Math Kernel Library. An IDE called “RRO RGui” is also packaged in the VM. You are free to download and use other IDEs as well such as [RStudio](http://www.rstudio.com). 
+### Microsoft R Server Developer Edition
+If you wish to use R for your analytics, the VM has Microsoft R Server Developer edition installed. Microsoft R Server is a broadly deployable enterprise-class analytics platform based on R that is supported, scalable and secure. Supporting a variety of big data statistics, predictive modeling and machine learning capabilities, R Server supports the full range of analytics – exploration, analysis, visualization and modeling. By using and extending open source R, Microsoft R Server is fully compatible with R scripts, functions and CRAN packages, to analyze data at enterprise scale. It also addresses the in-memory limitations of Open Source R by adding parallel and chunked processing of data in Microsoft R Server, enabling users to run analytics on data much bigger than what fits in main memory.  An IDE for R is also packaged in the VM that can be accessed by clicking the icon "Revolution R Enterprise 8.0" on the start menu or the desktop. You are free to download and use other IDEs as well such as [RStudio](http://www.rstudio.com). 
 
 ### Python
-For development using Python, Anaconda Python distribution 2.7 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering and data analytics packages. You can use Python Tools for Visual Studio (PTVS) that is installed within the Visual Studio 2015 Community edition or one of the IDEs bundled with Anaconda like IDLE or Spyder. You can launch one of these by searching on the search bar (**Win** + **S** key). 
+For development using Python, Anaconda Python distribution 2.7 and 3.5 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering and data analytics packages. You can use Python Tools for Visual Studio (PTVS) that is installed within the Visual Studio 2015 Community edition or one of the IDEs bundled with Anaconda like IDLE or Spyder. You can launch one of these by searching on the search bar (**Win** + **S** key). 
 
-### IPython Notebook
-Anaconda distribution also comes with an IPython notebook, an environment to share code and analysis. An IPython notebook server has been pre-configured. There is a desktop icon to launch the browser to access the Notebook server. If you are on the VM via remote desktop you can also visit [https://localhost:9999/](https://localhost:9999/) to access the IPython notebook server (Note: Simply continue if you get any certificate warnings.) 
+### Jupyter Notebook
+Anaconda distribution also comes with an Jupyter notebook, an environment to share code and analysis. An Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via remote desktop you can also visit [https://localhost:9999/](https://localhost:9999/) to access the Jupyter notebook server (Note: Continue if you get any certificate warnings.). We have packaged sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created in earlier step. 
 
 ### Visual Studio 2015 Community edition
 Visual Studio Community edition installed on the VM. It is a free version of the popular IDE from Microsoft that you can use for evaluation purposes and for very small teams. You can check out the licensing terms [here](https://www.visualstudio.com/support/legal/mt171547).  Open Visual Studio by double clicking the desktop icon or the **Start** menu. You can also search for programs with **Win** + **S** and entering “Visual Studio”. 
 
-Note: You may get a message stating that your evaluation period has expired. You can enter a Microsoft Account credentials or create one and enter them to get access to the Visual Studio Community Edition. Once there you can create projects in languages like C#, Python
+Note: You may get a message stating that your evaluation period has expired. You can enter a Microsoft Account credentials or create one and enter them to get access to the Visual Studio Community Edition. Once there you can create projects in languages like C#, Python. You will also find plugins installed that make it convenient to work with Azure services like Azure Data Catalog, Azure HDInsight (Hadoop, Spark) and Azure Data Lake. 
 
 ### SQL Server Express
 A limited version of SQL Server is also packaged with Visual Studio Community edition. You can access the SQL server by launching **SQL Server Management Studio**. Your VM name will be populated as the Server Name. Use Windows Authentication when logged in as the admin on Windows. Once you are in SQL Server Management Studio you can create other users, create databases, import data, and run SQL queries. 
@@ -140,5 +140,11 @@ Note: You will need an Office 365 account to access Power BI.
 ## Additional Microsoft development tools
 The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) can be used to discover and download other Microsoft development tools. There is also a shortcut to the tool provided on the Microsoft Data Science Virtual Machine desktop.  
 
+## Next Steps
+Here are some next steps to continue your learning and exploration. 
 
+* Explore the various data science tools on the data science VM by clicking on the start menu and checking out the tools listed on the menu
+* Navigate to **C:\Program Files\Microsoft\MRO-for-RRE\8.0\R-3.2.2\library\RevoScaleR\demoScripts** for samples using the RevoScaleR library in R that supports data analytics at enterprise scale.  
+* Learn how to build end to end analytical solutions systematically using the [Data Science Process](https://azure.microsoft.com/en-us/documentation/learning-paths/cortana-analytics-process/)
+* Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples using the Cortana Analytics Suite. We have also provided an icon on the Start menu and desktop on the virtual machine for easy access 
 
