@@ -106,7 +106,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
 You need a storage account in Azure to upload a .vhd file so it can be used in Azure to create a virtual machine. You can use the Azure Management Portal to create a storage account.
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the [Azure Classic Portal](https://manage.windowsazure.com).
 
 2. On the command bar, click **New**.
 
