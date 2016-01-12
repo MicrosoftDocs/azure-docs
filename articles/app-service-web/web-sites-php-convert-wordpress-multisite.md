@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -79,7 +79,7 @@ The [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] 
 The **Free** [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) plan mode does not support adding custom domains to Web Apps. You will need to switch to **Shared** or **Standard** mode. To do this:
 
 * Log in to the Azure Portal and locate your web app. 
-* Click on the **Scale** tab in the main content area
+* Click on the **Scale up** tab in **Settings**.
 * Under **General**, select either *SHARED* or *STANDARD*
 * Click **Save**
 
