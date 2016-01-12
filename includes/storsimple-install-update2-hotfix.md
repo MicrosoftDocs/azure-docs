@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/05/15-->
+<!--author=alkohli last changed: 01/12/15-->
 
 #### To download hotfixes
 
@@ -16,12 +16,8 @@ Perform the following steps to download the software update from the Microsoft U
 
 4. You will see the **StorSimple Update 2 Appliance Update** bundle. Click **Add**. The update will be added to the basket. 
 
-    ![Update bundle](./media/storsimple-install-update2-hotfix/HCS_UpdateBundle-include.png) 
-
 5. Click **View Basket**.
  
-    ![View basket](./media/storsimple-install-update2-hotfix/HCS_InstallBasket-include.png) 
-
 6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update will be downloaded in a **StorSimple Update 2 Appliance Update bundle** (KB3121901) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device. 
        
 	> [AZURE.NOTE] 
