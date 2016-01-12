@@ -156,7 +156,7 @@ On-premises Linux machines, Linux machines in Azure, and Linux machines in non-A
 
 1. Make sure the latest version of the [DSC Linux agent](http://www.microsoft.com/en-us/download/details.aspx?id=49150) is installed on the machines you want to onboard to Azure Automation DSC.
 
-2. If the [PowerShell DSC Local Configuration Manager defaults](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation DSC::
+2. If the [PowerShell DSC Local Configuration Manager defaults](hhttps://msdn.microsoft.com/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation DSC::
 
 	*    On each Linux machine to onboard to Azure Automation DSC, use Register.py to onboard using the PowerShell DSC Local Configuration Manager defaults:
 
