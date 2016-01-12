@@ -13,13 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/11/2016"
 	ms.author="billmath"/>
 
 
 # Renewing Federation Certificates for Office 365 and Azure AD
 
 If you received an email or a portal notification asking you to renew your certificate for Office 365, this article is intended to help you resolve the issue and keep it from happening again.  This article assumes that you are using AD FS as your federation server.
+
+>[AZURE.IMPORTANT] Please be aware that authentication through your proxy may fail in Windows Server 2012 or Windows Server 2008 R2 after doing one of the following: 
+>
+- Your proxy renews its trust token after certificates rollover in AD FS
+- You manually replaced your AD FS certificates
+>     
+A hotfix is available to fix this issue.  See [Authentication through proxy fails in Windows Server 2012 or Windows 2008 R2 SP1](http://support.microsoft.com/kb/3094446) 
 
 ## Check to see if you have to do anything
 
