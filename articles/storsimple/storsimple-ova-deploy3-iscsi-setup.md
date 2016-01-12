@@ -43,7 +43,7 @@ Before you configure and setup your StorSimple virtual device, make sure that:
 
 Use the following step-by-step instructions to set up and configure your StorSimple virtual device:
 
--  [Step 1: Complete the local web UI setup and register your device](#step-1-complete-the-local-ui-setup-and-register-your-device)
+-  [Step 1: Complete the local web UI setup and register your device](#step-1-complete-the-local-web-ui-setup-and-register-your-device)
 -  [Step 2: Complete the required device setup](#step-2-complete-the-required-device-setup)
 -  [Step 3: Add a volume](#step-3-add-a-volume)
 -  [Step 4: Mount, initialize, and format a volume](#step-4-mount-initialize-and-format-a-volume)  
