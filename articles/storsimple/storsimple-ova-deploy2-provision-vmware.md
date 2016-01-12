@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="01/11/2016"
    ms.author="alkohli"/>
 
 
@@ -22,7 +22,7 @@
 ## Overview 
 This provisioning tutorial applies to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above.
 
-You will need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take anywhere from 30-45 minutes to complete.
+You will need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
 > [AZURE.IMPORTANT]
 > 

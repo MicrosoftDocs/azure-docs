@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="01/11/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V (Preview)
@@ -22,7 +22,7 @@
 
 This provisioning tutorial applies to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2.
 
-You will need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take 30-45 minutes to complete.
+You will need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
 > [AZURE.IMPORTANT]
 > 
@@ -176,7 +176,7 @@ Perform the following steps to provision a device in your hypervisor.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image15.png)
 
-1.  On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). Keep in mind that **Fixed size** disk will also work but you may need to wait a long time. Click **Next**. Note that **Dynamically expanding** is the default in Hyper-V 2012 and Hyper-V 2012 R2. In Hyper-V 2008 R2, default is **Fixed size**. 
+1.  On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). If you choose **Fixed size** disk, it will also work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**. Note that **Dynamically expanding** is the default in Hyper-V 2012 and Hyper-V 2012 R2. In Hyper-V 2008 R2, default is **Fixed size**. 
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image16.png)
 
@@ -210,7 +210,7 @@ Perform the following steps to start your virtual device and connect to it.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image22.png)
 
-1.  You may have to wait 5-10 minutes for the device to be ready. A status message is displayed on the console to indicate the progress. After the device is ready, go to **Action**. Press Ctrl + Alt + Delete to log into the virtual device. The default user is *StorSimpleAdmin* and the default password is *Password1*.
+1.  You may have to wait 5-10 minutes for the device to be ready. A status message is displayed on the console to indicate the progress. After the device is ready, go to **Action**. Press `Ctrl + Alt + Delete` to log into the virtual device. The default user is *StorSimpleAdmin* and the default password is *Password1*.
 
 	![](./media/storsimple-ova-deploy2-provision-hyperv/image23.png)
 

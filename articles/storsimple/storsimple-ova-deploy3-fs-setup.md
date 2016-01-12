@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/07/2016"
+   ms.date="01/11/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Set up as file server (Preview)
@@ -22,7 +22,7 @@
 
 This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only. This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
 
-The setup and configuration process can take around 30-45 minutes to complete.
+The setup and configuration process can take around 10 minutes to complete.
 
 > [AZURE.IMPORTANT]
 > 
@@ -125,7 +125,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     1.  Enter the **Service registration key** that you got in **Step 2: Get the service registration key** in [Prepare the portal for StorSimple Virtual Array)[storsimple-ova-deploy1-portal-prep].
 
-    2.  If this is the first device that you are registering with your StorSimple Manager service, a **Service data encryption key** will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** If this is not the first device that you are registering with this service, then you will need to provide the service data encryption key (that you saved during the registration of the first device).
+    2.  If this is not the first device that you are registering with this service, you will need to provide the **Service data encryption key**. This key is required with the service registration key to register additional devices with the StorSimple Manager service. For more information, refer to get the [service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) on your local web UI.
 
     3.  Click **Register**. This will restart the device. You may need to wait for 2-3 minutes before the device is successfully registered. After the device has restarted, you will be taken to the sign in page.
 
@@ -152,7 +152,7 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 	1.  Specify a storage account to be used with your device. You can select an existing storage account in this subscription from the dropdown list or specify **Add more** to choose an account from a different subscription.
 
-	2.  Define the encryption settings for all the data that will be sent to the cloud. To encrypt your data, check the combo box to **enable cloud storage encryption key**. Enter a cloud storage encryption that contains 32 characters. Reenter the key to confirm it.
+	2.  Define the encryption settings for all the data-at-rest (AES encryption) that will be sent to the cloud. To encrypt your data, check the combo box to **enable cloud storage encryption key**. Enter a cloud storage encryption that contains 32 characters. Reenter the key to confirm it. A 256-bit AES key will be used with the user-defined key for encryption.
 
 	3.  Click the check icon ![](./media/storsimple-ova-deploy3-fs-setup/image15.png).
 
