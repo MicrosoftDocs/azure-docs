@@ -132,7 +132,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     1. Enter the **Service registration key** that you got in **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array - Portal Preparation](../storsimple-ova-deploy1-portal-prep.md#get-the-service-registration-key).
 
-    2. If this is the first device that you are registering with your StorSimple Manager service, a **Service data encryption key** will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** If this is not the first device that you are registering with this service, then you will need to provide the service data encryption key (that you saved during the registration of the first device).
+    2. If this is not the first device that you are registering with this service, you will need to provide the **Service data encryption key**. This key is required with the service registration key to register additional devices with the StorSimple Manager service. For more information, refer to [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) on your local web UI.
 
     3. Click **Register**. This will restart the device. You may need to wait for 2-3 minutes before the device is successfully registered. After the device has restarted, you will be taken to the sign in page.
 
