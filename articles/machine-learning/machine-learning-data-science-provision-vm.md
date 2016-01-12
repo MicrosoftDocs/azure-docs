@@ -114,7 +114,7 @@ If you wish to use R for your analytics, the VM has Microsoft R Server Developer
 For development using Python, Anaconda Python distribution 2.7 and 3.5 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering and data analytics packages. You can use Python Tools for Visual Studio (PTVS) that is installed within the Visual Studio 2015 Community edition or one of the IDEs bundled with Anaconda like IDLE or Spyder. You can launch one of these by searching on the search bar (**Win** + **S** key). 
 
 ### Jupyter Notebook
-Anaconda distribution also comes with an Jupyter notebook, an environment to share code and analysis. An Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via remote desktop you can also visit [https://localhost:9999/](https://localhost:9999/) to access the Jupyter notebook server (Note: Continue if you get any certificate warnings.). We have packaged sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created in earlier step. There are a few more sample R scripts that you can find at:  **C:\Program Files\Microsoft\MRO-for-RRE\8.0\R-3.2.2\library\RevoScaleR\demoScripts**. 
+Anaconda distribution also comes with an Jupyter notebook, an environment to share code and analysis. An Jupyter notebook server has been pre-configured with Python 2, Python 3 and R kernels. There is a desktop icon named "Jupyter Notebook to launch the browser to access the Notebook server. If you are on the VM via remote desktop you can also visit [https://localhost:9999/](https://localhost:9999/) to access the Jupyter notebook server (Note: Continue if you get any certificate warnings.). We have packaged sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook using the password you created in earlier step. 
 
 ### Visual Studio 2015 Community edition
 Visual Studio Community edition installed on the VM. It is a free version of the popular IDE from Microsoft that you can use for evaluation purposes and for very small teams. You can check out the licensing terms [here](https://www.visualstudio.com/support/legal/mt171547).  Open Visual Studio by double clicking the desktop icon or the **Start** menu. You can also search for programs with **Win** + **S** and entering “Visual Studio”. 
@@ -140,8 +140,11 @@ Note: You will need an Office 365 account to access Power BI.
 ## Additional Microsoft development tools
 The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) can be used to discover and download other Microsoft development tools. There is also a shortcut to the tool provided on the Microsoft Data Science Virtual Machine desktop.  
 
-## Cortana Analytics Gallery
-On the start menu and the desktop, we have provided an icon to the Cortana Analytics Gallery where you will find samples to do machine learning and analytics using the Cortana Analytics Suite. You can also visit the gallery directly by pointing your browser to this [link](http://gallery.cortanaanalytics.com). 
+## Next Steps
+Here are some next steps to continue your learning and exploration. 
 
-
+* Explore the various data science tools on the data science VM by clicking on the start menu and checking out the tools listed on the menu
+* Navigate to **C:\Program Files\Microsoft\MRO-for-RRE\8.0\R-3.2.2\library\RevoScaleR\demoScripts** for samples using the RevoScaleR library in R that supports data analytics at enterprise scale.  
+* Learn how to build end to end analytical solutions systematically using the [Data Science Process](https://azure.microsoft.com/en-us/documentation/learning-paths/cortana-analytics-process/)
+* Visit the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) for machine learning and data analytics samples using the Cortana Analytics Suite. We have also provided an icon on the Start menu and desktop on the virtual machine for easy access 
 
