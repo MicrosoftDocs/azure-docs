@@ -78,7 +78,7 @@ You need to install a process server in Azure so that the Azure VMs can send the
 	![](./media/site-recovery-failback-azure-to-vmware-classic/ps3.png)
 
 	After the process server is deployed in Azure you can log onto it
-	using the credentials you specified and run the unified setup wizard to register it, in the same way you [set up the on-premises management server](site-recovery-vmware-to-azure-classic.md/#step-5-install-the-management-server)
+	using the credentials you specified and run the unified setup wizard to register it, in the same way you [set up the on-premises management server](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
 
 	>[AZURE.NOTE] The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
 
@@ -91,7 +91,7 @@ The master target server receives the failback data. A master target server is a
 
 1. If you're installing the master target server on Windows, open the Quick Start page from the VM on which you're installing the master target server, and download the installation file for the Azure Site Recovery Unified Setup wizard.
 2. Run setup and in **Before you begin** select **Add additional process servers to scale out deployment**.
-3. Complete the wizard in the same way you did when you [set up the management server](site-recovery-vmware-to-azure-classic.md/#step-5-install-the-management-server). On the **Configuration Server Details** page, specify the IP address of this master target server, and a passphrase to access the VM.
+3. Complete the wizard in the same way you did when you [set up the management server](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server). On the **Configuration Server Details** page, specify the IP address of this master target server, and a passphrase to access the VM.
 
 ### Set up a Linux VM as the master target server
 To set up the management server running the master target server as a Linux VM you'll need to install the Cent)S 6.6 minimal operating system, retrieve the SCSI IDs for each SCSI hard disk, install some additional packages, and apply some custom changes.
