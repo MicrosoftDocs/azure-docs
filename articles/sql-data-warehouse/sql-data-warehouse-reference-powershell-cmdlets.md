@@ -64,7 +64,7 @@ $resultDatabase
 
 ## Resume-AzureSqlDatabase
 
-For the command reference, see [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/en-us/library/mt619347.aspx)
+For the command reference, see [Resume-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt619347.aspx)
 
 ### Example 1: Resuming a database by name on a server
 

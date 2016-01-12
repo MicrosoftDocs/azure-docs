@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/07/2016
+   ms.date="01/07/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualize data with Power BI
