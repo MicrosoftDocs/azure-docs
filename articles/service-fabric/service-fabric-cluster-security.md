@@ -18,7 +18,7 @@
 
 # Secure a Service Fabric cluster
 
-An Azure Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource, you must secure it, especially when it has production workloads running on it. This article walks you though the process of securing a Service Fabric cluster.
+An Azure Service Fabric cluster is a resource that you own. To prevent unauthorized access to the resource, you must secure it, especially when it has production workloads running on it. This article walks you through the process of securing a Service Fabric cluster.
 
 ##  Cluster security scenarios
 
@@ -87,7 +87,7 @@ Login-AzureRmAccount
 The following script will create a new resource group and/or a Key Vault if they are not already present.
 
 ```
-Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
+Invoke-AddCertToKeyVault -SubscriptionId <your subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
 ```
 Here is a filled out script as an example.
 
@@ -186,60 +186,56 @@ Read Only Client: This information is used to validate that the client that is c
 - **Issuer Thumbprint.** This provides an additional level of check that the server can perform when a client presents its credential to the server.
 
 ## Update the certificates in the cluster
-<!-- Consider making this Step 4. SH -->
 
-Service fabric allows you to specify two certificates a primary and a secondary. The one that you specified at creation time is defaulted to primary.
-In order to add another certificate, you need deploy that certificate to the VMs in the cluster. Step #2 above outlines how you can upload a new cert to the the keyvalult. you can use the same key vault for this, as you did with the first certificate.
+You can specify two certificates, a primary and a secondary. By default, the one that you specify at creation time is the primary certificate. To add another certificate, you must deploy that certificate to the VMs in the cluster. Step 2 above outlines how to upload a new certificate to the Key Vault. You can use the same Key Vault for this, as you did with the first certificate. For more information, see [Deploy certificates to VMs from a customer-managed Key Vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
-Refer to  - [Deploy certificates to VMs from customer-managed key vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx) document on how to.
+Once that operation is completed, use the portal or Resource Manager to indicate to Service Fabric that you have a secondary certificate that can be used as well. All you need is a thumbprint.
 
-Once that operation is successfully completed, go to the portal or via Resource Manager, indicate to the Service fabric that you have a secondary certificate that can can be used as well. All you need is a thumbprint.
+Here is the process for adding a secondary certificate:
 
-Here is the process- On the portal, browse to the cluster resource you want add this certificate to, click on the certificate setting and enter the secondary certificate thumbprint and press Save. A deployment will get kicked off and on successful completion of that deployment, you can now use both the primary or the secondary certificate to perform management operations on the cluster.
+1. On the portal, browse to the cluster resource that you want to add this certificate to.
+2. Under **Settings**, click **Certificates** and enter the secondary certificate thumbprint.
+3. Click **Save**. A deployment will be started, and after completion of that deployment, you can use either the primary or the secondary certificate to perform management operations on the cluster.
 
 ![Screen shot of certificate thumbprints in the portal][SecurityConfigurations_02]
 
-if you would now like to remove one of the certificate, you can do so. Make sure to press save after you remove it, so that a new deployment is kicked off. once that deployment is complete, the certificate you removed can no longer be used to connect to the cluster. For a secure cluster, you will always need at least one valid (non revoked or expired) certificate deployed, else you will not be able to access the cluster.
+If later you want to remove one of the certificates, you can do so. Be sure to click **Save** after you remove it, so that a new deployment is started. After that new deployment is complete, the certificate that you removed can no longer be used to connect to the cluster. For a secure cluster, you will always need to have at least one valid (not revoked and not expired) certificate deployed or you will not be able to access the cluster.
 
-There is a diagnostic event that lets you know if any of the certificates are near expiry.
-
-
+There is a diagnostic event that lets you know if any of the certificates are near expiration.
 
 ## X.509 certificates
 
-X.509 digital certificates are commonly used to authenticate clients and servers, encrypt, and digitally sign messages. For more details on these certificates, go to [http://msdn.microsoft.com/library/ms731899.aspx](http://msdn.microsoft.com/library/ms731899.aspx)
+X.509 digital certificates are commonly used to authenticate clients and servers and to encrypt and digitally sign messages. For more details on these certificates, go to [Working with certificates](http://msdn.microsoft.com/library/ms731899.aspx) in the MSDN library.
 
-**Note**
-
-1. Certificates used in clusters running production workloads, These should be created using either a correctly configured Windows Server certificate service or obtained via an approved [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
-2. Never use temporary or test certificates created with tools such as MakeCert.exe in production
-3. For clusters that you use for test purposes only, you can choose to use a self signed certificate.
-
+>[AZURE.NOTE]
+1. Certificates used in clusters that are running production workloads should be either created by using a correctly configured Windows Server certificate service or obtained from an approved [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
+2. Never use in production any temporary or test certificates that are created with tools such as MakeCert.exe.
+3. For clusters that you use for test purposes only, you can choose to use a self-signed certificate.
 
 ## Server certificates and client certificates
 
 **Server X.509 certificates**
 
-Server certificates have the primary task of authenticating the server (node) to clients or server (node) to server (node). One of the initial checks when a client or node authenticates a node is to compare the value of the common name in the Subject field to ensure that it is present in the list of allowed common names that has been configured. Either this common name or one of the certificates subject alternative names must be present in the list of allowed common names.
+Server certificates have the primary task of authenticating a server (node) to clients, or authenticating a server (node) to a server (node). One of the initial checks when a client or node authenticates a node is to check the value of the common name in the Subject field. Either this common name or one of the certificates' subject alternative names must be present in the list of allowed common names.
 
-The following article describe how to generate certificates with subject alternative names (SAN).
-[http://support.microsoft.com/kb/931351](http://support.microsoft.com/kb/931351)
+The following article describe how to generate certificates with subject alternative names (SAN):
+[How to add a subject alternative name to a secure LDAP certificate](http://support.microsoft.com/kb/931351).
 
-**Note:** that the subject field can contain several values, each prefixed with an initialization to indicate the value. Most commonly, the initialization is "CN" for common name, for example, "CN = www.contoso.com". It is also possible for the Subject field to be blank. Note also the optional Subject Alternative Name field; if populated, this must contain both the common name of the certificate, and one entry per subject alternative name. These are entered as DNS Name values.
+>[AZURE.NOTE] The Subject field can contain several values, each prefixed with an initialization to indicate the value type. Most commonly, the initialization is "CN" for common name; for example, "CN = www.contoso.com". It is also possible for the Subject field to be blank. If the optional Subject Alternative Name field is populated, it must contain both the common name of the certificate and one entry per subject alternative name. These are entered as DNS Name values.
 
-Also note the value of the Intended Purposes field of the certificate should include an appropriate value, such as "Server Authentication" or "Client Authentication".
+The value of the Intended Purposes field of the certificate should include an appropriate value, such as "Server Authentication" or "Client Authentication".
 
 **Client certificates**
 
-Client certificates are not typically issued by a third-party certificate authority. Instead, the Personal store of the current user location typically contains certificates placed there by a root authority, with an intended purpose of "Client Authentication". The client can use such a certificate when mutual authentication is required.
-All management operations on Service Fabric cluster require Server certificates. Client certificates should not be used.
+Client certificates are not typically issued by a third-party certificate authority. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority, with an intended purpose of "Client Authentication". The client can use such a certificate when mutual authentication is required.
 
+All management operations on a Service Fabric cluster require server certificates. Client certificates cannot be used for management.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 - [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Service Fabric Health model introduction](service-fabric-health-introduction.md)
+- [Service Fabric health model introduction](service-fabric-health-introduction.md)
 
 <!--Image references-->
 [SecurityConfigurations_01]: ./media/service-fabric-cluster-security/SecurityConfigurations_01.png
