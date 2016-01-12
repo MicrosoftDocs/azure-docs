@@ -91,6 +91,7 @@ These prompt will now loop through for all the node types. If your cluster has o
 **Step 8.2**: Browse to the Cluster resource you were scaling down and click on "All Settings" on the Essentials web part.
 
 **Step 8.3**: Click on Node Types, you will now see a list of Nodes that are Deactivated. In this picture, chackodnt15, chackodnt24, chackodnt25 and chackodnt26 are the VMs that I now need to delete.
+
 ![DeactivatedNodeList][DeactivatedNodeList]
 
 **Step 8.4**: Delete those VMs via PS or Portal. Once they are deleted, you have now finished with the scale down of your cluster. 
