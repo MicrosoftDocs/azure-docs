@@ -19,6 +19,7 @@
 
 # The Cortana Analytics Process in action: using SQL Data Warehouse
 
+
 In this tutorial, we walk you through building and deploying a machine learning model using SQL Data Warehouse (SQL DW) for a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip was paid for a trip, and models for multiclass classification and regression are also discussed.
 
 The procedure follows the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how to explore the data and engineer features in SQL DW and in an IPython Notebook. We then show how to build and deploy the model in Azure Machine Learning.
@@ -133,10 +134,11 @@ When the PowerShell script runs for the first time, you will be asked to input t
 
 [Azure Tips] 
 
-- If your data is in your on-premis machine in your real life application, you can still use AzCopy to upload on-premis data to your private Azure blob storage. You only need to change the **Source** location in the PowerShell script file to a local directory in the AzCopy command.	
+- If your data is in your on-premise machine in your real life application, you can still use AzCopy to upload on-premise data to your private Azure blob storage. You only need to change the **Source** location in the PowerShell script file to a local directory in the AzCopy command.	
 - If your data is already in your private Azure blob storage in your real life application, you can skip the AzCopy step in the PowerShell script and directly upload the data to Azure SQL DW. 
 
-This Powershell script also plugs the Azure SQL DW information into the data exploration example files SQL(./SQLDW_Explorations.sql) and IPython notebook(./SQLDW_Explorations.ipynb)) so that these two files are ready to be tried out instantly after the PowerShell script completes. 
+
+This Powershell script also plugs in the Azure SQL DW information into the data exploration example files SQLDW_Explorations.sql, SQLDW_Explorations.ipynb, and SQLDW_Explorations_Scripts.py so that these three files are ready to be tried out instantly after the PowerShell script completes. 
 
 After a successful execution, you will see screen like below:
 
