@@ -49,13 +49,9 @@
     The update will then be applied on your device.
  
 9. To monitor the progress of the update job, click **View Job**. On the **Jobs** page, you can see the update progress. 
-
-    ![Update job progress](./media/storsimple-install-update2-via-portal/InstallUpdate12_5M.png)
-
-10. The update will take a few hours to complete. You can view the details of the job at any time.
-
-    ![Update job details](./media/storsimple-install-update2-via-portal/InstallUpdate12_6M.png)
-
+    
+10. The update will take a few hours to complete. Select the update job and click **Details** to view the details of the job at any time.
+  
 11. After the job is complete, navigate to the **Maintenance** page and scroll down to **Software Updates**.
 
 12. Verify that your device is running **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. The **Last updated date** should also be modified.

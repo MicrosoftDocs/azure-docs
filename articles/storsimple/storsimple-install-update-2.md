@@ -95,7 +95,7 @@ The hotfixes applied through this method are as tabulated below:
 > - If your device is running Release (GA) version, please contact [Microsoft Support](storsimple-contact-microsoft-support.md) to assist you with the update.
 > - This procedure needs to be performed only once to apply Update 2. You can use the Azure classic portal to apply subsequent updates.
 > - Each hotfix installation can take about 20 minutes to complete. Total install time is close to 2 hours. 
-> - Before using this procedure to apply the update, make sure that both device controllers are online.
+> - Before using this procedure to apply the update, make sure that both device controllers are online and all the hardware components are healthy.
 
 Perform the following steps to apply Update 2 as a hotfix. 
 

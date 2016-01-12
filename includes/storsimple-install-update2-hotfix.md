@@ -14,15 +14,15 @@ Perform the following steps to download the software update from the Microsoft U
 
     ![Search catalog](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. You will see the **StorSimple Update 2 Appliance Update** bundle. Click **Add**. The update will be added to the basket. 
+4. You will see the **Cumulative Software Bundle Update 2.0 for StorSimple 8000 Series**. Click **Add**. The update will be added to the basket. 
 
 5. Click **View Basket**.
  
-6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update will be downloaded in a **StorSimple Update 2 Appliance Update bundle** (KB3121901) folder to the chosen location. The folder can also be copied to a network share that is reachable from the device. 
+6. Click **Download**. Specify or **Browse** to a local location where you want the download to appear. The update will be downloaded in a folder (same name as the update) to the chosen location. The folder can also be copied to a network share that is reachable from the device. 
        
 	> [AZURE.NOTE] 
 	> 
-	> - You will also need to download LSI driver update (KB3121900), Storport update (KB3080728), Spaceport update (KB3090322), and Disk firmware update (KB3121899) and copy to the same shared folder.
+	> - You will also need to download **LSI driver update** (SAS Controller Update 2.0 for StorSimple 8000 Series - KB3121900),  **Storport update** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3080728), **Spaceport update** (Hotfix for Windows Server 2012 R2 x64 Edition - KB3090322), and **Disk firmware update** (Cumulative Disk Firmware Update 2.0 for StorSimple 8000 Series - KB3121899) and copy to the same shared folder.
 	> - The hotfix must be accessible from both controllers to detect any potential error messages from the peer controller.
 
 #### To install and  verify regular mode hotfixes
@@ -103,13 +103,13 @@ Perform the following steps to install and verify the regular hotfixes.
     
 9. Repeat steps 3-5 to install and monitor the remaining regular hotfixes.
 
-	- The LSI driver and firmware using the `HcsLsiUpdate.exe` package (KB3121900).
+	- The LSI driver using the `HcsLsiUpdate.exe` package (KB3121900).
 	- The Storport fix using the `Storport-KB3080728-x64.msu` package (KB3080728).
 	- The Spaceport fix using the `spaceport-KB3090322-x64.msu` package (KB3090322).
 
 #### To install and verify maintenance mode hotfix
 
-Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console.To install disk firmware updates, follow the instructions below.
+Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console. To install disk firmware updates, follow the instructions below.
 
 1. Place the device in the Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. You will need to run this cmdlet on the device controller when connected through the device serial console. Type:
 		
@@ -125,7 +125,7 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
 
 		-----------------------MAINTENANCE MODE------------------------
 		Microsoft Azure StorSimple Appliance Model 8100
-		Name: TD178-Doc-QFE3-8100-SHG0997879L76YD
+		Name: Update2-8100-SHG0997879L76YD
 		Software Version: 6.3.9600.17664
 		Copyright (C) 2014 Microsoft Corporation. All rights reserved.
 		You are connected to Controller0 - Passive
@@ -170,7 +170,7 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
 
         -----------------------MAINTENANCE MODE------------------------
     	Microsoft Azure StorSimple Appliance Model 8100
-    	Name: TD178-Doc-QFE3-8100-SHG0997879L76YD
+    	Name: Update2-8100-SHG0997879L76YD
     	Software Version: 6.3.9600.17664
     	Copyright (C) 2014 Microsoft Corporation. All rights reserved.
     	You are connected to Controller1
@@ -221,7 +221,7 @@ Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware u
     	  SEAGATE:ST4000NM0023:XMGG
     	  SEAGATE:ST4000NM0023:XMGG
 
-	 Run this command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller: 
+	 Run the `Get-HcsFirmwareVersion` command on the second controller to verify that the software version has been updated. You can then exit the maintenance mode. Type the following command for each device controller: 
 
     `Exit-HcsMaintenanceMode`
      
