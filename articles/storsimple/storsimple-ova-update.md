@@ -37,4 +37,4 @@ Prior to the update or hotfix installation, make sure that you have the update o
 
 ## Next steps
 
-Learn more about [administering your StorSimple Virtual Array](storsimple-ova-manager-service-admin.md).
+Learn more about [administering your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).

@@ -33,7 +33,7 @@ The procedures described here take approximately 30 minutes to 1 hour to complet
 
 Before you configure and setup your StorSimple virtual device, make sure that:
 
-- You have provisioned a virtual device and connected to it as detailed in  [Deploy StorSimple Virtual Array - Provision a virtual device in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array  - Provision a virtual device in VMware](storsimple-ova-deploy2-provision-vmware.md).
+- You have provisioned a virtual device and connected to it as detailed in  [Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array  - Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
 - You have the service registration key from the StorSimple Manager service that you created to manage StorSimple virtual devices. For more information, see **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array - Portal Preparation](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
@@ -44,9 +44,9 @@ Before you configure and setup your StorSimple virtual device, make sure that:
 Use the following step-by-step instructions to set up and configure your StorSimple virtual device:
 
 -  [Step 1: Complete the local web UI setup and register your device](#step-1-complete-the-local-ui-setup-and-register-your-device)
--  [Step 2: Complete the required device setup](step-2-complete-the-required-device-setup)
+-  [Step 2: Complete the required device setup](#step-2-complete-the-required-device-setup)
 -  [Step 3: Add a volume](#step-3-add-a-volume)
--  [Step 4: Mount, initialize, and format a volume](#step-4-mount-initializa-and-format-a-volume)  
+-  [Step 4: Mount, initialize, and format a volume](#step-4-mount-initialize-and-format-a-volume)  
 
 ## Step 1: Complete the local web UI setup and register your device 
 
@@ -64,11 +64,11 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     ![Sign-in page](./media/storsimple-ova-deploy3-iscsi-setup/image4.png)
 
-3. You will be taken to the **Home** page. This page describes the various settings required to configure and register the virtual device with StorSimple Manager service. Note that the **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Device settings** and **Cloud settings**.
+3. You will be taken to the **Home** page. This page describes the various settings required to configure and register the virtual device with the StorSimple Manager service. Note that the **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Device settings** and **Cloud settings**.
 
     ![Home page](./media/storsimple-ova-deploy3-iscsi-setup/image5.png)
 
-4. In the **Network settings** page under **Network interfaces**, DATA 0 will be automatically configured for you. Each network interface is set by default to get an IP address automatically (DHCP). Hence, an IP address, subnet, and gateway will be automatically assigned (for both IPv4 and IPv6).
+4. In the **Network settings** page under **Network interfaces**, DATA 0 will be automatically configured for you. Each network interface is set by default to get an IP address automatically (DHCP). Therefore, an IP address, subnet, and gateway will be automatically assigned (for both IPv4 and IPv6).
 
     As you plan to deploy your device as an iSCSI server (to provision block storage), we recommend that you disable the **Get IP address automatically** option and configure static IP addresses.
 
@@ -106,11 +106,11 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     On the **Web proxy** page:
 
-    1. Supply the **Web proxy URL** in this format: *http://host-IP address or FDQN:Port number*. Note that HTTPS URLs are not supported.
+    1. Supply the **Web proxy URL** in this format: *http://host-IP address* or *FDQN:Port number*. Note that HTTPS URLs are not supported.
 
     2. Specify **Authentication** as **Basic**, **NTLM**, or **None**.
 
-    3. If using authentication, you will also need to provide a **Username** and **Password**.
+    3. If you are using authentication, you will also need to provide a **Username** and **Password**.
 
     4. Click **Apply**. This will validate and apply the configured web proxy settings.
  
@@ -130,7 +130,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
 9. Configure the cloud settings for your device. In this step, you will complete the local device configuration and then register the device with your StorSimple Manager service.
 
-    1. Enter the **Service registration key** that you got in **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array 1 - Portal Preparation](../storsimple-ova-deploy1-portal-prep.md#get-the-service-registration-key).
+    1. Enter the **Service registration key** that you got in **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array - Portal Preparation](../storsimple-ova-deploy1-portal-prep.md#get-the-service-registration-key).
 
     2. If this is the first device that you are registering with your StorSimple Manager service, a **Service data encryption key** will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** If this is not the first device that you are registering with this service, then you will need to provide the service data encryption key (that you saved during the registration of the first device).
 
@@ -166,7 +166,7 @@ Perform the following steps in the Azure classic portal to complete the required
 
    1. Specify a storage account to be used with your device. In this subscription, you can select an existing storage account from the drop-down list, or you can specify **Add more** to choose an account from a different subscription.
 
-   2. Define the encryption settings for all the data at rest that will be sent to the cloud. (StorSimple uses AES-256 encryption.) To encrypt your data, check the combo box to **enable cloud storage encryption key**. Enter a cloud storage encryption that contains 32 characters. Reenter the key to confirm it.
+   2. Define the encryption settings for all the data at rest that will be sent to the cloud. (StorSimple uses AES-256 encryption.) To encrypt your data, select the **Enable cloud storage encryption** check box. Enter a cloud storage encryption that contains 32 characters. Reenter the key to confirm it.
 
    3. Click the check icon ![check icon](./media/storsimple-ova-deploy3-iscsi-setup/image15.png).
 

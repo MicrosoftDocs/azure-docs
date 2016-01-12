@@ -132,4 +132,4 @@ You can shut down or restart your virtual device using the local web UI.
 
 ## Next steps
 
-[Learn how to use the StorSimple Manager service to manage your device](storsimple-manager-service-administration.md) 
+[Learn how to use the StorSimple Manager service to manage your device](storsimple-manager-service-administration.md).

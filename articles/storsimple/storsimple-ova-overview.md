@@ -141,6 +141,8 @@ For more information, go to [Use the StorSimple Manager service to administer yo
 
 The Virtual Array includes a web-based UI that is used for one-time configuration and registration of the device with the StorSimple Manager service. You can use it to shut down and restart the Virtual Array, run diagnostic tests, update software, change the device administrator password, view system logs, and contact Microsoft Support to file a service request. 
 
+For information about using the web-based UI, go to [Use the web-based UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+
 ### Command-line interface
 
 The included Windows PowerShell interface enables you to initiate a support session with Microsoft Support so that they can help you troubleshoot and resolve issues that you might encounter on your virtual device.
@@ -179,7 +181,7 @@ For more information about locally pinned volumes, go to [Use the StorSimple Man
 
 StorSimple uses deduplication and data compression to further reduce storage requirements in the cloud. Deduplication reduces the overall amount of data stored by eliminating redundancy in the stored data set. As information changes, StorSimple ignores the unchanged data and captures only the changes. In addition, StorSimple reduces the amount of stored data by identifying and removing duplicate information. 
 
->[AZURE.NOTE] Data stored on the Virtual Array is not deduplicated or compressed. All deduplication and compression occurs before the data is sent to the cloud.
+>[AZURE.NOTE] Data stored on the Virtual Array is not deduplicated or compressed. All deduplication and compression occurs just before the data is sent to the cloud.
 
 ### Scheduled and on-demand backups
 

@@ -21,7 +21,7 @@
 
 The following release notes identify the critical open issues for the December 2015 Public Preview release of the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device). 
 
-The release notes are continuously updated; as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
+The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple virtual device, carefully review the information contained in the release notes. 
 
 >[AZURE.IMPORTANT] 
 >
