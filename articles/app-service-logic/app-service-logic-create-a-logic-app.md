@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Create a Logic App | Microsoft Azure"
 	description="Learn how to create a Logic App connecting SaaS services"
 	authors="stepsic-microsoft-com"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="01/12/2016"
 	ms.author="stepsic"/>
 
 # Create a new logic app connecting SaaS services
@@ -26,7 +26,7 @@
 
 This topic demonstrates how, in just a few minutes, you can get started with [App Services Logic Apps](app-service-logic-what-are-logic-apps.md). We'll walk through a workflow that lets you deliver a set of Tweets that you’re interested in to a Dropbox folder.
 
-To use this scenario you will need:
+To use this scenario, you need:
 
 - An Azure subscription
 - A Twitter account
@@ -36,13 +36,13 @@ To use this scenario you will need:
 
 ## Get your connectors
 
-First, you need to create the two connectors you will be using: [Dropbox Connector](app-service-logic-connector-dropbox.md) and [Twitter Connector](app-service-logic-connector-twitter.md). Due to restrictions on the Twitter API, we will also need to register for a free app with Twitter. To create these:
+First, you need to create the two connectors you will be using: [Dropbox Connector](app-service-logic-connector-dropbox.md) and [Twitter Connector](app-service-logic-connector-twitter.md). Due to restrictions on the Twitter API, we also need to register for a free app with Twitter. To create these:
 
 1. Sign in to the Azure portal.
 
 2. Click  [Marketplace ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) on the home screen and search for Twitter (or [click here](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
 
-3. Select **Twitter Connector** and click **Create**. You will get a view for all of your settings. You can leave the name as **Twitter Connector**.  
+3. Select **Twitter Connector** and click **Create**. You get a view for all of your settings. You can leave the name as **Twitter Connector**.  
 4. Select **Package settings**--here you'll need to input the information from your Twitter Application.  You can set up a free application using these steps:
 	1. Go to the [Twitter App Registration Page](http://apps.twitter.com).
 	2. Create a new app.
