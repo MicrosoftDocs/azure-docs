@@ -116,25 +116,23 @@ How to check for the VM Agent version on Windows VMs:
 
 ## Troubleshoot VM Snapshot Issues
 VM backup relies on issuing snapshot command to underlying storage. Not having access to storage or delay in snapshot task execution can fail the backup. The following can cause snapshot task failure. 
-<ul>
-	<li> Network access to Storage is blocked using NSG<br>
-	Learn more on how to [enable network access](backup-azure-vms-prepare.md#2-network-connectivity) to Storage using either WhiteListing of IPs or through proxy server. 
-	<li> VMs with Sql Server backup configured can cause snapshot task delay<br>
-	By default VM backup issues VSS Full backup on Windows VMs. On VMs which are running Sql Servers and Sql Server backup is configured, this might cause delay in snapshot execution. Please set following registry key if you are experiencing backup failures because of snapshot issues. <br>
-	
-```
-[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
-"USEVSSCOPYBACKUP"="TRUE"
-```
 
-<br>
-	<li> VM status reported incorrectly because VM is shutdown in RDP <br>
+1. Network access to Storage is blocked using NSG<br>
+	Learn more on how to [enable network access](backup-azure-vms-prepare.md#2-network-connectivity) to Storage using either WhiteListing of IPs or through proxy server. 
+2.  VMs with Sql Server backup configured can cause snapshot task delay <br>
+	By default VM backup issues VSS Full backup on Windows VMs. On VMs which are running Sql Servers and Sql Server backup is configured, this might cause delay in snapshot execution. Please set following registry key if you are experiencing backup failures because of snapshot issues. 
+
+	```
+	[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
+	"USEVSSCOPYBACKUP"="TRUE"
+	```
+3.  VM status reported incorrectly because VM is shutdown in RDP.  <br>
 	If you have Shut down the virtual machine in RDP, please check back in the portal that VM status is reflected correctly. If not, please shutdown the VM in portal using 'Shutdown' option in VM dashboard. 
-	<li> Many VMs from same cloud service are configured to backup at the same time. 
+4.  Many VMs from same cloud service are configured to backup at the same time.<br>
 	It is best practice to spread the VMs from same cloud service to have different backup schedules. 
-	<li> VM is running at High CPU/Memory
+5.  VM is running at High CPU/Memory.<br>
 	If the virtual machine is running at High CPU usage(>90%) or memory, snapshot task is queued, delayed and wil eventually gets timed-out. Try on-demand backup in such situations.
-</ul>
+
 <br>
 
 ## Networking
