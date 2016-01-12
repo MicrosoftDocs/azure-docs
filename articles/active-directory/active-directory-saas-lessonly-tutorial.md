@@ -69,7 +69,7 @@ To configure the integration of Lesson.ly into Azure AD, you need to add Lesson.
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
 ![Applications][4]<br>
 6. In the search box, type **Lesson.ly**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-Lessonly-tutorial/tutorial_Lessonly_01.png)<br>
+![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_01.png)<br>
 7. In the results pane, select **Lesson.ly**, and then click **Complete** to add the application.
 <br><br>
 
@@ -99,17 +99,17 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to Lesson.ly** page, select **Azure AD Single Sign-On**, and then click **Next**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-Lessonly-tutorial/tutorial_Lessonly_03.png) <br>
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_03.png) <br>
 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-Lessonly-tutorial/tutorial_Lessonly_04.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) <br>
 
 
     a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Lesson.ly application using the following pattern: **“https://\<company name\>.Lesson.ly/signin”**.
 
 
 4. On the **Configure single sign-on at Lesson.ly** page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-Lessonly-tutorial/tutorial_Lessonly_05.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_05.png) <br>
 
     a. Click **Download certificate**, and then save the file on your computer.
 
@@ -135,18 +135,18 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 **To create a test user in Azure AD, perform the following steps:**
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-Lessonly-tutorial/create_aaduser_09.png) <br>
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/create_aaduser_09.png) <br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To display the list of users, in the menu on the top, click **Users**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-Lessonly-tutorial/create_aaduser_03.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/create_aaduser_03.png) <br>
 
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-Lessonly-tutorial/create_aaduser_04.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/create_aaduser_04.png) <br>
 
 5. On the **Tell us about this user** dialog page, perform the following steps:
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-Lessonly-tutorial/create_aaduser_05.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/create_aaduser_05.png) <br>
 
     a. As Type Of User, select New user in your organization.
 
@@ -155,7 +155,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     c. Click **Next**.
 
 6.  On the **User Profile** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-Lessonly-tutorial/create_aaduser_06.png) <br>
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/create_aaduser_06.png) <br>
 
     a. In the **First Name** textbox, type **Britta**.  
 
@@ -168,10 +168,10 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-Lessonly-tutorial/create_aaduser_07.png) <br>
+<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/create_aaduser_07.png) <br>
 
 8. On the **Get temporary password** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-Lessonly-tutorial/create_aaduser_08.png) <br>
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/create_aaduser_08.png) <br>
 
     a. Write down the value of the **New Password**.
 
@@ -199,7 +199,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 <br><br>![Assign User][201] <br>
 
 2. In the applications list, select **Lesson.ly**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-Lessonly-tutorial/tutorial_Lessonly_50.png) <br>
+<br><br>![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_50.png) <br>
 
 1. In the menu on the top, click **Users**.
 <br><br>![Assign User][203] <br>
@@ -225,18 +225,18 @@ When you click the Lesson.ly tile in the Access Panel, you should get automatica
 
 <!--Image references-->
 
-[1]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_04.png
 
-[6]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_05.png
-[10]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_06.png
-[11]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_07.png
-[20]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_100.png
+[6]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_05.png
+[10]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_06.png
+[11]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_07.png
+[20]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_100.png
 
-[200]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_200.png
-[201]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_201.png
-[203]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_203.png
-[204]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_204.png
-[205]: ./media/active-directory-saas-Lessonly-tutorial/tutorial_general_205.png
+[200]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_201.png
+[203]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_203.png
+[204]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_204.png
+[205]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_205.png
