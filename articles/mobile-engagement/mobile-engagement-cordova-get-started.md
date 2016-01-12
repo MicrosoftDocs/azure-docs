@@ -2,7 +2,7 @@
 	pageTitle="Get Started with Azure Mobile Engagement for Cordova/Phonegap"
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for Cordova/Phonegap apps."
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="cordova"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
