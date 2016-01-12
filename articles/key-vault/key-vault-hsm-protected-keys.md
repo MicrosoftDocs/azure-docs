@@ -174,7 +174,8 @@ This step is optional but recommended so that you can validate the following:
 
 To validate the downloaded package:
 
-1.	Run the verifykeypackage.py script by tying one of the following, depending on your region:
+1.	Run the verifykeypackage.py script by tying one of the following, depending on your 
+2.	
 	- For North America:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
@@ -233,7 +234,7 @@ For this fourth step, do the following procedures on the disconnected workstatio
 
 ###Step 4.1: Create a copy of your key with reduced permissions
 
-To reduce the permissions on your key, from a command prompt, run one of the following, depending on your region:
+To reduce the permissions on your key, from a command prompt, run one of the following, depending on your region or version of Azure:
 
 - For North America:
 
@@ -277,7 +278,7 @@ When you run these command, replace contosokey with the same value you specified
 
 ###Step 4.3: Encrypt your key by using Microsoft’s Key Exchange Key
 
-Run one of the following commands, depending on your region:
+Run one of the following commands, depending on your region or version of Azure:
 
 - For North America:
 
