@@ -27,7 +27,7 @@ The following applies to Azure RemoteApp a cloud or hybrid collection if you are
 *	*.servicebus.windows.net
 *	 *.servicebus.net
 *	 https://*.remoteapp.windwsazure.com  
-*	 https://]www.remoteapp.windowsazure.com 
+*	 https://www.remoteapp.windowsazure.com 
 *	 https://*remoteapp.windowsazure.com  
 *	 https://*.core.windows.net  
 *	 Outbound: TCP: 443, TCP: 10101-10175 
