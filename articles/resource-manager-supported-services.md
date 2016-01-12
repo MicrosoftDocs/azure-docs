@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="01/12/2016"
    ms.author="tomfitz"/>
 
 # Resource Manager providers, regions, API versions and schemas
@@ -42,10 +42,12 @@ the query will return templates from the repository.
 | Service Fabric (preview) | Yes |            | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx)  |      | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
 | Virtual Machines (classic) | Limited | Partial (see below) | - | - |
 | Remote App | No   | -              | -        | -      |
-| Cloud Services (classic) | No | Partial (see below) | - | - | - |
+| Cloud Services (classic) | Yes (see below) | Partial (see below) | - | - | - |
 
 Virtual Machines (classic) refers to resources that were deployed through the classic deployment model, instead of through the Resource Manager deployment model. In general, these resources do not support Resource Manager operations, but there 
 are some operations that have been enabled. For more information about these deployment models, see [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md). 
+
+Resource Manager is enabled for Cloud Services for use with other classic resources; however, classic resources do not take advantage of all Resource Manager features and are not a good option for future solutions. Instead, consider changing your application infrastructure to use resources from the Microsoft.Compute, Microsoft.Storage, and Microsoft.Network namespaces.
 
 Virtual Machines (classic) and Cloud Services can be moved to new resource groups, but not new subscriptions.
 
@@ -72,8 +74,7 @@ Virtual Networks can be moved to new resource groups, but not new subscriptions.
 | SQL Database | Yes | Yes  | [SQL Database REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
 | Search | Yes  | Yes   | [Search REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) |  | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | SQL Data Warehouse | Yes |   |   |      |
-| StorSimple | No   | -  | -        | -       |
-| Managed cache | No | -             | -        | -       |
+| StorSimple | No   | -  | -        | -       | - |
 
 ## Web & Mobile
 
@@ -122,11 +123,7 @@ When working with web apps, you cannot move only an App Service plan. To move we
 
 ## Identity & Access Management 
 
-| Service | Resource Manager Enabled | Move Resources | REST API | Schema | Quickstart Templates |
-| ------- | ------- | -------------- | -------- | ------ | ------ |
-| Azure Active Directory | No | -  | - | - |
-| Azure Actice Directory B2C | No | - | - | - |
-| Multi-Factor Authentication | No | - | - | - |
+Azure Active Directory works with Resource Manager to enable role-based access control for your subscription. To learn about using role-based access control and Active Directory, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
 ## Developer Services 
 
