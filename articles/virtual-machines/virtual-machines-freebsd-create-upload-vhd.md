@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="1/12/2016"
+   ms.date="01/12/2016"
    ms.author="kyliel"/>
 
 # Create and Upload a FreeBSD VHD to Azure
