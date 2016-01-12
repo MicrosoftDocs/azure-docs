@@ -3,7 +3,7 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and Lesson.ly."
 	services="active-directory"
 	documentationCenter=""
-	authors="v-emli"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/12/2016"
-	ms.author="v-emli"/>
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Lesson.ly
