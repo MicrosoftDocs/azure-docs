@@ -27,9 +27,9 @@ You can scale Service Fabric clusters up or down to match demand by adding or re
 
 If your cluster has multiple Node types, you will have to add or remove VMs to/from specific node types. Ypu can add VMs to one node type and remove VMs from the other, in the same deployment.
 
-### upgrading a cluster you had deployed using the portal
+### Upgrading a cluster you had deployed using the portal
 
-Since modifying the ARM template is an involved process,  we have a powershell Module uploaded to a Git Repo, that does this for you. 
+Since this is an involved process, we have a powershell Module uploaded to a Git Repo, that does this for you. 
 
 **Step 1**: Copy this folder down to your machine from this [Git repo](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
@@ -41,7 +41,8 @@ Since modifying the ARM template is an involved process,  we have a powershell M
 Remove-Module ServiceFabricRPHelpers
 ```
 
-Copy the following cmd and change the path to the .psm1 to be that of your machine. Here is an example
+Import the poweshell module you just copied down.
+you can just copy the following cmd and change the path to the .psm1 to be that of your machine. 
 
 ```
 Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
@@ -59,28 +60,29 @@ Run the Invoke-ServiceFabricRPClusterScaleUpgrade command , make sure that you h
 Invoke-ServiceFabricRPClusterScaleUpgrade -ResourceGroupName <string> -SubscriptionId <string>
 ```
 
-Here is a filled out example of the PS command
+Here is a filled out example of the same PS command
+
 ```
 Invoke-ServiceFabricRPClusterScaleUpgrade -ResourceGroupName chackod02 -SubscriptionId 18ad2z84-84fa-4798-ad71-e70c07af879f
 ```
 
-  **Step 5**: The command will now retrieve the cluster information and walk you through all the node types, first telling you the current VM count for that node type and then ask you to provide what the new node count should be.
+  **Step 5**: The command will now retrieve the cluster information and walk you through all the node types, first telling you the current VM/Node count for that node type and then ask you to provide what the new VM/Node count should be.
 
- **For a scaleup of this node type**, specify a larger number than the current VM count.
+ **To scaleup this node type**, specify a larger number than the current VM count.
 
-**For a Scale down of this node type**, specify a smaller number than the current VM count. 
+**To Scale down this node type**, specify a smaller number than the current VM count. 
 
 These prompt will now loop through for all the node types. If your cluster has only one nodetype, then you will get prompted only once.
  
-  **Step 6**: If you are adding new nodes, you will now get a prompt to provide the remote desktop userid and password for the VMs you are adding.
+  **Step 6**: If you are adding new VMs, you will now get a prompt to provide the remote desktop userid and password for the VMs you are adding.
  
-**Step 7**: In the output window, you will now see messages, telling you the progress of your deployment. Once the deployment is complete, your cluster should have the number of VMs you specified in Step 5.
+**Step 7**: In the output window, you will now see messages, informing you of the progress of your deployment. Once the deployment is complete, your cluster should have the number of Nodes you specified in Step 5.
 
 
 ![ScaleupDownPSOut][ScaleupDownPSOut]
 
 
-**Step 8**: If this was a scale-down request, then you have one manual step to do. The script de-activates all the VMs that you requested removed, ie, on these nodes/VMs there are no application or system replicas. So it is now safe to delete those VMS. 
+**Step 8**: If this was a scale-down request, then you have one more step of deleting the VMs. The script de-activates all the VMs that you requested removed, ie, on these nodes/VMs there are no application or system replicas. So it is now safe to delete those VMs. 
 
 **NOTE** - Although the deactivated nodes are not used by your SF cluster any more, You must delete the deactivated VMs, so that you do not get charged for them. 
 
@@ -88,7 +90,7 @@ These prompt will now loop through for all the node types. If your cluster has o
 
 **Step 8.2**: Browse to the Cluster resource you were scaling down and click on "All Settings" on the Essentials web part.
 
-**Step 8.3**: Click on Node Types, you will now see a list of Nodes that are Deactivated.
+**Step 8.3**: Click on Node Types, you will now see a list of Nodes that are Deactivated. In this picture, chackodnt15, chackodnt24, chackodnt25 and chackodnt26 are the VMs that I now need to delete.
 ![DeactivatedNodeList][DeactivatedNodeList]
 
 **Step 8.4**: Delete those VMs via PS or Portal. Once they are deleted, you have now finished with the scale down of your cluster. 
@@ -102,13 +104,11 @@ Here is a filled out example of that command
 Remove-AzureRmResource -ResourceName chackodnt26 -ResourceType Microsoft.Compute/virtualMachines -ResourceGroupName chackod02 -ApiVersion 2015-05-01-preview
 ```
 
-### upgrading a cluster that you had deployed using ARM PowerShell/CLI
+### Upgrading a cluster that you had deployed using ARM PowerShell/CLI
 
-If you had deployed your cluster using an ARM template, then you need to modify the count of the VMs for a given node type and all the resources that support the VM. The minimum number of VMs allowed for the primary node type is 5 (for non-test clusters), for test clusters the minimum is 3.
+If you had deployed your cluster using an ARM template initially, then you need to modify the count of the VMs for a given node type and all the resources that support the VM. The minimum number of VMs allowed for the primary node type is 5 (for non-test clusters), for test clusters the minimum is 3.
 
 Once you have the new template, you can deploy it via ARM using the same resource group as the cluster that you are upgrading. 
-
-Suggestion - The Powershell module ServiceFabricRPHelpers.psm1 (Step 3 above) uses the ARM PS/CLI commands to deploy the ARM template it creates, you can use the same commands to deploy your template.
 
 
 ## Auto Scaling of the Service Fabric cluster
