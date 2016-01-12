@@ -174,8 +174,7 @@ This step is optional but recommended so that you can validate the following:
 
 To validate the downloaded package:
 
-1.	Run the verifykeypackage.py script by tying one of the following, depending on your 
-2.	
+1.	Run the verifykeypackage.py script by tying one of the following, depending on your region or version of Azure:
 	- For North America:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
