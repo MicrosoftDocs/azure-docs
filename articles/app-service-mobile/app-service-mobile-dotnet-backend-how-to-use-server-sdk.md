@@ -136,7 +136,7 @@ The following NuGet-based extension packages provide various mobile features tha
 	Enables the Entity Framework to access data in the SQL Database. Add to the configuration by calling the **AddTablesWithEntityFramework** extension method.
 
 - [Microsoft.Azure.Mobile.Server.Authentication]  
-	Enables authentication and sets-up the OWIN middleware used to validate tokens. Add to the configuration by calling the **AddAppServiceAuthentication** and **IAppBuilder**.**UseMobileAppAuthentication** extension methods.
+	Enables authentication and sets-up the OWIN middleware used to validate tokens. Add to the configuration by calling the **AddAppServiceAuthentication** and **IAppBuilder**.**UseAppServiceAuthentication** extension methods.
 
 - [Microsoft.Azure.Mobile.Server.Notifications]
 	Enables push notifications and defines a push registration endpoint. Add to the configuration by calling the **AddPushNotifications** extension method.
@@ -145,7 +145,7 @@ The following NuGet-based extension packages provide various mobile features tha
 	Creates a controller that serves data to legacy web browsers from your Mobile App. Add to the configuration by calling the **MapLegacyCrossDomainController** extension method.
 
 - [Microsoft.Azure.Mobile.Server.Login] 
-	 Provides preview support for custom authentication via the MobileAppLoginHandler.CreateToken() method. This is a static method and does not need to be enabled in the configuration.
+	 Provides preview support for custom authentication via the AppServiceLoginHandler.CreateToken() method. This is a static method and does not need to be enabled in the configuration.
 
 ## <a name="publish-server-project"></a>How to: Publish the server project
 
@@ -237,7 +237,7 @@ You can add authentication to your server project by extending the **MobileAppCo
 
 2. In the Startup.cs project file, add the following line of code at the beginning of the **Configuration** method:
 
-		app.UseMobileAppAuthentication(config);
+		app.UseAppServiceAuthentication(config);
 
 	This adds the OWIN middleware component that enables your Azure Mobile App to validate tokens issued by the associated App Service gateway.
 
@@ -251,20 +251,20 @@ You can choose to provide your own login system if you do not wish to use one of
 
 You will need to provide your own logic for determining if a user should be signed in. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()` method is responsible for these checks and is defined elsewhere. 
 
-The custom authentication is exposed by creating a new ApiController and exposing register and login actions like the one below. The client can attempt login by collecting the relevant information from the user and submitting an HTTPS POST to the API with the user information in the body. Once that information is validated, a token can be issued using the `MobileAppLoginHandler.CreateToken()` method. 
+The custom authentication is exposed by creating a new ApiController and exposing register and login actions like the one below. The client can attempt login by collecting the relevant information from the user and submitting an HTTPS POST to the API with the user information in the body. Once the server validates the assertion, a token can be issued using the `AppServiceLoginHandler.CreateToken()` method. 
 
 An example login action might be:
 
-		public HttpResponseMessage Post([FromBody] JObject assertion)
+		public IHttpActionResult Post([FromBody] JObject assertion)
 		{
 			if (isValidAssertion(assertion)) // user-defined function, checks against a database
 			{
-				JwtSecurityToken token = MobileAppLoginHandler.CreateToken(new Claim[] { new Claim(JwtRegisteredClaimNames.Sub, assertion["username"]) },
+				JwtSecurityToken token = AppServiceLoginHandler.CreateToken(new Claim[] { new Claim(JwtRegisteredClaimNames.Sub, assertion["username"]) },
 					mySigningKey,
 					myAppURL,
 					myAppURL,
 					TimeSpan.FromHours(24) );
-				return this.Request.CreateResponse(HttpStatusCode.OK, new LoginResult()
+				return Ok(new LoginResult()
 				{
 					AuthenticationToken = token.RawData,
 					User = new LoginResultUser() { UserId = userName.ToString() }
@@ -285,9 +285,17 @@ In the above, LoginResult and LoginResultUser are just simple objects exposing t
 			}
 		}
 
-The `MobileAppLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing the _WEBSITE_AUTH_SIGNING_KEY_ environment variable. If needed in a local debugging context, follow the instructions in the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
+The `MobileAppLoginHAppServiceLoginHandlerandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing the _WEBSITE_AUTH_SIGNING_KEY_ environment variable. If needed in a local debugging context, follow the instructions in the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
 
 You also need to provide a lifetime for the issued token, as well as any claims you would like included. It is required that you provide a subject claim, as shown in the example code.
+
+You can also simplify the client code to use the `loginAsync()` method (naming may vary across platforms) instead of a manual HTTP POST. You would use the overload which takes an additional token parameter, which correlates to the assertion object you would POST. The provider in this case should be a custom name of your choosing. Then on the server, your login action should be on the _/.auth/login/{customProviderName}_ path which includes this custom name. To put your controller on this path, add a route to your HttpConfiguration before applying your MobileAppConfiguration. 
+
+		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" }); 
+		
+Replace the string "CustomAuth" above with the name of the contoller hosting your login action.
+
+>[AZURE.TIP] Using the loginAsync() approach ensures that the authentication token is attached to every subsequent call to the service.
 
 ###<a name="user-info"></a>How to: Retrieve authenticated user information
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/07/2016"
    ms.author="v-sharos" />
 
 # Deploy the StorSimple Snapshot Manager MMC snap-in
@@ -23,11 +23,15 @@ The StorSimple Snapshot Manager is a Microsoft Management Console (MMC) snap-in 
 
 This tutorial describes configuration requirements, as well as procedures for installing, removing, and upgrading StorSimple Snapshot Manager.
 
+>[AZURE.NOTE] 
+>
+>- You cannot use StorSimple Snapshot Manager to manage Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices).
+>
+>- If you plan to install StorSimple Update 2 on your StorSimple device, be sure to download the latest version of StorSimple Snapshot Manager and install it **before you install StorSimple Update 2**. The latest version of StorSimple Snapshot Manager is backward compatible and works with all released versions of Microsoft Azure StorSimple. If you are using the previous version of StorSimple Snapshot Manager, you will need to update it (you do not need to uninstall the previous version before you install the new version).
+
 ## StorSimple Snapshot Manager installation
 
-StorSimple Snapshot Manager can be installed on computers that are running the Windows Server® 2008 R2 SP1, Windows Server 2012, or Windows Server 2012 R2 operating system.
-
->[AZURE.NOTE] On servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0. 
+StorSimple Snapshot Manager can be installed on computers that are running the Windows Server® 2008 R2 SP1, Windows Server 2012, or Windows Server 2012 R2 operating system. On servers running Windows 2008 R2, you must also install Windows Server 2008 SP1 and Windows Management Framework 3.0. 
 
 Before you install or upgrade the StorSimple Snapshot Manager snap-in for the Microsoft Management Console (MMC), make sure that the Microsoft Azure StorSimple device and host server are configured correctly. 
 
@@ -49,7 +53,7 @@ The following steps provide a high-level overview of configuration tasks that yo
     - Windows Server 2012
     - Windows Server 2012 R2
  
-    >[AZURE.NOTE] For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine. 
+    For a StorSimple virtual device, the host must be a Microsoft Azure Virtual Machine. 
 
 3. Make sure that you meet all the Microsoft Azure StorSimple configuration requirements. For details, go to [Deployment prerequisites](storsimple-deployment-walkthrough.md#deployment-prerequisites).
 
