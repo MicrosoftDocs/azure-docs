@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
+   ms.date="01/08/2016"
+   ms.author="barbkess;jrj;mausher;nicw"/>
 
 # Performance and scale overview
 By putting your Data Warehouse in the cloud, you no longer have to deal with low-level hardware issues. Gone are the days where you need to research what type of processors, how much memory or what type of storage you need to have great performance in your data warehouse. Instead, SQL Data Warehouse asks you this question: how fast do you want to analyze your data? 
@@ -74,7 +74,7 @@ Please refer to the [development overview][] article to get some guidance on bui
 [performance and scale]: sql-data-warehouse-performance-scale.md
 [concurrency model]: sql-data-warehouse-develop-concurrency.md
 [designing tables]: sql-data-warehouse-develop-table-design.md
-[choose a hash distribution key for your table]: sql-data-warehouse-develop-hash-distribution-key
+[choose a hash distribution key for your table]: sql-data-warehouse-develop-hash-distribution-key.md
 [statistics to improve performance]: sql-data-warehouse-develop-statistics.md
 [development overview]: sql-data-warehouse-overview-develop.md
 

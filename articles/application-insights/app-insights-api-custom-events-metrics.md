@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -666,7 +666,7 @@ There are some limits on the number of metrics and events per application (that 
  * Up to 500 data points per second for all other data, including both the standard telemetry sent by the SDK modules, and custom events, metrics and other telemetry sent by your code. (100 per second for the free pricing tier.)
 1. Monthly total volume of data, depending on your [pricing tier](app-insights-pricing.md).
 1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  Metrics and property names are global per instrumentation key, not scoped to data type.
-2.	Properties can be used for filtering and group-by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
+2.	Properties can be used for filtering and group-by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search but no longer for filters.
 3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values". The original value can still be used for full text search and filtering.
 
 *How can I avoid hitting the data rate limit?*
@@ -705,9 +705,9 @@ There are some limits on the number of metrics and events per application (that 
 
 
 
-* *Is there a REST API?*
+* *Is there a REST API to get data from the portal?*
 
-    Yes, but we aren't publishing it yet.
+    Yes, coming soon. In the meantime, use [continuous export](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Next steps
 

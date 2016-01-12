@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="01/08/2016"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -43,11 +43,11 @@ When you install the synchronization services, you can leave the optional config
 ![Required Components](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
 
-Optional Configuration  | Description
-------------- | ------------- |
-SQL Server Name | Allows you to specify the SQL Server name and the instance name.  Choose this option if you already have a database server that you would like to use.
-Service Account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server you need a service account in the domain and know the password. In those cases, enter the service account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
-Permissions | By default Azure AD Connect will create four groups local to the server when the synchronization services are installed.  These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group.  If you wish to specify your own groups you can do so here. The groups must be local on the server and cannot be located in the domain. |
+| Optional Configuration  | Description |
+| ------------- | ------------- |
+| Use an existing SQL Server | Allows you to specify the SQL Server name and the instance name.  Choose this option if you already have a database server that you would like to use. If your SQL Server does not have browsing enabled and you must specify a port number then in the **Instance Name** box enter the instance name followed by a comma and port number.  |
+| Use an existing service account | By default Azure AD Connect will create a local service account for the synchronization services to use. The password is generated automatically and unknown to the person installing Azure AD Connect. If you use a remote SQL server you need a service account in the domain and know the password. In those cases, enter the service account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created. See [Azure AD Connect accounts and permissions](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation) |
+| Specify custom sync groups | By default Azure AD Connect will create four groups local to the server when the synchronization services are installed.  These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group.  If you wish to specify your own groups you can do so here. The groups must be local on the server and cannot be located in the domain. |
 
 
 ## User sign-in
@@ -104,12 +104,14 @@ My own attribute|This option allows you to select your own attribute.  **Limitat
 
 
 ### Sync filtering  based on groups
-The filtering on groups feature allows you to run a small pilot where only a small subset of objects should be created in Azure AD and Office 365. To use this feature, created a group in your Active Directory and add the users and groups which should be synchronized with Azure AD as direct members. You can later add and remove users to this group to maintain the list of objects which should be present in Azure AD.
-To use this feature, in the customized path you will see this page:
+The filtering on groups feature allows you to run a small pilot where only a small subset of objects should be created in Azure AD and Office 365. To use this feature, created a group in your Active Directory and add the users and groups which should be synchronized with Azure AD as direct members. You can later add and remove users to this group to maintain the list of objects which should be present in Azure AD. All objects you want to synchronize must be a direct member of the group. This will include users, groups, contacts, and computers/devices. Nested group membership will not be resolved; a group member will only include the group itself and not its members.
 
+To use this feature, in the customized path you will see this page:
 ![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/filter2.png)
 
 >[AZURE.WARNING] This feature is only intended to support a pilot deployment and should not be used in a full-blow production deployment.
+
+In a full-blown production deployment it is going to be hard to maintain a single group with all objects to synchronize. Instead you should use one of the methods in [Configure filtering](active-directory-aadconnectsync-configure-filtering.md).
 
 ### Optional Features
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/21/2015"
+   ms.date="01/07/2015"
    ms.author="jgao"/>
 
 # Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio
@@ -60,7 +60,7 @@ You have uploaded some data in the **Prerequisite** section earlier in the tutor
 
 In case you want to use your own data, here are the procedures for uploading data from the Data Lake Tools.
 
-**To upload the file to the dependent Azure Data Lake account**
+**To upload files to the dependent Azure Data Lake account**
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**. You shall see the default Data Lake Storage account, and the linked Data Lake Storage accounts, and the linked Azure Storage accounts. The default Data Lake account has a label "Default Storage Account".
 2. Right-click the default Data Lake Storage account, and then click **Explorer**.  It opens the Data Lake Tools for Visual Studio Explorer pane.  In the left, it shows a tree view, the content view is on the right.
@@ -69,11 +69,11 @@ In case you want to use your own data, here are the procedures for uploading dat
 
 	![U-SQL Visual Studio project U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-upload-files.png)
 
-**To upload the file to a Azure Blob storage account**
+**To upload files to a linked Azure Blob storage account**
 
 1. From **Server Explorer**, expand **Azure**, expand **Data Lake Analytics**, expand your Data Lake Analytics account, expand **Storage Accounts**. You shall see the default Data Lake Storage account, and the linked Data Lake Storage accounts, and the linked Azure Storage accounts. 
 2. Expand the Azure Storage Account.
-3. Right-click the container where you want to upload files, and then click **Explorer**.
+3. Right-click the container where you want to upload files, and then click **Explorer**. If you don't have a container, you must first create one using the Azure portal, Azure PowerShell, or other tools.
 4. Browse to the folder where you want to upload files, 
 5. Right-click any blank space, and then click **Upload**. 
 
@@ -220,6 +220,10 @@ You will see a *Local* account in Visual Studio, and the installer creates a *Da
 - For a certain script: if a relative path is referenced in input/output paths, we will look up the DataRoot (as well as the script’s path if the it’s input)
 - The DataRoot folder will NOT be referenced if you are trying to register an assembly and use a relative path (see “Use assemblies when doing local run” part for more details)
 
+The following video demonstrates the U-SQL local run feature:
+
+>[AZURE.VIDEO usql-localrun]
+
 ### Known issues and limitations
 
 - U-SQL Local Run does not support querying filesets locally. See [U-SQL filesets](https://msdn.microsoft.com/library/azure/mt621294.aspx). This will be resolved in the future.
@@ -268,8 +272,6 @@ The following procedure only works in Visual Studio 2015. In older Visual Studio
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
 3.	Set breakpoints in the C# code.
 4.	Press **F5** to debug the script with referencing the C# dll locally.  
- 
-
 
 ##See also
 

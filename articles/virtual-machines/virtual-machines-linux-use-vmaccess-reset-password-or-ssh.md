@@ -69,7 +69,7 @@ Step 1: Create a file named PrivateConf.json with these contents, substituting f
 	{
 	"username":"currentusername",
 	"password":"newpassword",
-	"expiration":"2016-01-01",
+	"expiration":"2016-01-01"
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
@@ -82,7 +82,7 @@ Step 1: Create a file named PrivateConf.json with these contents, substituting f
 
 	{
 	"username":"currentusername",
-	"ssh_key":"contentofsshkey",
+	"ssh_key":"contentofsshkey"
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
@@ -96,7 +96,7 @@ Step 1: Create a file named PrivateConf.json with these contents, substituting f
 	{
 	"username":"currentusername",
 	"ssh_key":"contentofsshkey",
-	"password":"newpassword",
+	"password":"newpassword"
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
@@ -122,7 +122,7 @@ If the SSH configuration is in an undesired state, you might also lose access to
 Step 1: Create a file named PrivateConf.json with this content.
 
 	{
-	"reset_ssh":"True",
+	"reset_ssh":"True"
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
@@ -136,7 +136,7 @@ If you want to delete a user account without logging into to the VM directly, yo
 Step 1: Create a file named PrivateConf.json with this content, substituting for the placeholder value.
 
 	{
-	"remove_user":"usernametoremove",
+	"remove_user":"usernametoremove"
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".

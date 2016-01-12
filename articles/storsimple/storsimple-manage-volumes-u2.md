@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes (Update 2)
@@ -108,31 +108,28 @@ You [created a volume](storsimple-deployment-walkthrough-u2.md#step-6-create-a-v
 
 3. Click **Add** at the bottom of the page. The Add a volume wizard starts.
 
-     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes-u2/AddVolume1.png)
+     ![Add volume wizard Basic Settings](./media/storsimple-manage-volumes-u2/TieredVolEx.png)
 
 4. In the Add a volume wizard, under **Basic Settings**, do the following:
 
   1. Supply a **Name** for your volume.
-  2. Select a **Usage Type** from the dropdown list. For workloads that require data to be available locally on the device at all times, select **Locally Pinned**. For all other types of data, select **Tiered**. (**Tiered** is the default.)
+  2. Select a **Usage Type** from the drop-down list. For workloads that require data to be available locally on the device at all times, select **Locally Pinned**. For all other types of data, select **Tiered**. (**Tiered** is the default.)
   3. If you selected **Tiered** in step 2, you can select the **Use this volume for less frequently accessed archival data** check box to configure an archival volume.
   4. Enter the **Provisioned Capacity** for your volume in GB or TB. See [Provisioned capacity](#provisioned-capacity) for maximum sizes for each device and volume type. Look at the **Available Capacity** to determine how much storage is actually available on your device.
 
-    If you are configuring a locally pinned volume, you will see the following message.
+5. Click the arrow icon![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png). If you are configuring a locally pinned volume, you will see the following message.
 
-    ![Change Volume type message](./media/storsimple-manage-volumes-u2/LocalVolMessage.png)
-
-    The following page appears.
+    ![Change Volume type message](./media/storsimple-manage-volumes-u2/LocalVolEx.png)
+   
+5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)again to go to the **Additional Settings** page.
 
     ![Add Volume wizard Additional Settings](./media/storsimple-manage-volumes-u2/AddVolume2.png)<br>
-   
-5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png)to go to the **Additional Settings** page.
 
 6. Under **Additional Settings**, add a new access control record (ACR):
   
-  1. Select an access control record (ACR) from the dropdown list. Alternatively, you can add a new ACR. ACRs determine which hosts can access your volumes by matching the host IQN with that listed in the record. If you do not specify an ACR, you will see the following message.
+  1. Select an access control record (ACR) from the drop-down list. Alternatively, you can add a new ACR. ACRs determine which hosts can access your volumes by matching the host IQN with that listed in the record. If you do not specify an ACR, you will see the following message.
 
         ![Specify ACR](./media/storsimple-manage-volumes-u2/SpecifyACR.png)
-
 
   2. We recommend that you select the **Enable a default backup for this volume** checkbox.
   3. Click the check icon ![Check icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png) to create the volume with the specified settings.
@@ -206,18 +203,16 @@ You might want to change a locally pinned volume to a tiered volume if you need 
 
 3. Select a volume, and at the bottom of the page, click **Modify**. The Modify volume wizard starts.
 
-4. On the **Basic Settings** page, change the usage type by selecting the new type from the **Usage Type** dropdown list.
+4. On the **Basic Settings** page, change the usage type by selecting the new type from the **Usage Type** drop-down list.
 
     - If you are changing the type to **Locally pinned**, StorSimple will check to see if there is sufficient capacity.
     - If you are changing the type to **Tiered** and this volume will be used for archival data, select the **Use this volume for less frequently accessed archival data** check box.
 
-    ![Archive checkbox](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+        ![Archive checkbox](./media/storsimple-manage-volumes-u2/ModifyTieredVolEx.png)
 
-5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) to go to the **Additional Settings** page.
+5. Click the arrow icon ![Arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) to go to the **Additional Settings** page. If you are configuring a locally pinned volume, the following message appears.
 
-    The following message appears.
-
-    ![Change Volume type message](./media/storsimple-manage-volumes-u2/TypeChangeMessage.png)
+    ![Change Volume type message](./media/storsimple-manage-volumes-u2/ModifyLocalVolEx.png)
 
 6. Click the arrow icon ![arrow icon](./media/storsimple-manage-volumes-u2/HCS_ArrowIcon.png) again to continue.
 
@@ -280,9 +275,7 @@ Perform the following steps to enable or disable monitoring for a volume.
 
 4. At the bottom of the page, click **Modify**.
 
-5. In the Modify Volume wizard, under **Basic Settings**, select **Enable** or **Disable** from the **Monitoring** dropdown list.
-
-    ![Archive checkbox](./media/storsimple-manage-volumes-u2/ModifyVolume1.png)
+5. In the Modify Volume wizard, under **Basic Settings**, select **Enable** or **Disable** from the **Monitoring** drop-down list.
 
 ## Next steps
 

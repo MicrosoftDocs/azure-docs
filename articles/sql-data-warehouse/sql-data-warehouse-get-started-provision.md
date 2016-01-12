@@ -1,19 +1,20 @@
 <properties
-	pageTitle="Create a SQL Data Warehouse database in the Azure Portal | Microsoft Azure"
-	description="Learn how to create an Azure SQL Data Warehouse in the Azure Portal"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Create a SQL Data Warehouse database in the Azure Portal | Microsoft Azure"
+   description="Learn how to create an Azure SQL Data Warehouse in the Azure Portal"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # Create a SQL Data Warehouse

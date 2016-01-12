@@ -21,7 +21,7 @@ The [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.s
 
 The GSM and LSM track the mapping of each database in a sharded environment. Occasionally, a break occurs between the GSM and the LSM. in that case, use the RecoveryManager class to detect and repair the break.
 
-The RecoveryManager class is part of the [Elastic Database client library](sql-database-elastic-database-client-library). 
+The RecoveryManager class is part of the [Elastic Database client library](sql-database-elastic-database-client-library.md). 
 
 
 ![Shard map][1]
