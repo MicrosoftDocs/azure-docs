@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="1/12/20165" 
+    ms.date="1/12/2016" 
     ms.author="elizapo" />
 
 # Securing access to Azure RemoteApp, and beyond
