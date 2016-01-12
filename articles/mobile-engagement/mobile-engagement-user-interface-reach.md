@@ -62,6 +62,7 @@ Here is how you should interpret these details:
 	3. If the notification is an in-app notification with a web-view then the app user clicks on a URL in the web view [Android Only]
 
 	*The app user can exit a notification in either of the following ways:*
+
 	
 	1. Clicking the close button on the notification directly. 
 	2. Swiping away or deleting the notification. 
