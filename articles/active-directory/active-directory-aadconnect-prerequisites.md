@@ -29,7 +29,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
 
 ### On-premises servers and environment
 - The AD schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
-- If you plan to use the feature **password writeback** the Domain Controllers must be on Windows Server 2008 (with latest SP) or later.
+- If you plan to use the feature **password writeback** the Domain Controllers must be on Windows Server 2008 (with latest SP) or later. If your DCs are on 2008 (pre-R2) then you must also apply [hotfix KB2386717](http://support.microsoft.com/kb/2386717).
 - Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials. The server must be using Windows Server standard or better.
 - Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server if using express settings. If you use custom settings, the server can also be stand-alone and does not have to be joined to a domain.
 - If you install Azure AD Connect on Windows Server 2008, make sure to apply the latest hotfixes from Windows Update. The installation will not be able to start with an unpatched server.

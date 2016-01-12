@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/11/2016"
    ms.author="shoatman;billmath"/>
 
 # Upgrading Windows Azure Active Directory sync (DirSync) to Azure AD Connect
@@ -103,6 +103,7 @@ To proceed with an in-place upgrade, click the checkbox next to this message: **
 To do a [parallel deployment](#parallel-deployment) instead you will export the DirSync configuration settings and move those to the new server.
 5. Provide the password for the account you currently use to connect to Azure AD. This must be the account currently used by DirSync.
 ![Enter your Azure AD credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)
+If you receive an error and have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 6. Provide an enterprise admin account for Active Directory.
 ![Enter your ADDS credentials](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 7. You're now ready to configure.  When you click **Upgrade**, DirSync will be uninstalled and Azure AD Connect will be configured and begin synchronizing.
