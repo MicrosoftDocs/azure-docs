@@ -160,7 +160,7 @@ In addition to the Virtual Array and other components, the StorSimple solution u
 
 The Virtual Array uses a new tiering mechanism to manage stored data across the Virtual Array and the cloud. There are only two tiers: the local Virtual Array and Azure cloud storage. The StorSimple Virtual Array automatically arranges data into the tiers based on a heat map, which tracks current usage, age, and relationships to other data. Data that is most active (hottest) is stored locally, while less active and inactive data is automatically migrated to the cloud. (All backups are stored in the cloud.) StorSimple adjusts and rearranges data and storage assignments as usage patterns change. For example, some information might become less active over time. As it becomes progressively less active, it is tiered out to the cloud. If that same data becomes active again, it is tiered in to the Storage Array.
 
-Data for a particular tiered share or volume is guaranteed its own local tier space. (approximately 10% of the total provisioned space for that share or volume). While this reduces the available storage on the virtual device for that share or volume, it ensures that tiering for one share or volume will not be affected by the tiering needs of other shares or volumes. Thus a very busy workload on one share or volume cannot force all other workloads to the cloud. See the following illustration.
+Data for a particular tiered share or volume is guaranteed its own local tier space. (approximately 10% of the total provisioned space for that share or volume). While this reduces the available storage on the virtual device for that share or volume, it ensures that tiering for one share or volume will not be affected by the tiering needs of other shares or volumes. Thus a very busy workload on one share or volume cannot force all other workloads to the cloud. 
 
 ![automatic storage tiering](./media/storsimple-ova-overview/automatic-storage-tiering.png)
 
@@ -189,6 +189,6 @@ StorSimple data protection features enable you to create on-demand backups. Addi
 
 ## Next steps
 
-[Prepare the Virtual Array portal](storsimple-ova-deploy1-portal-prep.md).
+Learn how to [prepare the Virtual Array portal](storsimple-ova-deploy1-portal-prep.md).
 
 
