@@ -72,7 +72,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
     5.1 **Install python**
 
-		# pkg install python27 py27-asn1
+		# pkg install python27 
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
     5.2 **Install wget**
