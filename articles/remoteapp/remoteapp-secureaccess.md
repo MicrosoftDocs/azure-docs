@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="12/17/2015" 
+    ms.date="1/12/20165" 
     ms.author="elizapo" />
 
 # Securing access to Azure RemoteApp, and beyond
@@ -22,7 +22,7 @@ In this article we will give an overview of how an administrator can set up a se
 
 There are 3 major areas the admin needs to look at:
 
-![Azure RemoteApp conditional access considerations](./media/remoteapp-secureaccess/ra-secureoverview.png)
+![Azure RemoteApp conditional access considerations](./media/remoteapp-secureaccess/ra-conditionalenvironment.png)
 
 Read on for information and answers to these questions.
 
@@ -113,7 +113,7 @@ With Azure RemoteApp you need to configure your VNet first, and then use it duri
 
 ## The complete solution
 The diagram below shows the complete solution where we have built a secure access channel from the end user, through Azure RemoteApp (ARA), into the backend resource.
-![Secure Azure RemoteApp](./media/remoteapp-secureaccess/ra-conditionalenvironment.png)
+![Secure Azure RemoteApp](./media/remoteapp-secureaccess/ra-secureoverview.png)
 In Stage 1 we selected the users and created access rules that govern how ARA can be accessed. In the example below we only allow access for users working from the corporate network. Non-compliant users will not be able to access the ARA environment at all.
 In “Stage 2” we have exposed the backend resource only through the VNet/VPN configuration which we control. Azure RemoteApp has been placed in the same VNet. The end result is that the resource can only be accessed through the ARA environment.
 
