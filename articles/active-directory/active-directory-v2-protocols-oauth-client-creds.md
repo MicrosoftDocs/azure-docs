@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="App Model v2.0 OAuth Protocol | Microsoft Azure"
+	pageTitle="Azure AD v2.0 OAuth Client Credentials Flow | Microsoft Azure"
 	description="Building web applications using Azure AD's implementation of the OAuth 2.0 authentication protocol."
 	services="active-directory"
 	documentationCenter=""
@@ -14,139 +14,160 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
-# App model v2.0 preview: Protocols - OAuth 2.0 Authorization Code Flow
+# v2.0 Protocols - OAuth 2.0 Client Credentials Flow
 
-The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs.  Using the app model v2.0's implementation of OAuth 2.0, you can add sign in and API access to your mobile and desktop apps.  This guide is language-independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
-
-<!-- TODO: Need link to libraries -->	
+The [OAuth 2.0 client credentials grant](http://tools.ietf.org/html/rfc6749#section-4.4), sometimes referred to as "two-legged OAuth", can be used to access web hosted resources using the identity of an application.  It is commonly used for server to server interactions that must run in the background without the immediate precense of an end-user.  These types of applications are often referred to as **daemons** or **service accounts**.
 
 > [AZURE.NOTE]
-	This information applies to the v2.0 app model public preview.  For instructions on how to integrate with the generally available Azure AD service, please refer to the [Azure Active Directory Developer Guide](active-directory-developers-guide.md).
+	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAuth 2.0 specification](http://tools.ietf.org/html/rfc6749).  It is used to perform authentication and authorization in the majority of app types, including [web apps](active-directory-v2-flows.md#web-apps) and [natively installed  apps](active-directory-v2-flows.md#mobile-and-native-apps).  It enables apps to securely acquire access_tokens which can be used to access resources that are secured using the v2.0 app model.  
+In "three-legged OAuth," the client application is granted permission to access a resource on behalf of a particular user.  The permission is **delegated** from the user to the application, usually during the [consent](active-directory-v2-scopes.md) process.  However, in the client credentials flow, permissions are granted **directly** to the application itself.  When the app presents a token to a resource, the resource enforces that the app itself has authorization to perform some action - not that some user has authorization.
 
+## Get direct authorization 
+There are primarily two ways that an app can receive direct authorization to access a resource: through an access control list at the resource, or through direct application permission assignment in Azure AD.  There are several other ways a resource may choose to authorize its clients, and each resource server may choose the method that makes the most sense for its application.  These two methods are the most common in Azure AD and are reccommended for clients and resources that wish to perform the client credentials flow.
 
+### Access control lists
+A given resource provider might enforce an authorization check based on a list of application IDs that it knows and grants some particular level of access.  When the resource receives a token from the v2.0 endpoint, it can decode the token and extract the the client's Application ID from the `appid` claim or otherwise.  It can then compare that ID against some access control list (ACL) it maintains.  The granularity and method of the access control list can vary dramatically from resource to resource.
 
-## Request an Authorization Code
-The authorization code flow begins with the client directing the user to the `/authorize` endpoint.  In this request, the client indicates the permissions it needs to acquire from the user:
+A common use case for such whitelisting is test runners for a web application or web api.  The web api may only grant a subset of its full permissions to its various clients.  But in order to run end to end tests on the api, a test client is created that acquires tokens from the v2.0 endpoint and sends them to the api.  The api can then whitelist the test client's Application ID for full access to the api's entire functionality.
+
+This type of authorization is common for daemons and service accounts that need to access data owned by consumer users with personal Microsoft accounts.  For data owned by organizations, it's reccommended that you acquire the necessary authorization direct application perimssions.
+
+### Direct application permissions
+Instead of using ACLs, APIs can expose a set of **direct application permissions** that can be granted to an application.  A direct application permission is granted to an application by an administrator of an organization, and can only be used to access data owned by that organization and its employees.  For example, the Office 365 Unified APIs exposes several direct application permissions:
+
+- Reading mail in all mailboxes
+- Reading and writing mail in all mailboxes
+- Sending mail as any user
+- Reading directory data
+- [+ more](https://graph.microsoft.io)
+
+In order to acquire these permissions in your app, you can perform the following steps.
+
+#### Request the permissions in the app registration portal
+
+- Navigate to your application in [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or [create an app](active-directory-v2-app-registration.md) if you haven't already.  You will need to ensure that your application has created at least one Application Secret.
+- Locate the **Direct Application Permissions** section and add the permissions that your app requires.
+- Make sure to **Save** the app registration
+
+#### Recommended: sign the user into your app
+
+Typically when building an application that uses direct application permissions, the app will need to have a page/view that allows the admin to approve the app's permissions.  This page can be part of the app's sign-up flow, part of the app's settings, or a dedicated "connect" flow.  In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
+
+Signing the user into the app allows you to identify the organziation to which the user belongs before asking them to approve the direct application permissions.  While not strictly necessary, it can help you create a more intuitive experience for your organizational users.  To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
+
+#### Request the permissions from a directory admin
+
+When you're ready to request permissions from the company's admin, you can redirect the user to the v2.0 **app provisioning endpoint**.
 
 ```
 // Line breaks for legibility only
 
-GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e		  // Your registered Application Id
-&response_type=code
-&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob 	  // Your registered Redirect Uri, url encoded
-&response_mode=query							        // 'query', 'form_post', or 'fragment'
-&scope=											     // See table below
-openid%20
-offline_access%20
-https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20
-https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
-&state=12345						 				   // Any value provided by your app
+GET https://login.microsoftonline.com/{tenant}/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissons
+```
+
+```
+// Pro Tip: Try pasting the below request in a browser!
+```
+
+```
+https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
 | Parameter | | Description |
-| ----------------------- | ------------------------------- | ----------------------- |
+| ----------------------- | ------------------------------- | --------------- |
+| tenant | required | The directory tenant that you want to request permission from.  Can be provided in guid or friendly name format.  If you do not know which tenant the user belongs to and want to let them sign in with any tenant, use `common`. |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
-| response_type | required | Must include `code` for the authorization code flow. |
-| redirect_uri | required | The redirect_uri of your app, where authentication responses can be sent and receieved by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
-| scope | required | A space-separated list of scopes.  A single scope value indicates to the v2.0 endpoint both the resource and the permissions to that resource being requested.  Scopes take the form `<app identifier URI>/<scope value>`.  In the example above, the app identifier for the Azure AD Graph API is used, `https://graph.windows.net`, and two permissions are requested: `directory.read` and `directory.write`.  For a more detailed explanation of scopes, refer to the [app model v2.0 scope reference](active-directory-v2-scopes.md).  |
-| response_mode | recommended | Specifies the method that should be used to send the resulting authorization_code back to your app.  Can be one of 'query', 'form_post', or 'fragment'.
-| state | recommended | A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  A randomly generated unique value is typically used for preventing cross-site request forgery attacks.  The state is also used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| prompt | optional | Indicates the type of user interaction that is required.  The only valid values at this time are 'login', 'none', and 'consent'.  `prompt=login` will force the user to enter their credentials on that request, negating single-sign on.  `prompt=none` is the opposite - it will ensure that the user is not presented with any interactive prompt whatsoever.  If the request cannot be completed silently via single-sign on, the v2.0 endpoint will return an error.  `prompt=consent` will trigger the OAuth consent dialog after the user signs in, asking the user to grant permissions to the app. |
-| login_hint | optional | Can be used to pre-fill the username/email address field of the sign in page for the user. |
+| redirect_uri | required | The redirect_uri where you want the response to be sent for your app to handle.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded and can have additional path segments. |
+| state | recommended | A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
-At this point, the user will be asked to enter their credentials and complete the authentication.  The v2.0 endpoint will also ensure that the user has consented to the permissions indicated in the `scope` query parameter.  If the user has not consented to any of those permissions, it will ask the user to consent to the required permissions.  Details of [permissions, consent, and multi-tenant apps are provided here](active-directory-v2-scopes.md).
+At this point, Azure AD will enforce that only a tenant administrator can sign in to complete the request.  The administrator will be asked to approve all of the direct application permissions that you have requested for your app in the registration portal. 
 
-Once the user authenticates and grants consent, the v2.0 endpoint will return a response to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
-
-A successful response using `response_mode=query` looks like:
+##### Successful response
+If the admin approves the permissions for your application, the successful response will be:
 
 ```
-GET urn:ietf:wg:oauth:2.0:oob?
-code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq... 	// the authorization_code, truncated
-&session_state=7B29111D-C220-4263-99AB-6F6E135D75EF			   // a value generated by the v2.0 endpoint
-&state=12345												      // the value provided in the request
+GET http://localhost/myapp/permissions?tenantId=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345
 ```
 
 | Parameter | Description |
-| ----------------------- | ------------------------------- |
-| code | The authorization_code that the  app requested. The  app can use the authorization code to request an access token for the target resource.  Authorization_codes are very short lived, typically they expire after about 10 minutes. |
-| session_state | A unique value that identifies the current user session. This value is a GUID, but should be treated as an opaque value that is passed without examination. |
-| state | If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
+| ----------------------- | ------------------------------- | --------------- |
+| tenantId | The directory tenant that granted your application the permissions it requested, in guid format. |
+| state | A value included in the request that will also be returned in the token response.  It can be a string of any content that you wish.  The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
-Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
+
+##### Error response
+If the admin does not approve the permissions for your application, the failed response will be:
 
 ```
-GET urn:ietf:wg:oauth:2.0:oob?
-error=access_denied
-&error_description=the+user+canceled+the+authentication
+GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
 | Parameter | Description |
-| ----------------------- | ------------------------------- |
+| ----------------------- | ------------------------------- | --------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
-| error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
+| error_description | A specific error message that can help a developer identify the root cause of an error.  |
 
-## Request an Access Token
-Now that you've acquired an authorization_code and have been granted permission by the user, you can redeem the `code` for an `access_token` to the desired resource, by sending a `POST` request to the `/token` endpoint:
+Once you've received a successful response from the app provisioning endpoint, your app has gained the direct application permissions it requested.  You can now move onto requesting a token for the desired resource.
+
+## Get a token
+Once you've acquired the necessary authrorization for your application, you can proceed with acquiring access tokens for APIs.  To get a token using the client credentials grant, send a POST request to the `/token` v2.0 endpoint:
 
 ```
-POST common/v2.0/oauth2/token HTTP/1.1
-Host: https://login.microsoftonline.com
-Content-Type: application/json
+POST /common/oauth2/v2.0/token HTTP/1.1
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
 
-{
-	"grant_type": "authorization_code",
-	"client_id": "2d4d11a2-f814-46a7-890a-274a72a7309e",
-	"scope": "https://graph.windows.net/directory.read https://graph.windows.net/directory.write",
-	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq..."
-	"client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
-}
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials
+```
+
+```
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
 | Parameter | | Description |
-| ----------------------- | ------------------------------- | --------------------- |
+| ----------------------- | ------------------------------- | --------------- |
 | client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
-| grant_type | required | Must be `authorization_code` for the authorization code flow. |
-| scope | required | A space-separated list of scopes.  The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the first leg.  If the scopes specified in this request span multiple resource servers, then the v2.0 endpoint will return a token for the resource specified in the first scope.  For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](active-directory-v2-scopes.md).  |
-| code | required | The authorization_code that you acquired in the first leg of the flow.   |
-| client_secret | required for web apps | The application secret that you created in the app registration portal for your app.  It should not be used in a native  app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. |
+| scope | required | The value passed for the `scope` parameter in this request should be the resource identifier (App ID URI) of the desired resource, affixed with the `.default` suffix.  So for the Microsoft Graph example given, the value should be `https://graph.microsoft.com/.default`.  This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones pertaining to the desired resource. |
+| client_secret | required | The Application Secret that you generated in the registration portal for your app. |
+| grant_type | required | Must be `client_credentials`. | 
 
-A successful token response will look like:
+#### Successful response
+A successful response will take the form:
 
 ```
 {
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-	"token_type": "Bearer",
-	"expires_in": "3600",
-	"scope": "https://graph.windows.net/directory.read https://graph.windows.net/directory.write",
-	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
-	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
-	"id_token_expires_in": "3599"
+  "token_type": "Bearer",
+  "expires_in": "3599",
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBP..."
 }
 ```
+
 | Parameter | Description |
 | ----------------------- | ------------------------------- |
 | access_token | The requested access token. The  app can use this token to authenticate to the secured resource, such as a web API. |
-| token_type | Indicates the token type value. The only type that Azure AD supports is Bearer  |
+| token_type | Indicates the token type value. The only type that Azure AD supports is `Bearer`.  |
 | expires_in | How long the access token is valid (in seconds). |
-| scope | The scopes that the access_token is valid for. |
-| refresh_token |  An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [v2.0 token reference](active-directory-v2-tokens.md).  |
-| id_token | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 app model token reference](active-directory-v2-tokens.md). |
-| id_token_expires_in | How long the id token is valid (in seconds). |
 
-
-Error responses will look like:
+#### Error response
+An error response will take the form:
 
 ```
 {
-	"error": "access_denied",
-	"error_description": "The user revoked access to the app.",
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/.default is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7"
 }
 ```
 
@@ -154,79 +175,28 @@ Error responses will look like:
 | ----------------------- | ------------------------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
+| error_codes | A list of STS specific error codes that can help in diagnostics.  |
+| timestamp | The time at which the error occurred. |
+| trace_id | A unique identifier for the request that can help in diagnostics.  |
+| correlation_id | A unique identifier for the request that can help in diagnostics across components. |
 
-## Use the Access Token
-Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs by including it in the `Authorization` header:
+## Use a token
+Now that you've acquired a token, you can use that token to make requests to the resource.  When the token expires, simply repeat the request to the `/token` endpoint to acquire a fresh access token.
 
 ```
-GET /contoso.onmicrosoft.com/users
-Host: https://graph.windows.net
+GET /v1.0/me/messages
+Host: https://graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 ```
 
-## Refresh the Access Token
-Access_tokens are short lived, and you must refresh them after they expire to continue accessing resources.  You can do so by submitting another `POST` request to the `/token` endpoint, this time providing the `refresh_token` instead of the `code`:
-
 ```
-POST common/v2.0/oauth2/token HTTP/1.1
-Host: https://login.microsoftonline.com
-Content-Type: application/json
-
-{
-	"grant_type": "refresh_token",
-	"client_id": "2d4d11a2-f814-46a7-890a-274a72a7309e",
-	"scope": "https://graph.windows.net/directory.read https://graph.windows.net/directory.write",
-	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
-	"client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
-}
+// Pro Tip: Try the below command out! (but replace the token with your own)
 ```
 
-| Parameter | | Description |
-| ----------------------- | ------------------------------- | -------- |
-| client_id | required | The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) assigned your app. |
-| grant_type | required | Must be `refresh_token` for this leg of the authorization code flow. |
-| scope | required | A space-separated list of scopes.  The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the original authorization_code request leg.  If the scopes specified in this request span multiple resource servers, then the v2.0 endpoint will return a token for the resource specified in the first scope.  For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](active-directory-v2-scopes.md).  |
-| refresh_token | required | The refresh_token that you acquired in the second leg of the flow.   |
-| client_secret | required for web apps | The application secret that you created in the app registration portal for your app.  It should not be used in a native  app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. |
-
-A successful token response will look like:
-
 ```
-{
-	"access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
-	"token_type": "Bearer",
-	"expires_in": "3600",
-	"scope": "https://graph.windows.net/directory.read https://graph.windows.net/directory.write",
-	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
-	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
-	"id_token_expires_in": "3599"
-}
-```
-| Parameter | Description |
-| ----------------------- | ------------------------------- |
-| access_token | The requested access token. The  app can use this token to authenticate to the secured resource, such as a web API. |
-| token_type | Indicates the token type value. The only type that Azure AD supports is Bearer  |
-| expires_in | How long the access token is valid (in seconds). |
-| scope | The scopes that the access_token is valid for. |
-| refresh_token |  A new OAuth 2.0 refresh token. You should replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible.  |
-| id_token | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 app model token reference](active-directory-v2-tokens.md). |
-| id_token_expires_in | How long the id token is valid (in seconds). |
-
-Error responses will look like:
-
-```
-{
-	"error": "access_denied",
-	"error_description": "The user revoked access to the app.",
-}
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-| Parameter | Description |
-| ----------------------- | ------------------------------- |
-| error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
-| error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
+## Summary diagram
 
-## Summary
-At a high level, the entire authentication flow for a native/mobile application looks a bit like this:
-
-![OAuth Auth Code Flow](../media/active-directory-v2-flows/convergence_scenarios_native.png)
+![Client Credentials Flow](../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)

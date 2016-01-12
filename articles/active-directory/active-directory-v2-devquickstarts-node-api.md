@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 Node.js Web API | Microsoft Azure"
+	pageTitle="Azure AD v2.0 NodeJS Web API | Microsoft Azure"
 	description="How to build a NodeJS Web API accepts tokens from both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="brandwe"/>
 
 # Secure a Web API using node.js
@@ -33,7 +33,7 @@ The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQ
 The completed application is provided at the end of this tutorial as well.
 
 
-## 1. Register an App
+## 1. Register an app
 Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
 
 - Copy down the **Application Id** assigned to your app, you'll need it soon.

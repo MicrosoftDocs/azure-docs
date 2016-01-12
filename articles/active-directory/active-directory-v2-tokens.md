@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2 Token reference | Microsoft Azure"
+	pageTitle="Azure AD v2.0 token reference | Microsoft Azure"
 	description="The types of tokens and claims emitted by the v2.0 Endpoint"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 # V2.0 token reference
@@ -23,7 +23,7 @@ The v2.0 endpoint emits several types of security tokens in the processing of ea
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-## Types of Tokens
+## Types of tokens
 
 The v2.0 endpoint supports the [OAuth 2.0 authorization protocol](active-directory-v2-protocols.md), which makes use of both access_tokens and refresh_tokens.  It also supports authentication and sign-in via [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow), which introduces a third type of token, the id_token.  Each of these tokens is represented as a "bearer token".
 
@@ -31,7 +31,7 @@ A bearer token is a lightweight security token that grants the “bearer” acce
 
 Many of the tokens issued by the v2.0 endpoint are implemented as Json Web Tokens, or JWTs.  A JWT is a compact, URL-safe means of transferring information between two parties.  The information contained in JWTs are known as "claims", or assertions of information about the bearer and subject of the token.  The claims in JWTs are JSON objects encoded and serialized for transmission.  Since the JWTs issued by the v2.0 endpoint are signed, but not encrypted, you can easily inspect the contents of a JWT for debugging purposes.  There are several tools available for doing so, such as [calebb.net](https://calebb.net). For more information on JWTs, you can refer to the [JWT specification](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-## Id_Tokens
+## Id_tokens
 
 Id_tokens are a form of sign-in security token that your app receives when performing authentication using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  They are represented as [JWTs](#types-of-tokens), and contain claims that you can use for signing the user into your app.  You can use the claims in an id_token as you see fit - commonly they are used for displaying account information or making access control decisions in an app.  The v2.0 endpoint only issues one type of id_token, which has a consistent set of claims regardless of the type of user that has signed in.  That is to say that the format and content of the id_tokens will be the same for both personal Microsoft Account users and work or school accounts.
 
@@ -39,7 +39,7 @@ Id_tokens are signed, but not encrypted at this time.  When your app receives an
 
 Full details on the claims in id_tokens are provided below, as well as a sample id_token.  Note that the claims in id_tokens are not returned in any particular order.  In addition, new claims can be introduced into id_tokens at any point in time - your app should not break as new claims are introduced.  The list below includes the claims that your app can reliably interpret at the time of this writing.  If necessary, even more detail can be found in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html).
 
-#### Sample Id_Token
+#### Sample id_token
 
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
@@ -47,7 +47,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 
 > [AZURE.TIP] For practice, try inspecting the claims in the sample id_token by pasting it into [calebb.net](https://calebb.net).
 
-#### Claims in Id_Tokens
+#### Claims in id_tokens
 | Name | Claim | Example Value | Description |
 | ----------------------- | ------------------------------- | ------------ | --------------------------------- |
 | Audience | `aud` | `6731de76-14a6-49ae-97bc-6eba6914391e` | Identifies the intended recipient of the token.  In id_tokens, the audience is your app's Application Id, as assigned to your app in the app registration portal.  Your app should validate this value and reject the token if it does not match. |
@@ -68,7 +68,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 
 
 
-## Access Tokens
+## Access tokens
 
 Access tokens issued by the v2.0 endpoint take two different formats.  Access tokens that are issued on behalf of work or school accounts are JWTs, similar to an id_token.  Access tokens that are issued on behalf of a personal Microsoft account are in a format known as "compact tickets".  For this reason, in development you may notice a different string format for access tokens issued by the v2.0 endpoint.  Over time, this difference in access tokens will be eliminated from the v2.0 endpoint.
 
@@ -78,7 +78,7 @@ In the near future, the v2.0 endpoint will introduce the ability for your app to
 
 When you request an access token from the v2.0 endpoint, the v2.0 endpoint also returns some metadata about the access token for your app's consumption.  This information includes the expiry time of the access token and the scopes for which it is valid.  This allows your app to perform intelligent caching of access tokens without having to parse open the access token itself.
 
-## Refresh Tokens
+## Refresh tokens
 
 Refresh tokens are security tokens which your app can use to acquire new access tokens in an OAuth 2.0 flow.  It allows your app to achieve long-term access to resources on behalf of a user without requiring interaction by the user.
 
@@ -90,14 +90,14 @@ Refresh tokens are, and will always be, completely opaque to your app.  They are
 
 When you redeem a refresh token for a new access token (and if your app had been granted the `offline_access` scope), you will receive a new refresh token in the token response.  You should  save the newly issued refresh token, replacing the one you used in the request.  This will guarantee that your refresh tokens remain valid for as long as possible.
 
-## Validating Tokens
+## Validating tokens
 
 At this point in time, the only token validation your apps should need to perform is validating id_tokens.  In order to validate an id_token, your app should validate both the id_token's signature and the claims in the id_token.
 
 <!-- TODO: Link -->
 We provide libraries & code samples that show how to easily handle token validation - the below information is simply provided for those who wish to understand the underlying process.  There are also several 3rd party open source libraries available for JWT validation - there is at least one option for almost every platform & language out there.
 
-#### Validating the Signature
+#### Validating the signature
 A JWT contains three segments, which are separated by the `.` character.  The first segment is known as the **header**, the second as the **body**, and the third as the **signature**.  The signature segment can be used to validate the authenticity of the id_token so that it can be trusted by your app.
 
 Id_Tokens are signed using industry standard asymmetric encryption algorithms, such as RSA 256. The header of the id_token contains information about the key and encryption method used to sign the token:
@@ -132,7 +132,7 @@ The JSON document located at this url contains all of the public key information
 
 Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
 
-#### Validating the Claims
+#### Validating the claims
 When your app receives an id_token upon user sign-in, it should also perform a few checks against the claims in the id_token.  These include:
 
 - The **Audience** claim - to verify that the id_token was intended to be given to your app.
@@ -143,7 +143,7 @@ When your app receives an id_token upon user sign-in, it should also perform a f
 Details of the expected values for these claims are included above in the [id_token section](#id_tokens).
 
 
-## Token Lifetimes
+## Token lifetimes
 
 The following token lifetimes are provided purely for your understanding, as they can help in developing and debugging apps.  Your apps should not be written to expect any of these lifetimes to remain constant - they can and will change at any given point in time.
 

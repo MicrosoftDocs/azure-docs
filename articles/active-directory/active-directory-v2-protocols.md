@@ -1,6 +1,6 @@
 <properties
-	pageTitle="App Model v2.0 Protocols | Microsoft Azure"
-	description="The protocols supported by the Azure AD v2.0 app model public preview."
+	pageTitle="Azure AD v2.0 Protocols | Microsoft Azure"
+	description="A guide to protocols supported by the Azure AD v2.0 app model."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OAuth 2.0 & OpenID Connect
@@ -24,7 +24,7 @@ V2.0 apps can use Azure AD for identity-as-a-service with industry standard prot
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-## The Basics
+## The basics
 Every v2.0 app will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  The app registration process will collect & assign a few values to your app:
 
 - An **Application Id** that uniquely identifies your app

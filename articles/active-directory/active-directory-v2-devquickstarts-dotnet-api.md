@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 >Net Web API| Microsoft Azure"
+	pageTitle="Azure AD v2.0 .NET Web API| Microsoft Azure"
 	description="How to build a .NET MVC Web Api that accepts tokens from both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 # Secure an MVC web API
@@ -154,7 +154,7 @@ For reference, the completed sample (without your configuration values) [is prov
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-## Next Steps
+## Next steps
 You can now move onto additional topics.  You may want to try:
 
 [Calling a Web API from a v2.0 Web App >>](active-directory-devquickstarts-webapp-webapi-dotnet.md)

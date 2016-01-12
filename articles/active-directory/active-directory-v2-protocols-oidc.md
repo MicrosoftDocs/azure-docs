@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="App Model v2.0 OpenID Connect Protocol | Microsoft Azure"
-	description="Building web applications using Azure AD's implementation of the OpenID Connect authentication protocol."
+	pageTitle="Azure AD v2.0 OpenID Connect Protocol | Microsoft Azure"
+	description="Building web applications using Azure AD's v2.0 implementation of the OpenID Connect authentication protocol."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OpenID Connect
@@ -70,7 +70,7 @@ At this point, the user will be asked to enter their credentials and complete th
 
 Once the user authenticates and grants consent, the v2.0 endpoint will return a response to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
-#### Successful Response
+#### Successful response
 A successful response using `response_mode=query` looks like:
 
 ```
@@ -86,7 +86,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 	/
 | session_state | A unique value that identifies the current user session. This value is a GUID, but should be treated as an opaque value that is passed without examination. |
 | state | If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
 
-#### Error Response
+#### Error response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
 ```
@@ -194,7 +194,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 By including permission scopes in the request and using `response_type=code+id_token`, the v2.0 endpoint will ensure that the user has consented to the permissions indicated in the `scope` query parameter, and return your app an authorization code to exchange for an access token.
 
-#### Successful Response
+#### Successful response
 A successful response using `response_mode=query` looks like:
 
 ```
@@ -212,7 +212,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q... 	/
 | session_state | A unique value that identifies the current user session. This value is a GUID, but should be treated as an opaque value that is passed without examination. |
 | state | If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
 
-#### Error Response
+#### Error response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
 ```
@@ -228,7 +228,7 @@ error=access_denied
 
 Once you've gotten an authorization `code` and an `id_token`, you can sign the user in and get access tokens on their behalf.  To sign the user in, you must validate the `id_token` exactly as described [above](#validating-the-id-token).  To get access tokens, you can follow the steps described in our [OAuth protocol documentation](active-directory-v2-protocols-oidc.md#request-an-access-token).
 
-## Token Acquisition Summary Diagram
+## Token acquisition summary diagram
 
 For reference, the full OpenID Connect sign-in and token acquisition flow looks something like this:
 

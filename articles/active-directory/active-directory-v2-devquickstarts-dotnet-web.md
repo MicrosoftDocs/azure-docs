@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 .NET Web App | Microsoft Azure"
+	pageTitle="Azure AD v2.0 .NET Web App | Microsoft Azure"
 	description="How to build a .NET MVC Web App that signs users in with both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 # Add sign-in to an .NET MVC web app
@@ -39,7 +39,7 @@ Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or
 - Add the **Web** platform for your app.
 - Enter the correct **Redirect URI**. The redirect uri indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `https://localhost:44326/`.
 
-## Install & Configure OWIN authentication
+## Install & configure OWIN authentication
 Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
 
 -	To begin, open the `web.config` file in the root of the project, and enter your app's configuration values in the `<appSettings>` section.
@@ -198,7 +198,7 @@ For reference, the completed sample (without your configuration values) [is prov
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
-## Next Steps
+## Next steps
 
 You can now move onto more advanced topics.  You may want to try:
 

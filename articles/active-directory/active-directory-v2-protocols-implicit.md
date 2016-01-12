@@ -1,6 +1,6 @@
 <properties
-	pageTitle="App Model v2.0 Implicit Flow | Microsoft Azure"
-	description="Building web applications using Azure AD's implementation of the implicit flow for single page apps."
+	pageTitle="Azure AD v2.0 Implicit Flow | Microsoft Azure"
+	description="Building web applications using Azure AD's v2.0 implementation of the implicit flow for single page apps."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - Implicit Flow
@@ -32,7 +32,7 @@ However, if you would prefer not to use a library in your single page app and se
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
 	
-## Send the Sign-In Request
+## Send the sign-in request
 
 To initially sign the user into your app, you can send an [OpenID Connect](active-directory-v2-protocols-oidc.md) authorization request and get an `id_token` from the v2.0 endpoint:
 
@@ -59,7 +59,7 @@ At this point, the user will be asked to enter their credentials and complete th
 
 Once the user authenticates and grants consent, the v2.0 endpoint will return a response to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
-#### Successful Response
+#### Successful response
 A successful response using `response_mode=fragment` looks like the following, with line breaks for legibility:
 
 ```
@@ -78,7 +78,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 | id_token_expires_in | How long the id token is valid (in seconds). |
 
 
-#### Error Response
+#### Error response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
 ```
@@ -131,7 +131,7 @@ For more information on the claims in an id_token, see the [v2.0 app model token
 
 Once you have completely validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app.  This information can be used for display, records, authorizations, etc.
 
-## Get Access Tokens
+## Get access tokens
 
 Now that you've signed the user into your single page app, you can get access tokens for calling web APIs secured by Azure AD, such as the [Microsoft Graph](https://graph.microsoft.io).  In the normal OpenID Connect/OAuth flow, you would do this by making a request to the v2.0 `/token` endpoint.  However, the v2.0 endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is out of the question.  Instead, you can use the implicit flow in a hidden iframe to get new tokens for other web APIs: 
 
@@ -158,7 +158,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de7
 
 Thanks to the `prompt=none` parameter, this request will either succeed or fail immediately and return to your application.  A successful response will be sent to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
-#### Successful Response
+#### Successful response
 A successful response using `response_mode=fragment` looks like:
 
 ```
@@ -178,7 +178,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | expires_in | How long the access token is valid (in seconds). |
 | scope | The scopes that the access token is valid for. |
 
-#### Error Response
+#### Error response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately.  In the case of `prompt=none`, an expected error will be:
 
 ```
@@ -194,12 +194,12 @@ error=user_authentication_required
 
 If you receive this error in the iframe request, the user must interactively sign in again to retrieve a new token.  You can choose to handle this case in whatever way makes sense for your application.
 
-## Refreshing Tokens
+## Refreshing tokens
 
 Both `id_token`s and `access_token`s will expire after a short period of time, so your app must be prepared to refresh these tokens periodically.  To refresh either type of token, you can perform the same hidden iframe request from above using the `prompt=none` parameter to control Azure AD's behavior.  If you want to receive a new `id_token`, be sure to use `response_type=id_token` and `scope=openid`, as well as a `nonce` parameter.
 
 
-## Send a Sign Out Request
+## Send a sign out request
 
 The OpenIdConnect `end_session_endpoint` is not currently supported by the v2.0 app model preview. This means your app cannot send a request to the v2.0 endpoint to end a user's session and clear cookies set by the v2.0 endpoint.
 To sign a user out, your app can simply end its own session with the user, and leave the user's session with the v2.0 endpoint in-tact.  The next time the user tries to sign in, they will see a "choose account" page, with their actively signed-in accounts listed.

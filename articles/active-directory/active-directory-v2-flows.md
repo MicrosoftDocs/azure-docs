@@ -1,6 +1,6 @@
 <properties
-	pageTitle="App Model v2.0 Types of apps | Microsoft Azure"
-	description="The types of apps and scenarios supported by the Azure AD App Model v2.0 Public Preview."
+	pageTitle="Types of v2.0 apps | Microsoft Azure"
+	description="The types of apps and scenarios supported by the Azure AD v2.0 app model."
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 # Types of v2.0 apps
@@ -22,7 +22,7 @@ The v2.0 app model supports authentication for a variety of modern app architect
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-## The Basics
+## The basics
 Every v2.0 app will need to be registered at [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  The app registration process will collect & assign a few values to your app:
 
 - An **Application Id** that uniquely identifies your app
@@ -37,7 +37,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 ```
 <!-- TODO: Need a page for libraries to link to -->
 
-## Web Apps
+## Web apps
 For v2.0 web apps (.NET, PHP, Java, Ruby, Python, Node, etc) that are accessed through a browser, you can perform user sign-in using [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  In OpenID Connect the web app receives an `id_token`, a security token that verifies the user's identity and provides information about the user in the form of claims:
 
 ```
@@ -89,14 +89,14 @@ To learn more about authorization_codes, refresh_tokens, and the detailed steps 
 To learn how to v2.0 web api secured with OAuth 2.0 access_tokens, check out the Web API code samples in our [Getting Started section](active-directory-appmodel-v2-overview.md#getting-started).
 
 
-## Mobile and Native Apps
+## Mobile and native apps
 Apps that are installed on a device, such as mobile and desktop apps, often need to access backend services or Web APIs that store data and perform various functions on behalf of a user.  These v2.0 apps can add sign-in and authorization to backend services using the [OAuth 2.0 Authorization Code flow](active-directory-v2-protocols-oauth-code.md).  
 
 In this flow, a the app receives an authorization_code from the v2.0 endpoint upon user sign-in, which represents the app's permission to call backend services on behalf of the currently signed-in user.  The app can then exchange the authoriztion_code in the background for an OAuth 2.0 access_token and a refresh_token.  The app can use the access_token to authenticate to Web APIs in HTTP requests, and can use the refresh_token to get new access_tokens when older ones expire.
 
 ![Native App Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-## Single Page Apps (Javascript)
+## Single page apps (javascript)
 Many modern apps have a Single Page App (SPA) front-end written primarily in javascript and often using frameworks such as AngularJS, Ember.js, Durandal, etc.  Azure AD app model v2.0 supports these apps using the [OAuth 2.0 Implicit Flow](active-directory-v2-protocols-implicit.md).
 
 In this flow, the app receives tokens from the v2.0 authorize endpoint directly, without performing any backend server to server exchanges.  This allows all authentication logic and session handling to take place entirely in the javascript client, without performing extra page redirects.
@@ -105,17 +105,17 @@ In this flow, the app receives tokens from the v2.0 authorize endpoint directly,
 
 To see this scenario in action, try out one of the single page app code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-## Daemons/Server Side Apps
+## Daemons/server side apps
 Apps that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs.  These apps can authenticate and get tokens using the app's identity (rather than a user's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-v2-protocols-client-creds.md).  This flow is also known as "two-legged OAuth".
 
  ![Implicit Flow Swimlanes Image](../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
 To see this scenario in action, try out one of the daemon code samples in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section.
 
-## Current Limitations
+## Current limitations
 These types of apps are not currently supported in v2.0 apps, but are on the roadmap.  Additional limitations and restrictions for v2.0 apps are described in the [v2.0 limitations article](active-directory-v2-limitations.md).
 
-### Chained Web APIs (On-Behalf-Of)
+### Chained web APIs (on-behalf-of)
 Many architectures include a Web API that needs to call another downstream Web API, both secured by the v2.0 app model.  This scenario is common in native clients that have a Web API backend, which in turn calls a Microsoft Online service such as Office 365 or the Graph API.
 
 This chained Web API scenario can be supported using the OAuth 2.0 Jwt Bearer Credential grant, otherwise known as the [On-Behalf-Of Flow](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow).  However, the On-Behalf-Of flow is not currently implemented in the v2.0 endpoint.  To see how this flow works in the generally available Azure AD service, check out the [On-Behalf-Of code sample on GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).

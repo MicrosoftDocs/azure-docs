@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 .NET Native App | Microsoft Azure"
+	pageTitle="Azure AD v2.0 .NET Native App | Microsoft Azure"
 	description="How to build a .NET native app that signs users in with both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 # Add sign-in to a Windows Desktop app
@@ -59,7 +59,7 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 - In the TodoList-Service project, open `web.config` in the root of the project.  
     - Replace the `ida:Audience` value with the same **Application Id** from the portal.
 
-## Use ADAL to Get Tokens
+## Use ADAL to get tokens
 The basic principle behind ADAL is that whenever your app needs an access token, you simply call `authContext.AcquireToken(...)`, and ADAL does the rest.  
 
 -	In the `TodoListClient` project, open `MainWindow.xaml.cs` and locate the `OnInitialized(...)` method.  The first step is to initialize your app's `AuthenticationContext` - ADAL's primary class.  This is where you pass ADAL the coordinates it needs to communicate with Azure AD and tell it how to cache tokens.
@@ -243,7 +243,7 @@ For reference, the completed sample (without your configuration values) [is prov
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git```
 
-## Next Steps
+## Next steps
 
 You can now move onto more advanced topics.  You may want to try:
 

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 Node.js Web App | Microsoft Azure"
+	pageTitle="Azure AD v2.0 NodeJS Web App | Microsoft Azure"
 	description="How to build a Node JS web app that signs users in with both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="brandwe"/>
 
 # Add sign-in to a nodeJS Web App

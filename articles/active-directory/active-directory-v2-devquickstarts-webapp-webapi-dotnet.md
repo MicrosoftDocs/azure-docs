@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 .NET Web App | Microsoft Azure"
+	pageTitle="Azure AD v2.0 .NET Web App | Microsoft Azure"
 	description="How to build a .NET MVC Web App that calls web services using personal Microsoft accounts and work or school accounts for sign-in."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 # Calling a web API from a .NET web app

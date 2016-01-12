@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="App Model v2.0 OAuth Protocol | Microsoft Azure"
+	pageTitle="Azure AD v2.0 OAuth Authorization Code Flow | Microsoft Azure"
 	description="Building web applications using Azure AD's implementation of the OAuth 2.0 authentication protocol."
 	services="active-directory"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2015"
 	ms.author="dastrock"/>
 
 # v2.0 Protocols - OAuth 2.0 Authorization Code Flow
@@ -30,7 +30,7 @@ The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAu
 
 
 
-## Request an Authorization Code
+## Request an authorization code
 The authorization code flow begins with the client directing the user to the `/authorize` endpoint.  In this request, the client indicates the permissions it needs to acquire from the user:
 
 ```
@@ -55,7 +55,7 @@ At this point, the user will be asked to enter their credentials and complete th
 
 Once the user authenticates and grants consent, the v2.0 endpoint will return a response to your app at the indicated `redirect_uri`, using the method specified in the `response_mode` parameter.
 
-#### Successful Response
+#### Successful response
 A successful response using `response_mode=query` looks like:
 
 ```
@@ -71,7 +71,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...]
 | session_state | A unique value that identifies the current user session. This value is a GUID, but should be treated as an opaque value that is passed without examination. |
 | state | If a state parameter is included in the request, the same value should appear in the response. The  app should verify that the state values in the request and response are identical. |
 
-#### Error Response
+#### Error response
 Error responses may also be sent to the `redirect_uri` so the app can handle them appropriately:
 
 ```
@@ -85,22 +85,22 @@ error=access_denied
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
-## Request an Access Token
+## Request an access token
 Now that you've acquired an authorization_code and have been granted permission by the user, you can redeem the `code` for an `access_token` to the desired resource, by sending a `POST` request to the `/token` endpoint:
 
 ```
-POST common/v2.0/oauth2/token HTTP/1.1
-Host: https://login.microsoftonline.com
-Content-Type: application/json
+// Line breaks for legibility only
 
-{
-	"grant_type": "authorization_code",
-	"client_id": "2d4d11a2-f814-46a7-890a-274a72a7309e",
-	"scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
-	"code": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
-	"redirect_uri": "https://localhost/myapp",
-	"client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
-}
+POST /common/oauth2/v2.0/token HTTP/1.1
+Host: https://login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&grant_type=authorization_code
+&client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
 
 ```
@@ -121,7 +121,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | redirect_uri | required | The same redirect_uri value that was used to acquire the authorization_code. |
 | client_secret | required for web apps | The application secret that you created in the app registration portal for your app.  It should not be used in a native app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. |
 
-#### Successful Response
+#### Successful response
 A successful token response will look like:
 
 ```
@@ -143,13 +143,19 @@ A successful token response will look like:
 | refresh_token |  An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires.  Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time.  For more detail, refer to the [v2.0 token reference](active-directory-v2-tokens.md).  |
 | id_token | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 app model token reference](active-directory-v2-tokens.md). |
 
-#### Error Response
+#### Error response
 Error responses will look like:
 
 ```
 {
-	"error": "access_denied",
-	"error_description": "The user revoked access to the app.",
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/mail.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7"
 }
 ```
 
@@ -157,8 +163,12 @@ Error responses will look like:
 | ----------------------- | ------------------------------- |
 | error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
+| error_codes | A list of STS specific error codes that can help in diagnostics.  |
+| timestamp | The time at which the error occurred. |
+| trace_id | A unique identifier for the request that can help in diagnostics.  |
+| correlation_id | A unique identifier for the request that can help in diagnostics across components. |
 
-## Use the Access Token
+## Use the access token
 Now that you've successfully acquired an `access_token`, you can use the token in requests to Web APIs by including it in the `Authorization` header:
 
 ```
@@ -172,25 +182,25 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" -H "Cache-Control: no-cache" -H "Postman-Token: 40d8f06c-e83e-00c8-45d5-3fbd246c3ff1" 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
-## Refresh the Access Token
+## Refresh the access token
 Access_tokens are short lived, and you must refresh them after they expire to continue accessing resources.  You can do so by submitting another `POST` request to the `/token` endpoint, this time providing the `refresh_token` instead of the `code`:
 
 ```
-POST common/v2.0/oauth2/token HTTP/1.1
-Host: https://login.microsoftonline.com
-Content-Type: application/json
+// Line breaks for legibility only
 
-{
-	"grant_type": "refresh_token",
-	"client_id": "2d4d11a2-f814-46a7-890a-274a72a7309e",
-	"scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
-	"refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...",
-	"redirect_uri": "https://localhost/myapp",
-	"client_secret": "zc53fwe80980293klaj9823"  // NOTE: Only required for web apps
-}
+POST /common/oauth2/v2.0/token HTTP/1.1
+Host: https://login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
+
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+&refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
+&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
+&grant_type=refresh_token
+&client_secret=JqQX2PNo9bpM0uEihUPzyrh	  // NOTE: Only required for web apps
 ```
 
 ```
@@ -210,7 +220,7 @@ curl -X POST -H "Cache-Control: no-cache" -H "Content-Type: application/x-www-fo
 | redirect_uri | required | The same redirect_uri value that was used to acquire the authorization_code. |
 | client_secret | required for web apps | The application secret that you created in the app registration portal for your app.  It should not be used in a native  app, because client_secrets cannot be reliably stored on devices.  It is required for web apps and web APIs, which have the ability to store the client_secret securely on the server side. |
 
-#### Successful Response
+#### Successful response
 A successful token response will look like:
 
 ```
@@ -232,15 +242,28 @@ A successful token response will look like:
 | refresh_token |  A new OAuth 2.0 refresh token. You should replace the old refresh token with this newly acquired refresh token to ensure your refresh tokens remain valid for as long as possible.  |
 | id_token | An unsigned JSON Web Token (JWT). The  app can base64Url decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries.  For more information about id_tokens see the [v2.0 app model token reference](active-directory-v2-tokens.md). |
 
-#### Error Response
-Error responses will look like:
-
+#### Error response
 ```
 {
-	"error": "access_denied",
-	"error_description": "The user revoked access to the app.",
+  "error": "invalid_scope",
+  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/mail.read is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_codes": [
+    70011
+  ],
+  "timestamp": "2016-01-09 02:02:12Z",
+  "trace_id": "255d1aef-8c98-452f-ac51-23d051240864",
+  "correlation_id": "fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7"
 }
 ```
+
+| Parameter | Description |
+| ----------------------- | ------------------------------- |
+| error | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
+| error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
+| error_codes | A list of STS specific error codes that can help in diagnostics.  |
+| timestamp | The time at which the error occurred. |
+| trace_id | A unique identifier for the request that can help in diagnostics.  |
+| correlation_id | A unique identifier for the request that can help in diagnostics across components. |
 
 | Parameter | Description |
 | ----------------------- | ------------------------------- |

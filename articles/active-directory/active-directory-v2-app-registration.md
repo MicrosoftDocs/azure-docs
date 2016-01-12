@@ -1,6 +1,6 @@
 <properties
-	pageTitle="App Model v2.0 | Microsoft Azure"
-	description="How to register an  app with Microsoft for enabling sign-in and integrating apps with app model v2.0."
+	pageTitle="v2.0 app registration | Microsoft Azure"
+	description="How to register a v2.0 app with Microsoft for enabling sign-in and accessing Microsoft services"
 	services="active-directory"
 	documentationCenter=""
 	authors="dstrockis"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 # How to register a v2.0 app
@@ -23,7 +23,7 @@ To build an app that accepts both MSA & Azure AD sign-in, you'll first need to r
 > [AZURE.NOTE]
 	Not all Azure Active Directory scenarios & features are supported by v2.0 apps.  To determine if you should create a v2.0 app, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-## Visit the Microsoft App Registration Portal
+## Visit the Microsoft app registration portal
 First things first - navigate to [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).  This is a new app registration portal where you can manage your Microsoft apps.
 
 Sign in with either a personal or work or school Microsoft account.  If you don't have either, sign up for a new personal account. Go ahead, it won't take long - we'll wait here.
@@ -40,7 +40,7 @@ Next, add the Platforms that your app will use.
 
 Optionally, you can customize the look and feel of your sign-in page in the Profile section.  Make sure to click **Save** before moving on.
 
-## Build a Quick Start App
+## Build a quick start app
 Now that you have a Microsoft app, you can complete one of our v2.0 quick start tutorials.  Here are a few recommendations:
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]

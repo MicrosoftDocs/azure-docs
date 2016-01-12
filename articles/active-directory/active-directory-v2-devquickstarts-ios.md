@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 iOS App | Microsoft Azure"
+	pageTitle="Azure AD v2.0 iOS App | Microsoft Azure"
 	description="How to build an iOS app that signs users in with both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="brandwe"/>
 
 # App model v2.0 preview: Add sign-in to an iOS app

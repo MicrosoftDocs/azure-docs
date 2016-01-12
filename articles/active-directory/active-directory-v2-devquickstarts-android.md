@@ -1,5 +1,5 @@
 <properties
-	pageTitle="App Model v2.0 Andoid App | Microsoft Azure"
+	pageTitle="Azure AD v2.0 Android App | Microsoft Azure"
 	description="How to build an Android app that signs users in with both personal Microsoft Account and work or school accounts."
 	services="active-directory"
 	documentationCenter=""
@@ -10,11 +10,11 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-  ms.tgt_pltfrm="mobile-android"
-	ms.devlang="java"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/09/2015"
-	ms.author="brandwe"/>
+	ms.date="1/11/2016"
+	ms.author="dastrock"/>
 
 # App model v2.0 preview: Add sign-in to an Android app
 

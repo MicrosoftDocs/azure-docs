@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/06/2015"
+	ms.date="1/11/2015"
 	ms.author="dastrock"/>
 
 # Sign-in Microsoft Account & Azure AD users in a single app
@@ -38,6 +38,7 @@ The conceptual information here will be useful in understanding what is & what i
 - Learn about the [different types of v2.0 apps you can build](active-directory-v2-flows.md).
 - Current [limitations, restrictions and constraints](active-directory-v2-limitations.md).
 - If you're already familiar with Azure Active Directory, you should check out the [updates to our protocols & differences in the v2.0 app model](active-directory-v2-compare.md).
+- If you've built a v2.0 application during the 2015 preview period, be sure to [read about these protocol changes](active-directory-v2-preview-oidc-changes.md) to make sure your app keeps working.
 
 ## Reference
 These links will be useful for exploring the platform in depth:

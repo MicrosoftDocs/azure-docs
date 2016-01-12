@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD AngularJS Getting Started | Microsoft Azure"
+	pageTitle="Azure AD v2.0 AngularJS Getting Started | Microsoft Azure"
 	description="How to build an Angular JS Single Page app that signs in users with both personal Microsoft accounts and work or school accounts."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="12/09/2015"
+	ms.date="1/11/2016"
 	ms.author="dastrock"/>
 
 
@@ -95,7 +95,7 @@ The REST API will use this value to validate tokens it receives from the Angular
 
 That's all the time we're going to spend discussing how the REST API works.  Feel free to poke around in the code, but if you want to learn more about securing web APIs with Azure AD, check out [this article](active-directory-v2-devquickstarts-node-api.md). 
 
-## Sign Users In
+## Sign users in
 Time to write some identity code.  You might have already noticed that adal.js contains an AngularJS provider, which plays nicely with Angular routing mechanisms.  Start by adding the adal module to the app:
 
 ```js
@@ -171,7 +171,7 @@ angular.module('todoApp')
 ...
 ```
 
-## Display User Info
+## Display user info
 Now that the user is signed in, you'll probably need to access the signed-in user's authentication data in your application.  Adal.js exposes this information for you in the `userInfo` object.  To access this object in a view, first add adal.js to the root scope of the corresponding controller:
 
 ```js
