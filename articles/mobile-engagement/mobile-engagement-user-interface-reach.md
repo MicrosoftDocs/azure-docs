@@ -55,18 +55,17 @@ Here is how you should interpret these details:
 
 4.	**User Interactions** - This specifies the number of messages which the app user has interacted with and will include the messages which are either actioned or exited. 
 
-	*The app user can action a notification in either of the following ways:*
-		
-	1. If the notification is a system/out-of-app notification or an in-app notification sent as notification-only then the app user clicks on the notification.
-	2. If the notification is an in-app notification with a text or web-view or polls then the app user clicks on the Action button in the notification.
-	3. If the notification is an in-app notification with a web-view then the app user clicks on a URL in the web view [Android Only]
-
-	*The app user can exit a notification in either of the following ways:*
-
+	- *The app user can action a notification in either of the following ways:*
+			
+		1. If the notification is a system/out-of-app notification or an in-app notification sent as notification-only then the app user clicks on the notification.
+		2. If the notification is an in-app notification with a text or web-view or polls then the app user clicks on the Action button in the notification.
+		3. If the notification is an in-app notification with a web-view then the app user clicks on a URL in the web view [Android Only]
 	
-	1. Clicking the close button on the notification directly. 
-	2. Swiping away or deleting the notification. 
-	3. In-app notifications with text/web content and polls are typically displayed to the app user in a two-step process. They see a notification first and when they click on it, they see the subsequent text/web/poll content. The app user can exit a notification in either of these steps and the details in the Advanced view captures this. 
+	- *The app user can exit a notification in either of the following ways:*
+	
+		1. Clicking the close button on the notification directly. 
+		2. Swiping away or deleting the notification. 
+		3. In-app notifications with text/web content and polls are typically displayed to the app user in a two-step process. They see a notification first and when they click on it, they see the subsequent text/web/poll content. The app user can exit a notification in either of these steps and the details in the Advanced view captures this. 
 
 5.	**Actioned** - This specifies the number of messages which were explicitly actioned by the app user. This is the most interesting number as this tells how many app users were interested by the message you pushed out in the notification. 
  
