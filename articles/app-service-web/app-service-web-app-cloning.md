@@ -3,7 +3,7 @@
 	description="Learn how to clone your Web Apps to new Web Apps."
 	services="app-service\web"
 	documentationCenter=""
-	authors="aelnably"
+	authors="ahmedelnably"
 	manager="stefsch"
 	editor=""/>
 
@@ -37,7 +37,11 @@ Using the New-AzureRmWebApp command, we can create the new web app in the North 
 
     $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 
-To clone an existing web app within the same region, the user will need to create a new resource group and a new app service plan in the same region, and then using the same previous PowerShell command to clone the web app
+To clone an existing web app including all associated deployment slots, the user will need to use the IncludeSourceWebAppSlots parameter, the following PowerShell command demonstrates the use of that parameter with the New-AzureRmWebApp command:
+
+    $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots $true
+
+To clone an existing web app within the same region, the user will need to create a new resource group and a new app service plan in the same region, and then using the following PowerShell command to clone the web app
 
     $destapp = New-AzureRmWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
 
