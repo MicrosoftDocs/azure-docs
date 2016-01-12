@@ -17,7 +17,7 @@
    ms.author="yuemlu"/>
 
 # Azure Guest OS releases and SDK compatibility matrix
-Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a a Guest OS is disabled.
+Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information will help you plan your upgrade path before a Guest OS is disabled.
 
 > [AZURE.IMPORTANT] This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does not apply to IaaS Virtual Machines. If you configure your roles to use automatic Guest OS updates as described in [Azure Guest OS Update Settings][], it is not vital that you read this page.
 
@@ -30,17 +30,17 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 
 ## News updates
 
-###### **Janurary 4 2016**
-November 201511-02 Guest OS was released on January 4, 2016 for deployment. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. 
+###### **January 4 2016**
+November 201511-02 Guest OS was released on January 4 2016 for deployment. This OS version is not set as the default OS for automatic update, so the provisioning time of Guest OS deployment to November 201511-02 OS version would be slightly longer. 
 
 ###### **December 18 2015**
-November 201511-02 Guest OS release date has been postponed from Dec 16 2015 to Jan 4 2016.
+November 201511-02 Guest OS release date has been postponed from December 16 2015 to January 4 2016.
 
 ###### **December 9 2015**
-December Guest OS rollout is starting December 10 2015, and projected to be released on Janurary 8 2016.
+December Guest OS rollout is starting December 10 2015, and projected to be released on January 8 2016.
 
 ###### **November 12 2015**  
-On August 7, 2014, Microsoft announced that support will end for .NET Framework 4, 4.5, and 4.5.1 on January 12, 2016. It is recommended that customers and developers complete the in-place update to .NET Framework 4.5.2 by January 12, 2016 to continue receiving technical support and security updates. Visit Microsoft .NET Framework Support Lifecycle Policy for more details. 
+On August 7, 2014, Microsoft announced that support will end for .NET Framework 4, 4.5, and 4.5.1 on January 12 2016. It is recommended that customers and developers complete the in-place update to .NET Framework 4.5.2 by January 12 2016 to continue receiving technical support and security updates. Visit Microsoft .NET Framework Support Lifecycle Policy for more details. 
 
 On October 27, we announced that, Azure will update the .NET Framework in Azure Guest operating system (Guest OS) family 2.x, 3.x and 4.x to .NET Framework 4.5.2 in the upcoming November Guest OS Release. Since then, we have received customers’ feedback to postpone the automatic update to an OS release with .NET 4.5.2 and provide an image with .NET 4.5.2 for test validation. 
 
