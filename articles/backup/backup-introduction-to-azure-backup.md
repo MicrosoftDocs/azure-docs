@@ -139,7 +139,7 @@ For customers protecting data to a backup server (SCDPM or Azure Backup Server),
 | Retention options | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly |
 | Retention period | Up to 99 years | Up to 99 years | Up to 99 years |
 | Recovery points in Azure vault | unlimited | unlimited | unlimited |
-| Recovery points on local disk | Not applicable |  | Not applicable |
+| Recovery points on local disk | Not applicable | Not applicable | Not applicable |
 | Recovery points on tape | Not applicable | Not applicable | Not applicable |
 
 ## How does Azure Backup differ from Azure Site Recovery?
