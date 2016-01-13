@@ -61,7 +61,7 @@ Start an Azure PowerShell session and sign in to your Azure account with the fol
 
     Login-AzureRmAccount 
 
->[AZURE.NOTE]  If you are using a specific instance of Azure, for example, Azure Government, use the -Environment parameter with this command. For example: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
+Note that if you are using a specific instance of Azure, for example, Azure Government, use the -Environment parameter with this command. For example: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell will get all the subscriptions that are associated with this account and by default, uses the first one.
 
