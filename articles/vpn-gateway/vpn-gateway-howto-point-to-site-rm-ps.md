@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2015"
+   ms.date="01/11/2016"
    ms.author="cherylmc" />
 
 # Configure a Point-to-Site connection to a virtual network using PowerShell
@@ -34,10 +34,10 @@ In this scenario, you will create a virtual network with a Point-to-Site connect
 
 We'll use the following values for this configuration:
 
-- Name = **TestVNet**, using address spaces 192.168.0.0./16 and 10.254.0.0/16. Notice that you can use more than one address space for a VNet.
+- Name = **TestVNet**, using address spaces 192.168.0.0/16 and 10.254.0.0/16. Notice that you can use more than one address space for a VNet.
 - Subnet name = **FrontEnd**, using 192.168.1.0/24
 - Subnet name = **BackEnd**, using 10.254.1.0/24
-- Subnet name = **GatewaySubnet**, using 192.168.200.0/24 The Subnet name *GatewaySubnet* is mandatory for the gateway to work. 
+- Subnet name = **GatewaySubnet**, using 192.168.200.0/24. The Subnet name *GatewaySubnet* is mandatory for the gateway to work. 
 - VPN client address pool: 172.16.201.0/24. VPN clients that connect to the VNet using this Point-to-Site connection will receive an IP address from this pool.
 - Subscription = Verify you have the correct subscription if you have more than one.
 - Resource Group = **TestRG**

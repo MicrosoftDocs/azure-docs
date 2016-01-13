@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/11/2015"
+   ms.date="01/11/2016"
    ms.author="cherylmc"/>
 
 # Configure a Point-to-Site VPN connection to a VNet
