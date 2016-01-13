@@ -1,19 +1,19 @@
 <properties
     pageTitle="Using the Azure CLI with Azure Storage | Microsoft Azure"
-    description="Learn how to use the Azure Command-Line Interface (Azure CLI) with Azure Storage to create and manage storage accounts and work with Azure blobs and files."
+    description="Learn how to use the Azure Command-Line Interface (Azure CLI) with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI is a cross-platform tool "
     services="storage"
     documentationCenter="na"
     authors="tamram"
-    manager="jdial"/>
+    manager="carmonm"/>
 
 <tags
     ms.service="storage"
     ms.workload="storage"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="article" 
+    ms.topic="article"
     ms.date="01/05/2016"
-    ms.author="chungli;jiyang;yaxia;tamram"/>
+    ms.author="micurd"/>
 
 # Using the Azure CLI with Azure Storage
 
@@ -206,7 +206,7 @@ Note that the directory name is optional for the listing operation. If omitted, 
 Beginning with version 0.9.8 of Azure CLI, you can copy a file to another file, a file to a blob, or a blob to a file. Below we demonstrate how to perform these copy operations using CLI commands. To copy a file to the new directory:
 
 	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
-	
+
 To copy a blob to a file directory:
 
 	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
@@ -220,4 +220,3 @@ Here are some related articles and resources for learning more about Azure Stora
 
 
 [Image1]: ./media/storage-azure-cli/azure_command.png
- 

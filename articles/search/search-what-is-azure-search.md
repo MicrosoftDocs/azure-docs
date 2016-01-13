@@ -11,17 +11,17 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="12/18/2015"
+	ms.date="01/12/2016"
 	ms.author="ashmaka"/>
 
 # What is Azure Search?
-Azure Search is a cloud search-as-a-service solution that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data and then search against. Azure Search allows you to easily add a robust search experience to their applications using a simple REST API or .NET SDK without managing search infrastructure and becoming an expert in search.
+Azure Search is a cloud search-as-a-service solution that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data and then use to add search to your web or mobile application. Azure Search allows you to easily add a robust search experience to your applications using a simple [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) or [.NET SDK](search-howto-dotnet-sdk.md) without managing search infrastructure or becoming an expert in search.
 
 ## Give your users a powerful search experience
 
-**Powerful queries** using logical operators, comparison expressions, and more can be formulated using [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx) and the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx). Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) (currently in preview) can enable fuzzy search, proximity search, term boosting, and regular expressions. Azure Search also supports custom lexical analyzers to allow your application to handle complex search queries using phonetic matching and regular expressions.
+**Powerful queries** can be formulated using the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx), which offers logical operators, phrase search operators, suffix operators, precedence operators. Additionally, the [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx) (currently in preview) can enable fuzzy search, misspellings, proximity search, term boosting, and regular expressions. Azure Search also supports custom lexical analyzers to allow your application to handle complex search queries using phonetic matching and regular expressions.
 
-**Language support** is [included for 56 different languages](https://msdn.microsoft.com/library/azure/dn879793.aspx). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text using word-breaking, text normalization, lemmatization, and more. This allows your application's search box to intelligently handle misspellings, verb tenses, irregular plural nouns (e.g. 'mouse' vs. 'mice'), and more.
+**Language support** is [included for 56 different languages](https://msdn.microsoft.com/library/azure/dn879793.aspx). Using both Lucene analyzers and Microsoft analyzers (refined by years of natural language processing in Office and Bing), Azure Search can analyze text in your application's search box to intelligently handle language-specific linguistics including verb tenses, gender, irregular plural nouns (e.g. 'mouse' vs. 'mice'), word de-compounding, word-breaking (for languages with no spaces), and more.
 
 **Search suggestions** can be enabled for autocompleted search bars and type-ahead queries. [Actual documents in your index are suggested](https://msdn.microsoft.com/library/azure/dn798936.aspx) as users enter partial search input.
 
@@ -29,9 +29,9 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 
 **Faceted navigation** is easily added to your search results page with Azure Search. Using [just a single query parameter](https://msdn.microsoft.com/library/azure/dn798927.aspx), Azure Search will return all the necessary information to construct a faceted search experience in your app's UI to allow your users to drill-down and filter search results  (e.g. filter catalog items by price-range or brand).
 
-**Geo-spatial** [support](https://msdn.microsoft.com/library/azure/dn798921.aspx) allows you to intelligently process, filter, and display geographic locations. Azure Search enables your users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region.
+**Geo-spatial** [support](search-create-geospatial.md) allows you to intelligently process, filter, and display geographic locations. Azure Search enables your users to explore data based on the proximity of a search result to a specified location or based on a specific geographic region.
 
-**Filters** can be used to easily incorporate faceted navigation (e.g. filtering by category or price), enhance query formulation, and filter based on user- or developer-specified criteria.
+**Filters** can be used to easily incorporate faceted navigation into your application's UI, enhance query formulation, and filter based on user- or developer-specified criteria. Create powerful filters using the [OData syntax](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 
 ## Empower your developers with an easy-to-use service
 
@@ -39,9 +39,9 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 
 **Fully managed** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be easily tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.
 
-**Data integration** using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) allows Azure Search to automatically crawl Azure SQL Database or Azure DocumentDB to sync your search index's content with your primary data store.
+**Data integration** using [indexers](https://msdn.microsoft.com/library/azure/dn946891.aspx) allows Azure Search to automatically crawl Azure SQL Database, Azure DocumentDB, or [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) to sync your search index's content with your primary data store.
 
-**Document cracking** is available [to read and index major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office as well as PDF and HTML documents.
+**Document cracking** is available (currently in preview) [to read and index major file formats](search-howto-indexing-azure-blob-storage.md) including Microsoft Office as well as PDF and HTML documents.
 
 **Search traffic analytics** are [easily collected and analyzed](search-traffic-analytics.md) to unlock insights from what users are typing into the search box.
 
@@ -49,7 +49,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 
 **Sorting** is offered for multiple fields via the index schema and then toggled at query-time with a single search parameter.
 
-**Paging** and throttling your search results is straightforward with the finely tuned control that Azure Search offers over your search results.  
+**Paging** and throttling your search results is [straightforward with the finely tuned control](search-pagination-page-layout.md) that Azure Search offers over your search results.  
 
 **Search explorer** allows you to issue queries against all of your indexes right from your account's Azure portal so you can easily test queries and refine scoring profiles.
 
