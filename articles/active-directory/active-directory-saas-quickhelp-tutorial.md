@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/06/2015"
 	ms.author="jeedes"/>
 
 
@@ -131,13 +131,13 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     b. To upload your downloaded Azure metadata file, click **Browse**, navigate to the file, end then click **Upload Metadata**.
 
-    d. In the **Email** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    c. In the **Email** textbox, type **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    e. In the **First Name** textbox, **type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    d. In the **First Name** textbox, **type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    f. In the **Last Name** textbox, **type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
+    e. In the **Last Name** textbox, **type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**
 
-    g. In the **Action Bar**, click **Save**.
+    f. In the **Action Bar**, click **Save**.
 
 
 

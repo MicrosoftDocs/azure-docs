@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Get started with SQL Data Warehouse database auditing | Microsoft Azure" 
-	description="Get started with SQL Data Warehouse database auditing" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Get started with SQL Data Warehouse database auditing | Microsoft Azure" 
+   description="Get started with SQL Data Warehouse database auditing" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="barbkess" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # Get started with SQL Data Warehouse database auditing 
-<p> Azure SQL Data Warehouse Auditing tracks database events and writes audited events to an audit log in your Azure Storage account.
+Azure SQL Data Warehouse Auditing tracks database events and writes audited events to an audit log in your Azure Storage account.
 
 Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
 

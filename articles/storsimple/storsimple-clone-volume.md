@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/12/2015"
+   ms.date="12/14/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to clone a volume
+
+[AZURE.INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
 
 ## Overview
 

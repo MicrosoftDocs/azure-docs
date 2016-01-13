@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Automation webhooks"
+   pageTitle="Azure Automation webhooks | Microsoft Azure"
    description="A webhook that allows a client to start a runbook in Azure Automation from an HTTP call.  This article describes how to create a webhook and how to call one to start a runbook."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="12/07/2015"
    ms.author="bwren;sngun"/>
 
 # Azure Automation webhooks
@@ -53,7 +53,24 @@ The **$WebhookData** object will have the following properties:
 
 There is no configuration of the webhook required to support the **$WebhookData** parameter, and the runbook is not required to accept it.  If the runbook does not define the parameter, then any details of the request sent from the client is ignored.
 
-If you specify a value for $WebhookData when you create the webhook, that value will be overriden when the webhook starts the runbook with the data from the client POST request, even if the client does not include any data in the request body.  If you start a runbook that has $WebhookData using a method other than a webhook, you can provide a value for $Webhookdata that will be recognized by the runbook.  This value should be an object with the same properties as $Webhookdata so that the runbook can properly work with it.
+If you specify a value for $WebhookData when you create the webhook, that value will be overriden when the webhook starts the runbook with the data from the client POST request, even if the client does not include any data in the request body.  If you start a runbook that has $WebhookData using a method other than a webhook, you can provide a value for $Webhookdata that will be recognized by the runbook.  This value should be an object with the same [properties](#details-of-a-webhook) as $Webhookdata so that the runbook can properly work with it as if it was working with actual WebhookData passed by a webhook.
+
+For example, if you are starting the following runbook from the Azure Portal and want to pass some sample WebhookData for testing, since WebhookData is an object, it should be passed as JSON in the UI.
+
+![WebhookData parameter from UI](media/automation-webhooks/WebhookData-parameter-from-UI.png)
+
+For the above runbook, if you have the following properties for the WebhookData parameter:
+
+1. WebhookName: *MyWebhook*
+2. RequestHeader: *From=Test User*
+3. RequestBody: *[“VM1”, “VM2”]*
+
+Then you would pass the following JSON value in the UI for the WebhookData parameter:  
+
+* {"WebhookName":"MyWebhook", "RequestHeader":{"From":"Test User"}, "RequestBody":"[\"VM1\",\"VM2\"]"}
+
+![Start WebhookData parameter from UI](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
+
 
 >[AZURE.NOTE] The values of all input parameters are logged with the runbook job.  This means that any input provided by the client in the webhook request will be logged and available to anyone with access to the automation job.  For this reason, you should be cautious about including sensitive information in webhook calls.
 
@@ -110,8 +127,10 @@ The runbook is expecting a list of virtual machines formatted in JSON in the bod
 	$uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
 	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
     
-    $vms  = @([pscustomobject]@{Name="vm01";ServiceName="vm01"})
-    $vms += @([pscustomobject]@{Name="vm02";ServiceName="vm02"})
+    $vms  = @(
+    			@{ Name="vm01";ServiceName="vm01"},
+    			@{ Name="vm02";ServiceName="vm02"}
+    		)
 	$body = ConvertTo-Json -InputObject $vms 
 
 	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
@@ -251,8 +270,8 @@ The following sample runbook is triggered when the alert rule becomes active and
 
  
 
-## Related articles
+## Next Steps
 
-- [Starting a Runbook](automation-starting-a-runbook.md)
-- [Viewing the Status of a Runbook Job](automation-viewing-the-status-of-a-runbook-job.md)
+- For details on different ways to start a runbook, see [Starting a Runbook](automation-starting-a-runbook.md)
+- For information on viewing the Status of a Runbook Job, refer to [Runbook execution in Azure Automation](automation-runbook-execution.md)
 - [Using Azure Automation to take actions on Azure Alerts](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)

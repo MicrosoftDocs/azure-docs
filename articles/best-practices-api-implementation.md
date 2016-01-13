@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # API implementation guidance
@@ -247,26 +247,26 @@ Once a request from a client application has been successfully routed to a metho
 	...
 	Content-Length: ...
 	{"CustomerID":2,"CustomerName":"Bert","Links":[
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"PUT",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"DELETE",
-	   "LinkedResourceMIMETypes":[]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"POST",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]}
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"PUT",
+	   "types":["application/x-www-form-urlencoded"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"DELETE",
+	   "types":[]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"POST",
+	   "types":["application/x-www-form-urlencoded"]}
 	]}
 	```
 
@@ -283,10 +283,10 @@ Once a request from a client application has been successfully routed to a metho
 
 	public class Link
 	{
-    	public string Relationship { get; set; }
-    	public string HRef { get; set; }
+    	public string Rel { get; set; }
+    	public string Href { get; set; }
     	public string Action { get; set; }
-    	public string [] LinkedResourceMIMETypes { get; set; }
+    	public string [] Types { get; set; }
 	}
 	```
 
@@ -294,11 +294,11 @@ Once a request from a client application has been successfully routed to a metho
 
 	- The relationship between the object being returned and the object described by the link. In this case "self" indicates that the link is a reference back to the object itself (similar to a `this` pointer in many object-oriented languages), and "orders" is the name of a collection containing the related order information.
 
-	- The hyperlink (`HRef`) for the object being described by the link in the form of a URI.
+	- The hyperlink (`Href`) for the object being described by the link in the form of a URI.
 
 	- The type of HTTP request (`Action`) that can be sent to this URI.
 
-	- The format of any data (`LinkedResourceMIMETypes`) that should be provided in the HTTP request or that can be returned in the response, depending on the type of the request.
+	- The format of any data (`Types`) that should be provided in the HTTP request or that can be returned in the response, depending on the type of the request.
 
 	The HATEOAS links shown in the example HTTP response indicate that a client application can perform the following operations:
 
@@ -406,7 +406,7 @@ In a distributed environment such as that involving a web server and client appl
 	Cache-Control: max-age=600, private
 	Content-Type: text/json; charset=utf-8
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	In this example, the Cache-Control header specifies that the data returned should be expired after 600 seconds, and is only suitable for a single client and must not be stored in a shared cache used by other clients (it is _private_). The Cache-Control header could specify _public_ rather than _private_ in which case the data can be stored in a shared cache, or it could specify _no-store_ in which case the data must **not** be cached by the client. The following code example shows how to construct a Cache-Control header in a response message:
@@ -514,7 +514,7 @@ In a distributed environment such as that involving a web server and client appl
 	Content-Type: text/json; charset=utf-8
 	ETag: "2147483648"
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	> [AZURE.TIP] For security reasons, do not allow sensitive data or data returned over an authenticated (HTTPS) connection to be cached.
@@ -646,7 +646,7 @@ In a distributed environment such as that involving a web server and client appl
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
 	Content-Length: ...
-	ProductID=3&Quantity=5&OrderValue=250
+	productID=3&quantity=5&orderValue=250
 	```
 
 	- The PUT operation in the web API obtains the current ETag for the requested data (order 1 in the above example), and compares it to the value in the If-Match header.
@@ -1027,7 +1027,7 @@ The nature of a web API brings its own additional requirements to verify that it
 	- If the client sends a request that successfully deletes a resource, the status code should be 204 (No Content).
 	- If the client sends a request that creates a new resource, the status code should be 201 (Created)
 
-Watch out for unexpected response status codes in the 5xx range. These messages are usually reported by the host server to indicate that it was unable to fulfil a valid request.
+Watch out for unexpected response status codes in the 5xx range. These messages are usually reported by the host server to indicate that it was unable to fulfill a valid request.
 
 - Test the different request header combinations that a client application can specify and ensure that the web API returns the expected information in response messages.
 

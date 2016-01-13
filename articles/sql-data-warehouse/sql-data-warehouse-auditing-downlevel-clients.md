@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="SQL Data Warehouse downlevel clients support for data auditing | Microsoft Azure" 
-	description="Learn about SQL Data Warehouse downlevel clients support for data auditing" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="SQL Data Warehouse downlevel clients support for data auditing | Microsoft Azure" 
+   description="Learn about SQL Data Warehouse downlevel clients support for data auditing" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="barbkess" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-database" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # SQL Data Warehouse -  Downlevel clients support for auditing and Dynamic Data Masking 
 

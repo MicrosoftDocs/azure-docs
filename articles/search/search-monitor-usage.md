@@ -21,11 +21,11 @@
 
 Tracking the growth of indexes and document size can help you proactively adjust capacity before hitting the upper limit you've established for your service. 
 
-To monitor resource usage, counts and statistics are easily viewed in the [Azure Classic Portal](https://portal.azure.com), but you can also obtain the information programmatically if you are building a custom service administration tool. This article covers the steps for both techniques.
+To monitor resource usage, counts and statistics are easily viewed in the [Azure Portal](https://portal.azure.com), but you can also obtain the information programmatically if you are building a custom service administration tool. This article covers the steps for both techniques.
 
 ##View counts and metrics in the portal 
 
-1. Sign in to the [Azure Classic Portal](https://portal.azure.com). 
+1. Sign in to the [Azure Portal](https://portal.azure.com). 
 
 2. Open the service dashboard of your Azure Search service. Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar. See [Create a service](search-create-service-portal.md) for step-by-step instructions.
 

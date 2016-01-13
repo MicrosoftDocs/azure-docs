@@ -1,6 +1,6 @@
 <properties
-			pageTitle="How to use Azure File storage with Windows | Microsoft Azure"
-            description="Create a file share in the cloud and manage file content. Mount a file share from an Azure VM or from an on-premises application."
+			pageTitle="How to use Azure Files with Windows | Microsoft Azure"
+    		description="Create an Azure file share in the cloud with this step-by-step tutorial. Manage your file share content, and mount a file share from an Azure virtual machine (VM) or from an on-premises application."
             services="storage"
             documentationCenter=".net"
             authors="robinsh"
@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="12/18/2015"
-      ms.author="robinsh" />
+      ms.date="01/12/2015"
+      ms.author="robinsh,jutang" />
 
 # How to use Azure File storage with Windows
 
@@ -610,3 +610,4 @@ See these links for more information about Azure File storage.
 - [Deep dive with Azure File storage](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)

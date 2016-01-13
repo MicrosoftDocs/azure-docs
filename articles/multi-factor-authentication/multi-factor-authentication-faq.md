@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication FAQ
@@ -27,7 +27,7 @@ This FAQ answers questions about Azure Multi-Factor Authentication. This FAQ cov
 
 [Search the Microsoft Knowledge Base (KB)](http://search.microsoft.com/supportresults.aspx?form=mssupport&q=phonefactor)
 
-- Search the Microsoft Knowledge Base (KB) for technical solutions to common break-fix issues about Support for Microsoft Azure Multi-Factor Authentication Server (Phone Factor).
+- Search the Microsoft Knowledge Base (KB) for technical solutions to common break-fix issues about Support for Microsoft Azure Multi-Factor Authentication Server (PhoneFactor).
 
 [Microsoft Azure Active Directory Forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD)
 
@@ -35,15 +35,11 @@ This FAQ answers questions about Azure Multi-Factor Authentication. This FAQ cov
 
 [Password reset](mailto:phonefactorsupport@microsoft.com)
 
-- Legacy Phonefactor customers who have any queries around resetting your password or for help to get your password reset, please use the link below to open a support case.
+- Legacy PhoneFactor customers who have any queries around resetting your password or for help to get your password reset, please use the link below to open a support case.
 
-[Microsoft Azure Multi-Factor Authentication Server (Phone Factor) customer support](https://support.microsoft.com/oas/default.aspx?prid=14947)
+[Microsoft Azure Multi-Factor Authentication Server (PhoneFactor) customer support](https://support.microsoft.com/oas/default.aspx?prid=14947)
 
-- Use this link to contact a Microsoft support professional. We’ll ask you a few questions to help us determine what your support options are. The support options may include email, on-line submission or phone support. 
-
-[General inquiries about Microsoft Azure Multi-Factor Authentication Server (Phone Factor)](http://azure.microsoft.com/services/multi-factor-authentication)
-
-- To learn more about Microsoft Azure Multi-Factor Authentication Server (Phone Factor) or if you have questions around how to buy the product and different support options available, please either visit or email [pfsales@microsoft.com](mailto:pfsales@microsoft.com). 
+- Use this link to contact a Microsoft support professional. We’ll ask you a few questions to help us determine what your support options are. The support options may include email, on-line submission or phone support.
 
 
 
@@ -75,28 +71,54 @@ In addition to the fields above, the authentication result (success/denial) and 
 
 All costs are rolled into the per-user or per-authentication cost of the service. Organizations are not charged for individual phone calls placed or text messages sent to your end users when using Azure Multi-Factor Authentication. Phone owners may incur roaming-related or other costs from their telephone carriers to receive the phone calls or text messages.
 
-**"Q: How is the organization billed for Azure Multi-Factor Authentication?"**
+**Q: How is the organization billed for Azure Multi-Factor Authentication?**
 
-The ‘per user’ or ‘per authentication’ billing/usage model is chosen when creating a Multi-Factor Auth Provider in the Azure Management Portal. It is a consumption-based resource that is billed against the organization’s Azure subscription, just like virtual machines, websites, etc. are billed against the subscription.
+Azure Multi-Factor Authentication is available as a stand-alone service with per-user and per-authentication billing options, or bundled with Azure Active Directory Premium, Enterprise Mobility Suite end Enterprise Cloud Suite. The stand-alone service is available on a consumption basis that is billed monthly against Azure monetary commitment, or as a per-user annual license available through a Microsoft Enterprise Agreement, the Open Volume License Program, the Cloud Solution Providers program and Direct.
+
+>[AZURE.IMPORTANT]
+>The Australia Regions are available to customers with a business presence in Australia or New Zealand.
+
+Billing Model  | Price
+------------- | ------------- |
+Per-user consumption (Azure monetary commitment)| $1.40 per month (unlimited authentications)
+Per-authentication consumption (Azure monetary commitment)|$1.40 per 10 authentications
+Per-user annual license (Direct)|$1.40 per month (unlimited authentications)
+Per-user annual license (Volume Licensing)|Contact your [Enterprise Agreement representative.](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx)
 
 **Q: Does the ‘per user’ billing model charge based on the number of users enabled for Multi-Factor Authentication or the number of users who perform the verifications?**
 
 Billing is based on the number of users enabled for Multi-Factor Authentication.
+
+**Q:How does Multi-Factor Authentication billing work?** 
+
+When using the per-user or per-authentication consumption billing/usage model, administrators choose the type of usage when creating a Multi-Factor Auth Provider in the Microsoft Azure classic portal. It is a resource that is billed against the organization’s Azure subscription, just like virtual machines, websites, etc. When using the license model, Azure Multi-Factor Authentication licenses are purchased and then assigned to users, just like Office 365 and other subscription products.
+
+**Q:Is there a free version of Azure Multi-Factor Authentication for administrators?** 
+
+A subset of Azure Multi-Factor Authentication capabilities known as ‘MFA for Azure Admins’ is offered at no cost to Azure Global Administrators when a consumption-based Azure Multi-Factor Auth Provider has not been linked to the corresponding Azure Active Directory. Using the Multi-Factor Auth Provider upgrades all admins and users in the directory that are enabled for MFA to the full version of Azure Multi-Factor Authentication.
+
+**Q:Is there a free version of Azure Multi-Factor Authentication for Office 365 users?**
+
+A subset of Azure Multi-Factor Authentication capabilities known as ‘MFA for Office 365’ is offered at no cost to users that have an O365 license assigned when a consumption-based Azure Multi-Factor Auth Provider has not been linked to the corresponding Azure Active Directory. Using the Multi-Factor Auth Provider upgrades all admins and users in the directory that are enabled for MFA to the full version of Azure Multi-Factor Authentication.
+
+**Q:Can I switch between per-user and per-authentication consumption billing models at any time?**
+
+The billing model is selected during resource creation and cannot be changed once the resource is provisioned. It is possible, however, to create a new Multi-Factor Authentication resource to replace the original. Please note that user settings and configuration options cannot be transferred to the new resource.
+
+**Q:Can I switch between the consumption billing and license models at any time?**
+
+You can purchase Azure Multi-Factor Authentication, Azure Active Directory Premium, Enterprise Mobility Suite and Enterprise Cloud Suite licenses at any time. When licenses are added to a directory that already has a per-user Azure Multi-Factor Auth Provider, the consumption-based billing is decremented by the number of licenses owned. If all users enabled for MFA have licenses assigned, the administrator can delete the Azure Multi-Factor Auth Provider. Organizations cannot mix per-authentication consumption billing with the license model. When a per-authentication Multi-Factor Auth Provider is linked to a directory, the organization is billed for all MFA verification requests, regardless of any licenses owned.
+
+**Q:Does my organization have to use and synchronize identities to use Azure Multi-Factor Authentication?**
+
+When using the consumption-based billing models, Azure Active Directory is not required. Linking a Multi-Factor Authentication provider to a directory is optional. When not linked to a directory, organizations can use the Azure Multi-Factor Authentication Server or SDK on-premises. When using the license model, Azure Active Directory is required since licenses are added to the directory when purchased and assigned to users in the directory.
+
 
 ## Usability
 
 **Q: What do I do if I don’t receive a response on my phone or if I forgot my phone?**
 
 If you previously configured a backup phone, try again by selecting that phone when prompted from the sign in page.  If you don’t have another method configured, contact your admin and ask them to update the number assigned to your primary phone – mobile or office.
-
-**Q: I removed a user from an admin role but forgot to disable the multi-factor authentication and now it’s not showing in the list how do I remove this feature?**
-
-- Depending on which portal you are using, in the left pane, click either Users or Users and Groups.
-- Select the check box next to the user that you want to edit, and then click either Edit or the Edit icon.
-- Click Settings, under Assign role, select Yes, and add the user back to the previous admin role.
-- Go to the multi-factor authentication page. The account should now be showing up in the list on the page. 
-- Follow the steps above to disable multi-factor authentication for an account. 
-- At this point, you can now remove the account from the admin role.
 
 
 **Q: What do I do if a user contacts me, the administrator, with an account that has been locked out?**
@@ -131,6 +153,13 @@ If you are using the Azure MFA Server, third-party OATH TOTP tokens can be impor
 
 So, if the ActiveIdentity tokens are OATH TOTP tokens and you can get the secret key file into a CSV file that can be imported into the Azure MFA Server, then you will be able to use them. OATH tokens can be used with AD FS, with RADIUS when the client system can process Access Challenge responses and with IIS Forms-based authentication.
 
+**Q: Can I use the Azure MFA Server to secure Terminal Services**
+
+Yes, but if you are using Windows Server 2012 R2 or later than this can only be done using a RD Gateway.
+
+The way that the Azure MFA Server hooked into the LSA security package on Windows Server 2012 and earlier versions no longer works on Windows Server 2012 R2 due to some security changes.  So for versions of Terminal Services on Windows 2012 or earlier, you can simply follow [To secure an application with Windows Authentication](multi-factor-authentication-get-started-server-windows.md#to-secure-an-application-with-windows-authentication-use-the-following-procedure)
+
+However, if you are using Windows Server 2012 R2, then you will need an RD Gateway.
 
 ## Errors
 
