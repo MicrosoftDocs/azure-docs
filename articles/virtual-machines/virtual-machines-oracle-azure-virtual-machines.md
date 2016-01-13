@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="1/12/2016"
+	ms.date="01/12/2016"
 	ms.author="bbenz"/>
 
 # Oracle software hosted on Azure virtual machines
