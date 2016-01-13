@@ -324,7 +324,6 @@ Where:
 
 > [AZURE.VIDEO enhanced-vmware-to-azure-discovery]
 
-
 The process server can automatically discover VMware VMs that are managed by a vCenter server. For automatic discovery Site Recovery needs an account and credentials that can access the vCenter server. This isn't relevant if you're replicating physical servers only.
 
 Do this as follows:
@@ -582,10 +581,10 @@ In addition, protection status can be monitored in **Protected Items** > <protec
 	- **Azure network**: You must specify an Azure network that Azure VMs will be connected to after failover. If you don't specify one then the Azure VMs won't be connected to any network. In addition you'll need to specify an Azure network if you want to failback from Azure to the on-premises site. Failback requires a VPN connection between an Azure network and an on-premises network.	
 	- **Azure IP address/subnet**: For each network adapter you select the subnet to which the Azure VM should connect. Note that:
 		- If the network adapter of the source machine is configured to use a static IP address then you can specify a static IP address for the Azure VM. If you don't provide a static IP address then any available IP address will be allocated. If the target IP address is specified but it's already in use by another VM in Azure then failover will fail. If the network adapter of the source machine is configured to use DHCP then you'll have DHCP as the setting for Azure.
-		- Note that if you want to fail back you can’t retain the same IP address after failover of the source machine to Azure. Failback is only over VPN/ExpressRoute and you can’t have the same pool of addresses on both sides of the VPN connection.  
-		- You can't maintain the same IP address in Azure as you have on the on-premises site. A VPN connection is needed for failback and it can't have the same IP address ranges on both sides of the connection.
 
 ## Step 12: Create a recovery plan and run a failover
+
+> [AZURE.VIDEO videos/enhanced-vmware-to-azure-failover]
 
 You can run a failover for a single machine, or fail over multiple virtual machines that perform the same task or run the same workload. To fail over multiple machines at the same time you add them to a recovery plan.
 
@@ -602,8 +601,6 @@ You can run a failover for a single machine, or fail over multiple virtual machi
 You can customize the plan to create groups and sequence the order in which machines in the recovery plan are failed over. You can also add scripts and prompts for manual actions. Scripts can be created manually or by using by [Azure Automation Runbooks](site-recovery-runbook-automation.md).[Learn more](site-recovery-create-recovery-plans.md) about customizing recovery plans.
 
 ## Run a failover
-
-> [AZURE.VIDEO videos/enhanced-vmware-to-azure-failover]
 
 Before you run a failover note that: 
 
