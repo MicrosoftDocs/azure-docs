@@ -78,6 +78,11 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
     1. Create a new subnet within the Virtual Network. This subnet will be used by HDInsight. By default, the new subnet will be able to communicate with the Internet and with the rest of the subnets in the Virtual Network.
     
+        > [AZURE.NOTE] You can confirm that there are no specific Network Security Groups attached to the subnet by using the following PowerShell statement. Replace __VIRTUALNETWORKNAME__ with your virtual network name, and replace __SUBNETNAME__ with the subnet name.
+        > `Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork VIRTUALNETWORKNAME -Name SUBNETNAME`
+        > If there is no custom configuration for the subnet, you will receive an error stating that `Sequence contains no matching element`.
+        
+    
     2. Create the HDInsight cluster. When configuring the Virtual Network settings for the cluster, select the subnet created in step 1.
 
     > [AZURE.NOTE] The above steps assume that you have not restricted communications to IP addresses _within the Virtual Network IP address range_. If you have, you may need to modify these restrictions to allow communication with the new subnet.
