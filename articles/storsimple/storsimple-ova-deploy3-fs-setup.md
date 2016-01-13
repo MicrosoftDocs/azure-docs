@@ -18,7 +18,7 @@
 
 # Deploy StorSimple Virtual Array - Set up as file server (Preview)
 
-![](./media/storsimple-ova-deploy3-fs-setup/fileserver2.png)
+![](./media/storsimple-ova-deploy3-fs-setup/fileserver3.png)
 
 ## Introduction 
 

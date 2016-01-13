@@ -18,7 +18,7 @@
 
 # Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V (Preview)
 
-![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv2.png)
+![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv3.png)
 
 ## Overview 
 

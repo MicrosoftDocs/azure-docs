@@ -18,7 +18,7 @@
 
 # Deploy StorSimple Virtual Array - Prepare the portal (Preview)
 
-![](./media/storsimple-ova-deploy1-portal-prep/getstarted2.png)
+![](./media/storsimple-ova-deploy1-portal-prep/getstarted3.png)
 
 ## Introduction 
 
