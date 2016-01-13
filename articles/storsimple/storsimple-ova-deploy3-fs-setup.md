@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/11/2016"
+   ms.date="01/12/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Set up as file server (Preview)
@@ -129,8 +129,12 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     3.  Click **Register**. This will restart the device. You may need to wait for 2-3 minutes before the device is successfully registered. After the device has restarted, you will be taken to the sign in page.
 
-		![](./media/storsimple-ova-deploy3-fs-setup/image12.png)
+		![](./media/storsimple-ova-deploy3-fs-setup/image13.png)
+	
 
+1.  Return to the Azure Portal. On the Devices page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
+
+![](./media/storsimple-ova-deploy3-fs-setup/image12.png)
 
 ## Step 2: Complete the required device setup
 
@@ -199,11 +203,11 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 1.  Click the check icon ![](./media/storsimple-ova-deploy3-fs-setup/image21.png). A share will be created with the specified settings. By default, monitoring and backup will be enabled for the share.
 
-## Step 4: Map and connect to the share
+## Step 4: Connect to the share
 
 You will now need to connect to the share(s) that you created in the previous step. Perform these steps on your Windows Server host.
 
-#### To map and connect to the share
+#### To connect to the share
 
 1.  Press ![](./media/storsimple-ova-deploy3-fs-setup/image22.png) + R. In the Run window, specify the *\\<file server name>* as the path, replacing *file server name* with the device name that you assigned to your file server. Click **OK**.
 
