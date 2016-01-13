@@ -39,7 +39,7 @@ We can get the list of certificates already uploaded to a specific resource grou
 
 	Get-AzureRmWebAppCertificate -ResourceGroupName myresourcegroup
 
-Note that the certificates are local to a specific location, the user need to re-upload the certificate if the configured web app is in a different location that the needed certificate 
+Note that the certificates are local to a specific location and resource group, the user need to re-upload the certificate if the configured web app is in a different location and resource group other that that of the needed certificate 
 
 Knowing the resource group name that contains the web app, the web app name, the certificate thumbprint, and the custom hostname, we can use the following PowerShell command to create that SSL binding:
 
