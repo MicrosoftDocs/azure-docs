@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date=""
+	ms.date="01/13/2016"
 	ms.author="ahmedelnably"/>
 
 # Azure App Service SSL Certificate Binding using PowerShell #
