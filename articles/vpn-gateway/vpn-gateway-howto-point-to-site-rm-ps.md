@@ -129,20 +129,21 @@ Verify that you have an Azure subscription, and have installed the Azure PowerSh
 
 Each client that connects to Azure by using Point-to-Site must have two things: the VPN client must be configured to connect, and the client must have a client certificate installed. VPN client configuration packages are available for Windows clients. Please see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) for more information. 
 
-12. Download the VPN client configuration package. In this step, use the following example to download the client configuration package.
+1. Download the VPN client configuration package. In this step, use the following example to download the client configuration package.
 
-		Get-AzureRmVpnClientPackage -ResourceGroupName $RG -VirtualNetworkGatewayName $VNetName -ProcessorArchitecture Amd64
+		Get-AzureRmVpnClientPackage -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName -ProcessorArchitecture Amd64
 
 	The PowerShell cmdlet will return a URL link. Copy-paste the link that is returned to a web browser to download the package to your computer. Below is an example of what the returned URL will look like.
 
     	"https://mdsbrketwprodsn1prod.blob.core.windows.net/cmakexe/4a431aa7-b5c2-45d9-97a0-859940069d3f/amd64/4a431aa7-b5c2-45d9-97a0-859940069d3f.exe?sv=2014-02-14&sr=b&sig=jSNCNQ9aUKkCiEokdo%2BqvfjAfyhSXGnRG0vYAv4efg0%3D&st=2016-01-08T07%3A10%3A08Z&se=2016-01-08T08%3A10%3A08Z&sp=r&fileExtension=.exe"
 	
-13. Generate and install the client certificates (*.pfx) created from the root certificate on the client computers. You can use any method of installing that you are comfortable with. If you are using a self-signed root certificate and are unfamiliar with how to do this, you can refer to the instructions located at the end of this article.  
+2. Generate and install the client certificates (*.pfx) created from the root certificate on the client computers. You can use any method of installing that you are comfortable with. If you are using a self-signed root certificate and are unfamiliar with how to do this, you can refer to the instructions located at the end of this article.  
 
-14. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you just created. It will be named the same name as your virtual network. Click **Connect**. A pop up message may appear that refers to using the certificate. If this happens, click **Continue** to use elevated privileges. 
+3. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you just created. It will be named the same name as your virtual network. Click **Connect**. A pop up message may appear that refers to using the certificate. If this happens, click **Continue** to use elevated privileges. 
 
-17. On the **Connection** status page, click **Connect** in order to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
-18. Your connection should now be established. You can verify your connection by using the procedure below.
+4. On the **Connection** status page, click **Connect** in order to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
+
+5. Your connection should now be established. You can verify your connection by using the procedure below.
 
 ## Verify your connection
 
