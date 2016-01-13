@@ -17,7 +17,7 @@
 
 # Use the Web UI to administer your StorSimple Virtual Array (preview)
 
-![setup process flow](./media/storsimple-ova-web-ui-admin/manage1.png)
+![setup process flow](./media/storsimple-ova-web-ui-admin/manage2.png)
 
 ## Overview
 
