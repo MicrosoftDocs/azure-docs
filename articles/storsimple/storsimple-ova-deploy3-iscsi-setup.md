@@ -18,7 +18,7 @@
 
 # Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server (preview)
 
-![iscsi setup process flow](./media/storsimple-ova-deploy3-iscsi-setup/iscsi1.png)
+![iscsi setup process flow](./media/storsimple-ova-deploy3-iscsi-setup/iscsi2.png)
 
 ## Overview
 
