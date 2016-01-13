@@ -18,6 +18,8 @@
 
 # Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server (preview)
 
+![iscsi setup process flow](./media/storsimple-ova-deploy3-iscsi-setup/iscsi1.png)
+
 ## Overview
 
 This deployment tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device) running the v 1.1.1.0 Public Preview release. This tutorial describes how to perform initial setup, register your StorSimple iSCSI server, complete the device setup, and then create, mount, initialize, and format volumes on your StorSimple virtual device iSCSI server. The StorSimple setup information in this article applies to StorSimple Virtual Arrays only. 
