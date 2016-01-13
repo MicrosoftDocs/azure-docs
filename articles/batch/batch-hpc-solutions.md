@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="01/06/2016"
+   ms.date="01/11/2016"
    ms.author="danlep"/>
 
 # Batch and HPC solutions in the Azure cloud
@@ -40,7 +40,7 @@ Unlike web applications and many line-of-business applications, batch and HPC ap
 Type | Characteristics | Examples
 ------------- | ----------- | ---------------
 **Intrinsically parallel**<br/><br/>![Intrinsically parallel][parallel] |• Individual computers run application logic independently<br/><br/> • Adding computers allows the application to scale and decrease computation time<br/><br/>• Application consists of separate executables, or is divided into a group of services invoked by a client (a service-oriented architecture, or SOA, application) |• Financial risk modeling<br/><br/>• Image rendering and image processing<br/><br/>• Media encoding and transcoding<br/><br/>• Monte Carlo simulations<br/><br/>• Software testing
-**Tightly coupled**<br/><br/>![Tightly coupled][coupled] |• Application requires compute nodes to interact or exchange intermediate results<br/><br/>• Compute nodes may communicate using the Message Passing Interface (MPI), a common communications protocol for parallel computing<br/><br/>• The application is sensitive to network latency and bandwidth<br/><br/>• Application performance can be improved by using compute infrastructure that supports high-speed networking technologies such as InfiniBand and remote direct memory access (RDMA) |• Oil and gas reservoir modeling<br/><br/>• Engineering design and analysis, such as computational fluid dynamics<br/><br/>• Physical simulations such as car crashes and nuclear reactions<br/><br/>• Weather forecasting
+**Tightly coupled**<br/><br/>![Tightly coupled][coupled] |• Application requires compute nodes to interact or exchange intermediate results<br/><br/>• Compute nodes may communicate using the Message Passing Interface (MPI), a common communications protocol for parallel computing<br/><br/>• The application is sensitive to network latency and bandwidth<br/><br/>• Application performance can be improved by using high-speed networking technologies such as InfiniBand and remote direct memory access (RDMA) |• Oil and gas reservoir modeling<br/><br/>• Engineering design and analysis, such as computational fluid dynamics<br/><br/>• Physical simulations such as car crashes and nuclear reactions<br/><br/>• Weather forecasting
 
 ### Considerations for running batch and HPC applications in the cloud
 
@@ -55,12 +55,12 @@ You can readily migrate many applications that are designed to run in on-premise
 * **Data movement** - For applications that process large amounts of data, strategies are needed to move the data into cloud storage and to compute resources, and you might need high-speed cross-premises networking such as [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/). Also consider legal, regulatory, or policy limitations for storing or accessing that data.
 
 
-* **Licensing** - Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need to plan for a licensing server in the cloud for your solution, or a connection to an on-premises license server.
+* **Licensing** - Check with the vendor of any commercial application for licensing or other restrictions for running in the cloud. Not all vendors offer pay-as-you-go licensing. You might need to plan for a licensing server in the cloud for your solution, or connect to an on-premises license server.
 
 
 ### Big Compute or Big Data?
 
-The dividing lines between Big Compute and Big Data applications aren’t always clear, and some applications may have characteristics of both. Both involve running large-scale computations, usually on clusters of computers. But the solution approaches and supporting tools might differ.
+The dividing line between Big Compute and Big Data applications isn't always clear, and some applications may have characteristics of both. Both involve running large-scale computations, usually on clusters of computers. But the solution approaches and supporting tools can differ.
 
 • **Big Compute** tends to involve applications that rely on CPU power and memory, such as engineering simulations, financial risk modeling, and digital rendering. The clusters that power a Big Compute solution might include computers with specialized multicore processors to perform raw computation, and specialized, high speed networking hardware to connect the computers.
 
@@ -129,69 +129,17 @@ Your Big Compute solution might need other Azure services to connect to resource
 
 ## Solution scenarios
 
-The following are common scenarios to run Big Compute workloads in Azure by leveraging existing HPC cluster solutions, Azure services, or a combination of the two.
+Here are three common scenarios to run Big Compute workloads in Azure by leveraging existing HPC cluster solutions, Azure services, or a combination of the two. Key considerations for choosing each scenario are listed but aren't exhaustive.
 
->[AZURE.NOTE] Although beyond the scope of this article, Azure also provides developers and partners a full set of  capabilities, architecture choices, and development tools to build large-scale, custom Big Compute workflows.
+>[AZURE.NOTE] Although beyond the scope of this article, Azure also provides developers and partners a full set of capabilities, architecture choices, and development tools to build large-scale, custom Big Compute workflows.
 
-### Scenario 1. Burst an on-premises HPC cluster to Azure
+Scenario | Why choose it? | Learn more
+------------- | ----------- | ---------------
+**1. Burst an HPC cluster to Azure**<br/><br/>![Cluster burst][burst_cluster] <br/><br/>• Combine your on-premises [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) cluster with additional Azure resources in a hybrid solution.<br/><br/>• Extend your Big Compute workloads to run on Platform as a Service (PaaS) virtual machine instances (currently Windows Server only).<br/><br/>•  Access an on-premises license server or data store by using an Azure virtual networking|• You have an existing HPC Pack cluster and need more resources <br/><br/>• You don’t want to purchase and manage additional HPC cluster infrastructure<br/><br/>• You have transient peak-demand periods or special projects |• [Burst to Azure with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [Set up a hybrid compute cluster with Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>• [Burst to Azure Batch with Microsoft HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
+**2. Create an HPC cluster entirely in Azure**<br/><br/>![Cluster in IaaS][iaas_cluster]<br/><br/>• Quickly and consistently deploy your applications and cluster tools on standard or custom Windows or Linux infrastructure as a service (IaaS) virtual machines.<br/><br/>• Run a variety of Big Compute workloads by using the job scheduling solution of your choice.<br/><br/>• Use additional Azure services including networking and storage to create complete cloud-based solutions. |• You don’t want to purchase and manage additional Linux or Windows HPC cluster infrastructure<br/><br/>• You have transient peak-demand periods or special projects<br/><br/>• You need an additional cluster for a period of time but don't want to invest in computers and space to deploy it<br/><br/>• You want to offload your compute-intensive application so it runs as a service in the cloud|• [Quickstart template: Create an HPC Pack cluster ](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)<br/><br/>• [PowerShell script: Create an HPC Pack cluster ](../virtual-machines/virtual-machines-hpcpack-cluster-powershell-script.md)<br/><br/>• [Quickstart template: Create a SLURM cluster ](https://azure.microsoft.com/documentation/templates/slurm/)<br/><br/>• [Quickstart template: Create a Torque cluster ](https://azure.microsoft.com/documentation/templates/torque-cluster/)<br/><br/>
+**3. Scale out a parallel application to Azure**<br/><br/>![Azure Batch][batch_proc]]<br/><br/>• Develop with [Azure Batch](http://azure.microsoft.com/documentation/services/batch) APIs to scale out a variety of Big Compute workloads to run on pools of Platform as a Service (PaaS) virtual machines (currently Windows Server only).<br/><br/>• Use an Azure service to manage deployment and autoscaling of virtual machines, job scheduling, disaster recovery, data movement, dependency management, and application deployment, without requiring a separate HPC cluster or job scheduler.|• You don’t want to manage compute resources or a job scheduler; instead, you want to focus on running your applications<br/><br/>• You want to offload your compute-intensive application so it runs as a service in the cloud<br/><br/>• You want to automatically scale your compute resources to match the compute workload |• [Basics of Azure Batch](../batch/batch-technical-overview.d)<br/><br/>• [Get started with the Azure Batch library for .NET](../batch/batch-dotnet-get-started.md)
 
-**When would you choose this?** - You might have an on-premises HPC cluster running your compute-intensive workloads but it needs extra compute resources for peak periods such as end-of-month reporting or special projects. Instead of purchasing, deploying, and managing additional hardware and software that would be idle most of the time,  use Azure to add on-demand compute power to your existing cluster.
 
-For example, if your on-premises HPC cluster is built with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029), you could add extra compute resources in the form of Azure worker role instances running in a cloud service. See the following figure. For more information and step-by-step instructions, see [Burst to Azure with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx). (You can also burst from your HPC Pack cluster to an [Azure Batch pool](https://technet.microsoft.com/library/mt612877.aspx).)
-
-![Cluster burst][burst_cluster]
-
->[AZURE.NOTE]If you want to minimize the footprint of the HPC Pack cluster, you could reduce the on-premises cluster to just the HPC Pack head node. Then, add all compute resources on-demand in Azure. For a tutorial that steps through this scenario, see [Set up a hybrid compute cluster with Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md).
-
-If you need to access an on-premises license server or data store, you can set up an Azure virtual network to connect the on-premises cluster to Azure.
-
-### Scenario 2. Create an HPC cluster entirely in Azure
-
-**When would you choose this?** - You might have a substantial investment in an on-premises Windows or Linux HPC cluster including management and scheduling tools and custom applications. You might need additional cluster capacity to run your existing toolsets and applications but don't want to invest in additional on-premises infrastructure or modify your applications. Or you might need an additional cluster for a period of time but don't want to invest in computers and space to deploy it.
-
-You can use Azure automation tools to create an HPC cluster in Azure virtual machines to create the capacity you need. Depending on the VMs you deploy, you can run a variety of HPC and parallel workloads, including tightly coupled MPI applications.
-
->[AZURE.NOTE] Check with the vendor of your on-premises cluster solution and applications for additional requirements and best practices for running in a public cloud providing infrastructure as a service (IaaS).
-
-For example, you can create an HPC cluster with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) in Azure infrastructure services virtual machines (IaaS) to run your Windows or Linux workloads, as shown in the following simplified figure. A cluster user can submit a job securely to the cloud cluster through standard HPC Pack job submission tools running on a client computer. See [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
-
-![Cluster in IaaS][iaas_cluster]
-
-**Automated deployment** - To deploy a large number of Windows Server or Linux VMs you can use standard or custom VM images and Azure automation tools such as the [Azure Command-line Interface](../xplat-cli-install.md) or [Azure PowerShell](../powershell-install-configure.md). Examples include:
-
-* To deploy an HPC Pack cluster in Azure infrastructure services, run a flexible [Azure PowerShell script](https://msdn.microsoft.com/library/azure/dn864734.aspx) from a client computer, or use an Azure [quickstart template](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) deploy an HPC Pack cluster. These approaches use Azure Marketplace VM images with HPC Pack preinstalled.
-
-* Use an Azure [quickstart template](https://azure.microsoft.com/documentation/templates/slurm/) to deploy a Linux cluster running the [SLURM](https://computing.llnl.gov/linux/slurm/) open source workload manager.
-
-Putting an entire HPC cluster in the cloud can have clear benefits.
-
-* Many on-premises cluster applications can run unchanged, or with minor modifications, in a cloud-based cluster.
-
-* Compared with a hybrid solution that extends an on-premises cluster to the cloud, running an application entirely in the cloud can simplify data access. Rather than dividing data between the cloud and on-premises installations, or making one part of the application access data remotely, all of the application data can be stored in the cloud.
-
-* Some software vendors optimize their applications to run in cloud-based clusters. For example, the [MATLAB Distributed Computing Server](http://www.mathworks.com/products/distriben/), from MathWorks, can run parallel MATLAB jobs in an Azure-based HPC Pack cluster.
-
-### Scenario 3. Scale out a parallel application to Azure
-
-**When would you choose this?** - You might be running a compute-intensive application such as a Monte Carlo simulation, animation rendering, or media transcoding in on-premises workstations or a small cluster. You don’t want to manage compute resources or a job scheduler; instead, you want to focus on running your application efficiently to meet your business goals. Or you might want to offload your compute-intensive application so it runs as a service in the cloud.
-
-To easily cloud enable and scale out an application you run today, [Batch](http://azure.microsoft.com/documentation/services/batch) provides APIs to schedule jobs and manage compute resources in a service. Batch manages deployment and autoscaling of virtual machines, job scheduling, disaster recovery, data movement, dependency management, application deployment, and all the other plumbing needed to run jobs in the cloud. Currently Batch is ideal for parallel applications running in Windows Server compute resources.
-
-See the following figure for a typical workflow a developer can create with Batch.
-
-![Azure Batch][batch_proc]
-
-1. Upload input files (such as source data or images, required application .exe or script files, and their dependencies) to Azure Storage.
-
-2. Create a Batch service that will:
-
-    a. Deploy a pool of identical Azure VMs to run the application, analagous to compute nodes in an HPC cluster. The developer specifies their size, the OS they run, and other properties such as whether the pool can autoscale. When a task runs, it is automatically assigned a VM from this pool.
-
-    b. Create a job to run the application. The developer can specify a schedule and priority for the job, or the job can run on-demand.
-
-    c. Partition the job into tasks. Each task is essentially a command line that runs on one of the VMs in the pool to process information from one of the data files uploaded to Storage.
-
-3. Run the service and monitor the results.  
 
 
 ## Next steps
