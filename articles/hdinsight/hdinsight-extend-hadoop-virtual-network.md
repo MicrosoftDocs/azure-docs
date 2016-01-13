@@ -76,12 +76,13 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
     If you want to use HDInsight on a Virtual Network that blocks Internet traffic, you can do the following:
 
-    1.	Create a new subnet within the Virtual Network. This subnet will be used by HDInsight.
-
-    2.	Define a routing table and create a User Defined Route (UDR) for the subnet that allows both inbound and outbound Internet connectivity. You can accomplish this by using * routes. This will enable Internet connectivity only for resources located on the subnet. For more information on working with UDR, see https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-overview/ and https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-how-to/.
+    1. Create a new subnet within the Virtual Network. This subnet will be used by HDInsight. By default, the new subnet will be able to communicate with the Internet and with the rest of the subnets in the Virtual Network.
     
-    3.	When you create the HDInsight cluster, select the subnet created in step 1. This will deploy the cluster into the subnet that has Internet access. 
+    2. Create the HDInsight cluster. When configuring the Virtual Network settings for the cluster, select the subnet created in step 1.
 
+    > [AZURE.NOTE] The above steps assume that you have not restricted communications to IP addresses _within the Virtual Network IP address range_. If you have, you may need to modify these restrictions to allow communication with the new subnet.
+
+    For more information on Network Security Groups, see [Network Security Groups overview](../virtual-network/virtual-networks-nsg.md). For information on controlling routing in an Azure Virtual Network, see [User Defined Routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
 For more information on provisioning an HDInsight cluster on a virtual network, see [Provisioning Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 
