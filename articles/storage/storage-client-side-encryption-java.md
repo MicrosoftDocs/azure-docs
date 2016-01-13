@@ -168,7 +168,8 @@ Create a **BlobEncryptionPolicy** object and set it in the request options (per 
 	blob.upload(stream, size, null, options, null);
 
 	// Download and decrypt the encrypted contents from the blob.
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); blob.DownloadToStream(outputStream, null, options, null);
+	ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); 
+	blob.download(outputStream, null, options, null);
 
 ### Queue service encryption  
 Create a **QueueEncryptionPolicy** object and set it in the request options (per API or at a client level by using **DefaultRequestOptions**). Everything else will be handled by the client library internally.
