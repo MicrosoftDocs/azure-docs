@@ -25,7 +25,7 @@
 
 A Point-to-Site configuration allows you to create a secure connection to your virtual network from a client computer, individually. A VPN connection is established by starting the connection from the client computer. This is an excellent solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. Point-to-Site connections do not require a VPN device or a public-facing IP address in order to work. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About cross-premises connections](vpn-gateway-cross-premises-options.md).
 
-This article applies to Point-to-Site VPN Gateway connections to a virtual network created using the **classic deployment model** (Service Management). If you want to configure a Point-to-Site connection for a VNet that was created using Resource Manager, see [Configure a Point-to-Site connection](vpn-gateway-point-to-site-mr-ps.md). 
+This article applies to Point-to-Site VPN Gateway connections to a virtual network created using the **classic deployment model** (Service Management). If you want to configure a Point-to-Site connection for a VNet that was created using Resource Manager, see [this article](vpn-gateway-point-to-site-mr-ps.md). 
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
@@ -46,7 +46,7 @@ Step 2 - Create a dynamic routing gateway.
 
 ### Create a virtual network
 
-1. Log in to the **Azure Classic Portal** (Not the Azure Portal).
+1. Log in to the **Azure classic portal** (Not the Azure Portal).
 1. In the lower left corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 1. On the **Virtual Network Details** page, enter the following information, and then click the next arrow on the lower right.
 	- **Name**: Name your virtual network. For example, "VNetEast". This will be the name that you'll refer to when you deploy VMs and PaaS instances to this VNet.
@@ -63,13 +63,13 @@ Step 2 - Create a dynamic routing gateway.
  - **Address Space**: Add the internal IP address range that you want to use for this virtual network, including Starting IP and Count. It's important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You'll need to coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
  - **Add subnet**: Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that's separate from your other role instances.
  - **Add gateway subnet**: The gateway subnet is required for a Point-to-Site VPN. Click to add the gateway subnet. The gateway subnet is used only for the virtual network gateway.
-1. When your virtual network has been created, you will see **Created** listed under **Status** on the networks page in the Azure Classic Portal. Once your virtual network has been created, you can create your dynamic routing gateway.
+1. When your virtual network has been created, you will see **Created** listed under **Status** on the networks page in the Azure classic portal. Once your virtual network has been created, you can create your dynamic routing gateway.
 
 ### Create a dynamic routing gateway
 
 The gateway type must be configured as dynamic. Static routing gateways will not work with this feature.
 
-1. In the Azure Classic Portal, on the **Networks** page, click the virtual network that you just created, and navigate to the **Dashboard** page.
+1. In the Azure classic portal, on the **Networks** page, click the virtual network that you just created, and navigate to the **Dashboard** page.
 1. Click **Create Gateway**, located at the bottom of the **Dashboard** page. A message will appear asking **Do you want to create a gateway for virtual network "yournetwork"**. Click **Yes** to begin creating the gateway. It can take around 15 minutes for the gateway to create.
 
 ## Section 2 - Generate and upload certificates
@@ -95,19 +95,19 @@ If you are not using an enterprise certificate solution, you'll need to generate
 One way to create an X.509 certificate is by using the Certificate Creation Tool (makecert.exe). To use makecert, download and install [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), which is free of charge.
 
 2. Navigate to the Visual Studio Tools folder and start the command prompt as Administrator.
-3. The command in the following example will create and install a root certificate in the Personal certificate store on your computer and also create a corresponding *.cer* file that you'll later upload to the Azure Classic Portal.
+3. The command in the following example will create and install a root certificate in the Personal certificate store on your computer and also create a corresponding *.cer* file that you'll later upload to the Azure classic portal.
 4. Change to the directory that you want the .cer file to be located in and run the following command, where *RootCertificateName* is the name that you want to use for the certificate. If you run the following example with no changes, the result will be a root certificate and the corresponding file *RootCertificateName.cer*.
 
 >[AZURE.NOTE] Because you have created a root certificate from which client certificates will be generated, you may want to export this certificate along with its private key and save it to a safe location where it may be recovered.
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
-### Upload the root certificate .cer file to the Azure Classic Portal
+### Upload the root certificate .cer file to the Azure classic portal
 
 You'll need to upload the corresponding .cer file for each root certificate to Azure. You can upload up to 20 certificates.
 
-1. When you generated a root certificate in the earlier procedure, you also created a *.cer* file. You'll now upload that file to the Azure Classic Portal. Note that the .cer file doesn't contain the private key of the root certificate. You can upload up to 20 root certificates.
-1. In the Azure Classic Portal, on the **Certificates** page for your virtual network, click **Upload a root certificate**.
+1. When you generated a root certificate in the earlier procedure, you also created a *.cer* file. You'll now upload that file to the Azure classic portal. Note that the .cer file doesn't contain the private key of the root certificate. You can upload up to 20 root certificates.
+1. In the Azure classic portal, on the **Certificates** page for your virtual network, click **Upload a root certificate**.
 1. On the **Upload Certificate** page, browse for the .cer root certificate, and then click the checkmark.
 
 ### Generate a client certificate
@@ -144,7 +144,7 @@ Step 3 - Verify the connection.
 
 ### Create the VPN client configuration package
 
-1. In the Azure Classic Portal, on the **Dashboard** page for your virtual network, navigate to the quick glance menu in the right corner and click the VPN package that pertains to the client that you want to connect to your virtual network.
+1. In the Azure classic portal, on the **Dashboard** page for your virtual network, navigate to the quick glance menu in the right corner and click the VPN package that pertains to the client that you want to connect to your virtual network.
 2. 
 The following client operating systems are supported:
  - Windows 7 (32-bit and 64-bit)
@@ -159,7 +159,7 @@ The following client operating systems are supported:
  - For 32-bit clients, select **Download the 32-bit Client VPN Package**.
  - For 64-bit clients, select **Download the 64-bit Client VPN Package**.
 1. It will take a few minutes to create your client package. Once the package has been completed, you will be able to download the file. The *.exe* file that you download can be safely stored on your local computer.
-1. After you generate and download the VPN client package from the Azure Classic Portal, you can install the client package on the client computer from which you want to connect to your virtual network. If you plan to install the VPN client package to multiple client computers, make sure that they each also have a client certificate installed. The VPN client package contains configuration information to configure the VPN client software built into Windows. The package does not install additional software.
+1. After you generate and download the VPN client package from the Azure classic portal, you can install the client package on the client computer from which you want to connect to your virtual network. If you plan to install the VPN client package to multiple client computers, make sure that they each also have a client certificate installed. The VPN client package contains configuration information to configure the VPN client software built into Windows. The package does not install additional software.
 
 ### Install the VPN configuration package on the client and start the connection
 
