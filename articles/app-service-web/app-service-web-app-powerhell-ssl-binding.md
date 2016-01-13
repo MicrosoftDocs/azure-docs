@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date=""
-	ms.author="aelnably"/>
+	ms.author="ahmedelnably"/>
 
 # Azure App Service SSL Certificate Binding using PowerShell #
 

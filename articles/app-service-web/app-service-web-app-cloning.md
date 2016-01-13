@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date=""
-	ms.author="aelnably"/>
+	ms.author="ahmedelnably"/>
 
 # Azure App Service App Cloning #
 
@@ -32,6 +32,10 @@ Scenario: An existing web app in South Central US region, the user would like to
 Knowing the resource group name that contains the source web app, we can use the following PowerShell command to get the source web app's information (in this case named source-webapp):
 
     $srcapp = Get-AzureRmWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
+
+To create a new App Service Plan, we can use New-AzureRmAppServicePlan command as in the following example
+
+	New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan
 
 Using the New-AzureRmWebApp command, we can create the new web app in the North Central US region, and tie it to an existing premium tier App Service Plan, moreover we can use the same resource group as the source web app, or define a new resource group, the following demonstrates that:
 
@@ -73,7 +77,7 @@ The following demonstrates creating a clone of the source web app to a new web a
 
 ## Configuring Traffic Manager while cloning a App ##
 
-Configuring Traffic manager with When creating a new Web App while cloaning from an existing one, you have the option to connect both web apps to either a new traffic manager profile or an existing one - note that only ARM version of Traffic Manager is supported.
+Configuring Traffic manager with When creating a new Web App while cloning from an existing one, you have the option to connect both web apps to either a new traffic manager profile or an existing one - note that only ARM version of Traffic Manager is supported.
 
 ### Creating a new Traffic Manager profile while cloning a App ###
 
@@ -91,15 +95,15 @@ After having the traffic manger id, the following demonstrates creating a clone 
 
 	$destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 
-## Limitations ##
+## Current Restrictions ##
 
-- App cloning to an App service environment is currently not supported - Should be done in the latest version
-- Cloning an app and all its app slots are currently not supported - should be done in the latest version
+This feature is currently in preview, we are working to add new capabilities over time, the following list are the known restriction on the current version of app cloning:
+
 - Auto scale settings are not cloned
 - Backup schedule settings are not cloned
 - VNET settings are not cloned
 - App Insights are not automatically set up on the destination web app
-- East Auth settings are not cloned
+- Easy Auth settings are not cloned
 - Kudu Extension are not cloned
 - TiP rules are not cloned
 
