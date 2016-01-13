@@ -3,8 +3,8 @@
 	description="The Azure Storage Client Library for Java supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications."
 	services="storage"
 	documentationCenter="java"
-	authors="dineshm"
-	manager=""
+	authors="dineshmurthy"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
-	ms.author="lakasa"/>
-
+	ms.date="01/13/2016"
+	ms.author="dineshm"/>
 
 # Client-Side Encryption with Java for Microsoft Azure Storage   
 
@@ -242,7 +241,8 @@ As mentioned above, if the entity implements TableEntity, then the properties ge
 Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional meta-data must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
 ## Next steps  
-Download the [Azure Storage Client Library for Java Maven package](<fix URL>)  
+Download the [Azure Storage Client Library for Java Maven package](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0)  
 Download the [Azure Storage Client Library for Java Source Code from GitHub](https://github.com/Azure/azure-storage-java)   
 Download the Azure Key Vault Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages
+
 Visit the [Azure Key Vault Documentation](../articles/key-vault-whatis.md)  

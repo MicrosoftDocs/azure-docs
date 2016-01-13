@@ -70,7 +70,7 @@ These tables summarize how Azure Backup functionality is handled in each compone
 
 ### Storage
 
-| Feature | Azure Backup agent | SCPDM | Azure Backup Server | Azure Backup (VM extension) |
+| Feature | Azure Backup agent | SCDPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
 | Azure Backup vault | ![Yes][green] | ![Yes][green] | ![Yes][green] | ![Yes][green] |
 | Disk storage | | ![Yes][green] | ![Yes][green] |  |
@@ -93,7 +93,7 @@ Deduplication is supported for SCDPM and Azure Backup Server when [deployed with
 
 ### Security
 
-| Feature | Azure Backup agent | SCPDM | Azure Backup Server | Azure Backup (VM extension) |
+| Feature | Azure Backup agent | SCDPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
 | Network security (to Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
 | Data security (in Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
@@ -106,7 +106,7 @@ For backup of Azure VMs, you must explicitly setup encryption *within* the virtu
 
 ### Supported workloads
 
-| Feature | Azure Backup agent | SCPDM | Azure Backup Server | Azure Backup (VM extension) |
+| Feature | Azure Backup agent | SCDPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
 | Windows Server machine - files/folders | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
 | Windows client machine - files/folders | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
@@ -120,7 +120,7 @@ For backup of Azure VMs, you must explicitly setup encryption *within* the virtu
 
 ### Network
 
-| Feature | Azure Backup agent | SCPDM | Azure Backup Server | Azure Backup (VM extension) |
+| Feature | Azure Backup agent | SCDPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
 | Network compression (to backup server) | | ![Yes][green] | ![Yes][green] | |
 | Network compression (to backup vault) | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
@@ -138,9 +138,9 @@ For customers protecting data to a backup server (SCDPM or Azure Backup Server),
 | Backup Frequency (to disk) | Not applicable | <p>Every 15 minutes for SQL Server</p> <p>Every 1 hour for other workloads</p> | Not applicable |
 | Retention options | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly |
 | Retention period | Up to 99 years | Up to 99 years | Up to 99 years |
-| Recovery points in Azure vault | 366 | 366 | 366 |
-| Recovery points on local disk | Not applicable | 120 | Not applicable |
-| Recovery points on tape | Not applicable | 120? | Not applicable |
+| Recovery points in Azure vault | unlimited | unlimited | unlimited |
+| Recovery points on local disk | Not applicable | Not applicable | Not applicable |
+| Recovery points on tape | Not applicable | Not applicable | Not applicable |
 
 ## How does Azure Backup differ from Azure Site Recovery?
 Many customers confuse backup and disaster recovery. Both capture data and provide restore semantics, but the core value proposition is different for each.
