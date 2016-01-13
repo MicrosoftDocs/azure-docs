@@ -23,11 +23,9 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](classicToken).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
-
-## Prerequisites
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
@@ -66,7 +64,7 @@ You can download the full bash script used [here](https://raw.githubusercontent.
 		pipName="PIPWEB1"
 		dnsName="iaasstoryws1"
 
-## Step 2 - Create necessary resources for your VM
+## Step 2 - Create the necessary resources for your VM
 
 Before creating a VM, you need a resource group, VNet, public IP, and NIC to be used by the VM.
 

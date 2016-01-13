@@ -23,19 +23,15 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](classicToken).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 [AZURE.INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
-
-## Prerequisites
 
 [AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## Step 1 - Start your script
 
 You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Follow the steps below to change the script to work in your environment.
-
-[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
 1. Change the values of the variables below based on the values you want to use for your deployment. The values below map to the scenario used in this document.
 
@@ -66,7 +62,7 @@ You can download the full PowerShell script used [here](https://raw.githubuserco
 		$pipName               = "PIPWEB1"
 		$dnsName               = "iaasstoryws1"
 
-## Step 2 - Create necessary resources for your VM
+## Step 2 - Create the necessary resources for your VM
 
 Before creating a VM, you need a resource group, VNet, public IP, and NIC to be used by the VM.
 
@@ -129,9 +125,11 @@ Now that all necessary resources are in place, you can create a new VM.
 
 		$vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id -Primary
 
-6. Create VM
+6. Create the VM.
 
 		New-AzureRmVM -VM $vmConfig -ResourceGroupName $rgName -Location $location
+
+7. Save the script file.
 
 ## Step 4 - Run the script
 
