@@ -60,7 +60,7 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
 > [AZURE.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://azure.microsoft.com/documentation/services/virtual-network/).
 
-## Virtual Network configuration
+## Virtual Network requirements
 
 > [AZURE.IMPORTANT] Creating an HDInsight cluster on a Virtual Network requires specific Virtual Network configurations, which are described in this section.
 

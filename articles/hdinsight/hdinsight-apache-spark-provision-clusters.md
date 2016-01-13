@@ -69,21 +69,7 @@ You can install additional components or customize cluster configuration by usin
 
 	![diagram of point-to-site configuration](./media/hdinsight-apache-spark-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
-
-> [AZURE.NOTE] You must create the Azure virtual network before creating a cluster. For more information, see [How to create a Virtual Network](virtual-networks-create-vnet.md).
->
-> Azure HDInsight supports only location-based virtual networks and does not currently work with affinity group-based virtual networks.
->
-> It is highly recommended to designate a single subnet for one cluster.
-
-> [AZURE.WARNING] HDInsight is not supported on Azure Virtual Networks that explicitly restrict access to/from the Internet. For example, using Network Security Groups or ExpressRoute to block Internet traffic to resources in the Virtual Network. The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks.
->
-> If you want to use HDInsight on a Virtual Network that blocks Internet traffic, you can do the following:
->
-> 1.	Create a new subnet within the Virtual Network. This subnet will be used by HDInsight.
-> 2.	Define a routing table and create a User Defined Route (UDR) for the subnet that allows both inbound and outbound Internet connectivity. You can accomplish this by using * routes. This will enable Internet connectivity only for resources located on the subnet. For more information on working with UDR, see https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-overview/ and https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-how-to/.
-> 3.	When you create the HDInsight cluster, select the subnet created in step 1. This will deploy the cluster into the subnet that has Internet access.
+For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ##<a id="portal"></a> Using the Azure Preview Portal
 

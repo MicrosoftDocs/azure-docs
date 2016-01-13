@@ -109,23 +109,9 @@ You can provision HDInsight clusters from the Azure portal by using the followin
 
 	* __External Metastores__: This allows you to select a SQL Database, which will be used to store configuration information for Oozie and Hive. This allows you to reuse the configuration when deleting and recreating a cluster, instead of having to recreate the Hive and Oozie configuration each time.
 
-	* __Virtual Network__: This allows you to place the HDInsight cluster on the same virtual network as other resources, such as SQL Database or an Azure Virtual Machine. Placing resources on a virtual network allows the to directly communicate with each other, bypassing the public gateways that handle incoming traffic from the Internet. For more information on how HDInsight benefits from Azure Virtual Networks, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
-
-		> [AZURE.IMPORTANT] You must create the Azure Virtual Network before creating the HDInsight cluster, as you cannot create a new network from HDInsight configuration.
-		>
-		> Currently (8/25/2015) there is a limitation that only one Linux-based HDInsight cluster can be present on an Azure Virtual Network. 
-        >
-        > You cannot use a v1 (Classic,) Azure Virtual Network with Linux-based HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure Portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell.
-        >
-        > If you have resources on a v1 network, and you wish to make HDInsight directly accessible to those resources through a virtual network, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) for information on how to connect a v2 Virtual Network to a v1 Virtual Network. Once this connection is established, you can create the HDInsight cluster in the v2 Virtual Network.
-        
-        > [AZURE.WARNING] HDInsight is not supported on Azure Virtual Networks that explicitly restrict access to/from the Internet. For example, using Network Security Groups or ExpressRoute to block Internet traffic to resources in the Virtual Network. The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks.
-        >
-        > If you want to use HDInsight on a Virtual Network that blocks Internet traffic, you can do the following:
-        >
-        > 1.	Create a new subnet within the Virtual Network. This subnet will be used by HDInsight.
-        > 2.	Define a routing table and create a User Defined Route (UDR) for the subnet that allows both inbound and outbound Internet connectivity. You can accomplish this by using * routes. This will enable Internet connectivity only for resources located on the subnet. For more information on working with UDR, see https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-overview/ and https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-how-to/.
-        > 3.	When you create the HDInsight cluster, select the subnet created in step 1. This will deploy the cluster into the subnet that has Internet access.
+	* __Virtual Network__: This allows you to place the HDInsight cluster on the same virtual network as other resources, such as SQL Database or an Azure Virtual Machine. Placing resources on a virtual network allows the to directly communicate with each other, bypassing the public gateways that handle incoming traffic from the Internet.
+    
+        For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 	* __Script Actions__: This allows you to specify Bash scripts that customize the HDInsight cluster during provisioning. For example, there is a [script that installs Hue](hdinsight-hadoop-hue-linux.md) (a graphical client for working with Hadoop.) For more information on Script Actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
