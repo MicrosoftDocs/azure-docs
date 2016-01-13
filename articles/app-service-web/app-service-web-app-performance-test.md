@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/11/2015"
+   ms.date="01/13/2016"
    ms.author="estfan; manasma"/>
 
 # Performance test your Azure web app under load

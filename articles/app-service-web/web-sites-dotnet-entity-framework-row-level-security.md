@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="01/13/2016"
 	ms.author="thmullan"/>
 
 # Tutorial: Web app with a multi-tenant database using Entity Framework and Row-Level Security
