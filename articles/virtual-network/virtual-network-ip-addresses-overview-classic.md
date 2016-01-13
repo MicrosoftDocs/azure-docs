@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="01/12/2015"
    ms.author="telmos" />
 
 # IP addresses (classic) in Azure
@@ -160,7 +160,6 @@ Below is a comparison of IP addressing features in Resource Manager and the clas
 ||Internal load balancer (ILB)|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end configuration (dynamic or static)|
 
 ## Next steps
-- [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-classic-ps.md)
 - [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md)
 - [Create a load balancer using PowerShell](load-balancer-get-started-internet-classic-cli.md)
 - [Create an internal load balancer using PowerShell](load-balancer-get-started-ilb-classic-ps.md)

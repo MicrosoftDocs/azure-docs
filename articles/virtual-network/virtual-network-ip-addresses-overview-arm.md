@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/23/2015"
+   ms.date="01/12/2015"
    ms.author="telmos" />
 
 # IP addresses in Azure
@@ -152,7 +152,8 @@ In summary, the following pricing structure applies to public IP resources:
 	- Usage is calculated based on the total number of static public IPs in the subscription.
 
 ## Next steps
-- [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-arm-template.md)
+- [Deploy a VM with a static public IP](virtual-network-deploy-static-pip-arm-portal.md)
+- - [Deploy a VM with a static public IP using a template](virtual-network-deploy-static-pip-arm-template.md)
 - [Create a public IP address for an Internet facing load balancer by using the Azure CLI](load-balancer-get-started-internet-arm-cli.md#create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool)
 - [Create a public IP address for an application gateway by using PowerShell](application-gateway-create-gateway-arm.md#create-public-ip-address-for-front-end-configuration)
 - [Create a public IP address for a VPN gateway by using PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md#4-request-a-public-ip-address-for-the-gateway)
