@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Fail back VMware virtual machines and physical servers to the on-premises site" | Microsoft Azure
-   description="Learn about failing back VMware VMs and physical servers from Azure." 
+   pageTitle="Fail back VMware virtual machines and physical servers to the on-premises site | Microsoft Azure"
+   description="Learn about failing back to the on-premises site after failover of VMware VMs and physical servers to Azure." 
    services="site-recovery" 
    documentationCenter="" 
    authors="rayne-wiselman" 
