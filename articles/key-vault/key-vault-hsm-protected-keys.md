@@ -197,7 +197,7 @@ To validate the downloaded package:
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
 	- For [Azure Government](https://azure.microsoft.com/features/gov/), which uses the US government instance of Azure:
 
-			python verifykeypackage.py -k BYOK-KEK-pkg-USGov-1 -w BYOK-SecurityWorld-pkg-USGOV-1
+			python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
 
 	>[AZURE.TIP]The Thales software includes python at %NFAST_HOME%\python\bin
 
