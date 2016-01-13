@@ -235,6 +235,8 @@ If you want to replicate VMware virtual machines install the following VMware co
 
 ## Step 5: Install the management server
 
+> [AZURE.VIDEO enhanced-vmware-to-azure-discovery]
+
 1. On the **Quick Start** page download the unified installation file to the server.
 2. Run the installation file to start setup in the Site Recovery Unified Setup wizard.
 3. In **Before you begin** select **Install the configuration server and process server**. Depending on the size of your deployment you might need additional process servers later, but not when you set up this deployment for the first time.
