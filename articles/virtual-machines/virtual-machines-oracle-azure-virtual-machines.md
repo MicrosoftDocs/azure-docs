@@ -3,7 +3,7 @@
 	description="Find the articles that describe how to set up Oracle software on Windows-based or Linux-based Azure virtual machines."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="bbenz"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="10/05/2015"
-	ms.author="josephd"/>
+	ms.date="1/12/2016"
+	ms.author="bbenz"/>
 
 # Oracle software hosted on Azure virtual machines
 
