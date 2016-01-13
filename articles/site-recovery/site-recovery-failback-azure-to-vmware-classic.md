@@ -78,7 +78,7 @@ You need to install a process server in Azure so that the Azure VMs can send the
 	![](./media/site-recovery-failback-azure-to-vmware-classic/ps3.png)
 
 	After the process server is deployed in Azure you can log onto it
-	using the credentials you specified and run the unified setup wizard to register it, in the same way you [set up the on-premises management server](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server).
+	using the credentials you specified. The first time you log in the process server dialog will run. Type in the IP address of the on-premises management server and its passphrase. Leave the default port 443 setting. You can also leave the default 9443 port for data replication unless you specifically modified this setting when you set up the on-premises management server. 
 
 	>[AZURE.NOTE] The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
 
