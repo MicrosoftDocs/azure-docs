@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integrating your on-premises identities with Azure Active Directory. | Microsoft Azure"
+	pageTitle="Azure AD Connect: Integrating your on-premises identities with Azure Active Directory. | Microsoft Azure"
 	description="This is the Azure AD Connect that describes what it is and why you would use it."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/04/2015"
+	ms.date="01/08/2016"
 	ms.author="andkjell;billmath"/>
 
 # Integrating your on-premises identities with Azure Active Directory
@@ -49,6 +49,7 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 
 | Solution | Scenario |
 | ----- | ----- |
+| Before you start | <li>[Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md)</li> |
 | [Express settings](active-directory-aadconnect-get-started-express.md) | <li>Recommended and default option if you have a single forest AD.</li> <li>User sign in with the same password using password synchronization.</li>
 | [Customized settings](active-directory-aadconnect-get-started-custom.md) | <li>Used when you have multiple forests. Supports many on-premises [topologies](active-directory-aadconnect-topologies.md).</li> <li>Customize your sign-in option , such as ADFS for federation or use a 3rd party identity provider.</li> <li>Customize synchronization features, such as filtering and writeback.</li>
 | [Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>If you have an existing DirSync server already running.</li>
@@ -61,7 +62,6 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 
 | Topic |  |
 | --------- | --------- |
-| Hardware and prerequisites | [Azure AD Connect: Hardware and prerequisites](active-directory-aadconnect-prerequisites.md) |
 | Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Install using Express settings | [Express installation of Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Install using Customized settings | [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
@@ -78,6 +78,7 @@ You also want to prepare for [operational](active-directory-aadconnectsync-opera
 | Design concepts | [Azure AD Connect design concepts](active-directory-aadconnect-design-concepts.md) |
 | Accounts used for installation | [More about Azure AD Connect credentials and permissions](active-directory-aadconnect-accounts-permissions.md) |
 | Operational planning | [Azure AD Connect sync: Operational tasks and considerations](active-directory-aadconnectsync-operations.md) |
+| User sign-in options | [Azure AD Connect User sign-in options](active-directory-aadconnect-user-signin.md) |
 
 ## Configure features
 Azure AD Connect comes with several features you can optionally turn on or are enabled by default. Some features might in some cases require additional configuration in certain scenarios and topologies.
@@ -120,7 +121,7 @@ The configuration model in sync is called [declarative provisioning](active-dire
 | Understanding users and contacts | [Azure AD Connect sync: Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | Declarative provisioning | [Azure AD Connect Sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Declarative provisioning functions reference | [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md) |
-| Best practices | [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
+| Change the default configuration | [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) |
 
 ## More information and references
 

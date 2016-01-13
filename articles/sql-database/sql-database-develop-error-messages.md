@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Error messages for SQL Database client programs"
 	description="For each error, this gives the numeric ID and the textual message. Feel free to cross-reference your own preferred friendlier error message text if you see fit."
 	services="sql-database"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="12/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -80,8 +80,6 @@ Transient fault errors should prompt your client program to run *retry logic* th
 |49919|16|Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
 |49920|16|Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. |
 
-**Note:** Federation errors 10053 and 10054 might also deserve inclusion in your retry logic.
-
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
 
@@ -145,47 +143,6 @@ For additional discussion of resource governance and associated errors, see:
 
 - [Azure SQL Database resource limits](sql-database-resource-limits.md).
 
-
-<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
-
-## Federation errors
-
-
-The following table covers the errors that you might encounter while working with federations.
-
-
-> [AZURE.IMPORTANT] The current implementation of Federations will be retired with Web and Business service tiers. Version V12 of Azure SQL Database does not support the Web and Business service tiers.
-> 
-> The Elastic Scale feature is designed to create sharding applications with minimal effort.
-> 
-> For more information about Elastic Scale, see [Azure SQL Database Elastic Scale Topics](sql-database-elastic-scale-documentation-map.md). Consider deploying custom sharding solutions to maximize scalability, flexibility, and performance. For more information about custom sharding, see [Elastic Database features overview](sql-database-elastic-scale-introduction.md).
-
-
-|Error number|Severity|Description|Mitigation|
-|---:|---:|:---|:---|
-|266|16|<statement> statement not allowed within multi-statement transaction|Check that `@@trancount` is 0 on the connection before issuing the statement.|
-|2072|16|Database '%.&#x2a;ls' does not exist|Check `sys.databases` for the database state before issuing `USE FEDERATION`.|
-|2209|16|%s Syntax error near ‘%ls’|`FEDERATED ON` can only be used when creating tables in federation members.|
-|2714|16|There is already an object named ‘%.&#x2a;ls’ in the database|Federation name already exists.|
-|10054, 10053|20|A transport-level error has occurred when receiving results from the server. An established connection was aborted by the software in your host machine|Implement retry logic in your application.|
-|40530|15|<statement> needs to be the only statement in the batch|Ensure that no other statements are in the batch|
-|40604|16|Could not `CREATE DATABASE` because it would exceed the quota of the server|Expand the server db count quota|
-|45000|16|<statement> operation failed. Specified federation name <federation_name> is not valid|Federation_name does not comply with federation name rules or is not a valid identifier|
-|45001|16|<statement> operation failed. Specified federation name does not exist|Federation name does not exist|
-|45002|16|<statement> operation failed. Specified federation key name <distribution_name> is not valid|Non-existent or invalid federation key|
-|45004|16|<statement> operation failed. Specified value is not valid for federation key <distribution_name> and federation <federation_name>|`USE FEDERATION`: Use a boundary value that is in the domain of the federation key data type, or that is not NULL.<br/><br/>`ALTER FEDERATION SPLIT`: Use a valid value in the domain of the federation key that is not already an existing split point.<br/><br/>`ALTER FEDERATION DROP`: Use a valid value in the domain of the federation key that is already a split point.|
-|45005|16|<statement>  cannot be run while another federation operation is in progress on  federation <federation_name> and member with id <member_id>|Wait for the concurrent operation to finish.|
-|45006|16|<statement> operations failed. Foreign key relationships in reference tables referencing federated tables are not allowed in federation members|Unsupported.|
-|45007|16|<statement> operation failed. Foreign key relationships between federate tables must include the federation key column(s).|Unsupported|
-|45008|16|<statement> operation failed. Federation key data type does not match the column data type|Unsupported.|
-|45009|16|<statement> operation failed. The operation is not supported on filtering connections|Unsupported.|
-|45010|16|<statement> operation failed. Federation key cannot be updated|Unsupported.|
-|45011|16|<statement> operation failed. Federation key schema cannot be updated|Unsupported.|
-|45012|16|Value specified for the federation key is not valid|Value must be in the range that the connection is addressing.<br/><br/>If filtered, the federation key value specified.<br/><br/>If unfiltered, the range covered by the federation member.|
-|45013|16|The SID already exists under a different user name|The SID for a user in a federation member is copied from the SID of the same user account in the federation root. Under certain conditions, the SID may already be in use.|
-|45014|16|%ls is not supported on %ls|Unsupported operation.|
-|45022|16|<statement> operation failed. Specified boundary value already exists for federation key <distribution_name> and federation <federation_name>|Specify a value that is already a boundary value.|
-|45023|16|<statement> operation failed. Specified boundary value does not exists for federation key <distribution_name> and federation <federation_name>|Specify a value that is not already a boundary value.|
 
 
 <a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
@@ -259,6 +216,7 @@ The following table lists all the general errors that do not fall into any previ
 |40651|16|Failed to create server because the subscription <subscription-id> is disabled.|
 |40652|16|Cannot move or create server. Subscription <subscription-id> will exceed server quota.|
 |40671|17|Communication failure between the gateway and the management service. Please retry later.|
+|40852|16|Cannot open database '%.*ls' on server '%.*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN  -  'server name'.database.windows.net should be modified to 'server name'.database.`secure`.windows.net.|
 |45168|16|The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later.|
 |45169|16|The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later.|
 

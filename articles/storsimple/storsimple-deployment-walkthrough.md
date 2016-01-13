@@ -12,12 +12,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device
 
-[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
+> [AZURE.SELECTOR]
+- [Update 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
+- [Update 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
+- [GA Release](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
 ## Overview
 
@@ -72,7 +75,7 @@ The following deployment configuration checklist describes the information that 
 | **Configure and register device**          | Data 0 network settings                           | Data 0 IP Address:</br>Subnet mask:</br>Gateway:</br>Primary DNS server:</br>Primary NTP server:</br>Web proxy server IP/FQDN (optional):</br>Web proxy port:|        |
 |                                        | Device administrator password                   	 | Password must be between 8 and 15 characters containing lowercase, uppercase, numeric and special characters. |        |
 |                                        | StorSimple Snapshot Manager password              | Password must be 14 or 15 characters containing lowercase, uppercase, numeric and special characters.|        |
-|                                        | Service Registration Key                          | This key is generated from the Azure portal.    |        |
+|                                        | Service Registration Key                          | This key is generated from the Azure classic portal.    |        |
 |                                        | Service Data Encryption Key                       | This key is created when the device is registered with the management service via the Windows PowerShell for StorSimple. Copy this key and save it in a safe location.|  |
 |   |   |  |  |
 | **Complete minimum device setup**          | Friendly name for your device                     | This is a descriptive name for the device. |        |
@@ -171,7 +174,7 @@ Perform the following steps to create a new instance of the StorSimple Manager s
 
 After the StorSimple Manager service is up and running, you will need to get the service registration key. This key is used to register and connect your StorSimple device with the service.
 
-Perform the following steps in the Azure portal.
+Perform the following steps in the Azure classic portal.
 
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
@@ -192,7 +195,7 @@ For the minimum device configuration of your StorSimple device, you are required
 - Enable iSCSI on at least one network interface.
 - Assign fixed IP addresses to both the controllers.
 
-Perform the following steps in the Azure portal to complete the minimum device setup.
+Perform the following steps in the Azure classic portal to complete the minimum device setup.
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup.md)]
 
@@ -203,13 +206,13 @@ After the device configuration is complete, you must scan for updates and if ava
 
 A volume container has storage account, bandwidth, and encryption settings for all the volumes contained in it. You will need to create a volume container before you can start provisioning volumes on your StorSimple device.
 
-Perform the following steps in the Azure portal to create a volume container.
+Perform the following steps in the Azure classic portal to create a volume container.
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
 ## Step 6: Create a volume
 
-After you create a volume container, you can provision a storage volume on the StorSimple device for your servers. Perform the following steps in the Azure portal to create a volume.
+After you create a volume container, you can provision a storage volume on the StorSimple device for your servers. Perform the following steps in the Azure classic portal to create a volume.
 
 > [AZURE.IMPORTANT] StorSimple Manager can create only thinly provisioned volumes.  You cannot create fully or partially provisioned volumes.
 
@@ -231,7 +234,7 @@ If you decide not to configure MPIO, perform the following steps to mount, initi
 
 Backups provide point-in-time protection of volumes and improve recoverability while minimizing restore times. You can take two types of backup on your StorSimple device: local snapshots and cloud snapshots. Each of these backup types can be **Scheduled** or **Manual**.
 
-Perform the following steps in the Azure portal to create a scheduled backup.
+Perform the following steps in the Azure classic portal to create a scheduled backup.
 
 [AZURE.INCLUDE [storsimple-take-backup](../../includes/storsimple-take-backup.md)]
 
@@ -243,7 +246,7 @@ This is an optional step that you need to perform only if you did not enable the
 
 If you need to create an Azure storage account in a different region, see [About Azure Storage Accounts](../storage/storage-create-storage-account.md) for step-by-step instructions.
 
-Perform the following steps in the Azure portal, on the **StorSimple Manager service** page.
+Perform the following steps in the Azure classic portal, on the **StorSimple Manager service** page.
 
 [AZURE.INCLUDE [storsimple-configure-new-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
@@ -280,7 +283,7 @@ Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows h
 
 ## Create a manual backup
 
-Perform the following steps in the Azure portal to create an on-demand manual backup for a single volume on your StorSimple device.
+Perform the following steps in the Azure classic portal to create an on-demand manual backup for a single volume on your StorSimple device.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-create-manual-backup.md)]
 

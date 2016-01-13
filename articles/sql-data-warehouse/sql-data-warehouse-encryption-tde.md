@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) Portal| Microsoft Azure" 
-	description="Get started with SQL Data Warehouse Transparent Data Encryption (TDE) Portal" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse| Microsoft Azure" 
+   description="Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="barbkess" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
-# Get started with Transparent Data Encryption (TDE)
+# Get started with Transparent Data Encryption (TDE) in SQL Data Warehouse
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-encryption-tde.md)
+- [Azure Classic Portal](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
 
 Azure SQL Data Warehouse transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
@@ -29,7 +29,7 @@ TDE encrypts the storage of an entire database by using a symmetric key called t
 
 To enable TDE for a SQL Data Warehouse, follow the steps below:
 
-1. Open the database in the [Azure Portal](https://portal.azure.com)
+1. Open the database in the [Azure Classic Portal](https://portal.azure.com)
 2. In the database blade, click the **Settings** button	
 3. Select the **Transparent data encryption** option
 ![][1] 
@@ -42,7 +42,7 @@ To enable TDE for a SQL Data Warehouse, follow the steps below:
 
 To disable TDE for a SQL Data Warehouse, follow the steps below:
 
-1. Open the database in the [Azure Portal](https://portal.azure.com)
+1. Open the database in the [Azure Classic Portal](https://portal.azure.com)
 2. In the database blade, click the **Settings** button	
 3. Select the **Transparent data encryption** option
 ![][1] 
@@ -55,7 +55,7 @@ To disable TDE for a SQL Data Warehouse, follow the steps below:
 
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/en-us/library/bb934049.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

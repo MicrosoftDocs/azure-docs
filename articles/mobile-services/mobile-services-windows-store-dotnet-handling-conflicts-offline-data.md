@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Handle conflicts with offline data in universal Windows apps | Microsoft Azure" 
-	description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your universal Windows application" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Handle conflicts with offline data in universal Windows apps | Microsoft Azure"
+	description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your universal Windows application"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/12/2015"
 	ms.author="glenga"/>
 
 
 # Handling conflicts with offline data sync in Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../../includes/mobile-services-selector-offline-conflicts.md)]
 
@@ -45,7 +50,7 @@ This tutorial requires Visual Studio 2013 running on Windows 8.1.
 
 This tutorial is a walkthrough of how the [Todo Offline Mobile Services sample] handles sync conflicts between the local offline store and the Mobile Service database in Azure.
 
-1. Download the zip file for the [Mobile Services Samples GitHub Repository] and extract it to a working directory. 
+1. Download the zip file for the [Mobile Services Samples GitHub Repository] and extract it to a working directory.
 
 2. If you haven't already installed SQLite for Windows 8.1 and Windows Phone 8.1 as mentioned in the [Get started with offline data] tutorial, install both runtimes.
 
@@ -64,7 +69,7 @@ Note that the app is not yet connected to any mobile service, so the buttons **P
 
 Now it's time to test the app against Mobile Services.
 
-1. In the Azure Management Portal, find your mobile service's application key by clicking **Manage Keys** on the command bar of the **Dashboard** tab. Copy the **Application Key**.
+1. In the [Azure classic portal], find your mobile service's application key by clicking **Manage Keys** on the command bar of the **Dashboard** tab. Copy the **Application Key**.
 
 2. In Solution Explorer for Visual Studio, open the App.xaml.cs file in the client sample project. Change the initialization of the **MobileServiceClient** to use your mobile service URL and application key:
 
@@ -88,14 +93,14 @@ In a real world scenario, a sync conflict would occur when one app pushes update
 The following steps show the Windows Phone 8.1 and Windows Store 8.1 clients running at the same time to cause and resolve a conflict using the sample.
 
 1. In Visual Studio, right click the Windows Phone 8.1 project and click **Set as Startup Project**. Then press **Ctrl+F5** keys to run the Windows Phone 8.1 client without debugging. Once you have the Windows Phone 8.1 client up and running in the emulator, click the **Pull** button to sync the local store with the current state of the database.
- 
+
     ![][3]
- 
-   
+
+
 2. In Visual Studio, right click the Windows 8.1 runtime project and click **Set as Startup Project** to set it back to the start up project. Then press **F5** to run it. Once you have the Windows Store 8.1 client up and running, click the **Pull** button to sync the local store with the current state of the database.
 
     ![][4]
- 
+
 3. At this point point both clients are synchronized with the database. The code for both clients are also using incremental sync, so that they will only sync incomplete todo items. Completed todo items will be ignored. Choose one of the items and edit the text of the same item in both clients to a different value. Click the **Push** button to sync both changes with the database on the server.
 
     ![][5]
@@ -126,7 +131,7 @@ The class `SyncHandler` in **SyncHandler.cs** implements `IMobileServiceSyncHand
 
 To resolve conflicts in favor of the local item, you should simply retry the operation. Once a conflict has occurred, the local item version will be updated to match the server version, so executing the operation again will overwrite the server changes with the local changes:
 
-    await operation.ExecuteAsync(); 
+    await operation.ExecuteAsync();
 
 To resolve conflicts in favor of the server item, simply return from the `ExecuteTableOperationAsync`. The local version of the object will be discarded and replaced with the value from the server.
 
@@ -134,9 +139,9 @@ To stop the push operation (but retain the queued changes), use the method `Abor
 
     operation.AbortPush();
 
-This will stop the current push operation but will keep all pending changes, including the current operation if `AbortPush` is called from `ExecuteTableOperationAsync`. The next time that `PushAsync()` is called, these changes will be sent to the server. 
+This will stop the current push operation but will keep all pending changes, including the current operation if `AbortPush` is called from `ExecuteTableOperationAsync`. The next time that `PushAsync()` is called, these changes will be sent to the server.
 
-When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedException`, and the exception property `PushResult.Status` will have the value `MobileServicePushStatus.CancelledByOperation`. 
+When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedException`, and the exception property `PushResult.Status` will have the value `MobileServicePushStatus.CancelledByOperation`.
 
 
 
@@ -158,8 +163,8 @@ When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedExcept
 [Get started with Mobile Services]: ../mobile-services-windows-store-get-started.md
 [Get started with offline data]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Handling Database Conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md#test-app
 [Mobile Services Samples GitHub Repository]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Todo Offline Mobile Services sample]: http://go.microsoft.com/fwlink/?LinkId=512866
- 
+

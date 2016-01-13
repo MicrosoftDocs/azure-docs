@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 #RBAC: Built in Roles
@@ -27,7 +27,7 @@ Click the corresponding link to see the **actions** and **not actions** properti
 
 | Role Name | Description |
 | --------- | ----------- |
-| [API-Management Service Contributor](#api-management-service-contributor) | Can manage Application Insights components |
+| [API-Management Service Contributor](#api-management-service-contributor) | Can manage API Management services |
 | [Application Insights Component Contributor](#application-insights-component-contributor) | Can manage Application Insights components |
 | [Automation Operator](#automation-operator) | Able to start, stop, suspend, and resume jobs |
 | [BizTalk Contributor](#biztalk-contributor) | Can manage BizTalk services |
@@ -53,7 +53,7 @@ Click the corresponding link to see the **actions** and **not actions** properti
 | [User Access Administrator](#user-access-administrator) | Can manage user access to Azure resources |
 | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Can manage classic virtual machines but not the virtual network or storage account to which they are connected |
 | [Virtual Machine Contributor](#virtual-machine-contributor) | Can manage virtual machines but not the virtual network or storage account to which they are connected |
-| [Classic Network Contributor](#classic-network-contributor) | Can manage virtual machines but not the virtual network or storage account to which they are connected |
+| [Classic Network Contributor](#classic-network-contributor) | Can manage classic virtual networks and reserved IPs |
 | [Web Plan Contributor](#web-plan-contributor) | Can manage web plans |
 | [Website Contributor](#website-contributor) | Can manage websites but not the web plans to which they are connected |
 

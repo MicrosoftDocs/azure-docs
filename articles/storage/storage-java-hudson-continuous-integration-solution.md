@@ -5,7 +5,7 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="10/12/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # Using Azure Storage with a Hudson Continuous Integration solution
@@ -86,11 +86,11 @@ To use the Blob service with Hudson, you'll need to install the Azure Storage pl
 2. On the **Manage Hudson** page, click **Configure System**.
 3. In the **Microsoft Azure Storage Account Configuration** section:
 
-    a. Enter your storage account name, which you can obtain from the [Azure portal](https://manage.windowsazure.com).
+    a. Enter your storage account name, which you can obtain from the [Azure Portal](portal.azure.com).
 
-    b. Enter your storage account key, also obtainable from the Azure portal.
+    b. Enter your storage account key, also obtainable from the [Azure Portal](portal.azure.com).
 
-    c. Use the default value for **Blob Service Endpoint URL** if you are using the public Azure cloud. If you are using a different Azure cloud, use the endpoint as specified in the Azure portal for your storage account.
+    c. Use the default value for **Blob Service Endpoint URL** if you are using the public Azure cloud. If you are using a different Azure cloud, use the endpoint as specified in the [Azure Portal](portal.azure.com) for your storage account.
 
     d. Click **Validate storage credentials** to validate your storage account.
 
@@ -129,7 +129,7 @@ For instruction purposes, first we'll need to create a job that will create seve
 13. In the Hudson dashboard, click **Build Now** to run **MyJob**. Examine the console output for status. Status messages for Azure Storage will be included in the console output when the post-build action starts to upload build artifacts.
 14. Upon successful completion of the job, you can examine the build artifacts by opening the public blob.
 
-    a. Sign in to the [Azure portal](https://manage.windowsazure.com).
+    a. Sign in to the [Azure Portal](portal.azure.com).
 
     b. Click **Storage**.
 
@@ -166,7 +166,7 @@ The following provides an overview of the Blob service components.
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
 
-    (The format above applies to the public Azure cloud. If you are using a different Azure cloud, use the endpoint within the Azure portal to determine your URL endpoint.)
+    (The format above applies to the public Azure cloud. If you are using a different Azure cloud, use the endpoint within the [Azure Portal](portal.azure.com) to determine your URL endpoint.)
 
     In the format above, `storageaccount` represents the name of your storage account, `container_name` represents the name of your container, and `blob_name` represents the name of your blob, respectively. Within the container name, you can have multiple paths, separated by a forward slash, **/**. The example container name in this tutorial was **MyJob**, and **${BUILD\_ID}/${BUILD\_NUMBER}** was used for the common virtual path, resulting in the blob having a URL of the following form:
 

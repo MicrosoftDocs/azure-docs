@@ -3,7 +3,7 @@
 	description="Learn how to deploy your Azure application to a staging environment, then deploy to a production environment using Virtual IP (VIP) swap." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
-	ms.author="mwasson"/>
+	ms.date="01/09/2016" 
+	ms.author="robmcm"/>
 
 
 
@@ -43,7 +43,7 @@ Azure PowerShell**.
     Publish-AzureServiceProject -Slot staging
     ```
 
-2.  Log on to the [Azure Management Portal] and select **Cloud Services**. After the cloud service is created and the **Staging** column status has been updated to **Running**, click on the service name.
+2.  Log on to the [Azure classic portal] and select **Cloud Services**. After the cloud service is created and the **Staging** column status has been updated to **Running**, click on the service name.
 
 	![portal displaying a running service][cloud-service]
 
@@ -68,7 +68,7 @@ environments.
 application to production and staged the upgraded version of the
 application.
 
-1.  Log into the [Azure Management Portal], click **Cloud Services** and then select the service name.
+1.  Log into the [Azure classic portal], click **Cloud Services** and then select the service name.
 
 2.  From the **Dashboard**, select **Staging**, and then click **Swap** at the bottom of the page. This opens the VIP Swap dialog.
 
@@ -83,7 +83,7 @@ deployment by swapping VIPs with the deployment in staging.
 
 - [How to Deploy a Service Upgrade to Production by Swapping VIPs in Azure]
 
-[Azure Management Portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png

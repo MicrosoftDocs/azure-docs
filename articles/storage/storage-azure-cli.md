@@ -12,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article" 
-    ms.date="09/28/2015"
+    ms.date="01/05/2016"
     ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Using the Azure CLI with Azure Storage
 
 ## Overview
 
-The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the Azure Management Portal as well as rich data access functionality.
+The Azure CLI provides a set of open source, cross-platform commands for working with the Azure Platform. It provides much of the same functionality found in the [Azure Portal](portal.azure.com) as well as rich data access functionality.
 
 In this guide, we’ll explore how to use [Azure Command-Line Interface (Azure CLI)](../xplat-cli-install.md) to perform a variety of development and administration tasks with Azure Storage. We recommend that you download and install or upgrade to the latest Azure CLI before using this guide.
 

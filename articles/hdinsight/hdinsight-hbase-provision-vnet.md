@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/12/2015"
+   ms.date="11/18/2015"
    ms.author="jgao"/>
 
 # Provision HBase clusters on Azure Virtual Network 
@@ -60,7 +60,7 @@ Azure Resource Manager enables you to work with the resources in your applicatio
 
 **To create a resource group**
 
-1. Sign in to the [Azure Preview portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **NEW**, click **Management**, and then click **Resource group**.
 3. Type or select the following values:
 
@@ -74,21 +74,28 @@ Before provisioning an HBase cluster, you need to have an Azure virtual network.
 
 **To create a virtual network by using the Azure portal**
 
-1. Sign in to the [preview portal](https://portal.azure.com).
+1. Sign in to the [Portal](https://portal.azure.com).
 2. Click **NEW**, click **Networking**, and then click **Virtual network**.
-3. In **Select a deployment model**, select **Classic**, and then click **Create**.
+3. In **Select a deployment model**, select **Classic** if you will be using a Windows-based HDInsight cluster; select **Resource Manager** if you will be using a Linux-based HDInsight cluster. Finally, click **Create**.
 
-	> [AZURE.NOTE] You cannot use a v1 (Classic,) Azure Virtual Network with HDInsight. The Virtual Network must be v2 (Azure Resource Manager,) in order for it to be listed as an option during the HDInsight cluster creation process in the Azure preview portal, or to be usable when creating a cluster from the Azure CLI or Azure PowerShell.
-> 
-> If you have resources on a v1 network, and you wish to make HDInsight directly accessible to those resources through a virtual network, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md) for information on how to connect a v2 Virtual Network to a v1 Virtual Network. Once this connection is established, you can create the HDInsight cluster in the v2 Virtual Network.
-
+    > [AZURE.NOTE] Windows-based clusters require a v1 (Classic) Virtual Network, while Linux-based clusters require a v2 (Azure Resource Manager,) Virtual Network. If you do not have the correct type of network, it will not be usable when you create the cluster.
+    >
+    > If you have resources on a Virtual Network that is not usable by the cluster you plan on creating, you can create a new Virtual Network that is usable by the cluster, and connect it to the incompatible Virtual Network. You can then create the cluster in the network version that it requires, and it will be able to access resources in the other network since the two are joined. For more information on connecting classic and new Virtual Networks, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+    
 4. Type or select the following values:
 
 	- **Name**: The name of your virtual network.
 	- **Address space**:  Choose an address space for the virtual network that is large enough to provide addresses for all nodes in the cluster. Otherwise the provision will fail. For walking through this tutorial, you can use the default values. Click **OK** to save the changes.
+    
+        > [AZURE.NOTE] If you will be using this Virtual Network with multiple HDInsight clusters, it is highly recommended to designate a single subnet for each cluster.
+         
 	- **Resource group**: Select the resource group you created earlier in the tutorial.
 	- **Subscription**: Select the Azure subscription you like to use for this virtual network.
 	- **Location** - The location must be the same as the HBase cluster that you will create.
+    
+        > [AZURE.NOTE] > Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group.
+        
+    For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 5. Click **Create**.
 
@@ -110,10 +117,10 @@ A DNS server is optional, but necessary in some cases.  The procedure has been d
 
 **To create an HDInsight cluster**
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**.
 
-    ![Creating a new cluster in the Azure preview portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Preview Portal")
+    ![Creating a new cluster in the Azure Portal](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Creating a new cluster in the Azure Portal")
 
 3. Type or select the following values:
 

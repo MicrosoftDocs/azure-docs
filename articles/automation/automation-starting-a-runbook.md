@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/28/2015"
+   ms.date="11/13/2015"
    ms.author="bwren;sngun"/>
 
 # Starting a runbook in Azure Automation
@@ -93,7 +93,7 @@ The following table will help you determine the method to start a runbook in Azu
   </td>
  </tr>
  <tr>
-  <td><a href="http://msdn.microsoft.com/library/azure/dn857355.aspx">From another runbook</a></td>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-child-runbooks/">From another runbook</a></td>
   <td>
    <ul>
     <li>Use a runbook as an activity in another runbook</li>
@@ -150,7 +150,7 @@ If the runbook requires parameters, then you must provide them as a [hashtable](
 
 ## Runbook parameters
 
-When you start a runbook using the Azure Management Portal or Windows PowerShell, the instruction is sent through the Azure Automation web service. This service does not support parameters with complex data types. If you need to provide a value for a complex parameter, then you must call it inline from another runbook as described in [Starting a Runbook from Another Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx).
+When you start a runbook using the Azure Management Portal or Windows PowerShell, the instruction is sent through the Azure Automation web service. This service does not support parameters with complex data types. If you need to provide a value for a complex parameter, then you must call it inline from another runbook as described in [Child runbooks in Azure Automation](automation-child-runbooks.md).
 
 The Azure Automation web service will provide special functionality for parameters using certain data types as described in the following sections.
 
@@ -216,7 +216,7 @@ This results in the following output.
 
 ### Credentials
 
-If the parameter is data type **PSCredential**, then you can provide the name of an Azure Automation [credential asset](http://msdn.microsoft.com/library/azure/dn940015.aspx). The runbook will retrieve the credential with the name that you specify.
+If the parameter is data type **PSCredential**, then you can provide the name of an Azure Automation [credential asset](automation-credentials.md). The runbook will retrieve the credential with the name that you specify.
 
 Consider the following test runbook that accepts a parameter called credential.
 
@@ -238,4 +238,4 @@ Assuming the username in the credential was *jsmith*, this results in the follow
 
 ## Related articles
 
-- [Starting a Runbook from Another Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
+- [Child runbooks in Azure Automation](automation-child-runbooks.md) 

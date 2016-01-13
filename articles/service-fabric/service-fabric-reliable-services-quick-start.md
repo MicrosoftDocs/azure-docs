@@ -13,22 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/15/2015"
    ms.author="vturecek"/>
 
 # Getting started with Microsoft Azure Service Fabric reliable services
 
-A Service Fabric application contains one or more services that run your code. This tutorial walks you through the steps of creating both stateless and stateful "Hello World" Service Fabric applications using the [*Reliable Services* programming model](service-fabric-reliable-services-introduction.md).
-
-A stateless service is the type of service that mostly exists in cloud applications today. The service is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available - in other words, if an instance of a stateless service shuts down, all of its internal state is lost. In these types of services, state must be persisted to an external store, such as Azure Tables or a SQL database, to be made highly-available and reliable.
-
-Service Fabric introduces a new kind of service that is stateful: a service that can maintain state reliably within the service itself, co-located with the code that's using it. Your state is made highly available by Service Fabric without the need to persist state to an external store.
-
-In this tutorial, you'll implement both a stateless service and a stateful service that keeps an internal counter. In the stateless service, the value of the counter is lost when the service restarts or moves. However, in the stateful service, the counter state is made reliable by Service Fabric so that if the service execution is interrupted for any reason in the middle of counting, it can pick up right where it left off.
+A Service Fabric application contains one or more services that run your code. This guide shows you how to create both stateless and stateful Service Fabric applications using [Reliable Services](service-fabric-reliable-services-introduction.md).
 
 ## Create a stateless service
 
-Let's start with a stateless service.
+A stateless service is the type of service that mostly exists in cloud applications today. The service is considered stateless because the service itself does not contain data that needs to be stored reliably or made highly available - in other words, if an instance of a stateless service shuts down, all of its internal state is lost. In these types of services, state must be persisted to an external store, such as Azure Tables or a SQL database, to be made highly-available and reliable.
 
 Launch Visual Studio 2015 RC as **Administrator**, and create a new **Service Fabric Application** project named *HelloWorld*:
 
@@ -48,7 +42,7 @@ Your solution now contains 2 projects:
 
 ## Implement the service
 
-Open the **HelloWorld.cs** file in the service project. In Service Fabric, a service can run any business logic whatsoever. The service API provides two entry points for your code:
+Open the **HelloWorldStateless.cs** file in the service project. In Service Fabric, a service can run any business logic whatsoever. The service API provides two entry points for your code:
 
  - An open-ended entry point method called *RunAsync* where you can begin executing any workload you want, such as long-running compute workloads.
 
@@ -62,7 +56,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
  - A communication entry point where you can plug in your communication stack of choice, such as Web API, where you can start receiving requests from users or other services.
 
 ```C#
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
 }
@@ -77,15 +71,20 @@ The project template includes an example implementation of `RunAsync()` that inc
 ### RunAsync
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServiceInstance)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
 
     int iterations = 0;
-    while (!cancellationToken.IsCancellationRequested)
+    // This service instance continues processing until the instance is terminated.
+    while (!cancelServiceInstance.IsCancellationRequested)
     {
+
+        // Log what the service is doing
         ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", iterations++);
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServiceInstance);
     }
 }
 ```
@@ -105,6 +104,8 @@ In this stateless service example, the count is stored in a local variable. But 
 
 ## Create a stateful service
 
+Service Fabric introduces a new kind of service that is stateful: a service that can maintain state reliably within the service itself, co-located with the code that's using it. Your state is made highly available by Service Fabric without the need to persist state to an external store.
+
 To convert our counter value from stateless to highly-available and persistent, even when the service moves or restarts, we need a stateful service.
 
 In the same **HelloWorld** application, add a new service by right-clicking on the application project and selecting **New Fabric Service**.
@@ -120,27 +121,40 @@ Your application should now have two services: the stateless service *HelloWorld
 Open **HelloWorldStateful.cs** in *HelloWorldStateful* which contains the following `RunAsync` method:
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServicePartitionReplica)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
+
+    // Gets (or creates) a replicated dictionary called "myDictionary" in this partition.
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-    while (!cancellationToken.IsCancellationRequested)
+    // This partition's replica continues processing until the replica is terminated.
+    while (!cancelServicePartitionReplica.IsCancellationRequested)
     {
+
+        // Create a transaction to perform operations on data within this partition's replica.
         using (var tx = this.StateManager.CreateTransaction())
         {
+
+            // Try to read a value from the dictionary whose key is "Counter-1".
             var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-            ServiceEventSource.Current.ServiceMessage(
-                this,
-                "Current Counter Value: {0}",
+
+            // Log whether the value existed or not.
+            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
+            // If the "Counter-1" key doesn't exist, set its value to 0
+            // else add 1 to its current value.
             await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
 
+            // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are
+            // discarded, and nothing is sent to this partition's secondary replicas.
             await tx.CommitAsync();
         }
 
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServicePartitionReplica);
     }
 }
 ```
@@ -203,6 +217,8 @@ Once the services are running, you can see the generated ETW events in a **Diagn
 
 [Learn more about Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 
-[Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
+[Deploy an application](service-fabric-deploy-remove-applications.md)
+
+[Application upgrade](service-fabric-application-upgrade.md)
 
 [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)

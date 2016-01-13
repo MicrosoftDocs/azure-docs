@@ -5,14 +5,14 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Create a Java web app in Azure App Service
@@ -25,9 +25,9 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-This tutorial shows how to create a Java [web app in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the [Azure preview portal](https://portal.azure.com/). The Azure preview portal is a web interface that you can use to manage Azure resources.
+This tutorial shows how to create a Java [web app in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the [Azure Portal](https://portal.azure.com/). The Azure Portal is a web interface that you can use to manage Azure resources.
 
-> [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits][] or [sign up for a free trial][].
+> [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your Visual Studio subscriber benefits][] or [sign up for a free trial][].
 >
 > If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service][]. There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
@@ -41,7 +41,7 @@ There are several ways you can set up a Java application in an App Service web a
  
 1. Create an app and then configure **Application settings**.
 
-	App Service provides several Tomcat and Jetty versions, with default configuration. If the application that you will be hosting will work with one of the built-in versions, this method of setting up a web container is the easiest but it lacks the configuration capabilities in other methods. For this method, you create an app in the portal, and then go to the app's **Application settings** blade to choose your version of Java along with the desired Java web container. When you use this method the app runs from the local hard drive that is used by the worker to host the app, which does not take disk space away from the tenant. When you use this model, you don't have access to edit files in this part of the file system, which means you can't do things like configure the *server.xml* file or place library files in the */lib* folder.  For more information, see the [Create and configure a Java web app](#appsettings) section later in this tutorial.  
+	App Service provides several Tomcat and Jetty versions, with default configuration. If the application that you will be hosting will work with one of the built-in versions, this method of setting up a web container is the easiest but it lacks the configuration capabilities in other methods. For this method, you create an app in the Azure Portal, and then go to the app's **Application settings** blade to choose your version of Java along with the desired Java web container. When you use this method the app runs from the local hard drive that is used by the worker to host the app, which does not take disk space away from the tenant. When you use this model, you don't have access to edit files in this part of the file system, which means you can't do things like configure the *server.xml* file or place library files in the */lib* folder.  For more information, see the [Create and configure a Java web app](#appsettings) section later in this tutorial.  
   
 3. Create an app and then manually copy and edit configuration files 
 
@@ -52,13 +52,13 @@ There are several ways you can set up a Java application in an App Service web a
 	* You want to configure the web container from scratch yourself. 
 	* You want to use a version of Java that isn’t supported in App Service and want to upload it yourself.
 
-	For cases like these, you can create an app using the portal, and then provide the appropriate runtime files manually. In this case the files will be counted against your storage space quotas for your App Service plan. For more information, see [Upload a custom Java web app to Azure](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/web-sites-java-custom-upload/).
+	For cases like these, you can create an app using the Azure Portal, and then provide the appropriate runtime files manually. In this case the files will be counted against your storage space quotas for your App Service plan. For more information, see [Upload a custom Java web app to Azure](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/web-sites-java-custom-upload/).
 
 ## <a name="marketplace"></a> Use a Java template from the Azure Marketplace
 
 This section shows how to use the Azure Marketplace to create a Java web app.  The same general flow can also be used to create a Java-based mobile or API app.  
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com/).
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
 
 2. Click **New > Marketplace**.
 
@@ -84,7 +84,7 @@ This section shows how to use the Azure Marketplace to create a Java web app.  T
 
 8. Select a **Resource Group** or create a new one.
 
-	For more information about resource groups, see [Using the Azure Preview Portal to manage your Azure resources](../resource-group-portal.md).
+	For more information about resource groups, see [Using the Azure Portal to manage your Azure resources](../resource-group-portal.md).
 
 9. Select an **App Service plan/Location** or create a new one.
 
@@ -116,7 +116,7 @@ Now that you've created the web app with an app container, see the [Next steps](
 
 This section shows how to create a web app and configure it for Java using the **Application settings** blade of the portal.
 
-1. Sign in to the [Azure preview portal](https://portal.azure.com/).
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
 
 2. Click **New > Web + Mobile > Web App**.
 
@@ -128,7 +128,7 @@ This section shows how to create a web app and configure it for Java using the *
 
 5. Select a **Resource Group** or create a new one.
 
-	For more information about resource groups, see [Using the Azure Preview Portal to manage your Azure resources](../resource-group-portal.md).
+	For more information about resource groups, see [Using the Azure Portal to manage your Azure resources](../resource-group-portal.md).
 
 6. Select an **App Service plan/Location** or create a new one.
 
@@ -171,7 +171,7 @@ At this point, you have a Java application server running in your web app in Azu
 For more information about developing Java applications in Azure, see the [Java Developer Center](/develop/java/).
 
 <!-- External Links -->
-[activate your MSDN subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
+[activate your Visual Studio subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
 [sign up for a free trial]: http://go.microsoft.com/fwlink/?LinkId=623901
 
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751

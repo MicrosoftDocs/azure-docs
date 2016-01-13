@@ -39,15 +39,15 @@ At a high level the following diagram shows the HPC Pack cluster you'll create.
 
 ## Step 1. Set up an HPC Pack cluster in Azure
 
-We'll show you two ways to set up the cluster: first, using an Azure quickstart template and the Azure preview portal; and second, using an Azure PowerShell deployment script.
+We'll show you two ways to set up the cluster: first, using an Azure quickstart template and the Azure portal; and second, using an Azure PowerShell deployment script.
 
 
 ### Use a quickstart template
-Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure preview portal. When you open the template in the preview portal, you get a simple UI where you enter the settings for your cluster. Here are the steps.
+Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure portal. When you open the template in the preview portal, you get a simple UI where you enter the settings for your cluster. Here are the steps.
 
 1. Visit the [Create HPC Cluster template page on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). If you want, review information about the template and the source code.
 
-2. Click **Deploy to Azure** to start a deployment with the template in the Azure preview portal.
+2. Click **Deploy to Azure** to start a deployment with the template in the Azure portal.
 
     ![Deploy template to Azure][github]
 
@@ -61,9 +61,9 @@ Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluste
 
     ![Enter parameters][parameters]
 
-    >[AZURE.NOTE]The head node VM will be created automatically from the [latest Marketplace  image](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) of HPC Pack 2012 R2 on Windows Server 2012 R2. Currently the image is based on HPC Pack 2012 R2 Update 2.
+    >[AZURE.NOTE]The head node VM will be created automatically from the [latest Marketplace  image](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) of HPC Pack 2012 R2 on Windows Server 2012 R2. Currently the image is based on HPC Pack 2012 R2 Update 3.
     >
-    >Compute node VMs will be created from the latest image of the selected compute node family. Select the **ComputeNode** option for the latest HPC Pack 2012 R2 Update 2 compute image for general purposes. Select **ComputeNodeWithExcel** option for the latest HPC Pack compute node image that includes an evaluation version of Microsoft Excel Professional Plus 2013. If you want to deploy a cluster for general SOA sessions or for Excel UDF offloading, choose the **ComputeNode** option (without Excel installed).
+    >Compute node VMs will be created from the latest image of the selected compute node family. Select the **ComputeNode** option for the latest HPC Pack 2012 R2 Update 3 compute image for general purposes. Select **ComputeNodeWithExcel** option for the latest HPC Pack compute node image that includes an evaluation version of Microsoft Excel Professional Plus 2013. If you want to deploy a cluster for general SOA sessions or for Excel UDF offloading, choose the **ComputeNode** option (without Excel installed).
     >
     >When using  **ComputeNodeWithExcel** for production workloads, you'll need to provide a valid Excel license to activate Excel on the compute nodes. Otherwise, the evaluation version of Excel could be expired within 30 days, and running the Excel workbook would constantly fail with the COMExeption (0x800AC472). If this happens, you may log on the head node to clusrun “%ProgramFiles(x86)%\Microsoft Office\Office15\OSPPREARM.exe” on all Excel compute nodes via HPC Cluster Manager console to rearm Excel for another 30 days of evaluation time. The max rearm time for the grace period is 2, after that you may need to provide a valid Excel license.
 
@@ -81,7 +81,7 @@ Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluste
 
 3.	When the deployment completes (it typically takes around 30 minutes), export the cluster certificate file from the cluster head node. In a later step this public certificate will be imported on the client computer to provide the server-side authentication for secure HTTP binding.
 
-    a. Connect to the head node by Remote Desktop from the Azure preview portal.
+    a. Connect to the head node by Remote Desktop from the Azure portal.
 
      ![Connect to the head node][connect]
 
@@ -97,7 +97,7 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
 
 * **Azure PowerShell** - [Install and configure Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 or later) on your client computer.
 
-* **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.4.0 or later of the script.
+* **HPC Pack IaaS deployment script** - Download and unpack the latest version of the script from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=44949). Check the version of the script by running `New-HPCIaaSCluster.ps1 –Version`. This article is based on version 4.5.0 or later of the script.
 
 **Create the configuration file**
 
@@ -133,21 +133,21 @@ The HPC Pack IaaS deployment script provides another versatile way to deploy an 
     <VMSize>Large</VMSize>
     <EnableRESTAPI/>
     <EnableWebPortal/>
-<PostConfigScript>C:\tests\PostConfig.ps1</PostConfigScript>
+    <PostConfigScript>C:\tests\PostConfig.ps1</PostConfigScript>
   </HeadNode>
   <ComputeNodes>
     <VMNamePattern>HPCExcelCN%00%</VMNamePattern>
     <ServiceName>HPCExcelCN01</ServiceName>
     <VMSize>Medium</VMSize>
     <NodeCount>18</NodeCount>
-    <ImageName HPCPackInstalled="true">96316178b0644ae08bc4e037635ce104__HPC-Pack-2012R2-Update2-CN-Excel-4.4.4868.0-WS2012R2-ENU</ImageName>
+    <ImageName>HPCPack2012R2_ComputeNodeWithExcel</ImageName>
   </ComputeNodes>
 </IaaSClusterConfig>
 ```
 
 **Notes about the configuration file**
 
-* The **VMName** of the head node must be exactly the same as the **ServiceName**, or the SOA job would fail to run.
+* The **VMName** of the head node **MUST** be exactly the same as the **ServiceName**, or the SOA job would fail to run.
 
 * Make sure you specify **EnableWebPortal** so that the head node certificate is generated and exported.
 
@@ -215,7 +215,7 @@ Follow these steps to offload an Excel workbook to run on the HPC Pack cluster i
 
 2. On the client computer, import the cluster certificate under Cert:\CurrentUser\Root.
 
-3. Make sure Excel is installed. Create an Excel.exe.config file with the following contents in the same folder with Excel.exe on the client computer. This ensures that the HPC Pack 2012 R2 Excel COM add-in and Azure Storage library will be loaded successfully. Note the 'href' below should point to "%CCP_HOME%Bin\Microsoft.WindowsAzure.Storage.dll" on the client machine.
+3. Make sure Excel is installed. Create an Excel.exe.config file with the following contents in the same folder with Excel.exe on the client computer. This ensures that the HPC Pack 2012 R2 Excel COM add-in will be loaded successfully.
 
     ```
 <?xml version="1.0"?>
@@ -223,18 +223,10 @@ Follow these steps to offload an Excel workbook to run on the HPC Pack cluster i
     <startup useLegacyV2RuntimeActivationPolicy="true">
         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
     </startup>
-    <runtime>
-        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-            <dependentAssembly>
-                <assemblyIdentity name="Microsoft.WindowsAzure.Storage"  culture="neutral" publicKeyToken="31bf3856ad364e35"/>
-                <codeBase version="4.3.0.0" href="C:\Program Files\Microsoft HPC Pack 2012\Bin\Microsoft.WindowsAzure.Storage.dll"/>
-            </dependentAssembly>
-        </assemblyBinding>
-    </runtime>
 </configuration>
 ```
-4.	Download the full [HPC Pack 2012 R2 Update 2 installation](http://www.microsoft.com/download/details.aspx?id=47755) and install the HPC Pack client,
-or download and install the [HPC Pack 2012 R2 Update 2 client utilities](https://www.microsoft.com/download/details.aspx?id=47754) and the appropriate Visual C++ 2010 redistributable for your computer ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
+4.	Download the full [HPC Pack 2012 R2 Update 3 installation](http://www.microsoft.com/download/details.aspx?id=49922) and install the HPC Pack client,
+or download and install the [HPC Pack 2012 R2 Update 3 client utilities](https://www.microsoft.com/download/details.aspx?id=49923) and the appropriate Visual C++ 2010 redistributable for your computer ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
 5.	In this example, we use a sample Excel workbook named ConvertiblePricing_Complete.xlsb, available for download [here](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
 
@@ -273,7 +265,7 @@ or download and install the [HPC Pack 2012 R2 Update 2 client utilities](https:/
 
 To run Excel UDFs, follow the preceding steps 1 – 3 to set up the client computer. For Excel UDFs, you don't need to have the Excel application installed on compute nodes, so you could choose a normal compute node image in Step 1 instead of the compute node image with Excel.
 
->[AZURE.NOTE] There is a 34 character limit in the Excel 2010 and 2013 cluster connector dialog box. If the full cluster name is longer, e.g. hpcexcelhn01.southeastasia.cloudapp.azure.com, it won't fit in the dialog box. The workaround is to apply the Update 2 QFE KB3085833 (download [here](http://www.microsoft.com/en-us/download/details.aspx?id=48725)) for SOA Session API on the client machine, then set a machine wide variable e.g. *CCP_IAASHN* with the value of the long cluster name and input *%CCP_IAASHN%* in the dialog box as the cluster head node name.
+>[AZURE.NOTE] There is a 34 character limit in the Excel 2010 and 2013 cluster connector dialog box. If the full cluster name is longer, e.g. hpcexcelhn01.southeastasia.cloudapp.azure.com, it won't fit in the dialog box. The workaround is to set a machine wide variable e.g. *CCP_IAASHN* with the value of the long cluster name and input *%CCP_IAASHN%* in the dialog box as the cluster head node name. Note for Update 2 clusters, it requires the Update 2 QFE KB3085833 (download [here](http://www.microsoft.com/en-us/download/details.aspx?id=48725)) for SOA Session API on the client machine to support this workaround.
 
 After the cluster is successfully deployed, continue with the following steps to run a sample built-in Excel UDF. For customized Excel UDFs, see these [resources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) to build the XLLs and deploy them on the IaaS cluster.
 
@@ -281,7 +273,7 @@ After the cluster is successfully deployed, continue with the following steps to
 
     ![Select the UDF][udf]
 
-2.	Click **File** > **Options** > **Advanced**. Under **Formulas** check **Allow user-defined XLL functions to run a compute cluster**. Then click **Options** and enter the full cluster name in **Cluster head node name**. (As noted previously this input box is limited to 34 characters, so a long cluster name may not fit. You can apply the Update 2 QFE KB3085833 on the client and then set a machine wide variable here for the long cluster name.)
+2.	Click **File** > **Options** > **Advanced**. Under **Formulas** check **Allow user-defined XLL functions to run a compute cluster**. Then click **Options** and enter the full cluster name in **Cluster head node name**. (As noted previously this input box is limited to 34 characters, so a long cluster name may not fit. You may use machine wide variables here for long cluster names.)
 
     ![Configure the UDF][options]
 
@@ -297,7 +289,7 @@ To run general SOA applications on the HPC Pack IaaS cluster, first use one of t
 
 1. After retrieving the cluster certificate, import it on the client computer under Cert:\CurrentUser\Root.
 
-2. Install the [HPC Pack 2012 R2 Update 2 SDK](http://www.microsoft.com/download/details.aspx?id=47756) and [HPC Pack 2012 R2 Update 2 client utilities](https://www.microsoft.com/download/details.aspx?id=47754) so you can develop and run SOA client applications.
+2. Install the [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) and [HPC Pack 2012 R2 Update 3 client utilities](https://www.microsoft.com/download/details.aspx?id=49923) so you can develop and run SOA client applications.
 
 3. Download the HellowWorldR2 [sample code](https://www.microsoft.com/download/details.aspx?id=41633). Open the HelloWorldR2.sln in Visual Studio 2010 or 2012.
 
@@ -356,7 +348,7 @@ To do this, explicitly set UseAzureQueue flag to false in the SessionStartInfo.
 
 ### Use NetTcp binding
 
-To use NetTcp binding, the configuration is like connecting to an on-premises cluster. You'll need to open a few endpoints on the head node VM. In the Azure portal do the following.
+To use NetTcp binding, the configuration is like connecting to an on-premises cluster. You'll need to open a few endpoints on the head node VM. In the Azure classic portal do the following.
 
 
 1. Stop the VM.

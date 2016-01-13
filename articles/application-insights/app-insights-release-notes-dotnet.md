@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Release notes for Application Insights for .NET" 
 	description="The latest updates for .NET SDK." 
 	services="application-insights" 
@@ -11,17 +11,17 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
-	ms.author="sergkanz"/>
+	ms.date="12/17/2015" 
+	ms.author="abaranch"/>
  
 # Release Notes for Application Insights SDK for .NET
 
-The [Application Insights SDK for .NET](app-insights-start-monitoring-app-health-usage.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
+The [Application Insights SDK for .NET](app-insights-asp-net.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
 
 
 #### To install the SDK in your application
 
-See [Get started with Application Insights for .NET](app-insights-start-monitoring-app-health-usage.md).
+See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 
 #### To upgrade to the latest SDK 
 
@@ -32,8 +32,35 @@ See [Get started with Application Insights for .NET](app-insights-start-monitori
 * Compare ApplicationInsights.config with the old copy. Most of the changes you'll see are because we removed some modules and made others parameterizable. Reinstate any customizations you made to the old file.
 * Rebuild your solution.
 
+## Version 2.0.0-beta4
+
+- UseSampling and UseAdaptiveSampling extension methods were moved to Microsoft.ApplicationInsights.Extensibility
+- Removed support for Universal Windows Phone and Store applications
+- Updated ```DependencyTelemetry``` to have new properties ```ResultCode``` and ```Id```. ```ResultCode``` will be used to provide HTTP response code for HTTP dependencies and error code for SQL dependencies. ```Id``` will be used for cross-component correlation. 
+- If ```ServerTelemetryChannel``` is initialized programmatically it is now required to call ```ServerTelemetryChannel.Initialize()``` method. Otherwise persistent storage will not be initialized (that means that if telemetry cannot be sent in the event of temporary connectivity issues, it will be dropped).
+- ```ServerTelemetryChannel``` has new property ```StorageFolder``` that can be set either through code or through configuration. If this property is set, ApplicationInsights uses provided location to store telemetry that was not sent in the event of temporary connectivity issues. If property is not set, or provided folder is inaccessible, ApplicationInsights will try to use LocalAppData or Temp folders as it was done before.
+- ```TelemetryConfiguration.GetTelemetryProcessorChainBuilder``` extension method is removed. Instead of this method use ```TelemetryConfiguration.TelemetryProcessorChainBuilder``` instance method.
+- ```TelemetryConfiguration``` class has a new property ```TelemetryProcessors``` that gives readonly access to ```TelemetryProcessors``` collection.
+- ```Use```, ```UseSampling``` and ```UseAdaptiveSampling``` preserves ```TelemetryProcessors``` loaded from configuration.
+- Two telemetry processors are provided out of the box in the configuration file - user agent filter telemetry processor and request handler telemetry processor. Their behavior can be customized. You can append a user agent string that you want to be filtered out in the AI.config file. By default we filtering out ```AllwaysOn``` user agent string.  Current behavior compares strings in the config file against user agent string using a full match case insensitive comparison. You can also customize the list of handlers for which you want requests to be filtered out. 
+- Dependent Microsoft.ApplicationInsights.Agent.Intercept nuget version was updated to 1.2.1. It has SQL dependency collection bug fixes.
+
+## Version 2.0.0-beta3
+
+- [Adaptive sampling](app-insights-sampling.md) turned on by default in server telemetry channel. 
+- Fixed signature of ```UseSampling``` to allow chaining with other calls to ```Use``` of telemetry processors.  
+- Property ```Request.ID``` returned back. ```OperationContext``` now has a property ```ParentId``` for end-to-end coorrelation.
+- ```TimestampTelemetryInitializer``` is removed. Timestamp will be added automatically by ```TelemetryClient```.
+- ```OperationCorrelationTelemetryInitializer``` is added by default to enable operaitons correlation.
+- ```OperationCorrelationTelemetryInitializer``` is used instead of ```OperationIdTelemetryInitializer```.
+- User Agent will not be collected by default. User Agent telemetry initializer was removed.
+- ```DependencyTelemetry.Async``` field will not be collected by dependency collector telemetry module. 
+- Static content and diagnostics requests will not be collected by request telemetry module. Use ```HandlersToFilter``` of ```RequestTrackingTelemetryModule``` collection to filter out requests generated by certain http handlers. 
+- Autogenerated request telemetry is accessible though HttpContext extension method: System.Web.HttpContextExtension.GetRequestTelemetry  
+
+
 ## Version 2.0.0-beta2
-- Added support for ITelemetryProcessor and ability to configure via code or config. [Enables custom filtering in the SDK](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
+- Added support for ITelemetryProcessor and ability to configure via code or config. [Enables custom filtering in the SDK](app-insights-api-telemetry-processors/#telemetry-processors)
 - Removed context initializers. Use [Telemetry Initializers]( https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers) instead.
 - Updated Application Insights for .Net framework 4.6. 
 - Custom event names can now be up to 512 characters.

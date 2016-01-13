@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/24/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Getting started with the Azure Multi-Factor Authentication Server
@@ -23,15 +23,14 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Now that we have determined whether to use on-premises multi-factor authentication, lets get going.  This page covers a new installation of the server and getting it setup with on-premises Active Directory.  If you already have the Phonefactor server installed and are looking for how to do this see Upgrading to the Azure Multi-Factor Server or if you are looking for information on installing just the web service see Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service.
-
+Now that we have determined whether to use on-premises multi-factor authentication, let’s get going. This page covers a new installation of the server and getting it setup with on-premises Active Directory. If you already have the PhoneFactor server installed and are looking to upgrade, see [Upgrading to the Azure Multi-Factor Server](multi-factor-authentication-get-started-server-upgrade.md) or if you are looking for information on installing just the web service see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md).
 
 
 ## Download the Azure Multi-Factor Authentication Server
 
 
 
-There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal.  The first is by managing the Multi-Factor Auth Provider directly.  The second is via the service settings.  The second option requires either a Multi-Factor Auth Provider or an Azure AD Premium license.
+There are two different ways that you can download the Azure Multi-Factor Authentication Server. Both are done via the Azure portal. The first is by managing the Multi-Factor Auth Provider directly. The second is via the service settings. The second option requires either a Multi-Factor Auth Provider or an Azure MFA, Azure AD Premium or Enterprise Mobility Suite license.
 
 
 ### To download the Azure Multi-Factor Authentication server from the Azure portal
@@ -59,7 +58,7 @@ There are two different ways that you can download the Azure Multi-Factor Authen
 ![Download](./media/multi-factor-authentication-sdk/download2.png)
 5. Under multi-factor authentication select **Manage service settings**
 6. On the services settings page, at the bottom of the screen click **Go to the portal**.
-![Download](./media/multi-factor-authentication-sdk/download3.png)
+![Download](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. This will open a new page. Click **Downloads.**
 8. Above **Generate Activation Credentials**, click **Download.**
 9. Save the download.

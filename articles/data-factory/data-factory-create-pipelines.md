@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" y
-	ms.date="10/20/2015" 
+	ms.date="12/08/2015" 
 	ms.author="spelluru"/>
 
 # Understanding Pipelines & Activities
@@ -232,7 +232,7 @@ outputs | Output tables used by the activity.<p>// one output table<br/>"outputs
 linkedServiceName | Name of the linked service used by the activity. <p>An activity may require that you specify the linked service that links to the required compute environment.</p> | Yes for HDInsight Activity and Azure Machine Learning Batch Scoring Activity <p>No for all others</p>
 typeProperties | Properties in the typeProperties section depend on type of the activity. Refer to the article on each individual activity to learn more on this | No
 policy | Policies which affect the run-time behavior of the activity. If it is not specified, default policies will be used. Scroll below for details | No
-start | Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. <p>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period.</p> | No<p>If you specify a value for the end property, you must specify value for the start property.</p><p>The start and end times can both be empty to create a pipeline, but they both must have values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the  Set-AzureDataFactoryPipelineActivePeriod cmdlet later.</p>
+start | Start date-time for the pipeline. Must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. <p>The start and end properties together specify active period for the pipeline. Output slices are only produced with in this active period.</p> | No<p>If you specify a value for the end property, you must specify value for the start property.</p><p>The start and end times can both be empty to create a pipeline, but they both must have values to set an active period for the pipeline to run. If you do not specify start and end times when creating a pipeline, you can set them using the  Set-AzureRmDataFactoryPipelineActivePeriod cmdlet later.</p>
 end | End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41Z <p>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property.</p>| No <p>If you specify a value for the start property, you must specify value for the end property.</p><p>See notes for the **start** property.</p>
 isPaused | If set to true the pipeline will not get executed. Default value = false. You can use this property to enable or disable. | No 
 scheduler | “scheduler” property is used to define desired scheduling for the activity. Its sub-properties are the same as those under [availability property in a dataset](data-factory-create-datasets.md#Availability). | No |   
@@ -256,9 +256,9 @@ longRetryInterval | TimeSpan | 00:00:00 | The delay between long retry attempts
 ## Authoring and managing a pipeline
 Azure Data Factory provides various mechanisms to author and deploy pipelines (which in turn contain one or more activities in it). 
 
-### Using Azure Preview Portal
+### Using Azure Portal
 
-1. Log into [Azure Preview Portal](https://portal.azure.com/).
+1. Log into [Azure Portal](https://portal.azure.com/).
 2. Navigate to your Azure Data Factory instance in which you wish to create a pipeline
 3. Click  **Author and Deploy** tile in the **Summary** lens. 
  
@@ -282,9 +282,9 @@ You can use Visual Studio to author and deploy pipelines to Azure Data Factory. 
 ### Using Azure PowerShell
 You can use the Azure PowerShell to create pipelines in Azure Data Factory. Say, you have defined the pipeline JSON in a file at c:\DPWikisample.json. You can upload it to your Azure Data Factory instance as shown in the following example.
 
-	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-To learn more about this cmdlet, see [New-AzureDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/dn820227.aspx).
+To learn more about this cmdlet, see [New-AzureRmDataFactoryPipeline cmdlet](https://msdn.microsoft.com/library/mt619358.aspx).
 
 ### Using REST API
 You can create and deploy pipeline using REST APIs too. This mechanism can be leveraged to create pipelines programmatically. To learn more on this, see [Create or Update a Pipeline](https://msdn.microsoft.com/library/azure/dn906741.aspx).
@@ -310,8 +310,7 @@ Once a pipeline is deployed, you can manage and monitor your pipelines, slices a
 - Understand [management and monitoring in Azure Data Factory](data-factory-monitor-manage-pipelines.md).
 - [Build and deploy your fist pipeline](data-factory-build-your-first-pipeline.md). 
 
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md). 
+
  
 
    

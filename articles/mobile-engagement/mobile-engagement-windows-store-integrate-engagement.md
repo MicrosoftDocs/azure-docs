@@ -16,7 +16,7 @@
 	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-#Windows Universal Apps Engagement SDK Integration
+# Windows Universal Apps Engagement SDK Integration
 
 > [AZURE.SELECTOR] 
 - [Universal Windows](mobile-engagement-windows-store-integrate-engagement.md) 
@@ -28,22 +28,41 @@ This procedure describes the simplest way to activate Engagement's Analytics and
 
 The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Universal app](mobile-engagement-windows-store-use-engagement-api.md) since these statistics are application dependent.
 
-##Supported versions
+## Supported versions
 
-The Mobile Engagement SDK for Windows Universal Apps can only be integrated into Windows Runtime applications targeting :
+The Mobile Engagement SDK for Windows Universal Apps can only be integrated into Windows Runtime and Universal Windows Platform applications targeting :
 
 -   Windows 8
 -   Windows 8.1
 -   Windows Phone 8.1
+-   Windows 10 (desktop and mobile families)
 
-> [AZURE.NOTE] If you are targeting Windows Phone 8.1 Silverlight then refer to the [Windows Phone Silverlight integration procedure](mobile-engagement-windows-phone-integrate-engagement.md).
+> [AZURE.NOTE] If you are targeting Windows Phone Silverlight then refer to the [Windows Phone Silverlight integration procedure](mobile-engagement-windows-phone-integrate-engagement.md).
 
+## Install the Mobile Engagement Universal Apps SDK
 
-##Install the Mobile Engagement Universal Apps SDK
+### All platforms
 
-The Mobile Engagement SDK for Windows Universal App is available as a Nuget package called *MicrosoftAzure.MobileEngagement*. You can install it from the Visual Studio Nuget Package Manager. 
+The Mobile Engagement SDK for Windows Universal App is available as a Nuget package called *MicrosoftAzure.MobileEngagement*. You can install it from the Visual Studio Nuget Package Manager.
 
-##Add the capabilities
+### Windows 8.x and Windows Phone 8.1
+
+NuGet automatically deploys the SDK resources in the `Resources` folder at the root of your application project.
+
+### Windows 10 Universal Windows Platform applications
+
+NuGet does not automatically deploy the SDK resources in your UWP application yet. You have to do it manually until resources deployment is reintroduced in NuGet:
+
+1.  Open your File Explorer.
+2.  Navigate to the following location (**x.x.x** is the version of Engagement you are installing):
+*%USERPROFILE%\\.nuget\packages\MicrosoftAzure.MobileEngagement\\**x.x.x**\\content\win81*
+3.  Drag and drop the **Resources** folder from the file explorer to the root of your project in Visual Studio.
+4.  In Visual Studio select your project and activate the **Show All files** icon on top of the **Solution Explorer**.
+5.  Some files are not included in the project. To import them at once right click on the **Resources** folder, **Exclude from project** then another right click on the **Resources** folder, **Include in project** to re-include the whole folder. All files from the **Resources** folder are now included in your project.
+
+The extracted Engagement package can also be found on *$(Solutiondir)\Packages* or as defined in you *NuGet.config* file.
+
+## Add the capabilities
 
 The Engagement SDK needs some capabilities of the Windows SDK in order to work properly.
 
@@ -51,7 +70,7 @@ Open your `Package.appxmanifest` file and be sure that the following capabilitie
 
 -   `Internet (Client)`
 
-##Initialize the Engagement SDK
+## Initialize the Engagement SDK
 
 ### Engagement configuration
 
@@ -66,20 +85,13 @@ If you want to specify it at runtime instead, you can call the following method 
           /* Engagement configuration. */
           EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
 
-        #if WINDOWS_PHONE_APP
-          /* Connection string for my Windows Phone App. */
-          engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        #else
           /* Connection string for my Windows Store App. */
           engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        #endif
 
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-The connection string for your application is displayed on Azure Portal.
-
-> [AZURE.WARNING] You don't need to use the conditional compilation symbol `WINDOWS_PHONE_APP` to define different configuration on standalone Windows Runtime Apps as you only have one platform.
+The connection string for your application is displayed on the Azure Classic Portal.
 
 ### Engagement initialization
 
@@ -91,31 +103,34 @@ Modify the `App.xaml.cs`:
 
 		using Microsoft.Azure.Engagement;
 
--   Insert `EngagementAgent.Instance.Init` in the `OnLaunched` method:
+-   Define a method to share the Engagement initialization once for all calls:
 
-		protected override void OnLaunched(LaunchActivatedEventArgs args)
-		{
-		  EngagementAgent.Instance.Init(args);
+        private void InitEngagement(IActivatedEventArgs e)
+        {
+          EngagementAgent.Instance.Init(e);
 		
 		  // or
 		
-		  EngagementAgent.Instance.Init(args, engagementConfiguration);
+		  EngagementAgent.Instance.Init(e, engagementConfiguration);
+        }
+        
+-   Call `InitEngagement` in the `OnLaunched` method:
+
+		protected override void OnLaunched(LaunchActivatedEventArgs e)
+		{
+          InitEngagement(e);
 		}
 
--   When your application is launched using a custom scheme, another application or the command line then the `OnActivated` method is called. You also need to initiate the Engagement agent when your app is activated. To do so, override `OnActivated` method:
+-   When your application is launched using a custom scheme, another application or the command line then the `OnActivated` method is called. You also need to initiate the Engagement SDK when your app is activated. To do so, override `OnActivated` method:
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
-		  EngagementAgent.Instance.Init(args);
-		
-		  // or
-		
-		  EngagementAgent.Instance.Init(args, engagementConfiguration);
+          InitEngagement(args);
 		}
 
 > [AZURE.IMPORTANT] We strongly discourage you to add the Engagement initialization in another place of your application.
 
-##Basic reporting
+## Basic reporting
 
 ### Recommended method: overload your `Page` classes
 
@@ -222,7 +237,7 @@ We recommend to call `StartActivity` inside your `OnNavigatedTo` method of your 
 > 
 > The Windows Universal SDK automatically calls the `EndActivity` method when the application is closed. Thus, it is **HIGHLY** recommended to call the `StartActivity` method whenever the activity of the user change, and to **NEVER** call the `EndActivity` method, this method sends to Engagement server that current user has leave the application, this will impacts all application logs.
 
-##Advanced reporting
+## Advanced reporting
 
 Optionally, you may want to report application specific events, errors and jobs, to do so, use the others methods found in the `EngagementAgent` class. The Engagement API allows to use all of Engagement's advanced capabilities.
 

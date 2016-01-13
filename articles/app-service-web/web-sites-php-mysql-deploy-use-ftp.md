@@ -46,7 +46,7 @@ By following this tutorial, you will build a simple registration web app in PHP.
 Follow these steps to create a web app and a MySQL database:
 
 1. Login to the [Azure Portal][management-portal].
-2. Click the **+ New** icon on the bottom left of the portal.
+2. Click the **+ New** icon on the bottom left of the Azure Portal.
 
 	![Create New Azure Web Site][new-website]
 

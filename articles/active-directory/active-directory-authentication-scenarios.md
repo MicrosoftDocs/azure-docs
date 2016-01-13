@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="01/08/2016"
    ms.author="mbaldwin"/>
 
 # Authentication Scenarios for Azure AD
@@ -204,7 +204,7 @@ The user’s session expires when the lifetime of the token issued by Azure AD e
 ### Single Page Application (SPA)
 
 
-This section describes authentication for a single page application that uses Azure AD to secure its web API back end. Single page applications are typically structured as a JavaScript presentation layer (front end) that runs in the browser and a web API back end that runs on a server and implements the application’s business logic. In this scenario, when the user signs in, the JavaScript front end uses [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) preview and the OAuth 2.0 Implicit Grant protocol to obtain an ID token (id_token) from Azure AD. The token is cached and the client attaches it to the request as the bearer token when making calls to its web API back end, which is secured using the OWIN middleware.
+This section describes authentication for a single page application that uses Azure AD to secure its web API back end. Single page applications are typically structured as a JavaScript presentation layer (front end) that runs in the browser and a web API back end that runs on a server and implements the application’s business logic. In this scenario, when the user signs in, the JavaScript front end uses [Active Directory Authentication Library for JavaScript (ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) and the OAuth 2.0 Implicit Grant protocol to obtain an ID token (id_token) from Azure AD. The token is cached and the client attaches it to the request as the bearer token when making calls to its web API back end, which is secured using the OWIN middleware.
 
 
 #### Diagram

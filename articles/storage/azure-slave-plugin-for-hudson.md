@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe" />
+	editor="" />
 
 <tags
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="01/09/2016" 
 	ms.author="v-dedomi"/>
 
 #How to use the Azure slave plugin with Hudson Continuous Integration

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/08/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -384,20 +384,41 @@ This is a set of attributes which can be used if the Azure AD directory is not u
 | mailNickName| X| X| X|  |
 | member|  |  | X|  |
 | objectSID| X|  |  | mechanical property. AD user identifier used to maintain sync between Azure AD and AD.|
-| proxyAddresses| X| X| x|  |
+| proxyAddresses| X| X| X|  |
 | pwdLastSet| X|  |  | mechanical property. Used to know when to invalidate already issued tokens. Used by both password sync and federation.|
 | sn| X| X|  |  |
 | sourceAnchor| X| X| X| mechanical property. Immutable identifier to maintain relationship between ADDS and Azure AD.|
 | usageLocation| X|  |  | mechanical property. The user’s country. Used for license assignment.|
 | userPrincipalName| X|  |  | UPN is the login ID for the user. Most often the same as [mail] value.|
 
+## Windows 10
+Windows 10 domain-joined computers(devices) will synchronize some attributes to Azure AD. For more information on the scenarios see [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md). These attributes will always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
+
+| Attribute Name| Device| Comment |
+| --- | :-: | --- |
+| accountEnabled| X| |
+| deviceTrustType| X| Hardcoded value for domain-joined computers. |
+| displayName | X| |
+| ms-DS-CreatorSID | X| Also called registeredOwnerReference.|
+| objectGUID | X| Also called deviceID.|
+| objectSID | X| Also called onPremisesSecurityIdentifier.|
+| operatingSystem | X| Also called deviceOSType.|
+| operatingSystemVersion | X| Also called deviceOSVersion.|
+| userCertificate | X| |
+
+These attributes for user is in addition to the other apps you have selected.  
+
+| Attribute Name| User| Comment |
+| --- | :-: | --- |
+| domainFQDN| X| Also called dnsDomainName. E.g. contoso.com.|
+| domainNetBios| X| Also called netBiosName. E.g. CONTOSO.|
 
 ## Exchange hybrid writeback
 These attributes are written back from Azure AD to on-premises Active Directory when you select to enable Exchange hybrid. Depending on your Exchange version, fewer attributes might be synchronized.
 
 | Attribute Name| User| Contact| Group| Comment |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X|  |  | Derived from cloudAnchor in Azure AD.|
+| msDS-ExternalDirectoryObjectID| X|  |  | Derived from cloudAnchor in Azure AD. This is new in Exchange 2016.|
 | msExchArchiveStatus| X|  |  | Online Archive: Enables customers to archive mail.|
 | msExchBlockedSendersHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|
 | msExchSafeRecipientsHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|

@@ -20,9 +20,7 @@
 
 Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search, a cloud hosted search service on Microsoft Azure, for its search experience. This tutorial uses the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in this exercise, as well as the Azure Search service REST API.
 
-To run this sample, you need an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com).
-
-> [AZURE.TIP] Download the source code for this tutorial at [Azure Search .NET Samples](http://go.microsoft.com/fwlink/p/?LinkId=530196). Learn how to set up connections and send requests in [How to use Azure Search from a .NET application](search-howto-dotnet-sdk.md).
+To run this sample, you'll need an Azure Search service, which you can sign up for in the [Azure Portal](https://portal.azure.com). For step-by-step instructions, see [Create an Azure Search service in the portal](search-create-service-portal.md).
 
 ## About the data
 
@@ -30,44 +28,17 @@ This sample application uses data from the [United States Geological Services (U
 
 In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection information to the online data source is provided in the program code. No further configuration is necessary.
 
-> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
+> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use a different pricing tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](search-limits-quotas-capacity.md).
 
-## Create the Azure Search service
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-2. In the Jumpbar, click **New** > **Data + Storage** > **Search**.
-
-     ![][1]
-
-3. Configure the service name, pricing tier, resource group, subscription and location. These settings are required and cannot be changed once the service is provisioned.
-
-     ![][2]
-
-	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
-
-	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
-
-		- **Free**  runs on clusters that are shared with other subscribers. It offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. Deploying a free service typically only takes a few minutes.
-		- **Standard** runs on dedicated resources and is highly scalable. Initially, a standard service is provisioned with one replica and one partition, but you can adjust capacity once the service is created. Deploying a standard service takes longer, usually about fifteen minutes.
-
-	- **Resource Groups** are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
-
-	- **Subscription** allows you to choose among multiple subscriptions, if you have more than one subscription.
-
-	- **Location** is the data center region. Currently, all resources must run in the same data center. Distributing resources across multiple data centers is not supported.
-
-4. Click **Create** to provision the service.
-
-Watch for notifications in the Jumpbar. A notice will appear when the service is ready to use.
 
 <a id="sub-2"></a>
 ## Find the service name and api-keys of your Azure Search service ##
 
 After you create the service, return to the portal to get the URL or `api-key`. Connections to your Search service require that you have both the URL and an `api-key` to authenticate the call.
 
-1. In the Jumpbar, click **Home** and then click the Search service to open the service dashboard.
-
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
+3. Select the service you want to use.
 2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
 
   	![][3]

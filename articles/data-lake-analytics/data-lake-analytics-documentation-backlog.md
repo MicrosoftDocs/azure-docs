@@ -24,7 +24,9 @@ We will continue adding new documentation to support Azure Data Lake Analytics a
 
 Area   |Topic | Priority | Status | Assigned To | Requested By 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-U-SQL   | Distributed Query		 | 1 | On hold |  [@edmacauley](https://github.com/edmacauley) | 
+U-SQL   | Distributed Query		 | 1 | On hold |  [@edmacauley](https://github.com/edmacauley) |
+U-SQL  | Moving data between WASB and ADLS		| 1 |  Pending | tbd | Ye Xing (ml)
+U-SQL | Unit testing guidance for UDO model | 1 | Pending | tbd | [@ddobric](https://github.com/ddobric) 
 U-SQL  | Processing JSON 		| 2 |  Pending | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 Service | Interacting with Curl | 3 |Pending |[@mumian](https://github.com/mumian)
 U-SQL | Partitioned Tables |1 | In process | [@edmacauley](https://github.com/edmacauley) | 
@@ -36,6 +38,7 @@ U-SQL | Grammar Railroad Diagrams |  1 | in progress, using [this](http://bottle
 Service | Securing Jobs, Data and Tables in Data Lake Analytics |1| in progress | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
 Service | Moving job output to SQL Data Warehouse using Data Factory |1 | in progress | [@mumian](https://github.com/mumian) | 
 Tools  | Using the Diagnostics Tooling | 1 | Pending | [@mumian](https://github.com/mumian) | 
+U-SQL  | Explain Techniques for doing range-based JOINs | 1 | Pending | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -44,7 +47,7 @@ Tools  | Using the Diagnostics Tooling | 1 | Pending | [@mumian](https://github.
 
 Area   |Topic | location
 ------------- | ------------- | -------------- 
-Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](https://azure.microsoft.com/en-us/documentation/articles/data-lake-analytics-manage-use-powershell/)
+Service | Coordinating deployment of Data Lake Analytics with other Azure services using ARM templates | [location](../data-lake-analytics-manage-use-powershell.md)
 
 ## How to Give Feedback on the Backlog
 There are a few options to give feedback on the backlog:

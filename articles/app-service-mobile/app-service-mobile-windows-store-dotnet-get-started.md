@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/14/2015"
+	ms.date="12/19/2015"
 	ms.author="glenga"/>
 
 #Create a Windows app
@@ -24,7 +24,7 @@
 
 ##Overview
 
-This tutorial shows you how to add a cloud-based backend service to a Windows Runtime 8.1 universal app by using an Azure mobile app backend. Universal Windows app solutions include projects for both Windows Store 8.1 and Windows Phone Store 8.1 apps, in addition to a common shared project.
+This tutorial shows you how to add a cloud-based backend service to a universal Windows app. For more information, see [What are Mobile Apps](app-service-mobile-value-prop.md).  
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started](../../includes/app-service-mobile-windows-universal-get-started.md)]
 
@@ -36,35 +36,25 @@ To complete this tutorial, you need the following:
 
 * [Visual Studio Community 2013] or a later version.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). There, you can immediately create a short-lived starter mobile app in App Service—no credit card required, and no commitments.
+>[AZURE.NOTE] If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile). There, you can immediately create a short-lived starter mobile app in App Service—no credit card required, and no commitments.
 
-##Create a new Azure mobile app backend
+##Create a new Azure Mobile App backend
+
+Follow these steps to create a new Mobile App backend.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Download the server project
+You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server project for a simple "todo list" backend and publish it to Azure.
 
-1. In the [Azure portal], click **Browse All** > **Web Apps**, and then click the mobile app backend that you just created.
+## Configure the server project
 
-2. In the mobile app backend, click **All settings**, and then under **Mobile App**, click **Quickstart** > **Windows (C#)**.
-
-3. Under **Download and run your server project** in **Create a new app**, click **Download**, extract the compressed project files to your local computer, and open the solution in Visual Studio.
-
-4. Build the project to restore the NuGet packages.
-
-##Publish the server project to Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ##Download and run the client project
 
-Once you have created your mobile app backend, you can follow an easy Quickstart in the Azure portal to either create a new app or modify an existing app to connect to your mobile app backend.
+Once you have configured your Mobile App backend, you can either create a new client app or modify an existing app to connect to Azure. In this section, you download a universal Windows app template project that is customized to connect to your Mobile App backend.
 
-In this section, you download a universal Windows app template project that is customized to connect to your Azure mobile app backend.
-
-1. Back in the blade for your Mobile App backend, click **All settings**, and then under **Mobile App**, click **Quickstart** > **Windows (C#)**.
-
-2.  Under **Download and run your Windows project** in **Create a new app**, click **Download**, and extract the compressed project files to your local computer.
+1. Back in the **Get started** blade for your Mobile App backend, click **Create a new app** > **Download**, then extract the compressed project files to your local computer.
 
 3. (Optional) Add the universal Windows app project to the solution with the server project. This makes it easier to debug and test both the app and the backend in the same Visual Studio solution, if you choose to do so.
 

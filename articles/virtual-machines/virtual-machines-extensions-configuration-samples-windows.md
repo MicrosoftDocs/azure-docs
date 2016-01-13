@@ -19,6 +19,13 @@
 
 # Azure Windows VM Extension Configuration Samples
 
+> [AZURE.SELECTOR]
+- [PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+
+<br> 
+
+
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
 
@@ -26,9 +33,9 @@
 This article provides sample configuration for configuring Azure VM Extensions for Windows VMs.
 
 
-To learn more about these extensions click here : [Azure VM Extensions Overview.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+To learn more about these extensions, see [Azure VM Extensions Overview.](virtual-machines-extensions-features.md)
 
-To learn more about authoring extension templates click here : [Authoring Extension Templates.](virtual-machines-extensions-authoring-templates.md)
+To learn more about authoring extension templates, see [Authoring Extension Templates.](virtual-machines-extensions-authoring-templates.md)
 
 This article lists expected configuration values for some of the Windows Extensions.
 
@@ -285,12 +292,13 @@ Before deploying the extension please check the latest extension version and rep
 
 ### Azure Diagnostics
 
-Click here for an overview of [Azure Diagnostics Extension](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+For more details about how to configure diagnostics, see [Azure Diagnostics Extension](virtual-machines-extensions-diagnostics-windows-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
-            "typeHandlerVersion": "1.4",
+            "typeHandlerVersion": "1.5",
+			"autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"

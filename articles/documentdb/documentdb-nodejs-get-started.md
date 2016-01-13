@@ -1,7 +1,7 @@
 <properties
-	pageTitle="NoSQL Databases - Get started with the DocumentDB Node.js SDK | Microsoft Azure"
-	description="Learn how to connect to a DocumentDB account, create a NoSQL database,and perform queries on DocumentDB using Node.js on Windows, Linux, or OS/X."
-	keywords="Create a database, nosql database, linux, OS/X, node.js, documentdb, azure, Microsoft azure"
+	pageTitle="NoSQL Node.js tutorial for DocumentDB | Microsoft Azure"
+	description="A NoSQL Node.js tutorial that creates a node database and console application using the DocumentDB Node.js SDK. DocumentDB is a NoSQL database for JSON."
+    keywords="node.js tutorial, node database"
 	services="documentdb"
 	documentationCenter="node.js"
 	authors="AndrewHoh"
@@ -14,30 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-#Get started with the DocumentDB Node.js SDK  
+# NoSQL Node.js tutorial: DocumentDB Node.js console application  
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Welcome to Getting Started with the DocumentDB Node.js SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.
+Welcome to the Node.js tutorial for the DocumentDB Node.js SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources, including a Node database.
 
 We'll cover:
 
 - Creating and connecting to a DocumentDB account
 - Setting up your application
-- Creating a database
+- Creating a node database
 - Creating a collection
 - Creating JSON documents
 - Querying the collection
-- Deleting the database
+- Deleting the node database
 
 Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started). See [Get the complete solution](#GetSolution) for quick instructions. 
 
-Afterwards, please use the voting buttons at the top and bottom of this page to give us feedback. If you'd like us to contact you directly, feel free to include your email address in your comments.
+After you've completed the Node.js tutorial, please use the voting buttons at the top and bottom of this page to give us feedback. If you'd like us to contact you directly, feel free to include your email address in your comments.
 
 Now let's get started!
 
@@ -74,9 +74,9 @@ Great! Now that you've finished setting up, let's start writing some code.
 
 Open *config.js* in your favorite text editor. 
 
-Then, create an empty object titled *config* and set properties *config.endpoint* and *config.authKey* to your DocumentDB endpoint and authorization key. Both these configurations can be found in the [Azure Preview Portal](https://portal.azure.com).
+Then, create an empty object titled *config* and set properties *config.endpoint* and *config.authKey* to your DocumentDB endpoint and authorization key. Both these configurations can be found in the [Azure Portal](https://portal.azure.com).
 
-![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
+![Screen shot of the Azure Portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
     var config = {}
 
@@ -182,7 +182,7 @@ Next, let's use the previously saved *config.endpoint* and *config.authKey* to c
 
 Now that you've connected to a DocumentDB account, let's take a look at working with DocumentDB resources.
 
-## Step 5: Create a database
+## Step 5: Create a node database
 A [database](documentdb-resources.md#databases) can be created by using the [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) function of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections. Add a function for creating your new database in the app.js file with the *id* specified in the *config* object. We'll first check to make sure a database with the same *FamilyRegistry* id does not already exist. If it does exist, we'll return that database instead of creating a new one.
 
     var getOrCreateDatabase = function(callback) {
@@ -276,7 +276,7 @@ Next, add a function to app.js for creating the documents containing the JSON da
 
 Congratulations! You now have functions for creating a database, collection, and document in DocumentDB!
 
-![Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents](./media/documentdb-get-started/account-database.png)
+![Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
 ##<a id="Query"></a>Step 8: Query DocumentDB resources
 
@@ -302,11 +302,11 @@ DocumentDB supports [rich queries](documentdb-sql-query.md) against JSON documen
 
 The following diagram illustrates how the DocumentDB SQL query syntax is called against the collection you created.
 
-![Diagram illustrating the scope and meaning of the query](./media/documentdb-get-started/collection-documents.png)
+![Diagram illustrating the scope and meaning of the query](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
 The [FROM](documentdb-sql-query.md/#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
 
-##<a id="DeleteDatabase"></a>Step 9: Delete the database
+##<a id="DeleteDatabase"></a>Step 9: Delete the node database
 
 Deleting the created database will remove the database and all children resources (collections, documents, etc.). You can delete the database by adding the following code snippet.
 
@@ -363,9 +363,9 @@ Add the following code snippet to the bottom of your code in *app.js*.
         });
     });
 
-##<a id="Run"></a>Step 11: Run your application!
+##<a id="Run"></a>Step 11: Run your Node.js application!
 
-You are now ready to run your application!
+You are now ready to run your Node.js application!
 
 In your terminal, locate your *app.js* file and run the command: **node app.js**
 
@@ -423,7 +423,7 @@ You should see the output of your get started app. The output should match the e
 
     Done.
 
-Congratulations! You've created your first DocumentDB app! 
+Congratulations! You've created you've completed the Node.js tutorial and have your first DocumentDB console application! 
 
 ##<a id="GetSolution"></a> Get the complete solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
@@ -447,4 +447,4 @@ Next, in the *config.js* file, update the config.endpoint and config.authKey val
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
-[keys]: media/documentdb-get-started/keys.png
+[keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
