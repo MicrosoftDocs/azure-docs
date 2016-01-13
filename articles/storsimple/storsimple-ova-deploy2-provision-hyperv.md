@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/12/2016"
+   ms.date="01/13/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V (Preview)
 
-![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv1.png)
+![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv2.png)
 
 ## Overview 
 
