@@ -20,6 +20,20 @@
 # Prepare a Red Hat-based Virtual Machine for Azure
 In this article, you will learn how to prepare a Red Hat Enterprise Linux (RHEL) Virtual Machine for for use in Azure.  Versions of RHEL covered in this article are 6.7, 7.1 and 7.2 and hypervisors for preparation covered in this article are Hyper-V, KVM and VMWare.  For more information on eligibility requirements for participating in Red Hat's Cloud Access program, see [Red Hat's Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) and [Running RHEL on Azure](https://access.redhat.com/articles/1989673). 
 
+[Prepare a RHEL 6.7 Virtual Machine from Hyper-V Manager](#rhel67hyperv)
+
+[Prepare a RHEL 7.1/7.2 Virtual Machine from Hyper-V Manager](#rhel7xhyperv)
+
+[Prepare a RHEL 6.7 Virtual Machine from KVM](#rhel67kvm)
+
+[Prepare a RHEL 7.1/7.2 Virtual Machine from KVM](#rhel7xkvm)
+
+[Prepare a RHEL 6.7 Virtual Machine from VMWare](#rhel67vmware)
+
+[Prepare a RHEL 7.1/7.2 Virtual Machine from VMWare](#rhel7xvmware)
+
+[Prepare a RHEL 7.1/7.2 Virtual Machine from kickstart file](#rhel7xkickstart)
+
 
 ##Prepare an image from Hyper-V Manager 
 ###Prerequisites
@@ -36,13 +50,6 @@ This section assumes that you have already installed a RHEL image from an ISO fi
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
 - When using qemu-img to convert disk images to VHD format, note that there is a known bug in qemu-img versions >=2.2.1 that results in an improperly formatted VHD. The issue will be fixed in an upcoming release of qemu-img.  For now it is recommended to use qemu-img version 2.2.0 or lower.
-
-
-
-[Prepare a RHEL 6.7 Virtual Machine from Hyper-V Manager](#rhel67hyperv)
-
-[Prepare a RHEL 7.1/7.2 Virtual Machine from Hyper-V Manager](#rhel7xhyperv)
-
 
 ### <a id="rhel67hyperv"> </a>Prepare a RHEL 6.7 Virtual Machine from Hyper-V Manager###
 
@@ -223,11 +230,6 @@ The Azure Linux Agent can automatically configure swap space using the local res
 
 
 ##Prepare an image from KVM 
-
-[Prepare a RHEL 6.7 Virtual Machine from KVM](#rhel67kvm)
-
-[Prepare a RHEL 7.1/7.2 Virtual Machine from KVM](#rhel7xkvm)
-
 
 ### <a id="rhel67kvm"> </a>Prepare a RHEL 6.7 Virtual Machine from KVM###
 
@@ -512,10 +514,6 @@ This section assumes that you have already installed a RHEL virtual machine in V
 - When creating the virtual hard disk, select **Store virtual disk as a single file**.
 
 
-[Prepare a RHEL 6.7 Virtual Machine from VMWare](#rhel67vmware)
-
-[Prepare a RHEL 7.1/7.2 Virtual Machine from VMWare](#rhel7xvmware)
-
 
 ### <a id="rhel67vmware"> </a>Prepare a RHEL 6.7 Virtual Machine from VMWare###
 
@@ -727,7 +725,10 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 
 ##Prepare from an ISO using kickstart file automatically
-###RHEL 7.1/7.2
+
+
+### <a id="rhel7xkickstart"> </a>Prepare a RHEL 7.1/7.2 Virtual Machine from kickstart file###
+
 
 1.	Create the kickstart file with below content, and save the file. For details about kickstart installation, please refer to the [Kickstart Installation Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
