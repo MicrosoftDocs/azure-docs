@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (Java)
