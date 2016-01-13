@@ -18,6 +18,8 @@
 
 # Deploy StorSimple Virtual Array - Set up as file server (Preview)
 
+![](./media/storsimple-ova-deploy3-fs-setup/fileserver1.png)
+
 ## Introduction 
 
 This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (preview) only. This article describes how to perform initial setup, register your StorSimple file server, complete the device setup, and create and connect to SMB shares. This is the last article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server.
@@ -123,7 +125,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
 1.  Configure the cloud settings for your device. In this step, you will complete the local device configuration and then register the device with your StorSimple Manager service.
 
-    1.  Enter the **Service registration key** that you got in **Step 2: Get the service registration key** in [Prepare the portal for StorSimple Virtual Array)[storsimple-ova-deploy1-portal-prep].
+    1.  Enter the **Service registration key** that you got in [Step 2: Get the service registration key](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key) for StorSimple Virtual Array.
 
     2.  If this is not the first device that you are registering with this service, you will need to provide the **Service data encryption key**. This key is required with the service registration key to register additional devices with the StorSimple Manager service. For more information, refer to get the [service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) on your local web UI.
 

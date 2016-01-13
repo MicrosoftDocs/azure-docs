@@ -18,6 +18,8 @@
 
 # Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V (Preview)
 
+![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv1.png)
+
 ## Overview 
 
 This provisioning tutorial applies to Microsoft Azure StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2.

@@ -18,6 +18,8 @@
 
 # Deploy StorSimple Virtual Array - Prepare the portal (Preview)
 
+![](./media/storsimple-ova-deploy1-portal-prep/getstarted1.png)
+
 ## Introduction 
 
 This article applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or StorSimple virtual device) running v 1.1.1.0 (Public Preview) only. This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server. This article describes the preparation required to create and configure your StorSimple Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist as well as configuration prerequisites.
