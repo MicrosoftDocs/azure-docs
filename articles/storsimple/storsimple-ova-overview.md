@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/11/2016"
+   ms.date="01/13/2016"
    ms.author="v-sharos" />
 
 # Introduction to the StorSimple Virtual Array (preview)
@@ -100,7 +100,7 @@ The Virtual Array supports the following data protection and disaster recovery s
 The Virtual Array includes the following components:
 
 - [Virtual Array](#virtual-array) – a hybrid cloud storage device based on a virtual machine provisioned in your virtualized environment or hypervisor.  
-- [StorSimple Manager service](#storsimple-manager-service) – an extension of the Azure portal that lets you manage one or more StorSimple devices from a single web interface that you can access from different geographical locations. You can use the StorSimple Manager service to create and manage services, view and manage devices and alerts, and manage volumes, shares, and existing snapshots.
+- [StorSimple Manager service](#storsimple-manager-service) – an extension of the Azure classic portal that lets you manage one or more StorSimple devices from a single web interface that you can access from different geographical locations. You can use the StorSimple Manager service to create and manage services, view and manage devices and alerts, and manage volumes, shares, and existing snapshots.
 - [Local web user interface](#local-web-user-interface) – a web-based UI that is used to configure the device so that it can connect to the local network, and then register the device with the StorSimple Manager service. 
 - [Command-line interface](#command-line-interface) – a Windows PowerShell interface that you can use to start a support session on the Virtual Array.
 The following sections describe each of these components in greater detail and explain how the solution arranges data, allocates storage, and facilitates storage management and data protection.

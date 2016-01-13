@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/11/2016"
+   ms.date="01/13/2016"
    ms.author="alkohli" />
 
 # Back up your StorSimple Virtual Array (preview)
@@ -74,7 +74,7 @@ In addition to scheduled backups, you can take a manual (on-demand) backup at an
 
     ![Completed backup](./media/storsimple-ova-backup/image8.png)
 
-5. Set the filter selections to the appropriate device, backup policy, and time range. Click the check icon ![check icon](./media/storsimple-ova-backup/image3.png) after setting the filters.
+5. Set the filter selections to the appropriate device, backup policy, and time range, and then click the check icon ![check icon](./media/storsimple-ova-backup/image3.png).
 
     The backup should appear in the list of backup sets that is displayed in the catalog.
 

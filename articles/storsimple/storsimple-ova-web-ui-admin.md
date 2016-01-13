@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/11/2016"
+   ms.date="01/13/2016"
    ms.author="alkohli" />
 
 # Use the Web UI to administer your StorSimple Virtual Array (preview)
@@ -45,7 +45,7 @@ If you have misplaced your service data encryption key and need to retrieve it, 
 
     ![get service data encryption key 1](./media/storsimple-ova-web-ui-admin/image27.png)
 
-2.  In the bottom of the page, click **Get service data encryption key**. A key will appear. Copy and save this key.
+2. At the bottom of the page, click **Get service data encryption key**. A key will appear. Copy and save this key.
 
     ![get service data encryption key 2](./media/storsimple-ova-web-ui-admin/image28.png)
 
@@ -102,7 +102,7 @@ You can shut down or restart your virtual device using the local web UI.
 
     ![device shutdown 1](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. A warning will appear notifying that a shutdown of the device will interrupt any IOs that were in progress resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
+3. A warning will appear stating that a shutdown of the device will interrupt any IOs that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
 
     ![device shutdown warning](./media/storsimple-ova-web-ui-admin/image37.png)
 
@@ -120,7 +120,7 @@ You can shut down or restart your virtual device using the local web UI.
 
     ![device restart](./media/storsimple-ova-web-ui-admin/image36.png)
 
-3. A warning will appear notifying that restarting the device will interrupt any IOs that were in progress resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
+3. A warning will appear stating that restarting the device will interrupt any IOs that were in progress, resulting in a downtime. Click the check icon ![check icon](./media/storsimple-ova-web-ui-admin/image3.png).
 
     ![restart warning](./media/storsimple-ova-web-ui-admin/image37.png)
 
@@ -128,8 +128,8 @@ You can shut down or restart your virtual device using the local web UI.
 
     ![restart initiated](./media/storsimple-ova-web-ui-admin/image39.png)
 
-    While the restart is in progress, you will lose the connection to the UI. You can monitor the restart by refreshing the UI periodically. Alternatively, you can also monitor the device restart status through the Hyper-V Manager.
+    While the restart is in progress, you will lose the connection to the UI. You can monitor the restart by refreshing the UI periodically. Alternatively, you can monitor the device restart status through the Hyper-V Manager.
 
 ## Next steps
 
-[Learn how to use the StorSimple Manager service to manage your device](storsimple-manager-service-administration.md).
+Learn how to [use the StorSimple Manager service to manage your device](storsimple-manager-service-administration.md).

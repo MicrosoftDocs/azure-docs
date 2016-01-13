@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/11/2016"
+   ms.date="01/13/2016"
    ms.author="alkohli" />
 
 # Apply updates and hotfixes to the StorSimple Virtual Array (preview)
@@ -31,7 +31,7 @@ Prior to the update or hotfix installation, make sure that you have the update o
 
 1. In the local web UI, go to **Maintenance** > **Software Update**.
 
-2. In the **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. The update will start. After it is complete, you will be notified.
+2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. The update will start. After it is complete, you will be notified.
 
     ![update device](./media/storsimple-ova-update/image43.png)
 

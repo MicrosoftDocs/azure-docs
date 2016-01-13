@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/11/2016"
+   ms.date="01/13/2016"
    ms.author="alkohli" />
 
 # Change the StorSimple Virtual Array device administrator password (preview)
@@ -21,7 +21,7 @@
 
 When you use the Windows PowerShell interface to access the StorSimple virtual device, you are required to enter a device administrator password. When the StorSimple device is first provisioned and started, the default password is *Password1*. For the security of your data, the default password expires the first time that you sign in and you are required to change this password.
 
-You can also use either the local web UI or the Azure classic portal to change the device administrator password at any time after the device is deployed in  your production environment. Each of these procedures is described below.
+You can also use either the local web UI or the Azure classic portal to change the device administrator password at any time after the device is deployed in  your production environment. Each of these procedures is described in this article.
 
 ## Use the Azure classic portal to change the password
 
@@ -51,17 +51,17 @@ Perform the following steps to change the device administrator password through 
 
 2. Enter the **Current password**.
 
-3. Provide a **New Password**. The password must be at least 8 characters long. It must contain 3 of 4 of the uppercase, lowercase, numeric, and special characters.
+3. Provide a **New Password**. The password must be at least 8 characters long. It must contain 3 of 4 of the following: uppercase, lowercase, numeric, and special characters.
 
-3. **Reenter password** to confirm it.
+    Note that your password cannot be the same as the last 24 passwords.
+
+3. Reenter the password to confirm it.
 
     ![change password2](./media/storsimple-ova-change-device-admin-password/image41.png)
 
 4. At the bottom of the page, click **Apply**. The new password will then be applied. If the password change is not successful, you will see the following error.
 
     ![password error](./media/storsimple-ova-change-device-admin-password/image42.png)
-
-    Note that your password cannot be the same as the last 24 passwords.
 
     After the password is successfully updated, you will be notified. You can then use this modified password to access the device locally.
 

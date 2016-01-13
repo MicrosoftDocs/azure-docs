@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/11/2016"
+   ms.date="01/13/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array release notes (preview) 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/11/2016"
+   ms.date="01/13/2016"
    ms.author="alkohli" />
 
 
@@ -20,7 +20,7 @@
 
 ## Overview
 
-This deployment tutorial applies to Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device) running the v 1.1.1.0 Public Preview release. This tutorial describes how to perform initial setup, register your StorSimple iSCSI server, complete the device setup, and then create, mount, initialize, and format volumes on your StorSimple virtual device iSCSI server. The StorSimple setup information in this article applies to the StorSimple Virtual Arrays only. 
+This deployment tutorial applies to the Microsoft Azure StorSimple Virtual Array (also known as the StorSimple on-premises virtual device or the StorSimple virtual device) running the v 1.1.1.0 Public Preview release. This tutorial describes how to perform initial setup, register your StorSimple iSCSI server, complete the device setup, and then create, mount, initialize, and format volumes on your StorSimple virtual device iSCSI server. The StorSimple setup information in this article applies to StorSimple Virtual Arrays only. 
 
 The procedures described here take approximately 30 minutes to 1 hour to complete. The information published in this article applies to StorSimple Virtual Arrays only.
 
@@ -31,9 +31,9 @@ The procedures described here take approximately 30 minutes to 1 hour to complet
 
 ## Setup prerequisites
 
-Before you configure and setup your StorSimple virtual device, make sure that:
+Before you configure and set up your StorSimple virtual device, make sure that:
 
-- You have provisioned a virtual device and connected to it as detailed in  [Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array  - Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md).
+- You have provisioned a virtual device and connected to it as described in [Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Deploy StorSimple Virtual Array  - Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
 - You have the service registration key from the StorSimple Manager service that you created to manage StorSimple virtual devices. For more information, see **Step 2: Get the service registration key** in [Deploy StorSimple Virtual Array - Prepare the portal](storsimple-ova-deploy1-portal-prep.md#step-2-get-the-service-registration-key).
 
@@ -56,7 +56,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     `https://<ip-address of network interface>`
 
-    Use the connection URL noted in the previous step. You will see an error notifying you that there is a problem with the website’s security certificate. Click **Continue to this webpage**.
+    Use the connection URL noted in the previous step. You will see an error notifying you that there is a problem with the website’s security certificate. Click **Continue to this web page**.
 
     ![security certificate error](./media/storsimple-ova-deploy3-iscsi-setup/image3.png)
 
@@ -68,7 +68,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     ![Home page](./media/storsimple-ova-deploy3-iscsi-setup/image5.png)
 
-4. In the **Network settings** page under **Network interfaces**, DATA 0 will be automatically configured for you. Each network interface is set by default to get an IP address automatically (DHCP). Therefore, an IP address, subnet, and gateway will be automatically assigned (for both IPv4 and IPv6).
+4. On the **Network settings** page under **Network interfaces**, DATA 0 will be automatically configured for you. Each network interface is set by default to get an IP address automatically (DHCP). Therefore, an IP address, subnet, and gateway will be automatically assigned (for both IPv4 and IPv6).
 
     As you plan to deploy your device as an iSCSI server (to provision block storage), we recommend that you disable the **Get IP address automatically** option and configure static IP addresses.
 
@@ -76,13 +76,13 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
     If you added more than one network interface during the provisioning of the device, you can configure them here.
 
-5. DNS servers are required because they are used when your device attempts to communicate with your cloud storage service providers or to resolve your device by name if it is configured as a file server. In the **Network settings** page under the **DNS servers**:
+5. DNS servers are required because they are used when your device attempts to communicate with your cloud storage service providers or to resolve your device by name if it is configured as a file server. On the **Network settings** page under the **DNS servers**:
 
     1. A primary and secondary DNS server will be automatically configured. If you choose to configure static IP addresses, you can specify DNS servers. For high availability, we recommend that you configure a primary and a secondary DNS server.
 
     2. Click **Apply**. This will apply and validate the network settings.
 
-6. In the **Device settings** page:
+6. On the **Device settings** page:
 
     1. Assign a unique **Name** to your device. This name can be 1-15 characters and can contain letter, numbers and hyphens.
 
