@@ -21,7 +21,7 @@
 
 By using automatic scaling in Azure Batch, you can dynamically add or remove compute nodes in a Batch pool during job execution to automatically adjust the processing power that is used by your application. This automatic adjustment can save you both time and money.
 
-You can enable automatic scaling on a pool of compute nodes by associating an *autoscaling formula* with the pool, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET](batch-dotnet-get-started.md) library. The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. The number of compute nodes in the pool, which responds to service metrics data samples that are collected periodically, is adjusted at a configurable interval based on the associated formula.
+You can enable automatic scaling on a pool of compute nodes by associating an *autoscale formula* with the pool, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET](batch-dotnet-get-started.md) library. The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. The number of compute nodes in the pool, which responds to service metrics data samples that are collected periodically, is adjusted at a configurable interval based on the associated formula.
 
 You can enable automatic scaling when a pool is created, or on an existing pool. You can also change an existing formula on pool that is "autoscale" enabled. Batch provides the ability to evaluate your formulas before assigning them to pools, as well as for monitoring the status of automatic scaling runs.
 
@@ -55,7 +55,7 @@ The next few sections of this article discuss the various entities that will mak
 
 ## <a name="variables"></a>Variables
 
-You can use both system-defined and user-defined variables in autoscaling formulas. In the two-line example formula above, `$TargetDedicated` is a system-defined variable, while `$averageActiveTaskCount` is user-defined. The tables below show both read-write and read-only variables that are defined by the Batch service.
+You can use both system-defined and user-defined variables in autoscale formulas. In the two-line example formula above, `$TargetDedicated` is a system-defined variable, while `$averageActiveTaskCount` is user-defined. The tables below show both read-write and read-only variables that are defined by the Batch service.
 
 *Get* and *set* the values of these **system-defined variables** to manage the number of compute nodes in a pool:
 
@@ -389,7 +389,7 @@ Autoscale formulas act on metrics data (samples) that is provided by the Batch s
 	</tr>
   <tr>
     <td>HistoryBeginTime()</td>
-    <td>Returns the time stamp  of the oldest available data sample for the metric.</td>
+    <td>Returns the time stamp of the oldest available data sample for the metric.</td>
   </tr>
   <tr>
     <td>GetSamplePercent()</td>
@@ -537,7 +537,7 @@ By default, the Batch service adjusts a pool's size according to its autoscale f
 
 The minimum interval is five minutes, and the maximum is 168 hours. If an interval outside this range is specified, the Batch service will return a Bad Request (400) error.
 
-> [AZURE.NOTE] Autoscale is not currently intended as a sub-one minute response to changes, but rather to adjust the size of your pool gradually as you run a workload.
+> [AZURE.NOTE] Autoscaling is not currently intended to respond to changes in less than a minute, but rather is intended to adjust the size of your pool gradually as you run a workload.
 
 ## Enable automatic scaling after a pool is created
 
@@ -565,7 +565,7 @@ It’s always a good practice to evaluate a formula before you use it in your ap
 - [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) or [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx)--These .NET methods require the ID of an existing pool and the string that contains the automatic scaling formula. The results of the call are contained in an instance of the [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx) class.
 - [Evaluate an automatic scaling formula](https://msdn.microsoft.com/library/azure/dn820183.aspx)--In this REST API request, the pool ID is specified in the URI. The automatic scaling formula is specified in the *autoScaleFormula* element of the request body. The response of the operation contains any error information that might be related to the formula.
 
-> [AZURE.NOTE] To evaluate an autoscaling formula, you must first have enabled autoscaling on the pool by using a valid formula.
+> [AZURE.NOTE] To evaluate an autoscale formula, you must first have enabled autoscaling on the pool by using a valid formula.
 
 In this code snippet that uses the [Batch .NET][net_api] library, we evaluate a formula prior to applying it to the pool ([CloudPool][net_cloudpool]).
 
