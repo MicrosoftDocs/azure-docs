@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Set up a Hybrid Compute Cluster with Microsoft HPC Pack"
+	pageTitle="Set up a hybrid HPC cluster with Microsoft HPC Pack | Microsoft Azure"
 	description="Learn how to use Microsoft HPC Pack and Azure to set up a small, hybrid high performance computing (HPC) cluster"
 	services="cloud-services"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="01/13/2016"
 	ms.author="danlep"/>
 
 
@@ -23,19 +23,17 @@ This tutorial shows you how to use Microsoft HPC Pack 2012 R2 and Azure to set u
 
 ![Hybrid HPC cluster][Overview]
 
-This tutorial shows one approach, sometimes called cluster "burst to the cloud," to use scalable, on-demand compute resources in Azure to run compute intensive applications.
+This tutorial shows one approach, sometimes called cluster "burst to the cloud," to use scalable, on-demand compute resources in Azure to run compute-intensive applications.
 
-This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493). If you want to set up an HPC Pack cluster entirely in Azure, see [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
+This tutorial assumes no prior experience with compute clusters or HPC Pack. It is intended only to help you deploy a hybrid compute cluster quickly for demonstration purposes. For considerations and steps to deploy a hybrid HPC Pack cluster at greater scale in a production environment, see the [detailed guidance](http://go.microsoft.com/fwlink/p/?LinkID=200493). For other scenarios with HPC Pack, including automated cluster deployment in Azure virtual machines, see [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
 >[AZURE.NOTE] Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.md) for your compute resources, suitable for different workloads. For example, the A8 and A9 instances combine high performance and access to a low latency, high throughput application network needed for certain HPC applications. See [About the A8, A9, A10, and A11 Compute Intensive Instances](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
 ## Prerequisites
 
->[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/).
+* **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
-In addition, you need the following for this tutorial.
-
-* An on-premises computer that is running an edition of Windows Server 2012 R2 or Windows Server 2012. This computer will be the head node of the HPC cluster. If you are not already running Windows Server, you can download and install an [evaluation version](http://technet.microsoft.com/evalcenter/dn205286.aspx).
+* **An on-premises computer running Windows Server 2012 R2 or Windows Server 2012** - This computer will be the head node of the HPC cluster. If you are not already running Windows Server, you can download and install an [evaluation version](http://technet.microsoft.com/evalcenter/dn205286.aspx).
 
 	* The computer must be joined to an Active Directory domain.
 
@@ -45,11 +43,11 @@ In addition, you need the following for this tutorial.
 
 	* Verify that important and critical updates are installed.
 
-* Installation files for HPC Pack 2012 R2, which is available free of charge. [Download](http://go.microsoft.com/fwlink/p/?linkid=328024) the latest version and copy the files to the head node computer or to a network location. Choose installation files in the same language as your installation of Windows Server.
+* **HPC Pack 2012 R2** -  [Download](http://go.microsoft.com/fwlink/p/?linkid=328024) the installation package for the latest version free of charge and copy the files to the head node computer or to a network location. Choose installation files in the same language as your installation of Windows Server.
 
-* A domain account with local Administrator permissions on the head node.
+* **Domain account** - This account must be configured with local Administrator permissions on the head node to install HPC Pack.
 
-* TCP connectivity on port 443 from the head node to Azure.
+* **TCP connectivity on port 443** from the head node to Azure.
 
 ## Install HPC Pack on the head node
 
@@ -81,7 +79,7 @@ You first install Microsoft HPC Pack on an on-premises computer running Windows 
 
 	![Install][install_hpc6]
 
-9. After the installation completes, uncheck **Start HPC Cluster Manager** and then click **Finish**. (You will start HPC Cluster Manager in a later step to complete the configuration of the head node.)
+9. After the installation completes, uncheck **Start HPC Cluster Manager** and then click **Finish**. (You will start HPC Cluster Manager in a later step.)
 
 	![Finish][install_hpc7]
 
@@ -94,9 +92,9 @@ Use the [Azure classic portal](https://manage.windowsazure.com) to perform the f
 
 - Create an Azure storage account
 
-	>[AZURE.NOTE]Also make a note of your Azure subscription ID, which you will need later. Find this in your Azure <a href="[https://account.windowsazure.com/Subscriptions">account information</a>.
+	>[AZURE.NOTE]Also make a note of your Azure subscription ID, which you will need later. Find this in your Azure [account information](https://account.windowsazure.com/Subscriptions)</a>.
 
-### <a>Upload the default management certificate</a>
+### Upload the default management certificate
 HPC Pack installs a self-signed certificate on the head node, called the Default Microsoft HPC Azure Management certificate, that you can upload as an Azure management certificate. This certificate is provided for testing purposes and proof-of-concept deployments.
 
 1. From the head node computer, sign in to the [Azure classic portal](https://manage.windowsazure.com).
@@ -113,11 +111,11 @@ HPC Pack installs a self-signed certificate on the head node, called the Default
 
 You will see **Default HPC Azure Management** in the list of management certificates.
 
-### <a>Create an Azure cloud service</a>
+### Create an Azure cloud service
 
 >[AZURE.NOTE]For best performance, create the cloud service and the storage account in the same geographic region.
 
-1. In the portal, on the command bar, click **New**.
+1. In the classic portal, on the command bar, click **New**.
 
 2. Click **Compute**, click **Cloud Service**, and then click **Quick Create**.
 
@@ -125,9 +123,9 @@ You will see **Default HPC Azure Management** in the list of management certific
 
 	![Create Service][createservice1]
 
-### <a>Create an Azure storage account</a>
+### Create an Azure storage account
 
-1. In the portal, on the command bar, click **New**.
+1. In the classic portal, on the command bar, click **New**.
 
 2. Click **Data Services**, click **Storage**, and then click **Quick Create**.
 
@@ -167,7 +165,7 @@ To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perfo
 
 	![Node Naming][config_hpc8]
 
-	>[AZURE.NOTE]The naming series only generates names for domain-joined compute nodes. Azure nodes are named automatically.
+	>[AZURE.NOTE]The naming series only generates names for domain-joined compute nodes. Azure worker nodes are named automatically.
 
 9. In the **Deployment To-do List**, click **Create a node template**. You will use the node template to add Azure nodes to the cluster.
 
@@ -179,7 +177,7 @@ To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perfo
 
 	b. Click **Next** to accept the default template name.
 
-	c. On the **Provide Subscription Information** page, enter your Azure subscription ID (available in your Azure <a href="[https://account.windowsazure.com/Subscriptions">account information</a>). Then, in **Management certificate**, click **Browse** and select **Default HPC Azure Management.** Then click **Next**.
+	c. On the **Provide Subscription Information** page, enter your Azure subscription ID (available in your Azure account information). Then, in **Management certificate**, click **Browse** and select **Default HPC Azure Management.** Then click **Next**.
 
 	![Node Template][config_hpc12]
 
@@ -189,7 +187,7 @@ To use HPC Cluster Manager to deploy Azure nodes and to submit jobs, first perfo
 
 	e. Click **Next** to accept default values on the remaining pages of the wizard. Then, on the **Review** tab, click **Create** to create the node template.
 
-	>[AZURE.NOTE]By default, the Azure node template includes settings for you to start (provision) and stop the nodes manually. You can also configure a schedule to start and stop the Azure nodes automatically.
+	>[AZURE.NOTE]By default, the Azure node template includes settings for you to start (provision) and stop the nodes manually. You can optionally configure a schedule to start and stop the Azure nodes automatically.
 
 ## Add Azure nodes to the cluster
 
@@ -209,7 +207,7 @@ For this tutorial you will add two Small nodes.
 
 	![Specify Nodes][add_node2]
 
-	For details about the available virtual machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+	For details about the available sizes, see [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md).
 
 4. On the **Completing the Add Node Wizard** page, click **Finish**.
 
@@ -220,7 +218,7 @@ For this tutorial you will add two Small nodes.
 ## the Azure nodes
 When you want to use the cluster resources in Azure, use HPC Cluster Manager to start (provision) the Azure nodes and bring them online.
 
-1.	In HPC Cluster Manager, in **Node Management**, click one or both nodes and then, in the **Actions** pane, click **Start**.
+1.	In HPC Cluster Manager, in **Node Management** (called **Resource Management** in some versions of HPC Pack) , click one or both nodes and then, in the **Actions** pane, click **Start**.
 
 	![Start Nodes][add_node4]
 
@@ -228,13 +226,13 @@ When you want to use the cluster resources in Azure, use HPC Cluster Manager to 
 
 	![Start Nodes][add_node5]
 
-	The nodes transition to the **Provisioning** state. You can view the provisioning log to track the provisioning progress.
+	The nodes transition to the **Provisioning** state. View the provisioning log to track the provisioning progress.
 
 	![Provision Nodes][add_node6]
 
 3. After a few minutes, the Azure nodes finish provisioning and are in the **Offline** state. In this state the role instances are running but will not yet accept cluster jobs.
 
-4. To confirm that the role instances are running, in the [portal](https://manage.windowsazure.com), click **Cloud Services**, click the name of your cloud service, and then click **Instances**.
+4. To confirm that the role instances are running, in the [classic portal](https://manage.windowsazure.com), click **Cloud Services**, click the name of your cloud service, and then click **Instances**.
 
 	![Running Instances][view_instances1]
 
@@ -261,7 +259,7 @@ You can use the HPC Pack **clusrun** command to run a command or application on 
 
 ## Run a test job
 
-You can submit a test job that runs on the hybrid cluster. This example is a simple "parametric sweep" job (a type of intrinsically parallel computation) which runs subtasks that add an integer to itself by using the **set /a** command. All the nodes in the cluster contribute to finishing the subtasks for integers from 1 to 100.
+Now submit a test job that runs on the hybrid cluster. This example is a simple "parametric sweep" job (a type of intrinsically parallel computation) which runs subtasks that add an integer to itself by using the **set /a** command. All the nodes in the cluster contribute to finishing the subtasks for integers from 1 to 100.
 
 1. In HPC Cluster Manager, in **Job Management**, in the **Actions** pane, click **New Parametric Sweep Job**.
 
@@ -283,7 +281,7 @@ You can submit a test job that runs on the hybrid cluster. This example is a sim
 
 ## Stop the Azure nodes
 
-After you try out the cluster, you can use HPC Cluster Manager to stop the Azure nodes to avoid unnecessary charges to your account. This stops the cloud service and removes the Azure role instances.
+After you try out the cluster, stop the Azure nodes to avoid unnecessary charges to your account. This stops the cloud service and removes the Azure role instances.
 
 1. In HPC Cluster Manager, in **Node Management,** select both Azure nodes. Then, in the **Actions** pane, click **Stop**.
 
