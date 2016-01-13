@@ -99,9 +99,9 @@ Do not close the Azure PowerShell window.
 
 ###Step 1.3: Download the BYOK toolset for Azure Key Vault
 
-Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](http://www.microsoft.com/download/details.aspx?id=45345) for your region or instance of Azure:
+Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](http://www.microsoft.com/download/details.aspx?id=45345) for your geo or instance of Azure:
 
-|Region or instance of Azure|Package name|SHA-256 package hash|
+|Geo or instance of Azure|Package name|SHA-256 package hash|
 |---|---|---|
 |North America|KeyVault-BYOK-Tools-UnitedStates.zip|D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36|
 |Europe|KeyVault-BYOK-Tools-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
@@ -176,7 +176,7 @@ This step is optional but recommended so that you can validate the following:
 
 To validate the downloaded package:
 
-1.	Run the verifykeypackage.py script by tying one of the following, depending on your region or instance of Azure:
+1.	Run the verifykeypackage.py script by tying one of the following, depending on your geo or instance of Azure:
 	- For North America:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
@@ -235,7 +235,7 @@ For this fourth step, do the following procedures on the disconnected workstatio
 
 ###Step 4.1: Create a copy of your key with reduced permissions
 
-To reduce the permissions on your key, from a command prompt, run one of the following, depending on your region or instance of Azure:
+To reduce the permissions on your key, from a command prompt, run one of the following, depending on your geo or instance of Azure:
 
 - For North America:
 
@@ -279,7 +279,7 @@ When you run these command, replace contosokey with the same value you specified
 
 ###Step 4.3: Encrypt your key by using Microsoft’s Key Exchange Key
 
-Run one of the following commands, depending on your region or instance of Azure:
+Run one of the following commands, depending on your geo or instance of Azure:
 
 - For North America:
 
