@@ -3,9 +3,9 @@
 	description="The Azure Storage Client Library for Java supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications."
 	services="storage"
 	documentationCenter="java"
-	authors="dineshm"
-	manager="carolz"
-	editor=""/>
+	authors="dineshmurthy"
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -242,9 +242,17 @@ As mentioned above, if the entity implements TableEntity, then the properties ge
 Note that encrypting your storage data results in additional performance overhead. The content key and IV must be generated, the content itself must be encrypted, and additional meta-data must be formatted and uploaded. This overhead will vary depending on the quantity of data being encrypted. We recommend that customers always test their applications for performance during development.
 
 ## Next steps  
+<<<<<<< HEAD
 
 - Download the [Azure Storage Client Library for Java Maven package](https://github.com/Azure/azure-storage-java)  
 - Download the [Azure Storage Client Library for Java Source Code from GitHub](https://github.com/Azure/azure-storage-java)   
 - Download the Azure Key Vault Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/),
 [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages
 - Visit the [Azure Key Vault Documentation](../articles/key-vault-whatis.md)  
+=======
+Download the [Azure Storage Client Library for Java Maven package](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.0.0)  
+Download the [Azure Storage Client Library for Java Source Code from GitHub](https://github.com/Azure/azure-storage-java)   
+Download the Azure Key Vault Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages
+
+Visit the [Azure Key Vault Documentation](../articles/key-vault-whatis.md)  
+>>>>>>> 56812a279b9a3210154fa1a34662eb02c81b23ba
