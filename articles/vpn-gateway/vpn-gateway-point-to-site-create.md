@@ -25,7 +25,7 @@
 
 A Point-to-Site configuration allows you to create a secure connection to your virtual network from a client computer, individually. A VPN connection is established by starting the connection from the client computer. This is an excellent solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. Point-to-Site connections do not require a VPN device or a public-facing IP address in order to work. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About cross-premises connections](vpn-gateway-cross-premises-options.md).
 
-This article applies to Point-to-Site VPN Gateway connections to a virtual network created using the **classic deployment model** (Service Management). If you want to configure a Point-to-Site connection for a VNet that was created using Resource Manager, see [this article](vpn-gateway-point-to-site-rm-ps.md). 
+This article applies to Point-to-Site VPN Gateway connections to a virtual network created using the **classic deployment model** (Service Management). If you want to configure a Point-to-Site connection for a VNet that was created using Resource Manager, see [this article](vpn-gateway-howto-point-to-site-rm-ps.md). 
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
