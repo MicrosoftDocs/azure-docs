@@ -81,7 +81,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
 6. **Install Azure Agent**
 
-    The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). Version 2.0.10 and later officially supports FreeBSD 10 and later releases. Latest Azure Agent version for FreeBSD is 2.0.16.
+    The latest release of the Azure Agent can always be found on [github](https://github.com/Azure/WALinuxAgent/releases). Version 2.0.10 and later officially supports FreeBSD 10 and later releases. The latest Azure Agent version for FreeBSD is 2.0.16.
 
 		# wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.10/waagent --no-check-certificate
 		# mv waagent /usr/sbin
