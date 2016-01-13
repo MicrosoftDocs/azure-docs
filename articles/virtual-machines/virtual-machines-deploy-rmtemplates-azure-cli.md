@@ -20,8 +20,8 @@
 # Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI
 
 > [AZURE.SELECTOR]
-- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 <br> 
 
