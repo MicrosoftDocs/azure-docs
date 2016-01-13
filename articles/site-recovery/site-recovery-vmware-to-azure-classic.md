@@ -136,9 +136,11 @@ Optionally you can also set throttling using PowerShell. Here's an example:
 #### Maximizing bandwidth usage 
 To increase the bandwidth utilized for replication by Azure Site Recovery you would need to change a registry key.
 
-The key is located under "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication"
+The following key controls the number of threads per replicating disk that are used when replicating
 
-The “UploadThreadsPerVM” controls the number of threads per replicating disk that are used when replicating. In an “overprovisioned” network, this registry key needs to be changed from it’s default values. We support a maximum of 32.  
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
+
+ In an “overprovisioned” network, this registry key needs to be changed from it’s default values. We support a maximum of 32.  
 
 
 [Learn more](site-recovery-capacity-planner.md) about detailed capacity planning.
@@ -235,7 +237,7 @@ If you want to replicate VMware virtual machines install the following VMware co
 
 ## Step 5: Install the management server
 
-> [AZURE.VIDEO enhanced-vmware-to-azure-discovery]
+> [AZURE.VIDEO enhanced-vmware-to-azure-setup-registration]
 
 1. On the **Quick Start** page download the unified installation file to the server.
 2. Run the installation file to start setup in the Site Recovery Unified Setup wizard.
@@ -320,6 +322,9 @@ Where:
 
 ## Step 6: Set up credentials for the vCenter server
 
+> [AZURE.VIDEO enhanced-vmware-to-azure-discovery]
+
+
 The process server can automatically discover VMware VMs that are managed by a vCenter server. For automatic discovery Site Recovery needs an account and credentials that can access the vCenter server. This isn't relevant if you're replicating physical servers only.
 
 Do this as follows:
@@ -358,6 +363,9 @@ If you're replicating VMware VMs you need to add a vCenter server (or ESXi host)
 		
 
 ## Step 8: Create a protection group
+
+> [AZURE.VIDEO enhanced-vmware-to-azure-protection]
+
 
 A protection group contain virtual machines or physical servers that will share the same replication settings.
 
@@ -594,6 +602,8 @@ You can run a failover for a single machine, or fail over multiple virtual machi
 You can customize the plan to create groups and sequence the order in which machines in the recovery plan are failed over. You can also add scripts and prompts for manual actions. Scripts can be created manually or by using by [Azure Automation Runbooks](site-recovery-runbook-automation.md).[Learn more](site-recovery-create-recovery-plans.md) about customizing recovery plans.
 
 ## Run a failover
+
+> [AZURE.VIDEO videos/enhanced-vmware-to-azure-failover]
 
 Before you run a failover note that: 
 
