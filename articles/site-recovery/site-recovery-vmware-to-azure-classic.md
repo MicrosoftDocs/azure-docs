@@ -584,7 +584,7 @@ In addition, protection status can be monitored in **Protected Items** > <protec
 
 ## Step 12: Create a recovery plan and run a failover
 
-> [AZURE.VIDEO videos/enhanced-vmware-to-azure-failover]
+> [AZURE.VIDEO enhanced-vmware-to-azure-failover]
 
 You can run a failover for a single machine, or fail over multiple virtual machines that perform the same task or run the same workload. To fail over multiple machines at the same time you add them to a recovery plan.
 
