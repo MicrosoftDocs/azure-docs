@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/31/2015"
+   ms.date="01/08/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage StorSimple volume containers
@@ -43,7 +43,7 @@ This following procedures explain how to use the StorSimple **Volume containers*
 
 ## Add a volume container
 
-Perform the following steps to create a volume container.
+Perform the following steps to add a volume container.
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 
