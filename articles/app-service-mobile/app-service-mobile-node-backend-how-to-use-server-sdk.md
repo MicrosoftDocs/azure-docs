@@ -25,7 +25,7 @@
 
 This article provides detailed information and examples showing how to work with a Node.js backend in Azure App Service Mobile Apps.
 
-> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples in this document use v2.0.0-beta1 of [azure-mobile-apps].
+> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples in this document use v2.0.0-beta2 of [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -720,7 +720,7 @@ From the editor, you can also execute the code on the site
 [How to configure Google Authentication]: app-service-mobile-how-to-configure-google-authentication.md
 [How to configure Microsoft Authentication]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [How to configure Twitter Authentication]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service Deployment Guide]: ../app-service-web/web-site-deploy.md
+[Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
 [Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
 [Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
