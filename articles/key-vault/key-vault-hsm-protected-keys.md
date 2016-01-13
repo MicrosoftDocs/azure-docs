@@ -23,6 +23,8 @@ For added assurance, when you use Azure Key Vault, you can import or generate ke
 
 Use the information in this topic to help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
 
+This functionality is not available for Azure China.
+
 >[AZURE.NOTE] For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)  
 >
 >For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [Get started with Azure Key Vault](key-vault-get-started.md).
