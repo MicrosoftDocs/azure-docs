@@ -160,8 +160,4 @@ Below is a comparison of IP addressing features in Resource Manager and the clas
 ||Internal load balancer (ILB)|Assigned to the ILB (dynamic or static)|Assigned to the ILB's front end configuration (dynamic or static)|
 
 ## Next steps
-- [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md)
-- [Create a load balancer using PowerShell](load-balancer-get-started-internet-classic-cli.md)
-- [Create an internal load balancer using PowerShell](load-balancer-get-started-ilb-classic-ps.md)
-- [Create an application gateway using PowerShell](application-gateway-create-gateway.md)
-- [Create an internal application gateway using PowerShell](application-gateway-ilb.md)
+- [Deploy a VM with a static private IP address](virtual-networks-static-private-ip-classic-pportal.md) using the classic portal.
