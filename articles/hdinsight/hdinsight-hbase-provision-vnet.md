@@ -94,6 +94,8 @@ Before provisioning an HBase cluster, you need to have an Azure virtual network.
 	- **Location** - The location must be the same as the HBase cluster that you will create.
     
         > [AZURE.NOTE] > Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group.
+        
+For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 5. Click **Create**.
 

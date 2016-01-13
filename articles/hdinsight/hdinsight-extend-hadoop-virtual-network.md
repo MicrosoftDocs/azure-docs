@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/18/2015"
+   ms.date="01/13/2015"
    ms.author="larryfr"/>
 
 
@@ -59,14 +59,29 @@ Azure Virtual Network allows you to extend your Hadoop solutions to incorporate 
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
 > [AZURE.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://azure.microsoft.com/documentation/services/virtual-network/).
->
-> Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group. 
->
-> It is highly recommended to designate a single subnet for each cluster. 
->
-> Windows-based clusters require a v1 (Classic) Virtual Network, while Linux-based clusters require a v2 (Azure Resource Manager,) Virtual Network. If you do not have the correct type of network, it will not be usable when you create the cluster.
->
-> If you have resources on a Virtual Network that is not usable by the cluster you plan on creating, you can create a new Virtual Network that is usable by the cluster, and connect it to the incompatible Virtual Network. You can then create the cluster in the network version that it requires, and it will be able to access resources in the other network since the two are joined. For more information on connecting classic and new Virtual Networks, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+## Virtual Network configuration
+
+> [AZURE.IMPORTANT] Creating an HDInsight cluster on a Virtual Network requires specific Virtual Network configurations, which are described in this section.
+
+* Azure HDInsight supports only location-based virtual networks, and does not currently work with virtual networks based on affinity group. 
+
+* It is highly recommended that you create a single subnet for each HDInsight cluster. 
+
+* Windows-based clusters require a v1 (Classic) Virtual Network, while Linux-based clusters require a v2 (Azure Resource Manager,) Virtual Network. If you do not have the correct type of network, it will not be usable when you create the cluster.
+
+    If you have resources on a Virtual Network that is not usable by the cluster you plan on creating, you can create a new Virtual Network that is usable by the cluster, and connect it to the incompatible Virtual Network. You can then create the cluster in the network version that it requires, and it will be able to access resources in the other network since the two are joined. For more information on connecting classic and new Virtual Networks, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+
+* HDInsight is not supported on Azure Virtual Networks that explicitly restrict access to/from the Internet. For example, using Network Security Groups or ExpressRoute to block Internet traffic to resources in the Virtual Network. The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks.
+
+    If you want to use HDInsight on a Virtual Network that blocks Internet traffic, you can do the following:
+
+    1.	Create a new subnet within the Virtual Network. This subnet will be used by HDInsight.
+
+    2.	Define a routing table and create a User Defined Route (UDR) for the subnet that allows both inbound and outbound Internet connectivity. You can accomplish this by using * routes. This will enable Internet connectivity only for resources located on the subnet. For more information on working with UDR, see https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-overview/ and https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-udr-how-to/.
+    
+    3.	When you create the HDInsight cluster, select the subnet created in step 1. This will deploy the cluster into the subnet that has Internet access. 
+
 
 For more information on provisioning an HDInsight cluster on a virtual network, see [Provisioning Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 
