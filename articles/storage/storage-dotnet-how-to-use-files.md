@@ -13,7 +13,7 @@
       ms.devlang="dotnet"
       ms.topic="hero-article"
       ms.date="01/12/2015"
-      ms.author="robinsh,jutang" />
+      ms.author="robinsh" />
 
 # How to use Azure File storage with Windows
 
