@@ -137,7 +137,7 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[HPE Edgeline EL20](http://www8.hp.com/h20195/v2/GetPDF.aspx/c04884769.pdf) |Windows 10 | C#|
 |[Ilevia Eve Raspberry](http://www.ilevia.com/overview/) |Debian | C|
 |[Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) |Yocto | C, Javascript|
-|[Libelium Meshlium Xtreme](http://www.libelium.com/products/meshlium/l) |Debian | Java|
+|[Libelium Meshlium Xtreme](http://www.libelium.com/products/meshlium/) |Debian | Java|
 |[Minnowboard Max](http://www.minnowboard.org/meet-minnowboard-max/) |Windows 7,8, 10 | C#|
 |[NEXCOM NISE 50C](http://www.nexcom.com/Products/industrial-computing-solutions/industrial-fanless-computer/atom-compact/fanless-computer-nise-50c) |Windows 10 IoT Core | C#|
 |[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Raspbian | C, Javascript, Java |
