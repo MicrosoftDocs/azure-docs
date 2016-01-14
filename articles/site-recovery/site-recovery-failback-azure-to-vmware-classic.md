@@ -18,6 +18,11 @@
 
 # Fail back VMware virtual machines and physical servers to the on-premises site
 
+> [AZURE.SELECTOR]
+- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
+- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
+
 This articles describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
 
 
@@ -34,6 +39,8 @@ Here’s how failback works:
 	- **Stage 1**: You reprotect the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. Enabling reprotection moves the VM into a failback protection group that was created automatically when you originally created the failover protection group. If you added your failover protection group to a recovery plan then the failback protection group was also automatically added to the plan.  During reprotect you specify how to plan to fail back.
 	- **Stage 2**: After your Azure VMs are replicating to your on-premises site, you run a fail over to fail back from Azure.
 	- **Stage 3**: After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
+
+> [AZURE.VIDEO enhanced-vmware-to-azure-failback]
 
 
 ### Failback to the original or alternate location
@@ -83,7 +90,7 @@ You need to install a process server in Azure so that the Azure VMs can send the
 	>[AZURE.NOTE] The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
 
 
-## Set up the master targer server on-premises
+## Set up the master target server on-premises
 
 The master target server receives the failback data. A master target server is automatically installed on the on-premises management server but if you're failing back a lot of data you might need to set up an additional master target server. Do this as follows:
 
