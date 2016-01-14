@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/04/2016"
+ms.date="01/14/2016"
 ms.author="larryfr"/>
 
 #Use Azure Data Lake Store with Apache Storm with HDInsight
@@ -102,7 +102,9 @@ Create a new Storm on HDInsight cluster using the steps in the [Use HDInsight wi
 
 ##Build and package the topology
 
-1. Download the example project from [tbd] to your development environment.
+1. Download the example project from [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store
+](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store
+) to your development environment.
 
 2. Open the `StormToDataLake\src\main\java\com\microsoft\example\StormToDataLakeStore.java` file in an editor and find the line that contains `.withFsUrl("adl://MYDATALAKE.azuredatalakestore.net/")`. Change __MYDATALAKE__ to the name of the Azure Data Lake Store you used when creating your HDInsight server.
 
