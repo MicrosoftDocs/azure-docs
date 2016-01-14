@@ -90,7 +90,7 @@ Step 4 - Export and install the client certificate.
 
 ### Identify or generate a root certificate
 
-If you are not using an enterprise certificate solution, you'll need to generate a self-signed root certificate. The steps below work on Windows 8. We're in the process of updating with new steps for Windows 10.
+If you are not using an enterprise certificate solution, you'll need to generate a self-signed root certificate. The steps below work on Windows 8. For Windows 10 steps, you can refer to the makecert sections of [this article](vpn-gateway-howto-point-to-site-rm-ps.md#to-create-a-self-signed-root-certificate-by-using-makecert).
 
 One way to create an X.509 certificate is by using the Certificate Creation Tool (makecert.exe). To use makecert, download and install [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), which is free of charge.
 
