@@ -215,7 +215,7 @@ For this tutorial you will add two Small nodes.
 
 	![Added Nodes][add_node3]
 
-## the Azure nodes
+## Start the Azure nodes
 When you want to use the cluster resources in Azure, use HPC Cluster Manager to start (provision) the Azure nodes and bring them online.
 
 1.	In HPC Cluster Manager, in **Node Management** (called **Resource Management** in some versions of HPC Pack) , click one or both nodes and then, in the **Actions** pane, click **Start**.
@@ -245,7 +245,8 @@ When you want to use the cluster resources in Azure, use HPC Cluster Manager to 
 	HPC Cluster Manager indicates that the nodes are in the **Online** state.
 
 ## Run a command across the cluster
-You can use the HPC Pack **clusrun** command to run a command or application on one or more cluster nodes. As a simple example, use **clusrun** to get the IP configuration of the Azure nodes.
+
+To check the installation, use the HPC Pack **clusrun** command to run a command or application on one or more cluster nodes. As a simple example, use **clusrun** to get the IP configuration of the Azure nodes.
 
 1. On the head node, open a command prompt.
 
