@@ -20,6 +20,12 @@
 
 You can use OneDrive for Business as a file repository with Azure RemoteApp. OneDrive for Business is a great way to keep files synchronized across all your devices and workspaces. The [user profile disk](remoteapp-upd.md) (UPD) for a user is a place where users can store their files for Azure RemoteApp apps but these files are accessible only by using Azure RemoteApp. OneDrive for Business, on the other hand, allows the user to access files wherever and whenever they want without the pre-requisite of going through Azure RemoteApp. This article will cover the OneDrive for Business versions supported and the different ways in which admins can set up OneDrive for Business for Azure RemoteApp.
 
+## Are all versions of OneDrive supported?
+
+There are two versions of OneDrive: OneDrive and OneDrive for Business. Only OneDrive for Business is supported on Azure RemoteApp. The personal OneDrive does work but is not officially supported. Also, only the latest version of OneDrive for Business, aka the Next Gen Sync client, is supported on Azure RemoteApp (and RDSH/Citrix/Terminal servers).
+
+>[AZURE.NOTE]  OneDrive (for consumers/personal edition) is not supported on Azure RemoteApp. Not all versions of OneDrive for Business are supported either as they haven’t been certified to work on Windows Server. Though both the new client (Next Gen Sync Client) and the older Groove versions might seem to work fine on Azure RemoteApp, as described in [https://support.microsoft.com/en-us/kb/2965687](https://support.microsoft.com/kb/2965687), the older sync engines will not have full functionality on Citrix / Terminal Servers (Windows Server). Use the new sync client on Azure RemoteApp (and other Windows Server deployments).
+
 ## What are the different set up options for OneDrive for Business?
 
 - **Traditional setup of OneDrive for Business sync engine:** 
