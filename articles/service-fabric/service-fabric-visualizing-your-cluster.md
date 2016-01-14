@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Visualizing your cluster by using Service Fabric Explorer | Microsoft Azure"
-   description="Service Fabric Explorer is a useful GUI tool for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster."
+   pageTitle="Visualizing your cluster using Service Fabric Explorer | Microsoft Azure"
+   description="Service Fabric Explorer is a web-based tool for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/30/2015"
-   ms.author="jesseb"/>
+   ms.date="01/13/2016"
+   ms.author="seanmck"/>
 
-# Visualize your cluster by using Service Fabric Explorer
+# Visualize your cluster with Service Fabric Explorer
 
 Service Fabric Explorer is a web-based tool for inspecting and managing applications and nodes in an Azure Service Fabric cluster. Service Fabric Explorer is hosted directly within the cluster, so it is always available, regardless of where your cluster is running.
 
@@ -56,7 +56,7 @@ At each level of the tree, the main pane shows pertinent information about the i
 
 The node view shows the physical layout of the cluster. For a given node, you can inspect which applications have code deployed on that node. More specifically, you can see which replicas are currently running there.
 
-## Take actions by using Service Fabric Explorer
+## Actions
 
 Service Fabric Explorer offers a quick way to invoke actions on nodes, applications, and services within your cluster.
 
@@ -64,9 +64,22 @@ For example, to delete an application instance, simply choose the application fr
 
 ![Deleting an application in Service Fabric Explorer][sfx-delete-application]
 
-Since many actions are destructive, you will be asked to confirm your intent before the action is completed.
+The following table lists the actions available for each entity:
 
->[AZURE.NOTE] Every action that can be performed through Service Fabric Explorer can also be performed through PowerShell or a REST API, to enable automation.
+| Entity | Action | Description |
+| ------ | ------ | ----------- |
+| Application type | Unprovision type | Removes the application package from the cluster's image store. Requires all applications of that type to be removed first. |
+| Application | Delete Application | Delete the application, including all of its services and their state (if any).  |
+| Service | Delete Service | Delete the service and its state (if any). |
+| Node | Activate | Activate the node. |
+|| Deactivate (pause) | Pause the node in its current state. Services will continue to run but Service Fabric will not proactively move anything onto or off of it unless it is required to prevent an outage or data inconsistency. This action is typically used to enable debugging services on a specific node to ensure that they do not move during inspection. |
+|| Deactivate (restart) | Safely move all services off of a node, enabling the host processes or machine to be restarted. |
+|| Deactivate (remove data) | Safely close all services running on the node and remove knowledge of its replicas from the cluster. Typically used when a node (or at least its storage) is being permanently taken out of commission. |
+|| Remove node state | Remove knowledge of a node's replicas from the cluster. Typically used when an already failed node is deemed unrecoverable. |
+
+Since many actions are destructive, you may be asked to confirm your intent before the action is completed.
+
+>[AZURE.TIP] Every action that can be performed through Service Fabric Explorer can also be performed through PowerShell or a REST API, to enable automation.
 
 
 
