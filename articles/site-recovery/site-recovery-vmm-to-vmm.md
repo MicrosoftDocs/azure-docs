@@ -80,7 +80,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 ## Step 3: Install the Azure Site Recovery Provider
 
-4. On the *Quick Start* page, in **Prepare VMM servers**, click *Download Microsoft Azure Site Recovery Provider for installation on VMM servers* to obtain the latest version of the Provider installation file.
+4. On the **Quick Start** page, in **Prepare VMM servers**, click **Download Microsoft Azure Site Recovery Provider for installation on VMM servers** to obtain the latest version of the Provider installation file.
 
 2. Run this file on the source VMM server. If VMM is deployed in a cluster and you're installing the Provider for the first time install it on an active node and finish the installation to register the VMM server in the vault. Then install the Provider on the other nodes. Note that if you're upgrading the Provider you'll need to upgrade on all nodes because they should all be running the same Provider version.
 
@@ -99,7 +99,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 	![InstallComplete](./media/site-recovery-vmm-to-vmm/install-complete.png)
 
-7. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select *Use default system proxy settings* to use the default Internet connection settings configured on the server.
+7. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select **Connect with existing proxy settings** to use the default Internet connection settings configured on the server.
 
 	![Internet Settings](./media/site-recovery-vmm-to-vmm/proxy-details.png)
 
@@ -112,14 +112,14 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 		- *.blob.core.windows.net
 		- *.store.core.windows.net
 	- Allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
-	- If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. To do this, open the Settings workspace, expand Security, click Run As Accounts, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
+	- If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. To do this, open the **Settings** workspace, expand **Security**, click **Run As Accounts**, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
 
 8. In **Registration Key**, select that you downloaded from Azure Site Recovery and copied to the VMM server.
 9. In **Vault name**, verify the name of the vault in which the server will be registered. Click *Next*.
 
 	![Server registration](./media/site-recovery-vmm-to-vmm/vault-creds.png)
 
-10.  This setting is used only for VMM to Azure Scenario, if you are a VMM to VMM only user then you can ignore this screen.
+10.  The encryption setting is only used when you're replicating Hyper-V VMs in VMM clouds to Azure. If you're replicating to a secondary site it's not used.
 
 	![Server registration](./media/site-recovery-vmm-to-vmm/encrypt.png)
 
@@ -128,7 +128,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
  
 		![Server registration](./media/site-recovery-vmm-to-vmm/friendly-name.png)
 
-13.  Click *Next* to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  *VMM Servers* tab on the **Servers** page in the vault.
+13.  Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  **VMM Servers** tab on the **Servers** page in the vault.
 
 
 ### Command line installation
