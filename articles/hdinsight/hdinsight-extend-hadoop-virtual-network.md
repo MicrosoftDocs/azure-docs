@@ -74,15 +74,16 @@ For more information on Virtual Network features, benefits, and capabilities, se
 
 * HDInsight is not supported on Azure Virtual Networks that explicitly restrict access to/from the Internet. For example, using Network Security Groups or ExpressRoute to block Internet traffic to resources in the Virtual Network. The HDInsight service is a managed service, and requires Internet access during provisioning and while running so that Azure can monitor the health of the cluster, initiate failover of cluster resources, and other automated management tasks.
 
-    If you want to use HDInsight on a Virtual Network that blocks Internet traffic, you can do the following:
+    If you want to use HDInsight on a Virtual Network that blocks Internet traffic, you can use the following steps:
 
-    1. Create a new subnet within the Virtual Network. This subnet will be used by HDInsight. By default, the new subnet will be able to communicate with the Internet and with the rest of the subnets in the Virtual Network.
+    1. Create a new subnet within the Virtual Network. By default, the new subnet will be able to communicate with the Internet. This allows HDInsight to be installed on this subnet. Since the new subnet is in the same virtual network as the secured subnet(s), it can also communicate with resources installed there.
     
-        You can confirm that there are no specific Network Security Groups attached to the subnet by using the following PowerShell statement. Replace __VIRTUALNETWORKNAME__ with your virtual network name, and replace __SUBNETNAME__ with the subnet name.
+    2. You can confirm that there are no specific Network Security Group or route table attached to the subnet by using the following PowerShell statements. Replace __VIRTUALNETWORKNAME__ with your virtual network name, replace __GROUPNAME__ with the name of the resource group that contains the virtual network, and replace __SUBNET__ with the name of the subnet.
         
-            Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork VIRTUALNETWORKNAME -Name SUBNETNAME -ErrorAction SilentlyContinue
+            $vnet = Get-AzureRmVirtualNetwork -Name VIRTUALNETWORKNAME -ResourceGroupName GROUP NAME
+            $vnet.Subnets | Where-Object Name -eq "SUBNET"
             
-        There should be no information returned from this statement, as there is no custom configuration for the new subnet.
+        In the results, note that __NetworkSecurityGroup__ and __RouteTable__ are both `null`.
     
     2. Create the HDInsight cluster. When configuring the Virtual Network settings for the cluster, select the subnet created in step 1.
 
