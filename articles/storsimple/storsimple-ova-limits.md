@@ -30,5 +30,5 @@ Consider these limits as you plan, deploy, and operate your Microsoft Azure Stor
 
 ## StorSimple Virtual Array limits 
 
-[AZURE.INCLUDE [storsimple-virtual-array-limits](../includes/storsimple-virtual-array-limits.md)]
+[AZURE.INCLUDE [storsimple-virtual-array-limits](../../includes/storsimple-virtual-array-limits.md)]
 
