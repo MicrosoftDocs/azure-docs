@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/14/2016"
 	ms.author="raynew"/>
 
 # Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery
@@ -136,9 +136,11 @@ Optionally you can also set throttling using PowerShell. Here's an example:
 #### Maximizing bandwidth usage 
 To increase the bandwidth utilized for replication by Azure Site Recovery you would need to change a registry key.
 
-The key is located under "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication"
+The following key controls the number of threads per replicating disk that are used when replicating
 
-The “UploadThreadsPerVM” controls the number of threads per replicating disk that are used when replicating. In an “overprovisioned” network, this registry key needs to be changed from it’s default values. We support a maximum of 32.  
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
+
+ In an “overprovisioned” network, this registry key needs to be changed from it’s default values. We support a maximum of 32.  
 
 
 [Learn more](site-recovery-capacity-planner.md) about detailed capacity planning.
@@ -235,6 +237,8 @@ If you want to replicate VMware virtual machines install the following VMware co
 
 ## Step 5: Install the management server
 
+> [AZURE.VIDEO enhanced-vmware-to-azure-setup-registration]
+
 1. On the **Quick Start** page download the unified installation file to the server.
 2. Run the installation file to start setup in the Site Recovery Unified Setup wizard.
 3. In **Before you begin** select **Install the configuration server and process server**. Depending on the size of your deployment you might need additional process servers later, but not when you set up this deployment for the first time.
@@ -318,6 +322,8 @@ Where:
 
 ## Step 6: Set up credentials for the vCenter server
 
+> [AZURE.VIDEO enhanced-vmware-to-azure-discovery]
+
 The process server can automatically discover VMware VMs that are managed by a vCenter server. For automatic discovery Site Recovery needs an account and credentials that can access the vCenter server. This isn't relevant if you're replicating physical servers only.
 
 Do this as follows:
@@ -356,6 +362,9 @@ If you're replicating VMware VMs you need to add a vCenter server (or ESXi host)
 		
 
 ## Step 8: Create a protection group
+
+> [AZURE.VIDEO enhanced-vmware-to-azure-protection]
+
 
 A protection group contain virtual machines or physical servers that will share the same replication settings.
 
@@ -572,10 +581,10 @@ In addition, protection status can be monitored in **Protected Items** > <protec
 	- **Azure network**: You must specify an Azure network that Azure VMs will be connected to after failover. If you don't specify one then the Azure VMs won't be connected to any network. In addition you'll need to specify an Azure network if you want to failback from Azure to the on-premises site. Failback requires a VPN connection between an Azure network and an on-premises network.	
 	- **Azure IP address/subnet**: For each network adapter you select the subnet to which the Azure VM should connect. Note that:
 		- If the network adapter of the source machine is configured to use a static IP address then you can specify a static IP address for the Azure VM. If you don't provide a static IP address then any available IP address will be allocated. If the target IP address is specified but it's already in use by another VM in Azure then failover will fail. If the network adapter of the source machine is configured to use DHCP then you'll have DHCP as the setting for Azure.
-		- Note that if you want to fail back you can’t retain the same IP address after failover of the source machine to Azure. Failback is only over VPN/ExpressRoute and you can’t have the same pool of addresses on both sides of the VPN connection.  
-		- You can't maintain the same IP address in Azure as you have on the on-premises site. A VPN connection is needed for failback and it can't have the same IP address ranges on both sides of the connection.
 
 ## Step 12: Create a recovery plan and run a failover
+
+> [AZURE.VIDEO enhanced-vmware-to-azure-failover]
 
 You can run a failover for a single machine, or fail over multiple virtual machines that perform the same task or run the same workload. To fail over multiple machines at the same time you add them to a recovery plan.
 
@@ -730,3 +739,7 @@ The information in Section A is regarding Third Party Code components from the p
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+
+## Next steps
+
+[Learn more about failback](site-recovery-failback-azure-to-vmware-classic.md) to bring your failed over machines running in Azure back to your on-premises environment.
