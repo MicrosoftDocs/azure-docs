@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/13/2015"
+	ms.date="12/13/2016"
 	ms.author="juliako"/>
 
 #Azure Media Services Overview and Common Scenarios
