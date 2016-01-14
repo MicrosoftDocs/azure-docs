@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Resetting Linux VM password from Azure CLI | Microsoft Azure"
-	description="How to use VMAccess extension from Azure classic portal or CLI to reset Linux VM passwords and SSH keys, SSH configurations, and delete users accounts."
+	pageTitle="Resetting Linux VM Passwords and adding Users from the Azure CLI | Microsoft Azure"
+	description="How to use VMAccess extension from the Azure portal or CLI to reset Linux VM passwords and SSH keys, SSH configurations, add or delete user accounts, and check the consistency of disks."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/15/2015"
 	ms.author="cynthn"/>
 
-# How to Reset Access and Manage Users, Disks with the Azure VMAccess Extension for Linux Virtual Machines #
+# How to Reset Access and Manage Users and Check Disks with the Azure VMAccess Extension for Linux#
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
 
-If you can't connect to a Linux virtual machine because of a forgotten password, an incorrect Secure Shell (SSH) key, or a problem with the SSH configuration, use the Azure portal or the  VMAccessForLinux extension to reset the password or SSH key or fix the SSH configuration. Note that this article applies to the virtual machines created using the **Classic** deployment model.
+If you can't connect to a Linux virtual machine on Azure because of a forgotten password, an incorrect Secure Shell (SSH) key, or a problem with the SSH configuration, use the Azure portal or the VMAccessForLinux extension with the Azure CLI to reset the password or SSH key, fix the SSH configuration, and check disk consistency. 
 
 ## Azure portal
 
