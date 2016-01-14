@@ -253,7 +253,7 @@ After servers, clouds, and networks are configured correctly, you can enable pro
 
 >[AZURE.NOTE] You can also enable protection for virtual machines in the VMM console. Click **Enable Protection** on the toolbar in the **Azure Site Recovery** tab in the virtual machine properties.
 
-![Virtual machine protection job](./media/site-recovery-vmm-to-vmm/vm-jobs.png)
+	![Virtual machine protection job](./media/site-recovery-vmm-to-vmm/vm-jobs.png)
 
 ### On-board existing virtual machines
 
