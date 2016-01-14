@@ -301,7 +301,7 @@ Before you can enable protection for virtual machines you’ll need to enable re
 
 When this operation is complete, Azure Site Recovery, together with VMM and the SMI-S providers provision the target site storage LUNs and enable storage replication. If the replication group is already replicated, Azure Site Recovery reuses the existing replication relationship and updates the information in Azure Site Recovery.
 
-## Enable protection for virtual machines
+## Step 7: Enable protection for virtual machines
 
 After a storage group is replicating, enable protection for virtual machines in the VMM console using either of the following methods:
 
@@ -317,7 +317,7 @@ You can track progress of the Enable Protection action in the **Jobs** tab, incl
 
 ![Virtual machine protection job](./media/site-recovery-vmm-san/job-props.png)
 
-## Step 7: Test the deployment
+## Step 8: Test the deployment
 
 Test your deployment to make sure virtual machines and data fail over as expected. To do this you'll create a recovery plan by selecting replication groups.Then run a test failover on the plan.
 
