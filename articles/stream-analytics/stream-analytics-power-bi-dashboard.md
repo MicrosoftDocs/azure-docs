@@ -17,7 +17,7 @@
 	ms.date="01/11/2016" 
 	ms.author="jeffstok"/>
 	
-# Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data
+#  Stream Analytics & Power BI: A real-time analytics dashboard for streaming data
 
 Azure Stream Analytics allows you to take advantage of one of the leading business intelligence tools, Microsoft Power BI. Learn how to use Azure Stream Analytics to analyze high-volume, streaming data and get the insight in a real-time Power BI analytics dashboard.
 
