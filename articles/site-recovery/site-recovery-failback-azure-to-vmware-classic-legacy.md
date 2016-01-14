@@ -450,6 +450,6 @@ machines again. Do this as follows:
  
 ## Next steps
 
-[Read about](site-recovery-vmware-to-azure.md) replicating VMware virtual machines to Azure
+[Read about](site-recovery-vmware-to-azure-classic-legacy.md) replicating VMware virtual machines to Azure
 
  
