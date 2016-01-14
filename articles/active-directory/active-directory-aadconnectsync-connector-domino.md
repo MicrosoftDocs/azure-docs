@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/28/2015"
+   ms.date="01/14/2016"
    ms.author="andkjell"/>
 
 # Lotus Domino Connector technical reference
@@ -346,7 +346,7 @@ The Resource Reservation database contains 3 types of documents:
 - Resource
 - Reservation
 
-For more details on setting up of Resource Reservation database see, [Setting up the Resource Reservations database](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_USING_GROUPS_OVER.html).
+For more details on setting up of Resource Reservation database see, [Setting up the Resource Reservations database](https://www-01.ibm.com/support/knowledgecenter/SSKTMJ_8.0.1/com.ibm.help.domino.admin.doc/DOC/H_SETTING_UP_THE_RESOURCE_RESERVATIONS_DATABASE.html).
 
 **Create, Update and Delete Resources**
 
