@@ -16,9 +16,9 @@
    ms.date="10/12/2015"
    ms.author="v-jeana; hascipio; v-dabosl"/>
 
-# Understand Your Azure Marketplace Payout Reports
+# Understand your Azure Marketplace payout reports
 
-## Access and View Your Payout Reports
+## Access and view your payout reports
 
 While we transition to Dev Center some of your payout reports may be available in the Dev Center at https://dev.windows.com/en-us while others may still be found in Publishing Portal at https://publish.windowsazure.com.
 
@@ -32,7 +32,7 @@ Payout reporting will still be in **Publishing Portal** for:
 
 Reports are available 45 days after the close of the quarter and are calculated after any refunds.
 
-### Access Payout Reports in Dev Center
+### Access payout reports in Dev Center
 
 1. Navigate to Dev Center at https://dev.windows.com/en-us.
 2. Click **Dashboard**.
@@ -42,7 +42,7 @@ Reports are available 45 days after the close of the quarter and are calculated 
   ![DashboardPayoutSummary][2]
 
 
-## View Your Payout Reports in Dev Center
+## View your payout reports in Dev Center
 
 The payout report for each quarter records all transactions that occurred within that quarter.
 
@@ -59,7 +59,7 @@ The payout report for each quarter records all transactions that occurred within
 
 
 
-## View Your Payout Reports in Publishing Portal
+## View your payout reports in Publishing Portal
 The payout report for each quarter records all transactions that occurred within that quarter.
 
 1. Navigate to the publishing portal at https://publish.windowsazure.com.
@@ -68,7 +68,7 @@ The payout report for each quarter records all transactions that occurred within
 ![accessingpayoutreport][5]
 
 
-### Read Your Payout Reports
+### Read your payout reports
 
 The payout report for each quarter records all transactions that occurred within that quarter.
 
