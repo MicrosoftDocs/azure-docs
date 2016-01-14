@@ -42,6 +42,7 @@ ASP.NET 5 is a lightweight, cross-platform web development framework that you ca
 
     Once your Web API project is created, you will have two services in your application. As you continue to build your application, you will add more services in exactly the same way. Each can be independently versioned and upgraded.
 
+>[AZURE.NOTE] As of the November Public Preview release of Service Fabric, there are known issues with long paths when dealing with ASP.NET projects.  When creating these these types of projects it is best to choose short names for application and service types, as well as code and config package names, in order to avoid any issues.
 
 ## Run the application
 
