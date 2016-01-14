@@ -18,6 +18,11 @@
 
 # Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery
 
+> [AZURE.SELECTOR]
+- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
+- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
+
 ## Overview
 
 This document describes how to fail back VMware virtual machines and Windows/Linux physical servers from Azure to your on-premises site. 
