@@ -112,7 +112,7 @@ You'll need to upload the corresponding .cer file for each root certificate to A
 
 ### Generate a client certificate
 
-The steps below are for generating a client certificate from the self-signed root certificate. If you are using an enterprise certificate solution, follow the guidelines for the solution you are using. The steps in this section were written for Windows 8. For Windows 10 steps, you can refer to the makecert sections of [this article](vpn-gateway-howto-point-to-site-rm-ps.md#to-create-a-self-signed-root-certificate-by-using-makecert).
+The steps below are for generating a client certificate from the self-signed root certificate. The steps in this section were written for Windows 8. For Windows 10 steps, you can refer to the makecert sections of [this article](vpn-gateway-howto-point-to-site-rm-ps.md#to-create-a-self-signed-root-certificate-by-using-makecert). If you are using an enterprise certificate solution, follow the guidelines for the solution you are using. 
 
 1. On the same computer that you used to create the self-signed root certificate, open a Visual Studio command prompt window as administrator.
 2. Change the directory to the location where you want to save the client certificate file. *RootCertificateName* refers to the self-signed root certificate that you generated. If you run the following example (changing the RootCertificateName to the name of your root certificate), the result will be a client certificate named "ClientCertificateName" in your Personal certificate store.
