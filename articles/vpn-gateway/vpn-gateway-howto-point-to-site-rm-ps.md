@@ -209,11 +209,9 @@ The list of revoked client certificates allows you to selectively deny Point-to-
 
 		Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
 
-3. Check if the thumbprint is added to the revoke list.
+3. Check if the thumbprint is added to the revoke list. You need to add one thumbprint at a time.
 
 		Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
-
-You need to add one thumbprint at a time.
 
 ### Re-instate a client certificate
 
