@@ -90,7 +90,7 @@ Step 4 - Export and install the client certificate.
 
 ### Identify or generate a root certificate
 
-If you are not using an enterprise certificate solution, you'll need to generate a self-signed root certificate. The steps below work on Windows 8. For Windows 10 steps, you can refer to the makecert sections of [this article](vpn-gateway-howto-point-to-site-rm-ps.md#to-create-a-self-signed-root-certificate-by-using-makecert).
+If you are not using an enterprise certificate solution, you'll need to generate a self-signed root certificate. The steps in this section were written for Windows 8. For Windows 10 steps, you can refer to the makecert sections of [this article](vpn-gateway-howto-point-to-site-rm-ps.md#to-create-a-self-signed-root-certificate-by-using-makecert).
 
 One way to create an X.509 certificate is by using the Certificate Creation Tool (makecert.exe). To use makecert, download and install [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), which is free of charge.
 
@@ -112,7 +112,7 @@ You'll need to upload the corresponding .cer file for each root certificate to A
 
 ### Generate a client certificate
 
-The steps below are for generating a client certificate from the self-signed root certificate. If you are using an enterprise certificate solution, follow the guidelines for the solution you are using. 
+The steps below are for generating a client certificate from the self-signed root certificate. If you are using an enterprise certificate solution, follow the guidelines for the solution you are using. The steps in this section were written for Windows 8. For Windows 10 steps, you can refer to the makecert sections of [this article](vpn-gateway-howto-point-to-site-rm-ps.md#to-create-a-self-signed-root-certificate-by-using-makecert).
 
 1. On the same computer that you used to create the self-signed root certificate, open a Visual Studio command prompt window as administrator.
 2. Change the directory to the location where you want to save the client certificate file. *RootCertificateName* refers to the self-signed root certificate that you generated. If you run the following example (changing the RootCertificateName to the name of your root certificate), the result will be a client certificate named "ClientCertificateName" in your Personal certificate store.
