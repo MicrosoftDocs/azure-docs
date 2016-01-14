@@ -126,7 +126,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 11.  In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
 12.  In **Initial cloud metadata sync** select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console.
  
-		![Server registration](./media/site-recovery-vmm-to-vmm/friendly-name.png)
+	![Server registration](./media/site-recovery-vmm-to-vmm/friendly-name.png)
 
 13.  Click **Next** to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the  **VMM Servers** tab on the **Servers** page in the vault.
 
@@ -251,9 +251,9 @@ After servers, clouds, and networks are configured correctly, you can enable pro
 
 3. Track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and virtual machines are replicated, you’ll be able to view them in Azure.
 
->[AZURE.NOTE] You can also enable protection for virtual machines in the VMM console. Click **Enable Protection** on the toolbar in the **Azure Site Recovery** tab in the virtual machine properties.
-
 	![Virtual machine protection job](./media/site-recovery-vmm-to-vmm/vm-jobs.png)
+	
+>[AZURE.NOTE] You can also enable protection for virtual machines in the VMM console. Click **Enable Protection** on the toolbar in the **Azure Site Recovery** tab in the virtual machine properties.
 
 ### On-board existing virtual machines
 
