@@ -496,7 +496,7 @@ There are several ways in Domino to extend the schema so it will appear as a cus
 
 **Approach 2: Create an auxClass with custom attribute and associate with the object class**
 
-1. Create a copy of Domino Directory Template [PUBNAMES.NTF] by following [these steps]()http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html (Never customize the default IBM Lotus Domino directory Template):
+1. Create a copy of Domino Directory Template [PUBNAMES.NTF] by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (Never customize the default IBM Lotus Domino directory Template):
 2. Open Copy of Domino directory template [CONTOSO.NTF] template which is just created, in Domino Designer.
 3. In the left pane, select Shared Code and then Subforms.
 4. Click New Subform
@@ -530,7 +530,7 @@ There are several ways in Domino to extend the schema so it will appear as a cus
 
 1. Open [Schema.nsf] file placed on the root directory
 2. Select LDAP Object Classes from the left menu under **All Schema Documents** and click on **Add Object class** button:
-3. Provide LDAP Name in the form of [###ExtensibleSchema] (where ### is the name of the default structural object class e.g. Person) with reference to the object for which you want to extend the schema. For example, to extend the schema for Person object class, provide LDAP name [PersonExtensibleSchema].
+3. Provide LDAP Name in the form of [zzzExtensibleSchema] (where zzz is the name of the default structural object class e.g. Person) with reference to the object for which you want to extend the schema. For example, to extend the schema for Person object class, provide LDAP name [PersonExtensibleSchema].
 4. Provide Superior Object class name, for which you want to extend the schema. For example, to extend the schema for Person object class, provide Superior Object class name [dominoPerson]:
 5. Mention a valid OID corresponding to the object class.
 6. Select Extended/custom attributes under Mandatory or Optional Attribute Types fields as per the requirement:
