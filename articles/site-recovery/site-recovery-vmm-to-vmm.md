@@ -124,7 +124,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 	![Server registration](./media/site-recovery-vmm-to-vmm/encrypt.png)
 
 11.  In **Server name**, specify a friendly name to identify the VMM server in the vault. In a cluster configuration specify the VMM cluster role name.
-12.  In **Initial cloud metadata sync** select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console.
+12.  In **Synchronize cloud metadata** select whether you want to synchronize metadata for all clouds on the VMM server with the vault. This action only needs to happen once on each server. If you don't want to synchronize all clouds, you can leave this setting unchecked and synchronize each cloud individually in the cloud properties in the VMM console.
  
 	![Server registration](./media/site-recovery-vmm-to-vmm/friendly-name.png)
 
