@@ -18,7 +18,7 @@
 	ms.author="danlep"/>
 
 
-# Set up a hybrid compute cluster with Microsoft HPC Pack
+# Set up a hybrid compute cluster with Microsoft HPC Pack and on-demand Azure instances
 This tutorial shows you how to use Microsoft HPC Pack 2012 R2 and Azure to set up a small, hybrid high performance computing (HPC) cluster. The cluster will consist of an on-premises head node (a computer running the Windows Server operating system and HPC Pack) and some compute nodes you deploy on-demand as worker role instances in an Azure cloud service. You can then run compute jobs on the hybrid cluster.
 
 ![Hybrid HPC cluster][Overview]
