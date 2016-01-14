@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="01/13/2016"
 	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Monitor Web Apps in Azure App Service
@@ -263,7 +263,7 @@ After you configure endpoint monitoring, you can drill down into the individual 
 7.	Optionally, repeat the previous steps to create a second endpoint.
 8.	Click **Save**. It may take some time for the web endpoint monitoring data to be available on the **Dashboard** and **Monitor** tabs.
 
-	To create an email rule, do the following:
+To create an email rule, do the following:
 
 9.	In the service bar at the far left, click **Management Services**.
 10.	Click **Add Rule** at the bottom.

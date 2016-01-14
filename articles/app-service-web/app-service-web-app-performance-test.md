@@ -58,10 +58,10 @@ sign in as the account owner.
 
 	![Go to Tools, Performance Test][ExpandedTools]
  
-0.	Now you'll link a [Visual Studio Team Services (VSTS)][WhatIsVSTS] 
+0.	Now you'll link a [Visual Studio Team Services (VSTS)][WhatIsTeamServices] 
 account to keep your performance test history.
 
-	If you have a VSTS account to use, select that account. If you don't, create a new account.
+	If you have a Team Services account to use, select that account. If you don't, create a new account.
 
 	![Select existing VSTS account, or create a new account][ExistingNewVSTSAccount]
 
@@ -118,7 +118,7 @@ you can purchase more time and pay only for what you use.
 
 A: You can check this amount in the Azure Portal.
 
-![Go to your VSTS account][VSTSAccount]
+![Go to your Team Services account][VSTSAccount]
 
 ![Check VUMs used][CheckTestTime]
 
@@ -127,7 +127,7 @@ A: You can check this amount in the Azure Portal.
 
 A: To find your new account, go to ```https://{accountname}.visualstudio.com```. 
 Share your code, build, test, track work, and ship software – all in the cloud 
-using any tool or language. Learn more about how [Visual Studio Team Services][WhatIsVSTS] 
+using any tool or language. Learn more about how [Visual Studio Team Services][WhatIsTeamServices] 
 features and services help your team collaborate more easily and deploy continuously.
 
 <!--Image references-->
@@ -145,4 +145,4 @@ features and services help your team collaborate more easily and deploy continuo
 [AzurePortal]: https://portal.azure.com
 [AzureSubscription]: https://account.windowsazure.com/subscriptions
 [AzureFreeTrial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[WhatIsVSTS]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
+[WhatIsTeamServices]: https://www.visualstudio.com/products/what-is-visual-studio-online-vs
