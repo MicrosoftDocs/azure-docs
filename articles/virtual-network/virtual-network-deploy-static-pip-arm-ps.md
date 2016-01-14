@@ -102,6 +102,10 @@ Before creating a VM, you need a resource group, VNet, public IP, and NIC to be 
 
 Now that all necessary resources are in place, you can create a new VM.
 
+1. Create the configuration object for the VM.
+
+		$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize 
+
 1. Get credentials for the VM local administrator account.
 
 		$cred = Get-Credential -Message "Type the name and password for the local administrator account."
