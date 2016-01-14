@@ -245,7 +245,7 @@ Where the parameters are:
  - **/proxyPassword** :Optional parameter that specifies the Password for authenticating with the proxy server (if proxy requires authentication).
 
 
-## Step 4: Map storage arrays and pools
+## Step 3: Map storage arrays and pools
 
 Map arrays to specify which secondary storage pool receives replication data from the primary pool. You should map storage before you configure cloud protection because the mapping information is used when you enable protection for replication groups.
 
@@ -258,7 +258,7 @@ Before you start check that clouds appear in the vault. Clouds are detected eith
 
 	![Server registration](./media/site-recovery-vmm-san/storage-map-pool.png)
 
-## Step 5: Configure cloud protection settings
+## Step 4: Configure cloud protection settings
 
 After VMM servers are registered, you can configure cloud protection settings. You enabled the option **Synchronize cloud data with the vault** when you installed the Provider so all clouds on the VMM server will appear in the <b>Protected Items</b> tab in the vault.
 
@@ -276,7 +276,7 @@ After VMM servers are registered, you can configure cloud protection settings. Y
 
 <p>After you save the settings a job will be created and can be monitored on the <b>Jobs</b> tab. Cloud settings can be modified on the <b>Configure</b> tab. If you want to modify the target location or target cloud you must remove the cloud configuration, and then reconfigure the cloud.</p>
 
-## Step 6: Enable network mapping
+## Step 5: Enable network mapping
 
 1. On the Quick Start page, click **Map networks**.
 2. Select the source VMM server from which you want to map networks, and then the target VMM server to which the networks will be mapped. The list of source networks and their associated target networks are displayed. A blank value is shown for networks that are not currently mapped. Click the information icon next to the source and target network names to view the subnets for each network.
@@ -292,7 +292,7 @@ After VMM servers are registered, you can configure cloud protection settings. Y
 6.  Click the check mark to complete the mapping process. A job starts to track the mapping progress. You can view it on the **Jobs** tab.
 
 
-## Step 7: Enable replication for replication groups</h3>
+## Step 6: Enable replication for replication groups</h3>
 
 Before you can enable protection for virtual machines you’ll need to enable replication for storage replication groups.
 
@@ -311,13 +311,13 @@ With this option VMM uses intelligent placement to optimally place the virtual m
 
 	![Enable protection](./media/site-recovery-vmm-san/enable-protect.png)
 
-<P>After virtual machines are enabled for protection they appear in the Azure Site Recovery console. You can view virtual machine properties, track status, and fail over replication groups that contain multiple virtual machines. Note that in SAN replication all virtual machines associated with a replication group must fail over together. This is because failover occurs at the storage layer first. It’s important to group your replication groups properly and place only associated virtual machines together.</P>
+After virtual machines are enabled for protection they appear in the Azure Site Recovery console. You can view virtual machine properties, track status, and fail over replication groups that contain multiple virtual machines. Note that in SAN replication all virtual machines associated with a replication group must fail over together. This is because failover occurs at the storage layer first. It’s important to group your replication groups properly and place only associated virtual machines together.
 
-Track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover.
+You can track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover.
 
-	![Virtual machine protection job](./media/site-recovery-vmm-san/job-props.png)
+![Virtual machine protection job](./media/site-recovery-vmm-san/job-props.png)
 
-## Step 8: Test the deployment
+## Step 7: Test the deployment
 
 Test your deployment to make sure virtual machines and data fail over as expected. To do this you'll create a recovery plan by selecting replication groups.Then run a test failover on the plan.
 
