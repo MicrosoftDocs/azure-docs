@@ -66,7 +66,7 @@ For example, to delete an application instance, simply choose the application fr
 
 The following table lists the actions available for each entity:
 
-| Entity | Action | Description |
+| **Entity** | **Action** | **Description** |
 | ------ | ------ | ----------- |
 | Application type | Unprovision type | Removes the application package from the cluster's image store. Requires all applications of that type to be removed first. |
 | Application | Delete Application | Delete the application, including all of its services and their state (if any).  |
