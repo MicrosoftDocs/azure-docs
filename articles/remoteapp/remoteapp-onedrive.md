@@ -58,9 +58,14 @@ An important step in the setup is to make sure that you select **keep me signed 
 
 On a high-level, here are the instructions:
 
-1.	Locate the URL for the drive. The URL used for the drive mapping is the one you get when you browse to your home directory in OneDrive for Business online. For example, 
-https://microsoft-my.sharepoint.com/personal/alias_microsoft_com/_layouts/15/onedrive.aspx?AjaxDelta=1&isStartPlt1=something
-2.	Open the URL using a browser on the RemoteApp session, and select **keep me signed in** before you log into the URL for your account.
-3.	Open Windows Explorer and map a drive to the above URL. If the URL does not resolved, the shorter form can be used - https://microsoft-my.sharepoint.com/personal/alias_microsoft_com. This immediately creates the mapped drive - it looks like this:
+1.	Locate the URL for the drive. The URL used for the drive mapping is the one you get when you browse to your home directory in OneDrive for Business online. For example:
  
-![OneDrive for Business as a mapped network drive](./media/remoteapp-onedrive/ra-mappeddrive.png)
+	https://microsoft-my.sharepoint.com/personal/alias_microsoft_com/_layouts/15/onedrive.aspx?AjaxDelta=1&isStartPlt1=something
+2.	Open the URL using a browser on the RemoteApp session, and select **keep me signed in** before you log into the URL for your account.
+3.	Open Windows Explorer and map a drive to the above URL. If the URL does not resolved, the shorter form can be used:
+	
+	https://microsoft-my.sharepoint.com/personal/alias_microsoft_com. 
+
+	This immediately creates the mapped drive - it looks like this:
+ 
+	![OneDrive for Business as a mapped network drive](./media/remoteapp-onedrive/ra-mappeddrive.png)
