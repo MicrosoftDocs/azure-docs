@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Improve Business Continuity with Azure Regional Pairs"
-	description="Use Regional pairs to keep applications resilient during data center failures."
+	pageTitle="Business continuity and disaster recovery (BCDR): Azure Paired Regions | Microsoft Azure"
+	description="Azure regional pairs ensure that applications are resilient during data center failures."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
