@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="01/12/2016"
+   ms.date="01/13/2016"
    ms.author="danlep"/>
 
 # Batch and HPC solutions in the Azure cloud
 
-Azure offers efficient, scalable cloud solutions for batch and high performance computing (HPC) - also called *Big Compute*. Learn here about Big Compute workloads and Azure’s services to support them, or jump directly to [solution scenarios](#solution-scenarios) later in this article. Although the article is mainly for technical decision-makers, IT managers, and independent software vendors, other IT professionals and developers can use it to familiarize themselves with these solutions.
+Azure offers efficient, scalable cloud solutions for batch and high performance computing (HPC) - also called *Big Compute*. Learn here about Big Compute workloads and Azure’s services to support them, or jump directly to [solution scenarios](#solution-scenarios) later in this article. This article is mainly for technical decision-makers, IT managers, and independent software vendors, but other IT professionals and developers can use it to familiarize themselves with these solutions.
 
 Organizations have large-scale computing problems including engineering design and analysis, image rendering, complex modeling, Monte Carlo simulations, and financial risk calculations. Azure helps organizations solve these problems and make decisions with the resources, scale, and schedule they need. With Azure, organizations can:
 
@@ -28,7 +28,7 @@ Organizations have large-scale computing problems including engineering design a
 
 * Use a managed and scalable Azure service such as [Batch](http://azure.microsoft.com/documentation/services/batch/) to run compute-intensive workloads without having to deploy and manage compute infrastructure
 
-Azure also offers development tools and services for organizations and software vendors to build custom, end-to-end Big Compute solutions.
+Although beyond the scope of this article, Azure also provides developers and partners a full set of capabilities, architecture choices, and development tools to build large-scale, custom Big Compute workflows.
 
 
 ## Batch and HPC applications
@@ -66,7 +66,7 @@ The dividing line between Big Compute and Big Data applications isn't always cle
 
 • **Big Data** solves data analysis problems that involve large amounts of data that can’t be managed by a single computer or database management system, such as large volumes of web logs or other business intelligence data. Big Data tends to rely more on disk capacity and I/O performance than on CPU power, and might use specialized tools such as Apache Hadoop to manage the cluster and partition the data. (For information about Azure HDInsight and other Azure Hadoop solutions, see [Hadoop](http://azure.microsoft.com/solutions/hadoop/).)
 
-## Resource management and job scheduling
+## Compute management and job scheduling
 
 Running Batch and HPC applications usually includes a *cluster manager* and a *job scheduler* to help manage clustered compute resources and allocate them to the applications that run the jobs. These functions might be accomplished by separate tools, or an integrated tool or service.
 
@@ -130,8 +130,6 @@ Your Big Compute solution might need other Azure services to connect to resource
 ## Solution scenarios
 
 Here are three common scenarios to run Big Compute workloads in Azure by leveraging existing HPC cluster solutions, Azure services, or a combination of the two. Key considerations for choosing each scenario are listed but aren't exhaustive.
-
->[AZURE.NOTE] Although beyond the scope of this article, Azure also provides developers and partners a full set of capabilities, architecture choices, and development tools to build large-scale, custom Big Compute workflows.
 
 Scenario | Why choose it? | Learn more
 ------------- | ----------- | ---------------
