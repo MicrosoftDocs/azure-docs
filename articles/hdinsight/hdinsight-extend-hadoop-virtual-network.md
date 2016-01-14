@@ -80,7 +80,7 @@ For more information on Virtual Network features, benefits, and capabilities, se
     
     2. You can confirm that there are no specific Network Security Group or route table attached to the subnet by using the following PowerShell statements. Replace __VIRTUALNETWORKNAME__ with your virtual network name, replace __GROUPNAME__ with the name of the resource group that contains the virtual network, and replace __SUBNET__ with the name of the subnet.
         
-            $vnet = Get-AzureRmVirtualNetwork -Name VIRTUALNETWORKNAME -ResourceGroupName GROUP NAME
+            $vnet = Get-AzureRmVirtualNetwork -Name VIRTUALNETWORKNAME -ResourceGroupName GROUPNAME
             $vnet.Subnets | Where-Object Name -eq "SUBNET"
             
         In the results, note that __NetworkSecurityGroup__ and __RouteTable__ are both `null`.
