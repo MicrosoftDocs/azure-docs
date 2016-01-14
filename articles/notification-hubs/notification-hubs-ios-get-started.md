@@ -324,7 +324,7 @@ If you want to send notifications within an app. This section provides an exampl
 		}
 
 
-8. Ctrl+drag from the **Send Notification** button to ViewController.m to add an action named **SendNotificationMessage** for the **Touch Down**. Update method with the following code to send the notification using the REST API.
+8. Ctrl+drag from the **Send Notification** button to ViewController.m to add an action named **SendNotificationMessage** for the **Touch Down** event. Update method with the following code to send the notification using the REST API.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{

@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to use Blob storage from Node.js | Microsoft Azure"
-	description="Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples are written in Node.js."
+	description="Learn how to use Blob storage to upload, download, list, and delete blob content. Samples are written in Node.js."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 
@@ -24,7 +24,7 @@
 
 ## Overview
 
-This article shows you how to perform common scenarios using the Azure Blob service. The samples are written via the Node.js API. The scenarios covered include how to upload, list, download, and delete blobs.
+This article shows you how to perform common scenarios using Blob storage. The samples are written via the Node.js API. The scenarios covered include how to upload, list, download, and delete blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 

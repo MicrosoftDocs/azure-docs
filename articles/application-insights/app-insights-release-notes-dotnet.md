@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/17/2015" 
+	ms.date="01/12/2016" 
 	ms.author="abaranch"/>
  
 # Release Notes for Application Insights SDK for .NET
@@ -135,3 +135,4 @@ See [Get started with Application Insights for .NET](app-insights-asp-net.md).
 No release notes for older versions available.
 
  
+

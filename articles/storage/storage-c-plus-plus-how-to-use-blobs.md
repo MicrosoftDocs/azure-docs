@@ -1,20 +1,20 @@
-<properties 
-    pageTitle="How to use blob storage  (C++) | Microsoft Azure" 
-    description="Learn how to use the blob storage service in Azure. Samples are written in C++." 
-    services="storage" 
-    documentationCenter=".net" 
-    authors="tamram" 
-    manager="adinah" 
-    editor=""/>
+<properties
+    pageTitle="How to use blob storage  (C++) | Microsoft Azure"
+    description="Learn how to use the blob storage service in Azure. Samples are written in C++."
+    services="storage"
+    documentationCenter=".net"
+    authors="tamram"
+    manager="carmonm"
+    editor="tysonn"/>
 
-<tags 
-    ms.service="storage" 
-    ms.workload="storage" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="01/05/2016" 
-    ms.author="tamram"/>
+<tags
+    ms.service="storage"
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="01/05/2016"
+    ms.author="dineshm"/>
 
 # How to use Blob Storage from C++  
 
@@ -23,7 +23,7 @@
 ## Overview
 This guide will demonstrate how to perform common scenarios using the Azure Blob storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs.  
 
->[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 1.0.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp). 
+>[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 1.0.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -78,7 +78,7 @@ Next, get a reference to a **cloud_blob_client** class as it allows you to retri
 
 This example shows how to create a container if it does not already exist:  
 
-	try 
+	try
 	{
 		// Retrieve storage account from connection string.
 		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -189,7 +189,7 @@ To download blobs, first retrieve a blob reference and then call the **download_
 
 	std::ofstream outfile("DownloadBlobFile.txt", std::ofstream::binary);
 	std::vector<unsigned char>& data = buffer.collection();
-		
+
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
@@ -238,7 +238,3 @@ Now that you've learned the basics of blob storage, follow these links to learn 
 -	[Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
 -	[Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 - [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
-
-
-
- 

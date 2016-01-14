@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="adhurwit"
    manager=""
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="storage"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="06/17/2015"
-   ms.author="adhurwit"/>
+   ms.date="01/06/2016"
+   ms.author="lakasa"/>
 
 # Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
 
 ## Introduction
- 
-This tutorial covers how to make use of client-side storage encryption with Azure Key Vault. It walks you through how to encrypt and decrypt a blob in a console application using these technologies. 
+
+This tutorial covers how to make use of client-side storage encryption with Azure Key Vault. It walks you through how to encrypt and decrypt a blob in a console application using these technologies.
 
 **Estimated time to complete:** 20 minutes
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault/key-vault-whatis.md)
+For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault/key-vault-whatis.md).
 
-For overview information about client-side encryption for Azure Storage, see [Get Started with Client-Side Encryption for Microsoft Azure Storage](storage-client-side-encryption.md)
+For overview information about client-side encryption for Azure Storage, see [Get Started with Client-Side Encryption for Microsoft Azure Storage](storage-client-side-encryption.md).
 
 
 ## Prerequisites
@@ -35,7 +35,7 @@ To complete this tutorial, you must have the following:
 
 - An Azure Storage account
 - Visual Studio 2013 or later
-- Azure PowerShell 
+- Azure PowerShell
 
 
 ## Overview of client-side encryption
@@ -58,7 +58,7 @@ In order to proceed with this tutorial, you need to do the following steps, whic
 - Register an application with Azure Active Directory.
 - Authorize the application to use the key or secret.
 
-Make note of the ClientID and ClientSecret that were generated when registering an application with Azure Active Directory. 
+Make note of the ClientID and ClientSecret that were generated when registering an application with Azure Active Directory.
 
 Create both keys in the key vault. We assume for the rest of the tutorial that you have used the following names: ContosoKeyVault and TestRSAKey1.
 
@@ -69,16 +69,16 @@ In Visual Studio, create a new console application.
 
 Add necessary nuget packages in the Package Manager Console.
 
-	Install-Package WindowsAzure.Storage 
+	Install-Package WindowsAzure.Storage
 
 	// This is the latest stable release for ADAL.
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-	Install-Package Microsoft.Azure.KeyVault 
-	Install-Package Microsoft.Azure.KeyVault.Extensions 
+	Install-Package Microsoft.Azure.KeyVault
+	Install-Package Microsoft.Azure.KeyVault.Extensions
 
 
-Add AppSettings to the App.Config. 
+Add AppSettings to the App.Config.
 
 	<appSettings>
 	    <add key="accountName" value="myaccount"/>
@@ -108,13 +108,13 @@ The following method is used by Key Vault classes that need to authenticate for 
 	{
 	    var authContext = new AuthenticationContext(authority);
 	    ClientCredential clientCred = new ClientCredential(
-	        ConfigurationManager.AppSettings["clientId"], 
+	        ConfigurationManager.AppSettings["clientId"],
 	        ConfigurationManager.AppSettings["clientSecret"]);
 		AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
-	
+
 	    if (result == null)
 	        throw new InvalidOperationException("Failed to obtain the JWT token");
-	
+
 	    return result.AccessToken;
 	}
 
@@ -148,14 +148,14 @@ In the Main function, add the following code.
 ## Encrypt blob and upload
 Add the following code to encrypt a blob and upload it to your Azure storage account. The **ResolveKeyAsync** method that is used returns an IKey.
 
-	
+
 	// Retrieve the key that you created previously.
 	// The IKey that is returned here is an RsaKey.
 	// Remember that we used the names contosokeyvault and testrsakey1.
     var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
 
-	// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy. 
+	// Now you simply use the RSA key to encrypt by setting it in the BlobEncryptionPolicy.
 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
 	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
@@ -180,7 +180,7 @@ Decryption is really when using the Resolver classes make sense. The ID of the k
 
 The private key of an RSA Key remains in Key Vault, so for decryption to occur, the Encrypted Key from the blob metadata that contains the CEK is sent to Key Vault for decryption.
 
-Add the following to decrypt the blob that you just uploaded. 
+Add the following to decrypt the blob that you just uploaded.
 
 	// In this case, we will not pass a key and only pass the resolver because
 	// this policy will only be used for downloading / decrypting.
@@ -204,7 +204,7 @@ The way to use a secret with client-side encryption is via the SymmetricKey clas
 
 Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.
 
-	// Here we are making a 128-bit key so we have 16 characters. 
+	// Here we are making a 128-bit key so we have 16 characters.
 	// 	The characters are in the ASCII range of UTF8 so they are
 	//	each 1 byte. 16 x 8 = 128.
 	$key = "qwertyuiopasdfgh"
@@ -218,7 +218,7 @@ Here is an example in PowerShell of creating a secret in Key Vault that can be u
 In your console application, you can use the same call as before to retrieve this secret as a SymmetricKey.
 
 	SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
-    	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/", 
+    	"https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
         CancellationToken.None).GetAwaiter().GetResult();
 
 That's it. Enjoy!
