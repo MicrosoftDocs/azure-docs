@@ -16,7 +16,7 @@
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-# Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery
+# Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery (legacy)
 
 > [AZURE.SELECTOR]
 - [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
