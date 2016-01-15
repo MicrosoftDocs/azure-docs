@@ -195,7 +195,7 @@ To validate the downloaded package:
 	- For Australia:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
-	- For [Azure Government](https://azure.microsoft.com/features/gov/), which uses the US government instance of Azure:
+	- For [Azure Government](../../../../features/gov/), which uses the US government instance of Azure:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
 
@@ -255,7 +255,7 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
 - For Australia:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
-- For [Azure Government](https://azure.microsoft.com/features/gov/), which uses the US government instance of Azure:
+- For [Azure Government](../../../../features/gov/), which uses the US government instance of Azure:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
 
@@ -299,7 +299,7 @@ Run one of the following commands, depending on your geo or instance of Azure:
 - For Australia:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
-- For [Azure Government](https://azure.microsoft.com/features/gov/), which uses the US government instance of Azure:
+- For [Azure Government](../../../../features/gov/), which uses the US government instance of Azure:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
