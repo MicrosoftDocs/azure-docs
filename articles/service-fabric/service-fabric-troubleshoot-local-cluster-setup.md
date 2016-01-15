@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="01/08/2016"
    ms.author="seanmck"/>
 
 # Troubleshoot your local development cluster setup
 
-If you run into an issue while interacting with your local development cluster, review the following suggestions for potential solutions.
+If you run into an issue while interacting with your local Azure Service Fabric development cluster, review the following suggestions for potential solutions.
 
 ## Cluster setup failures
 
@@ -37,19 +37,29 @@ While running the DevClusterSetup script, you see an error like this:
 
 #### Solution
 
-Close the current Powershell window and launch a new Powershell window as an Administrator. You should now be able to successfully run the script.
+Close the current PowerShell window and open a new PowerShell window as an administrator. You should now be able to successfully run the script.
 
 ## Cluster connection failures
 
-### Type Initialization Exception
+### Service Fabric PowerShell cmdlets are not recognized in Azure PowerShell
 
 #### Problem
 
-When connecting to the cluster in PowerShell or Service Fabric Explorer, you see a TypeInitializationException for System.Fabric.Common.AppTrace.
+If you try to run any of the Service Fabric PowerShell cmdlets, such as `Connect-ServiceFabricCluster` in an Azure PowerShell window, it fails, saying that the cmdlet is not recognized. The reason for this is that Azure PowerShell uses the 32-bit version of Windows PowerShell (even on 64-bit OS versions), whereas the Service Fabric cmdlets only work in 64-bit environments.
 
 #### Solution
 
-Your path variable was not correctly set during installation. Please log out of Windows and log back in. This will fully refresh your path.
+Always run Service Fabric cmdlets directly from Windows PowerShell.
+
+### Type Initialization exception
+
+#### Problem
+
+When you are connecting to the cluster in PowerShell, you see the error TypeInitializationException for System.Fabric.Common.AppTrace.
+
+#### Solution
+
+Your path variable was not correctly set during installation. Please sign out of Windows and sign back in. This will fully refresh your path.
 
 ### Cluster connection fails with "Object is closed"
 
@@ -66,13 +76,13 @@ A call to Connect-ServiceFabricCluster fails with an error like this:
 
 #### Solution
 
-Close the current Powershell window and launch a new Powershell window as an Administrator. You should now be able to successfully connect.
+Close the current PowerShell window and open a new PowerShell window as an administrator. You should now be able to successfully connect.
 
-### FabricConnectionDeniedException
+### Fabric Connection Denied exception
 
 #### Problem
 
-When debugging from Visual Studio, you get a FabricConnectionDeniedException.
+When debugging from Visual Studio, you get a FabricConnectionDeniedException error.
 
 #### Solution
 
@@ -84,4 +94,4 @@ Ensure that you do not have any service projects set as startup projects in your
 ## Next steps
 
 - [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-- [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+- [Visualize your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)

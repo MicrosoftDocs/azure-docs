@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Set up endpoints on a virtual machine in Azure"
+	pageTitle="Set up endpoints on a classic virtual machine | Microsoft Azure"
 	description="Learn to set up endpoints in the Azure classic portal to allow communication with a virtual machine in Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,29 +11,21 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="01/06/2016"
 	ms.author="cynthn"/>
 
-#How to set up endpoints to a virtual machine
+# How to set up endpoints on a classic Azure virtual machine
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model. For a Resource Manager deployment, see [Get started configuring an internet facing load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md) and [About network security groups](virtual-networks-nsg.md).
 
-All virtual machines that you create in Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.
+All virtual machines that you create in Azure using the classic deployment model can automatically communicate over a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.
 
-When you create a virtual machine in the Azure classic portal, endpoints for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are automatically created. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
+When you create a virtual machine in the Azure classic portal, common endpoints like those for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are typically created for you automatically, depending on the operating system you choose. You can configure additional endpoints while creating the virtual machine or afterwards as needed.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [About network security groups](virtual-networks-nsg.md)
-
-Please note network security groups control access to the virtual machine, but they don't provide port forwarding capabilities. To do port forwarding, see the following article:
-
-- [Get started configuring an internet facing load balancer using Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md)
-
-Each endpoint has a public port and a private port:
+Each endpoint has a *public port* and a *private port*:
 
 - The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet.
 - The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
@@ -44,7 +36,7 @@ After you create an endpoint, you can use an access control list (ACL) to define
 
 > [AZURE.NOTE]: Firewall configuration for Azure virtual machines is done automatically for ports associated with Remote Desktop and Secure Shell (SSH), and in most cases for Windows PowerShell Remoting. For ports specified for all other endpoints, no configuration is done automatically to the firewall of the virtual machine. When you create an endpoint for the virtual machine, you'll need to ensure that the firewall of the virtual machine also allows the traffic for the protocol and private port corresponding to the endpoint configuration.
 
-##Create an endpoint
+## Create an endpoint
 
 1.	If you haven't already done so, sign in to the Azure classic portal.
 2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
@@ -68,9 +60,9 @@ The new endpoint will be listed on the **Endpoints** page.
 
 ![Endpoint creation successful](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
 
-To use an Azure PowerShell cmdlet to set this up, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
+To use an Azure PowerShell cmdlet to set this up, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx). If you are using the Azure CLI in Service Management mode, use the **azure vm endpoint create** command.
 
-##Manage the ACL on an endpoint
+## Manage the ACL on an endpoint
 
 To define the set of computers that can send traffic, the ACL on an endpoint can restrict traffic based upon source IP address. Follow these steps to add, modify, or remove an ACL on an endpoint.
 
