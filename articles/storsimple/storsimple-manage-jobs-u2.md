@@ -90,6 +90,6 @@ This job is now canceled.
 
 ## Next steps
 
-Learn how to [manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
+- Learn how to [manage your StorSimple backup policies](storsimple-manage-backup-policies.md).
 
-Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
