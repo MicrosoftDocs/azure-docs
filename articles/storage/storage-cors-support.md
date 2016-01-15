@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Cross-Origin Resource Sharing (CORS) Support | Microsoft Azure" 
-	description="Learn how to enable CORS Support for the Microsoft Azure Storage Services." 
-	services="storage" 
-	documentationCenter=".net" 
-	authors="tamram" 
-	manager="carolz" 
-	editor=""/>
+<properties
+	pageTitle="Cross-Origin Resource Sharing (CORS) Support | Microsoft Azure"
+	description="Learn how to enable CORS Support for the Microsoft Azure Storage Services."
+	services="storage"
+	documentationCenter=".net"
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
-	ms.author="tamram;andtyler"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="01/07/2016"
+	ms.author="tamram"/>
 
 # Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services
 
-Beginning with version 2013-08-15, the Azure storage services support Cross-Origin Resource Sharing (CORS) for the Blob, Table, and Queue services. CORS is an HTTP feature that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. See the [CORS specification](http://www.w3.org/TR/cors/) for details on CORS.
+Beginning with version 2013-08-15, the Azure storage services support Cross-Origin Resource Sharing (CORS) for the Blob, Table, Queue, and File services. CORS is an HTTP feature that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. See the [CORS specification](http://www.w3.org/TR/cors/) for details on CORS.
 
 You can set CORS rules individually for each of the storage services, by calling [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx), and [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Once you set the CORS rules for the service, then a properly authenticated request made against the service from a different domain will be evaluated to determine whether it is allowed according to the rules you have specified.
 
@@ -194,4 +194,3 @@ Unsuccessful preflight requests will not be billed.
 [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)
 
 [W3C Cross-Origin Resource Sharing Specification](http://www.w3.org/TR/cors/)
- 

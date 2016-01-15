@@ -30,7 +30,7 @@ The Azure preview portal is a web-based management tool for services and resourc
 
 - __A modern web browser__. The Azure preview portal uses HTML5 and Javascript, and may not function correctly in older web browsers.
 
-##Create a cluster
+##Create clusters
 
 1. Sign in to the [Azure preview portal](https://portal.azure.com).
 
@@ -96,7 +96,7 @@ The Azure preview portal is a web-based management tool for services and resourc
 
 		![Virtual network blade](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.6.png "Specify virtual network details")
 
-    	>[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
+    	For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 	* Click **External Metastores** to specify SQL database that you want to use to save Hive and Oozie metadata associated with the cluster.
     
@@ -147,6 +147,11 @@ The Azure preview portal is a web-based management tool for services and resourc
 		> [AZURE.IMPORTANT] This _only_ affects access and permissions to this cluster in the Azure preview portal, and has no effect on who can connect to or submit jobs to the HDInsight cluster.
 
 	* **Tags** (![tag icon](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named __project__, and then use a common value for all services associated with a specific project.
+
+##Customize clusters
+
+- See [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
+- See [Customize Windows-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md).
 
 ##Next steps
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/05/2016" 
 	ms.author="byvinyal"
 />
 	
@@ -54,7 +54,7 @@ number of instances in the **worker pool** within the bounds defined by the prof
 
 ![][scale-rule]
 
- Any of the **worker pool** or **front end** metrics can be used for defining auto scale rules. This are 
+ Any of the **worker pool** or **front end** metrics can be used for defining auto scale rules. These are 
  the same metrics you can monitor in the resource blade graphs or set alerts for.
  
 ##Auto-scale Example
@@ -157,7 +157,7 @@ release instances at a maximum rate of **4** instances per hour during the week 
 per hour during weekends.
 
 If multiple **App Service plans** are being hosted in a **worker pool**, then the **total inflation rate** 
-needs to be calculated and this can be expresses as the *sum* of the inflation rate for all the 
+needs to be calculated and this can be expressed as the *sum* of the inflation rate for all the 
 **App Service plans** being hosting in that **worker pool**.
 
 ![][ASP-Total-Inflation] 
@@ -212,7 +212,7 @@ Profile for the **App Service plan** + buffer.
 The Maximum range would be the sum of all the maximum ranges for all **App Service plans** hosted in 
 the **worker pool**.
 
-The Increase count for the scale up rules should be set to be at least 1X the 
+The Increase count for the scale up rules should be set to at least 1X the 
 **App Service Plan Inflation Rate** for scale up.
 
 Decrease count can be adjusted to something between 1/2X or 1X the **App Service Plan Inflation 

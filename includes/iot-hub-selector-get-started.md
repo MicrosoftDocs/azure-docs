@@ -1,3 +1,3 @@
-> [AZURE.SELECTOR-LIST (Device | Cloud )]
-- [(C# | C#)](../articles/iot-hub-csharp-csharp-getstarted.md)
-- [(Java | C#)](../articles/iot-hub-java-csharp-getstarted.md)
+> [AZURE.SELECTOR]
+- [C#](../articles/iot-hub-csharp-csharp-getstarted.md)
+- [Java](../articles/iot-hub-java-java-getstarted.md)

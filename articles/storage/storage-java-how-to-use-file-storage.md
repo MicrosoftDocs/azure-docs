@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="How to use File storage from Java | Microsoft Azure" 
-	description="Learn how to use the Azure file service to upload, download, list, and delete files. Samples written in Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="How to use File storage from Java | Microsoft Azure"
+	description="Learn how to use the Azure file service to upload, download, list, and delete files. Samples written in Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe" />
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="10/26/2015" 
-	ms.author="v-dedomi"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="01/11/2016"
+	ms.author="jutang"/>
 
 # How to use File Storage from Java
 
@@ -45,9 +45,9 @@ To use the Azure storage APIs, add the following statement to the top of the Jav
 To use File storage, you need to connect to your Azure storage account. The first step would be to configure a connection string which we'll use to connect to your storage account. Let's define a static variable to do that.
 
 	// Configure the connection-string with your values
-	public static final String storageConnectionString = 
-	    "DefaultEndpointsProtocol=http;" + 
-	    "AccountName=your_storage_account_name;" + 
+	public static final String storageConnectionString =
+	    "DefaultEndpointsProtocol=http;" +
+	    "AccountName=your_storage_account_name;" +
 	    "AccountKey=your_storage_account_key";
 
 > [AZURE.NOTE] Replace your_storage_account_name and your_storage_account_key with the actual values for your storage account.
@@ -75,7 +75,7 @@ All files and directories in File storage reside in a container called a **Share
 Using the File storage client, you can then obtain a reference to a share.
 
 	// Get a reference to the file share
-	CloudFileShare share = fileClient.getShareReference("sampleshare"); 
+	CloudFileShare share = fileClient.getShareReference("sampleshare");
 
 To actually create the share, use the **createIfNotExists** method of the CloudFileShare object.
 
@@ -83,7 +83,7 @@ To actually create the share, use the **createIfNotExists** method of the CloudF
 		System.out.println("New share created");
 	}
 
-At this point, **share** holds a reference to a share named **sampleshare**. 
+At this point, **share** holds a reference to a share named **sampleshare**.
 
 ## How to: Upload a file
 
@@ -109,9 +109,9 @@ You can also organize storage by putting files inside sub-directories instead of
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
 
-	//Get a reference to the sampledir directory 
+	//Get a reference to the sampledir directory
 	CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
-			    
+
 	if (sampleDir.createIfNotExists()) {
 		System.out.println("sampledir created");
 	} else {
@@ -124,7 +124,7 @@ Obtaining a list of files and directories within a share is easily done by calli
 
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
-		   
+
 	for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 		System.out.println(fileItem.getUri());
 	}
@@ -136,10 +136,10 @@ One of the more frequent operations you will perform against file storage is to 
 
 	//Get a reference to the root directory for the share.
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
-	
+
 	//Get a reference to the directory that contains the file
 	CloudFileDirectory sampleDir = rootDir.getDirectoryReference("sampledir");
-			    
+
 	//Get a reference to the file you want to download
 	CloudFile file = sampleDir.getFileReference("SampleFile.txt");
 
@@ -156,7 +156,7 @@ Another common file storage operation is file deletion. The following code delet
 
 	// Get a reference to the directory where the file to be deleted is in
 	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
-	
+
 	String filename = "SampleFile.txt"
 	CloudFile file;
 
@@ -174,7 +174,7 @@ Deleting a directory is a fairly simple task, although it should be noted that y
 	CloudFileDirectory rootDir = share.getRootDirectoryReference();
 
 	// Get a reference to the directory you want to delete
-	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");	
+	CloudFileDirectory containerDir = rootDir.getDirectoryReference("sampledir");
 
 	// Delete the directory
 	if ( containerDir.deleteIfExists() ) {
@@ -184,7 +184,7 @@ Deleting a directory is a fairly simple task, although it should be noted that y
 
 ## How to: Delete a Share
 
-Deleting a share is done by calling the **deleteIfExists** method on a CloudFileShare object. Here's sample code that does that. 
+Deleting a share is done by calling the **deleteIfExists** method on a CloudFileShare object. Here's sample code that does that.
 
 	try
 	{
@@ -196,10 +196,10 @@ Deleting a share is done by calling the **deleteIfExists** method on a CloudFile
 
 	   // Get a reference to the file share
 	   CloudFileShare share = fileClient.getShareReference("sampleshare");
-	   
+
 	   if (share.deleteIfExists()) {
 		   System.out.println("sampleshare deleted");
-	   } 
+	   }
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
@@ -220,4 +220,3 @@ If you would like to learn more about other Azure storage APIs, follow these lin
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
- 

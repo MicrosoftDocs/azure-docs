@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="09/18/2015"
+	ms.topic="article"
+	ms.date="01/08/2016"
 	ms.author="cabailey"/>
 #How to generate and transfer HSM-protected keys for Azure Key Vault
 
@@ -21,7 +21,7 @@
 
 For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses Thales nShield family of HSMs to protect your keys.
 
-Use the information in this topic to help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault. 
+Use the information in this topic to help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
 
 >[AZURE.NOTE] For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)  
 >
@@ -65,7 +65,7 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 
 ##Generate and transfer your key to Azure Key Vault HSM
 
-You will use the following 5 steps to generate and transfer your key to an Azure Key Vault HSM: 
+You will use the following 5 steps to generate and transfer your key to an Azure Key Vault HSM:
 
 - [Step 1: Prepare your Internet-connected workstation](#step-1-prepare-your-internet-connected-workstation)
 - [Step 2: Prepare your disconnected workstation](#step-2-prepare-your-disconnected-workstation)
@@ -129,7 +129,7 @@ For this second step, do the following procedures on the workstation that is not
 
 ###Step 2.1: Prepare the disconnected workstation with Thales HSM
 
-Install the nCipher (Thales) support software on a Windows computer, and then attach a Thales HSM to that computer. 
+Install the nCipher (Thales) support software on a Windows computer, and then attach a Thales HSM to that computer.
 
 Ensure that the Thales tools are in your path (**%nfast_home%\bin** and **%nfast_home%\python\bin**). For example, type the following:
 
@@ -155,7 +155,7 @@ Start a command prompt and run the Thales new-world program.
 
 	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards will give full access to the security world. These cards become the **Administrator Card Set** for the new security world. 
+This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards will give full access to the security world. These cards become the **Administrator Card Set** for the new security world.
 
 Then do the following:
 
@@ -194,7 +194,7 @@ To validate the downloaded package:
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
 
 	>[AZURE.TIP]The Thales software includes python at %NFAST_HOME%\python\bin
-	
+
 2.	Confirm that you see the following, which indicates successful validation: **Result: SUCCESS**
 
 This script validates the signer chain up to the Thales root key. The hash of this root key is embedded in the script and its value should be **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. You can also confirm this value separately by visiting the [Thales website](http://www.thalesesec.com/).
@@ -215,7 +215,7 @@ When you run this command, use these instructions:
 
 - The pubexp is left blank (default) in this example, but you can specify specific values. For more information, see the Thales documentation.
 
-This command creates a Tokenized Key file in your %NFAST_KMDATA%\local folder with a name starting with **key_simple_** followed by the ident that was specified in the command. For example: **key_simple_contosokey**. This file contains an encrypted key. 
+This command creates a Tokenized Key file in your %NFAST_KMDATA%\local folder with a name starting with **key_simple_** followed by the ident that was specified in the command. For example: **key_simple_contosokey**. This file contains an encrypted key.
 
 Back up this Tokenized Key File in a safe location.
 
@@ -301,7 +301,7 @@ When you run this command, use these instructions:
 
 When this completes successfully it displays **Result: SUCCESS** and there will be a new file in the current folder that has the following name: TransferPackage-*ContosoFirstHSMkey*.byok
 
-###Step 4.4: Copy your key transfer package to the Internet-connected workstation 
+###Step 4.4: Copy your key transfer package to the Internet-connected workstation
 
 Use a USB drive or other portable storage to copy the output file from the previous step (KeyTransferPackage-ContosoFirstHSMkey.byok) to your Internet-connected workstation.
 
