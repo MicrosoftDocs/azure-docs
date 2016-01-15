@@ -89,3 +89,10 @@ Each client that you want to connect to your virtual network by using a Point-to
 4. On the **Certificate Store** page, leave the default location, and then click **Next**.
 
 5. Click **Finish**. On the **Security Warning** for the certificate installation, click **Yes**. The certificate is now successfully imported.
+
+## Next steps
+
+Continue with your Point-to-Site configuration. 
+
+- For **Resource Manager** deployment model steps, see [this article](vpn-gateway-howto-point-to-site-rm-ps.md). 
+- For **classic** deployment model steps, see [this article](vpn-gateway-point-to-site-create.md).
