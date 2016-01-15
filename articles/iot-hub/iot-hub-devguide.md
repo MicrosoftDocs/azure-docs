@@ -486,10 +486,6 @@ Each IoT hub is provisioned with a certain number of units in a specific SKU (fo
 
 The SKU also determines the throttling limits that IoT Hub enforces on operations.
 
-### Device identity registry quota
-
-IoT Hub allows at most 1100 device updates (create, update, delete) per unit (irrespective of SKU) per day.
-
 ### Operation throttles
 
 Operation throttles are rate limitations that are applied in the minute ranges, and are intended to avoid abuse. IoT Hub tries to avoid returning errors whenever possible, but it starts returning exceptions if the throttle is violated for too long.
@@ -499,9 +495,10 @@ The following is the list of enforced throttles. Values refer to an individual h
 | Throttle | Per-hub value |
 | -------- | ------------- |
 | Identity registry operations (create, retrieve, list, update, delete), individual or bulk import/export | 100/min/unit, up to 5000/min |
-| Device connections | 100/sec/unit |
+| Device connections | 120/sec/unit (for S2), 12/sec/unit (for S1). Minimum of 100/sec. |
 | Device-to-cloud sends | 120/sec/unit (for S2), 12/sec/unit (for S1). Minimum of 100/sec. |
-| Cloud-to-device operations (sends, receive, feedback) | 100/min/unit |
+| Cloud-to-device sends | 100/min/unit |
+| Cloud-to-device receives | 1000/min/unit |
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 
