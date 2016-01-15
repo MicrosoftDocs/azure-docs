@@ -30,7 +30,7 @@ Perform the following steps to create a support request:
 
 #### To create a support request
 
-1. A support request can be created through the [Azure classic portal](http://manage.windowsazure.com/). In the [portal](http://manage.windowsazure.com/), click your **Account Name** and then click **Contact Microsoft Support**.
+1. A support request can be created through the [Azure classic portal](http://manage.windowsazure.com/). In the [classic portal](http://manage.windowsazure.com/), click your **Account Name** and then click **Contact Microsoft Support**.
 
 	![Contact MS Support via ManagementPortal](./media/storsimple-contact-microsoft-support/IC777286.png)
 
