@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Deploy templates with PowerShell" 
-	description="Deploy templates with PowerShell" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="Deploy templates with PowerShell"
+	description="Deploy templates with PowerShell"
+	services=""
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Deploy templates with PowerShell
@@ -36,20 +36,20 @@ Before deploying, you must authenticate your PowerShell instance with Microsoft 
 
 		# Add specific Azure Stack Environment
 		$AadTenantId = "Your Tenant GUID" #GUID Specific to the AAD Tenant
-		 
+
 		Add-AzureRmEnvironment -Name 'Azure Stack' `
 		    -ActiveDirectoryEndpoint ("https://login.windows.net/$AadTenantId/") `
 		    -ActiveDirectoryServiceEndpointResourceId "https://azurestack.local-api/" `
 		    -ResourceManagerEndpoint ("https://api.azurestack.local/") `
 		    -GalleryEndpoint ("https://gallery.azurestack.local:30016/") `
 		    -GraphEndpoint "https://graph.windows.net/"
-		 
+
 		# Get Azure Stack Environment Information
 		$env = Get-AzureRmEnvironment 'Azure Stack'
-		
+
 		# Authenticate to AAD with Azure Stack Environment
 		Add-AzureRmAccount -Environment $env -Verbose
-		
+
 		# Get Azure Stack Environment Subscription
 		Get-AzureRmSubscription -SubscriptionName "Sub Name"  | Select-AzureRmSubscription
 
@@ -71,11 +71,11 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		$RGName = "myRG$myNum"
 		$myLocation = "local"
 		$myBlobStorageEndpoint = "blob.azurestack.local"
-		
+
 		# Create Resource Group for Template Deployment
 		New-AzureRMResourceGroup -Name $RGName -Location $myLocation
-		
-		# Deploy Simple IaaS Template 
+
+		# Deploy Simple IaaS Template
 		New-AzureRmResourceGroupDeployment `
 		    -Name "myDeployment$myNum" `
 		    -ResourceGroupName $RGName `
@@ -87,9 +87,7 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		    -adminUsername "username" `
 		    -adminPassword ("password" | ConvertTo-SecureString -AsPlainText -Force) `
 		    -vmName "myVM$myNum" `
-		    -windowsOSVersion " WindowsServer-2012-R2-Datacenter "
+		    -windowsOSVersion "2012-R2-Datacenter "
 
 
 4.  Go to the Microsoft Azure Stack portal and you’ll see your new virtual machine named my Deployment001.
-
-
