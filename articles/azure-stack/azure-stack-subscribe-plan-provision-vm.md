@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Subscribe to an offer and then provision a VM (tenant)" 
-	description="Subscribe to an offer and then provision a VM (tenant)" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="Subscribe to an offer and then provision a VM (tenant)"
+	description="Subscribe to an offer and then provision a VM (tenant)"
+	services="azure-stack" 
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Subscribe to an offer and then provision a VM (tenant)
@@ -32,7 +32,7 @@ For both of these steps, you must be signed in as a tenant. If you haven’t cre
 
     ![](media/azure-stack-subscribe-plan-provision-vm/image1.png)
 
-2.  Fill in **Display Name** or use the default (the name of the offer). 
+2.  Fill in **Display Name** or use the default (the name of the offer).
 
 	![](media/azure-stack-subscribe-plan-provision-vm/image2.png)
 

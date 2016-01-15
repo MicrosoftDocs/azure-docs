@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Deploy templates with the command line" 
-	description="Deploy templates with the command line" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+<properties
+	pageTitle="Deploy templates with the command line"
+	description="Deploy templates with the command line"
+	services="azure-stack" 
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Deploy templates with the command line
@@ -23,7 +23,7 @@ You can do use the cross-platform command line interface (CLI) to deploy templat
 >[AZURE.NOTE] On Mac, you may need to disable certificate validation in the terminal using:
 >
 >	`set NODE_TLS_REJECT_UNAUTHORIZED=0`
->	
+>
 >	`export NODE_TLS_REJECT_UNAUTHORIZED=0`
 
 

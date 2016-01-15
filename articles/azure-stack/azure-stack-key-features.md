@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Key features and concepts" 
-	description="Key features and concepts" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="Key features and concepts"
+	description="Key features and concepts"
+	services="azure-stack" 
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Key features and concepts
@@ -48,7 +48,7 @@ Example hierarchy of a tenant’s subscriptions to offers, each with varying pla
 
 Microsoft Azure Stack enables providers to deliver a wide variety of applications and services, such as virtual machines, SQL Server databases, SharePoint, Exchange, and more.
 
-### Plans 
+### Plans
 
 Plans are groupings of one or more services. As a provider, you create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include.
 
@@ -72,7 +72,7 @@ The delegated provider hierarchy can be used by service providers to create rese
 
 Microsoft Azure Stack supports up to five levels of delegation. Delegated providers can also access their own usage data to create their own bill.
 
-### Subscriptions 
+### Subscriptions
 
 A subscription is how tenants buy your offers. A subscription is a combination of a tenant with an offer. A tenant can have subscriptions to multiple offers. Each subscription applies to only one offer. A tenant’s subscriptions determine which plans/services they can access.
 

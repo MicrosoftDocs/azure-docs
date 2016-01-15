@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="Deploy templates with PowerShell"
 	description="Deploy templates with PowerShell"
-	services=""
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Prepare the physical machine" 
-	description="Prepare the physical machine" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+<properties
+	pageTitle="Prepare the physical machine"
+	description="Prepare the physical machine"
+	services="azure-stack" 
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Prepare the physical machine
@@ -25,13 +25,13 @@
     This creates the \\Microsoft Azure Stack POC\\ folder containing the following items:
 
 	-   DeployAzureStack.ps1: Azure Stack POC installation PowerShell script
-	
+
 	-   MicrosoftAzureStackPOC.vhdx: Azure Stack data package
-	
+
 	-   SQLServer2014.vhdx: SQL Server VHD
-	
+
 	-   WindowsServer2012R2DatacenterEval.vhd
-	
+
 	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD
 
 ## Run the PowerShell script

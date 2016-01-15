@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Manage permissions to resources per user (service administrator and tenant)" 
-	description="Manage permissions to resources per user (service administrator and tenant)" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="Manage permissions to resources per user (service administrator and tenant)"
+	description="Manage permissions to resources per user (service administrator and tenant)"
+	services="azure-stack" 
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Manage permissions to resources per user (service administrator and tenant)
@@ -37,5 +37,3 @@ For example, User A might have reader permissions to Subscription 1, but have ow
 3.  In the **Users** blade, click **Roles**.
 
 4.  In the **Roles** blade, click **Add** to add permissions for the user.
-
-

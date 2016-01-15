@@ -1,31 +1,31 @@
-﻿<properties 
-	pageTitle="Create an offer (service administrator)" 
-	description="Create an offer (service administrator)" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="Create an offer (service administrator)"
+	description="Create an offer (service administrator)"
+	services="azure-stack" 
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Create an offer (service administrator)
 
 Now that you have a plan, you can create and include it in an offer.
 
-1.  Login in to the Admin portal as a service administrator. 
+1.  Login in to the Admin portal as a service administrator.
 	![](media/azure-stack-create-offer/image1.png)
 
 2.  Click **New**.
 
-3.  Click **Tenant Offers and Plans**, then click **Offer**. 
+3.  Click **Tenant Offers and Plans**, then click **Offer**.
 	![](media/azure-stack-create-offer/image2.png)
 
 4.  In the New Offer blade, complete the following:
@@ -34,7 +34,7 @@ Now that you have a plan, you can create and include it in an offer.
 
     2.  Select provider subscription (locked here).
 
-    3.  Select a **Resource Group** (the plan must be in the same Resource Group as its offer). 
+    3.  Select a **Resource Group** (the plan must be in the same Resource Group as its offer).
 
     	![](media/azure-stack-create-offer/image3.png)
 
@@ -63,5 +63,3 @@ Now that you have a plan, you can create and include it in an offer.
 2.  Changes to the plan or offer are not immediately visible to the tenant. To see the changes, the subscription state must be InSync, then the tenant must refresh the portal or login/logout.
 
 3.  Even after an additional subscription has been created and is InSync, you might have to logout/login to see the new subscription in the “Subscription picker” when creating new resources/resource groups.
-
-

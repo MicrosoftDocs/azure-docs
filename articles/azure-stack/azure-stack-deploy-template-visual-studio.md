@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Deploy templates with Visual Studio" 
-	description="Deploy templates with Visual Studio" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+<properties
+	pageTitle="Deploy templates with Visual Studio"
+	description="Deploy templates with Visual Studio"
+	services="azure-stack" 
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Deploy templates with Visual Studio
@@ -37,5 +37,3 @@
 8.  In the **Resource group location** drop down, select a location.
 
 9.  Click **Deploy**. In the **Edit Parameters** dialog box, enter values for the parameters (which vary by template), and then click **Save**. Your resource is then created.
-
-
