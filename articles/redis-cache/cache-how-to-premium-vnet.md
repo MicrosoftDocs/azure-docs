@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="01/07/2015" 
 	ms.author="sdanie"/>
 
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
@@ -80,6 +80,12 @@ The following list contains answers to commonly asked questions about the Azure 
 
 The following list contains some common configuration errors that can prevent Azure Redis Cache from working properly.
 
+-	Required ports are blocked. Azure Redis Cache requires access to the following ports.
+	-	TCP ports that clients use to connect to redis, i.e. 6379 or 6380. Clients of redis (within the virtual network) must be able to do HTTP traffic to the public internet in order to download CA certificates and certificate revocation lists in order to do SSL certificate validation when they use port 6380 to connect to Redis and do SSL server authentication.  
+	-	Azure Load Balancer ports
+		-	Azure Load Balancer connects to the redis VMs on TCP/HTTP port 16001. Azure Redis Cache depends on the default Azure load balancer probe to determine which role instances are up. The default load balancer probe works by pinging the Azure Guest Agent on port 16001. Only the role instances which respond to the ping will be placed in rotation to receive traffic forwarded by the ILB. When no instances are in rotation because pings fail because the ports are blocked, then the ILB will not accept any incoming TCP connections.
+		-	Azure load Balancer uses port 8500 during a failover.
+		-	Azure Load Balancer connects to Redis VMs in a cluster via TCP on port 1300x (13000, 13001, etc.) or 1500x (15000, 15001, etc.). VNets are configured in the csdef file with a load balancer probe to open these ports. The Azure load balancer needs to be permitted by NSGs, the default NSGs do this using the tag AZURE_LOADBALANCER. The Azure load balancer has a single static IP address of 168.63.126.16. For more information, see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md).
 -	Lack of access to DNS. Azure Redis Cache instances in a VNET require access to DNS for parts of the monitoring and runtime system of the cache. If the cache instance does not have access to DNS, monitoring won't work and the cache will not function correctly.
 -	Blocked TCP ports that clients use to connect to redis, i.e. 6379 or 6380.
 -	Blocked or intercepted outgoing HTTPS traffic from the virtual network. Azure Redis Cache uses outgoing HTTPS traffic to Azure services, especially Storage.

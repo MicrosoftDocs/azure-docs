@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="12/16/2015"
+	ms.date="01/15/2015"
 	ms.author="v-darmi"/>
 
 
@@ -67,3 +67,8 @@ Azure API Management provides rate and quote throttling to both protect and add 
 
 ## Next steps
 Please give us your feedback in the Disqus thread for this topic. It would be great to hear about other potential key values that have been a logical choice in your scenarios.
+
+## Watch a video overview of these policies
+For more information on the [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) and [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) policies covered in this article, please watch the following video.
+
+> [AZURE.VIDEO advanced-request-throttling-with-azure-api-management]
