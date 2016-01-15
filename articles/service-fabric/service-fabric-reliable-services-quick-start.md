@@ -89,7 +89,7 @@ protected override async Task RunAsync(CancellationToken cancelServiceInstance)
 
 The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
 
-- The system moves around your service instances for resource balancing.
+- The system moves your service instances for resource balancing.
 - Faults occur in your code.
 - The application or system is upgraded.
 - The underlying hardware experiences an outage.
