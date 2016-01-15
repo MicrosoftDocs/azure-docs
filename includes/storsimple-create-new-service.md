@@ -3,7 +3,7 @@
 
 #### To create a new service
 
-1. Using your Microsoft account credentials, log on to the Azure classic portal at this URL:[https://manage.windowsazure.com/](https://manage.windowsazure.com/).
+1. Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
 2. In the Azure classic portal , click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
 
