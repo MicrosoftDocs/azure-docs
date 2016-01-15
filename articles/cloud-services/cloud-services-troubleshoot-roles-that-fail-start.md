@@ -171,6 +171,6 @@ Once it has been verified that all errors have been corrected, the service can b
 
 [Troubleshooting Scenario – Role Recycling after deployment ](http://blogs.msdn.com/b/kwill/archive/2013/10/03/troubleshooting-scenario-7-role-recycling.aspx)
 
-[Troubleshooting by using Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)
+[Troubleshooting Cloud Service role issues by using Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)
 
 [Other troubleshooting articles for cloud services](..\?tag=top-support-issue&service=cloud-services)
