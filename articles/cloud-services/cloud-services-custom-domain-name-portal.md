@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure a custom domain name in Cloud Services  | Microsoft Azure"
+	pageTitle="Configure a custom domain name in Cloud Services | Microsoft Azure"
 	description="Learn how to expose your Azure application or data to the internet on a custom domain by configuring DNS settings.  These examples use the Azure portal."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Configuring a custom domain name for an Azure cloud service
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-custom-domain-name.md)
 - [Azure portal](cloud-services-custom-domain-name-portal.md)
+- [Azure classic portal](cloud-services-custom-domain-name.md)
 
 When you create a Cloud Service, Azure assigns it to a subdomain of **cloudapp.net**. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://contoso.cloudapp.net. Azure also assigns a virtual IP address.
 
@@ -29,7 +29,7 @@ However, you can also expose your application on your own domain name, such as *
 Do you already undestand what CNAME and A records are? [Jump past the explaination](#add-a-cname-record-for-your-custom-domain).
 
 > [AZURE.NOTE]
-> The procedures in this task apply to Azure Cloud Services. For Websites, see [Configuring a Custom Domain Name for an Azure App Service Web App](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [Configuring a Custom Domain Name for an Azure Storage Account](../storage/storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
 
 <p/>
 
@@ -152,7 +152,7 @@ This example demonstrates creating an A record for the root domain. If you wish 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
 [Expose Your Data on a Custom Domain]: #access-data
-[VIP swaps]: http://msdn.microsoft.com/library/ee517253.aspx
+[VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 [Create a CNAME record that associates the subdomain with the storage account]: #create-cname
 [Azure portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png

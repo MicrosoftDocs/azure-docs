@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Configuring a custom domain name for an Azure cloud service
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-custom-domain-name.md)
 - [Azure portal](cloud-services-custom-domain-name-portal.md)
+- [Azure classic portal](cloud-services-custom-domain-name.md)
 
 
 When you create a Cloud Service, Azure assigns it to a subdomain of cloudapp.net. For example, if your Cloud Service is named "contoso", your users will be able to access your application on a URL like http://contoso.cloudapp.net. Azure also assigns a virtual IP address.
@@ -35,7 +35,7 @@ Do you already undestand what CNAME and A records are? [Jump past the explainati
 <p/>
 
 > [AZURE.NOTE]
-> The procedures in this task apply to Azure Cloud Services. For Websites, see [Configuring a Custom Domain Name for an Azure App Service Web App](../web-sites-custom-domain-name.md). For storage accounts, see [Configuring a Custom Domain Name for an Azure Storage Account](../storage-custom-domain-name.md).
+> The procedures in this task apply to Azure Cloud Services. For App Services, see [this](../app-service-web/web-sites-custom-domain-name.md). For storage accounts, see [this](../storage/storage-custom-domain-name.md).
 
 
 ## Understand CNAME and A records
