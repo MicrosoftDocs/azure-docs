@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016"
+	ms.date="01/14/2016"
 	ms.author="raynew"/>
 
 # Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery
@@ -136,9 +136,11 @@ Optionally you can also set throttling using PowerShell. Here's an example:
 #### Maximizing bandwidth usage 
 To increase the bandwidth utilized for replication by Azure Site Recovery you would need to change a registry key.
 
-The key is located under "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication"
+The following key controls the number of threads per replicating disk that are used when replicating
 
-The “UploadThreadsPerVM” controls the number of threads per replicating disk that are used when replicating. In an “overprovisioned” network, this registry key needs to be changed from it’s default values. We support a maximum of 32.  
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
+
+ In an “overprovisioned” network, this registry key needs to be changed from it’s default values. We support a maximum of 32.  
 
 
 [Learn more](site-recovery-capacity-planner.md) about detailed capacity planning.
@@ -235,6 +237,8 @@ If you want to replicate VMware virtual machines install the following VMware co
 
 ## Step 5: Install the management server
 
+> [AZURE.VIDEO enhanced-vmware-to-azure-setup-registration]
+
 1. On the **Quick Start** page download the unified installation file to the server.
 2. Run the installation file to start setup in the Site Recovery Unified Setup wizard.
 3. In **Before you begin** select **Install the configuration server and process server**. Depending on the size of your deployment you might need additional process servers later, but not when you set up this deployment for the first time.
@@ -318,6 +322,8 @@ Where:
 
 ## Step 6: Set up credentials for the vCenter server
 
+> [AZURE.VIDEO enhanced-vmware-to-azure-discovery]
+
 The process server can automatically discover VMware VMs that are managed by a vCenter server. For automatic discovery Site Recovery needs an account and credentials that can access the vCenter server. This isn't relevant if you're replicating physical servers only.
 
 Do this as follows:
@@ -356,6 +362,9 @@ If you're replicating VMware VMs you need to add a vCenter server (or ESXi host)
 		
 
 ## Step 8: Create a protection group
+
+> [AZURE.VIDEO enhanced-vmware-to-azure-protection]
+
 
 A protection group contain virtual machines or physical servers that will share the same replication settings.
 
@@ -398,7 +407,7 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 
 1.  Create an account that can be used by the process server to access the machine. The account should have administrator privileges (local or domain). Note that these credentials are only used for push installation of the Mobility service.
 
-	>[AZURE.NOTE] If you're not using a domain account you'll need to disable Remote User Access control on the local machine. To do this, in the register under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System add the DWORD entry ocalAccountTokenFilterPolicy with a value of 1 under . To add the registry entry from a CLI open command or using PowerShell enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
+	>[AZURE.NOTE] If you're not using a domain account you'll need to disable Remote User Access control on the local machine. To do this, in the register under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System add the DWORD entry LocalAccountTokenFilterPolicy with a value of 1 under . To add the registry entry from a CLI open command or using PowerShell enter **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**.
 
 2.  On the Windows Firewall of the machine you want to protect, select **Allow an app or feature through Firewall** and enable **File and Printer Sharing** and **Windows Management Instrumentation**. For machines that belong to a domain you can configure the firewall policy with a GPO.
 
@@ -419,7 +428,7 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 
 	- Open **cspsconfigtool**. It's available as a shortcut on the desktop and located in the [INSTALL LOCATION]\home\svsystems\bin folder.
 	- In the **Manage Accounts** tab, click **Add Account**.
-	- Add the account you creaed. After adding the account you'll need to provide the credentials when you add a machine to a protection group.
+	- Add the account you created. After adding the account you'll need to provide the credentials when you add a machine to a protection group.
 
 3.	Check that the /etc/hosts file on the source Linux server contains entries that map the local hostname to IP addresses associated with all network adapters.
 4.	Install the latest openssh, openssh-server, openssl packages on the machine you want to protect.
@@ -436,14 +445,14 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 
 ### Install the Mobility service manually
 
-The installers you need can be downloaded from xxx. 
+The installers are available in C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository.
 
 Source operating system | Mobility service installation file
 --- | ---
-Windows Server (64 bit only) | Microsoft-ASR_UA_8.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (64 bit only) | Microsoft-ASR_UA_8.*.0.0_RHEL6-64_*release.tar.gz
-SUSE Linux Enterprise Server 11 SP3 (64 bit only) | Microsoft-ASR_UA_8.*.0.0_SLES11-SP3-64_*release.tar.gz
-Oracle Enterprise Linux 6.4, 6.5 (64 bit only) | Microsoft-ASR_UA_8.*.0.0_OL6-64_*release.tar.gz
+Windows Server (64 bit only) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
+CentOS 6.4, 6.5, 6.6 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+SUSE Linux Enterprise Server 11 SP3 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
+Oracle Enterprise Linux 6.4, 6.5 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
 
 
 #### Install manually on a Windows server
@@ -572,10 +581,10 @@ In addition, protection status can be monitored in **Protected Items** > <protec
 	- **Azure network**: You must specify an Azure network that Azure VMs will be connected to after failover. If you don't specify one then the Azure VMs won't be connected to any network. In addition you'll need to specify an Azure network if you want to failback from Azure to the on-premises site. Failback requires a VPN connection between an Azure network and an on-premises network.	
 	- **Azure IP address/subnet**: For each network adapter you select the subnet to which the Azure VM should connect. Note that:
 		- If the network adapter of the source machine is configured to use a static IP address then you can specify a static IP address for the Azure VM. If you don't provide a static IP address then any available IP address will be allocated. If the target IP address is specified but it's already in use by another VM in Azure then failover will fail. If the network adapter of the source machine is configured to use DHCP then you'll have DHCP as the setting for Azure.
-		- Note that if you want to fail back you can’t retain the same IP address after failover of the source machine to Azure. Failback is only over VPN/ExpressRoute and you can’t have the same pool of addresses on both sides of the VPN connection.  
-		- You can't maintain the same IP address in Azure as you have on the on-premises site. A VPN connection is needed for failback and it can't have the same IP address ranges on both sides of the connection.
 
 ## Step 12: Create a recovery plan and run a failover
+
+> [AZURE.VIDEO enhanced-vmware-to-azure-failover]
 
 You can run a failover for a single machine, or fail over multiple virtual machines that perform the same task or run the same workload. To fail over multiple machines at the same time you add them to a recovery plan.
 
@@ -730,3 +739,7 @@ The information in Section A is regarding Third Party Code components from the p
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+
+## Next steps
+
+[Learn more about failback](site-recovery-failback-azure-to-vmware-classic.md) to bring your failed over machines running in Azure back to your on-premises environment.

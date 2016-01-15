@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-#Rotate login credentials
+#Rotate login credentials for inputs and outputs in Stream Analytics Jobs
 
 ##Abstract
 Azure Stream Analytics today doesn’t allow replacing the credentials on an input/output while the job is running.
