@@ -74,7 +74,7 @@ You can author/create data factories using one of the following:
 
 - **Azure Portal**. The Data Factory blades in the Azure Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Data Factory Editor][data-factory-editor] for an overview of the editor and [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
 - **Azure PowerShell**. If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Create and monitor Azure Data Factory using Azure PowerShell][create-data-factory-using-powershell] for a simple example and [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an advanced example of using PowerShell cmdles to create ad deploy a data factory. See [Data Factory Cmdlet Reference][adf-powershell-reference] content on MSDN Library for a comprehensive documentation of Data Factory cmdlets.  
-- **Visual Studio**. You can also use Visual Studio to programmatically create, monitor, and manage data factories. See [Create, monitor, and manage Azure data factories using Data Factory .NET SDK](data-factory-create-data-factories-programmatically) article for details.  
+- **Visual Studio**. You can also use Visual Studio to programmatically create, monitor, and manage data factories. See [Create, monitor, and manage Azure data factories using Data Factory .NET SDK](data-factory-create-data-factories-programmatically.md) article for details.  
 - **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.  
 - **REST API**. You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for  a comprehensive documentation of Data Factory REST API. 
 
@@ -152,8 +152,6 @@ If you need to stop the pipeline from executing, you can use [Suspend-AzureRmDat
 If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline. 
 
 
-
-[image-rerun-slice]: ./media/data-factory-faq/rerun-slice.png
 
 [adfgetstarted]: data-factory-get-started.md
 [adf-introduction]: data-factory-introduction.md

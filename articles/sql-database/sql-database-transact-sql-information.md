@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL differences
@@ -58,7 +58,6 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - Database Diagrams
 - Database Mail
 - DATABASEPROPERTY (use DATABASEPROPERTYEX instead)
-- Distributed transactions
 - EXECUTE AS logins
 - Encryption: extensible key management
 - Eventing: events, event notifications, query notifications

@@ -5,14 +5,14 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor=""/>
 <tags
 	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/09/2016"
 	ms.author="robmcm"/>
 
 # Create a Java web app in Azure App Service

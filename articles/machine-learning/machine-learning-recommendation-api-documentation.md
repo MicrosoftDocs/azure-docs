@@ -44,6 +44,7 @@ The Azure Machine Learning Recommendations API can be divided into the following
 ##2. Limitations
 
 - The maximum number of models per subscription is 10.
+- The maximum number of builds per model is 20.
 - The maximum number of items that a catalog can hold is 100,000.
 - The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
 - The maximum size of data that can be sent in POST (e.g. import catalog data, import usage data) is 200MB.
@@ -802,16 +803,24 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 
-
-
 ##7. Model Business Rules
+
 These are the types of rules supported:
-- <strong>BlockList</strong> - BlockList enables you to provide a list of items that you do not want to return in the recommendation results.
+- <strong>BlockList</strong> - BlockList enables you to provide a list of items that you do not want to return in the recommendation results. 
+
 - <strong>FeatureBlockList</strong> - Feature BlockList enables you to block items based on the values of its features.
+
+*Do not send more than 1000 items in a single blocklist rule or your call may timeout. If you need to block more than 1000 items, you can make several blocklist calls.*
+
 - <strong>Upsale</strong> - Upsale enables you to enforce items to return in the recommendation results.
+
 - <strong>WhiteList</strong> - White List enables you to only suggest recommendations from a list of items.
+
 - <strong>FeatureWhiteList</strong> - Feature White List enables you to only recommend items that have specific feature values.
+
 - <strong>PerSeedBlockList</strong> - Per Seed Block List enables you to provide per item a list of items that cannot be returned as recommendation results.
+
+
 
 
 ###7.1.	Get Model Rules

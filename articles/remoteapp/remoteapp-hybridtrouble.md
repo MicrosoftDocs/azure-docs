@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="11/04/2015"
+    ms.date="01/13/2016"
     ms.author="elizapo" />
 
 
@@ -29,12 +29,7 @@ If you are having trouble creating your collection, or if the collection isn't w
 ## Your image is invalid ##
 If you see a message like, "GoldImageInvalid" when you are waiting for Azure to provision your collection, it means that your template image doesn't meet the [defined image requirements](remoteapp-imagereqs.md). So, go read those [requirements](remoteapp-imagereqs.md), fix your image, and try to create your collection again.
 
-## Does your VNET use forced tunneling? ##
-RemoteApp does not currently support using VNETs that have forced tunneling enabled. If you need this function, contact the [RemoteApp team](mailto:remoteappforum@microsoft.com) to request support.
 
-After your request is approved, make sure the following ports are opened on the subnet you chose for Azure RemoteApp and the VMs in the subnet. The VMs in your subnets should also be able to access the URLs mentioned in the section about network security groups.
-
-Outbound: TCP: 443, TCP: 10101-10175
 
 ## Does your VNET have network security groups defined? ##
 If you have network security groups defined on the subnet you are using for your collection, make sure the following URLs are accessible from within your subnet:
