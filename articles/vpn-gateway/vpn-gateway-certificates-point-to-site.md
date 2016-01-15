@@ -18,7 +18,7 @@
 
 # Working with self-signed root certificates for Point-to-Site configurations
 
-The tasks below will help you create a root certificate using makecert and then generate client certificates from the root certificate. The steps below are written for using makecert on Windows 10. 
+The tasks below will help you create a root certificate using makecert and generate client certificates from the root certificate. The steps below are written for using makecert on Windows 10. 
 
 For additional information about Point-to-Site configurations using the **Resource Manager** deployment model, see [this article](vpn-gateway-howto-point-to-site-rm-ps.md). For additional information about Point-to-Site configurations using the **classic** deployment model (also known as Service Management), see [this article](vpn-gateway-point-to-site-create.md). 
 
