@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Troubleshooting roles that fail to start | Microsoft Azure"
    description="Here are some common reasons as to why a Cloud Service role may fail to start. Solutions to these problems are also provided."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/15/2016"
    ms.author="daleche" />
 
 # Common steps in troubleshooting Cloud Service roles that fail to start
@@ -161,7 +161,16 @@ To address missing DLL and assembly errors, follow these steps:
 
 Once it has been verified that all errors have been corrected, the service can be deployed without the **Enable IntelliTrace for .NET 4 roles** setting checked.
 
-## Next steps
+## See also
 
-View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
+[Troubleshooting Scenario – Role Recycling](http://blogs.msdn.com/b/kwill/archive/2013/08/20/troubleshooting-scenario-1-role-recycling.aspx)
 
+[Troubleshooting Scenario – Role Recycling After Running Fine For 2 Weeks](http://blogs.msdn.com/b/kwill/archive/2013/08/26/troubleshooting-scenario-2-role-recycling-after-running-fine-for-2-weeks.aspx)
+
+[Troubleshooting Scenario – Role Recycling After Running For Some Time](http://blogs.msdn.com/b/kwill/archive/2013/09/23/troubleshooting-scenario-6-role-recycling-after-running-for-some-time.aspx)
+
+[Troubleshooting Scenario – Role Recycling after deployment ](http://blogs.msdn.com/b/kwill/archive/2013/10/03/troubleshooting-scenario-7-role-recycling.aspx)
+
+[Troubleshooting by using Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)
+
+[Other troubleshooting articles for cloud services](..\?tag=top-support-issue&service=cloud-services)

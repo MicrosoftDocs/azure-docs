@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Common causes of Cloud Service roles recycling | Microsoft Azure"
    description="A cloud service role that sudden recycles can cause significant downtime. Here are some common issues that cause roles to be recycled, which may help imporve downtime."
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
+   ms.date="01/15/2016"
    ms.author="daleche" />
 
 # Common issues which cause roles to recycle
@@ -36,7 +36,7 @@ Before you build and package your application, verify the following:
 - If using Visual studio, make sure the **Copy Local** property is set to **True** for each referenced assembly in your project that is not part of the Azure SDK or the .NET Framework.
 
 - Make sure the **web.config** file does not reference any unused assemblies in the **compilation** element.
- 
+
 - The **Build Action** of every .cshtml file is set to **Content**. This ensures that the files will appear correctly in the package and allows other referenced files to appear in the package.
 
 
@@ -67,12 +67,12 @@ To ensure that your `DiagnosticsConnectionString` setting is correct before you 
 
 - The `DiagnosticsConnectionString` setting points to a valid storage account in Azure.  
   By default, this setting points to the emulated storage account, so you must explicitly change this setting before you deploy your application package. If you do not change this setting, an exception is thrown when the role instance attempts to start the diagnostic monitor. This may cause the role instance to recycle indefinitely.
-  
+
 - The connection string is specified in the following [format](storage-configure-connection-string.md) (the protocol must be specified as HTTPS). Replace *MyAccountName* with the name of your storage account, and *MyAccountKey* with your access key:    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 
-  If you are developing your application using the Azure Tools for Microsoft Visual Studio, you can use the [property pages](https://msdn.microsoft.com/library/ee405486) to set this value. 
+  If you are developing your application using the Azure Tools for Microsoft Visual Studio, you can use the [property pages](https://msdn.microsoft.com/library/ee405486) to set this value.
 
 
 
@@ -82,9 +82,19 @@ To run a web role under SSL, you must ensure that your exported management certi
 
 
 
-## Next steps
+## See also
 
-View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
+[Troubleshooting Scenario – Role Recycling](http://blogs.msdn.com/b/kwill/archive/2013/08/20/troubleshooting-scenario-1-role-recycling.aspx)
+
+[Troubleshooting Scenario – Role Recycling After Running Fine For 2 Weeks](http://blogs.msdn.com/b/kwill/archive/2013/08/26/troubleshooting-scenario-2-role-recycling-after-running-fine-for-2-weeks.aspx)
+
+[Troubleshooting Scenario – Role Recycling After Running For Some Time](http://blogs.msdn.com/b/kwill/archive/2013/09/23/troubleshooting-scenario-6-role-recycling-after-running-for-some-time.aspx)
+
+[Troubleshooting Scenario – Role Recycling after deployment ](http://blogs.msdn.com/b/kwill/archive/2013/10/03/troubleshooting-scenario-7-role-recycling.aspx)
+
+[Troubleshooting by using Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)
+
+[Other troubleshooting articles for cloud services](..\?tag=top-support-issue&service=cloud-services)
 
 
 
