@@ -20,8 +20,6 @@
 
 The tasks below will help you create a root certificate using makecert and generate client certificates from the root certificate. The steps below are written for using makecert on Windows 10. 
 
-For additional information about Point-to-Site configurations using the **Resource Manager** deployment model, see [this article](vpn-gateway-howto-point-to-site-rm-ps.md). For additional information about Point-to-Site configurations using the **classic** deployment model (also known as Service Management), see [this article](vpn-gateway-point-to-site-create.md). 
-
 ## Create a self-signed root certificate
 
 Makecert is one way of creating a self-signed root certificate. The steps below will walk you through creating a self-signed root certificate using makecert. These steps are not deployment-model specific. They are valid for both Resource Manager and classic.
