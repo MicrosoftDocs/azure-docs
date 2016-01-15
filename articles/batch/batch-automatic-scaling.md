@@ -23,7 +23,7 @@ By using automatic scaling in Azure Batch, you can dynamically add or remove com
 
 You can enable automatic scaling on a pool of compute nodes by associating an *autoscale formula* with the pool, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET](batch-dotnet-get-started.md) library. The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. The number of compute nodes in the pool, which responds to service metrics data samples that are collected periodically, is adjusted at a configurable interval based on the associated formula.
 
-You can enable automatic scaling when a pool is created, or on an existing pool. You can also change an existing formula on pool that is "autoscale" enabled. Batch provides the ability to evaluate your formulas before assigning them to pools, as well as for monitoring the status of automatic scaling runs.
+You can enable automatic scaling when a pool is created, or on an existing pool. You can also change an existing formula on a pool that is "autoscale" enabled. Batch provides the ability to evaluate your formulas before assigning them to pools, as well as for monitoring the status of automatic scaling runs.
 
 ## Automatic scaling formulas
 
@@ -94,30 +94,30 @@ You can use both system-defined and user-defined variables in autoscale formulas
   </tr>
   <tr>
     <td>$WallClockSeconds</td>
-    <td>The number of seconds that are consumed.</td>
+    <td>The number of seconds consumed.</td>
   </tr>
   <tr>
     <td>$MemoryBytes</td>
-    <td>The average number of megabytes that are used.</td>
+    <td>The average number of megabytes used.</td>
   <tr>
     <td>$DiskBytes</td>
-    <td>The average number of gigabytes that are used on the local disks.</td>
+    <td>The average number of gigabytes used on the local disks.</td>
   </tr>
   <tr>
     <td>$DiskReadBytes</td>
-    <td>The number of bytes that are read.</td>
+    <td>The number of bytes read.</td>
   </tr>
   <tr>
     <td>$DiskWriteBytes</td>
-    <td>The number of bytes that are written.</td>
+    <td>The number of bytes written.</td>
   </tr>
   <tr>
     <td>$DiskReadOps</td>
-    <td>The count of read disk operations that are performed.</td>
+    <td>The count of read disk operations performed.</td>
   </tr>
   <tr>
     <td>$DiskWriteOps</td>
-    <td>The count of write disk operations that are performed.</td>
+    <td>The count of write disk operations performed.</td>
   </tr>
   <tr>
     <td>$NetworkInBytes</td>
@@ -133,11 +133,11 @@ You can use both system-defined and user-defined variables in autoscale formulas
   </tr>
   <tr>
     <td>$ActiveTasks</td>
-    <td>The number of tasks that are in an active state.</td>
+    <td>The number of tasks in an active state.</td>
   </tr>
   <tr>
     <td>$RunningTasks</td>
-    <td>The number of tasks that are in a running state.</td>
+    <td>The number of tasks in a running state.</td>
   </tr>
   <tr>
     <td>$SucceededTasks</td>
@@ -273,78 +273,78 @@ These predefined **functions** are available for you to use in defining an autom
   </tr>
   <tr>
     <td>double <b>avg</b>(doubleVecList)</td>
-    <td>The average value for all values in doubleVecList.</td>
+    <td>Returns the average value for all values in the doubleVecList.</td>
   </tr>
   <tr>
     <td>double <b>len</b>(doubleVecList)</td>
-    <td>The length of the vector that is created from doubleVecList.</td>
+    <td>Returns the length of the vector that is created from the doubleVecList.</td>
   <tr>
     <td>double <b>lg</b>(double)</td>
-    <td>Log base 2.</td>
+    <td>Returns the log base 2 of the double.</td>
   </tr>
   <tr>
     <td>doubleVec <b>lg</b>(doubleVecList)</td>
-    <td>Componentwise log base 2. A vec(double) must explicitly be passed for the single double parameter. Otherwise, the double lg(double) version is assumed.</td>
+    <td>Returns the componentwise log base 2 of the doubleVecList. A vec(double) must explicitly be passed for the single double parameter. Otherwise, the double lg(double) version is assumed.</td>
   </tr>
   <tr>
     <td>double <b>ln</b>(double)</td>
-    <td>Natural log.</td>
+    <td>Returns the natural log of the double.</td>
   </tr>
   <tr>
     <td>doubleVec <b>ln</b>(doubleVecList)</td>
-    <td>Componentwise log base 2.  A vec(double) must explicitly be passed for the single double parameter. Otherwise, the double lg(double) version is assumed.</td>
+    <td>Returns the componentwise log base 2 of the doubleVecList.  A vec(double) must explicitly be passed for the single double parameter. Otherwise, the double lg(double) version is assumed.</td>
   </tr>
   <tr>
     <td>double <b>log</b>(double)</td>
-    <td>Log base 10.</td>
+    <td>Returns the log base 10 of the double.</td>
   </tr>
   <tr>
     <td>doubleVec <b>log</b>(doubleVecList)</td>
-    <td>Componentwise log base 10. A vec(double) must explicitly be passed for the single double parameter. Otherwise, the double log(double) version is assumed.</td>
+    <td>Returns the componentwise log base 10 of the doubleVecList. A vec(double) must explicitly be passed for the single double parameter. Otherwise, the double log(double) version is assumed.</td>
   </tr>
   <tr>
     <td>double <b>max</b>(doubleVecList)</td>
-    <td>The maximum value in doubleVecList.</td>
+    <td>Returns the maximum value in the doubleVecList.</td>
   </tr>
   <tr>
     <td>double <b>min</b>(doubleVecList)</td>
-    <td>The minimum value in doubleVecList.</td>
+    <td>Returns the minimum value in the doubleVecList.</td>
   </tr>
   <tr>
     <td>double <b>norm</b>(doubleVecList)</td>
-    <td>The two-norm of the vector that is created from doubleVecList.
+    <td>Returns the two-norm of the vector that is created from the doubleVecList.
   </tr>
   <tr>
     <td>double <b>percentile</b>(doubleVec v, double p)</td>
-    <td>The percentile element of the vector v.</td>
+    <td>Returns the percentile element of the vector v.</td>
   </tr>
   <tr>
     <td>double <b>rand</b>()</td>
-    <td>A random value between 0.0 and 1.0.</td>
+    <td>Returns a random value between 0.0 and 1.0.</td>
   </tr>
   <tr>
     <td>double <b>range</b>(doubleVecList)</td>
-    <td>The difference between the min and max values in doubleVecList.</td>
+    <td>Returns the difference between the min and max values in the doubleVecList.</td>
   </tr>
   <tr>
     <td>double <b>std</b>(doubleVecList)</td>
-    <td>The sample standard deviation of the values in doubleVecList.</td>
+    <td>Returns the sample standard deviation of the values in the doubleVecList.</td>
   </tr>
   <tr>
     <td><b>stop</b>()</td>
-    <td>The function used to stop autoscaling expression evaluation.</td>
+    <td>Stops evaluation of the autoscaling expression.</td>
   </tr>
   <tr>
     <td>double <b>sum</b>(doubleVecList)</td>
-    <td>The sum of all the components of doubleVecList.</td>
+    <td>Returns the sum of all the components of the doubleVecList.</td>
   </tr>
   <tr>
     <td>timestamp <b>time</b>(string dateTime="")</td>
-    <td>The time stamp of the current time if no parameters are passed, or the time stamp of the dateTime string if it is passed. Supported dateTime formats are W3C-DTF and RFC 1123.</td>
+    <td>Returns the time stamp of the current time if no parameters are passed, or the time stamp of the dateTime string if it is passed. Supported dateTime formats are W3C-DTF and RFC 1123.</td>
   </tr>
   <tr>
     <td>double <b>val</b>(doubleVec v, double i)</td>
-    <td>The value of the element that is at location i in vector v, with a starting index of zero.</td>
+    <td>Returns the value of the element that is at location i in vector v, with a starting index of zero.</td>
   </tr>
 </table>
 
