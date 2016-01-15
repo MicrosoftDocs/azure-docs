@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 1/14/2016 -->
 
 >[AZURE.NOTE] When making changes to the StorSimple Adapter for SharePoint RBS configuration, you must be logged on with a user account that belongs to the Domain Admins group. Additionally, you must access the configuration page from a browser running on the same host as Central Administration.
 

@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/14/2016"
+     ms.date="01/15/2016"
      ms.author="hegate"/>
 
 # OS Platforms and hardware compatibility with device SDKs
@@ -117,7 +117,8 @@ Each device has been certified to work with our SDK in the OS and language chose
 |Device| Tested OS |Language|
 |:---------|:----------|:----------|
 |[Acme Systems Arietta G25](http://www.acmesystems.it/arietta) |Debian | C|
-|[ADLINK MXE-202i](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1589&seq=&id=&sid=&category=Fanless-Embedded-Computer_IoT-Gateway&utm_source=) |Wind River | Javascript|
+|[ADLINK MXE-202i](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1589) |Wind River | Javascript|
+|[ADLINK MXE-5400](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1318) |Windows 10 | C#|
 |[Advantech Co., ARK-2121L](http://www.advantech.com/products/ark-2000_series_embedded_box_pcs/ark-2121l/mod_dd092808-0832-44bc-b38a-945eb7e016bd) |Windows 10 | C#|
 |[Advantech Co., ARK-1123C](http://www.advantech.com/products/92d96fda-cdd3-409d-aae5-2e516c0f1b01/ark-1123c/mod_0b91165c-aa8c-485d-8d25-fde6f88f4873) |Windows 10 | C#|
 |[Advantech Co., LTD UNO-1372G](http://www.advantech.com/products/gf-bvl2/uno-1372g/mod_8e63b3c9-b606-4725-a1af-94fccb98bb1a) |[Windows 10 | C#|
