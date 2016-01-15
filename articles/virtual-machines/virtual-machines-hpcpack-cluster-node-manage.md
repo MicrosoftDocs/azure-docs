@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
@@ -39,11 +39,11 @@ run each of the scripts as an administrator.
     * **Import the Azure publish settings file**. To do this, run the following Azure PowerShell cmdlets on the head node:
 
     ```
-    Get-AzurePublishSettingsFile 
-         
+    Get-AzurePublishSettingsFile
+
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
-    
+
     * **Configure the Azure management certificate on the head node**. If you have the .cer file, import it in the CurrentUser\My certificate store and then run the following Azure PowerShell cmdlet for your Azure environment (either AzureCloud or AzureChinaCloud):
 
     ```
@@ -65,7 +65,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **ServiceName** - Name of the cloud service that new compute node VMs will be added to.
 
-* **ImageName** -Azure VM image name, which can be obtained through the Azure classic portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
+* **ImageName** - Azure VM image name, which can be obtained through the Azure classic portal or Azure PowerShell cmdlet **Get-AzureVMImage**. The image must meet the following requirements:
 
     1. A Windows operating system must be installed.
 
@@ -79,14 +79,14 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 * **DomainUserName** - Domain user name, which will be used to join the new VMs to the domain.
 
-* **DomainUserPassword*** Password of the domain user
+* **DomainUserPassword** - Password of the domain user.
 
-* **NodeNameSeries** (optional) 0 Naming pattern for the compute nodes. format must be &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%. For example, MyCN%10% means a series of the compute node names starting from MyCN11. If not specified, the script uses the configured node naming series in the HPC cluster.
+* **NodeNameSeries** (optional) - Naming pattern for the compute nodes. The format must be &lt;*Root\_Name*&gt;&lt;*Start\_Number*&gt;%. For example, MyCN%10% means a series of the compute node names starting from MyCN11. If not specified, the script uses the configured node naming series in the HPC cluster.
 
 ### Example
 
 The following example adds 20 size Large compute node VMs in the cloud
-service hpcservice1, based on the VM image hpccnimage1.
+service *hpcservice1*, based on the VM image *hpccnimage1*.
 
 ```
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
@@ -109,9 +109,9 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 
 ### Parameters
 
- * **Name** - Names of cluster nodes to be removed. Wildcards are supported. The parameter set name is Name. You can't specify both the **Name** and **Node** parameters.
+* **Name** - Names of cluster nodes to be removed. Wildcards are supported. The parameter set name is Name. You can't specify both the **Name** and **Node** parameters.
 
-* **Node** * The HpcNode object for the nodes to be removed, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You can't specify both the **Name** and **Node** parameters.
+* **Node** - The HpcNode object for the nodes to be removed, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You can't specify both the **Name** and **Node** parameters.
 
 * **DeleteVHD** (optional) - Setting to delete the associated disks for the VMs that are removed.
 
@@ -157,7 +157,7 @@ Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 
 ## Stop compute node VMs
 
-Stop compute nodes with the **Stop-HpcIaaSNode.ps1** script
+Stop compute nodes with the **Stop-HpcIaaSNode.ps1** script.
 
 ### Syntax
 
@@ -172,7 +172,7 @@ Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 
 * **Name**- Names of the cluster nodes to be stopped. Wildcards are supported. The parameter set name is Name. You cannot specify both the **Name** and **Node** parameters.
 
-* **Node** - The HpcNode object for the nodes to be stopped, which can be obtained through the HPC PowerShell cmdlet Get-HpcNode. The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
+* **Node** - The HpcNode object for the nodes to be stopped, which can be obtained through the HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). The parameter set name is Node. You cannot specify both the **Name** and **Node** parameters.
 
 * **Force** (optional) - Setting to force HPC nodes offline before stopping them.
 
@@ -186,5 +186,5 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 ## Next steps
 
 * If you want a way to
-automatically grow or shrink the Azure computing resources according to
-the current workload of jobs and tasks on the cluster, see [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+automatically grow or shrink the cluster nodes according to
+the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).

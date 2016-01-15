@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="01/09/2016"
-    ms.author="v-dedomi"/>
+    ms.author="robmcm"/>
 
 # How to use the Azure slave plug-in with Jenkins Continuous Integration
 
