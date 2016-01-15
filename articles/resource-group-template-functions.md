@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Resource Manager Template Expressions | Microsoft Azure"
+   pageTitle="Resource Manager Template Functions | Microsoft Azure"
    description="Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/31/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
-# Azure Resource Manager template expressions
+# Azure Resource Manager template functions
 
-This topic describes all of the expressions you can use in an Azure Resource Manager template.
+This topic describes all of the functions you can use in an Azure Resource Manager template.
 
-Template expressions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the expression expressly modifies case (such as toUpper or toLower), the expression will preserve the case. Certain resource types may have case requirements irrespective of how expressions are evaluated.
+Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function will preserve the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
 
-## Numeric expressions
+## Numeric functions
 
-Resource Manager provides the following expressions for working with integers:
+Resource Manager provides the following functions for working with integers:
 
 - [add](#add)
 - [copyIndex](#copyindex)
@@ -157,9 +157,9 @@ Returns the subtraction of the two provided integers.
 | operand2                           |   Yes    | Number to be subtracted.
 
 
-## String expressions
+## String functions
 
-Resource Manager provides the following expressions for working with strings:
+Resource Manager provides the following functions for working with strings:
 
 - [base64](#base64)
 - [concat](#concat)
@@ -433,15 +433,15 @@ The following example shows how to construct a link to a nested template based o
 
 
 
-## Deployment value expressions
+## Deployment value functions
 
-Resource Manager provides the following expressions for getting values from sections of the template and values related to the deployment:
+Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
 - [deployment](#deployment)
 - [parameters](#parameters)
 - [variables](#variables)
 
-To get values from resources, resource groups, or subscriptions, see [Resource expressions](#resource-expressions).
+To get values from resources, resource groups, or subscriptions, see [Resource functions](#resource-functions).
 
 <a id="deployment" />
 ### deployment
@@ -529,9 +529,9 @@ Returns the value of variable. The specified variable name must be defined in th
 
 
 
-## Resource expressions
+## Resource functions
 
-Resource Manager provides the following expressions for getting resource values:
+Resource Manager provides the following functions for getting resource values:
 
 - [listkeys](#listkeys)
 - [providers](#providers)
@@ -540,7 +540,7 @@ Resource Manager provides the following expressions for getting resource values:
 - [resourceId](#resourceid)
 - [subscription](#subscription)
 
-To get values from parameters, variables, or the current deployment, see [Deployment value expressions](#deployment-value-expressions).
+To get values from parameters, variables, or the current deployment, see [Deployment value functions](#deployment-value-functions).
 
 <a id="listkeys" />
 ### listKeys
