@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 
@@ -284,7 +284,7 @@ Perform the following steps to mount, initialize, and format your StorSimple vol
 
     ![volumes online](./media/storsimple-ova-deploy3-iscsi-setup/image33.png)
 
-## Next step
+## Next steps
 
 Learn how to use the local web UI to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
@@ -301,10 +301,6 @@ Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows h
     ![iSCSI initiator properties](./media/storsimple-ova-deploy3-iscsi-setup/image34.png)
 
 2. Save this string.
-
-### Next step
-
-Return to [Step 3: Add a volume](#step-3-add-a-volume).
 
 <!--Reference link-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx

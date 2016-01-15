@@ -117,6 +117,6 @@ The charts below show the network throughput for the Data 0 and Data 4, both 1 G
 
 ## Next steps
 
-Learn how to [use the StorSimple Manager service device dashboard](storsimple-device-dashboard.md).
+- Learn how to [use the StorSimple Manager service device dashboard](storsimple-device-dashboard.md).
 
-Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
