@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
