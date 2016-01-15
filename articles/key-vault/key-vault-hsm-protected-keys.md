@@ -23,7 +23,7 @@ For added assurance, when you use Azure Key Vault, you can import or generate ke
 
 Use the information in this topic to help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
 
-This functionality is not available for Azure China.
+This functionality is not available for Azure China. 
 
 >[AZURE.NOTE] For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)  
 >
@@ -324,6 +324,7 @@ For this final step, on the Internet-connected workstation, use the [Add-AzureKe
 	Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
 If the upload is successful, you see displayed the properties of the key that you just added.
+
 
 ##Next steps
 
