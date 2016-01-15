@@ -479,7 +479,7 @@ If it's more convenient, you can collect the parameters of an event in a separat
 
     telemetry.TrackEvent(event);
 
-
+> [AZURE.WARNING] Don't reuse the same telemetry item instance to call Track() multiple times. This may cause telemetry to be sent with incorrect configuration.
 
 #### <a name="timed"></a> Timing events
 
