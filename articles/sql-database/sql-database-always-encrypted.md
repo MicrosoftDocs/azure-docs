@@ -151,10 +151,6 @@ After the wizard is finished your database is setup for Always Encrypted and the
 
 You can verify the creation of the keys in SSMS by expanding **Clinic** > **Security** > **Always Encrypted Keys**. You can now see the new keys that the wizard generated for you.
 
-You can 
-
-
-
 
 ## Create a client application that works with the encrypted data
 
@@ -194,7 +190,7 @@ Add the following keyword to your connection string:
 
 The following code shows how to enable Always Encrypted by setting the [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) to [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
-    // Modify the connection string to enable Always Encrypted.
+    // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder = 
        new SqlConnectionStringBuilder("replace with your connection string");
 
