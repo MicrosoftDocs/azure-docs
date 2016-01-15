@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/10/2015"    
+	ms.date="01/14/2016"    
 	ms.author="juliako"/>
 
 
@@ -218,6 +218,9 @@ The following code example uses Media Services .NET SDK to perform the following
 
 This section shows how to customize a preset that generates thumbnails. The preset defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and add code that generates thumbnails.  
 
+>[AZURE.NOTE]The **SceneChangeDetection** setting in the following preset can only be set to true if you are encoding to a single  bitrate video. If you are encoding to a multi-bitrate video and set **SceneChangeDetection** to true, the encoder will return an error.  
+
+
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
 
 Make sure to review the [Considerations](media-services-custom-mes-presets-with-dotnet.md#considerations) section.
@@ -230,7 +233,7 @@ Make sure to review the [Considerations](media-services-custom-mes-presets-with-
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
-		  "SceneChangeDetection": "true",
+		"SceneChangeDetection": "true",
 	      "H264Layers": [
 	        {
 	          "Profile": "Auto",
