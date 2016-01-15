@@ -28,9 +28,9 @@ Release annotations are a feature of the cloud-based build and release service o
 To be able to create release annotations, you'll need to install one of the many Team Service extensions available in the Visual Studio Marketplace.
 
 1. Sign in to your [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) project.
-2. Open Visual Studio Marketplace, find the Application Insights Annotations extension, and add it to your Team Services account.
+2. In Visual Studio Marketplace, [get the Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), and add it to your Team Services account.
 
-![At top right of Team Services web page, open Marketplace. Search for and install Application Insights Annotations in your account.](./media/app-insights-annotations/10.png)
+![At top right of Team Services web page, open Marketplace. Select Visual Team Services and then under Build and Release, choose See More.](./media/app-insights-annotations/10.png)
 
 You only need to do this once for your Visual Studio Team Services account. Release annotations can now be configured for any project in your account. 
 
