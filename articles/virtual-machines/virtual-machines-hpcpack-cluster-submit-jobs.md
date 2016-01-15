@@ -81,7 +81,7 @@ you can optionally install and configure the web web components as part of the d
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
 
-4. When prompted to select a certificate, choose the certificate that corresponds to the public DNS name of the head node. For example, if you use the HPC Pack IaaS deployment script to create the cluster, the certificate name is of the form CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. If you use an Azure quickstart template, the certificate name is of the form CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.Computer.
+4. When prompted to select a certificate, choose the certificate that corresponds to the public DNS name of the head node. For example, if you use the HPC Pack IaaS deployment script to create the cluster, the certificate name is of the form CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net. If you use an Azure quickstart template, the certificate name is of the form CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.
 
     >[AZURE.NOTE] You need to select this certificate to submit jobs later to the head node from an on-premises computer. Don't select or configure a certificate that corresponds to the computer name of the head node in the Active Directory domain (for example, CN=*MyHPCHeadNode.HpcAzure.local*).
 
@@ -100,7 +100,7 @@ you can optionally install and configure the web web components as part of the d
 ## Step 2: Install the HPC Pack client utilities on an on-premises computer
 
 If you haven't already done so, download the
-HPC Pack setup files for a full installation from the [Microsoft Download
+HPC Pack setup files (full installation) from the [Microsoft Download
 Center](http://go.microsoft.com/fwlink/?LinkId=328024) to the client
 computer. When you begin the installation, choose the setup option for the HPC Pack client utilities.
 
