@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes (Update 2)
@@ -23,7 +23,7 @@
 
 This tutorial explains how to use the StorSimple Manager service to create and manage volumes on the StorSimple device and StorSimple virtual device with Update 2 installed.
 
-The StorSimple Manager service is an extension of the Azure portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
+The StorSimple Manager service is an extension of the Azure classic portal that lets you manage your StorSimple solution from a single web interface. In addition to managing volumes, you can use the StorSimple Manager service to create and manage StorSimple services, view and manage devices, view alerts, and view and manage backup policies and the backup catalog.
 
 ## Volume types
 
@@ -165,7 +165,7 @@ Modify a volume when you need to expand it or change the hosts that access the v
 
     > [AZURE.NOTE] You cannot change the **Enable a default backup** option for the volume.
 
-6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). The Azure portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
+6. Save your changes by clicking the check icon ![check-icon](./media/storsimple-manage-volumes-u2/HCS_CheckIcon.png). The Azure classic portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
 7. If you are expanding a volume, complete the following steps on your Windows host computer:
 
@@ -279,7 +279,8 @@ Perform the following steps to enable or disable monitoring for a volume.
 
 ## Next steps
 
-- Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
-- Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
+
+Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  

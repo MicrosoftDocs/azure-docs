@@ -90,6 +90,7 @@ Perform the following steps to delete an access control record.
 
 ## Next steps
 
-- Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md).
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+Learn more about [managing StorSimple volumes](storsimple-manage-volumes.md).
+
+Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  

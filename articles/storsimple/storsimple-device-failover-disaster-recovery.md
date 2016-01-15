@@ -157,10 +157,7 @@ If there are StorSimple devices that were registered just before a disaster occu
 
 ## Next steps
 
-After you have performed a failover, you may need to:
-
-- [Deactivate your StorSimple device](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
-- [Delete your StorSimple device](storsimple-deactivate-and-delete-device.md#delete-a-device)
+After you have performed a failover, you may need to [deactivate or delete your StorSimple device](storsimple-deactivate-and-delete-device.md).
 
 For information about how to use the StorSimple Manager service, go to [Use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
  
