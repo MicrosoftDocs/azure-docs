@@ -56,7 +56,7 @@ Returns the sum of the two provided integers.
 
 Returns the current index of an iteration loop. 
 
-This expression is always used with a **copy** object. For examples of using **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+This function is always used with a **copy** object. For examples of using **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 
 <a id="div" />
@@ -450,7 +450,7 @@ To get values from resources, resource groups, or subscriptions, see [Resource f
 
 Returns information about the current deployment operation.
 
-This expression returns the object that is passed during deployment. The properties in the returned object will differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object is in the following format:
+This function returns the object that is passed during deployment. The properties in the returned object will differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object is in the following format:
 
     {
         "name": "",
@@ -606,8 +606,8 @@ Enables an expression to derive its value from another resource's runtime state.
 
 The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
 
-By using the reference expression, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the **dependsOn** property. 
-The expression is not evaluated until the referenced resource has completed deployment.
+By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template. You do not need to also use the **dependsOn** property. 
+The function is not evaluated until the referenced resource has completed deployment.
 
 The following example references a storage account that is deployed in the same template.
 
@@ -636,7 +636,7 @@ You can retrieve a particular value from the returned object, such as the blob e
 		}
 	}
 
-If you do now wish to directly specify the API version in your template, you can use the **providers** expression and retrieve one the values, such as the latest version as shown below.
+If you do now wish to directly specify the API version in your template, you can use the [providers](#providers) function and retrieve one the values, such as the latest version as shown below.
 
     "outputs": {
 		"BlobUri": {
