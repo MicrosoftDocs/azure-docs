@@ -27,7 +27,7 @@ Learn how to use Azure Portal to create an HDInsight cluster (Hadoop, HBase, or 
 
 * **For Hadoop clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
 
-* **For Storm clusters (Windows and Linux)**, the Data Lake Store can be used to write data from a storm topology. Data Lake Store can also be used to store reference data that can then be read by a storm topology.
+* **For Storm clusters (Windows and Linux)**, the Data Lake Store can be used to write data from a Storm topology. Data Lake Store can also be used to store reference data that can then be read by a Storm topology.
 
 * **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
 

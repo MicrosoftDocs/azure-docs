@@ -20,7 +20,7 @@
 
 # Submit Spark jobs remotely using Livy with Spark clusters on HDInsight (Linux)
 
-Apache Spark cluster on Azure HDInight includes Livy, a REST interface for submitting jobs remotely to a Spark cluster from anywhere. For detailed documentation, see [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
+Apache Spark cluster on Azure HDInsight includes Livy, a REST interface for submitting jobs remotely to a Spark cluster from anywhere. For detailed documentation, see [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server).
 
 You can use Livy to run interactive Spark shells or submit batch jobs to be run on Spark. This article talks about using Livy to submit batch jobs. The syntax below uses Curl to make REST calls to the Livy endpoint.
 
