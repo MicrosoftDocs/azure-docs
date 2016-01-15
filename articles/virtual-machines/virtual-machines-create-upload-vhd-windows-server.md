@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="01/15/2016"
 	ms.author="cynthn"/>
 
 # Create and upload a Windows Server VHD to Azure
@@ -66,7 +66,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 ### Option 1: Create a storage account
 
-1. Sign in to the Azure classic portal.
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
 2. On the command bar, click **New**.
 
@@ -102,7 +102,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 ### Option 2: Get the storage account info
 
-1.	Sign in to the Azure classic portal.
+1.	Sign in to the [Azure classic portal](https://manage.windowsazure.com).
 
 2.	From the navigation pane, click **Storage**.
 
@@ -201,9 +201,7 @@ For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://ms
 
 	> [AZURE.TIP] If you get an error when you try to create a VM, with this error message, "The VHD https://XXXXX... has an unsupported virtual size of YYYY bytes. The size must be a whole number (in MBs)," it means your VHD is not a whole number of MBs and needs to be a fixed size VHD. Try using the **Add-AzureVMImage** PowerShell cmdlet instead of the Azure classic portal to add the image (see step 5, above). The Azure cmdlets ensure that the VHD meets the Azure requirements.
 
-## Next steps ##
 
-After creating a virtual machine, try to create a SQL Server virtual machine. For instructions, see [Provisioning a SQL Server virtual machine on Microsoft Azure](virtual-machines-provision-sql-server.md).
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Create a storage account in Azure]: #createstorage
