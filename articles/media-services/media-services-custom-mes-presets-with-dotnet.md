@@ -233,7 +233,7 @@ Make sure to review the [Considerations](media-services-custom-mes-presets-with-
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
-		"SceneChangeDetection": "true",
+	      "SceneChangeDetection": "true",
 	      "H264Layers": [
 	        {
 	          "Profile": "Auto",
