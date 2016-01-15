@@ -16,7 +16,7 @@
 	ms.date="01/13/2015" 
 	ms.author="jeffstok"/>
 
-#Microsoft Stream Analytic release notes
+#Stream Analytics release notes
 
 ## Notes for 12/10/2015 release of Stream Analytics ##
 

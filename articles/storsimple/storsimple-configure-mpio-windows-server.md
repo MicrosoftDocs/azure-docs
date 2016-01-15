@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/31/2015"
+   ms.date="01/05/2016"
    ms.author="alkohli" />
 
 # Configure Multipath I/O for your StorSimple device
@@ -43,7 +43,7 @@ To install this feature on your Windows Server host, complete the following proc
 
 #### To install MPIO on the host
 
-1. Open Server Manager on your Windows Server host. By default, Server Manager starts when a member of the Administrators group logs on to a computer that is running Windows Server 2012 R2 or Windows Server 2012. If Server Manager is not already open, click **Start > Server Manager**.
+1. Open Server Manager on your Windows Server host. By default, Server Manager starts when a member of the Administrators group logs on to a computer that is running Windows Server 2012 R2 or Windows Server 2012. If the Server Manager is not already open, click **Start > Server Manager**.
 ![Server Manager](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 2. Click **Server Manager > Dashboard > Add roles and features**. This starts the **Add Roles and Features** wizard.
 ![Add Roles And Features Wizard 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
@@ -118,10 +118,10 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 13. Initialize the disk and create a new volume. During the format process, select a block size of 64 KB.
 ![Disk Management](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. Under **Disk Management**, right-click the **Disk** and select **Properties**.
-15. In the StorSimple Model #### **Multi-Path Disk Device Properties** dialog box, click the **MPIO tab**.
+15. In the StorSimple Model #### **Multi-Path Disk Device Properties** dialog box, click the **MPIO** tab.
 ![StorSimple 8100 Multi-Path Disk DeviceProp.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 
-16. In the **DSM Name** section, click **Details** and verify that the parameters are set to the default parameters.The default parameters are:
+16. In the **DSM Name** section, click **Details** and verify that the parameters are set to the default parameters. The default parameters are:
 
 	- Path Verify Period = 30
 	- Retry Count = 3
@@ -130,7 +130,7 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 	- Path Verify Enabled = Unchecked.
 
 
->[AZURE.NOTE] **Please do not modify the default parameters.**
+>[AZURE.NOTE] **Do not modify the default parameters.**
 
 ## Step 4: Configure MPIO for high availability and load balancing
 

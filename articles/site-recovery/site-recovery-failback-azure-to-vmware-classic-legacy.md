@@ -16,7 +16,12 @@
    ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-# Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery
+# Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery (legacy)
+
+> [AZURE.SELECTOR]
+- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
+- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 ## Overview
 
@@ -445,6 +450,6 @@ machines again. Do this as follows:
  
 ## Next steps
 
-[Read about](site-recovery-vmware-to-azure.md) replicating VMware virtual machines to Azure
+[Read about](site-recovery-vmware-to-azure-classic-legacy.md) replicating VMware virtual machines to Azure
 
  
