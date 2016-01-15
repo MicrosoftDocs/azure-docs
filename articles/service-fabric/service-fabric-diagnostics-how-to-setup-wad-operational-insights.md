@@ -182,8 +182,10 @@ To see the steps for creating an Operational Insights workspace, go to the artic
 
 ### Configure an Operational Insights workspace to show the cluster logs
 Once you have created the Operational Insights workspace as described above, the next step is to configure the workspace to pull the logs from the Azure storage tables where they are being uploaded from the cluster by the Diagnostics extension. Currently this configuration can't be done through the Operational Insights portal and can only be done through PowerShell commands. Run the following PowerShell script:
+
 ```powershell
-<#
+
+    <#
     This script will configure an Operations Management Suite workspace (aka Operational Insights workspace) to read Diagnostics from an Azure Storage account.
 
     It will enable all supported data types (currently Windows Event Logs, Syslog, Service Fabric Events, ETW Events and IIS Logs).
@@ -193,7 +195,7 @@ Once you have created the Operational Insights workspace as described above, the
     If you have more than one OMS workspace you will be prompted for the workspace to configure.
 
     If you have more than one storage account you will be prompted for which storage account to configure.
-#>
+    #>
 
 Add-AzureAccount
 
@@ -281,6 +283,7 @@ if ($existingConfig) {
     New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers
 }
 ```
+
 Once you've configured the Operational Insights workspace to read from the Azure tables in your storage account, you should log into the portal, and go to the **Storage** tab for the Operational Insights resource. It should show something like this:
 ![Operational Insights storage configuration in the Azure portal](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
