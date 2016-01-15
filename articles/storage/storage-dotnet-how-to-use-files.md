@@ -5,7 +5,7 @@
             documentationCenter=".net"
             authors="robinsh"
             manager="carmonm"
-            editor="" />
+            editor="tysonn" />
 
 <tags ms.service="storage"
       ms.workload="storage"
@@ -13,7 +13,7 @@
       ms.devlang="dotnet"
       ms.topic="hero-article"
       ms.date="12/17/2015"
-      ms.author="robinsh" />
+      ms.author="jutang" />
 
 # How to use Azure File storage with Windows
 
@@ -21,9 +21,9 @@
 
 ## Overview
 
-Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure Files, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0. 
+Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure Files, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.
 
-You can create Azure file shares using the [Azure Portal](portal.azure.com), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because file shares are SMB shares, you can access them via standard and familiar file system APIs. 
+You can create Azure file shares using the [Azure Portal](portal.azure.com), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because file shares are SMB shares, you can access them via standard and familiar file system APIs.
 
 File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).
 
@@ -64,7 +64,7 @@ The [Azure Portal](portal.azure.com) provides a user interface for customers to 
 - Upload and download files to and from your file share
 - Monitor the actual usage of each file share
 - Adjust the share size quota
-- Get the `net use` command to use to mount the file share from a Windows client 
+- Get the `net use` command to use to mount the file share from a Windows client
 
 ## Use PowerShell to manage a file share
 
@@ -129,13 +129,13 @@ Beginning with version 0.9.7 of Azure PowerShell, you can copy a file to another
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Mount the file share 
+## Mount the file share
 
-With support for SMB 3.0, File storage now supports encryption and persistent handles from SMB 3.0 clients. Support for encryption means that SMB 3.0 clients can mount a file share from anywhere, including from: 
+With support for SMB 3.0, File storage now supports encryption and persistent handles from SMB 3.0 clients. Support for encryption means that SMB 3.0 clients can mount a file share from anywhere, including from:
 
 - An Azure virtual machine in the same region (also supported by SMB 2.1)
 - An Azure virtual machine in a different region (SMB 3.0 only)
-- An on-premises client application (SMB 3.0 only) 
+- An on-premises client application (SMB 3.0 only)
 
 When a client accesses File storage, the SMB version used depends on the SMB version supported by the operating system. The table below provides a summary of support for Windows clients. For more details, refer to << Which version of the SMB protocol blog post>>.
 
@@ -187,12 +187,12 @@ would with any other drive. You can issue standard file commands from the comman
 
 You can also mount the file share from a role running in an Azure cloud service by remoting into the role.
 
-### Mount the file share from an on-premises client running Windows 
+### Mount the file share from an on-premises client running Windows
 
 To mount the file share from an on-premises client, you must first take these steps:
 
-- Install a version of Windows which supports SMB 3.0. Windows will leverage SMB 3.0 encryption to securely transfer data between your on-premises client and the Azure file share in the cloud. 
-- Open Internet access for port 445 (TCP Outbound) in your local network, as is required by the SMB protocol. 
+- Install a version of Windows which supports SMB 3.0. Windows will leverage SMB 3.0 encryption to securely transfer data between your on-premises client and the Azure file share in the cloud.
+- Open Internet access for port 445 (TCP Outbound) in your local network, as is required by the SMB protocol.
 
 > [AZURE.NOTE] Some Internet service providers may block port 445, so you may need to check with your service provider.
 
@@ -240,7 +240,7 @@ You can retrieve your saved credentials from the app.config file using either th
 The example here shows how to retrieve your credentials using the `CloudConfigurationManager` class and encapsulate them with the `CloudStorageAccount` class. Add the following code to the `Main()` method in program.cs.
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
+    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
 ### Access the file share programmatically
 
@@ -473,37 +473,37 @@ You can enable metrics for File storage from the [Azure Portal](portal.azure.com
 
 ## File storage FAQ
 
-1. **Is Active Directory-based authentication supported by File storage?** 
+1. **Is Active Directory-based authentication supported by File storage?**
 
-	We currently do not support AD-based authentication or ACLs, but do have it in our list of feature requests. For now, the Azure Storage account keys are used to provide authentication to the file share. We do offer a workaround using shared access signatures (SAS) via the REST API or the client libraries. Using SAS, you can generate tokens with specific permissions that are valid over a specified time interval. For example, you can generate a token with read-only access to a given file. Anyone who possesses this token while it is valid has read-only access to that file. 
+	We currently do not support AD-based authentication or ACLs, but do have it in our list of feature requests. For now, the Azure Storage account keys are used to provide authentication to the file share. We do offer a workaround using shared access signatures (SAS) via the REST API or the client libraries. Using SAS, you can generate tokens with specific permissions that are valid over a specified time interval. For example, you can generate a token with read-only access to a given file. Anyone who possesses this token while it is valid has read-only access to that file.
 
 	SAS is only supported via the REST API or client libraries. When you mount the file share via the SMB protocol,  you can’t use a SAS to delegate access to its contents.
 
 2. **Are Azure File shares visible publicly over the Internet, or are they only reachable from Azure?**
- 
+
 	As long as port 445 (TCP Outbound) is open and your client supports the SMB 3.0 protocol (*e.g.*, Windows 8 or Windows Server 2012), your file share is available via the Internet.  
 
-3. **Does the network traffic between an Azure virtual machine and a file share count as external bandwidth that is charged to the subscription?** 
+3. **Does the network traffic between an Azure virtual machine and a file share count as external bandwidth that is charged to the subscription?**
 
 	If the file share and virtual machine are in different regions, the traffic between them will be charged as external bandwidth.
- 
-4. **If network traffic is between a virtual machine and a file share in the same region, is it free?** 
+
+4. **If network traffic is between a virtual machine and a file share in the same region, is it free?**
 
 	Yes. It is free if the traffic is in the same region.
 
-5. **Does connecting from on-premises virtual machines to Azure File Storage depend on Azure ExpressRoute?** 
+5. **Does connecting from on-premises virtual machines to Azure File Storage depend on Azure ExpressRoute?**
 
 	No. If you don’t have ExpressRoute, you can still access the file share from on-premises as long as you have port 445 (TCP Outbound) open for Internet access. However, you can use ExpressRoute with File storage if you like.
 
 6. **Is a "File Share Witness" for a failover cluster one of the use cases for Azure File Storage?**
 
 	This is not supported currently.
- 
+
 7. **File storage is replicated only via LRS or GRS right now, right?**  
 
 	We plan to support RA-GRS but there is no timeline to share yet.
 
-8. **When can I use existing storage accounts for Azure File Storage?** 
+8. **When can I use existing storage accounts for Azure File Storage?**
 
 	Azure File Storage is now enabled for all storage accounts.
 
@@ -547,6 +547,6 @@ See these links for more information about Azure File storage.
 ### Blog posts
 
 - [Azure File storage is now generally available](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)
-- [Deep dive with Azure File storage](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Deep dive with Azure File storage](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409)
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

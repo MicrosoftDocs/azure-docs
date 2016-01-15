@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="01/14/2016"
 	ms.author="josephd"/>
 
 # Base Configuration test environment with Azure Resource Manager
@@ -158,6 +158,8 @@ Next, configure DC1 as a domain controller and DNS server for the corp.contoso.c
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSForest -DomainName corp.contoso.com -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
+Note that these commands can take a few minutes to complete.
+
 After DC1 restarts, reconnect to the DC1 virtual machine.
 
 1.	In the Azure portal, click **Virtual machines**, and then click the **DC1** virtual machine.
@@ -169,12 +171,15 @@ After DC1 restarts, reconnect to the DC1 virtual machine.
 - Password: [Local administrator account password]
 6.	When prompted by a Remote Desktop Connection message box referring to certificates, click **Yes**.
 
-Next, create a user account in Active Directory that will be used when logging in to CORP domain member computers. Run these commands one at a time at an administrator-level Windows PowerShell command prompt.
+Next, create a user account in Active Directory that will be used when logging in to CORP domain member computers. Run this command at an administrator-level Windows PowerShell command prompt.
 
 	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
-	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
-Note that the first command results in a prompt to supply the User1 account password. Because this account will be used for remote desktop connections for all CORP domain member computers, choose a strong password. To check its strength, see [Password Checker: Using Strong Passwords](https://www.microsoft.com/security/pc-security/password-checker.aspx). Record the User1 account password and store it in a secured location.
+Note that this command prompts you to supply the User1 account password. Because this account will be used for remote desktop connections for all CORP domain member computers, *choose a strong password*. To check its strength, see [Password Checker: Using Strong Passwords](https://www.microsoft.com/security/pc-security/password-checker.aspx). Record the User1 account password and store it in a secured location.
+
+Next, configure the new User1 account as an Enterprise Administrator. Run this command at the administrator-level Windows PowerShell command prompt.
+
+	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
 Close the Remote Desktop session with DC1 and then reconnect using the CORP\User1 account.
 
@@ -291,7 +296,7 @@ Your base configuration in Azure is now ready for application development and te
 
 ## Next step
 
-- Use this as a basis to build the [simulated hybrid cloud test environment](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+- [Add a new virtual machine](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) to the Corpnet subnet, such as one running Microsoft SQL Server.
 
 
 ## <a id="costs"></a>Minimizing the costs of test environment virtual machines in Azure

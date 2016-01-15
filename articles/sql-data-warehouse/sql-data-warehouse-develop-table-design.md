@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Table design in SQL Data Warehouse #
 SQL Data Warehouse is a massively parallel processing (MPP) distributed database system. It stores data across many different locations known as **distributions**. Each **distribution** is like a bucket; storing a unique subset of the data in the data warehouse. By spreading the data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.

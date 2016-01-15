@@ -17,7 +17,7 @@
 	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
-# Scale Azure Stream Analytics jobs to increase stream data processing throughput #
+# Scale Stream Analytics jobs to increase data processing throughput #
 
 Learn how to tune analytics jobs and calculate *streaming units* for Stream Analytics, how to scale Stream Analytics jobs by configuring input partitions, tuning the analytics query definition and setting job streaming units. 
 
