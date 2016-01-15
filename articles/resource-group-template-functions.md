@@ -199,16 +199,31 @@ The following example show how to use the base64 function.
 
 **concat (arg1, arg2, arg3, ...)**
 
-Combines multiple string values and returns the resulting string value. This function can take any number of arguments.
+Combines multiple values and returns the concatenated result. This function can take any number of arguments, and can accept either strings or arrays for the parameters.
 
-The following example shows how to combine multiple values to return a value.
+The following example shows how to combine multiple string values to return a concatenated string.
 
     "outputs": {
         "siteUri": {
           "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+          "value": "[concat('http://', reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+The next example shows how to combine two arrays.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
 
 <a id="padleft" />
 ### padLeft
@@ -431,7 +446,15 @@ The following example shows how to construct a link to a nested template based o
 
     "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 
+## Array functions
 
+Resource Manager provides several functions for working with array values.
+
+To combine multiple arrays into a single array, use [concat](#concat).
+
+To get the number of elements in an array, use [length](#length).
+
+To divide a string value into an array of string values, use [split](#split).
 
 ## Deployment value functions
 
