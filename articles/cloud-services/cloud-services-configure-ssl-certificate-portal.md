@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 
@@ -22,12 +22,12 @@
 # Configuring SSL for an application in Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 - [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
 
 Secure Socket Layer (SSL) encryption is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application.
 
-> [AZURE.NOTE] The procedures in this task apply to Azure Cloud Services; for Websites, see [Configuring an SSL certificate for an Azure website](../web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE] The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service-web/web-sites-configure-ssl-certificate.md).
 
 This task will use a production deployment; information on using a staging deployment is provided at the end of this topic.
 
@@ -70,7 +70,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
         ...
         </WebRole>
 
-    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located. We have chosen to store the certificate in the CA (Certificate Authority)tore, but you can choose other options as well. See [How to associate a certificate with a service][] for more information.
+    The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located.
 
 2.  In your service definition file, add an **InputEndpoint** element
     within the **Endpoints** section to enable HTTPS:
