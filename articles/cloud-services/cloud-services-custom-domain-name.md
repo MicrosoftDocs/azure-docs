@@ -149,7 +149,7 @@ This example demonstrates creating an A record for the root domain. If you wish 
 ## Next steps
 
 * [How to Manage Cloud Services](cloud-services-how-to-manage.md)
-* [How to Map CDN Content to a Custom Domain](cdn-map-content-to-custom-domain.md)
+* [How to Map CDN Content to a Custom Domain](../cdn/cdn-map-content-to-custom-domain.md)
 * [General configuration of your cloud service](cloud-services-how-to-configure.md).
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy.md).
 * Configure [ssl certificates](cloud-services-configure-ssl-certificate.md).
