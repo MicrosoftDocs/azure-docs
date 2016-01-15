@@ -34,13 +34,13 @@ You will need administrator privileges to provision and configure a virtual devi
 
 Here you will find the prerequisites to provision a virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012, and 2012 R2.
 
-### For StorSimple Manager service
+### For the StorSimple Manager service
 
 Before you begin, make sure that:
 
 -   You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
--   You have downloaded the virtual device image for Hyper-V from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image.md).
+-   You have downloaded the virtual device image for Hyper-V from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
 
 ### For the StorSimple virtual device 
 
