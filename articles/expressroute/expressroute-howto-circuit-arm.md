@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit using Azure Resource Manager and PowerShell
@@ -63,7 +63,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 	Before creating an ExpressRoute circuit, you will need the list of connectivity providers, supported locations, and bandwidth options. The PowerShell cmdlet *Get-AzureRmExpressRouteServiceProvider* returns this information, which you’ll use in later steps.
 
-		PS C:\> Get-AzureRmExpressRouteServiceProvider
+		Get-AzureRmExpressRouteServiceProvider
 
 	Check to see if your connectivity provider is listed there. Make note of the following as you will need them to create circuits.
 	
@@ -94,13 +94,13 @@ This article walks you through the steps to create an ExpressRoute circuit using
 	
 	The response will contain the service key. You can get detailed descriptions of all the parameters by running the following:
 
-		get-help New-AzureRmExpressRouteCircuit -detailed 
+		Get-Help New-AzureRmExpressRouteCircuit -detailed 
 
 4. **List all ExpressRoute circuits.**
 
 	You can run the *Get-AzureRmExpressRouteCircuit* command to get a list of all ExpressRoute circuits you created.
 
-		#Getting service key
+		
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 	The response will be something similar to the example below:
@@ -160,7 +160,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 	You can get detailed descriptions of all the parameters by running the following:
 
-		get-help Get-AzureRmExpressRouteCircuit -detailed 
+		Get-Help Get-AzureRmExpressRouteCircuit -detailed 
 
 5. **Send the Service Key to your connectivity provider for provisioning.**
 
@@ -216,17 +216,22 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 6. **Create your routing configuration.**
 	
-	Refer to the [ExpressRoute circuit routing configuration (create and modify circuit peerings)](expressroute-howto-routing-arm.md) page for step-by-step instructions. 
+	Refer to [Create and modify routing for an ExpressRoute circuit](expressroute-howto-routing-arm.md) for step-by-step instructions. 
+
+>[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+
 
 7. **Link a VNet to an ExpressRoute circuit.** 
 
-	Next, link a VNet to your ExpressRoute circuit. You can use [this template](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection) when working with the Azure Resource Manager deployment mode. We're currently working on PowerShell steps.
+	Next, link a VNet to your ExpressRoute circuit. Refer to [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) for step-by-step instructions.
 
 ##  To get the status of an ExpressRoute circuit
 
 You can retrieve this information at any time using the *Get-AzureRmExpressRouteCircuit* cmdlet. Making the call without any parameters will list all circuits. 
 
 		Get-AzureRmExpressRouteCircuit
+
+The response will be similar to the example below:
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -254,7 +259,8 @@ You can get information on a specific ExpressRoute circuit by passing the resour
 
 		Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-	The response will be something similar to the example below:
+
+The response will be something similar to the example below:
 
 		Name                             : ExpressRouteARMCircuit
 		ResourceGroupName                : ExpressRouteResourceGroup
@@ -280,7 +286,7 @@ You can get information on a specific ExpressRoute circuit by passing the resour
 
 You can get detailed descriptions of all the parameters by running the following:
 
-		get-help get-azurededicatedcircuit -detailed 
+		Get-Help Get-azurededicatedcircuit -detailed 
 
 ## To modify an ExpressRoute circuit
 
