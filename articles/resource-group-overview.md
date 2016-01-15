@@ -111,7 +111,7 @@ For best practices, see [Security considerations for Azure Resource Manager](bes
 
 ## Manage resources with customized policies
 
-Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include scenarios as diverse as enforcing a naming convention on resources, limiting which regions can host a type of resource, or requiring a tag value on resources to organize billing by departments. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include scenarios as diverse as enforcing a naming convention on resources, limiting which types and instances of resources can be deployed,  limiting which regions can host a type of resource, or requiring a tag value on resources to organize billing by departments. You create policies to help reduce costs and maintain consistency in your subscription. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
 ## Consistent management layer
 
