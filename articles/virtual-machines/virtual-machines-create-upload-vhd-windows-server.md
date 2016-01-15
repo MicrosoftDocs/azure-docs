@@ -32,7 +32,7 @@ This article assumes you have:
 
 1. **An Azure subscription** - If you don't have one, you can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card won't be charged, unless you explicitly change your settings and ask to be charged. You also can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
-2. **Microsoft Azure PowerShell** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Microsoft Azure Downloads](http://azure.microsoft.com/downloads/). A tutorial to install and configure the module is available [here](powershell-install-configure.md). You'll use the [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the VHD.
+2. **Microsoft Azure PowerShell** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Microsoft Azure Downloads](http://azure.microsoft.com/downloads/). A tutorial to install and configure the module is available [here](../powershell-install-configure.md). You'll use the [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the VHD.
 
 3. **A supported Windows operating system stored in a .vhd file and attached to a virtual machine** - Multiple tools exist to create .vhd files. For example, you can use Hyper-V to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For details about operating systems, see [Microsoft server software support for Microsoft Azure virtual machines](http://go.microsoft.com/fwlink/p/?LinkId=393550).
 
@@ -114,7 +114,7 @@ You need a storage account in Azure so you have a place to upload the .vhd file.
 
 Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure. You can use the Microsoft Azure Active Directory method or the certificate method to do this.
 
-> [AZURE.TIP] To get started with Azure PowerShell, see [How to install and configure Microsoft Azure PowerShell](install-configure-powershell.md). For general information, see [Get Started with Microsoft Azure Cmdlets.](https://msdn.microsoft.com/library/azure/jj554332.aspx)
+> [AZURE.TIP] To get started with Azure PowerShell, see [How to install and configure Microsoft Azure PowerShell](../install-configure-powershell.md). For general information, see [Get Started with Microsoft Azure Cmdlets.](https://msdn.microsoft.com/library/azure/jj554332.aspx)
 
 ### Option 1: Use Microsoft Azure AD
 
