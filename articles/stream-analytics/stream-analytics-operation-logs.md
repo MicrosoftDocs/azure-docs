@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilize operation and service logs in Stream Analytics | Microsoft Azure" 
+	pageTitle="Debug using operation and service logs in Stream Analytics | Microsoft Azure" 
 	description="How-to use Stream Analytics operation logs" 
 	keywords="service logs"
 	services="stream-analytics" 
@@ -17,7 +17,7 @@
 	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Understand Stream Analytics service and operation logs
+# debug Stream Analytics jobs using service and operation logs
 
 All Azure services supply operational logging messages to users to record details related to management operations. In Azure Stream Analytics, this information can be used for debugging purposes such as viewing job status, job progress, and failure messages to track the progress of a job over time, from start to processing to output.
 

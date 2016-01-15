@@ -2,7 +2,7 @@
 	pageTitle="Get Started with Azure Mobile Engagement for iOS in Swift"
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for iOS Apps."
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />

@@ -5,7 +5,7 @@
 	documentationCenter="nodejs"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="12/01/2015"
-	ms.author="robmcm"/>
+	ms.author="micurd"/>
 
 
 # How to use Azure Table storage from Node.js

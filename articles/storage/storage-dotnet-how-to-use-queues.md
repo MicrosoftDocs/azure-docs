@@ -1,20 +1,20 @@
 <properties
 	pageTitle="How to use Queue storage from .NET | Microsoft Azure"
-	description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages."
+	description="Learn how to use Queue storage to create and delete queues and insert, peek, get, and delete queue messages."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/04/2015"
-	ms.author="robinsh"/>
+	ms.author="gusapost"/>
 
 # How to use Queue storage from .NET
 
@@ -297,7 +297,7 @@ to learn about more complex storage tasks.
     - [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
 - Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/).
 - View more feature guides to learn about additional options for storing data in Azure.
-    - Use [Table Storage](storage-dotnet-how-to-use-tables.md) to store structured data. 
+    - Use [Table Storage](storage-dotnet-how-to-use-tables.md) to store structured data.
     - Use [Blob Storage](storage-dotnet-how-to-use-blobs.md) to store unstructured data.
     - Use [SQL Database](sql-database-dotnet-how-to-use.md) to store relational data.
 
@@ -310,4 +310,3 @@ to learn about more complex storage tasks.
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
- 

@@ -5,7 +5,7 @@
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 # Download the Azure SDK for Java #
@@ -49,50 +49,50 @@ Once your project has been configured to use Maven for build, you can add the th
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management-compute</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management-network</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management-sql</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management-storage</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-management-websites</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-media</artifactId>
-        <version>0.6.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-servicebus</artifactId>
-        <version>0.7.0</version>
+        <version>n.n.n</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-serviceruntime</artifactId>
-        <version>0.6.0</version>
+        <version>n.n.n</version>
     </dependency>
 
-**Note:** Within each `<version>` element in the preceding example, replace the version numbers in this example with valid version numbers, which can be obtained from the [Azure Libraries Repository on Maven][].
+**Note:** Within each `<version>` element in the preceding sample, replace the "n.n.n" placeholders in this example with valid version numbers, which can be obtained from the [Azure Libraries Repository on Maven][].
 
 ## Installing the Azure Toolkit for Eclipse ##
 

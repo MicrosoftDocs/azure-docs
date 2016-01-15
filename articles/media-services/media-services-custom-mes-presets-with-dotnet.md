@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015"    
+	ms.date="01/14/2016"    
 	ms.author="juliako"/>
 
 
@@ -29,7 +29,7 @@ The custom presets that perform the following encoding tasks are demonstrated:
 - [Trim a video (clipping)](media-services-custom-mes-presets-with-dotnet.md#trim_video)
 - [Create an overlay](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Insert a silent audio track when input has no audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
-
+- [Disable auto de-interlacing](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 
 ##<a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -218,6 +218,9 @@ The following code example uses Media Services .NET SDK to perform the following
 
 This section shows how to customize a preset that generates thumbnails. The preset defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and add code that generates thumbnails.  
 
+>[AZURE.NOTE]The **SceneChangeDetection** setting in the following preset can only be set to true if you are encoding to a single  bitrate video. If you are encoding to a multi-bitrate video and set **SceneChangeDetection** to true, the encoder will return an error.  
+
+
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
 
 Make sure to review the [Considerations](media-services-custom-mes-presets-with-dotnet.md#considerations) section.
@@ -230,7 +233,7 @@ Make sure to review the [Considerations](media-services-custom-mes-presets-with-
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
-		  "SceneChangeDetection": "true",
+	      "SceneChangeDetection": "true",
 	      "H264Layers": [
 	        {
 	          "Profile": "Auto",
@@ -423,12 +426,18 @@ The following considerations apply:
 
 This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset which is captured or archived from a live stream – the details for this are available in [this blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below).
+To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). Note that **Sources** should be placed at the top of the schema.
 
 ###<a id="json"></a>JSON preset
 	
 	{
 	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "StartTime": "00:00:04",
+	      "Duration": "00:00:16"
+	    }
+	  ],
 	  "Codecs": [
 	    {
 	      "KeyFrameInterval": "00:00:02",
@@ -536,20 +545,132 @@ To trim your videos, you can take any of the MES presets documented [here](https
 	        "Type": "MP4Format"
 	      }
 	    }
-	  ],
-	  "Sources": [
-	    {
-	      "StartTime": "00:00:04",
-	      "Duration": "00:00:16"
-	    }
 	  ]
 	} 
 
+###XML preset
+	
+To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below).
 
+	<?xml version="1.0" encoding="utf-16"?>
+	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+	  <Sources>
+	    <Source StartTime="PT4S" Duration="PT14S"/>
+	  </Sources>
+	  <Encoding>
+	    <H264Video>
+	      <KeyFrameInterval>00:00:02</KeyFrameInterval>
+	      <H264Layers>
+	        <H264Layer>
+	          <Bitrate>3400</Bitrate>
+	          <Width>1280</Width>
+	          <Height>720</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>3400</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>2250</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>2250</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1500</Bitrate>
+	          <Width>960</Width>
+	          <Height>540</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1500</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>1000</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>1000</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>650</Bitrate>
+	          <Width>640</Width>
+	          <Height>360</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>650</MaxBitrate>
+	        </H264Layer>
+	        <H264Layer>
+	          <Bitrate>400</Bitrate>
+	          <Width>320</Width>
+	          <Height>180</Height>
+	          <FrameRate>0/1</FrameRate>
+	          <Profile>Auto</Profile>
+	          <Level>auto</Level>
+	          <BFrames>3</BFrames>
+	          <ReferenceFrames>3</ReferenceFrames>
+	          <Slices>0</Slices>
+	          <AdaptiveBFrame>true</AdaptiveBFrame>
+	          <EntropyMode>Cabac</EntropyMode>
+	          <BufferWindow>00:00:05</BufferWindow>
+	          <MaxBitrate>400</MaxBitrate>
+	        </H264Layer>
+	      </H264Layers>
+	      <Chapters />
+	    </H264Video>
+	    <AACAudio>
+	      <Profile>AACLC</Profile>
+	      <Channels>2</Channels>
+	      <SamplingRate>48000</SamplingRate>
+	      <Bitrate>128</Bitrate>
+	    </AACAudio>
+	  </Encoding>
+	  <Outputs>
+	    <Output FileName="{Basename}_{Width}x{Height}_{VideoBitrate}.mp4">
+	      <MP4Format />
+	    </Output>
+	  </Outputs>
+	</Preset>
 
 ##<a id="overlay"></a>Create an overlay
 
-The Media Encoder Standard allows you to overlay an image (for example, jpg or gif) onto an existing video. The preset defined below is a basic example  of a video overlay.
+The Media Encoder Standard allows you to overlay an image onto an existing video. Currently, the following formats are supported: png, jpg, gif, and bmp. The preset defined below is a basic example  of a video overlay.
 
 >[AZURE.NOTE]Currently, the overlay opacity setting is not supported.
 
@@ -723,6 +844,39 @@ You can take any of the MES presets documented [here](https://msdn.microsoft.com
       <SamplingRate>44100</SamplingRate>
       <Bitrate>96</Bitrate>
     </AACAudio>
+
+##<a id="deinterlacing"></a>Disable auto de-interlacing
+
+Customers don’t need to do anything if they like the interlace contents to be automatically de-interlaced. When the auto de-interlacing is on (default) the MES does the auto detection of interlaced frames and only de-interlaces frames marked as interlaced.
+
+You can turn the auto de-interlacing off. This option is not recommended.
+
+###JSON preset
+	
+	"Sources": [
+	{
+	 "Filters": {
+	    "Deinterlace": {
+	      "Mode": "Off"
+	    }
+	  },
+	}
+	]
+
+###XML preset
+	
+	<Sources>
+	<Source>
+	  <Filters>
+	    <Deinterlace>
+	      <Mode>Off</Mode>
+	    </Deinterlace>
+	  </Filters>
+	</Source>
+	</Sources>
+
+
+
 
 ##Media Services learning paths
 
