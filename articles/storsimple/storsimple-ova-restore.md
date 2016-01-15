@@ -133,4 +133,4 @@ Every share has a *.backups* folder that contains the most recent backups. The u
 
 ## Next steps
 
-Learn more about how to [Administer your StorSimple Virtual Array using local web UI](storsimple-ova-web-ui-admin.md).
+Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).

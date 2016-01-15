@@ -140,7 +140,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
        ![Register device](./media/storsimple-ova-deploy3-iscsi-setup/image11.png)
 
-10. Return to the Azure Portal. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
+10. Return to the Azure classic portal. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
 
     ![Devices page](./media/storsimple-ova-deploy3-iscsi-setup/image12.png)
 
@@ -286,7 +286,7 @@ Perform the following steps to mount, initialize, and format your StorSimple vol
 
 ## Next step
 
-Manage your device using the detailed instructions in [Use the Web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
+Learn how to use the local web UI to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 
 ## Appendix A: Get the IQN of a Windows Server host
 

@@ -46,7 +46,7 @@ For any device failover, the following prerequisites should be satisfied:
 
 -   The source device needs to be in a **Deactivated** state.
 
--   The target device needs to show up as **Active** in the Azure portal. You will need to provision a target virtual device of the same or higher capacity. You should then use the local web UI to configure and successfully register the virtual device.
+-   The target device needs to show up as **Active** in the Azure classic portal. You will need to provision a target virtual device of the same or higher capacity. You should then use the local web UI to configure and successfully register the virtual device.
 
 	> [AZURE.IMPORTANT]
 	> 
@@ -170,4 +170,4 @@ If one of the prechecks is not satisfied, then you will see precheck failures.
 
 ## Next steps
 
-Learn more about how to [Administer your StorSimple Virtual Array using local web UI](storsimple-ova-web-ui-admin.md).
+Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).

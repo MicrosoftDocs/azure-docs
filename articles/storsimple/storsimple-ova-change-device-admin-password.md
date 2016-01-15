@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Change the StorSimple Virtual Array device administrator password (preview)
@@ -27,7 +27,7 @@ You can also use either the local web UI or the Azure classic portal to change t
 
 Perform the following steps to change the device administrator password through the Azure classic portal.
 
-#### To change the device administrator password via the portal
+#### To change the device administrator password via the Azure classic portal
 
 1. In the portal, click **Devices** > **Configuration** for your device.
 

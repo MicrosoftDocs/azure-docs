@@ -94,7 +94,7 @@ To create a virtual device, you will need:
 
 Perform the following steps to provision a virtual device in your hypervisor.
 
-1.  Copy the virtual device image on your system. This is the image that you have downloaded through the Azure portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
+1.  Copy the virtual device image on your system. This is the image that you have downloaded through the Azure classic portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
 
 2.  Log into the ESXi server using the vSphere client. You will need to have administrator privileges to create a virtual machine.
 

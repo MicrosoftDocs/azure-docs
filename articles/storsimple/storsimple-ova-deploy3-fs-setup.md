@@ -134,7 +134,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 		![](./media/storsimple-ova-deploy3-fs-setup/image13.png)
 	
 
-1.  Return to the Azure Portal. On the Devices page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
+1.  Return to the Azure classic portal. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
 
 ![](./media/storsimple-ova-deploy3-fs-setup/image12.png)
 
@@ -224,4 +224,4 @@ You will now need to connect to the share(s) that you created in the previous st
 
 ## Next steps
 
-Learn how to [Administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md) using the local web UI.
+Learn how to use the local web UI to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
