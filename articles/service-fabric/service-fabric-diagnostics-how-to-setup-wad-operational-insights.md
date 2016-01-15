@@ -59,6 +59,7 @@ Alternatively, you can download the Resource Manager sample, makes changes to it
 Additionally, before calling this deployment command, you may need to do some setup, including adding your Azure account(`Add-AzureAccount`), choosing a subscription(`Select-AzureSubscription`), switching to Resource Manager mode(`Switch-AzureMode AzureResourceManager`), and creating the resource group if you haven't already(`New-AzureResourceGroup`).
 
 ```powershell
+
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
@@ -67,7 +68,9 @@ If you have an existing cluster that doesn't have Diagonistics deployed, you can
 Create the two files, WadConfigUpdate.json and WadConfigUpdateParams.json, by using the JSON below.
 
 ##### WadConfigUpdate.json
+
 ```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -147,7 +150,9 @@ Create the two files, WadConfigUpdate.json and WadConfigUpdateParams.json, by us
 
 ##### WadConfigUpdateParams.json
 Replace the vmNamePrefix with the prefix you chose for VM names while creating your cluster. Then edit the vmStorageAccountName to be the storage account where you want to upload the logs from the VMs.
+
 ```json
+
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -168,7 +173,9 @@ Replace the vmNamePrefix with the prefix you chose for VM names while creating y
 After creating the JSON files as described above, change them for the specifics of your environment. Then call the following command, passing in the name of the resource group for your Service Fabric cluster. Once this command is run successfully, Diagnostics will be deployed on all the VMs and will start uploading the logs from the cluster to tables in the specified Azure Storage account.
 
 Additionally, before calling this deployment command you may need to do some setup, including adding your Azure account(`Add-AzureAccount`), choosing the right subscription(`Select-AzureSubscription`), and switching to Resource Manager mode(`Switch-AzureMode AzureResourceManager`).
-```powershell
+
+```ps
+
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToWADConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
@@ -183,7 +190,7 @@ To see the steps for creating an Operational Insights workspace, go to the artic
 ### Configure an Operational Insights workspace to show the cluster logs
 Once you have created the Operational Insights workspace as described above, the next step is to configure the workspace to pull the logs from the Azure storage tables where they are being uploaded from the cluster by the Diagnostics extension. Currently this configuration can't be done through the Operational Insights portal and can only be done through PowerShell commands. Run the following PowerShell script:
 
-```powershell
+```ps
 
     <#
     This script will configure an Operations Management Suite workspace (aka Operational Insights workspace) to read Diagnostics from an Azure Storage account.
