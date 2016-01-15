@@ -11,7 +11,7 @@ The rest of this document provides details on enabling HTTPS for custom domains,
 To enable HTTPS for a custom domain, such as **contoso.com**, you must first [configure a custom domain name in Azure App Service](../articles/app-service-web/web-sites-custom-domain-name.md). Then, you do the following:
 
 1. [Get an SSL certificate](#bkmk_getcert)
-2. [Configure Standard pricing tier](#bkmk_standardmode)
+2. [Configure Standard or Premium pricing tier](#bkmk_standardmode)
 2. [Configure SSL in your app](#bkmk_configuressl)
 3. [Enforce SSL on your app](#bkmk_enforce) (Optional)
 
@@ -388,7 +388,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 <a name="bkmk_standardmode"></a>
 ## 2. Configure Standard pricing tier
 
-Enabling HTTPS for a custom domain is only available for the **Standard** tier in Azure App Service. Use the following steps to switch your App Service plan to **Standard** tier.
+Enabling HTTPS for a custom domain is only available for the **Standard** and **Premium** pricing tiers in Azure App Service. Use the following steps to switch your App Service plan to **Standard** tier.
 
 > [AZURE.NOTE] Before switching an app from the **Free** tier to **Standard** tier, you should remove spending caps in place for your subscription, otherwise you risk your app becoming unavailable if you reach your caps before the billing period ends. For more information on shared and **Standard** tier, see [Pricing Details][pricing].
 
