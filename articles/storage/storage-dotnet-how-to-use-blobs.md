@@ -5,14 +5,14 @@
 	documentationCenter=".net"
 	authors="tamram"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
@@ -98,7 +98,7 @@ Azure Blob Storage supports block blobs and page blobs.  In the majority of case
 To upload a file to a block blob, get a container reference and use it to get
 a block blob reference. Once you have a blob reference, you can upload any
 stream of data to it by calling the **UploadFromStream** method. This operation will create the blob if it didn't previously exist,
-or overwrite it if it does exist. 
+or overwrite it if it does exist.
 
 The following example shows how to upload a blob into a container and assumes that the container was already created.
 
@@ -316,8 +316,8 @@ Because the sample method calls an asynchronous method, it must be prefaced with
 
 ## Writing to an append blob
 
-An append blob is a new type of blob, introduced with version 5.x of the Azure storage client library for .NET. An append blob is optimized for append operations, such as logging. Like a block blob, an append blob is comprised of blocks, but when you add a new block to an append blob, it is always appended to the end of the blob. You cannot update or delete an existing block in an append blob. The block IDs for an append blob are not exposed as they are for a block blob. 
- 
+An append blob is a new type of blob, introduced with version 5.x of the Azure storage client library for .NET. An append blob is optimized for append operations, such as logging. Like a block blob, an append blob is comprised of blocks, but when you add a new block to an append blob, it is always appended to the end of the blob. You cannot update or delete an existing block in an append blob. The block IDs for an append blob are not exposed as they are for a block blob.
+
 Each block in an append blob can be a different size, up to a maximum of 4 MB, and an append blob can include a maximum of 50,000 blocks. The maximum size of an append blob is therefore slightly more than 195 GB (4 MB X 50,000 blocks).
 
 The example below creates a new append blob and appends some data to it, simulating a simple logging operation.
@@ -332,7 +332,7 @@ The example below creates a new append blob and appends some data to it, simulat
     //Get a reference to a container.
     CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
 
-    //Create the container if it does not already exist. 
+    //Create the container if it does not already exist.
     container.CreateIfNotExists();
 
     //Get a reference to an append blob.
@@ -348,7 +348,7 @@ The example below creates a new append blob and appends some data to it, simulat
     Random rnd = new Random();
     byte[] bytes = new byte[numBlocks];
     rnd.NextBytes(bytes);
-        
+
     //Simulate a logging operation by writing text data and byte data to the end of the append blob.
     for (int i = 0; i < numBlocks; i++)
     {
@@ -390,4 +390,3 @@ to learn more.
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
- 

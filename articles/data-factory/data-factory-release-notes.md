@@ -341,7 +341,7 @@ See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.mi
     
   		See [Use custom activities in an Azure Data Factory pipeline][adf-custom-activities] for a walkthrough on how to create a custom activity and use it in an Azure Data Factory pipeline.  
 
-[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-editor]: data-factory-editor.md
 

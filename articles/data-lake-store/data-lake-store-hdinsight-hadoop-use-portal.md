@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Provision HDInsight Hadoop clusters with Azure Data Lake Store using the portal | Azure" 
-   description="Use Azure Portal to configure and use HDInsight Hadoop clusters with Azure Data Lake Store" 
+   pageTitle="Create HDInsight Hadoop clusters with Azure Data Lake Store using the portal | Azure" 
+   description="Use Azure Portal to create and use HDInsight Hadoop clusters with Azure Data Lake Store" 
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,19 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="01/04/2016"
+   ms.date="01/15/2016"
    ms.author="nitinme"/>
 
-# Provision an HDInsight cluster with Data Lake Store using Azure Portal
+# Create an HDInsight cluster with Data Lake Store using Azure Portal
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Learn how to use Azure Portal to configure an HDInsight cluster (Hadoop, HBase, or Storm) to work with an Azure Data Lake Store. Some important considerations for this release:
+Learn how to use Azure Portal to create an HDInsight cluster (Hadoop, HBase, or Storm) with access to Azure Data Lake Store. Some important considerations for this release:
 
-* **For Hadoop and Storm clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
+* **For Hadoop clusters (Windows and Linux)**, the Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
+
+* **For Storm clusters (Windows and Linux)**, the Data Lake Store can be used to write data from a Storm topology. Data Lake Store can also be used to store reference data that can then be read by a Storm topology.
 
 * **For HBase clusters (Windows and Linux)**, the Data Lake Store can be used as a default storage or additional storage.
 
@@ -198,7 +200,9 @@ For HBase clusters, you can use Data Lake Store accounts as default storage. If 
 
 For instructions on how to add a service principal to a Data Lake Store file system, see [Configure service principal to access Data Lake Store file system](#acl).
 
+## Use Data Lake Store in a Storm topology
 
+You can use the Data Lake Store to write data from a Storm topology. For instructions on how to achieve this scenario, see [Use Azure Data Lake Store with Apache Storm with HDInsight](hdinsight-storm-write-data-lake-store.md).
 
 ## See Also
 

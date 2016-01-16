@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="01/08/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage StorSimple volume containers
@@ -25,7 +25,7 @@ A volume container in a Microsoft Azure StorSimple device contains one or more v
 
 A volume container has the following attributes:
 
-- **Volumes** – The thinly provisioned StorSimple volumes that are contained within the volume container. A volume container may contain up to 256 thinly provisioned StorSimple volumes.
+- **Volumes** – The tiered or locally pinned StorSimple volumes that are contained within the volume container. A volume container may contain up to 256 StorSimple volumes.
 
 - **Encryption** – An encryption key that can be defined for each volume container. This key is used for encrypting the data that is sent from your StorSimple device to the cloud. A military-grade AES-256 bit key is used with the user-entered key. To secure your data, we recommend that you always enable cloud storage encryption.
 
@@ -43,7 +43,7 @@ This following procedures explain how to use the StorSimple **Volume containers*
 
 ## Add a volume container
 
-Perform the following steps to create a volume container.
+Perform the following steps to add a volume container.
 
 [AZURE.INCLUDE [storsimple-add-volume-container](../../includes/storsimple-add-volume-container.md)]
 

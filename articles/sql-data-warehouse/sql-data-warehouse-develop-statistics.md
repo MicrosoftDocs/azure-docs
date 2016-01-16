@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/11/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Manage statistics in SQL Data Warehouse
  SQL Data Warehouse uses statistics to assess the cost of different ways to perform a distributed query. When statistics are accurate, the query optimizer can generate high quality query plans that improve query performance.

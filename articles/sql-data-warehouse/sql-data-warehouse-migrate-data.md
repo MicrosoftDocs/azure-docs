@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/17/2015"
-   ms.author="barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Migrate Your Data
 The primary objective when migrating data is to populate your SQLDW database. This process can be achieved in a number of ways. ADF Copy, SSIS and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.

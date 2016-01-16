@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="TwoUnder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/11/2015"
-   ms.author="twounder"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;sonyama;barbkess"/>
 
 # Troubleshooting
 The following topic lists some of the more common issues customers run into with Azure SQL Data Warehouse.

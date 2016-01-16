@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
-   ms.author="twounder;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Install Visual Studio 2015 and/or SSDT for SQL Data Warehouse
 
