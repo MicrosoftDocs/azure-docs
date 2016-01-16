@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="12/14/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 series: a hybrid cloud storage solution
