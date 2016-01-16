@@ -95,7 +95,7 @@ The HTTPS protocol provides server authentication and is also used for encryptin
 >[AZURE.NOTE] A service’s protocol cannot be changed during application upgrade, since this would be a breaking change.
 
 
-Here is an example ApplicationManifest that you need to set for HTTPS. (You will need to provide the thumbprint for your certificate.) The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one Endpointcertificates.  
+Here is an example ApplicationManifest that you need to set for HTTPS. (You will need to provide the thumbprint for your certificate.) The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol. You can add more than one Endpointcertificate.  
 
 ```
 <?xml version="1.0" encoding="utf-8"?>

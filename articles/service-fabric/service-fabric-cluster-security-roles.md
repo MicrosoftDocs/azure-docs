@@ -99,12 +99,12 @@ The user access control type is, by default, limited to the following operations
 * **GetFabricUpgradeStatus**: polling cluster upgrade status 							
 * **InvokeInfrastructureQuery**: querying infrastructure tasks 							
 * **List**: image store client file list operation 							
-* **ResetPartitionLoad**: resetting load for a failoverUnit 							
+* **ResetPartitionLoad**: resetting load for a failover unit 							
 * **ToggleVerboseServicePlacementHealthReporting**: toggling verbose service placement health reporting 							
 
 ## Changing default settings for client roles
 
-In the cluster manifest file, you can provide admin capabilities to the client if needed. You can change the defaults by going to the **Fabric Settings** option during [cluster creation](service-fabric-cluster-creation-via-portal.md). There, you provide the settings described above in the **Name** field, and **admin, user** in the value field.
+In the cluster manifest file, you can provide admin capabilities to the client if needed. You can change the defaults by going to the **Fabric Settings** option during [cluster creation](service-fabric-cluster-creation-via-portal.md),and providing the settings described above in the **name**, **admin**, **user**, and **value** fields.
 
 ## Next steps
 
