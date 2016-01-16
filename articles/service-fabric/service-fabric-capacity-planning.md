@@ -48,7 +48,7 @@ You may want to compute the number of nodes based on the DB_Size that you expect
 
 It is also a good idea to have a few spare machines (excess capacity) available at any time so that you can handle any unexpected spikes or infrastructure failure (e.g., if a few VMs go down).  While this is something that you should determine by using your expected spikes, a good starting point would be to reserve a few extra VMs (5-10 percent extra).
 
-The above assumes a single stateful service. If you have more than one stateful service, you will have to add the DB_Size associated with the other services into the equation as well, or compute the number of nodes separately for each stateful service.  Your service may have replicas or partitions that aren't balanced (Some partitions may have more data than others, so please refer to the partitioning article on best practices.) However, the above equation is partition and replica agnostic, because Service Fabric will ensure that the replicas are spread out among the nodes in an optimized manner.
+The above assumes a single stateful service. If you have more than one stateful service, you will have to add the DB_Size associated with the other services into the equation as well, or compute the number of nodes separately for each stateful service.  Your service may have replicas or partitions that aren't balanced. Some partitions may have more data than others, so refer to the [partitioning article on best practices](service-fabric-concepts-partitioning.md) for more information. However, the above equation is partition and replica agnostic, because Service Fabric will ensure that the replicas are spread out among the nodes in an optimized manner.
 
 
 ## Use a spreadsheet for cost calculation
