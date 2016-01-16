@@ -186,7 +186,7 @@ The upgrade will continue from the upgrade domain where it was last suspended an
 
 ## Further troubleshooting
 
-### Service Fabric is not following the specified health policies 
+### Service Fabric is not following the specified health policies
 
 Possible Cause 1:
 
@@ -221,8 +221,6 @@ The upgrade time for an upgrade domain is limited by *UpgradeDomainTimeout*.  If
 ## Next steps
 
 [Service Fabric application upgrade using Visual Studio](service-fabric-application-upgrade.md)
-
-[Service Fabric application upgrade using PowerShell](service-fabric-application-upgrade-powershell.md)
 
 [Upgrade parameters](service-fabric-application-upgrade-parameters.md)
 

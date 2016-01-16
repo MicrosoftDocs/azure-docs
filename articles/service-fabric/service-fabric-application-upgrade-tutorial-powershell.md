@@ -46,7 +46,7 @@ You might notice that with the version that was deployed in Step 1, the visual o
 Select the VisualObjects.ActorService project within the VisualObjects solution, and open the StatefulVisualObjectActor.cs file. Within that file, navigate to the method `MoveObject`, comment out `this.State.Move()`, and uncomment `this.State.Move(true)`. This change will make the objects rotate after the service is upgraded.
 
 We also need to update the *ServiceManifest.xml* file (under PackageRoot) of the project **VisualObjects.ActorService**. Update the *CodePackage* and the service version to 2.0, and the corresponding lines in the *ServiceManifest.xml* file.
-You can use the Visual Studio *Edit Manifest Files* option after you right-click on the solution to make the manifest file changes. For more information, see [Service Fabric application upgrade tutorial](service-fabric-application-tutorial.md).
+You can use the Visual Studio *Edit Manifest Files* option after you right-click on the solution to make the manifest file changes.
 
 
 After the changes are made, the manifest should look like the following (highlighted portions show the changes):
