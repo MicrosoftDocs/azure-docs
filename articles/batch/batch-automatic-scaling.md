@@ -592,7 +592,7 @@ if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
 	if (eval.AutoScaleRun.Error == null)
 	{
 		// Evaluation success - print the results of the AutoScaleRun. This will display the values of each
-		// variable as evaluated by the the autoscaling formula.
+		// variable as evaluated by the autoscale formula.
 		Console.WriteLine("AutoScaleRun.Results: " + eval.AutoScaleRun.Results);
 
 		// Apply the formula to the pool since it evaluated successfully
