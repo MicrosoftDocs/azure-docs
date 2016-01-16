@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="alkohli" />
 
 # Unpack, rack-mount, and cable your StorSimple 8100 device
@@ -289,4 +289,4 @@ Your device is now cabled for power, network access, and serial connectivity. Th
 
 ## Next steps
 
-Learn how to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough.md) 
+Learn how to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough.md).

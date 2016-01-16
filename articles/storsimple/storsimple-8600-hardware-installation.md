@@ -295,5 +295,5 @@ You have completed cabling your device for power, network access, and serial con
 
 ## Next steps
 
-You are now ready to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough.md) 
+You are now ready to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
  
