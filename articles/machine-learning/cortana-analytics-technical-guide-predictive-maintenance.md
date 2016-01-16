@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="01/15/2016"
 	ms.author="garye" />
 
 # Technical guide to the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses
@@ -41,7 +41,7 @@ at the end.
 
 >[AZURE.TIP] You can download and print a [PDF version of this document](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 
-## **Big Picture**
+## **Big picture**
 
 ![](media/cortana-analytics-technical-guide-predictive-maintenance\predictive-maintenance-architecture.png)
 
@@ -54,9 +54,9 @@ You can download a [full-size version of the diagram](http://download.microsoft.
 
 The following sections describe each piece.
 
-## **Data Source and Ingestion**
+## **Data source and ingestion**
 
-### Synthetic Data Source
+### Synthetic data source
 
 For this template the data source used is generated from a desktop
 application that you will download and run locally after successful
@@ -70,14 +70,14 @@ using the [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.g
 The event generation application will populate the Azure Event Hub only
 while it's executing on your computer.
 
-### Azure Event Hub
+### Azure event hub
 
 The [Azure Event
 Hub](https://azure.microsoft.com/services/event-hubs/) service is
 the recipient of the input provided by the Synthetic Data Source
 described above.
 
-## **Data Preparation and Analysis**
+## **Data preparation and analysis**
 
 
 ### Azure Stream Analytics
@@ -93,7 +93,7 @@ for later processing by the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service.
 
-### HD Insights Custom Aggregation
+### HD Insights custom aggregation
 
 The Azure HD Insight service is used to run
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
@@ -109,7 +109,7 @@ service is used (orchestrated by Azure Data Factory) to make predictions
 on the remaining useful life (RUL) of a particular aircraft engine given
 the inputs received.
 
-## **Data Publishing**
+## **Data publishing**
 
 
 ### Azure SQL Database Service
@@ -120,7 +120,7 @@ service is used to store (managed by Azure Data Factory) the predictions
 received by the Azure Machine Learning service that will be consumed in
 the [Power BI](https://powerbi.microsoft.com) dashboard.
 
-## **Data Consumption**
+## **Data consumption**
 
 ### Power BI
 
@@ -332,7 +332,7 @@ This section describes how to set up Power BI dashboard to visualize
 your real time data from Azure stream analytics (hot path), as well as
 batch prediction results from Azure machine learning (cold path).
 
-### Setup Cold Path Dashboard
+### Setup cold path dashboard
 
 In the cold path data pipeline, the essential goal is to get the
 predictive RUL (remaining useful life) of each aircraft engine once it
@@ -440,7 +440,7 @@ containing data (*e.g.*. prediction results) for visualization.
     -   Schedule the refresh based on your needs. To find more information, see
     [Data refresh in Power BI](https://support.powerbi.com/knowledgebase/articles/474669-data-refresh-in-power-bi).
 
-### Setup Hot Path Dashboard
+### Setup hot path dashboard
 
 The following steps will guide you how to visualize real time data
 output from Stream Analytics jobs that were generated at the time of
@@ -501,7 +501,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 
     ![](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
 
-## **Cost Estimation Tools**
+## **Cost estimation tools**
 
 The following two tools are available to help you better understand the
 total costs involved in running the Predictive Maintenance for Aerospace
