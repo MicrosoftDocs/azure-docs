@@ -74,5 +74,5 @@ By default all documents are indexed by DocumentDB automatically. However, if yo
 ## Next steps
 For instructions on monitoring performance levels on the Azure Portal, see [Monitor a DocumentDB account](documentdb-monitor-accounts.md).
 
-For more information on choosing performance levels for collections, see [Performance levels in DocumentDB](documentdb-performance-levels).
+For more information on choosing performance levels for collections, see [Performance levels in DocumentDB](documentdb-performance-levels.md).
  

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Automation webhooks"
+   pageTitle="Azure Automation webhooks | Microsoft Azure"
    description="A webhook that allows a client to start a runbook in Azure Automation from an HTTP call.  This article describes how to create a webhook and how to call one to start a runbook."
    services="automation"
    documentationCenter=""
@@ -127,8 +127,10 @@ The runbook is expecting a list of virtual machines formatted in JSON in the bod
 	$uri = "https://s1events.azure-automation.net/webhooks?token=8ud0dSrSo%2fvHWpYbklW%3c8s0GrOKJZ9Nr7zqcS%2bIQr4c%3d"
 	$headers = @{"From"="user@contoso.com";"Date"="05/28/2015 15:47:00"}
     
-    $vms  = @([pscustomobject]@{Name="vm01";ServiceName="vm01"})
-    $vms += @([pscustomobject]@{Name="vm02";ServiceName="vm02"})
+    $vms  = @(
+    			@{ Name="vm01";ServiceName="vm01"},
+    			@{ Name="vm02";ServiceName="vm02"}
+    		)
 	$body = ConvertTo-Json -InputObject $vms 
 
 	$response = Invoke-RestMethod -Method Post -Uri $uri -Headers $headers -Body $body
@@ -268,8 +270,8 @@ The following sample runbook is triggered when the alert rule becomes active and
 
  
 
-## Related articles
+## Next Steps
 
-- [Starting a Runbook](automation-starting-a-runbook.md)
-- [Viewing the Status of a Runbook Job](automation-viewing-the-status-of-a-runbook-job.md)
+- For details on different ways to start a runbook, see [Starting a Runbook](automation-starting-a-runbook.md)
+- For information on viewing the Status of a Runbook Job, refer to [Runbook execution in Azure Automation](automation-runbook-execution.md)
 - [Using Azure Automation to take actions on Azure Alerts](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)

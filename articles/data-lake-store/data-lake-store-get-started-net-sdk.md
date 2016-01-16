@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using .NET SDK
@@ -49,24 +49,27 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 
 4. Click **OK** to create the project.
 
-5. Add the Nuget package to your project. 
+5. Add the Nuget packages to your project. 
 
 	1. Right-click the project name in the Solution Explorer and click **Manage NuGet Packages**.
 	2. In the **Nuget Package Manager** tab, make sure that **Package source** is set to **nuget.org** and that **Include Prerelease** check box is selected.
-	3. Search for and install the following packages:
+	3. Search for and install the following Data Lake Store packages:
 	
-		* Microsoft.Azure.Common.Authentication
 		* Microsoft.Azure.Management.DataLake.Store
 		* Microsoft.Azure.Management.DataLake.StoreFileSystem
 		* Microsoft.Azure.Management.DataLake.StoreUploader
 
 		![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Create a new Azure Data Lake account")
 
+	4. You should also install the **Microsoft.Azure.Common.Authentication** package. This is also a prerelease package and is required for authentication with Azure Data Lake Store.
+
+		![Add a Nuget source](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Create a new Azure Data Lake account")
+
 	4. Close the **Nuget Package Manager**.
 
 7. Open **Program.cs** and replace the existing code block with the following code. Also, provide the values for parameters in the code snippet. 
 
-	This code goes through the process of creating a Data Lake Store, creating folders in the store, uploading files, downloading files, and finally deleting the account. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	This code goes through the process of creating a Data Lake Store, creating folders in the store, uploading files, downloading files, and finally deleting the account. If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 	
 		using System;
 		using System.Collections.Generic;

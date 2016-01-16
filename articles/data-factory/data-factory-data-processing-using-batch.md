@@ -466,7 +466,7 @@ This section provides more details and notes about the code in the Execute metho
 		outputBlob.UploadText(output);
 
 
-### Create the data factory
+## Create the data factory
 
 In the [Create the custom activity](#create-the-custom-activity) section, you created a custom activity and uploaded the zip file with binaries and the PDB file to an Azure blob container. In this section, you will create an Azure **data factory** with a **pipeline** that uses the **custom activity**.
 

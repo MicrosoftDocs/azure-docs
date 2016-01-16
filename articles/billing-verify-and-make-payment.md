@@ -4,9 +4,8 @@
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
-	manager="felixw"
+	manager="msmbaldwin"
 	editor="meerak"
-	tags="billing"
 	/>
 
 <tags
@@ -15,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/18/2015"
+	ms.date="12/21/2015"
 	ms.author="genli"/>
 
 # How to verify your payment method and make payments for an Azure subscription
+
+>[AZURE.NOTE] If you receive an error after submitting your credit card information, see the article [My credit card doesn’t go through when I try to sign up for Azure](../billing-credit-card-fails-during-azure-sign-up.md).
 
 ## Verify the current payment method
 1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.

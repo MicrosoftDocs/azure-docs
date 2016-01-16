@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="12/21/2015"
 	ms.author="jeedes"/>
 
 
@@ -73,6 +73,7 @@ To configure the integration of SD Elements into Azure AD, you need to add SD El
 ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_01.png)<br>
 7. In the results pane, select **SD Elements**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_02.png)<br>
 
 
 ##  Configuring and testing Azure AD single sign-on

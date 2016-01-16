@@ -21,10 +21,7 @@
 # Connect to SQL Database by using Node.js with Tedious on Mac OS X
 
 
-> [AZURE.SELECTOR]
-- [Node.js](sql-database-develop-nodejs-simple-mac.md)
-- [Python](sql-database-develop-python-simple-mac-osx.md)
-- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
 
 This topic presents a Node.js code sample that runs on Mac OS X. The sample connects to Azure SQL Database by using the Tedious driver.

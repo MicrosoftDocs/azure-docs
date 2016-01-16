@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="12/18/2015"
+    ms.date="12/21/2015"
     ms.author="markvi"/>
 
 #List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory
@@ -143,6 +143,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Sciforma.jpg)| [Sciforma](https://go.microsoft.com/fwLink/?LinkID=510264&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SciQuestSpendDirector.jpg)| [SciQuest Spend Director](https://go.microsoft.com/fwLink/?LinkID=530243&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Screensteps.jpg)| [ScreenSteps](https://go.microsoft.com/fwLink/?LinkID=510251&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SD_Elements.jpg)| [SD Elements](https://go.microsoft.com/fwLink/?LinkID=403234&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ServiceNow.jpg)| [ServiceNow](https://go.microsoft.com/fwLink/?LinkID=309587&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ShiftPlanning.jpg)| [ShiftPlanning](https://go.microsoft.com/fwLink/?LinkID=510242&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_SilkRoad.jpg)| [SilkRoad Life Suite](https://go.microsoft.com/fwLink/?LinkID=530238&clcid=0x409)|
@@ -185,6 +186,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler Two](https://go.microsoft.com/fwLink/?LinkID=512734&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler ZSCloud](https://go.microsoft.com/fwLink/?LinkID=512735&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler](https://go.microsoft.com/fwLink/?LinkID=510254&clcid=0x409)|
+
 
 
 

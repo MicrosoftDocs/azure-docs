@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
 # Monitor and manage Azure Data Factory pipelines
@@ -208,9 +208,6 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 
 #### Use the PowerShell to debug an error
 1.	Launch **Azure PowerShell**.
-2.	Switch to **AzureResourceManager** mode as the Data Factory cmdlets are available only in this mode.
-
-		switch-azuremode AzureResourceManager
 3.	Run **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status: **Failed**.
 
 		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -358,9 +355,9 @@ OnDemandClusterDeleted | Succeeded
 See [Create Alert Rule](https://msdn.microsoft.com/library/azure/dn510366.aspx) for details about JSON elements used in the above example. 
 
 #### Deploying the Alert 
-To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureResourceGroupDeployment**, as shown in the following example:
+To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureRmResourceGroupDeployment**, as shown in the following example:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 Once the resource group deployment has completed successfully, you will see the following messages:
 
@@ -380,9 +377,9 @@ Once the resource group deployment has completed successfully, you will see the 
 	Outputs           :
 
 #### Retrieving the list of Azure Resource Group Deployments
-To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: **Get-AzureResourceGroupDeployment**, as shown in the following example:
+To retrieve the list of deployed Azure Resource Group deployments, use the cmdlet: **Get-AzureRmResourceGroupDeployment**, as shown in the following example:
 
-	Get-AzureResourceGroupDeployment -ResourceGroupName adf
+	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
 	DeploymentName    : ADFAlertFailedSlice
 	ResourceGroupName : adf
@@ -553,9 +550,9 @@ Replace subscriptionId, resourceGroupName, and dataFactoryName in the above samp
 
 **Deploying the alert:**
 
-To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureResourceGroupDeployment**, as shown in the following example:
+To deploy the alert, use the Azure PowerShell cmdlet: **New-AzureRmResourceGroupDeployment**, as shown in the following example:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
 You should see following message after successful deployment:
 
@@ -574,3 +571,4 @@ You should see following message after successful deployment:
 	Outputs           
 
 
+You can also the **Add-AlertRule** cmdlet to deploy an alert rule. See [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx) topic for details and examples.  

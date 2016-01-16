@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/12/2016"
 	ms.author="markusvi"/>
 
 # Cloud App Discovery Security and Privacy Considerations
@@ -109,6 +109,8 @@ The following HTTP information:
  For TLS connections, this information is only captured when the ‘Deep Inspection’ setting is turned on in the portal. The setting is ‘ON’ by default.
 For more details, see below, and [Getting Started With Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
 
+
+In addition to the data that the agent collects about the network activity, it also collects anonymous information about the software and hardware configuration, error reports, and information about how the agent is being used.
 
 <br><br>
 ### How the agent works
