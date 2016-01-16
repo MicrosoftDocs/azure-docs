@@ -383,9 +383,9 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 1. Sign in to the Azure classic portal.
 
-- Click **Virtual Machines**, and then select the virtual device.
+2. Click **Virtual Machines**, and then select the virtual device.
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+3. Click **Delete** and choose to delete all the virtual machine disks.
 
 
 ## Next steps

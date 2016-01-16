@@ -137,7 +137,7 @@ Perform the following steps to create the StorSimple virtual device.
 
 	4. **Subnet** – The subnet on the virtual network for use with the virtual device.
 
-	5. **Storage Account for Virtual Device Creation** – This storage account will be used to hold the image of the virtual device during provisioning, and will host the disks of the virtal device after provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. 
+	5. **Storage Account for Virtual Device Creation** – This storage account will be used to hold the image of the virtual device during provisioning, and will host the disks of the virtual device after provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. 
 
     >[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
 	
@@ -386,9 +386,9 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 1. Sign in to the Azure classic portal.
 
-- Click **Virtual Machines**, and then select the virtual device.
+2. Click **Virtual Machines**, and then select the virtual device.
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+3. Click **Delete** and choose to delete all the virtual machine disks.
 
 ## Next steps
 
