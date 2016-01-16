@@ -259,7 +259,7 @@ Keep in mind for high availability and performance:
 
 - When possible, connect network interfaces from each controller to two different switches to ensure availability against a switch failure. The figure illustrates the two 10 GbE network interfaces, DATA 2 and DATA 3, from each controller connected to two different switches. 
 
-For more information, refer to the **Network interfaces** under the [High availability requirements for your StorSimple device](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+For more information, refer to the **Network interfaces** under the [High availability requirements for your StorSimple device](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
 >[AZURE.NOTE] If using SFP+ transceivers with your 10 GbE network interfaces, use the provided QSFP-SFP+ adapters. More information on [Supported hardware for 10 GbE network interfaces on your StorSimple device](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
     
