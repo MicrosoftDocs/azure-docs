@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Provide Sign up and Sign in to Consumers with Google+ Accounts
@@ -48,17 +48,11 @@ To use Google+ as an identity provider in Azure Active Directory (AD) B2C, you w
 
     ![G+ - OAuth consent screen](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
 
-8. Provide a **Name** for your application, enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Authorized JavaScript origins** field and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized redirect URIs** field, where **{tenant}** is to be replaced with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Create**.
-
-> [AZURE.NOTE]
-The **{tenant}** value is case-sensitive.
+8. Provide a **Name** for your application, enter [https://login.microsoftonline.com](https://login.microsoftonline.com) in the **Authorized JavaScript origins** field and `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in the **Authorized redirect URIs** field, where **{tenant}** is to be replaced with your tenant's name (for example, contosob2c.onmicrosoft.com). Click **Create**. Note: The **{tenant}** value is case-sensitive.
 
     ![G+ - Create client ID](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
-9. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google+ as an identity provider in your tenant.
-
-> [AZURE.NOTE]
-**Client secret** is an important security credential.
+9. Copy the values of **Client ID** and **Client secret**. You will need both of them to configure Google+ as an identity provider in your tenant. Note: **Client secret** is an important security credential.
 
     ![G+ - Client secret](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 

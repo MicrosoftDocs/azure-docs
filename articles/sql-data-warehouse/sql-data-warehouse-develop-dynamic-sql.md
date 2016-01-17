@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="jrj;barbkess;sonyama"/>
 
 # Dynamic SQL in SQL Data Warehouse
 When developing application code for SQL Data Warehouse you may need to use dynamic sql to help deliver flexible, generic and modular solutions. SQL Data Warehouse does not support blob data types at this time. This may limit the size of your strings as blob types include both varchar(max) and nvarchar(max) types. If you have used these types in your application code when building very large strings, you will need to break the code into chunks and use the EXEC statement instead. 

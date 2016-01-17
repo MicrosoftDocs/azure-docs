@@ -34,8 +34,8 @@ This table summarizes the replication scenarios supported by Site Recovery.
 
 **REPLICATE** | **REPLICATE FROM** | **REPLICATE TO** | **ARTICLE**
 ---|---|---|---
-VMware virtual machines | On-premises VMware server | Azure storage | [Deploy](site-recovery-vmware-to-azure.md)
-Physical Windows/Linux server | On-premises physical server | Azure storage | [Deploy](site-recovery-vmware-to-azure.md)
+VMware virtual machines | On-premises VMware server | Azure storage | [Deploy](site-recovery-vmware-to-azure-classic.md)
+Physical Windows/Linux server | On-premises physical server | Azure storage | [Deploy](site-recovery-vmware-to-azure-classic.md)
 Hyper-V virtual machines | On-premises Hyper-V host server in VMM cloud | Azure storage | [Deploy](site-recovery-vmm-to-azure.md)
 Hyper-V virtual machines | On-premises Hyper-V site (one or more Hyper-V host servers) | Azure storage | [Deploy](site-recovery-hyper-v-site-to-azure.md)
 On-premises Hyper-V virtual machines| On-premises Hyper-V host server in VMM cloud | On-premises Hyper-V host server in VMM cloud in secondary datacenter | [Deploy](site-recovery-vmm-to-vmm.md)

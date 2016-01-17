@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/05/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 
@@ -148,25 +148,13 @@ The [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-s
 
 The Storm UI provides a web interface for working with running topologies, and is included on your HDInsight cluster.
 
-> [AZURE.IMPORTANT] The Storm UI is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For more information, see [Use SSH Tunneling to access ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
+Use the following steps to monitor the topology using the Storm UI:
 
-Use the following steps to view the Storm UI:
+1. Open a web browser to https://CLUSTERNAME.azurehdinsight.net/stormui, where __CLUSTERNAME__ is the name of your cluster. This will open the Storm UI.
 
-1. Once you have created an SSH tunnel to the cluster, open a web browser to https://CLUSTERNAME.azurehdinsight.net, where __CLUSTERNAME__ is the name of your cluster. This will open the Ambari web UI.
+	> [AZURE.NOTE] If asked to provide a user name and password, enter the cluster administrator (admin) and password that you used when creating the cluster.
 
-	> [AZURE.NOTE] If asked to provide a user name and password, enter the cluster administrator (admin) and password that you used when creating the cluster. You may be asked to authenticate twice, once by the browser and a second time by the Ambari web UI; use the same credentials for both.
-
-2. From the list of services on the left of the page, select __Storm__. Then select __Storm UI__ from __Quick Links__.
-
-    ![Storm UI entry in quick links](./media/hdinsight-apache-storm-tutorial-get-started-linux/ambari-storm.png)
-
-    This will display the Storm UI:
-
-    ![the storm ui](./media/hdinsight-apache-storm-tutorial-get-started-linux/stormui.png)
-	
-	> [AZURE.NOTE] If you receive an error that the server cannot be found, you may not have established an SSH tunnel to the cluster. See [Use SSH Tunneling to access ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) for more information.
-
-4. Under **Topology summary**, select the **wordcount** entry in the **Name** column. This will display more information about the topology.
+2. Under **Topology summary**, select the **wordcount** entry in the **Name** column. This will display more information about the topology.
 
 	![Storm Dashboard with Storm Starter WordCount topology information.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
@@ -192,7 +180,7 @@ Use the following steps to view the Storm UI:
 
 	* **Kill** - Terminates a Storm topology after the specified timeout.
 
-5. From this page, select an entry from the **Spouts** or **Bolts** section. This will display information about the selected component.
+3. From this page, select an entry from the **Spouts** or **Bolts** section. This will display information about the selected component.
 
 	![Storm Dachborad with information about selected components.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
@@ -210,7 +198,7 @@ Use the following steps to view the Storm UI:
 
 	* **Errors** - Errors produced by this component.
 
-5. When viewing the details of a spout or bolt, select an entry from the **Port** column in the **Executors** section to view details for a specific instance of the component.
+4. When viewing the details of a spout or bolt, select an entry from the **Port** column in the **Executors** section to view details for a specific instance of the component.
 
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]
