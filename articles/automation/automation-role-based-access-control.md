@@ -19,7 +19,7 @@
 
 ## Role-based access control
 
-Role-based access control (RBAC) enables access management for Azure resources. Using [RBAC](active-directory/role-based-access-control-configure.md), you can segregate duties within your team and grant only the amount of access to users, groups and applications that they need to perform their jobs. Role-based access can be granted to users using the Azure portal, Azure Command-Line tools or Azure Management APIs.
+Role-based access control (RBAC) enables access management for Azure resources. Using [RBAC](../active-directory/role-based-access-control-configure.md), you can segregate duties within your team and grant only the amount of access to users, groups and applications that they need to perform their jobs. Role-based access can be granted to users using the Azure portal, Azure Command-Line tools or Azure Management APIs.
 
 ## RBAC in Automation Accounts
 
@@ -30,7 +30,7 @@ In Azure Automation, access is granted by assigning the appropriate RBAC role to
 | Owner | The owner role allows access to all resources and actions within an Automation account including providing access to other users, groups and applications to manage the Automation account. |
 | Contributor | The contributor role allows you to manage everything except modifying other user’s access permissions to an Automation account. |
 | Reader | The reader role allows you to view all the resources in an Automation account but cannot make any changes. |
-| Automation operator | The Automation operator role allows you to perform operational tasks such as start, stop, suspend, resume and schedule jobs. This role is helpful if you want to protect your Automation Account resources like credentials assets and runbooks from being viewed or modified but still allow members of your organization to execute these runbooks. [Automation operator actions](active-directory/role-based-access-built-in-roles.md#automation-operator) lists the actions supported by the Automation operator role on the Automation account and its resources. |
+| Automation operator | The Automation operator role allows you to perform operational tasks such as start, stop, suspend, resume and schedule jobs. This role is helpful if you want to protect your Automation Account resources like credentials assets and runbooks from being viewed or modified but still allow members of your organization to execute these runbooks. [Automation operator actions](../active-directory/role-based-access-built-in-roles.md#automation-operator) lists the actions supported by the Automation operator role on the Automation account and its resources. |
 | User access administrator | The user access administrator role allows you to manage user access to Azure Automation accounts. |
 
 In this article we will walk you through how to set up RBAC in Azure Automation. 
@@ -99,7 +99,7 @@ This user also doesn’t have access to view the webhooks associated with a runb
 
 ## Configure RBAC for your Automation Account using Azure PowerShell
 
-Role-based access can also be configured to an Automation Account using the following [Azure PowerShell cmdlets](active-directory/role-based-access-control-manage-access-powershell.md).
+Role-based access can also be configured to an Automation Account using the following [Azure PowerShell cmdlets](../active-directory/role-based-access-control-manage-access-powershell.md).
 
 • [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lists all roles that are available in Azure Active Directory RBAC. You can use this command along with the **Name** property to list all the users with a specific role.  
     **Example:**  
@@ -125,7 +125,7 @@ Choose **yes** when prompted for continue to delete the role assignment.
 
 
 ## Next Steps
--  For information on different ways to configure RBAC to Azure Automation, refer to [manage RBAC with Azure PowerShell](active-directory/role-based-access-control-manage-access-powershell.md).
+-  For information on different ways to configure RBAC to Azure Automation, refer to [manage RBAC with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md).
 - For details on different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md)
 - For information about different types, refer to [Azure Automation runbook types](automation-runbook-types.md)
 
