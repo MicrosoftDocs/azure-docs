@@ -155,8 +155,6 @@ As when delegating using a registrar, we can verify that everything is set up co
 
 [Manage DNS records](dns-operations-recordsets.md)
 
-[Traffic Manager overview](traffic-manager-overview.md)
-
 [Automate Azure Operations with .NET SDK](dns-sdk.md)
 
 [Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)
