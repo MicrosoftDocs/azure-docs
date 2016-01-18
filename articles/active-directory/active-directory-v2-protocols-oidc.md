@@ -46,9 +46,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e		// Your registered Application I
 &nonce=678910										 // Any value, provided by your app
 ```
 
-```
-// Pro Tip: Try pasting the below into a web browser!
-```
+> [AZURE.TIP] Try pasting the below into a web browser!
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910
@@ -106,7 +104,7 @@ Just receiving an id_token is not sufficient to authenticate the user; you must 
 The v2.0 app model has an OpenID Connect metadata endpoint, which allows an app to fetch information about the v2.0 app model at runtime.  This information includes endpoints, token contents, and token signing keys.  The metadata endpoint contains a JSON document located at:
 
 ```
-https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 One of the properties of this configuration document is the `jwks_uri`, whose value for the v2.0 app model will be:
 
@@ -114,9 +112,7 @@ One of the properties of this configuration document is the `jwks_uri`, whose va
 https://login.microsoftonline.com/common/discovery/v2.0/keys
 ```
 
-```
-// Pro Tip: Try pasting these URLs in a browser!
-```
+> [AZURE.TIP] Try pasting these URLs in a browser!
 
 You can use the RSA256 public keys located at this endpoint to validate the signature of the id_token.  There are multiple keys listed at this endpoint at any given point in time, each identified by a `kid`.  The header of the id_token also contains a `kid` claim, which indicates which of these keys was used to sign the id_token.  
 

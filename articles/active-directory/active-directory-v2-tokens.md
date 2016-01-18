@@ -117,18 +117,18 @@ At any given point in time, the v2.0 endpoint may sign an id_token using any one
 You can acquire the signing key data necessary to validate the signature by using the OpenID Connect metadata document located at:
 
 ```
-https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
 This metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication.  It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens.  That location is provided below, but it is best to fetch that location dynamically by using the metadata document and parsing out the `jwks_uri`:
 
 ```
-https://login.microsoftonline.com/common/discovery/v2.0/keys`
+https://login.microsoftonline.com/common/discovery/v2.0/keys
 ```
 
-The JSON document located at this url contains all of the public key information in use at that particular moment in time.  Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token.  It can then perform signature validation using the correct public key and the indicated algorithm.
-
 > [AZURE.TIP] Try these URLs in a browser!
+
+The JSON document located at this url contains all of the public key information in use at that particular moment in time.  Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token.  It can then perform signature validation using the correct public key and the indicated algorithm.
 
 Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
 
