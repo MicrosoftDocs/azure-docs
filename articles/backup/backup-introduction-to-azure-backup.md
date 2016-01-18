@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/15/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # What is Azure Backup?
@@ -46,12 +46,12 @@ As Azure Backup is a hybrid backup solution, it consists of multiple components 
 
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported|
 | --- | --- | --- | --- |
-| Azure Backup agent | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM running in Azure.</p> | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM or physical machine.</p> | Azure Backup vault |
-| System Center Data Protection Manager (SCDPM) | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [protecting workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx). | Locally attached disk,</p> <p>Azure Backup vault,</p> <p>Tape (on-premises only)</p> |
-| Azure Backup Server | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | Azure Backup vault |
-| Azure Backup (VM extension) | <p>Yes</p> <p>Specialized for [backup of Azure IaaS virtual machines](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use SCDPM to backup virtual machines in your datacenter. | Azure Backup vault</p> |
+| Azure Backup agent | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM running in Azure.</p> | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM or physical machine.</p> | <p>Azure Backup vault</p> |
+| System Center Data Protection Manager (SCDPM) | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [protecting workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault,</p> <p>Tape (on-premises only)</p> |
+| Azure Backup Server | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>Azure Backup vault</p> |
+| Azure Backup (VM extension) | <p>Yes</p> <p>Specialized for [backup of Azure IaaS virtual machines](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use SCDPM to backup virtual machines in your datacenter.</p> | <p>Azure Backup vault</p> |
 
-## Applications and workloads
+## What applications and workloads can I backup?
 
 | Workload | Source machine | Azure Backup solution |
 | --- | --- |---|
@@ -68,7 +68,7 @@ As Azure Backup is a hybrid backup solution, it consists of multiple components 
 ## Functionality
 These tables summarize how Azure Backup functionality is handled in each component:
 
-### Storage
+### 1. Storage
 
 | Feature | Azure Backup agent | SCDPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
@@ -84,14 +84,14 @@ The Azure Backup vault is the preferred storage target across all components. SC
 #### Incremental backup
 Independent of the target storage (disk, tape, backup vault), every component supports incremental backups. This ensures that backups are storage efficient and time efficient by taking only the incremental changes since the last backup, and transferring those to the target storage. Furthermore, backups are compressed to reduce the storage footprint.
 
->[AZURE.NOTE] The component that does no compression is the VM extension. All backup data is copied from the customer storage account to the backup vault in the same region without compressing it. While this inflates the storage consumed a little, storing the data without compression allows for faster restore times.
+The component that does no compression is the VM extension. All backup data is copied from the customer storage account to the backup vault in the same region without compressing it. While this inflates the storage consumed a little, storing the data without compression allows for faster restore times.
 
 #### Deduplication
 Deduplication is supported for SCDPM and Azure Backup Server when [deployed within a Hyper-V virtual machine](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). Deduplication is performed at the host-level by leveraging the Windows Server Deduplication feature - on the VHDs attached as backup storage to the virtual machine.
 
 >[AZURE.WARNING] Deduplication is not available in Azure for any of the Azure Backup components! When SCDPM and Azure Backup Server are deployed in Azure, the storage disks attached to the VM cannot be deduplicated.
 
-### Security
+### 2. Security
 
 | Feature | Azure Backup agent | SCDPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
@@ -104,7 +104,7 @@ All backup traffic from your servers to the Azure Backup vault is encrypted usin
 
 For backup of Azure VMs, you must explicitly setup encryption *within* the virtual machine. Use BitLocker on Windows virtual machines and dm-crypt on Linux virtual machines. Azure Backup does not automatically encrypt backup data coming through this path.
 
-### Supported workloads
+### 3. Supported workloads
 
 | Feature | Azure Backup agent | SCDPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
@@ -118,7 +118,7 @@ For backup of Azure VMs, you must explicitly setup encryption *within* the virtu
 | Azure virtual machine (Windows) | | | | ![Yes][green] |
 | Azure virtual machine (Linux) | | | | ![Yes][green] |
 
-### Network
+### 4. Network
 
 | Feature | Azure Backup agent | SCDPM | Azure Backup Server | Azure Backup (VM extension) |
 | ------- | --- | --- | --- | ---- |
@@ -130,17 +130,6 @@ For backup of Azure VMs, you must explicitly setup encryption *within* the virtu
 Since the VM extension directly reads the data from the Azure Storage account over the storage network, optimizing this traffic is not necessary. The traffic is over the local storage network in the Azure DC, there is little need for compression that arises due to bandwidth considerations.
 
 For customers protecting data to a backup server (SCDPM or Azure Backup Server), the traffic from the primary server to the backup server can also be compressed to save on bandwidth utilization.
-
-### Backup and Retention
-
-| Backup Frequency (to Azure vault) | 3 backups per day | 2 backups per day | 1 backup per day |
-| --- | --- | --- | --- |
-| Backup Frequency (to disk) | Not applicable | <p>Every 15 minutes for SQL Server</p> <p>Every 1 hour for other workloads</p> | Not applicable |
-| Retention options | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly |
-| Retention period | Up to 99 years | Up to 99 years | Up to 99 years |
-| Recovery points in Azure vault | unlimited | unlimited | unlimited |
-| Recovery points on local disk | Not applicable | Not applicable | Not applicable |
-| Recovery points on tape | Not applicable | Not applicable | Not applicable |
 
 ## How does Azure Backup differ from Azure Site Recovery?
 Many customers confuse backup and disaster recovery. Both capture data and provide restore semantics, but the core value proposition is different for each.
