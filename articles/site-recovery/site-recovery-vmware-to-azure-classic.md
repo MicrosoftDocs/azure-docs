@@ -299,7 +299,7 @@ If you want to replicate VMware virtual machines install the following VMware co
 
 	![Summary](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
 14. Once the installation is complete launch an application named "Microsoft Azure Recovery Services Shell" from the Windows Start menu. In the command window that opens up run the following set of commands to setup the proxy server settings.
-15. 
+
 		PS C:\Windows\System32\> $pwd = ConvertTo-SecureString -String ProxyUserPassword
 		PS C:\Windows\System32\> Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\username -ProxyPassword $pwd
 		PS C:\Windows\System32\> net stop obengine.exe
