@@ -161,16 +161,8 @@ To address missing DLL and assembly errors, follow these steps:
 
 Once it has been verified that all errors have been corrected, the service can be deployed without the **Enable IntelliTrace for .NET 4 roles** setting checked.
 
-## See also
+## Next steps
 
-[Troubleshooting Scenario – Role Recycling](http://blogs.msdn.com/b/kwill/archive/2013/08/20/troubleshooting-scenario-1-role-recycling.aspx)
+View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
 
-[Troubleshooting Scenario – Role Recycling After Running Fine For 2 Weeks](http://blogs.msdn.com/b/kwill/archive/2013/08/26/troubleshooting-scenario-2-role-recycling-after-running-fine-for-2-weeks.aspx)
-
-[Troubleshooting Scenario – Role Recycling After Running For Some Time](http://blogs.msdn.com/b/kwill/archive/2013/09/23/troubleshooting-scenario-6-role-recycling-after-running-for-some-time.aspx)
-
-[Troubleshooting Scenario – Role Recycling after deployment ](http://blogs.msdn.com/b/kwill/archive/2013/10/03/troubleshooting-scenario-7-role-recycling.aspx)
-
-[Troubleshooting Cloud Service role issues by using Azure PaaS Compute Diagnostics Data](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)
-
-[Other troubleshooting articles for cloud services](..\?tag=top-support-issue&service=cloud-services)
+To learn how to troubleshoot Cloud Service roles' issue by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
