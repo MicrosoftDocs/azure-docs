@@ -40,6 +40,7 @@ In this article we will walk you through how to set up RBAC in Azure Automation.
 1.	Log in to the [Azure Portal](http://portal.azure.com/) and open your Automation account from the Automation Accounts blade.  
 
 2.	Click on the **Access** control at the top right corner. This opens the **Users** blade where you can add new users, groups and applications to manage your Automation account and view existing roles that can be configured for the Automation Account.  
+
     ![Access button](media/automation-role-based-access-control/automation-01-access-button.png)  
 
 >[AZURE.NOTE]  **Subscription admins** already exists as the default user. The subscription admins active directory group includes the service administrator(s) and co-administrator(s) for your Azure subscription. The Service admin is the owner of your Azure subscription and its resources, and will have the owner role inherited for the automation accounts too. This means that the access is **Inherited** for **service administrators and co-admins** of a subscription and it’s **Assigned** for all the other users. Click **Subscription admins** to view more details about their permissions.  
@@ -47,24 +48,30 @@ In this article we will walk you through how to set up RBAC in Azure Automation.
 ### Add a new user and assign a role
 
 1.	From the Users blade, click **Add** to open the **Add access blade** where you can add a user, group, or application, and assign a role to them.  
+
     ![Add user](media/automation-role-based-access-control/automation-02-add-user.png)  
 
 2.	Select a role from the list of available roles. We will choose the **Reader** role, but you can choose any of the available built-in roles that an Automation Account supports or any custom role you may have defined.  
+
     ![Select role](media/automation-role-based-access-control/automation-03-select-role.png)  
 
 3.	Click on **Add users** to open the **Add users** blade. If you have added any users, groups, or applications to manage your subscription then those users are listed and you can select them to add access. If there aren’t any users listed, or if the user you are interested in adding is not listed then click **invite** to open the **Invite a guest** blade, where you can invite a user with a valid Microsoft account email address such as Outlook.com, OneDrive, or Xbox Live Ids. Once you have entered the email address of the user, click **Select** to add the user, and then click **OK**. 
+
     ![Add users](media/automation-role-based-access-control/automation-04-add-users.png)  
  
 Now you should see the user added to the **Users** blade with the **Reader** role assigned.  
-    ![List users](media/automation-role-based-access-control/automation-05-list-users.png)  
 
-You can also assign a role to the user from the **Roles** blade. Click **Roles** from the Users blade to open the **Roles blade**. From this blade, you can view the name of the role, the number of users and groups assigned to that role.  
-    ![Assign role from users blade](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
+![List users](media/automation-role-based-access-control/automation-05-list-users.png)  
+
+You can also assign a role to the user from the **Roles** blade. Click **Roles** from the Users blade to open the **Roles blade**. From this blade, you can view the name of the role, the number of users and groups assigned to that role.
+
+![Assign role from users blade](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
 >[AZURE.NOTE] Role-based access control can only be set at the Automation Account level and not at any resource below the Automation Account.
 
-You can also assign more than one role to a user, group, or application. For example, if we add the **Automation Operator** role along with the **Reader role** to the user, then they can view all the Automation resources, as well as execute the runbook jobs. You can expand the dropdown to view a list of roles assigned to the user.  
-    ![View multiple roles](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
+You can assign more than one role to a user, group, or application. For example, if we add the **Automation Operator** role along with the **Reader role** to the user, then they can view all the Automation resources, as well as execute the runbook jobs. You can expand the dropdown to view a list of roles assigned to the user.  
+
+![View multiple roles](media/automation-role-based-access-control/automation-07-view-multiple-roles.png)  
  
 ### Remove a user
 
@@ -97,7 +104,8 @@ The user will have access to view and to create schedules but will not have acce
 
 ![No access to assets](media/automation-role-based-access-control/automation-12-no-access-to-assets.png)  
 
-This user also doesn’t have access to view the webhooks associated with a runbook  
+This user also doesn’t have access to view the webhooks associated with a runbook
+
 ![No access to webhooks](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
 ## Configure RBAC for your Automation Account using Azure PowerShell
@@ -109,7 +117,6 @@ Role-based access can also be configured to an Automation Account using the foll
     ![Get role definition](media/automation-role-based-access-control/automation-14-get-azurerm-role-definition.png)  
 
 • [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) lists Azure RBAC role assignments at the specified scope. Without any parameters, this command returns all the role assignments made under the subscription. Use the **ExpandPrincipalGroups** parameter to list access assignments to the specified user as well as to the groups of which the user is a member.  
-    
     **Example:** Use the following command to list all the users and their roles within an automation account.
 
     Get-AzureRMRoleAssignment -scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>” 
@@ -117,7 +124,6 @@ Role-based access can also be configured to an Automation Account using the foll
 ![Get role assignment](media/automation-role-based-access-control/automation-15-get-azurerm-role-assignment.png)
 
 • [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) to grant access to users, groups and applications at a particular scope.  
-
     **Example:** Use the following command to create a new role “Automation Operator” for a user at the Automation Account scope.
 
     New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName "Automation operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”  
@@ -129,7 +135,7 @@ Role-based access can also be configured to an Automation Account using the foll
 
     Remove-AzureRmRoleAssignment -SignInName "<sign-in Id of a user you wish to remove>" -RoleDefinitionName "Automation Operator" -Scope “/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation Account Name>”
 
-In the above commands, replace signin name, subscription ID, resoure group name and Automation account name with your details. Choose **yes** when prompted for continue to delete the role assignment.  
+In the above cmdlets, replace sign in name, subscription ID, resource group name and Automation account name with your account details. Choose **yes** when prompted for continue to delete the role assignment.   
 
 
 ## Next Steps
