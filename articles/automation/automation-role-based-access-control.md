@@ -81,7 +81,8 @@ You can remove the access permission for a user who is not managing the Automati
 
 2.	Click the **Remove** button in the assignment details blade.
 
-3.	Click **Yes** to confirm removal.  
+3.	Click **Yes** to confirm removal. 
+
     ![Remove users](media/automation-role-based-access-control/automation-08-remove-users.png)  
 
 ## Role Assigned User
@@ -90,7 +91,7 @@ When a user assigned to a role logs in to their Automation account, they can now
 
 ![Default directory](media/automation-role-based-access-control/automation-09-default-directory-in-role-assigned-user.png)  
 
-### User experience for Automation Operator
+### User experience for Automation operator role
 
 When a user, who is assigned to the Automation Operator role views the Automation account he is assigned to, they can only view the list of runbooks, runbook jobs and schedules created in the Automation account but can’t view their definition. They can start, stop, suspend, resume or schedule the runbook job. The user will not have access to other Automation resources such as configurations, hybrid worker groups or DSC nodes.  
 
