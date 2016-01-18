@@ -251,11 +251,11 @@ If you want to replicate VMware virtual machines install the following VMware co
 
 5. In **Internet Settings** specify how the Provider that will be installed on the server will connect to Azure Site Recovery over the internet.
 
-- If you want the Provider to connect directly select **Connect directly without a proxy**.
-- If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
-- If your existing proxy requires authentication, or you want to use a custom proxy for the Provider connection select **Connect with custom proxy settings**.
-- If you  use a custom proxy you'll need to specify the address, port, and credentials
-- If you're using a proxy the following URLs should be accessible through it:
+	- If you want the Provider to connect directly select **Connect directly without a proxy**.
+	- If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
+	- If your existing proxy requires authentication, or you want to use a custom proxy for the Provider connection select **Connect with custom proxy settings**.
+	- If you  use a custom proxy you'll need to specify the address, port, and credentials
+	- If you're using a proxy the following URLs should be accessible through it:
 
 
 	![Firewall](./media/site-recovery-vmware-to-azure-classic/combined-wiz3.png)
@@ -298,6 +298,13 @@ If you want to replicate VMware virtual machines install the following VMware co
 13.  In **Summary** review the information.
 
 	![Summary](./media/site-recovery-vmware-to-azure-classic/combined-wiz10.png)
+14. Once the installation is complete launch an application named "Microsoft Azure Recovery Services Shell" from the Windows Start menu. In the command window that opens up run the following set of commands to setup the proxy server settings.
+15. 
+		PS C:\Windows\System32\> $pwd = ConvertTo-SecureString -String ProxyUserPassword
+		PS C:\Windows\System32\> Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumb – ProxyUserName domain\username -ProxyPassword $pwd
+		PS C:\Windows\System32\> net stop obengine.exe
+	 
+
 
 ### Run setup from the command line
 
