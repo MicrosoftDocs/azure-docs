@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/18/2016"  
-	ms.author="willzhan,Mingfeiy,Juliako"/>
+	ms.date="01/19/2016"  
+	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services
 
+##KEY WORDS: 
+Azure Active Directory, Azure Media Services, Azure Media Player, Dynamic Encryption, License Delivery,PlayReady, Widevine, FairPlay, Common Encryption(CENC), Multi-DRM, Axinom, DASH, EME, MSE, JSON Web Token (JWT), Claims, Modern Browsers,Key Rollover, Symmetric Key, Asymmetric Key, OpenID Connect, X509 certificate. 
 
 ##Introduction
 
