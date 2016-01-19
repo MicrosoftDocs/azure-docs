@@ -445,7 +445,7 @@ Here's how to prepare Windows machines so that the Mobility service can be autom
 
 ### Install the Mobility service manually
 
-The installers you need can be downloaded from xxx. 
+The installers are available in C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository.
 
 Source operating system | Mobility service installation file
 --- | ---

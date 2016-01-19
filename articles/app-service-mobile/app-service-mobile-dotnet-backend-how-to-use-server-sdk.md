@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="01/09/2016"
 	ms.author="glenga"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.date="01/15/2016"
 	ms.author="adegeo"/>
 
 # Certificates overview for Azure Cloud Services
-Certificates are used in Azure for cloud services ([service certificates](#what-are-service-certificates)) and for authenticating with the management API ([management certificates](#what-are-management-certificates)). This topic gives a general overview of both certificate types, how to [create](#create) them, and how to [deploy](#deploy) them to Azure.
+Certificates are used in Azure for cloud services ([service certificates](#what-are-service-certificates)) and for authenticating with the management API ([management certificates](#what-are-management-certificates) when using the Azure classic portal and not ARM). This topic gives a general overview of both certificate types, how to [create](#create) and [deploy](#deploy) them to Azure.
 
 Certificates used in Azure are x.509 v3 certificates and can be signed by another trusted certificate or they can be self-signed. A self-signed certificate is signed by its own creator, and because of this, are not trusted by default. Most browsers can ignore this. Self-signed certificates should only be used by yourself when developing and testing your cloud services. 
 
@@ -31,7 +31,7 @@ You can upload service certificates to Azure classic portal either using the Azu
 Service certificates can be managed separately from your services, and may be managed by different individuals. For example, a developer may upload a service package that refers to a certificate that an IT manager has previously uploaded to Azure. An IT manager can manage and renew that certificate changing the configuration of the service without needing to upload a new service package. This is possible because the logical name for the certificate and its store name and location are specified in the service definition file, while the certificate thumbprint is specified in the service configuration file. To update the certificate, it's only necessary to upload a new certificate and change the thumbprint value in the service configuration file.
 
 ## What are management certificates?
-Management certificates allow you to authenticate with the Service Management API provided by Azure. Many programs and tools (such as Visual Studio or the Azure SDK) will use these certificates to automate configuration and deployment of various Azure services. These are not really related to cloud services. 
+Management certificates allow you to authenticate with the Service Management API provided by Azure classic. Many programs and tools (such as Visual Studio or the Azure SDK) will use these certificates to automate configuration and deployment of various Azure services. These are not really related to cloud services. 
 
 >[AZURE.WARNING] Be careful! These types of certificates allow anyone who authenticates with them to manage the subscription they are associated with. 
 

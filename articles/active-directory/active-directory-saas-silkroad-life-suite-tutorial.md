@@ -3,7 +3,7 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and SilkRoad Life Suite."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
-	ms.author="markusvi"/>
+	ms.date="01/14/2016"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with SilkRoad Life Suite
