@@ -1,6 +1,6 @@
 <properties
 	pageTitle="What is Azure Backup? | Microsoft Azure"
-	description="With Azure Backup and recovery services you can backup and restore data and applications from Windows servers, Windows client machines, SCDPM servers or Azure virtual machines."
+	description="With Azure Backup and recovery services you can back up and restore data and applications from Windows servers, Windows client machines, SCDPM servers or Azure virtual machines."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/15/2016"
+	ms.date="01/19/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # What is Azure Backup?
@@ -34,7 +34,7 @@ Azure Backup, on the other hand, delivers all the advantages of a powerful & aff
 | Unlimited data transfer | No charge for any egress (outbound) data transfer cost during a restore operation from the Azure Backup vault. Data inbound to Azure is also free. |
 | Central management | Simplicity and familiarity of the Azure portal. As the service evolves, features like central management will allow you to manage your backup infrastructure from a single location. |
 | Data encryption | Secure transmission and storage of customer data in the public cloud. The encryption passphrase is stored at source and is never transmitted or stored in Azure. The encryption key is required to restore any of the data and only the customer has full access to the data in the service. |  
-| VSS integration | Application consistent backups on Windows ensure that fix-up is not needed at the time of restore. This reduces the RTO and allows customers to return a running state quicker. |
+| Application consistent backups | Application consistent backups on Windows ensure that fix-up is not needed at the time of restore. This reduces the RTO and allows customers to return a running state quicker. |
 | Long term retention | Rather than paying for offsite tape backup solutions, customers can backup to Azure which provides a compelling solution with tape-like-semantics at a very low cost. |
 
 ## Azure Backup components
@@ -130,6 +130,18 @@ For backup of Azure VMs, you must explicitly setup encryption *within* the virtu
 Since the VM extension directly reads the data from the Azure Storage account over the storage network, optimizing this traffic is not necessary. The traffic is over the local storage network in the Azure DC, there is little need for compression that arises due to bandwidth considerations.
 
 For customers protecting data to a backup server (SCDPM or Azure Backup Server), the traffic from the primary server to the backup server can also be compressed to save on bandwidth utilization.
+
+### 5. Backup and Retention
+
+|  | Azure Backup agent | SCDPM and Azure Backup Server | Azure Backup (VM extension) |
+| --- | --- | --- | --- |
+| Backup Frequency (to Azure vault) | 3 backups per day | 2 backups per day | 1 backup per day |
+| Backup Frequency (to disk) | Not applicable | <p>Every 15 minutes for SQL Server</p> <p>Every 1 hour for other workloads</p> | Not applicable |
+| Retention options | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly |
+| Retention period | Up to 99 years | Up to 99 years | Up to 99 years |
+| Recovery points in Azure vault | unlimited | unlimited | unlimited |
+| Recovery points on local disk | Not applicable | Not applicable | Not applicable |
+| Recovery points on tape | Not applicable | Not applicable | Not applicable |
 
 ## How does Azure Backup differ from Azure Site Recovery?
 Many customers confuse backup and disaster recovery. Both capture data and provide restore semantics, but the core value proposition is different for each.
