@@ -50,7 +50,7 @@ We'll use the following values for this configuration:
 
 ## Before beginning
 
-Verify that you have an Azure subscription, and have installed the Azure PowerShell cmdlets needed for this configuration (1.1 or later). If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+Verify that you have an Azure subscription, and have installed the Azure PowerShell cmdlets needed for this configuration (1.0.2 or later). If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 	
 **About installing PowerShell cmdlet modules**
 
