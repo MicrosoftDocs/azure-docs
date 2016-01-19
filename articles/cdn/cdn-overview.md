@@ -49,8 +49,9 @@ The Standard CDN tier includes these features:
 - Load balancing
 - DDOS protection
 - [Fast purge](cdn-purge-endpoint.md)
+- [Management via REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
- 
+
 ## Premium features
 
 The Premium CDN tier includes all of the features of the Standard tier, plus these additional features:

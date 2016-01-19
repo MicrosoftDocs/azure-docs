@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/15/2015"
    ms.author="joaoma"/>
 
 
@@ -32,7 +32,7 @@ A domain is a unique name in the Domain Name System, for example ‘contoso.com�
 
 A DNS zone is used to host the DNS records for a particular domain.  For example, the domain ‘contoso.com’ may contain a number of DNS records such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website).
 
-Azure DNS allows you to host a DNS zone and thereby manage the DNS records for a domain in Azure. Keep in mind Azure DNS is not domain registrar.
+Azure DNS allows you to host a DNS zone and thereby manage the DNS records for a domain in Azure. Keep in mind Azure DNS is not the domain registrar.
 
 The Domain Name System is a hierarchy of domains.  The hierarchy starts from the ‘root’ domain, whose name is simply ‘.’.  Below this come top-level domains, such as ‘com’, ‘net’, ‘org’, ‘uk’ or ‘jp’.  Below these are second-level domains, such as ‘org.uk’ or ‘co.jp’.  And so on.
 
@@ -71,8 +71,8 @@ To set up the delegation, you need to know the name server names for your zone. 
 
 Using Azure PowerShell, the authoritative NS records can be retrieved as follows (the record name “@” is used to refer to records at the apex of the zone).
 
-	PS C:> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -118,18 +118,18 @@ The only difference is that in step 3 the NS records must be created in the pare
 
 The following PowerShell example demonstrates. First, we create the parent and child zones—these can be in same resource group or different resource groups.
 
-	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:\> $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:\> $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 Next, we retrieve the authoritative NS records from child zone as shown in the next example.
 
-	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:\> $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 Finally, we create corresponding NS record set in the parent zone to complete the delegation (note that the record set name in the parent zone matches the child zone name, in this case "partners").
 
-	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:\> $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
+	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
 As when delegating using a registrar, we can verify that everything is set up correctly by looking up the SOA record of the child zone.
 
@@ -149,12 +149,12 @@ As when delegating using a registrar, we can verify that everything is set up co
 
 ## Next steps
 
-[Manage DNS zones](../dns-operations-dnszones)
+[Manage DNS zones](dns-operations-dnszones.md)
 
-[Manage DNS records](../dns-operations-recordsets)
+[Manage DNS records](dns-operations-recordsets.md)
 
-[Traffic Manager overview](../traffic-manager-overview)
+[Traffic Manager overview](traffic-manager-overview.md)
 
-[Automate Azure Operations with .NET SDK](../dns-sdk)
+[Automate Azure Operations with .NET SDK](dns-sdk.md)
 
 [Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)

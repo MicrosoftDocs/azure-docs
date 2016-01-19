@@ -69,7 +69,7 @@ You need to establish a remote connection to log on to the virtual machine, usin
 - [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md). A maximum of 2 concurrent connections are supported, unless the server is configured as a Remote Desktop Services session host.  
 - [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-how-to-log-on.md). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
-If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) extension to help fix the problem. 
+If you’re having problems with Remote Desktop or SSH, install and use the [VMAccess](virtual-machines-extensions-features.md) extension to help fix the problem. 
 
 For Windows VMs, additional options include:
 
@@ -102,7 +102,7 @@ For general details about the tools and processes for migrating a Windows Server
 
 The images provided by Azure don’t have a pre-configured user name and password. When you create virtual machine using one of those images, you’ll need to provide a user name and password, which you’ll use to log on to the virtual machine.
 
-If you’ve forgotten the user name or password and you’ve installed the VM Agent, you can install and use the [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) extension to fix the problem.
+If you’ve forgotten the user name or password and you’ve installed the VM Agent, you can install and use the [VMAccess](virtual-machines-extensions-features.md) extension to fix the problem.
 
 Additional details:
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
+	ms.date="12/04/2015"
 	ms.author="robinsh"/>
 
 
@@ -27,7 +27,7 @@ An Azure storage account gives you access to the Azure Blob, Queue, Table, and F
 
 There are two types of storage accounts:
 
-- A standard storage account includes Blob, Table, Queue, and File storage. 
+- A standard storage account includes Blob, Table, Queue, and File storage.
 - A premium storage account currently supports Azure virtual machine disks only. See [Premium Storage: High-performance storage for Azure virtual machine workloads](storage-premium-storage-preview-portal.md) for an in-depth overview of Premium Storage.
 
 ## Storage account billing
@@ -171,3 +171,4 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 
 - To learn more about Azure Storage, see the Azure Storage documentation on [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
 - Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)

@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Storage Analytics | Microsoft Azure"
-	description="How to manage concurrency for the Blob, Queue, Table, and File services"
+	pageTitle="Use Storage Analytics to collect logs and metrics data | Microsoft Azure"
+	description="Storage Analytics enables you to track metrics data for all storage services, and to collect logs for Blob, Queue, and Table storage."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 # Storage Analytics

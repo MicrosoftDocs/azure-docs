@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Accessing Azure Virtual Machines from Server Explorer"
+   pageTitle="Accessing Azure Virtual Machines from Server Explorer | Microsoft Azure"
    description="Get an overview of how to view create and manage Azure virtual machines (VMs) in Server Explorer in Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.date="01/05/2016"
+   ms.author="tarcher" />
 
 # Accessing Azure Virtual Machines from Server Explorer
 

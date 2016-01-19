@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Microsoft Azure preview portal overview"
-	description="Learn how to use the Microsoft Azure preview portal."
+	pageTitle="Microsoft Azure portal overview"
+	description="Learn how to use the Microsoft Azure portal."
 	services=""
 	documentationCenter=""
 	authors="davidwrede"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="04/28/2015"
+	ms.date="12/16/2015"
 	ms.author="dwrede"/>
 
-# Microsoft Azure preview portal overview
+# Microsoft Azure portal overview
 
-The Microsoft Azure preview portal is a central place where you can provision and manage your Azure resources.  This tutorial will familiarize you with the portal and show you how to use some of these key capabilities:
+The Microsoft Azure portal is a central place where you can provision and manage your Azure resources.  This tutorial will familiarize you with the portal and show you how to use some of these key capabilities:
 - A **comprehensive marketplace** that lets you browse through thousands of items from Microsoft and other vendors that can be purchased and/or provisioned.
 - A **unified and scalable browse experience** that makes it easy to find the resources you care about and perform various management operations.
 - **Consistent management pages** (or blades) that let you manage Azure’s wide variety of services through a consistent way of exposing settings, actions, billing information, health monitoring and usage data, and much more.
@@ -36,7 +36,7 @@ Azure has a marketplace with thousands of items that you can create from one pla
 
 1.	Windows Server 2012 is featured, so you can select it from the Compute category.  
 2.	Fill out some basic inputs on a form.
-3.	Click ‘Create’ and you’re VM will begin to provision immediately.
+3.	Click ‘Create’ and your VM will begin to provision immediately.
 
 The notifications hub will alert you when your resource has been created and a management blade will open (you can always browse to resources later).
 
@@ -89,7 +89,7 @@ Let’s review what you learned in this tutorial:
 - You learned how to control access to resources using role based access (RBAC)
 - You learned how to get help and support
 
-The Microsoft Azure preview portal radically simplifies building and managing your applications in the cloud.  Take a look at the [management blog](http://azure.microsoft.com/blog/topics/management/) to keep up to date as we’re constantly [listening to feedback](http://feedback.azure.com/forums/223579-azure-preview-portal) and making improvements.  [ScottGu’s blog](http://weblogs.asp.net/scottgu) is another great place to look for all Azure updates.
+The Microsoft Azure portal radically simplifies building and managing your applications in the cloud.  Take a look at the [management blog](http://azure.microsoft.com/blog/topics/management/) to keep up to date as we’re constantly [listening to feedback](http://feedback.azure.com/forums/223579-azure-preview-portal) and making improvements.  [ScottGu’s blog](http://weblogs.asp.net/scottgu) is another great place to look for all Azure updates.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png

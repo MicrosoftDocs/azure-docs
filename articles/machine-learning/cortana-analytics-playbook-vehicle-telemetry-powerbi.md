@@ -339,7 +339,7 @@ Note: It takes about 2 hours (from the successful completion of the deployment) 
 •	Save locally
 
 **Configure PowerBI reports**
-•	Open the designer file ‘VehicleTelemetryAnalytics - Desktop Report.pbix’ using PowerBI Desktop. If you do not already have, install the PowerBI Desktop from [here](http://www.microsoft.com/download/details.aspx?id=45331). 
+•	Open the designer file ‘VehicleTelemetryAnalytics - Desktop Report.pbix’ using PowerBI Desktop. If you do not already have, install the PowerBI Desktop from [PowerBI Desktop install](http://www.microsoft.com/download/details.aspx?id=45331). 
 
 •	Click on the **Edit Queries**.
 

@@ -141,7 +141,7 @@ You will see the **保存成功！** (**Successfully saved!**) message.
 
 ##Configure your notification hub
 
-1. Sign in to the [Azure portal], and then click **+NEW** at the bottom of the screen.
+1. Sign in to the [Azure Classic Portal], and then click **+NEW** at the bottom of the screen.
 
 2. Click **App Services**, click **Service Bus**, click **Notification Hub**, and then click **Quick Create**.
 
@@ -264,7 +264,7 @@ You will see the **保存成功！** (**Successfully saved!**) message.
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Set the value of **API_KEY** with what you retrieved from the Baidu cloud project earlier, **NotificationHubName** with your notification hub name from the Azure portal and **NotificationHubConnectionString** with DefaultListenSharedAccessSignature from the Azure portal.
+	Set the value of **API_KEY** with what you retrieved from the Baidu cloud project earlier, **NotificationHubName** with your notification hub name from the Azure Classic Portal and **NotificationHubConnectionString** with DefaultListenSharedAccessSignature from the Azure Classic Portal.
 
 11. Add a new class called **DemoApplication.java**, and add the following code to it:
 
@@ -399,7 +399,7 @@ You will see the **保存成功！** (**Successfully saved!**) message.
 ##Send notifications to your app
 
 
-You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.
+You can test receiving notifications in your app by sending notifications in the Azure Classic Portal via the debug tab on the notification hub, as shown in the screen below.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -459,7 +459,7 @@ To test this app with the emulator, on the Eclipse top toolbar, click **Run**, a
 
 The app retrieves the 'userId' and 'channelId' from the Baidu Push notification service and registers with the notification hub.
 
-To send a test notification you can use the debug tab of the portal. If you built the .NET console application for Visual Studio, just press the F5 key in Visual Studio to run the application. The application will send a notification that will appear in the top notification area of your device or emulator.
+To send a test notification you can use the debug tab of the Azure Classic Portal. If you built the .NET console application for Visual Studio, just press the F5 key in Visual Studio to run the application. The application will send a notification that will appear in the top notification area of your device or emulator.
 
 
 <!-- Images. -->
@@ -500,5 +500,5 @@ To send a test notification you can use the debug tab of the portal. If you buil
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Baidu portal]: http://www.baidu.com/

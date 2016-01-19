@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="12/11/2015" 
 	ms.author="jeffstok"/>
 
 # How to write queries in Stream Analytics
@@ -34,7 +34,7 @@ Writing queries for stream processing logic in Azure Stream Analytics is impleme
 2.	New jobs have a query template to help get you started. The query template performs a "pass-through" query that projects all fields from input events into the output.  
 
     - If you have defined at least one input and output for your job, you can replace the placeholder "[YourOutputAlias]" and "[YourInputAlias]" fields with the aliases of the input and output that you wish use first. In addition, you can still author and test your query in the Azure portal without defining inputs and outputs on the job.
-    - If you wish to perform more processing than a simple pass-through, you can edit the query definition. To get started with query authoring, take a look at some common query patterns are captured [here](stream-analytics-query-patterns).  
+    - If you wish to perform more processing than a simple pass-through, you can edit the query definition. To get started with query authoring, take a look at some common query patterns are captured [here](stream-analytics-stream-analytics-query-patterns.md).  
   
     ![Query data Window](./media/stream-analytics-write-queries/2-stream-analytics-write-queries.png)  
 

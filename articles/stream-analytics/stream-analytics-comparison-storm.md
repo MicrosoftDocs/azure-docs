@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Analytics platforms: Apache Storm comparison to Stream Analytics | Microsoft Azure"
-	description="Get guidance choosing a cloud analytics platform from an Apache Storm comparison to Stream Analytics. Understand features and differences."
+	description="Get guidance choosing a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences."
 	keywords="analytics platform, analytics platforms, cloud analytics platform, storm comparison"
 	services="stream-analytics"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Help choosing a streaming analytics platform: Apache Storm comparison to Azure Stream Analytics
 
-Get guidance choosing a cloud analytics platform from an Apache Storm comparison to Azure Stream Analytics. Understand the value propositions of Stream Analytics versus Apache Storm as a managed service on Azure HDInsight, so you can choose the right solution for your business use cases.
+Get guidance choosing a cloud analytics platform by using this Apache Storm comparison to Azure Stream Analytics. Understand the value propositions of Stream Analytics versus Apache Storm as a managed service on Azure HDInsight, so you can choose the right solution for your business use cases.
 
 Both analytics platforms provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate them. Capabilities as well as the limitations of these services are listed below to help you land on the solution you need to achieve your goals.
 

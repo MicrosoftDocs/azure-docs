@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Batch service basics | Microsoft Azure"
-	description="Learn about the concepts, workflows, and scenarios of the Azure Batch service for large-scale parallel and HPC workloads"
+	description="Learn about using the Azure Batch service for large-scale parallel and HPC workloads"
 	services="batch"
 	documentationCenter=""
 	authors="dlepow"
@@ -38,9 +38,9 @@ Examples include:
 * Genetic sequence analysis
 * Software testing
 
-Batch can also perform parallel calculations with a reduce step at the end, and other more complicated parallel workloads.
+Batch can also perform parallel calculations with a reduce step at the end, and more complex HPC workloads such as message passing interface (MPI) applications.
 
->[AZURE.NOTE]At this time Batch only supports workloads that run on Windows Server-based virtual machines. Additionally, Batch doesn't currently support message passing interface (MPI) applications.
+>[AZURE.NOTE]At this time Batch only supports workloads that run on Windows Server-based virtual machines. 
 
 For a comparison of Batch with other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
 

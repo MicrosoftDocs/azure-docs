@@ -1,11 +1,11 @@
 <properties
-	pageTitle="What happened to my WebApi project (Visual Studio Azure Active Directory connected service) |Microsoft Azure "
-	description="Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio services="active-directory"
-    services="active-directory"
+	pageTitle="What happened to my WebApi project (Visual Studio Azure Active Directory connected service) | Microsoft Azure "
+	description="Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio"
+  services="active-directory"
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/18/2015"
 	ms.author="tarcher"/>
 
 # What happened to my WebApi project (Visual Studio Azure Active Directory connected service)

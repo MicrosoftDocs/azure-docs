@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/18/2015"
    ms.author="masashin"/>
 
 # Caching guidance
@@ -363,7 +363,7 @@ application instance could read and populate the cache with the
 old value.
 
 For more information about handling data consistency, see the
-Data Consistency Guidance page on the Microsoft website.
+[Data Consistency Primer](http://msdn.microsoft.com/library/dn589800.aspx) page on the Microsoft website.
 
 ### Protecting cached data
 
@@ -447,13 +447,17 @@ in the cloud.
   cloud service deployment unit (a deployment unit is the set
   of role instances deployed as a cloud service to a specific
   region). The cache is clustered, and all instances of the
-  role within the same deployment unit that host the cache
-  become part of the same cache cluster. Existing applications
-  that use in-role caching can continue to do so, but
-  migrating to the Azure Redis Cache may bring more benefits.
-  For more information about whether to use Azure Redis Cache
-  or an in-role cache, visit the page
-  [Which Azure Cache offering is right for me?](http://msdn.microsoft.com/library/azure/dn766201.aspx) on the Microsoft website.
+  role within the same deployment unit that hosts the cache
+  become part of the same cache cluster. However, this option is
+  no longer recommended and is only provided to support existing
+  applications that have been built to use it. For all new
+  development, use the Azure Redis Cache instead.
+>
+> Both Azure Managed Cache Service and Azure In-Role Cache
+  are currently slated for retirement on November 16th, 2016.
+  It is recommended that you migrate to Azure Redis Cache in
+  preparation for this retirement. For more information, visit the page 
+  [What Redis Cache offering and size should I use?](redis-cache/cache-faq.md#what-redis-cache-offering-and-size-should-i-use) on the Microsoft website.
 
 
 ### Features of Redis
@@ -484,8 +488,6 @@ Redis is a key-value store, where values can contain simple types or complex dat
 Redis supports master/subordinate replication to help ensure availability and maintain throughput; write operations to a Redis master node are replicated to one or more subordinate nodes, and read operations can be served by the master or any of the subordinates. In the event of a network partition, subordinates can continue to serve data and then transparently resynchronize with the master when the connection is reestablished. For further details, visit the [Replication](http://redis.io/topics/replication) page on the Redis website.
 
 Redis also provides clustering, enabling you to transparently partition data into shards across servers and spread the load. This feature improves scalability as new Redis servers can be added and the data repartitioned as the size of the cache increases. Furthermore, each server in the cluster can be replicated by using master/subordinate replication to ensure availability across each node in the cluster. For more information about clustering and sharding, visit the [Redis Cluster Tutorial page](http://redis.io/topics/cluster-tutorial) on the Redis website.
-
-> [AZURE.NOTE] Azure Redis Cache does not currently support clustering. If you wish to create a Redis cluster you can build your own custom Redis server. For more information, see the section Building a Custom Redis Cache later in this document.
 
 ### Redis memory use
 
@@ -524,8 +526,6 @@ The Azure management portal includes a convenient graphical display that enables
 
 You can also monitor CPU, memory, and network usage for the cache.
 
-> [AZURE.NOTE] Azure Redis Cache is intended to act purely as a cache rather than a database. As a result, it does not currently implement Redis persistence.
-
 For further information and examples showing how to create and configure an Azure Redis Cache, visit the page [Lap around Azure Redis Cache](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) on the Azure blog.
 
 ## Caching session state and HTML output
@@ -538,11 +538,11 @@ Using the Session State Provider with Azure Redis Cache delivers several benefit
 - It supports controlled, concurrent access to the same session state data for multiple readers and a single writer, and
 - It can use compression to save memory and improve network performance.
 
-For more information visit the [ASP.NET Session State Provider for Azure Redis Cache](http://msdn.microsoft.com/library/azure/dn690522.aspx) page on the Microsoft website.
+For more information visit the [ASP.NET Session State Provider for Azure Redis Cache](redis-cache/cache-asp.net-session-state-provider.md) page on the Microsoft website.
 
 > [AZURE.NOTE] Do not use the Session State Provider for Azure Redis Cache for ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
 
-Similarly, the Output Cache Provider for Azure Redis Cache enables you to save the HTTP responses generated by an ASP.NET web application. Using the Output Cache Provider with Azure Redis Cache can improve the response times of applications that render complex HTML output; application instances generating similar responses can make use of the shared output fragments in the cache rather than generating this HTML output afresh.  For more information visit the [ASP.NET Output Cache Provider for Azure Redis Cache](http://msdn.microsoft.com/library/azure/dn798898.aspx) page on the Microsoft website.
+Similarly, the Output Cache Provider for Azure Redis Cache enables you to save the HTTP responses generated by an ASP.NET web application. Using the Output Cache Provider with Azure Redis Cache can improve the response times of applications that render complex HTML output; application instances generating similar responses can make use of the shared output fragments in the cache rather than generating this HTML output afresh.  For more information visit the [ASP.NET Output Cache Provider for Azure Redis Cache](redis-cache/cache-asp.net-output-cache-provider.md) page on the Microsoft website.
 
 ## Building a custom Redis cache
 
@@ -572,9 +572,6 @@ To implement partitioning in a Redis cache, you can adopt one of the following a
   described in more detail on the [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial) page on the Redis website. Redis clustering
   is transparent to client applications, and additional Redis servers can be added to the cluster
   (and the data re-partitioned) without requiring that you reconfigure the clients.
-
-  > [AZURE.IMPORTANT] Azure Redis Cache does not currently support Redis clustering. If you wish to
-  implement this approach then you should build a custom Redis cache as described earlier.
 
 - _Client-side partitioning._ In this model, the client application contains logic (possibly in
   the form of a library) that routes requests to the appropriate Redis server. This approach
@@ -735,7 +732,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-The page [Develop for Azure Redis Cache](http://msdn.microsoft.com/library/azure/dn690520.aspx) on the Microsoft website provides more information on how to write client applications that can use the Azure Redis cache. Additional information is available on the [Basic Usage page](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) on the StackExchange.Redis website, and the page [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.  The section Use-Cases for Redis Caching later in this guidance provides examples of some of the more advanced techniques that you can apply to data held in a Redis cache.
+The page [Azure Redis Cache Documentation](http://azure.microsoft.com/documentation/services/cache/) on the Microsoft website provides more information on how to write client applications that can use the Azure Redis cache. Additional information is available on the [Basic Usage page](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) on the StackExchange.Redis website, and the page [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.  The section Use-Cases for Redis Caching later in this guidance provides examples of some of the more advanced techniques that you can apply to data held in a Redis cache.
 
 ## Use-cases for Redis caching
 
@@ -1120,8 +1117,8 @@ The following pattern may also be relevant to your scenario when implementing ca
 ## More Information
 
 - The [MemoryCache Class](http://msdn.microsoft.com/library/system.runtime.caching.memorycache.aspx) page on the Microsoft website.
-- The [Microsoft Azure Cache](http://msdn.microsoft.com/library/windowsazure/gg278356.aspx) page on the Microsoft website.
-- The [Which Azure Cache offering is right for me?](http://msdn.microsoft.com/library/azure/dn766201.aspx) page on the Microsoft website.
+- The [Azure Redis Cache Documentation](http://azure.microsoft.com/documentation/services/cache/) page on the Microsoft website.
+- The [Azure Redis Cache FAQ](redis-cache/cache-faq.md) page on the Microsoft website.
 - The [Configuration Model](http://msdn.microsoft.com/library/windowsazure/hh914149.aspx) page on the Microsoft website.
 - The [Task-based Asynchronous Pattern](http://msdn.microsoft.com/library/hh873175.aspx) page on the Microsoft website.
 - The [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md) page on the StackExchange.Redis GitHub repo.
@@ -1129,15 +1126,14 @@ The following pattern may also be relevant to your scenario when implementing ca
 - The [Replication page](http://redis.io/topics/replication) on the Redis website.
 - The [Redis Cluster Tutorial](http://redis.io/topics/cluster-tutorial) page on the Redis website.
 - The [Partitioning: how to split data among multiple Redis instances](http://redis.io/topics/partitioning) page on the Redis website.
-- The page [Using Redis as an LRU Cache](http://redis.io/topics/lru-cache) on the Redis website.
-- The [Transactions page](http://redis.io/topics/transactions) on the Redis website.
+- The [Using Redis as an LRU Cache](http://redis.io/topics/lru-cache) page on the Redis website.
+- The [Transactions](http://redis.io/topics/transactions) page on the Redis website.
 - The [Redis Security](http://redis.io/topics/security) page on the Redis website.
-- The page [Lap around Azure Redis Cache](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) on the Azure blog.
-- The page [Running Redis on a CentOS Linux VM](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) in Azure on the Microsoft website.
-- The [ASP.NET Session State Provider for Azure Redis Cache](http://msdn.microsoft.com/library/azure/dn690522.aspx) page on the Microsoft website.
-- The [ASP.NET Output Cache Provider for Azure Redis Cache](http://msdn.microsoft.com/library/azure/dn798898.aspx) page on the Microsoft website.
-- The page [Develop for Azure Redis Cache](http://msdn.microsoft.com/library/azure/dn690520.aspx) on the Azure site.
-- The page [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro) on the Redis website.
+- The [Lap around Azure Redis Cache](http://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) page on the Azure blog.
+- The [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) page on the Microsoft website.
+- The [ASP.NET Session State Provider for Azure Redis Cache](redis-cache/cache-asp.net-session-state-provider.md) page on the Microsoft website.
+- The [ASP.NET Output Cache Provider for Azure Redis Cache](redis-cache/cache-asp.net-output-cache-provider.md) page on the Microsoft website.
+- The [An Introduction to Redis data types and abstractions](http://redis.io/topics/data-types-intro) page on the Redis website.
 - The [Basic Usage](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Basics.md) page on the StackExchange.Redis website.
 - The [Transactions in Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) page on the StackExchange.Redis repo.
 - The [Data Partitioning Guide](http://msdn.microsoft.com/library/dn589795.aspx) on the Microsoft website.

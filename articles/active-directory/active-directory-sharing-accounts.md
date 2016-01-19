@@ -48,7 +48,7 @@ Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premi
 
 Azure AD features that enable account sharing include:
 
-- [Password single sign-on](active-directory-passwords-getting-started.md)
+- [Password single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 - Password single sign-on agent
 - [Group assignment](active-directory-accessmanagement-self-service-group-management.md)
 - Custom Password apps

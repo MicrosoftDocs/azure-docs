@@ -14,12 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="12/11/2015"
 	ms.author="jodebrui"/>
 
 
 # Get started with In-Memory (Preview) in SQL Database
-
 
 In-Memory features greatly improve the performance of transactional and analytics workloads in the right situations.
 
@@ -28,6 +27,7 @@ This topic emphasizes two demonstrations, one for In-Memory OLTP, and one for In
 - Use the code to test variations to see differences in performance results; or
 - Read the code to understand the scenario, and to see how to create and utilize the In-Memory objects.
 
+> [AZURE.VIDEO azure-sql-database-in-memory-technologies]
 
 #### In-Memory OLTP
 

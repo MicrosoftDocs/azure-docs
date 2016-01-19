@@ -21,10 +21,9 @@
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
 Custom solutions using Azure Search for an embedded search experience need to include code that constructs the search query and sends it to a search service for processing.
 
-You can use either the .NET SDK or REST API to write methods for query execution. For preliminary testing or exploration, you can use tools like Fiddler or Chrome Postman to send queries to your service.
+You can use either the .NET SDK or REST API to write methods for query execution. For preliminary testing or exploration, you can use tools like Fiddler  to send queries to your service.

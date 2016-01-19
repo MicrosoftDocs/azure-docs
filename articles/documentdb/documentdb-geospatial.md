@@ -24,7 +24,7 @@ This article is an introduction to the geospatial functionality in [Azure Docume
 - How can I query geospatial data in Azure DocumentDB in SQL and LINQ?
 - How do I enable or disable spatial indexing in DocumentDB?
 
-Please see this [Github project](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial) for code samples.
+Please see this [Github project](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs) for code samples.
 
 ## Introduction to Spatial data
 
@@ -163,7 +163,7 @@ DocumentDB supports the following Open Geospatial Consortium (OGC) built-in func
 </tr>
 </table>
 
-Spatial functions can be used to perform proximity querries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. 
+Spatial functions can be used to perform proximity queries against spatial data. For example, here's a query that returns all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. 
 
 **Query**
 
@@ -350,7 +350,7 @@ And here's how you can modify an existing collection to take advantage of spatia
 ## Next Steps
 Now that you've learnt about how to get started with geospatial support in DocumentDB, you can:
 
-- Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial)
+- Start coding with the [Geospatial .NET code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs)
 - Get hands on with geospatial querying at the [DocumentDB Query Playground](http://www.documentdb.com/sql/demo#geospatial)
 - Learn more about [DocumentDB Query](documentdb-sql-query.md)
 - Learn more about [DocumentDB Indexing Policies](documentdb-indexing-policies.md)
