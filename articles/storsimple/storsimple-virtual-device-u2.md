@@ -25,7 +25,6 @@
 ##Overview
 The StorSimple virtual device is an additional capability that comes with your Microsoft Azure StorSimple solution. The StorSimple virtual device runs on a virtual machine in a Microsoft Azure virtual network, and you can use it to back up and clone data from your hosts. 
 
- 
 
 #### Virtual device model comparison
 
@@ -215,7 +214,7 @@ Deactivating a virtual device results in the following actions:
 
 - Cloud snapshots created for the virtual device are retained.
 
-For a step-by-step procedure, go to [Deactivate and delete your StorSimple device](storsimple-deactivate-and-delete-device).
+For a step-by-step procedure, go to [Deactivate and delete your StorSimple device](storsimple-deactivate-and-delete-device.md).
 
 As soon as the virtual device is shown as deactivated on the StorSimple Manager service page, you can delete the virtual device from device list on the **Devices** page.
 
