@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="12/03/2015" 
+	ms.date="12/17/2015" 
 	ms.author="mimig"/>
 
 # Create a DocumentDB database account using the Azure portal

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="01/14/2016"
    ms.author="v-sharos" />
 
 # Install and configure the StorSimple Adapter for SharePoint
@@ -197,7 +197,7 @@ After you install the StorSimple Adapter for SharePoint, configure RBS as descri
 
 When objects are deleted from a SharePoint site, they are not automatically deleted from the RBS store volume. Instead, an asynchronous, background maintenance program deletes orphaned BLOBs from the file store. System administrators can schedule this process to run periodically or they can start it whenever necessary.
 
-This maintenance program (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) is automatically installed on all SharePoint WFE servers and application servers when you enable RBS. The program is installed in the following location: <boot drive>:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\
+This maintenance program (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) is automatically installed on all SharePoint WFE servers and application servers when you enable RBS. The program is installed in the following location: *boot drive*:\Program Files\Microsoft SQL Remote Blob Storage 10.50\Maintainer\
 
 For information about configuring and using the maintenance program, see [Maintain RBS in SharePoint Server 2013][8].
 

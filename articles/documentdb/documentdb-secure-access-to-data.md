@@ -18,7 +18,7 @@
 
 # Securing access to DocumentDB data #
 
-This article provides an overview of securing access to data stored in [Microsoft Azure DocumentDB](../../services/documentdb/). 
+This article provides an overview of securing access to data stored in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
 
 After reading this overview, you'll be able to answer the following questions:  
 

@@ -14,13 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="andrela"/>
 
 
 # Connect to SQL Database by using Ruby on Ubuntu Linux
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
+
 
 This topic presents a Ruby code sample that runs on an Ubuntu Linux client computer to connect to an Azure SQL Database database.
 

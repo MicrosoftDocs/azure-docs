@@ -112,7 +112,9 @@ See [Deploy an application](service-fabric-deploy-remove-applications.md) for ex
 
 For more information on developing, testing, and managing Service Fabric applications and services, see:
 
-- [Develop a Service Fabric service](service-fabric-develop-your-service-index.md)
-- [Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
-- [Test a Service Fabric service](service-fabric-test-your-service-index.md)
+- [Reliable Actors](service-fabric-reliable-actors-introduction.md)
+- [Reliable Services](../service-fabric/service-fabric-reliable-services-introduction.md)
+- [Deploy an application](service-fabric-deploy-remove-applications.md)
+- [Application upgrade](service-fabric-application-upgrade.md)
+- [Testability overview](service-fabric-testability-overview.md)
 - [REST-based application lifecycle sample](service-fabric-rest-based-application-lifecycle-sample.md)

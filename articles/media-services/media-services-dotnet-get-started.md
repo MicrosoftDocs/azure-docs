@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/08/2015"
+	ms.date="12/17/2015"
 	ms.author="juliako"/>
 
 
@@ -23,28 +23,18 @@
 
 
 >[AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
+ 
+##Overview 
 
 This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) SDK for .NET.
 
 
 The tutorial introduces the basic Media Services workflow and the most common programming objects and tasks required for Media Services development. At the completion of the tutorial, you will be able to stream or progressively download a sample media file that you uploaded, encoded, and downloaded.
 
+## What you'll learn
 
-##Download sample
-
-Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
-
-
-## Prerequisites
-The following prerequisites are required to start developing with Media Services SDK for .NET.
-
-- Operating Systems: Windows 8 or later, Windows 2008 R2, Windows 7.
-- .NET Framework 4.5 or .NET Framework 4.0
-- Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later.
-
-
-The following tasks are shown in this Quickstart.
+The tutorial show how to accomplish the following tasks:
 
 1.  Create a Media Services account (using the Azure Classic Portal).
 2.  Configure streaming endpoint (using the portal).
@@ -53,8 +43,23 @@ The following tasks are shown in this Quickstart.
 6.  Create a new asset and upload a video file.
 7.  Encode the source file into a set of adaptive bitrate MP4 files.
 8.  Publish the asset and get URLs for streaming and progressive download.
-9.  Play your content.
+9.  Test by playing your content.
 
+## Prerequisites
+
+The following are required to complete the tutorial.
+
+- To complete this tutorial, you need an Azure account. 
+	
+	If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
+- Operating Systems: Windows 8 or later, Windows 2008 R2, Windows 7.
+- .NET Framework 4.0 or later
+- Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.
+
+
+##Download sample
+
+Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Create a Media Services account using the portal
 
@@ -386,7 +391,7 @@ Add the following method to the Program class.
         Console.WriteLine("Output asset files available at '{0}'.", Path.GetFullPath(outputFolder));
     }
 
-##Play your content  
+##Test by playing your content  
 
 Once you run the program defined in the previous section, the URLs similar to the following will be displayed in the console window.
 

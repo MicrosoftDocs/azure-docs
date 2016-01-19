@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="v-sharos" />
 
-# Restore a StorSimple volume from a backup set
+# Restore a StorSimple volume from a backup set (Update 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 

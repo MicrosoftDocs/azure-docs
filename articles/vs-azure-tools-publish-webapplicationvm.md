@@ -3,17 +3,17 @@
    description="Learn how to deploy a web application to a virtual machine. This script creates the required resources in your Azure subscription if they don't exist."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.date="01/05/2016"
+   ms.author="tarcher" />
 
 # Publish-WebApplicationVM (Windows PowerShell script)
 

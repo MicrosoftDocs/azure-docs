@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/16/2015" 
 	ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
@@ -26,9 +26,11 @@ Policy expressions can be used as attribute values or text values in any of the 
 
 -	[Access restriction policies][]
 	-	[Check HTTP header][] - Enforces existence and/or value of a HTTP Header.
-	-	[Limit call rate][] - Prevents API usage spikes by limiting calls and/or the bandwidth consumption rate.
+	-	[Limit call rate by subscription][] - Prevents API usage spikes by limiting call rate, on a per subscription basis.
+	-	[Limit call rate by key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
 	-	[Restrict caller IPs][] - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
-	-	[Set usage quota][] - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota.
+	-	[Set usage quota by subscription][] - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
+	-	[Set usage quota by key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis.
 	-	[Validate JWT][] - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
 -	[Advanced policies][]
 	-	[Control flow][] - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions][].
@@ -38,7 +40,7 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Send one way request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - Sends a request to the specified URL without waiting for a response.
 	-	[Send request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - Sends a request to the specified URL.
 	-	[Set request method](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Allows you to change the HTTP method for a request.
-	-	[Set status code](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Changes the HTTP status code to the specified value.
+	-	[Set status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Changes the HTTP status code to the specified value.
 	-	[Set variable][] - Persist a value in a named [context][] variable for later access.
 -	[Authentication policies][]
 	-	[Authenticate with Basic][] - Authenticate with a backend service using Basic authentication.
@@ -46,6 +48,8 @@ Policy expressions can be used as attribute values or text values in any of the 
 -	[Caching policies][] 
 	-	[Get from cache][] - Perform cache look up and return a valid cached response when available.
 	-	[Store to cache][] - Caches response according to the specified cache control configuration.
+	-	[Get value from cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - Retrieve a cached item by key.
+	-	[Store value in cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) - Store an item in the cache by key.
 -	[Cross domain policies][] 
 	-	[Allow cross-domain calls][] - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
 	-	[CORS][] - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
@@ -69,9 +73,9 @@ For more information on policy expressions, see the following video.
 
 [Access restriction policies]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [Check HTTP header]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
-[Limit call rate]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
+[Limit call rate by subscription]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#LimitCallRate
 [Restrict caller IPs]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs
-[Set usage quota]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
+[Set usage quota by subscription]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
 [Validate JWT]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT
 
 [Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx

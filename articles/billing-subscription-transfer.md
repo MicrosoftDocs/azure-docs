@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="12/01/2015"
+   ms.date="12/21/2015"
    ms.author="curtand;kareni;ruchic"/>
 
 # Transferring an Azure subscription
@@ -107,7 +107,7 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 
 -   **Can the recipient use a different payment mechanism?**
 
-    Yes, and in fact you can use this mechanism to change the payment method on your subscription from invoice to credit card. Just transfer to another account you own, and enter your credit card while receiving the subscription. There are limitations here: now the subscription billing history is split across two accounts. But the advantage is that you can do this without having to [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
+    Yes. There are limitations here: now the subscription billing history is split across two accounts. But the advantage is that you can do this without having to [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
 
 ## Next steps after accepting ownership of a subscription
 
