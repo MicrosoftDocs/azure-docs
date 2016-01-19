@@ -161,7 +161,7 @@ You can pass string values from the .config file by providing public named prope
 
 ```C#
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
