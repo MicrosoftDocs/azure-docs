@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Data Catalog Supported Data Sources"
+   pageTitle="Azure Data Catalog supported data sources | Microsoft Azure"
    description="Specification of the currently supported data sources."
    services="data-catalog"
    documentationCenter=""
@@ -16,12 +16,12 @@
    ms.date="01/15/2016"
    ms.author="trhabe"/>
 
-# Azure Data Catalog Supported Data Sources
+# Azure Data Catalog supported data sources
 
 Users of the Azure Data Catalog can publish metadata using a public API, a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The below grid summarizes all sources supported by the catalog today, and the publishing capabilities for each.  Also listed are the external data tools that each source can launch from our portal "open-in" experience. Further below is a second grid that has a more technical specification of each data sources connection properties.
 
 
-## List of Supported Data Sources
+## List of supported data sources
 
 <table>
 
