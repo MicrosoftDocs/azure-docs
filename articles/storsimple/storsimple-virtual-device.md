@@ -71,7 +71,7 @@ The following sections will help you prepare to use the StorSimple virtual devic
 
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-- For the virtual device,[configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md)
+- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md)
 - It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid, the creation of the virtual device will fail.
 - Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios.
 
