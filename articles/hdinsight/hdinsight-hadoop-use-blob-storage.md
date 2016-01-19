@@ -285,7 +285,9 @@ For more information, see:
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
+* [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight][hdinsight-use-sas]
 
+[hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: ../install-configure-powershell.md
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
