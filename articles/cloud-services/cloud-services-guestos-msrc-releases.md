@@ -32,7 +32,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Microsoft Security Advisory Revision | [2755801] | Update for Vulnerabilities in Adobe Flash Player in Internet Explorer (Package KB: TBD) -  Advisory Placeholder | 4.28, 3.35 | Janurary 12, 2015 |
 | Microsoft Security Advisory | [3109853] | Update to Improve TLS Interoperability | 4.28, 3.35 | Janurary 12, 2015 |
 | Microsoft Security Advisory | [3123479] | Deprecation of SHA-1 Hashing Algorithm for Microsoft Root Certificate Program | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
-| Microsoft Security Advisory | [3118753] | Updates for ActiveX Kill Bits | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
+| Microsoft Security Advisory | [2736233] | Updates for ActiveX Kill Bits | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
 
 ## December Guest OS
 
@@ -230,10 +230,10 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3124584]: http://support.microsoft.com/kb/3124584
 [3124901]: http://support.microsoft.com/kb/3124901 
 [3124605]: http://support.microsoft.com/kb/3124605
-[2755801]: http://support.microsoft.com/kb/2755801 
+[2755801]: http://support.microsoft.com/kb/2755399
 [3109853]: http://support.microsoft.com/kb/3109853
 [3123479]: http://support.microsoft.com/kb/3123479 
-[3118753]: http://support.microsoft.com/kb/3118753
+[2736233]: http://support.microsoft.com/kb/2736233
 
 [3116180]: http://support.microsoft.com/kb/3116180
 [3116178]: http://support.microsoft.com/kb/3116178
