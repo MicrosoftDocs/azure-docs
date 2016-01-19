@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/22/2015"
+   ms.date="01/15/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager overview
@@ -91,11 +91,11 @@ For guidance on deploying your solution to different environments, see [Developm
 
 ## Tags
 
-Resource Manager provides a tagging feature that enables you to categorize resources according to your requirements for managing or billing. You might want to use tags when you have a complex collection of resource groups and resources, and need to visualize those assets in the way that makes the most sense to you. For example, you could tag resources that serve a similar role in your organization or belong to the same department.
+Resource Manager provides a tagging feature that enables you to categorize resources according to your requirements for managing or billing. You might want to use tags when you have a complex collection of resource groups and resources, and need to visualize those assets in the way that makes the most sense to you. For example, you could tag resources that serve a similar role in your organization or belong to the same department. Without tags, users in your organization can create multiple resources that may be very difficult to later identify and manage. For example, you may wish to delete all of the resources for a particular project, but if those resources were not tagged for the project, you will have to manually find them. Tagging can be an important way for you to reduce unnecessary costs in your subscription. 
 
 Resources do not need to reside in the same resource group to share a tag. You can create your own tag taxonomy to ensure that all users in your organization use common tags rather than users inadvertently applying slightly different tags (such as "dept" instead of "department").
 
-For more information about tags, see [Using tags to organize your Azure resources](./resource-group-using-tags.md).
+For more information about tags, see [Using tags to organize your Azure resources](./resource-group-using-tags.md). You can create a [customized policy](#manage-resources-with-customized-policies) that requires adding tags to resources during deployment.
 
 ## Access control
 
@@ -111,7 +111,7 @@ For best practices, see [Security considerations for Azure Resource Manager](bes
 
 ## Manage resources with customized policies
 
-Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include scenarios as diverse as enforcing a naming convention on resources, limiting which regions can host a type of resource, or requiring a tag value on resources to organize billing by departments. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+Resource Manager enables you to create customized policies for managing your resources. The types of policies you create can include scenarios as diverse as enforcing a naming convention on resources, limiting which types and instances of resources can be deployed,  limiting which regions can host a type of resource, or requiring a tag value on resources to organize billing by departments. You create policies to help reduce costs and maintain consistency in your subscription. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
 ## Consistent management layer
 
