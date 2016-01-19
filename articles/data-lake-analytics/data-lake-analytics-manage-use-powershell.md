@@ -323,7 +323,7 @@ as a group, referred to as an Azure Resource Group. You can deploy, update, moni
 resources for your application in a single, coordinated operation. You use a template for deployment and that 
 template can work for different environments such as testing, staging and production. You can clarify billing 
 for your organization by viewing the rolled-up costs for the entire group. For more information, see [Azure 
-Resource Manager Overview](resource-group-overview.md). 
+Resource Manager Overview](../resource-group-overview.md). 
 
 An Data Lake Analtyics service can include the following components:
 
@@ -343,13 +343,13 @@ The ARM group however can be located in a different data center.
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
-- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)
+- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
 - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##Apendix A - Data Lake Analytics ARM template
 
 The following ARM template can be used to deploy a Data Lake Analytics account and its dependent Data Lake Store account.  Save it as a json file, and then use PowerShell script to call the template. For more information, see
-[Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md#deploy-with-powershell) and [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
+[Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md#deploy-with-powershell) and [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
 	{
 	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
