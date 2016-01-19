@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/18/2016
+   ms.date="01/19/2016
    ms.author="bwren" />
 
 # Graphical authoring in Azure Automation
@@ -153,7 +153,7 @@ When you enable retry for an activity, you can set a delay and a condition.  The
 
 ![Activity retry delay](media/automation-graphical-authoring-intro/retry-delay.png)
 
-The retry condition is a PowerShell expression that is evaluated after each time the activity runs.  If the expression resolves to False, then the activity runs again.  If the expression resolves to False then the activity does not run again, and the runbook moves on to the next activity. 
+The retry condition is a PowerShell expression that is evaluated after each time the activity runs.  If the expression resolves to True, then the activity runs again.  If the expression resolves to False then the activity does not run again, and the runbook moves on to the next activity. 
 
 ![Activity retry delay](media/automation-graphical-authoring-intro/retry-condition.png)
 
@@ -279,7 +279,7 @@ You can set [checkpoints](automation-powershell-workflow/#checkpoints) in a grap
 
 ![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
-The same guidance for setting checkpoints in your runbook applies to graphical runbooks.  You should follow any checkpointed activity with an Add-AzureAccount in case the runbook starts from this checkpoint on a different worker. 
+The same guidance for setting checkpoints in your runbook applies to graphical runbooks.  If the runbook uses Azure cmdlets, you should follow any checkpointed activity with an Add-AzureRMAccount in case the runbook is suspended and restarts from this checkpoint on a different worker. 
 
 
 ## Authenticating to Azure resources
