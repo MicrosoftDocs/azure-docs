@@ -122,7 +122,7 @@ A runbook can be started many ways: through the Azure portal UI, with a webhook,
 
 - **Start a published runbook by using the Azure portal and assign parameters**
 
-When you [start the runbook](automation-starting-a-runbook#starting-a-runbook-with-the-azure-portal.md), the **Start Runbook** blade opens and you can configure values for the parameters that you just created.
+When you [start the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal), the **Start Runbook** blade opens and you can configure values for the parameters that you just created.
 
 ![Start using the portal](media/automation-runbook-input-parameters/automation_04_StartRunbookUsingPortal.png)
 
