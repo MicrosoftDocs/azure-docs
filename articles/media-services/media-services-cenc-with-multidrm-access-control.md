@@ -3,7 +3,7 @@
 	description="Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="willzhan,Mingfeiy,Juliako"  
+	authors="willzhan"  
 	manager="dwrede" 
 	editor=""/>
 
