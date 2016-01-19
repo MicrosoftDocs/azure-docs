@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="11/30/2015"
+   ms.date="01/19/2016"
    ms.author="juliako"/>
 
-# Azure SDK for .NET 2.8 and 2.8.1
+# Azure SDK for .NET 2.8, 2.8.1 and 2.8.2
 
 ##Overview
  
-This article contains the release notes (that includes known issues and breaking changes) for the Azure SDK for .NET 2.8 and 2.8.1 releases. 
+This article contains the release notes (that includes known issues and breaking changes) for the Azure SDK for .NET 2.8, 2.8.1 and 2.8.2 releases. 
 
 For complete list of new features and updates made in this release, see the [Azure SDK 2.8 for Visual Studio 2013 and Visual Studio 2015](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/) announcement. 
 
@@ -84,7 +84,14 @@ For information, see [Azure SDK 2.8 for Visual Studio 2013 and Visual Studio 201
 2. Python customers may experience debugger issues. Service team is rolling out a fix for this but if customers are affected, please let Microsoft know in the forums or on the announcement blog or release notes comments section. 
 3. Customers in certain regions (such as South India) will experience App Service provisioning errors. This is consistent with the portal, and customers who experience this issue can use the Azure portal to request access to publish to these geo-regions. Once they request access to these regions using the Azure portal provisioning should work. 
 
+##Azure SDK for .NET 2.8.2
 
+Following the installation of the 2.8.2 tools, customers may experience the following issue.         
+
+- If you are using Windows 10 and have not installed Internet Explorer, you may get an "Internet Explorer could not be found" error.
+To resolve the issue, install Internet Explorer using the Add/Remove Windows Components dialog.
+
+If you observe this issue, use the Send-a-smilefeature to report it.
 ##Other updates
 
 For other updates, see [Azure SDK 2.8 announcement post](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
