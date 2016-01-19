@@ -204,8 +204,8 @@ George has also written a blog on [JWT token Authentication in Azure Media Servi
 
 For information on Azure Active Directory:
 
-- You can find developer information in [Azure Active Directory Developer’s Guide](./active-directory/active-directory-developers-guide.md).
-- You can find administrator information in [Administer Your Azure AD Directory](./active-directory/active-directory-administer.md).
+- You can find developer information in [Azure Active Directory Developer’s Guide](../active-directory/active-directory-developers-guide.md).
+- You can find administrator information in [Administer Your Azure AD Directory](../active-directory/active-directory-administer.md).
 
 ###Some gotchas in implementation
 
