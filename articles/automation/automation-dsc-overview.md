@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="10/09/2015"
+   ms.date="01/19/2016"
    ms.author="coreyp"/>
 
 # Azure Automation DSC Overview #
@@ -142,8 +142,8 @@ Going from an empty automation account to a managed set of correctly configured 
 
 ##Related Articles##
 
-- [Onboarding machines for management by Azure Automation DSC] (https://azure.microsoft.com/documentation/articles/automation-dsc-onboarding/)
-- [Compiling configurations in Azure Automation DSC] (https://azure.microsoft.com/documentation/articles/automation-dsc-compile/)
+- [Onboarding machines for management by Azure Automation DSC] (../automation/automation-dsc-onboarding.md)
+- [Compiling configurations in Azure Automation DSC] (../automation/automation-dsc-compile.md)
 - [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure Automation DSC pricing] (http://azure.microsoft.com/pricing/details/automation/)
 - [Continuous Deployment to IaaS VMs Using Azure Automation DSC and Chocolatey] (automation-dsc-cd-chocolatey.md)

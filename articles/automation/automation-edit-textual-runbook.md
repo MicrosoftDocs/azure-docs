@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="01/15/2016"
+	ms.date="01/19/2016"
 	ms.author="bwren" />
 
 # Editing textual runbooks in Azure Automation
@@ -58,7 +58,7 @@ Use the following procedure to open a runbook for editing in the textual editor.
 2. In the Canvas of the textual editor, position the cursor where you want to place the code for the child runbook.
 3. Expand the **Assets** node in the Library control. 
 4. Expand the node for the type of asset you want.
-3. Right click the asset to insert and select **Add to canvas**.  For [variable assets](variable-assets.md), select either **Add "Get Variable" to canvas** or **Add "Set Variable" to canvas** depending on whether you want to get or set the variable.
+3. Right click the asset to insert and select **Add to canvas**.  For [variable assets](automation-variables.md), select either **Add "Get Variable" to canvas** or **Add "Set Variable" to canvas** depending on whether you want to get or set the variable.
 4. The code for the asset is inserted into the runbook.
 
 
@@ -135,7 +135,7 @@ The following sample commands show how to replace the existing contents of a run
 
 ## Related articles
 
-- [Creating or importing a runbook in Azure Automation](automation-creatnig-importing-runbook.md)
+- [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
 - [Learning PowerShell workflow](automation-powershell-workflow.md)
 - [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 - [Certificates](automation-certificates.md)
