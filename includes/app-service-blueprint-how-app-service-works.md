@@ -1,6 +1,6 @@
 * [What is Azure App Service?](app-service-value-prop-what-is.md)
   * [Web App](../app-service-web/app-service-web-overview.md)
-  * [Mobile App](../app-service-mobile/app-service-mobile-value-prop-preview.md)
+  * [Mobile App](../app-service-mobile/app-service-mobile-value-prop.md)
   * [API App](../app-service-api/app-service-api-apps-why-best-platform.md)
   * [Logic App](../app-service-logic/app-service-logic-what-are-logic-apps.md)
 * [Azure App Service Architecture (presentation)](http://www.slideshare.net/maartenba/windows-azure-web-sites-things-they-dont-teach-kids-in-school-comunity-day-2013)

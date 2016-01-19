@@ -6,7 +6,7 @@
 * [Creating Apps in an App Service Environment](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
 * [Configuring an App Service Environment](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
 * [Scaling Apps in an App Service Environment](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
-  * [Using Auto-Scale with an App Service Environment](../app-service-web/app-service-environment-auto-scale.md)
+  * [Using Auto-Scale with an App Service Environment](app-service-environment-auto-scale.md)
 * [Network Security and Architecture](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
   * [Securing Inbound Traffic](../app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
   * [Connecting to Backend Resources](../app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
