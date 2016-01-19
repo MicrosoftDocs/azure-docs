@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/07/2015" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -35,6 +35,9 @@
 </table></br>
 
 ## Release Notes
+
+### <a name="1.5.0"/>[1.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
+- Add Hash & Range partition resolvers to assist with sharding applications across multiple partitions.
 
 ### <a name="1.4.0"/>[1.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
 - Implement Upsert. New upsertXXX methods added to support Upsert feature.
@@ -68,6 +71,7 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.5.0](#1.5.0) | December 04, 2015 |---
 | [1.4.0](#1.4.0) | October 05, 2015 |---
 | [1.3.0](#1.3.0) | October 05, 2015 |---
 | [1.2.0](#1.2.0) | August 05, 2015 |---

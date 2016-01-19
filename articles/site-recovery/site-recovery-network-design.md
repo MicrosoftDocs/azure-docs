@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Network infrastructure considerations for Site Recovery" 
+	pageTitle="Network infrastructure considerations for Site Recovery | Microsoft Azure" 
 	description="This article discusses practical network design considerations for failover with Site Recovery" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  Network infrastructure considerations for Site Recovery
 
-The Azure Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution by protecting and recovering your on-premises physical servers and virtual machines with orchestration and automation of replication and failover to Azure, or to a secondary on-premises datacenter. 
+The Azure Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution by protecting and recovering your on-premises physical servers and virtual machines with orchestration and automation of replication and failover to Azure, or to a secondary on-premises data center. 
 
 This article is aimed at the virtualization team responsible for architecting, implementing, and supporting a BCDR solution and infrastructure that includes System Center VMM and Azure Site Recovery.
 
@@ -62,7 +62,7 @@ In the event of a disaster, workloads can be recovered as follows:
 ### Clustered VMM server
 
 
-[Deploying VMM in a cluster](https://technet.microsoft.com/en-us/library/gg610675.aspx) provides high availability and protection against hardware failover. If you're deploying your VMM cluster with Site Recovery note that:
+[Deploying VMM in a cluster](https://technet.microsoft.com/library/gg610675.aspx) provides high availability and protection against hardware failover. If you're deploying your VMM cluster with Site Recovery note that:
 
 The VMM server should be deployed in a stretched cluster across geographically separate sites.
 The SQL Server database used by VMM should be protected with SQL Server AlwaysOn availability groups with a replica on the secondary site.

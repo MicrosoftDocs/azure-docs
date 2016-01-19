@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # Getting started with Azure Security Center
@@ -91,7 +91,7 @@ Address **Security Alerts**:
 In this document, you were introduced to the security monitoring and policy management components in Azure Security Center. To learn more, see the following:
 
 - [Setting security policies in Azure Security Center](security-center-policies.md) – Learn how to configure security policies
-- [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) – Learn how recommendations help you protect your Azure resources
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) – Learn how recommendations help you protect your Azure resources
 - [Security health monitoring in Azure Security Center](security-center-monitoring.md) – Learn how to monitor the health of your Azure resources
 - [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage and respond to security alerts
 - [Azure Security Center FAQ](security-center-faq.md) – Find frequently asked questions about using the service

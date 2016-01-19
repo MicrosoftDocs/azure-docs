@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Site Recovery: Performance test and scale results for on-premises to on-premises Hyper-V replication"
+	pageTitle="Performance test and scale results for on-premises to on-premises Hyper-V replication with Site Recovery | Microsoft Azure"
 	description="This article provides information about performance testing for on-premises to on-premises replication using Azure Site Recovery."
 	services="site-recovery" 
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="12/01/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-# Azure Site Recovery: Performance test and scale results for on-premises to on-premises Hyper-V replication
+# Performance test and scale results for on-premises to on-premises Hyper-V replication with Site Recovery
 
 You can use Microsoft Azure Site Recovery to orchestrate and manage replication of virtual machines and physical servers to Azure, or to a secondary datacenter. This article provides the results of performance testing we did when replicating Hyper-V virtual machines between two on-premises datacenters.
 

@@ -63,7 +63,7 @@ ExpressRoute connections enable access to the following services.
 
 - Microsoft Azure services
 - Microsoft Office 365 services
-- Microsoft CRM Online services (coming soon) 
+- Microsoft CRM Online services 
  
 You can visit the [ExpressRoute FAQ](expressroute-faqs.md) page for a detailed list of services supported over ExpressRoute.
 

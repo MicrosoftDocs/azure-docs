@@ -13,22 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/30/2015"
+	ms.date="12/07/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
 
 # View your access and usage reports
 
-## Reporting Documentation Articles
-
- - [Reporting API](active-directory-reporting-api-getting-started.md)
- - [Audit Events](active-directory-reporting-audit-events.md)
- - [Retention](active-directory-reporting-retention.md)
- - [Previews](active-directory-reporting-previews.md)
- - [Search](active-directory-reporting-search.md)
- - [Backfill](active-directory-reporting-backfill.md)
- - [Latencies](active-directory-reporting-latencies.md)
- - ["Unknown Actor" event](active-directory-reporting-unknown-actor.md)
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 

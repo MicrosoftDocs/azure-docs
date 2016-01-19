@@ -148,7 +148,7 @@ protected override async Task RunAsync(CancellationToken cancelServicePartitionR
             await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
 
             // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
-            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are
             // discarded, and nothing is sent to this partition's secondary replicas.
             await tx.CommitAsync();
         }
@@ -217,6 +217,8 @@ Once the services are running, you can see the generated ETW events in a **Diagn
 
 [Learn more about Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 
-[Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
+[Deploy an application](service-fabric-deploy-remove-applications.md)
+
+[Application upgrade](service-fabric-application-upgrade.md)
 
 [Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)

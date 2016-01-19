@@ -17,7 +17,7 @@
 
 # About secure cross-premises connectivity for virtual networks
 
-If you want to connect your on-premises sites securely to a virtual network, there are three options available: [Site-to-Site](#site-to-site-connections), [Point-to-Site](#point-to-site-connections), and [ExpressRoute](#expressroute-connections). 
+If you want to connect your on-premises sites securely to a virtual network, there are three options available: Site-to-Site, Point-to-Site, and ExpressRoute. 
 
 The option you choose can depend on a variety of considerations, such as:
 

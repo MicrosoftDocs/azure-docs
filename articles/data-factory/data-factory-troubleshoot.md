@@ -20,6 +20,8 @@
 You can troubleshoot Azure Data Factory issues using Azure Classic Portal (or) Azure PowerShell cmdlets. This topic has walkthroughs that show you how to use the Azure Classic Portal to quickly troubleshoot errors that you encounter with Data Factory. 
 
 ## Problem: Not able to run Data Factory cmdlets
+If you are using Azure PowerShell of version < 1.0:
+ 
 To resolve this issue, switch Azure mode to **AzureResourceManager**: 
 
 Launch **Azure PowerShell** and execute the following command to switch to the **AzureResourceManager** mode.The Azure Data Factory cmdlets are available in the **AzureResourceManager** mode.
@@ -180,7 +182,7 @@ In this walkthrough, you will introduce an error in the tutorial from Get starte
 4. Run the following command in the **Azure PowerShell** to update the active period for the pipeline so that it tries to write data to the **emp** table, which doesn’t exist anymore.
 
          
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
 	Replace **StartDateTime** value with the current day and **EndDateTime** value with the next day. 
 
@@ -217,17 +219,12 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
 
 ### Use Azure PowerShell cmdlets to troubleshoot the error
 1.	Launch **Azure PowerShell**. 
-2.	Switch to **AzureResourceManager** mode as the Data Factory cmdlets are available only in this mode.
+3. Run Get-AzureRmDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-3. Run Get-AzureDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.	
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
-
-	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
+	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureRmDataFactoryPipelineActivePeriod**. 
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -240,9 +237,9 @@ To resolve this issue, create the **emp** table using the SQL script from [Get s
 		LongRetryCount    		: 0
 
 	Note the **Start** time for the problem slice (the slice with **Status** set to **Failed**) in the output. 
-4. Now, run the **Get-AzureDataFactoryRun** cmdlet to get details about activity run for the slice.
+4. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
 	The value of **StartDateTime** is the Start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
 5. You should see the output with details about the error (similar to the following):
@@ -299,17 +296,12 @@ In this scenario, data set is in an error state due to a failure in Hive process
     
 ### Walkthrough: Use Azure PowerShell to troubleshoot an error with Pig/Hive processing
 1.	Launch **Azure PowerShell**. 
-2.	Switch to **AzureResourceManager** mode as the Data Factory cmdlets are available only in this mode.
+3. Run Get-AzureRmDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-3. Run Get-AzureDataFactorySlice command to see the slices and their statuses. You should see a slice with the status: Failed.	
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-
-	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureDataFactoryPipelineActivePeriod**. 
+	Replace **StartDateTime** with the StartDateTime value you specified for the **Set-AzureRmDataFactoryPipelineActivePeriod**. 
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory
@@ -323,9 +315,9 @@ In this scenario, data set is in an error state due to a failure in Hive process
 
 
 	Note the **Start** time for the problem slice (the slice with **Status** set to **Failed**) in the output. 
-4. Now, run the **Get-AzureDataFactoryRun** cmdlet to get details about activity run for the slice.
+4. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	The value of **StartDateTime** is the Start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
 5. You should see the output with details about the error (similar to the following):
@@ -349,7 +341,7 @@ In this scenario, data set is in an error state due to a failure in Hive process
 		PipelineName        : EnrichGameLogsPipeline
 		Type                :
 
-6. You can run **Save-AzureDataFactoryLog** cmdlet with Id value you see from the above output and download the log files using the **-DownloadLogs** option for the cmdlet.
+6. You can run **Save-AzureRmDataFactoryLog** cmdlet with Id value you see from the above output and download the log files using the **-DownloadLogs** option for the cmdlet.
 
 
 

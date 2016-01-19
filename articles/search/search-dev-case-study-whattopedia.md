@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Azure Search Developer Case Study: How WhatToPedia built an infomedia portal on Microsoft Azure | Microsoft Azure | Hosted cloud search service" 
 	description="Learn how to build an information portal and meta search engine using Azure Search, a cloud hosted search service for developers." 
 	services="search, sql-database,  storage, web-sites" 
@@ -52,7 +52,7 @@ Our vision was to build a complete infrastructure based on cloud services only. 
  
 ### High-level components
 
-We built a business, not just a site. Supporting the entire effort required a full range of tools and applications. We adopted Visual Studio and Visual Studio Online for development, Team Foundation Service (TFS) Online for source control and scrum management, Office 365 for communication and collaboration, and of course Microsoft Azure for all site-related operations and storage. With Visual Studio, the IDE provided direct provisioning to Azure, with integration to TFS Online providing an additional productivity boost.
+We built a business, not just a site. Supporting the entire effort required a full range of tools and applications. We adopted Visual Studio and Visual Studio Team Services for development, Team Foundation Service (TFS) Online for source control and scrum management, Office 365 for communication and collaboration, and of course Microsoft Azure for all site-related operations and storage. With Visual Studio, the IDE provided direct provisioning to Azure, with integration to TFS Online providing an additional productivity boost.
 
 The diagram below illustrates the high-level components used in the WhatToPedia infrastructure.
 

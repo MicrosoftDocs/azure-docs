@@ -183,7 +183,7 @@ By analyzing these tags along with usage, organizations will be able to gain new
 
 
 [PowerShell environment with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Azure Resource Cmdlets]: https://msdn.microsoft.com/en-us/library/azure/dn757692.aspx
+[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../resource-group-using-tags.md

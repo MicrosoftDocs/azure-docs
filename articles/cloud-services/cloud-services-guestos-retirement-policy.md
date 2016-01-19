@@ -3,7 +3,7 @@
    description="Provides information about what Microsoft will support as regards to the Azure Guest OS used by Cloud Services." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/18/2015"
-   ms.author="adegeo"/>
+   ms.date="12/07/2015"
+   ms.author="yuemlu"/>
 
 # Azure Guest OS supportability and retirement policy
-The information on this page relates to the Azure Guest operating system ([Guest OS](https://msdn.microsoft.com/library/azure/ff729422.aspx)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS). 
+The information on this page relates to the Azure Guest operating system ([Guest OS](cloud-services-guestos-update-matrix.md)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS). 
 
 Microsoft has a published [support policy for the Guest OS](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). The page you are reading now describes how the policy is implemented.
 
@@ -81,11 +81,11 @@ You should use latest Guest OS family for designing your Cloud Services.
 
 1. Start planning your migration to a newer family early. 
 2. Set up temporary test deployments to test your Cloud Service running on the new family. 
-3. [Set your Guest OS version](https://msdn.microsoft.com/library/azure/gg433101.aspx) to "Automatic" (osVersion=* in the [.CSCFG](https://msdn.microsoft.com/library/azure/gg456324.aspx) file) so the migration to new Guest OS versions occurs automatically.
+3. Set your Guest OS version to **Automatic** (osVersion=* in the [.cscfg](cloud-services-model-and-package.md#cscfg) file) so the migration to new Guest OS versions occurs automatically.
 
 **What if my web application requires deeper integration with the OS?**
 
-If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as "[Startup Tasks](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.
+If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as [startup tasks](cloud-services-startup-tasks.md) or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.
  
 ## Next steps
 Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to log events to Azure Event Hubs in Azure API Management
@@ -24,7 +24,7 @@ This article is a companion to the [Integrate Azure API Management with Event Hu
 
 ## Create an Azure Event Hub
 
-To create a new Event Hub, sign-in to the [Azure portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Service Bus**->**Event Hub**->**Quick Create**. Enter an Event Hub name, region, select a subscription, and select a namespace. If you haven't previously created a namespace you can create one by typing a name in the **Namespace** textbox. Once all properties are configured, click **Create a new Event Hub** to create the Event Hub.
+To create a new Event Hub, sign-in to the [Azure classic portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Service Bus**->**Event Hub**->**Quick Create**. Enter an Event Hub name, region, select a subscription, and select a namespace. If you haven't previously created a namespace you can create one by typing a name in the **Namespace** textbox. Once all properties are configured, click **Create a new Event Hub** to create the Event Hub.
 
 ![Create event hub][create-event-hub]
 
@@ -69,7 +69,7 @@ Specify the request body using the following template.
       "type" : "AzureEventHub",
       "description" : "Sample logger description",
       "credentials" : {
-        "name" : "Name of the Event Hub from the Azure portal",
+        "name" : "Name of the Event Hub from the Azure Classic Portal",
         "connectionString" : "Endpoint=Event Hub Sender connection string"
         }
     }
@@ -86,7 +86,7 @@ When you make the request, if the logger is created a status code of `201 Create
 
 Once your logger is configured in API Management, you can configure your log-to-eventhubs policies to log the desired events. The log-to-eventhubs policy can be used in either the inbound policy section or the outbound policy section.
 
-To configure policies, sign-in to the [Azure Portal](https://manage.windowsazure.com), navigate your API Management service, and click either **publisher portal** or **Manage** to access the publisher portal.
+To configure policies, sign-in to the [Azure classic portal](https://manage.windowsazure.com), navigate your API Management service, and click either **publisher portal** or **Manage** to access the publisher portal.
 
 ![Publisher portal][publisher-portal]
 

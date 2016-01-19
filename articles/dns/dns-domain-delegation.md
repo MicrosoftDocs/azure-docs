@@ -32,7 +32,7 @@ A domain is a unique name in the Domain Name System, for example ‘contoso.com�
 
 A DNS zone is used to host the DNS records for a particular domain.  For example, the domain ‘contoso.com’ may contain a number of DNS records such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website).
 
-Azure DNS allows you to host a DNS zone and thereby manage the DNS records for a domain in Azure. Keep in mind Azure DNS is not domain registrar.
+Azure DNS allows you to host a DNS zone and thereby manage the DNS records for a domain in Azure. Keep in mind Azure DNS is not the domain registrar.
 
 The Domain Name System is a hierarchy of domains.  The hierarchy starts from the ‘root’ domain, whose name is simply ‘.’.  Below this come top-level domains, such as ‘com’, ‘net’, ‘org’, ‘uk’ or ‘jp’.  Below these are second-level domains, such as ‘org.uk’ or ‘co.jp’.  And so on.
 

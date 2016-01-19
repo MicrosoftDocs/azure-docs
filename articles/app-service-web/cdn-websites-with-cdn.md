@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 
@@ -39,7 +39,7 @@ You will deploy a web app to Azure App Service using the default ASP.NET MVC tem
 This tutorial has the following prerequisites:
 
 -	An active [Microsoft Azure account](/account/)
--	Visual Studio 2013 with the [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	Visual Studio 2015 with the [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409). If you use Visual Studio, the steps may vary.
 
 > [AZURE.NOTE] You need an Azure account to complete this tutorial:
 > + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
@@ -51,31 +51,28 @@ This tutorial has the following prerequisites:
 
 In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2013 to App Service, and then integrate it with a new CDN endpoint. Follow the instructions below:
 
-1. In Visual Studio 2013, create a new ASP.NET web application from the menu bar by going to **File > New > Project > Web > ASP.NET Web Application**. Give it a name and click **OK**.
+1. In Visual Studio 2015, create a new ASP.NET web application from the menu bar by going to **File > New > Project > Web > ASP.NET Web Application**. Give it a name and click **OK**.
 
 	![](media/cdn-websites-with-cdn/1-new-project.png)
 
-3. Select **MVC** and click **Manage Subscriptions**.
+3. Select **MVC** and click **OK**.
 
 	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. Click **Sign In**.
+4. If you haven't logged into your Azure account yet, click the account icon in the upper-right corner and follow the dialog to log into your Azure account. Once you're done, configure your app as shown below, then click **New** to create a new App Service plan for your app.  
 
-	![](media/cdn-websites-with-cdn/3-manage-subscription.png)
+	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-6. In the sign-in page, sign in with the Microsoft account you used to activate your Azure account.
-7. Once you're signed in, click **Close**. Then, click **OK** to continue.
+5. Configure a new App Service plan in the dialog as shown below and click **OK**. 
 
-	![](media/cdn-websites-with-cdn/4-signed-in.png)
+	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
-8. Assuming that you haven't created a web app in Azure, Visual Studio can help you create it. In the **Configure Microsoft Azure Website** dialog, make sure your site name is unique. Then, click **OK**.
+8. Click **Create** to create the web app.
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/5-create-website.png)
 
-9. Once your ASP.NET application is created, publish it to Azure in the Web Publish Activity pane by clicking **Publish `<app name>` to this site now**. Click **Publish** to complete the process.
+9. Once your ASP.NET application is created, publish it to Azure in the Azure App Service Activity pane by clicking **Publish `<app name>` to this Web App now**. Click **Publish** to complete the process.
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	You will see your published web app in the browser when publishing is complete. 
@@ -382,7 +379,7 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 
           // Use the development version of Modernizr to develop with and learn from. Then, when you're
           // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
                 "~/Scripts/modernizr-*"));
 
           bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(

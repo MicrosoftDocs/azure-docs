@@ -56,7 +56,6 @@ If you move users between forests and domains, then you must find an attribute w
 
 Another solution is to pick an existing attribute you know will not change. Commonly used attributes include **employeeID**. If you consider an attribute which will contain letters, make sure there is no chance the case (upper case vs. lower case) can change for the attribute's value. Bad attributes which should not be used include those with the name of the user. In a marriage or divorce the name is expected to change, which is not allowed for this attribute. This is also one reason why attributes such as **userPrincipalName**, **mail**, and **targetAddress** are not even possible to select in the Azure AD Connect installation wizard. Those attributes will also contain the @-character, which is not allowed in the sourceAnchor.
 
-
 ### Changing the sourceAnchor attribute
 The sourceAnchor attribute value cannot be changed after the object has been created in Azure AD and the identity is synchronized.
 

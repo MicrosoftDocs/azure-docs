@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Failover in Site Recovery" 
+	pageTitle="Failover in Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines and physical servers. Learn about failover to Azure or a secondary datacenter." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/12/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 # Failover in Site Recovery

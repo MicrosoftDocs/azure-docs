@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="How to use Queue storage from Java | Microsoft Azure" 
-	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="How to use Queue storage from Java | Microsoft Azure"
+	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="robmcm"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # How to use Queue storage from Java
 
@@ -24,7 +24,7 @@
 
 This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in Java and use the [Azure Storage SDK for Java][]. The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating** and **deleting** queues. For more information on queues, see the [Next steps](#NextSteps) section.
 
-Note: An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][]. 
+Note: An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][].
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -49,15 +49,15 @@ Add the following import statements to the top of the Java file where you want t
 An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure Portal](portal.azure.com) for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
 
     // Define the connection-string with your values.
-    public static final String storageConnectionString = 
-        "DefaultEndpointsProtocol=http;" + 
-        "AccountName=your_storage_account;" + 
+    public static final String storageConnectionString =
+        "DefaultEndpointsProtocol=http;" +
+        "AccountName=your_storage_account;" +
         "AccountKey=your_storage_account_key";
 
 In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, *ServiceConfiguration.cscfg*, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. Here's an example of getting the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file:
 
     // Retrieve storage account from connection-string.
-    String storageConnectionString = 
+    String storageConnectionString =
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 The following samples assume that you have used one of these two methods to get the storage connection string.
@@ -71,7 +71,7 @@ Use the **CloudQueueClient** object to get a reference to the queue you want to 
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
 	   // Create the queue client.
@@ -96,7 +96,7 @@ To insert a message into an existing queue, first create a new **CloudQueueMessa
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -125,7 +125,7 @@ You can peek at the message in the front of a queue without removing it from the
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -133,10 +133,10 @@ You can peek at the message in the front of a queue without removing it from the
 
     	// Retrieve a reference to a queue.
     	CloudQueue queue = queueClient.getQueueReference("myqueue");
-			
+
     	// Peek at the next message.
     	CloudQueueMessage peekedMessage = queue.peekMessage();
-			
+
     	// Output the message value.
     	if (peekedMessage != null)
     	{
@@ -153,12 +153,12 @@ You can peek at the message in the front of a queue without removing it from the
 
 You can change the contents of a message in-place in the queue. If the message represents a work task, you could use this feature to update the status of the work task. The following code updates the queue message with new contents, and sets the visibility timeout to extend another 60 seconds. This saves the state of work associated with the message, and gives the client another minute to continue working on the message. You could use this technique to track multi-step workflows on queue messages, without having to start over from the beginning if a processing step fails due to hardware or software failure. Typically, you would keep a retry count as well, and if the message is retried more than *n* times, you would delete it. This protects against a message that triggers an application error each time it is processed.
 
-The following code sample searches through the queue of messages, locates the first message that matches "Hello, World" for the content, then modifies the message content and exits. 
+The following code sample searches through the queue of messages, locates the first message that matches "Hello, World" for the content, then modifies the message content and exits.
 
     try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
+        CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -167,7 +167,7 @@ The following code sample searches through the queue of messages, locates the fi
     	// Retrieve a reference to a queue.
     	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // The maximum number of messages that can be retrieved is 32. 
+        // The maximum number of messages that can be retrieved is 32.
         final int MAX_NUMBER_OF_MESSAGES_TO_PEEK = 32;
 
         // Loop through the messages in the queue.
@@ -179,7 +179,7 @@ The following code sample searches through the queue of messages, locates the fi
                 // Modify the content of the first matching message.
                 message.setMessageContent("Updated contents.");
                 // Set it to be visible in 30 seconds.
-                EnumSet<MessageUpdateFields> updateFields = 
+                EnumSet<MessageUpdateFields> updateFields =
                     EnumSet.of(MessageUpdateFields.CONTENT,
                     MessageUpdateFields.VISIBILITY);
                 // Update the message.
@@ -199,7 +199,7 @@ Alternatively, the following code sample updates just the first visible message 
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -210,13 +210,13 @@ Alternatively, the following code sample updates just the first visible message 
 
     	// Retrieve the first visible message in the queue.
     	CloudQueueMessage message = queue.retrieveMessage();
-			
+
     	if (message != null)
     	{
             // Modify the message content.
             message.setMessageContent("Updated contents.");
             // Set it to be visible in 60 seconds.
-            EnumSet<MessageUpdateFields> updateFields = 
+            EnumSet<MessageUpdateFields> updateFields =
                 EnumSet.of(MessageUpdateFields.CONTENT,
                 MessageUpdateFields.VISIBILITY);
             // Update the message.
@@ -236,7 +236,7 @@ You can get an estimate of the number of messages in a queue. The **downloadAttr
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
 	       CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -250,7 +250,7 @@ You can get an estimate of the number of messages in a queue. The **downloadAttr
 
     	// Retrieve the newly cached approximate message count.
     	long cachedMessageCount = queue.getApproximateMessageCount();
-			
+
     	// Display the queue length.
     	System.out.println(String.format("Queue length: %d", cachedMessageCount));
     }
@@ -267,7 +267,7 @@ Your code dequeues a message from a queue in two steps. When you call **retrieve
     try
     {
     	// Retrieve storage account from connection-string.
-    	CloudStorageAccount storageAccount = 
+    	CloudStorageAccount storageAccount =
     	    CloudStorageAccount.parse(storageConnectionString);
 
     	// Create the queue client.
@@ -278,7 +278,7 @@ Your code dequeues a message from a queue in two steps. When you call **retrieve
 
     	// Retrieve the first visible message in the queue.
     	CloudQueueMessage retrievedMessage = queue.retrieveMessage();
-			
+
     	if (retrievedMessage != null)
     	{
     		// Process the message in less than 30 seconds, and then delete the message.
@@ -301,7 +301,7 @@ The following code example uses the **retrieveMessages** method to get 20 messag
     try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
+        CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
         // Create the queue client.
@@ -312,7 +312,7 @@ The following code example uses the **retrieveMessages** method to get 20 messag
 
         // Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
         for (CloudQueueMessage message : queue.retrieveMessages(20, 300, null, null)) {
-            // Do processing for all messages in less than 5 minutes, 
+            // Do processing for all messages in less than 5 minutes,
             // deleting each message after processing.
             queue.deleteMessage(message);
         }
@@ -325,7 +325,7 @@ The following code example uses the **retrieveMessages** method to get 20 messag
 
 ## How to: List the queues
 
-To obtain a list of the current queues, call the **CloudQueueClient.listQueues()** method, which will return a collection of **CloudQueue** objects. 
+To obtain a list of the current queues, call the **CloudQueueClient.listQueues()** method, which will return a collection of **CloudQueue** objects.
 
     try
     {
@@ -357,7 +357,7 @@ To delete a queue and all the messages contained in it, call the **deleteIfExist
     try
     {
         // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
+        CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
         // Create the queue client.

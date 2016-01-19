@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Error messages for SQL Database client programs"
 	description="For each error, this gives the numeric ID and the textual message. Feel free to cross-reference your own preferred friendlier error message text if you see fit."
 	services="sql-database"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2015" 
+	ms.date="12/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -79,8 +79,6 @@ Transient fault errors should prompt your client program to run *retry logic* th
 |49918|16|Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. |
 |49919|16|Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
 |49920|16|Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. |
-
-**Note:** Errors 10053 and 10054 might also deserve inclusion in your retry logic.
 
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
@@ -218,6 +216,7 @@ The following table lists all the general errors that do not fall into any previ
 |40651|16|Failed to create server because the subscription <subscription-id> is disabled.|
 |40652|16|Cannot move or create server. Subscription <subscription-id> will exceed server quota.|
 |40671|17|Communication failure between the gateway and the management service. Please retry later.|
+|40852|16|Cannot open database '%.*ls' on server '%.*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN  -  'server name'.database.windows.net should be modified to 'server name'.database.`secure`.windows.net.|
 |45168|16|The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later.|
 |45169|16|The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later.|
 

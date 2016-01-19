@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="12/10/2015"
 	ms.author="spelluru"/>
 
 # Compute Linked Services
@@ -49,7 +49,8 @@ Note the following **important** points about on-demand HDInsight linked service
 	      "timeToLive": "00:05:00",
 	      "version": "3.2",
 		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore"
+	      "linkedServiceName": "MyBlobStore",
+		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
 	      "additionalLinkedServiceNames": [
 	        "otherLinkedServiceName1",
 	        "otherLinkedServiceName2"
@@ -69,6 +70,7 @@ version | Version of the HDInsight cluster. The default value is 3.1 for Windows
 linkedServiceName | The blob store to be used by the on-demand cluster for storing and processing data. | Yes
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
 osType | Type of operating system. Allowed values are: Windows (default) and Linux | No
+hcatalogLinkedServiceName | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster will be created by using the Azure SQL database as the metastore. | No
 
 ### Advanced Properties
 
@@ -103,14 +105,15 @@ yarnConfiguration | Specifies the Yarn configuration parameters (yarn-site.xml) 
 	        "templeton.mapper.memory.mb": "5000"
 	      },
 	      "mapReduceConfiguration": {
-	        "mapreduce.reduce.java.opts": "-Xmx8000m",
-	        "mapreduce.map.java.opts": "-Xmx8000m",
+	        "mapreduce.reduce.java.opts": "-Xmx4000m",
+	        "mapreduce.map.java.opts": "-Xmx4000m",
 	        "mapreduce.map.memory.mb": "5000",
 	        "mapreduce.reduce.memory.mb": "5000",
 	        "mapreduce.job.reduce.slowstart.completedmaps": "0.8"
 	      },
 	      "yarnConfiguration": {
-	        "yarn.app.mapreduce.am.resource.mb": "5000"
+	        "yarn.app.mapreduce.am.resource.mb": "5000",
+	        "mapreduce.map.memory.mb": "5000"
 	      },
 	      "additionalLinkedServiceNames": [
 	        "datafeeds",
@@ -214,8 +217,8 @@ Append "**.<region name**" to the name of your batch account for the **accountNa
 
 Another option is to provide the batchUri endpoint as shown below.  
 
-			accountName: "adfteam",
-			batchUri: "https://eastus.batch.azure.com",
+			"accountName": "adfteam",
+			"batchUri": "https://eastus.batch.azure.com",
 
 ### Properties
 

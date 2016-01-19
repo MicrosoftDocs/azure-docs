@@ -23,7 +23,7 @@ Azure SQL Database's offers the following capabilities for recovering from an ou
 - Active Geo-Replication [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - Standard Geo-Replication [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
 - Geo-Restore [(blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-- New Geo-replication capabilities [(blog)](https://azure.microsoft.com/blog/azure-sql-database-geo-replication-october-2015-update/)
+- New Geo-replication capabilities [(blog)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
 To learn about preparing for disaster and when to recover your database, visit our [Design for business continuity](sql-database-business-continuity-design.md) page. 
 

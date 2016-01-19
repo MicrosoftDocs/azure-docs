@@ -69,7 +69,7 @@ Step 1: Create a file named PrivateConf.json with these contents, substituting f
 	{
 	"username":"currentusername",
 	"password":"newpassword",
-	"expiration":"2016-01-01",
+	"expiration":"2016-01-01"
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
@@ -82,7 +82,7 @@ Step 1: Create a file named PrivateConf.json with these contents, substituting f
 
 	{
 	"username":"currentusername",
-	"ssh_key":"contentofsshkey",
+	"ssh_key":"contentofsshkey"
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
@@ -96,7 +96,7 @@ Step 1: Create a file named PrivateConf.json with these contents, substituting f
 	{
 	"username":"currentusername",
 	"ssh_key":"contentofsshkey",
-	"password":"newpassword",
+	"password":"newpassword"
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
@@ -122,7 +122,7 @@ If the SSH configuration is in an undesired state, you might also lose access to
 Step 1: Create a file named PrivateConf.json with this content.
 
 	{
-	"reset_ssh":"True",
+	"reset_ssh":"True"
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
@@ -136,7 +136,7 @@ If you want to delete a user account without logging into to the VM directly, yo
 Step 1: Create a file named PrivateConf.json with this content, substituting for the placeholder value.
 
 	{
-	"remove_user":"usernametoremove",
+	"remove_user":"usernametoremove"
 	}
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
@@ -263,5 +263,5 @@ To display the status of the VMAccess extension, run this command.
 <!--Link references-->
 [Azure Linux Agent User Guide]: virtual-machines-linux-agent-user-guide.md
 [How to install and configure Azure PowerShell]: ../install-configure-powershell.md
-[Azure VM Extensions and Features]: http://msdn.microsoft.com/library/azure/dn606311.aspx
+[Azure VM Extensions and Features]: virtual-machines-extensions-features.md
 [Connect to an Azure virtual machine with RDP or SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx

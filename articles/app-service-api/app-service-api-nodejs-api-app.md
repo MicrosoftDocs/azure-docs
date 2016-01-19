@@ -237,5 +237,8 @@ Using the built-in continuous delivery features Azure App Service provides, you 
 
     ![Postman Hitting Api](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
-## Summary
-At this point you've successfully created and deployed your first API App using Node.js. From here, you could add code to the handlers to store your data in a database or on the disk of your API App instance. Now that you have the Continuous Deployment wired up, changing your API App's functionality and extending it is as easy as changing and pushing your code to your Git repository. 
+## Next steps
+
+At this point you've successfully created and deployed your first API App using Node.js. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
+
+To build on this sample, you could add code to the handlers to store your data in a database or on the disk of your API App instance. Now that you have the Continuous Deployment wired up, changing your API App's functionality and extending it is as easy as changing and pushing your code to your Git repository. 

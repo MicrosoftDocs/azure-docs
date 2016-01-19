@@ -1,20 +1,21 @@
 <properties
-	pageTitle="Create a SQL Data Warehouse database in the Azure Portal | Microsoft Azure"
-	description="Learn how to create an Azure SQL Data Warehouse in the Azure Portal"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Create a SQL Data Warehouse database in the Azure Portal | Microsoft Azure"
+   description="Learn how to create an Azure SQL Data Warehouse in the Azure Portal"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/19/2015"
-   ms.author="lodipalm;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Create a SQL Data Warehouse
 
@@ -29,6 +30,10 @@ In this tutorial you will:
 
 - Create a server that will host your database.
 - Create a database that contains AdventureWorksDW sample database.
+
+If you are trying to migrate an existing database to SQL Data Warehouse, see the [Migration overview](./sql-data-warehouse-get-started-overview-migrate.md) or use [Migration Utility](./sql-data-warehouse-migrate-migration-utility.md).
+
+To load data into SQL Data Warehouse, see the [loading overview](./sql-data-warehouse-overview-load.md).
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 

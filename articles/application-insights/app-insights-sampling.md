@@ -52,11 +52,11 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     When sampling percentage value changes, how soon after are we allowed to increase sampling percentage again to capture more data.
 
-* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+* `<MinSamplingPercentage>0.1</MinSamplingPercentage>`
 
     As sampling percentage varies, what is the minimum value we're allowed to set.
 
-* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+* `<MaxSamplingPercentage>100.0</MaxSamplingPercentage>`
 
     As sampling percentage varies, what is the maximum value we're allowed to set.
 
@@ -64,7 +64,7 @@ In [ApplicationInsights.config](app-insights-configuration-with-applicationinsig
 
     In the calculation of the moving average, the weight assigned to the most recent value. Use a value equal to or less than 1. Smaller values make the algorithm less reactive to sudden changes.
 
-* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+* `<InitialSamplingPercentage>100</InitialSamplingPercentage>`
 
     The value assigned when the app has just started. Don't reduce this while you're debugging. 
 

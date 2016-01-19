@@ -7,13 +7,14 @@
 	manager="dwrede"
 	editor="mollybos"/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/08/2015"
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="12/01/2015" 
 	ms.author="donnam;ricksal"/>
 
 # Scale mobile services backed by Azure SQL Database
@@ -46,20 +47,12 @@ If any of the above is not true, consider adjusting your scale settings on the *
 
 ### Choosing the Right SQL Database Tier
 
-It is important to understand the different database tiers you have at your disposal to ensure you've picked the right tier given your app's needs. Azure SQL Database offers two different database editions and three different service tiers:
+It is important to understand the different database tiers you have at your disposal to ensure you've picked the right tier given your app's needs. Azure SQL Database offers three different service tiers:
 
-- Web and Business Editions (retired)
-- Basic, Standard, and Premium service tiers
+- Basic
+- Standard
+- Premium
 
-While the Web and Business Editions are fully supported, they will be retired on September 12, 2015 as discussed in [Web and Business Edition Sunset FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx). We encourage new customers to start using the Basic, Standard, and Premium service tiers in preparation for this change. They provide a variety of monitoring capabilities that make it even easier to understand and troubleshoot database performance. All new mobile services are created using one of the new service tiers.
-
-To convert a mobile service using the Web and Business Edition to the Basic, Standard, and Premium service tiers, follow these steps.
-
-1. Launch the [Azure classic portal].
-2. Select **+NEW** in the toolbar and then pick **Data Services**, **SQL Database**, **Quick Create**.
-3. Enter a database name and then select **New SQL database server** in the **Server** field. This will create a server that is using the new Basic, Standard, or Premium service tier.
-4. Fill out the rest of the fields and select **Create SQL Database**. This will create a 100MB database using the Basic tier.
-5. Configure your mobile service to use the database you just created. Navigate to the **Configure** tab for that service and select **Change Database** in the toolbar. On the next screen, select **Use an existing SQL database** in the **SQL Database** field and then select **Next**. On the next screen be sure to pick the database you created in step 5, then select **OK**.
 
 Here are some recommendations on selecting the right tier for your database:
 
@@ -67,7 +60,7 @@ Here are some recommendations on selecting the right tier for your database:
 - **Standard** - use for production services where you expect multiple concurrent database queries
 - **Premium** - use for large scale production services with many concurrent queries, high peak load, and expected low latency for every request.
 
-For more information on when to use each tier, see [Reasons to Use the New Service Tiers](http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons)
+For more information on when to use each tier, see [Reasons to Use the New Service Tiers]
 
 ### Analyzing Database Metrics
 
@@ -80,10 +73,11 @@ Once you are familiar with the different database tiers, we can explore database
 5. Navigate to the **Monitor** tab
 6. Ensure the relevant metrics are displayed by using the **Add Metrics** button. Include the following
     - *CPU Percentage* (available only in Basic/Standard/Premium tiers)
-    - *Physical Data Reads Percentage* (available only in Basic/Standard/Premium tiers)
-    - *Log Writes Percentage* (available only in Basic/Standard/Premium tiers)
-    - *Storage*
-7. Inspect the metrics over the time window when your service was experiencing issues.
+
+    - *Data IO Percentage* (available only in Basic/Standard/Premium tiers) 
+    - *Log IO Percentage* (available only in Basic/Standard/Premium tiers)
+    - *Storage* 
+7. Inspect the metrics over the time window when your service was experiencing issues. 
 
     ![Azure classic portal - SQL Database Metrics][PortalSqlMetrics]
 
@@ -109,11 +103,16 @@ It is frequently useful to configure alerts for key database metrics as a proact
 1. Navigate to the **Monitoring** tab for the database you want to set up alerts for
 2. Ensure the relevant metrics are displayed as described in the previous section
 3. Select the metric you want to set an alert for and select **Add Rule**
-    ![Azure classic portal - SQL Alert][PortalSqlAddAlert]
+
+    ![Azure Management Portal - SQL Alert][PortalSqlAddAlert]
+
 4. Provide a name and description for the alert
-    ![Azure classic portal - SQL Alert Name and Description][PortalSqlAddAlert2]
+    ![Azure Management Portal - SQL Alert Name and Description][PortalSqlAddAlert2]
+
 5. Specify the value to use as the alert threshold. Consider using **80%** to allow for some reaction time. Also be sure to specify an email address that you actively monitor.
-    ![Azure classic portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
+ 
+    ![Azure Management Portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
+
 
 For more information on diagnosing SQL issues, see [Advanced Diagnostics](#AdvancedDiagnosing) at the bottom of this document.
 
@@ -195,8 +194,10 @@ Here are some guidelines to consider when querying the database:
     - Don't perform joins in your app code
     - Don't perform joins in your mobile service code. When using the JavaScript backend, be aware that the [table object](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx) does not handle joins. Be sure to use the [mssql object](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx) directly to ensure the join happens in the database. For more information, see [Join relational tables](mobile-services-how-to-use-server-scripts.md#joins). If using the .NET backend and querying via LINQ, joins are automatically handled at the database level by Entity Framework.
 - **Implement paging.** Querying the database can sometimes result in a large number of records being returned to the client. To minimize the size and latency of operations, consider implementing paging.
-    - By default your mobile service will limit any incoming queries to a page size of 50, and you can manually request up to 1,000 records. For more information, see "Return data in pages" for [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library/#paging), and [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
-    - There is no default page size for queries made from your mobile service code. If your app does not implement paging, or as a defensive measure, consider applying default limits to your queries. In the JavaScript backend, use the **take** operator on the [query object](http://msdn.microsoft.com/library/azure/jj613353.aspx). If using the .NET backend, consider using the [Take method](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) as part of your LINQ query.
+
+    - By default your mobile service will limit any incoming queries to a page size of 50, and you can manually request up to 1,000 records. For more information, see "Return data in pages" for [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library#paging), and [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
+    - There is no default page size for queries made from your mobile service code. If your app does not implement paging, or as a defensive measure, consider applying default limits to your queries. In the JavaScript backend, use the **take** operator on the [query object](http://msdn.microsoft.com/library/azure/jj613353.aspx). If using the .NET backend, consider using the [Take method] as part of your LINQ query.  
+
 
 For more information on improving query design, including how to analyze query plans, see [Advanced Query Design](#AdvancedQuery) at the bottom of this document.
 
@@ -268,13 +269,14 @@ Alternatively if you are using the SQL Database Management Portal, first select 
 
 ![SQL Database Management Portal - new query][PortalSqlManagementNewQuery]
 
-To execute any of the queries below, past it into the window and select **Run**.
+To execute any of the queries below, paste it into the window and select **Run**.
 
 ![SQL Database Management Portal - run query][PortalSqlManagementRunQuery]
 
 #### Advanced Metrics
 
-The Azure classic portal makes certain metrics readily available if using the Basic, Standard, and Premium tiers. However if using the Web and Business tiers, only the Storage metric is available via the portal. Fortunately, it is easy to obtain these and other metrics using the **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** management view, regardless of what tier you're using. Consider the following query:
+
+The management portal makes certain metrics readily available if using the Basic, Standard, and Premium tiers. It is easy to obtain these and other metrics using the **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** management view, regardless of what tier you're using. Consider the following query:
 
     SELECT TOP 10 *
     FROM sys.resource_stats
@@ -298,7 +300,7 @@ The **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 
 > [AZURE.NOTE]
 > Please execute this query on the **master** database on your server, the **sys.event\_log** view is only present on that database.
 
-<a name="AdvancedIndexing" />
+<a name="AdvancedIndexing" ></a>
 ### Advanced Indexing
 
 A table or view can contain the following types of indexes:
@@ -380,12 +382,13 @@ The following example query runs a join across these tables to get a list of the
       AND migs_adv.index_advantage > 10
     ORDER BY migs_adv.index_advantage DESC;
 
-For more information, see [Monitoring SQL Database Using Dynamic Management Views][] and [Missing Index Dynamic Management Views](sys-missing-index-stats).
+For more information, see [Monitoring SQL Database Using Dynamic Management Views][] and [Missing Index Dynamic Management Views][].
 
-<a name="AdvancedQuery" />
-### Advanced Query Design
+<a name="AdvancedQuery" ></a>
+### Advanced Query Design 
 
-Frequently it's difficult to diagnose what queries queres are most expensive for the database.
+Frequently it's difficult to diagnose what queries are most expensive for the database. 
+
 
 #### Finding top N queries
 
@@ -406,7 +409,7 @@ The following example returns information about the top five queries ranked by a
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
 
-For more information, see [Monitoring SQL Database Using Dynamic Management Views][]. In addition to executing the query, the **SQL Database Management Portal** gives you a nice shortcut to see this data, by slecting **Summary** for your database and then selecting **Query Performance**:
+For more information, see [Monitoring SQL Database Using Dynamic Management Views][]. In addition to executing the query, the **SQL Database Management Portal** gives you a nice shortcut to see this data, by selecting **Summary** for your database and then selecting **Query Performance**:
 
 ![SQL Database Management Portal - query performance][PortalSqlManagementQueryPerformance]
 
@@ -416,7 +419,7 @@ Once you have identified expensive queries or if you are about to deploy code us
 
 ![SQL Server Management Studio - query plan][SSMSQueryPlan]
 
-To analyze the query plan in the **SQL Database Management Portal**, use the highlightd toolbar buttons.
+To analyze the query plan in the **SQL Database Management Portal**, use the highlighted toolbar buttons.
 
 ![SQL Database Management Portal - query plan][PortalSqlManagementQueryPlan]
 
@@ -465,6 +468,9 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 [Monitoring SQL Database Using Dynamic Management Views]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
 [Azure SQL Database performance and scaling]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
 [Troubleshooting Azure SQL Database]: http://msdn.microsoft.com/library/azure/ee730906.aspx
+[Reasons to Use the New Service Tiers]:http://msdn.microsoft.com/library/azure/dn369873.aspx#Reasons
+
+[Take method]:http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx
 
 <!-- MSDN -->
 [Creating and Modifying PRIMARY KEY Constraints]: http://technet.microsoft.com/library/ms181043(v=sql.105).aspx
@@ -478,7 +484,7 @@ To analyze the query plan in the **SQL Database Management Portal**, use the hig
 [Unique Index Design Guidelines]: http://technet.microsoft.com/library/ms187019(v=sql.105).aspx
 [Clustered Index Design Guidelines]: http://technet.microsoft.com/library/ms190639(v=sql.105).aspx
 
-[sys-missing-index-stats]: http://technet.microsoft.com/library/ms345421.aspx
+[Missing Index Dynamic Management Views]: http://technet.microsoft.com/library/ms345421.aspx
 
 <!-- EF -->
 [Performance Considerations for Entity Framework 5]: http://msdn.microsoft.com/data/hh949853

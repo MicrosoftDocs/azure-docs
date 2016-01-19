@@ -3,7 +3,7 @@
    description="Provides information about when the Azure Guest OS Family 1 retirement happened and how to determine if you are affected" 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
+   authors="yuemlu" 
    manager="timlt" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="08/18/2015"
-   ms.author="adegeo"/>
+   ms.date="12/07/2015"
+   ms.author="yuemlu"/>
 
 
 
@@ -37,7 +37,7 @@ Your Cloud Services are affected if any one of the following applies:
 
 1. You have a value of "osFamily = "1" explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service. 
 2. You do not have a value for osFamily explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service. Currently, the system uses the default value of "1" in this case.
-3. The Azure classic portal lists your Guest Operating System family value as "Windows Server 2008". See [this](https://msdn.microsoft.com/library/azure/gg456325.aspx) to locate this value.
+3. The Azure classic portal lists your Guest Operating System family value as "Windows Server 2008".
 
 To find which of your cloud services are running which OS Family, you can run the script below in Azure PowerShell, though you must [set up Azure PowerShell](../install-configure-powershell.md) first. For additional details on the script, see [Azure Guest OS Family 1 End of Life: June 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
 

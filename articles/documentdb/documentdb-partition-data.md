@@ -18,7 +18,7 @@
 
 # Partition and scale data in DocumentDB
 
-[Microsoft Azure DocumentDB](../../services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. DocumentDB has been used to power high-scale production services at Microsoft like the User Data Store that powers the MSN suite of web and mobile apps. 
+[Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) is designed to help you achieve fast, predictable performance and *scale-out* seamlessly along with your application as it grows. DocumentDB has been used to power high-scale production services at Microsoft like the User Data Store that powers the MSN suite of web and mobile apps. 
 
 You can achieve near-infinite scale in terms of storage and throughput for your DocumentDB application by horizontally partitioning your data - a concept commonly referred to as **sharding**.  DocumentDB accounts can be scaled linearly with cost via stackable units a.k.a. **collections**. How you best partition your data across collections will depend on your data format and access patterns. 
 

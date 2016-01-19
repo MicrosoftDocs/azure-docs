@@ -20,7 +20,7 @@
 
 The Azure Content Delivery Network (CDN) caches Azure blobs and static content used by cloud services at strategically placed locations to provide maximum bandwidth for delivering content to users. 
 
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Management Portal](https://portal.azure.com). 
+If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com). 
 
 
 The CDN offers developers a global solution for delivering high-bandwidth content by caching the content at physical nodes across the world. For a current list of CDN node locations, see [Azure Content Delivery Network (CDN) POP Locations](cdn-pop-locations.md).
@@ -48,12 +48,13 @@ The Standard CDN tier includes these features:
 - [HTTPS support](cdn-how-to-use-cdn.md#accessing-cached-content-over-https)
 - Load balancing
 - DDOS protection
-- Fast purge
+- [Fast purge](cdn-purge-endpoint.md)
+- [Management via REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
- 
+
 ## Premium features
 
-The Premium CDN tier includes all of the features of the Standard tier, plus adds these additional features:
+The Premium CDN tier includes all of the features of the Standard tier, plus these additional features:
 
 - [Customizable, rule-based content delivery engine](cdn-rules-engine.md)
 - [Advanced HTTP reports](cdn-advanced-http-reports.md)

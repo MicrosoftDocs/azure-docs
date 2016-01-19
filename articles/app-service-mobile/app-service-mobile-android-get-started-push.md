@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="12/18/2015"
 	ms.author="yuaxu"/>
 
 # Add Push Notifications to your Android App
@@ -29,9 +29,9 @@ In this tutorial, you add push notifications to the [Android quick start] projec
 
 To complete this tutorial, you need the following:
 
-* [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address
-* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* Complete the [quickstart tutorial](../app-service-mobile-android-get-started.md)
+* [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)&mdash;not needed for a Node.js backend project.
+* Complete the [quickstart tutorial](../app-service-mobile-android-get-started.md).
 
 ##<a name="create-hub"></a>Create a Notification Hub
 
@@ -49,11 +49,9 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="publish-the-service"></a>Publish the mobile backend to Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ## Add push notifications to your app
+
+You must make sure that your Android app project is ready to handle push notifications.
 
 ###Verify Android SDK Version
 

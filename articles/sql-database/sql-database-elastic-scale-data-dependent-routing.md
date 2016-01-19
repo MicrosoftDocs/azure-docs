@@ -80,7 +80,7 @@ The method **OpenConnectionForKeyAsync** is also available if your application m
 
 ## Integrating with transient fault handling 
 
-A best practice in developing data access applications in the cloud is to ensure that transient faults in connecting to or querying the database are caught by the app, and that the operations are retried several times before throwing an error. Transient fault handling for cloud applications is discussed at [Transient Fault Handling](http://msdn.microsoft.com/en-us/library/dn440719\(v=pandp.60\).aspx). 
+A best practice in developing data access applications in the cloud is to ensure that transient faults in connecting to or querying the database are caught by the app, and that the operations are retried several times before throwing an error. Transient fault handling for cloud applications is discussed at [Transient Fault Handling](http://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx). 
  
 Transient fault handling can coexist naturally with the Data Dependent Routing pattern. The key requirement is to retry the entire data access request including the **using** block that obtained the data-dependent routing connection. The example above could be rewritten as follows (note highlighted change). 
 

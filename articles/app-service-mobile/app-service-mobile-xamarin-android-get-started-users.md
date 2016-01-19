@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mahender"/>
 
 # Add authentication to your Xamarin.Android app
@@ -97,7 +97,11 @@ The app is updated to require users to tap the **Sign in** button and authentica
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
 
-4. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider. 
+5. Add the following element to the Strings.xml resources file:
+
+		<string name="login_button_text">Sign in</string> 
+
+6. In Visual Studio or Xamarin Studio, run the client project on a device or emulator and sign in with your chosen identity provider. 
 
    	When you are successfully logged-in, the app will display your login ID and the list of todo items, and you can make updates to the data.
 
