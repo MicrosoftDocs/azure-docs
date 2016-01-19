@@ -20,7 +20,7 @@
 
 This article provides a basic overview of the core API features of the Azure Batch service. Whether developing a distributed computational solution using the [Batch REST][batch_rest_api] or [Batch .NET][batch_net_api] APIs, you will use many of the entities and features discussed below.
 
-> [AZURE.TIP] For a higher level technical overview of Batch, please see the [Azure Batch basics](batch-technical-overview.md).
+> [AZURE.TIP] For a higher level technical overview of Batch, please see [Azure Batch basics](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Workflow of the Batch service
 
@@ -61,6 +61,8 @@ When you use the Azure Batch service, you will take advantage of the following r
 	- [Job ManagerTask](#jobmanagertask)
 
 	- [Job preparation and release tasks](#jobpreprelease)
+
+	- [Multi-instance Tasks](#multiinstance)
 
 - [JobSchedule](#jobschedule)
 
@@ -145,10 +147,9 @@ A task is a unit of computation that is associated with a job and runs on a node
 In addition to tasks that you define to perform computation on a node, the following special tasks are also provided by the Batch service:
 
 - [Start task](#starttask)
-
 - [Job manager task](#jobmanagertask)
-
 - [Job preparation and release tasks](#jobmanagertask)
+- [Multi-instance tasks](#multiinstance)
 
 #### <a name="starttask"></a>Start task
 
@@ -188,6 +189,12 @@ Batch provides the job preparation task for pre-job execution setup, and the job
 Both job preparation and release tasks allow you to specify a command line to run when the task is invoked, and offer features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
 For more information on job preparation and release tasks, see [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
+
+#### <a name="multiinstance"></a>Multi-instance tasks
+
+With multi-instance tasks, you can enable high performance computing scenarios like Message Passing Interface (MPI) that require a group of compute nodes allocated together to process a single workload. In such scenarios, all of the compute nodes must be allocated prior to processing. Each node must also remain allocated to that to that workload until all processing has completed on each node, even if some nodes finish their processing before others. This is sometimes called "gang scheduling."
+
+Azure Batch supports such scenarios with the [multi-instance task][rest_multiinstance]. A multi-instance task is a special type of task that is run on more than one compute node simultaneously. When you create a multi-instance task, you specify the number of compute nodes to execute the task.
 
 ### <a name="jobschedule"></a>Scheduled jobs
 
@@ -352,5 +359,6 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [rest_add_task]: https://msdn.microsoft.com/library/azure/dn820105.aspx
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
+[rest_multiinstance]: https://msdn.microsoft.com/en-us/library/azure/mt637905.aspx
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
