@@ -107,7 +107,7 @@ If you have [installed and configured the Azure CLI](../xplat-cli-install.md), t
 
 	azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE] The `--type` parameter indicates how the storage account will be replicated. For more information, see [Azure Storage Replication](../storage-redundancy.md). Don't use ZRS as ZRS doesn't support page blob, file, table or queue.
+> [AZURE.NOTE] The `--type` parameter indicates how the storage account will be replicated. For more information, see [Azure Storage Replication](../storage/storage-redundancy.md). Don't use ZRS as ZRS doesn't support page blob, file, table or queue.
 
 You will be prompted to specify the geographic region that the storage account will be located in. You should create the storage account in the same region that you plan on creating your HDInsight cluster.
 
