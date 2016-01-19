@@ -78,7 +78,7 @@ The App Service Restore feature, available on the **Backups** blade in the [Azur
 	
 1. To see details about the success or failure of the app restore operation, select the **Audit Log** part of the main **Browse** blade. 
 	
-	The **Audio log** blade displays all of your operations, along with level, status, resource, and time details.
+	The **Audit log** blade displays all of your operations, along with level, status, resource, and time details.
 	
 2. Scroll the blade to find operations related to your app.
 3. To view additional details about an operation, select the operation in the list.
