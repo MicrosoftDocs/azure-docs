@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="01/08/2016" 
 	ms.author="erikre"/>
 
 # Create an ASP.NET 5 API app in Visual Studio Code

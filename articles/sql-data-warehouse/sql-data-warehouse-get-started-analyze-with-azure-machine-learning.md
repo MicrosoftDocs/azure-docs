@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="sahajs"/>
+   ms.date="01/07/2016"
+   ms.author="sahajs;barbkess;sonyama"/>
 
 # Analyze data with Azure Machine Learning
 This tutorial will show you how to build a predictive machine learning model with Azure Machine Learning using your Azure SQL Data Warehouse data. In this tutorial, we will build a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.

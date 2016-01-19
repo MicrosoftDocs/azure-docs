@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/05/2015"
+	ms.date="01/05/2016"
 	ms.author="tdykstra"/>
 
 # Consume an API app from JavaScript using CORS

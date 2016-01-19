@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/07/2015"
+	ms.date="01/07/2016"
 	ms.author="tdykstra"/>
 
 # Authentication and authorization for API Apps in Azure App Service

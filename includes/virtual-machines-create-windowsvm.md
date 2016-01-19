@@ -1,4 +1,4 @@
-1. Sign in to the [Azure portal](http://manage.windowsazure.com). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you don't have a subscription yet.
+1. Sign in to the [Azure classic portal](http://manage.windowsazure.com). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you don't have a subscription yet.
 
 2. On the command bar at the bottom of the window, click **New**.
 
@@ -6,12 +6,14 @@
 
 	![Navigate to From Gallery in the Command Bar](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 
-4. The first screen after this lets you **Choose an Image** for your virtual machine from the list of available images. (The available images may differ depending on the subscription you're using.)
+4. The first screen after this lets you **Choose an Image** for your virtual machine from the list of available images. You can choose an image from the gallery or select from images and disks that you have uploaded. The available images may differ depending on the subscription you're using.
 
 5. The second screen lets you pick a computer name, size, and administrative user name and password. Use the tier and size required to run your app or workload. Here are some tips:
 
-	- **New User Name** refers to the administrative account that you use to manage the server. Create a unique password for this account and make sure to remember it. **You'll need the user name and password to log on to the virtual machine**.
+	- **Virtual Machine Name** can only contain letters, numbers and hyphens. It also must start with a letter and end with a letter or a number.
 
+	- **New User Name** refers to the administrative account that you use to manage the server. The password must be at 8-123 characters long and have at least 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. **You'll need the user name and password to log on to the virtual machine**.
+	
 	- A virtual machine's size affects the cost of using it, as well as configuration options such as how many data disks you can attach. For details, see [Sizes for virtual machines](../articles/virtual-machines-size-specs.md).
 
 6. The third screen lets you configure resources for networking, storage, and availability. Here are some tips:
@@ -28,6 +30,6 @@
 
 	>[AZURE.NOTE] The VM agent provides the environment for you to install extensions that can help you interact with or manage the virtual machine. For details, see [About the VM agent and extensions](virtual-machines-extensions-agent-about.md).  
 
-8. After the virtual machine is created, the portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account also are created and are listed in those sections. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
+8. After the virtual machine is created, the classic portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account also are created and are listed in those sections. Both the virtual machine and cloud service are started automatically and their status is listed as **Running**.
 
 	![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)

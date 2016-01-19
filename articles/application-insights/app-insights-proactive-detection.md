@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="01/08/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: Proactive Detection
@@ -22,11 +22,22 @@
 
 Application Insights performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our proactive alerts by email.
 
+
 ## What is Proactive Detection?
 
-Proactive detection uses machine learning and data mining algorithms to detect abnormal patterns that impact application performance. Proactive detection automatically analyzes performance telemetry collected by Application Insights. It sends you email about any abnormal performance in the application. You don't have to set any thresholds rules. Proactive detection notifications are  integrated with Application Insights analytics capabilities which enables a quick triage and diagnosis of the issues. 
+Proactive Detection discovers performance anomalies in your app by analyzing the telemetry it sends to Application Insights. 
 
-Proactive detection is in preview and isn't available for all Application Insights users yet. If you would like to try it out, please contact AppInsightsML@microsoft.com and we will work with you to set it up.
+In particular, it finds performance issues that only affect some of your users, or only affect your users in some cases.
+
+For example, it can notify you if your app pages load much more slowly on one type of browser than others, or if requests are served more slowly from a particular server. It can also discover problems associated with combinations of properties, such as slow page loads in one geographical area at particular times of day.
+
+Anomalies like these are very hard to detect just by inspecting the data, but are more common than you might think. Often they only surface when your customers complain. By that time, it’s too late: the affected users are already switching to your competitors!
+
+Currently, our algorithms look at page load times, request response times at the server, and dependency response times.  
+
+You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns. 
+
+Proactive Detection is in preview and isn't available for all Application Insights users yet. If you would like to try it out, please contact AppInsightsML@microsoft.com and we will work with you to set it up.
 
 ## About the proactive alert
 
@@ -112,6 +123,8 @@ There's a web full of advice on improving your server responses and page load ti
  * Click the unsubscribe link in the alert or email. 
  
     Currently they're sent to those who have [write access to the Application Insights resource](app-insights-resources-roles-access-control.md).
+
+    You can also edit the recipients list in the Proactive Detection blade.
 * *I don't want to be flooded with these messages.*
  * They are limited to one per day. You won't get repeats of any message.
 * *If I don't do anything, will I get a reminder?*
