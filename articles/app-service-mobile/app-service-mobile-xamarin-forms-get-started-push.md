@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/25/2015" 
+	ms.date="12/19/2015" 
 	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.Forms app
@@ -59,10 +59,6 @@ These steps walk you through creating a new notification hub. If you already hav
 ##Update the server project to send push notifications
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
-
-##Deploy the updated server project to Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 
 ##(Optional) Configure and run the Android project

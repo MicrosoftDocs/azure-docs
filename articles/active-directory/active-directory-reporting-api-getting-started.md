@@ -80,54 +80,33 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
 ### PowerShell Script
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
-    $ClientSecret  = "<<YOUR CLIENT SECRET HERE>>"          # Should be a ~44 character string insert your info here
-    $loginURL      = "https://login.windows.net"
-    $tenantdomain  = "<<YOUR TENANT NAME HERE>>"            # For example, contoso.onmicrosoft.com
+    $ClientID	  	= "your-application-client-id-here"				# Should be a ~35 character string insert your info here
+    $ClientSecret  	= "your-application-client-secret-here"			# Should be a ~44 character string insert your info here
+    $loginURL		= "https://login.windows.net"
+    $tenantdomain	= "your-directory-name-here.onmicrosoft.com"			# For example, contoso.onmicrosoft.com
 
     # Get an Oauth 2 access token based on client id, secret and tenant domain
-    $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
-    $oauth         = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+    $body		= @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
+    $oauth		= Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+
+    $7daysago = "{0:s}" -f (get-date).AddDays(-7) + "Z"
+    # or, AddMinutes(-5)
+
+    Write-Output $7daysago
 
     if ($oauth.access_token -ne $null) {
-        $headerParams  = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
+    	$headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
 
-        # Returns a list of all the available reports
-        Write-host List of available reports
-        Write-host =========================
-        $allReports = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports?api-version=beta")
-        Write-host $allReports.Content
+        $url = "https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&`$filter=eventTime gt $7daysago"
 
-        Write-host
-        Write-host Data from the AccountProvisioningEvents report
-        Write-host ====================================================
-        Write-host
-        # Returns a JSON document for the "accountProvisioningEvents" report
-        $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/accountProvisioningEvents?api-version=beta")
-        Write-host $myReport.Content
-
-        Write-host
-        Write-host Data from the AuditEvents report with datetime filter
-        Write-host ====================================================
-        Write-host
-        # Returns a JSON document for the "auditEvents" report
-        $myReport = (Invoke-WebRequest -Headers $headerParams -Uri "https://graph.windows.net/$tenantdomain/reports/auditEvents?api-version=beta&$filter=eventTime gt 2015-05-20")
-        Write-host $myReport.Content
-
-        # Options for other output formats
-
-        # to output the JSON use following line
-        $myReport.Content | Out-File -FilePath accountProvisioningEvents.json -Force
-
-        # to output the content to a name value list
-        ($myReport.Content | ConvertFrom-Json).value | Out-File -FilePath accountProvisioningEvents.txt -Force
-
-        # to output the content in XML use the following line
-        (($myReport.Content | ConvertFrom-Json).value | ConvertTo-Xml).InnerXml | Out-File -FilePath accountProvisioningEvents.xml -Force
-
+    	$myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
+    	foreach ($event in ($myReport.Content | ConvertFrom-Json).value) {
+    		Write-Output ($event | ConvertTo-Json)
+    	}
+        $myReport.Content | Out-File -FilePath auditEvents.json -Force
     } else {
-        Write-Host "ERROR: No Access Token"
-        }
+    	Write-Host "ERROR: No Access Token"
+    }
 
 ### Bash Script
 
@@ -137,19 +116,27 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
     # Date: 2015.08.20
     # NOTE: This script requires jq (https://stedolan.github.io/jq/)
 
-    CLIENT_ID="<<YOUR CLIENT ID HERE>>"			# Should be a ~35 character string insert your info here
-    CLIENT_SECRET="<<YOUR CLIENT SECRET HERE>>"	# Should be a ~44 character string insert your info here
+    CLIENT_ID="your-application-client-id-here"         # Should be a ~35 character string insert your info here
+    CLIENT_SECRET="your-application-client-secret-here" # Should be a ~44 character string insert your info here
     LOGIN_URL="https://login.windows.net"
-    TENANT_DOMAIN="<<YOUR TENANT NAME HERE>>"	 # For example, contoso.onmicrosoft.com
+    TENANT_DOMAIN="your-directory-name-here.onmicrosoft.com"    # For example, contoso.onmicrosoft.com
 
     TOKEN_INFO=$(curl -s --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" "$LOGIN_URL/$TENANT_DOMAIN/oauth2/token?api-version=1.0")
 
-    TOKEN_TYPE=$(echo $TOKEN_INFO | jq -r '.token_type')
-    ACCESS_TOKEN=$(echo $TOKEN_INFO | jq -r '.access_token')
+    TOKEN_TYPE=$(echo $TOKEN_INFO | ./jq-win64.exe -r '.token_type')
+    ACCESS_TOKEN=$(echo $TOKEN_INFO | ./jq-win64.exe -r '.access_token')
 
-    REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" https://graph.windows.net/$TENANT_DOMAIN/reports/auditEvents?api-version=beta)
+    # get yesterday's date
 
-    echo $REPORT | jq -r '.value' | jq -r ".[]"
+    YESTERDAY=$(date --date='1 day ago' +'%Y-%m-%d')
+
+    URL="https://graph.windows.net/$TENANT_DOMAIN/reports/auditEvents?api-version=beta&\$filter=eventTime%20gt%20$YESTERDAY"
+
+
+    REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" $URL)
+
+    echo $REPORT | ./jq-win64.exe -r '.value' | ./jq-win64.exe -r ".[]"
+
 
 
 

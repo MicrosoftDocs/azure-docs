@@ -13,14 +13,13 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="heidist"/>
 
 # Use Fiddler to evaluate and test Azure Search REST APIs
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -43,7 +42,7 @@ To complete these steps, you will need an Azure Search service and `api-key`. Se
 3. Enter a URL that specifies the service URL, request attributes, and the api-version. A few pointers to keep in mind:
    + Use HTTPS as the prefix.
    + Request attribute is "/indexes/hotels". This tells Search to create an index named 'hotels'.
-   + Api-version is lowercase, specified as "?api-version=2015-02-28". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may introduce a breaking change to the API. Using API versions, you can continue to use your existing version and upgrade to the newer one when it is convenient.
+   + Api-version is lowercase, specified as "?api-version=2015-02-28". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may introduce a breaking change to the API. For this reason, Azure Search requires an api-version on each request so that you are in full control over which one is used.
 
     The full URL should look similar to the following example.
 
@@ -63,7 +62,7 @@ To complete these steps, you will need an Azure Search service and `api-key`. Se
         "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false,},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
           {"name": "hotelName", "type": "Edm.String"},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
@@ -229,10 +228,8 @@ You can also query the system to get document counts and storage consumption. On
 
 ## Next steps
 
-The following links provide additional information for a no-code approach to managing and using Azure Search.
+See [Manage your Search service on Azure](search-manage.md) for a no-code approach to managing and using Azure Search.
 
--  [Manage your Search service on Azure](search-manage.md)
--  [How to use Chrome Postman with Azure Search](search-chrome-postman.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png

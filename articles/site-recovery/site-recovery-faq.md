@@ -80,7 +80,7 @@ Note that physical servers will run as VMs in Azure if your on-premises server g
 
 ### What VMware VMs can I protect?
 
-For this scenario you'll need a VMware vCenter server, a vSphere hypervisor, and virtual machines with VMware tools running. for exact requirements see [What do I need?](site-recovery-vmware-to-azure.md/#what-do-i-need). The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
+For this scenario you'll need a VMware vCenter server, a vSphere hypervisor, and virtual machines running VMware tools. for exact requirements see [What do I need?](site-recovery-vmware-to-azure.md/#what-do-i-need). The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
 
 ### Are there any prerequisites for replicating virtual machines to Azure?
 
@@ -98,7 +98,7 @@ During regular replication, data is replicated to geo-redundant Azure storage an
 
 Yes. When you use Site Recovery to orchestrate replication and failover in your branch offices, you'll get a unified orchestration and view of all your branch office workloads in a central location. You can easily run failovers and administer disaster recovery  of all branches from your head office, without visiting the branches. 
 
-### Is there an SDK I can use to automate the ASR workflow?
+### Is there an SDK I can use to automate the Site Recovery workflow?
 
 Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or the Azure SDK. Learn more in [Deploy Site Recovery with PowerShell](site-recovery-deploy-with-powershell.md).
 

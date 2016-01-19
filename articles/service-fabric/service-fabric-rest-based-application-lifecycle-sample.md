@@ -1,5 +1,5 @@
 <properties
-   pageTitle="REST-Based application lifecycle sample | Microsoft Azure"
+   pageTitle="REST-based application lifecycle sample | Microsoft Azure"
    description="A Microsoft Azure Service Fabric sample that shows the application lifecycle by using the Service Fabric REST interface."
    services="service-fabric"
    documentationCenter=".net"
@@ -18,16 +18,16 @@
 
 # REST-based application lifecycle sample
 
-This sample demonstrates the Service Fabric application lifecycle through REST API calls. For more information on the Service Fabric application lifecycle, see [Service Fabric Application Lifecycle](service-fabric-application-lifecycle.md).
+This sample demonstrates the Service Fabric application lifecycle through REST API calls. For more information on the Service Fabric application lifecycle, see [Service Fabric application lifecycle](service-fabric-application-lifecycle.md).
 
 This sample performs the following:
 
-* Provisions the WordCount 1.0.0 sample from the WordCount application package in the ImageStore.
+* Provisions the **WordCount 1.0.0** sample from the WordCount application package in the image store.
 * Displays the list of application types, which includes WordCount 1.0.0.
-* Creates the WordCount application as fabric:/WordCount.
+* Creates the WordCount application as **fabric:/WordCount**.
 * Displays the list of applications, which includes fabric:/WordCount version 1.0.0.
-* Provisions the 1.1.0 version of the WordCount sample from the WordCountUpgrade application package in the ImageStore.
-* Displays the list of application types, which includes both WordCount 1.0.0 and WordCount 1.1.0.
+* Provisions the 1.1.0 version of the WordCount sample from the **WordCountUpgrade** application package in the image store.
+* Displays the list of application types, which includes both WordCount 1.0.0 and **WordCount 1.1.0**.
 * Upgrades the WordCount application to version 1.1.0.
 * Displays the list of applications, which includes WordCount version 1.1.0, but no longer includes WordCount version 1.0.0.
 * Deletes the WordCount application.
@@ -40,21 +40,21 @@ This sample performs the following:
 
 ## Prerequisites
 
-This sample uses the [WordCount sample](http://aka.ms/servicefabricsamples) (found in the Getting Started samples). The WordCount sample must first be built and then two application packages must be copied to the ImageStore.
+This sample uses the [WordCount sample](http://aka.ms/servicefabricsamples) (found in the **Getting Started** samples). The WordCount sample must be built first, and then two application packages must be copied to the image store.
 
 |Folder|Description|
 |------|-----------|
-|WordCount|The WordCount sample application. The ApplicationManifest.xml contains ApplicationTypeVersion="1.0.0".|
-|WordCountUpgrade|The WordCount sample application. The ApplicationManifest.xml file must be changed to ApplicationTypeVersion="1.1.0" to allow the application upgrade to occur.|
+|WordCount|The WordCount sample application. The **ApplicationManifest.xml** file contains **ApplicationTypeVersion="1.0.0"**.|
+|WordCountUpgrade|The WordCount sample application. The ApplicationManifest.xml file must be changed to **ApplicationTypeVersion="1.1.0"** to allow the application upgrade to occur.|
 
-To create the application packages and copy them to the ImageStore, take the following steps:
+To create the application packages and copy them to the image store, take the following steps:
 
-1. Copy C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug to C:\Temp\WordCount. This creates the WordCount application package.
-2. Copy C:\Temp\WordCount to C:\Temp\WordCountUpgrade. This creates the WordCountUpgrade application package.
-3. Open C:\Temp\WordCountUpgrade\ApplicationManifest.xml in a text editor.
-4. In the ApplicationManifest element, change the ApplicationTypeVersion attribute to "1.1.0".  This updates the version number of the application.
+1. Copy **C:\ServiceFabricSamples\Services\WordCount\WordCount\pkg\Debug** to **C:\Temp\WordCount**. This creates the WordCount application package.
+2. Copy C:\Temp\WordCount to **C:\Temp\WordCountUpgrade**. This creates the **WordCountUpgrade application** package.
+3. Open **C:\Temp\WordCountUpgrade\ApplicationManifest.xml** in a text editor.
+4. In the **ApplicationManifest** element, change the **ApplicationTypeVersion** attribute to **"1.1.0"**.  This updates the version number of the application.
 5. Save the changed ApplicationManifest.xml file.
-6. Run the following PowerShell script as an administrator to copy the applications to the ImageStore:
+6. Run the following PowerShell script as an administrator to copy the applications to the image store:
 
 ```powershell
 # Deploy the WordCount and upgrade applications
@@ -71,7 +71,7 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathWor
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpgrade -ImageStoreConnectionString $imageStoreConnection
 ```
 
-After the PowerShell script completes, this application will be ready to run.
+When the PowerShell script finishes, this application is ready to run.
 
 ## Example
 
@@ -707,4 +707,4 @@ namespace ServiceFabricRestCaller
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-[Service Fabric Application Lifecycle](service-fabric-application-lifecycle.md)
+[Service Fabric application lifecycle](service-fabric-application-lifecycle.md)

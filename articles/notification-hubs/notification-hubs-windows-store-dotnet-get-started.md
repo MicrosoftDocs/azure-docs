@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/23/2015"
+	ms.date="12/14/2015"
 	ms.author="wesmc"/>
 
 # Getting started with Notification Hubs for Windows Store Apps
@@ -50,7 +50,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 To send push notifications to Windows Store apps, you must associate your app to the Windows Store. You must then configure your notification hub to integrate with WNS.
 
-1. If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Windows Dev Center</a>, sign in with your Microsoft account, and then click **Create a new app**.
+1. If you have not already registered your app, navigate to the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?LinkID=266582), sign in with your Microsoft account, and then click **Create a new app**.
 
 
 2. Type a name for your app and click **Reserve app name**.
@@ -79,7 +79,7 @@ To send push notifications to Windows Store apps, you must associate your app to
 
 7. (Optional) Repeat steps 4–6 for the Windows Phone Store app project.  
 
-8. Back on the Windows Dev Center page for your new app, click **Services**, click **Push notifications**, and then click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Services**.
+8. Back on the [Windows Dev Center](http://go.microsoft.com/fwlink/p/?LinkID=266582) page for your new app, click **Services**, click **Push notifications**, and then click **Live Services site** under **Windows Push Notification Services (WNS) and Microsoft Azure Mobile Services**.
 
    	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-live-services.png)
 

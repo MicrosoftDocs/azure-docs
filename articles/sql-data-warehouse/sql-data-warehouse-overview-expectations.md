@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lvargas"
-   manager="tonypet"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="lvargas;twounder;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="lvargas;mausher;barbkess"/>
 
 # SQL Data Warehouse preview expectations
 
@@ -57,12 +57,6 @@ Snapshots are copied asynchronously to a remote Azure region for added recoverab
 ### Query completion 
 
 SQL Data Warehouse stores data across one or more computing nodes that each store some of the user data and control query execution on that data. As part of the massively parallel processing (MPP) architecture, the queries run in parallel across the Compute nodes. SQL Data Warehouse automatically detects and mitigates Compute node failures. However, during preview, an operation (e.g. data load or query) may fail due to individual node failures. During preview, we are making continuous enhancements to successfully complete operations despite node failures. 
-
-Based on telemetry data, we estimate the current reliability of Azure SQL Data Warehouse at 98%. This means that, on average, 2 out of 100 queries may fail due to system errors. This is not an SLA. The probability of a query failing increases with its execution time. For example, a query that runs longer than 2 hours has a much higher probability of failing than a query that runs less than 10 minutes. During preview we are improving reliability so that we can guarantee the same level of reliability for operations irrespective of their execution time. We will update the expected reliability as we release these enhancements. For general availability, reliability will be backed by a SLA. 
-
-### Service uptime
-
-Azure SQL Data Warehouse may have up to 4 maintenance events per month to install critical fixes. Each event may cause query failures for up to 2 hours. The time will depend on the number of DWUs allocated to the service.
 
 
 ## Next steps

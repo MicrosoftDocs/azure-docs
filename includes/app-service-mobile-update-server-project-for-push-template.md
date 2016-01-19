@@ -48,11 +48,15 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
 
     This code tells the notification hub to send a a template notification to all template registrations that contain "messageParam". The string will be inserted in the place of messageParam across each PNS that has a registration using "messageParam". This allows you to send the notification to APNS, GCM, WNS, or any other PNS.
 
-	For more information on templates with Notification Hubs, see [Templates](notification-hubs-templates.md). 
+	For more information on templates with Notification Hubs, see [Templates](notification-hubs-templates.md).
+
+4. Republish the server project. 
 
 ### <a name="nodejs"></a>Node.js backend project
 
-1. Replace the existing code in the todoitem.js file with the following:
+1. If you haven't already done so, [download the quickstart project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+
+2. Replace the existing code in the todoitem.js file with the following:
 
 		var azureMobileApps = require('azure-mobile-apps'),
 	    promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -95,4 +99,4 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
 
 	This sends a template notification that contains the item.text when a new todo item is inserted.
 
-2. When editing the file in your local computer, republish the server project.
+2. When editing the file on your local computer, republish the server project.

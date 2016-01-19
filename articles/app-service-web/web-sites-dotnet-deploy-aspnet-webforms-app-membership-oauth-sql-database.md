@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="12/10/2015" 
 	ms.author="erikre"/>
 
 
@@ -94,7 +94,7 @@ Alternatively, if you previously created a SQL Server database, you can select t
 If you selected **New SQL Database server** you aren't entering an existing name and password here, you're entering a new name and password that you're defining now to use later when you access the database. If you selected a SQL Server you've created previously, you'll be prompted for the password to the previous SQL Server account name you created. For this tutorial, you won't check the **Advanced** box.
 12. Click the check mark at the bottom right of the box to indicate you're finished.
 
-The **Azure class portal** returns to the **Web Apps** page, and the **Status** column shows that the site is being created. Shortly after (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web App** icon, and the number of databases appears next to the **SQL Databases** icon.
+The **Azure classic portal** returns to the **Web Apps** page, and the **Status** column shows that the site is being created. Shortly after (typically less than a minute), the **Status** column shows that the site was successfully created. In the navigation bar at the left, the number of sites you have in your account appears next to the **Web App** icon, and the number of databases appears next to the **SQL Databases** icon.
 ##Create an ASP.NET Web Forms Application 
 You have created a web app, but there is no content in it yet. Your next step is to create the Visual Studio web app that you'll publish to Azure.
 ###Create the Project 
@@ -250,7 +250,7 @@ You begin by creating a simple data model using code. This data model will be co
 	![Select Class](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms12.png)  
 	The **Add New Item** dialog box is displayed.  
 
-2. Name this new class *Contacts.cs*.  
+2. Name this new class *Contacts.cs* and click **Add**.  
 	![Add New Item dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)  
 3. Replace the default code with the following code:  
 
@@ -443,10 +443,10 @@ The following steps will allow you to add a Google authentication provider.
 	Next, you'll see the **Google Developers Console**.
 	![Google Developers Console](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)  
 
-4. Click the **Create Project** button and enter a project name and ID (you can use the default values). Then, click the **agreement checkbox** and the **Create** button.  
+4. Click the **Select a project** > **Create Project** and enter a project name and ID (you can use the default values). Then, click the **agreement checkbox** and the **Create** button.  
 	![Google - New Project](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21b.png)  
 	In a few seconds the new project will be created and your browser will display the new projects page.
-5. In the left tab, click **APIs & auth**, and then click **Credentials**.
+5. In the **Google Developers Console** drop-down menu, click **API Manager**, and then click **Credentials**.
 6. Click the **Create New Client ID** under **OAuth**.  
 	The **Create Client ID** dialog will be displayed.
 	![Google - Create Client ID](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21c.png)  
@@ -460,7 +460,7 @@ The following steps will allow you to add a Google authentication provider.
 
 	This value is the URI that ASP.NET OAuth users to communicate with the google OAuth server. Remember to the SSL URL you used above (**https://localhost:44300/** unless you've created other SSL projects). 
  
-10. Click the **Create Client ID** button.
+10. Click the **Create** button.
 11. In Visual Studio, update the `UseGoogleAuthentication` method of the *Startup.Auth.cs* page by copying and pasting the **AppId** and **App Secret** into the method. The **AppId** and **App Secret** values shown below are samples and will not work.  
 
 		using System;
@@ -705,7 +705,7 @@ Now that the web application is complete, you can publish it to Azure.
 	![Publish menu option](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22.png)  
 	The **Publish Web** dialog box is displayed.  
 	![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms22a.png)  
-3. From the **Profile** tab, select **Azure Web App** as the publish target if it is not already selected.  
+3. From the **Profile** tab, select **Azure App Service** as the publish target if it is not already selected.  
 	![Publish Web dialog box](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms23.png)  
 4. Click **Sign In** if you are not already signed in.
 5. Select the existing web app that you created earlier in this tutorial from the **Existing Web Apps** dropdown box and click the **OK** button.  

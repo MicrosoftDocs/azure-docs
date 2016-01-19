@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/05/2015"
-   ms.author="barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="barbkess;sonyama"/>
 
 #Transact-SQL topics
 
@@ -62,7 +62,7 @@
 - [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 - [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
 - DBCC SHRINKLOG
-- DBCC PDW_SHOWEXECUTIONPLAN
+- [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
 - DBCC PDW_SHOWPARTITIONSTATS
 - DBCC PDW_SHOWSPACEUSED
 - [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)
@@ -74,6 +74,7 @@
 - [EXCEPT and INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
 - EXPLAIN
 - [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
+- [Using PIVOT and UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
 - [GROUP BY](https://msdn.microsoft.com/library/ms177673.aspx)
 - [HAVING](https://msdn.microsoft.com/library/ms180199.aspx)
 - [ORDER BY](https://msdn.microsoft.com/library/ms188385.aspx)

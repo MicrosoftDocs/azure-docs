@@ -3,7 +3,7 @@
 	description="Quick steps to copy, move, and migrate data and databases in Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 # Move databases between servers, between subscriptions, and in and out of Azure
 ##To move a database to a different server in the same subscription

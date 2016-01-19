@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/14/2015" 
 	ms.author="sdanie"/>
 
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
@@ -53,7 +53,7 @@ Click Subnet to select the desired subnet.
 
 ![Virtual network][redis-cache-vnet-ip]
 
-Type the desired **Static IP address** and click **OK** to save the VNET configuration. If the selected static IP is already use, an error message is displayed.
+The **Static IP address** field is optional. If none is specified here, one will be chosen from the selected subnet. If a specific statis IP is desired, type the desired **Static IP address** and click **OK** to save the VNET configuration. If the selected static IP is already use, an error message is displayed.
 
 Once the cache is created, it can be accessed only by clients within the same VNET.
 

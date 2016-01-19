@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Azure Stream Analytics and Azure Machine Learning Integration | Microsoft Azure" 
+	pageTitle="Tutorial: Sentiment Analysis Using Azure Stream Analytics and Azure Machine Learning | Microsoft Azure" 
 	description="How to leverage UDF and machine learning in stream analytics jobs"
 	keywords=""
 	documentationCenter=""
@@ -15,11 +15,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/11/2015" 
+	ms.date="12/30/2015" 
 	ms.author="jeffstok"
 /> 
 
-# Tutorial: Introduction to Stream Analytics and Machine Learning integration #
+# Tutorial: Perform sentiment analysis using Stream Analytics and Machine Learning #
 
 This tutorial is designed to help you quickly setup a simple Stream Analytics job with Machine Learning integration. We will leverage a Sentiment Analytics Machine Learning Model from Cortana Analytics Gallery to analyze streaming text data and get determine the sentiment score in real time. This is a good tutorial to understand scenarios such as real time sentiment analytics on streaming twitter data, customer chat record analysis with support staff, comments on forums/blogs/videos and many other real-time predictive scoring scenarios.
   
@@ -38,7 +38,7 @@ Figure 2:
 The prerequisites for this article are as follows:
 
 1.	An active Azure subscription
-2.	A CSV file with some data in it. The one in Figure 2 is provided [here](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) for download, or you may create your own. This tutorial is written with the assumption that the one provided for download is used.
+2.	A CSV file with some data in it. The one in Figure 2 is provided [in GitHub](https://github.com/jeffstokes72/azure-stream-analytics-repository/blob/master/sampleinputs.csv) for download, or you may create your own. This tutorial is written with the assumption that the one provided for download is used.
 
 At a high level, the following steps will be performed:
 
@@ -114,7 +114,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 11.	Navigate to **Query** tab and modify the query as below:  
 
 ```
-	WITH subquery ASA (  
+	WITH subquery AS (  
 		SELECT text, sentiment(text) as result from input  
 	)  
 	  
@@ -142,7 +142,7 @@ Take note of the web service URL and access key from the downloaded excel as sho
 
 In this tutorial, a Stream Analytics job was created that reads streaming text data and applying sentiment analytics on it in real time. You were able to do all this without having to worry about intricacies of building a Sentiment Analytics model. This is one of the advantages of the Cortana Analytics suite.
 
-The Azure Machine Language function related metrics are also able to be observed.  Click on the **MONITOR** tab. Three function related metrics are present.  
+The Azure Machine Learning function related metrics are also able to be observed.  Click on the **MONITOR** tab. Three function related metrics are present.  
   
 - FUNCTION REQUESTS indicates the number of requests to machine learning web service.  
 - FUNCTION EVENTS indicates the number of events in the request – By default, each request to ML web service contains up to 1000 events.  

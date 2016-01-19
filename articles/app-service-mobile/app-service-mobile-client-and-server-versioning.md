@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="11/09/2015"
+  ms.date="12/15/2015"
   ms.author="donnam"/>
 
 # Client and server versioning in Mobile Apps and Mobile Services
@@ -101,22 +101,21 @@ Note: the Mobile Services client SDKs *do not* send a header value for `ZUMO-API
 
 Version checking was introduced starting with the following versions of the client SDK for **Azure Mobile Apps**:
 
-| Client platform                   | Version                                                                   | Version header value |
-| -------------------               | ------------------------                                                  | -----------------    |
-| Managed client (Windows, Xamarin) | [2.0.0-beta-3](https://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta-3) | 2.0.0  |
-| iOS                               | [3.0.0-beta4](http://go.microsoft.com/fwlink/?LinkID=529823)              | 2.0.0                |
-| Android                           | 3.0.0-beta1                                                               | 2.0.0                |
-| HTML                              | 2.0.0-beta2                                                               | 2.0.0                |
+| Client platform                   | Version                   | Version header value |
+| -------------------               | ------------------------  | -----------------    |
+| Managed client (Windows, Xamarin) | [2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) | 2.0.0 |
+| iOS                               | [3.0.0](http://go.microsoft.com/fwlink/?LinkID=529823) | 2.0.0  |
+| Android                           | [3.0.0](http://go.microsoft.com/fwlink/?LinkID=717033&clcid=0x409) | 3.0.0 |
 
-<!-- TODO: add Android and HTML versions when released -->
+<!-- TODO: add HTML version when released -->
 
 ### Mobile *Apps* server SDKs
 
 Version checking is included in following server SDK versions:
 
-| Server platform  | Version                                                                                                        | Accepted version header |
+| Server platform  | SDK                                                                                                        | Accepted version header |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET             | [Microsoft.Azure.Mobile.Server.* Version 0.3.x (or later)](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2.0.0 |
+| .NET             | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2.0.0 |
 | Node.js          | [azure-mobile-apps Version 1.0-beta1 (or later)](https://www.npmjs.com/package/azure-mobile-apps)                         | 2.0.0 |
 
 ### Behavior of Mobile Apps backends

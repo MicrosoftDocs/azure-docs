@@ -44,9 +44,9 @@ Updated: September 2015
 ## SAP DBMS on Azure
 Title: SAP DBMS in Azure Deployment Guide
 
-Summary: This paper covers planning and implementation considerations for the DBMS systems that should run in conjunction with SAP. In the first part, general considerations are listed and presented. The following parts of the paper relate to deployments of different DBMS in Azure that are supported by SAP. Different DBMS presented are SQL Server, SAP ASE and Oracle. In those specific parts considerations you have to account for when you are running SAP systems on Azure in conjunction with those DBMS are discussed. Subjects like backup and high availability methods that are supported by the different DBMS on Azure are presented for the usage with SAP applications.
+Summary: This paper covers planning and implementation considerations for the DBMS systems that should run in conjunction with SAP. In the first part, general considerations are listed and presented. The following parts of the paper relate to deployments of different DBMS in Azure that are supported by SAP. Different DBMS presented are SQL Server, SAP ASE, Oracle, SAP MaxDB and IBM DB2 for Linux, Unix and Windows. In those specific parts considerations you have to account for when you are running SAP systems on Azure in conjunction with those DBMS are discussed. Subjects like backup and high availability methods that are supported by the different DBMS on Azure are presented for the usage with SAP applications.
 
-Updated: August 2015
+Updated: December 2015
 
 [Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397965)
 
@@ -69,3 +69,15 @@ Summary: 'This document describes how to use SIOS DataKeeper to set up a highly 
 Updated: August 2015
 
 [Download this guide now](http://go.microsoft.com/fwlink/?LinkId=613056)
+
+## SAP NetWeaver on Azure SUSE Linux Virtual Machines
+
+Title: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs
+
+Summary: There is no official SAP support for running SAP NetWeaver on Azure Linux VMs at this point in time. Nevertheless customers
+might want to do some testing or might consider to run SAP demo or training systems on Azure Linux VMs as long as there is no need for contacting SAP support. 
+This article should help setting up Azure SUSE Linux VMs for running SAP and gives some basic hints in order to avoid common potential pitfalls.
+
+Updated: December 2015
+
+[This article can be found here](virtual-machines-sap-on-linux-suse-quickstart.md)

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="maroche"/>
 
 
@@ -42,6 +42,8 @@ In the current preview, **Azure Data Catalog** supports the registration of thes
 * HDFS Files and Directories
 * Apache Hive Tables
 * Teradata Tables and Views
+* Azure Data Lake Store Files and Directories
+* MySQL Tables and Views
 
 > [AZURE.NOTE] SQL Server support also includes Microsoft Azure SQL Database and Microsoft Azure SQL Data Warehouse
 
@@ -86,7 +88,6 @@ The **Azure Data Catalog** data source registration tool allows users to include
 These statistics are then copied into the Catalog along with the structural and descriptive metadata.
 
 > [AZURE.NOTE]  Text and date columns will not include average or standard deviation statistics in their data profile.
-
 
 ## Updating registrations
 
