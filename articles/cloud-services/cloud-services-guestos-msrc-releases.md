@@ -20,6 +20,20 @@
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
 
+## Janurary Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-001 | [3124903] | Cumulative Security Update for Internet Explorer | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
+| MS16-003 | [3125540] | Cumulative Security Update for JScript and VBScript | 2.47 | Janurary 12, 2015 |
+| MS16-005 | [3124584] | Security Update for Windows Kernel-Mode Drivers to Address Remote Code Execution | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
+| MS16-007 | [3124901] | Security Update for Microsoft Windows to Address Remote Code Execution | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
+| MS16-008 | [3124605] | Security Update for Kernel to Address Elevation of Privilege | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
+| Microsoft Security Advisory Revision | [2755801] | Update for Vulnerabilities in Adobe Flash Player in Internet Explorer (Package KB: TBD) -  Advisory Placeholder | 4.28, 3.35 | Janurary 12, 2015 |
+| Microsoft Security Advisory | [3109853] | Update to Improve TLS Interoperability | 4.28, 3.35 | Janurary 12, 2015 |
+| Microsoft Security Advisory | [3123479] | Deprecation of SHA-1 Hashing Algorithm for Microsoft Root Certificate Program | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
+| Microsoft Security Advisory | [2736233] | Updates for ActiveX Kill Bits | 4.28, 3.35, 2.47 | Janurary 12, 2015 |
+
 ## December Guest OS
 
 | Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
@@ -211,6 +225,15 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 
+[3124903]: http://support.microsoft.com/kb/3124903
+[3125540]: http://support.microsoft.com/kb/3125540
+[3124584]: http://support.microsoft.com/kb/3124584
+[3124901]: http://support.microsoft.com/kb/3124901 
+[3124605]: http://support.microsoft.com/kb/3124605
+[2755801]: http://support.microsoft.com/kb/2755399
+[3109853]: http://support.microsoft.com/kb/3109853
+[3123479]: http://support.microsoft.com/kb/3123479 
+[2736233]: http://support.microsoft.com/kb/2736233
 
 [3116180]: http://support.microsoft.com/kb/3116180
 [3116178]: http://support.microsoft.com/kb/3116178
