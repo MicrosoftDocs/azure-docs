@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/16/2016"
+   ms.date="01/19/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -49,36 +49,36 @@ To see the details of each recommendation:
 
 1. Click the **Recommendations tile** on the **Security Center** blade. The **Recommendations** blade opens.
 
- The recommendations are shown in a table format where each line represents one particular recommendation. The columns of this table are:
+The recommendations are shown in a table format where each line represents one particular recommendation. The columns of this table are:
 
-    - **DESCRIPTION**: an explanation of the recommendation and what needs to be done to address it
-    - **RESOURCE**: for which resource(s) this recommendation is applicable
-    - **STATE**: the current state of the recommendation:
-        - **Open**: not addressed yet
-        - **In Progress**: recommendation is currently being applied to those resources, no action is required by you
-        - **Resolved**: recommendation was already completed (when state is resolved, the color of the line is grayed out)
-    - **SEVERITY**: describes the severity of that particular recommendation:
-        - **High**: a vulnerability exists with a meaningful resource (application, VM, network security group) and requires attention
-        - **Medium**: non-critical or additional steps required to complete a process or eliminate a vulnerability
-        - **Low**: a vulnerability that should be addressed but does not require immediate attention. (By default, a low recommendation  is not presented but you can filter on Low recommendations if you choose to view them.)
+- **DESCRIPTION**: an explanation of the recommendation and what needs to be done to address it
+- **RESOURCE**: for which resource(s) this recommendation is applicable
+- **STATE**: the current state of the recommendation:
+    - **Open**: not addressed yet
+    - **In Progress**: recommendation is currently being applied to those resources, no action is required by you
+    - **Resolved**: recommendation was already completed (when state is resolved, the color of the line is grayed out)
+- **SEVERITY**: describes the severity of that particular recommendation:
+    - **High**: a vulnerability exists with a meaningful resource (application, VM, network security group) and requires attention
+    - **Medium**: non-critical or additional steps required to complete a process or eliminate a vulnerability
+    - **Low**: a vulnerability that should be addressed but does not require immediate attention. (By default, a low recommendation  is not presented but you can filter on Low recommendations if you choose to view them.)
 
- Use the table below as a reference to understand the available recommendations and what each one will do if you apply it:
+Use the table below as a reference to understand the available recommendations and what each one will do if you apply it:
 
 |Recommendation|Description|
-    |-----|-----|
-    |Enable Data Collection for subscriptions/virtual machines|Recommends that you turn on Data Collection in the security policy for each of your subscriptions or for select VMs.|
-    |Resolve mismatch baseline rules|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
-    |Apply system updates|Recommends that you deploy missing system updates to VMs (Windows VMs only).|
-    |Configure ACLs for endpoints|Recommends that you configure an access control list to restrict inbound access to VMs (Classic VMs only).|
-    |Add a web application firewall|Recommends that you deploy a Web Application Firewall (WAF) for web endpoints (Resource Manager VMs only).|
-    |Finalize web application firewall setup|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. This recommendation will complete the necessary setup changes.|
-    |Enable Antimalware|Recommends that you provision antimalware to VMs (Windows VMs only).|
-    |Enable Network Security Groups on subnets/network interfaces|Recommends that you enable Network Security Groups (NSGs) on subnets and network interfaces (Resource Manager VMs only).|
-    |Restrict access through public external endpoints|Recommends that you configure inbound traffic rules for NSGs.|
-    |Enable server SQL Auditing|Recommends that you turn on Auditing for Azure SQL servers (Azure SQL service only, not including SQL running on your virtual machines).|
-    |Enable database SQL Auditing|Recommends that you turn on Auditing for Azure SQL databases (Azure SQL service only, not including SQL running on your virtual machines).|
-    |Enable Transparent Data Encryption on SQL databases|Recommends that you enable encryption for SQL databases (Azure SQL service only).|
-    |Deploy the VM Agent|Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision Patch Scanning, Baseline Scanning, and Antimalware. The VM Agent is installed by default for VMs deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.|
+|-----|-----|
+|Enable Data Collection for subscriptions/virtual machines|Recommends that you turn on Data Collection in the security policy for each of your subscriptions or for select VMs.|
+|Resolve mismatch baseline rules|Recommends that you align OS configurations with the recommended baselines, e.g. do not allow passwords to be saved.|
+|Apply system updates|Recommends that you deploy missing system updates to VMs (Windows VMs only).|
+|Configure ACLs for endpoints|Recommends that you configure an access control list to restrict inbound access to VMs (Classic VMs only).|
+|Add a web application firewall|Recommends that you deploy a Web Application Firewall (WAF) for web endpoints (Resource Manager VMs only).|
+|Finalize web application firewall setup|To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. This recommendation will complete the necessary setup changes.|
+|Enable Antimalware|Recommends that you provision antimalware to VMs (Windows VMs only).|
+|Enable Network Security Groups on subnets/network interfaces|Recommends that you enable Network Security Groups (NSGs) on subnets and network interfaces (Resource Manager VMs only).|
+|Restrict access through public external endpoints|Recommends that you configure inbound traffic rules for NSGs.|
+|Enable server SQL Auditing|Recommends that you turn on Auditing for Azure SQL servers (Azure SQL service only, not including SQL running on your virtual machines).|
+|Enable database SQL Auditing|Recommends that you turn on Auditing for Azure SQL databases (Azure SQL service only, not including SQL running on your virtual machines).|
+|Enable Transparent Data Encryption on SQL databases|Recommends that you enable encryption for SQL databases (Azure SQL service only).|
+|Deploy the VM Agent|Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision Patch Scanning, Baseline Scanning, and Antimalware. The VM Agent is installed by default for VMs deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.|
 
 You can filter and dismiss recommendations.
 
