@@ -10,7 +10,6 @@
 	/>
 
 <tags
-	ms.service="billing"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
