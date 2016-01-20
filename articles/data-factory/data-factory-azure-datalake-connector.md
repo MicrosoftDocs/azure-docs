@@ -72,10 +72,10 @@ The following procedure provides steps for creating an Azure Data Lake Store lin
 	![Authorize button](./media/data-factory-azure-data-lake-connector/authorize-button.png)
 
 4. Use your credentials to sign-in and the **authorization** property in the JSON should be assigned to a value now.
-
-	[AZURE.IMPORTANT] You will need to **reauthorize** using this button when the **token expires**. See the table below for the expiration times for different types of user accounts. 
 5. (optional) Specify values for optional parameters such as **accountName**, **subscriptionID** and **resourceGroupName** in the JSON (or) delete these properties from the JSON.
 6. Click **Deploy** on the command bar to deploy the linked service.
+
+You will need to **reauthorize** using the **Authorize** button when the **token expires** and redeploy the linked service. See the table below for the expiration times for different types of user accounts. 
 
 | User type | Expires after | 
 | :-------- | :----------- | 

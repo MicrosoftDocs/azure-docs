@@ -285,7 +285,7 @@ Property | Description | Required
 Type | The type property should be set to: **AzureDataLakeAnalytics**. | Yes
 accountName | Azure Data Lake Analytics Account Name. | Yes
 dataLakeAnalyticsUri | Azure Data Lake Analytics URI. |  No
-authorization | Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. You will need to **reauthorize** using this button when the **token expires**. See the next table for the expiration times for different types of user accounts.| Yes
+authorization | Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. You will need to reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. See the next table for the expiration times for different types of user accounts.| Yes
 subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used).
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
 sessionId | session id from the OAuth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
