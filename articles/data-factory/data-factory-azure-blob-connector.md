@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2015" 
+	ms.date="01/20/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Blob using Azure Data Factory
