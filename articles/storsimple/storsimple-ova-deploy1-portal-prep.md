@@ -50,10 +50,10 @@ Refer to the following articles in the prescribed sequence to deploy your StorSi
 
 | **To do this step...** |  **Watch this video**|
 |----------------|-------------|
-| Step-by-step instructions to get started with the StorSimple Virtual Array. | [Get started](http://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array)|
+| Step-by-step instructions to get started with the StorSimple Virtual Array. | [Get started with the StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array)|
 | Step-by-step instructions to provision a StorSimple Virtual Array in Hyper-V.|[Create a StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array) |
 |Step-by-step instructions to configure and register a StorSimple Virtual Array|[Configure a StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array)|
-|Step-by-step instructions to create shares, backup shares, and restore data on a StorSimple Virtual Array configured as a file server|[Use a StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array)|
+|Step-by-step instructions to create shares, backup shares, and restore data on a StorSimple Virtual Array configured as a file server|[Use the StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array)|
 |Step-by-step instructions for failover and disaster recovery of a StorSimple Virtual Array|[StorSimple Virtual Array Disaster Recovery](http://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery)
 
 You can now begin to set up the Azure classic portal. 
@@ -204,6 +204,9 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 2.  Unzip the file and make a note of the unzipped location on your local drive.
 
+![video icon](./media/storsimple-ova-deploy1-portal-prep/video_icon.png) Watch the video for step-by-step instructions to get started with the StorSimple Virtual Array.
+
+> [AZURE.VIDEO get-started-with-the-storsimple-virtual-array]
 
 ## Next step
 
