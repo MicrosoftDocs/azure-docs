@@ -80,11 +80,11 @@ Note that physical servers will run as VMs in Azure if your on-premises server g
 
 ### What VMware VMs can I protect?
 
-For this scenario you'll need a VMware vCenter server, a vSphere hypervisor, and virtual machines running VMware tools. for exact requirements see [What do I need?](site-recovery-vmware-to-azure.md/#what-do-i-need). The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
+For this scenario you'll need a VMware vCenter server, a vSphere hypervisor, and virtual machines running VMware tools. for exact requirements see [What do I need?](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-vmware-to-azure-classic/#what-do-i-need). The same limitations apply whether you're replicating physical servers to Azure or to a secondary site.
 
 ### Are there any prerequisites for replicating virtual machines to Azure?
 
-Virtual machines you want to replicate to Azure should comply with [Azure requirements](site-recovery-best-practices.md/#virtual-machines). 
+Virtual machines you want to replicate to Azure should comply with [Azure requirements](https://azure.microsoft.com/en-us/documentation/articles/site-recovery-best-practices/#virtual-machines). 
 
 ### Can I replicate Hyper-V generation 2 virtual machines to Azure?
 
