@@ -188,7 +188,7 @@ In the [Azure classic portal](https://manage.windowsazure.com), for virtual mach
 In the [Azure portal](https://portal.azure.com):
 
 1. For a virtual machine created in classic deployment model, click **Browse** > **Virtual machines (classic)** > *VM name*. For a virtual machine created using the Resource Manager, click **Browse** > **Virtual machines** > *VM name*. The status pane for the virtual machine should show **Running**. Scroll down to show recent activity for compute, storage, and network resources.
-2. Click **Settings** to examine endpoints, IP addresses, and other settings. To identify endpoints in virtual machines created with the Resource Manager, check if a [Network Security Group](../traffic-manager/virtual-networks-nsg.md) is defined, the rules applied to it and if they are referenced in the subnet.
+2. Click **Settings** to examine endpoints, IP addresses, and other settings. To identify endpoints in virtual machines created with the Resource Manager, check if a [Network Security Group](../virtual-network/virtual-networks-nsg.md) is defined, the rules applied to it and if they are referenced in the subnet.
 
 To verify network connectivity, check the configured endpoints and see if you can reach the VM through another protocol, such as HTTP or another service.
 
@@ -264,7 +264,7 @@ To eliminate the endpoint as a source of the problem, remove the current endpoin
 #### Source 4: Network security groups
 
 Network security groups allow you to have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Check your network security group rules to ensure that SSH traffic to and from the Internet is allowed.
-For more information, see [About network security groups](../traffic-manager/virtual-networks-nsg.md).
+For more information, see [About network security groups](../virtual-network/virtual-networks-nsg.md).
 
 #### Source 5: Linux-based Azure virtual machine
 
