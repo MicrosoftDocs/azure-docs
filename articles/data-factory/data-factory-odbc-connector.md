@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Move data From ODBC data stores using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from an on-premises ODBC data store to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data from an on-premises ODBC data store to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory currently supports only moving data from an on-premises ODBC data store to other data stores, but not for moving data from other data stores to an on-premises ODBC data store.
 

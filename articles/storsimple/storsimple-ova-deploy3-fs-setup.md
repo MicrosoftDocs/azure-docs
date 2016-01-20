@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/13/2016"
+   ms.date="01/20/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Set up as file server (Preview)
 
-![](./media/storsimple-ova-deploy3-fs-setup/fileserver3.png)
+![](./media/storsimple-ova-deploy3-fs-setup/fileserver4.png)
 
 ## Introduction 
 
@@ -134,7 +134,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 		![](./media/storsimple-ova-deploy3-fs-setup/image13.png)
 	
 
-1.  Return to the Azure Portal. On the Devices page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
+1.  Return to the Azure classic portal. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
 
 ![](./media/storsimple-ova-deploy3-fs-setup/image12.png)
 
@@ -221,7 +221,12 @@ You will now need to connect to the share(s) that you created in the previous st
 
 3.  You can now add files to these shares and take a backup.
 
+![video icon](./media/storsimple-ova-deploy3-fs-setup/video_icon.png) **Video available**
+
+Watch the video to see how you can configure and register a StorSimple Virtual Array as a file server.
+
+> [AZURE.VIDEO configure-a-storsimple-virtual-array]
 
 ## Next steps
 
-Learn how to [Administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md) using the local web UI.
+Learn how to use the local web UI to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
