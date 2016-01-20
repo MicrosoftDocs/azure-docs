@@ -215,7 +215,7 @@ In this step, you will create your first pipeline with a **HDInsightHive** activ
 		            {
 		                "type": "HDInsightHive",
 		                "typeProperties": {
-		                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+		                    "scriptPath": "adfgetstarted/inputdata/partitionweblogs.hql",
 		                    "scriptLinkedService": "StorageLinkedService",
 		                    "defines": {
 		                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
