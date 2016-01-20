@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/13/2016"
+   ms.date="01/20/2016"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V (Preview)
+# Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V (Preview)
 
 ![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
@@ -261,6 +261,12 @@ If you face any other error during the initial configuration using the local web
 -   Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
 -   [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+
+![video icon](./media/storsimple-ova-deploy2-provision-hyperv/video_icon.png)  **Video available**
+
+Watch the video to see how you can provision a StorSimple Virtual Array in Hyper-V.
+
+> [AZURE.VIDEO create-a-storsimple-virtual-array]
 
 ## Next steps
 
