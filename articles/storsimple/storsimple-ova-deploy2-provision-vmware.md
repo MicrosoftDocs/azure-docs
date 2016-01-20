@@ -19,7 +19,7 @@
 
 # Deploy StorSimple Virtual Array - Provision a virtual array in VMware (Preview)
 
-![](./media/storsimple-ova-deploy2-provision-vmware/vmware3.png)
+![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
 ## Overview 
 This provisioning tutorial applies to StorSimple Virtual Arrays (also known as StorSimple on-premises virtual devices or StorSimple virtual devices) running v 1.1.1.0 (Public Preview) only. This tutorial describes how to provision and connect to a StorSimple Virtual Array on a host system running VMware ESXi 5.5 and above.
@@ -40,7 +40,7 @@ Before you begin, make sure that:
 
 -   You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
--   You have downloaded the virtual device image for VMware from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep#step-3-download-the-virtual-device-image.md)..
+-   You have downloaded the virtual device image for VMware from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
 
 ### For the StorSimple virtual device 
 
@@ -94,7 +94,7 @@ To create a virtual device, you will need:
 
 Perform the following steps to provision a virtual device in your hypervisor.
 
-1.  Copy the virtual device image on your system. This is the image that you have downloaded through the Azure portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
+1.  Copy the virtual device image on your system. This is the image that you have downloaded through the Azure classic portal. Make a note of the location where you copied the image as you will be using this later in the procedure.
 
 2.  Log into the ESXi server using the vSphere client. You will need to have administrator privileges to create a virtual machine.
 
