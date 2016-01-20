@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/11/2016"
+   ms.date="01/20/2016"
    ms.author="alkohli"/>
 
 # Disaster recovery and device failover for your StorSimple Virtual Array (Preview)
@@ -167,6 +167,10 @@ If the available target devices do not have sufficient space, you will see an er
 **Precheck failures**
 
 If one of the prechecks is not satisfied, then you will see precheck failures.
+
+![video icon](./media/storsimple-ova-failover-dr/video_icon.png) Watch the video for step-by-step instructions for failover and disaster recovery of a StorSimple Virtual Array.
+
+> [AZURE.VIDEO storsimple-virtual-array-disaster-recovery]
 
 ## Next steps
 
