@@ -4,8 +4,8 @@
 	documentationCenter="php"
 	services="storage"
 	authors="tfitzmac"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"

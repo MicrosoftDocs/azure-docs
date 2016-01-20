@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="01/06/2015"
 	ms.author="v-aabrol"/>
 
 
@@ -105,7 +105,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 3. On the **Configure App Settings** dialog page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-fuse-tutorial/tutorial_fuse_04.png) <br>
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Fuse application using the following pattern: **“https://azuresso.fusion-universal.com/ ”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Fuse application using the following pattern: **“https://\<tenant name\>.fusion-universal.com/ ”**.
 
     > [AZURE.NOTE]Please contact the [Fuse support team](mailto:support@fusion-universal.com) to get your Sign On URL if you don't know it.
     

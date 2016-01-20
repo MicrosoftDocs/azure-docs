@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Limitations & Restrictions
@@ -44,7 +44,7 @@ Many modern applications have a Single Page Application (SPA) front-end written 
 
 ### Daemons / Server Side Applications
 
-Applications that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs. These applications can authenticate and get tokens using the application's identity (rather than a consumer's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-b2c-protocols.md#oauth2-client-credentials-grant-flow). This flow is not yet available in Azure AD B2C preview - which is to say that applications can only get tokens after an interactive consumer sign-in flow has occurred.
+Applications that contain long running processes or that operate without the presence of a user also need a way to access secured resources, such as Web APIs. These applications can authenticate and get tokens using the application's identity (rather than a consumer's delegated identity) using the [OAuth 2.0 client credentials flow](active-directory-b2c-reference-protocols.md#oauth2-client-credentials-grant-flow). This flow is not yet available in Azure AD B2C preview - which is to say that applications can only get tokens after an interactive consumer sign-in flow has occurred.
 
 ### Standalone Web APIs
 
@@ -60,11 +60,11 @@ This chained Web API scenario can be supported using the OAuth 2.0 Jwt Bearer Cr
 
 Not all languages and platforms have libraries that support Azure AD B2C preview. The set of authentication libraries is currently limited to .NET, iOS, Android and NodeJS. Corresponding quick start tutorials for each are available in our [Getting Started](active-directory-b2c-overview.md#getting-started) section.
 
-If you wish to integrate an application with Azure AD B2C preview using another language or platform, refer to the [OAuth 2.0 and OpenID Connect Protocol Reference](active-directory-b2c-protocols.md) which will instruct you on how to construct the HTTP messages necessary to communicate with the Azure AD B2C service.
+If you wish to integrate an application with Azure AD B2C preview using another language or platform, refer to the [OAuth 2.0 and OpenID Connect Protocol Reference](active-directory-b2c-reference-protocols.md) which will instruct you on how to construct the HTTP messages necessary to communicate with the Azure AD B2C service.
 
 ## Restriction on Protocols
 
-Azure AD B2C preview supports OpenID Connect and OAuth 2.0. However, not all features and capabilities of each protocol have been implemented. To better understand the scope of supported protocol functionality in Azure AD B2C preview, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-reference-b2c-protocols.md). SAML and WS-Fed protocol support is not available.
+Azure AD B2C preview supports OpenID Connect and OAuth 2.0. However, not all features and capabilities of each protocol have been implemented. To better understand the scope of supported protocol functionality in Azure AD B2C preview, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-b2c-reference-protocols.md). SAML and WS-Fed protocol support is not available.
 
 ## Restriction on Tokens
 

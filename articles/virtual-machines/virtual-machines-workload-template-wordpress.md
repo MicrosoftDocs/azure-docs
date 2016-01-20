@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/07/2016"
 	ms.author="davidmu"/>
 
 # Deploy a WordPress server on Ubuntu with an Azure Resource Manager template
@@ -91,17 +91,3 @@ Here is an example.
 When you run the **azure group deployment create** command, you will be prompted to supply the values for a series of parameters. When you have specified all the parameter values, Azure creates and configures the virtual machines.
 
 When the template execution is complete, you now have WordPress server running on Ubuntu in your new resource group.
-
-## Additional resources
-
-[Deploy and manage Virtual Machines using Azure Resource Manager templates and Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure Resource Manager Overview](../resource-group-overview.md)
-
-[Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)

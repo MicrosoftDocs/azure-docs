@@ -4,8 +4,8 @@
    services="sql-data-warehouse"
    documentationCenter=""
    authors="lodipalm"
-   manager="mausher"
-   editor="barbkess"/>
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;sonyama;barbkess"/>
 
 
 # Get started with SQL Data Warehouse threat detection

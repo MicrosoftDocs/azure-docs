@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="How to use Blob Storage from Xamarin (Preview) | Microsoft Azure" 
-	description="The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an Android application that uses Azure Blob storage." 
-	services="storage" 
-	documentationCenter="xamarin" 
-	authors="micurd" 
-	manager="" 
-	editor=""/>
+<properties
+	pageTitle="How to use Blob Storage from Xamarin (Preview) | Microsoft Azure"
+	description="The Azure Storage Client Library for Xamarin preview enables developers to create iOS, Android, and Windows Store apps with their native user interfaces. This tutorial shows how to use Xamarin to create an Android application that uses Azure Blob storage."
+	services="storage"
+	documentationCenter="xamarin"
+	authors="micurd"
+	manager=""
+	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/01/2015"
+	ms.author="micurd"/>
 
 # How to use Blob Storage from Xamarin (Preview)
 
@@ -177,4 +177,4 @@ Learn more about blobs, tables, and queues by checking out the following links:
 [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)  
 [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md)  
 [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
-[Transfer data with the AzCopy command-line utility](storage-use-azcopy) 
+[Transfer data with the AzCopy command-line utility](storage-use-azcopy)

@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # Add on-demand "burst" nodes (worker role instances) as compute resources to an HPC Pack cluster in Azure
@@ -23,13 +23,13 @@ ms.service="virtual-machines"
 
 This article shows you how to add Azure "burst" nodes (worker role instances
 running in a cloud service) on-demand as compute resources to an
-existing HPC Pack head node in Azure. This lets you scale up the compute capacity of the HPC cluster in Azure, without maintaining a set of preconfigured compute node VMs.
+existing HPC Pack head node in Azure. This lets you scale up the compute capacity of the HPC cluster in Azure on-demand, without maintaining a set of preconfigured compute node VMs.
 
 ![Burst nodes][burst]
 
 >[AZURE.TIP] If you use the [HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md) to create the cluster in Azure,
 you can include Azure burst nodes in your automated
-deployment.
+deployment. See the examples in that article.
 
 The steps in this article will help you add Azure nodes quickly to a
 cloud-based HPC Pack head node VM for a test or proof of concept deployment. The procedure is essentially the
@@ -118,7 +118,7 @@ Pack](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 * If you want a way to
 automatically grow or shrink the Azure computing resources according to
-the current workload of jobs and tasks on the cluster, see [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png

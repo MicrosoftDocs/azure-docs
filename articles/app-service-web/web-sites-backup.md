@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/07/2015" 
 	ms.author="cephalin"/>
 
 # Back up a web app in Azure App Service
@@ -171,7 +171,8 @@ The database backup for the web app is stored in the root of the .zip file. For 
 
 <a name="nextsteps"></a>
 ## Next Steps
-For information on restoring web app from backup, see [Restore a web app in Azure App Service](web-sites-restore.md).
+For information on restoring web app from backup, see [Restore a web app in Azure App Service](web-sites-restore.md). You can also backup and restore App Service apps
+using REST API (see [Use REST to back up and restore App Service apps](websites-csm-backup.md)).
 
 To get started with Azure, see [Microsoft Azure Free Trial](/pricing/free-trial/).
 

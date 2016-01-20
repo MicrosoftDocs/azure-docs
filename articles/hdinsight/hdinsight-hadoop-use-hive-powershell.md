@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/02/2015"
+   ms.date="01/08/2016"
    ms.author="larryfr"/>
 
 #Run Hive queries using PowerShell
@@ -114,12 +114,14 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
     
 7. When the job completes, it should return information similar to the following:
 
-		Display the standard output...
-		[ERROR]	3
+        Display the standard output...
+        2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
+        2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
+        2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
 
 4. As mentioned earlier, **Invoke-Hive** can be used to run a query and wait for the response. Use the following commands, and replace **CLUSTERNAME** with the name of your cluster:
 
-        Use-AzureRmHDInsightCluster -ClusterName $clusterName
+        Use-AzureRmHDInsightCluster -ClusterName $clusterName -HttpCredential $creds
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
@@ -130,7 +132,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
             -ResourceGroupName $resourceGroup `
             | %{ $_.Key1 }
         Invoke-AzureRmHDInsightHiveJob `
-            -StatusFolder "wasb:///example/statusout" `
+            -StatusFolder "statusout" `
             -DefaultContainer $container `
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `
