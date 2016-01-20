@@ -39,7 +39,7 @@ The figure and corresponding steps below show the tasks you must follow in order
 
 	![](./media/expressroute-workflows/expressroute-routing-workflow.png)
 
-5. Linking virtual networks to ExpressRoute circuits - You can link virtual networks to your ExpressRoute circuit. Follow instructions [to link VNets](expressroute-howto-linkvnets-arm.md) to your circuit. These VNets can either be in the same Azure subscription as the ExpressRoute circuit, or can be in a different subscription.
+5. Linking virtual networks to ExpressRoute circuits - You can link virtual networks to your ExpressRoute circuit. Follow instructions [to link VNets](expressroute-howto-linkvnet-arm.md) to your circuit. These VNets can either be in the same Azure subscription as the ExpressRoute circuit, or can be in a different subscription.
 
 
 ## ExpressRoute circuit provisioning states
