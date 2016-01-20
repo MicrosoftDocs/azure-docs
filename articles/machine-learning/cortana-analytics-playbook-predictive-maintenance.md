@@ -385,7 +385,7 @@ repair an elevator, he/she can refer to this app for recommended causes
 and best courses of maintenance actions to fix the elevator doors as
 fast as possible.
 
-### Transportation and Logistics
+### Transportation and logistics
 #### Use Case 1: Brake disc failures
 ##### *Business problem and data sources*
 Typical maintenance policies for vehicles include corrective and
@@ -641,9 +641,9 @@ for a time unit which is not captured in Figure 2 but the idea is the
 same as in Figure 1 where t<sub>2</sub> is also used to demonstrate the rolling
 effect.
 
-![Figure 2. Tumbling Aggregate Features](media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
+![Figure 2. Tumbling aggregate features](media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
 
-Figure 2. Tumbling Aggregate Features
+Figure 2. Tumbling aggregate features
 
 As an example, for wind turbines, W=1 and k=3 months were used to create
 lag features for each of the last 3 months using top and bottom
@@ -767,9 +767,9 @@ record prior to the failure and labeling them by calculating how many
 units of time remain before the next failure. In this method, labels are
 continuous variables (See Figure 4).
 
-![Figure 4. Labelling for Regression](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
+![Figure 4. Labelling for regression](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
 
-Figure 4. Labelling for Regression
+Figure 4. Labelling for regression
 
 Different than binary classification, for regression, assets without any
 failures in the data cannot be used for modeling as labelling is done
@@ -810,9 +810,9 @@ the failure of an asset and labeling them using buckets of time (3Z, 2Z,
 Z) as their labels while labeling all other records as "normal" (label
 =0). In this method, label is categorical variable (See Figure 5).
 
-![Figure 5. Labelling for Multiclass classification for failure time prediction](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+![Figure 5. Labelling for multiclass classification for failure time prediction](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
 
-Figure 5. Labelling for Multiclass classification for failure time
+Figure 5. Labelling for multiclass classification for failure time
 prediction
 
 For the second question, labeling is done by taking X records prior to
@@ -821,9 +821,9 @@ problem P<sub>i</sub>" (label = P<sub>i</sub>) while labeling all other records 
 "normal" (label =0). In this method, labels are categorical variables
 (See Figure 6).
 
-![Figure 6. Labelling for Multiclass classification for root cause prediction](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+![Figure 6. Labelling for multiclass classification for root cause prediction](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
 
-Figure 6. Labelling for Multiclass classification for root cause
+Figure 6. Labelling for multiclass classification for root cause
 prediction
 
 The model will assign a failure probability due to each P<sub>i</sub> as well as
