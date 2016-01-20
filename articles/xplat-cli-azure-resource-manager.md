@@ -84,7 +84,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 * A password = `adminPassword`
 * A domain name for the VM = `dnsLabelPrefix`
 
->[AZURE.TIP] These steps show you just one way to use a VM template with the Azure CLI. For other examples, see [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+>[AZURE.TIP] These steps show you just one way to use a VM template with the Azure CLI. For other examples, see [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
 1. Follow the "Learn more with GitHub" link to download the files azuredeploy.json and azuredeploy.parameters.json from GitHub to a working folder on your local computer. (Make sure to select the _raw_ format of each file in GitHub.)
 
