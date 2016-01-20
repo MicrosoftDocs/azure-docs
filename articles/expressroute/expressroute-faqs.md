@@ -116,7 +116,7 @@ Yes. You can link up to 10 virtual networks to an ExpressRoute circuit.
 ### I have multiple Azure subscriptions that contain virtual networks. Can I connect virtual networks that are in separate subscriptions to a single ExpressRoute circuit?
 Yes. You can authorize up to 10 other Azure subscriptions to use a single ExpressRoute circuit. This limit can be increased by enabling the ExpressRoute premium feature.
 
-For more details, see [Sharing an ExpressRoute circuit across multiple subscriptions](expressroute-share-circuit.md).
+For more details, see [Sharing an ExpressRoute circuit across multiple subscriptions](expressroute-howto-linkvnet-arm.md).
 
 ### Are virtual networks connected to the same circuit isolated from each other?
 No. All virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other from a routing perspective. If you need route isolation, you’ll need to create a separate ExpressRoute circuit.
