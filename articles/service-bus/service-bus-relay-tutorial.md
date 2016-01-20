@@ -17,7 +17,7 @@
 
 # Service Bus relayed messaging tutorial
 
-This tutorial describes how to build a simple Service Bus client application and service using the Service Bus "relay" capabilities. For a corresponding tutorial that describes how to build an application that uses the Service Bus "brokered," or asynchronous messaging capabilities, see the [Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx). For a similar tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md/#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx).
+This tutorial describes how to build a simple Service Bus client application and service using the Service Bus "relay" capabilities. For a corresponding tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](service-bus-brokered-tutorial-dotnet.md).
 
 Working through this tutorial gives you an understanding of the steps that are required to create a Service Bus client and service application. Like their WCF counterparts, a service is a construct that exposes one or more endpoints, each of which exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between a WCF and a Service Bus service is that the endpoint is exposed in the cloud instead of locally on your computer.
 
@@ -31,9 +31,9 @@ All of the topics in this section assume that you are using Visual Studio as the
 
 The first step is to create a Service Bus service namespace, and to obtain a Shared Access Signature (SAS) key. A service namespace provides an application boundary for each application exposed through the Service Bus. The combination of service namespace and SAS key provides a credential for the Service Bus to authenticate access to an application.
 
-To create a namespace, follow the steps outlined in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/hh690931.aspx).
+1. To create a service namespace, visit the [Azure classic portal][]. Click **Service Bus** on the left-hand side, then click **Create**. Type a name for your namespace, then click the check mark.
 
->[AZURE.NOTE] You do not have to use the same namespace for both client and service applications.
+	>[AZURE.NOTE] You do not have to use the same namespace for both client and service applications.
 
 1. In the main window of the [Azure classic portal][], click the name of the service namespace you created in the previous step.
 
@@ -835,7 +835,7 @@ Make sure that the service is running before you start the client.
 
 ## Next steps
 
-This tutorial showed how to build a Service Bus client application and service using the Service Bus "relay" capabilities. For a similar tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md/#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](https://msdn.microsoft.com/library/hh367512.aspx).
+This tutorial showed how to build a Service Bus client application and service using the Service Bus "relay" capabilities. For a similar tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](service-bus-brokered-tutorial-dotnet.md).
 
 To learn more about Service Bus, see the following topics.
 
