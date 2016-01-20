@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/11/2016"
+    ms.date="01/19/2016"
     ms.author="elizapo" />
 
 
@@ -44,5 +44,5 @@ By clients I mean the desktops, devices etc. that people use to connect to the a
 -  https://www.remoteapp.windowsazure.com 
 -  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
--  Outbound: TCP: 443, TCP: 10101-10175 
+-  Outbound: TCP: 443  
 -  Optional - UDP: 10201-10275
