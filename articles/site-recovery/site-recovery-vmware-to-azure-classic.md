@@ -216,7 +216,7 @@ Set up an Azure network so that Azure VMs will be connected to a network after f
 1. In the Azure portal > **Create virtual network** specify the network name. IP address range and subnet name.
 2. You would need to add VPN/ExpressRoute to the network if you need to do failback. VPN/ExpressRoute can be added to the network even after failover. 
 
-[Read more](virtual-networks-overview.md) about Azure networks.
+[Read more](../virtual-network/virtual-networks-overview.md) about Azure networks.
 
 ## Step 3: Install the VMware components
 
