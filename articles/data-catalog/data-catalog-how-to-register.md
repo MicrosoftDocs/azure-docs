@@ -30,27 +30,7 @@ See the [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutor
 Once the data source has been registered, the Catalog tracks its location and indexes its metadata, so that users can search, browse, and discover the data source, and then use its location to connect to it using the application or tool of their choice.
 
 ## Sources supported
-In the current preview, **Azure Data Catalog** supports the registration of these data sources and object types:
-
-* SQL Server Database Engine Tables and Views
-* Oracle Database Tables and Views
-* SQL Server Analysis Services Multidimensional Dimensions, Measures, and KPIs
-* SQL Server Analysis Services Tabular Tables
-* SQL Server Reporting Services Reports
-* Azure Storage Blobs and Directories
-* Azure Data Lake Store
-* HDFS Files and Directories
-* Apache Hive Tables
-* Teradata Tables and Views
-* Azure Data Lake Store Files and Directories
-* MySQL Tables and Views
-
-> [AZURE.NOTE] SQL Server support also includes Microsoft Azure SQL Database and Microsoft Azure SQL Data Warehouse
-
-<br/>
-
-> [AZURE.NOTE] SQL Server Reporting Services support is for native mode servers only – SharePoint mode is not yet supported
-
+Please refer <a href="https://azure.microsoft.com/en-us/documentation/articles/data-catalog-dsr/">here</a> for the list of currently supported data sources.
 <br/>
 
 
