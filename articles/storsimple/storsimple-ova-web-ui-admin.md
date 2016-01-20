@@ -132,6 +132,12 @@ You can shut down or restart your virtual device using the local web UI.
 
     While the restart is in progress, you will lose the connection to the UI. You can monitor the restart by refreshing the UI periodically. Alternatively, you can monitor the device restart status through the Hyper-V Manager.
 
+![video_icon](./media/storsimple-ova-web-ui-admin/video_icon.png) **Video available**
+
+Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
+
 ## Next steps
 
 Learn how to [use the StorSimple Manager service to manage your device](storsimple-manager-service-administration.md).

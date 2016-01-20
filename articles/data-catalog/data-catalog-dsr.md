@@ -399,7 +399,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
 
 <br>
 <br>
-## Data Source Reference Specification
+## Data source reference specification
 
 <table>
     <tr>
