@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="10/02/2015"
+ ms.date="01/20/2016"
  ms.author="elioda"/>
 
 # Scaling IoT Hub
