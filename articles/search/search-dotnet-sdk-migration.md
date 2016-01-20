@@ -24,7 +24,7 @@ For a more general walkthrough of the SDK including examples, see [How to use Az
 
 Version 1.0.0-preview of the Azure Search .NET SDK contains several breaking changes from the previous version (0.13.0-preview). These are mostly minor, so changing your code should require only minimal effort. See [Steps to upgrade](#UpgradeSteps) for instructions on how to change your code to use the new SDK version.
 
-<a name="#WhatsNew"></a>
+<a name="WhatsNew"></a>
 ## What's new in 1.0.0-preview
 
 Version 1.0.0-preview targets the same REST API version as older versions of the Azure Search .NET SDK (2015-02-28), so there are no new service features in this release. However, there is one new client-side feature for advanced users of the SDK.
@@ -37,7 +37,7 @@ The SDK uses JSON.NET for serializing and deserializing documents. The new versi
 
 You can find examples of implementing custom serialization in the unit tests for the Azure Search .NET SDK on GitHub. A good starting point is [this folder](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). It contains classes that are used by the custom serialization tests. 
 
-<a name="#UpgradeSteps"></a>
+<a name="UpgradeSteps"></a>
 ## Steps to upgrade
 
 First, update your NuGet reference for `Microsoft.Azure.Search` using either the NuGet Package Manager Console or by right-clicking on your project references and selecting "Manage NuGet Packages..." in Visual Studio.
@@ -57,7 +57,7 @@ If you're using custom classes to model your documents, and those classes have p
 
 Finally, once you've fixed any build errors, you can make changes to your application to take advantage of new functionality if you wish. The custom serialization feature in the new SDK is detailed in [What's new in 1.0.0-preview](#WhatsNew).
 
-<a name="#ListOfChanges"></a>
+<a name="ListOfChanges"></a>
 ## List of breaking changes in 1.0.0-preview
 
 The following list is ordered by the likelihood that the change will affect your application code.
@@ -109,7 +109,7 @@ You can change it to this to fix any build errors:
             String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
     }
 
-<a name="#OperationMethodChanges"></a>
+<a name="OperationMethodChanges"></a>
 ### Operation method changes
 
 Each operation in the Azure Search .NET SDK is exposed as a set of method overloads for synchronous and asynchronous callers. The signatures and factoring of these method overloads has changed in version 1.0.0-preview.
@@ -321,7 +321,7 @@ The operation group interface names have all changed to be consistent with their
 
 This change is unlikely to affect your code unless you created mocks of these interfaces for test purposes.
 
-<a name="#BugFixes"></a>
+<a name="BugFixes"></a>
 ## Bug fixes in 1.0.0-preview
 
 There was a bug in older versions of the Azure Search .NET SDK relating to serialization of custom model classes. The bug could occur if you created a custom model class with a property of a non-nullable value type.
