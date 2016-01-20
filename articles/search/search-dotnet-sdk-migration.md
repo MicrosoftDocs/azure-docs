@@ -24,19 +24,20 @@ For a more general walkthrough of the SDK including examples, see [How to use Az
 
 Version 1.0.0-preview of the Azure Search .NET SDK contains several breaking changes from the previous version (0.13.0-preview). These are mostly minor, so changing your code should require only minimal effort. See [Steps to upgrade](#UpgradeSteps) for instructions on how to change your code to use the new SDK version.
 
-<a href="#WhatsNew"></a>
+<a name="#WhatsNew"></a>
 ## What's new in 1.0.0-preview
 
 Version 1.0.0-preview targets the same REST API version as older versions of the Azure Search .NET SDK (2015-02-28), so there are no new service features in this release. However, there is one new client-side feature for advanced users of the SDK.
 
 The SDK uses JSON.NET for serializing and deserializing documents. The new version of the SDK supports custom serialization via `JsonConverter` and `IContractResolver` (see the [JSON.NET documentation](http://www.newtonsoft.com/json/help/html/Introduction.htm) for more details). This can be useful when you want to adapt an existing model class from your application for use with Azure Search, and other more advanced scenarios. For example, with custom serialization you can:
+ 
  - Include or exclude certain properties of your model class from being stored as document fields.
  - Map between property names in your code and field names in your index.
  - Create custom attributes that can be used for both mapping properties to document fields as well as creating the corresponding index definition.
 
 You can find examples of implementing custom serialization in the unit tests for the Azure Search .NET SDK on GitHub. A good starting point is [this folder](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). It contains classes that are used by the custom serialization tests. 
 
-<a href="#UpgradeSteps"></a>
+<a name="#UpgradeSteps"></a>
 ## Steps to upgrade
 
 First, update your NuGet reference for `Microsoft.Azure.Search` using either the NuGet Package Manager Console or by right-clicking on your project references and selecting "Manage NuGet Packages..." in Visual Studio.
@@ -56,7 +57,7 @@ If you're using custom classes to model your documents, and those classes have p
 
 Finally, once you've fixed any build errors, you can make changes to your application to take advantage of new functionality if you wish. The custom serialization feature in the new SDK is detailed in [What's new in 1.0.0-preview](#WhatsNew).
 
-<a href="#ListOfChanges"></a>
+<a name="#ListOfChanges"></a>
 ## List of breaking changes in 1.0.0-preview
 
 The following list is ordered by the likelihood that the change will affect your application code.
@@ -108,7 +109,7 @@ You can change it to this to fix any build errors:
             String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
     }
 
-<a href="#OperationMethodChanges"></a>
+<a name="#OperationMethodChanges"></a>
 ### Operation method changes
 
 Each operation in the Azure Search .NET SDK is exposed as a set of method overloads for synchronous and asynchronous callers. The signatures and factoring of these method overloads has changed in version 1.0.0-preview.
@@ -145,10 +146,10 @@ In `IIndexesOperations`:
         Dictionary<string, List<string>> customHeaders = null,
         CancellationToken cancellationToken = default(CancellationToken));
 
-In `IndexOperationsExtensions`:
+In `IndexesOperationsExtensions`:
 
     // Simplified asynchronous operation
-    public static async Task<IndexGetStatisticsResult> GetStatisticsAsync(
+    public static Task<IndexGetStatisticsResult> GetStatisticsAsync(
         this IIndexesOperations operations,
         string indexName,
         SearchRequestOptions searchRequestOptions = default(SearchRequestOptions),
@@ -161,6 +162,7 @@ In `IndexOperationsExtensions`:
         SearchRequestOptions searchRequestOptions = default(SearchRequestOptions));
 
 Starting with version 1.0.0-preview, the Azure Search .NET SDK organizes operation methods differently:
+ 
  - Optional parameters are now modeled as default parameters rather than additional method overloads. This reduces the number of method overloads, sometimes dramatically.
  - The extension methods now hide a lot of the extraneous details of HTTP from the caller. For example, older versions of the SDK returned a response object with an HTTP status code, which you often didn't need to check because operation methods throw `CloudException` for any status code that indicates an error. The new extension methods just return model objects, saving you the trouble of having to unwrap them in your code.
  - Conversely, the core interfaces now expose methods that give you more control at the HTTP level if you need it. You can now pass in custom HTTP headers to be included in requests, and the new `AzureOperationResponse<T>` return type gives you direct access to the `HttpRequestMessage` and `HttpResponseMessage` for the operation. `AzureOperationResponse` is defined in the `Microsoft.Rest.Azure` namespace and replaces `Hyak.Common.OperationResponse`.
@@ -168,6 +170,7 @@ Starting with version 1.0.0-preview, the Azure Search .NET SDK organizes operati
 ### Model class changes
 
 Due to the signature changes described in [Operation method changes](#OperationMethodChanges), many classes in the `Microsoft.Azure.Search.Models` namespace have been renamed or removed. For example:
+
  - `IndexDefinitionResponse` has been replaced by `AzureOperationResponse<Index>`
  - `DocumentSearchResponse` has been renamed to `DocumentSearchResult`
  - `IndexResult` has been renamed to `IndexingResult`
@@ -293,6 +296,8 @@ Also note that the type of the credentials parameter has changed to `ServiceClie
 
 In older versions of the SDK, you could set a request ID on the `SearchServiceClient` or `SearchIndexClient` and it would be included in every request to the REST API. This is useful for troubleshooting issues with your search service if you need to contact support. However, it is more useful to set a unique request ID for every operation rather than to use the same ID for all operations. For this reason, the `SetClientRequestId` methods of `SearchServiceClient` and `SearchIndexClient` have been removed. Instead, you can pass a request ID to each operation method via the optional `SearchRequestOptions` parameter.
 
+> [AZURE.NOTE] In a future release of the SDK, we will add a new mechanism for setting a request ID globally on the client objects that is consistent with the approach used by other Azure SDKs.
+
 #### Example
 
 If you have code that looks like this:
@@ -308,6 +313,7 @@ You can change it to this to fix any build errors:
 ### Interface name changes
 
 The operation group interface names have all changed to be consistent with their corresponding property names:
+ 
  - The type of `ISearchServiceClient.Indexes` has been renamed from `IIndexOperations` to `IIndexesOperations`.
  - The type of `ISearchServiceClient.Indexers` has been renamed from `IIndexerOperations` to `IIndexersOperations`.
  - The type of `ISearchServiceClient.DataSources` has been renamed from `IDataSourceOperations` to `IDataSourcesOperations`.
@@ -315,7 +321,7 @@ The operation group interface names have all changed to be consistent with their
 
 This change is unlikely to affect your code unless you created mocks of these interfaces for test purposes.
 
-<a href="#BugFixes"></a>
+<a name="#BugFixes"></a>
 ## Bug fixes in 1.0.0-preview
 
 There was a bug in older versions of the Azure Search .NET SDK relating to serialization of custom model classes. The bug could occur if you created a custom model class with a property of a non-nullable value type.
@@ -324,7 +330,7 @@ There was a bug in older versions of the Azure Search .NET SDK relating to seria
 
 Create a custom model class with a property of non-nullable value type. For example, add a public `UnitCount` property of type `int` instead of `int?`.
 
-If you index a document with the default value of that type (for example, 0 for `int`), the field will be null in Azure Search. If you subsequently search for that document, the Search call will throw `JsonSerializationException` complaining that it can't convert `null` to `int`.
+If you index a document with the default value of that type (for example, 0 for `int`), the field will be null in Azure Search. If you subsequently search for that document, the `Search` call will throw `JsonSerializationException` complaining that it can't convert `null` to `int`.
 
 Also, filters may not work as expected since null was written to the index instead of the intended value. 
 
@@ -341,7 +347,7 @@ We have fixed this issue in version 1.0.0-preview of the SDK. Now, if you have a
 
 and you set `IntValue` to 0, that value is now correctly serialized as 0 on the wire and stored as 0 in the index. Round tripping also works as expected.
 
-There is one potential issue to be aware of with this approach: If you use a model type with a non-nullable property, you have to **guarantee** that no documents in your index contain a null value for the corresponding field. Neither the SDK nor the Azure Search service will help you to enforce this.
+There is one potential issue to be aware of with this approach: If you use a model type with a non-nullable property, you have to **guarantee** that no documents in your index contain a null value for the corresponding field. Neither the SDK nor the Azure Search REST API will help you to enforce this.
 
 This is not just a hypothetical concern: Imagine a scenario where you add a new field to an existing index that is of type `Edm.Int32`. After updating the index definition, all documents will have a null value for that new field (since all types are nullable in Azure Search). If you then use a model class with a non-nullable `int` property for that field, you will get a `JsonSerializationException` like this when trying to retrieve documents:
 
