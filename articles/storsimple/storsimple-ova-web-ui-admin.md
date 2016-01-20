@@ -17,7 +17,7 @@
 
 # Use the Web UI to administer your StorSimple Virtual Array (preview)
 
-![setup process flow](./media/storsimple-ova-web-ui-admin/manage2.png)
+![setup process flow](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## Overview
 
@@ -131,6 +131,12 @@ You can shut down or restart your virtual device using the local web UI.
     ![restart initiated](./media/storsimple-ova-web-ui-admin/image39.png)
 
     While the restart is in progress, you will lose the connection to the UI. You can monitor the restart by refreshing the UI periodically. Alternatively, you can monitor the device restart status through the Hyper-V Manager.
+
+![video_icon](./media/storsimple-ova-web-ui-admin/video_icon.png) **Video available**
+
+Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
 
 ## Next steps
 

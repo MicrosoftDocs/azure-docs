@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/13/2016"
+   ms.date="01/20/2016"
    ms.author="alkohli"/>
 
-# Deploy StorSimple Virtual Array - Provision a virtual array in Hyper-V (Preview)
+# Deploy StorSimple Virtual Array - Provision a Virtual Array in Hyper-V (Preview)
 
-![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv3.png)
+![](./media/storsimple-ova-deploy2-provision-hyperv/hyperv4.png)
 
 ## Overview 
 
@@ -34,13 +34,13 @@ You will need administrator privileges to provision and configure a virtual devi
 
 Here you will find the prerequisites to provision a virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012, and 2012 R2.
 
-### For StorSimple Manager service
+### For the StorSimple Manager service
 
 Before you begin, make sure that:
 
 -   You have completed all the steps in [Prepare the portal for StorSimple Virtual Array](storsimple-ova-deploy1-portal-prep.md).
 
--   You have downloaded the virtual device image for Hyper-V from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep#step-3-download-the-virtual-device-image.md).
+-   You have downloaded the virtual device image for Hyper-V from the Azure portal. For more information, see [Step 3: Download the virtual device image](storsimple-ova-deploy1-portal-prep.md#step-3-download-the-virtual-device-image).
 
 ### For the StorSimple virtual device 
 
@@ -261,6 +261,12 @@ If you face any other error during the initial configuration using the local web
 -   Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
 
 -   [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+
+![video icon](./media/storsimple-ova-deploy2-provision-hyperv/video_icon.png)  **Video available**
+
+Watch the video to see how you can provision a StorSimple Virtual Array in Hyper-V.
+
+> [AZURE.VIDEO create-a-storsimple-virtual-array]
 
 ## Next steps
 

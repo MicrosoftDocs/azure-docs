@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="01/19/2016"
     ms.author="awills"/>
 
 # Release annotations in Application Insights
@@ -28,9 +28,9 @@ Release annotations are a feature of the cloud-based build and release service o
 To be able to create release annotations, you'll need to install one of the many Team Service extensions available in the Visual Studio Marketplace.
 
 1. Sign in to your [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) project.
-2. Open Visual Studio Marketplace, find the Application Insights Annotations extension, and add it to your Team Services account.
+2. In Visual Studio Marketplace, [get the Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), and add it to your Team Services account.
 
-![At top right of Team Services web page, open Marketplace. Search for and install Application Insights Annotations in your account.](./media/app-insights-annotations/10.png)
+![At top right of Team Services web page, open Marketplace. Select Visual Team Services and then under Build and Release, choose See More.](./media/app-insights-annotations/10.png)
 
 You only need to do this once for your Visual Studio Team Services account. Release annotations can now be configured for any project in your account. 
 
@@ -48,7 +48,7 @@ You need to do this for each release template that you want to create release an
 
     Add a task, and select the Application Insights Release Annotation task from the menu.
 
-    Paste the **Application Insights Id** that you copied from the API Access blade.
+    Paste the **Application Id** that you copied from the API Access blade.
 
     ![In Visual Studio Team Services, open Release, select a release definition, and choose Edit. Click Add Task and select Application Insights Release Annotation. Paste the Application Insights Id.](./media/app-insights-annotations/30.png)
 

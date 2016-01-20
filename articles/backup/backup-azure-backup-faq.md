@@ -91,7 +91,7 @@ A12. The following types are supported:
 - Sparse Stream: Not supported, skipped
 
 **Q13. What's the minimum size requirement for the cache folder?** <br/>
-A13. The size of the cache folder is determined by the amount of data that you are backing up. In general you should expect that 10-15% of the space required for data storage should be allocated for the cache folder.
+A13. The size of the cache folder is determined by the amount of data that you are backing up. In general you should expect that 5% of the space required for data storage should be allocated for the cache folder.
 
 **Q14. How can I isolate specific server data from being recovered by other servers in my organization?**<br/>
 A14. Any servers that are registered using the same vault will be able to recover the data backed up by other servers that use the same passphrase. If you have servers that you want to ensure recovery only occurs to specific servers in your organization, you should use a separate passphrase designated for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
