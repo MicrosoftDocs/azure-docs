@@ -198,7 +198,7 @@ In Batch, you create a multi-instance task by specifying multi-instance settings
 
 When you submit a task with multi-instance settings to a job, the Batch service performs the following:
 
-1. Automatically creates one primary task and enough subtasks that together will execute on the total number of nodes you specified. Batch then schedules these tasks for execution on the nodes, which first download the common resource files you specified to the node.
+1. Automatically creates one primary task and enough subtasks that together will execute on the total number of nodes you specified. Batch then schedules these tasks for execution on the nodes, which first download the common resource files you specified.
 2. After the common resource files have been downloaded, the coordination command is executed by the primary and subtasks. This coordination command typically launches a background service (such as [MS-MPI][msmpi]'s `smpd.exe`) and verifies that the nodes are ready to process inter-node messages.
 3. When the coordination command has been successfully completed by the primary and all subtasks, the task's command line (the "application command") is executed only by the primary task, which typically initiates a custom MPI-enabled application that processes your workload on the nodes. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi]'s `mpiexec.exe` using the application command.
 
