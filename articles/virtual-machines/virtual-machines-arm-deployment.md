@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/20/2016"
 	ms.author="davidmu"/>
 
 # Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries
@@ -73,7 +73,7 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 6. Type *Microsoft.Azure.Management.Network* in the search box, click **Install** for the Network .NET Libraries, and then follow the instructions to install the package.
 
-7. Type *Microsoft.Azure.Management.Storage* in the search box, click **Install** for the Network .NET Libraries, and then follow the instructions to install the package.
+7. Type *Microsoft.Azure.Management.Storage* in the search box, click **Install** for the Storage .NET Libraries, and then follow the instructions to install the package.
 
 8. Type *Microsoft.Azure.Management.Resources* in the search box, click **Install** for the Resource Management Libraries.
 
