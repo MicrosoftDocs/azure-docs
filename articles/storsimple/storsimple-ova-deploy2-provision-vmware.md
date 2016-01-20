@@ -17,7 +17,7 @@
    ms.author="alkohli"/>
 
 
-# Deploy StorSimple Virtual Array - Provision a virtual array in VMware (Preview)
+# Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware (Preview)
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 
