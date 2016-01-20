@@ -192,9 +192,15 @@ For more information on job preparation and release tasks, see [Run job preparat
 
 #### <a name="multiinstance"></a>Multi-instance tasks
 
-With multi-instance tasks, you can enable high performance computing scenarios like Message Passing Interface (MPI) that require a group of compute nodes allocated together to process a single workload. In such scenarios, all of the compute nodes must be allocated prior to processing. Each node must also remain allocated to that to that workload until all processing has completed on each node, even if some nodes finish their processing before others. This is sometimes called "gang scheduling."
+A [multi-instance task][rest_multiinstance] is a special type of task that is run on more than one compute node simultaneously. With this task type, you can enable high performance computing scenarios like Message Passing Interface (MPI) that require a group of compute nodes allocated together to process a single workload.
 
-Azure Batch supports such scenarios with the [multi-instance task][rest_multiinstance]. A multi-instance task is a special type of task that is run on more than one compute node simultaneously. When you create a multi-instance task, you specify the number of compute nodes to execute the task.
+In Batch, you create a multi-instance task by specifying multi-instance settings for a normal [task](#task). These settings include the number of compute nodes to execute the task, a command line for the main task (the "application command"), a coordination command, and a list of common resource files for each task.
+
+When you submit a task with multi-instance settings to a job, the Batch service performs the following:
+
+1. Automatically creates one primary task and enough subtasks that together will execute on the total number of nodes you specified. Batch then schedules these tasks for execution on the nodes, which first download the common resource files you specified to the node.
+2. After the common resource files have been downloaded, the coordination command is executed by the primary and subtasks. This coordination command typically launches a background service (such as [MS-MPI][msmpi]'s `smpd.exe`) and verifies that the nodes are ready to process inter-node messages.
+3. When the coordination command has been successfully completed by the primary and all subtasks, the task's command line (the "application command") is executed only by the primary task, which typically initiates a custom MPI-enabled application that processes your workload on the nodes. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi]'s `mpiexec.exe` using the task command line.
 
 ### <a name="jobschedule"></a>Scheduled jobs
 
@@ -340,6 +346,7 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [cloud_service_sizes]: https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/
+[msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -350,6 +357,7 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [net_create_user]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.createcomputenodeuser.aspx
 [net_getfile_node]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getnodefile.aspx
 [net_getfile_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.getnodefile.aspx
+[net_multiinstancesettings]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
 [net_rdp]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenode.getrdpfile.aspx
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
@@ -360,5 +368,6 @@ Each node in a pool is given a unique ID, and the node on which a task runs is i
 [rest_create_user]: https://msdn.microsoft.com/library/azure/dn820137.aspx
 [rest_get_task_info]: https://msdn.microsoft.com/library/azure/dn820133.aspx
 [rest_multiinstance]: https://msdn.microsoft.com/en-us/library/azure/mt637905.aspx
+[rest_multiinstancesettings]: https://msdn.microsoft.com/library/azure/dn820105.aspx#multiInstanceSettings
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
