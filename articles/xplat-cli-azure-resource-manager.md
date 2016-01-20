@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="1/19/2016"
+	ms.date="01/19/2016"
 	ms.author="danlep"/>
 
 # Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager
@@ -35,9 +35,9 @@ Use the Azure Resource Manager to create and manage a group of _resources_ (user
 
 One advantage of the Azure Resource Manager is that you can create your Azure resources in a _declarative_ way: you describe the structure and relationships of a deployable group of resources in JSON *templates*. The template identifies parameters that can be filled in either inline when running a command or stored in a separate JSON azuredeploy-parameters.json file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a website will have parameters for the site name, the region the website will be located in, and other common settings.
 
-When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group. For more information on the Azure Resource Manager, visit the [Azure Resource Manager Overview](../resource-group-overview.md).
+When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group. For more information on the Azure Resource Manager, visit the [Azure Resource Manager Overview](resource-group-overview.md).
 
-After you create a deployment, you can manage the individual resources imperatively on the command line, just like you can in the classic (Service Management) deployment model. For example, use Azure Resource Manager CLI commands to start, stop, or delete resources such as [Azure Resource Manager virtual machines](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
+After you create a deployment, you can manage the individual resources imperatively on the command line, just like you can in the classic (Service Management) deployment model. For example, use Azure Resource Manager CLI commands to start, stop, or delete resources such as [Azure Resource Manager virtual machines](virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
 ## Authentication
 
@@ -78,7 +78,7 @@ You will deploy to this "testRG" resource group later when you use a template to
 
 When working with templates, you can either [create your own](resource-group-authoring-templates.md), or use one of the templates from the [Template Gallery](https://azure.microsoft.com/documentation/templates/), which are also available on [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available in the [Template Gallery](https://azure.microsoft.com/en-us/documentation/templates/101-vm-simple-linux/). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
+Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available in the [Template Gallery](https://azure.microsoft.com/documentation/templates/101-vm-simple-linux/). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
 
 * An admin user name for the VM = `adminUsername`
 * A password = `adminPassword`
@@ -206,7 +206,7 @@ To view logged information on operations performed on a group, use the `azure gr
 
 ## Next steps
 
-* For information on working with Azure Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+* For information on working with Azure Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 * For information on working with Azure Resource Manager from the Azure portal, see [Using resource groups to manage your Azure resources][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
