@@ -105,7 +105,7 @@ You are now ready to run the applications.
 2. At a command-prompt in the **simulateddevice** folder, run the following command to begin sending telemetry data to your IoT hub:
 
     ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    node SimulatedDevice.js
     ```
 
     ![][8]
