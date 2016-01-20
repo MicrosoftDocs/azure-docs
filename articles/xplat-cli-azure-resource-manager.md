@@ -78,7 +78,7 @@ You will deploy to this "testRG" resource group later when you use a template to
 
 When working with templates, you can either [create your own](resource-group-authoring-templates.md), or use one of the templates from the [Template Gallery](https://azure.microsoft.com/documentation/templates/), which are also available on [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
+Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available in the [Template Gallery](https://azure.microsoft.com/en-us/documentation/templates/101-vm-simple-linux/). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
 
 * An admin user name for the VM = `adminUsername`
 * A password = `adminPassword`
@@ -86,7 +86,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 
 >[AZURE.TIP] These steps show you just one way to use a VM template with the Azure CLI. For other examples, see [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-1. Download the files azuredeploy.json and azuredeploy.parameters.json from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) to a working folder on your local computer.
+1. Follow the "Learn more with GitHub" link to download the files azuredeploy.json and azuredeploy.parameters.json from GitHub to a working folder on your local computer. (Make sure to select the Raw format of each file in GitHub.)
 
 2. Open the azuredeploy.parameters.json file in a text editor and enter parameter values suitable for your environment (leaving the **ubuntuOSVersion** value unchanged).
 
