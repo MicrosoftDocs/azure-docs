@@ -90,8 +90,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 
 2. Open the azuredeploy.parameters.json file in a text editor and enter parameter values suitable for your environment (leaving the **ubuntuOSVersion** value unchanged).
 
-
-```
+	```
 			{
 			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
 			  "contentVersion": "1.0.0.0",
@@ -111,11 +110,12 @@ Creating a new template is beyond the scope of this article, so to start with le
 			  }
 			}
 
-```
-
+	```
 3.  Now that the deployment parameters have been modified, you will deploy the Ubuntu VM into the resource group that was created earlier. Choose a name for the deployment and then use the following command to kick it off.
 
-		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+	```
+	azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+	```
 
 	This example creates a deployment named _testRGDeploy_ that is deployed into the resource group _testRG_. The `-e` option specifies the azuredeploy.parameters.json file that you modified in the previous step. The `-f` option specifies the azuredeploy.json template file.  
 
@@ -123,11 +123,15 @@ Creating a new template is beyond the scope of this article, so to start with le
 
 4. To check the status of the deployment, use the following command.
 
-		azure group deployment show "testRG" "testRGDeploy"
+	```
+	azure group deployment show "testRG" "testRGDeploy"
+	```
 
 	The **ProvisioningState** shows the status of the deployment.
 
 	If your deployment is successful, you will see output similar to the following.
+
+		```
 
 		azure-cli@0.8.0:/# azure group deployment show testRG testDeploy
 		info:    Executing command group deployment show
@@ -146,6 +150,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 		data:    dnsNameForPublicIP     String        MyDomainName
 		data:    ubuntuOSVersion        String        14.04.2-LTS
 		info:    group deployment show command OK
+		```
 
 	>[AZURE.NOTE] If you realize that your configuration isn't correct, and need to stop a long-running deployment, use the following command.
 	>
