@@ -26,6 +26,10 @@ Here are the samples we have on GitHub:
 
   A sample that shows you how to authenticate with Azure AD to Register, Search, and Delete a data asset using the Data Catalog REST API.
 
-- [Azure Data Catalog - Bulk register and annotate](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
+- [Bulk register and annotate](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/)
 
   A sample that shows you how bulk register data assets from an Excel workbook using Data Catalog REST API and Open XML.
+
+- [Import/Export tool](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-import-export/)
+
+  The Import/Export tool is a sample that shows how to use the Azure Data Catalog REST API to fetch information from the Azure Data Catalog and how to register items with the catalog. It also shows how to manage a catalog.
