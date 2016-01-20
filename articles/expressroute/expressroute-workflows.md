@@ -117,6 +117,6 @@ If the advertised public prefix state is set to a *validation needed* state, the
 
 - Configure your ExpressRoute connection.
 
-	- [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md)
-	- [Configure routing](expressroute-howto-routing-classic.md)
-	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
+	- [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md)
+	- [Configure routing](expressroute-howto-routing-arm.md)
+	- [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
