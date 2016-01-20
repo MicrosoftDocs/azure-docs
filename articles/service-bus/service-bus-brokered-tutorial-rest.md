@@ -628,7 +628,7 @@ namespace Microsoft.ServiceBus.Samples
 See the following articles to learn more:
 
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus fundamentals](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus relay REST tutorial](service-bus-relay-rest-tutorial.md)
 
 [Azure classic portal]: http://manage.windowsazure.com
