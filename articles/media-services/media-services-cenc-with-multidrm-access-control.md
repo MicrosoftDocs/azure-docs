@@ -75,7 +75,7 @@ A DRM subsystem may contain the following components:
 
 The following diagram illustrates the high level interaction among the components in a DRM subsystem.
 
-![DRM subsystem with CENK](./media/media-services-cenk-with-multidrm-access-control/media-services-generic-drm-subsystem-with-cenk.png)
+![DRM subsystem with CENC](./media/media-services-cenc-with-multidrm-access-control/media-services-generic-drm-subsystem-with-cenc.png)
  
 There are three basic “layers” in the design:
 
@@ -145,7 +145,7 @@ In other words, both Identity Provider (IDP) and Secure Token Service (STS) will
 
 The following diagram shows the overall structure and flow with the above technology mapping.
 
-![CENK on AMS](./media/media-services-cenk-with-multidrm-access-control/media-services-cenk-subsystem-on-AMS-platform.png)
+![CENC on AMS](./media/media-services-cenc-with-multidrm-access-control/media-services-cenC-subsystem-on-AMS-platform.png)
 
 In order to set up dynamic CENC encryption, the content management tool will use the following inputs:
 
@@ -222,12 +222,12 @@ There are some “gotchas” in the implementation. Hopefully the following list
 
 	In [JWT Decoder](http://jwt.calebb.net/), you should see **aud** and **iss** as below in the JWT token:
 	
-	![1st gotcha](./media/media-services-cenk-with-multidrm-access-control/media-services-1st-gotcha.png)
+	![1st gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-1st-gotcha.png)
 
 
 2. Add Permissions to the application in AAD (on Configure tab of the application). This is required for each application (local and deployed versions).
 
-	![2nd gotcha](./media/media-services-cenk-with-multidrm-access-control/media-services-perms-to-other-apps.png)
+	![2nd gotcha](./media/media-services-cenc-with-multidrm-access-control/media-services-perms-to-other-apps.png)
 
 
 3. Use the right issuer in setting up dynamic CENC protection:
@@ -405,43 +405,43 @@ Below are the screenshots of different login pages used by different domain acco
 
 **Custom Azure AD tenant domain account**: In this case, you see the customized login page of the custom Azure AD tenant domain.
 
-![Custom Azure AD tenant domain account](./media/media-services-cenk-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![Custom Azure AD tenant domain account](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **Microsoft domain account with smart card**: In this case you see the login page customized by Microsoft corporate IT with two-factor authentication.
 
-![Custom Azure AD tenant domain account](./media/media-services-cenk-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Custom Azure AD tenant domain account](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft Account (MSA)**: In this case, you see the login page of Microsoft Account for consumers.
 
-![Custom Azure AD tenant domain account](./media/media-services-cenk-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
+![Custom Azure AD tenant domain account](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 
 ###Using Encrypted Media Extensions (EME) for PlayReady
 
 On a modern browser with EME/PlayReady support, such as IE 11 on Windows 8.1 and up, and Microsoft Edge browser on Windows 10, PlayReady will be the underlying DRM for EME.
 
-![Using EME for PlayReady](./media/media-services-cenk-with-multidrm-access-control/media-services-eme-for-playready1.png)
+![Using EME for PlayReady](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready1.png)
 
 The dark player area is due to the fact that PlayReady protection prevents one from making screen capture of protected video. 
 
 The following screen shows the player plugins and MSE/EME support.
 
-![Using EME for PlayReady](./media/media-services-cenk-with-multidrm-access-control/media-services-eme-for-playready2.png)
+![Using EME for PlayReady](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready2.png)
 
 ####Using EME for Widevine
 
 On a modern browser with EME/Widevine support, such as Chrome 41+ on Windows 10, Windows 8.1, Mac OSX Yosemite, and Chrome on Android 4.4.4, Google Widevine is the DRM behind EME.
 
-![Using EME for Widevine](./media/media-services-cenk-with-multidrm-access-control/media-services-eme-for-widevine1.png)
+![Using EME for Widevine](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-widevine1.png)
 
 Notice that Widevine does not prevent one from making screen capture of protected video.
 
-![Using EME for Widevine](./media/media-services-cenk-with-multidrm-access-control/media-services-eme-for-widevine2.png)
+![Using EME for Widevine](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-widevine2.png)
 
 ###Not entitled users
 
 If a user is not a member of “Entitled Users” group, the user will not be able to pass “entitlement check” and the multi-DRM license service will refuse to issue the requested license as shown below. The detailed description is “License acquire failed”, which is as designed.
 
-![Un-entitled Users](./media/media-services-cenk-with-multidrm-access-control/media-services-unentitledusers.png.png)
+![Un-entitled Users](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png.png)
 
 ###Running custom Secure Token Service (STS)
 
@@ -449,11 +449,11 @@ For the scenario of running custom STS, the JWT token will be issued by the cust
 
 The case of using symmetric key (using Chrome):
 
-![Running Custom STS](./media/media-services-cenk-with-multidrm-access-control/media-services-running-sts1.png)
+![Running Custom STS](./media/media-services-cenc-with-multidrm-access-control/media-services-running-sts1.png)
 
 The case of using asymmetric key via an X509 certificate (using Microsoft modern browser).
 
-![Running Custom STS](./media/media-services-cenk-with-multidrm-access-control/media-services-running-sts2.png)
+![Running Custom STS](./media/media-services-cenc-with-multidrm-access-control/media-services-running-sts2.png)
 
 In both of the above cases, user authentication stays the same – through Azure AD. The only difference is that JWT tokens are issued by the custom STS instead of Azure AD. Of course, when configuring dynamic CENC protection, the restriction of license delivery service specifies the type of JWT token, either symmetric or asymmetric key.
 
