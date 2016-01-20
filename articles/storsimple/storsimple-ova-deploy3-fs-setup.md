@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/13/2016"
+   ms.date="01/20/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Set up as file server (Preview)
@@ -221,6 +221,11 @@ You will now need to connect to the share(s) that you created in the previous st
 
 3.  You can now add files to these shares and take a backup.
 
+![video icon](./media/storsimple-ova-deploy3-fs-setup/video_icon.png) **Video available**
+
+Watch the video to see how you can configure and register a StorSimple Virtual Array as a file server.
+
+> [AZURE.VIDEO configure-a-storsimple-virtual-array]
 
 ## Next steps
 

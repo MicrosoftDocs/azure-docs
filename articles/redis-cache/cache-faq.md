@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="01/20/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -169,11 +169,11 @@ Given this information, we strongly recommend that customers set the minimum con
 
 How to configure this setting:
 
--	In ASP.NET, use the ["minIoThreads" configuration setting](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under the `<processModel>` configuration element in web.config.  If you are running inside of Azure WebSites, this setting is not exposed through the configuration options.  However, you should still be able to set this programmatically (see below) from your Application_Start method in global.asax.cs.
+-	In ASP.NET, use the ["minIoThreads" configuration setting][] under the `<processModel>` configuration element in web.config.  If you are running inside of Azure WebSites, this setting is not exposed through the configuration options.  However, you should still be able to set this programmatically (see below) from your Application_Start method in global.asax.cs.
 
 > **Important Note:** the value specified in this configuration element is a *per-core* setting.  For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
 
--	Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com//en-us/library/system.threading.threadpool.setminthreads(v=vs.100).aspx) API.
+-	Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
 
 <a name="cache-redis-commands"></a>
 ## What are some of the considerations when using common Redis commands?
@@ -271,3 +271,5 @@ Managed Cache service is set to be retired November 30, 2016.
 
 ### In-Role Cache
 In-Role Cache is set to be retired November 30, 2016.
+
+["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

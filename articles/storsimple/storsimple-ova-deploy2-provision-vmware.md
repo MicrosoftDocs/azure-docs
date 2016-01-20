@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/14/2016"
+   ms.date="01/20/2016"
    ms.author="alkohli"/>
 
 
-# Deploy StorSimple Virtual Array - Provision a virtual array in VMware (Preview)
+# Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware (Preview)
 
 ![](./media/storsimple-ova-deploy2-provision-vmware/vmware4.png)
 

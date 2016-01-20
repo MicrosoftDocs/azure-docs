@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
  <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/27/2015"
+   ms.date="01/20/2016"
    ms.author="alkohli" />
 
 # Technical specifications and compliance for the StorSimple device
@@ -170,4 +170,4 @@ For the 10 GbE network interfaces, DATA 2 and DATA 3, refer to the [list of supp
 
 ## Next steps
 
-For more information about the StorSimple device specifications, download the [StorSimple 8000 Series Specifications](http://storsimple.seagate.com/Specifications-8000).  
+You are now ready to deploy a StorSimple device in your datacenter. For more information, see [Deploying your on-premises device](storsimple-deployment-walkthrough-u2.md).  
