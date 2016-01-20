@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/17/2015" 
+ms.date="01/19/2016" 
 ms.author="saurabh"/>
 
 # Enable Remote Desktop Connection for a Role in Azure Cloud Services using PowerShell
