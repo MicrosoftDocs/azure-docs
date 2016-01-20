@@ -145,7 +145,7 @@ In other words, both Identity Provider (IDP) and Secure Token Service (STS) will
 
 The following diagram shows the overall structure and flow with the above technology mapping.
 
-![CENC on AMS](./media/media-services-cenc-with-multidrm-access-control/media-services-cenC-subsystem-on-AMS-platform.png)
+![CENC on AMS](./media/media-services-cenc-with-multidrm-access-control/media-services-cenc-subsystem-on-AMS-platform.png)
 
 In order to set up dynamic CENC encryption, the content management tool will use the following inputs:
 
