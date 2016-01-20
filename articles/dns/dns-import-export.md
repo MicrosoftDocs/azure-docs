@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Import and export a domain zone file with Azure DNS | Microsoft Azure"
+   pageTitle="Import and export a domain zone file by using Azure DNS | Microsoft Azure"
    description="Learn how to import and export a DNS zone file to Azure DNS by using Azure CLI"
    services="dns"
    documentationCenter="na"
@@ -35,7 +35,7 @@ Before you import a DNS zone file into Azure DNS, you will need to obtain a copy
 
 - If your DNS zone is hosted by a partner service (such as a domain registrar, dedicated DNS hosting provider, or alternative cloud provider), that service should provide the ability to download the DNS zone file.
 -	If your DNS zone is hosted on Windows DNS, the default folder for the zone files is **'%systemroot%\system32\dns'**.  The full path to each zone file also shows on the **General** tab of the DNS service management console.
--	If your DNS zone is hosted using BIND, the location of the zone file for each zone is specified in the BIND configuration file **named.conf**.
+-	If your DNS zone is hosted by using BIND, the location of the zone file for each zone is specified in the BIND configuration file **named.conf**.
 
 >[AZURE.NOTE] Zone files downloaded from GoDaddy have a slightly nonstandard format. You need to correct this before you import these zone files into Azure DNS. DNS names in the RData of each DNS record are specified as fully qualified names, but they don't have a terminating "." This means they are interpreted by other DNS systems as relative names. You need to edit the zone file to append the terminating "." to their names before you import them into Azure DNS.
 
@@ -141,7 +141,7 @@ Importing a zone file will create a new zone in Azure DNS if one does not alread
 ### Additional technical details
 The follow notes provide additional technical details about the zone import process.
 
-- The `$TTL` directive is optional, and is supported. Where no `$TTL` directive is given, records without an explicit TTL will be imported using a default TTL of 3600 seconds.  When two records in the same record set specify different TTLs, the lower value is used.
+- The `$TTL` directive is optional, and it is supported. Where no `$TTL` directive is given, records without an explicit TTL will be imported set to a default TTL of 3600 seconds.  When two records in the same record set specify different TTLs, the lower value is used.
 - The `$ORIGIN` directive is optional, and it is supported. When no `$ORIGIN` is set, the default value used is the zone name as specified on the command line (plus the terminating ".").
 - The `$INCLUDE` and `$GENERATE` directives are not supported.
 - These record types are supported: A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT.  
