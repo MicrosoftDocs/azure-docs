@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/15/2016"
+   ms.date="01/20/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Prepare the portal (Preview)
@@ -48,12 +48,13 @@ Refer to the following articles in the prescribed sequence to deploy your StorSi
 
 #### Deployment videos
 
-| **To do this step...** |  **Watch this video.**|
+| **To do this step...** |  **Watch this video**|
 |----------------|-------------|
-| Step-by-step instructions to get started with the StorSimple Virtual Array. |<a target="_blank" href="https://www.youtube.com/watch?v=teJxF0xmNcs&index=1&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo.html">Get started with the StorSimple Virtual Array</a>|
-| Step-by-step instructions to provision a StorSimple Virtual Array in Hyper-V.|<a target="_blank" href="https://www.youtube.com/watch?v=iyGogUs-NXI&index=2&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo.html">Create a StorSimple Virtual Array</a> |
-|Step-by-step instructions to configure and register a StorSimple Virtual Array|<a target="_blank" href="https://www.youtube.com/watch?v=2b3SVBVpXXQ&index=3&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo.html">Configure a StorSimple Virtual Array</a> |
-|Step-by-step instructions to create shares, backup shares, and restore data on a StorSimple Virtual Array configured as a file server|<a target="_blank" href="https://www.youtube.com/watch?v=o_OX-5WzHIA&index=4&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo.html">Use the StorSimple Virtual Array</a> |
+| Step-by-step instructions to get started with the StorSimple Virtual Array. | [Get started with the StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array)|
+| Step-by-step instructions to provision a StorSimple Virtual Array in Hyper-V.|[Create a StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array) |
+|Step-by-step instructions to configure and register a StorSimple Virtual Array|[Configure a StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/configure-a-storsimple-virtual-array)|
+|Step-by-step instructions to create shares, back up shares, and restore data on a StorSimple Virtual Array configured as a file server|[Use the StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/use-the-storsimple-virtual-array)|
+|Step-by-step instructions for failover and disaster recovery of a StorSimple Virtual Array|[StorSimple Virtual Array Disaster Recovery](http://azure.microsoft.com/documentation/videos/storsimple-virtual-array-disaster-recovery)
 
 You can now begin to set up the Azure classic portal. 
 
@@ -203,6 +204,11 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 2.  Unzip the file and make a note of the unzipped location on your local drive.
 
+![video icon](./media/storsimple-ova-deploy1-portal-prep/video_icon.png) **Video available**
+
+Watch the video for step-by-step instructions to get started with the StorSimple Virtual Array.
+
+> [AZURE.VIDEO get-started-with-the-storsimple-virtual-array]
 
 ## Next step
 

@@ -26,7 +26,7 @@ Makecert is one way of creating a self-signed root certificate. The steps below 
 
 ### To create a self-signed root certificate
 
-1. From a computer running Windows 10, download and install the Windows 10 SDK from [this link](https://dev.windows.com/en-us/downloads/windows-10-sdk).
+1. From a computer running Windows 10, download and install the [Windows Software Development Kit (SDK) for Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk).
 
 2. After installation, you can find the makecert.exe utility under this path: C:\Program Files (x86)\Windows Kits\10\bin\<arch>. 
 		
@@ -92,5 +92,5 @@ Each client that you want to connect to your virtual network by using a Point-to
 
 Continue with your Point-to-Site configuration. 
 
-- For **Resource Manager** deployment model steps, see [this article](vpn-gateway-howto-point-to-site-rm-ps.md). 
-- For **classic** deployment model steps, see [this article](vpn-gateway-point-to-site-create.md).
+- For **Resource Manager** deployment model steps, see [Configure a Point-to-Site connection to a virtual network using PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md). 
+- For **classic** deployment model steps, see [Configure a Point-to-Site VPN connection to a VNet](vpn-gateway-point-to-site-create.md).
