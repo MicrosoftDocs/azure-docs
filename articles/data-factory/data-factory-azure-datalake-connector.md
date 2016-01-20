@@ -70,9 +70,18 @@ The following procedure provides steps for creating an Azure Data Lake Store lin
 3. Click **Authorize** button on the command bar. You should see a pop up window.
 
 	![Authorize button](./media/data-factory-azure-data-lake-connector/authorize-button.png)
+
 4. Use your credentials to sign-in and the **authorization** property in the JSON should be assigned to a value now.
+
+	[AZURE.IMPORTANT] You will need to **reauthorize** using this button when the **token expires**. See the table below for the expiration times for different types of user accounts. 
 5. (optional) Specify values for optional parameters such as **accountName**, **subscriptionID** and **resourceGroupName** in the JSON (or) delete these properties from the JSON.
 6. Click **Deploy** on the command bar to deploy the linked service.
+
+| User type | Expires after | 
+| :-------- | :----------- | 
+| Non-AAD user (@hotmail.com, @live.com, etc.) | 12 hours |
+| AAD user and the OAuth-based source is in a different tenant as the tenant of user’s Data Factory. | 12 hours |
+| AAD user and the OAuth-based source is in the same tenant as the tenant of user’s Data Factory. | <p> Maximum is 90 days if user executes slices based on his OAuth-based linked service source at least once every 14 days. </p><p>During the expected 90 days, once user hasn’t executed any slices based on that source for 14 days, the credentials would be expired 14 days after his last slice immediately.</p> 
 
 
 **Azure Blob input dataset:**

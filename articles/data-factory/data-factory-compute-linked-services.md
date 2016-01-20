@@ -285,11 +285,16 @@ Property | Description | Required
 Type | The type property should be set to: **AzureDataLakeAnalytics**. | Yes
 accountName | Azure Data Lake Analytics Account Name. | Yes
 dataLakeAnalyticsUri | Azure Data Lake Analytics URI. |  No
-authorization | Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. | Yes
+authorization | Authorization code is automatically retrieved after clicking **Authorize** button in the Data Factory Editor and completing the OAuth login. You will need to **reauthorize** using this button when the **token expires**. See the next table for the expiration times for different types of user accounts.| Yes
 subscriptionId | Azure subscription id | No (If not specified, subscription of the data factory is used).
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
 sessionId | session id from the OAuth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
 
+| User type | Expires after | 
+| :-------- | :----------- | 
+| Non-AAD user (@hotmail.com, @live.com, etc.) | 12 hours |
+| AAD user and the OAuth-based source is in a different tenant as the tenant of user’s Data Factory. | 12 hours |
+| AAD user and the OAuth-based source is in the same tenant as the tenant of user’s Data Factory. | <p> Maximum is 90 days if user executes slices based on his OAuth-based linked service source at least once every 14 days. </p><p>During the expected 90 days, once user hasn’t executed any slices based on that source for 14 days, the credentials would be expired 14 days after his last slice immediately.</p> 
 
 ## Azure SQL Linked Service
 
