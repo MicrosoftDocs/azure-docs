@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="01/19/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -35,6 +35,9 @@
 </table></br>
 
 ## Release Notes
+
+### <a name="1.5.0"/>[1.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
+- Add Hash & Range partition resolvers to assist with sharding applications across multiple partitions.
 
 ### <a name="1.4.2"/>[1.4.2](https://pypi.python.org/pypi/pydocumentdb/1.4.2)
 - Implement Upsert. New UpsertXXX methods added to support Upsert feature.
@@ -68,6 +71,7 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.5.0](#1.5.0) | January 03, 2016 |---
 | [1.4.2](#1.4.2) | October 06, 2015 |---
 | [1.4.1](#1.4.1) | October 06, 2015 |---
 | [1.2.0](#1.2.0) | August 06, 2015 |---
