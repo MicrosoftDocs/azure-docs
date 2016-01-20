@@ -54,7 +54,7 @@ The Standard Edition of **Azure Data Catalog** supports up to 100,000 registered
 
 ## Q: What are the supported data source and asset types?
 
-Please refer <a href="https://azure.microsoft.com/en-us/documentation/articles/data-catalog-dsr/">here</a> for the list of currently supported data sources.
+Please refer to [Data Catalog DSR](data-catalog-dsr.md) for the list of currently supported data sources.
 
 
 ## Q: How do I request support for another data source?

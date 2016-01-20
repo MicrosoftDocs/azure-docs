@@ -30,7 +30,7 @@ See the [Get Started with Azure Data Catalog](data-catalog-get-started.md) tutor
 Once the data source has been registered, the Catalog tracks its location and indexes its metadata, so that users can search, browse, and discover the data source, and then use its location to connect to it using the application or tool of their choice.
 
 ## Sources supported
-Please refer <a href="https://azure.microsoft.com/en-us/documentation/articles/data-catalog-dsr/">here</a> for the list of currently supported data sources.
+Please refer to [Data Catalog DSR](data-catalog-dsr.md) for the list of currently supported data sources.
 <br/>
 
 
