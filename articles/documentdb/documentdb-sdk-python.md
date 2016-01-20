@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="01/19/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -34,7 +34,10 @@
 <tr><td>**Current Supported Platform**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
 </table></br>
 
-## Release Notes
+## Release notes
+
+### <a name="1.5.0"/>[1.5.0](https://pypi.python.org/pypi/pydocumentdb/1.5.0)
+- Add Hash & Range partition resolvers to assist with sharding applications across multiple partitions.
 
 ### <a name="1.4.2"/>[1.4.2](https://pypi.python.org/pypi/pydocumentdb/1.4.2)
 - Implement Upsert. New UpsertXXX methods added to support Upsert feature.
@@ -54,7 +57,7 @@
 ### <a name="1.0.0"/>[1.0.0](https://pypi.python.org/pypi/pydocumentdb/1.0.0)
 - GA SDK
 
-## Release & Retirement Dates
+## Release & retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
 New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible. 
@@ -68,6 +71,7 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.5.0](#1.5.0) | January 03, 2016 |---
 | [1.4.2](#1.4.2) | October 06, 2015 |---
 | [1.4.1](#1.4.1) | October 06, 2015 |---
 | [1.2.0](#1.2.0) | August 06, 2015 |---
@@ -83,6 +87,6 @@ All versions of the Azure DocumentDB SDK for Python prior to version **1.0.0** w
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## See Also
+## See also
 
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
