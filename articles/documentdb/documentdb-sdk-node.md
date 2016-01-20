@@ -35,7 +35,7 @@
 <tr><td>**Current Supported Platform**</td><td>[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
 </table></br>
 
-##Release Notes
+##Release notes
 
 ###<a name="1.5.1"/>1.5.1</a>
 
@@ -127,6 +127,6 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 ## FAQ
 [AZURE.INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
 
-## See Also
+## See also
 
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
