@@ -105,7 +105,7 @@ To resolve the common SSH issues for virtual machines created using the Resource
 	Switch-AzureMode -Name AzureResourceManager
 	```
 
-	c. Run the `VMAccessForLinux` extension to reset your SSH connection, as shown in the following example.
+	c. Run the `VMAccessForLinux` extension to reset your SSH connection, as shown in the following example. (If you are using Azure PowerShell 1.0 or greater, the following commandlet is `Set-AzureRMVMExtension`.)
 
 	```
 	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
