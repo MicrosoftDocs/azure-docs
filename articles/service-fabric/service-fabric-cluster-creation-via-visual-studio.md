@@ -93,7 +93,7 @@ You may also want to change the public application ports for the cluster before 
 	    }
 	}
     ```
-If the applications that you plan to deploy to the cluster need more ports, you can add them by creating additional probe and load-balancing rule definitions. For more information on how to work with Azure Load Balancer through Resource Manager templates, see [Get started configuring an internal Load Balancer using Azure Resource Manager](load-balancer/load-balancer-internal-arm-powershell.md).
+If the applications that you plan to deploy to the cluster need more ports, you can add them by creating additional probe and load-balancing rule definitions. For more information on how to work with Azure Load Balancer through Resource Manager templates, see [Get started configuring an internal Load Balancer using Azure Resource Manager](azure-content/articles/load-balancer/load-balancer-internal-arm-powershell.md).
 
 ## Deploy the template by using Visual Studio
 After you have saved all the required parameter values in the`ServiceFabricCluster.param.dev.json` file, you are ready to deploy the template and create your Service Fabric cluster. Right-click the resource group project in Visual Studio Solution Explorer and choose **Deploy**. Visual Studio will show the **Deploy to Resource Group** dialog box, asking you to authenticate to Azure, if necessary:
