@@ -16,14 +16,14 @@
 	ms.date="01/05/2016" 
 	ms.author="spelluru"/>
 
-# Monitor and manage Azure Data Factory pipelines using Monitoring and Management App (Public Preview)
+# Monitor and manage Azure Data Factory pipelines using Monitoring and Management App
 > [AZURE.SELECTOR]
 - [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 - [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
 
 This article describes how to monitor, manage and debug your pipelines using the **Monitoring and Management App**. It also provides information on how to create alerts and get notified on failures using the application.
       
-## Launching Monitoring and Management App (Public Preview)
+## Launching Monitoring and Management App 
 To launch the Monitor and Management App, click the URL for **Monitoring App** in the **DATA FACTORY** blade for your data factory. 
 
 ![Launch Monitoring and Management App](./media/data-factory-monitor-manage-app/LaunchMMApp.png) 
