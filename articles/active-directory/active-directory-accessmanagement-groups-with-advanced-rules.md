@@ -39,7 +39,7 @@ The following are examples of a properly constructed advanced rule:
 
 For the complete list of supported parameters and expression rule operators, see sections below.
 
-The total length of the body of your advanced rule cannot exceed 255 characters.
+The total length of the body of your advanced rule cannot exceed 2048 characters.
 > [AZURE.NOTE]
 >String and regex operations are case insensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
 Strings containing quotes " should be escaped using 'character, for example, user.department -eq "Sa`"les".
