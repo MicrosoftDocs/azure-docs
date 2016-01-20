@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="11/03/2015"
+	ms.date="11/23/2015"
 	ms.author="normesta"/>
 
 #Create a Xamarin.Forms app
@@ -38,7 +38,7 @@ To complete this tutorial, you need the following:
 
 * A Mac with [Xcode] v7.0 or later and [Xamarin Studio] installed. If you plan to build your app on a Windows computer by using Visual Studio, you'll still need access to a networked Mac to do it.
  
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where you can immediately create a short-lived starter Mobile App in App Service. No credit cards required; no commitments.
 
 ## Create a new Azure Mobile App backend
 
@@ -46,23 +46,22 @@ Follow these steps to create a new Mobile App backend.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
+
 You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server project for a simple "todo list" backend and publish it to Azure.
 
-## Download the server project
+## Configure the server project
 
-1. On your PC, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps**, then click the Mobile App backend that you just created.
+Follow the steps below to configure the server project to use either the Node.js or .NET backend.
 
-2. In the Mobile App blade, click **Settings** and under **Mobile App** click **Quickstart** > **Xamarin.Forms**.
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)] 
+
  
-3. Under **Download and run your server project**, click **Download**. Extract the compressed project files to your PC, and open the solution in Visual Studio.
- 
-## Test your backend project locally
+## (Optional) Test your backend project locally
+
+If you chose a .NET backend configuration above, you can optionally test the backend locally.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
 
-## Publish server project to Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##Download and run the Xamarin.Forms solution
 
@@ -75,7 +74,7 @@ Here you have a couple of choices. You can download the solution to a Mac and op
 With all of this in mind, let's proceed.
 
  1. On your Mac or on your Windows computer, open the [Azure Portal] in a browser window.
- 2. Under **Download and run your Xamarin.Forms project**, click the **Download** button.
+ 2. On the settings blade for your Mobile App, click **Get Started** (under Mobile) > **Xamarin.Forms**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.
 
     This downloads a project that contains a client application that is connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
 
@@ -85,7 +84,9 @@ With all of this in mind, let's proceed.
 
 	![][8]
 
-###Run the iOS project
+##(Optional) Run the iOS project
+
+This section is for running the Xamarin iOS project for iOS devices. You can skip this section if you are not working with iOS devices.
 
 ####In Xamarin Studio
 
@@ -105,9 +106,11 @@ In the app, type meaningful text, such as _Learn Xamarin_ and then click the **+
 This sends a POST request to the new mobile app backend hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data is displayed in the list.
 
 > [AZURE.NOTE]
-> You'll find the code that accesses your mobile app backend in the ToDoActivity.cs C# file of the portable class library project of your solution.
+> You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
 
-###Run the Android project
+##(Optional) Run the Android project
+
+This section is for running the Xamarin droid project for Android. You can skip this section if you are not working with Android devices.
 
 ####In Xamarin Studio
 
@@ -127,10 +130,14 @@ In the app, type meaningful text, such as _Learn Xamarin_ and then click the **+
 This sends a POST request to the new mobile app backend hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile app backend, and the data is displayed in the list.
 
 > [AZURE.NOTE]
-> You'll find the code that accesses your mobile app backend in the ToDoActivity.cs C# file of the portable class library project of your solution.
+> You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
 
 
-###Run the Windows project
+##(Optional) Run the Windows project
+
+
+This section is for running the Xamarin WinApp project for Windows devices. You can skip this section if you are not working with Windows devices.
+
 
 ####In Visual Studio
 1. Right-click any of the Windows projects, and then click **Set as StartUp Project**.
@@ -145,7 +152,7 @@ This sends a POST request to the new mobile app backend hosted in Azure. Data fr
 ![][12]
 	
 > [AZURE.NOTE]
-> You'll find the code that accesses your mobile app backend in the ToDoActivity.cs C# file of the portable class library project of your solution.
+> You'll find the code that accesses your mobile app backend in the TodoItemManager.cs C# file of the portable class library project of your solution.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/24/2015"
+	ms.date="01/08/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -401,7 +401,7 @@ Windows 10 domain-joined computers(devices) will synchronize some attributes to 
 | displayName | X| |
 | ms-DS-CreatorSID | X| Also called registeredOwnerReference.|
 | objectGUID | X| Also called deviceID.|
-| objectSID | X| Also called omPremisesSecurityIdentifier.|
+| objectSID | X| Also called onPremisesSecurityIdentifier.|
 | operatingSystem | X| Also called deviceOSType.|
 | operatingSystemVersion | X| Also called deviceOSVersion.|
 | userCertificate | X| |
@@ -418,7 +418,7 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 
 | Attribute Name| User| Contact| Group| Comment |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObject| X|  |  | Derived from cloudAnchor in Azure AD.|
+| msDS-ExternalDirectoryObjectID| X|  |  | Derived from cloudAnchor in Azure AD. This is new in Exchange 2016.|
 | msExchArchiveStatus| X|  |  | Online Archive: Enables customers to archive mail.|
 | msExchBlockedSendersHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|
 | msExchSafeRecipientsHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|

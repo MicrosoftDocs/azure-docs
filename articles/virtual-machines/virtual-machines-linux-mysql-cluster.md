@@ -45,7 +45,7 @@ You will need a Microsoft Azure account with a valid subscription able to create
 
 ### Affinity group
 
-An affinity group for the solution is created by logging into the Azure portal scrolling down to Settings and creating a new affinity group. Allocated resources created later will be assigned to this affinity group.
+An affinity group for the solution is created by logging into the Azure classic portal scrolling down to Settings and creating a new affinity group. Allocated resources created later will be assigned to this affinity group.
 
 ### Networks
 

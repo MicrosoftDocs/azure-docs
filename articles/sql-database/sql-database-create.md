@@ -30,7 +30,7 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 
 | Create database | Screen shot |
 | :--- | :--- |
-| 1. Sign in to [http://portal.azure.com/](http://portal.azure.com/). | ![New Azure Portal][1] |
+| 1. Sign in to [http://portal.azure.com/](http://portal.azure.com/). | ![New Azure Classic Portal][1] |
 | 2. At the bottom of the page, on the left, click **New**. | ![Initiate New service][2]|
 | 3. Click **SQL database**.| ![Different services to select from][3] |
 | 4. A **SQL database** blade opens. In the **Name** field, specify a database name. | ![Name the database][4] |

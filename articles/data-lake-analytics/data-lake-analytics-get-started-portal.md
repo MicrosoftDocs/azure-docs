@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Get Started with Azure Data Lake Analytics using Azure Preview Portal | Azure" 
-   description="Learn how to use the Azure Preview portal to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
+   pageTitle="Get Started with Azure Data Lake Analytics using Azure Portal | Azure" 
+   description="Learn how to use the Azure Portal to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -10,17 +10,17 @@
 <tags
    ms.service="data-lake-analytics"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="01/04/2016"
    ms.author="jgao"/>
 
-# Tutorial: get started with Azure Data Lake Analytics using Azure Preview Portal
+# Tutorial: get started with Azure Data Lake Analytics using Azure Portal
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Learn how to use the Azure Preview portal to create Azure Data Lake Analytics accounts, define Data Lake Analytics
+Learn how to use the Azure Portal to create Azure Data Lake Analytics accounts, define Data Lake Analytics
 jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytics accounts. For more 
 information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
@@ -37,11 +37,11 @@ separated values (CSV) file. To go through the same tutorial using other support
 4. Submit a job (U-SQL script) to the Data Lake Analytics account. The job reads from the source data, process the data as instructed 
 in the U-SQL script, and then save the output to either a Data Lake Store account or a Blob storage account.
 
-**Prerequisites**
+###Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ##Create Data Lake Analytics account
 
@@ -54,7 +54,7 @@ account.
 
 **To create a Data Lake Analytics account**
 
-1. Sign on to the new [Azure portal](https://portal.azure.com).
+1. Sign on to the new [Azure Classic Portal](https://portal.azure.com).
 2. Click **New**, click **Data + Analytics**, and then click **Data Lake Analytics**.
 6. Type or select the following:
 
@@ -78,11 +78,11 @@ accounts. For instructions, see [Manage Data lake Analytics account data sources
 
 In this tutorial, you will process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage. 
 
-The Azure Preview portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file.
+The Azure Portal provides a user interface for copying some sample data files to the default Data Lake account, which include a search log file.
 
 **To copy sample data files**
 
-1. From the Azure preview portal, click **Microsoft Azure** in the upper left corner.
+1. From the Azure Portal, click **Microsoft Azure** in the upper left corner.
 2. Click the tile with your Data Lake Analytics account name.  It was pinned here when the account was created.
 If the account is not pinned there, see 
 [Open a Data Lake  Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account) to open the
@@ -171,6 +171,6 @@ After you have prepared the source data, you can start developing a U-SQL script
 - To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md).
-- For management tasks, see [Manage Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-manage-use-portal.md).
+- For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 - To see the same tutorial using other tools, click the tab selectors on the top of the page.

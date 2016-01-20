@@ -62,7 +62,7 @@ You should be able to open this file in a browser such as Chrome to now view mov
 ## Command for executing Creating Recommendations using Mahout
 
 - Upload the file data\movie_usage.txt to Azure Blob Storage 
-- Create an HDInsight instance (enabling Remote Desktop) and connect to the machine through Remote Desktop (available from the Azure Portal)
+- Create an HDInsight instance (enabling Remote Desktop) and connect to the machine through Remote Desktop (available from the Azure Classic Portal)
 - From the HDInsight machine, open the "Hadoop Command Line"
 - Change to the Mahout bin directory under c:\apps\dist. Mine looks like this, but you can get a more recent version of Mahout
 	C:\apps\dist\mahout-1.0.0.2.3.3.0-2992\bin

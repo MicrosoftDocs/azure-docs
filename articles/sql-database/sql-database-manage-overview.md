@@ -22,12 +22,12 @@ This topic explores and compares tools and options for managing SQL databases so
 
 
 
-## Azure Portal
+## Azure Classic Portal
 
 
-The [Azure Portal](http://portal.azure.com) is a web-based management portal where you can create, update, and delete databases and logical servers and monitor database activity. This tool is great if you're just getting started with Azure, managing a small number of databases, or need to quickly do something. 
+The [Azure Classic Portal](http://portal.azure.com) is a web-based Classic Portal where you can create, update, and delete databases and logical servers and monitor database activity. This tool is great if you're just getting started with Azure, managing a small number of databases, or need to quickly do something. 
 
-For more in-depth information about using the portal see [Manage SQL Databases using the Azure portal](sql-database-manage-portal.md).
+For more in-depth information about using the portal see [Manage SQL Databases using the Azure Classic Portal](sql-database-manage-portal.md).
 
 ## SQL Server Management Studio and SQL Server Data Tools in Visual Studio
 

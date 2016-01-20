@@ -1,4 +1,4 @@
-<properties
+﻿<properties
  pageTitle="Get started using Azure Scheduler in the Azure portal | Microsoft Azure"
  description=""
  services="scheduler"
@@ -12,26 +12,22 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="08/18/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
-# Get started using Azure Scheduler in the Azure portal
-
-## Configure Scheduler using the Azure portal to quickly and easily create jobs
-
-To complete this tutorial, you need an Azure account that has the Azure Scheduler feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, refer to [Azure Free Trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+# Get started using Azure Scheduler in the Azure classic portal
 
 ## Get started
 
-It's easy to create jobs and job collections on Azure Scheduler using the Azure portal. This tutorial walks you through the creation of the job collection you will use to store jobs, the creation of a job in a job collection, and an overview of the job monitoring and management tasks available through the portal. You need prior experience with Azure to use this tutorial.
+It's easy to create jobs and job collections on Azure Scheduler. This tutorial walks you through the creation of the job collection you will use to store jobs, the creation of a job in a job collection, and an overview of the job monitoring and management tasks available. You need prior experience with Azure to use this tutorial.
 
-The first time you open the Azure portal, you are automatically placed at the **ALL ITEMS** tab. The columns in the **ALL ITEMS** tab can be sorted. To view your Scheduler jobs and job collections, click the **SCHEDULER** tab.
+The first time you open the Azure classic portal, you are automatically placed at the **ALL ITEMS** tab. The columns in the **ALL ITEMS** tab can be sorted. To view your Scheduler jobs and job collections, click the **SCHEDULER** tab.
 
 ![][1]
 
 ## Create a job collection and a job
 
-1.  Sign in to the [Azure portal](https://manage.windowsazure.com/).  
+1.  Sign in to the [Azure classic portal](https://manage.windowsazure.com/).  
 
 2.  Click **App Services** > **Create New** > **Scheduler**, and then click **Custom Create**. <br /><br /> ![][2]
 

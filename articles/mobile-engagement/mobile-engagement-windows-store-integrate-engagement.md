@@ -91,7 +91,7 @@ If you want to specify it at runtime instead, you can call the following method 
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-The connection string for your application is displayed on Azure Portal.
+The connection string for your application is displayed on the Azure Classic Portal.
 
 ### Engagement initialization
 

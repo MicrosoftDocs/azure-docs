@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="11/24/2015"
    ms.author="bwren" />
 
 # Runbook output and messages in Azure Automation

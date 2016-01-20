@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor=""/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Sign up & Sign in Consumers in your Applications
@@ -28,7 +28,7 @@ Azure Active Directory B2C is in preview. During this time, we are eager to hear
 
 To build an application that accepts consumer sign up & sign in, you'll first need to register it with an Azure Active Directory B2C tenant. Get your own tenant using the steps outlined in this [article](active-directory-b2c-get-started.md).
 
-You can write your application against the Azure Active Directory B2C service by either choosing to send protocol messages directly, using [OAuth 2.0](active-directory-b2c-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-b2c-protocols.md#openid-connect-sign-in-flow) or by using our libraries to do the work for you (choose your favorite platform below and get started).
+You can write your application against the Azure Active Directory B2C service by either choosing to send protocol messages directly, using [OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-authorization-code-flow) or [Open ID Connect](active-directory-b2c-reference-protocols.md#openid-connect-sign-in-flow) or by using our libraries to do the work for you (choose your favorite platform below and get started).
 
 [AZURE.INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
@@ -43,7 +43,7 @@ Check back here often to learn about future changes to the Azure Active Director
 
 Learn how to use specific Azure Active Directory B2C preview features:
 
-- Configure ([Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) and [LinkedIn](active-directory-b2c-setup-li-app.md)) accounts for use in your consumer-facing applications.
+- Configure [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Microsoft Account](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) and [LinkedIn](active-directory-b2c-setup-li-app.md) accounts for use in your consumer-facing applications.
 - [Use custom attributes to collect information about your consumers](active-directory-b2c-reference-custom-attr.md).
 - [Enable Multi-Factor Authentication in your consumer-facing applications](active-directory-b2c-reference-mfa.md).
 - [Setup self-service password reset for your consumers](active-directory-b2c-reference-sspr.md).
@@ -54,11 +54,11 @@ Learn how to use specific Azure Active Directory B2C preview features:
 
 These links will be useful for exploring the service in depth:
 
-- See the [Active Directory B2C pricing information](https://azure.microsoft.com/pricing/details/active-directory-b2c)
+- See the [Active Directory B2C pricing information](https://azure.microsoft.com/pricing/details/active-directory-b2c).
 - Get help on Stack Overflow using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
 - Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them! Use the phrase "AzureADB2C:" in the title of your post so we can find it.
 - Azure Active Directory B2C supports industry standard protocols, OpenID Connect and OAuth 2.0, using an application registration model that we call "App Model v2.0".
   - [App Model v2.0 Protocol Reference](active-directory-b2c-reference-protocols.md)
   - [App Model v2.0 Token Reference](active-directory-b2c-reference-tokens.md)
 - [Azure Active Directory B2C FAQs](active-directory-b2c-faqs.md)
-- [File support requests against Azure Active Directory B2C](active-directory-b2c-support.md)
+- [File support requests against Azure Active Directory B2C](active-directory-b2c-support.md).

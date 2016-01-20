@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal | Azure" 
-   description="Learn how to use the Azure Preview Portal to troubleshoot Data Lake Analytics jobs. " 
+   pageTitle="Troubleshoot Azure Data Lake Analytics jobs using Azure Portal | Azure" 
+   description="Learn how to use the Azure Portal to troubleshoot Data Lake Analytics jobs. " 
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="mumian" 
@@ -16,18 +16,18 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal
+# Troubleshoot Azure Data Lake Analytics jobs using Azure Portal
 
-Learn how to use the Azure Preview Portal to troubleshoot Data Lake Analytics jobs.
+Learn how to use the Azure Portal to troubleshoot Data Lake Analytics jobs.
 
-In this tutorial, you will setup a missing source file problem, and use the Azure Preview Portal to troubleshoot the problem.
+In this tutorial, you will setup a missing source file problem, and use the Azure Portal to troubleshoot the problem.
 
 **Prerequisites**
 
 Before you begin this tutorial, you must have the following:
 
-- **Basic knowledge of Data Lake Analytics job process**. See [Get started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-use-portal.md).
-- **A Data Lake Analytics account**. See [Get started with Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
+- **Basic knowledge of Data Lake Analytics job process**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-use-portal.md).
+- **A Data Lake Analytics account**. See [Get started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-use-portal.md#create-adl-analytics-account).
 - **Copy the sample data to the default Data Lake Store account**.  See [Prepare source data](data-lake-analytics-get-started-use-portal.md.md#prepare-source-data)
 
 ##Submit a Data Lake Analytics job
@@ -36,7 +36,7 @@ Now you will create a U-SQL job with a bad source file name.
 
 **To submit the job**
 
-1. From the Azure preview portal, click **Microsoft Azure** in the upper left corner.
+1. From the Azure Portal, click **Microsoft Azure** in the upper left corner.
 2. Click the tile with your Data Lake Analytics account name.  It was pinned here when the account was created.
 If the account is not pinned there, see 
 [Open an Analytics account from portal](data-lake-analytics-manage-use-portal.md#access-adla-account).
@@ -110,7 +110,7 @@ In the last section, you have submitted a job, and the job failed.
 - [Azure Data Lake Analytics overview](data-lake-analytics-overview.md)
 - [Get started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Get started with Azure Data Lake Analytics and U-SQL using Visual Studio](data-lake-analytics-get-started-u-sql-studio.md)
-- [Manage Azure Data Lake Analytics using Azure Preview Portal](data-lake-analytics-manage-use-portal.md)
+- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
 
 
 

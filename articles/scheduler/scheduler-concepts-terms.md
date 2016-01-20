@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="08/04/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Scheduler concepts, terminology, + entity hierarchy
@@ -190,8 +190,8 @@ The retry interval, specified with the **retryInterval** object, is the interval
 ## See also
 
  [What is Scheduler?](scheduler-intro.md)
-
- [Get started using Azure Scheduler in the Azure portal](scheduler-get-started-portal.md)
+ 
+ [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
  [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 

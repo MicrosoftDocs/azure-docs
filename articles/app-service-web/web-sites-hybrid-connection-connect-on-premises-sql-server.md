@@ -24,7 +24,7 @@ In this tutorial, you will learn how to create an App Service web app in the [Az
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 >
->The Web Apps portion of the Hybrid Connections feature is available only in the [Azure preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+>The Web Apps portion of the Hybrid Connections feature is available only in the [Azure Portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ## Prerequisites ##
 
@@ -117,11 +117,11 @@ Your Visual Studio web application requires a membership database that can be ac
 	![MembershipDB created][SSMSMembershipDBCreated]
 
 <a name="CreateSite"></a>
-## B. Create a web app in the Azure preview portal ##
+## B. Create a web app in the Azure Portal ##
 
-> [AZURE.NOTE] If you have already created a web app in the Azure preview portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and continue from there.
+> [AZURE.NOTE] If you have already created a web app in the Azure Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and continue from there.
 
-1. In the [Azure preview portal](https://portal.azure.com), click **New** > **Web + Mobile** > **Web app**.
+1. In the [Azure Portal](https://portal.azure.com), click **New** > **Web + Mobile** > **Web app**.
 
 	![New button][New]
 
@@ -140,7 +140,7 @@ Next, you will create a hybrid connection and a BizTalk service for the web app.
 <a name="CreateHC"></a>
 ## C. Create a Hybrid Connection and a BizTalk Service ##
 
-1. Back in the portal, go to settings and click **Networking** > **Configure your hybrid connection endpoints**.
+1. Back in the Portal, go to settings and click **Networking** > **Configure your hybrid connection endpoints**.
 
 	![Hybrid connections][CreateHCHCIcon]
 
@@ -240,7 +240,7 @@ Now, you'll publish your application to your App Service web app and then test i
 
 ### Publish the web application ###
 
-1. You can download your publishing profile for the App Service web app in the Azure preview portal. On the blade for your web app, click **Get publish profile**, and then save the file to your computer.
+1. You can download your publishing profile for the App Service web app in the Azure Portal. On the blade for your web app, click **Get publish profile**, and then save the file to your computer.
 
 	![Download publish profile][PortalDownloadPublishProfile]
 

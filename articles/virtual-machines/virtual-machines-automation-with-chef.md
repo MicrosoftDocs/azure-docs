@@ -204,7 +204,7 @@ The parameters are self-explanatory. Substitute your particular variables and ru
 
 > [AZURE.NOTE] Through the the command line, I’m also automating my endpoint network filter rules by using the –tcp-endpoints parameter. I’ve opened up ports 80 and 3389 to provide access to my web page and RDP session.
 
-Once you run the command, go to the Azure preview portal and you will see your machine begin to provision.
+Once you run the command, go to the Azure portal and you will see your machine begin to provision.
 
 ![][13]
 
@@ -218,7 +218,7 @@ Once the deployment is complete, we should be able to connect to the web service
 
 As you can see, I got creative with my HTML code.
 
-Don’t forget we can also connect through an RDP session from the Azure portal via port 3389.
+Don’t forget we can also connect through an RDP session from the Azure classic portal via port 3389.
 
 I hope this has been helpful! Go  and start your infrastructure as code journey with Azure today!
 

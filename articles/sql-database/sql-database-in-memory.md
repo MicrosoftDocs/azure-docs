@@ -14,12 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/20/2015"
+	ms.date="12/11/2015"
 	ms.author="jodebrui"/>
 
 
 # Get started with In-Memory (Preview) in SQL Database
-
 
 In-Memory features greatly improve the performance of transactional and analytics workloads in the right situations.
 
@@ -28,6 +27,7 @@ This topic emphasizes two demonstrations, one for In-Memory OLTP, and one for In
 - Use the code to test variations to see differences in performance results; or
 - Read the code to understand the scenario, and to see how to create and utilize the In-Memory objects.
 
+> [AZURE.VIDEO azure-sql-database-in-memory-technologies]
 
 #### In-Memory OLTP
 
@@ -92,7 +92,7 @@ Considerations while the In-Memory features are in Preview are described [later 
 
 ## A. Install the In-Memory OLTP sample
 
-You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure preview portal](http://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with:
+You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure Portal](http://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with:
 
 - In-Memory tables.
 - A natively compiled stored procedure.
@@ -100,7 +100,7 @@ You can create the AdventureWorksLT [V12] sample database by a few clicks in the
 
 #### Installation steps
 
-1. In the [Azure preview portal](http://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
+1. In the [Azure Portal](http://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
  - For detailed instructions you can see [Create your first Azure SQL database](sql-database-get-started.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).

@@ -18,7 +18,7 @@ In this section, you'll write a Windows console app that sends cloud-to-device m
 
 		using Microsoft.Azure.Devices;
 
-5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the IoT hub and the IoT hub connection string from [Get started with IoT Hub]:
+5. Add the following fields to the **Program** class, substituting the placeholder value with the IoT hub connection string from [Get started with IoT Hub]:
 
 		static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";

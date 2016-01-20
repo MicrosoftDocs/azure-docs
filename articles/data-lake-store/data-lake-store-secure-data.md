@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="12/11/2015"
    ms.author="nitinme"/>
 
 # Securing data stored in Azure Data Lake Store
@@ -32,7 +32,7 @@ This article provides instructions on how to use the Azure portal to perform the
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 
 ## Create security groups in Azure Active Directory
@@ -125,7 +125,7 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 
 ## Remove security groups for an Azure Data Lake Store account
 
-When you remove security groups from Azure Data Lake Store accounts, you are only changing access to the management operations on the account using the Azure preview portal and Azure Resource Manager APIs.
+When you remove security groups from Azure Data Lake Store accounts, you are only changing access to the management operations on the account using the Azure Portal and Azure Resource Manager APIs.
 
 1. In your Data Lake Store account blade, click the user icon.
 
@@ -159,6 +159,7 @@ When you remove security groups ACLs from Azure Data Lake Store file system, you
 ## See also
 
 - [Overview of Azure Data Lake Store](data-lake-store-overview.md)
+- [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 - [Use Azure Data Lake Analytics with Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)

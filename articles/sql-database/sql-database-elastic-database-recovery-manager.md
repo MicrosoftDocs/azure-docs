@@ -21,7 +21,7 @@ The [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.s
 
 The GSM and LSM track the mapping of each database in a sharded environment. Occasionally, a break occurs between the GSM and the LSM. in that case, use the RecoveryManager class to detect and repair the break.
 
-The RecoveryManager class is part of the [Elastic Database client library](sql-database-elastic-database-client-library). 
+The RecoveryManager class is part of the [Elastic Database client library](sql-database-elastic-database-client-library.md). 
 
 
 ![Shard map][1]
@@ -85,7 +85,7 @@ The [DetectMappingDifferences method](https://msdn.microsoft.com/library/azure/m
 
 ## To resolve mapping differences
 
-The [ResolveMappingDifferences method](https://msdn.microsoft.com/en-US/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selects one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
+The [ResolveMappingDifferences method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selects one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
 
 	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution);
    

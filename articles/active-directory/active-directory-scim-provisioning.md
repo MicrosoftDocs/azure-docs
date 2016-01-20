@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications | Microsoft Azure"
 	description="Azure Active Directory can automatically provision users and groups to any application or identity store that is fronted by a Web service with the interface defined in the SCIM protocol specification"
 	services="active-directory"
@@ -96,9 +96,9 @@ To make this process easier, a set of [code samples](https://github.com/Azure/Az
 **Prerequisites**
 
 * Visual Studio 2013 or later
-* [Azure SDK for .NET](https://azure.microsoft.com/en-us/downloads/)
+* [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
 * Windows machine that supports the ASP.NET framework 4.5 to be used as the SCIM endpoint. This machine must be accessible from the cloud
-* [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/en-us/services/active-directory/)
+* [An Azure subscription with a trial or licensed version of Azure AD Premium](https://azure.microsoft.com/services/active-directory/)
 * The Amazon AWS sample requires libraries from the [AWS Toolkit for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). See the README file included with the sample for additional details
 
 ###Getting Started

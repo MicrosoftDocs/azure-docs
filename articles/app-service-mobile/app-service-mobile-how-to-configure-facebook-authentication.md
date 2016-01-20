@@ -33,32 +33,28 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 
 ## <a name="register"> </a>Register your application with Facebook
 
-1. Log on to the [Azure Management Portal], and navigate to your application. Copy your **URL**. You will use this to configure your Facebook app.
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Facebook app.
  
 2. In another browser window, navigate to the [Facebook Developers] website and sign-in with your Facebook account credentials.
 
-3. (Optional) If you have not already registered, click **Apps** then click **Register as a Developer**, accept the policy and follow the registration steps.
+3. (Optional) If you have not already registered, click **Apps** > **Register as a Developer**, then accept the policy and follow the registration steps.
 
-4. Click **My Apps**, then click **Add a New App**.
+4. Click **My Apps** > **Add a New App** > **Website** enter a unique name for your app, then click **Create New Facebook App ID**.
 
-5. Select **Website** as your platform. Choose a unique name for your app, and then click **Create New Facebook App ID**.
-
-6. Pick a category for your application from the dropdown. Then click **Create App ID**.
-
-7. On the next page, select **Skip Quick Start** in the top right. This will take you to the developer dashboard for your application.
+6. Pick a category for your application from the dropdown, then click **Create App ID** and on the next page, click **Skip Quick Start**. This takes you to the developer dashboard for your application.
 
 8. On the **App Secret** field, click **Show**, provide your password if requested, then make a note of the values of **App ID** and **App Secret**. You will configure your application to use these later.
 
 	> [AZURE.NOTE] **Security Note**
 	The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
 
-9. On the left navigation bar, click **Settings**. Type the **URL** of your Mobile App in **App Domains**, and enter a **Contact Email**. 
+9. On the left navigation bar, click **Settings**, type the **URL** of your Mobile App in **App Domains**, and enter a **Contact Email**. 
 
     ![][0]
 
-10. If you don't see a website section below, click **Add Platform** and select **Website**. Enter the **URL** of your Mobile App in the **Site URL** field, then click **Save Changes**.
+10. If you don't see a website section below, click **Add Platform** > **Website**, enter the **URL** of your Mobile App in the **Site URL** field, then click **Save Changes**.
 
-11. Click the **Advanced** tab and add your application's **Redirect URI** to **Valid OAuth redirect URIs**. Then click **Save Changes**. Your redirect URI is the URL of your application appended with the path, _/.auth/login/facebook/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Make sure that you are using the HTTPS scheme.
+11. Click the **Advanced** tab, add your application's **Redirect URI** to **Valid OAuth redirect URIs**, then click **Save Changes**. Your redirect URI is the URL of your application appended with the path, _/.auth/login/facebook/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/facebook/callback`. Make sure that you are using the HTTPS scheme.
 
 
 	> [AZURE.NOTE]
@@ -74,11 +70,9 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Facebook**. Paste in the values you obtained earlier and click **Save**.
 
 
-13. Back in the [Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
+13. Back in the [Azure portal], navigate to your application. Click **Settings** > **Authentication/Authorization**, and make sure that **App Service Authentication** is **On**.
 
-14. If the Authentication / Authorization feature is not enabled, turn the switch to **On**.
-
-15. Click **Facebook**. Paste in the App ID and App Secret values which you obtained previously, and optionally enable any scopes your application requires. Then click **OK**.
+15. Click **Facebook**, paste in the App ID and App Secret values which you obtained previously, optionally enable any scopes needed by your application, then click **OK**.
 
     ![][1]
 	
@@ -102,4 +96,4 @@ You are now ready to use Facebook for authentication in your app.
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure Management Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

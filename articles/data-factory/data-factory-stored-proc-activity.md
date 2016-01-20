@@ -13,12 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # SQL Server Stored Procedure Activity
 
-You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in an **Azure SQL Database** or an **Azure SQL Data Warehouse** . This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
+You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in one of the following data stores. 
+
+
+- Azure SQL Database 
+- Azure SQL Data Warehouse  
+- SQL Server database in your enterprise or an Azure VM. You need to install Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources/data sources hosed in Azure VMs to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway. 
+
+This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
 
 ## Syntax
 	{
@@ -81,7 +88,7 @@ storedProcedureParameters | Specify values for stored procedure parameters | No
 	> [AZURE.IMPORTANT] **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the pipeline/activity JSON . In the stored procedure definition, ensure that **@** is used as a prefix for the parameter.
 	
 ### Create a data factory  
-4. After logging into the [Azure Preview Portal](http://portal.azure.com/), do the following:
+4. After logging into the [Azure Portal](http://portal.azure.com/), do the following:
 	1.	Click **NEW** on the left menu. 
 	2.	Click **Data analytics** in the **Create** blade.
 	3.	Click **Data Factory** on the **Data analytics** blade.
@@ -93,7 +100,7 @@ storedProcedureParameters | Specify values for stored procedure parameters | No
 	4.	Click **OK**.
 4.	After you have selected the resource group, verify that you are using the correct subscription where you want the data factory to be created.
 5.	Click **Create** on the **New data factory** blade.
-6.	You will see the data factory being created in the **Startboard** of the Azure Preview Portal. After the data factory has been created successfully, you will see the data factory page, which shows you the contents of the data factory.
+6.	You will see the data factory being created in the **Startboard** of the Azure Portal. After the data factory has been created successfully, you will see the data factory page, which shows you the contents of the data factory.
 
 ### Create an Azure SQL linked service  
 After creating the data factory, you create an Azure SQL linked service that links your Azure SQL Database to the data factory. This is the database that contains the sampletable table and sp_sample stored procedure.

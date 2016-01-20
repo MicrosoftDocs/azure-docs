@@ -22,7 +22,7 @@ Check your web app's performance before you launch it or deploy updates to produ
 That way, you can better assess whether your app is ready for release. Feel more
 confident that your app can handle the traffic during peak use or at your next marketing push.
 
-During public preview, you can performance test your app for free in the Azure Preview Portal.
+During public preview, you can performance test your app for free in the Azure Portal.
 These tests simulate user load on your app over a specific time period and measure your app's response. For example, your test results show how fast your app responds to a specific number 
 of users. They also show how many requests failed, which might indicate problems with your app.      
 
@@ -46,7 +46,7 @@ That way, you don't affect any existing customers or slow down your app in produ
 
 ## Set up and run your performance test
 
-0.	Sign in to the [Azure Preview Portal][AzurePortal]. 
+0.	Sign in to the [Azure Portal][AzurePortal]. 
 To use a Visual Studio Team Services account that you own, 
 sign in as the account owner.
 
@@ -104,7 +104,7 @@ please contact us at <vsoloadtest@microsoft.com>
 
 #### Q: Is there a limit on how long I can run a test? 
 
-A: Yes, you can run your test up to an hour in the Azure Preview Portal.
+A: Yes, you can run your test up to an hour in the Azure Portal.
 
 #### Q: How much time do I get to run performance tests? 
 
@@ -116,7 +116,7 @@ you can purchase more time and pay only for what you use.
 
 #### Q: Where can I check how many VUMs I've used so far?
 
-A: You can check this amount in the Azure Preview portal.
+A: You can check this amount in the Azure Portal.
 
 ![Go to your VSTS account][VSTSAccount]
 

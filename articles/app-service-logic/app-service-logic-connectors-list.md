@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="12/03/2015"
 	ms.author="mandia"/>
 
 
@@ -67,10 +67,10 @@ Name  | Description
 [BizTalk X12](app-service-logic-connector-x12.md) | Receives and sends messages using the X12 protocol in business-to-business communications.
 [BizTalk XML Validator](app-service-logic-xml-validator.md) | Validates XML data against predefined XML schemas. You can use existing schemas or generate schemas based on a flat file instance, JSON instance, or existing connectors.
 [BizTalk XPath Extractor](app-service-logic-xpath-extract.md) | Looks up and extracts data from XML content based on an XPath you choose.
-DB2 Connector | Connects to an IBM DB2 database on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands. <br/><br/>No triggers. Actions include table select, insert, update, delete, and custom statement<br/><br/>This connector also includes the Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
+[DB2 Connector](app-service-logic-connector-db2.md) | Connects to an IBM DB2 database on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands. <br/><br/>No triggers. Actions include table select, insert, update, delete, and custom statement<br/><br/>This connector also includes the Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
 [File](app-service-logic-connector-file.md) | Using this connector, you can connect to the on-premises file system or network and complete different file tasks, including uploading, deleting, listing files, and more.
 [FTP<br/>FTPS](app-service-logic-connector-ftp.md) | Connects to an FTP / FTPS server and do different FTP tasks, including uploading, getting, deleting files, and more.
-Informix | Connects to an IBM Informix database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands.<br/><br/>No triggers. Actions include table select, insert, update, delete, and custom statement.<br/><br/>When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes a Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
+[Informix](app-service-logic-connector-informix.md) | Connects to an IBM Informix database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands.<br/><br/>No triggers. Actions include table select, insert, update, delete, and custom statement.<br/><br/>When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes a Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Connects to on-premises SQL Server or an Azure SQL Database. You can create, update, get, and delete entries on a SQL database table.
 MQ | Connects to IBM WebSphere MQ Server version 8, on-premises and on an Azure virtual machine running a Windows operating system. When using on-premises, VPN or Azure ExpressRoute can be used. The connector also includes the Microsoft Client for MQ.<br/><br/>No triggers. No actions.<br/><br/>**Note** Currently cannot be used with Logic Apps.
 [Oracle Database](app-service-logic-connector-oracle.md) | Connects to on-premises Oracle Database and  can create, update, get, and delete entries on a database table.

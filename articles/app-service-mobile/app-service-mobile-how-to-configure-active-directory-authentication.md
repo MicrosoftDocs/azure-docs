@@ -30,7 +30,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 ## <a name="express"> </a>Configure Azure Active Directory using express settings
 
-13. In the [Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
+13. In the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication/Authorization**.
 
 14. If the Authentication / Authorization feature is not enabled, turn the switch to **On**.
 
@@ -53,9 +53,9 @@ You can also choose to provide configuration settings manually. This is the pref
 
 ### <a name="register"> </a>Register your application with Azure Active Directory
 
-1. Log on to the [Preview Azure Management Portal], and navigate to your application. Copy your **URL**. You will use this to configure your Azure Active Directory app.
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Azure Active Directory app.
 
-3. Sign in to the [Azure Management Portal] and navigate to **Active Directory**.
+3. Sign in to the [Azure classic portal] and navigate to **Active Directory**.
 
     ![][2] 
 
@@ -88,9 +88,9 @@ You can also choose to provide configuration settings manually. This is the pref
 If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Azure Active Directory**. Paste in the ClientID and add the tenant ID to the **Allowed Tenants** list. Click **Save**.
 
 
-13. Back in the [Preview Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
+13. Back in the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication/Authorization**.
 
-14. If the Authentication / Authorization feature is not enabled, turn the switch to **On**.
+14. If the Authentication/Authorization feature is not enabled, turn the switch to **On**.
 
 15. Click **Azure Active Directory**, and then click **Advanced** under **Management Mode**. Paste in the Client ID and Issuer URL value which you obtained previously. Then click **OK**.
 
@@ -103,6 +103,30 @@ If using the App Service Gateway, ignore this section and instead navigate to yo
 17. Click **Save**. 
 
 You are now ready to use Azure Active Directory for authentication in your app. 
+
+## (Optional) Configure a native client application
+
+Azure Active Directory also allows you to register native clients, which provides greater control over permissions mapping. You need this if you wish to perform logins using a library such as the **Active Directory Authentication Library**.
+
+1. Navigate to **Active Directory** in the [Azure classic portal].
+
+2. Select your directory, and then select the **Applications** tab at the top. Click **ADD** at the bottom to create a new app registration. 
+
+3. Click **Add an application my organization is developing**.
+
+4. In the Add Application Wizard, enter a **Name** for your application and click the  **Native Client Application** type. Then click to continue.
+
+5. In the **Redirect URI** box, enter your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
+
+6. Once the native application has been added, click the **Configure** tab. Find the **Client ID** and make a note of this value.
+
+7. Scroll the page down to the **Permissions to other applications** section and click **Add application**.
+
+8. Search for the web application that you registered earlier and click the plus icon. Then click the check to close the dialog.
+
+9. On the new entry you just added, open the **Delegated Permissions** dropdown and select **Access (appName)**. Then click **Save**.
+
+You have now configured a native client application which can access your App Service application.
 
 ## <a name="related-content"> </a>Related Content
 
@@ -117,7 +141,7 @@ You are now ready to use Azure Active Directory for authentication in your app.
 
 <!-- URLs. -->
 
-[Preview Azure Management Portal]: https://portal.azure.com/
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure portal]: https://portal.azure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
 [alternative method]:#advanced

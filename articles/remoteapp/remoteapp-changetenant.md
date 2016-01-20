@@ -1,9 +1,9 @@
 
 <properties
-    pageTitle="Change the Azure Active Directory tenant in Azure RemoteApp"
+    pageTitle="Change the Azure Active Directory tenant in Azure RemoteApp | Microsoft Azure"
     description="Learn how to change the Azure Active Directory tenant associated with Azure RemoteApp"
     services="remoteapp"
-    documentationCenter="" 
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -37,8 +37,8 @@ If you want to use a different tenant, use these steps to change the association
 3. Now, sign out of the portal, and then sign back in with the Microsoft account you specified in the previous step.
 
 
-4. Click **New -> App Services -> Active Directory -> Directory -> Custom Create**. 
-5. Under **Directory**, choose **Use existing directory**. We're going to have to sign you out of the portal now, so choose **I am ready to be signed out now**. 
+4. Click **New -> App Services -> Active Directory -> Directory -> Custom Create**.
+5. Under **Directory**, choose **Use existing directory**. We're going to have to sign you out of the portal now, so choose **I am ready to be signed out now**.
 6. Sign back into the portal as a global admin of the directory you want to add. (If you weren't already a global admin, you will be after a round of sign in and then sign out.)
 7. You'll be asked when you sign in if you want to use your existing AD tenant with your subscription. Click **Continue**, and then click **Sign out now**.
 5. Sign back in again, and go back to **Settings -> Subscriptions**. Select your subscription, and then click **Edit Directory**. Select the Azure AD tenant that you want to use.

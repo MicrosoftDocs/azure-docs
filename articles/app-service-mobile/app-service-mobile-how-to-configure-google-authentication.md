@@ -33,7 +33,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 
 ## <a name="register"> </a>Register your application with Google
 
-1. Log on to the [Azure Management Portal], and navigate to your application. Copy your **URL**. You will use this to configure your Google app.
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Google app.
  
 2. Navigate to the [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303) website, sign-in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
 
@@ -63,7 +63,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Google**. Paste in the values you obtained earlier and click **Save**.
 
 
-8. Back in the [Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
+8. Back in the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
 
 9. If the Authentication / Authorization feature is not enabled, turn the switch to **On**.
 
@@ -95,5 +95,5 @@ You are now ready to use Google for authentication in your app.
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Azure Management Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
  

@@ -32,4 +32,4 @@ To resolve this, see the article [Why have you received a notification that your
 
 ### The Azure subscription is cancelled
 
-To reactivate a subscription, you must create a support ticket. To create a support ticket to re-enable an Azure subscription see the article [How to Create a Support Ticket for Azure Billing and Subscription Issues](../billing-create-billing-support-ticket.md).
+To reactivate a subscription, you must create a support ticket. To create a support ticket to re-enable an Azure subscription see the article [How to Create a Support Ticket for Azure Billing and Subscription Issues](../billing-how-to-create-billing-support-ticket.md).

@@ -224,7 +224,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 Property | Description | Required
 -------- | ----------- | --------
-tableName | Name of the table in the Oracle Database that the linked service refers to. | Yes
+tableName | Name of the table in the Oracle Database that the linked service refers to. | No (if **oracleReaderQuery** of **SqlSource** is specified)
 
 ## Oracle Copy Activity type properties
 
@@ -234,12 +234,12 @@ For a full list of sections & properties available for defining activities pleas
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 
-In case of Copy activity when source is of type SqlSource the following properties are available in typeProperties section:
+In case of Copy activity when source is of type **OracleSource** the following properties are available in **typeProperties** section:
 
 Property | Description |Allowed values | Required
 -------- | ----------- | ------------- | --------
 oracleReaderQuery | Use the custom query to read data. | SQL query string. 
-For example: select * from MyTable <p>If not specified, the SQL statement that is executed: select * from MyTable</p> | No
+For example: select * from MyTable <p>If not specified, the SQL statement that is executed: select * from MyTable</p> | No (if **tableName** of **dataset** is specified)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

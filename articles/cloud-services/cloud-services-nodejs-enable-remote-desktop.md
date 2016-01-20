@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/20/2015" 
+	ms.date="01/09/2016" 
 	ms.author="robmcm"/>
 
 
@@ -64,9 +64,9 @@ service configuration (.cscfg) files.
 After you publish the update service definition, you can connect to
 the role instance.
 
-1.  In the [Azure Management Portal], select **Cloud Services** and then select your service.
+1.  In the [Azure classic portal], select **Cloud Services** and then select your service.
 
-	![azure management portal][cloud-services]
+	![Azure classic portal][cloud-services]
 
 2.  Click **Instances**, and then click **Production** or **Staging** to see the instances for your service. Select an instance and then click **Connect** at the bottom of the page.
 
@@ -113,7 +113,7 @@ instances in the cloud, disable remote desktop access using [Azure PowerShell].
 
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
 
-[Azure Management Portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [publish-project]: ./media/cloud-services-nodejs-enable-remote-desktop/publish-rdp.png
 [enable-rdp]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png
 [cloud-services]: ./media/cloud-services-nodejs-enable-remote-desktop/cloud-services-remote.png

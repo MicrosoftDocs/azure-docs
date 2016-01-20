@@ -57,7 +57,7 @@ Once you've deployed your web service, you can follow the steps below to use the
 
 	![Request URI][image4]
 
-3. Go to [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) and click **Create Web App**. The template takes you to the Microsoft Azure Portal where the new web app is created.
+3. Go to [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) and click **Create Web App**. The template takes you to the Microsoft Azure Classic Portal where the new web app is created.
 
 	- Give your web app a unique name. The URL of the web app will be this name followed by `.azurewebsites.net.` For example, `http://carprediction.azurewebsites.net.`
 
@@ -88,7 +88,7 @@ Enter the values you saved earlier:
 
 If you want to return to the **Configuration** page, go to the `setting.aspx` page of the web app. For example: `http://carprediction.azurewebsites.net/setting.aspx.` You will be prompted to enter the API key again - you need that to access the page and update the settings.
 
-You can stop, restart, or delete the web app in the Azure Portal like any other web app. As long as it is running you can browse to the home web address and enter new values.
+You can stop, restart, or delete the web app in the Azure Classic Portal like any other web app. As long as it is running you can browse to the home web address and enter new values.
 
 ## How to use the Batch Execution Service (BES) template
 

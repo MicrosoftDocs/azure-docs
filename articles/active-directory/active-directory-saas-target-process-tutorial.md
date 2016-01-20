@@ -3,8 +3,8 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and TargetProcess."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with TargetProcess
@@ -69,9 +69,9 @@ To configure the integration of TargetProcess into Azure AD, you need to add Tar
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
 ![Applications][4]<br>
 6. In the search box, type **TargetProcess**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-flatter-files-tutorial/tutorial_flatter_files_01.png)<br>
+![Creating an Azure AD test user](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_01.png)<br>
 7. In the results pane, select **TargetProcess**, and then click **Complete** to add the application.
-
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-target-process-tutorial/tutorial_target_process_10.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with TargetProcess based on a test user called "Britta Simon".

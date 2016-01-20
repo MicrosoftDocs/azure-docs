@@ -27,7 +27,7 @@ For an overview of Custom Script extension please refer to the article [here](vi
 
 Ever since its launch, Custom Script extension has been used widely to configure workloads on both Windows and Linux VMs. With the introduction of Azure Resource Manager templates, users can now create a single template that not only provisions the VM but also configures the workloads on it.
 
-## Overview of Azure Resource Manager templates
+## About Azure Resource manager templates
 
 Azure Resource Manager template allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager templates, see the following articles:
 
@@ -35,7 +35,7 @@ Azure Resource Manager template allow you to declaratively specify the Azure Iaa
 - [Deploying Templates with Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli)
 - [Deploying Templates with Azure Powershell](virtual-machines-deploy-rmtemplates-powershell)
 
-### Pre-Requistes for running Custom Script extension
+### Prerequistes
 
 1. Install the latest Azure PowerShell Cmdlets or Azure CLI from [here](http://azure.microsoft.com/downloads).
 2. If the scripts will be run on an existing VM, make sure VM Agent is enabled on the VM, if not follow [this](virtual-machines-extensions-install) to install one.
@@ -43,11 +43,11 @@ Azure Resource Manager template allow you to declaratively specify the Azure Iaa
 4. Alternatively the scripts can also be uploaded to a Github account.
 5. The script should be authored in such a way that the entry script which is launched by the extension in turn launches other scripts.
 
-## Overview of using Custom Script extension with Templates:
+## Using the custom script extension
 
 For deploying with templates we use the same version of  Custom Script extension thats availale for Azure Service Management APIs. The extension supports the same parameters and scenarios like uploading files to Azure Storage account or Github location. The key difference while using with templates is the exact version of the extension should be specified, as opposed to specifying the version in majorversion.* format.
 
- ## Template Snippet for Custom Script extension on a Linux VM
+ ## Template example for a Linux VM
 
 Define the following extension resource in the Resource section of the template
 
@@ -69,7 +69,7 @@ Define the following extension resource in the Resource section of the template
     }
     }
 
-## Template Snippet for Custom Script extension on a Windows VM
+## Template example for a Windows VM
 
 Define the following resource in the Resource section of the template
 

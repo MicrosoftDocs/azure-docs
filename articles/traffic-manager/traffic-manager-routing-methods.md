@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # Traffic Manager routing methods
@@ -23,7 +23,7 @@ It’s important to note that all traffic routing methods include endpoint monit
 
 The three Traffic Manager traffic routing methods are:
 
-- **Failover**: Select Failover when you have endpoints in the same or different Azure datacenters (known as regions in the Management Portal) and want to use a primary endpoint for all traffic, but provide backups in case the primary or the backup endpoints are unavailable. For more information, see [Failover traffic routing method](#failover-traffic-routing-method).
+- **Failover**: Select Failover when you have endpoints in the same or different Azure datacenters (known as regions in the Azure classic portal) and want to use a primary endpoint for all traffic, but provide backups in case the primary or the backup endpoints are unavailable. For more information, see [Failover traffic routing method](#failover-traffic-routing-method).
 
 - **Round Robin**: Select Round Robin when you want to distribute load across a set of endpoints in the same datacenter or across different datacenters. For more information, see [Round Robin traffic routing method](#round-robin-traffic-routing-method).
 
@@ -37,7 +37,7 @@ Note that Azure Websites already provides failover and round-robin traffic routi
 
 Often an organization wants to provide reliability for its services. It does this by providing backup services in case their primary service goes down. A common pattern for service failover is to provide a set of identical endpoints and send traffic to a primary service, with a list of one or more backups. If the primary service is not available, requesting clients are referred to the next in order. If both the first and second services in the list are not available, the traffic goes to the third and so on.
 
-When configuring the Failover traffic routing method, the order of the selected endpoints is important. Using the Management Portal, you can configure the failover order on the Configuration page for the profile.
+When configuring the Failover traffic routing method, the order of the selected endpoints is important. Using the Azure classic portal, you can configure the failover order on the Configuration page for the profile.
 
 Figure 1 shows an example of the Failover traffic routing method for a set of endpoints.
 
@@ -81,7 +81,7 @@ Round Robin weighted traffic routing allows you to distribute load to various en
 - Application migration to Azure: Create a profile with both Azure and external endpoints, and specify the weight of traffic that is routed to each endpoint.
 - Cloud-bursting for additional capacity: Quickly expand an on-premises deployment into the cloud by putting it behind a Traffic Manager profile. When you need extra capacity in the cloud, you can add or enable more endpoints and specify what portion of traffic goes to each endpoint.
 
-At this time, you cannot use the Management Portal to configure weighted traffic routing. Azure provides programmatic access to this method using the associated Service Management REST API and Azure PowerShell cmdlets.
+At this time, you cannot use the Azure classic portal to configure weighted traffic routing. Azure provides programmatic access to this method using the associated Service Management REST API and Azure PowerShell cmdlets.
 
 For information about using the REST APIs, see [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 

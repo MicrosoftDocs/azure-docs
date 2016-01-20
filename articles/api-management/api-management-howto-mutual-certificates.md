@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to secure back-end services using client certificate authentication in Azure API Management
@@ -28,7 +28,7 @@ This guide shows you how to configure your API Management service instance to us
 
 ## <a name="step1"> </a>Upload a client certificate
 
-To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![API Publisher portal][api-management-management-console]
 

@@ -20,7 +20,7 @@
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub, and how to access them from devices and cloud components. [Process Device-to-Cloud messages] described a way to reliably store device-to-cloud messages in Azure blob storage. There are cases, however, where the data coming from devices does not map easily to relatively small device-to-cloud messages. Some exmaples are large files containing images, videos, vibration data sample at high frequency, or containing some form of preprocessed data. These files are usually processed in a batch fashion using tools such as [Azure Data Factory] or the [Hadoop] stack. When uploading a file from a device is preferred to sending events, it is still possible to use IoT Hub security and reliability functionality.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub, and how to access them from devices and cloud components. [Process Device-to-Cloud messages] described a way to reliably store device-to-cloud messages in Azure blob storage. There are cases, however, where the data coming from devices does not map easily to relatively small device-to-cloud messages. Some examples are large files containing images, videos, vibration data sample at high frequency, or containing some form of preprocessed data. These files are usually processed in a batch fashion using tools such as [Azure Data Factory] or the [Hadoop] stack. When uploading a file from a device is preferred to sending events, it is still possible to use IoT Hub security and reliability functionality.
 
 This tutorial builds on the code presented in [Send Cloud-to-Device messages with IoT Hub] to show how to use cloud-to-device messages to securely provide to the device an Azure blob URI to be used to upload the file, and how to use IoT Hub delivery acknowledgments to trigger the processing of the file from your app back end. The advantages of this approach is the reuse of IoT Hub device identity, and of the delivery acknowledgment of cloud-to-device messages to inform the app back end that the file has been uploaded successfully.
 
@@ -53,7 +53,7 @@ Now you are ready to run the applications.
 
 1.  From within Visual Studio, right click your solution and select **Set StartUp projects...**. Select **Multiple startup projects**, then select the **Start** action for both **SimulatedDevice**, and **SendCloudToDevice** apps.
 
-2.  Press **F5**, and you should see all applications start. Select the **SendCloudToDevice** window and press a key. You will see the simulated device output a message when it has uploaded the file, and the **SendCloudToDevice** app show the successful feedback receipt. You can use the [Azure preview portal] or Visual Studio Server Explorer to check the presence of the file in your storage account.
+2.  Press **F5**, and you should see all applications start. Select the **SendCloudToDevice** window and press a key. You will see the simulated device output a message when it has uploaded the file, and the **SendCloudToDevice** app show the successful feedback receipt. You can use the [Azure portal] or Visual Studio Server Explorer to check the presence of the file in your storage account.
 
   ![][50]
 
@@ -80,7 +80,7 @@ Additional information on IoT Hub:
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Azure Data Factory]: https://azure.microsoft.com/en-us/documentation/services/data-factory/
 [Hadoop]: https://azure.microsoft.com/en-us/documentation/services/hdinsight/

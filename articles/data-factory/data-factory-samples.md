@@ -18,8 +18,8 @@
 
 # Azure Data Factory - Samples
 
-## Samples in Azure Portal
-You can quickly deploy, review, and test an Azure Data Factory sample using the **Sample pipelines** blade in the Azure Portal. 
+## Samples in Azure Classic Portal
+You can quickly deploy, review, and test an Azure Data Factory sample using the **Sample pipelines** blade in the Azure Classic Portal. 
 
 1. Create a new data factory or open an existing data factory. See [Getting started with Azure Data Factory][data-factory-get-started] for steps to create a data factory.
 2. In the **DATA FACTORY** blade for the data factory, click the **Sample pipelines** tile.

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using the Azure Portal" 
-	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal." 
+	pageTitle="Create Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream using the Azure Classic Portal" 
+	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure Classic Portal." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Create channels that perform live encoding from a single-bitrate to multi-bitrate stream using the Azure portal
+#Create channels that perform live encoding from a single-bitrate to multi-bitrate stream using the Azure Classic Portal
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -58,7 +58,7 @@ The following are general steps involved in creating common live streaming appli
 
 ##In this tutorial
 
-In this tutorial, the Azure Management Portal is used to accomplish the following tasks: 
+In this tutorial, the Azure Classic Portal is used to accomplish the following tasks: 
 
 2.  Configure streaming endpoints.
 3.  Create a channel that is enabled to perform live encoding.
@@ -86,7 +86,7 @@ To take advantage of dynamic packaging, you need to get at least one streaming u
 
 To change the number of streaming reserved units, do the following:
 
-1. In the [Management Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
+1. In the [Azure Classic Portal](https://manage.windowsazure.com/), click **Media Services**. Then, click the name of the media service.
 
 2. Select the STREAMING ENDPOINTS page. Then, click on the streaming endpoint that you want to modify.
 
@@ -106,7 +106,7 @@ To change the number of streaming reserved units, do the following:
  
 ##Create a CHANNEL
 
-1.	In the [Management Portal](http://manage.windowsazure.com/), click Media Services and then click on the Media Services account name.
+1.	In the [Azure Classic Portal](http://manage.windowsazure.com/), click Media Services and then click on the Media Services account name.
 2.	Select the CHANNELS page.
 3.	Select Add+ to add a new channel.
 

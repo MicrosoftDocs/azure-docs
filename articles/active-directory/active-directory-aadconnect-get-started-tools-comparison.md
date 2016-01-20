@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Directory integration tools comparison | Microsoft Azure"
+	pageTitle="Azure AD Connect: Directory integration tools comparison | Microsoft Azure"
 	description="This is page will provide you with comprehensive tables that compare the various directory integration tools."
 	services="active-directory"
 	documentationCenter=""
