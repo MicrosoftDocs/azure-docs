@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/13/2016"
+   ms.date="01/15/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Prepare the portal (Preview)
 
-![](./media/storsimple-ova-deploy1-portal-prep/getstarted3.png)
+![](./media/storsimple-ova-deploy1-portal-prep/getstarted4.png)
 
 ## Introduction 
 

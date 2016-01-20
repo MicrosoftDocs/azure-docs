@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2016" 
+	ms.date="01/15/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: Proactive Detection
@@ -37,12 +37,12 @@ Currently, our algorithms look at page load times, request response times at the
 
 You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns. 
 
-Proactive Detection is in preview and isn't available for all Application Insights users yet. If you would like to try it out, please contact AppInsightsML@microsoft.com and we will work with you to set it up.
+We’re very eager to have your feedback. Please let us know how it helps you, how we can improve Proactive detection and what additional capabilities you want us to add. You can provide feedback trough Send a smile/frown in the portal or email us to AppInsightsML@microsoft.com. 
 
 ## About the proactive alert
 
 * *Why have I received this email?*
- * Proactive detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application.
+ * Proactive detection analyzed the telemetry your application sent to Application Insights and detected a performance issue in your application. 
 * *Does the notification mean I definitely have a problem?*
  * No. It's simply a suggestion about something you might want to look at more closely. 
 * *What should I do?*
@@ -56,7 +56,7 @@ Proactive Detection is in preview and isn't available for all Application Insigh
 * *What kinds of anomalies are detected?*
  * Patterns that you would find it time-consuming to check for yourself. For example, poor performance in a specific combination of location, time of day and platform.
 * *Do you analyze all the data collected by Application Insights?*
- * Not at present. Currently, we analyze request response time and page load time. Analysis of additional metrics is coming soon. 
+ * Not at present. Currently, we analyze request response time, dependency response time and page load time. Analysis of additional metrics is coming soon. 
 * *Can I create my own anomaly detection rules?*
  * Not yet. But you can:
  * [Set up alerts](app-insights-alerts.md) that tell you when a metric crosses a threshold.)
@@ -124,13 +124,13 @@ There's a web full of advice on improving your server responses and page load ti
  
     Currently they're sent to those who have [write access to the Application Insights resource](app-insights-resources-roles-access-control.md).
 
-    You can also edit the recipients list in the Proactive Detection blade.
+    You can also edit the recipients list Settings in the Proactive Detection blade.
 * *I don't want to be flooded with these messages.*
- * They are limited to one per day. You won't get repeats of any message.
+ * They are limited to one per day with the most relevant issue that we haven't reported about yet. You won't get repeats of any message.
 * *If I don't do anything, will I get a reminder?*
- * No, you get a message about each issue only once.
+ * No, you get a message about each issue only once. 
 * *I lost the email. Where can I find the notifications in the portal?*
- * In the Application Insights overview of your app, click the **Proactive Detection** tile. 
+ * In the Application Insights overview of your app, click the **Proactive Detection** tile. There you'll be able to find all notifications up to 7 days back.
 
 
 ## Related articles
@@ -140,3 +140,4 @@ There's a web full of advice on improving your server responses and page load ti
 * [Metric explorer](app-insights-metrics-explorer.md)
 * [Search explorer](app-insights-diagnostic-search.md)
  
+
