@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Prepare the physical machine"
 	description="Prepare the physical machine"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -18,9 +18,9 @@
 
 # Prepare the physical machine
 
-1.  On the Azure Stack POC machine, install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
+1.  Download the Azure Stack POC deployment package to a folder such as c:\\MAS.
 
-2.  Run the Microsoft Azure Stack POC.exe.
+2.  Run the **Microsoft Azure Stack POC.exe** file.
 
     This creates the \\Microsoft Azure Stack POC\\ folder containing the following items:
 
@@ -33,6 +33,31 @@
 	-   WindowsServer2012R2DatacenterEval.vhd
 
 	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD
+
+	**Important**: You must have at least 128GB of free space on the physical boot volume.
+
+3. Copy WindowsServer2016Datacenter.vhdx and call it MicrosoftAzureStackPOCBoot.vhdx.
+
+4. In Internet Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
+
+5. In a Command Prompt window, switch to the drive letter for the mounted drive, then switch to the Windows directory.
+
+6. Run the bcdboot command:
+
+    	.bcdboot <mounted drive letter>:\windows
+
+7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared.
+
+8. Verify that four drives for Azure Stack POC data:
+  - Are visible in disk management
+  - Are not in use
+  - Show as Online, RAW
+
+9. Verify that the host is not joined to a domain.
+
+10. Log in using a local account with administrator permissions.
+
+11. Verify network connectivity to Azure.com.
 
 ## Run the PowerShell script
 
