@@ -209,7 +209,7 @@ You can use any tool of your choice (for example: Azure Storage Explorer, CloudX
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Run the following command to upload the **partitionweblogs.hql** file to the **script** folder of the adfgetstarted container. Here is the command: 
+	1. Run the following command to upload the **partitionweblogs.hql** file to the **script** folder of the **adfgetstarted** container. Here is the command: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
