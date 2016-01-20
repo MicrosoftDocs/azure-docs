@@ -69,7 +69,7 @@ The following tables provides a summary of issues that were fixed in Updates 2.
 | No. | Feature | Issue | Applies to physical device | Applies to virtual device |
 |-----|---------|-------|--------------------------------|--------------------------------|
 | 1 | Network interfaces | After an upgrade to Update 1, the StorSimple Manager service reported that the Data2 and Data3 ports failed on one controller. This issue has been fixed. | Yes | No |
-| 2 | Updates | After an upgrade to Update 1, audible alarm alerts occurred in the Azure portal on multiple devices. This issue has been fixed. | Yes | No |
+| 2 | Updates | After an upgrade to Update 1, audible alarm alerts occurred in the Azure classic portal on multiple devices. This issue has been fixed. | Yes | No |
 | 3 | Openstack authentication | When using Openstack as your cloud service provider, you could receive an error that your cloud authentication string was too long. This has been fixed. | Yes | No |
 
 
