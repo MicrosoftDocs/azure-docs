@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/10/2015"
-   ms.author="lodipalm;barbkess;twounder;JRJ@BigBangData.co.uk;"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;mausher;jrj;sonyama;"/>
 
 
 # What is Azure SQL Data Warehouse?

@@ -32,7 +32,7 @@ The StorSimple virtual device is an additional capability that comes with your M
 The StorSimple virtual device is available in two models, a standard 8010 and a premium 8020 (introduced in Update 2). A comparison of the two models is tabulated below.
 
 
-| Device model          | 8010<sup>1, 2</sup>                                                                     | 8020<sup>3</sup>                                                                                                                               |
+| Device model          | 8010<sup>1</sup>                                                                     | 8020                                                                                                                               |
 |-----------------------|---------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | **Maximum capacity**      | 30 TB                                                                     | 64 TB                                                                                                                                |
 | **Azure VM**              | Standard_A3 (4 cores, 7 GB memory)                                                                      | Standard_DS3 (4 cores, 14 GB memory)                                                                                                                          |
@@ -41,7 +41,7 @@ The StorSimple virtual device is available in two models, a standard 8010 and a 
 | **Storage type**          | Uses Azure Standard Storage<br></br> Learn how to [create a Standard Storage account]() | Uses Azure Premium Storage<br></br>Learn how to [create a Premium Storage account](storage-premium-storage-preview-portal.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)                                                               |
 | **Workload guidance**     | Item level retrieval of files from backups                                              | Cloud dev and test scenarios, Low latency, higher performance workloads <br></br>Secondary device for disaster recovery                                                                                            |
  
-<sup>1</sup> *Formerly known as 1100*, <sup>2</sup> *A stands for Azure form factor*, <sup>3</sup> *AP stands for Azure Premium form factor.*
+<sup>1</sup> *Formerly known as 1100*.
 
 
 This article describes the step-by-step process of deploying a StorSimple virtual device in Azure. After reading this article, you will:

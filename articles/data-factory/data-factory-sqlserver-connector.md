@@ -482,6 +482,25 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 | storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No | 
 | sqlWriterTableType | User specified table type name to be used in the above stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. | A table type name. | No |
 
+## Troubleshooting connection issues
+
+1. Configure your SQL Server to accept remote connections. Launch **SQL Server Management Studio**, right-click **server**, and click **Properties**. Select **Connections** from the list and check **Allow remote connections to the server**.
+	
+	![Enable remote connections](.\media\data-factory-sqlserver-connector\AllowRemoteConnections.png) 
+
+	See [Configure the remote access Server Configuration Option](https://msdn.microsoft.com/library/ms191464.aspx) for detailed steps. 
+2. Launch **SQL Server Configuration Manager**. Expand **SQL Server Network Configuration** for the instance you want, and select **Protocols for MSSQLSERVER**. You should see protocols in the right-pane. Enable TCP/TP by right-clicking **TCP/IP** and clicking **Enable**.
+
+	![Enable TCP/IP](.\media\data-factory-sqlserver-connector\EnableTCPProptocol.png)
+
+	See [Enable or Disable a Server Network Protocol](https://msdn.microsoft.com/library/ms191294.aspx) for details and alternate ways of enabling TCP/IP protocol. 
+3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.
+4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port **(default is **1433**). 
+5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.  
+6. **Verify connection**: use SQL Server Management Studio from a different machine to connect to the SQL Server using fully qualified name. For example: <machine>.<domain>.corp.<company>.com,1433.
+
+	> [AZURE.IMPORTANT] See [Ports and Security Considerations](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) for detailed information.  
+
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 
 

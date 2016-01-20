@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Azure CLI with Resource Manager | Microsoft Azure"
 	description="Use the Azure CLI for Mac, Linux, and Windows to deploy multiple resources as a resource group."
@@ -32,7 +33,7 @@ This article describes how to create and manage Azure resources by using the Azu
 
 Use the Azure Resource Manager to create and manage a group of _resources_ (user-managed entities such as a virtual machine, database server, database, or website) as a single logical unit, or _resource group_.
 
-One advantage of the Azure Resoure Manager is that you can create your Azure resources in a _declarative_ way: you describe the structure and relationships of a deployable group of resources in JSON *templates*. The template identifies parameters that can be filled in either inline when running a command or stored in a separate JSON azuredeploy-parameters.json file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a website will have parameters for the site name, the region the website will be located in, and other common settings.
+One advantage of the Azure Resource Manager is that you can create your Azure resources in a _declarative_ way: you describe the structure and relationships of a deployable group of resources in JSON *templates*. The template identifies parameters that can be filled in either inline when running a command or stored in a separate JSON azuredeploy-parameters.json file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a website will have parameters for the site name, the region the website will be located in, and other common settings.
 
 When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group. For more information on the Azure Resource Manager, visit the [Azure Resource Manager Overview](../resource-group-overview.md).
 
@@ -68,7 +69,7 @@ A resource group is a logical grouping of network, storage, and other resources.
 
 	azure group create -n "testRG" -l "West US"
 
-You can start adding resources to this group after this, and use it to configure a resource such as a new virtual machine.
+You will deploy to this "testRG" resource group later when you use a template to launch an Ubuntu VM.  Once you have a resource group created you can add resources like virtual machines and networks or storage.
 
 
 ## Use resource group templates
@@ -79,48 +80,50 @@ When working with templates, you can either [create your own](resource-group-aut
 
 Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
 
-* A unique storage account name
-* An admin user name for the VM
-* A password
-* A domain name for the VM
+* An admin user name for the VM = `adminUsername`
+* A password = `adminPassword`
+* A domain name for the VM = `dnsLabelPrefix`
 
 >[AZURE.TIP] These steps show you just one way to use a VM template with the Azure CLI. For other examples, see [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-1. Download the files azuredeploy.json and azuredeploy.parameters.json from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) to a working folder on your local computer.
+1. Download the files azuredeploy.json and azuredeploy.parameters.json from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) to a working folder on your local computer.
 
 2. Open the azuredeploy.parameters.json file in a text editor and enter parameter values suitable for your environment (leaving the **ubuntuOSVersion** value unchanged).
 
-		{
-	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  	"contentVersion": "1.0.0.0",
-	  	"parameters": {
-		    "newStorageAccountName": {
-		      "value": "MyStorageAccount"
-		    },
-		    "adminUsername": {
-		      "value": "MyUserName"
-		    },
-		    "adminPassword": {
-		      "value": "MyPassword"
-		    },
-		    "dnsNameForPublicIP": {
-		      "value": "MyDomainName"
-		    },
-		    "ubuntuOSVersion": {
-		      "value": "14.04.2-LTS"
-		    }
-		  }
-		}
-	```
-3. After saving the azuredeploy.parameters.json file, use the following command to create a new resource group based on the template. The `-e` option specifies the azuredeploy.parameters.json file that you modified in the previous step. Replace the *testRG* with the group name you wish to use, and *testDeploy* with a deployment name of your choice. The location should be same as the one specified in your template parameter file.
 
-		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
+```
+			{
+			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+			  "contentVersion": "1.0.0.0",
+			  "parameters": {
+			    "adminUsername": {
+			      "value": "azureUser"
+			    },
+			    "adminPassword": {
+			      "value": "GEN-PASSWORD"
+			    },
+			    "dnsLabelPrefix": {
+			      "value": "GEN-UNIQUE"
+			    },
+			    "ubuntuOSVersion": {
+			      "value": "14.04.2-LTS"
+			    }
+			  }
+			}
+
+```
+
+3.  Now that the deployment parameters have been modified you will deploy the Ubuntu VM into the resource group that was created earlier.  Choose a name for the deployment and then use the following command to kick it off.
+
+		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+
+	This example creates a deployment named _testRGDeploy_ that is deployed into the resource group _testRG_. The `-e` option specifies the azuredeploy.parameters.json file that you modified in the previous step. The `-f` option specifies the azuredeploy.json template file.  
 
 	This command will return OK after the deployment is uploaded, but before the deployment is applied to resources in the group.
 
 4. To check the status of the deployment, use the following command.
 
-		azure group deployment show "testRG" "testDeploy"
+		azure group deployment show "testRG" "testRGDeploy"
 
 	The **ProvisioningState** shows the status of the deployment.
 

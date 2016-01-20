@@ -16,24 +16,26 @@
    ms.date="11/13/2015"
    ms.author="vturecek"/>
 
-# Reliable Actors design pattern: smart cache
+# Reliable Actors design pattern: Smart cache
 
-The combination of a web tier, caching tier, storage tier, and occasionally a worker tier are pretty much the standard parts of today’s applications. The caching tier is usually vital to performance and may, in fact, be comprised of multiple tiers itself.
-Many caches are simple key-value pairs while other systems like [Redis](http://redis.io) that are used as caches offer richer semantics. Still, any special, caching tier will be limited in semantics and more importantly it is yet another tier to manage.
-What if instead, objects just kept state in local variables and these objects can be snapshotted or persisted to a durable store automatically? Furthermore, rich collections such as lists, sorted sets, queues, and any other custom type for that matter are simply modelled as member variables and methods.
+The combination of a web tier, a caching tier, a storage tier, and (occasionally) a worker tier makes up the standard parts of many of today’s applications. The caching tier is usually vital to performance, and it may itself be comprised of multiple tiers.
+Many caches are simple key-value pairs. Other systems, such as [Redis](http://redis.io), are used as caches, but they also offer richer semantics. Any special caching tier will have limited semantics, though. More importantly, it is yet another tier to manage.
 
-![][1]
+Objects can instead keep state in local variables, and these objects can be snapshotted or persisted to a durable store automatically. Further, rich collections such as lists, sorted sets, queues, and other custom types can be modeled simply as member variables and methods.
 
-## The leaderboard sample
+![Actors and caching][1]
 
-Take leader boards as an example—a Leaderboard object needs to maintain a sorted list of players and their scores so that we can query it. For example for the "Top 100 Players" or to find a player’s position in the leader board relative to +- N players above and below him/her. A typical solution with traditional tools would require ‘GET’ing the Leaderboard object (collection which supports inserting a new tuple<Player, Points> named Score), sorting it, and finally ‘PUT’ing it back to the cache. We would probably LOCK (GETLOCK, PUTLOCK) the Leaderboard object for consistency.
-Let’s have an actor-based solution where state and behaviour are together. There are two options:
+## Explore the leaderboard example
 
-* Implement the Leaderboard Collection as part of the actor,
-* Or use the actor as an interface to the collection that we can keep in a member variable.
-First let’s have a look at what the a interface may look like:
+Let's look at leaderboards as an example. A leaderboard object needs to maintain a sorted list of players and their scores, so that the list can be queried. A query can find the top 100 players. It can also find a player’s position in the leaderboard relative to a specified number of players above and below him or her. A traditional solution would require getting the leaderboard object (a collection that supports inserting a new tuple `<Player, Points>` named **Score**) by using GET, sorting it, and finally putting it back to the cache by using PUT. You would probably lock (GETLOCK, PUTLOCK) the leaderboard object for consistency.
+Let’s look at an actor-based solution where state and behavior are together. There are two options:
 
-## Smart Cache code sample – Leaderboard interface
+* Implement the leaderboard collection as part of the actor.
+* Use the actor as an interface to the collection that we can keep in a member variable.
+
+The following code sample shows what the interface could look like.
+
+### Smart cache code sample: Leaderboard interface
 
 ```
 public interface ILeaderboard : IActor
@@ -50,9 +52,9 @@ public interface ILeaderboard : IActor
 
 ```
 
-Next, we implement this interface and use the latter option and encapsulate this collection's behaviour in the actor:
+Next, you can implement this interface by using the latter option and encapsulating the collection's behavior in the actor:
 
-## Smart Cache code sample – Leaderboard actor
+### Smart cache code sample: Leaderboard actor
 
 ```
 public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
@@ -79,9 +81,9 @@ public class Leaderboard : StatefulActor<LeaderboardCollection>, ILeaderboard
 
 ```
 
-The state member of the class provides the state of the actor, in the sample code above it also provides methods to read/write data.
+The state member of the class provides the state of the actor. In the sample code above, it also provides methods to read and write data.
 
-## Smart Cache code sample – LeaderboardCollection
+### Smart cache code sample: LeaderboardCollection
 
 ```
 [DataContract]
@@ -109,10 +111,9 @@ public class LeaderboardCollection
 
 ```
 
-No data shipping, no locks, just manipulating remote objects in a distributed runtime, servicing multiple clients as if they were single objects in a single application servicing only one client.  
-Here is the sample client:
+There are no locks or data shipping in this approach. It just manipulates remote objects in a distributed runtime, which services multiple clients as if they were single objects in a single application servicing only one client. The following code sample focuses on the sample client.
 
-## Smart Cache code sample – calling the Leaderboard actor
+### Smart cache code sample: Calling the leaderboard actor
 
 ```
 // Get reference to Leaderboard
@@ -136,13 +137,13 @@ Player = 1 Points = 500
 Player = 2 Points = 100
 ```
 
-## Scaling the architecture
-It may feel like the example above could create a bottleneck in the Leaderboard instance. What if, for instance, we are planning to support hundreds and thousands of players? One way to deal with that might be to introduce stateless aggregators that would act like a buffer—hold the partial scores (say subtotals) and then periodically send them to the Leaderboard actor, which can maintain the final Leaderboard. We will discuss this “aggregation” technique in more detail later.
-Also, we do not have to consider mutexes, semaphores, or other concurrency constructs traditionally required by correctly behaving concurrent programs.
-Below is another cache example that demonstrates the rich semantics one can implement with actors. This time we implement the logic of the Priority Queue (lower the number, higher the priority) as part of the Actor implementation.
-The interface for IJobQueue looks like below:
+## Scale the architecture
+It may seem that the example above could create a bottleneck in the leaderboard instance. For example, what if you plan to support thousands of players? One way to deal with that would be to introduce stateless aggregators that act as buffers. These aggregators would hold partial scores (subtotals), and then periodically send them to the leaderboard actor, which would maintain the final leaderboard. We will discuss this technique in more detail later. Also, we do not have to consider mutexes, semaphores, or other concurrency constructs that are traditionally required by concurrent programs that are behaving correctly.
 
-## Smart Cache code sample – Job Queue interface
+Below is another cache example that demonstrates the rich semantics you can implement with actors. This time, we implement the logic of a priority queue (the lower the number, the higher the priority) as part of the actor implementation.
+The following code sample provides a look at the interface for **IJobQueue**.
+
+### Smart cache code sample: Job queue interface
 
 ```
 public interface IJobQueue : IActor
@@ -154,9 +155,9 @@ public interface IJobQueue : IActor
 }
 ```
 
-We also need to define the Job item:
+We also need to define the **Job** item:
 
-## Smart Cache code sample – Job
+### Smart cache code sample: Job
 
 ```
 public class Job : IComparable<Job>
@@ -176,9 +177,9 @@ public class Job : IComparable<Job>
 }
 ```
 
-Finally, we implement the IJobQueue interface in the actor. Note that we omitted the implementation details of the priority queue here for clarity. A sample implementation can be found in the accompanying samples.
+Finally, we implement the IJobQueue interface in the actor. Note that we omitted the implementation details of the priority queue here for clarity. A look at implementation is provided in the accompanying samples.
 
-## Smart Cache code sample – Job Queue
+### Smart cache code sample: Job queue
 
 ```
 public class JobQueue : StatefulActor<List<Jobs>>, IJobQueue
@@ -241,19 +242,20 @@ Job = 6 Priority = 0.962653734238191
 Job = 1 Priority = 0.97444181375878
 ```
 
-## Actors provide flexibility
-In the samples above, Leaderboard and JobQueue, we used two different techniques:
+## Use actors to provide flexibility
+In the leaderboard and job queue samples above, we used two different techniques:
 
-* In the Leaderboard sample we encapsulated a Leaderboard object as a private member variable in the actor and merely provided an interface to this object – both to its state and functionality.
+* In the leaderboard sample, we encapsulated a leaderboard object as a private member variable in the actor. We then merely provided an interface to this object, to both its state and its functionality.
 
-* On the other hand, in the JobQueue sample we implemented the actor as a priority queue itself rather than referencing another object defined elsewhere.
+* In the job queue sample, we instead implemented the actor as a priority queue itself, rather than by referencing another object defined elsewhere.
 
-Actors provide flexibility for the developer to define rich object structures as part of the actors or reference object graphs outside of the actors.
-In caching terms actors can write-behind or write-through, or we can use different techniques at a member variable granularity. In other words, we have full control over what to persist and when to persist. We don’t have to persist transient state or state that we can build from saved state.
-And how about populating these actors caches then? There are number of ways to achieve this. Actors provide virtual methods called OnActivateAsync() and OnDeactivateAsync() to let us know when an instance of the actor is activated and deactivated. Note that the actor is activated on demand when a first request is sent to it.
-We can use OnActivateAsync() to populate state on-demand as in read-through, perhaps from an external stable store. Or we can populate state on a timer, say an Exchange Rate actor that provides the conversion function based on the latest currency rates. This actor can populate its state from an external service periodically, say every 5 seconds, and use the state for the conversion function. See the example below:
+Actors provide developer with the flexibility to define rich object structures as part of the actors or reference object graphs outside of the actors. In caching terms, actors can write behind or write through, or they can employ different techniques at the granularity of member variables. You have full control over what to persist and when to persist it. You don’t have to persist transient state or state that you can build from saved state.
 
-## Smart Cache code sample – Rate Converter
+How are the caches of these actors populated? There are number of ways to achieve this. Actors provide the virtual methods **OnActivateAsync()** and **OnDeactivateAsync()** to let you know when an instance of the actor is activated and deactivated. Note that the actor is activated on demand when a request is first sent to it.
+
+You can use OnActivateAsync() to populate state on demand, as in read-through, such as from an external stable store. You can also populate state on a timer, for example, by using an exchange rate actor that provides a conversion function based on the latest currency rates. Such an actor can populate its state from an external service periodically, (for example, every five seconds), and it can use the state for the conversion function. The following code sample shows how this can be done.
+
+### Smart cache code sample: Rate converter
 
 ```
 ...
@@ -282,31 +284,31 @@ public Task RefreshRates()
 
 ```
 
-Essentially Smart Cache provides:
+Essentially, the smart cache approach provides:
 
 * High throughput/low latency by service requests from memory.
-* Single-instance routing and single-threaded serialization of requests to an item with no contention on persistent store.
-* Semantic operations, for example, Enqueue(Job item).
-* Easy-to-implement write-through or write-behind.
-* Automatic eviction of LRU (Least Recently Used) items (resource management).
+* Single-instance routing and single-threaded serialization of requests to an item with no contention on a persistent store.
+* Semantic operations, for example, **Enqueue(Job item)**.
+* Easy-to-implement write-through and write-behind.
+* Automatic eviction of least recently used (LRU) items (resource management).
 * Automatic elasticity and reliability.
 
 
-## Next Steps
+## Next steps
 
-[Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
+[Pattern: Distributed networks and graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
+[Pattern: Resource governance](service-fabric-reliable-actors-pattern-resource-governance.md)
 
-[Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
+[Pattern: Stateful service composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
 [Pattern: Internet of Things](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Pattern: Distributed Computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
+[Pattern: Distributed computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md)
+[Some antipatterns](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
+[Introduction to Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->

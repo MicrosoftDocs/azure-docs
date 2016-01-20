@@ -150,9 +150,6 @@ To query a table for all of the entities in a partition, use a **TableQuery** ob
         }
     } while (token != null);
 
-    return View();
-
-
 ## Get a single entity
 You can write a query to get a single, specific entity. The following code uses a **TableOperation** object to specify a customer named 'Ben Smith'. This method returns just one entity, rather than a collection, and the returned value in **TableResult.Result** is a **CustomerEntity** object. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the **Table** service.
 

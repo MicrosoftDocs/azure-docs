@@ -16,7 +16,7 @@ ms.service="virtual-machines"
  ms.date="10/08/2015"
  ms.author="danlep"/>
 
-# Options to create and manage a high peformance computing (HPC) cluster in Azure with Microsoft HPC Pack
+# Options to create and manage a high performance computing (HPC) cluster in Azure with Microsoft HPC Pack
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 

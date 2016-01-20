@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/23/2015" 
+	ms.date="01/15/2016" 
 	ms.author="nitinme"/>
 
 
 # Use Zeppelin notebooks with Spark cluster on HDInsight (Linux)
 
-Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zeppelin notebooks. 
+Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zeppelin notebooks.
+
+> [AZURE.IMPORTANT] Zeppelin notebook for HDInsight Spark cluster is an offering just to showcase how to use Zeppelin in an Azure HDInsight Spark environment. If you want to use notebooks to work with HDInsight Spark, we recommend that you use Jupyter notebooks instead. Jupyter notebooks also provide different kernel options, such as Scala, and will continue to have feature improvements. For instructions on how to use Jupyter notebooks with HDInsight spark, see [Run Spark SQL queries using a Jupyter notebook](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter). 
 
 **Prerequisites:**
 
@@ -37,7 +39,17 @@ Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zep
 
 ## Install Zeppelin as part of cluster creation
 
->[AZURE.NOTE]  Skip this step if you created the Spark cluster using the portal. This step is only required if you are creating using HDInsight .NET SDK or Azure PowerShell.
+You can install Zeppelin on a Spark cluster using script action. Script action uses custom scripts to install components on the cluster that are not available by default. The custom script to install Zeppelin on a Spark cluster is available at **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+
+### Using the Azure Portal
+
+For instructions on how to use HDInsight .NET SDK to run script action to install Zeppelin, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-from-the-azure-portal). You must make a couple of changes to the instructions in that article.
+
+* You must use the script for installing Zeppelin. The script to use is **https://hdiconfigactions.blob.core.windows.net/linuxincubatorzeppelinv01/install-zeppelin-spark151-v01.sh**.
+
+* You must run the script action only on the headnode.
+
+* The script does not need any parameters. 
 
 ### Using HDInsight .NET SDK
 

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/23/2015" 
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#

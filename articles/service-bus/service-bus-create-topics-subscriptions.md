@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Create applications that use Service Bus topics and subscriptions
@@ -148,4 +148,4 @@ All of the reasons to use queuing described in [Create applications that use Ser
 
 ## Next steps
 
-See [Create applications that use Service Bus topics and subscriptions](service-bus-create-topics-subscriptions.md) to see how to use queues in the POS retail scenario.
+See [Create applications that use Service Bus queues](service-bus-create-queues.md) for information about how to use queues in the POS retail scenario.

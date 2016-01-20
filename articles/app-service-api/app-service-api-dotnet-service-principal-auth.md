@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/28/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Service principal authentication for API Apps in Azure App Service
