@@ -4,7 +4,7 @@
 	services="storage" 
 	documentationCenter="dotnet" 
 	authors="tamram" 
-	manager="adinah"/>
+	manager="carmonm"/>
 
 <tags 
 	ms.service="storage" 

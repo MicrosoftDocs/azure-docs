@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="01/05/2016"
 	ms.author="tdykstra"/>
 
 # Consume an API app from JavaScript using CORS
@@ -36,7 +36,9 @@ Azure App Service offers an easy way to configure the domains that are allowed t
 
 ## How to follow this tutorial
 
-This tutorial works with a sample application that you download and create an API app for in the [first tutorial of the ASP.NET version of this series](app-service-api-dotnet-get-started.md). If you want to work with Java or Node.js, see the [CORS configuration section](#corsconfig) below for general instructions that apply to all API apps.
+This tutorial works with a sample application that you download and create an API app for in the [first tutorial of the ASP.NET version of this series](app-service-api-dotnet-get-started.md). 
+
+If you're following the Java or Node.JS getting-started tutorials, go directly to the [CORS configuration section](#corsconfig) for general instructions that apply to all API apps.
 
 ## The ContactsList.Angular sample project
 
@@ -75,6 +77,8 @@ The code calls $scope.refresh() method when the page loads (at the end of of the
 ## Run the AngularJS project locally
 
 In this section you verify that you can run the client locally and can call the API while it too is running locally.
+
+**Note:** These instructions work for Internet Explorer and Edge browsers because these browsers allow cross-origin JavaScript calls from and to `http://localhost` URLs. If you're using Chrome, start the browser with the `--disable-web-security` switch. If you're using Firefox, skip this section.
 
 1. Set the ContactsList.API and ContactsList.Angular projects as startup projects, with ContactsList.API starting before ContactsList.Angular. 
 
@@ -163,14 +167,19 @@ Set the `cors` property on the Microsoft.Web/sites/config resource type for your
 		    ]
 		}
 
-### App Service CORS versus Web API CORS
+## CORS support in Web API code
 
-For ASP.NET Web API projects, it's also easy to configure CORS in code, as you'll see in the following section. However, if you use both App Service CORS and Web API CORS together, App Service CORS will take precedence and Web API CORS will have no effect. For example, if you enable one origin domain in App Service, and enable all origin domains in your Web API code, your Azure API app will only accept calls from the domain you specified in Azure.
+In a Web API project you can install the [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet package that enables you to specify in code which domains your API will accept JavaScript calls from.
+ 
+Web API CORS support is more flexible than App Service CORS support. For example, in code you can specify different accepted origins for different action methods, while for App Service CORS you specify one set of accepted origins for all of an API app's methods.
 
+### App Service CORS takes precedence over Web API CORS
 
-## How to configure CORS in Web API Code
+Don't try to use both Web API CORS and App Service CORS in one API app. App Service CORS will take precedence and Web API CORS will have no effect. For example, if you enable one origin domain in App Service, and enable all origin domains in your Web API code, your Azure API app will only accept calls from the domain you specified in Azure.
 
-In a Web API project you can install the [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/) NuGet package that enables you to specify in code which domains your API will accept JavaScript calls from. This process is documented in [Enabling Cross-Origin Requests in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api) in depth. For API apps built using ASP.NET Web API the process is exactly the same but is summarized here.
+### How to enable CORS in Web API code
+
+The following steps summarize the process for enabling Web API CORS support. For more information, see [Enabling Cross-Origin Requests in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api).
 
 1. In a Web API project, include a `config.EnableCors()` line of code in the **Register** method of the **WebApiConfig**, as in the following example. 
 
@@ -207,3 +216,4 @@ In a Web API project you can install the [Microsoft.AspNet.WebApi.Cors](https://
 ## Next steps 
 
 In this tutorial you saw how to enable App Service CORS support so that client JavaScript code can call to an API in a different domain. In the next article in the API Apps getting started series, you'll learn about [authentication for App Service API apps](app-service-api-authentication.md).
+
