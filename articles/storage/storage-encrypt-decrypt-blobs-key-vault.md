@@ -202,7 +202,8 @@ The way to use a secret with client-side encryption is via the SymmetricKey clas
 - The key in a SymmetricKey should be Base64 encoded.
 - A Key Vault secret that will be used as a SymmetricKey needs to have a Content Type of "application/octet-stream" in Key Vault.
 
-Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.
+Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey. 
+NOTE: The hard coded value, $key, is for demonstration purpose only. In your own code you'll want to generate this key.
 
 	// Here we are making a 128-bit key so we have 16 characters.
 	// 	The characters are in the ASCII range of UTF8 so they are

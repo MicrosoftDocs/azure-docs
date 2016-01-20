@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/17/2015"
+   ms.date="01/13/2016"
    ms.author="masnider;jesseb"/>
 
 # Reliable Services overview
@@ -56,20 +56,30 @@ Whether your service is stateful or stateless, Reliable Services provide a simpl
 
 - **RunAsync** - This is where your service runs its business logic. The cancellation token that is provided is a signal for when that work should stop. For example, if you have a service that needs to constantly pull messages out of a Reliable Queue and process them, this is where that work would happen.
 
+### Service startup
+
 The major events in the lifecycle of a Reliable Service are:
 
 1. The service object (the thing that derives from the stateless service or stateful service) is constructed.
 
-2. The CreateServiceReplicaListeners/CreateServiceInstanceListeners method is called, giving the service a chance to return one or more communication listeners of its choice.
+2. The `CreateServiceReplicaListeners`/`CreateServiceInstanceListeners` method is called, giving the service a chance to return one or more communication listeners of its choice.
   - Note that this is optional, although most services will expose some endpoint directly.
 
 3. Once the communication listeners are created, it is opened.
-  - Communication listeners have a method called OpenAsync(), which is called at this point and which returns the listening address for the service. If your Reliable Service uses one of the built-in ICommunicationListeners, this is handled for you.
+  - Communication listeners have a method called `OpenAsync()`, which is called at this point and which returns the listening address for the service. If your Reliable Service uses one of the built-in ICommunicationListeners, this is handled for you.
 
-4. Once the communication listener is open, the RunAsync() method on the main service is called.
-  - Note that RunAsync is optional. If the service does all its work directly in response to user calls only, there is no need for it to implement RunAsync().
+4. Once the communication listener is open, the `RunAsync()` method on the main service is called.
+  - Note that `RunAsync()` is optional. If the service does all its work directly in response to user calls only, there is no need for it to implement `RunAsync()`.
 
-When the service is being shut down (when it's deleted, upgraded, or just being moved from a particular location) the call order is the same: First, CloseAsync() is called on the communication listeners, then the cancellation token that was passed to RunAsync() is canceled.
+### Service shutdown
+
+When the service is being shut down (to be deleted, upgraded, or moved) the call order is mirrored: First, the cancellation token held by `RunAsync()` is canceled; then `CloseAsync()` is called on the communication listeners.
+
+There are a few important things to note about shutdown for stateful services:
+
+- Service Fabric will not promote another replica of your service to Primary status until `CloseAsync` and `RunAsync` have returned. If you are using a built-in communication listener, the `CloseAsync` method is handled for you.
+
+- While there is no time limit on returning from these methods, you immediately lose the ability to write to Reliable Collections and therefore cannot complete any real work. It is recommended that you return as quickly as possible upon receiving the cancellation request.
 
 ## Example services
 Knowing this programming model, let's take a quick look at two different services to see how these pieces fit together.

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="10/08/2015"
+   ms.date="01/12/2016"
    ms.author="cawaMS" />
 
 # Configure the upgrade of a Service Fabric application in Visual Studio

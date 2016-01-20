@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/07/2015"
+   ms.date="01/12/2016"
    ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit using Azure Resource Manager and PowerShell
@@ -217,6 +217,9 @@ This article walks you through the steps to create an ExpressRoute circuit using
 6. **Create your routing configuration.**
 	
 	Refer to [Create and modify routing for an ExpressRoute circuit](expressroute-howto-routing-arm.md) for step-by-step instructions. 
+
+>[AZURE.IMPORTANT] These instructions only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
+
 
 7. **Link a VNet to an ExpressRoute circuit.** 
 

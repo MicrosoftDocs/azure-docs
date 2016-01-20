@@ -70,7 +70,6 @@ Make sure that your IP address and AS number are registered to you in one of the
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Dynamic route exchange

@@ -14,14 +14,14 @@
       ms.tgt_pltfrm="na"
       ms.workload="na"
       ms.date="12/06/2015"
-      ms.author="v-jeana; hascipio"/>
+      ms.author="v-jeana; hascipio; v-dabosl"/>
 
 # How to troubleshoot common Azure Marketplace publisher issues
 This article explains how to resolve or get support for some common Marketplace scenarios.
 
 ## Credits and refunds
 
-In some circumstances, you may need to request a credit or a refund on behalf of a customer. Microsoft Support can help ensure that your customer’s credit and refund requests are considered and that a response is provided to you in due course.
+In some circumstances, you may need to request a credit or a refund on behalf of a customer.  Microsoft Support can help ensure that your customer’s credit and refund requests are considered and that a response is provided to you in due course.
 
 The following shows you how to request a credit or refund on behalf of a customer.
 
@@ -63,9 +63,9 @@ In some circumstances, you may need to validate the subscription details for one
 
 ## How do I update my publisher profile?
 
-If you want to update your publisher profile, this can be done via the Microsoft Developer Center:
+If you want to update your publisher profile, this can be done via the Microsoft Dev Center:
 
-**1. Sign in to the Microsoft Developer Center**.
+**1. Sign in to the Windows Dev Center**.
 
 - Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to a personal account.
 - Go to [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure)
@@ -82,7 +82,7 @@ If you want to update your publisher profile, this can be done via the Microsoft
 
 ![protectacct][6]
 
-**4. Navigate to Account Details and Company Details**.
+**4. Navigate to Account Details and Contact info**.
 
 ![acctdetails][7]
 
