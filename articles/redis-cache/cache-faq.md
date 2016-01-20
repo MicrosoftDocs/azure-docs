@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="01/20/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
