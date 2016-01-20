@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="1/19/2016"
 	ms.author="danlep"/>
 
 # Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager
@@ -78,7 +78,7 @@ You will deploy to this "testRG" resource group later when you use a template to
 
 When working with templates, you can either [create your own](resource-group-authoring-templates.md), or use one of the templates from the [Template Gallery](https://azure.microsoft.com/documentation/templates/), which are also available on [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
+Creating a new template is beyond the scope of this article, so to start with let's use the _101-simple-vm-from-image_ template available from [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux). By default, this creates a single Ubuntu 14.04.2-LTS virtual machine in a new virtual network with a single subnet in the West US region. You only need to specify the following few parameters to use this template:
 
 * An admin user name for the VM = `adminUsername`
 * A password = `adminPassword`
@@ -113,7 +113,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 
 ```
 
-3.  Now that the deployment parameters have been modified you will deploy the Ubuntu VM into the resource group that was created earlier.  Choose a name for the deployment and then use the following command to kick it off.
+3.  Now that the deployment parameters have been modified, you will deploy the Ubuntu VM into the resource group that was created earlier. Choose a name for the deployment and then use the following command to kick it off.
 
 		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
 
@@ -163,7 +163,7 @@ Creating a new template is beyond the scope of this article, so to start with le
 
 You can also use a template directly from [GitHub](https://github.com/Azure/azure-quickstart-templates), instead of downloading one to your computer. To do this, pass the URL to the azuredeploy.json file for the template in your command by using the **--template-url** option. To get the URL, open azuredeploy.json on GitHub in _raw_ mode, and copy the URL that appears in the browser's address bar. You can then use this URL directly to create a deployment by using a command similar to the following.
 
-	azure group deployment create "testDeploy" -g "testResourceGroup" --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
+	azure group deployment create "testDeploy" testResourceGroup --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json
 You are prompted to enter the necessary template parameters.
 
 > [AZURE.NOTE] It is important to open the JSON template in _raw_ mode. The URL that appears in the browser's address bar is different from the one that appears in regular mode. To open the file in _raw_ mode when viewing the file on GitHub, in the upper-right corner click **Raw**.

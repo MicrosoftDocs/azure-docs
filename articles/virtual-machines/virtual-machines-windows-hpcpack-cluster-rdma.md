@@ -170,7 +170,7 @@ MPI job (in this case, **mpipingpong**) by using the cluster **mpiexec**
 command.
 
 This example assumes you added Azure nodes in a “burst to Azure”
-configuration ([Scenario 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-(PaaS)) in this articles). If you deployed HPC Pack on a cluster of Azure VMs,
+configuration ([Scenario 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-(PaaS) in this article). If you deployed HPC Pack on a cluster of Azure VMs,
 you’ll need to modify the command syntax to specify a different node
 group and set additional environment variables to direct network traffic
 to the RDMA network.
@@ -179,7 +179,7 @@ to the RDMA network.
 To run mpipingpong on the cluster:
 
 
-1. On the head node or on a properly configured client computer, open a Command windows.
+1. On the head node or on a properly configured client computer, open a Command Prompt.
 
 2. To estimate latency between pairs of nodes in an Azure burst deployment of 4 nodes, type the following command to submit a job to run mpipingpong with a small packet size and a large number of iterations:
 
