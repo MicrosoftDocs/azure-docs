@@ -204,7 +204,9 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 
 2.  Unzip the file and make a note of the unzipped location on your local drive.
 
-![video icon](./media/storsimple-ova-deploy1-portal-prep/video_icon.png) Watch the video for step-by-step instructions to get started with the StorSimple Virtual Array.
+![video icon](./media/storsimple-ova-deploy1-portal-prep/video_icon.png) **Video available**
+
+Watch the video for step-by-step instructions to get started with the StorSimple Virtual Array.
 
 > [AZURE.VIDEO get-started-with-the-storsimple-virtual-array]
 

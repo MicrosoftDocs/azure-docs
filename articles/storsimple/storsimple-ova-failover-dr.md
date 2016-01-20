@@ -144,9 +144,11 @@ Perform the following steps to restore the device to a target StorSimple virtual
  	
 	![](./media/storsimple-ova-failover-dr/image25.png)
 
-![](./media/storsimple-ova-failover-dr/image26.png)**Video available**
+![](./media/storsimple-ova-failover-dr/video_icon.png) **Video available**
 
-To watch a video that demonstrates how you can failover a StorSimple on-premises virtual device to another virtual device, click [here](https://www.youtube.com/watch?v=qVaGzFvbHos&index=5&list=PL8nfc9haGeb7-v140n-LWqJaW6DvLIYUo).
+This video demonstrates how you can fail over a StorSimple on-premises virtual device to another virtual device.
+
+> [AZURE.VIDEO storsimple-virtual-array-disaster-recovery]
 
 ## Business continuity disaster recovery (BCDR)
 
@@ -167,10 +169,6 @@ If the available target devices do not have sufficient space, you will see an er
 **Precheck failures**
 
 If one of the prechecks is not satisfied, then you will see precheck failures.
-
-![video icon](./media/storsimple-ova-failover-dr/video_icon.png) Watch the video for step-by-step instructions for failover and disaster recovery of a StorSimple Virtual Array.
-
-> [AZURE.VIDEO storsimple-virtual-array-disaster-recovery]
 
 ## Next steps
 
