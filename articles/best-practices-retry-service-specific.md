@@ -517,8 +517,6 @@ Retry policies are set programmatically, and can be set as a default policy for 
 
 	namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                                             maxBackoff: TimeSpan.FromSeconds(30),
-	                                                             deltaBackoff: TimeSpan.FromSeconds(2),
-	                                                             terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                                             maxRetryCount: 3);
 
 Note that this code uses named parameters for clarity. Alternatively you can omit the names because none of the parameters is optional.
@@ -530,8 +528,6 @@ To set the default retry policy for all clients created from a messaging factory
 
 	messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                                    maxBackoff: TimeSpan.FromSeconds(30),
-	                                                    deltaBackoff: TimeSpan.FromSeconds(2),
-	                                                    terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                                    maxRetryCount: 3);
 
 To set the retry policy for a messaging client, or to override its default policy, you set its **RetryPolicy** property using an instance of the required policy class:
@@ -539,8 +535,6 @@ To set the retry policy for a messaging client, or to override its default polic
 ```csharp
 client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 	                                        maxBackoff: TimeSpan.FromSeconds(30),
-	                                        deltaBackoff: TimeSpan.FromSeconds(2),
-	                                        terminationTimeBuffer: TimeSpan.FromSeconds(5),
 	                                        maxRetryCount: 3);
 ```
 
@@ -620,8 +614,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(0),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(1.75),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(4),
 		                maxRetryCount: 3);
 
 		        // Policies cannot be specified on a per-operation basis.
@@ -645,8 +637,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(1),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(2),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(5),
 		                maxRetryCount: 3);
 
 
@@ -665,8 +655,6 @@ namespace RetryCodeSamples
 		            new RetryExponential(
 		                minBackoff: TimeSpan.FromSeconds(0.1),
 		                maxBackoff: TimeSpan.FromSeconds(30),
-		                deltaBackoff: TimeSpan.FromSeconds(2),
-		                terminationTimeBuffer: TimeSpan.FromSeconds(5),
 		                maxRetryCount: 3);
 
 
