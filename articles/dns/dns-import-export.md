@@ -91,7 +91,7 @@ To import the zone **contoso.com** from the file **contoso.com.txt** into a new 
 
 This command will load the zone file and parse it. The command will execute a series of commands on the Azure DNS service to create the zone and all of the record sets in the zone.
 
-It will report progress in the console window, along with any errors or warnings.  Because record sets are created in series, it may take a few minutes to import a large zone file.
+The command will also report progress in the console window, along with any errors or warnings.  Because record sets are created in series, it may take a few minutes to import a large zone file.
 
 ## Verify the DNS zone after you import the file
 
@@ -101,7 +101,7 @@ You can list the records by using the following Azure CLI command.
 
 You can also do this via PowerShell by using `Get-AzureRmDnsRecordSet`.
 
-You can also use `nlookup` to verify name resolution for the records. Because the zone isn’t delegated yet, you will need to specify the correct Azure DNS name servers explicitly. The sample below shows how to retrieve the name server names assigned to the zone. IT also shows how to query the "www" record by using `nslookup`.
+You can also use `nslookup` to verify name resolution for the records. Because the zone isn’t delegated yet, you will need to specify the correct Azure DNS name servers explicitly. The sample below shows how to retrieve the name server names assigned to the zone. IT also shows how to query the "www" record by using `nslookup`.
 
 	C:\>azure network dns record-set show myresourcegroup contoso.com @ NS
 	info:    Executing command network dns record-set show
