@@ -3,9 +3,9 @@
 	description="A technical guide to the Solution Template with Microsoft Cortana Analytics for demand forecast in energy."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
-	editor="cgronlun"/>
+	authors="yijichen"
+	manager="ireiter"
+	editor="yijichen"/>
 
 <tags
 	ms.service="cortana-analytics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="11/24/2015"
-	ms.author="garye" />
+	ms.author="yijichen" />
 
 # Technical guide to the Cortana Analytics Solution Template for demand forecast in energy and other businesses
 
