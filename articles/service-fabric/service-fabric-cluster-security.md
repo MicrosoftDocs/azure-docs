@@ -63,7 +63,7 @@ This is an involved process, so we have a PowerShell module uploaded to a Git re
 
 **Step 2.1**: Copy this folder to your machine from this [Git repository](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
-**Step 2.2**: Make sure  Azure PS 1.0+ installed on your machine. If you have not done this before, I strongly suggest you follow steps outlined in [How to install and Configure Azure PowerShell.](https://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/)
+**Step 2.2**: Make sure  Azure PS 1.0+ installed on your machine. If you have not done this before, I strongly suggest you follow steps outlined in [How to install and Configure Azure PowerShell.](../powershell-install-configure.md)
 
 **Step 2.3**: Once you have done that, Open a Powershell window and import the ServiceFabricRPHelpers.psm (this is the module that you downloaded in Step 2.1
 
