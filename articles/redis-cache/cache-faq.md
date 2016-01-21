@@ -178,7 +178,7 @@ How to configure this setting:
 <a name="server-gc"></a>
 ## Enable server GC to get more throughput on the client when using StackExchange.Redis
 
-Enabling server GC can optimize the client and provide better performance and throughput. For more information on server GC and how to enable it, see the following articles.
+Enabling server GC can optimize the client and provide better performance and throughput when using StackExchange.Redis. For more information on server GC and how to enable it, see the following articles.
 
 -	[To enable server GC](https://msdn.microsoft.com/library/ms229357.aspx)
 -	[Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
