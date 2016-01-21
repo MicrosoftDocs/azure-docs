@@ -48,11 +48,11 @@ See [Get started with Reliable Actors](service-fabric-reliable-actors-get-starte
 
 3. The *operator* then provisions the application type in the target cluster from the uploaded application package using the [**ProvisionApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync.aspx), the  [**Register-ServiceFabricApplicationType** cmdlet](https://msdn.microsoft.com/library/azure/mt125958.aspx), or the [**Provision an Application** REST operation](https://msdn.microsoft.com/library/azure/dn707672.aspx).
 
-3. After provisioning the application, an *operator* starts the application with the parameters supplied by the *application administrator* using the [**CreateApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx), the [**New-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125913.aspx), or the [**Create Application** REST operation](https://msdn.microsoft.com/library/azure/dn707692.aspx).
+4. After provisioning the application, an *operator* starts the application with the parameters supplied by the *application administrator* using the [**CreateApplicationAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.applicationmanagementclient.createapplicationasync.aspx), the [**New-ServiceFabricApplication** cmdlet](https://msdn.microsoft.com/library/azure/mt125913.aspx), or the [**Create Application** REST operation](https://msdn.microsoft.com/library/azure/dn707676.aspx).
 
-4. After the application has been deployed, an *operator* uses the [**CreateServiceAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx), the [**New-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt125874.aspx), or the [**Create Service** REST operation](https://msdn.microsoft.com/library/azure/dn707657.aspx) to create new service instances for the application based on available service types.
+5. After the application has been deployed, an *operator* uses the [**CreateServiceAsync** method](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.createserviceasync.aspx), the [**New-ServiceFabricService** cmdlet](https://msdn.microsoft.com/library/azure/mt125874.aspx), or the [**Create Service** REST operation](https://msdn.microsoft.com/library/azure/dn707657.aspx) to create new service instances for the application based on available service types.
 
-5. The application is now running in the Service Fabric cluster.
+6. The application is now running in the Service Fabric cluster.
 
 See [Deploy an application](service-fabric-deploy-remove-applications.md) for examples.
 
