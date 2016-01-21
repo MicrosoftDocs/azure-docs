@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/02/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Setting Up Named Authentication Credentials

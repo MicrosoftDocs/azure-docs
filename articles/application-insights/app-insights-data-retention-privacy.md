@@ -12,69 +12,85 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/17/2015" 
 	ms.author="awills"/>
 
 # Data collection, retention and storage in Application Insights 
 
 *Application Insights is in preview.*
 
-## Overview
-
-This article answers questions about the data collected by  [Visual Studio Application Insights][start] and how it is processed and stored.
-
-Application Insights is an Azure Service in Preview. While in Preview we are working towards protecting your data per the policies described in the [Azure Security, Privacy, and Compliance white paper](http://go.microsoft.com/fwlink/?linkid=392408).
+When you install [Visual Studio Application Insights][start] SDK in your app, it sends telemetry about your app to the Cloud. Naturally, responsible developers want to know exactly what data is sent, what happens to the data, and how they can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it? 
 
 
-## Collection
+First, the short answer:
 
-#### How is data collected by Application Insights?
+* The standard telemetry modules that run "out of the box" are unlikely to send sensitive data to the service. The telemetry is concerned with load, performance and usage metrics, exception reports, and other diagnostic data. The main user data visible in the diagnostic reports are URLs; but your app shouldn't in any case put sensitive data in plain text in a URL.
+* You can write code that sends additional custom telemetry to help you with diagnostics and monitoring usage. (This extensibility is a great feature of Application Insights.) It would be possible, by mistake, to write this code so that it includes personal and other sensitive data. If your application works with such data, you should apply strong review processes to all the code you write.
+* While developing and testing your app, it's easy to inspect what's being sent by the SDK. The data appears in the debugging output windows of the IDE and browser. 
+* The data is held in [Microsoft Azure](http://azure.com) servers in the USA. Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit, though not in the servers.
 
-Application Insights SDKs and agents that you combine with your application send data to the Application Insights service.  The data is processed by the service to provide you with reports, alerts and other functionality.  This can include data that you choose to capture by using the API, for example in properties and custom events.
-
-#### How much data can be captured? 
-
-**Per second**: Up to 500 data points per second per instrumentation key (that is, per application). For the free [pricing tier][pricing], the limit is 100 dp/s.
-
-There are three buckets which are counted separately:
-
-* [TrackTrace calls](app-insights-api-custom-events-metrics.md#track-trace) and [captured logs](app-insights-asp-net-trace-logs.md)
-* [Exceptions](app-insights-api-custom-events-metrics.md#track-exception), subject to a lower limit of 50/s.
-* All other telemetry (page views, requests, dependencies, metrics, custom events and web test results).
-
-**Monthly**: Between 5 and 15 million data points in each calendar month, depending on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/). Except for the free [pricing tier][pricing], you can buy additional capacity if you hit the limit.
+The rest of this article elaborates more fully on these answers. It's designed to be self-contained, so that you can show it to colleagues who aren't part of your immediate team.
 
 
-A *data point* is an item of telemetry sent to the Azure portal about your app. It can be sent by:
+## What is Application Insights?
 
-* [SDK modules](app-insights-configuration-with-applicationinsights-config.md) that automatically collect data, for example to report a request or crash, or to measure performance.
-* [API](app-insights-api-custom-events-metrics.md) `Track...` calls that you have written, such as `TrackEvent` or `trackPageView`.
-* [Availability web tests](app-insights-monitor-web-app-availability.md) that you have set up.
+[Visual Studio Application Insights][start] is a service provided by Microsoft that helps you improve the performance and usability of your live application. It monitors your application all the time it's running, both during testing and after you've published or deployed it. Application Insights creates charts and tables that show you, for example, what times of day you get most users, how responsive the app is, and how well it is served by any external services that it depends on. If there are crashes, failures or performance issues, you can search through the telemetry data in detail to diagnose the cause. And the service will send you emails if there are any changes in the availability and performance of your app.
 
-Telemetry data include:
+In order to get this functionality, you install an Application Insights SDK in your application, which becomes part of its code. When your app is running, the SDK monitors its operation and sends telemetry to the Application Insights service. This is a cloud service hosted by [Microsoft Azure](http://azure.com). (But Application Insights works for any applications, not just those that are hosted in Azure.)
 
-* Each row in [diagnostic search](app-insights-diagnostic-search.md)
-* The raw data from which charts in [metric explorer](app-insights-metrics-explorer.md) are aggregated. Metric data such as performance counter data don't usually appear as individual points in metric explorer.
-* Each web test result in an [availability](app-insights-monitor-web-app-availability.md) report.
+![The SDK in your app sends telemetry to the Application Insights service.](./media/app-insights-data-retention-privacy/01-scheme.png)
 
-User and session counts aren't included in the quota for pricing purposes.
+The Application Insights service stores and analyzes the telemetry. To see the analysis or search through the stored telemetry, you sign in to your Azure account and open the Application Insights resource for your application. You can also share access to the data with other members of your team, or with specified Azure subscribers.
 
-*What happens if my app exceeds the per-second rate?*
+You can have data exported from the Application Insights service, for example to a database or to external tools. You provide each tool with a special key that you obtain from the service. The key can be revoked if necessary. 
 
-* The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. Some versions of the SDK then try to resend, spreading a surge out over several minutes; others such as the JavaScript SDK just drop the refused data.
+Application Insights SDKs are available for a range of application types: web services hosted in your own J2EE or ASP.NET servers, or in Azure; web clients - that is, the code running in a web page; desktop apps and services; device apps such as Windows Phone, iOS, and Android. They all send telemetry to the same service.
 
-*How do I know how many data points my app is sending?*
+## What data does it collect?
 
-* Open Settings/Quota and Pricing to see the Data Volume chart.
-* Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
+### How is the data is collected?
 
-*How can I reduce the amount of data my app sends?*
+There are three sources of data:
 
-* Use [Sampling](app-insights-sampling.md). This technology reduces data rate without skewing your metrics, and without disrupting the ability to navigate between related items in Search. From ASP.NET SDK 2.0.0-beta3, adaptive sampling is enabled by default.
-* [Switch off telemetry collectors](app-insights-configuration-with-applicationinsights-config.md) that you don't need.
+* The SDK, which you integrate with your app either [in development](app-insights-asp-net.md) or [at run time](app-insights-monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](app-insights-javascript.md), which loads into the end-user's browser along with the page.
+
+ * Each SDK has a number of [modules](app-insights-configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
+ * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
+* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [J2EE servers](app-insights-java-agent.md) can have such agents.
+* [Availability tests](app-insights-monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
+
+### What kinds of data are collected?
+
+The main categories are:
+
+* [Web server telemetry](app-insights-asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. Session id.
+* [Web pages](articles/app-insights-javascript.md) - Page, user and session counts. Page load times. Exceptions.
+* Performance counters - Memory, CPU, IO, Network occupancy.
+* Client and server context - OS, locale, device type, browser, screen resolution.
+* [Exceptions](app-insights-asp-net-exceptions.md) and crashes - **stack dumps**, build id, CPU type. 
+* [Dependencies](app-insights-asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
+* [Availability tests](app-insights-monitor-web-app-availability.md) - duration of test and steps, responses.
+* [Trace logs](app-insights-search-diagnostic-logs.md) and [custom telemetry](app-insights-api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
+
+[More detail](#data-sent-by-application-insights).
+
+## How can I verify what's being collected?
+
+If you're developing the app using Visual Studio, run the app in debug mode (F5). The telemetry appears in the Output window. From there, you can copy it and format it as JSON for easy inspection. 
+
+![](./media/app-insights-data-retention-privacy/06-vs.png)
+
+For web pages, open your browser's debugging window.
+
+![Press F12 and open the Network tab.](./media/app-insights-data-retention-privacy/08-browser.png)
+
+### Can I write code to filter the telemetry before it is sent?
+
+This would be possible by writing a [telemetry processor plugin](app-insights-api-filtering-sampling.md).
 
 
-#### How long is the data kept? 
+
+## How long is the data kept? 
 
 It depends on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/).
 
@@ -82,16 +98,8 @@ Raw data points (that is, items that you can inspect in Diagnostic Search): betw
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 30 days, and 1 hour or 1 day (depending on type) for at least 13 months.
 
-#### What limits are there on different types of data?
 
-1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  [Metrics and property names][api] are global per instrumentation key not scoped to data type.
-2.	[Properties][apiproperties] can be used for filtering and group by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
-3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values". The original value can still be used for full text search and filtering.
-
-
-## Access
-
-#### Who can see the data?
+## Who can access the data?
 
 The data is visible to you and, if you have an organization account, your team members. 
 
@@ -102,9 +110,7 @@ It can be exported by you and your team members and could be copied to other loc
 Microsoft uses the data only in order to provide the service to you.
 
 
-## Location
-
-#### Where is the data held? 
+## Where is the data held? 
 
 * In the USA. 
 
@@ -112,9 +118,10 @@ Microsoft uses the data only in order to provide the service to you.
 
 * Not yet. 
 
-## Security 
+## How secure is my data?  
 
-#### How secure is my data? 
+Application Insights is an Azure Service in Preview. While in Preview we are working towards protecting your data per the policies described in the [Azure Security, Privacy, and Compliance white paper](http://go.microsoft.com/fwlink/?linkid=392408).
+
 
 The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](http://go.microsoft.com/fwlink/?linkid=392408). For accounts in the Visual Studio Team Services Portal, the [Visual Studio Team Services Data Protection](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) document applies. 
 
@@ -128,9 +135,7 @@ They could send additional telemetry to your account by using the instrumentatio
 
 If you share code with other projects, remember to remove your instrumentation key.
 
-## Encryption
-
-#### Is the data encrypted in Application Insights servers? 
+## Is the data encrypted? 
 
 Not inside the servers at present.
 
@@ -138,13 +143,13 @@ All data is encrypted as it moves between data centers.
 
 #### Is the data encrypted in transit from my application to Application Insights servers?
 
-Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages.
+Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages. 
 
 ## Personally Identifiable Information
 
 #### Could Personally Identifiable Information (PII) be sent to Application Insights? 
 
-Yes. 
+Yes, it's possible. 
 
 As general guidance:
 

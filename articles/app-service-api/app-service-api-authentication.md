@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/04/2015"
+	ms.date="01/07/2016"
 	ms.author="tdykstra"/>
 
 # Authentication and authorization for API Apps in Azure App Service
@@ -22,26 +22,40 @@
 
 ## Overview 
 
-This article describes the options for handling authentication and authorization for API Apps in Azure App Service. 
+Azure App Service offers built-in authentication and authorization services that implement [OAuth 2.0](#oauth) and [OpenID Connect](#oauth). This article describes the services and options that are available for API Apps in Azure App Service.
 
 The following diagram illustrates some key characteristics of App Service authentication:
 
-* It preprocesses incoming API requests, giving you several options for how much authentication work you want to do in your own code. 
-* It supports five authentication providers:  Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
-* It works for both end user and service principal authentication. 
+* It preprocesses incoming API requests, which means it works with any language or framework supported by App Service.
+* It gives you several options for how much authentication work you want to do in your own code.
+* It works for both end user and service account authentication. 
+* It supports five identity providers: Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
 * It works the same for API Apps, Web Apps, and Mobile Apps.
 
 ![](./media/app-service-api-authentication/api-apps-overview.png)
 
-## Preprocessing incoming requests
+## Language agnostic
 
-App Service can prevent anonymous HTTP requests from reaching your API app, or authenticate those that have tokens before they reach your API app. For an API app you can configure one of three options:
+App Service authentication processing happens before requests reach your API app, which means that the authentication features work for API apps written in any language or framework.  Your API can be based on ASP.NET, Java, Node.js, or any framework that App Service supports.
+
+App Service passes on the JSON web token (JWT) in the Authorization header of an HTTP request, and code written in any language or framework can get the information it needs from the token. In addition, App Service gives you easier access to the most commonly used claims by setting some special headers, such as the following:
+
+* X-MS-CLIENT-PRINCIPAL-NAME
+* X-MS-CLIENT-PRINCIPAL-ID
+* X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN
+* X-MS-TOKEN-FACEBOOK-EXPIRES-ON
+ 
+In a .NET API, you can use the `Authorize` attribute, and for fine-grained authorization you can easily write code based on claims because claims information is populated for you in .NET classes.
+
+## Multiple protection options
+
+App Service can prevent anonymous HTTP requests from reaching your API app, it can pass on all requests and validate tokens for requests that include them, or it can let through all requests without taking any action on them:
 
 1. Allow only authenticated requests to reach your API app.
 
 	If an anonymous request is received from a browser, App Service will redirect to a logon page. 
 
-	That works if you know in advance which authentication provider (Google, Twitter, etc.) you want to use, you can configure App Service to handle the logon process for you.  As an alternative, you can specify your own URL to which App Service will redirect anonymous requests. You can then give users a choice of authentication providers.
+	If you know in advance which authentication provider (Google, Twitter, etc.) you want to use, you can configure App Service to handle the logon process for you.  As an alternative, you can specify your own URL to which App Service will redirect anonymous requests. You can then give users a choice of authentication providers.
 
 	With this option, you don't need to write any authentication code at all in your app, and authorization is simplified because the most important claims are provided in the HTTP headers.
 
@@ -57,40 +71,43 @@ In the [Azure portal](https://portal.azure.com/), you select the option you want
 
 ![](./media/app-service-api-authentication/authblade.png)
 
-For options 1 and 2, turn on **App Service Authentication**, and in the **Action to take when requests is not authenticated** drop-down list choose **Log in** or **Allow request (no action)**.  If you choose **Log in**, you have to choose an authentication provider and configure that provider.
+For options 1 and 2, turn on **App Service Authentication**, and in the **Action to take when request is not authenticated** drop-down list choose **Log in** or **Allow request (no action)**.  If you choose **Log in**, you have to choose an authentication provider and configure that provider.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
  
-## Language agnostic
-
-App Service authentication processing happens before requests reach your API app, which means that the authentication features work for API apps written in any language or framework.  Your API can be based on ASP.NET, Java, Node.js, or any framework that App Service supports.
-
-App Service passes on the JWT token in the Authorization header of an HTTP request, and code written in any language or framework can get the information it needs from the token. In addition, App Service gives you easier access to the most commonly used claims by setting some special headers, such as the following:
-
-* X-MS-CLIENT-PRINCIPAL-NAME
-* X-MS-CLIENT-PRINCIPAL-ID
-* X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN
-* X-MS-TOKEN-FACEBOOK-EXPIRES-ON
- 
-In a .NET API, you can use the `Authorize` attribute, and for fine-grained authorization you can easily write code based on claims because claims information is populated for you in .NET classes.
-
 ## <a id="internal"></a> Service account authentication
 
-You can also use App Service authentication for internal scenarios such as for calling from one API app to another API app. In this scenario you can use credentials for a service account instead of end user credentials for authentication. A service account is also known as a *service principal* in Azure Active Directory, and authentication using such an account is also known as a service-to-service scenario. 
+App Service authentication works for internal scenarios such as for calling from one API app to another API app. In this scenario you get a token by using credentials for a service account instead of end user credentials. A service account is also known as a *service principal* in Azure Active Directory, and authentication using such an account is also known as a service-to-service scenario. 
 
-For service-to-service scenarios, you can protect the called API app by using Azure Active Directory, and provide an AAD service principal authorization token when you call the API app. You can request the token by providing the client ID and client secret from the AAD application. No special Azure-only code is required, such as used to be true for handling the Mobile Services Zumo token. An example of this scenario using ASP.NET API apps is covered by the tutorial [Service principal authentication for API Apps](app-service-api-dotnet-service-principal-auth.md).
+For service-to-service scenarios, protect the called API app by using Azure Active Directory, and provide an AAD service principal authorization token when you call the API app. You get a token by providing the client ID and client secret from the AAD application. No special Azure-only code is required, such as used to be true for handling the Mobile Services Zumo token. An example of this scenario using ASP.NET API apps is covered by the tutorial [Service principal authentication for API Apps](app-service-api-dotnet-service-principal-auth.md).
 
-If you want to handle a service-to-service scenario without using App Service authentication, you can use client certificates or basic authentication. For information about client certificates in Azure, see [How To Configure TLS Mutual Authentication for Web Apps](../app-service-web/app-service-web-configure-tls-mutual-auth.md). For information about how to configure basic authentication in ASP.NET, see [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
+If you want to handle a service-to-service scenario without using App Service authentication, you can use client certificates or basic authentication. For information about client certificates in Azure, see [How To Configure TLS Mutual Authentication for Web Apps](../app-service-web/app-service-web-configure-tls-mutual-auth.md). For information about basic authentication in ASP.NET, see [Authentication Filters in ASP.NET Web API 2](http://www.asp.net/web-api/overview/security/authentication-filters).
 
 Service account authentication from an App Service logic app to an API app is a special case that is explained in [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 
+## Client authentication
+
+For information about how to handle authentication from mobile clients, see the [documentation on authentication for mobile apps](../app-service-mobile/app-service-mobile-ios-get-started-users.md). App Service authentication works the same way for mobile apps and API apps.
+  
 ## More information
 
-For more information about authentication and authorization services in Azure App Service, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/).
+For more information about authentication and authorization in Azure App Service, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/).
+
+For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT), see the following resources.
+
+* [Getting started with OAuth 2.0](http://shop.oreilly.com/product/0636920021810.do "Getting Started with OAuth 2.0") 
+* [Introduction to OAuth2, OpenID Connect and JSON Web Tokens (JWT) - PluralSight Course](http://www.pluralsight.com/courses/oauth2-json-web-tokens-openid-connect-introduction) 
+* [Building and Securing a RESTful API for Multiple Clients in ASP.NET - PluralSight course](http://www.pluralsight.com/courses/building-securing-restful-api-aspdotnet)
+
+For more information about authentication using Azure Active Directory, see the following resources.
+
+* [Azure AD scenarios](http://aka.ms/aadscenarios)
+* [Azure AD developers' guide](http://aka.ms/aaddev)
+* [Azure AD samples](http://aka.ms/aadsamples)
 
 ## Next steps
 
-This article has explained authentication and authorization features of App Service API apps. 
+This article has explained authentication and authorization features of App Service that you can use for API apps. 
 
 If you are following the getting started sequence of tutorials for ASP.NET and API Apps, try out these features in the next tutorial, [user authentication in App Service API Apps](app-service-api-dotnet-user-principal-auth.md).
 

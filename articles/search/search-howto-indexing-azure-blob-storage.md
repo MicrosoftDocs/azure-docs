@@ -179,187 +179,30 @@ For example, the policy shown below will consider that a blob is deleted if it h
 
 The following table summarizes processing done for each document format, and describes the metadata properties extracted by Azure Search.
 
-<table style="font-size:12">
-
-<tr>
-<th>Document format / content type</th>
-<th>Content-type specific metadata properties</th>
-<th>Processing details </th>
-</tr>
-
-<tr>
-<td>HTML (`text/html`)</td>
-<td>
-`metadata_content_encoding`<br/>
-`metadata_content_type`<br/>
-`metadata_language`<br/>
-`metadata_description`<br/>
-`metadata_keywords`<br/>
-`metadata_title`
-</td>
-<td>Strip HTML markup and extract text</td>
-</tr>
-
-<tr>
-<td>PDF (`application/pdf`)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_language`<br/>
-`metadata_author`<br/>
-`metadata_title`
-</td>
-<td>Extract text, including embedded documents (excluding images)</td>
-</tr>
-
-<tr>
-<td>DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_character_count`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_page_count`<br/>
-`metadata_word_count`
-</td>
-<td>Extract text, including embedded documents</td>
-</tr>
-
-<tr>
-<td>DOC (application/msword)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_character_count`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_page_count`<br/>
-`metadata_word_count`
-</td>
-<td>Extract text, including embedded documents</td>
-</tr>
-
-<tr>
-<td>XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`
-</td>
-<td>Extract text, including embedded documents</td>
-</tr>
-
-<tr>
-<td>XLS (application/vnd.ms-excel)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`
-</td>
-<td>Extract text, including embedded documents</td>
-</tr>
-
-<tr>
-<td>PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_slide_count`<br/>
-`metadata_title`
-</td>
-<td>Extract text, including embedded documents</td>
-</tr>
-
-<tr>
-<td>PPT (application/vnd.ms-powerpoint)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_slide_count`<br/>
-`metadata_title`
-</td>
-<td>Extract text, including embedded documents</td>
-</tr>
-
-<tr>
-<td>MSG (application/vnd.ms-outlook)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_message_from`<br/>
-`metadata_message_to`<br/>
-`metadata_message_cc`<br/>
-`metadata_message_bcc`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_subject`
-</td>
-<td>Extract text, including attachments</td>
-</tr>
-
-<tr>
-<td>ZIP (application/zip)</td>
-<td>
-`metadata_content_type`
-</td>
-<td>Extract text from all documents in the archive</td>
-</tr>
-
-<tr>
-<td>XML (application/xml)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`</br>
-</td>
-<td>Strip XML markup and extract text </td>
-</tr>
-
-<tr>
-<td>JSON (application/json)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`
-</td>
-<td></td>
-</tr>
-
-<tr>
-<td>Plain text (text/plain)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`</br>
-</td>
-<td></td>
-</tr>
-</table>
+Document format / content type | Content-type specific metadata properties | Processing details
+-------------------------------|-------------------------------------------|-------------------
+HTML (`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | Strip HTML markup and extract text
+PDF (`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| Extract text, including embedded documents (excluding images)
+DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extract text, including embedded documents
+DOC (application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Extract text, including embedded documents
+XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extract text, including embedded documents
+XLS (application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Extract text, including embedded documents
+PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extract text, including embedded documents
+PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Extract text, including embedded documents
+MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Extract text, including attachments
+ZIP (application/zip) | `metadata_content_type` | Extract text from all documents in the archive
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Strip XML markup and extract text </td>
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, please vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs)
+Plain text (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
 ## Using custom metadata to control document extraction
 
 You can add metadata properties to a blob to control certain aspects of the blob indexing and document extraction process. Currently the following properties are supported:
 
-<table style="font-size:12">
-
-<tr>
-<th>Property name</th>
-<th>Property value</th>
-<th>Explanation</th>
-</tr>
-
-<tr>
-<td>AzureSearch_Skip</td>
-<td>"true"</td>
-<td>Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction will be attempted.
-This is useful when you want to skip certain content types, or when a particular blob fails repeatedly and interrupts the indexing process.
-</td>
-</tr>
-
-</table>
+Property name | Property value | Explanation
+--------------|----------------|------------
+AzureSearch_Skip | "true" | Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction will be attempted. This is useful when you want to skip certain content types, or when a particular blob fails repeatedly and interrupts the indexing process.
 
 ## Help us make Azure Search better
 

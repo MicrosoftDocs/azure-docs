@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Creating an Azure project with Visual Studio"
+   pageTitle="Creating an Azure project with Visual Studio | Microsoft Azure"
    description="Creating an Azure project with Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Creating an Azure Project with Visual Studio

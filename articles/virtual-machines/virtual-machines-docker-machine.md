@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="rasquill"/>
 
 # How to use docker-machine with Azure
@@ -201,7 +201,7 @@ Open your favorite browser and have a look.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-Go to the [Docker user guide](https://docs.docker.com/userguide/) and create some applications on Microsoft Azure. Or, go play with [**docker** and swarm](https://github.com/docker/swarm) on Azure](virtual-machines-docker-swarm) and see how swarm can be used with docker and Azure.
+Go to the [Docker user guide](https://docs.docker.com/userguide/) and create some applications on Microsoft Azure. Or, go play with [**docker** and swarm](https://github.com/docker/swarm) on Azure](virtual-machines-docker-swarm.md) and see how swarm can be used with docker and Azure.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png

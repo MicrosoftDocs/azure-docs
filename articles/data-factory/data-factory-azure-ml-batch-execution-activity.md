@@ -39,7 +39,7 @@ Over time, the predictive models in the Azure ML scoring experiments need to be 
 After you are done with retraining, you want to update the scoring web service (predictive experiment exposed as a web service) with the newly trained model. You do this by following the steps below: 
 
 1. Add a non-default end point to the scoring web service. The default endpoint of the web service cannot be updated, so you will need to create a new non-default endpoint using the Azure Classic Portal. See the [Create Endpoints](../machine-learning/machine-learning-create-endpoint.md) article for both conceptual information and procedural steps.
-2. Update existing Azure ML linked services for scoring to use the non-default endpoint. YYou should start using the new endpoint to use the web service that is updated.
+2. Update existing Azure ML linked services for scoring to use the non-default endpoint. You should start using the new endpoint to use the web service that is updated.
 3. Use the **Azure ML Update Resource Activity** to update the web service with the newly trained model.  
 
 See [Updating Azure ML models using the Update Resource Activity](#updating-azure-ml-models-using-the-update-resource-activity) section for details. 
@@ -59,7 +59,9 @@ You use Azure Data Factory to orchestrate  data movement and processing, and the
 
 
 ### Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
-In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Azure Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the Web service by using the **webServiceInput** JSON property and **DecisionTreeResultBlob** as an output to the Web service by using the **webServiceOutputs** JSON property. Only datasets that are inputs/outputs for the activity can be passed as Web service inputs and outputs.    
+In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Azure Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the Web service by using the **webServiceInput** JSON property and **DecisionTreeResultBlob** as an output to the Web service by using the **webServiceOutputs** JSON property.  
+
+> [AZURE.NOTE] Datasets that are referenced by the **webServiceInput** and **webServiceOutputs** properties (in **typeProperties**) must also be included in the Activity **inputs** and **outputs**.
 
 
 	{
@@ -405,7 +407,7 @@ The Azure ML batch execution web service might not have any Web Service output c
 
 #### Web Service uses readers and writers, and the activity runs only when other activities have succeeded
 
-The Azure ML web service reader and writer modules might be configured to run with or without any GlobalParameters. But you might want to embed the service calls in a processing pipeline that uses dataset dependencies to only invoke the service when some upstream processing has completed, and then to trigger some other action after the batch execution has completed. In that case, you can express the dependencies using activity inputs and outputs, without naming any of them as Web Service inputs or outputs.
+The Azure ML web service reader and writer modules might be configured to run with or without any GlobalParameters. But you might want to embed the service calls in a processing pipeline that uses dataset dependencies to invoke the service only when some upstream processing has completed, and then to trigger some other action after the batch execution has completed. In that case, you can express the dependencies using activity inputs and outputs, without naming any of them as Web Service inputs or outputs.
 
 	{
 	    "name": "retraining",
@@ -438,8 +440,8 @@ The **take-aways** are:
 
 -   If your experiment endpoint uses a webServiceInput, it is represented by a Blob dataset and is included in the activity inputs as well as the webServiceInput property. Otherwise, the webServiceInput property is omitted. 
 -   If your experiment endpoint uses webServiceOutput(s), they are represented by Blob Datasets and are included in the activity outputs as well as in the webServicepOutputs property (mapped by the name of each output in the experiment). Otherwise, the webServiceOutputs property is omitted.
--   If your experiment endpoint exposes globalParameter(s), they are given in the activity globalParameters property as key,value pairs. Otherwise, the globalParameters property is omitted. The keys are case-sensitive. Azure Data Factory functions may be used in the values. 
-- Additional datasets may be included in the Activity inputs and outputs properties, without being referenced the in the Activity typeProperties. These will govern execution using slice dependencies but are otherwise ignored by the AzureMLBatchExecution Activity. 
+-   If your experiment endpoint exposes globalParameter(s), they are given in the activity globalParameters property as key,value pairs. Otherwise, the globalParameters property is omitted. The keys are case-sensitive. [Azure Data Factory functions](data-factory-scheduling-and-execution.md#data-factory-functions-reference) may be used in the values. 
+- Additional datasets may be included in the Activity inputs and outputs properties, without being referenced in the Activity typeProperties. These will govern execution using slice dependencies but are otherwise ignored by the AzureMLBatchExecution Activity. 
 
 
 ## Updating Azure ML models using the Update Resource Activity

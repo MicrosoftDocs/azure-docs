@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/14/2015"
+	ms.date="12/18/2015"
 	ms.author="jeedes"/>
 
 
@@ -72,6 +72,7 @@ To configure the integration of Small Improvements into Azure AD, you need to ad
 ![Creating an Azure AD test user](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_01.png)<br>
 7. In the results pane, select **Small Improvements**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Small Improvements based on a test user called "Britta Simon".

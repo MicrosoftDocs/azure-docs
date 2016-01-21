@@ -31,7 +31,7 @@ The following are some administrative and prerequisite steps you should follow b
 
 ### Create a service namespace and obtain a SAS key
 
-1. To create a service namespace, follow the steps outlined in [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+1. To create a service namespace, visit the [Azure classic portal][]. Click **Service Bus** on the left-hand side, then click **Create**. Type a name for your namespace, then click the check mark.
 
 1. In the main window of the [Azure classic portal][], click the name of the namespace you created in the previous step.
 
@@ -643,7 +643,7 @@ In Visual Studio, from the **Build** menu, click **Build Solution**, or press F6
 
 ## Next steps
 
-This tutorial showed how to build a Service Bus client application and service using the Service Bus brokered messaging capabilities. For a similar tutorial that uses Service Bus [relayed messaging](service-bus-messaging-overview.md/#Relayed-messaging), see the [Service Bus relayed messaging tutorial](service-bus-relay-tutorial.md).
+This tutorial showed how to build a Service Bus client application and service using the Service Bus brokered messaging capabilities. For a similar tutorial that uses Service Bus [relayed messaging](service-bus-messaging-overview.md#Relayed-messaging), see the [Service Bus relayed messaging tutorial](service-bus-relay-tutorial.md).
 
 To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
 

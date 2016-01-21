@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/11/2015"
+	ms.date="12/17/2015"
 	ms.author="josephd"/>
 
 # Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure
@@ -34,6 +34,44 @@ This is the configuration, with placeholder names for each server.
 ![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
 
 Two machines for each role ensure high availability. All of the virtual machines are in a single region. Each group of virtual machines for a specific role is in its own availability set.
+
+## Bill of materials
+
+This baseline configuration requires the following set of Azure services and components:
+
+- Nine virtual machines.
+- Four extra data disks for the domain controllers and SQL servers.
+- Four availability sets.
+- One cross-premises virtual network.
+- One storage account.
+- One Azure subscription.
+
+Here are the virtual machines and thier default sizes for this configuration.
+
+Item | Virtual machine description | Gallery image | Default size
+--- | --- | --- | ---
+1. | First domain controller | Windows Server 2012 R2 Datacenter | A2
+2. | Second domain controller | Windows Server 2012 R2 Datacenter | A2
+3. | First database server | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+4. | Second database server | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | A5
+5. | Majority node for the cluster | Windows Server 2012 R2 Datacenter | A1
+6. | First SharePoint application server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4
+7. | Second SharePoint application server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4
+8. | First SharePoint web server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4
+9. | Second SharePoint web server | Microsoft SharePoint Server 2013 Trial – Windows Server 2012 R2 | A4
+
+To compute the estimated costs for this configuration, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). 
+
+1. In **Modules**, click **Compute**, and then click **Virtual Machines** enough times to create a list of nine virtual machines.
+2. For each virtual machine, select:
+	- Your intended region
+	- **Windows** for the type
+	- **Standard** for the pricing tier
+	- The default size in the previous table or your intended size for the **Instance size**
+
+> [AZURE.NOTE] The Azure Pricing Calculator does not include the additional costs for the SQL Server license for the two virtual machines running SQL Server 2014 Enterprise. See [Virtual Machines Pricing-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) for more information.
+
+## Phases of deployment
 
 You deploy this configuration in the following phases:
 

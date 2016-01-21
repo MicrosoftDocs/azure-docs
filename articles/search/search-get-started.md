@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="01/11/2016" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search
@@ -29,85 +29,30 @@ An alternative approach for .NET developers is to use the Azure Search.NET SDK. 
 > [AZURE.NOTE] Completing this tutorial requires an [Azure subscription](../includes/free-trial-note.md). If you aren't ready to sign up for a trial subscription, you can skip this tutorial and opt for [Try Azure App Service](https://tryappservice.azure.com/) instead. This alternative option gives you Azure Search with an ASP.NET Web app for free - one hour per session - no subscription required.
  
 <a id="sub-1"></a>
-## Start with the free service
+## Create an Azure Search service
 
 As an administrator, you can add Search service to an existing subscription at no cost when choosing the shared service, or at a reduced rate when opting in for dedicated resources. 
 
-Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. Sign up for the free version using these steps.
+Subscribers automatically get free access to a shared, multitenant Search service that you can use for learning purposes, proof-of-concept testing, or small development search projects. 
 
-1. Sign in to [Azure Classic Portal](https://portal.azure.com) using your existing subscription. Notice that this URL takes you to the Portal. Using the Portal is a requirement. 
+Sign in to [Azure Portal](https://portal.azure.com) using your existing subscription. To follow step-by-step instructions, see [Create an Azure Search service in the portal](search-create-service-portal.md). 
 
-2. Click **New** at the top of the page.
- 
-  	![][6]
+## Get the service URL and an api-key
 
-3. Click **Data + Storage** | **Search**.
+After the service is created, you can return to the configuration settings to get the URL and api-keys. Connections to your Search service requires that you have both the URL and an api-key to authenticate the call. Here's how to quickly find these values:
 
-	- Type a lower-case service name to use in the service URL, avoiding spaces, and staying within the 15 character string limit.
+1. Sign in to the [Azure Portal](https://portal.azure.com).
+2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
+3. Select the service you want to use.
+4.	On the service dashboard, you'll see tiles for **PROPERTIES** and **KEYS**, and usage information that shows resource usage at a glance. 
 
-	- Click the arrow in **Pricing Tier** to select a pricing option. Choose **FREE** and then click **SELECT** at the bottom of the page. The free version offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. 
-
-	- Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
-
-	- Click the arrow in **Subscription** if you have multiple subscriptions and you want to use a different subscription for this search service.
-
-	- Click the arrow in **Location** to choose a data center region. In this preview, you can choose from West US, East US, North Europe, and Southeast Asia. Later, when other regions are online, choose one region for the service you are creating. Distributing resources across multiple data centers will not be a supported configuration for public preview.
-
-4. Click **CREATE** to provision the service. Notice that **CREATE** is enabled only after you fill in all required values. 
-
-In a few minutes, the service is created. You can return to the configuration settings to get the URL or api-keys. Connections to your Search service requires that you have both the URL and an api-key to authenticate the call. Here's how to quickly find these values:
-
-14. Go to **Home** to open the dashboard. Click the Search service to open the service dashboard. 
-
-  	![][13]
-
-15.	On the service dashboard, you'll see tiles for **PROPERTIES** and **KEYS**, and usage information that shows resource usage at a glance. 
-
-Continue on to [Test service operations](#sub-3) for instructions on how to connect to the service using these values.
-
-<a id="sub-2"></a>
-## Upgrade to standard search
-
-Standard search gets you dedicated resources in an Azure data center that can be used only by you. Search workloads require both storage and service replicas. When you sign up for standard search, you can optimize service configuration to use more of whichever resource is the most important to your scenario.
-
-Having dedicated resources will give you more scale and better performance, but not additional features. Both shared and standard search offer the same features.
-
-To use standard search, create a new Search service, choosing the Standard pricing tier. Notice that upgrade is not an in-place upgrade of the free version. Switching to standard, with its potential for scale, requires a new service. You will need to reload the indexes and documents used by your search application.
-
-Setting up dedicated resources can take a while (15 minutes or longer). 
-
-**Step 1 - Create a new service with Pricing Tier set to Standard**
-
-1. Sign in to [Azure Classic Portal](https://portal.azure.com) using your existing subscription. 
-
-2. Click **New** at the bottom of the page.
-
-4. From the Gallery, click **Data + Storage** | **Search**.
-
-7. Fill in the service configuration settings and then click **CREATE**.
-
-8. In **Pricing Tier** to select a pricing option. Choose **STANDARD** and then click **SELECT** at the bottom of the page.
-
-**Step 2 - Adjust search units based on scale requirements**
-
-Standard search starts with one replica and partition each, but can be easily re-scaled at higher resource levels.
-
-1.	Once the service is created, return to the service dashboard, click the **Scale** tile.
-
-2.	Use the sliders to add replicas, partitions, or both. 
-
-Additional replicas and partitions are billed in search units. The total search units required to support any particular resource configuration is shown on the page, as you add resources. 
-
-You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792) to get the per-unit billing information. See [Limits and constraints](search-limits-quotas-capacity.md) for help in deciding how to configure partition and replica combinations.
-
- ![][15]
 
 <a id="sub-3"></a>
 ## Test service operations
 
-Confirming that your service is operational and accessible from a client application is the final step in configuring Search. This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests and view responses. By using Fiddler, you can test the API immediately, without having to write any code. 
+As a validation step,test whether your service is operational and accessible from a client application. This procedure uses Fiddler, available as a [free download from Telerik](http://www.telerik.com/fiddler), to issue HTTP requests and view responses. By using Fiddler, you can test the API immediately, without having to write any code. 
 
-The following procedure works for both shared and standard search. In the steps below, you'll create an index, upload documents, query the index, and then query the system for service information.
+In the steps below, you'll create an index, upload documents, query the index, and then query the system for service information.
 
 ### Create an index
 
@@ -310,7 +255,7 @@ You can also query the system to get document counts and storage consumption. On
 
 If you need a refresher on where to find the configuration pages, follow these steps to locate the service dashboard.
 
-1.	Sign in to [Azure Classic Portal](https://portal.azure.com) using your existing subscription. 
+1.	Sign in to [Azure Portal](https://portal.azure.com) using your existing subscription. 
 2.	Click **Home** and then click the tile for your Search service.
 
  	![][22]
