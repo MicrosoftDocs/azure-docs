@@ -61,8 +61,6 @@ The table below shows an average performance throughput for each application gat
 
 ## Health monitoring
 
-<<<<<<< HEAD
-
 Azure Application Gateway automatically monitors the health of the back-end instances. For more information, see [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
 
 ## Configuring and managing
