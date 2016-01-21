@@ -127,7 +127,9 @@ As we literally want to have one partition per letter, we can use 0 as the low k
 2. In the **New Project** dialog box, choose the Service Fabric application.
 3. Call the project "AlphabetPartitions".
 4. In the **Create a Service** dialog box, choose **Stateful** service and call it "Alphabet.Processing" as shown in the image below.
-	![Stateful service screenshot](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+
+    ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/alphabetstatefulnew.png)
+
 5. Set the number of partitions. Open the ApplicationManifest.xml file in the AlphabetPartitions project and update the parameter Processing_PartitionCount to 26 as shown below.
 
     ```xml
