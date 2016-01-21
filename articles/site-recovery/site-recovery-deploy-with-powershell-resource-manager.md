@@ -32,7 +32,7 @@ This article describes how to use Windows PowerShell® together with ARM to depl
 > [AZURE.NOTE] The Azure Site Recovery PowerShell cmdlets currently allow you to configure the VMM site to VMM site, VMM site to Azure and Hyper-V site to Azure scenarios. Support for other ASR scenarios will be added soon. 
 
 You don't need to be a PowerShell expert to use this article, but it does assume that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
-- Read more about [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+- Read more about [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 
 ## Key features
