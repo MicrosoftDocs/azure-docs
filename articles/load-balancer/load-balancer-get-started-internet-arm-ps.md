@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 # Get started creating an Internet facing load balancer in Resource Manager using PowerShell
@@ -232,6 +232,41 @@ Expected output:
 Use the `Add-AzureRmVMNetworkInterface` cmdlet to assign the NICs to different VMs.
 
 You can find guidance on how to create a virtual machine, and assign a NIC in [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), using option 5 in the example. 
+
+
+or if you already have a virtual machine created, you can add the network interface with the following steps:
+
+#### Step 1 
+
+Load the load balancer resource into a variable (if you haven't done that yet). The variable used is called $lb and use the same names from the load balancer resource created above.
+
+	$lb= get-azurermloadbalancer –name NRP-LB -resourcegroupname NRP-RG
+
+#### Step 2 
+
+Load the backend configuration to a variable. 
+
+	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+
+#### Step 3 
+
+Load the already created network interface into a variable. the variable name used is $nic. The network interface name used is the same from the example above.  
+
+	$nic =get-azurermnetworkinterface –name lb-nic1-be -resourcegroupname NRP-RG
+
+#### Step 4
+
+Change the backend configuration on the network interface.
+
+	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+
+#### Step 5 
+
+Save the network interface object.
+
+	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+
+After a network interface is added to the load balancer backend pool, it  starts receiving network traffic based on the load balancing rules for that load balancer resource.
 
 ## Update an existing load balancer
 
