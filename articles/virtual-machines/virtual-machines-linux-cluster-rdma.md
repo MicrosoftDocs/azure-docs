@@ -23,7 +23,7 @@ ms.service="virtual-machines"
 
 This article shows you how to set up a Linux RDMA cluster in Azure with [size A8 and A9 virtual machines](virtual-machines-a8-a9-a10-a11-specs.md) to run parallel Message Passing Interface (MPI) applications. When you configure size A8 and A9 Linux-based VMs to run a supported MPI implementation, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
->[AZURE.NOTE] Azure Linux RDMA is currently supported with Intel MPI Library version 5 running on a SUSE Linux Enterprise Server 12 (SLES 12) image in teh Azure Marketplace. This article is based on Intel MPI version 5.0.3.048.
+>[AZURE.NOTE] Azure Linux RDMA is currently supported with Intel MPI Library version 5 running on a SUSE Linux Enterprise Server 12 (SLES 12) image in the Azure Marketplace. This article is based on Intel MPI version 5.0.3.048.
 >
 > Azure also provides A10 and A11 compute intensive instances, with processing capabilities identical to the A8 and A9 instances, but without a connection to an RDMA backend network. To run MPI workloads in Azure, you will generally get best performance with the A8 and A9 instances.
 
