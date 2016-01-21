@@ -33,7 +33,7 @@ This article includes the following tutorials:
 - Get the service data encryption key
 - Troubleshoot web UI setup errors
 - Generate a log package
-- Shutdown or restart your device
+- Shut down or restart your device
 
 ## Get the service data encryption key
 
