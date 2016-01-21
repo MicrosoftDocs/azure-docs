@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="11/19/2015"
+	ms.date="01/21/2016"
 	ms.author="yidingz;v-marsma"/>
 
 # Overview of Azure Batch features
