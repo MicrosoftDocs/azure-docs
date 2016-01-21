@@ -33,7 +33,7 @@ This article includes the following tutorials:
 - Get the service data encryption key
 - Troubleshoot web UI setup errors
 - Generate a log package
-- Shutdown or restart your device
+- Shut down or restart your device
 
 ## Get the service data encryption key
 
@@ -131,6 +131,12 @@ You can shut down or restart your virtual device using the local web UI.
     ![restart initiated](./media/storsimple-ova-web-ui-admin/image39.png)
 
     While the restart is in progress, you will lose the connection to the UI. You can monitor the restart by refreshing the UI periodically. Alternatively, you can monitor the device restart status through the Hyper-V Manager.
+
+![video_icon](./media/storsimple-ova-web-ui-admin/video_icon.png) **Video available**
+
+Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
 
 ## Next steps
 
