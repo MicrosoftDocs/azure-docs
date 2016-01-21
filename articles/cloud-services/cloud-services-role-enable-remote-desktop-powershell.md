@@ -25,7 +25,7 @@ ms.author="saurabh"/>
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. 
 
-This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell. See [How to install and configure Azure PowerShell](powershell-install-configure.md) for the prerequisites needed for this article. PowerShell uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. 
+This article describes how to enable remote desktop on your Cloud Service Roles using PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for the prerequisites needed for this article. PowerShell uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. 
 
 
 ## Configure Remote Desktop from PowerShell
