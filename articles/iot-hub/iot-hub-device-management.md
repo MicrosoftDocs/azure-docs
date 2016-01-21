@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="21/01/2016"
+ ms.date="01/21/2016"
  ms.author="dobett"/>
 
 # IoT device management using Azure IoT Suite and Azure IoT Hub
@@ -97,7 +97,7 @@ Remote control is out of scope as a scenario for Azure IoT Suite preconfigured s
 In IT scenarios, remote control is often used to assist remote users or remotely configure remote servers. In IoT scenarios, most devices do not have engaged users, therefore remote control is used in remote configuration and diagnostics scenarios. You can implement remote control using two different models:
 
 * **Direct connect**
-  To enable remote control through a direct connection to a device (for example, SSH on Linux, Remote Desktop on Windows, or through remote debugging tools) you must be able to create a connection to the device. Given the security risk of exposing a device to the open internet, it’s recommended that you use a relay service (such as the Azure [Service Bus relay service](service-bus-relay-overview.md)) to enable the connection and route traffic. Because a relay connection is an outbound connection from the device, it helps limit the attack surface of open TCP ports on the device.
+  To enable remote control through a direct connection to a device (for example, SSH on Linux, Remote Desktop on Windows, or through remote debugging tools) you must be able to create a connection to the device. Given the security risk of exposing a device to the open internet, it’s recommended that you use a relay service (such as the Azure [Service Bus relay service][service-bus-relay]) to enable the connection and route traffic. Because a relay connection is an outbound connection from the device, it helps limit the attack surface of open TCP ports on the device.
 
 * **Device command**
   Remote control through device commands leverages the existing connection and communications channel established between the device and Azure IoT Hub. To enable device command-based remote control, you must adhere to the following requirements:
@@ -156,6 +156,7 @@ To learn more about Azure IoT Hub, see these links:
 
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
+[service-bus-relay]: ../service-bus/service-bus-relay-overview.md
 [Connect your device]: https://azure.microsoft.com/develop/iot/
 [lnk-azure-iot-solution]: https://github.com/Azure/azure-iot-solution
 
