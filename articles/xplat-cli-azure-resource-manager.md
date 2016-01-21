@@ -131,25 +131,23 @@ Creating a new template is beyond the scope of this article, so to start with le
 
 	If your deployment is successful, you will see output similar to the following.
 
-	```
-	azure-cli@0.8.0:/# azure group deployment show testRG testDeploy
-	info:    Executing command group deployment show
-	+ Getting deployments
-	+ Getting deployments
-	data:    DeploymentName     : testDeploy
-	data:    ResourceGroupName  : testRG
-	data:    ProvisioningState  : Running
-	data:    Timestamp          : 2015-10-26T16:15:29.5562024Z
-	data:    Mode               : Incremental
-	data:    Name                   Type          Value
-	data:    ---------------------  ------------  ---------------------
-	data:    newStorageAccountName  String        MyStorageAccount
-	data:    adminUsername          String        MyUserName
-	data:    adminPassword          SecureString  undefined
-	data:    dnsNameForPublicIP     String        MyDomainName
-	data:    ubuntuOSVersion        String        14.04.2-LTS
-	info:    group deployment show command OK
-	```
+		azure-cli@0.8.0:/# azure group deployment show testRG testDeploy
+		info:    Executing command group deployment show
+		+ Getting deployments
+		+ Getting deployments
+		data:    DeploymentName     : testDeploy
+		data:    ResourceGroupName  : testRG
+		data:    ProvisioningState  : Running
+		data:    Timestamp          : 2015-10-26T16:15:29.5562024Z
+		data:    Mode               : Incremental
+		data:    Name                   Type          Value
+		data:    ---------------------  ------------  ---------------------
+		data:    newStorageAccountName  String        MyStorageAccount
+		data:    adminUsername          String        MyUserName
+		data:    adminPassword          SecureString  undefined
+		data:    dnsNameForPublicIP     String        MyDomainName
+		data:    ubuntuOSVersion        String        14.04.2-LTS
+		info:    group deployment show command OK
 
 	>[AZURE.NOTE] If you realize that your configuration isn't correct, and need to stop a long-running deployment, use the following command.
 	>
