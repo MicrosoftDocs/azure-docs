@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/07/2016"
+	ms.date="01/21/2016"
 	ms.author="tdykstra"/>
 
 # Authentication and authorization for API Apps in Azure App Service
@@ -75,7 +75,7 @@ For options 1 and 2, turn on **App Service Authentication**, and in the **Action
 
 ![](./media/app-service-api-authentication/actiontotake.png)
 
-For detailed information about how to configure authentication, see [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). Although the article indicates that it's about mobile apps, it applies also to API apps.
+For detailed information about how to configure authentication, see [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). The article applies to API apps as well as mobile apps, and it links to other articles for the other authentication providers.
  
 ## <a id="internal"></a> Service account authentication
 
@@ -96,7 +96,7 @@ For information about how to handle authentication from mobile clients, see the 
 For more information about authentication and authorization in Azure App Service, see the following resources:
 
 * [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/)
-* [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
+* [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Includes links for other authentication providers at the top of the page.) 
 
 For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT), see the following resources.
 
