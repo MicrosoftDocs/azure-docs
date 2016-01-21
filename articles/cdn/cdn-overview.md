@@ -59,4 +59,4 @@ The Premium CDN tier includes all of the features of the Standard tier, plus the
 
 - [Customizable, rule-based content delivery engine](cdn-rules-engine.md)
 - [Advanced HTTP reports](cdn-advanced-http-reports.md)
-- [Real-time stats](cdn-read-time-stats.md)
+- [Real-time stats](cdn-real-time-stats.md)
