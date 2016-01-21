@@ -40,7 +40,7 @@ The deployment workflow consists of preparing the portal, provisioning a virtual
 
 Refer to the following articles in the prescribed sequence to deploy your StorSimple Virtual Array.
 
-| **#** | **In this step**                          | **You will do this …**                                                         | **Use these documents...**|
+| **#** | **In this step**                          | **You will do this …**                                                         | **Use these documents.**|
 |------|-------------------------------------------|--------------------------------------------------------------------------------|------------------------|
 |1.   | **Set up the Azure classic portal**       | Create and configure your StorSimple Manager service prior to provisioning a StorSimple virtual device.  |[Prepare the portal](storsimple-ova-deploy1-portal-prep.md)| 
 |2.   | **Provision the Virtual Array**           | For Hyper-V, provision and connect to a StorSimple virtual device on a host system running Hyper-V 2008 R2, Hyper-V 2012 or Hyper-V 2012 R2. <br></br> <br></br> For VMware, provision and connect to a StorSimple on-premises virtual device on a host system running VMware ESXi 5.5 and above.| [Provision a virtual array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) <br></br> <br></br> [Provision a virtual array in VMware](storsimple-ova-deploy2-provision-vmware.md)|
@@ -48,7 +48,7 @@ Refer to the following articles in the prescribed sequence to deploy your StorSi
 
 #### Deployment videos
 
-| **To do this step...** |  **Watch this video**|
+| **To do this step...** |  **Watch this video.**|
 |----------------|-------------|
 | Step-by-step instructions to get started with the StorSimple Virtual Array. | [Get started with the StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/get-started-with-the-storsimple-virtual-array)|
 | Step-by-step instructions to provision a StorSimple Virtual Array in Hyper-V.|[Create a StorSimple Virtual Array](http://azure.microsoft.com/documentation/videos/create-a-storsimple-virtual-array) |

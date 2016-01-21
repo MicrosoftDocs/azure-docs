@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Deploy the StorSimple Manager service | Microsoft Azure"
+   pageTitle="Deploy the StorSimple Manager service for StorSimple virtual array| Microsoft Azure"
    description="Explains how to create and delete the StorSimple Manager service in the Azure classic portal, and describes how to manage the service registration key."
    services="storsimple"
    documentationCenter=""
@@ -60,7 +60,7 @@ Perform the following steps to create a service.
 
 Before you delete a service, make sure that no connected devices are using it. If the service is in use, deactivate the connected devices. The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud. 
 
-> [AZURE.IMPORTANT] After a service is deleted, the operation cannot be reversed. Any device that was using the service will need to be factory reset before it can be used with another service. In this scenario, the local data on the device, as well as the configuration, will be lost.
+> [AZURE.IMPORTANT] After a service is deleted, the operation cannot be reversed. 
 
 Perform the following steps to delete a service.
 
@@ -74,15 +74,13 @@ Perform the following steps to delete a service.
 
 ## Get the service registration key
 
-After you have successfully created a service, you will need to register your StorSimple device with the service. To register your first StorSimple device, you will need the service registration key. To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration). For more information about the service data encryption key, see [Get the service data encryption key from the local web UI](storsimple-security.md). You can get the registration key by accessing **Registration Key** on the **Services** page.
+After you have successfully created a service, you will need to register your StorSimple device with the service. To register your first StorSimple device, you will need the service registration key. To register additional devices with an existing StorSimple service, you will need both the registration key and the service data encryption key (which is generated on the first device during registration). For more information about the service data encryption key, see [Get the service data encryption key from the local web UI](storsimple-security.md). 
 
 Perform the following steps to get the service registration key.
 
 [AZURE.INCLUDE [storsimple-ova-get-service-registration-key](../../includes/storsimple-ova-get-service-registration-key.md)]
 
 Keep the service registration key in a safe location. You will need this key, as well as the service data encryption key, to register additional devices with this service. After obtaining the service registration key, you will need to configure your device through the Windows PowerShell for StorSimple interface.
-
-For details on how to use this registration key, see [Step 3: Configure and register the device through Windows PowerShell for StorSimple](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## Regenerate the service registration key
 
@@ -102,15 +100,13 @@ Perform the following steps to regenerate a service registration key.
 
 1. Copy this key and save it for registering any new devices with this service.
 
-1. Click the check icon ![Check icon](./media/storsimple-manage-service/HCS_CheckIcon.png) to close this dialog box.
+1. Click the check icon ![Check icon](./media/storsimple-ova-manage-service/HCS_CheckIcon.png) to close this dialog box.
 
 
 ## Next steps
 
-- Learn more about the [StorSimple deployment process](storsimple-deployment-walkthrough.md).
-
-- Learn more about [managing your StorSimple storage account](storsimple-manage-storage-accounts.md).
-
-- Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+- Learn more about how to [get started](storsimple-ova-deploy1-portal-prep.md) to deploy a StorSimple virtual array.
+	
+- Learn more about how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-ova-manager-service-administration.md).
 
  
