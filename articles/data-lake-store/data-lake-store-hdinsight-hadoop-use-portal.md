@@ -267,7 +267,7 @@ For instructions on how to add a service principal to a Data Lake Store file sys
 
 You can use the Data Lake Store to write data from a Storm topology. For instructions on how to achieve this scenario, see [Use Azure Data Lake Store with Apache Storm with HDInsight](../hdinsight/hdinsight-storm-write-data-lake-store.md).
 
-## See Also
+## See also
 
 * [PowerShell: Create an HDInsight cluster to use Data Lake Store](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
