@@ -1,38 +1,63 @@
-<properties 
-	pageTitle="Prepare the physical machine" 
-	description="Prepare the physical machine" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+<properties
+	pageTitle="Prepare the physical machine"
+	description="Prepare the physical machine"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Prepare the physical machine
 
-1.  On the Azure Stack POC machine, install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
+1.  Download the Azure Stack POC deployment package to a folder such as c:\\MAS.
 
-2.  Run the Microsoft Azure Stack POC.exe.
+2.  Run the **Microsoft Azure Stack POC.exe** file.
 
     This creates the \\Microsoft Azure Stack POC\\ folder containing the following items:
 
 	-   DeployAzureStack.ps1: Azure Stack POC installation PowerShell script
-	
+
 	-   MicrosoftAzureStackPOC.vhdx: Azure Stack data package
-	
+
 	-   SQLServer2014.vhdx: SQL Server VHD
-	
+
 	-   WindowsServer2012R2DatacenterEval.vhd
-	
+
 	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD
+
+	**Important**: You must have at least 128GB of free space on the physical boot volume.
+
+3. Copy WindowsServer2016Datacenter.vhdx and call it MicrosoftAzureStackPOCBoot.vhdx.
+
+4. In Internet Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
+
+5. In a Command Prompt window, switch to the drive letter for the mounted drive, then switch to the Windows directory.
+
+6. Run the bcdboot command:
+
+    	.bcdboot <mounted drive letter>:\windows
+
+7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared.
+
+8. Verify that four drives for Azure Stack POC data:
+  - Are visible in disk management
+  - Are not in use
+  - Show as Online, RAW
+
+9. Verify that the host is not joined to a domain.
+
+10. Log in using a local account with administrator permissions.
+
+11. Verify network connectivity to Azure.com.
 
 ## Run the PowerShell script
 
@@ -93,3 +118,7 @@ Before deploying Microsoft Azure Stack POC, you can turn off telemetry for Micro
 ### How to turn off telemetry after the Microsoft Azure Stack deployment
 
 After deploying Microsoft Azure Stack POC, you can turn off telemetry on all the virtual machines that joined the Azure Stack domain. To create a group policy and manage your telemetry settings on those virtual machines, please refer to: [https://technet.microsoft.com/library/mt577208(v=vs.85).aspx\#BKMK\_UTC](https://technet.microsoft.com/library/mt577208%28v=vs.85%29.aspx#BKMK_UTC), and select **0** or **1** for the **Allow Telemetry** group policy. There are two virtual machines (bgpvm and natvm) not joining the Azure Stack domain. To change the Feedback and Diagnostics settings on these virtual machines separately, please refer to:  <http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq>.
+
+# Next Steps
+
+[Prepare the physical machine](azure-stack-connect-azure-stack.md)

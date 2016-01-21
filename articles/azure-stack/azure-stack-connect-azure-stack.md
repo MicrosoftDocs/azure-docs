@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to connect to Microsoft Azure Stack POC" 
-	description="How to connect to Microsoft Azure Stack POC" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+<properties
+	pageTitle="How to connect to Microsoft Azure Stack POC"
+	description="How to connect to Microsoft Azure Stack POC"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # How to connect to Microsoft Azure Stack POC
@@ -43,3 +43,7 @@ Before logging in as a tenant, you must have created a tenant account. If you do
 4.  Log in using a tenant account.
 
 >[AZURE.NOTE] RDP may restrict how many users can access the physical Microsoft Azure POC host. To enable multiple users, see [Appendix B:Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md).
+
+# Next Steps
+
+[Architecture and default state of Microsoft Azure Stack POC](azure-stack-architecture.md)

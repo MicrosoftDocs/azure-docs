@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Marketplace Item Metadata" 
-	description="Marketplace Item Metadata" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+<properties
+	pageTitle="Marketplace Item Metadata"
+	description="Marketplace Item Metadata"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Marketplace Item Metadata
@@ -77,3 +77,7 @@ In addition to the above metadata, marketplace authors can also provide custom k
 For any field that allows HTML, the following elements and attributes are allowed.
 
 "h1", "h2", "h3", "h4", "h5", "p", "ol", "ul", "li", "a[target|href]", "br", "strong", "em", "b", "i"
+
+# Next Steps
+
+[Marketplace Item UI References](azure-stack-marketplace-item-ui-reference.md)

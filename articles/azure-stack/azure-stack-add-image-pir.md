@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Add an image to the Platform Image Repository" 
-	description="Add an image to the Platform Image Repository" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="Add an image to the Platform Image Repository"
+	description="Add an image to the Platform Image Repository"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Add an image to the Platform Image Repository
@@ -24,7 +24,7 @@ Before you can add an image to the PIR, you must prepare a virtual hard disk ima
 
 -   To prepare a Linux VHD, follow Step 1 from the [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/virtual-machines-linux-create-upload-vhd/) article.
 
-## To add an image to the PIR, follow these steps: 
+## To add an image to the PIR, follow these steps:
 
 1.  Get the drive letter of the DATAIMAGE disk from “This PC”. For this example, we will use X:\\
 
@@ -51,3 +51,7 @@ Before you can add an image to the PIR, you must prepare a virtual hard disk ima
 5.  Wait for the command to complete. You may need to close any browser windows in the ClientVM and reopen them to see the changes in the Marketplace.
 
 The image will automatically appear in the Microsoft Azure Stack Marketplace.  The image is also available for you to reference in your virtual machine deployment templates.  
+
+# Next Steps
+
+[Add an image to the Platform Image Repository](azure-stack-add-image-pir.md)
