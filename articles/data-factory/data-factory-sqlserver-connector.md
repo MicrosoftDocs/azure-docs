@@ -499,9 +499,10 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.  
 6. **Verify connection**: use SQL Server Management Studio from a different machine to connect to the SQL Server using fully qualified name. For example: <machine>.<domain>.corp.<company>.com,1433.
 
-	> [AZURE.IMPORTANT] See [Ports and Security Considerations](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) for detailed information.  
-
-See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for more tips for troubleshooting connection/gateway related issues. 
+	> [AZURE.IMPORTANT] 
+	> See [Ports and Security Considerations](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) for detailed information.
+	>   
+	> See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 
