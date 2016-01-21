@@ -72,7 +72,7 @@ To learn how to configure an alternate endpoint, refer to [errorAction](schedule
 
  [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/en-us/library/mt629143.aspx)
 
  [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
