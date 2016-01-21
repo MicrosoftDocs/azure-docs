@@ -108,14 +108,16 @@ The new `TodoItemStorageController` exposes two sub-resources under the record i
 - MobileServiceFiles
 
     + HTTP GET: Retrieves a list of files associated with the record
+    
         `/tables/TodoItem/{id}/MobileServiceFiles`
 
     + HTTP DELETE: Deletes the file specified in the file resource identifier
+    
         `/tables/TodoItem/{id}/MobileServiceFiles/{fileid}`
 
 ###Client and server communication
 
-Note that `TodoItemStorageController` does not have a route for uploading or downloading a blob. That is because a mobile client interacts with blob storage directly in order to perform these actions, after first getting a SAS token (Shared Access Signature) to securely get access to a particular blob or container. This is an important architectural design, as otherwise access to storage would be limited by the scability and availability of the mobile backend. When the mobile client connects directly to blob storage, it can take advantage of a number of Azure Storage features, such as auto-partitioning and geo-distribution.
+Note that `TodoItemStorageController` does *not* have a route for uploading or downloading a blob. That is because a mobile client interacts with blob storage *directly* in order to perform these operations, after first getting a SAS token (Shared Access Signature) to securely access a particular blob or container. This is an important architectural design, as otherwise access to storage would be limited by the scability and availability of the mobile backend. Instead, by connecting directly to Azure Storage, the mobile client can take advantage of its features such as auto-partitioning and geo-distribution.
 
 A shared access signature provides delegated access to resources in your storage account. This means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions, without having to share your account access keys. To learn more, see [Understanding Shared Access Signatures].
 
@@ -125,7 +127,7 @@ The diagram below shows the client and server interactions. Before uploading a f
 
 ## Update your client app to add image support
 
-Open the Xamarin.Forms quickstart project in either Visual Studio or Xamarin Studio. This section describes the NuGet packages to add to the portable library project, as well as code changes you will make the projects in the solution.
+Open the Xamarin.Forms quickstart project in either Visual Studio or Xamarin Studio. 
 
 >[AZURE.NOTE] This tutorial only contains instructions for the Android, iOS, and Windows Store platforms, not Windows Phone.
 
@@ -472,7 +474,9 @@ In **TodoList.xaml.cs**, replace the implementation of `OnSelected` with the fol
 
 ###Update the Android project
 
-Add platform-specific code to the Android project, such as code for downloading a file and using the camera to capture a new image. This code uses the Xamarin.Forms [DependencyService](https://developer.xamarin.com/guides/xamarin-forms/dependency-service/) to load the right platform-specific class at runtime.
+Add platform-specific code to the Android project, including code for downloading a file and using the camera to capture a new image. 
+
+This code uses the Xamarin.Forms [DependencyService](https://developer.xamarin.com/guides/xamarin-forms/dependency-service/) to load the right platform-specific class at runtime.
 
 1. Add the component **Xamarin.Mobile** to the Android project.
 
@@ -673,7 +677,7 @@ For more information, see the tutorial [Enable offline sync for your Windows app
 
 ##Summary
 
-This article described how to use the new file support in the Azure Mobile client and server SDK to work with Azure blob storage. 
+This article described how to use the new file support in the Azure Mobile client and server SDK to work with Azure Storage. 
 
 - Create a storage account and add the connection string to your mobile app backend. Only the backend has the key to Azure Storage: the mobile client requests a SAS token (Shared Access Signature) whenever it needs to access Azure Storage. To learn more about SAS tokens in Azure Storage, see [Understanding Shared Access Signatures].
 
@@ -687,15 +691,11 @@ This article described how to use the new file support in the Azure Mobile clien
 
       + `IFileSyncHandler.ProcessFileSynchronizationAction` is invoked as part of the file synchronization flow. A file reference and a FileSynchronizationAction enumeration value are provided so you can decide how your application should handle that event (e.g. automatically downloading a file when it is created or updated, deleting a file from the local device when that file is deleted on the server).
 
-- The client project uses the [Xamarin.Forms DependencyService] pattern to load the right platform-specific class at runtime. In this sample, we defined an interface `IPlatform` with implementations in each of the platform-specific projects.
-
 - A `MobileServiceFile` can be used either in online or offline mode, by using a `IMobileServiceTable` or `IMobileServiceSyncTable`, respectively. In the offline scenario, the upload will occur when the app calls `PushFileChangesAsync`. This causes the offline operation queue to be processed; for each file operation, the Azure Mobile client SDK will invoke the `GetDataSource` method on the `IFileSyncHandler` instance to retrieve the file contents for the upload.
 
-- In order to retrieve an item's files, call the ``GetFilesAsync` method on the  `IMobileServiceTable<T>` or IMobileServiceSyncTable<T>` instance. This method returns a list of files associated with the data item provided. Note: that this is a **local* operation and will return the files based on the state of the object when it was last synchronized. To get an updated list of files from the server, you should initiate a sync operation first.
+- In order to retrieve an item's files, call the ``GetFilesAsync` method on the  `IMobileServiceTable<T>` or IMobileServiceSyncTable<T>` instance. This method returns a list of files associated with the data item provided. (Note: this is a *local* operation and will return the files based on the state of the object when it was last synchronized. To get an updated list of files from the server, you should initiate a sync operation first.)
 
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
-
-- When the client app does a `PullAsync` and gets a list of changed records, it will query the service for the list of files associated with that record. This association is done through a naming convention (by default, using a record ID as part of the blob container name), so it is possible to add new files to a record by adding to the corresponding blob storage container directly. However, for mobile clients to see these new files, the record should be modified in some way, otherwise it will never be returned as part of the pull operation. The recommended way to handle this is to update the record timestamp when the associated blobs are modified.
 
 - The file sync feature uses record change notifications on the local store in order to retrieve the records that the client received as part of a push or pull operation. This is achieved by turning on local and server notifications for the sync context using the `StoreTrackingOptions` parameter. 
 
@@ -704,6 +704,12 @@ This article described how to use the new file support in the Azure Mobile clien
       + Other store tracking options are available, such as local-only or server-only notifications. You can add or own custom callback using the `EventManager` property of `IMobileServiceClient`:
 
             jobService.MobileService.EventManager.Subscribe<StoreOperationCompletedEvent>(StoreOperationEventHandler);
+
+- It is possible to add or remove files from a record by modifying blob storage directly, since the association is achieved through a naming convention. However, in this case you should always **update the record timestamp when the associated blobs are modified**. The Azure Mobile client SDK always updates a record when adding or removing a file. 
+
+    The reason for this requirement is that some mobile clients will already have the record in local storage. When these clients perform an incremental pull, this record will not be returned and the client will not query for the new associated files. To avoid this problem, it is recommended that you update the record timestamp when performing any blob storage change that does not use the Azure Mobile client SDK.
+
+- The client project uses the [Xamarin.Forms DependencyService] pattern to load the right platform-specific class at runtime. In this sample, we defined an interface `IPlatform` with implementations in each of the platform-specific projects.
 
 <!-- URLs. -->
 
