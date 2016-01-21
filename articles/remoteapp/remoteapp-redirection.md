@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="12/05/2015"
+    ms.date="01/21/2016"
     ms.author="elizapo" />
 
 # Using redirection in Azure RemoteApp
@@ -103,3 +103,23 @@ You can also use the Group Policy Management tool to create and apply the USB re
 6. Double-click **Allow RDP redirection of other supported RemoteFX USB devices from this computer**.
 7. Select **Enabled**, and then select **Administrators and Users in the RemoteFX USB Redirection Access Rights**.
 8. Click **OK**.  
+
+## USB to serial device redirection
+You can redirect the COM port with USB to serial adapters in Azure RemoteApp. To do this, enable USB redirection for the collection and devices (as described above).
+
+>[AZURE.NOTE]You can't see redirected COM ports in Device Manager. By design, Device Manager only lists the local devices. The only way to confirm if the ports are being redirected is from the command prompt or in the registry.
+
+After you enable the USB redirection, use the following steps to validate that the COM port is being redirected.
+
+1.    Open Device Manager and verify that the COM port is COM3 or higher. If it's COM1 or COM2, change it to COM3 or higher.  
+![Check the COM port](./media/remoteapp-redirection/ra-com1.png)
+  
+2.    Unplug the USB to serial adapter, and then plug it back in. Now, go back to Device Manager and make sure the COM port didn't change. 
+3.    Sign in to the Azure portal. Add the command prompt to your Azure RemoteApp collection and publish it.
+4. Sign into a Remote Desktop client that has access to the Azure RemoteApp collection. You should see a cmd icon, like this:  
+![cmd app in Remote Desktop client](./media/remoteapp-redirection/ra-com2.png)
+ 
+5.    Open the command prompt, and then run the following command: **change port /query**
+6.    If the redirection is correctly configured, you'll see something similar to the following, which shows that the COM3 port is being redirected.
+![Validate the COM port redirection](./media/remoteapp-redirection/ra-com3.png)
+ 
