@@ -32,7 +32,7 @@ This article describes how to:
 - **Replicate VMware virtual machines to Azure**—Deploy Site Recovery to coordinate replication, failover, and recovery of on-premises VMware virtual machines to Azure storage.
 - **Replicate physical servers to Azure**—Deploy Azure Site Recovery to coordinate replication, failover, and recovery of on-premises physical Windows and Linux servers to Azure.
 
->[AZURE.NOTE] The scenario described in this article includes contains **legacy instructions**. Don't follow this article for new deployments. Instead, use the [enhanced deployment](site-recovery-vmware-to-azure-classic) instructions for the classic portal).  If you've already deployed using the method described in this article, we recommend that you migrate to the new version as described below.
+>[AZURE.NOTE] The scenario described in this article includes contains **legacy instructions**. Don't follow this article for new deployments. Instead, use the [enhanced deployment](site-recovery-vmware-to-azure-classic.md) instructions for the classic portal).  If you've already deployed using the method described in this article, we recommend that you migrate to the new version as described below.
 
 
 ## Migrate to the enhanced deployment
@@ -56,33 +56,37 @@ Before you start note that:
 Migrate as follows:
 
 1. Read about the [enhanced features](site-recovery-vmware-to-azure-classic.md#enhanced-deployment), make sure you understand the new [architecture](site-recovery-vmware-to-azure-classic.md#scenario-architecture), and check [prerequisites](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) for the enhanced deployment.
-2. Get a [vault registration key](site-recovery-vmware-to-azure-classic.md#step-3:-download-a-vault-registration-key) and [run the unified setup wizard](site-recovery-vmware-to-azure-classic.md#step-4:-install-the-management-server) to install the configuration server, process server, and master target server components on the management server. Read more about [capacity planning](site-recovery-vmware-to-azure-classic.md#capacity-planning).
-3. If you have a VMware vCenter server [set up credentials](site-recovery-vmware-to-azure-classic.md#step-5:-set-up-credentials-for-the-vcenter-server) to access it so that Site Recovery can automatically discover VMs that it manages. Read more about the [permissions required](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-4. Add [vCenter servers or ESXi hosts](site-recovery-vmware-to-azure-classic.md#step-6:-add-vcenter-servers-and-esxi-hosts). It can take up to 15 minutes for the portal to refresh so that the credentials appear.
-5. Create a [new protection group](site-recovery-vmware-to-azure-classic.md#step-7:-create-a-protection-group). It can take up to 15 minutes for the portal to refresh so that the virtual machines are discovered and appear. If you don't want to wait you can highlight the management server name (don't click it) > **Refresh**.
-6. Under the new protection group click **Migrate Machines**.
+2. Uninstall the Mobility service from machines you’re currently protecting. A new version of the Mobility service will be installed on the machines when you add them to the new  protection group
+3. Get a [vault registration key](site-recovery-vmware-to-azure-classic.md#step-4-download-a-vault-registration-key) and [run the unified setup wizard](site-recovery-vmware-to-azure-classic.md#step-5-install-the-management-server) to install the configuration server, process server, and master target server components on the management server. Read more about [capacity planning](site-recovery-vmware-to-azure-classic.md#capacity-planning).
+4. If you have a VMware vCenter server [set up credentials](site-recovery-vmware-to-azure-classic.md#step-6-set-up-credentials-for-the-vcenter-server) to access it so that Site Recovery can automatically discover VMs that it manages. Read more about the [permissions required](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
+5. Add [vCenter servers or ESXi hosts](site-recovery-vmware-to-azure-classic.md#step-7-add-vcenter-servers-and-esxi-hosts). It can take up to 15 minutes for the portal to refresh so that the credentials appear.
+6. Create a [new protection group](site-recovery-vmware-to-azure-classic.md#step-8-create-a-protection-group). It can take up to 15 minutes for the portal to refresh so that the virtual machines are discovered and appear. If you don't want to wait you can highlight the management server name (don't click it) > **Refresh**.
+7. Under the new protection group click **Migrate Machines**.
 
 	![Add account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration1.png)
 
-7. In **Select Machines** select the protection group you want to migrate from, and the machines you want to migrate.
+8. In **Select Machines** select the protection group you want to migrate from, and the machines you want to migrate.
 
 	![Add account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration2.png)
-
-8. In **Configure Target Settings** specify whether you want to use the same settings for all machines and select the process server and Azure storage account. If you've set up a single management server then the process server will be the IP address of that management server.
+9. In **Configure Target Settings** specify whether you want to use the same settings for all machines and select the process server and Azure storage account. If you've set up a single management server then the process server will be the IP address of that management server.
 
 	![Add account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)
 
-9. In **Specify Accounts**, select the account you created to automatically push the new version of the Mobility service to protected machines.
+10. In **Specify Accounts**, select the account you created to automatically push the new version of the Mobility service to protected machines.
 
 	![Add account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration4.png)
 
-10. Site Recovery will migrate your replicated data to the Azure storage account that you provided. Optionally you can reuse the storage account you used in the legacy deployment.
-11. After the job finishes virtual machines will automatically synchronize. AFter synchronization completes you can delete the virtual machines from the legacy protection group.
-12. After all machines have migrated you can delete the legacy protection group.
-13. Remember to specify the failover properties for machines, and the Azure network settings after synchronization is complete.
-14. If you have existing recovery plans, you can migrate them to the enhanced deployment with Migrate Recovery Plan. You should only do this after all protected machines have been migrated. 
+11. Site Recovery will migrate your replicated data to the Azure storage account that you provided. Optionally you can reuse the storage account you used in the legacy deployment.
+12. After the job finishes virtual machines will automatically synchronize. After synchronization completes you can delete the virtual machines from the legacy protection group.
+13. After all machines have migrated you can delete the legacy protection group.
+14. Remember to specify the failover properties for machines, and the Azure network settings after synchronization is complete.
+15. If you have existing recovery plans, you can migrate them to the enhanced deployment with the **Migrate Recovery Plan** option. You should only do this after all protected machines have been migrated. 
 
 	![Add account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration5.png)
+
+>[AZURE.NOTE] After you've completed the migration steps you should continue with the [enhanced article](site-recovery-vmware-to-azure-classic.md). After migration the rest of this legacy article is no longer relevant and you don't need to follow any more of the steps described in it**.
+
+
 
 
 ## What do I need?
@@ -101,7 +105,7 @@ Here's what you'll need:
 **On-premises machines** | On-premises virtual  machines running on a VMware hypervisor, or physical servers running Windows or Linux. | You set up replication settings that apply to virtual machines and servers. You can fail over an individual machine or more commonly, as part of a recovery plan containing multiple virtual machines that fail over together.
 **Mobility service** | <p>Installs on each virtual machine or physical server you want to protect</p><p>Can be installed manually or pushed and installed automatically by the process server when protection is enabled for the server. | The Mobility service send data to the Process Server as part of initial replication (resync.) Once the server reaches a protected state(after resync is completed) the Mobility service performs an in-memory capture of writes to disk and sends it to the Process Server. Application consistency for Windows servers is achieved using the VSS framework.
 **Azure Site Recovery vault** | Set up after you've subscribed to the Site Recovery service. | You register servers in a Site Recovery vault. The vault coordinates and orchestrates data replication, failover, and recovery between your on-premises site and Azure.
-**Replication mechanism** | <p>**Over the Internet**—Communicates and replicates data from protected on-premises servers and Azure using a secure SSL/TLS communication channel over a public internet connection. This is the default option.</p><p>**VPN/ExpressRoute**—Communicates and replicates data between on-premises servers and Azure over a VPN connection. You'll need to set up a site-to-site VPN or an [ExpressRoute](../expressroute-introduction.md) connection between the on-premises site and your Azure network.</p><p>You'll select how you want to replicate during Site Recovery deployment. You can't change the mechanism after it's configured without impacting protection on already protected servers.| <p>Neither option requires you to open any inbound network ports on protected machines. All network communication is initiated from the on-premises site.</p> 
+**Replication mechanism** | <p>**Over the Internet**—Communicates and replicates data from protected on-premises servers and Azure using a secure SSL/TLS communication channel over a public internet connection. This is the default option.</p><p>**VPN/ExpressRoute**—Communicates and replicates data between on-premises servers and Azure over a VPN connection. You'll need to set up a site-to-site VPN or an ExpressRoute connection between the on-premises site and your Azure network.</p><p>You'll select how you want to replicate during Site Recovery deployment. You can't change the mechanism after it's configured without impacting protection on already protected servers.| <p>Neither option requires you to open any inbound network ports on protected machines. All network communication is initiated from the on-premises site.</p> 
 
 You can learn more about Site Recovery components, Providers and agents in [Site Recovery Components](site-recovery-components.md).
 
