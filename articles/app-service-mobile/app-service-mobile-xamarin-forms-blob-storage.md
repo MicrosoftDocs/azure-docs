@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="1/21/2015"
+	ms.date="01/21/2015"
     ms.author="donnam"/>
 
 #Connect to Azure Storage in your Xamarin.Forms app
@@ -26,7 +26,7 @@ This topic shows you how to add support for images to the Mobile Apps todo list 
 
 In this tutorial, you will create a storage account and add a connection string to your Mobile App backend. You will then add a new inheriting from the new Mobile Apps type `StorageController<T>` to your server project.
 
->[AZURE.TIP] This tutorial has a [companion sample](https://azure.microsoft.com/en-us/documentation/samples/app-service-mobile-dotnet-todolist-files/) available, which can be deployed to your own Azure account. 
+>[AZURE.TIP] This tutorial has a [companion sample](https://azure.microsoft.com/documentation/samples/app-service-mobile-dotnet-todolist-files/) available, which can be deployed to your own Azure account. 
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ To complete this tutorial, you need the following:
 
 ## Create a storage account
 
-1. Create a storage account by following the tutorial [Create an Azure Storage Account](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/). 
+1. Create a storage account by following the tutorial [Create an Azure Storage Account](storage-create-storage-account.md). 
 
 2. In the Azure Portal, navigate to your newly created storage account and click the **Keys** icon. Copy the **Primary Connection String**.
 
