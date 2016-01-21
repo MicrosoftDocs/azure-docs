@@ -19,7 +19,7 @@
 
 
 
-# Troubleshoot an allocation failure when you create, restart, or resize a VM in Azure
+# Troubleshoot allocation failures when you create, restart, or resize VMs in Azure
 
 When you create a VM, restart stopped (deallocated) VMs, or resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
@@ -32,7 +32,7 @@ In this article, the "Troubleshoot common allocation failures" sections list ste
 The servers in Azure datacenters are partitioned into clusters. Normally, an allocation request is attempted in multiple clusters, but it's possible that certain constraints from the allocation request force the Azure platform to attempt the request in only one cluster. In this article, we'll refer to this as "pinned to a cluster." Diagram 1 below illustrates the case of a normal allocation that is attempted in multiple clusters. Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 or availability set is hosted.
 ![Allocation Diagram](./media/virtual-machines-allocation-failure/Allocation1.png)
 
-### Why an allocation failure happens
+### Why allocation failures happen
 When an allocation request is pinned to a cluster, there's a higher chance of failing to find free resources since the available resource pool is smaller. Furthermore, if your allocation request is pinned to a cluster but the type of resource you requested is not supported by that cluster, your request will fail even if the cluster has free resources. Diagram 3 below illustrates the case where a pinned allocation fails because the only candidate cluster does not have free resources. Diagram 4 illustrates the case where a pinned allocation fails because the only candidate cluster does not support the requested VM size, even though the cluster has free resources.
 
 ![Pinned Allocation Failure](./media/virtual-machines-allocation-failure/Allocation2.png)
