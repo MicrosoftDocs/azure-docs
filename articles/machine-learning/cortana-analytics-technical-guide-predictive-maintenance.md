@@ -216,12 +216,12 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 service orchestrates the movement and processing of data. In the
 Predictive Maintenance for Aerospace Solution Template the data factory
 is made up of three
-[pipelines](../articles/data-factory/data-factory-create-pipelines.md)
+[pipelines](../data-factory/data-factory-create-pipelines.md)
 that move and process the data using various technologies.  You can access your data factory by opening the the Data Factory node at the bottom of the solution template diagram created with the deployment of the solution. This will take you to the data factory on your Azure portal. If you see errors under your datasets, you can ignore those as they are due to data factory being deployed before the data generator was started. Those errors do not prevent your data factory from functioning.
 
 ![](media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
-This section discusses the necessary [pipelines](../articles/data-factory/data-factory-create-pipelines.md) and [activities](../articles/data-factory/data-factory-create-pipelines.md) contained in the [Azure Data
+This section discusses the necessary [pipelines](../data-factory/data-factory-create-pipelines.md) and [activities](../data-factory/data-factory-create-pipelines.md) contained in the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
 
 ![](media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
@@ -246,9 +246,9 @@ requirements.
 #### *AggregateFlightInfoPipeline*
 
 This
-[pipeline](../articles/data-factory/data-factory-create-pipelines.md)
+[pipeline](../data-factory/data-factory-create-pipelines.md)
 contains a single activity - an
-[HDInsightHive](../articles/data-factory/data-factory-hive-activity.md)
+[HDInsightHive](../data-factory/data-factory-hive-activity.md)
 activity using a
 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
 that runs a
@@ -266,7 +266,7 @@ script for this partitioning task is ***AggregateFlightInfo.hql***
 #### *MLScoringPipeline*
 
 This
-[pipeline](../articles/data-factory/data-factory-create-pipelines.md)
+[pipeline](../data-factory/data-factory-create-pipelines.md)
 contains several activities and whose end result is the scored
 predictions from the [Azure Machine
 Learning](https://azure.microsoft.com/services/machine-learning/)
@@ -274,7 +274,7 @@ experiment associated with this solution template.
 
 The activities contained in this are:
 
--   [HDInsightHive](../articles/data-factory/data-factory-hive-activity.md)
+-   [HDInsightHive](../data-factory/data-factory-hive-activity.md)
     activity using an
     [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
     that runs a
@@ -288,7 +288,7 @@ The activities contained in this are:
 
 -   [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx)
     activity that moves the results from the
-    [HDInsightHive](../articles/data-factory/data-factory-hive-activity.md)
+    [HDInsightHive](../data-factory/data-factory-hive-activity.md)
     activity to a single [Azure
     Storage](https://azure.microsoft.com/services/storage/) blob
     that can be access by the
@@ -303,7 +303,7 @@ The activities contained in this are:
 #### *CopyScoredResultPipeline*
 
 This
-[pipeline](../articles/data-factory/data-factory-create-pipelines.md)
+[pipeline](../data-factory/data-factory-create-pipelines.md)
 contains a single activity - a
 [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx)
 activity that moves the results of the [Azure Machine
