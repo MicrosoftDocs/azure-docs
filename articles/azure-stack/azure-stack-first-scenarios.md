@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="First scenarios to try"
 	description="First scenarios to try"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -27,3 +27,7 @@ The primary objects in Microsoft Azure Stack – plans, offers, and subscription
 3.  [As a tenant, subscribe to the offer (which grants access to the offer’s plans).](azure-stack-subscribe-plan-provision-vm.md#subscribe-to-an-offer)
 
 4.  [As a tenant, use the services provided by the offer’s plan to create a virtual machine.](azure-stack-subscribe-plan-provision-vm.md#provision-a-virtual-machine)
+
+# Next Steps
+
+[Create a plan](azure-stack-create-plan.md)

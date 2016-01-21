@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="Publish a marketplace item"
 	description="Publish a marketplace item"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -31,3 +31,7 @@
 4.  You can remove a marketplace item by using the Remove-AzureRMGalleryItem cmdlet.
 
 >[AZURE.NOTE] Do not upload the same package with different names in the cmdlet, it will cause the resources to be orphaned.
+
+# Next Steps
+
+[Marketplace Item Metadata](azure-stack-marketplace-item-metadata.md)

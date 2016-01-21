@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Deploy templates with the portal"
 	description="Deploy templates with the portal"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -33,3 +33,7 @@ You can use the Microsoft Azure Stack portal to deploy templates.
 6.  Click **Create**.
 
 7.  A new progress tile will appear on the dashboard for you to track the progress of template deployment.
+
+# Next Steps
+
+[Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)

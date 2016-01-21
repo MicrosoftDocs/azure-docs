@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="Subscribe to an offer and then provision a VM (tenant)"
 	description="Subscribe to an offer and then provision a VM (tenant)"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -67,3 +67,7 @@ For both of these steps, you must be signed in as a tenant. If you haven’t cre
 	![](media/azure-stack-subscribe-plan-provision-vm/image9.png)
 
 >[AZURE.NOTE] When you subscribe to an offer, you have to wait till subscription state is InSync **then** refresh the portal or login/logout to see the services as part of that subscription.
+
+# Next Steps
+
+[Storage accounts](azure-stack-provision-storage-account.md)

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Publish a custom marketplace item (service administrator)"
 	description="Publish a custom marketplace item (service administrator)"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -37,3 +37,7 @@ A marketplace item is a service, application, or data that a tenant can use. It 
 -   Content and parameters needed to render the portal experience.
 
 Each item published to the marketplace uses a format called the Azure Gallery Package (azpkg). This file does not contain deployment or runtime resources (such as code, zip files with software, virtual machines, or disks). These resources are only referenced by the templates and should be hosted external to the Azure Gallery Package.
+
+# Next Steps
+
+[To create a new marketplace item](azure-stack-create-marketplace-item.md)

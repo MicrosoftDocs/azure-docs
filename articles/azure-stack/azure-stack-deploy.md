@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Deploy Azure Stack POC (service administrator)"
 	description="Deploy Azure Stack POC (service administrator)"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -138,3 +138,7 @@ These requirements apply to the Azure Stack POC only and might change for future
 **Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
 
 Sample OEM configurations are available.
+
+# Next Steps
+
+[Prepare the physical machine](azure-stack-run-powershell-script.md)

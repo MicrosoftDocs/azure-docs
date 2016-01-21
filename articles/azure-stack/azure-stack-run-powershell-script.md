@@ -118,3 +118,7 @@ Before deploying Microsoft Azure Stack POC, you can turn off telemetry for Micro
 ### How to turn off telemetry after the Microsoft Azure Stack deployment
 
 After deploying Microsoft Azure Stack POC, you can turn off telemetry on all the virtual machines that joined the Azure Stack domain. To create a group policy and manage your telemetry settings on those virtual machines, please refer to: [https://technet.microsoft.com/library/mt577208(v=vs.85).aspx\#BKMK\_UTC](https://technet.microsoft.com/library/mt577208%28v=vs.85%29.aspx#BKMK_UTC), and select **0** or **1** for the **Allow Telemetry** group policy. There are two virtual machines (bgpvm and natvm) not joining the Azure Stack domain. To change the Feedback and Diagnostics settings on these virtual machines separately, please refer to:  <http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq>.
+
+# Next Steps
+
+[Prepare the physical machine](azure-stack-connect-azure-stack.md)

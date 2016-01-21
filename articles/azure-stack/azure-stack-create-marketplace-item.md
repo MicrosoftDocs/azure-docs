@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="To create a new marketplace item"
 	description="To create a new marketplace item"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -48,7 +48,7 @@
 		    "properties": [
 		        /* optional. max of 10 properties
 		           displayName: max of 64 characters
-		           value: max of 64 characters */
+		           value: max of 64 characters \*/
 		        { "displayName": "string", "value": "string" }
 		    ],
 		    "uiDefinition": {
@@ -93,3 +93,7 @@
 7.  Use AzureGallery.exe (http://aka.ms/t5ula4) to package the folders into an .azpkg file. For example:
 
     	AzureGallery.exe package –m <path to manifest.json> -o <output location for the azpkg>
+
+# Next Steps
+
+[Publish a marketplace item](azure-stack-publish-marketplace-item.md)

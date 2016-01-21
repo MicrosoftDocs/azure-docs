@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="Manage permissions to resources per user (service administrator and tenant)"
 	description="Manage permissions to resources per user (service administrator and tenant)"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -37,3 +37,7 @@ For example, User A might have reader permissions to Subscription 1, but have ow
 3.  In the **Users** blade, click **Roles**.
 
 4.  In the **Roles** blade, click **Add** to add permissions for the user.
+
+# Next Steps
+
+[Publish a custom marketplace item](azure-stack-publish-custom-marketplace-item.md)

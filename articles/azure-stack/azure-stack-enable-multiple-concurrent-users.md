@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="Enable multiple concurrent user connections"
 	description="Enable multiple concurrent user connections"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -156,3 +156,7 @@ You can configure Windows and Mac machines to connect to the Microsoft Azure Sta
 	![](media/azure-stack-enable-multiple-concurrent-users/image8.png)
 
 14. You should now be able to access the Azure Stack POC externally. You should be able to access the portal at **https://portal.azurestack.local.**
+
+# Next Steps
+
+[Add an image to the Platform Image Repository](azure-stack-add-image-pir.md)

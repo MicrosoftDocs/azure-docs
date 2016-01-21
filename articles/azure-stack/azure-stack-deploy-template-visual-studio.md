@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Deploy templates with Visual Studio"
 	description="Deploy templates with Visual Studio"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -37,3 +37,7 @@
 8.  In the **Resource group location** drop down, select a location.
 
 9.  Click **Deploy**. In the **Edit Parameters** dialog box, enter values for the parameters (which vary by template), and then click **Save**. Your resource is then created.
+
+# Next Steps
+
+[Deploy templates with the command line](azure-stack-deploy-template-command-line.md)

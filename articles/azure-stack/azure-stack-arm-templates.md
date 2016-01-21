@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="Use Azure Resource Manager templates (tenant developers)"
 	description="Use Azure Resource Manager templates (tenant developers)"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -91,3 +91,7 @@ Deploys a simple Windows VM. This template also deploys a Virtual Network (with 
 For more information on templates, see the [Azure Resource Manager overview](../resource-group-overview.md) topic.
 
 Azure Resource Manager templates can be used with the Microsoft Azure Stack portal, PowerShell, the command line, PowerShell, and Visual Studio.
+
+# Next Steps
+
+[Deploy templates with the portal](azure-stack-deploy-template-portal.md)

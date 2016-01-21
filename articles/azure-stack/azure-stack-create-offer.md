@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="Create an offer (service administrator)"
 	description="Create an offer (service administrator)"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -63,3 +63,7 @@ Now that you have a plan, you can create and include it in an offer.
 2.  Changes to the plan or offer are not immediately visible to the tenant. To see the changes, the subscription state must be InSync, then the tenant must refresh the portal or login/logout.
 
 3.  Even after an additional subscription has been created and is InSync, you might have to logout/login to see the new subscription in the “Subscription picker” when creating new resources/resource groups.
+
+# Next Steps
+
+[Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)

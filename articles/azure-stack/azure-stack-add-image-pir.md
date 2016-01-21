@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="Add an image to the Platform Image Repository"
 	description="Add an image to the Platform Image Repository"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -51,3 +51,7 @@ Before you can add an image to the PIR, you must prepare a virtual hard disk ima
 5.  Wait for the command to complete. You may need to close any browser windows in the ClientVM and reopen them to see the changes in the Marketplace.
 
 The image will automatically appear in the Microsoft Azure Stack Marketplace.  The image is also available for you to reference in your virtual machine deployment templates.  
+
+# Next Steps
+
+[Add an image to the Platform Image Repository](azure-stack-add-image-pir.md)

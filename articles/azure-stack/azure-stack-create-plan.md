@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="Create a plan (service administrator)"
 	description="Create a plan (service administrator)"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -67,3 +67,7 @@ In this step, you’ll create a plan that includes the compute, network, and sto
 13. Here is the view of the plan after you create it. You can view notifications by clicking the bell icon at the top right.
 
     ![](media/azure-stack-create-plan/image10.png)
+
+# Next Steps
+
+[Create an offer](azure-stack-create-offer.md)

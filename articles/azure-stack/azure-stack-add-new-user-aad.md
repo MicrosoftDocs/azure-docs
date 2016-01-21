@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="Add a new Microsoft Azure Stack tenant account in Azure Active Directory"
 	description="Add a new Microsoft Azure Stack tenant account in Azure Active Directory"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -64,3 +64,7 @@ After deploying Microsoft Azure Stack POC, you’ll need to create at least one 
 14. Navigate to your Microsoft Azure sign in page and sign in with the new account. Azure will prompt you to change the password.
 
 15. Navigate to https://portal.azurestack.local and sign in with the new account to see the tenant portal.
+
+# Next Steps
+
+[Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md)

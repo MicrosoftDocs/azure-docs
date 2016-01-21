@@ -1,7 +1,7 @@
 ﻿<properties
 	pageTitle="What is Azure Stack POC?"
 	description="What is Azure Stack POC?"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -29,3 +29,7 @@ Microsoft Azure Stack POC (Proof of Concept) is an environment for learning and 
 -   With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale and performance evaluation.
 
 -   Limited Networking scenarios due to single host/NIC requirement
+
+# Next Steps
+
+[Key features and concepts](azure-stack-key-features.md)

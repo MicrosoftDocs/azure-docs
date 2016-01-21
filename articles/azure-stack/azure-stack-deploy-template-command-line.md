@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Deploy templates with the command line"
 	description="Deploy templates with the command line"
-	services="azure-stack" 
+	services="azure-stack"
 	documentationCenter=""
 	authors="v-anpasi"
 	manager="v-kiwhit"
@@ -67,3 +67,7 @@ After logging in, you can use the Azure CLI. At this time, the functionality rem
 		azure group list
 
 		azure storage account list
+
+# Next Steps
+
+[Manage permissions to resources per user](azure-stack-manage-permissions.md)
