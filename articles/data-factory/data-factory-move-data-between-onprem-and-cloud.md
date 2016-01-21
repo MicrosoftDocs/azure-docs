@@ -166,7 +166,7 @@ In this step, you use the Azure Portal to create an Azure Data Factory instance 
 	> 
 	> If you are using Chrome, go to the [Chrome web store](https://chrome.google.com/webstore/), search with "ClickOnce" keyword, choose one of the ClickOnce extensions, and install it. 
 	>  
-	> You need to do the same for Firefox (install add-in). For example, you can install one from [here](https://addons.mozilla.org/firefox/addon/fxclickonce/).    
+	> You need to do the same for Firefox (install add-in). Click **Open Menu** button on the toolbar (**three horizontal lines** in the top-right corner), click **Add-ons**, search with "ClickOnce" keyword, choose one of the ClickOnce extensions, and install it.    
 
 	![Gateway - Configure blade](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
