@@ -4,20 +4,22 @@
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+   manager="carmonm"
+   editor="tysonn" 
+   tags="azure-service-management,azure-resource-manager"
+/>
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Create a VM with multiple NICs
 
-The multi NIC feature lets you create and manage multiple virtual network interface cards (NICs) on your Azure virtual machines (VMs). Multi NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multi NIC also provides more network traffic management functionality, including isolation of traffic between a frontend NIC and backend NIC(s), or separation of data plane traffic from management plane traffic. 
+You can create virtual machines (VMs) in Azure and attach multiple network interfaces (NICs) to each of your VMs. Multi NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multi NIC also provides more network traffic management functionality, including isolation of traffic between a front end NIC and back end NIC(s), or separation of data plane traffic from management plane traffic.
 
 ![Multi NIC for VM](./media/virtual-networks-multiple-nics/IC757773.png)
 
@@ -28,16 +30,15 @@ The figure above shows a VM with three NICs, each connected to a different subne
 At this time, multi NIC has the following requirements and constraints: 
 
 - Multi NIC VMs must be created in Azure virtual networks (VNets). Non-VNet VMs are not supported. 
-- Within a single cloud service, only the following settings are allowed: 
+- Within a single cloud service (classic deployments) or resource group (Resource Manager deployment), only the following settings are allowed: 
 	- All VMs in that cloud service must be multi NIC enabled, or 
 	- All VMs in that cloud service must each have a single NIC 
 
->[AZURE.IMPORTANT] If you try to add a multi NIC VM to a deployment (cloud service) that already contains a single NIC VM (or vice-versa), you will receive the following error: 
-Virtual machines with secondary network interfaces and virtual machines with no secondary network interfaces are not supported in the same deployment, also a virtual machine having no secondary network interfaces cannot be updated to have secondary network interfaces and vice-versa.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. 
  
-- Internet-facing VIP is only supported on the “default” NIC. There is only one VIP to the IP of the default NIC. 
-- At this time, Instance Level Public IP (LPIP) addresses are not supported for multi NIC VMs. 
-- The order of the NICs from inside the VM will be random, and could also change across Azure infrastructure updates. However, the IP addresses, and the corresponding ethernet MAC addresses will remain the same. For example, assume **Eth1** has IP address 10.1.0.100 and MAC address 00-0D-3A-B0-39-0D; after an Azure infrastructure update and reboot, it could be changed to Eth2, but the IP and MAC pairing will remain the same. When a restart is customer-initiated, the NIC order will remain the same. 
+- Internet-facing VIP (classic deployments) is only supported on the "default" NIC. There is only one VIP to the IP of the default NIC. 
+- At this time, Instance Level Public IP (LPIP) addresses (classic deployments) are not supported for multi NIC VMs. 
+- The order of the NICs from inside the VM will be random, and could also change across Azure infrastructure updates. However, the IP addresses, and the corresponding ethernet MAC addresses will remain the same. For example, assume **Eth1** has IP address 10.1.0.100 and MAC address 00-0D-3A-B0-39-0D; after an Azure infrastructure update and reboot, it could be changed to **Eth2**, but the IP and MAC pairing will remain the same. When a restart is customer-initiated, the NIC order will remain the same. 
 - The address for each NIC on each VM must be located in a subnet, multiple NICs on a single VM can each be assigned addresses that are in the same subnet. 
 - The VM size determines the number of NICS that you can create for a VM. The table below lists the numbers of NICs corresponding to the size of the VMs: 
 
@@ -63,7 +64,7 @@ Virtual machines with secondary network interfaces and virtual machines with no 
 |D11|2|
 |D12|4|
 |D13|8|
-|D14|16|
+|D14|8|
 |DS1|1|
 |DS2|2|
 |DS3|4|
@@ -71,25 +72,34 @@ Virtual machines with secondary network interfaces and virtual machines with no 
 |DS11|2|
 |DS12|4|
 |DS13|8|
-|DS14|16|
+|DS14|8|
+|D1_v2|1|
+|D2_v2|2|
+|D3_v2|4|
+|D4_v2|8|
+|D5_v2|8|
+|D11_v2|2|
+|D12_v2|4|
+|D13_v2|8|
+|D14_v2|8|
 |G1|1|
 |G2|2|
 |G3|4|
 |G4|8|
-|G5|16|
+|G5|8|
 |All Other Sizes|1|
 
 ## Network Security Groups (NSGs)
-Any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has multiple NICs enabled. If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC. In addition to associating subnets with NSGs, you can also associate a NIC with an NSG. 
+In a Resource Manager deployment, any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has multiple NICs enabled. If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC. In addition to associating subnets with NSGs, you can also associate a NIC with an NSG. 
 
-If a subnet is associated with an NSG, and a NIC within that subnet is individually associated with an NSG, the associated NSG rules are applied in “**flow order**” according to the direction of the traffic being passed into or out of the NIC: 
+If a subnet is associated with an NSG, and a NIC within that subnet is individually associated with an NSG, the associated NSG rules are applied in **flow order** according to the direction of the traffic being passed into or out of the NIC: 
 
 - **Incoming traffic **whose destination is the NIC in question flows first through the subnet, triggering the subnet’s NSG rules, before passing into the NIC, then triggering the NIC’s NSG rules. 
 - **Outgoing traffic** whose source is the NIC in question flows first out from the NIC, triggering the NIC’s NSG rules, before passing through the subnet, then triggering the subnet’s NSG rules. 
 
-The figure above represents how NSG rules application is done based on traffice flow (from VM to subnet, or from subnet to VM).
+Learn more about [Network Security Groups](virtual-networks-nsg) and how they are applied based on associations to subnets, VMs, and NICs..
 
-## How to Configure a multi NIC VM
+## How to Configure a multi NIC VM in a classic deployment
 
 The instructions below will help you create a multi NIC VM containing 3 NICs: a default NIC and two additional NICs. The configuration steps will create a VM that will be configured according to the service configuration file fragment below:
 
@@ -249,3 +259,8 @@ To add a default route on the secondary NIC, follow the steps below:
 ### Configure Linux VMs
 
 For Linux VMs, since the default behavior uses weak host routing, we recommend that the secondary NICs are restricted to traffic flows only within the same subnet. However if certain scenarios demand connectivity outside the subnet, users should enable policy based routing to ensure that the ingress and egress traffic uses the same NIC.
+
+## Next steps
+
+- Deploy [MultiNIC VMs in a 2-tier application scenario in a Resource Manager deployment](virtual-network-deploy-multinic-arm-template.md).
+- Deploy [MultiNIC VMs in a 2-tier application scenario in a classic deployment](virtual-network-deploy-multinic-classic-ps.md).

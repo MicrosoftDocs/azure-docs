@@ -19,6 +19,7 @@
 
 # Prepare an Ubuntu Virtual Machine for Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ##Prerequisites##
 
@@ -26,7 +27,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 **Ubuntu Installation Notes**
 
-- The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
+- The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
 - When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 
@@ -110,6 +111,9 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 		# logout
 
 11. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+
+## Next Steps
+You're now ready to use your Ubuntu Linux .vhd to create new Azure Virtual Machines in Azure. If this is the 1st time you use Azure and upload the .vhd file to Azure, you could follow the step 2 & 3 in [this guidance](virtual-machines-linux-create-upload-vhd.md).
 
 ## References ##
 

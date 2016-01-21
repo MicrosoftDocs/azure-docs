@@ -17,11 +17,9 @@
 
 4. Select the app you just created in the **Applications** tab.
 
-5. Click on **Connection Info** in order to display the connection settings to put into your SDK integration in your mobile app.
+5. Click on **CONNECTION INFO** in order to display the connection settings to put into your SDK integration in your mobile app.
 
-   	![](./media/mobile-engagement-create-app-in-portal/app-main-page-select-connection-info.png)
-
-6. Copy the **Connection String** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your App.
+6. Copy the **CONNECTION STRING** - this is what you will need to identify this app in your Application code and connect with Mobile Engagement from your App.
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 

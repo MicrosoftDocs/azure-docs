@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
-# Service Bus Pricing FAQ
+# Service Bus pricing FAQ
 
 This section answers some frequently-asked questions about the Service Bus pricing structure. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Microsoft Azure pricing information. For complete information about Service Bus pricing, see [Service Bus pricing details](http://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -84,7 +84,7 @@ As with other services on Azure, Service Bus enforces a set of specific quotas t
 
 - **Number of concurrent relay listeners per namespace** – Service Bus enforces a limit of 2000 concurrent relay listeners per service namespace. If this quota is reached, subsequent requests to open additional relay listeners will be rejected and an exception will be received by the calling code.
 
-- **Number of topics/queues per service namespace** – The maximum number of topics/queues (durable storage-backed entities) on a service namespace is limited to 10,000. If this quota is reached, subsequent requests for creation of a new topic/queue on the service namespace will be rejected. In this case, the Azure portal will display an error message or the calling client code will receive an exception, depending on whether the create attempt was done via the portal or in client code.
+- **Number of topics/queues per service namespace** – The maximum number of topics/queues (durable storage-backed entities) on a service namespace is limited to 10,000. If this quota is reached, subsequent requests for creation of a new topic/queue on the service namespace will be rejected. In this case, the [Azure classic portal][] will display an error message or the calling client code will receive an exception, depending on whether the create attempt was done via the portal or in client code.
 
 - **Message size quotas**
 	- **Queue/Topic/Subscription**
@@ -96,7 +96,7 @@ As with other services on Azure, Service Bus enforces a set of specific quotas t
 
 	Messages that exceed these size quotas will be rejected and an exception will be received by the calling code.
 
-- **Number of subscriptions per topic** – The maximum number of subscriptions per topic is limited to 2,000. If this quota is reached, subsequent requests for creating additional subscriptions to the topic will be rejected. In this case, the management portal will display an error message or the calling client code will receive an exception, depending on whether the create attempt was done via the portal or in client code.
+- **Number of subscriptions per topic** – The maximum number of subscriptions per topic is limited to 2,000. If this quota is reached, subsequent requests for creating additional subscriptions to the topic will be rejected. In this case, the [Azure classic portal][] will display an error message or the calling client code will receive an exception, depending on whether the create attempt was done via the portal or in client code.
 
 - **Number of SQL filters per topic** – The maximum number of SQL filters per topic is limited to 2,000. If this quota is reached, any subsequent requests for creation of additional filters on the topic will be rejected and an exception will be received by the calling code.
 
@@ -111,5 +111,7 @@ To learn more about Service Bus messaging, see the following topics.
 - [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus Architectural Overview](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure Service Bus architecture overview](service-bus-fundamentals-hybrid-solutions.md)
 - [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+
+[Azure classic portal]: http://manage.windowsazure.com

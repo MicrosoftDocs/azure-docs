@@ -125,7 +125,7 @@ $scope.logout = function () {
 };
 ...
 ```
-- You might also want to present user information in the app's UI.  The adal service has already been added to the `userDataCtrl` controller, so you can access the `userInfo` object in the associated view, `App/Scripts/UserData.html`:
+- You might also want to present user information in the app's UI.  The adal service has already been added to the `userDataCtrl` controller, so you can access the `userInfo` object in the associated view, `App/Views/UserData.html`:
 
 ```js
 <p>{{userInfo.userName}}</p>

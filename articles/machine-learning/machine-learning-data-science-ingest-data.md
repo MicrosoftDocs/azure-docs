@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ingest data | Microsoft Azure" 
+	pageTitle="Load data into storage environments for analytics | Microsoft Azure" 
 	description="Move Data to and from Azure Blob Storage" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="10/19/2015" 
 	ms.author="bradsev" />
 
-# Ingest data
+# Load data into storage environments for analytics
 
 ## Introduction
 

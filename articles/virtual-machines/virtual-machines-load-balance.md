@@ -19,6 +19,7 @@
 
 # Load balancing for Azure infrastructure services#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 There are two levels of load balancing available for Azure infrastructure services:
 

@@ -30,7 +30,7 @@ Refer to our [Troubleshooting guide](active-directory-ds-troubleshooting.md) for
 No. You can only create a single domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
 #### Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?
-The service itself does not directly support this scenario. Azure AD Domain Services are available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks in order to expose Azure AD Domain Services to other virtual networks. This article describes how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnetconnection.md).
+The service itself does not directly support this scenario. Azure AD Domain Services are available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks in order to expose Azure AD Domain Services to other virtual networks. This article describes how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### Can I enable Azure AD Domain Services using PowerShell?
 PowerShell/automated deployment of Azure AD Domain Services is not available currently.

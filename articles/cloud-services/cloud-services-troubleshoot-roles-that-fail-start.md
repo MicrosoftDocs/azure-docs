@@ -1,20 +1,20 @@
-<properties 
+<properties
    pageTitle="Troubleshooting roles that fail to start | Microsoft Azure"
    description="Here are some common reasons as to why a Cloud Service role may fail to start. Solutions to these problems are also provided."
    services="cloud-services"
    documentationCenter=""
-   authors="Thraka"
-   manager="msmets"
+   authors="dalechen"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
-<tags 
+<tags
    ms.service="cloud-services"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="10/14/2015"
-   ms.author="jarrettr" />
+   ms.date="01/20/2016"
+   ms.author="daleche" />
 
 # Common steps in troubleshooting Cloud Service roles that fail to start
 
@@ -73,7 +73,7 @@ You can use remote desktop to access the role and view more complete errors remo
 
 2. During the deployment of the solution using Visual Studio, choose to “Configure Remote Desktop connections…” For more information on configuring the Remote Desktop connection, see [Using Remote Desktop with Azure Roles](https://msdn.microsoft.com/library/gg443832.aspx).
 
-3. In the Microsoft Azure Management Portal, once the instance shows a status of **Ready**, click on one of the role instances.
+3. In the Microsoft Azure classic portal, once the instance shows a status of **Ready**, click on one of the role instances.
 
 4. Click the **Connect** icon in the **Remote Access** area of the ribbon
 
@@ -165,3 +165,4 @@ Once it has been verified that all errors have been corrected, the service can b
 
 View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
 
+To learn how to troubleshoot Cloud Service roles' issue by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

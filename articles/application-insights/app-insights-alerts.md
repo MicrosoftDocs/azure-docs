@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Set Alerts in Application Insights
@@ -214,6 +214,11 @@ performanceCounter | [Performance](app-insights-configuration-with-applicationin
 remoteDependencyFailed| [Dependency](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
 request,<br/>requestFailed|[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
+
+## See also
+
+
+* [Create Application Insights and web test resources from templates](app-insights-powershell.md)
 
 <!--Link references-->
 

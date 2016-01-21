@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="12/03/2015"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
 
-API Management's VPN support allows you to connect your API Management proxy to an Azure Virtual Network. This allows API Management customers to securely connect to their backend web services that are on-premises or are otherwise inaccessible to the public internet.
+API Management's VPN support allows you to connect your API Management gateway to an Azure Virtual Network. This allows API Management customers to securely connect to their backend web services that are on-premises or are otherwise inaccessible to the public internet.
 
 ## <a name="enable-vpn"> </a>Enable VPN connections
 
->VPN connectivity is only available in the **Premium** tier. To switch to it, open your API Management service in the [Management Portal][] and then open the **Scale** tab. Under the **General** section select the Premium tier and click Save.
+>VPN connectivity is only available in the **Premium** tier. To switch to it, open your API Management service in the [Azure Classic Portal][] and then open the **Scale** tab. Under the **General** section select the Premium tier and click Save.
 
-To enable VPN connectivity, open your API Management service in the [Management Portal][] and switch to the **Configure** tab. 
+To enable VPN connectivity, open your API Management service in the [Azure Classic Portal][] and switch to the **Configure** tab. 
 
 Under the VPN section, switch **VPN connection** to **On**.
 
@@ -36,9 +36,9 @@ Select a VPN and subnet for every region. The list of VPNs is populated based on
 
 ![Select VPN][api-management-setup-vpn-select]
 
-Click **Save** at the bottom of the screen. You will not be able to perform other operations on the API Management service from the Azure management portal while it is updating. The service proxy will remain available and runtime calls should not be affected.
+Click **Save** at the bottom of the screen. You will not be able to perform other operations on the API Management service from the Azure Classic Portal while it is updating. The service gateway will remain available and runtime calls should not be affected.
 
-Note that the VIP address of the proxy will change each time VPN is enabled or disabled.
+Note that the VIP address of the gateway will change each time VPN is enabled or disabled.
 
 ## <a name="connect-vpn"> </a>Connect to a web service behind VPN
 
@@ -50,8 +50,8 @@ After your API Management service is connected to the VPN, accessing web service
 ## <a name="related-content"> </a>Related content
 
 
- * [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity][]
- * [How to use the API Inspector to trace calls in Azure API Management][]
+* [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity][]
+* [How to use the API Inspector to trace calls in Azure API Management][]
 
 [api-management-setup-vpn-configure]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-configure.png
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
@@ -61,8 +61,7 @@ After your API Management service is connected to the VPN, accessing web service
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
- 

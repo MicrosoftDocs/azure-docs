@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with Azure Search Management REST API" 
-	description="Get started with Azure Search Management REST API" 
+	pageTitle="Get started with Azure Search Management REST API | Microsoft Azure | Hosted cloud search service" 
+	description="Administer your hosted cloud Azure Search service using a Management REST API" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search Management REST API
@@ -34,7 +34,7 @@ You will need an Azure account to complete this tutorial.
 
 This tutorial is based on a Windows console application written in C#, which you can edit and run in either Visual Studio 2012 or 2013
 
-You can find the client application on Codeplex at [Azure Search Management API Demo](https://azuresearchmgmtapi.codeplex.com/).
+You can find the client application on Codeplex at [Azure Search Management API Demo](https://github.com/Azure-Samples/search-dotnet-management-api/).
 
 
 ##Configure the application
@@ -58,7 +58,7 @@ In this section, you will perform the following tasks:
 
 ###Create an Active Directory Service
 
-1. Sign in to the [Azure Management Portal](https://manage.windowsazure.com).
+1. Sign in to the [Azure Portal](https://manage.windowsazure.com).
 
 2. Scroll down the left navigation pane and click **Active Directory**.
 
@@ -120,7 +120,7 @@ The values that you will be adding appear near the top of Program.cs:
         private const string SubscriptionId = "<your subscription id>";
         private static readonly Uri RedirectUrl = new Uri("<your redirect url>");
 
-If you have not yet [downloaded the sample application from Codeplex](https://azuresearchmgmtapi.codeplex.com/), you will need it for this step.
+If you have not yet [downloaded the sample application from Github](https://github.com/Azure-Samples/search-dotnet-management-api/), you will need it for this step.
 
 1. Open the **ManagementAPI.sln** in Visual Studio.
 

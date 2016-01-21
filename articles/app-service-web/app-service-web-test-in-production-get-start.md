@@ -41,7 +41,7 @@ At the basic level in every TiP scenario, you route a predefined percentage of y
 
 >[AZURE.NOTE] The steps here assumes that you already have a [non-production deployment slot](web-sites-staged-publishing.md) and that the desired web app content is already [deployed]((web-sites-publish-source-control.md)) to it.
 
-1. Log into the Azure [preview portal](https://portal.azure.com).
+1. Log into the [Azure Portal](https://portal.azure.com).
 2. In your web app's blade, click **Settings** > **Traffic Routing**.
   ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. Select the slot that you want to route traffic to and the percentage of the total traffic you desire, then click **Save**.

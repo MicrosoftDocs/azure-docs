@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Move data from PostgreSQL using Azure Data Factory
@@ -233,7 +233,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 Property | Description | Required
 -------- | ----------- | --------
-tableName | Name of the table in the PostgreSQL Database instance that linked service refers to. | Yes 
+tableName | Name of the table in the PostgreSQL Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) 
 
 ## PostgreSQL Copy Activity type properties
 
@@ -245,7 +245,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
-query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No
+query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified)
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

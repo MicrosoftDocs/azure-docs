@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Service limits in Azure Search | Microsoft Azure"
-	description="Azure Search limits used in capacity planning and maximum limits on requests and reponses."
+	pageTitle="Service limits in Azure Search | Microsoft Azure | Hosted cloud search service"
+	description="Service limits used in capacity planning and maximum limits on requests and reponses for Azure Search, a hosted cloud search service."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/18/2015"
+	ms.date="11/19/2015"
 	ms.author="heidist"/>
 
 # Service limits in Azure Search
@@ -27,18 +27,7 @@ Standard runs on dedicated machines that are used only by your service. Sole use
 
 Azure subscribers can use the shared (multi-tenant) Search service for development or very small search applications. The shared service comes with your Azure subscription. It's a no-cost option that allows you to experiment with the service before signing up. It provides:
 
-Object|Limit
-------|-----
-Maximum number of indexes|3
-Maximum number of fields per index|1000
-Maximum document count|10,000
-Maximum storage size|50 MB
-Maximum partitions|N/A
-Maximum replicas|N/A
-Maximum search units|N/A
-Maximum number of indexers|3
-Maximum number of Indexer data sources|3
-Maximum number of indexed documents per indexer invocation|10,000
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-free.md)]
 
 Notice that there are no quotas or maximum limits associated with queries. Queries-per-second (QPS) are variable, depending on available bandwidth and competition for system resources. The Azure compute and storage resources backing your shared service are shared by multiple subscribers, so QPS for your solution will vary depending on how many other workloads are running at the same time.
 
@@ -48,19 +37,7 @@ Under the Standard pricing tier, a dedicated Search service stores only your dat
 
 The following table is a list of upper limits, but you should review the matrix chart further on to understand capacity in terms of allowable [combinations of partitions and replicas](#chart).
 
-Object|Limit
-------|----
-Maximum number of indexes|50 per Search service
-Maximum number of fields per index|1000
-Maximum document count|15 million per partition
-Maximum storage size|25 GB per partition
-Maximum partitions|12 per Search service
-Maximum replicas|6 per Search service
-Maximum search units|36 per Search service
-Maximum search services|12 per Azure subscription
-Maximum number of indexers|50 per Search service
-Maximum number of Indexer data sources|50 per Search service
-Maximum number of indexed documents per indexer invocation|Unlimited
+[AZURE.INCLUDE [azure-search-limits](../../includes/azure-search-limits-standard.md)]
 
 Capacity in Azure Search can be purchased in increments called search units. The Standard pricing tier allows for up to 36 search units per Search service. This limit overrides the individual limits on partitions and replicas. For example, you can't scale your service up to 12 partitions and 6 replicas, because doing so would require 72 search units (12 x 6), exceeding the limit of 36 search units per service.
 
@@ -84,6 +61,7 @@ Additional capacity is calculated as partitions multiplied by replicas, yielding
 The following table is a chart that lists replicas on the vertical axis, and partitions on the horizontal axis. The intersection shows the number of search units required to support each combination, subject to the 36 search unit (SU) limit per service. For example, if you want 6 replicas and 2 partitions, this configuration would require 12 search units. To use 4 replicas and 2 partitions, you would need 8 search units. As a general rule, most search applications tend to need more replicas than partitions.
 
 <table cellspacing="0" border="1">
+<tr><td><b>12 replicas</b></td><td>12 SU</td><td>24 SU</td><td>36 SU</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
 <tr><td><b>6 replicas</b></td><td>6 SU</td><td>12 SU</td><td>18 SU</td><td>24 SU</td><td>36 SU</td><td>N/A</td></tr>
 <tr><td><b>5 replicas</b></td><td>5 SU</td><td>10 SU</td><td>15 SU</td><td>20 SU</td><td>30 SU</td><td>N/A</td></tr>
 <tr><td><b>4 replicas</b></td><td>4 SU</td><td>8 SU</td><td>12 SU</td><td>16 SU</td><td>24 SU</td><td>N/A </td></tr>
@@ -95,7 +73,7 @@ The following table is a chart that lists replicas on the vertical axis, and par
 
 Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details](http://azure.microsoft.com/pricing/details/search/) for more information.
 
-> [AZURE.NOTE] The number of partitions you choose must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread across partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
+> [AZURE.NOTE] The number of replicas and partitions must evenly divide into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread across partitions. For example, if your service has three partitions and you create a new index, each partition will contain 4 shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future release. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 
 ## Choose a combination of partitions and replicas for high availability
 
@@ -110,7 +88,7 @@ General recommendations for high availability are:
 
 Currently, there is no built-in mechanism for disaster recovery. Adding partitions or replicas would be the wrong strategy for meeting disaster recovery objectives. Instead, you might consider adding redundancy at the service level. For a deeper discussion of the workarounds, see [this forum post](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
 
-> [AZURE.NOTE] Recall that service level agreements and scalability are features of the standard service. The free service is offered at a fixed resource level, with replicas and partitions shared by multiple subscribers. If you started with the free service and now want to upgrade, you will need to create a new Azure Search service at the standard level and then reload indexes and data to the new service. See [Create an Azure Search service in the portal](search-create-portal.md) for instructions on service provisioning.
+> [AZURE.NOTE] Recall that service level agreements and scalability are features of the standard service. The free service is offered at a fixed resource level, with replicas and partitions shared by multiple subscribers. If you started with the free service and now want to upgrade, you will need to create a new Azure Search service at the standard level and then reload indexes and data to the new service. See [Create an Azure Search service in the portal](search-create-service-portal.md) for instructions on service provisioning.
 
 ## API-key limits
 
@@ -121,7 +99,7 @@ Api-keys are used for service authentication. There are two types. Admin keys ar
 
 ## Request limits
 
-- Maximum of 16 MB per request
+- Maximum of 16 MB per request <sup>1</sup>
 - Maximum 8 KB URL length
 - Maximum 1000 documents per batch of index uploads, merges, or deletes
 - Maximum 32 fields in $orderby clause
@@ -131,3 +109,5 @@ Api-keys are used for service authentication. There are two types. Admin keys ar
 
 - Maximum 1000 documents returned per page of search results
 - Maximum 100 suggestions returned per Suggest API request
+
+<sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or Collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) for more information about field composition and restrictions). 

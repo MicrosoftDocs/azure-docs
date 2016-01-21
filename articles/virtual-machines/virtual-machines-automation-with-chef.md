@@ -17,6 +17,8 @@ ms.author="diviso"/>
 
 # Automating Azure virtual machine deployment with Chef
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Chef is a great tool for delivering automation and desired state configurations.
 
 With our latest cloud-api release, Chef provides seamless integration with Azure, giving you the ability to provision and deploy configuration states through a single command.
@@ -216,7 +218,7 @@ Once the deployment is complete, we should be able to connect to the web service
 
 As you can see, I got creative with my HTML code.
 
-Don’t forget we can also connect through an RDP session from the Azure portal via port 3389.
+Don’t forget we can also connect through an RDP session from the Azure classic portal via port 3389.
 
 I hope this has been helpful! Go  and start your infrastructure as code journey with Azure today!
 

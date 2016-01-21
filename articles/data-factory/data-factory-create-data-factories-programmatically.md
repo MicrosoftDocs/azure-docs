@@ -261,7 +261,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 	
 
-12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure portal. 
+12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure Classic Portal. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -371,18 +371,15 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		Jane, Doe
 	 
 17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**. 
-18. Use the Azure Preview Portal to verify that the data factory: **APITutorialFactory** is created with the following artifacts: 
+18. Use the Azure Portal to verify that the data factory: **APITutorialFactory** is created with the following artifacts: 
 	- Linked service: **LinkedService_AzureStorage** 
 	- Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample** 
 18. Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.
 
 
-## See Also
 
-Article | Description
------- | ---------------
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for .NET class library, cmdlets, JSON script, functions, etc… 
+> [AZURE.NOTE] The above sample code launches a dialog box for you to enter Azure credentials. If you need to sign-in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
 
 
 [data-factory-introduction]: data-factory-introduction.md

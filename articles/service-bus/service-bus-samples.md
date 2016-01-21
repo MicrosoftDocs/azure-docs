@@ -29,7 +29,7 @@ Note that the brokered messaging samples require a connection string to access y
 
 ### To obtain a connection string for Azure Service Bus
 
-1. Log on to the [Azure portal](http://manage.windowsazure.com).
+1. Log on to the [Azure classic portal](http://manage.windowsazure.com).
 
 1. In the left-hand column, click **Service Bus**.
 

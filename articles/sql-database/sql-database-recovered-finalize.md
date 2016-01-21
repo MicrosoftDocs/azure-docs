@@ -1,6 +1,6 @@
 <properties
    pageTitle="Finalize your recovered Azure SQL Database"
-   description="Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, Azure Management Portal, Azure portal"
+   description="Point in Time Restore, Microsoft Azure SQL Database, restore database, recover database, Azure Classic Portal, Azure Classic Portal"
    services="sql-database"
    documentationCenter=""
    authors="elfisher"

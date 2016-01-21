@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute technical overview
@@ -63,7 +63,7 @@ ExpressRoute connections enable access to the following services.
 
 - Microsoft Azure services
 - Microsoft Office 365 services
-- Microsoft CRM Online services (coming soon) 
+- Microsoft CRM Online services 
  
 You can visit the [ExpressRoute FAQ](expressroute-faqs.md) page for a detailed list of services supported over ExpressRoute.
 

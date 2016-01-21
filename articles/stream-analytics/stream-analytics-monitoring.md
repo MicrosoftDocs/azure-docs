@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Understanding Stream Analytics Job Monitoring | Microsoft Azure" 
 	description="Understanding Stream Analytics Job Monitoring" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="query monitor"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,26 +14,26 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Understanding Stream Analytics job monitoring
+# Understanding Stream Analytics job monitoring and how to monitor queries
 
-## Monitor page
+## Introduction: The monitor page
 
-The Azure Management portal and Azure preview portal both surface key performance metrics that can be used to monitor and troubleshoot your job.  
+The Azure Management portal and Azure preview portal both surface key performance metrics that can be used to monitor and troubleshoot your query and job performance. 
 
 In the Azure Management portal, click on the **Monitor** tab of a running Stream Analytics job to see these metrics. There is a delay of at the most 1 minute in the performance metrics showing up in the Monitor page.  
 
-  ![Monitoring Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+  ![Monitoring job Dashboard](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 In the Azure preview portal, browse to the Stream Analytics job you are interested in seeing metrics for and view the **Monitoring** section.  
 
-  ![Azure preview portal Monitoring Dashboard](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)  
+  ![Azure preview portal Monitoring job Dashboard](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)  
 
 The first time a Stream Analytics job is created in a region, you will need to configure Diagnostics for that region. To do this, click anywhere in the **Monitoring** section and the **Diagnostics** blade will appear. Here you can enable diagnostics and specify a storage account for monitoring data.  
 
-  ![Azure preview portal Configure Diagnostics](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)  
+  ![Azure preview portal Configure query Diagnostics](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)  
 
 ## Metrics available for Stream Analytics  
 
@@ -52,13 +52,13 @@ Up to 6 metrics can be displayed on a chart.
 
 To switch between displaying relative values (final value only for each metric) and absolute values (Y axis displayed), select Relative or Absolute at the top of the chart.
 
-  ![Relative Absolute](./media/stream-analytics-monitoring/02-stream-analytics-monitoring.png)  
+  ![Query monitor Relative Absolute](./media/stream-analytics-monitoring/02-stream-analytics-monitoring.png)  
 
 Metrics can be viewed in the Monitor chart in aggregations of 1 hour, 12 hours, 24 hours or 7 days.
 
 To change the time range the metrics chart displays, select 1 hour, 24 hours, or 7 days at the top of the chart.
 
-  ![Time Scale](./media/stream-analytics-monitoring/03-stream-analytics-monitoring.png)  
+  ![Query monitor Time Scale](./media/stream-analytics-monitoring/03-stream-analytics-monitoring.png)  
 
 You can set rules that can notify you by email in case the job crosses a defined threshold. 
 
@@ -66,7 +66,7 @@ You can set rules that can notify you by email in case the job crosses a defined
 
 You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](./azure-portal/insights-how-to-customize-monitoring.md).
 
-  ![Azure preview portal Time Scale](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![Azure preview portal Query Monitor Time Scale](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 ## Job status
 
@@ -87,11 +87,11 @@ The status of Stream Analytics jobs can be viewed in the Azure portal where you 
 
 In the Azure Management portal, the job dashboard provides information on where you need to look for the diagnosis, i.e. inputs, outputs and/or the operations log. You can click on the link to go the appropriate location to look at the diagnosis.
 
-  ![Error](./media/stream-analytics-monitoring/04-stream-analytics-monitoring.png)  
+  ![Query monitor Error](./media/stream-analytics-monitoring/04-stream-analytics-monitoring.png)  
 
 Clicking on the input or output resource provides detailed diagnostic information. This is refreshed with the latest diagnosis information while the job is running.
 
-  ![Diagnostics](./media/stream-analytics-monitoring/05-stream-analytics-monitoring.png)  
+  ![Query Diagnostics](./media/stream-analytics-monitoring/05-stream-analytics-monitoring.png)  
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)

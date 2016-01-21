@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="11/10/2015"
    ms.author="dkshir;memccror"/>
 
 # How to Tag a Virtual Machine in Azure
@@ -28,7 +28,7 @@ This article describes different ways to tag a virtual machine in Azure through 
 
 First, let’s look at tagging through templates. [This template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) places tags on the following resources: Compute (Virtual Machine), Storage (Storage Account), and Network (Public IP Address, Virtual Network, and Network Interface).
 
-Click the **Deploy to Azure** button from the [template link](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). This will navigate to the [Azure Preview Portal](http://portal.azure.com/) where you can deploy this template.
+Click the **Deploy to Azure** button from the [template link](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). This will navigate to the [Azure portal](http://portal.azure.com/) where you can deploy this template.
 
 ![Simple deployment with Tags](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -47,7 +47,7 @@ Save the template file after you finish editing it with the tags of your choice.
 
 Next, in the **Edit Parameters** section, you can fill out the values for your tags.
 
-![Edit Tags in Azure Portal](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
+![Edit Tags in Azure portal](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
 Click **Create** to deploy this template with your tag values.
 
@@ -58,15 +58,15 @@ After creating your resources with tags, you can view, add, and delete tags in t
 
 Select the tags icon to view your tags:
 
-![Tags icon in Azure Portal](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
+![Tags icon in Azure portal](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
 
 Add a new tag through the portal by defining your own Key/Value pair, and save it.
 
-![Add new Tag in Azure Portal](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
+![Add new Tag in Azure portal](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
 
 Your new tag should now appear in the list of tags for your resource.
 
-![New Tag saved in Azure Portal](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
+![New Tag saved in Azure portal](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
 
 
 ## Tagging with PowerShell
@@ -88,7 +88,7 @@ If your Virtual Machine already contains tags, you will then see all the tags on
 
 If you would like to add tags through PowerShell, you can use the `Set-AzureResource` command. Note when updating tags through PowerShell, tags are updated as a whole. So if you are adding one tag to a resource that already has tags, you will need to include all the tags that you want to be placed on the resource. Below is an example of how to add additional tags to a resource through PowerShell Cmdlets.
 
-This first cmdlet sets all of the tags placed on *MyWindowsVM* to the *tags* variable, using the `Get-AzureResource` and `Tags` function.
+This first cmdlet sets all of the tags placed on *MyWindowsVM* to the *tags* variable, using the `Get-AzureResource` and `Tags` function. Note that the parameter `ApiVersion` is optional; if not specified, the latest API version of the resource provider is used. 
 
         PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -155,19 +155,19 @@ Now that we have applied tags to our resources via PowerShell, Azure CLI, and th
 
 ## Viewing your tags in the usage details
 
-Tags placed on Compute, Network, and Storage resources through the Azure Resource Manager will be populated in your usage details in the billing portal.
+Tags placed on Compute, Network, and Storage resources through the Azure Resource Manager will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
 
 Click on **Download usage details** to view the usage details in your subscription.
 
-![Usage details in Azure Portal](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
+![Usage details in Azure portal](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
 Select your billing statement and the **Version 2** usage details:
 
-![Version 2 Preview Usage Details in Azure Portal](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
+![Version 2 Preview Usage Details in Azure portal](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
 From the usage details, you can see all of the tags in the **Tags** column:
 
-![Tags column in Azure Portal](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
+![Tags column in Azure portal](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
 By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
 
@@ -183,7 +183,7 @@ By analyzing these tags along with usage, organizations will be able to gain new
 
 
 [PowerShell environment with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Azure Resource Cmdlets]: https://msdn.microsoft.com/en-us/library/azure/dn757692.aspx
+[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../resource-group-using-tags.md

@@ -1,10 +1,10 @@
 <properties
-			pageTitle="How to use Azure File storage with Windows | Microsoft Azure"
-            description="Create a file share in the cloud and manage file content. Mount a file share from an Azure VM or from an on-premises application."
+			pageTitle="How to use Azure Files with Windows | Microsoft Azure"
+    		description="Create an Azure file share in the cloud with this step-by-step tutorial. Manage your file share content, and mount a file share from an Azure virtual machine (VM) or from an on-premises application."
             services="storage"
             documentationCenter=".net"
-            authors="tamram"
-            manager="adinah"
+            authors="robinsh"
+            manager="carmonm"
             editor="" />
 
 <tags ms.service="storage"
@@ -12,56 +12,123 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="09/28/2015"
-      ms.author="tamram" />
+      ms.date="01/12/2015"
+      ms.author="robinsh" />
 
 # How to use Azure File storage with Windows
 
+[AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+
 ## Overview
 
-Azure File storage offers file shares in the cloud using the standard SMB protocol. File storage is now generally available and supports both SMB 2.1 and SMB 3.0.
+Azure File storage offers file shares in the cloud using the standard [Server Message Block (SMB) Protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). It is now generally available and supports both SMB 2.1 and SMB 3.0.
 
-You can create Azure file shares using the Azure preview portal, the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because file shares are SMB shares, you can access them via standard and familiar file system APIs. 
+You can create Azure file shares using [Azure Portal](portal.azure.com), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because these file shares are SMB shares, you can access them via standard and familiar file system APIs. 
 
-Applications running in Azure can easily mount file shares from Azure virtual machines. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0. 
+Applications running in Azure can easily mount file shares from Azure virtual machines. And with the general availability of File storage, you can also mount a file share from an on-premises client that supports SMB 3.0 (e.g. your local laptop, desktop and server). 
 
-File storage is built on the same technology as Blob, Table, and Queue storage, so File storage is able to leverage the existing availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform.
+File storage is built on the same technology as Blob, Table, and Queue storage, so it is able to leverage the existing availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform.
 
 For information on using File storage with Linux, see [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md).
 
-For information on scalability targets for File storage, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
+For information on scalability and performance targets of File storage, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
+## Video: Using Azure File storage with Windows
+
+Here's a video that demonstrates how to create and use Azure File shares on Windows.
+
+> [AZURE.VIDEO azure-file-storage-with-windows]
+
 ## About this tutorial
 
 This getting started tutorial demonstrates the basics of using Microsoft Azure File storage. In this tutorial, we will:
 
-- Use Azure PowerShell to show how to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
-- Mount the file share from an Azure virtual machine, just as you would mount any SMB share.
+- Use Azure Portal or PowerShell to create a new Azure File share, add a directory, upload a local file to the share, and list the files in the directory.
+- Mount the file share, just as you would mount any SMB share.
 - Use the Azure Storage Client Library for .NET to access the file share from an on-premises application. Create a console application and perform these actions with the file share:
 	- Write the contents of a file in the share to the console window.
 	- Set the quota (maximum size) for the file share.
 	- Create a shared access signature for a file that uses a shared access policy defined on the share.
 	- Copy a file to another file in the same storage account.
 	- Copy a file to a blob in the same storage account.
+- Use Azure Storage Metrics for troubleshooting
 
 File storage is now supported for all storage accounts, so you can either use an existing storage account, or you can create a new storage account. See [How to create, manage, or delete a storage account](storage-create-storage-account.md#create-a-storage-account) for information on creating a new storage account.
 
-## Use the Azure preview portal to manage a file share
+## Use the Azure Portal to manage a file share
 
-The [Azure preview portal](https://ms.portal.azure.com/) provides a user interface for customers to manage File storage. From the preview portal, you can:
+The [Azure Portal](portal.azure.com) provides a user interface for customers to manage file shares. From the portal, you can:
 
+- Create your file share
 - Upload and download files to and from your file share
 - Monitor the actual usage of each file share
 - Adjust the share size quota
 - Get the `net use` command to use to mount the file share from a Windows client 
 
+### Create file share
+
+1. Sign in to the Azure portal.
+
+2. On the navigation menu, click **Storage accounts** or **Storage accounts (classic)**.
+
+	![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-0.png)
+
+3. Choose your storage account.
+
+	![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-1.png)
+
+4. Choose "Files" service.
+
+	![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-2.png)
+
+5. Click "File shares" and follow the link to create your first file share. 
+
+	![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-3.png)
+
+6. Fill in the file share name and the size of the file share (up to 5120 GB) to create your first file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0.
+
+	![Screenshot that shows how to create file share in the portal](./media/storage-dotnet-how-to-use-files/files-create-share-4.png)
+
+### Upload and download files
+
+1. Choose one file share your already created.
+
+	![Screenshot that shows how to upload and download files from the portal](./media/storage-dotnet-how-to-use-files/files-upload-download-1.png)
+
+2. Click **Upload** to open the user interface for files uploading.
+
+	![Screenshot that shows how to upload files from the portal](./media/storage-dotnet-how-to-use-files/files-upload-download-2.png)
+
+3. Right click on one file and choose **Download** to download it into local.
+
+	![Screenshot that shows how to download file from the portal](./media/storage-dotnet-how-to-use-files/files-upload-download-3.png)
+
+### Manage file share
+
+1. Click **Quota** to change the size of the file share (up to 5120 GB).
+
+	![Screenshot that shows how to configure the quota of the file share](./media/storage-dotnet-how-to-use-files/files-manage-1.png)
+
+2. Click **Connect** to get the command line for mounting the file share from Windows.
+
+	![Screenshot that shows how to mount the file share](./media/storage-dotnet-how-to-use-files/files-manage-2.png)
+
+	![Screenshot that shows how to mount the file share](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
+
+	>[AZURE.TIP] To find the storage account access key for mounting, click **Settings** of your storage account, and then click **Access keys**. 
+
+	![Screenshot that shows how to find the storage account access key](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
+
+	![Screenshot that shows how to find the storage account access key](./media/storage-dotnet-how-to-use-files/files-manage-5.png)
+
+
 ## Use PowerShell to manage a file share
 
-Next, we'll use Azure PowerShell to create a file share. Once the file share has been created, you can mount it from any file system that supports SMB 2.1 or SMB 3.0.
+Alternatively, you can use Azure PowerShell to create and manage file shares.
 
 ### Install the PowerShell cmdlets for Azure Storage
 
@@ -73,7 +140,7 @@ Open an Azure PowerShell window by clicking **Start** and typing **Azure PowerSh
 
 ### Create a context for your storage account and key
 
-Now, create the storage account context. The context encapsulates the storage account name and account key. For instructions on copying your account key from the Azure portal, see [View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Now, create the storage account context. The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure Portal](portal.azure.com), see [View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 Replace `storage-account-name` and `storage-account-key` with your storage account name and key in the following example.
 
@@ -130,7 +197,7 @@ With support for SMB 3.0, File storage now supports encryption and persistent ha
 - An Azure virtual machine in a different region (SMB 3.0 only)
 - An on-premises client application (SMB 3.0 only) 
 
-When a client accesses File storage, the SMB version used depends on the SMB version supported by the operating system. The table below provides a summary of support for Windows clients. For more details, refer to << Which version of the SMB protocol blog post>>.
+When a client accesses File storage, the SMB version used depends on the SMB version supported by the operating system. The table below provides a summary of support for Windows clients. Please refer to this blog for more details on [SMB versions](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx).
 
 | Windows Client         | SMB Version Supports |
 |------------------------|----------------------|
@@ -139,6 +206,7 @@ When a client accesses File storage, the SMB version used depends on the SMB ver
 | Windows 8              | SMB 3.0              |
 | Windows Server 2012    | SMB 3.0              |
 | Windows Server 2012 R2 | SMB 3.0              |
+| Windows 10             | SMB 3.0              |
 
 ### Mount the file share from an Azure virtual machine running Windows
 
@@ -186,7 +254,7 @@ To mount the file share from an on-premises client, you must first take these st
 - Install a version of Windows which supports SMB 3.0. Windows will leverage SMB 3.0 encryption to securely transfer data between your on-premises client and the Azure file share in the cloud. 
 - Open Internet access for port 445 (TCP Outbound) in your local network, as is required by the SMB protocol. 
 
-[AZURE.NOTE] Some Internet service providers may block port 445, so you may need to check with your service provider.
+> [AZURE.NOTE] Some Internet service providers may block port 445, so you may need to check with your service provider.
 
 ## Develop with File storage
 
@@ -461,7 +529,7 @@ You can copy a blob to a file in the same way. If the source object is a blob, t
 
 Azure Storage Analytics now supports metrics for File storage. With metrics data, you can trace requests and diagnose issues.
 
-You can enable metrics for File storage from the Azure portal. You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
+You can enable metrics for File storage from the [Azure Portal](portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
 
 ## File storage FAQ
 
@@ -519,9 +587,11 @@ You can enable metrics for File storage from the Azure portal. You can also enab
 
 See these links for more information about Azure File storage.
 
-### Conceptual articles
+### Conceptual articles and videos
 
+- [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 
 ### Tooling support for File storage
 
@@ -540,3 +610,4 @@ See these links for more information about Azure File storage.
 - [Deep dive with Azure File storage](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
 - [Introducing Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)

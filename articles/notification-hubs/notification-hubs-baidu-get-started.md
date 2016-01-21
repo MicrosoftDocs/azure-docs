@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="10/19/2015"
+	ms.date="11/25/2015"
 	ms.author="wesmc"/>
 
 # Get started with Notification Hubs using Baidu
@@ -141,7 +141,7 @@ You will see the **保存成功！** (**Successfully saved!**) message.
 
 ##Configure your notification hub
 
-1. Sign in to the [Azure portal], and then click **+NEW** at the bottom of the screen.
+1. Sign in to the [Azure Classic Portal], and then click **+NEW** at the bottom of the screen.
 
 2. Click **App Services**, click **Service Bus**, click **Notification Hub**, and then click **Quick Create**.
 
@@ -187,7 +187,7 @@ You will see the **保存成功！** (**Successfully saved!**) message.
 
     ![][26]
 
-5. Download and unzip the [Mobile Services Android SDK], open the **notificationhubs** folder, copy the **notification-hubs-x.y.jar** file to the **libs** folder of your Eclipse project, and refresh the *libs* folder.
+5. Download the notification-hubs-0.4.jar file from the **Files** tab of the [Notification-Hubs-Android-SDK on Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Add the file to the **libs** folder of your Eclipse project, and refresh the *libs* folder.
 
 6. Download and unzip the [Baidu Push Android SDK], open the **libs** folder, and then copy the **pushservice-x.y.z** jar file and the **armeabi** & **mips** folders in the **libs** folder of your Android application.
 
@@ -264,7 +264,7 @@ You will see the **保存成功！** (**Successfully saved!**) message.
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	Set the value of **API_KEY** with what you retrieved from the Baidu cloud project earlier, **NotificationHubName** with your notification hub name from the Azure portal and **NotificationHubConnectionString** with DefaultListenSharedAccessSignature from the Azure portal.
+	Set the value of **API_KEY** with what you retrieved from the Baidu cloud project earlier, **NotificationHubName** with your notification hub name from the Azure Classic Portal and **NotificationHubConnectionString** with DefaultListenSharedAccessSignature from the Azure Classic Portal.
 
 11. Add a new class called **DemoApplication.java**, and add the following code to it:
 
@@ -399,7 +399,7 @@ You will see the **保存成功！** (**Successfully saved!**) message.
 ##Send notifications to your app
 
 
-You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.
+You can test receiving notifications in your app by sending notifications in the Azure Classic Portal via the debug tab on the notification hub, as shown in the screen below.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
 
@@ -459,7 +459,7 @@ To test this app with the emulator, on the Eclipse top toolbar, click **Run**, a
 
 The app retrieves the 'userId' and 'channelId' from the Baidu Push notification service and registers with the notification hub.
 
-To send a test notification you can use the debug tab of the portal. If you built the .NET console application for Visual Studio, just press the F5 key in Visual Studio to run the application. The application will send a notification that will appear in the top notification area of your device or emulator.
+To send a test notification you can use the debug tab of the Azure Classic Portal. If you built the .NET console application for Visual Studio, just press the F5 key in Visual Studio to run the application. The application will send a notification that will appear in the top notification area of your device or emulator.
 
 
 <!-- Images. -->
@@ -500,5 +500,5 @@ To send a test notification you can use the debug tab of the portal. If you buil
 <!-- URLs. -->
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Baidu Push Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Baidu portal]: http://www.baidu.com/

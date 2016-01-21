@@ -8,8 +8,6 @@
 ## Standard process (working from master)
 Follow the steps in this article to create a local working branch on your computer so that you can create a new article for the technical documentation section of azure.microsoft.com or update an existing article.
 
-![](./media/git-commands-for-master/githubcommands1.png)
-
 1. Start Git Bash (or the command-line tool you use for Git).
 
  **Note:** If you are working in the public repository, change azure-content-pr to azure-content in all the commands.

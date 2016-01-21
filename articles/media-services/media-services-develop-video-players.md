@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="11/02/2015" 
 	ms.author="juliako"/>
 
 
@@ -36,7 +36,7 @@ For more information:
 - [Azure Media Player Documentation](http://aka.ms/ampdocs) 
 - [Azure Media Player Getting Started Blog](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
 - [Sign up to stay up to date with the latest from Azure Media Player](http://aka.ms/ampsignup)
-- [Add new feature requests, ideas, feedback](http://feedback.azure.com/forums/293565-azure-media-player/filters/my_feedback) 
+- [Add new feature requests, ideas, feedback](http://aka.ms/ampuservoice ) 
 
 
 ##Other Tools for Creating Player Applications
@@ -48,7 +48,7 @@ You can also use any of the following SDKs:
 - [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
 - [HTML5 Player Framework Documentation](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Licensing Microsoft® Smooth Streaming Client Porting Kit](https://www.microsoft.com/mediaplatform/sspk.aspx) 
+- [Licensing Microsoft® Smooth Streaming Client Porting Kit](http://aka.ms/sspk) 
 - [XBOX Video Application Development](http://xbox.create.msdn.com/) 
  
 
@@ -69,11 +69,11 @@ For information about closed captioning and ads support in Live streaming videos
 
 ##Media Services learning paths
 
-You can view AMS learning paths here:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Provide feedback
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##See Also
 

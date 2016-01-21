@@ -18,4 +18,4 @@
 
 # Azure AD Domain Services *(Preview)*
 
-To learn where Azure services are available, please see [Services by region](https://azure.microsoft.com/en-us/regions/#services).
+To learn where Azure services are available, please see [Services by region](https://azure.microsoft.com/regions/#services).

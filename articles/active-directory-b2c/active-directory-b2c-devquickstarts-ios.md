@@ -100,14 +100,13 @@ In order for the iOS Task app to communicate with Azure AD B2C, there are a few 
 	<key>authority</key>
 	<string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
 	<key>clientId</key>
-	<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+	<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	<key>scopes</key>
 	<array>
-		<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+		<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	</array>
 	<key>additionalScopes</key>
 	<array>
-		<string></string>
 	</array>
 	<key>redirectUri</key>
 	<string>urn:ietf:wg:oauth:2.0:oob</string>
@@ -254,9 +253,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
         [self readApplicationSettings];
     }
     
-    NSDictionary* params = [self convertPolicyToDictionary:policy];
-    
-    [self getClaimsWithPolicyClearingCache:NO policy:policy params:params parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
+    [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
         
         if (userInfo == nil)
         {
@@ -277,42 +274,8 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 You see that the the method is pretty simple. It takes as an input the `samplesPolicyData` object we created a few moments ago, the parent ViewController, and then a callback. The call back is interesting and we'll walk through it.
 
 1. You'll see that the `completionBlock` has ADProfileInfo as a type that will get returned with a `userInfo` object. ADProfileInfo is the type that holds all the response from the server, in particular claims. 
-
 2. You'll see that we `readApplicationSettings`. This reads the data that we've provided in the `settings.plist`
-3. You'll see that we have a method `convertPolicyToDictionary:policy` which takes our policy and formats it as a URL to send to the server. We'll write this helper method next.
-4. Finally, we have a rather large `getClaimsWithPolicyClearingCache` method. This is the actual call to ADAL for iOS we need to write. We'll do that later.
-
-
-Next, we'll write that `convertPolicyToDictionary` method below the code we've just written:
-
-```
-// Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
-
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-    
-    if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
-    }
-    
-    return dictionary;
-}
-
-+(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-
-    
-    if (policy.policyID){
-        [dictionary setValue:policy.policyID forKey:@"p"];
-    }
-    
-    return dictionary;
-}
-
-```
-This rather simple code simply appends a p to our policy such that the look of the query should be ?p=<policy>. 
+3. Finally, we have a rather large `getClaimsWithPolicyClearingCache` method. This is the actual call to ADAL for iOS we need to write. We'll do that later.
 
 Now let's write our large method `getClaimsWithPolicyClearingCache`. This is large enough to merit it's own section
 

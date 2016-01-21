@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Monitor and manage Stream Analytics jobs with PowerShell | Microsoft Azure" 
 	description="Learn how to use Azure PowerShell and cmdlets to monitor and manage Stream Analytics jobs." 
-	keywords="azure powershell,azure powershell cmdlets,powershell command"	
+	keywords="azure powershell, azure powershell cmdlets, powershell command, powershell scripting"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,14 +14,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/06/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
 # Monitor and manage Stream Analytics jobs with Azure PowerShell cmdlets
 
-Learn how to monitor and manage Stream Analytics resources with Azure PowerShell cmdlets that execute basic Stream Analytics tasks.
-
+Learn how to monitor and manage Stream Analytics resources with Azure PowerShell cmdlets and powershell scripting that execute basic Stream Analytics tasks.
 
 ## Prerequisites for running Azure PowerShell cmdlets for Stream Analytics
 
@@ -34,9 +33,12 @@ Learn how to monitor and manage Stream Analytics resources with Azure PowerShell
 		# Select the Azure subscription you want to use to create the resource group
 		Select-AzureSubscription -SubscriptionName <subscription name>
  
-		# Create an Azure resource group	
+		# Set the appropriate Azure mode to access Stream Analytics cmdlets
+		Switch-AzureMode AzureResourceManager
+
+		# Optional - Create an Azure resource group	
 			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
-			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+		#Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
 		# Create an Azure resource group
 		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>

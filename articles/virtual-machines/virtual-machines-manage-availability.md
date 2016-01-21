@@ -19,6 +19,8 @@
 
 # Manage the availability of virtual machines
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## Understand planned vs. unplanned maintenance
 There are two types of Microsoft Azure platform events that can affect the availability of your virtual machines: planned maintenance and unplanned maintenance.
 

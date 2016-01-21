@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="08/13/2015"
+	 ms.date="10/21/2015"
 	 ms.author="jimpark"; "aashishr"/>
 
 # Restore files to a Windows server or Windows client machine

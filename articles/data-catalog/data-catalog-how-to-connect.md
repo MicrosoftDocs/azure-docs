@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/19/2015"
+   ms.date="11/10/2015"
    ms.author="maroche"/>
 
 

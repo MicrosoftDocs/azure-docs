@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create or edit users in Azure AD"
-	description="A topic that explains how to create or edit user accounts in Azure AD."
+	pageTitle="Create or edit users in Azure Active Directory | Microsoft Azure"
+	description="Explains how to create or edit user accounts in Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
-# Create or edit users in Azure AD
+# Create or edit users in Azure Active Directory
 
-You have to create an account for every user who will access a Microsoft cloud service. You can also change user accounts or delete them when they’re no longer needed. By default, users do not have administrator permissions, but you can optionally assign them.
+You have to create an account in Azure Active Directory (Azure AD) for every user who will access a Microsoft cloud service. You can also change user accounts or delete them when they’re no longer needed. By default, users do not have administrator permissions, but you can optionally assign them.
 
 ## Create a user
 
-1. Click **Active Directory**, and then click on the name of your organization’s directory.
+1. Click **Active Directory**, and then click the name of your organization’s directory.
 2. On the **Users** page, click **Add User**.
 3. On the **Tell us about this user** page, for **Type of User**, select either:
 	1. **New user in your organization** – Indicates that you want a new user account to be created and managed within your directory.
@@ -41,7 +41,7 @@ If your organization uses more than one domain, you should know about the follow
 
 If the user that you are trying to edit is synchronized with your on-premises Active Directory service, an error message appears, and you will be unable to edit the user using this procedure. To edit the user, use your local Active Directory management tools.
 
-To edit a user in the Azure Management Portal:
+To edit a user in the Azure classic portal:
 
 1. Click **Active Directory**, and then click on the name of your organization’s directory.
 2. On the **Users** page, click on the display name of the user you want to edit.
@@ -49,7 +49,7 @@ To edit a user in the Azure Management Portal:
 
 ## Reset a user's password
 
-1. Click **Active Directory**, and then click on the name of your organization’s directory.
+1. Click **Active Directory**, and then click the name of your organization’s directory.
 2. On the **Users** page, click on the display name of the user you want to edit.
 3. At the bottom of the portal, click **Reset Password**.
 4. In the reset password dialog, click **reset**.
@@ -61,7 +61,7 @@ In Azure AD you can also add users to an Azure AD directory from another Azure A
 
 Users who are added from another directory are external users. External users can collaborate with users who already exist in a directory, such as in a test environment, without requiring them to sign in with new accounts and credentials. External users are authenticated by their home directory when they sign in, and that authentication works for all  other directories that they are a member of.
 
-To create an external user, create a user in the portal and for **Type of User**, select **User in another Azure AD directory**.
+To create an external user, create a user in the Azure classic portal, and for **Type of User**, select **User in another Azure AD directory**.
 
 ## External user management and limitations
 
@@ -74,7 +74,7 @@ The only linkage between the two objects is that the user always authenticates a
 
 If a user is deleted in their home directory or they cancel their Microsoft Account, the external user still exists in the directory. However, the user can't access resources in the directory since the user can't authenticate to their home directory or Microsoft Account anymore.
 
-A user who is an administrator of multiple directories can manage each of those directories in the Azure management portal. However, other applications such as Office 365 do not currently provide experiences to assign and access services as an external user in another directory. Going forward, we will provide guidance to developers how their apps can work with users who are members of multiple directories.
+A user who is an administrator of multiple directories can manage each of those directories in the Azure classic portal. However, other applications such as Office 365 do not currently provide experiences to assign and access services as an external user in another directory. Going forward, we will provide guidance to developers how their apps can work with users who are members of multiple directories.
 
 There are currently limitations in that an administrator can only grant consent to a multi-tenant application in their home directory, and can only be provisioned for SaaS apps and SSO via the Access Panel in their home directory. Microsoft account users have the same limitations in that they cannot currently grant consent to a multi-tenant application, or use the Access Panel.
 
@@ -86,8 +86,8 @@ Guests have a limited set of rights in the directory. These rights limit the abi
 
 ## Configure user access policies
 
-The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator.
-To open the **Configure** tab in the Azure portal, click **Active Directory**, and then click the name of the directory.
+The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure classic portal by a directory global administrator.
+To open the **Configure** tab in the Azure classic portal, click **Active Directory**, and then click the name of the directory.
 
 ![][1]
 

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Get Started with Fleet on CoreOS | Microsoft Azure"
-	description="Provides basic examples of using Fleet and Docker on a CoreOS Linux virtual machine created with the classic deployment model on Azure."
+	description="Provides basic examples of using Fleet and Docker on a CoreOS Linux VM cluster created with the classic deployment model on Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,19 +14,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/03/2015"
+	ms.date="11/16/2015"
 	ms.author="danlep"/>
 
-# Get Started with Fleet on CoreOS on Azure
+# Get started with fleet on a CoreOS VM cluster on Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
 
 This article gives you two quick examples of using [fleet](https://github.com/coreos/fleet) and [Docker](https://www.docker.com/) to run applications on a cluster of [CoreOS] virtual machines.
 
-To use these examples, first set up a three-node CoreOS cluster as described in [How to Use CoreOS on Azure]. Having done that, you'll understand the very basic elements of CoreOS deployments and have a working cluster and client computer. We'll use exactly the same cluster name in these examples. Also, these examples assume you're using your local Linux host to run your **fleetctl** commands.
-
-
+To use these examples, first set up a three-node CoreOS cluster as described in [How to Use CoreOS on Azure]. Having done that, you'll understand the very basic elements of CoreOS deployments and have a working cluster and client computer. We'll use exactly the same cluster name in these examples. Also, these examples assume you're using your local Linux host to run your **fleetctl** commands. See [Using the client](https://coreos.com/fleet/docs/latest/using-the-client.html) for more about the **fleetctl** client.
 
 
 ## <a id='simple'>Example 1: Hello World with Docker</a>
@@ -90,30 +88,28 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 ```
 
 
-## <a id='highavail'>Example 2: Highly available Apache server</a>
+## <a id='highavail'>Example 2: Highly available nginx server</a>
 
-One advantage of using CoreOS, Docker, and **fleet** is that it's easy to run services in a highly available manner. In this example you'll deploy a service that consists of three identical containers running the Apache web server. The containers will run on the three VMs in the cluster. This example is similar to one in [Launching containers with fleet] and uses the [CoreOS Apache Docker Hub image].
+One advantage of using CoreOS, Docker, and **fleet** is that it's easy to run services in a highly available manner. In this example you'll deploy a service that consists of three identical containers running the nginx web server. The containers will run on the three VMs in the cluster. This example is similar to one in [Launching containers with fleet] and uses the [nginx Docker Hub image].
 
->[AZURE.IMPORTANT] To run the highly available Apache server, you'll need to configure a load-balanced HTTP endpoint on the virtual machines (public port 80, private port 80). You can do this after creating the CoreOS cluster, using the Azure portal or **azure vm endpoint** command. See [Configure a load-balanced set] for more information.
+>[AZURE.IMPORTANT] To run the highly available web server, you'll need to configure a load-balanced HTTP endpoint on the virtual machines (public port 80, private port 80). You can do this after creating the CoreOS cluster, using the Azure classic portal or **azure vm endpoint** command. See [Configure a load-balanced set] for more information.
 
-On your client computer, use your favorite text editor to create a **systemd** template unit file, named apache@.service. You'll use that template to launch three separate instances, named apache@1.service, apache@2.service, and apache@3.service:
+On your client computer, use your favorite text editor to create a **systemd** template unit file, named nginx@.service. You'll use this simple template to launch three separate instances, named nginx@1.service, nginx@2.service, and nginx@3.service:
 
 ```
 [Unit]
-Description=High Availability Apache
+Description=High Availability Nginx
 After=docker.service
 Requires=docker.service
 
 [Service]
 TimeoutStartSec=0
-ExecStartPre=-/usr/bin/docker kill apache1
-ExecStartPre=-/usr/bin/docker rm apache1
-ExecStartPre=/usr/bin/docker pull coreos/apache
-ExecStart=/usr/bin/docker run -rm --name apache1 -p 80:80 coreos/apache /usr/sbin/apache2ctl -D FOREGROUND
-ExecStop=/usr/bin/docker stop apache1
+ExecStartPre=/usr/bin/docker pull nginx
+ExecStart=/usr/bin/docker run --rm --name nginx1 -p 80:80 nginx
+ExecStop=/usr/bin/docker stop nginx1
 
 [X-Fleet]
-X-Conflicts=apache@*.service
+X-Conflicts=nginx@*.service
 ```
 
 >[AZURE.NOTE] The `X-Conflicts` attribute tells CoreOS that only one instance of this container can be run on a given CoreOS host. For details see [Unit Files].
@@ -121,33 +117,53 @@ X-Conflicts=apache@*.service
 Now start the unit instances on the CoreOS cluster. You should see that they're running on three different machines:
 
 ```
-fleetctl --tunnel coreos-cluster.cloudapp.net:22 start apache@{1,2,3}.service
+fleetctl --tunnel coreos-cluster.cloudapp.net:22 start nginx@{1,2,3}.service
 
-unit apache@3.service launched on 00c927e4.../100.79.62.16
-unit apache@1.\service launched on 62f0f66e.../100.79.86.62
-unit apache@2.service launched on df85f2d1.../100.78.126.15
+unit nginx@3.service launched on 00c927e4.../100.79.62.16
+unit nginx@1.service launched on 62f0f66e.../100.79.86.62
+unit nginx@2.service launched on df85f2d1.../100.78.126.15
 
 ```
-To reach the Apache server running on one of the units, send a simple request to the cloud service hosting the CoreOS cluster.
+To reach the web server running on one of the units, send a simple request to the cloud service hosting the CoreOS cluster.
 
 `curl http://coreos-cluster.cloudapp.net`
 
-You'll see default text returned from the Apache server similar to:
+You'll see default text returned from the nginx server similar to:
 
 ```
-\<html>\<body\>\<h1\>It works!\</h1\>
-\<p\>This is the default web page for this server.\</p\>
-\<p\>The web server software is running but no content has been added, yet.\</p\>
-\</body\>\</html\>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
 ```
 
-You can try shutting down one or more virtual machines in your cluster to verify that the Apache service continues to run.
+You can try shutting down one or more virtual machines in your cluster to verify that the web service continues to run.
 
 When done, stop and unload units.
 
 ```
-fleetctl --tunnel coreos-cluster.cloudapp.net:22 stop apache@{1,2,3}.service
-fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
+fleetctl --tunnel coreos-cluster.cloudapp.net:22 stop nginx@{1,2,3}.service
+fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 
 ```
 
@@ -173,5 +189,5 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [Launching containers with fleet]: https://coreos.com/docs/launching-containers/launching/launching-containers-fleet/
 [Unit Files]: https://coreos.com/docs/launching-containers/launching/fleet-unit-files/
 [busybox Docker Hub image]: https://registry.hub.docker.com/_/busybox/
-[CoreOS Apache Docker Hub image]: https://registry.hub.docker.com/u/coreos/apache/
+[nginx Docker Hub image]: https://hub.docker.com/_/nginx/
 [Linux and Open-Source Computing on Azure]: virtual-machines-linux-opensource.md

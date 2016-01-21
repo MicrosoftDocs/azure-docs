@@ -1,6 +1,6 @@
-<properties
-	pageTitle="How to search StackExchange data using Azure Search | Microsoft Azure"
-	description="Learn how to perform REST searches using Azure Search."
+﻿<properties
+	pageTitle="How to search StackExchange data using Azure Search | Microsoft Azure | Hosted cloud search service"
+	description="Learn how to perform REST searches using Azure Search, a cloud hosted search service on Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="liamca"
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="10/15/2015"
+	ms.date="11/04/2015"
 	ms.author="liamca"/>
 
 # How to search StackExchange data using Azure Search
 
-This article is a walkthrough that highlights some of the core full-text search capabilities that can done with [Azure Search](https://azure.microsoft.com/en-us/services/search/).  It leverages data that Stack Exchange made [available](https://archive.org/details/stackexchange) for Creative Commons usage with the following [attribution](http://blog.stackoverflow.com/2009/06/attribution-required/).
+This article is a walkthrough that highlights some of the core full-text search capabilities that can done with [Azure Search](https://azure.microsoft.com/services/search/).  It leverages data that Stack Exchange made [available](https://archive.org/details/stackexchange) for Creative Commons usage with the following [attribution](http://blog.stackoverflow.com/2009/06/attribution-required/).
 
 ## Getting started
 
@@ -106,7 +106,7 @@ The only thing I did beyond what Brent outlined was to create a View in my Azure
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-Once this is done, you can then use the [Azure Portal](https://portal.azure.com) to “Import Data” from the above Azure SQL View which will then create an Azure Search index based on the schema of the fields in the View.  If you would like to use the Azure SQL database that I have staged, here is the Read-Only connection string that you can use:
+Once this is done, you can then use the [Azure Classic Portal](https://portal.azure.com) to “Import Data” from the above Azure SQL View which will then create an Azure Search index based on the schema of the fields in the View.  If you would like to use the Azure SQL database that I have staged, here is the Read-Only connection string that you can use:
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;

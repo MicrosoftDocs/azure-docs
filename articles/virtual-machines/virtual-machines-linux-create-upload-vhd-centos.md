@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/22/2015"
 	ms.author="szarkos"/>
 
 # Prepare a CentOS-Based Virtual Machine for Azure
@@ -23,6 +23,8 @@
 - [Prepare a CentOS 6.x Virtual Machine for Azure](#centos6)
 - [Prepare a CentOS 7.0+ Virtual Machine for Azure](#centos7)
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##Prerequisites##
 
 This article assumes that you have already installed a CentOS (or similar derivative) Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
@@ -30,7 +32,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 **CentOS Installation Notes**
 
-- The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
+- The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
 - When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 
@@ -80,33 +82,12 @@ This article assumes that you have already installed a CentOS (or similar deriva
 		# sudo chkconfig network on
 
 
-8. **CentOS 6.3 Only**: Install the drivers for the Linux Integration Services
+8. **CentOS 6.3 Only**: Install the drivers for the Linux Integration Services (LIS)
 
-	**Important: The step is only valid for CentOS 6.3 and earlier.**  In CentOS 6.4+ the Linux Integration Services are *already available in the kernel*.
+	**Important: The step is only valid for CentOS 6.3 and earlier.**  In CentOS 6.4+ the Linux Integration Services are *already available in the standard kernel*.
 
-	a) Obtain the .iso file that contains the drivers for the Linux Integration Services from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=41554).
+	- Follow the installation instructions on the [LIS download page](https://www.microsoft.com/en-us/download/details.aspx?id=46842) and install the RPM onto your image.  
 
-	b) In Hyper-V Manager, in the **Actions** pane, click **Settings**.
-
-	![Open Hyper-V settings](./media/virtual-machines-linux-create-upload-vhd-centos/settings.png)
-
-	c) In the **Hardware** pane, click **IDE Controller 1**.
-
-	![Add DVD drive with install media](./media/virtual-machines-linux-create-upload-vhd-centos/installiso.png)
-
-	d) In the **IDE Controller** box, click **DVD Drive**, and then click **Add**.
-
-	e) Select **Image file**, browse to **Linux IC v3.2.iso**, and then click **Open**.
-
-	f) In the **Settings** page, click **OK**.
-
-	g) Click **Connect** to open the window for the virtual machine.
-
-	h) In the Command Prompt window, type the following commands:
-
-		# sudo mount /dev/cdrom /media
-		# sudo /media/install.sh
-		# sudo reboot
 
 9. Install the python-pyasn1 package by running the following command:
 
@@ -341,11 +322,21 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 12.	Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-13. Install the Azure Linux Agent by running the following command:
+13.	**Only if building the image from VMWare, VirtualBox or KVM:** Add Hyper-V modules into initramfs: 
+
+    Edit `/etc/dracut.conf`, add content:
+
+        add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+
+    Rebuild the initramfs:
+
+        # dracut –f -v
+
+14. Install the Azure Linux Agent by running the following command:
 
 		# sudo yum install WALinuxAgent
 
-14.	Do not create swap space on the OS disk
+15.	Do not create swap space on the OS disk
 
 	The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a *temporary* disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in /etc/waagent.conf appropriately:
 
@@ -355,10 +346,14 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 		ResourceDisk.EnableSwap=y
 		ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-15.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+16.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
 		# sudo waagent -force -deprovision
 		# export HISTSIZE=0
 		# logout
 
-16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+17. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+
+## Next Steps
+You're now ready to use your CentOS Linux .vhd to create new Azure Virtual Machines in Azure. If this is the 1st time you use Azure and upload the .vhd file to Azure, you could follow the step 2 & 3 in [this guidance](virtual-machines-linux-create-upload-vhd.md).
+ 

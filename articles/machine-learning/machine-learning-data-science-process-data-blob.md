@@ -2,9 +2,8 @@
 	pageTitle="Process Azure blob data with advanced analytics | Microsoft Azure" 
 	description="Process Data in Azure Blob storage." 
 	services="machine-learning,storage" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -14,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" /> 
+	ms.date="10/20/2015" 
+	ms.author="sunliangms;fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Process Azure blob data with advanced analytics
 

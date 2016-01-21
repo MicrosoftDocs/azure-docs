@@ -50,14 +50,16 @@ Deploy or extend your existing Windows or Linux HPC cluster to Azure to run your
 
 HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows Server technologies, capable of running Windows and Linux HPC workloads.  
 
-* [Download HPC Pack 2012 R2 Update 2](https://www.microsoft.com/en-us/download/details.aspx?id=47755)
+* [Download HPC Pack 2012 R2 Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=49922)
 
 * [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
 
 
 * [HPC cluster options with Microsoft HPC Pack in Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 
-* [Burst to Azure with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+* [Burst to Azure worker instances with HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+
+* [Burst to Azure  Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 
 * [Windows HPC forums](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -93,13 +95,11 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 
 ## Architecture blueprints
 
-* [Large-scale computing - financial services](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF) shows how to operationalize and orchestrate large-scale computation and data analysis in the cloud for risk management, reporting, and simulations.
+* Microsoft Azure Batch and Azure Data Factory: Architecture for large-scale data processing ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) and [article](../data-factory/data-factory-data-processing-using-batch.md)) illustrates how Data Factory orchestrates data movement and processing and how Azure Batch processes the data in a parallel manner.
 
 ## Samples and demos
 
 * [Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
-
-* [Batch Apps Blender sample](https://github.com/Azure/azure-batch-apps-blender) and [blog post](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
 
 ## Related Azure services
 

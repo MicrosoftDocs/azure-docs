@@ -23,6 +23,7 @@
 
 Azure Internal Load Balancing (ILB) provides load balancing between virtual machines that reside inside a cloud service or a virtual network with a regional scope. For information about the use and configuration of virtual networks with a regional scope, see [Regional Virtual Networks](virtual-networks-migrate-to-regional-vnet.md). Existing virtual networks that have been configured for an affinity group cannot use ILB.
 
+
 ## To create an internal load-balanced set for virtual machines
 
 To create an Azure internal load-balanced set and the servers that will send their traffic to it, you must do the following:

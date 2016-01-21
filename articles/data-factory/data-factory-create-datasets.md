@@ -138,7 +138,7 @@ Daily slices that starts at 6 AM instead of the default midnight.
 
 In this case, SliceStart is shifted by 6 hours and will be 6 AM.
 
-For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 2nd or 3rd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.
+For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 1st or 2nd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.
 
 
 
@@ -207,21 +207,3 @@ If you need to run a pipeline on monthly basis on specific date and time (suppos
 	    }
 	  }
 	}
-
-## Send Feedback
-We would really appreciate your feedback on this article. Please take a few minutes to submit your feedback via [email](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md). 
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
