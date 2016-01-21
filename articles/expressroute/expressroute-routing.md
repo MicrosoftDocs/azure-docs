@@ -70,7 +70,6 @@ Make sure that your IP address and AS number are registered to you in one of the
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Dynamic route exchange
@@ -120,30 +119,31 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 
 | **Geopolitical Region** | **Microsoft Azure region (Same applies to Office 365)** | **BGP community value** |
 |---|---|---|
-| **North America** |    | 12076:51201 |
+| **North America** |    |  |
 |    | East US | 12076:51004 |
 |    | East US 2 | 12076:51005 |
 |    | West US | 12076:51006 |
 |    | North Central US | 12076:51007 |
 |    | South Central US | 12076:51008 |
 |    | Central US | 12076:51009 |
-| **South America** |  | 12076:51202 |
+| **South America** |  |  |
 |    | Brazil South | 12076:51014 |
-| **Europe** |    | 12076:51203 |
+| **Europe** |    |  |
 |    | North Europe | 12076:51003 |
 |    | West Europe | 12076:51002 |
-| **Asia Pacific** |    | 12076:51204 |
+| **Asia Pacific** |    |   |
 |    | East Asia | 12076:51010 |
 |    | Southeast Asia | 12076:51011 |
-| **Japan** | Japan East | 12076:51012 |
+| **Japan** |     |   |
+|    | Japan East | 12076:51012 |
 |    | Japan West | 12076:51013 |
-| **Australia** | Australia East | 12076:51015 |
+| **Australia** |    |   | 
+|    | Australia East | 12076:51015 |
 |    | Australia Southeast | 12076:51016 |
-| **India** | India South | 12076:51019 |
+| **India** |    |   |
+|    | India South | 12076:51019 |
 |    | India West | 12076:51018 |
 |    | India Central | 12076:51017 |
-| **Global** | **Only supported and published when premium add-on is enabled** | 12076:51000 |
-| **Anycast** |   | 12076:51250 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 

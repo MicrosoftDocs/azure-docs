@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to use Table storage from .NET | Microsoft Azure"
-	description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table."
+	description="Use Table storage to store unstructured, schemaless data. Table storage is a NoSQL key/attribute store. The storage client library for .NET provides APIs for creating and deleting tables as well as for inserting, updating, deleting, and querying data."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 
@@ -51,6 +51,8 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 	![Cluster name, cluster type, and OS Type](./media/hdinsight-apache-storm-tutorial-get-started-linux/clustername.png)
 
 	Select __Ubuntu__ to create a Linux-based HDInsight cluster.
+    
+    > [AZURE.NOTE] Leave the __Version__ field at the default value for the steps in this document.
 	
 4. If you have more than one subscription, select the __Subscription__ entry to select the Azure subscription that will be used for the cluster.
 
@@ -75,6 +77,8 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 	Currently you can select an Azure Storage Account as the data source for an HDInsight cluster. Use the following to understand the entries on the __Data Source__ blade.
 	
 	- __Selection Method__: Set this to __From all subscriptions__ to enable browsing of storage accounts on your subscriptions. Set to __Access Key__ if you want to enter the __Storage Name__ and __Access Key__ of an existing storage account.
+    
+    - __Select storage account__: If a storage account already exists for your subscription, use this to select the account to use for the cluster.
 	
 	- __Create New__: Use this to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
 	
@@ -83,6 +87,10 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 	- __Location__: The geographic region that the storage account will be is in, or will be created in.
 	
 		> [AZURE.IMPORTANT] Selecting the location for the default data source will also set the location of the HDInsight cluster. The cluster and default data source must be located in the same region.
+    
+    - __Cluster AAD Identity__: Use this to select an Azure Active Directory identity that will be used by the cluster to access Azure Data Lake Store.
+    
+        > [AZURE.NOTE] This is not used in this document, and can be left at the default setting. For information on using this entry, and Azure Data Lake Store, with HDInsight, see [Create an HDInsight cluster that uses Azure Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md).
 		
 	- __Select__: Use this to save the data source configuration.
 	
@@ -90,11 +98,15 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 
 	![Node pricing tiers blade](./media/hdinsight-apache-storm-tutorial-get-started-linux/nodepricingtiers.png)
 	
+    You can select each node type to change the VM type used for these node(s) in your cluster. Leave these at the default settings for the steps in this document.
+    
 	Use the __Select__ button to save the __Node Pricing Tiers__ information.
 
-8. Select __Optional Configuration__. This blade allows you to select the cluster version, as well as configure other optional settings such as joining a __Virtual Network__ or setting up a __Custom Metastore__ to hold data for Hive and Oozie.
+8. Select __Optional Configuration__. This blade allows you to join the cluster to a __Virtual Network__, use __Script Actions__ to customize the cluster, or use a __Custom Metastore__ to hold data for Hive and Oozie.
 
 	![Optional configuration blade](./media/hdinsight-apache-storm-tutorial-get-started-linux/optionalconfiguration.png)
+    
+    Leave these settings as __Not Configured__ for the steps in this document.
 
 9. Ensure that __Pin to Startboard__ is selected, and then select __Create__. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is provisioning, and will change to display the HDInsight icon once provisioning has completed.
 
@@ -136,25 +148,13 @@ The [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-s
 
 The Storm UI provides a web interface for working with running topologies, and is included on your HDInsight cluster.
 
-> [AZURE.IMPORTANT] The Storm UI is not publicly available over the internet, and must be accessed using an SSH tunnel to the HDInsight cluster head node. For more information, see [Use SSH Tunneling to access ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md).
+Use the following steps to monitor the topology using the Storm UI:
 
-Use the following steps to view the Storm UI:
+1. Open a web browser to https://CLUSTERNAME.azurehdinsight.net/stormui, where __CLUSTERNAME__ is the name of your cluster. This will open the Storm UI.
 
-1. Once you have created an SSH tunnel to the cluster, open a web browser to https://CLUSTERNAME.azurehdinsight.net, where __CLUSTERNAME__ is the name of your cluster. This will open the Ambari web UI.
+	> [AZURE.NOTE] If asked to provide a user name and password, enter the cluster administrator (admin) and password that you used when creating the cluster.
 
-	> [AZURE.NOTE] If asked to provide a user name and password, enter the cluster administrator (admin) and password that you used when creating the cluster. You may be asked to authenticate twice, once by the browser and a second time by the Ambari web UI; use the same credentials for both.
-
-2. From the list of services on the left of the page, select __Storm__. Then select __Storm UI__ from __Quick Links__.
-
-    ![Storm UI entry in quick links](./media/hdinsight-apache-storm-tutorial-get-started-linux/ambari-storm.png)
-
-    This will display the Storm UI:
-
-    ![the storm ui](./media/hdinsight-apache-storm-tutorial-get-started-linux/stormui.png)
-	
-	> [AZURE.NOTE] If you receive an error that the server cannot be found, you may not have established an SSH tunnel to the cluster. See [Use SSH Tunneling to access ResourceManager, JobHistory, NameNode, Oozie, and other web UI's](hdinsight-linux-ambari-ssh-tunnel.md) for more information.
-
-4. Under **Topology summary**, select the **wordcount** entry in the **Name** column. This will display more information about the topology.
+2. Under **Topology summary**, select the **wordcount** entry in the **Name** column. This will display more information about the topology.
 
 	![Storm Dashboard with Storm Starter WordCount topology information.](./media/hdinsight-apache-storm-tutorial-get-started-linux/topology-summary.png)
 
@@ -180,7 +180,7 @@ Use the following steps to view the Storm UI:
 
 	* **Kill** - Terminates a Storm topology after the specified timeout.
 
-5. From this page, select an entry from the **Spouts** or **Bolts** section. This will display information about the selected component.
+3. From this page, select an entry from the **Spouts** or **Bolts** section. This will display information about the selected component.
 
 	![Storm Dachborad with information about selected components.](./media/hdinsight-apache-storm-tutorial-get-started-linux/component-summary.png)
 
@@ -198,7 +198,7 @@ Use the following steps to view the Storm UI:
 
 	* **Errors** - Errors produced by this component.
 
-5. When viewing the details of a spout or bolt, select an entry from the **Port** column in the **Executors** section to view details for a specific instance of the component.
+4. When viewing the details of a spout or bolt, select an entry from the **Port** column in the **Executors** section to view details for a specific instance of the component.
 
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["with"]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: split default ["nature"]

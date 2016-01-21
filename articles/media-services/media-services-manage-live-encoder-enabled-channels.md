@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015"  
+	ms.date="12/22/2015"  
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
@@ -132,7 +132,8 @@ Professional broadcasters typically work with high-end on-premises live encoders
 
 Considerations:
 
-- The use of a single program transport stream (SPTS) input is strongly recommended. The use of multiple language audio tracks, however, is supported
+- The use of a single program transport stream (SPTS) input is strongly recommended. 
+- You can input up to 8 audio streams using MPEG-2 TS over RTP. 
 - The video stream should have an average bitrate below 15 Mbps
 - The aggregate average bitrate of the audio streams should be below 1 Mbps
 - Following are the supported codecs:
@@ -246,7 +247,7 @@ You can get the preview URL when you create the channel. To get the URL, the cha
 
 Once the Channel starts ingesting data, you can preview your stream.
 
-**Note** Currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Classic Portal to view your stream.
+>[AZURE.NOTE]Currently the preview stream can only be delivered in Fragmented MP4 (Smooth Streaming) format regardless of the specified input type. You can use the [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player to test the Smooth Stream. You can also use a player hosted in the Azure Classic Portal to view your stream.
 
 ###Allowed IP Addresses
 
@@ -255,6 +256,8 @@ You can define the IP addresses that are allowed to connect to the preview endpo
 ##Live encoding settings
 
 This section describes how the settings for the live encoder within the Channel can be adjusted, when the **Encoding Type** of a Channel is set to **Standard**.
+
+>[AZURE.NOTE]When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-manage-channels-overview.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
 
 ###Ad marker source
 
@@ -430,6 +433,7 @@ Stopped|Stopped|No
 - You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
 - Currently, the max recommended duration of a live event is 8 hours. Please contact amslived at Microsoft dot com if you need to run a Channel for longer periods of time.
 - Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+- When inputting multiple language tracks and doing live encoding with Azure, only RTP is supported for multi-language input. You can define up to 8 audio streams using MPEG-2 TS over RTP. Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-manage-channels-overview.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
 - Don't forget to STOP YOUR CHANNELS when done. If you don't, billing will continue. 
 
 ##Known Issues

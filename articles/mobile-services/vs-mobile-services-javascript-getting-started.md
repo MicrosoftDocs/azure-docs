@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tarcher"/>
 
 # Getting Started with with a Javascript mobile app after adding Azure Mobile Services by using Visual Studio Connected Services
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-javascript-getting-started.md)
-> - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
 The first step you need to do in order to follow the code in these examples depends on what type of mobile service you connected to.
 
@@ -80,7 +76,7 @@ Update a row in a data table. In this example, *todoItem* is the updated item, a
             todoItems.splice(todoItems.indexOf(item), 1, item);
         });
 
-#####Delete an entry
+##Delete an entry
 
 Delete a row in a data table. Call the [done]() method on the returned [Promise](https://msdn.microsoft.com/library/dn802826.aspx) object to get a copy of the inserted object and handle any errors.
 

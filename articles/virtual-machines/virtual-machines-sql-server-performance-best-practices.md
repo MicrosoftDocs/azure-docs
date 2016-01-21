@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth" />
 
 # Performance best practices for SQL Server in Azure Virtual Machines
@@ -71,6 +71,8 @@ The temporary storage drive, labeled as the **D**: drive, is not persisted to Az
 
 Only store TempDB and/or Buffer Pool Extensions on the **D** drive when using the D-Series or G-Series Virtual Machines (VMs). Unlike the other VM series, the **D** drive in the D-Series and G-Series VMs is SSD-based. This can improve the performance of workloads that heavily use temporary objects or that have working sets which don't fit in memory. For more information, see [Using SSDs in Azure VMs to store SQL Server TempDB and Buffer Pool Extensions](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx).
 
+For VMs that support Premium storage, we recommend storing TempDB on a disk that supports Premium Storage with read caching enabled.
+
 ### Data Disk
 
 - **Number of data disks for data and log files**: At a minimum, use 2 [P30 disks](../storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage) where one disk contains the log file(s) and the other contains the data file(s) and TempDB. For more throughput, you might require additional data disks. To determine the number of data disks, you need to analyze the number of IOPS available for your data and log disk(s). For that information, see the tables on IOPS per [VM size](virtual-machines-size-specs.md) and disk size in the following article: [Using Premium Storage for Disks](../storage/storage-premium-storage-preview-portal.md). If you require more bandwidth, you can attach additional disks use Disk Striping. If you are not using Premium Storage, the recommendation is to add the maximum number of data disks supported by your [VM size](virtual-machines-size-specs.md) and use Disk Striping. For more information about Disk Striping, see the related section below.
@@ -102,16 +104,6 @@ Only store TempDB and/or Buffer Pool Extensions on the **D** drive when using th
 - Make sure **autoshrink** is disabled to avoid unnecessary overhead that can negatively affect performance.
 
 - If you are running SQL Server 2012, install Service Pack 1 Cumulative Update 10. This update contains the fix for poor performance on I/O when you execute select into temporary table statement in SQL Server 2012. For information, see this [knowledge base article](http://support.microsoft.com/kb/2958012).
-
-- Move system databases (such as msdb and TempDB), backups and the default data and log directories of SQL Server to non-cached data disks to improve performance. Then, perform the following actions:
-
-	- Adjust the XEvent and Trace file paths.
-	
-	- Adjust the SQL Error Log path.
-	
-	- Adjust the default backup path.
-	
-	- Adjust the default database location.
 
 - Establish locked pages to reduce IO and any paging activities.
 
