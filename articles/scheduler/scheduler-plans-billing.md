@@ -75,7 +75,7 @@ For pricing details, please see [Scheduler Pricing](http://azure.microsoft.com/p
 
  [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/en-us/library/mt629143.aspx)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
  [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
