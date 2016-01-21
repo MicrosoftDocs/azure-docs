@@ -33,7 +33,7 @@ Each circuit has a fixed bandwidth (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbp
 
 ### Quotas, limits, and limitations
 
-Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Azure Subscription and Service Limits, Quotas, and Constraints](../includes/expressroute-limits.md) page for up-to-date information on quotas.
+Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Azure Subscription and Service Limits, Quotas, and Constraints](includes/expressroute-limits.md) page for up-to-date information on quotas.
 
 ## ExpressRoute routing domains
 
