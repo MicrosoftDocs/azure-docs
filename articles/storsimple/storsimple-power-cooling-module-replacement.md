@@ -40,6 +40,9 @@ Be aware of the following important issues before you replace your PCM:
 
 - PCM module replacement takes only few minutes to complete, but it must be completed within 10 minutes of removing the failed PCM to prevent overheating.
 
+- Note that the replacement 764 W PCM modules shipped from the factory do not contain the backup battery module. You will need to remove the battery from your faulty PCM and then insert it into the replacement module prior to performing the replacement. For more information, see how to [remove and insert a backup battery module](storsimple-battery-replacement.md).
+
+
 ## Remove a PCM
 
 Follow these instructions when you are ready to remove a Power and Cooling Module (PCM) from your Microsoft Azure StorSimple device.
@@ -114,7 +117,7 @@ Follow these instructions when you are ready to remove a Power and Cooling Modul
 
 ## Install a replacement PCM
 
-Follow these instructions to install a PCM in your StorSimple device.
+Follow these instructions to install a PCM in your StorSimple device. Ensure that you have inserted the backup battery module prior to installing the replacement PCM (applies to 764 W PCMs only). For more information, see how to [remove and insert a backup battery module](storsimple-battery-replacement.md).
 
 #### To install a PCM
 
