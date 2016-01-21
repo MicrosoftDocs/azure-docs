@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="01/21/2016"
    ms.author="terrylan"/>
 
 # Managing security recommendations in Azure Security Center
@@ -38,7 +38,7 @@ In [Setting security policies in Azure Security Center](security-center-policies
 - Turn on data collection
 - Choose which recommendations to see as part of your security policy
 
-Current policy recommendations center around system updates, baseline rules, anti-malware, [ACLs for endpoints](virtual-machines-set-up-endpoints.md), [Network Security Groups](virtual-networks-nsg.md) on subnets and network interfaces, SQL Database auditing, SQL Database transparent data encryption, and web application firewall.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
+Current policy recommendations center around system updates, baseline rules, anti-malware, [ACLs for endpoints](..\virtual-machines\virtual-machines-set-up-endpoints.md), [Network Security Groups](..\virtual-networks\virtual-networks-nsg.md) on subnets and network interfaces, SQL Database auditing, SQL Database transparent data encryption, and web application firewall.  [Setting security policies](security-center-policies.md) provides a description of each recommendation option.
 
 ### Monitoring recommendations
 After setting a security policy, Azure Security Center analyses the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile on the **Security Center** blade lets you know the total amount of recommendations identified by Azure Security Center.
@@ -103,7 +103,7 @@ Using the Antimalware recommendation, let’s walk through an example on how to 
 5. Enter the required configuration settings on the **Add Extension** blade, and select **OK**.
 ![][6]
 
-[Microsoft Antimalware](azure-security-antimalware.md) is now active on the selected virtual machine.
+[Microsoft Antimalware](..\azure-security\azure-security-antimalware.md) is now active on the selected virtual machine.
 
 ### Deploying recommended partner solutions
 
