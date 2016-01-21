@@ -84,7 +84,10 @@ Migrate as follows:
 
 	![Add account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration5.png)
 
-After you've completed the migration steps you should continue with the enhanced article. **Note that after migration the rest of this legacy article is no longer relevant and you don't need to follow any more of the steps in this article**.
+>[AZURE.NOTE] After you've completed the migration steps you should continue with the [enhanced article](site-recovery-vmware-to-azure-classic.md). After migration the rest of this legacy article is no longer relevant and you don't need to follow any more of the steps described in it**.
+
+
+
 
 ## What do I need?
 
