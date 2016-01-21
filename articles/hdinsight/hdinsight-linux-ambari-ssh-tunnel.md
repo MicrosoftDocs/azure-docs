@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/08/2016"
+ms.date="01/12/2016"
 ms.author="larryfr"/>
 
 #Use SSH Tunneling to access Ambari web UI, ResourceManager, JobHistory, NameNode, Oozie, and other web UI's
@@ -32,7 +32,6 @@ The following are services that Ambari web UI uses, that cannot be accessed with
 * Thread Stacks,
 * Oozie web UI
 * HBase Master and Logs UI
-* Storm UI
 
 If you use Script Actions to customize your cluster, any services or utilities that you install that expose a web UI will require an SSH tunnel. For example, if you install Hue using a Script Action, you must use an SSH tunnel to access the Hue web UI.
 
@@ -149,11 +148,6 @@ If you have installed FoxyProxy Standard, use the following steps to configure i
 	* **URL pattern** - **\*internal.cloudapp.net\*** - This defines a pattern that matches the internal fully qualified domain name of the cluster nodes.
 
 	![foxyproxy pattern](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
-    
-    If you are using a Storm on HDInsight cluster, you should also add a pattern with the following values:
-    
-    * **Pattern Name** - **worker nodes**
-    * **URL Pattern** - **\*10.0.0\*** - Allows the Storm UI to access data on worker nodes by IP address.
 
 4. Click **OK** to add the proxy and close **Proxy Settings**.
 

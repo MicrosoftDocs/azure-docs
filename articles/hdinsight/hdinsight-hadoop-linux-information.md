@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/06/2016"
+   ms.date="01/12/2016"
    ms.author="larryfr"/>
 
 # Information about using HDInsight on Linux
@@ -196,16 +196,7 @@ The different cluster types are affected by scaling as follows:
 
 	* __Storm UI__: Use the following steps to rebalance a topology using the Storm UI.
 
-		1. [Create an SSH tunnel to the cluster and open the Ambari web UI](hdinsight-linux-ambari-ssh-tunnel.md).
-
-		2. From the list of services on the left of the page, select __Storm__. Then select __Storm UI__ from __Quick Links__.
-
-
-			![Storm UI entry in quick links](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
-
-			This will display the Storm UI:
-
-			![the storm ui](./media/hdinsight-hadoop-linux-information/storm-ui.png)
+		1. Open __https://CLUSTERNAME.azurehdinsight.net/stormui__ in your web browser, where CLUSTERNAME is the name of your Storm cluster. If prompted, enter the HDInsight cluster administrator (admin) name and password you specified when creating the cluster.
 
 		3. Select the topology you wish to rebalance, then select the __Rebalance__ button. Enter the delay before the rebalance operation is performed.
 

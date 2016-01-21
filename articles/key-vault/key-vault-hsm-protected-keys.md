@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/19/2016"
 	ms.author="cabailey"/>
 #How to generate and transfer HSM-protected keys for Azure Key Vault
 
@@ -22,6 +22,8 @@
 For added assurance, when you use Azure Key Vault, you can import or generate keys in hardware security modules (HSMs) that never leave the HSM boundary. This scenario is often referred to as *bring your own key*, or BYOK. The HSMs are FIPS 140-2 Level 2 validated. Azure Key Vault uses Thales nShield family of HSMs to protect your keys.
 
 Use the information in this topic to help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
+
+This functionality is not available for Azure China. 
 
 >[AZURE.NOTE] For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)  
 >
@@ -58,8 +60,8 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 
 |Requirement|More information|
 |---|---|
-|A subscription to Azure|To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](http://azure.microsoft.com/pricing/free-trial/)|
-|An Azure Key Vault that supports HSMs|For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](http://azure.microsoft.com/pricing/details/key-vault/) website.|
+|A subscription to Azure|To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](../../../../pricing/free-trial)|
+|An Azure Key Vault that supports HSMs|For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](../../../../pricing/details/key-vault/) website.|
 |Thales HSM, smartcards, and support software|You must have access to a Thales Hardware Security Module and basic operational knowledge of Thales HSMs. See [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) for the list of compatible models, or to purchase an HSM if you do not have one.|
 |The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operation system of Windows 7.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol>|For security reasons, we recommend that the first workstation is not connected to a network. However, this is not programmatically enforced.<br/><br/>Note that in the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>Note that in the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/>|
 
@@ -97,9 +99,9 @@ Do not close the Azure PowerShell window.
 
 ###Step 1.3: Download the BYOK toolset for Azure Key Vault
 
-Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](http://www.microsoft.com/download/details.aspx?id=45345) for your region:
+Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](http://www.microsoft.com/download/details.aspx?id=45345) for your geographic region or instance of Azure:
 
-|Region|Package name|SHA-256 package hash|
+|Geographic region or instance of Azure|Package name|SHA-256 package hash|
 |---|---|---|
 |North America|KeyVault-BYOK-Tools-UnitedStates.zip|D9FDA9F5A34E1388CD6C9138E5B75B7051FB7D6B11F087AFE0553DC85CCF0E36|
 |Europe|KeyVault-BYOK-Tools-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
@@ -107,6 +109,7 @@ Go to the Microsoft Download Center and [download the Azure Key Vault BYOK tools
 |Latin America|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
 |Japan|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
 |Australia|KeyVault-BYOK-Tools-Australia.zip|8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967|
+|[Azure Government](../../../../features/gov/)|KeyVault-BYOK-Tools-USGovCloud.zip|4DE9B33990099E4197ED67D786316F628E5218FC1EB0C24DCAD8A1851FD345B8|
 
 To validate the integrity of your downloaded BYOK toolset, from your Azure PowerShell session, use the [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet.
 
@@ -173,7 +176,7 @@ This step is optional but recommended so that you can validate the following:
 
 To validate the downloaded package:
 
-1.	Run the verifykeypackage.py script by tying one of the following, depending on your region:
+1.	Run the verifykeypackage.py script by tying one of the following, depending on your geographic region or instance of Azure:
 	- For North America:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
@@ -189,9 +192,12 @@ To validate the downloaded package:
 	- For Japan:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
-	- For For Australia:
+	- For Australia:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
+	- For [Azure Government](../../../../features/gov/), which uses the US government instance of Azure:
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-USGOV-1 -w BYOK-SecurityWorld-pkg-USGOV-1
 
 	>[AZURE.TIP]The Thales software includes python at %NFAST_HOME%\python\bin
 
@@ -229,7 +235,7 @@ For this fourth step, do the following procedures on the disconnected workstatio
 
 ###Step 4.1: Create a copy of your key with reduced permissions
 
-To reduce the permissions on your key, from a command prompt, run one of the following, depending on your region:
+To reduce the permissions on your key, from a command prompt, run one of the following, depending on your geographic region or instance of Azure:
 
 - For North America:
 
@@ -249,6 +255,9 @@ To reduce the permissions on your key, from a command prompt, run one of the fol
 - For Australia:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
+- For [Azure Government](../../../../features/gov/), which uses the US government instance of Azure:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1
 
 When you run this command, replace *contosokey* with the same value you specified in **Step 3.3: Create a new key** from the [Generate your key](#step-3-generate-your-key) step.
 
@@ -270,7 +279,7 @@ When you run these command, replace contosokey with the same value you specified
 
 ###Step 4.3: Encrypt your key by using Microsoft’s Key Exchange Key
 
-Run one of the following commands, depending on your region:
+Run one of the following commands, depending on your geographic region or instance of Azure:
 
 - For North America:
 
@@ -290,6 +299,9 @@ Run one of the following commands, depending on your region:
 - For Australia:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- For [Azure Government](../../../../features/gov/), which uses the US government instance of Azure:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-USGOV-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-USGOV-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 When you run this command, use these instructions:
 
@@ -312,6 +324,7 @@ For this final step, on the Internet-connected workstation, use the [Add-AzureKe
 	Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\TransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'
 
 If the upload is successful, you see displayed the properties of the key that you just added.
+
 
 ##Next steps
 

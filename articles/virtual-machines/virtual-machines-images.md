@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="01/15/2016"
 	ms.author="cynthn"/>
 
 # About images for virtual machines
@@ -52,6 +52,7 @@ For examples of using the tools in a classic deployment:
 -	**Save a specialized image**: `Save-AzureVMImage –ServiceName "mySvc2" –Name "MyVMToCapture2" –ImageName "myFirstVMImageSP" –OSState "Specialized" -Verbose`
 >[Azure.Tip] The OSState parameter is required if you want to create a VM image, which includes data disks as well as the operating system disk. If you don’t use the parameter, the cmdlet creates an OS image. The value of the parameter indicates whether the image is generalized or specialized, based on whether the operating system disk has been prepared for reuse.
 -	**Delete an image**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
+
 
 ## Additional resources
 

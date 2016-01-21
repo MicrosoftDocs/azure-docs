@@ -13,20 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="01/15/2016"
 	ms.author="sdanie"/>
 
 # Protect your API with rate limits using Azure API Management
 
 This guide shows you how easy it is to add protection for your backend API by configuring rate limit and quota policies with Azure API Management.
 
-In this tutorial, you will create a "Free Trial" API product that allows developers to make up to 10 calls per minute and up to a maximum of 200 calls per week to your API. You will then publish the API and test the rate limit policy.
+In this tutorial, you will create a "Free Trial" API product that allows developers to make up to 10 calls per minute and up to a maximum of 200 calls per week to your API using the [Limit call rate by subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) and [Set usage quota by subscription](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). You will then publish the API and test the rate limit policy.
 
->[AZURE.NOTE] If you already have a product configured and want to use it for this tutorial, you can jump ahead to [Configure call rate limit and quota policies][] and follow the tutorial from there using your product in place of the Free Trial product.
+For more advanced throttling scenarios using the [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) and [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) policies, see [Advanced request throttling with Azure API Management](api-management-sample-flexible-throttling.md).
 
 ## <a name="create-product"> </a>To create a product
 
 In this step, you will create a Free Trial product that does not require subscription approval.
+
+>[AZURE.NOTE] If you already have a product configured and want to use it for this tutorial, you can jump ahead to [Configure call rate limit and quota policies][] and follow the tutorial from there using your product in place of the Free Trial product.
 
 To get started, click **Manage** in the Azure Classic for your API Management service. This takes you to the API Management publisher portal.
 
@@ -213,7 +215,7 @@ Click **APIs** in the top menu, and then click **Echo API**.
 
 ![Developer portal][api-management-developer-portal-api-menu]
 
-Click **GET Resource**, and then click **Open Console**.
+Click **GET Resource**, and then click **Try it**.
 
 ![Open console][api-management-open-console]
 
@@ -223,17 +225,17 @@ Keep the default parameter values, and then select your subscription key for the
 
 >[AZURE.NOTE] If you have multiple subscriptions, be sure to select the key for **Free Trial**, or else the policies that were configured in the previous steps won't be in effect.
 
-Click **HTTP Get**, and then view the response. Note the **Response status** of **200 OK**.
+Click **Send**, and then view the response. Note the **Response status** of **200 OK**.
 
 ![Operation results][api-management-http-get-results]
 
-Click **HTTP Get** at a rate greater than the rate limit policy of 10 calls per minute. After the rate limit policy is exceeded, a response status of **429 Too Many Requests** is returned.
+Click **Send** at a rate greater than the rate limit policy of 10 calls per minute. After the rate limit policy is exceeded, a response status of **429 Too Many Requests** is returned.
 
 ![Operation results][api-management-http-get-429]
 
-The **Response Headers** and **Response content** areas indicate the remaining interval before retries will be successful.
+The **Response content** indicates the remaining interval before retries will be successful.
 
-When the rate limit policy of 10 calls per minute is in effect, subsequent calls will fail until 60 seconds have elapsed from the first of the 10 successful calls to the product before the rate limit was exceeded. In this example, the remaining interval is 43 seconds.
+When the rate limit policy of 10 calls per minute is in effect, subsequent calls will fail until 60 seconds have elapsed from the first of the 10 successful calls to the product before the rate limit was exceeded. In this example, the remaining interval is 54 seconds.
 
 ## <a name="next-steps"> </a>Next steps
 

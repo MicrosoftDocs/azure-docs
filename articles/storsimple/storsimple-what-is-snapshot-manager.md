@@ -46,7 +46,7 @@ StorSimple Snapshot Manager backups take the form of incremental snapshots, whic
 
 ![StorSimple Snapshot Manager architecture](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
-**Figure 1: StorSimple Snapshot Manager architecture** 
+**StorSimple Snapshot Manager architecture** 
 
 ## Support for multiple volume types
 
@@ -107,7 +107,7 @@ See the following illustration.
 
 ![VSS process](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
 
-**Figure 2: Windows Volume Shadow Copy Service process** 
+**Windows Volume Shadow Copy Service process** 
 
 ## Backup types and backup policies
 

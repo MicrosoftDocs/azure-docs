@@ -73,7 +73,7 @@ Before you begin the instructions in this article, you must have the following:
 
 			![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-			>[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
+			For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
   
 
   		

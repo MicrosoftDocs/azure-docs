@@ -50,7 +50,7 @@ To enable your app to get tokens, you’ll first need to register it in your Azu
     -	The **Name** of the application will describe your application to end-users
     -	The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses.  Enter a placeholder value for now, e.g. `http://DirectorySearcher`.  We'll replace this value later.
 -	Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections, so copy it from the **Configure** tab.
-- Also in **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access Your Organization's Directory** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
+- Also in **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access the directory as the signed-in user** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
 
 ## *2. Install & Configure ADAL*
 Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.  In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.
@@ -68,6 +68,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
 ```
+- Build the solution, making sure all package references are restored.  If packages are missing, open up the Nuget Package Manager and restore the packages.
 - Run the app, and copy aside the value of `redirectUri` when the breakpoint is hit.  It should look something like
 
 ```
@@ -86,8 +87,7 @@ public MainPage()
 {
     ...
 
-    // ADAL for Windows Phone 8.1 builds AuthenticationContext instances through a factory
-    authContext = AuthenticationContext.CreateAsync(authority).GetResults();
+    authContext = new AuthenticationContext(authority);
 }
 ```
 

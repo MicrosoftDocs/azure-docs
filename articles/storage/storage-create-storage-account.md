@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
+	ms.date="12/04/2015"
 	ms.author="robinsh"/>
 
 
@@ -27,7 +27,7 @@ An Azure storage account gives you access to the Azure Blob, Queue, Table, and F
 
 There are two types of storage accounts:
 
-- A standard storage account includes Blob, Table, Queue, and File storage. 
+- A standard storage account includes Blob, Table, Queue, and File storage.
 - A premium storage account currently supports Azure virtual machine disks only. See [Premium Storage: High-performance storage for Azure virtual machine workloads](storage-premium-storage-preview-portal.md) for an in-depth overview of Premium Storage.
 
 ## Storage account billing
@@ -67,7 +67,7 @@ You can also configure a custom domain name to use with your storage account. Se
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 
-2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**. 
+2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
 
 3. Select a deployment model: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
 
@@ -81,7 +81,7 @@ You can also configure a custom domain name to use with your storage account. Se
 
 5. Specify the type of storage account to create. The storage account type determines how the storage account is replication and whether it is a standard storage account or a premium storage account.
 
-	The default storage account type is **Standard-RAGRS**, which is a standard storage account with read-access geo-redundant replication. This type of storage account is replicated to a secondary region that is hundreds of miles away from the primary region, and provides read access to the secondary location. 
+	The default storage account type is **Standard-RAGRS**, which is a standard storage account with read-access geo-redundant replication. This type of storage account is replicated to a secondary region that is hundreds of miles away from the primary region, and provides read access to the secondary location.
 
 	For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md). For more details on standard and premium storage accounts, see [Introduction to Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md)
 
@@ -103,7 +103,7 @@ When you create a storage account, Azure generates two 512-bit storage access ke
 
 ### View and copy storage access keys
 
-In the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to view, copy, and regenerate your account access keys. The **Access Keys** blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications. 
+In the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to view, copy, and regenerate your account access keys. The **Access Keys** blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications.
 
 ### Regenerate storage access keys
 
@@ -115,7 +115,7 @@ We recommend that you change the access keys to your storage account periodicall
 
 **Media services** - If you have media services that are dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
 
-**Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys. 
+**Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys.
 
 Here is the process for rotating your storage access keys:
 

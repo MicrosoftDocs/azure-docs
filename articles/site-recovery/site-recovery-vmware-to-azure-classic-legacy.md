@@ -771,7 +771,7 @@ Currently you can only run unplanned failovers for protected VMware virtual mach
 
 ## Step 11: Fail back failed over machines from Azure
 
-[Learn more](site-recovery-failback-azure-to-vmware.md) about how to bring your failed over machines running in Azure back to your on-premises environment.
+[Learn more](site-recovery-failback-azure-to-vmware-classic-legacy.md) about how to bring your failed over machines running in Azure back to your on-premises environment.
 
 
 ## Manage your process servers
