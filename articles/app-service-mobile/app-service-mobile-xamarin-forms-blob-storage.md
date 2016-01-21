@@ -44,7 +44,7 @@ To complete this tutorial, you need the following:
 
 ## Create a storage account
 
-1. Create a storage account by following the tutorial [Create an Azure Storage Account](storage-create-storage-account.md). 
+1. Create a storage account by following the tutorial [Create an Azure Storage Account](https://azure.microsoft.com/documentation/articles/storage-create-storage-account). 
 
 2. In the Azure Portal, navigate to your newly created storage account and click the **Keys** icon. Copy the **Primary Connection String**.
 
@@ -719,4 +719,4 @@ This article described how to use the new file support in the Azure Mobile clien
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[Understanding Shared Access Signatures]: https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/
+[Understanding Shared Access Signatures]: https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/
