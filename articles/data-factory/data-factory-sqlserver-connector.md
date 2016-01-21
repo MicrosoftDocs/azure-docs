@@ -501,6 +501,8 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 	> [AZURE.IMPORTANT] See [Ports and Security Considerations](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) for detailed information.  
 
+See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for more tips for troubleshooting connection/gateway related issues. 
+
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 
 
