@@ -37,7 +37,7 @@ For a more detailed explanation of applications and service principals, see [App
 For more information about Active Directory authentication, see [Authentication Scenarios for Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 
-## Create the application and service principal objects
+## Create application
 
 For interactive and non-interactive applications, you must create and configure your Active Directory application.
 
@@ -79,7 +79,9 @@ provide a **Redirect URI** value. Click the **Complete** to create you AAD Appli
 
 You have created your application.
 
-When programmatically accessing your application, you will need your **CLIENT ID**. Select the **Configure** tab and copy the **CLIENT ID**.
+## Get client id and tenant id
+
+When programmatically accessing your application, you will need the id for your application. Select the **Configure** tab and copy the **CLIENT ID**.
   
    ![client id][5]
 
@@ -87,9 +89,9 @@ In some cases, you need to pass the tenant id with your authentication request. 
 
    ![tenant id](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
-## Create an authentication key for your application
+## Create an authentication key
 
-If your application will run with it own credentials, you must create a key for the application.
+If your application will run with its own credentials, you must create a key for the application.
 
 1. Click on the **Configure** tab to configure your application's password.
 
@@ -112,7 +114,7 @@ Your application is now ready and the service principal created on your tenant. 
 * **CLIENT ID** - as your user name.
 * **KEY** - as your password.
 
-## Set permissions for the application
+## Set delegated permissions
 
 If your application accesses resources on behalf of a signed-in user, you must grant your application the delegated permission to access other applications. You do this in the **permissions to other applications** section of the 
 **Configure** tab. By default, a delegated permission is already enabled for the Azure Active Directory. Leave this delegated permission unchanged.
@@ -135,7 +137,7 @@ If users from other Azure Active Directories can consent to the application and 
 
 ![multi-tenant](./media/resource-group-create-service-principal-portal/multi-tenant.png)
 
-## Assigning the application to a role
+## Assign application to role
 
 If your application is not running under the identity of a signed-in user, you must assign the application to a role to grant it permissions for performing actions. To assign the application to a role, switch from the classic portal to the [Azure portal](https://portal.azure.com). 
 You must decide which role to add the application to, and at what scope. To learn about the available roles, see [RBAC: Built in Roles](./active-directory/role-based-access-built-in-roles.md). You can set the scope 
