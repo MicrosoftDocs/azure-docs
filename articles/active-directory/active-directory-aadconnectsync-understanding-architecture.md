@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure AD Connect sync: Understanding the architecture | Microsoft Azure"
-   description="Article description that will be displayed on landing pages and in most search results"
+   description="This topic describes the architecture of Azure AD Connect sync and explains the terms used."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
