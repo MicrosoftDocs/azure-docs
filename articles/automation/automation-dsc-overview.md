@@ -118,7 +118,6 @@ Going from an empty automation account to a managed set of correctly configured 
 ![alt text](./media/automation-dsc-overview/DSCLifecycle.png)
 
 The following image illustrates detailed step-by-step process in the life cycle of DSC. It includes different ways a configuration is imported and applied to nodes in Azure Automation, components required for an on-premises machine to support DSC and interactions between different components.
-![DSC Graphic](./media/automation-dsc-overview/dsc-graphical-representation.png)
 
 
 ##Gotchas / Known Issues:##
