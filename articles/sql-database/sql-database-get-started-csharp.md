@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="12/01/2015"
+   ms.date="01/20/2016"
    ms.author="sstein"/>
 
 # Try SQL Database: Use C&#x23; to create a SQL database with the SQL Database Library for .NET 
@@ -414,8 +414,7 @@ The following C# command will create a new Basic SQL database if a database with
 ## Next Steps
 Now that you've tried SQL Database and set up a database with C#, you're ready for the following articles:
 
-- [Connect to and query your SQL Database with C#](sql-database-connect-query.md)
-- [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 
 ## Additional Resources
 
