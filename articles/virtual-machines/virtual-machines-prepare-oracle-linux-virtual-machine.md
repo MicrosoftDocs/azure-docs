@@ -44,6 +44,9 @@ This article assumes that you have already installed an Oracle Linux operating s
 
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
+- Make sure the `Addons`repository is enabled. Edit the file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux ), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
+
+
 ##Oracle Linux 6.4+
 You must complete specific configuration steps in the operating system for the virtual machine to run in Azure.
 

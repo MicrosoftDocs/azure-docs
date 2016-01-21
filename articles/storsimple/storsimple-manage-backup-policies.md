@@ -88,4 +88,4 @@ Perform the following steps in the Azure classic portal to create a custom backu
 
 ## Next steps
 
-- Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
+Learn more about [using the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).

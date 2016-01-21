@@ -31,9 +31,9 @@ Other scenarios where Active Geo-Replication can be used include:
 - **Database migration**: You can use Active Geo-Replication to migrate a database from one server to another online with minimum downtime.
 - **Application upgrades**: You can use the online secondary as a fail back option.
 
-To achieve real business continuity, adding redundancy between datacenters to relational storage is only part of the solution. Recovering an application (service) end-to-end after a disastrous failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using Active Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recover.md).
+To achieve real business continuity, adding redundancy between datacenters to relational storage is only part of the solution. Recovering an application (service) end-to-end after a disastrous failure requires recovery of all components that constitute the service and any dependent services. Examples of these components include the client software (for example, a browser with a custom JavaScript), web front ends, storage, and DNS. It is critical that all components are resilient to the same failures and become available within the recovery time objective (RTO) of your application. Therefore, you need to identify all dependent services and understand the guarantees and capabilities they provide. Then, you must take adequate steps to ensure that your service functions during the failover of the services on which it depends. For more information about designing solutions for disaster recovery, see [Designing Cloud Solutions for Disaster Recovery Using Active Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
-## Active Geo-Replication Capabilities
+## Active Geo-Replication capabilities
 The Active Geo-Replication feature provides the following essential capabilities:
 
 - **Automatic Asynchronous Replication**: After an online secondary database has been seeded, updates to the primary database are asynchronously copied to the online secondary database automatically. This means that transactions are committed on the primary database before they are copied to the online secondary database. However, after seeding, the online secondary database is transactionally consistent at any given point in time. 
@@ -47,24 +47,24 @@ The Active Geo-Replication feature provides the following essential capabilities
 
 >[AZURE.NOTE] Active Geo-Replication is only supported for databases in the Premium service tier. This applies for both the primary and the online secondary databases. The online secondary must be configured to have the same or larger performance level as the primary. Changes to performance levels to the primary database are not automatically replicated to the secondaries. Any upgrades should be done on the secondary databases first and finally on the primary. For more information about changing performance levels, see [Changing Performance Levels](sql-database-scale-up.md). There are two main reasons the online secondary should be at least the same size as the primary. The secondary must have enough capacity to process the replicated transactions at the same speed as the primary. If the secondary does not have, at minimum, the same capacity to process the incoming transactions, it could lag behind and eventually impact the availability of the primary. If the secondary does not have the same capacity as the primary, the failover may degrade the application’s performance and availability.
 
-## Continuous Copy Relationship Concepts
+## Continuous copy relationship concepts
 Local data redundancy and operational recovery are standard features for Azure SQL Database. Each database possesses one primary and two local replica databases that reside in the same datacenter, providing high availability within that datacenter. This means that the Active Geo-Replication databases also have redundant replicas. Both the primary and online secondary databases have two secondary replicas. However, the primary replica for the secondary database is directly updated by the continuous copy mechanism and cannot accept any application-initiated updates. The following figure illustrates how Active Geo-Replication extends database redundancy across two Azure regions. The region that hosts the primary database is known as the primary region. The region that hosts the online secondary database is known as the secondary region. In this figure, North Europe is the primary region. West Europe is the secondary region.
 
 ![Continuous copy relationship](./media/sql-database-active-geo-replication/continuous-copy-relationships.gif)
 
 If the primary database becomes unavailable, terminating the continuous copy relationship for a given online secondary database makes the online secondary database a stand-alone database. The online secondary database inherits the read-only/read-write mode of the primary database which is unchanged by the termination. For example, if the primary database is a read-only database, after termination, the online secondary database becomes a read-only database. At this point, the application can fail over and continue using the online secondary database. To provide resiliency in the event of a catastrophic failure of the datacenter or a prolonged outage in the primary region, at least one online secondary database needs to reside in a different region.
 
-## Creating a Continuous Copy
+## Creating a continuous copy
 You can only create a continuous copy of an existing database. Creating a continuous copy of an existing database is useful for adding geo-redundancy. A continuous copy can also be created to copy an existing database to a different Azure SQL Database server. Once created the secondary database is populated with the data copied from the primary database. This process is known as seeding. After seeding is complete each new transaction is replicated after it commits on the primary.
 
 For information about how to create a continuous copy of an existing database, see [How to enable Geo-Replication](sql-database-business-continuity-design.md#how-to-enable-geo-replication).
 
-## Preventing the Loss of Critical Data
+## Preventing the loss of critical data
 Due to the high latency of wide area networks, continuous copy uses an asynchronous replication mechanism. This makes some data loss unavoidable if a failure occurs. However, some applications may require no data loss. To protect these critical updates, an application developer can call the [sp_wait_for_database_copy_sync](https://msdn.microsoft.com/library/dn467644.aspx) system procedure immediately after committing the transaction. Calling **sp_wait_for_database_copy_sync** blocks the calling thread until the last committed transaction has been replicated to the online secondary database. The procedure will wait until all queued transactions have been acknowledged by the online secondary database. **sp_wait_for_database_copy_sync** is scoped to a specific continuous copy link. Any user with the connection rights to the primary database can call this procedure. 
 
 >[AZURE.NOTE] The delay caused by a **sp_wait_for_database_copy_sync** procedure call might be significant. The delay depends on the length of the queue and on the available bandwidth. Avoid calling this procedure unless absolutely necessary.
 
-## Termination of a Continuous Copy Relationship
+## Termination of a continuous copy relationship
 The continuous copy relationship can be terminated at any time. Terminating a continuous copy relationship does not remove the secondary database. There are two methods of terminating a continuous copy relationship:
 
 - **Planned Termination** is useful for planned operations where data loss is unacceptable. A planned termination can only be performed on the primary database, after the online secondary database has been seeded. In a planned termination, all transactions committed on the primary database are replicated to the online secondary database first, and then the continuous copy relationship is terminated. This prevents loss of data on the secondary database.
@@ -74,5 +74,5 @@ The continuous copy relationship can be terminated at any time. Terminating a co
 
 For more information about how to terminate a continuous copy relationship, see [Recover an Azure SQL Database from an outage](sql-database-disaster-recovery.md).
 
-## Next Steps
+## Next steps
 For more information on Active Geo-Replication and additional business continuity features of SQL Database, see [Business Continuity Overview](sql-database-business-continuity.md).
