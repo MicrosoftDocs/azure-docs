@@ -74,6 +74,8 @@ In the [Azure portal](https://portal.azure.com/), you select the option you want
 For options 1 and 2, turn on **App Service Authentication**, and in the **Action to take when request is not authenticated** drop-down list choose **Log in** or **Allow request (no action)**.  If you choose **Log in**, you have to choose an authentication provider and configure that provider.
 
 ![](./media/app-service-api-authentication/actiontotake.png)
+
+For detailed information about how to configure authentication, see [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). Although the article indicates that it's about mobile apps, it applies also to API apps.
  
 ## <a id="internal"></a> Service account authentication
 
@@ -91,7 +93,10 @@ For information about how to handle authentication from mobile clients, see the 
   
 ## More information
 
-For more information about authentication and authorization in Azure App Service, see [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/).
+For more information about authentication and authorization in Azure App Service, see the following resources:
+
+* [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/)
+* [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
 
 For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT), see the following resources.
 
