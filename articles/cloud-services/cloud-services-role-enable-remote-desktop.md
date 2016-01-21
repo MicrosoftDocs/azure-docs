@@ -20,7 +20,7 @@ ms.author="saurabh"/>
 >[AZURE.SELECTOR]
 - [Azure classic portal](cloud-services-role-enable-remote-desktop.md)
 - [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](https://msdn.microsoft.com/library/gg443832.aspx)
+- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
 
 
 Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running. 
