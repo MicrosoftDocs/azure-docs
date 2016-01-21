@@ -89,7 +89,7 @@ You can also configure a custom domain name to use with your storage account. Se
 
 7. If you have more than one Azure subscription, then the **Subscription** field is displayed. Select the subscription in which you want to create the new storage account.
 
-8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Use Azure Portal to manage Azure resources](../resource-group-portal.md).
+8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Use Azure Portal to manage Azure resources](../azure-portal/resource-group-portal.md).
 
 9. Select the geographic location for your storage account.
 
@@ -140,7 +140,7 @@ To delete a storage account that is associated with an Azure virtual machine, yo
 To remove the virtual machine disk, follow these steps in the Azure Classic Portal:
 
 1. Navigate to the [Azure Classic Portal](manage.windowsazure.com).
-2. Navigate to the Virtual Machines tab. 
+2. Navigate to the Virtual Machines tab.
 3. Click the Disks tab.
 4. Select your data disk, then click Delete Disk.
 5. To delete disk images, navigate to the Images tab and delete any images that are stored in the account.

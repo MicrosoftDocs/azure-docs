@@ -169,7 +169,7 @@ Create a **BlobEncryptionPolicy** object and set it in the request options (per 
 	blob.upload(stream, size, null, options, null);
 
 	// Download and decrypt the encrypted contents from the blob.
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); 
+	ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 	blob.download(outputStream, null, options, null);
 
 ### Queue service encryption  
@@ -248,4 +248,4 @@ Note that encrypting your storage data results in additional performance overhea
 - Download the [Azure Storage Client Library for Java Source Code from GitHub](https://github.com/Azure/azure-storage-java)   
 - Download the Azure Key Vault Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/),
 [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), and [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) packages
-- Visit the [Azure Key Vault Documentation](../articles/key-vault-whatis.md)  
+- Visit the [Azure Key Vault Documentation](../key-vault/key-vault-whatis.md)  
