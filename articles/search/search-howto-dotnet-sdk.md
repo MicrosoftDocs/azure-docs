@@ -16,11 +16,11 @@
    ms.date="01/21/2016"
    ms.author="brjohnst"/>
 
-# How to use Azure Search from a .NET Application #
+# How to use Azure Search from a .NET Application
 
 This article is a walkthrough to get you up and running with the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx). You can use the .NET SDK to implement a rich search experience in your application using Azure Search.
 
-## What's in the Azure Search SDK ##
+## What's in the Azure Search SDK
 
 The SDK consists of a client library, `Microsoft.Azure.Search`. It enables you to manage your indexes, data sources, and indexers, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON.
 
@@ -37,11 +37,11 @@ Other features not supported in this SDK include:
 
   - [Management Operations](https://msdn.microsoft.com/library/azure/dn832684.aspx). Management operations include provisioning Azure Search services and managing API keys. These will be supported in a separate Azure Search .NET Management SDK in the future.
 
-## Upgrading to the latest version of the SDK ##
+## Upgrading to the latest version of the SDK
 
 If you're already using an older version of the Azure Search .NET SDK and you'd like to upgrade to the new 1.0.1-preview version, [this article](search-dotnet-sdk-migration.md) explains how.
 
-## Requirements for the SDK ##
+## Requirements for the SDK
 
 1. Visual Studio 2013 or Visual Studio 2015.
 
@@ -51,7 +51,7 @@ If you're already using an older version of the Azure Search .NET SDK and you'd 
 
 The Azure Search .NET SDK supports applications targeting the .NET Framework 4.5, as well as Windows Store apps targeting Windows 8.1 and Windows Phone 8.1. Silverlight is not supported.
 
-## Core Scenarios ##
+## Core scenarios
 
 There are several things you'll need to do in your search application. In this tutorial, we'll cover these core scenarios:
 
@@ -61,7 +61,7 @@ There are several things you'll need to do in your search application. In this t
 
 The sample code that follows illustrates each of these. Feel free to use the code snippets in your own application.
 
-### Overview ###
+### Overview
 
 The sample application we'll be exploring creates a new index named "hotels", populates it with a few documents, then executes some search queries. Here is the main program, showing the overall flow:
 
@@ -164,7 +164,7 @@ The full source code of the application is provided at the end of this article.
 
 Next, we will take a closer look at each of the methods called by `Main`.
 
-### Creating an Index ###
+### Creating an index
 
 After creating a `SearchServiceClient`, the next thing `Main` does is delete the "hotels" index if it already exists. That is done by the following method:
 
@@ -206,7 +206,7 @@ Next, `Main` creates a new "hotels" index by calling this method:
 
 This method creates a new `Index` object with a list of `Field` objects that defines the schema of the new index. Each field has a name, data type, and several attributes that define its search behavior. In addition to fields, you can also add scoring profiles, suggesters, or CORS options to the Index (these are omitted from the sample for brevity). You can find more information about the Index object and its constituent parts in the SDK reference on [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), as well as in the [Azure Search REST API reference](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-### Populating the Index ###
+### Populating the index
 
 The next step in `Main` is to populate the newly-created index. This is done in the following method:
 
@@ -302,7 +302,7 @@ The third part of this method is a catch block that handles an important error c
 
 Finally, the method delays for two seconds. Indexing happens asynchronously in your Azure Search service, so the sample application needs to wait a short time to ensure that the documents are available for searching. Delays like this are typically only necessary in demos, tests, and sample applications.
 
-#### How the .NET SDK Handles Documents ####
+#### How the .NET SDK handles documents
 
 You may be wondering how the Azure Search .NET SDK is able to upload instances of a user-defined class like `Hotel` to the index. To help answer that question, let's look at the `Hotel` class:
 
@@ -348,7 +348,7 @@ This ability to use your own classes as documents works in both directions; You 
 
 > [AZURE.NOTE] The Azure Search .NET SDK also supports dynamically-typed documents using the `Document` class, which is a key/value mapping of field names to field values. This is useful in scenarios where you don't know the index schema at design-time, or where it would be inconvenient to bind to specific model classes. All the methods in the SDK that deal with documents have overloads that work with the `Document` class, as well as strongly-typed overloads that take a generic type parameter. Only the latter are used in the sample code in this tutorial. You can find out more about the `Document` class [here](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
 
-**An Important Note About Data Types**
+**An important note about data types**
  
 When designing your own model classes to map to an Azure Search index, we recommend declaring properties of value types such as `bool` and `int` to be nullable (for example, `bool?` instead of `bool`). If you use a non-nullable property, you have to **guarantee** that no documents in your index contain a null value for the corresponding field. Neither the SDK nor the Azure Search service will help you to enforce this.
 
@@ -358,7 +358,7 @@ This is not just a hypothetical concern: Imagine a scenario where you add a new 
 
 For this reason, we recommend that you use nullable types in your model classes as a best practice.
 
-### Searching for Documents in the Index ###
+### Searching for documents in the index
 
 The last step in the sample application is to search for some documents in the index. The following method does this:
 
@@ -411,7 +411,7 @@ The first search returns two documents. The first has "Fancy" in the name, while
 
 This step completes the tutorial, but don't stop here. **Next steps** provides additional resources for learning more about Azure Search.
 
-## Next Steps ##
+## Next steps
 
 - Browse the references for the [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) and [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) on MSDN.
 - Deepen your knowledge through [videos and other samples and tutorials](search-video-demo-tutorial-list.md).
@@ -420,7 +420,7 @@ This step completes the tutorial, but don't stop here. **Next steps** provides a
 - Review [supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) in Azure Search.
 
 
-## Sample Application Source Code ##
+## Sample application source code
 
 Here is the full source code of the sample application used in this walk through. Note that you will need to replace the service name and API key placeholders in Program.cs with your own values if you want to build and run the sample.
 
