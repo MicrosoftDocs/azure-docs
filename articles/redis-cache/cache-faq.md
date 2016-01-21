@@ -67,6 +67,16 @@ From this table we can draw the following conclusions.
 
 For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
+<a name="server-gc"></a>
+## Enable server GC to get more throughput on the client when using StackExchange.Redis
+
+When using StackExchange.Redis to perform tests to determine throughput similar to the `redis-benchmark.exe` testing described in the previous [table](#cache-performance), it was observed during profiling that StackExchange.Redis spends some time in GC, particularly when processing request completions. In this scenario, enabling server GC reduced this time from 8% to 2% and enabled greater throughput. For more information on server GC and how to enable it, see the following articles.
+
+-	[To enable server GC](https://msdn.microsoft.com/library/ms229357.aspx)
+-	[Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
+-	[Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
+
+
 <a name="cache-region"></a>
 ## In what region should I locate my cache?
 
