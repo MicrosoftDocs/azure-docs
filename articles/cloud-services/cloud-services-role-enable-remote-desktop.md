@@ -28,8 +28,8 @@ Remote Desktop enables you to access the desktop of a role running in Azure. You
 You can enable a Remote Desktop connection in your role during development by including the Remote Desktop modules in your service definition or you can choose to enable Remote Desktop through the Remote Desktop Extension. The preferred approach is to use the Remote Desktop extension as you can enable Remote Desktop even after the application is deployed without having to redeploy your application. 
 
 
-## Configure Remote Desktop from the portal
-The portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. The **Configure** page for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date. 
+## Configure Remote Desktop from the Azure classic portal
+The Azure classic portal uses the Remote Desktop Extension approach so you can enable Remote Desktop even after the application is deployed. The **Configure** page for your cloud service allows you to enable Remote Desktop, change the local Administrator account used to connect to the virtual machines, the certificate used in authentication and set the expiration date. 
 
 
 1. Click **Cloud Services**, click the name of the cloud service, and then click **Configure**.
@@ -61,7 +61,7 @@ The portal uses the Remote Desktop Extension approach so you can enable Remote D
 ## Remote into role instances
 Once Remote Desktop is enabled on the roles you can remote into a role instance through various tools.
 
-To connect to a role instance from the portal:
+To connect to a role instance from the Azure classic portal:
     
   1.   Click **Instances** to open the **Instances** page.
   2.   Select a role instance that has Remote Desktop configured.
