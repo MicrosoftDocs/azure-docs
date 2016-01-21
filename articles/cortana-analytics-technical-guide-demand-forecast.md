@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Technical guide to the Cortana Analytics Solution Template for demand forecast in energy and other businesses | Microsoft Azure"
+	pageTitle="Demand Forecast in Energy Technical Guide | Microsoft Azure"
 	description="A technical guide to the Solution Template with Microsoft Cortana Analytics for demand forecast in energy."
 	services="cortana-analytics"
 	documentationCenter=""
@@ -40,14 +40,3 @@ to build the Power BI dashboard for this Solution Template are provided
 at the end.
 
 >[AZURE.TIP] You can download and print a [PDF version of this document](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
-
-
-
-## **Cost Estimation Tools**
-
-The following two tools are available to help you better understand the
-total costs involved in running the Predictive Maintenance for Aerospace
-Solution Template in your subscription:
-
--   [Microsoft Azure Cost Estimator
-    Tool (online)](https://azure.microsoft.com/pricing/calculator/)
