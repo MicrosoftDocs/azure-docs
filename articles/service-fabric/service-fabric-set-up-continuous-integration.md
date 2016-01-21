@@ -31,7 +31,7 @@ To get started, set up your project on Visual Studio Team Services.
 
 See [Connect to Visual Studio](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online) for more information on working with Team Services projects.
 
-## Set up your Service Principal
+## Set up your service principal
 
 ### Set up authentication for automation
 
@@ -45,7 +45,7 @@ Before you can set up the build machine, you need to create a [Service Principal
 
 2.	Install and update the AzureRM module.
 
-    1.  If you have any previous version of Azure PowerShell installed, remove it. Right-click on start button, then select "Add/Remove Programs". Search for "Azure PowerShell" and uninstall it.
+    1.  If you have any previous version of Azure PowerShell installed, remove it. Right-click on start button, then select **Add/Remove Programs**. Search for "Azure PowerShell" and uninstall it.
 
     2.  Launch a PowerShell command prompt.
 
@@ -71,7 +71,7 @@ Before you can set up the build machine, you need to create a [Service Principal
 
     4. Find the subscription you want to use and then run the command `Select-AzureRmSubscription -SubscriptionId <id for your subscription>`."
 
-### Create a Service Principal
+### Create a service principal
 
 1.	Download and extract [Manual.zip](http://go.microsoft.com/fwlink/?LinkId=703773) to a folder on this machine.
 
@@ -124,7 +124,7 @@ Before you can set up the build machine, you need to create a [Service Principal
 
     - `ServiceFabricCertificateSecretId`
 
-## Set up your Build Machine
+## Set up your build machine
 
 ### Install Visual Studio 2015
 
@@ -168,7 +168,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 	1. Replace `%PROGRAMFILES%` with the value of the `PROGRAMFILES` environment variable.
 
-### Import your Automation Certificate
+### Import your automation certificate
 
 1.	Import the certificate onto your build machine. To do this:
 
@@ -246,7 +246,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 ![](media/service-fabric-set-up-continuous-integration/vso-configured-agent.png)
 
 
-## Create your Build Definition
+## Create your build definition
 
 >[AZURE.NOTE] The build definition you create from these instructions will not support multiple concurrent builds, even on separate machines. This is because each build would compete for the same resource group/cluster. If you want to run multiple build agents, you will need to modify the following instructions/scripts to prevent this interference.
 
@@ -296,7 +296,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 3.	Save the build definition and give it a name. (You can change this name later if you want.)
 
-### Add a "Build" Step
+### Add a "Build" step
 
 1.	On the **Build** tab, choose the **Add build step…** command."
 
@@ -314,7 +314,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 8.	Save the build definition.
 
-### Add a "Package" Step
+### Add a "Package" step
 
 1.	On the **Build** tab, choose the **Add build step…** command.
 
@@ -334,7 +334,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 9.	Save the build definition.
 
-### Add a "Remove Cluster Resource Group" Step
+### Add a "Remove cluster resource group" step
 
 If a previous build did not clean up after itself (such as if the build was cancelled before it could clean up), there may be an existing resource group that will conflict with the new one. To avoid conflicts, clean up any leftover resource group (and its associated resources) before creating a new one.
 
@@ -342,7 +342,7 @@ If a previous build did not clean up after itself (such as if the build was canc
 
 2.	Choose **Utility** > **PowerShell**.
 
-3.	Choose the pencil icon next to the build step's name and then rename it to **Remove Cluster Resource Group**.
+3.	Choose the pencil icon next to the build step's name and then rename it to **Remove cluster resource group**.
 
 4.	Choose the **…** command next to **Script filename**. Navigate to where you extracted the automation scripts and then choose **Remove-ClusterResourceGroup.ps1**.
 
@@ -350,13 +350,13 @@ If a previous build did not clean up after itself (such as if the build was canc
 
 6.	Save the build definition.
 
-### Add a "Provision and Deploy to Secure Cluster" Step
+### Add a "Provision and deploy to secure cluster" step
 
 1.	On the **Build** tab, choose the **Add build step…** command.
 
 2.	Choose **Utility** > **PowerShell**.
 
-3.	Choose the pencil icon next to the build step's name and then rename it to **Provision and Deploy to Secure Cluster**.
+3.	Choose the pencil icon next to the build step's name and then rename it to **Provision and deploy to secure cluster**.
 
 4.	Choose the **…** button next to **Script filename**. Navigate to where you extracted the automation scripts and then choose **ProvisionAndDeploy-SecureCluster.ps1**.
 
@@ -364,7 +364,7 @@ If a previous build did not clean up after itself (such as if the build was canc
 
 6.	Save the build definition.
 
-### Add a "Remove Cluster Resource Group" Step
+### Add a "Remove cluster resource group" step
 
 Now that you're done with the temporary cluster, you should clean it up. If you don't do this, you'll continue to be charged for the temporary cluster. This step removes the resource group, which removes the cluster and all other resources in the group.
 
@@ -374,7 +374,7 @@ Now that you're done with the temporary cluster, you should clean it up. If you 
 
 2.	Choose **Utility** > **PowerShell**.
 
-3.	Choose the pencil icon next to the build step's name and then rename it to **Remove Cluster Resource Group**.
+3.	Choose the pencil icon next to the build step's name and then rename it to **Remove cluster resource group**.
 
 4.	Choose the **…** button next to **Script filename**. Navigate to where you extracted the automation scripts and then choose **RemoveClusterResourceGroup.ps1**.
 
@@ -389,7 +389,7 @@ Now that you're done with the temporary cluster, you should clean it up. If you 
 Click **Queue Build** to start a build. Builds will also be triggered upon push/checkin.
 
 
-## Alternative Solutions
+## Alternative solutions
 
 The previous instructions create a new cluster for each build and remove it at the end of the build. If you'd rather have each build perform an application upgrade (to an existing cluster) instead, do the following steps.
 
