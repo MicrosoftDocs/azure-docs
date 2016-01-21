@@ -5,7 +5,7 @@
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="load-balancer"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 
@@ -34,20 +34,16 @@ The following figure shows a load-balanced endpoint for encrypted web traffic th
 
 ![public load balancer example](./media/load-balancer-internet-overview/IC727496.png))
 
-
-
 When Internet clients send web page requests to the public IP address of the cloud service and TCP port 443, the Azure Load Balancer performs a hash based load balancing of those requests between the three virtual machines in the load-balanced set. You can get more information about load balancer algorithm at [load balancer overview page](load-balancer-overview.md#load-balancer-features).
 
 
-## Next Steps
+## Next steps
 
-[Internal load balancer overview](load-balancer-internal-overview.md)
+After learning about an Internet facing load balancer, you can also read about [Internal load balancer](load-balancer-internal-overview.md) and check which load balancer can be a better fit for your cloud deployment.
 
-[Get started Configuring an Internet facing load balancer](load-balancer-internet-getstarted.md)
+You can also [get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for an especific load balancer network traffic behavior.
 
-[Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
-
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+If your application needs to keep connections alive for servers behind a load balancer, you can understand more about [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). It will help to learn about idle connection behavior when you are using Azure Load Balancer. 
 
 
  

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/16/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 
@@ -70,9 +70,10 @@ Examples of templates:
 - [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
-## See Also
+## Next steps
 
-[Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
+You can also [get started creating an Internet facing load balancer](load-balancer-get-started-internet-arm-ps.md) and configure what type of [distribution mode](load-balancer-distribution-mode.md) for an especific load balancer network traffic behavior.
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
- 
+If your application needs to keep connections alive for servers behind a load balancer, you can understand more about [idle TCP timeout settings for a load balancer](load-balancer-tcp-idle-timeout.md). It will help to learn about idle connection behavior when you are using Azure Load Balancer. 
+
+

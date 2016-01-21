@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # How to manage DNS records using CLI
@@ -238,9 +238,10 @@ In the example below, the A record set "test-a" will be removed from contoso.com
 The optional ‘-q’ switch can be used to suppress the confirmation prompt.
 
 
-##See Also
+## Next steps
 
-[Delegate a domain to Azure DNS](dns-domain-delegation.md)<BR>
-[Manage DNS zones](dns-operations-dnszones-cli.md)<BR>
-[Automate operations using .NET SDK](dns-sdk.md)
+After creating the DNS zone and records, you can [delegate your domain to Azure DNS](dns-domain-delegation.md).<BR>
+Learn how to [manage DNS zones](dns-operations-dnszones-cli.md) using CLI.<BR>
+You can also [automate operations using .NET SDK](dns-sdk.md) to code Azure DNS opearations into your application.
+
  
