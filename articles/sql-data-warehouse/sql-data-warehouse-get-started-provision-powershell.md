@@ -23,7 +23,8 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-> [AZURE.NOTE]  In order to use Microsoft Azure PowerShell with SQL Data Warehouse, you should download and install the latest version of Azure PowerShell with ARM cmdlets. You can check your version by running Get-Module -ListAvailable -Name Azure. This article follows Microsoft Azure PowerShell version 1.0.3.
+
+>[AZURE.NOTE] In order to use Microsoft Azure PowerShell with SQL Data Warehouse, you should download and install the latest version of Azure PowerShell with ARM cmdlets. You can check your version by running `Get-Module -ListAvailable -Name Azure`. This article follows Microsoft Azure PowerShell version 1.0.3.
 
 ## Get and run the Azure PowerShell cmdlets
 If you're not already set-up with PowerShell, you need to download and configure it.
@@ -32,20 +33,20 @@ If you're not already set-up with PowerShell, you need to download and configure
 2. To run the module, at the start window type **Microsoft Azure PowerShell**.
 3. Run the following cmdlet to login to Azure Resource Manager. (For more information, see [How to install and configure Azure PowerShell][]):
 
-```
-Login-AzureRmAccount
-```
+	```
+	Login-AzureRmAccount
+	```
 
 4. Select the subscription you want to use for your current session. 
 
-```
-Get-AzureRmSubscription -SubscriptionName "MySubscription" | Select-AzureRmSubscription
-```
+	```
+	Get-AzureRmSubscription -SubscriptionName "MySubscription" | Select-AzureRmSubscription
+	```
    
 ## Creating SQL Data Warehouse
 The following command will deploy a new database in SQL Data Warehouse. 
 
-Prerequisite:
+### Prerequisite:
 
 - You must have an existing V12 SQL Server created
 - Know the resource group name of the SQL Server 
@@ -54,7 +55,7 @@ Prerequisite:
 New-AzureRmSqlDatabase -RequestedServiceObjectiveName "<Service Objective>" -DatabaseName "<Data Warehouse Name>" -ServerName "<Server Name>" -ResourceGroupName "<ResourceGroupName>" -Edition "DataWarehouse"
 ```
 
-Example
+### Example
 
 ```
 New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw1" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse"
