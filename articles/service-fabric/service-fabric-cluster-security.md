@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="1/21/2016"
+   ms.date="1/20/2016"
    ms.author="chackdan"/>
 
 # Secure a Service Fabric cluster
