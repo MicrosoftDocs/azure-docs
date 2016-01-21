@@ -155,82 +155,81 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     >[AZURE.NOTE] For this sample, we assume that you are using a simple HttpCommunicationListener. For more information on reliable service communication, see [The Reliable Service communication model](service-fabric-reliable-services-communication.md).
 
 8. A recommended pattern for the URL that a replica listens on is the following format: `{scheme}://{nodeIp}:{port}/{partitionid}/{replicaid}/{guid}`.
-So you want to configure your communication listener to listen on the correct endpoints and with this pattern.
+   So you want to configure your communication listener to listen on the correct endpoints and with this pattern.
 
-Multiple replicas of this service may be hosted on the same computer, so this address needs to be unique to the replica. This is why partition ID + replica ID are in the URL. HttpListener can listen on multiple addresses on the same port as long as the URL prefix is unique.
+   Multiple replicas of this service may be hosted on the same computer, so this address needs to be unique to the replica. This is why   partition ID + replica ID are in the URL. HttpListener can listen on multiple addresses on the same port as long as the URL prefix    is unique.
 
-The extra GUID is there for an advanced case where secondary replicas also listen for read-only requests. When that's the case, you want to make sure that a new unique address is used when transitioning from primary to secondary to force clients to re-resolve the address. '+' is used as the address here so that the replica listens on all available hosts (IP, FQDM, localhost, etc.) The code below shows an example.
+   The extra GUID is there for an advanced case where secondary replicas also listen for read-only requests. When that's the case, you want to make sure that a new unique address is used when transitioning from primary to secondary to force clients to re-resolve the address. '+' is used as the address here so that the replica listens on all available hosts (IP, FQDM, localhost, etc.) The code below shows an example.
 
-    ```CSharp
-    protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
-    {
-            return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
-    }
-    private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
-    {
-        EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
+   ```CSharp
+	protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+	{
+		return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
+	}
+	private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
+	{
+		EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
 
-        string uriPrefix = String.Format(
-                "{0}://+:{1}/{2}/{3}-{4}/",
-                internalEndpoint.Protocol,
-                internalEndpoint.Port,
-                this.ServiceInitializationParameters.PartitionId,
-                this.ServiceInitializationParameters.ReplicaId,
-                Guid.NewGuid());
+		string uriPrefix = String.Format(
+			"{0}://+:{1}/{2}/{3}-{4}/",
+			internalEndpoint.Protocol,
+			internalEndpoint.Port,
+			this.ServiceInitializationParameters.PartitionId,
+			this.ServiceInitializationParameters.ReplicaId,
+			Guid.NewGuid());
 
-        string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
-        string uriPublished = uriPrefix.Replace("+", nodeIP);
-        return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
-    }
-    ```
-It's also worth noting that the published URL is slightly different from the listening URL prefix.
-The listening URL is given to HttpListener. The published URL is the URL that is published to the Service Fabric Naming Service, which is used for service discovery. Clients will ask for this address through that discovery service. The address that clients get needs to have the actual IP or FQDN of the node in order to connect. So you need to replace '+' with the node's IP or FQDN as shown above.
+		string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
+		string uriPublished = uriPrefix.Replace("+", nodeIP);
+		return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
+	}
+   ```
+   
+   It's also worth noting that the published URL is slightly different from the listening URL prefix.
+   The listening URL is given to HttpListener. The published URL is the URL that is published to the Service Fabric Naming Service, which is used for service discovery. Clients will ask for this address through that discovery service. The address that clients get needs to have the actual IP or FQDN of the node in order to connect. So you need to replace '+' with the node's IP or FQDN as shown above.
 9. The last step is to add the processing logic to the service as shown below.
 
-    ```CSharp
-    private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
-    {
-          string output = null;
-          string user = context.Request.QueryString["lastname"].ToString();
+   ```CSharp
+	private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
+	{
+		string output = null;
+		string user = context.Request.QueryString["lastname"].ToString();
 
-          try
-          {
-              output = await this.AddUserAsync(user);
-          }
-          catch (Exception ex)
-          {
-              output = ex.Message;
-          }
+		try
+		{
+			output = await this.AddUserAsync(user);
+		}
+		catch (Exception ex)
+		{
+			output = ex.Message;
+		}
 
-          using (HttpListenerResponse response = context.Response)
-          {
-              if (output != null)
-              {
-                  byte[] outBytes = Encoding.UTF8.GetBytes(output);
-                  response.OutputStream.Write(outBytes, 0, outBytes.Length);
-              }
-          }
-      }
-      private async Task<string> AddUserAsync(string user)
-      {
-          IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
+		using (HttpListenerResponse response = context.Response)
+		{
+			if (output != null)
+			{
+				byte[] outBytes = Encoding.UTF8.GetBytes(output);
+				response.OutputStream.Write(outBytes, 0, outBytes.Length);
+			}
+		}
+	}
+	private async Task<string> AddUserAsync(string user)
+	{
+		IReliableDictionary<String, String> dictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<String, String>>("dictionary");
 
-          using (ITransaction tx = this.StateManager.CreateTransaction())
-          {
-              bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
+		using (ITransaction tx = this.StateManager.CreateTransaction())
+		{
+			bool addResult = await dictionary.TryAddAsync(tx, user.ToUpperInvariant(), user);
 
-              await tx.CommitAsync();
+			await tx.CommitAsync();
 
-              return String.Format(
-                  "User {0} {1}",
-                  user,
-                  addResult ? "sucessfully added" : "already exists");
-          }
-      }
-    ```
-
-    `ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `m_name`.    
-
+			return String.Format(
+				"User {0} {1}",
+				user,
+				addResult ? "sucessfully added" : "already exists");
+		}
+	}
+	```    
+   `ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `dictionary`.
 10. Let's add a stateless service to the project to see how you can call a particular partition.
 This service serves as a simple web interface that accepts the lastname as a query string parameter, determines the partition key, and sends it to the Alphabet.Processing service for processing.
 11. In the **Create a Service** dialog box, choose **Stateless** service and call it "Alphabet.WebApi" as shown below.
