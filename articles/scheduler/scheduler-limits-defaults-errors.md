@@ -68,7 +68,7 @@ API operations may also return additional error information that is defined by t
 
  [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/en-us/library/mt629143.aspx)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
  [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
