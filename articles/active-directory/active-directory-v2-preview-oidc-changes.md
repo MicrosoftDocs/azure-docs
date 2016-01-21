@@ -101,6 +101,31 @@ Over the next two weeks, you should code your app to retrieve the user informati
 
 > [AZURE.IMPORTANT] **Your job: Make sure your app does not depend on the existence of the `profile_info` value.**
 
+### Removing id_token_expires_in
+Similar to `profile_info`, we are also removing the `id_token_expires_in` parameter from responses.  Previously, the v2.0 endpoint would return a value for `id_token_expires_in` along with each id_token response, for instance in an authorize response:
+
+```
+https://myapp.com?id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...&id_token_expires_in=3599...
+```
+
+Or in a token response:
+
+```
+{ 
+	"token_type": "Bearer",
+	"id_token_expires_in": "3599",
+	"scope": "openid",
+	"id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+	"refresh_token": "OAAABAAAAiL9Kn2Z27UubvWFPbm0gL...",
+	"profile_info": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsI...",
+}
+```
+
+The `id_token_expires_in` value would indicate the number of seconds the id_token would remain valid for.  Now, we are removing the `id_token_expires_in` value completely.  Instead, you may use the OpenID Connect standard `nbf` and `exp` claims to examine the validity of an id_token.  See the [v2.0 token reference](active-directory-v2-tokens.md) for more information on these claims.
+
+> [AZURE.IMPORTANT] **Your job: Make sure your app does not depend on the existence of the `id_token_expires_in` value.**
+
+
 ### Changing the claims returned by scope=openid
 This change will be the most significant – in fact, it will affect almost every app that uses the v2.0 endpoint.  Many applications send requests to the v2.0 endpoint using the `openid` scope, like:
 
@@ -176,6 +201,7 @@ As of today, you can begin making all of the changes described above.  You shoul
 
 1.	**Remove any dependencies on the `x5t` header parameter.**
 2.	**Gracefully handle the transition from `profile_info` to `id_token` in token responses.**
+3.  **Remove any dependencies on the `id_token_expires_in` response parameter.**
 3.	**Add the `profile` and `email` scopes to your app if your app needs basic user information.**
 4.	**Accept issuer values in tokens both with and without a trailing slash.**
 
