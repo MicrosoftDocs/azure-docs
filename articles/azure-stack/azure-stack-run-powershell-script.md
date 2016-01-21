@@ -18,9 +18,11 @@
 
 # Prepare the physical machine
 
-1.  Download the Azure Stack POC deployment package to a folder such as c:\\MAS.
+1.  On the Azure Stack POC machine, install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 
-2.  Run the **Microsoft Azure Stack POC.exe** file.
+2.  Download the Azure Stack POC deployment package to a folder such as c:\\AzureStack.
+
+3.  Run the **Microsoft Azure Stack POC.exe** file.
 
     This creates the \\Microsoft Azure Stack POC\\ folder containing the following items:
 
@@ -36,11 +38,9 @@
 
 	**Important**: You must have at least 128GB of free space on the physical boot volume.
 
-3. Copy WindowsServer2016Datacenter.vhdx and call it MicrosoftAzureStackPOCBoot.vhdx.
+4. Copy WindowsServer2016Datacenter.vhdx and call it MicrosoftAzureStackPOCBoot.vhdx.
 
-4. In Internet Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
-
-5. In a Command Prompt window, switch to the drive letter for the mounted drive, then switch to the Windows directory.
+5. In File Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
 
 6. Run the bcdboot command:
 
