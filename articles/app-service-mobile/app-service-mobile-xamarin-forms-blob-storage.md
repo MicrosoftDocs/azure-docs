@@ -26,7 +26,7 @@ This topic shows you how to add support for images to the Mobile Apps todo list 
 
 In this tutorial, you will create a storage account and add a connection string to your Mobile App backend. You will then add a new inheriting from the new Mobile Apps type `StorageController<T>` to your server project.
 
->[AZURE.TIP] This tutorial has a [companion sample](https://azure.microsoft.com/documentation/samples/app-service-mobile-dotnet-todolist-files/) available, which can be deployed to your own Azure account. 
+>[AZURE.TIP] This tutorial has a [companion sample](https://azure.microsoft.com/documentation/samples/app-service-mobile-dotnet-todo-list-files/) available, which can be deployed to your own Azure account. 
 
 ## Prerequisites
 
