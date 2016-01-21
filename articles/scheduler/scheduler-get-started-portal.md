@@ -230,7 +230,7 @@ Finally, for all action types, you may change the schedule itself and its recurr
 
  [How to build complex schedules and advanced recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
 
- [Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
+ [Scheduler REST API reference](https://msdn.microsoft.com/en-us/library/mt629143.aspx)
 
  [Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 
