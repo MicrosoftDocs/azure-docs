@@ -51,6 +51,3 @@ Solution Template in your subscription:
 
 -   [Microsoft Azure Cost Estimator
     Tool (online)](https://azure.microsoft.com/pricing/calculator/)
-
--   [Microsoft Azure Cost Estimator
-    Tool (desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
