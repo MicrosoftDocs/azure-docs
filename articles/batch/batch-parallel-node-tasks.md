@@ -1,20 +1,18 @@
-<properties
-   pageTitle="Maximize Batch node use with parallel tasks | Microsoft Azure"
-   description="Increase efficiency and lower costs by using fewer compute nodes while running concurrent tasks on each node in an Azure Batch pool"
-   services="batch"
-   documentationCenter=".net"
-   authors="mmacy"
-   manager="timlt"
-   editor=""/>
+<properties pageTitle="Maximize Batch node use with parallel tasks | Microsoft Azure"
+            description="Increase efficiency and lower costs by using fewer compute nodes while running concurrent tasks on each node in an Azure Batch pool"
+            services="batch"
+            documentationCenter=".net"
+            authors="mmacy"
+            manager="timlt"
+            editor="" />
 
-   <tags
-   	ms.service="batch"
-   	ms.devlang="multiple"
-   	ms.topic="article"
-   	ms.tgt_pltfrm="vm-windows"
-   	ms.workload="big-compute"
-   	ms.date="11/02/2015"
-   	ms.author="v-marsma"/>
+<tags ms.service="batch"
+      ms.devlang="multiple"
+      ms.topic="article"
+      ms.tgt_pltfrm="vm-windows"
+      ms.workload="big-compute"
+      ms.date="01/22/2016"
+      ms.author="marsma" />
 
 # Maximize Azure Batch compute resource usage with concurrent node tasks
 
