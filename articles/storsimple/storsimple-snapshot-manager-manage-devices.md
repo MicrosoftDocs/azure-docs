@@ -194,7 +194,7 @@ You must enter a password to authenticate a StorSimple device with StorSimple Sn
 
 #### To change the expired password
 
-1. On the Azure classic portal, start the StorSimple Manager service.
+1. In the Azure classic portal, start the StorSimple Manager service.
 
 2. Click **Devices** > **Configure** for the device.
 

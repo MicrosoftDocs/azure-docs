@@ -33,7 +33,7 @@ This article applies to Microsoft Azure StorSimple Virtual Array (also known as 
 
 Before you try to restore shares, ensure that you have sufficient space on the device to complete this operation. To restore from a backup, in the [Azure classic portal](https://manage.windowsazure.com/), perform the following steps.
 
-#### To restore share
+#### To restore a share
 
 1.  Browse to the **Backup Catalog**. Filter by appropriate device and time range to search for your backups. Click the check icon ![](./media/storsimple-ova-restore/image1.png) to execute the query.
 
@@ -69,7 +69,7 @@ You have now completed the device configuration and learned how to backup or res
 
 To restore from a backup, in the Azure classic portal, perform the following steps. The restore operation restores the backup to a new volume on the same virtual device; you cannot restore to a different device.
 
-#### To restore volumes
+#### To restore a volume
 
 1.  Browse to the **Backup Catalog**. Filter by appropriate device and time range to search for your backups. Click the check icon ![](./media/storsimple-ova-restore/image1.png) to execute the query.
 
@@ -133,4 +133,4 @@ Every share has a *.backups* folder that contains the most recent backups. The u
 
 ## Next steps
 
-Learn more about how to [Administer your StorSimple Virtual Array using local web UI](storsimple-ova-web-ui-admin.md).
+Learn more about how to [administer your StorSimple Virtual Array using the local web UI](storsimple-ova-web-ui-admin.md).

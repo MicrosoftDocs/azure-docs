@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/02/2015" 
+	ms.date="01/05/2016" 
 	ms.author="omark"/>
 
 # What is Azure App Service?
@@ -29,7 +29,7 @@ Focused on rapid development of web and mobile apps, as well as automating busin
 
 - **Connect to any service and unlock your data** - Connect your web or mobile app to enterprise systems or SaaS in minutes with built-in connectors. Choose from more than 50 connectors for enterprise systems such as SAP, Siebel, and Oracle to popular enterprise SaaS services like Salesforce and Office 365 to popular internet services such as Facebook, Twitter and Dropbox.
 
-- **Integration made simple** - Integrate data across clouds and automate business processes in minutes with a simple visual design experience. Easily integrate your logic it with any mobile or web app via standard REST APIs.  Build sophisticated enterprise application integration, B2B solutions using EDI, business policies (rules engine), and more based on the industry leading BizTalk platform.
+- **Integration made simple** - Integrate data across clouds and automate business processes in minutes with a simple visual design experience. Easily integrate your logic with any mobile or web app via standard REST APIs.  Build sophisticated enterprise application integration, B2B solutions using EDI, business policies (rules engine), and more based on the industry leading BizTalk platform.
 
 - **Unparalleled developer productivity** - Optimized for DevOps, with continuous integration support for Visual Studio Team Services and Github, so you can focus on rapidly improving your apps without worrying about infrastructure. Deploy app updates with built-in staging, roll-back and in-production testing capabilities.
 
@@ -47,7 +47,7 @@ App Service allows you to create the following app types from a single developme
 - [**API Apps**](../app-service-api-apps-why-best-platform) - Easily build and consume Cloud APIs.
 - [**Logic Apps**](../app-service-logic-what-are-logic-apps) - Automate the access and use of data across clouds without writing code.
 
-As a single integrated service, App Service makes its easy to compose the above app types into a single solution, allowing you to easily build apps that target both web and mobile clients using the same back-end and integrate with on-premise systems as well as popular services such as Office 365 and salesforce.com.
+As a single integrated service, App Service makes it easy to compose the above app types into a single solution, allowing you to easily build apps that target both web and mobile clients using the same back-end and integrate with on-premise systems as well as popular services such as Office 365 and salesforce.com.
 
 ### App Service Plans
 App Service Plans represent a set of features and capacity that you can share across your apps. App Service Plans support a few pricing tiers (e.g. Free, Shared, Basic, Standard, and Premium) where each tier has its own capabilities. You can quickly change which App Service Plan an app is hosted on with no downtime. [Learn more about App Service Plans](../web-sites-web-hosting-plan-overview.md).
