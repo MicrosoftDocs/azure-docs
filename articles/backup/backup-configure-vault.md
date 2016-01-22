@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
 	keywords="backup vault; backup agent; backup windows;"/>
 
 <tags
