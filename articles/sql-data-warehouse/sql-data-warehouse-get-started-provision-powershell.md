@@ -24,9 +24,10 @@
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
 ## Get and run the Azure PowerShell cmdlets
-If you're not already set-up with PowerShell, you need to download and configure it.
 
-> [AZURE.NOTE]  In order to use Microsoft Azure Powershell with SQL Data Warehouse, you should download and install the latest version of Azure PowerShell with ARM cmdlets. This article is based on Microsoft Azure PowerShell version 1.0.3. 
+> [AZURE.NOTE]  In order to use Microsoft Azure Powershell with SQL Data Warehouse, you should download and install the latest version of Azure PowerShell with ARM cmdlets. You can check your version by running `Get-Module -ListAvailable -Name Azure`. This article is based on Microsoft Azure PowerShell version 1.0.3.
+
+If you're not already set-up with PowerShell, you need to download and configure it.
 
 1. To download the Azure PowerShell module, run [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 2. To run the module, at the start window type **Microsoft Azure PowerShell**.
