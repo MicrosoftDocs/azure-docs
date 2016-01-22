@@ -3,7 +3,7 @@
 	description="Describes the first steps you can take after connecting your Cordova project to Azure Mobile Services by using Visual Studio Connected Services."
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # Getting Started with Mobile Services (Cordova Projects)
 

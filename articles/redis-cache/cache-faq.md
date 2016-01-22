@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016" 
+	ms.date="01/21/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -174,6 +174,15 @@ How to configure this setting:
 > **Important Note:** the value specified in this configuration element is a *per-core* setting.  For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
 
 -	Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+
+<a name="server-gc"></a>
+## Enable server GC to get more throughput on the client when using StackExchange.Redis
+
+Enabling server GC can optimize the client and provide better performance and throughput when using StackExchange.Redis. For more information on server GC and how to enable it, see the following articles.
+
+-	[To enable server GC](https://msdn.microsoft.com/library/ms229357.aspx)
+-	[Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
+-	[Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
 
 <a name="cache-redis-commands"></a>
 ## What are some of the considerations when using common Redis commands?
