@@ -18,6 +18,7 @@
 	ms.date="01/22/2016"
 	ms.author="trinadhk; jimpark;"/>
 
+
 # Restore virtual machines in Azure
 Restore a virtual machine to a new VM from the backups stored in an Azure backup vault with the following steps.
 

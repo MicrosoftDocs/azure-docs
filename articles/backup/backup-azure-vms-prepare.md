@@ -17,6 +17,7 @@
 	ms.date="01/22/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
+
 # Prepare your environment to back up Azure virtual machines
 Before backing up an Azure virtual machine (VM), you need to complete these prerequisites. If you've already prepared your environment for backups, you can start [backing up your VMs](backup-azure-vms.md). Otherwise, continue through the steps below to make sure your environment is ready.
 
