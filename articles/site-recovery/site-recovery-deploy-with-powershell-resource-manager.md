@@ -32,7 +32,7 @@ This article describes how to use Windows PowerShell® together with ARM to depl
 > [AZURE.NOTE] The Azure Site Recovery PowerShell cmdlets currently allow you to configure the VMM site to VMM site, VMM site to Azure and Hyper-V site to Azure scenarios. Support for other ASR scenarios will be added soon. 
 
 You don't need to be a PowerShell expert to use this article, but it does assume that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
-- Read more about [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+- Read more about [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 
 ## Key features
@@ -44,7 +44,7 @@ You don't need to be a PowerShell expert to use this article, but it does assume
 
 Make sure you have these prerequisites in place:
 
-- You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](http://azure.microsoft.com/pricing/details/site-recovery/).
+- You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](http://azure.microsoft.com/pricing/details/site-recovery/).
 - You'll need Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](http://azure.microsoft.com/)
 - You'll need to have the [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) and [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) modules installed. You can get the latest versions of these modules from the [PowerShell gallery](https://www.powershellgallery.com/)
 
