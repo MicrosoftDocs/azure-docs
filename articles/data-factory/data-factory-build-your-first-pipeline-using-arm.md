@@ -213,6 +213,9 @@ Click **Using Data Factory Editor** tab to switch to the article with details ab
 	}
 
 
+The Data Factory creates a **Windows-based** HDInsight cluster for you with the above JSON. You could also have it create a **Linux-based** HDInsight cluster. See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details.  
+
+You could use **your own HDInsight cluster** instead of using an on-demand HDInsight cluster. See [HDInsight Linked Service](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) for details.  
 
 ## Step 2: Deploy Data Factory entities using the ARM template
 
