@@ -48,7 +48,7 @@ Check back here often to learn about future changes to the v2.0 app model public
 These links will be useful for exploring the platform in depth:
 
 - Get help on Stack Overflow using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
-- Give us your thoughts on the preview using [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
+- Give us your thoughts on the preview using [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) - we want to hear them!  Use the phrase "AppModelv2:" in the title of your post so we can find it.
 - [App Model v2.0 Protocol Reference](active-directory-v2-protocols.md)
 - [App Model v2.0 Token Reference](active-directory-v2-tokens.md)
 - [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
