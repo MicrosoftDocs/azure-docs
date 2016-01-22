@@ -22,6 +22,7 @@
 This article will help you prepare to back up a Windows Server or Windows Client to Azure. To do this, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 If you've already done this, you can start [backing up your Windows machines](backup-azure-backup-windows-server.md). Otherwise, continue through the steps below to make sure your environment is ready.
+
 >[AZURE.NOTE] Previously you needed to create or acquire a X.509 v3 certificate in order to register your backup server. Certificates are still supported, but now to make Azure vault registration with a server easier, you can generate a vault credential right from the Quick Start page.
 
 ## Before you start
