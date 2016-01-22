@@ -100,7 +100,7 @@ Perform the following steps to regenerate a service registration key.
 
 1. Copy this key and save it for registering any new devices with this service.
 
-1. Click the check icon ![Check icon](./media/storsimple-ova-manage-service/HCS_CheckIcon.png) to close this dialog box.
+1. Click the check icon ![Check icon](./media/storsimple-ova-manage-service/image7.png) to close this dialog box.
 
 
 ## Next steps
