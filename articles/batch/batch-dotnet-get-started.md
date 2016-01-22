@@ -116,7 +116,7 @@ Batch includes built-in support for interacting with Azure Storage. Containers w
 - **Input**--Tasks will download the data files that they are to process from the *input* container.
 - **Output**--When tasks complete processing the input files, they will upload their results to the *output* container.
 
-In order to interact with a Storage account and create containers, the [Azure Storage Client Library for .NET][net_api_storage] is used to create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that a [CloudBlobClient][net_cloudblobclient] is obtained:
+In order to interact with a Storage account and create containers, the [Azure Storage Client Library for .NET][net_api_storage] is used to create a reference to the account with [CloudStorageAccount][net_cloudstorageaccount], and from that a blob client ([CloudBlobClient][net_cloudblobclient]) is obtained:
 
 ```
 // Construct the Storage account connection string
@@ -130,7 +130,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-We use the `blobClient` reference throughout the application, passing it as a parameter to a number of methods. An example of this is in the code block that immediately follows the above, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
+We use the `blobClient` reference throughout the application and pass it as a parameter to a number of methods. An example of this is in the code block that immediately follows the above block, where we call `CreateContainerIfNotExistAsync` to actually create the containers.
 
 ```
 // Use the blob client to create the containers in Azure Storage if they don't yet exist
@@ -158,16 +158,16 @@ private static async Task CreateContainerIfNotExistAsync(CloudBlobClient blobCli
 }
 ```
 
-Once the containers have been created, the application can now upload the files that will be used by the tasks.
+Once you have created the containers, the application can now upload the files that will be used by the tasks.
 
-> [AZURE.TIP] [How to use Blob storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md) provides a good overview of working with Azure Storage containers and blobs, and should be near the top of your reading list as you start working with Batch.
+> [AZURE.TIP] [How to use Blob storage from .NET](./../storage/storage-dotnet-how-to-use-blobs.md) provides a good overview of working with Azure Storage containers and blobs. It should be near the top of your reading list as you start working with Batch.
 
 ## Step 2: Upload task application and data files
 
 ![Upload task application and input (data) files to containers][2]
 <br/>
 
-In the file upload operation, *DotNetTutorial* first defines collections of **application** and **input** file paths as they exist on the local machine, then uploads these files to the containers created in the previous step.
+In the file upload operation, *DotNetTutorial* first defines collections of **application** and **input** file paths as they exist on the local machine. Then it uploads these files to the containers that you created in the previous step.
 
 ```
 // Paths to the executable and its dependencies that will be executed by the tasks
@@ -191,15 +191,15 @@ List<string> inputFilePaths = new List<string>
 // process the data files, and will be executed by each of the tasks on the compute nodes.
 List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(blobClient, appContainerName, applicationFilePaths);
 
-// Upload the data files. This is the data that will be processed by each of the tasks that are
+// Upload the data files. This is the data that will be processed by each of the tasks that is
 // executed on the compute nodes within the pool.
 List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(blobClient, inputContainerName, inputFilePaths);
 ```
 
 There are two methods in `Program.cs` that are involved in the upload process:
 
-- `UploadFilesToContainerAsync`--This method returns a collection of [ResourceFile][net_resourcefile] objects (discussed below) and internally calls `UploadFileToContainerAsync` to upload each file passed in the *filePaths* parameter.
-- `UploadFileToContainerAsync`--This is the method that actually performs the file upload and creates the [ResourceFile][net_resourcefile] objects. After uploading the file, it obtains a shared access signature (SAS) for the file and returns a ResourceFile object representing it. Shared access signatures are also discussed below.
+- `UploadFilesToContainerAsync`--This method returns a collection of [ResourceFile][net_resourcefile] objects (discussed below) and internally calls `UploadFileToContainerAsync` to upload each file that is passed in the *filePaths* parameter.
+- `UploadFileToContainerAsync`--This is the method that actually performs the file upload and creates the [ResourceFile][net_resourcefile] objects. After uploading the file, it obtains a shared access signature (SAS) for the file and returns a ResourceFile object that represents it. Shared access signatures are also discussed below.
 
 ```
 private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClient blobClient, string containerName, string filePath)
@@ -230,18 +230,18 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(CloudBlobClie
 
 ### ResourceFiles
 
-A [ResourceFile][net_resourcefile] provides tasks in Batch with the URL to a file in Azure Storage that will be downloaded to a compute node before that task is run. The [ResourceFile.BlobSource][net_resourcefile_blobsource] property specifies the full URL of the file as it exists in Azure Storage, which may also include a shared access signature (SAS) that provides secure access to the file. Most tasks types within Batch .NET include a *ResourceFiles* property, including:
+A [ResourceFile][net_resourcefile] provides tasks in Batch with the URL to a file in Azure Storage that will be downloaded to a compute node before that task is run. The [ResourceFile.BlobSource][net_resourcefile_blobsource] property specifies the full URL of the file as it exists in Azure Storage. The URL may also include a shared access signature (SAS) that provides secure access to the file. Most tasks types within Batch .NET include a *ResourceFiles* property, including:
 
 - [CloudTask][net_task]
 - [StartTask][net_pool_starttask]
 - [JobPreparationTask][net_jobpreptask]
 - [JobReleaseTask][net_jobreltask]
 
-The DotNetTutorial sample application does not use the JobPreparationTask or JobReleaseTask, but you can read more about them in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
+The DotNetTutorial sample application does not use the JobPreparationTask or JobReleaseTask task types, but you can read more about them in [Run job preparation and completion tasks on Azure Batch compute nodes](batch-job-prep-release.md).
 
 ### Shared access signatures (SAS)
 
-Shared access signatures are strings which - when included as part of a URL - provide secure access to containers and blobs in Azure Storage. The DotNetTutorial application uses both blob and container SAS URLs, and demonstrates how to obtain these SAS strings from the Storage service.
+Shared access signatures are strings which--when included as part of a URL--provide secure access to containers and blobs in Azure Storage. The DotNetTutorial application uses both blob and container shared access signature URLs, and demonstrates how to obtain these shared access signature strings from the Storage service.
 
 - **Blob SAS**--The pool's StartTask in DotNetTutorial uses blob shared access signatures when downloading the application binaries and input data files from Storage (see Step #3 below). The `UploadFileToContainerAsync` method in DotNetTutorial's `Program.cs` contains the code that obtains each blob's SAS, and does so by calling [CloudblobData.GetSharedAccessSignature][net_sas_blob].
 
