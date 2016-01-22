@@ -75,6 +75,8 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 	}
 
 
+> [AZURE.IMPORTANT] The HDInsight cluster creates a default container in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done. As more and more slices are processed, you will see a lot of containers in your Azure blob storage, which you may want to delete to reduce the storage cost. The name of these containers follow a pattern: adf<full/partial data factory name>-<full/partial name of linked service>-<datetime stamp>. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage. 
+
 ### Properties
 
 Property | Description | Required
@@ -89,9 +91,6 @@ osType | Type of operating system. Allowed values are: Windows (default) and Lin
 hcatalogLinkedServiceName | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster will be created by using the Azure SQL database as the metastore. | No
 sshUser | SSH user for the Linux-based HDInsight cluster | Yes (only for Linux)
 sshPassword | SSH password for the Linux-based HDInsight cluster | Yes (only for Linux)
-
-
-> [AZURE.IMPORTANT] The HDInsight cluster creates a default container in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (see **timeToLive** property) and is deleted when the processing is done. As more and more slices are processed, you will see a lot of containers in your Azure blob storage, which you may want to delete to reduce the storage cost. The name of these containers follow a pattern: adf<full/partial data factory name>-<full/partial name of linked service>-<datetime stamp>. Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage. 
 
 
 #### additionalLinkedServiceNames JSON example
