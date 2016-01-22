@@ -34,9 +34,9 @@ It is important to understand the distinction between DNS record sets and indivi
 
 Record sets are created using the `azure network dns record-set create` command .  You need to specify the record set name, the zone, the Time-to-Live (TTL) and the record type.
 
->[AZURE.NOTE] The record set name must be a relative name, excluding the zone name.  For example, the record set name ‘www’ in zone ‘contoso.com’ will create a record set with the fully-qualified name ‘www.contoso.com’.
+The record set name must be a relative name, excluding the zone name.  For example, the record set name ‘www’ in zone ‘contoso.com’ will create a record set with the fully-qualified name ‘www.contoso.com’.
 
->For a record set at the zone apex, use "@" as the record set name, including quotation marks.  The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".
+For a record set at the zone apex, use "@" as the record set name, including quotation marks.  The fully-qualified name of the record set is then equal to the zone name, in this case "contoso.com".
 
 Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT.  Record sets of type SOA are created automatically with each zone, they cannot be created separately.  Note that [the SPF record type has been deprecated by the DNS standards in favour of creating SPF records using the TXT record type](http://tools.ietf.org/html/rfc7208#section-3.1).
 
@@ -48,10 +48,9 @@ Azure DNS supports the following record types: A, AAAA, CNAME, MX, NS, SOA, SRV,
 ### Wildcard records
 
 Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record).  These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set).
+ To create a wildcard record set, use the record set name "\*", or a name whose first label is "\*", e.g. "\*.foo".
 
->[AZURE.NOTE] To create a wildcard record set, use the record set name "\*", or a name whose first label is "\*", e.g. "\*.foo".
-
->Wildcard record sets are supported for all record types except NS and SOA.  
+Wildcard record sets are supported for all record types except NS and SOA.  
 
 ## Get a record set
 To retrieve an existing record set, use `azure network dns record-set show`, specifying resource group, zone name, record set relative name and the record type:
