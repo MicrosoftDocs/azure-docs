@@ -75,9 +75,6 @@ The following JSON defines a Linux-based on-demand HDInsight linked service. The
 	}
 
 
-> [AZURE.IMPORTANT] The on-demand HDInsight cluster creates a container in the Azure Storage account that is specified by the **linkedServiceName** property. The name of the container follows the pattern: adf<full/partial name of the data factory>-<full/partial name of the HDInsight linked service>-<date time stamp>.  
-
-
 ### Properties
 
 Property | Description | Required
