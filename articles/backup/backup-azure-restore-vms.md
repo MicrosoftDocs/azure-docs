@@ -7,7 +7,7 @@
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
-	keywords="restore backup, how to restore, recovery point"/>
+	keywords="restore backup; how to restore; recovery point;"/>
 
 <tags
 	ms.service="backup"

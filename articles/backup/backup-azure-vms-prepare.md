@@ -6,7 +6,7 @@
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor=""/>
-	keywords="backups, backing up"/>
+	keywords="backups; backing up;"/>
 
 <tags
 	ms.service="backup"

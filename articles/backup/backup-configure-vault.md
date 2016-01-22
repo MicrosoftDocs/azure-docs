@@ -6,7 +6,7 @@
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor=""/>
-	keywords="backup vault, backup agent, backup windows"/>
+	keywords="backup vault; backup agent; backup windows;"/>
 
 <tags
 	ms.service="backup"
