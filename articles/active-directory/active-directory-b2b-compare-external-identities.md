@@ -2,7 +2,7 @@
    pageTitle="Azure Active Directory capabilities comparison for managing external identities | Microsoft Azure"
    description="Compares Azure Active Directory B2B collaboration, B2C, and Multi-tenant App for supporting authentication and authorization for external identities"
    services="active-directory"
-   authors="viv-liu"
+   authors="arvindsuthar"
    manager="cliffdi"
    editor=""
    tags=""/>
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="01/21/2016"
-   ms.author="viviali"/>
+   ms.date="01/22/2016"
+   ms.author="asuthar"/>
 
 # Azure Active Directory capability comparison for managing external identities
 
@@ -56,3 +56,11 @@ Each of the scenarios already discussed in this article is addressed by capabili
 | A service to businesses | Pharma distributor      |    Practice management         |    Doctor’s offices    |    Customer admin consents    |     Azure AD Multi-tenant App   |
 | Partner access to my apps  | Imaging company     | Supplier extranet          |      Approved business partners      |    My admin invites    |   Azure AD B2B collaboration     |
 | A service to consumers        | Sports franchise        | Soccer fans  | Anyone with email      |    The consumer signs up    |   Azure AD B2C     |
+
+| **Consider this product...**       | Azure AD Multi-tenant App    | Azure AD B2B collaboration         | Azure AD B2C                |
+|-----------------------|-------------------------|----------------------------|------------------------|
+| **If I need to provide...** | a service to businesses | partner access to my apps  | a service to consumers |
+| **And I am similar to...**  | Pharma distributor      | Imaging company            | Sports franchise       |
+| **Deploying an app for...**  | Practice management     | Supplier extranet          | Soccer fans            |
+| **Targeting...**        | Doctor’s offices        | Approved business partners | Anyone with email      |
+| **Accessible when...**      | Customer admin consents | My admin invites           | The consumer signs up      |
