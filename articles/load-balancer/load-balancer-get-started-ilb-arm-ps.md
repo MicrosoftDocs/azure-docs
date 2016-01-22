@@ -263,7 +263,7 @@ Load the backend configuration to a variable.
 
 Load the already created network interface into a variable. the variable name used is $nic. The network interface name used is the same from the example above. 
 
-	$nic= Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+	$nic=Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 
 #### Step 4
 
@@ -277,7 +277,7 @@ Save the network interface object.
 
 	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
 
-After a network interface is added to the load balancer backend pool, it  starts receiving network traffic based on the load balancing rules for that load balancer resource.
+After a network interface is added to the load balancer backend pool, it starts receiving network traffic based on the load balancing rules for that load balancer resource.
 
 ## Update an existing load balancer
 

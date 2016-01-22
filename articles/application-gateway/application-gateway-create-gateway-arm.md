@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 
