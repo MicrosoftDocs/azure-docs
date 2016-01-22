@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="01/13/2016" 
 	ms.author="jgao"/>
 
 # Known issues of Apache Spark in Azure HDInsight (Linux)
 
-This document keeps track of all the known issues for the Spark public preview.  
+This document keeps track of all the known issues for the HDInsight Spark public preview.  
 
 ##Livy leaks interactive session
  

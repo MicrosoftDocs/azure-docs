@@ -3,7 +3,7 @@
    description="Backup a Windows Server or Windows Client to Azure with this simple procedure. You can backup Windows files and folders to the cloud in a few easy steps."
    services="backup"
    documentationCenter=""
-   authors="aashishr"
+   authors="Jim-Parker"
    manager="jwhit"
    editor=""
    keywords="windows server backup; backup windows server"/>
@@ -14,8 +14,8 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="11/17/2015"
-	 ms.author="jimpark"; "aashishr"/>
+	 ms.date="01/19/2016"
+	 ms.author="jimpark;"/>
 
 # Back up Windows Server or Windows Client files and folders to Azure
 It’s easy to back up Windows files and folders to Azure with this simple procedure. If you haven't already done so, complete the [prerequisites](backup-configure-vault.md#before-you-start) to prepare your environment to back up your Windows machine before you proceed.

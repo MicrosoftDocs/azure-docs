@@ -78,4 +78,4 @@ If any issue to use this script, just file a issue to Credativ [here](https://gi
 
 ## Next Steps
 
-You're now ready to use your Debian .vhd to create new Azure Virtual Machines.
+You're now ready to use your Debian .vhd to create new Azure Virtual Machines. If this is the 1st time you use Azure and upload the .vhd file to Azure, you could follow the step 2 & 3 in [this guidance](virtual-machines-linux-create-upload-vhd.md).

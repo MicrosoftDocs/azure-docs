@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="01/19/2016"
 	ms.author="tarcher"/>
 # Enable remote debugging when using continuous delivery to publish to Azure
 
@@ -41,7 +41,7 @@ You can enable remote debugging in Azure, for cloud services or virtual machines
 4. Install Azure Powershell (version 0.7.4 or later) as outlined in [How to install and configure Azure PowerShell](powershell-install-configure.md).
 5. Run the following script to enable the RemoteDebug extension. Replace the paths and personal data with your own, such as your subscription name, service name, and thumbprint.
 
-	>[AZURE.NOTE] This script is configured for Visual Studio 2015. If you’re using Visual Studio 2013, use "RemoteDebugVS2013" for ReferenceName and ExtensionName.
+	>[AZURE.NOTE] This script is configured for Visual Studio 2015. If you’re using Visual Studio 2013, modify the `$referenceName` and `$extensionName` assignments below to use `RemoteDebugVS2013` (instead of `RemoteDebugVS2015`).
 
 	<pre>
     Add-AzureAccount

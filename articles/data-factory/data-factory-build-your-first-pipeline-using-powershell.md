@@ -163,7 +163,7 @@ In this step, you will create datasets to represent the input and output data fo
 		    }
 		} 
 
-	In the previous example, you are creating a dataset called **AzureBlobOutput**, and specifying n the JSON snippet, you are creating a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is located in the blob container called **adfgetstarted** and the folder called **inputdata**.
+	The above JSON defines a dataset named **AzureBlobInput**, which represents input data for an activity in the pipeline. In addition, it specifies that the input data is located in the blob container called **adfgetstarted** and the folder called **inputdata**.
 
 	The following table provides descriptions for the JSON properties used in the snippet:
 
@@ -205,7 +205,7 @@ Now, you will create the output dataset to represent the output data stored in t
 		  }
 		}
 
-	In the JSON snippet, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that will be produced by the Hive script. In addition, you specify that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
+	The above JSON defines a dataset named **AzureBlobOutput**, which represents output data for an activity in the pipeline. In addition, it specifies that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
 
 2. Run the following command in Azure PowerShell to create the Data Factory dataset.
 

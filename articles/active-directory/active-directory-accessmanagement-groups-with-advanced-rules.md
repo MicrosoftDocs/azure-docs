@@ -158,7 +158,12 @@ To configure a group as a “Manager” group
 --------------------------------------------------------------------------------
 1. On the Administrator portal, click the **Configure** tab, and then select **ADVANCED RULE**.
 2. Type the rule with the following syntax:
-Direct Reports for *Direct Reports for {UserID_of_manager}*
+Direct Reports for *Direct Reports for {UserID_of_manager}*. an example of a valid rule for Direct Reports is 
+
+Direct Reports for 62e19b97-8b3d-4d4a-a106-4ce66896a863” 
+
+where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the AAD Admin Portal on the profile tab of the user page of the user that is the manager. 
+
 3. When saving this rule, all users that satisfy the rule will be joined as members of the group. Note that it can take some minutes for the group to initially populate.
 
 
