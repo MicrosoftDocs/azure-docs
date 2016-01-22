@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/13/2016"
 	ms.author="cephalin"/>
 
 # Troubleshoot: performance degradation in a web app
