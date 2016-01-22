@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/21/2016"
 	ms.author="brandwe"/>
 
 # Integrate Azure AD into an Android App
@@ -453,4 +453,3 @@ Your application should overwrite them if localized strings are desired.
 Adal version 1.1.0 supports NTLM dialog that is processed through onReceivedHttpAuthRequest event from WebViewClient. Dialog layout and strings can be customized.### Step 5: Download the iOS Native Client Sample code
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
