@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: OAuth 2.0 Authorization Code Flow
@@ -21,7 +21,7 @@
 The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs.  Using Azure AD B2C's implementation of OAuth 2.0, you can add sign-up, sign-in,
 and other identity management tasks to your mobile and desktop apps.  This guide is language-independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
-<!-- TODO: Need link to libraries -->	
+<!-- TODO: Need link to libraries -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -29,8 +29,8 @@ The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAu
 on a particular flavor of the OAuth 2.0 authorization code flow - **public clients**.  A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password.  This includes mobile apps, desktop apps, and pretty much any application that
 runs on a device and needs to get access_tokens.  If you want to add identity management to a web app using Azure AD B2C, you should use [OpenID Connect](active-directory-b2c-reference-oidc.md) rather than OAuth 2.0.
 
-Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization.  It introduces the [**policy parameter**](active-directory-b2c-reference-poliices.md), 
-which enables you to use OAuth 2.0 to add user experiences to your app such as sign-up, sign-in, and profile management.  Here we'll show how to to use OAuth 2.0 and policies to implement each of these experiences 
+Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization.  It introduces the [**policy parameter**](active-directory-b2c-reference-poliices.md),
+which enables you to use OAuth 2.0 to add user experiences to your app such as sign-up, sign-in, and profile management.  Here we'll show how to to use OAuth 2.0 and policies to implement each of these experiences
 in your native applications and get access_tokens for accessing web APIs.
 
 The example HTTP requests below will use our sample B2C directory, **fabrikamb2c.onmicrosoft.com**, as well as our sample application and policies.  You are free to try the requests out yourself using these values, or you can replace them with your own.
@@ -267,11 +267,11 @@ Error responses will look like:
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
 
-<!-- 
+<!--
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
 
 -->
 
