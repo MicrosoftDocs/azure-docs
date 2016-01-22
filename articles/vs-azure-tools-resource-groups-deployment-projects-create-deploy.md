@@ -1,9 +1,9 @@
 ﻿<properties
    pageTitle="Creating and deploying Azure Resource Group Visual Studio projects | Microsoft Azure"
    description="Use Visual Studio to create a Azure resource group project and deploy the resources to Azure."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="tfitzmac"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # Creating and deploying Azure resource groups through Visual Studio
 

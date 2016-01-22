@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="01/13/2016"
 	ms.author="mohisri"/>
 
 # App Service API Apps - What's changed
