@@ -64,9 +64,9 @@ PS DSC nodes become aware of node configurations they should enact via either DS
 
 ###Node###
 
-A DSC node is any machine that has its configuration managed by DSC. This could be an Azure VM or an on-premises VM / physical host. Nodes enact node configurations to become and maintain compliance with the desired state they define, and also can report back to a reporting server on their configuration status and compliance.
+A DSC node is any machine that has its configuration managed by DSC. This could be a Windows or Linux Azure VM, on-premises VM / physical host, or machine in another public cloud. Nodes enact node configurations to become and maintain compliance with the desired state they define, and also can report back to a reporting server on their configuration status and compliance versus the desired state.
 
-Azure Automation DSC makes onboarding of nodes for management by Azure Automation DSC easy, and allows changing of the node configuration assigned to each node server-side, so next time a node checks the server for instructions it will assume a different role and change how it is configured to match. Nodes also report their status and configuration compliance to Azure Automation DSC.
+Azure Automation DSC makes onboarding of nodes for management by Azure Automation DSC easy, and allows changing of the node configuration assigned to each node server-side, so next time a node checks the server for instructions it will assume a different role and change both how it is configured and the complaince status it should report against to match.
 
 
 ###Resource###
