@@ -51,7 +51,7 @@ The corresponding typed client-side type in C# is the following:
 
 Note that the [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) is used to define the *PropertyName* mapping between the client type and the table.
 
-To learn how to create new tables in your Mobile Apps backend, see [How to: Define a table controller](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET backend) or [Define Tables using a Dynamic Schema](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js backend). For a Node.js backend, you can also use the **Easy tables** setting in the [Azure portal](https://portal.azure.com).
+To learn how to create new tables in your Mobile Apps backend, see [How to: Define a table controller](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET backend) or [Define Tables using a Dynamic Schema](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js backend). For a Node.js backend, you can also use the **Easy tables** setting in the [Azure portal](https://portal.azure.com/).
 
 ##<a name="create-client"></a>How to: Create the Mobile App client
 
@@ -59,7 +59,7 @@ The following code creates the `MobileServiceClient` object that is used to acce
 
 	MobileServiceClient client = new MobileServiceClient("MOBILE_APP_URL");
 
-In the code above, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in the blade for your Mobile App backend in the [Azure portal](https://portal.azure.com).
+In the code above, replace `MOBILE_APP_URL` with the URL of the Mobile App backend, which is found in the blade for your Mobile App backend in the [Azure portal](https://portal.azure.com/).
 
 ##<a name="instantiating"></a>How to: Create a table reference
 

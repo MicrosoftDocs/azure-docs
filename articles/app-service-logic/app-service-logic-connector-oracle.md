@@ -51,7 +51,7 @@ A connector can be created within a logic app or be created directly from the Az
 Data Source | Yes | A data source (net service) name that is specified in the tnsnames.ora file on the computer where the Oracle client is installed. For information about data source names and tnsnames.ora, see [Configuring the Oracle Client](http://msdn.microsoft.com/library/dd787872.aspx).
 User Name | Yes | Enter a user name to connect to the Oracle server.
 Password | Yes | Enter the user name password.
-Service Bus Connection String | Yes | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
+Service Bus Connection String | Yes | If you're connecting to on-premises, enter the Service Bus relay connection string.<br/><br/>[Using the Hybrid Connection Manager](app-service-logic-hybrid-connection-manager.md)<br/>[Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
 Tables | No | Enter the tables in the database that are allowed to be modified by the connector. For example, enter *OrdersTable,EmployeeTable*.
 Stored Procedures | No | Enter the stored procedures in the database that can be called by the connector. For example, enter *IsEmployeeEligible,CalculateOrderDiscount*.
 Functions | No | Enter the functions in the database that can be called by the connector. For example, enter *IsEmployeeEligible,CalculateOrderDiscount*.
