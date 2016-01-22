@@ -68,6 +68,6 @@ After logging in, you can use the Azure CLI. At this time, the functionality rem
 
 		azure storage account list
 
-# Next Steps
+## Next Steps
 
 [Manage permissions to resources per user](azure-stack-manage-permissions.md)

@@ -65,6 +65,6 @@ After deploying Microsoft Azure Stack POC, you’ll need to create at least one 
 
 15. Navigate to https://portal.azurestack.local and sign in with the new account to see the tenant portal.
 
-# Next Steps
+## Next Steps
 
 [Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md)

@@ -42,6 +42,6 @@ Enjoy unmatched agility and productivity, with the flexibility, oversight, and c
 
 With integrated IT and business processes, you have complete command and control of configuration, provisioning, and updating. Using Azure Resource Manager, you can manage pools of resources and resource groups in both the public cloud and your datacenter. Use role-based control to restrict access for enhanced security.
 
-# Next Steps
+## Next Steps
 
 [What is Azure Stack POC?](azure-stack-poc.md)

@@ -52,6 +52,6 @@ Before you can add an image to the PIR, you must prepare a virtual hard disk ima
 
 The image will automatically appear in the Microsoft Azure Stack Marketplace.  The image is also available for you to reference in your virtual machine deployment templates.  
 
-# Next Steps
+## Next Steps
 
 [Add an image to the Platform Image Repository](azure-stack-add-image-pir.md)

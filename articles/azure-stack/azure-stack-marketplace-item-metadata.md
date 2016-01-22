@@ -78,6 +78,6 @@ For any field that allows HTML, the following elements and attributes are allowe
 
 "h1", "h2", "h3", "h4", "h5", "p", "ol", "ul", "li", "a[target|href]", "br", "strong", "em", "b", "i"
 
-# Next Steps
+## Next Steps
 
 [Marketplace Item UI References](azure-stack-marketplace-item-ui-reference.md)

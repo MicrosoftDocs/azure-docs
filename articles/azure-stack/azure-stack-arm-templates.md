@@ -96,6 +96,6 @@ Azure Resource Manager templates can be used with the Microsoft Azure Stack port
 
 To cancel a running template deployment, use the Stop-AzureRmResourceGroupDeployment PowerShell cmdlt.
 
-# Next Steps
+## Next Steps
 
 [Deploy templates with the portal](azure-stack-deploy-template-portal.md)

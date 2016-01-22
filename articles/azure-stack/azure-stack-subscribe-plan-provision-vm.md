@@ -68,6 +68,6 @@ For both of these steps, you must be signed in as a tenant. If you haven’t cre
 
 >[AZURE.NOTE] When you subscribe to an offer, you have to wait till subscription state is InSync **then** refresh the portal or login/logout to see the services as part of that subscription.
 
-# Next Steps
+## Next Steps
 
 [Storage accounts](azure-stack-provision-storage-account.md)

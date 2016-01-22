@@ -64,6 +64,6 @@ Now that you have a plan, you can create and include it in an offer.
 
 3.  Even after an additional subscription has been created and is InSync, you might have to logout/login to see the new subscription in the “Subscription picker” when creating new resources/resource groups.
 
-# Next Steps
+## Next Steps
 
 [Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)
