@@ -54,6 +54,9 @@ Data Management Gateway can be installed by downloading an MSI setup package fro
 1.	Configure power plan on the host machine for the gateway so that the machine does not hibernate. If the host machine hibernates, the gateway won’t be able to respond to data requests.
 2.	You should backup the certificate associated with the gateway.
 
+## Updating Data Management Gateway
+By default, Data Management Gateway is automatically updated when a newer version of the gateway is available.  
+
 ## Port and Security Considerations
 
 ### General considerations
