@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="01/22/2015"
    ms.author="tomfitz"/>
 
 # Understanding Resource Manager deployment and classic deployment
@@ -68,7 +68,7 @@ Resources created through Resource Manager share the following characteristics:
 
 The application shown in the following diagram shows how resources deployed through Resource Manager are contained in a single resource group.
 
-    ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
+  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
 
 Additionally, there are relationships between the resources within the resource providers:
 
@@ -116,7 +116,7 @@ You can still use the portal to manage resources that were created through class
 
 Here are the components and their relationships for Azure Service Management.
 
-    ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
+  ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
 
 ## Benefits of using Resource Manager and resource groups
 
