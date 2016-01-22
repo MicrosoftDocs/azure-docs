@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
 	keywords="backups; backing up;"/>
 
 <tags

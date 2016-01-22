@@ -6,7 +6,7 @@
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
-	editor=""/>
+	editor=""
 	keywords="restore backup; how to restore; recovery point;"/>
 
 <tags
