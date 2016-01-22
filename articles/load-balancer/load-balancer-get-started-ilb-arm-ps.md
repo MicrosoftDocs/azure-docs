@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <properties 
    pageTitle="Create an internal load balancer using PowerShell in Resource Manager | Microsoft Azure"
    description="Learn how to create an internal load balancer using PowerShell in Resource Manager"
@@ -15,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
+   ms.date="01/21/2015"
    ms.author="joaoma" />
 
 # Get started creating an internal load balancer using PowerShell
@@ -90,7 +89,7 @@ Choose which of your Azure subscriptions to use. <BR>
 
 Create a new resource group (skip this step if using an existing resource group)
 
-    PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create a load balancer will use the same resource group.
 
@@ -192,8 +191,9 @@ In this step, we are creating a second network interface, assigning to the same 
 The end result will show the following:
 
 
-PS C:\> $backendnic1
+	PS C:\> $backendnic1
 
+Expected output:
 
 	Name                 : lb-nic1-be
 	ResourceGroupName    : NRP-RG
@@ -251,19 +251,19 @@ or if you already have a virtual machine created, you can add the network interf
 
 Load the load balancer resource into a variable (if you haven't done that yet). The variable used is called $lb and use the same names from the load balancer resource created above.
 
-	$lb= get-azurermloadbalancer –name NRP-LB -resourcegroupname NRP-RG
+	$lb= Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 
 #### Step 2 
 
 Load the backend configuration to a variable. 
 
-	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+	$backend= Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
 #### Step 3 
 
 Load the already created network interface into a variable. the variable name used is $nic. The network interface name used is the same from the example above. 
 
-	$nic =get-azurermnetworkinterface –name lb-nic1-be -resourcegroupname NRP-RG
+	$nic= Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 
 #### Step 4
 
