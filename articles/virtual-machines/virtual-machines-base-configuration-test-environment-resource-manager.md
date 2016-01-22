@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/14/2016"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Base Configuration test environment with Azure Resource Manager
@@ -243,6 +243,8 @@ This is your current configuration.
 ## Phase 4: Configure CLIENT1
 
 CLIENT1 acts as a typical laptop, tablet, or desktop computer on the Contoso intranet.
+
+> [AZURE.NOTE] The following command set creates CLIENT1 running Windows Server 2012 R2 Datacenter, which can be done for all types of Azure subscriptions. If you have an MSDN-based Azure subscription, you can create CLIENT1 running Windows 10, Windows 8, or Windows 7 using the [Azure portal](virtual-machines-windows-tutorial.md).
 
 First, fill in the name of your resource group, Azure location, and storage account name and run these commands at the Azure PowerShell command prompt on your local computer to create an Azure Virtual Machine for CLIENT1.
 
