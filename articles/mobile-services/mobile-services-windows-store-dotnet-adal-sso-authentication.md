@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="01/14/2016"
 	ms.author="wesmc"/>
 
 # Authenticate your app with Active Directory Authentication Library Single Sign-On
@@ -76,21 +76,14 @@ Now you need to retrieve your package SID which will be configured with the nati
 
     ![][3]
 
-2. Then click **Services**
+2. Then click **App management** > **App identity** and Copy your package SID from the page.
 
     ![][4]
 
-3. Then click **Live Services Site**.
-
-    ![][5]
-
-4. Copy your package SID from the top of the page.
-
-    ![][6]
 
 ###Create the native app registration
 
-1. Navigate to **Active Directory** in the [Azure classic portal], then click your directory.
+1. Navigate to **Active Directory** in the [classic portal], then click your directory.
 
     ![][7]
 
@@ -130,7 +123,7 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
-4. In the Solution Explorer window of Visual Studio, open the MainPage.xaml.cs file and add the following using statements.
+4. In the Solution Explorer window of Visual Studio, open the MainPage.cs file and add the following using statements.
 
         using Windows.UI.Popups;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -217,5 +210,6 @@ Your mobile service is now configured in AAD to receive single sign-on logins fr
 <!-- URLs. -->
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure classic portal]: https://manage.windowsazure.com/
+[classic portal]: https://manage.windowsazure.com/
 [Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows Dev Center Dashboard]: http://go.microsoft.com/fwlink/p/?LinkID=266734
