@@ -55,7 +55,7 @@ Data Lake Store also provides enterprise-grade security for the stored data. For
 
 Azure Data Lake Store can store any data in their native format, as is, without requiring any prior transformations. Data Lake Store does not require a schema to be defined before the data is loaded, leaving it up to the individual analytic framework to interpret the data and define a schema at the time of the analysis. Being able to store files of arbitrary sizes and formats makes it possible for Data Lake Store to handle structured, semi-structured, and unstructured data.
 
-Azure Data Lake Store containers for data are folder and files. You operate on the stored data using SDKs, Azure Portal, and Azure Powershell. As long as you put your data into the store using these interfaces using the appropriate containers, you can store any data into it. Data Lake Store does not do any special handling based on the type of data it stores.
+Azure Data Lake Store containers for data are essentially folders and files. You operate on the stored data using SDKs, Azure Portal, and Azure Powershell. As long as you put your data into the store using these interfaces and using the appropriate containers, you can store any type of data. Data Lake Store does not perform any special handling of data based on the type of data it stores.
 
 
 ## <a name="DataLakeStoreSecurity"></a>Securing data in Azure Data Lake Store
