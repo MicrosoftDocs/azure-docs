@@ -122,7 +122,7 @@ Azure Active Directory also allows you to register native clients, which provide
 
 7. Scroll the page down to the **Permissions to other applications** section and click **Add application**.
 
-8. Search for the web application that you registered earlier and click the plus icon. Then click the check to close the dialog.
+8. Search for the web application that you registered earlier and click the plus icon. Then click the check to close the dialog. If the web application cannot be found, navigate to its registration and add a new reply URL (e.g., the HTTP version of your current URL). Click save, and then repeat these steps - the application should show up in the list. 
 
 9. On the new entry you just added, open the **Delegated Permissions** dropdown and select **Access (appName)**. Then click **Save**.
 

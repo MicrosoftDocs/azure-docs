@@ -603,6 +603,103 @@ You can see a complete example of how to cache authentication tokens in [Cache a
 
 When you try to use an expired token you will get a *401 unauthorized* response. The user must then log in to obtain new tokens. You can avoid having to write code to handle this in every place in your app that calls your mobile service by using filters, which allow you to intercept calls to and responses from Mobile Services. The filter code will then test the response for a 401, trigger the sign-in process if needed, and then resume the request that generated the 401. You can also inspect the token to check the expiration.
 
+
+## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library
+
+You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+
+1. Configure your mobile app backend for AAD sign-in by followin the [How to configure App Service for Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md) tutorial. Make sure to complete the optional step of registering a native client application.
+
+2. Install ADAL by modifying your build.gradle file to include the following:
+
+	repositories {
+		mavenCentral()
+		flatDir {
+			dirs 'libs'
+		}
+		maven {
+			url "YourLocalMavenRepoPath\\.m2\\repository"
+		}
+	}
+    packagingOptions {
+        exclude 'META-INF/MSFTSIG.RSA'
+        exclude 'META-INF/MSFTSIG.SF'
+    }
+	dependencies {
+		compile fileTree(dir: 'libs', include: ['*.jar'])
+		compile('com.microsoft.aad:adal:1.1.1') {
+			exclude group: 'com.android.support'
+		} // Recent version is 1.1.1
+    	compile 'com.android.support:support-v4:23.0.0'
+	}
+
+3. Add the below code to your application, making the following replacements: 
+
+* Replace **INSERT-AUTHORITY-HERE** ith the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure classic portal].
+
+* Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain this from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
+
+* Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
+
+* Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
+
+ 	private AuthenticationContext mContext;
+    private void authenticate() {
+        String authority = "INSERT-AUTHORITY-HERE";
+        String resourceId = "INSERT-RESOURCE-ID-HERE";
+        String clientId = "INSERT-CLIENT-ID-HERE";
+        String redirectUri = "INSERT-REDIRECT-URI-HERE";
+        try {
+            mContext = new AuthenticationContext(this, authority, true);
+            mContext.acquireToken(this, resourceId, clientId, redirectUri, PromptBehavior.Auto, "", callback);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+    private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
+        @Override
+        public void onError(Exception exc) {
+            if (exc instanceof AuthenticationException) {
+                Log.d(TAG, "Cancelled");
+            } else {
+                Log.d(TAG, "Authentication error:" + exc.getMessage());
+            }
+        }
+        @Override
+		public void onSuccess(AuthenticationResult result) {
+            if (result == null || result.getAccessToken() == null
+                    || result.getAccessToken().isEmpty()) {
+                Log.d(TAG, "Token is empty");
+            } else {
+                try {
+                    JSONObject payload = new JSONObject();
+                    payload.put("access_token", result.getAccessToken());
+                    ListenableFuture<MobileServiceUser> mLogin = mClient.login("aad", payload.toString());
+                    Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+                        @Override
+                        public void onFailure(Throwable exc) {
+                            exc.printStackTrace();
+                        }
+                        @Override
+                        public void onSuccess(MobileServiceUser user) {
+                    		Log.d(TAG, "Login Complete");
+                        }
+                    });
+                }
+                catch (Exception exc){
+                    Log.d(TAG, "Authentication error:" + exc.getMessage());
+                }
+            }
+        }
+    };
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (mContext != null) {
+            mContext.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
 ## How to: add push notification to your app
 
 You can [read an overview](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) that describes how Microsoft Azure Notification Hubs supports a wide variety of push notifications,
