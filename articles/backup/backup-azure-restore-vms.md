@@ -20,9 +20,11 @@
 
 
 # Restore virtual machines in Azure
+
 Restore a virtual machine to a new VM from the backups stored in an Azure backup vault with the following steps.
 
 ## Restore workflow
+
 ### 1. Choose an item to restore
 
 1. Navigate to the **Protected Items** tab and select the virtual machine you want to restore to a new VM.
