@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure
@@ -26,8 +26,6 @@
 
 <br>
 
-
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Create a virtual machine running OpenSUSE Linux
 
