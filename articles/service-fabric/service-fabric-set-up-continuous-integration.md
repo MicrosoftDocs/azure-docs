@@ -73,9 +73,9 @@ Before you can set up the build machine, you need to create a [Service Principal
 
 ### Create a service principal
 
-1.	Download and extract [Manual.zip](http://go.microsoft.com/fwlink/?LinkId=703773) to a folder on this machine.
+1.	Download and extract [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) to a folder on this machine.
 
-2.	In an admin PowerShell command prompt, change to the directory to which you extracted `Manual.zip`.
+2.	In an admin PowerShell command prompt, change to the directory `Powershell\Manual` within the extracted archive.
 
 3.	Choose a password for the Service Principal using the following command. Remember this password, because it will be used as a build variable.
 
@@ -252,7 +252,7 @@ To install Azure PowerShell, please follow the steps in the previous section **I
 
 ### Add the continuous integration scripts to source control for your application.
 
-1.	Extract [Automation.zip](http://go.microsoft.com/fwlink/?LinkId=703775) to any folder in source control.
+1.	Extract [ServiceFabricContinuousIntegrationScripts.zip](https://gallery.technet.microsoft.com/Set-up-continuous-f8b251f6) to any folder on your machine. Copy the contents of `Powershell\Automation` to any folder in source control.
 
 2.	Check in the resulting files.
 
