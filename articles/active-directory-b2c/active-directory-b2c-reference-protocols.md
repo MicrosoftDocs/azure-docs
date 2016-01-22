@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Authentication Protocols
@@ -23,7 +23,7 @@ Azure AD B2C provides identity-as-a-service for your apps by supporting two indu
 <!-- TODO: Need link to libraries above -->
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
+
 ## The Basics
 Every app that uses Azure AD B2C will need to be registered your B2C directory in the [Azure Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
 

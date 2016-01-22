@@ -185,7 +185,7 @@ Using notepad, create a file named **input.log** in the **c:\adfgetstarted** wit
 
 ### Upload input file and HQL file to your Azure Blob Storage
 
-You can use any tool of your choice (for example: Azure Storage Explorer, CloudXPlorer by ClumsyLeaf Software) to do this task. This section provides instructions on using AzCopy tool.  
+You can use any tool of your choice (for example: [Microsoft Azure Storage Explorer](http://storageexplorer.com/), CloudXPlorer by ClumsyLeaf Software) to do this task. This section provides instructions on using AzCopy tool.  
 	 
 2. To prepare the Azure storage for the tutorial:
 	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
