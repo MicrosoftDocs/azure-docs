@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="01/21/2016"
 	ms.author="cynthn"/>
 
 # How to log on to a virtual machine running Windows Server 
