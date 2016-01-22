@@ -54,32 +54,7 @@ The Standard Edition of **Azure Data Catalog** supports up to 100,000 registered
 
 ## Q: What are the supported data source and asset types?
 
-During preview, **Azure Data Catalog** currently supports the SQL Server relational (including Azure SQL DB) and SQL Server Analysis Services (multidimensional and tabular) databases as well as SQL Server Reporting Services (native mode only) and Oracle Database.
-
-During preview, **Azure Data Catalog** supports the registration and discovery of the following asset types:
-
-- SQL Server Table
-- SQL Server View
-- SQL Server Analysis Services Dimension
-- SQL Server Analysis Services Measure
-- SQL Server Analysis Services KPI
-- SQL Server Analysis Services Table
-- SQL Server Reporting Services Report  
-- Oracle Database Table
-- Oracle Database View
-- Azure Storage Blob
-- Azure Storage Directory
-- HDFS File
-- HDFS Directory
-- Teradata Table
-- Teradata View
-
-In addition to the assets listed above, **Azure Data Catalog** supports the discovery of the following data asset containers:
-
-- SQL Server Database
-- Oracle Database
-- HDFS Cluster
-- Teradata Database
+Please refer to [Data Catalog DSR](data-catalog-dsr.md) for the list of currently supported data sources.
 
 
 ## Q: How do I request support for another data source?
