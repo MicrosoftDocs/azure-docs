@@ -190,12 +190,12 @@ To create the resource group for the Pre-Production environment, type the comman
 ###Azure portal
 
 1. Sign in to the [Azure portal](http://portal.azure.com) with an [Azure AD](./active-directory/active-directory-how-subscriptions-associated-directory.md) (also called a work or school) account. Click New-->Management-->Resource group and enter "TestApp1-Development" in the Resource group name box, select your subscription, and select "Central US" in the Resource group location box as shown in the picture below.
-   ![Portal](./media/solution-dev-test-environments/RGCreate.png)
+   ![Portal](./media/solution-dev-test-environments/rgcreate.png)
 2. Click the Create button to create the resource group.
 3. Click Browse, scroll down the list to Resource groups and click on Resource groups as shown below.
-   ![Portal](./media/solution-dev-test-environments/RGBrowse.png) 
+   ![Portal](./media/solution-dev-test-environments/rgbrowse.png) 
 4. After clicking on Resource groups you'll see the Resource groups blade with your new resource group.
-   ![Portal](./media/solution-dev-test-environments/RGView.png)
+   ![Portal](./media/solution-dev-test-environments/rgview.png)
 5. Create the TestApp1-Test and TestApp1-Pre-Production resource groups the same way you created the TestApp1-Development resource group above.
 
 ##Deploy resources to environments
@@ -302,7 +302,7 @@ Throughout development, configuration of the Azure resources in the different en
 1. Change the environments by opening the [Azure portal](https://portal.azure.com). 
 2. Sign into it with the same account you used to complete the steps above. 
 3. As shown in the picture below, click Browse-->Resource groups (you may need to scroll down to see Resource groups).
-   ![Portal](./media/solution-dev-test-environments/RGBrowse.png)
+   ![Portal](./media/solution-dev-test-environments/rgbrowse.png)
 4. After clicking on Resource groups in the picture above, you'll see the Resource groups blade and the three resource groups you created in a previous step as shown in the picture below. Click on the TestApp1-Development resource group and you'll see the blade that lists the resources created by the template in the TestApp1-Development resource group deployment you completed in a previous step.  Delete the TestApp1DevApp Web App resource by clicking TestApp1DevApp in the TestApp1-Development Resource group blade, and then clicking Delete in the TestApp1DevApp Web app blade.
    ![Portal](./media/solution-dev-test-environments/portal2.png)
 5. Click "Yes" when the portal prompts you as to whether you're sure you want to delete the resource. Closing the TestApp1-Development Resource group blade and re-opening it will now show it without the Web app you just deleted.  The contents of the resource group are now different than they should be. You can further experiment by deleting multiple resources from multiple resource groups or even changing configuration settings for some of the resources. Instead of using the Azure portal to delete a resource from a resource group, you could use the PowerShell [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) command or the or "azure resource delete" command from the CLI to accomplish the same task.
@@ -350,7 +350,7 @@ Type the following to delete the remaining environments:
 
 1. In the Azure portal, browse to Resource groups as you did in previous steps. 
 2. Select the TestApp1-Development resource group and then click Delete in the TestApp1-Development Resource group blade. A new blade will appear. Enter the resource group name and click the Delete button.
-![Portal](./media/solution-dev-test-environments/RGDelete.png)
+![Portal](./media/solution-dev-test-environments/rgdelete.png)
 3. Delete the TestApp1-Test and TestApp1-Pre-Production resource groups the same way you deleted the TestApp1-Development resource group.
 
 Regardless of the method you use, the resource groups and all of the resources they contained will no longer exist, and you'll no longer incur billing expenses for the resources.  
