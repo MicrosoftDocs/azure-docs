@@ -16,13 +16,13 @@
 
 # Query the Azure Batch service efficiently
 
-In this article, you will learn how to reduce the number of items and amount of data that are returned when you use the [Batch .NET][api_net] API to query the Azure Batch service for lists of jobs, tasks, compute nodes, and more.
+In this article, you will learn how to increase your Azure Batch application's performance by reducing the amount of data that is returned when you query the Batch service using the [Batch .NET][api_net] library.
 
-Azure Batch offers big-compute capabilities--and in a production environment, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information on these items can therefore generate a large amount of data that must be transferred on each query. By limiting the number of items and the type of information that is returned for each, you can increase the speed of your queries, and therefore the performance of your application.
+Azure Batch offers big-compute capabilities--and in a production environment, entities like jobs, tasks, and compute nodes can number in the thousands. Obtaining information on these items can therefore generate a large amount of data that must be transferred from the service to your application on each query. By limiting the number of items and the type of information that is returned for each, you can increase the speed of your queries, and therefore the performance of your application.
 
-Listing jobs, listing tasks, listing compute nodes--these are examples of operations that nearly every application using Azure Batch must perform, often quite frequently. Monitoring is a common use case. For example, to determine the capacity and status of a pool, *all* compute nodes in that pool must be queried. Another example is querying a job's tasks to determine if any of those tasks are still queued.
+Nearly every application using Azure Batch will perform some type of monitoring or other operation that queries the Batch service, often at regular intervals. For example, to determine the capacity and status of a pool, you must query every node within the pool. To determine whether any of a job's tasks are still queued, you must query every task within the job. This article explains how to execute these types of queries in the most efficient way.
 
-This [Batch .NET][api_net] API code snippet retrieves every task that is associated with a job, along with the full suite of those tasks' properties:
+This [Batch .NET][api_net] API code snippet retrieves every task that is associated with a job, along with *all* of the tasks' properties:
 
 ```
 // Get a collection of all of the tasks and all of their properties for job-001
@@ -48,28 +48,28 @@ In the above example scenario, if there are thousands of tasks in the job, the r
 
 ## Tools for efficient querying
 
-The [Batch .NET][api_net] and [Batch REST][api_rest] APIs provide the ability to reduce both the number of items that are returned in a list, as well as the amount of information that is returned for each. You can do this by specifying *filter*, *select*, and *expand* strings when performing list queries with the APIs.
+The [Batch .NET][api_net] and [Batch REST][api_rest] APIs provide the ability to reduce both the number of items that are returned in a list, as well as the amount of information that is returned for each. You do so by specifying **filter**, **select**, and **expand strings** when performing list queries.
 
 ### Filter
-The **filter** string is an expression that reduces the number of items that are returned. For example, list only the running tasks for a job, or list only compute nodes that are ready to run tasks.
+The filter string is an expression that reduces the number of items that are returned. For example, list only the running tasks for a job, or list only compute nodes that are ready to run tasks.
 
 - The filter string consists of one or more expressions, with an expression that consists of a property name, operator, and value. The properties that can be specified are specific to each entity type that you query, as are the operators that are supported for each property.
 - Multiple expressions can be combined by using the logical operators `and` and `or`.
-- This example filter string lists only the running "render" tasks: `startswith(id, 'renderTask') and (state eq 'running')`.
+- This example filter string lists only the running "render" tasks: `(state eq 'running') and startswith(id, 'renderTask')`.
 
 ### Select
-The **select** string limits the property values that are returned for each item. You specify a list of property names, and only those property values are returned for the items in your query results.
+The select string limits the property values that are returned for each item. You specify a list of property names, and only those property values are returned for the items in the query results.
 
 - The select string consists of a comma-separated list of property names. You can specify any of the properties for the entity type you are querying.
 - This example select string specifies that only three property values should be returned for each task: `id, state, stateTransitionTime`.
 
 ### Expand
-The **expand** string reduces the number of API calls that are required to obtain certain information. When you use an expand string, more information about each item can be obtained with a single API call, rather than obtaining the list of entities first and then requesting that information for each item in the list. Less API calls means better performance.
+The expand string reduces the number of API calls that are required to obtain certain information. When you use an expand string, more information about each item can be obtained with a single API call. Rather than first obtaining the list of entities, then requesting information for each item in the list, you use an expand string to obtain the same information in a single API call. Less API calls means better performance.
 
 - Similar to the select string, the expand string controls whether certain data is included in list query results.
 - The expand string is only supported when it is used in listing jobs, job schedules, tasks, and pools. Currently, it only supports statistics information.
 - When all properties are required and no select string is specified, the expand string *must* be used to get statistics information. If a select string is used to obtain a subset of properties, then `stats` can be specified in the select string, and the expand string does not need to be specified.
-- This example expand string specifies that statistics information should be returned for each item: `stats`.
+- This example expand string specifies that statistics information should be returned for each item in the list: `stats`.
 
 > [AZURE.NOTE] When constructing any of the three query string types (filter, select, and expand), you must ensure that the property names and case match that of their REST API element counterparts. For example, when working with the .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) class, you must specify **state** instead of **State**, even though the .NET property is [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). See the tables below for property mappings between the .NET and REST APIs.
 
