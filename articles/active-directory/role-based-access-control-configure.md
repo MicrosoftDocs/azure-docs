@@ -105,12 +105,12 @@ See [Managing Role-Based Access Control with the REST API](role-based-access-con
 All access changes happening in your Azure subscriptions get logged in Azure events.
 
 ### Create a report with Azure PowerShell
-To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscirptions use the following PowerShell command:
+To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscriptions use the following PowerShell command:
 
     `Get-AzureRMAuthorizationChangeLog`
 
 ### Create a report with Azure CLI
-To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscirptions use the Azure command line interface (CLI) command:
+To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscriptions use the Azure command line interface (CLI) command:
 
     `azure authorization changelog`
 
