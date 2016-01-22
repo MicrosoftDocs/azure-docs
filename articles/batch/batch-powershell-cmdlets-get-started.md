@@ -83,7 +83,7 @@ When prompted, confirm you want to remove the account. Account removal can take 
 
 ## Create a BatchAccountContext object
 
-To create and manage pools, jobs, tasks, and other resources in a Batch account, you first need to create an BatchAccountContext object to store your account name and keys:
+To create and manage pools, jobs, tasks, and other resources in a Batch account, you first need to create a BatchAccountContext object to store your account name and keys:
 
 ```
 $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
