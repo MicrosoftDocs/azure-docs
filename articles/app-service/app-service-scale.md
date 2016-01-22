@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="01/09/2016" 
 	ms.author="stepsic"/>
 
 # Scale pricing tier in Azure App Service
@@ -22,7 +22,7 @@ For increased performance and throughput for your apps on Microsoft Azure, you c
 
 The level of service your App Service plan has is based on the [*Pricing tier* for the plan](/pricing/details/app-service/). Higher pricing tiers, like **Standard** and **Premium**, offer greater robustness and flexibility in determining how your resources on Azure are used. Changing the pricing tier affects the number of cores and amount of memory your service has, and this is referred to as *Scaling up* (or *Scaling down*).
 
-In addition to scaling up the pricing tier, you can increase the number of instances that you service has. This is referred to as *Scaling out* or *Scaling in*. See the article on [Scale instance count manually or automatically](../insights-how-to-scale.md) to learn more about *Scale out* and *Scale in*.
+In addition to scaling up the pricing tier, you can increase the number of instances that your service has. This is referred to as *Scaling out* or *Scaling in*. See the article on [Scale instance count manually or automatically](../insights-how-to-scale.md) to learn more about *Scale out* and *Scale in*.
 
 For information about App Service plans, see [What is an App Service Plan?](../web-sites-web-hosting-plan-overview.md) and [Azure App Service Plans In-Depth Overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](/pricing/details/app-service/).
 
