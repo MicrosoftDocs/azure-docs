@@ -38,7 +38,7 @@ Note the following **important** points about on-demand HDInsight linked service
 > [AZURE.IMPORTANT] It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
 
 ### Example
-
+The following JSON defines an on-demand HDInsight linked service. The Data Factory automatically creates a **Windows-based** HDInsight cluster when processing a data slice. Note the **osType** is not specified in this sample JSON and the default value for this property is **Windows**.  
 
 	{
 	  "name": "HDInsightOnDemandLinkedService",
@@ -53,7 +53,8 @@ Note the following **important** points about on-demand HDInsight linked service
 	  }
 	}
 
-For the above JSON, the Data Factory automatically creates a **Windows-based** HDInsight cluster when processing a data slice. Note the **osType** is not specified in this sample JSON and the default value for this property is **Windows**.  
+
+The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice. You must specify values for **sshUserName** and **sshPassword**.   
 
 
 	{
@@ -73,7 +74,6 @@ For the above JSON, the Data Factory automatically creates a **Windows-based** H
 	    }
 	}
 
-For the above JSON, the Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice. You must specify values for **sshUserName** and **sshPassword**.   
 
 > [AZURE.IMPORTANT] The on-demand HDInsight cluster creates a container in the Azure Storage account that is specified by the **linkedServiceName** property. The name of the container follows the pattern: adf<full/partial name of the data factory>-<full/partial name of the HDInsight linked service>-<date time stamp>.  
 
