@@ -506,7 +506,7 @@ The code needed for each platform follows:
             string authority = "INSERT-AUTHORITY-HERE";
             string resourceId = "INSERT-RESOURCE-ID-HERE";
             string clientId = "INSERT-CLIENT-ID-HERE";
-            string resourceId = "INSERT-REDIRECT-URI-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
             while (user == null)
             {
                 string message;
@@ -537,7 +537,7 @@ The code needed for each platform follows:
             string authority = "INSERT-AUTHORITY-HERE";
             string resourceId = "INSERT-RESOURCE-ID-HERE";
             string clientId = "INSERT-CLIENT-ID-HERE";
-            string resourceId = "INSERT-REDIRECT-URI-HERE";
+            string redirectUri = "INSERT-REDIRECT-URI-HERE";
             try
 			{
 				AuthenticationContext ac = new AuthenticationContext(authority);
