@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="High Availability and Disaster Recovery for SQL Server | Microsoft Azure"
 	description="A discussion of the various types of HADR strategies for SQL Server running in Azure Virtual Machines."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" 
+	editor="monicar"
 	tags="azure-service-management"/>
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/07/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
 # High Availability and Disaster Recovery for SQL Server in Azure Virtual Machines
@@ -39,7 +39,7 @@ SQL Server HADR technologies that are supported in Azure include:
 - [Database Mirroring](https://technet.microsoft.com/library/ms189852.aspx)
 - [Log Shipping](https://technet.microsoft.com/library/ms187103.aspx)
 - [Backup and Restore with Azure Blob Storage Service](https://msdn.microsoft.com/library/jj919148.aspx)
-- [AlwaysOn Failover Cluster Instances](https://technet.microsoft.com/library/ms189134.aspx) 
+- [AlwaysOn Failover Cluster Instances](https://technet.microsoft.com/library/ms189134.aspx)
 
 It is possible to combine the technologies together to implement a SQL Server solution that has both high availability and disaster recovery capabilities.  Depending on the technology you use, a hybrid deployment may require a VPN tunnel with the Azure virtual network. The sections below show you some of the example deployment architectures.
 
@@ -110,7 +110,7 @@ Availability group listeners are supported on Azure VMs running Windows Server 2
 
 There are two main options for setting up your listener: external (public) or internal. The external (public) listener is associated with a public Virtual IP (VIP) that is accessible over the internet. With an external listener, you must enable Direct Server Return, which means that you must connect to the listener from a machine that is not in the same cloud service as the AlwaysOn Availability Group nodes. The other option is an internal listener that uses the Internal Load Balancer (ILB). An internal listener only support clients within the same Virtual Network.
 
-If the Availability Group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include "**MultisubnetFailover=True**". This results in parallel connection attempts to the replicas in the different subnets. For instructions on setting up a listener, see 
+If the Availability Group spans multiple Azure subnets (such as a deployment that crosses Azure regions), the client connection string must include "**MultisubnetFailover=True**". This results in parallel connection attempts to the replicas in the different subnets. For instructions on setting up a listener, see
 
 - [Configure an ILB listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 - [Configure an external listener for AlwaysOn Availability Groups in Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md).

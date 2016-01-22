@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="01/06/2015"
+	ms.date="01/22/2016"
 	ms.author="jroth" />
 
 # Create a SQL Server Virtual Machine in Azure (PowerShell)
