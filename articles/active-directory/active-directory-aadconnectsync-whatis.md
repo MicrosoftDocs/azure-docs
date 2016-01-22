@@ -35,7 +35,7 @@ This topic is the home for **Azure AD Connect sync** (also called **sync engine*
 | Topic | What it covers and when to read |
 | ----- | ----- |
 | [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md)| Describes the out-of-box rules and the default configuration. Also describes how the rules work together for the out-of-box scenarios to work. |
-| [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md | Continues of the previous topic and describes how the configuration for users and contacts works together, in particular in a multi-forest environment. |
+| [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md) | Continues of the previous topic and describes how the configuration for users and contacts works together, in particular in a multi-forest environment. |
 | [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Goes into depth how the configuration works and the syntax for the expression language. |
 | [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | When you know the details of the topics above and need to make changes to the out-of-box configuration to work with your scenario. |
 | [Configure Filtering](active-directory-aadconnectsync-configure-filtering.md) | Describes the different options for how to limit which objects are being synchronized to Azure AD and step-by-step how to configure these. |
