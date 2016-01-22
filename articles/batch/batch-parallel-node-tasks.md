@@ -32,7 +32,7 @@ While some scenarios benefit from all of a node's resources being available for 
 
 Here's an example that illustrates the benefits of parallel task execution. Let's say that your task application has CPU and memory requirements such that a Standard\_D1 node size is suitable. But in order to execute the job in the required time, 1,000 such nodes are needed.
 
-Instead of using Standard\_D1 nodes, you could employ Standard\_D14 nodes that have 16 cores each, and enable parallel task execution. In this case, *16 times fewer nodes* could therefore be used--instead of 1,000 nodes, only 63 would be required. This will greatly improve job execution time and efficiency if large application files or reference data are required for each node.
+Instead of using Standard\_D1 nodes which have 1 CPU core, you could employ Standard\_D14 nodes that have 16 cores each, and enable parallel task execution. In this case, *16 times fewer nodes* could therefore be used--instead of 1,000 nodes, only 63 would be required. This will greatly improve job execution time and efficiency if large application files or reference data are required for each node.
 
 ## Enable parallel task execution
 
