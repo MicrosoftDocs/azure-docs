@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/21/2016"
+   ms.date="01/22/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -22,13 +22,13 @@ This document helps you to use monitoring capabilities in Azure Security Center 
 > [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
 ## What is Azure Security Center?
-Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions
+Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions
 
 ##What is security health monitoring?
 We often think of monitoring as watching and waiting for an event to occur so that we can react to the situation. Security monitoring refers to having a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices. 
 
 ##Monitoring security health
-After enabling [security policies](security-center-policies.md) for the subscription’s resources, Azure Security Center will analyze the security of your resources to identify potential vulnerabilities.  While information about your network configuration is available instantly, it may take an hour or more for information about virtual machine configuration, such as security update status and OS configuration, to be available. You can view the security state of your resources, along with any issues in the Resource Security Health blades. You can also view a list of those issues on the Recommendations blades.
+After enabling [security policies](security-center-policies.md) for the subscription’s resources, Azure Security Center will analyze the security of your resources to identify potential vulnerabilities.  While information about your network configuration is available instantly, it may take an hour or more for information about virtual machine configuration, such as security update status and OS configuration, to be available. You can view the security state of your resources, along with any issues in the **Resource Security Health** blade. You can also view a list of those issues on the **Recommendations** blade.
 
 For more information on how to apply recommendations read [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
@@ -43,10 +43,16 @@ When you click on **Virtual Machines** in the **Resources health** tile, the **V
 
 ![Missing system update by VM](./media/security-center-monitoring/security-center-monitoring-fig2-new.png)
 
-Once you open this blade you will see three sections. For each section you can select an individual option to see more details regarding the recommended step to address that issue. The sections below will cover these areas in more details.
+Once you open this blade you will see three sections:
+
+- Onboarding steps
+- Virtual machine recommendations
+- Virtual machines
+
+For each section you can select an individual option to see more details regarding the recommended step to address that issue. The sections below will cover these areas in more details.
 
 ####Onboarding steps
-This section shows the total amount of VMs that were initialized for data collection and its current status. Once each VM has data collection initialized, they will be ready to receive Azure Security Center security policies. When you click in this option, the **Initializing data collection** blade opens and you will be able to see the name of the VMs and the current status of data collection as in the **installation status** column as shown below:
+This section shows the total amount of VMs that were initialized for data collection and its current status. Once each VM has data collection initialized, they will be ready to receive Azure Security Center security policies. When you click in this entry, the **Initializing data collection** blade opens and you will be able to see the name of the VMs and the current status of data collection as in the **installation status** column as shown below:
 
 ![Initialization status](./media/security-center-monitoring/security-center-monitoring-fig3-new.png)
 
@@ -56,23 +62,23 @@ This section has a set of recommendations for each VM monitored by Azure Securit
 
 ![VM Recommendations](./media/security-center-monitoring/security-center-monitoring-fig4-new.png)
 
-Each option has a set of actions that can be performed once you click on it. For example, if you click **Missing system updates**, the **Missing system updates** blade will open with the list of VMs that are missing patches and the severity level for each one as shown below:
+Each recommendation has a set of actions that can be performed once you click on it. For example, if you click **Missing system updates**, the **Missing system updates** blade will open with the list of VMs that are missing patches and the severity level for each one as shown below:
 
 ![Missing system updates](./media/security-center-monitoring/security-center-monitoring-fig5-new.png)
 
 The Missing system updates blade will show a table with the following information:
 
-- VIRTUAL MACHINE: the name of the virtual machine that is missing updates.
-- SYSTEM UPDATES: the amount of system updates that are missing.
-- LAST SCAN TIME: last time Azure Security Center scanned the VM for updates.
-- STATE: the current state of the recommendation: 
-	- Open: not addressed yet
-	- In Progress: recommendation is currently being applied to those resources, no action is required by you
-	- Resolved: recommendation was already completed (when state is resolved, the color of the line is grayed out)
-- SEVERITY: describes the severity of that particular recommendation: 
-	- High: a vulnerability exists with a meaningful resource (application, VM, network security group) and requires attention
-	- Medium: non-critical or additional steps required to complete a process or eliminate a vulnerability
-	- Low: a vulnerability that should be addressed but does not require immediate attention. (By default, a low recommendation is not presented but you can filter on Low recommendations if you choose to view them.)
+- **VIRTUAL MACHINE**: the name of the virtual machine that is missing updates.
+- **SYSTEM UPDATES**: the amount of system updates that are missing.
+- **LAST SCAN TIME**: last time Azure Security Center scanned the VM for updates.
+- **STATE**: the current state of the recommendation: 
+	- **Open**: not addressed yet
+	- **In Progress**: recommendation is currently being applied to those resources, no action is required by you
+	- **Resolved**: recommendation was already completed (when state is resolved, the color of the line is grayed out)
+- **SEVERITY**: describes the severity of that particular recommendation: 
+	- **High**: a vulnerability exists with a meaningful resource (application, VM, network security group) and requires attention
+	- **Medium**: non-critical or additional steps required to complete a process or eliminate a vulnerability
+	- **Low**: a vulnerability that should be addressed but does not require immediate attention. (By default, a low recommendation is not presented but you can filter on Low recommendations if you choose to view them.)
 
 To view the recommended updates details, click the VM’s name. A new blade for that VM opens up with the list of updates that are missing as shown below:
 
@@ -85,7 +91,9 @@ The virtual machines section gives you an overview of all VMs and recommendation
 
 ![VMs](./media/security-center-monitoring/security-center-monitoring-fig7-new.png)
 
-The icon that appears under each recommendation helps you to quickly identify which VM need attention and for what type of recommendation. In the example above, one VM has a critical recommendation regarding antimalware. To better obtain more information about the VM, click on it and a new blade that represents this VM will open as shown below:
+The icon that appears under each recommendation helps you to quickly identify which VMs need attention and for what type of recommendation. 
+
+In the example above, one VM has a critical recommendation regarding antimalware. To obtain more information about the VM, click on it and a new blade that represents this VM will open as shown below:
 
 ![VM Security Details](./media/security-center-monitoring/security-center-monitoring-fig8-new.png)
 
@@ -96,17 +104,21 @@ The prevention status for networking shows the virtual networks monitored by Azu
 
 ![Networking](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
 
-Once you open this blade you will see two sections. For each section you can select an individual option to see more details regarding the recommended step to address that issue. The sections below will cover these areas in more details.
+Once you open this blade you will see two sections:
+- Networking recommendations
+- Networking
+ 
+For each section you can select an individual option to see more details regarding the recommended step to address that issue. The sections below will cover these areas in more detail.
 
 ####Networking recommendations
 
 Similar to the virtual machines resource health information, this blade provides a summarized list of issues on the top of the blade and a list of monitored networks on the bottom.
 
-In the networking status breakdown section, prevention steps such as [ACLs on endpoints](virtual-machines-set-up-endpoints.md) not enabled, [Network Security Groups](virtual-networks-nsg.md) not enabled, Healthy Subnets and **Access in NSG no restricted** are listed. When you click in one of those recommendations a new blade will open with more details regarding the recommendation as shown in the example below:
+In the networking status breakdown section, prevention steps such as [ACLs on endpoints](virtual-machines-set-up-endpoints.md) not enabled, [Network Security Groups](virtual-networks-nsg.md) not enabled, Healthy Subnets and **Access in NSG not restricted** are listed. When you click in one of those recommendations a new blade will open with more details regarding the recommendation as shown in the example below:
 
 ![Endpoint](./media/security-center-monitoring/security-center-monitoring-fig10-new.png) 
 
-In this example the **Restrict access through public external endpoint** blade has a list of network security groups that are part of this alert, the subnet and network in which this NSG is associated with, the current state of this recommendation and the severity. If you click on the network security group, another blade will open as shown below:
+In this example the **Restrict access through public external endpoint** blade has a list of Network Security Groups (NSG) that are part of this alert, the subnet and network in which this NSG is associated with, the current state of this recommendation and the severity. If you click on the network security group, another blade will open as shown below:
 
 ![Restrict endpoint](./media/security-center-monitoring/security-center-monitoring-fig11-new.png)
 
@@ -117,7 +129,7 @@ Under the **Networking** section you have a hierarchical view of resource group,
 
 ![Network tree](./media/security-center-monitoring/security-center-monitoring-fig121-new.png)
 
-This section divides [Resource Manager based VMs from Classic VMs](resource-manager-deployment-model.md), this helps you to quickly identify which Networks can use Network Security Groups and which ones can use Access Control List. If you decide to access the properties of a network interface card from this location, you will need to expand the subnet and click on the VM name. If you perform this action for a resource manager based VM, a new blade similar to the one below will appear:
+This section divides [Resource Manager based VMs from Classic VMs](resource-manager-deployment-model.md), this helps you to quickly identify if Azure Service Management (ASM/Classic) or Azure Resource Management (ARM) networking capabilities are available to the virtual machine. If you decide to access the properties of a network interface card from this location, you will need to expand the subnet and click on the VM name. If you perform this action for a resource manager based VM, a new blade similar to the one below will appear:
 
 ![Network tree](./media/security-center-monitoring/security-center-monitoring-fig13-new.png)
 
@@ -132,11 +144,11 @@ When you click in **SQL** in the **Resources health** tile, the SQL blade will o
 
 ![SQL Resource Health](./media/security-center-monitoring/security-center-monitoring-fig15-new.png)
 
-You can click on any one of these recommendations and get more details and to take further actions to resolve the issue. The example below has the expansion of the **Database Auditing** not enabled recommendation.
+You can click on any one of these recommendations and get more details and to take further actions to resolve the issue. The example below has the expansion of the **Database Auditing not enabled** recommendation.
 
 ![SQL Resource Health](./media/security-center-monitoring/security-center-monitoring-fig16-new.png)
 
-In the **Enable Auditing on SQL databases** blade you have a list of SQL databases, the server in which they are located, if this setting was inherited from the server or if it is unique in this database, the current state of this issue and the severity. When you click on the database to address this recommendation, the Auditing & Threat detection blade will open as shown below:
+In the **Enable Auditing on SQL databases** blade you have a list of SQL databases, the server on which they are located, if this setting was inherited from the server or if it is unique in this database, the current state of this issue and the severity. When you click on the database to address this recommendation, the **Auditing & Threat detection** blade will open as shown below:
 
 ![SQL Resource Health](./media/security-center-monitoring/security-center-monitoring-fig17-new.png)
 
@@ -151,7 +163,7 @@ Just like any of the other recommendations for the previous resources, you can c
 
 ![Apps](./media/security-center-monitoring/security-center-monitoring-fig19-new.png)
 
-The **Unsecured Web Applications** blade will have a list of all VMs that contains applications that are not considered secure. The list shows the VM name, the current state of the issue and the security. If you click on this web application, the **Add a Web Application Firewall** blade will open with options for your to install a third party WAF (Web Application Firewall) as shown below:
+The **Unsecured Web Applications** blade will have a list of all VMs that contains applications that are not considered secure. The list shows the VM name, the current state of the issue and the security. If you click on this web application, the **Add a Web Application Firewall** blade will open with options for you to install a third party WAF (Web Application Firewall) as shown below:
 
 ![Add WAF](./media/security-center-monitoring/security-center-monitoring-fig20-new.png)
 
