@@ -643,62 +643,63 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 
 * Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
 
- 	private AuthenticationContext mContext;
-    private void authenticate() {
-        String authority = "INSERT-AUTHORITY-HERE";
-        String resourceId = "INSERT-RESOURCE-ID-HERE";
-        String clientId = "INSERT-CLIENT-ID-HERE";
-        String redirectUri = "INSERT-REDIRECT-URI-HERE";
-        try {
-            mContext = new AuthenticationContext(this, authority, true);
-            mContext.acquireToken(this, resourceId, clientId, redirectUri, PromptBehavior.Auto, "", callback);
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        }
-    }
-    private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
-        @Override
-        public void onError(Exception exc) {
-            if (exc instanceof AuthenticationException) {
-                Log.d(TAG, "Cancelled");
-            } else {
-                Log.d(TAG, "Authentication error:" + exc.getMessage());
-            }
-        }
-        @Override
-		public void onSuccess(AuthenticationResult result) {
-            if (result == null || result.getAccessToken() == null
-                    || result.getAccessToken().isEmpty()) {
-                Log.d(TAG, "Token is empty");
-            } else {
-                try {
-                    JSONObject payload = new JSONObject();
-                    payload.put("access_token", result.getAccessToken());
-                    ListenableFuture<MobileServiceUser> mLogin = mClient.login("aad", payload.toString());
-                    Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-                        @Override
-                        public void onFailure(Throwable exc) {
-                            exc.printStackTrace();
-                        }
-                        @Override
-                        public void onSuccess(MobileServiceUser user) {
-                    		Log.d(TAG, "Login Complete");
-                        }
-                    });
-                }
-                catch (Exception exc){
-                    Log.d(TAG, "Authentication error:" + exc.getMessage());
-                }
-            }
-        }
-    };
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (mContext != null) {
-            mContext.onActivityResult(requestCode, resultCode, data);
-        }
-    }
+		private AuthenticationContext mContext;
+		private void authenticate() {
+		String authority = "INSERT-AUTHORITY-HERE";
+		String resourceId = "INSERT-RESOURCE-ID-HERE";
+		String clientId = "INSERT-CLIENT-ID-HERE";
+		String redirectUri = "INSERT-REDIRECT-URI-HERE";
+		try {
+		    mContext = new AuthenticationContext(this, authority, true);
+		    mContext.acquireToken(this, resourceId, clientId, redirectUri, PromptBehavior.Auto, "", callback);
+		} catch (Exception exc) {
+		    exc.printStackTrace();
+		}
+		}
+		private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
+		@Override
+		public void onError(Exception exc) {
+		    if (exc instanceof AuthenticationException) {
+		        Log.d(TAG, "Cancelled");
+		    } else {
+		        Log.d(TAG, "Authentication error:" + exc.getMessage());
+		    }
+		}
+		@Override
+			public void onSuccess(AuthenticationResult result) {
+		    if (result == null || result.getAccessToken() == null
+		            || result.getAccessToken().isEmpty()) {
+		        Log.d(TAG, "Token is empty");
+		    } else {
+		        try {
+		            JSONObject payload = new JSONObject();
+		            payload.put("access_token", result.getAccessToken());
+		            ListenableFuture<MobileServiceUser> mLogin = mClient.login("aad", payload.toString());
+		            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+		                @Override
+		                public void onFailure(Throwable exc) {
+		                    exc.printStackTrace();
+		                }
+		                @Override
+		                public void onSuccess(MobileServiceUser user) {
+		            		Log.d(TAG, "Login Complete");
+		                }
+		            });
+		        }
+		        catch (Exception exc){
+		            Log.d(TAG, "Authentication error:" + exc.getMessage());
+		        }
+		    }
+		}
+		};
+		@Override
+		protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (mContext != null) {
+		    mContext.onActivityResult(requestCode, resultCode, data);
+		}
+		}
+
 
 ## How to: add push notification to your app
 
