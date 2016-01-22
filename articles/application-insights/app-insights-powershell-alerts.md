@@ -137,7 +137,7 @@ request,<br/>requestFailed|[Server request](app-insights-configuration-with-appl
 
 * [Script to configure Application Insights](app-insights-powershell-script-create-resource.md)
 * [Create Application Insights and web test resources from templates](app-insights-powershell.md)
-* [Automate coupling Windows Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Automate coupling Microsoft Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
 
 
  
