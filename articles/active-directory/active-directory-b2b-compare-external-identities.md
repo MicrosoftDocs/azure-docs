@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory capabilities comparison for managing external identities | Microsoft Azure"
+   pageTitle="Comparing capabilities for managing external identities using Azure Active Directory | Microsoft Azure"
    description="Compares Azure Active Directory B2B collaboration, B2C, and Multi-tenant App for supporting authentication and authorization for external identities"
    services="active-directory"
    authors="arvindsuthar"
@@ -16,7 +16,7 @@
    ms.date="01/22/2016"
    ms.author="asuthar"/>
 
-# Azure Active Directory capability comparison for managing external identities
+# Comparing capabilities for managing external identities using Azure Active Directory
 
 In addition to managing mobile workforce access to SaaS apps, Azure Active Directory (Azure AD) can help your organization share resources with business partners and deliver applications to businesses and consumers.
 
@@ -41,21 +41,6 @@ Do you need to securely and cost-effectively publish online applications, such a
 ## Comparison of Azure AD capabilities
 
 Each of the scenarios already discussed in this article is addressed by capabilities within Azure AD. This table should help clarify which capabilities are most relevant to you:
-
-| If I need to provide… | a service to businesses | partner access to my apps  | a service to consumers |
-|-----------------------|-------------------------|----------------------------|------------------------|
-| **And I am similar to...**  | Pharma distributor      | Imaging company            | Sports franchise       |
-| **Deploying an app for...**  | Practice management     | Supplier extranet          | Soccer fans            |
-| **Targeting...**        | Doctor’s offices        | Approved business partners | Anyone with email      |
-| **Accessible when...**      | Customer admin consents | My admin invites           | The consumer signs up      |
-| **Then I should use...**         | Azure AD Multi-tenant App    | Azure AD B2B collaboration         | Azure AD B2C                |
-
-
-| If I need to provide… | And I am similar to...  | Deploying an app for...  | Targeting... | Accessible when... |  Then I should use...  |
-|-----------------------|-------------------------|----------------------------|------------------------|------------------------|------------------------|
-| A service to businesses | Pharma distributor      |    Practice management         |    Doctor’s offices    |    Customer admin consents    |     Azure AD Multi-tenant App   |
-| Partner access to my apps  | Imaging company     | Supplier extranet          |      Approved business partners      |    My admin invites    |   Azure AD B2B collaboration     |
-| A service to consumers        | Sports franchise        | Soccer fans  | Anyone with email      |    The consumer signs up    |   Azure AD B2C     |
 
 | **Consider this product...**       | Azure AD Multi-tenant App    | Azure AD B2B collaboration         | Azure AD B2C                |
 |-----------------------|-------------------------|----------------------------|------------------------|
