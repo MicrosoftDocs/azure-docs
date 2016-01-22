@@ -78,7 +78,7 @@ Choose which of your Azure subscriptions to use. <BR>
 
 Create a new resource group (skip this step if using an existing resource group)
 
-    PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 
 ## Create a virtual network and a public IP address for the front end IP pool
