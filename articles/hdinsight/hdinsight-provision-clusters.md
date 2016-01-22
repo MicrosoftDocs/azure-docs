@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="01/06/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight
@@ -162,15 +162,7 @@ The following are the basic configuration options for creating an HDInsight clus
     
     > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
 
-## Advanced configuration options
-
-There are 3 parts in this section:
-
-- Customize clusters using HDInsight cluster customization (bootstrap)
-- Customize clusters using Script action
-- Use Azure virtual networks
-
-### Customize clusters using HDInsight cluster customization (bootstrap)
+## Customize clusters using HDInsight cluster customization (bootstrap)
 
 Sometimes, you want to configure the configuration files:
 
@@ -185,14 +177,14 @@ The clusters can't retain the changes due to re-image. For more information,
 see [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx). 
 To keep the changes through the clusters' lifetime, you can use HDInsight cluster customization during the creation process. This is the recommended way to change configurations of a cluster and persist across these Azure reimage reboot restart events. These configuration changes are applied before service start, so services needn’t be restarted.  
 
-For more a sample, see [Customize HDInsight clusters using Bootstrap](hdinsight-haoop-customize-cluster-bootstrap.md).
+For more a sample, see [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-### Customize clusters using Script action
+## Customize clusters using Script action
 
 You can install additional components or customize cluster configuration by using scripts during creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster.md).
 
 
-### Use Azure virtual networks
+## Use Azure virtual networks
 
 [Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
 
@@ -210,16 +202,7 @@ You can install additional components or customize cluster configuration by usin
 
 	![diagram of point-to-site configuration](./media/hdinsight-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
-
-> [AZURE.NOTE] You must create the Azure virtual network before provisioning an HDInsight cluster. For more information, see [Create a Hadoop cluster into a virtual network](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network).
->
-> Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks. Use Azure PowerShell cmdlet Get-AzureVNetConfig to check whether an existing Azure virtual network is location-based. If your virtual network is not location-based, you have the following options:
->
-> - Export the existing Virtual Network configuration and then create a new Virtual Network. All new Virtual Networks are location based  by default.
-> - Migrate to a location-based Virtual Network.  See [Migrate existing services to regional scope](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/).
->
-> It is highly recommended to designate a single subnet for one cluster.
+For information on using HDInsight with a Virtual Network, including specific configuration requirements for the Virtual Network, see [Extend HDInsight capbilities by using an Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
 ## Cluster creation methods
 

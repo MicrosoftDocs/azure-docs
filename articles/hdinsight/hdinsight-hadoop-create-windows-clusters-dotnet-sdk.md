@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2016"
+   ms.date="01/13/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using .NET SDK
@@ -34,6 +34,8 @@ Before you begin the instructions in this article, you must have the following:
 
 ## Create clusters
 The HDInsight .NET SDK provides .NET client libraries that make it easier to work with HDInsight from a .NET Framework application. Follow the instructions below to create a Visual Studio console application and paste the code for creating a cluster.
+
+The application requires an Azure resource group, and the default storage account.  The [Appendix A](#appx-a-create-dependent-components) provices a PowerShell script to create the dependent components.
 
 **To create a Visual Studio console application**
 
@@ -60,7 +62,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 			{
 				private static HDInsightManagementClient _hdiManagementClient;
 		
-				private static Guid SubscriptionId = new Guid("<Azure Subscription ID");
+				private static Guid SubscriptionId = new Guid("<Azure Subscription ID>");
 				private const string ExistingResourceGroupName = "<Azure Resource Group Name>";
 				private const string ExistingStorageName = "<Default Storage Account Name>.blob.core.windows.net";
 				private const string ExistingStorageKey = "<Default Storage Account Key>";
@@ -72,11 +74,11 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 				private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
 				private const string NewClusterVersion = "3.2";
 				private const string NewClusterUsername = "admin";
-				private const string NewClusterPassword = "<HTTP User password";
+				private const string NewClusterPassword = "<HTTP User password>";
 		
 				static void Main(string[] args)
 				{
-					System.Console.WriteLine("Running");
+					System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
 		
 					var tokenCreds = GetTokenCloudCredentials();
 					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
@@ -97,25 +99,12 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 					};
 		
 					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+
+                    System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+                    System.Console.ReadLine();
+                    
 				}
-				private static void CreateCluster()
-				{
-					var parameters = new ClusterCreateParameters
-					{
-						ClusterSizeInNodes = NewClusterNumNodes,
-						UserName = NewClusterUsername,
-						Password = NewClusterPassword,
-						Location = NewClusterLocation,
-						DefaultStorageAccountName = ExistingStorageName,
-						DefaultStorageAccountKey = ExistingStorageKey,
-						DefaultStorageContainer = ExistingBlobContainer,
-						ClusterType = NewClusterType,
-						OSType = NewClusterOsType
-					};
-		
-					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
-				}
-		
+
 				public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
 				{
 					var authFactory = new AuthenticationFactory();
@@ -160,3 +149,73 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 [ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
+
+
+##Appx-A Create dependent components
+
+The following Azure PowerShell script can be use to create the dependent components needed by the .NET application in this tutorial.
+
+    ####################################
+    # Set these variables
+    ####################################
+    #region - used for creating Azure service names
+    $nameToken = "<Enter an Alias>" 
+    #endregion
+
+    ####################################
+    # Service names and varialbes
+    ####################################
+    #region - service names
+    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+
+    $resourceGroupName = $namePrefix + "rg"
+    $hdinsightClusterName = $namePrefix + "hdi"
+    $defaultStorageAccountName = $namePrefix + "store"
+    $defaultBlobContainerName = $hdinsightClusterName
+
+    $location = "East US 2"
+    #endregion
+
+    # Treat all errors as terminating
+    $ErrorActionPreference = "Stop"
+
+    ####################################
+    # Connect to Azure
+    ####################################
+    #region - Connect to Azure subscription
+    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+    try{Get-AzureRmContext}
+    catch{Login-AzureRmAccount}
+    #endregion
+
+    #region - Create an HDInsight cluster
+    ####################################
+    # Create dependent components
+    ####################################
+    Write-Host "Creating a resource group ..." -ForegroundColor Green
+    New-AzureRmResourceGroup `
+        -Name  $resourceGroupName `
+        -Location $location
+
+    Write-Host "Creating the default storage account and default blob container ..."  -ForegroundColor Green
+    New-AzureRmStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $defaultStorageAccountName `
+        -Location $location `
+        -Type Standard_GRS
+
+    $defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+                                    -ResourceGroupName $resourceGroupName `
+                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+    $defaultStorageContext = New-AzureStorageContext `
+                                    -StorageAccountName $defaultStorageAccountName `
+                                    -StorageAccountKey $defaultStorageAccountKey
+    New-AzureStorageContainer `
+        -Name $defaultBlobContainerName `
+        -Context $defaultStorageContext #use the cluster name as the container name
+
+    Write-Host "Use the following names in your .NET application" -ForegroundColor Green
+    Write-host "Resource Group Name: $resourceGroupName"
+    Write-host "Default Storage Account Name: $defaultStorageAccountName"
+    Write-host "Default Storage Account Key: $defaultStorageAccountKey"
+    Write-host "Default Blob Container Name: $defaultBlobContainerName"

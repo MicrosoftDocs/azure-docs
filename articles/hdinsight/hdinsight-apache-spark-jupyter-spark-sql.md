@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/22/2015"
+	ms.date="01/13/2016"
 	ms.author="nitinme"/>
 
 
@@ -23,8 +23,6 @@
 Learn how to create an Apache Spark cluster in HDInsight and then use [Jupyter](https://jupyter.org) notebook to run Spark SQL interactive queries on the Spark cluster.
 
    ![Get started using Apache Spark in HDInsight](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png  "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
-
->[AZURE.NOTE] For a list of known issues and limitations with the current release, see [Known issues of Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 **Prerequisites:**
 
@@ -39,7 +37,7 @@ Learn how to create an Apache Spark cluster in HDInsight and then use [Jupyter](
 	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 
-##>Create a Spark Cluster on HDInsight Linux
+## Create a Spark cluster on HDInsight Linux
 
 In this section, you create an HDInsight version 3.3 cluster, which is based on Spark version 1.5.1. For information about HDInsight versions and their SLAs, see [HDInsight component versioning](hdinsight-component-versioning.md).
 
@@ -234,6 +232,10 @@ In this section, you use a Jupyter notebook to run Spark SQL queries against a S
 ### Manage resources
 
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+### Known issues
+
+* [Known issues of Apache Spark in Azure HDInsight (Linux)](hdinsight-apache-spark-known-issues.md)
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/

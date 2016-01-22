@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
-# Chaining Service Bus entities with Auto-forwarding
+# Chaining Service Bus entities with auto-forwarding
 
 The *Auto-forwarding* feature enables you to chain a queue or subscription to another queue or topic that is part of the same service namespace. When auto-forwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). Note that it is still possible to send a message to the destination entity directly. Also note that it is not possible to chain a subqueue, such as a deadletter queue, to another queue or topic.
 
-## Using Auto-forwarding
+## Using auto-forwarding
 
 You can enable auto-forwarding by setting the [QueueDescription.ForwardTo][] or [SubscriptionDescription.ForwardTo][] properties on the [QueueDescription][] or [SubscriptionDescription][] objects for the source, as in the following example.
 
@@ -59,7 +59,7 @@ For detailed information about Auto-forwarding, see the following reference topi
 - [QueueDescription][]
 - [SubscriptionDescription][]
 
-To learn more about Service Bus performance improvements, see [Partitioning Messaging Entities][].
+To learn more about Service Bus performance improvements, see [Partitioned messaging entities][].
 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
@@ -67,4 +67,4 @@ To learn more about Service Bus performance improvements, see [Partitioning Mess
   [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
   [0]: ./media/service-bus-auto-forwarding/IC628631.gif
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Partitioning Messaging Entities]: service-bus-partitioning.md
+  [Partitioned messaging entities]: service-bus-partitioning.md

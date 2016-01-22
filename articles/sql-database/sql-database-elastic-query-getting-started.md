@@ -44,11 +44,11 @@ Here you will create a shard map manager along with several shards, followed by 
 ## Create an elastic query database
 
 1. Open the [Azure Portal](https://portal.azure.com) and log in.
-2. Create a new Azure SQL database in the same server as your shard setup. Name the database "ElasticDBQuery." For a pricing tier, you must select one of the premium offers. The Elastic Database query is currently available only on the premium tier.
+2. Create a new Azure SQL database in the same server as your shard setup. Name the database "ElasticDBQuery." 
 
 	![Azure portal and pricing tier][3]
 
-	Note: you can use an existing premium database. If you can do so, it must not be one of the shards that you would like to execute your queries on. This database will be used for creating the metadata objects for an elastic database query.
+	Note: you can use an existing database. If you can do so, it must not be one of the shards that you would like to execute your queries on. This database will be used for creating the metadata objects for an elastic database query.
 
 
 ## Create database objects
@@ -127,7 +127,7 @@ All the rows from **Customers** table, stored in different shards populate the E
 You can now use Excel’s powerful data visualization functions. You can use the connection string with your server name, database name and credentials to connect your BI and data integration tools to the elastic query database. Make sure that SQL Server is supported as a data source for your tool. You can refer to the elastic query database and external tables just like any other SQL Server database and SQL Server tables that you would connect to with your tool.
 
 ### Cost
-There is no additional charge for using the Elastic Database Query feature. However, at this time this feature is available only on premium databases as an end point, but the shards can be of any service tier.
+There is no additional charge for using the Elastic Database Query feature. 
 
 For pricing information see [SQL Database Pricing Details](http://azure.microsoft.com/pricing/details/sql-database/).
 

@@ -72,7 +72,7 @@ To see and manage the access keys, click the key icon.
 
 * You can run multiple Batch workloads in a single Batch account, or distribute your workloads among Batch accounts in different Azure regions.
 
-* If you're running several large-scale Batch workloads, be aware of certain [Batch service quotas and limits](batch-quota-limit.md) that apply to your Azure subscription and each Batch account. Current quotas on a Batch account appear in the preview portal in the account properties.
+* If you're running several large-scale Batch workloads, be aware of certain [Batch service quotas and limits](batch-quota-limit.md) that apply to your Azure subscription and each Batch account. Current quotas on a Batch account appear in the portal in the account properties.
 
 ## Next steps
 

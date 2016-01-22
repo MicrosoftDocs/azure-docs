@@ -70,7 +70,7 @@ As with the admin credentials, do not values in the form of "username@server". I
 ## See also
 [Managing databases and logins in Azure SQL Database](sql-database-manage-logins.md)
 
-[How to add a users to an elastic database pool](sql-database-elastic-jobs-add-logins-to-dbs.md)
+[Securing your SQL Database](sql-database-security.md)
 
 [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md)
 

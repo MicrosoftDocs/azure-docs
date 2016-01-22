@@ -19,13 +19,10 @@
 # How to use the Azure Mobile Apps Node.js SDK
 
 [AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
-&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This article provides detailed information and examples showing how to work with a Node.js backend in Azure App Service Mobile Apps.
 
-> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples in this document use v2.0.0-beta1 of [azure-mobile-apps].
+> [AZURE.NOTE] This SDK is in PREVIEW.  As a result, we do not recommend that you use this SDK in production.  The examples in this document use v2.0.0-rc2 of [azure-mobile-apps].
 
 ## <a name="Introduction"></a>Introduction
 
@@ -168,6 +165,16 @@ Azure App Service has specific advice for Node.js application that you should re
 
 - How to [specify the Node Version]
 - How to [use Node modules]
+
+### <a name="howto-enable-homepage"></a>How to: Enable a Home Page for your application
+
+Many applications are a combination of web and mobile apps and the ExpressJS framework allows you to combine the two facets.  Sometimes, however, you
+may wish to only implement a mobile interface.  It is useful to provide a landing page to ensure the app service is up and running.  You can either
+provide your own home page or enable a temporary home page.  To enable a temporary home page, adjust the Mobile App constructor to the following:
+
+    var mobile = azureMobileApps({ homePage: true });
+
+You can add this setting to your `azureMobile.js` file if you only want this option available when developing locally.
 
 ## <a name="TableOperations"></a>Table operations
 
@@ -562,6 +569,27 @@ the seeded data.
 
 We recommend that you explicitly call the initialize() method to create the table when the service starts running.
 
+### <a name="Swagger"></a>Enable Swagger Support
+
+Azure App Service Mobile Apps comes with built-in [Swagger] support.  To enable Swagger support, first install the swagger-ui as a dependency:
+
+    npm install --save swagger-ui
+
+Once installed, you can enable Swagger support in the Azure Mobile Apps constructor:
+
+    var mobile = azureMobileApps({ swagger: true });
+
+You probably only want to enable Swagger support in development editions.  You can do this by utilizing the `NODE_ENV` app setting:
+
+    var mobile = azureMobileApps({ swagger: process.env.NODE_ENV !== 'production' });
+
+The swagger endpoint will be located at http://_yoursite_.azurewebsites.net/swagger.  You can access the Swagger UI via the `/swagger/ui` endpoint.
+Note that Swagger produces an error for the / endpoint if you choose to require authentication across your entire application.  For best
+results, choose to allow unauthenticated requests through in the Azure App Service Authentication / Authorization settings, then control
+authentication using the `table.access` property.
+
+You can also add the Swagger option to your `azureMobile.js` file if you only want Swagger support when developing locally.
+
 ## <a name="CustomAPI"></a>Custom APIs
 
 In addition to the data access API via the /tables endpoint, Azure Mobile Apps can provide custom API coverage.  Custom APIs are defined in
@@ -720,7 +748,7 @@ From the editor, you can also execute the code on the site
 [How to configure Google Authentication]: app-service-mobile-how-to-configure-google-authentication.md
 [How to configure Microsoft Authentication]: app-service-mobile-how-to-configure-microsoft-authentication.md
 [How to configure Twitter Authentication]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service Deployment Guide]: ../app-service-web/web-site-deploy.md
+[Azure App Service Deployment Guide]: ../app-service-web/web-sites-deploy.md
 [Monitoring an Azure App Service]: ../app-service-web/web-sites-monitor.md
 [Enable Diagnostic Logging in Azure App Service]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Toubleshoot an Azure App Service in Visual Studio]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
@@ -729,6 +757,7 @@ From the editor, you can also execute the code on the site
 [Create a new Azure App Service]: ../app-service-web/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
+[Swagger]: http://swagger.io/
 
 [Azure Portal]: https://portal.azure.com/
 [OData]: http://www.odata.org

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Configure ExpressRoute and site-to-site VPN connections to coexist for a VNet

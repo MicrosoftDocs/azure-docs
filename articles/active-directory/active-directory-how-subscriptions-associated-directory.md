@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # How Azure subscriptions are associated with Azure Active Directory

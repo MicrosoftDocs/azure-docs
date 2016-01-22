@@ -3,7 +3,7 @@
 	description="Describes what happened in your Visual Studio .NET project after adding Azure Mobile Services by using Connected Services "
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/17/2015"
-	ms.author="tarcher"/>
+	ms.date="01/05/2016"
+	ms.author="mlearned"/>
 
 # What happened to my Visual Studio .NET project after adding Azure Mobile Services by using Connected Services?
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
-> - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
 ## References Added
 

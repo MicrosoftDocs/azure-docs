@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -126,6 +126,18 @@ The method has a few key components that you need to understand.
             Activity activity,
             IActivityLogger logger)
         {
+			// to get extended properties (for example: SliceStart)
+			DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+            string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+			// to log all extended properties			
+			IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+			logger.Write("Logging extended properties if any...");
+			foreach (KeyValuePair<string, string> entry in extendedProperties)
+			{
+				logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+			}
+		
 
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
@@ -656,6 +668,37 @@ Debugging consists of a few basic techniques:
 
 ## Update the custom activity
 If you update the code for the custom activity, build it, and upload the zip file that contains new binaries to the blob storage.
+
+## Access extended properties
+You can declare extended properties in the activity JSON as shown below: 
+
+	"typeProperties": {
+	  "AssemblyName": "MyDotNetActivity.dll",
+	  "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+	  "PackageLinkedService": "StorageLinkedService",
+	  "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+	  "extendedProperties": {
+	    "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))",
+		"DataFactoryName": "CustomActivityFactory"
+	  }
+	},
+
+In the above example, there are two extended properties: **SliceStart** and **DataFactoryName**. The value for SliceStart is based on the SliceStart system variable. See [System Variables](data-factory-scheduling-and-execution.md#data-factory-system-variables) for a list of supported system variables. The value for DataFactoryName is hard coded to "CustomActivityFactory". 
+
+To access these extended properties in the **Execute** method, use code similar to the following: 
+
+	// to get extended properties (for example: SliceStart)
+	DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+	string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+	// to log all extended properties                               
+    IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+    logger.Write("Logging extended properties if any...");
+    foreach (KeyValuePair<string, string> entry in extendedProperties)
+    {
+    	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+	}
+
 
 ## <a name="AzureBatch"></a> Use Azure Batch linked service
 > [AZURE.NOTE] See [Azure Batch basics][batch-technical-overview] for an overview of the Azure Batch service and see [Getting Started with the Azure Batch Library for .NET][batch-get-started] to quickly get started with the Azure Batch service.

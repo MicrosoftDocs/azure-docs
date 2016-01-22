@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/28/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -29,7 +29,7 @@ Before you install Azure AD Connect, there are a few things that you will need.
 
 ### On-premises servers and environment
 - The AD schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
-- If you plan to use the feature **password writeback** the Domain Controllers must be on Windows Server 2008 (with latest SP) or later.
+- If you plan to use the feature **password writeback** the Domain Controllers must be on Windows Server 2008 (with latest SP) or later. If your DCs are on 2008 (pre-R2) then you must also apply [hotfix KB2386717](http://support.microsoft.com/kb/2386717).
 - Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials. The server must be using Windows Server standard or better.
 - Azure AD Connect must be installed on Windows Server 2008 or later.  This server may be a domain controller or a member server if using express settings. If you use custom settings, the server can also be stand-alone and does not have to be joined to a domain.
 - If you install Azure AD Connect on Windows Server 2008, make sure to apply the latest hotfixes from Windows Update. The installation will not be able to start with an unpatched server.
@@ -37,14 +37,15 @@ Before you install Azure AD Connect, there are a few things that you will need.
 - The Azure AD Connect server must have [.NET Framework 4.5.1](#component-prerequisites) or later and [Microsoft PowerShell 3.0](#component-prerequisites) or later installed.
 - If Active Directory Federation Services is being deployed, the servers where AD FS or Web Application Proxy will be installed must be Windows Server 2012 R2 or later. [Windows remote management](#windows-remote-management) must be enabled on these servers for remote installation.
 - If Active Directory Federation Services is being deployed, you need [SSL Certificates](#ssl-certificate-requirements).
-- Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed and the service account for the service is created on the local machine. SQL Server Express has a 10GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, you need to point the installation wizard to a different installation of SQL Server. Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with SP4) to SQL Server 2014.
+- Azure AD Connect requires a SQL Server database to store identity data. By default a SQL Server 2012 Express LocalDB (a light version of SQL Server Express) is installed and the service account for the service is created on the local machine. SQL Server Express has a 10GB size limit that enables you to manage approximately 100,000 objects. If you need to manage a higher volume of directory objects, you need to point the installation wizard to a different installation of SQL Server. Azure AD Connect supports all flavors of Microsoft SQL Server from SQL Server 2008 (with SP4) to SQL Server 2014. Microsoft Azure SQL Database is **not supported** as a database.
 
 ### Accounts
-- An Azure AD Global Administrator account for the Azure AD directory you wish to integrate with.
+- An Azure AD Global Administrator account for the Azure AD directory you wish to integrate with. This must be a **school or organization account** and cannot be a **Microsoft account**.
 - An Enterprise Administrator account for your local Active Directory if you use express settings or upgrade from DirSync.
 - [Accounts is Active Directory](active-directory-aadconnect-accounts-permissions.md) if you use the custom settings installation path.
 
 ### Connectivity
+- If you have firewalls on your Intranet and you need to open ports between the Azure AD Connect servers and your domain controllers then see [Azure AD Connect Ports](active-directory-aadconnect-ports.md) for more information.
 - If your proxy limits which URLs which can be accessed then the URLs documented in [Office 365 URLs and IP address ranges ](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened in the proxy.
 - If you are using an outbound proxy for connecting to the Internet, the following setting in the **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** file must be added for the installation wizard and Azure AD Connect sync to be able to connect to the Internet and Azure AD. This text must be entered at the bottom of the file.  In this code, &lt;PROXYADRESS&gt; represents the actual proxy IP address or host name.
 
@@ -75,8 +76,17 @@ If your proxy server requires authentication, then the section should look like 
 ```
 
 With this change in machine.config the installation wizard and sync engine will respond to authentication requests from the proxy server. In all installation wizard pages, excluding the **Configure** page, the signed in user's credentials are used. On the **Configure** page at the end of the installation wizard, the context is switched to the [service account](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) which was created.
-
 See MSDN for more information about the [default proxy Element](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
+
+- You also need to configure winhttp. Start a cmd-prompt and enter:
+
+```
+C:\>netsh
+netsh>winhttp
+netsh winhttp>set proxy <PROXYADDRESS>:<PROXYPORT>
+```
+
+If you have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ### Other
 - Optional:  A test user account to verify synchronization.
