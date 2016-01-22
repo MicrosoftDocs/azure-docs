@@ -144,8 +144,6 @@ Your Big Compute solution might need other Azure services to connect to resource
 
 * Discuss your Azure options with partners including Tibco, Cycle Computing and UberCloud. 
 
-* 
-
 * Read about Azure Big Compute solutions delivered by [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), and [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088).
 
 * For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](http://azure.microsoft.com/blog/tag/hpc/).
