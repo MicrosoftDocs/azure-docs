@@ -17,8 +17,8 @@
 	ms.date="01/22/2016"
 	ms.author="trinadhk; jimpark; markgal"/>
 
-# Prepare your environment to back up Windows machines
 
+# Prepare your environment to back up Windows machines
 This article will help you prepare to back up a Windows Server or Windows Client to Azure. To do this, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 If you've already done this, you can start [backing up your Windows machines](backup-azure-backup-windows-server.md). Otherwise, continue through the steps below to make sure your environment is ready.
