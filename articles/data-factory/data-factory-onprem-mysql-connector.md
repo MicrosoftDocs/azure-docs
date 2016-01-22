@@ -29,6 +29,8 @@ Data factory currently supports only moving data from MySQL to other data stores
 ## Installation 
 For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) on the same system as the Data Management Gateway.
 
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+
 ## Sample: Copy data from MySQL to Azure Blob
 
 The sample below shows:

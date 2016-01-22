@@ -55,7 +55,7 @@ A5. Yes. As of July 2015, you can create 25 vaults per subscription. If you need
 A6. Though it is possible to get a detailed bill for each vault, we highly recommend that you consider an Azure subscription as a billing entity. It is consistent across all services and is easier to manage.
 
 **Q7. Are there any limits on the number of servers/machines that can be registered against each vault?** <br/>
-A7. Yes, you can register upto 50 machines per vault. For Azure IaaS virtual machines, limit is 100 VMs per vault. If you need to register more machines, create a new vault.
+A7. Yes, you can register upto 50 machines per vault. For Azure IaaS virtual machines, limit is 200 VMs per vault. If you need to register more machines, create a new vault.
 
 **Q8. Are there any limits on the amount of data that can be backed up from a Windows server/client or SCDPM server?** <br/>
 A8. No.

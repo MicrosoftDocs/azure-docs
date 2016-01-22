@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="01/21/2016"
 	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
@@ -116,7 +116,7 @@ In this section, you will modify the app so that it does not sync on app launch 
 
     - `InsertTodoItemAsync`
     - `CompleteItemAsync`
-    - `RefreshAsync`
+    - `RefreshDataAsync`
 
     Now, `RefreshAsync()` will only load data from the local store, but will not connect to the app backend.
 
@@ -167,8 +167,6 @@ In this section you will reconnect the app to the mobile service. This simulates
 
 ## Next steps
 
-* [Handling conflicts with offline support for Mobile Services]
-
 * [How to use the Xamarin Component client for Azure Mobile Services]
 
 <!-- Anchors. -->
@@ -179,7 +177,7 @@ In this section you will reconnect the app to the mobile service. This simulates
 <!-- Images -->
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
+[Handling conflicts with offline support for Mobile Services]: mobile-services-xamarin-ios-handling-conflicts-offline-data.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [How to use the Xamarin Component client for Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Soft Delete]: mobile-services-using-soft-delete.md

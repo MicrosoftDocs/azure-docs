@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="01/19/2016"
     ms.author="awills"/>
 
 # Release annotations in Application Insights
@@ -48,7 +48,7 @@ You need to do this for each release template that you want to create release an
 
     Add a task, and select the Application Insights Release Annotation task from the menu.
 
-    Paste the **Application Insights Id** that you copied from the API Access blade.
+    Paste the **Application Id** that you copied from the API Access blade.
 
     ![In Visual Studio Team Services, open Release, select a release definition, and choose Edit. Click Add Task and select Application Insights Release Annotation. Paste the Application Insights Id.](./media/app-insights-annotations/30.png)
 

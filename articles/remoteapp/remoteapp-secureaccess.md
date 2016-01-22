@@ -64,6 +64,7 @@ We are going to walk through an example scenario – the Azure RemoteApp adminis
 	2. Click the option below to define the IP address ranges that constitute your “trusted network”. Everything outside of those will be rejected.
 
 5.	Test your configuration by launching the Azure RemoteApp client from an IP address outside of the range you specified. After you sign in with your Azure AD credentials you should see a message like this:
+
 ![Denied access to Azure RemoteApp](./media/remoteapp-secureaccess/ra-accessdenied.png)
  
 

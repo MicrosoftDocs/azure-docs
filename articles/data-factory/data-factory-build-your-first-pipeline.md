@@ -185,7 +185,7 @@ Using notepad, create a file named **input.log** in the **c:\adfgetstarted** wit
 
 ### Upload input file and HQL file to your Azure Blob Storage
 
-You can use any tool of your choice (for example: Azure Storage Explorer, CloudXPlorer by ClumsyLeaf Software) to do this task. This section provides instructions on using AzCopy tool.  
+You can use any tool of your choice (for example: [Microsoft Azure Storage Explorer](http://storageexplorer.com/), CloudXPlorer by ClumsyLeaf Software) to do this task. This section provides instructions on using AzCopy tool.  
 	 
 2. To prepare the Azure storage for the tutorial:
 	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
@@ -209,7 +209,7 @@ You can use any tool of your choice (for example: Azure Storage Explorer, CloudX
 			Transfer skipped:        0
 			Transfer failed:         0
 			Elapsed time:            00.00:00:01
-	1. Repeat the previous two steps to upload the partitionweblogs.hql file to the script folder of the adfgetstarted container. Here is the command: 
+	1. Run the following command to upload the **partitionweblogs.hql** file to the **script** folder of the **adfgetstarted** container. Here is the command: 
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="01/08/2016"
 	ms.author="dkshir"/>
 
 # Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine
@@ -37,11 +37,11 @@ Alternatively, you can file an Azure support incident. Go to the [Azure Support 
 
 To resolve the more common SSH connection failures in virtual machines created using the classic deployment model, try these steps:
 
-1. **Reset Remote Access** from the [Azure portal](https://portal.azure.com). Click **Browse all** > **Virtual machines (classic)** > your Windows virtual machine > **Reset Remote Access**.
+1. **Reset Remote Access** from the [Azure portal](https://portal.azure.com). Click **Browse all** > **Virtual machines (classic)** and then select the virtual machine you want to reset and click > **Reset Remote Access**.
 
 	![Screenshot that shows resetting SSH configuration](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)  
 
-2. **Restart** the virtual machine. From the [Azure portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** > your Windows virtual machine > **Restart**. From the [Azure classic portal](https://manage.windowsazure.com), open the **Virtual machines** > **Instances** and click **Restart**.
+2. **Restart** the virtual machine. From the [Azure portal](https://portal.azure.com), click **Browse all** > **Virtual machines (classic)** and then select the virtual machine you want to restart and click > **Restart**. From the [Azure classic portal](https://manage.windowsazure.com), open the **Virtual machines** > **Instances** and click **Restart**.
 
 3. [**Resize** the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -105,7 +105,7 @@ To resolve the common SSH issues for virtual machines created using the Resource
 	Switch-AzureMode -Name AzureResourceManager
 	```
 
-	c. Run the `VMAccessForLinux` extension to reset your SSH connection, as shown in the following example.
+	c. Run the `VMAccessForLinux` extension to reset your SSH connection, as shown in the following example. (If you are using Azure PowerShell 1.0 or greater, the following commandlet is `Set-AzureRMVMExtension`.)
 
 	```
 	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
@@ -188,7 +188,7 @@ In the [Azure classic portal](https://manage.windowsazure.com), for virtual mach
 In the [Azure portal](https://portal.azure.com):
 
 1. For a virtual machine created in classic deployment model, click **Browse** > **Virtual machines (classic)** > *VM name*. For a virtual machine created using the Resource Manager, click **Browse** > **Virtual machines** > *VM name*. The status pane for the virtual machine should show **Running**. Scroll down to show recent activity for compute, storage, and network resources.
-2. Click **Settings** to examine endpoints, IP addresses, and other settings. To identify endpoints in virtual machines created with the Resource Manager, check if a [Network Security Group](../traffic-manager/virtual-networks-nsg.md) is defined, the rules applied to it and if they are referenced in the subnet.
+2. Click **Settings** to examine endpoints, IP addresses, and other settings. To identify endpoints in virtual machines created with the Resource Manager, check if a [Network Security Group](../virtual-network/virtual-networks-nsg.md) is defined, the rules applied to it and if they are referenced in the subnet.
 
 To verify network connectivity, check the configured endpoints and see if you can reach the VM through another protocol, such as HTTP or another service.
 
@@ -264,7 +264,7 @@ To eliminate the endpoint as a source of the problem, remove the current endpoin
 #### Source 4: Network security groups
 
 Network security groups allow you to have more granular control of allowed inbound and outbound traffic. You can create rules that span subnets and cloud services in an Azure virtual network. Check your network security group rules to ensure that SSH traffic to and from the Internet is allowed.
-For more information, see [About network security groups](../traffic-manager/virtual-networks-nsg.md).
+For more information, see [About network security groups](../virtual-network/virtual-networks-nsg.md).
 
 #### Source 5: Linux-based Azure virtual machine
 
