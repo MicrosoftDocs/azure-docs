@@ -1,6 +1,6 @@
 <properties
-    pageTitle=""
-    description=""
+    pageTitle="Connect to Azure Storage in your Xamarin.Forms app"
+    description="Add images to the todo list Xamarin.Forms mobile app by connecting to Azure blob storage"
     documentationCenter="xamarin"
     authors="lindydonna"
     manager="dwrede"
