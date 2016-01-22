@@ -108,6 +108,8 @@ The following table will help you determine the method to start a runbook in Azu
 
 The following image illustrates detailed step-by-step process in the life cycle of a runbook It includes different ways a runbook is started in Azure Automation, components required for an on-premises machine to execute Azure Automation runbooks and interactions between different components. To learn about executing Automation runbooks in your datacenter, refer to [hybrid runbook workers](automation-hybrid-runbook-worker.md)
 
+![Runbook Architecture](media/automation-starting-runbook/runbooks-architecture.png)
+
 ## Starting a runbook with the Azure portal
 
 1. In the Azure portal, select **Automation** and then then click the name of an automation account.
