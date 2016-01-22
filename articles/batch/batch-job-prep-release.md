@@ -145,7 +145,7 @@ Sample complete, hit ENTER to exit...
 
 ### Inspect job preparation and release tasks with Batch Explorer
 
-[Batch Explorer][batch_explorer_article], which is also found in the Batch [sample code repository][batch_explorer_project] on GitHub, is an excellent tool to use when you're developing solutions with Azure Batch. For example, when you're running the above sample application, you can use Batch Explorer to view the properties of the job and its tasks, or even download the shared text file that is modified by the job's tasks.
+The [Azure Batch Explorer][batch_explorer_article], which is also found in the Batch [sample code repository][batch_explorer_project] on GitHub, is an excellent tool to use when you're developing solutions with Azure Batch. For example, when you're running the above sample application, you can use Batch Explorer to view the properties of the job and its tasks, or even download the shared text file that is modified by the job's tasks.
 
 The screenshot below highlights the job preparation and release task properties that are shown in the **Job Details** pane when you select the *JobPrepReleaseSampleJob* job on the **Jobs** tab.
 
