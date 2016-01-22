@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect Ports"
+	pageTitle="Azure AD Connect: Ports | Microsoft Azure"
 	description="This page is a technical reference page for ports that are required to be open for Azure AD Connect"
 	services="active-directory"
 	documentationCenter=""
@@ -78,4 +78,3 @@ This table describes the ports and protocols that are required for communication
 
 ### 6b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 For a list of endpoints see [the Requirements section for the Azure AD Connect Health agent](active-directory-aadconnect-health.md#requirements)
-

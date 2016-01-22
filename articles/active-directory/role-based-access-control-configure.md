@@ -109,7 +109,7 @@ All access changes happening in your Azure subscriptions get logged in Azure eve
 ### Create a report with Azure PowerShell
 To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscriptions use the following PowerShell command:
 
-    `Get-AzureAuthorizationChangeLog`
+    `Get-AzureRMAuthorizationChangeLog`
 
 ### Create a report with Azure CLI
 To create a report of who granted/revoked what kind of access to/from whom on what scope within your Azure subscriptions use the Azure command line interface (CLI) command:
