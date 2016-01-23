@@ -70,7 +70,8 @@ Parameter declaration in DSC configurations, including parameter types and prope
 
 The following example uses two parameters called **FeatureName** and **IsPresent**, to determine the values of properties in the **ParametersExample.sample** node configuration, generated during compilation.
 
-    Configuration ParametersExample {
+    Configuration ParametersExample
+    {
     	param(
     		[Parameter(Mandatory=$true)]
     
@@ -81,20 +82,22 @@ The following example uses two parameters called **FeatureName** and **IsPresent
     	)
     
     	$EnsureString = "Present"
-    	if($IsPresent -eq $false) {
+    	if($IsPresent -eq $false)
+    	{
     		$EnsureString = "Absent"
     	}
     
-    	Node "sample" {
-    
-    		WindowsFeature ($FeatureName + "Feature") {
+    	Node "sample"
+    	{
+    		WindowsFeature ($FeatureName + "Feature")
+    		{
     			Ensure = $EnsureString
     			Name = $FeatureName
     		}
     	}
     }
 
-You can compile DSC Configurations that use basic parameters in the Azure Automation DSC portal, or Azure PowerShell:
+You can compile DSC Configurations that use basic parameters in the Azure Automation DSC portal, or with Azure PowerShell:
 
 ###Portal###
 
@@ -125,24 +128,21 @@ For information about passing PSCredentials as parameters, see <a href="#credent
 
 The following example DSC configuration uses **ConfigurationData** via the **$ConfigurationData** and **$AllNodes** keywords. You'll also need the [**xWebAdministration** module](https://www.powershellgallery.com/packages/xWebAdministration/) for this example:
 
-     Configuration ConfigurationDataSample {
+     Configuration ConfigurationDataSample
+     {
     	Import-DscResource -ModuleName xWebAdministration -Name MSFT_xWebsite
     
     	Write-Verbose $ConfigurationData.NonNodeData.SomeMessage 
     
     	Node $AllNodes.Where{$_.Role -eq "WebServer"}.NodeName
     	{
-    
     		xWebsite Site
     		{
-    
     			Name = $Node.SiteName
     			PhysicalPath = $Node.SiteContents
     			Ensure   = "Present"
     		}
-    
     	}
- 
     }
 
 You can compile the DSC configuration above with PowerShell, which adds two node configurations to the Azure Automation DSC Pull Server: **ConfigurationDataSample.MyVM1** and **ConfigurationDataSample.MyVM3**:
