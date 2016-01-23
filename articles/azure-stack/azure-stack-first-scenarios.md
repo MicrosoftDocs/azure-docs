@@ -28,6 +28,12 @@ The primary objects in Microsoft Azure Stack – plans, offers, and subscription
 
 4.  [As a tenant, use the services provided by the offer’s plan to create a virtual machine.](azure-stack-subscribe-plan-provision-vm.md#provision-a-virtual-machine)
 
-# Next Steps
+## Deploy PaaS resource providers
+
+You can also deploy the following Platform-as-a-Service resource providers:
+[WebApps resource provider](http://tbd)
+[SQL Server resource provider](http://tbd)
+
+## Next Steps
 
 [Create a plan](azure-stack-create-plan.md)

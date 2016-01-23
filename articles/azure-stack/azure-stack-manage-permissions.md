@@ -38,6 +38,6 @@ For example, User A might have reader permissions to Subscription 1, but have ow
 
 4.  In the **Roles** blade, click **Add** to add permissions for the user.
 
-# Next Steps
+## Next Steps
 
 [Publish a custom marketplace item](azure-stack-publish-custom-marketplace-item.md)

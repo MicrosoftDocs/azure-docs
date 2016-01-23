@@ -38,6 +38,6 @@
 
 9.  Click **Deploy**. In the **Edit Parameters** dialog box, enter values for the parameters (which vary by template), and then click **Save**. Your resource is then created.
 
-# Next Steps
+## Next Steps
 
 [Deploy templates with the command line](azure-stack-deploy-template-command-line.md)

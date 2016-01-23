@@ -34,6 +34,6 @@ You can use the Microsoft Azure Stack portal to deploy templates.
 
 7.  A new progress tile will appear on the dashboard for you to track the progress of template deployment.
 
-# Next Steps
+## Next Steps
 
 [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)

@@ -32,6 +32,6 @@
 
 >[AZURE.NOTE] Do not upload the same package with different names in the cmdlet, it will cause the resources to be orphaned.
 
-# Next Steps
+## Next Steps
 
 [Marketplace Item Metadata](azure-stack-marketplace-item-metadata.md)

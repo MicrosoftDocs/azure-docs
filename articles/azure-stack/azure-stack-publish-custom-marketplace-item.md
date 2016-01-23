@@ -38,6 +38,6 @@ A marketplace item is a service, application, or data that a tenant can use. It 
 
 Each item published to the marketplace uses a format called the Azure Gallery Package (azpkg). This file does not contain deployment or runtime resources (such as code, zip files with software, virtual machines, or disks). These resources are only referenced by the templates and should be hosted external to the Azure Gallery Package.
 
-# Next Steps
+## Next Steps
 
 [To create a new marketplace item](azure-stack-create-marketplace-item.md)

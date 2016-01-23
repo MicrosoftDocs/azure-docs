@@ -18,9 +18,11 @@
 
 # Prepare the physical machine
 
-1.  Download the Azure Stack POC deployment package to a folder such as c:\\MAS.
+1.  On the Azure Stack POC machine, install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 
-2.  Run the **Microsoft Azure Stack POC.exe** file.
+2.  Download the Azure Stack POC deployment package to a folder such as c:\\AzureStack.
+
+3.  Run the **Microsoft Azure Stack POC.exe** file.
 
     This creates the \\Microsoft Azure Stack POC\\ folder containing the following items:
 
@@ -36,15 +38,13 @@
 
 	**Important**: You must have at least 128GB of free space on the physical boot volume.
 
-3. Copy WindowsServer2016Datacenter.vhdx and call it MicrosoftAzureStackPOCBoot.vhdx.
+4. Copy WindowsServer2016Datacenter.vhdx and call it MicrosoftAzureStackPOCBoot.vhdx.
 
-4. In Internet Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
-
-5. In a Command Prompt window, switch to the drive letter for the mounted drive, then switch to the Windows directory.
+5. In File Explorer, right-click MicrosoftAzureStackPOCBoot.vhdx and click **Mount**.
 
 6. Run the bcdboot command:
 
-    	.bcdboot <mounted drive letter>:\windows
+    	bcdboot <mounted drive letter>:\windows
 
 7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared.
 
@@ -119,6 +119,6 @@ Before deploying Microsoft Azure Stack POC, you can turn off telemetry for Micro
 
 After deploying Microsoft Azure Stack POC, you can turn off telemetry on all the virtual machines that joined the Azure Stack domain. To create a group policy and manage your telemetry settings on those virtual machines, please refer to: [https://technet.microsoft.com/library/mt577208(v=vs.85).aspx\#BKMK\_UTC](https://technet.microsoft.com/library/mt577208%28v=vs.85%29.aspx#BKMK_UTC), and select **0** or **1** for the **Allow Telemetry** group policy. There are two virtual machines (bgpvm and natvm) not joining the Azure Stack domain. To change the Feedback and Diagnostics settings on these virtual machines separately, please refer to:  <http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq>.
 
-# Next Steps
+## Next Steps
 
 [Prepare the physical machine](azure-stack-connect-azure-stack.md)

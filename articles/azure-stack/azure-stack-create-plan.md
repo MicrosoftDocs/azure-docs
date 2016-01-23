@@ -68,6 +68,6 @@ In this step, you’ll create a plan that includes the compute, network, and sto
 
     ![](media/azure-stack-create-plan/image10.png)
 
-# Next Steps
+## Next Steps
 
 [Create an offer](azure-stack-create-offer.md)

@@ -38,6 +38,6 @@ A storage account gives you access to the Blob and Table services. Your storage 
 
 To remove a storage account that you are no longer using, navigate to the storage account in portal, and click **Delete**. Deleting a storage account deletes the entire account, including all data in the account.
 
-# Next Steps
+## Next Steps
 
 [Use Azure Resource Manager templates](azure-stack-arm-templates.md)

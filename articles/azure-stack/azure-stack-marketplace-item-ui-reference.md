@@ -34,6 +34,6 @@
 
 [Marketplace Item UI References](azure-stack-marketplace-item-ui-reference.md)
 
-# Next Steps
+## Next Steps
 
 [Add a new Microsoft Azure Stack tenant account in Azure Active Directory](azure-stack-add-new-user-aad.md)

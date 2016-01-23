@@ -30,6 +30,6 @@ Microsoft Azure Stack POC (Proof of Concept) is an environment for learning and 
 
 -   Limited Networking scenarios due to single host/NIC requirement
 
-# Next Steps
+## Next Steps
 
 [Key features and concepts](azure-stack-key-features.md)
