@@ -29,7 +29,7 @@ Azure Automation DSC can be used to manage a variety of machines:
 *    Physical / virtual Windows machines on-premises, or in a cloud other than Azure
 *    Physical / virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
 
-In addition, a **DSC metaconfiguration** can be generated to generically onboard any combination of the above machines to Azure Automation DSC.
+In addition, if you are not ready to manage machine configuration from the cloud, Azure Automation DSC can also be used as a report-only endpoint. This allows you to set (push) desired configuration through DSC on-premises and view rich reporting details on node compliance with the desired state in Azure Automation.
 
 The following sections outline how you can onboard each type of machine to Azure Automation DSC.
 
