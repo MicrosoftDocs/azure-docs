@@ -42,7 +42,7 @@ Installed modules are saved in the node_modules directory at the root of your No
 
 This dependency chain structure results in a larger application footprint, but it guarantees that all dependencies are met and that the version of the modules used in development will also be used in production. This makes the production app behavior more predictable and prevents versioning problems that might affect users.
 
-## Step 1: Register a Azure AD Tenant
+## 1. Register a Azure AD Tenant
 
 To use this sample you will need a Azure Active Directory Tenant. If you're not sure what a tenant is or how you would get one, see  [How to get an Azure AD tenant](active-directory-howto-tenant.md).
 
@@ -67,12 +67,12 @@ Be sure to:
 - REMINDER: Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
 
-## Step 3: Download node.js for your platform
+## 3. Download node.js for your platform
 To successfully use this sample, you must have a working installation of Node.js.
 
 Install Node.js from [http://nodejs.org](http://nodejs.org).
 
-## Step 4: Install MongoDB on to your platform
+## 4. Install MongoDB on to your platform
 
 To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistant across server instances.
 
@@ -81,7 +81,7 @@ Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 > [AZURE.NOTE] This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
 
 
-## Step 5: Install the Restify modules in to your Web API
+## 5. Install the Restify modules in to your Web API
 
 We will be using Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.
 
@@ -151,7 +151,7 @@ The output of this command should appear similar to the following:
 	└── bunyan@0.22.0 (mv@0.0.5)
 
 
-## Step 6: Install Passport.js in to your Web API
+## 6. Install Passport.js in to your Web API
 
 [Passport](http://passportjs.org/) is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Azure Active Directory. We will install this module and then add the Azure Active Directory strategy plug-in.
 
@@ -167,7 +167,7 @@ The output of the commadn should appear similar to the following:
 	├── pause@0.0.1
 	└── pkginfo@0.2.3
 
-## Step 7: Add Passport-Azure-AD to your Web API
+## 7. Add Passport-Azure-AD to your Web API
 
 Next, we will add the OAuth strategy, using passport-azuread, a suite of strategies that connect Azure Active Directory with  Passport. We will use this strategy for Bearer Tokens in this Rest API sample.
 
@@ -196,14 +196,14 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 └── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
 
 
-## Step 8: Add MongoDB modules to your Web API
+## 8. Add MongoDB modules to your Web API
 
 We will be using MongoDB as our datastore For that reason, we need to install both the widely used plug-in to manage models and schemas called Mongoose, as well as the database driver for MongoDB, also called MongoDB.
 
 
 * `npm install mongoose`
 
-## Step 9:  Install additional modules
+## 9.  Install additional modules
 
 Next, we'll install the remaining required modules.
 
@@ -220,7 +220,7 @@ Enter the following commands to install the following modules in your node_modul
 * `npm update`
 
 
-## Step 10: Create a server.js with your dependencies
+## 10. Create a server.js with your dependencies
 
 The server.js file will be providing the majority of our functionality for our Web API server. We will be adding most of our code to this file. For production purposes you would refactor the functionality in to smaller files, such as separate routes and controllers. For the purpose of this demo we will use server.js for this functionality.
 
@@ -250,7 +250,7 @@ Create a `server.js` file in our favorite editor and add the following informati
 
 Save the file. We will return to it shortly.
 
-## Step 11: Create a config file to store your Azure AD settings
+## 11:. Create a config file to store your Azure AD settings
 
 This code file passes the configuration parameters from your Azure Active Directory Portal to Passport.js. You created these configuration values when you added the Web API to the portal in the first part of the walkthrough. We will explain what to put in the values of these parameters after you've copied the code.
 
@@ -279,7 +279,7 @@ Create a `config.js` file in our favorite editor and add the following informati
 ```
 Save the file. 
 
-## Step 12: Add configuration to your server.js file
+## 12. Add configuration to your server.js file
 
 We need to read these values from the Config file you just created across our application. To do this, we simply add the .config file as a required resource in our application and then set the global variables to those in the config.js document
 
@@ -339,7 +339,7 @@ Save the file.
 
 
 
-## Step 13: Add The MongoDB Model and Schema Information using Moongoose
+## 13. Add The MongoDB Model and Schema Information using Moongoose
 
 Now all this preparation is going to start paying off as we wind these three files together in to a REST API service.
 
@@ -390,7 +390,7 @@ var Task = mongoose.model('Task');
 ```
 As you can tell from the code, we create our Schema and then create a model object we will use to store our data throughout the code when we define our ***Routes***.
 
-## Step 15: Add our Routes for our Task REST API server
+## 14. Add our Routes for our Task REST API server
 
 Now that we have a database model to work with, let's add the routes we will use for our REST API server.
 
@@ -421,7 +421,7 @@ server.post('/service/:add/:object', createObject); // calls createObject on rou
 
 This is the pattern at the most basic level. Resitfy (and Express) provide much deeper functionaltiy such as defining application types and doing complex routing across different endpoints. For our purposes, we will keep these routes very simply.
 
-#### Add default routes to our server
+### 1. Add default routes to our server
 
 We will now add the basic CRUD routes of Create, Retrieve, Update, and Delete.
 
@@ -567,7 +567,7 @@ function listTasks(req, res, next) {
 
 ```
 
-### Next, let's add some Error handling in our APIs:
+### 2. Next, let's add some Error handling in our APIs:
 
 ```
 
@@ -618,7 +618,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ```
 
 
-## Step 16: Create your Server!
+## 15. Create your Server!
 
 We have our database defined, we have our routes in place, and the last thing to do is add our server instance that will manage our calls.
 
@@ -664,7 +664,7 @@ server.use(restify.bodyParser({
 })); // Allows for JSON mapping to REST
 ```
 
-## STEP 17: Adding the routes to the server (without authentication for now)
+## 16. Adding the routes to the server (without authentication for now)
 
 ```Javascript
 /// Now the real handlers. Here we just CRUD
@@ -716,7 +716,7 @@ consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 });
 ```
 
-# 18: Before we add OAuth support, let's run the server.
+## 17. Before we add OAuth support, let's run the server.
 
 Test out your server before we add authentication
 
@@ -779,7 +779,7 @@ If all this works out, we are ready to add OAuth to the REST API server.
 **You have a REST API server with MongoDB!**
 
 
-### 19: Add Authentication to our REST API Server
+## 18. Add Authentication to our REST API Server
 
 Now that we have a running REST API (congrats, btw!) let's get to making it useful against Azure AD.
 
@@ -899,7 +899,7 @@ next();
 });
 ```
 
-## 20: Run your server application again and ensure it rejects you
+## 19. Run your server application again and ensure it rejects you
 
 Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We will do this before runnning any of our client SDKs against this endpoint. The headers returned should be enough to tell us we are down the right path.
 
@@ -940,6 +940,5 @@ Simply clone down to your developer machine and configure as stated in the Walkt
 
 [ADAL for Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
-[ADAL for .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
