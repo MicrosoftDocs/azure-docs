@@ -3,8 +3,8 @@
 	description="This FAQ answers questions about Azure AD Connect Health. This FAQ covers questions about using the service, including the billing model, capabilities, limitations, and support."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="karavar"
+	manager="samueld"
 	editor="curtand"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
-	ms.author="billmath"/>
+	ms.date="01/22/2016"
+	ms.author="vakarand"/>
 
 
 # Azure AD Connect Health Frequently Asked Questions (FAQ)
@@ -60,7 +60,7 @@ For example, on Windows Server 2008 R2 the installation of .Net 4.5 Framework re
 
 **Q: Does Azure AD Connect Health Services work through a pass-through http proxy?**
 
-Yes.  For on going operations, you can configure the Health Agent to forward outbound http requests using an HTTP Proxy. See [Configure Azure AD Connect Health Agents to use HTTP Proxy](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy) for more information.
+Yes.  For on going operations, you can configure the Health Agent to forward outbound http requests using an HTTP Proxy. See [Configure Azure AD Connect Health Agents to use HTTP Proxy](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy) for more information.
 
 If you need to configure a proxy during Agent registration, you need to modify your Internet Explorer Proxy settings. <br>
 Open Internet Explorer -> Settings -> Internet Options -> Connections -> LAN Settings.<br>
