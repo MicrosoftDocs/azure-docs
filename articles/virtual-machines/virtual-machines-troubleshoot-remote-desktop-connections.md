@@ -39,19 +39,19 @@ This section lists quick fix steps for common Remote Desktop connection issues.
 These steps may resolve most Remote Desktop connection failures in Azure virtual machines created using the classic deployment model. After each step, try reconnecting to the VM.
 
 - Reset Remote Desktop service from the [Azure portal](https://portal.azure.com) to fix startup issues with the RDP server.<br>
-	Click Browse > Virtual machines (classic) > your Windows virtual machine > **Reset Remote...**.
+	Click **Browse** > **Virtual machines (classic)** > your Windows virtual machine > **Reset Remote...**.
 
 - Restart the Virtual Machine to address other startup issues.<br>
-	Click Browse > Virtual machines (classic) > your Windows virtual machine > **Restart**.
+	Click **Browse** > **Virtual machines (classic)** > your Windows virtual machine > **Restart**.
 
 - Resize the VM to fix any host issues.<br>
-	Click Browse > Virtual machines (classic) > your Windows virtual machine > Settings > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+	Click **Browse** > **Virtual machines (classic)** > your Windows virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
 
 - Review your VM’s console log or screenshot to correct boot problems.<br>
-	Click Browse > Virtual machines (classic) > your Windows virtual machine > Settings > **Boot diagnostics**
+	Click **Browse** > **Virtual machines (classic**) > your Windows virtual machine > **Settings** > **Boot diagnostics**.
 
 - Check VM's Resource Health for any platform issues.<br>
-	Click Browse > Virtual machines (classic) > your Windows virtual machine > Settings > **Check Health**
+	Click **Browse** > **Virtual machines (classic)** > your Windows virtual machine > **Settings** > **Check Health**.
 
 ### Virtual machines created using Resource Manager deployment model
 
@@ -72,13 +72,13 @@ These steps may resolve most Remote Desktop connection failures in Azure virtual
   ```
 
 - Restart the Virtual Machine to address other startup issues.<br>
-	Click Browse > Virtual machines > your Windows virtual machine > **Restart**.
+	Click **Browse** > **Virtual machines** > your Windows virtual machine > **Restart**.
 
 - Resize the VM to fix any host issues.<br>
-	Click Browse > Virtual machines > your Windows virtual machine > Settings > **Size**.
+	Click **Browse** > **Virtual machines** > your Windows virtual machine > **Settings** > **Size**.
 
 - Review your VM's console log or screenshot to correct boot problems.<br>
-	Click Browse > Virtual machines > your Windows virtual machine > Settings > **Boot diagnostics**
+	Click **Browse** > **Virtual machines** > your Windows virtual machine > **Settings** > **Boot diagnostics**.
 
 
 Proceed to the next section if the above steps did not resolve your Remote Desktop connection failures.
