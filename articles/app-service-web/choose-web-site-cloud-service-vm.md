@@ -123,7 +123,7 @@ If your open source framework is not supported on App Service, you can run it on
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
 
-If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Cloud Services, and Virtual Machines using the [Azure Virtual Network service](/services/virtual-network/). On App Service you can use the [VNET integration feature](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
+If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Cloud Services, and Virtual Machines using the [Azure Virtual Network service](/services/virtual-network/). On App Service you can use the [VNET integration feature](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
 
 ### <a id="mobile"></a>I want to host a REST API or web service for mobile clients
 

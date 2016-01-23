@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Azure SQL Database Web and Business Edition sunset FAQ | Microsoft Azure"
    description="Find out when the Azure SQL Web and Business databases will be retired and learn about the features and functionality of the new service tiers."
    services="sql-database"
@@ -6,13 +6,13 @@
    authors="stevestein"
    manager="jeffreyg"
    editor="monicar" />
-<tags 
+<tags
    ms.service="sql-database"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="12/01/2015"
    ms.author="sstein" />
 
 # Web and Business Edition sunset FAQ
@@ -26,7 +26,7 @@ To assist you with upgrading Web and Business databases, the SQL Database servic
 - [Upgrade to SQL Database V12 using the Azure portal](sql-database-upgrade-server-portal.md)
 - [Upgrade to SQL Database V12 using PowerShell](sql-database-upgrade-server-powershell.md)
 - [Change the pricing tier of a Web or Business database](sql-database-service-tier-advisor.md)
- 
+
 
 
 ## Why does the Azure portal show my Web and Business edition databases as Retired?
@@ -35,7 +35,7 @@ Because Web and Business edition databases will not be available after September
 
 ## Which new service tier is the best choice to upgrade my existing Web or Business database to?
 
-Selecting an appropriate new service tier and performance level for your existing Web or Business database depends on the specific feature and performance requirements for your application. 
+Selecting an appropriate new service tier and performance level for your existing Web or Business database depends on the specific feature and performance requirements for your application.
 
 Use the pricing tier recommendations described above, or for detailed information to assist you in selecting an appropriate new service tier, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md).
 

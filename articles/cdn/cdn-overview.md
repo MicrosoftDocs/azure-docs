@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/20/2016" 
 	ms.author="casoper"/>
 
 # Overview of the Azure Content Delivery Network (CDN)
@@ -49,6 +49,7 @@ The Standard CDN tier includes these features:
 - Load balancing
 - DDOS protection
 - [Fast purge](cdn-purge-endpoint.md)
+- [Asset pre-loading](cdn-preload-endpoint.md)
 - [Management via REST API](https://msdn.microsoft.com/library/mt634456.aspx)
 
 
@@ -58,4 +59,4 @@ The Premium CDN tier includes all of the features of the Standard tier, plus the
 
 - [Customizable, rule-based content delivery engine](cdn-rules-engine.md)
 - [Advanced HTTP reports](cdn-advanced-http-reports.md)
-- [Real-time stats](cdn-read-time-stats.md)
+- [Real-time stats](cdn-real-time-stats.md)

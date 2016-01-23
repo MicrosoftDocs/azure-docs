@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="01/13/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Twitter login

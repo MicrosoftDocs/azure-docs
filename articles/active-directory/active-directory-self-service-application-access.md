@@ -20,14 +20,14 @@
 
 Enabling self-service capabilities for end users is a common scenario for enterprise IT. Lots of users, lots of applications, and the person who is best-informed to make access grant decisions may not be the directory administrator. Often the best person to decide who can access an application is a team lead or other delegated administrator. But at the end of the day, it’s the user who uses the app, and the user knows what they need to be able to do their job.
 
-Self-service application access is a feature of [Azure Active Directory Premium](http://azure.microsoft.com/trial/get-started-active-directory/) that allow directory administrators to:
+Self-service application access is a feature of [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) that allow directory administrators to:
 
 * Enable users to request access to applications using a “Get more applications” tile in the [Azure AD access panel](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Set which applications users can request access to
 * Set whether or not an approval is required for users to be able to self-assign access to an application
 * Set who should approve the requests and manage access for each application
 
-Today this capability is supported for all pre-integrated and custom apps that support federated or password-based single sign-on in the [Azure Active Directory application gallery](http://azure.microsoft.com/marketplace/active-directory/all/), including apps like Salesforce, Dropbox, Google Apps, and more.
+Today this capability is supported for all pre-integrated and custom apps that support federated or password-based single sign-on in the [Azure Active Directory application gallery](https://azure.microsoft.com/marketplace/active-directory/all/), including apps like Salesforce, Dropbox, Google Apps, and more.
 This article describes how to:
 
 * Configure self-service application access for end users, including configuring an optional approval workflow 
