@@ -264,8 +264,8 @@ Create a `config.js` file in our favorite editor and add the following informati
 ```Javascript
  exports.creds = {
      mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
-     clientID: 'your client ID,
-     audience: 'your reply URL',
+     clientID: 'your client ID',
+     audience: 'your application URL',
     // you cannot have users from multiple tenants sign in to your server unless you use the common endpoint
   // example: https://login.microsoftonline.com/common/.well-known/openid-configuration
      identityMetadata: 'https://login.microsoftonline.com/<your client id>/.well-known/openid-configuration', 
@@ -337,7 +337,7 @@ var serverURI = (process.env.PORT) ? config.creds.mongoose_auth_mongohq : config
 
 Save the file. 
 
-```
+
 
 ## Step 13: Add The MongoDB Model and Schema Information using Moongoose
 
