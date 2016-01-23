@@ -112,6 +112,4 @@ If you experience any issues with the day-to-day operation of your StorSimple de
 - [Troubleshoot an operational device](storsimple-troubleshoot-operational-device.md)
 - [Use StorSimple monitoring indicator LEDs](storsimple-monitoring-indicators.md)
 
-If you cannot resolve the issues and you need to create a service request, refer to:
-
--  [Contact Microsoft Support](storsimple-contact-microsoft-support.md)
+If you cannot resolve the issues and you need to create a service request, refer to [Contact Microsoft Support](storsimple-contact-microsoft-support.md).
