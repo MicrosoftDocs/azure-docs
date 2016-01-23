@@ -279,11 +279,12 @@ To generically onboard any machine to Azure Automation DSC, a DSC metaconfigurat
 
                 ReportServerWeb AzureAutomationDSC 
                 { 
-                ServerUrl = $RegistrationUrl 
-                RegistrationKey = $RegistrationKey 
+                    ServerUrl = $RegistrationUrl 
+                    RegistrationKey = $RegistrationKey 
                 }
             } 
         }
+        
         # Create the metaconfigurations
         # TODO: edit the below as needed for your use case
         DscMetaConfigs `
