@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD NodeJS Getting Started | Microsoft Azure"
-	description="How to build a Node.js Web API that integrates with Azure AD for authentication."
+	description="How to build a Node.js REST Web API that integrates with Azure AD for authentication."
 	services="active-directory"
 	documentationCenter="nodejs"
 	authors="brandwe"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/23/2016"
 	ms.author="brandwe"/>
 
 # Getting Started With WEB-API for Node
