@@ -40,7 +40,7 @@ With Azure Automation DSC, you can easily onboard Azure virtual machines (classi
 
 ### Azure portal
 
-In the [Azure preview portal](http://portal.azure.com/), click **Browse** -> **Virtual machines (classic)**. Select the Windows VM you want to onboard. On the virtual machine’s dashboard blade, click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**. Enter the [PowerShell DSC Local Configuration Manager values](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) required for your use case, your Automation account’s registration key and registration URL, and optionally a node configuration to assign to the VM.
+In the [Azure preview portal](http://portal.azure.com/), click **Browse** -> **Virtual machines (classic)**. Select the Windows VM you want to onboard. On the virtual machine’s dashboard blade, click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**. Enter the [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig4) required for your use case, your Automation account’s registration key and registration URL, and optionally a node configuration to assign to the VM.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
@@ -123,7 +123,7 @@ Under **Select virtual machines to onboard**, select one or more Azure virtual m
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
 
 
-Under **Configure registration data**, enter the [PowerShell DSC Local Configuration Manager values](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) required for your use case, and optionally a node configuration to assign to the VM.
+Under **Configure registration data**, enter the [PowerShell DSC Local Configuration Manager values](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig4) required for your use case, and optionally a node configuration to assign to the VM.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
 
@@ -140,9 +140,9 @@ The [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603
 
 On-premises Windows machines and Windows machines in non-Azure clouds (such as Amazon Web Services) can also be onboarded to Azure Automation DSC, as long as they have outbound access to the internet, via a few simple steps:
 
-1. Make sure the latest version of [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729) is installed on the machines you want to onboard to Azure Automation DSC.
+1. Make sure the latest version of [WMF 5](http://aka.ms/wmf5latest) is installed on the machines you want to onboard to Azure Automation DSC.
 2. Follow the directions in section [**Generating DSC metaconfigurations**](#generating-dsc-metaconfigurations) below to generate a folder containing the needed DSC metaconfigurations.
-3. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard. **The machine this command is run from must have the latest version of [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729) installed**:
+3. Remotely apply the PowerShell DSC metaconfiguration to the machines you want to onboard. **The machine this command is run from must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed**:
 
 	`Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2`
 
@@ -155,7 +155,7 @@ On-premises Linux machines, Linux machines in Azure, and Linux machines in non-A
 
 1. Make sure the latest version of the [DSC Linux agent](http://www.microsoft.com/en-us/download/details.aspx?id=49150) is installed on the machines you want to onboard to Azure Automation DSC.
 
-2. If the [PowerShell DSC Local Configuration Manager defaults](hhttps://msdn.microsoft.com/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation DSC::
+2. If the [PowerShell DSC Local Configuration Manager defaults](https://msdn.microsoft.com/en-us/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation DSC:
 
 	*    On each Linux machine to onboard to Azure Automation DSC, use Register.py to onboard using the PowerShell DSC Local Configuration Manager defaults:
 
@@ -178,7 +178,7 @@ On-premises Linux machines, Linux machines in Azure, and Linux machines in non-A
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
 	
-The machine this command is run from must have the latest version of [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729) installed.
+The machine this command is run from must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
 
 5.  If you cannot apply the PowerShell DSC metaconfigurations remotely, for each Linux machine to onboard, copy the metaconfiguration corresponding to that machine from the folder in step 5 onto the Linux machine. Then call `SetDscLocalConfigurationManager.py` locally on each Linux machine you want to onboard to Azure Automation DSC:
 
@@ -192,7 +192,7 @@ To generically onboard any machine to Azure Automation DSC, a DSC metaconfigurat
 **Note:** DSC metaconfigurations contain the secrets needed to onboard a machine to an Automation account for management. Make sure to properly protect any DSC metaconfigurations you create, or delete them after use.
 
 ###Using a DSC Configuration
-1.	Open the PowerShell ISE as an administrator in a machine in your local environment. The machine must have the latest version of [WMF 5](http://www.microsoft.com/en-us/download/details.aspx?id=48729) installed.
+1.	Open the PowerShell ISE as an administrator in a machine in your local environment. The machine must have the latest version of [WMF 5](http://aka.ms/wmf5latest) installed.
 
 2.	Copy the following script locally. This script contains a PowerShell DSC configuration for creating metaconfigurations, and a command to kick off the metaconfiguration creation.
     
