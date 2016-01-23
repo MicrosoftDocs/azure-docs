@@ -312,7 +312,7 @@ var owner = null;
 
 // Our logger
 var log = bunyan.createLogger({
-    name: 'Windows Azure Active Directory Bearer Sample',
+    name: 'Azure Active Directory Bearer Sample',
          streams: [
         {
             stream: process.stderr,
@@ -631,7 +631,7 @@ Restify (and Express) have a lot of deep customization you can do for a REST API
 
 
 var server = restify.createServer({
-    name: "Windows Azure Active Directroy TODO Server",
+    name: "Azure Active Directroy TODO Server",
     version: "2.0.1"
 });
 
