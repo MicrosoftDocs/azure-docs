@@ -3,7 +3,7 @@
    description="This article contains multiple topics for managing an Azure Automation environment.  Currently includes Data Retention and Backing up Azure Automation Disaster Recovery in Azure Automation."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags 

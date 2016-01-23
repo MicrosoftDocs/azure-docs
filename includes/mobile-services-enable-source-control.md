@@ -1,5 +1,5 @@
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, click your mobile service, then click the **Dashboard** tab.
+1. Log on to the [Azure classic portal](https://manage.windowsazure.com/), click **Mobile Services**, click your mobile service, then click the **Dashboard** tab.
 
 2. (Optional) If you have already set the Mobile Services or Websites source control credentials for your Azure subscription, then you can skip down to step 4. Otherwise, click **Set up source control** under **Quick glance** and click **Yes** to confirm.
 

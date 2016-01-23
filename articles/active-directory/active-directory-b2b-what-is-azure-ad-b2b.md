@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="01/22/2016"
    ms.author="viviali"/>
 
 # Azure Active Directory (Azure AD) B2B collaboration preview: Simple, secure cloud partner integration
@@ -27,6 +27,8 @@ As companies focus more on their core business, the need to partner with other b
 - **Free**: Azure AD B2B collaboration is a free feature that comes with Azure AD. The partner companies who need access to your corporate apps **do not need to have Azure AD.** Azure AD B2B collaboration provides a simple user sign-up experience to provide these partners with immediate access to your apps.
 
 Check out [the blog post announcing public preview](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) and [this deep dive video](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo) walking through Azure AD B2B collaboration.
+
+For a comparison of the differrent use cases for Azure AD B2B collaboration, Azure AD B2C, and the Azure AD Multi-tenant App, check out [Comparing capabilities for managing external identities using Azure Active Directory](active-directory-b2b-compare-external-identities.md).
 
 ## Related articles
 Browse our other articles on Azure B2B collaboration:

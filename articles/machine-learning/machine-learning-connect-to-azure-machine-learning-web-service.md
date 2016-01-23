@@ -41,12 +41,12 @@ Azure Machine Learning has two types of services:
 For more information about Azure Machine Learning web services, see [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Get an Azure Machine Learning authorization key ##
-You get a web service API key from an ML web service. You can get it from Microsoft Azure Machine Learning studio or the Azure Management Portal.
+You get a web service API key from an ML web service. You can get it from Microsoft Azure Machine Learning studio or the Azure Classic Portal.
 ### Microsoft Azure Machine Learning studio ###
 1. In Microsoft Azure Machine Learning studio, click **WEB SERVICES** on the left.
 2. Click a web service. The “API key” is on the **DASHBOARD** tab.
 
-### Azure Management Portal ###
+### Azure Classic Portal ###
 
 1. Click **MACHINE LEARNING** on the left.
 2. Click a workspace.

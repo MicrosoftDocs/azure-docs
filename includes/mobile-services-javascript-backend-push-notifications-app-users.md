@@ -1,5 +1,5 @@
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
+1. Log on to the [Azure classic portal](https://manage.windowsazure.com/), click **Mobile Services**, and then click your mobile service.
 
 2. Click the **Push** tab, select **Only Authenticated Users** for **Permissions**, click **Save**, and then click **Edit Script**.
 	

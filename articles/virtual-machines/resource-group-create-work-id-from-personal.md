@@ -14,25 +14,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure"
-   ms.date="09/01/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Creating a Work or School identity in Azure Active Directory
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-If you created a personal Azure account or have a personal MSDN subscription and created the Azure account to take advantage of the MSDN Azure credits -- you used a *Microsoft account* identity to create it. Many great features of Azure -- [resource group templates](../resource-group-overview.md) is one example -- require a work or school account (an identity managed by Azure Active Directory) to work.
+If you created a personal Azure account or have a personal MSDN subscription and created the Azure account to take advantage of the MSDN Azure credits -- you used a *Microsoft account* identity to create it. Many great features of Azure -- [resource group templates](../resource-group-overview.md) is one example -- require a work or school account (an identity managed by Azure Active Directory) to work. You can follow the instructions below to create a new work or school account because fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain that you can use to create a new work or school account that you can use with Azure features that require it.
 
-
-Fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain that you can use to create a new work or school account that you can use with Azure features that require it.
+However, recent changes make it possible to manage your subscription with any type of Azure account using the `azure login` interactive login method described [here](../xplat-cli-connect.md). You can either use that mechanism, or you can follow the instructions that follow.
 
 > [AZURE.NOTE] If you were given a user name and password by an administrator, there's a good chance that you already have a work or school ID (also sometimes called an *organizational ID*). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this article for help. For more information, see [Accounts that you can use for sign in](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) and [How an Azure subscription is related to Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir).
 
-The steps are simple. You need to locate your signed on identity in the Azure portal, discover your default Azure Active Directory domain, and add a new user to it as an Azure co-administrator.
+The steps are simple. You need to locate your signed on identity in the Azure classic portal, discover your default Azure Active Directory domain, and add a new user to it as an Azure co-administrator.
 
-## Locate your default directory in the Azure Portal
+## Locate your default directory in the Azure classic portal
 
-Start by logging in to the [Azure portal](https://manage.windowsazure.com) with your personal Microsoft account identity. After you are logged in, scroll down the blue panel on the left side and click **ACTIVE DIRECTORY**.
+Start by logging in to the [Azure classic portal](https://manage.windowsazure.com) with your personal Microsoft account identity. After you are logged in, scroll down the blue panel on the left side and click **ACTIVE DIRECTORY**.
 
 ![Azure Active Directory](./media/resource-group-create-work-id-from-personal/azureactivedirectorywidget.png)
 
@@ -62,7 +61,7 @@ At the bottom of the page, click **+ADD USER**. In the page that appears, type t
 
 ![](./media/resource-group-create-work-id-from-personal/addingauserwithdirectorydropdown.png)
 
-Add more details for Ahmet, but make sure to select the appropriate **ROLE** value. It's easy to use **Global Admin** to make sure things are working, but if you can use a lesser role, that's a good idea. This example uses the **User** role. (Find out more about these roles [here](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) Do not enable multi-factor authentication unless you want to use multifactor authentication for each log in operation. Click the next arrow when you're finished.
+Add more details for Ahmet, but make sure to select the appropriate **ROLE** value. It's easy to use **Global Admin** to make sure things are working, but if you can use a lesser role, that's a good idea. This example uses the **User** role. (Find out more at [Administrator permissions by role](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) Do not enable multi-factor authentication unless you want to use multifactor authentication for each log in operation. Click the next arrow when you're finished.
 
 ![](./media/resource-group-create-work-id-from-personal/userprofileuseradmin.png)
 
@@ -113,9 +112,9 @@ You should be rewarded with success that looks like the following.
 
 ## Next steps
 
-You can now use your new Azure Active Directory identity to use [Azure resource group templates](xplat-cli-azure-resource-manager.md).
+You can now use your new Azure Active Directory identity to use [Azure resource group templates](../xplat-cli-azure-resource-manager.md).
 
-     azure login
+    azure login
     info:    Executing command login
     warn:    Please note that currently you can login only via Microsoft organizational account or service principal. For instructions on how to set them up, please read http://aka.ms/Dhf67j.
     Username: ahmet@aztrainpassxxxxxoutlook.onmicrosoft.com

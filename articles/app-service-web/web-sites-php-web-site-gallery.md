@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a WordPress web app in Azure App Service | Microsoft Azure"
-	description="Learn how to create a new Azure web app for a WordPress blog using the Azure preview portal."
+	description="Learn how to create a new Azure web app for a WordPress blog using the Azure Portal."
 	services="app-service\web"
 	documentationCenter="php"
 	authors="tfitzmac"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="11/13/2015"
 	ms.author="tomfitz"/>
 
 # Create a WordPress web app in Azure App Service
@@ -30,18 +30,18 @@ You'll learn:
 * How to create a web app in Azure App Service that is based on the template.
 * How to configure Azure App Service settings for the new web app and MySQL database.
 
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. The web apps are built on a wide range of popular frameworks, such as [PHP](/develop/nodejs/) in this WordPress example, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), and [Python](/develop/python/), to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure preview portal](https://portal.azure.com/). 
+The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. The web apps are built on a wide range of popular frameworks, such as [PHP](/develop/nodejs/) in this WordPress example, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), and [Python](/develop/python/), to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure Portal](https://portal.azure.com/). 
 
 > [AZURE.NOTE]
-> To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+> To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter web app in App Service—no credit card required, and no commitments.
 
 ## Select WordPress and configure for Azure App Service
 
-1. Log in to the [Azure Preview Portal](https://portal.azure.com/).
+1. Log in to the [Azure Portal](https://portal.azure.com/).
 
-2. Click **New > Marketplace**.
+2. Click **New**.
 	
     ![Create New][5]
 	
@@ -61,7 +61,7 @@ The Azure Marketplace makes available a wide range of popular web apps developed
 
 5. Select a **Resource Group** or create a new one.
 
-	For more information about resource groups, see [Using the Azure Preview Portal to manage your Azure resources](../resource-group-portal.md).
+	For more information about resource groups, see [Using the Azure Portal to manage your Azure resources](../resource-group-portal.md).
 
 5. Select an **App Service plan/Location** or create a new one.
 
@@ -89,7 +89,7 @@ The Azure Marketplace makes available a wide range of popular web apps developed
 
 ## Launch and manage your WordPress web app
 	
-7. When the web app creation is finished, navigate in the portal to the resource group in which you created the application, and you can see the web app and the database.
+7. When the web app creation is finished, navigate in the Azure Portal to the resource group in which you created the application, and you can see the web app and the database.
 
 	The extra resource with the light bulb icon is [Application Insights](/services/application-insights/), which provides monitoring services for your web app.
 
@@ -119,7 +119,6 @@ For more information about how to work with App Service Web Apps, see the links 
 
 ## What's changed
 * For a guide to the change from Websites to App Service, see [Azure App Service and its impact on existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714).
-* For a guide to the change of the old portal to the new portal, see [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [5]: ./media/web-sites-php-web-site-gallery/startmarketplace.png
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png

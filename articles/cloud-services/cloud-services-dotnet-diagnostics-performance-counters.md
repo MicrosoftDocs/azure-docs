@@ -26,7 +26,7 @@ You can examine performance counter data
 2. With System Center Operations Manager using the Azure Management Pack
 3. With other monitoring tools that access the diagnostic data transferred to Azure storage. See [Store and View Diagnostic Data in Azure Storage](https://msdn.microsoft.com/library/azure/hh411534.aspx) for more information.  
 
-For more information on monitoring the performance of your application in the [Azure Management Portal](http://manage.azure.com/), see [How to Monitor Cloud Services](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+For more information on monitoring the performance of your application in the [Azure classic portal](http://manage.azure.com/), see [How to Monitor Cloud Services](https://www.azure.com/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 
 For additional in-depth guidance on creating a logging and tracing strategy and using diagnostics and other techniques to troubleshoot problems and optimize Azure applications, see [Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/library/azure/hh771389.aspx).
 
@@ -95,7 +95,7 @@ This section assumes that you have imported the Diagnostics monitor into your ap
 
 ## Step 1: Collect and store data from performance counters
 
-After you have added the diagnostics file to your Visual Studio solution you can configure the collection and storage of performance counter data in a Azure application. This is done by adding performance counters to the diagnostics file. Diagnostics data, including performance counters, is first collected on the instance. The data is then persisted to the WADPerformanceCountersTable table in the Azure Table service, so you will also need to specify the storage account in your application. If you're testing your application locally in the Compute Emulator, you can also store diagnostics data locally in the Storage Emulator. Before you store diagnostics data you must first go to the [Azure Management Portal](http://manage.windowsazure.com/) and create a storage account. A best practice is to locate your storage account in the same geo-location as your Azure application in order to avoid paying external bandwidth costs and to reduce latency.
+After you have added the diagnostics file to your Visual Studio solution you can configure the collection and storage of performance counter data in a Azure application. This is done by adding performance counters to the diagnostics file. Diagnostics data, including performance counters, is first collected on the instance. The data is then persisted to the WADPerformanceCountersTable table in the Azure Table service, so you will also need to specify the storage account in your application. If you're testing your application locally in the Compute Emulator, you can also store diagnostics data locally in the Storage Emulator. Before you store diagnostics data you must first go to the [Azure classic portal](http://manage.windowsazure.com/) and create a storage account. A best practice is to locate your storage account in the same geo-location as your Azure application in order to avoid paying external bandwidth costs and to reduce latency.
 
 ### Add performance counters to the diagnostics file
 
@@ -148,7 +148,7 @@ For Azure SDK 2.5 the Storage Account can be specified in the diagnostics.wadcfg
 
 To set the connection strings:
 
-1. Open the ServiceConfiguration.Cloud.cscfg file using your favorite text editor and set the connection string for your storage. The *AccountName* and *AccountKey* values are found in the Management Portal in the storage account dashboard, under Manage Keys.
+1. Open the ServiceConfiguration.Cloud.cscfg file using your favorite text editor and set the connection string for your storage. The *AccountName* and *AccountKey* values are found in the Azure classic portal in the storage account dashboard, under Manage Keys.
 
     ```
     <ConfigurationSettings>

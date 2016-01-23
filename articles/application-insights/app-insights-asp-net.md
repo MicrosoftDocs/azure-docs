@@ -12,26 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # Set up Application Insights for ASP.NET
 
-*Application Insights is in preview.*
-
-<a name="selector1"></a>
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) monitors your live application to help you [detect and diagnose performance issues and exceptions][detect], and [discover how your app is used][knowUsers]. It works by installing an SDK into your app. The SDK sends telemetry about your app to the Application Insights service, where you analyze and visualize the app's behavior.
-
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Add the SDK to your app in Visual Studio, and you'll get charts of server requests, response times, and failures.
+The Application Insights SDK sends telemetry from your live web application to the Azure portal, where you can sign in and see charts of your app's performance and usage. 
 
 ![Example performance monitoring charts](./media/app-insights-asp-net/10-perf.png)
 
-You'll also be able to use the API to monitor usage in detail.
+You'll also be able to investigate and correlate specific requests, exceptions, and log events.  You can use the API to add telemetry to monitor performance and usage in detail.
 
 #### Before you start
 
@@ -128,6 +122,9 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 #### Trouble on your build server?
 
 See [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBuild).
+
+> [AZURE.NOTE] If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
+> [Learn about sampling](app-insights-sampling.md).
 
 ## Next steps
 

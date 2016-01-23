@@ -3,7 +3,7 @@
    description="Describes steps that you must perform to configure Azure Automation for initial use."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="11/10/2015"
-   ms.author="bwren" />
+   ms.author="bwren;sngun" />
 
 # Configuring Azure Automation
 

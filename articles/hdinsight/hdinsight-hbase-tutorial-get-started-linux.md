@@ -14,18 +14,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/18/2015"
+	ms.date="12/02/2015"
 	ms.author="jgao"/>
 
 
 
-# HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight
+# HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight (Linux)
 
-Learn how to provision an HBase cluster in HDInsight, create HBase tables, and query the tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
+[AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-> [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on Windows-based clusters, see [Get started using Apache HBase with Hadoop in HDInsight (Windows).
 
-##Prerequisites
+Learn how to create an HBase cluster in HDInsight, create HBase tables, and query the tables by using Hive. For general HBase information, see [HDInsight HBase overview][hdinsight-hbase-overview].
+
+> [AZURE.NOTE] The information in this document is specific to Linux-based HDInsight clusters. For information on Windows-based clusters, see [Get started using Apache HBase with Hadoop in HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
+
+###Prerequisites
 
 Before you begin this HBase tutorial, you must have the following:
 
@@ -33,34 +36,37 @@ Before you begin this HBase tutorial, you must have the following:
 - PuTTY and PuTTYGen for Windows-based clients. These utilities are available from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - [curl](http://curl.haxx.se/download.html).
 
-## Provision an HBase cluster
+## Create an HBase cluster
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**To provision an HBase cluster by using the Azure preview portal**
+**To create an HBase cluster by using the Azure preview portal**
 
 
 1. Sign in to the [Azure Preview portal][azure-portal].
 2. Click **New** in the upper left corner, and then click **Data + Analytics**, **HDInsight**.
 3. Enter the following values:
 
-	- **Cluster Name**: Enter a name to identify this cluster.
-	- **Cluster Type**: Select **HBase**.
-	- **Cluster Operating System**: Select **Ubuntu**.
-	- **Subscription**: select your Azure subscription used for provisioning this cluster.
-	- **Resource Group**: add or select an Azure resource group.  For more information, see [Azure Resource Manager Overview](resource-group-overview.md).
+
+	- **Cluster Name** - Enter a name to identify this cluster.
+	- **Cluster Type** - Select **HBase**.
+	- **Cluster Operating System**: Select **Linux**. For creating Windows-based HBase cluster, see  [HBase tutorial: Get started using Apache HBase with Hadoop in HDInsight (Windows)](hdinsight-hbase-tutorial-get-started.md).
+	- **Version** - Select an HBase version.
+	- **Subscription** - Select your Azure subscription used for creating this cluster.
+	- **Resource Group** -  Create a new Azure resource group or select an existing one. For more information, see [Azure Resource Manager Overview](resource-group-overview.md)
 	- **Credentials**.  Enter a password for the HTTP web service user. The default username is **admin**. You must also enter an **SSH Username** and either a **PASSWORD** or **PUBLIC KEY**, which will be used to authenticate the SSH user. Using a public key is the recommended approach. For more information on using SSH with HDInsight, see one of the following articles:
 
 		- [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 	Click **Select** to save the changes.
-	- **Data Source**: select an existing or create a new Azure Storage account to be used as the default file system for the cluster. The storage account location determines the cluster location.  An HDInsight cluster and the dependent Azure storage account must be located in the same data center.
-	The default name for **Default Container** is the cluster name.  
-	- **Note Pricing Tiers:** select the number of region servers for the HBase cluster.
+	- **Data Source** - create a new Azure storage account or select an existing Azure storage account to be used as the default file system for the cluster. The default storage account location determines the location of the cluster location. The default storage account and the cluster must co-locate in the same data center.
+	- **Note Pricing Tiers** - Select the number of region servers for the HBase cluster
 
-		> [AZURE.WARNING] For high availability of HBase services, you must provision a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
+		> [AZURE.WARNING] For high availability of HBase services, you must create a cluster that contains at least **three** nodes. This ensures that, if one node goes down, the HBase data regions are available on other nodes.
 
-	- **Optional Configuration**: select the cluster version, configure Azure virtual network, configure Hive/Oozie metastore, configure Script actions, and add additional storage accounts.
+		> If you are learning HBase, always choose 1 for the cluster size, and delete the cluster after each use to reduce the cost.
+
+	- **Optional Configuration** - Configure Azure virtual network, configure Script actions, and add additional storage accounts.
 
 4. Click **Create**.
 
@@ -83,7 +89,7 @@ It will make more sense after you finish the next procedure.
 
 >[AZURE.NOTE] The steps provided here are from a Windows computer.  For the instructions for connecting to a Linux-based HDInsight cluster from Linux, Unix or OS X, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X (preview)](hdinsight-hadoop-linux-use-ssh-unix.md)
 1. Open **PuTTY**.  See the Prerequisites listed at the beginning of the article.
-2. If you provided an SSH key when you created your user account during the provision process, you must perform the following step to select the private key to use when authenticating to the cluster:
+2. If you provided an SSH key when you created your user account during the creation process, you must perform the following step to select the private key to use when authenticating to the cluster:
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -228,7 +234,7 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 **To establish an SSH tunneling session**
 
 1. Open **PuTTY**.  
-2. If you provided an SSH key when you created your user account during the provision process, you must perform the following step to select the private key to use when authenticating to the cluster:
+2. If you provided an SSH key when you created your user account during the creation process, you must perform the following step to select the private key to use when authenticating to the cluster:
 
 	In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
 
@@ -275,7 +281,7 @@ In a high availability cluster, you will find a link to the current active HBase
 
 
 ## What's next?
-In this HBase tutorial for HDInsight, you learned how to provision an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
+In this HBase tutorial for HDInsight, you learned how to create an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
 
 To learn more, see:
 

@@ -1,26 +1,26 @@
 <properties
-	pageTitle="Load data with Azure Data Factory | Microsoft Azure"
-	description="Learn to load data with Azure Data Factory"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Load data with Azure Data Factory | Microsoft Azure"
+   description="Learn to load data with Azure Data Factory"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Load Data with Azure Data Factory
 
 > [AZURE.SELECTOR]
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
  Following this tutorial will show you how to create a pipeline in Azure Data Factory that will move data from Azure Storage Blobs to a SQL Data Warehouse. With the following steps you will:
@@ -59,7 +59,7 @@ Now that we have our data in place we can move to your data factory to create th
 
 ## Using Azure Data Factory
 
-Now that we've set up all the pieces, we can start to set-up the pipeline by navigating to your Azure Data Factory instance in the Azure Preview Portal.  This can be done by going to the [Azure Portal](portal.azure.com) and selecting your data factory from the left-hand menu.
+Now that we've set up all the pieces, we can start to set-up the pipeline by navigating to your Azure Data Factory instance in the Azure Portal.  This can be done by going to the [Azure Classic Portal](portal.azure.com) and selecting your data factory from the left-hand menu.
 
 From here there will be three steps to setting up a Azure Data Factory pipeline to transfer data to your data warehouse: linking your services, defining your datasets, and creating your pipeline.
 

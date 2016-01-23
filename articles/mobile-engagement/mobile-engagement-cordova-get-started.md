@@ -231,7 +231,7 @@ We will now create a simple Push Notification campaign that will send a push to 
 [Overview of all methods available with Cordova Mobile Engagement SDK](https://github.com/Azure/azure-mobile-engagement-cordova)
 
 <!-- URLs. -->
-[Mobile Engagement iOS SDK]: http://go.microsoft.com/?linkid=9864553
+[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="10/23/2015"
+   ms.date="12/17/2015"
    ms.author="sdanie" />
 
 # ASP.NET Session State Provider for Azure Redis Cache
@@ -29,7 +29,7 @@ To configure a client application in Visual Studio using the Redis Cache Session
 
 Type **RedisSessionStateProvider** into the Search Online text box, select it from the results, and click Install.
 
->[AZURE.IMPORTANT] If you are using the clustering feature from the premium tier, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 or higher or an exception is thrown. This is a breaking change; for more information see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+>[AZURE.IMPORTANT] If you are using the clustering feature from the premium tier, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown. This is a breaking change; for more information see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ![Azure Redis Cache Session State Provider](./media/cache-asp.net-session-state-provider/IC751730.png)
 
@@ -59,7 +59,7 @@ The NuGet package downloads and adds the required assembly references and adds t
 
 The commented section provides an example of the attributes and sample settings for each attribute.
 
-Configure the attributes with the values from your cache blade in the Microsoft Azure preview portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
+Configure the attributes with the values from your cache blade in the Microsoft Azure Portal, and configure the other values as desired. For instructions on accessing your cache properties, see [Configure Redis cache settings](cache-configure.md#configure-redis-cache-settings).
 
 -	**host** – specify your cache endpoint.
 -	**port** – use either your non-SSL port or your SSL port, depending on the ssl settings.

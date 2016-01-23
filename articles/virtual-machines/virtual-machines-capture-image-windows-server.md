@@ -40,7 +40,7 @@ This is not intended as a way to back up a virtual machine. One possible way to 
 
 ##Capture the virtual machine
 
-1. In the [Azure portal](http://manage.windowsazure.com), **Connect** to the virtual machine. For instructions, see [How to sign in to a virtual machine running Windows Server] [].
+1. In the [Azure classic portal](http://manage.windowsazure.com), **Connect** to the virtual machine. For instructions, see [How to sign in to a virtual machine running Windows Server] [].
 
 2.	Open a Command Prompt window as an administrator.
 
@@ -56,9 +56,9 @@ This is not intended as a way to back up a virtual machine. One possible way to 
 
 	![Run Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure portal to **Stopped**.
+7.	Sysprep shuts down the virtual machine, which changes the status of the virtual machine in the Azure classic portal to **Stopped**.
 
-8.	In the Azure portal, click **Virtual Machines** and select the virtual machine you want to capture.
+8.	In the Azure classic portal, click **Virtual Machines** and select the virtual machine you want to capture.
 
 9.	On the command bar, click **Capture**.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # Get started with Notification Hubs
@@ -187,7 +187,7 @@ Your notification hub is now configured to work with APNS, and you have the conn
 ## Sending Notifications
 
 
-You can test receiving notifications in your app by sending notifications in the Azure portal via the debug tab on the notification hub, as shown in the screen below.
+You can test receiving notifications in your app by sending notifications in the [Azure Classic Portal] via the debug tab on the notification hub, as shown in the screen below.
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png)
 
@@ -256,7 +256,7 @@ In this section, we will send notifications using a mobile service through a nod
 
 To send a notification by using a mobile service, follow [Get started with Mobile Services], and then:
 
-1. Sign in to the [Azure portal], and select your mobile service.
+1. Sign in to the [Azure Classic Portal], and select your mobile service.
 
 2. Select the **Scheduler** tab on the top.
 
@@ -315,7 +315,7 @@ In this simple example, you broadcasted notifications to all your iOS devices. I
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532

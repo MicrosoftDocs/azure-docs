@@ -3,7 +3,7 @@
 	description="Set up a Data Science Virtual Machine"
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun"  />
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/23/2015"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Data Science Virtual machines in Azure
 
-This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAPS).
+This menu links to topics that describe how to set up the various data science environments used by the Cortana Analytics Process (CAP).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -34,8 +34,8 @@ Instructions are provided that describe how to set up an Azure VM and an Azure V
 
 * [Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](machine-learning-data-science-setup-sql-server-virtual-machine.md) shows how to provision an Azure SQL Server virtual machine with IPython Notebook and other tools used to do data science for cases in which a SQL database can be used to store  the data.
 
-Once provisioned and configured, these virtual machines are ready for use as IPython Notebook servers for the exploration and processing of data, and for other tasks needed in conjunction with Azure Machine Learning and the Cloud Data Science Process. The next steps in the data science process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into SQL Server or HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
+Once provisioned and configured, these virtual machines are ready for use as IPython Notebook servers for the exploration and processing of data, and for other tasks needed in conjunction with Azure Machine Learning and the Cortana Analytics Process (CAP). The next steps in the data science process are mapped in the [CAP learning path](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and may include steps that move data into SQL Server or HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 
 
-> [AZURE.NOTE] Azure Virtual Machines are priced as **pay only for what you use**. To ensure that you are not being billed when not using your virtual machine, it has to be in the **Stopped (Deallocated)** state from the [Azure Management Portal](http://manage.windowsazure.com/). For step-by-step instructions or how to deallocate you virtual machine, see  [Shutdown and deallocate virtual machine when not in use](machine-learning-data-science-setup-virtual-machine.md#shutdown)
+> [AZURE.NOTE] Azure Virtual Machines are priced as **pay only for what you use**. To ensure that you are not being billed when not using your virtual machine, it has to be in the **Stopped (Deallocated)** state from the [Azure Classic Portal](http://manage.windowsazure.com/). For step-by-step instructions or how to deallocate you virtual machine, see  [Shutdown and deallocate virtual machine when not in use](machine-learning-data-science-setup-virtual-machine.md#shutdown)
  

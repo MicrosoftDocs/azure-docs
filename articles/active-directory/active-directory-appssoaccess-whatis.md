@@ -106,13 +106,13 @@ Ready to get started? To deploy single sign-on between Azure AD and SaaS applica
 
 ###Using the Azure AD application gallery
 
-The [Azure Active Directory Application Gallery](http://azure.microsoft.com/marketplace/active-directory/all/) provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.
+The [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/) provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory.
 
 ![][1]
 
 Here are some tips for finding apps by what capabilities they support:
 
-*	Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the [Azure Active Directory Application Gallery](http://azure.microsoft.com/marketplace/active-directory/all/).
+*	Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/).
 
 *	A list of federated applications that specifically support federated single sign-on using a protocol such as SAML, WS-Federation, or OpenID Connect can be found [here](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
@@ -122,7 +122,7 @@ Once you’ve found your application, you can get started by follow the step-by-
 
 If your application is not found in the Azure AD application gallery, then you have these options:
 
-*	**Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+*	**Add an unlisted app you are using** - Use the Custom category in the app gallery within the Azure management portal to connect an unlisted application that your organization is using. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app. For more details, see this article on [adding your own application](active-directory-saas-custom-apps.md).
 
 
 *	**Add your own app you are developing** - If you have developed the application yourself, follow the guidelines in the Azure AD developer documentation to implement federated single sign-on or provisioning using the Azure AD graph API. For more information, see these resources:
@@ -131,7 +131,7 @@ If your application is not found in the Azure AD application gallery, then you h
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**Request an app integration** - Request support for the application you need using the [Azure AD feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory).
+*	**Request an app integration** - Request support for the application you need using the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ###Using the Azure management portal
 
@@ -168,7 +168,7 @@ Which method(s) you choose to deploy in your organization is your discretion.
 
 ###Azure AD access panel
 
-The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end-user with [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), you can also utilize self-service group management capabilities through the Access Panel.
+The Access Panel at https://myapps.microsoft.com is a web-based portal that allows an end user with an organizational account in Azure Active Directory to view and launch cloud-based applications to which they have been granted access by the Azure AD administrator. If you are an end-user with [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), you can also utilize self-service group management capabilities through the Access Panel.
 
 ![][3]
 

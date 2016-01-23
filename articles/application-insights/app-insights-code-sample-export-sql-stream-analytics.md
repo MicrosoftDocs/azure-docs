@@ -21,7 +21,7 @@ This article shows how to move your telemetry data from [Visual Studio Applicati
 
 Continuous export moves your telemetry data into Azure Storage in JSON format. We'll parse the JSON objects using Azure Stream Analytics and create rows in a database table.
 
-(More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights. You could adapt this code sample to do other things with the exported telemetry, such as aggregation of data and publishing the data to the PowerBI visualization suite.)
+(More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights. You could adapt this code sample to do other things with the exported telemetry, such as aggregation of data.)
 
 We'll start with the assumption that you already have the app you want to monitor.
 
@@ -300,6 +300,7 @@ After a few minutes, go back to SQL Server Management Tools and watch the data f
 ## Related articles
 
 * [Export to SQL using a worker role](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Export to PowerBI using Stream Analytics](app-insights-export-power-bi.md)
 * [Detailed data model reference for the property types and values.](app-insights-export-data-model.md)
 * [Continuous Export in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)

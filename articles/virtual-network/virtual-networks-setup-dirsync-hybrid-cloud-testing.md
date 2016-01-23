@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="12/11/2015" 
 	ms.author="josephd"/>
 
 # Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing

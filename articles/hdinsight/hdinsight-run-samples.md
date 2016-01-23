@@ -46,9 +46,9 @@ Nowadays, a lot of people choose Hive and Pig over MapReduce.  For more informat
 
 - **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **an HDInsight cluster**. For instructions on the various ways in which such clusters can be created, see [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
-- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
-## Word count - Java 
+## <a name="hdinsight-sample-wordcount"></a>Word count - Java 
 
 To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasb:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that will be used to count words, and the location for output.
 
@@ -114,7 +114,7 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
 
 3. Set the first 3 variables, and run the script.
 
-## Word count - C# streaming
+## <a name="hdinsight-sample-csharp-streaming"></a>Word count - C# streaming
 
 Hadoop provides a streaming API to MapReduce, which enables you to write map and reduce functions in languages other than Java.
 
@@ -148,7 +148,7 @@ For more information about the Hadoop Streaming interface, see [Hadoop Streaming
 	
 		example/data/StreamingOutput/wc.txt/part-00000		
 								
-## PI estimator
+## <a name="hdinsight-sample-pi-estimator"></a>PI estimator
 
 The pi estimator uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, pi/4. The value of pi can be estimated from the value of 4R, where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
@@ -163,7 +163,7 @@ The script provided for this sample submits a Hadoop jar job and is set up to ru
 									-ClassName "pi" `
 									-Arguments "16", "10000000"
 
-## 10-GB Graysort
+## <a name="hdinsight-sample-10gb-graysort"></a>10-GB Graysort
 
 This sample uses a modest 10GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy that won the annual general-purpose ("daytona") terabyte sort benchmark in 2009 with a rate of 0.578TB/min (100TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sortbenchmark](http://sortbenchmark.org/) site.
 
@@ -993,10 +993,10 @@ The code for the TeraSort MapReduce program is presented for inspection in this 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
 [hdinsight-samples]: hdinsight-run-samples.md
-[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md
-[hdinsight-sample-csharp-streaming]: hdinsight-sample-csharp-streaming.md
-[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md
-[hdinsight-sample-wordcount]: hdinsight-sample-wordcount.md
+[hdinsight-sample-10gb-graysort]: #hdinsight-sample-10gb-graysort
+[hdinsight-sample-csharp-streaming]: #hdinsight-sample-csharp-streaming
+[hdinsight-sample-pi-estimator]: #hdinsight-sample-pi-estimator
+[hdinsight-sample-wordcount]: #hdinsight-sample-wordcount
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md

@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Configuring your Azure project using multiple service configurations"
+   pageTitle="Configuring your Azure project using multiple service configurations | Microsoft Azure"
    description="Learn how to configure an Azure cloud service project by changing the ServiceDefinition.csdef and ServiceConfiguration.cscfg files."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
-   ms.author="kempb" />
+   ms.date="01/05/2016"
+   ms.author="tarcher" />
 
 # Configuring Your Azure Project Using Multiple Service Configurations
 

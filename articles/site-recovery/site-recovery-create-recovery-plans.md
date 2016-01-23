@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Creating recovery plans" 
+	pageTitle="Create recovery plans | Microsoft Azure" 
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
-# Creating recovery plans
+# Create recovery plans
 
 The Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution that protects your on-premises physical servers and virtual machines by orchestrating and automating replication and failover to Azure, or to a secondary on-premises datacenter. For an introduction to Site Recovery deployment scenarios read the [Site Recovery Overview](site-recovery-overview.md).
 

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/13/2016"
 	ms.author="cephalin"/>
 
 # Troubleshoot: web app unavailable due to HTTP 502/503
 
 This article helps you troubleshoot HTTP 502/503 errors in your web app hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
 ## Symptom
 
@@ -50,7 +50,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 ####	Track Service health
 
-Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure preview portal](https://portal.azure.com/). For more information, see [Track service health](insights-service-health.md).
+Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](insights-service-health.md).
 
 ####	Monitor your web app
 
@@ -126,14 +126,14 @@ You can set the scaling to be Manual or Automatic.
 
 ####	Use AutoHeal
 
-AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure preview portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
+AutoHeal recycles the worker process for your app based on settings you choose (like configuration changes, requests, memory-based limits, or the time needed to execute a request). Most of the time, recycle the process is the fastest way to recover from a problem. Though you can always restart the web app from directly within the Azure Portal, AutoHeal will do it automatically for you. All you need to do is add some triggers in the root web.config for your web app. Note that these settings would work in the same way even if your application is not a .Net one.
 
 For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-windows-azure-web-sites/).
 
 
 ####	Restart the web app
 
-This is often the simplest way to recover from one-time issues. On the [Azure preview portal](https://portal.azure.com), on your web app’s blade, you have the options to stop or restart your app.
+This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com/), on your web app’s blade, you have the options to stop or restart your app.
 
  ![](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 

@@ -31,6 +31,9 @@ For Data Management Gateway to connect to the DB2 Database, you need to install 
 
 There are known issues reported by IBM on installing the IBM DB2 Data Server Driver on Windows 8, where additional installation steps are needed. For more information about the IBM DB2 Data Server Driver on Windows 8, see [http://www-01.ibm.com/support/docview.wss?uid=swg21618434](http://www-01.ibm.com/support/docview.wss?uid=swg21618434).
 
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+
+
 ## Sample: Copy data from DB2 to Azure Blob
 
 The sample below shows:
@@ -235,7 +238,7 @@ The typeProperties section is different for each type of dataset and provides in
 
 | Property | Description | Required |
 | -------- | ----------- | -------- | 
-| tableName | Name of the table in the DB2 Database instance that linked service refers to. | Yes |
+| tableName | Name of the table in the DB2 Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) |
 
 ## DB2 Copy Activity type properties
 
@@ -248,7 +251,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------- | -------------- |
-| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No |
+| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified)|
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

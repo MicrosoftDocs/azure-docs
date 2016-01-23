@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Get started with SQL Data Warehouse database auditing | Microsoft Azure" 
-	description="Get started with SQL Data Warehouse database auditing" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Get started with SQL Data Warehouse database auditing | Microsoft Azure" 
+   description="Get started with SQL Data Warehouse database auditing" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="barbkess" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/07/2016" 
+   ms.author="mausher;barbkess;sonyama"/>
  
 # Get started with SQL Data Warehouse database auditing 
-<p> Azure SQL Data Warehouse Auditing tracks database events and writes audited events to an audit log in your Azure Storage account.
+Azure SQL Data Warehouse Auditing tracks database events and writes audited events to an audit log in your Azure Storage account.
 
 Auditing can help you maintain regulatory compliance, understand  database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. 
 
@@ -59,7 +59,7 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](s
 
 ##<a id="subheading-2"></a>Set up auditing for your database
 
-1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a>.
+1. Launch the <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
 
 2. navigate to the configuration blade of the SQL Data Warehouse database / SQL Server you want to audit. Click the **Settings** button on top and then, in the Setting blade, and select **Auditing**.
 
@@ -102,7 +102,7 @@ For more detailed instructions on working with the report template, read the <a 
 
 
 ##<a id="subheading-4">Practices for usage in production</a>
-The description in this section refers to screen captures above. Either <a href="https://portal.azure.com" target="_blank">Azure Preview Portal</a> or <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Portal</a> may be used.
+The description in this section refers to screen captures above. Either <a href="https://portal.azure.com" target="_blank">Azure Portal</a> or <a href= "https://manage.windowsazure.com/" target="_bank">Classic Azure Classic Portal</a> may be used.
  
 
 ##<a id="subheading-5"></a>Storage Key Regeneration

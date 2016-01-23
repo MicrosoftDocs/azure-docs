@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Learning PowerShell Workflow"
-   description="Runbooks in Azure Automation are based on Windows PowerShell Workflow.  This article is intended as a quick lesson for authors familiar with PowerShell to understand the specific differences between PowerShell and PowerShell Workflow."
+   description="This article is intended as a quick lesson for authors familiar with PowerShell to understand the specific differences between PowerShell and PowerShell Workflow."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -25,9 +25,9 @@ For complete details on the topics in this article, see [Getting Started with Wi
 
 ## Types of runbook
 
-There are two types of runbook in Azure Automation, *textual* and *graphical*.  You define the runbook type when you create the runbook, and you can't convert a runbook to the other type once it's been created.
+There are three types of runbook in Azure Automation, *PowerShell Workflow*, *PowerShell* and *graphical*.  You define the runbook type when you create the runbook, and you can't convert a runbook to the other type once it's been created.
 
-Textual runbooks are for users who prefer to work directly with the PowerShell workflow code either using the textual editor in Azure Automation or an offline editor such as PowerShell ISE. You should understand the information in this article if you are creating a textual runbook. 
+PowerShell workflow runbooks and PowerShell runbooks are for users who prefer to work directly with the PowerShell code either using the textual editor in Azure Automation or an offline editor such as PowerShell ISE. You should understand the information in this article if you are creating a PowerShell Workflow runbook. 
 
 Graphical runbooks allow you to create a runbook using the same activities and cmdlets but using a graphical interface that hides the complexities of the underlying PowerShell workflow.  Concepts in this article such as checkpoints and parallel execution still apply to graphical runbooks, but you won't have to worry about the detailed syntax. 
 

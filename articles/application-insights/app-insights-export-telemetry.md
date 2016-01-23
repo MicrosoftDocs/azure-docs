@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
@@ -21,7 +21,7 @@ Want to do some customised analysis on your telemetry? Or maybe you'd like an em
 
 Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](http://azure.microsoft.com/pricing/details/application-insights/).
 
-(If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade.)
+(If you just want to do a [one-off export](app-insights-metrics-explorer.md#export-to-excel) of what you see on a metrics or search blade, click Export at the top of the blade. And if you'd like to see data in Power BI, use [the adapter](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) - which *doesn't* use Continuous Export.)
 
 ## Create a storage account
 
@@ -74,6 +74,8 @@ The exported data is the raw telemetry we receive from your application, except 
 Other calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
 
 The data also includes the results of any [availability web tests](app-insights-monitor-web-app-availability.md) you have set up. 
+
+> [AZURE.NOTE] **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. [Learn more about sampling.](app-insights-sampling.md)
 
 ## <a name="get"></a> Inspect the data
 
@@ -141,22 +143,13 @@ Open the Continuous Export blade and edit your export. Edit the Export Destinati
 
 The continuous export will restart.
 
-## Export to Power BI
+## Export samples
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) presents your data in rich and varied visuals, with the ability to bring together information from multiple sources. You can stream telemetry data about the performance and usage of your apps from Application Insights to Power BI.
-
-[Stream Application Insights to Power BI](app-insights-export-power-bi.md)
-
-![Sample of Power BI view of Application Insights usage data](./media/app-insights-export-telemetry/210.png)
-
-## Export to SQL
-
-Another option is to move the data to a SQL database, where you can perform more powerful analytics.
-
-We have samples showing two alternative methods of moving the data from the blob storage to a database:
 
 * [Export to SQL using a worker role][exportcode]
 * [Export to SQL using Stream Analytics][exportasa]
+* [Export to Power BI using Stream Analytics](app-insights-export-power-bi.md)
+ * Note that this isn't the standard way to use Power BI. There's [an adaptor](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) which doesn't require Continuous Export.
 
 
 On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.

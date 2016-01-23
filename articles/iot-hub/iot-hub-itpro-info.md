@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/28/2015"
+ ms.date="12/15/2015"
  ms.author="dobett"/>
 
 # Configuring and managing access to IoT Hub
@@ -42,8 +42,8 @@ Access to other management endpoints in an IoT hub is also controlled through a 
 This article contains specific information for IT Pros and developers configuring their development and test environments. Follow these links to learn more about the Azure IoT Hub service:
 
 - [What is Azure IoT Hub?][lnk-iothub]
-- The section ["Security" in the Azure IoT Hub developer guide][lnk-devguide] provides additional information about the tokens and permission system in IoT Hub.
-- [Manage IoT Hub through the Azure preview portal][lnk-manage-portal] describes how to use the Azure preview portal to manage your IoT hub.
+- The [security section in the Azure IoT Hub developer guide][lnk-devguide] provides additional information about the tokens and permission system in IoT Hub.
+- [Manage IoT Hub through the Azure portal][lnk-manage-portal] describes how to use the Azure portal to manage your IoT hub.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security

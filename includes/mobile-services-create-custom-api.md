@@ -1,6 +1,6 @@
 
 
-1. Log into the Azure Management Portal, click **Mobile Services**, and then select your mobile service.
+1. Log into the [Azure classic portal](https://manage.windowsazure.com/), click **Mobile Services**, and then select your mobile service.
 
 2. Click the **API** tab, and then click **Create**. This displays the **Create a new custom API** dialog.
 

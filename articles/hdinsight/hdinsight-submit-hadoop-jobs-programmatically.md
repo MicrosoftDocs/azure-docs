@@ -31,8 +31,8 @@ Learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to 
 
 Before you begin this article, you must have the following:
 
-* **An Azure HDInsight cluster**. For instructions, see [Get started with HDInsight][hdinsight-get-started] or [Create Hadoop clusters in HDInsight][hdinsight-provision].
-- **A workstation with Azure PowerShell**. See [Install and use Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **An Azure HDInsight cluster**. For instructions, see [Get started with HDInsight][hdinsight-get-started] or [Create Hadoop clusters in HDInsight][hdinsight-provision].
+- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 ##Submit MapReduce jobs using PowerShell
 
@@ -212,7 +212,7 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
 						return null;
 					}
 		
-					return string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
+					return "&define=" + string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
 				}
 				private static string ConvertArgsToString(List<string> args)
 				{

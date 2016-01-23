@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/03/2015"
+ ms.date="12/08/2015"
  ms.author="rasquill"/>
 #About virtual machine extensions and features
 
@@ -24,7 +24,7 @@ Microsoft Azure provides VM Extensions built by both Microsoft and by trusted th
 
 
 
-For details about the VM Agents and how they work to support VM Extensions, see [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/library/dn832621.aspx).
+For details about the VM Agents and how they work to support VM Extensions, see [VM Agent and VM Extensions Overview](virtual-machines-extensions-install.md).
 
 ##Azure VM Extensions
 
@@ -36,8 +36,8 @@ The following extensions are critical to enabling, re-enabling, or disabling bas
 
 |VM Extension Name|Feature Description|More Information
 |---|---|---|
-|VMAccessAgent (Windows)|Create, update, and reset user information and RDP and SSH connection configurations.|[Windows](https://msdn.microsoft.com/library/dn606308.aspx)
-|VMAccessForLinux (Linux)|Create, update, and reset user information and RDP and SSH connection configurations.|[Linux](http://azure.microsoft.com/blog/2014/08/25/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)
+|VMAccessAgent (Windows)|Create, update, and reset user information and RDP and SSH connection configurations.|[Windows](virtual-machines-extensions-customscript.md)
+|VMAccessForLinux (Linux)|Create, update, and reset user information and RDP and SSH connection configurations.|[Linux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
 ##Deployment and Configuration Management
 
@@ -47,14 +47,14 @@ The following extensions support different kinds of deployment and configuration
 |---|---|---|
 |**MSEnterpriseApplication**|Implements features for support by Windows System Center.|[System Center 2012 R2 Virtual Machine Roles](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx)|
 |**Octopus Deploy** (DSC Extension-based)|Supports automated deployment of ASP.NET web applications and Windows Services into development, test, and production environments.|[Getting Started with Octopus Deploy](http://docs.octopusdeploy.com/display/OD/Getting%20started)|
-|**Visual Studio Release Manager** (DSC Extension-based)|Supports continuous deployment with Visual Studio.|[Automate deployments with Release Management](https://msdn.microsoft.com/library/dn217874.aspx)|
+|**Visual Studio Release Manager** (DSC Extension-based)|Supports continuous deployment with Visual Studio.|[Automate deployments with Release Management](https://msdn.microsoft.com/Library/vs/alm/Release/overview)|
 |**CentosChefClient**|||
 |**ChefClient**|Creates a Chef client on Windows. (Can also use the DSC extension, below.)|[Chef and Microsoft Azure](https://www.getchef.com/solutions/azure/)|
 |**LinuxChefClient**|||
 |**DockerExtension**|Installs the Docker daemon to support remote Docker commands.|[How to Use the Docker Virtual Machine Extension](virtual-machines-docker-vm-extension.md)For more extensive information, see the [Docker VM Extension User Guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md)|
 |**DSC**|PowerShell DSC (Desired State Configuration) extension.|[Azure PowerShell DSC (Desired State Configuration) extension](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
 |**PuppetEnterpriseAgent**|Implements the features of Puppet Enterprise. |[Puppet on Azure](http://puppetlabs.com/solutions/microsoft)|
-|**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Invokes custom scripts on the VM at any time: startup or during lifetime.|[Custom Script Extension](https://msdn.microsoft.com/library/dn781373.aspx)[Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)|
+|**CustomScriptExtension** (Windows)**CustomScriptForLinux** (Linux)|Invokes custom scripts on the VM at any time: startup or during lifetime.|[Custom Script Extension](virtual-machines-extensions-customscript.md) | [Linux](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)|
 |**AzureCATExtensionHandler**|Consumes the diagnostic data collected by **IaaSDiagnostics** and few other data sources such as [Azure Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343270.aspx) and transforms it into an aggregated data set appropriate for SAP Host control process to consume|[Azure Enhanced Monitoring for SAP](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
 
 ##Security and Protection
@@ -64,11 +64,11 @@ The extensions in this section provide critical security features for your Azure
 |VM Extension Name|Feature Description|More Information|
 |---|---|---|
 |**CloudLinkSecureVMWindowsAgent**|Provides Microsoft Azure customers with the capability to encrypt their virtual machine data on a multi-tenant shared infrastructure and fully control of the encryption keys for their encrypted data on Azure storage infrastructure.|[Securing Microsoft Azure Virtual Machines leveraging BitLocker and Native OS encryption](http://www.cloudlinktech.com/azure)|
-|**McAfeeEndpointSecurity**|Protects your VM against malicious software.|[McAfee](http://www.mcafeeasap.com/)|
-|**TrendMicroDSA**|Enables TrendMicro’s Deep Security platform support to provide intrusion detection and prevention, firewall, anti-malware, web reputation, log inspection, and integrity monitoring.|[How to install and configure Trend Micro Deep Security as a Service on an Azure VM](http://virtual-machines-install-trend.md)|
+|**McAfeeEndpointSecurity**|Protects your VM against malicious software.|[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx)|
+|**TrendMicroDSA**|Enables TrendMicro’s Deep Security platform support to provide intrusion detection and prevention, firewall, anti-malware, web reputation, log inspection, and integrity monitoring.|[How to install and configure Trend Micro Deep Security as a Service on an Azure VM](virtual-machines-install-trend.md)|
 |**PortalProtectExtension**|Guards against threats to your Microsoft SharePoint environment.|[Securing Your SharePoint Deployment on Azure](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/)|
 |**IaaSAntimalware**|Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install itself or run on your system.|[Download antimalware documentation](http://go.microsoft.com/fwlink/?linkid=398023&clcid=0x409)|
-|**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 enables security and performance across physical and virtual systems.|[How to install and configure Symantec Endpoint Protection on an Azure VM](http://virtual-machines-install-symantec.md)
+|**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 enables security and performance across physical and virtual systems.|[How to install and configure Symantec Endpoint Protection on an Azure VM](virtual-machines-install-symantec.md)
 
 ##VM Operations and Management
 
@@ -76,7 +76,7 @@ Supports common operations management features and behavior. See also the sectio
 
 |**VM Extension Name**|Feature Description|More Information|
 |---|---|---|
-|**AzureVmLogCollector**|You can use the **AzureVMLogCollector** extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs. |[AzureLogCollector Extension](https://msdn.microsoft.com/library/dn927183.aspx)|
+|**AzureVmLogCollector**|You can use the **AzureVMLogCollector** extension on-demand to perfom one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs. |[AzureLogCollector Extension](virtual-machines-extensions-log-collector.md)|
 |**IaaSDiagnostics**|Enables, disables, and configures Azure Diagnostics, and is also used by the **AzureCATExtensionHandler** to support SAP monitoring.|[Microsoft Azure Virtual Machine Monitoring with Azure Diagnostics Extension](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
 |**OSPatchingForLinux**|Enables the Azure VM administrators to automate the VM OS updates with the customized configurations. You can use the OSPatching extension to configure OS updates for your virtual machines, including: Specify how often and when to install OS patches, Specify what patches to install, and Configure the reboot behavior after updates|[OS Patching Extension Blog Post](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). See also the readme and source on Github at [OS Patching Extension](https://github.com/Azure/azure-linux-extensions).|
 

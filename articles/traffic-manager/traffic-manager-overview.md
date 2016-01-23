@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="12/07/2015"
    ms.author="joaoma" />
 
 # What is Traffic Manager?
@@ -57,8 +57,8 @@ Since the company domain and resolved IP address are cached on the client machin
 2. **Decide a name for your Traffic Manager domain**. Consider a name for your domain with a unique prefix. The latter part of the domain, trafficmanager.net, is fixed. For more information, see [Best practices](#best-practices).
 3. **Decide the monitoring configuration that you want to use**. Traffic Manager monitors endpoints to ensure that they are online, regardless of the traffic routing method. After you configure monitoring settings, Traffic Manager will not direct traffic to endpoints that are offline according to the monitoring system unless it detects that all endpoints are offline or it cannot detect the status of any of the endpoints contained in the profile. For more information about monitoring, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
 4. **Decide the traffic routing method that you want to use**. Three different traffic routing methods are available. Take time to understand which method best fits your requirements. If you need to change the method later, you can do so at any time. Also note that each method requires slightly different configuration steps. For information about traffic routing methods, see [About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md).
-5. **Create your profile and configure settings**. You can use REST APIs, Windows PowerShell, or the Management Portal to create your Traffic Manager profile and configure settings. For more information, see [How to configure Traffic Manager settings](#how-to-configure-traffic-manager-settings). The following steps assume you will use **Quick Create** in the Management Portal. 
-   - **Create your Traffic Manager profile** - To create a profile by using Quick Create in the Management Portal, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md).
+5. **Create your profile and configure settings**. You can use REST APIs, Windows PowerShell, or the Azure classic portal to create your Traffic Manager profile and configure settings. For more information, see [How to configure Traffic Manager settings](#how-to-configure-traffic-manager-settings). The following steps assume you will use **Quick Create** in the Azure classic portal. 
+   - **Create your Traffic Manager profile** - To create a profile by using Quick Create in the Azure classic portal, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md).
    - **Configure traffic routing method settings** – While in Quick Create, you must select the traffic routing method for your profile. This setting can be changed at any time after completing the Quick Create steps. For configuration steps, see the topic that corresponds to your traffic routing method: [Configure Performance traffic routing method](traffic-manager-configure-performance-load-balancing.md), [Configure Failover traffic routing method](traffic-manager-configure-failover-load-balancing.md), [Configure Round Robin traffic routing method](traffic-manager-configure-round-robin-load-balancing.md).
    
    >[AZURE.NOTE] The Round Robin method of traffic routing method now supports weighted distribution of network traffic. However, at this time you must use either REST APIs or Windows PowerShell to configure the weight. For more information and an example configuration, see [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](http://azure.microsoft.com/blog/2014/06/26/azure-traffic-manager-external-endpoints-and-weighted-round-robin-via-powershell/) in the Azure blog.
@@ -74,21 +74,21 @@ Using the example in Figure 1, you would change the DNS resource record on your 
 
 ## How to configure Traffic Manager settings
 
-You can configure Traffic Manager settings using the Management Portal, with REST APIs, and with Windows PowerShell cmdlets.
+You can configure Traffic Manager settings using the Azure classic portal, with REST APIs, and with Windows PowerShell cmdlets.
 
-Although each REST API element is not visible in the Management Portal, many settings are available using either method. For more information about the use of REST APIs, see [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
+Although each REST API element is not visible in the Azure classic portal, many settings are available using either method. For more information about the use of REST APIs, see [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkId=313584).
 
 For more information about Windows PowerShell cmdlets for Traffic Manager, see [Azure Traffic Manager Cmdlets](http://go.microsoft.com/fwlink/p/?LinkId=400769).
 
->[AZURE.NOTE] There is currently no support for configuring external endpoints (type = ‘Any’), weights for the Round Robin traffic routing method, and nested profiles with the Management Portal. You must use either REST (see [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772)) or Windows PowerShell (see [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
+>[AZURE.NOTE] There is currently no support for configuring external endpoints (type = ‘Any’), weights for the Round Robin traffic routing method, and nested profiles with the Azure classic portal. You must use either REST (see [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772)) or Windows PowerShell (see [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)).
 
-### Configuring settings in the Management Portal
+### Configuring settings in the Azure classic portal
 
-In the Management Portal, you can create your Traffic Manager profile by using Quick Create. Quick Create allows you to create a basic profile. After creating your profile, you can then configure additional settings or edit the settings that you previously configured. For more information about creating your Traffic Manager profile by using Quick Create, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md).
+In the Azure classic portal, you can create your Traffic Manager profile by using Quick Create. Quick Create allows you to create a basic profile. After creating your profile, you can then configure additional settings or edit the settings that you previously configured. For more information about creating your Traffic Manager profile by using Quick Create, see [Manage Traffic Manager Profiles](traffic-manager-manage-profiles.md).
 
-You can configure the following settings in the Management Portal:
+You can configure the following settings in the Azure classic portal:
 
-- **DNS prefix** – A unique prefix that you create. Profiles are displayed in the Management portal by prefix.
+- **DNS prefix** – A unique prefix that you create. Profiles are displayed in the Azure classic portal by prefix.
 - **DNS TTL** – The DNS Time-to-Live (TTL) value controls how often the client’s local caching name server will query the Azure Traffic Manager DNS system for updated DNS entries.
 - **Subscription** – Select the subscription that your profile will correspond to. Note that this option only appears if you have multiple subscriptions.
 - **traffic routing method** – The way you want Traffic Manager to handle traffic routing.
@@ -99,11 +99,11 @@ You can configure the following settings in the Management Portal:
 
 You can create and configure your Traffic Manager profile by using REST APIs. For more information, see [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/?LinkId=313584).
 
-- **Profile** – A profile contains a domain name prefix that you create. Each profile corresponds to your subscription. You can create multiple profiles per subscription. The profile name is visible in the Management Portal. The name that you create, which is contained in the profile, is referred to as your Traffic Manager Domain.
-- **Definition** – A definition contains policy settings and monitor settings. A definition corresponds to a profile. You can have only one definition per profile. The definition itself is not visible in the Management Portal, although many of the settings contained within the definition are visible and can be configured in the Management Portal.
+- **Profile** – A profile contains a domain name prefix that you create. Each profile corresponds to your subscription. You can create multiple profiles per subscription. The profile name is visible in the Azure classic portal. The name that you create, which is contained in the profile, is referred to as your Traffic Manager Domain.
+- **Definition** – A definition contains policy settings and monitor settings. A definition corresponds to a profile. You can have only one definition per profile. The definition itself is not visible in the Azure classic portal, although many of the settings contained within the definition are visible and can be configured in the Azure classic portal.
 - **DNS Options** – Within each definition are DNS options. This is where the DNS TTL is configured.
-- **Monitors** – Within each definition are monitor settings. This is where the protocol, port, and relative path and file name are configured. Monitor settings are visible and can be configured in the Management Portal. For more information, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
-- **Policy** – Within each definition are policy settings. The policy is where traffic routing methods and endpoints are specified. The policy itself is not visible in the Management Portal, although some of the settings for the policy are visible and can be configured in the Management Portal. For more information, see [About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md).
+- **Monitors** – Within each definition are monitor settings. This is where the protocol, port, and relative path and file name are configured. Monitor settings are visible and can be configured in the Azure classic portal. For more information, see [Traffic Manager Monitoring](traffic-manager-monitoring.md).
+- **Policy** – Within each definition are policy settings. The policy is where traffic routing methods and endpoints are specified. The policy itself is not visible in the Azure classic portal, although some of the settings for the policy are visible and can be configured in the Azure classic portal. For more information, see [About Traffic Manager traffic routing methods](traffic-manager-load-balancing-methods.md).
 
 ## Configuring settings by using Windows PowerShell
 
@@ -111,7 +111,7 @@ You can create and configure your Traffic Manager profile by using Windows Power
 
 ## Best practices
 
-- **Make your prefixes unique and easy to understand** – The DNS name of your Traffic Manager profile must be unique. You can control the first part of the DNS name only. The Traffic Manager domain name is used for identification and client request directing purposes only. Client computers will never display these names to the end user. However, profiles are identified by this domain name so it is important that you be able to quickly identify it from other domain names listed in the Management Portal.
+- **Make your prefixes unique and easy to understand** – The DNS name of your Traffic Manager profile must be unique. You can control the first part of the DNS name only. The Traffic Manager domain name is used for identification and client request directing purposes only. Client computers will never display these names to the end user. However, profiles are identified by this domain name so it is important that you be able to quickly identify it from other domain names listed in the Azure classic portal.
 - **Use dots to add uniqueness or make domain names readable** – You can use periods to separate parts of your domain name prefix as well.  If you are planning to create multiple policies in Traffic Manager, use a consistent hierarchy to differentiate one service from the other. For example, Contoso has global services for web, billing, and utility management. The three policies would be *web.contoso.trafficmanager.net*, *bill.contoso.trafficmanager.net*, and *util.contoso.trafficmanager.net*. When setting up cloud services or websites, use names that include location. For example, *web-us-contoso.cloudapp.net* and *web-asia-contoso.cloudapp.net*. Your limitations are those imposed by DNS. Assume a domain name is a sequence of labels separated by dots (label.label.label.label.etc.). At the time of this documentation, the limits for domain names in Traffic Manager are as follows:
    - Each label can be a maximum of 63 characters.
    - You cannot have more than 40 labels total. Since two labels are taken up by trafficmanager.net, that leaves 38 for your prefix.
@@ -123,7 +123,7 @@ You can create and configure your Traffic Manager profile by using Windows Power
 - **All endpoints in a profile should service the same operations and ports** – If you mix your endpoints, it becomes more likely that a client will call an endpoint that cannot service its request.
 - **All cloud services in a profile must use the same monitoring settings** – You can only chose a single path and file to monitor all endpoints in a given definition. You can enter "/" in the **Relative path and file name** text box so that monitoring will try to access the default path and filename.
 - **Disable endpoints for temporary changes, rather than changing your configuration** – In many cases, you may wish to take an endpoint offline. Rather than removing the endpoint from your profile, simply disable the individual endpoint in your profile instead. This leaves the endpoint as part of the profile, but the profile acts as if the endpoint is not included in it. This is very useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, you can enable it. For more information, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
-- **Disable a profile for temporary changes, instead of deleting it** – You may want to take an entire profile offline, not just individual endpoints specified within it. To do that, disable the profile. When you disable a profile, all of the settings remain available for you to edit in the management portal and you can then bring the profile back online quickly and easily when you want to use it again. For more information, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
+- **Disable a profile for temporary changes, instead of deleting it** – You may want to take an entire profile offline, not just individual endpoints specified within it. To do that, disable the profile. When you disable a profile, all of the settings remain available for you to edit in the Azure classic portal and you can then bring the profile back online quickly and easily when you want to use it again. For more information, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
 - **Storage** – How you design the location and distribution of your storage is an important consideration when using Traffic Manager. Think of the end-to-end transaction and how your data will flow when you design and deploy your applications for Traffic Manager.
 - **SQL Azure** – Similar to storage design, analyze your application state and data requirements when you extend your endpoints to multiple geographic regions.
 
@@ -157,7 +157,7 @@ In *Figure 4*, the Traffic Manager profile in the top-level tier is a parent pro
 
 If Traffic Manager directs users to a child profile that has a small number of healthy endpoints, it is possible to overload those endpoints and cause performance issues. To prevent this situation, you can configure the parent Traffic Manager profile with a threshold of healthy endpoints that determines whether any of endpoints within the child profiles of that parent can receive traffic. For example, if you want to ensure that there are at least three healthy endpoints within the child profiles, you would set this threshold value to 3. In the example in Figure 4, you would configure the top-level tier Traffic Manager profile for this threshold.
 
-To add a Traffic Manager profile as an endpoint and configure the minimum number of healthy endpoints, you must use either REST (see [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772)) or Windows PowerShell (see [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)). You cannot use the Management Portal.
+To add a Traffic Manager profile as an endpoint and configure the minimum number of healthy endpoints, you must use either REST (see [Create Definition](http://go.microsoft.com/fwlink/p/?LinkId=400772)) or Windows PowerShell (see [Add-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/azure/dn690257.aspx)). You cannot use the Azure classic portal.
 
 ## Traffic Manager figures
 

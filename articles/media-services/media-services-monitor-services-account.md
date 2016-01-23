@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="12/05/2015"
 	ms.author="juliako"/>
 
 
@@ -24,11 +24,11 @@ The Azure Media Services dashboard presents usage metrics and account informatio
 
 You can monitor the number of queued encoding jobs, failed encoding tasks, active encoding jobs represented by the input and output data from the encoder, as well as the blob storage usage associated with your Media Services account. In addition, if you are streaming content to customers, you can retrieve various streaming metrics as well. You can choose to monitor your data for the last 6 hours, 24 hours or 7 days.
  
->[AZURE.NOTE] Additional costs are associated with monitoring storage data in the Azure Management Portal. For more information, see [Storage Analytics and Billing](http://go.microsoft.com/fwlink/?LinkId=256667).
+>[AZURE.NOTE] Additional costs are associated with monitoring storage data in the Azure Classic Portal. For more information, see [Storage Analytics and Billing](http://go.microsoft.com/fwlink/?LinkId=256667).
 
 ##<a id="configuremonitoring"></a>How to: Monitoring a Media Services account
 
-1. In the [Management Portal](http://go.microsoft.com/fwlink/?LinkID=256666), click **Media Services**, and then click the Media Services account name to open the dashboard. 
+1. In the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666), click **Media Services**, and then click the Media Services account name to open the dashboard. 
 
 	![MediaServices_Dashboard][dashboard]
 

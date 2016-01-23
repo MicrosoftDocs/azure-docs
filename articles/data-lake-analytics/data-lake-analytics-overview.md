@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="01/06/2016"
    ms.author="jgao"/>
 
 # Overview of Microsoft Azure Data Lake Analytics
@@ -52,7 +52,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
 ## See also
 
 - Get started
-    - [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+    - [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
     - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Get started with Data Lake Analytics using Azure .NET SDK](data-lake-analytics-get-started-net-sdk.md)
     - [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -61,12 +61,12 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
 - U-SQL & development
     - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
     - [Use U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-    - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
+    - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
     
 - Management
-    - [Manage Azure Data Lake Analytics using Azure Preview portal](data-lake-analytics-manage-use-portal.md)
+    - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
     - [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-    - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - End-to-end tutorial
     - [Use Azure Data Lake Analytics interactive tutorials](data-lake-analytics-use-interactive-tutorials.md)

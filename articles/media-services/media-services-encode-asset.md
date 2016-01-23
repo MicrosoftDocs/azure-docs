@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015"  
+	ms.date="01/05/2015"  
 	ms.author="juliako"/>
 
 #Overview and Comparison of Azure On Demand Media Encoders
 
 ##Encoding overview
 
-Azure Media Services provides multiple options for the encoding of media in the cloud. 
+Azure Media Services provides multiple options for the encoding of media in the cloud.
 
-When starting out with Media Services, it is important to understand the difference between codecs and file formats. 
+When starting out with Media Services, it is important to understand the difference between codecs and file formats.
 Codecs are the software that implements the compression/decompression algorithms whereas file formats are containers that hold the compressed video.
 
-Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats. 
+Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) without you having to re-package into these streaming formats.
 
 To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to do the following:
 
@@ -35,7 +35,7 @@ To take advantage of [dynamic packaging](media-services-dynamic-packaging-overvi
 Media Services supports the following on demand encoders that are described in this article:
 
 - **Media Encoder Standard**
-- **Azure Media Encoder** 
+- **Azure Media Encoder**
 - **Media Encoder Premium Workflow**
 
 This article gives a brief overview of on demand media encoders and provides links to articles that give more detailed information. The topic also provides comparison of the encoders.
@@ -46,7 +46,7 @@ Note that by default each Media Services account can have one active encoding ta
 
 ###Overview
 
-It is recommended to use the Media Encoder Standard encoder. However, it is currently not exposed via the Azure portal.
+It is recommended to use the Media Encoder Standard encoder. However, it is currently not exposed via the Azure Classic Portal.
 
 When compared to Azure Media Encoder, this encoder supports more input and output formats and codecs. Other benefits include:
 
@@ -73,13 +73,17 @@ The encoders input metadata is described [here](http://msdn.microsoft.com/librar
 
 The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
-###Thumbnail
+###Generate thumbnails
 
-For information on how to generate thumbnails, see [How to generate thumbnails using Media Encoder Standard](media-services-dotnet-generate-thumbnail-with-mes.md).
+For information, see [How to generate thumbnails using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
 
-###Audio and/or video overlays
+###Trim videos (clipping)
 
-Currently, not supported.
+For information, see [How to trim videos using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#trim_video).
+
+###Create overlays
+
+For information, see [How to create overlays using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
 ###See also
 
@@ -247,6 +251,26 @@ MP3 (MPEG-1 Audio Layer 3)|No|No|Yes
 Windows Media Audio|No|Yes|Yes
 
 
+##Error codes  
+
+The following table lists error codes that could be returned in case an error was encountered during the encoding task execution.  To get error details in your .NET code, use the [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) class. To get error details in your REST code, use the [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) REST API.
+
+ErrorDetail.Code|Possible causes for error
+-----|-----------------------
+Unknown| Unknown error while executing the task
+ErrorDownloadingInputAssetMalformedContent|Category of errors that covers errors in downloading input asset such as bad file names, zero length files, incorrect formats and so on.
+ErrorDownloadingInputAssetServiceFailure|Category of errors that covers problems on the service side - for example network or storage errors while downloading.
+ErrorParsingConfiguration|Category of errors where task <see cref="MediaTask.PrivateData"/> (configuration) is not valid, for example the configuration is not a valid system preset or it contains invalid XML.
+ErrorExecutingTaskMalformedContent|Category of errors during the execution of the task where issues inside the input media files cause failure.
+ErrorExecutingTaskUnsupportedFormat|Category of errors where the media processor cannot process the files provided - media format not supported, or does not match the Configuration. For example, trying to produce an audio-only output from an asset that has only video
+ErrorProcessingTask|Category of other errors that the media processor encounters during the processing of the task that are unrelated to content.
+ErrorUploadingOutputAsset|Category of errors when uploading the output asset
+ErrorCancelingTask|Category of errors to cover failures when attempting to cancel the Task
+TransientError|Category of errors to cover transient issues (eg. temporary networking issues with Azure Storage)
+
+
+To get help from the **Media Services** team, open a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 
 ##Media Services learning paths
@@ -260,6 +284,7 @@ Windows Media Audio|No|Yes|Yes
 
 ##Related articles
 
+- [Perform advanced encoding tasks by customizing Media Encoder Standard presets](media-services-custom-mes-presets-with-dotnet.md)
 - [Quotas and Limitations](media-services-quotas-and-limitations.md)
 
  

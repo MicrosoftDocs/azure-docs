@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Backup for SQL workloads using DPM | Microsoft Azure"
-	description="An introduction to backing up SQL databases using the Azure Backup service"
+	pageTitle="Azure Backup for SQL Server workloads using DPM | Microsoft Azure"
+	description="An introduction to backing up SQL Server databases using the Azure Backup service"
 	services="backup"
 	documentationCenter=""
 	authors="giridharreddy"
@@ -13,26 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
-	ms.author="giridham"; "jimpark"/>
+	ms.date="11/26/2015"
+	ms.author="aashishr", "giridham"; "jimpark"/>
 
 
-# Azure Backup for SQL workloads using DPM
+# Azure Backup for SQL Server workloads using DPM
 
-This article will lead you through configuring SQL backups using Azure Backup. To back up SQL to Azure you need an Azure account. If you don’t have an account, you can create a free trial account in just couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
+This article will lead you through the configuration steps for backup of SQL Server databases using Azure Backup.
 
-Management of SQL database backup and recovery to Azure involves three steps:
+To back up SQL Server databases to Azure you need an Azure account. If you don’t have an account, you can create a free trial account in just couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-1. Create backup policy to protect SQL server databases to Azure.
+The management of SQL Server database backup to Azure and recovery from Azure involves three steps:
+
+1. Create a backup policy to protect SQL Server databases to Azure.
 2. Create on-demand backup copies to Azure.
 3. Recover the database from Azure.
 
 ## Before you start
-Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introduction/#prerequisites) for using Microsoft Azure Backup to protect workloads have been met. The prerequisites cover tasks such as: creating a backup vault, downloading vault credentials, installing the Azure Backup Agent and registering the server with the vault.
+Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introduction/#prerequisites) for using Microsoft Azure Backup to protect workloads have been met. The prerequisites cover tasks such as creating a backup vault, downloading vault credentials, installing the Azure Backup Agent and registering the server with the vault.
 
-## Create a backup policy to protect SQL databases to Azure
+## Create a backup policy to protect SQL Server databases to Azure
 
-1. In the DPM server, configure a new backup policy for SQL databases by creating a new **Protection Group**. Click the **Protection** workspace.
+1. In the DPM server, configure a new backup policy for SQL Server databases by creating a new **Protection Group**. Click the **Protection** workspace.
 
 2. Click **New** to create a new protection group.
 
@@ -44,7 +46,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     ![Select Protection Group Type - 'Servers'](./media/backup-azure-backup-sql/pg-servers.png)
 
-5. Expand the SQL server where the SQL databases to be backed up are installed. DPM shows various data sources that can be backed up from that server. Expand the **All SQL Shares** and select the SQL databases (in this case we selected ReportServer$MSDPM2012 and ReportServer$MSDPM2012TempDB) to be backed up. Click **Next**.
+5. Expand the SQL Server machine where the databases to be backed up are present. DPM shows various data sources that can be backed up from that server. Expand the **All SQL Shares** and select the databases (in this case we selected ReportServer$MSDPM2012 and ReportServer$MSDPM2012TempDB) to be backed up. Click **Next**.
 
     You will find a screen similar to the one below.
 
@@ -60,7 +62,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     ![Short term goals](./media/backup-azure-backup-sql/pg-shortterm.png)
 
-    >[AZURE.NOTE] At 8:00 PM (according to the screen input ) a backup point is created every day by transferring the data that has been modified from the previous day’s 8:00 PM backup point. This process is called **Express Full Backup**. While the SQL transactional logs are synchronized every 15 minutes, if there is a need to recover the database at 9:00 PM – then the point is created by replaying the logs from the last express full backup point (8pm in this case).
+    >[AZURE.NOTE] At 8:00 PM (according to the screen input ) a backup point is created every day by transferring the data that has been modified from the previous day’s 8:00 PM backup point. This process is called **Express Full Backup**. While the transaction logs are synchronized every 15 minutes, if there is a need to recover the database at 9:00 PM – then the point is created by replaying the logs from the last express full backup point (8pm in this case).
 
 8. Click **Next**
 
@@ -68,7 +70,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     ![Disk allocation](./media/backup-azure-backup-sql/pg-storage.png)
 
-    >[AZURE.NOTE]  DPM creates one volume per data source (SQL database) for creating initial backup copy. With this approach, the Logical Disk Manager (LDM) limits DPM to protect up to 300 data sources (SQL databases) only. In order to avoid this DPM has implemented another approach which uses a single volume for multiple data sources. This is enabled using the **Co-locate data in DPM Storage Pool**. With this approach DPM can protect up to 2000 SQL databases.
+    DPM creates one volume per data source (SQL Server database) for creating initial backup copy. With this approach, the Logical Disk Manager (LDM) limits DPM to protect up to 300 data sources (SQL Server databases) only. In order to avoid this DPM has implemented another approach which uses a single volume for multiple data sources. This is enabled using the **Co-locate data in DPM Storage Pool**. With this approach DPM can protect up to 2000 SQL databases.
 
     DPM can account for the backup volume increase as the production data grows, if **Automatically grow the volumes** is selected. If you uncheck **Automatically grow the volumes**, it will limit the backup storage used to back up the data sources in the protection group.
 
@@ -76,7 +78,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     ![Initial replication method](./media/backup-azure-backup-sql/pg-manual.png)
 
-    >[AZURE.NOTE] The initial backup copy requires transfer of the entire data source (SQL database) from production server (SQL Server) to the DPM server. This data might at times be very large and transferring this over network might exceed bandwidth. Hence, Admins are given a choice on whether they want to transfer this initial backup **Manually** to avoid bandwidth clogging or they want it to happen **Automatically** over the network. Also, when Admins choose **Network** they are given a choice of whether to create initial backup copy **Now** or **Later**, at a specified time.
+    The initial backup copy requires transfer of the entire data source (SQL Server database) from production server (SQL Server machine) to the DPM server. This data might at times be very large and transferring this over network might exceed bandwidth. Hence, Admins are given a choice on whether they want to transfer this initial backup **Manually** to avoid bandwidth clogging or they want it to happen **Automatically** over the network. Also, when Admins choose **Network** they are given a choice of whether to create initial backup copy **Now** or **Later**, at a specified time.
 
     Once the initial backup is complete, the remainder of the backups are incremental backups on top of initial backup copy which in general are very small and get transferred on the network.
 
@@ -84,7 +86,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     ![Consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    >[AZURE.NOTE] DPM can perform a consistency check to check the integrity of the backup point. It calculates the checksum of the backup file on the production server (SQL server in this scenario) and the backed up data for that file at DPM. In the case of a conflict it is assumed that the backed up file at DPM is corrupt. DPM rectifies the backed up data by sending the blocks corresponding to the checksum mismatch. As the consistency check is a performance intensive operation, administrators are provided with the option of scheduling it or running it automatically.
+    DPM can perform a consistency check to check the integrity of the backup point. It calculates the checksum of the backup file on the production server (SQL Server machine in this scenario) and the backed up data for that file at DPM. In the case of a conflict it is assumed that the backed up file at DPM is corrupt. DPM rectifies the backed up data by sending the blocks corresponding to the checksum mismatch. As the consistency check is a performance intensive operation, administrators are provided with the option of scheduling it or running it automatically.
 
 11. To specify online protection of the datasources, select the databases to be protected to Azure and click **Next**.
 
@@ -96,7 +98,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     In this example, backups are taken once a day at 12:00 PM and 8 PM (bottom part of the screen)
 
-    >[AZURE.NOTE] It’s a good practice to have a few recovery points for short term on disk for quick recovery. This is called “operational recovery”. Azure serves as a good offsite location with higher SLAs and guaranteed availability. By H1, 2015, DPM & Azure Backup will have the added capability to specify multiple “generations” (a.k.a GFS scheme) of backups.
+    >[AZURE.NOTE] It’s a good practice to have a few recovery points for short term on disk for quick recovery. This is called “operational recovery”. Azure serves as a good offsite location with higher SLAs and guaranteed availability.
 
     **Best Practice**: Make sure that Azure Backups are scheduled after the completion of local disk backups using DPM. This enable the latest disk backup to be copied to Azure.
 
@@ -122,7 +124,7 @@ Before you begin, ensure that all the [prerequisites](../backup-azure-dpm-introd
 
     ![Creation of Protection Group In-Progress](./media/backup-azure-backup-sql/pg-summary.png)
 
-## On demand backup of a SQL database
+## On demand backup of a SQL Server database
 While the previous steps created a backup policy, a “recovery point” is created only when the first backup occurs. Rather than waiting for the scheduler to kick in, the steps below will trigger the creation of a recovery point manually.
 
 1. Wait until the protection group status shows **OK** for the database before creating the recovery point.
@@ -141,8 +143,8 @@ While the previous steps created a backup policy, a “recovery point” is crea
 
     ![Monitoring console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
-## Recover a SQL database from Azure
-The following steps are required to recover a protected entity (SQL database) from Azure.
+## Recover a SQL Server database from Azure
+The following steps are required to recover a protected entity (SQL Server database) from Azure.
 
 1. Open the DPM server Management Console. Navigate to **Recovery** workspace where you will be able to see the servers backed up by DPM. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time which ends with **Online**.
 
@@ -156,7 +158,7 @@ The following steps are required to recover a protected entity (SQL database) fr
 
     ![Recover to Original Location](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    In this example, DPM allows recovery of the database to another SQL server instance or to a standalone network folder.
+    In this example, DPM allows recovery of the database to another SQL Server instance or to a standalone network folder.
 
 4. In the **Specify Recovery options** screen, you can select the recovery options like Network bandwidth usage throttling to throttle the bandwidth used by recovery. Click **Next**.
 

@@ -82,9 +82,9 @@ Where `[namespace]`, `[username]`, and `[password]` have the following meanings:
 
 | Name          | Meaning                                                                        |   |   |   |   |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]` | The Service Bus namespace obtained from the Azure portal.                      |   |   |   |   |
-| `[username]`  | The Service Bus issuer name obtained from the Azure portal.                    |   |   |   |   |
-| `[password]`  | URL-encoded form of the Service Bus issuer key obtained from the Azure portal. |   |   |   |   |
+| `[namespace]` | The Service Bus namespace obtained from the [Azure classic portal][].                      |   |   |   |   |
+| `[username]`  | The Service Bus issuer name obtained from the [Azure classic portal][].                    |   |   |   |   |
+| `[password]`  | URL-encoded form of the Service Bus issuer key obtained from the [Azure classic portal][]. |   |   |   |   |
 
 > [AZURE.NOTE] You must URL-encode the password manually. A useful URL encoding utility is available at [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -444,3 +444,4 @@ Ready to learn more? Visit the following links:
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
+[Azure classic portal]: http://manage.windowsazure.com

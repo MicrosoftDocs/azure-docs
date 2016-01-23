@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/04/2015" 
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,7 @@
 
 Microsoft Azure Media Services enables you to deliver your content encrypted with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM. Media Services also provides a **Key\License Delivery Service** from which clients can obtain a key or license to play the encrypted content. 
 
-This topic shows how to use the **Azure Management Portal** to configure the content key authorization policy. The key can later be used to dynamically encrypt your content. Note that currently you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
+This topic shows how to use the **Azure Classic Portal** to configure the content key authorization policy. The key can later be used to dynamically encrypt your content. Note that currently you can encrypt the following streaming formats: HLS, MPEG DASH, and Smooth Streaming. You cannot encrypt HDS streaming format, or progressive downloads.
  
 When a player requests a stream that is set to be dynamically encrypted, Media Services uses the configured key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
@@ -95,7 +95,7 @@ You can click the **import policy xml** button and provide a different XML which
 
 
 ##Next Steps
-Now that you have configured content key's authorization policy, go to the [How to: Use the Azure Management Portal to enable encryption](../media-services-manage-content#encrypt/) topic.
+Now that you have configured content key's authorization policy, go to the [How to: Use the Azure Classic Portal to enable encryption](../media-services-manage-content#encrypt/) topic.
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png

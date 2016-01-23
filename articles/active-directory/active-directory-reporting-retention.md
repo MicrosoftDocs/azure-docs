@@ -13,10 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/02/2015"
+	ms.date="12/07/2015"
 	ms.author="kenhoff"/>
 
 # Azure Active Directory Report Retention Policies
+
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
+
 Azure AD's reports retain data for a certain number of days, indicated here.
 
 Report                                                  | Description

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure Forced Tunneling for Microsoft Azure VPN Gateways | Microsoft Azure"
-   description="If you have a virtual network with a cross-premises VPN-gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. "
+   pageTitle="Configure forced tunneling for VPN Gateways using PowerShell | Microsoft Azure"
+   description="If you have a virtual network with a cross-premises VPN-gateway, you can redirect or "force" all Internet-bound traffic back to your on-premises location. This article applies to VPN gateways created using the classic deployment model "
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -18,9 +18,13 @@
 
 # Configure forced tunneling
 
-This article applies to VNets and VPN Gateways created using the classic deployment model. When instructions are available for configuring forced tunneling for VNets and VPN Gateways created using the Resource Manager model, we will add a link to the top of this page.
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
 
->[AZURE.NOTE] It's important to know that Azure currently works with two deployment models: Resource Manager, and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. For information about the deployment models, see [Azure deployment models](../azure-classic-rm.md). 
+This article applies to VNets and VPN Gateways created using the classic deployment model (also known as Service Management). If you want to configure forced tunneling for VNets and VPN Gateways created using the Resource Manager deployment model, see [Configure forced tunneling using PowerShell and Azure Resource Manager](vpn-gateway-forced-tunneling-rm.md). 
+
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)] 
 
 ## About forced tunneling
 
@@ -161,11 +165,8 @@ Below are some additional PowerShell cmdlets that you may find helpful when work
 
 	Remove-AzureVnetGatewayDefaultSites -VNetName <virtualNetworkName>
 
-## Next steps
 
 
-For information about User Defined Routes, see [User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md).
 
-For information about securing your network traffic, see [What is a Network Security Group](../virtual-network/virtual-networks-nsg.md). Note that you should never apply a Network Security Group to an Azure VNet gateway subnet.
 
 

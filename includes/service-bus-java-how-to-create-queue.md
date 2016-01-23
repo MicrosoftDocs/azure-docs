@@ -39,7 +39,7 @@ container for addressing Service Bus resources within your application.
 
 To create a service namespace:
 
-1.  Log on to the [Azure portal][].
+1.  Log on to the [Azure classic portal][].
 
 2.  In the left navigation pane of the portal, click
     **Service Bus**.
@@ -69,7 +69,7 @@ The namespace you created takes a moment to activate, and will then appear in th
 
 In order to perform management operations, such as creating a queue on
 the new namespace, you must obtain the management credentials for the
-namespace. You can obtain these credentials from the Azure portal.
+namespace. You can obtain these credentials from the portal.
 
 ###To obtain management credentials from the portal
 
@@ -84,6 +84,6 @@ namespace. You can obtain these credentials from the Azure portal.
 
 4.  Make a note of the primary key, or copy it to the clipboard.
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png

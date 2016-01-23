@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/08/2015" 
+	ms.date="12/01/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -143,7 +143,7 @@ For available sizes, see [eDTU and storage limits for elastic database pools and
 
 STA and DMVs provide different tooling options and capabilities for sizing an elastic database pool. Regardless of the tooling option used, the sizing estimate should only be used for initial assessment and creation of elastic database pools. Once a pool is created, its resource usage should be accurately monitored and the performance settings of the pool adjusted up and down as needed. 
 
-**STA**<br>STA is a built-in tool in [the preview portal](https://portal.azure.com) that automatically evaluates historical resource utilization of databases in an existing SQL Database server and recommends an appropriate elastic database pool configuration. For details, see [Elastic database pool pricing tier recommendations](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
+**STA**<br>STA is a built-in tool in [the Azure portal](https://portal.azure.com) that automatically evaluates historical resource utilization of databases in an existing SQL Database server and recommends an appropriate elastic database pool configuration. For details, see [Elastic database pool pricing tier recommendations](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations).
 
 **DMV sizing tool**<br>DMV sizing tool is provided as a PowerShell script and enables customizing the sizing estimates of an elastic database pool for existing databases in a server. 
 
@@ -163,7 +163,7 @@ Select the tool that is appropriate for analyzing your specific application. The
 
 STA evaluates the utilization history of databases and recommends an elastic database pool when it is more cost effective than using performance levels for single databases. If a pool is recommended, the tool provides a list of recommended databases, and also the recommended amount of pool eDTUs and min/max eDTU settings for each elastic database. In order for a database to be considered as a candidate for a pool, it must exist for at least 7 days.
 
-STA is available in the preview portal when adding an elastic database pool to an existing server. If recommendations for an elastic database pool are available for that server, they are displayed in the “Elastic Database Pool’ creation page. Customers can always change the recommended configurations to create their own elastic database pool grouping. 
+STA is available in the portal when adding an elastic database pool to an existing server. If recommendations for an elastic database pool are available for that server, they are displayed in the “Elastic Database Pool’ creation page. Customers can always change the recommended configurations to create their own elastic database pool grouping. 
 
 For details, see [Elastic database pool pricing tier recommendations](sql-database-elastic-pool-portal.md#elastic-database-pool-pricing-tier-recommendations)
 

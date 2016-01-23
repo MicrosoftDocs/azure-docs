@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="01/12/2016"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>What are Mobile Apps?
@@ -36,7 +36,7 @@ Azure App Service is a fully managed Platform as a Service (PaaS) offering for p
 ## Mobile App Concepts
 - **Single Sign On** - Select from an ever-growing list of identity providers including Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account, and leverage Mobile Apps to add authentication to your app in minutes.
 - **Offline Sync**  - Mobile Apps makes it easy for you to build robust and responsive apps that allow employees to work offline when connectivity is not available, and synchronize with your enterprise backend systems when devices comes back online. Offline sync capability is supported on all client platforms and works with any data source including SQL, Table Storage, Mongo, or Document DB, and any SaaS API including Office 365, Salesforce, Dynamics, or on-premises databases.
-- **Push Notifications** - Mobile Apps offers a massively scalable mobile push notification engine, Notification Hubs, capable of sending millions of personalized push notifications to dynamic segments of audience using iOS, Android, Windows, or Kindle devices within seconds. You can easily hook Notification Hubs to any existing app backend, whether that backend is hosted on-premises or in the cloud.
+- **Push Notifications** - Mobile Apps offers a massively scalable mobile push notification engine, Notification Hubs, capable of sending millions of personalized push notifications to dynamic segments of audiences using iOS, Android, Windows, or Kindle devices within seconds. You can easily hook Notification Hubs to any existing app backend, whether that backend is hosted on-premises or in the cloud.
 - **Auto Scaling** - App Service enables you to quickly scale-up or out to handle any incoming customer load. Manually select the number and size of VMs or set up auto-scaling to scale your mobile app backend based on load or schedule.
 
 ## Getting Started ##
@@ -44,15 +44,12 @@ To get started with Mobile Apps, follow the [Get Started] tutorial.
 
 For more information on Azure App Service platform, see [Azure App Service].
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://tryappservice.azure.com/?appServiceName=mobile), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 <!-- URLs. -->
-[Migrate your Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Get Started]: app-service-mobile-ios-get-started.md
 
-[Management Portal]: https://manage.windowsazure.com/
-[XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[JavaScript backend version]: ../mobile-services-ios-get-started.md
  

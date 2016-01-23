@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="12/09/2015"
    ms.author="joaoma" />
 
 
@@ -23,7 +23,7 @@ Internal Load Balancer (ILB) is a security enhancement over the current Internet
 			
 The infrastructure  restricts the accessibility and creates a trust boundary between the load balanced virtual IP addresses to a Cloud Service or a Virtual Network and will never be exposed to a Internet endpoint directly. This enables internal Line of Business applications to run in Azure and be accessed within the cloud or from on-premises.
 
-## Scenarios for Internal load balancer
+## Scenarios for internal load balancer
 
 You can use ILB in many new configurations, including the following:
 

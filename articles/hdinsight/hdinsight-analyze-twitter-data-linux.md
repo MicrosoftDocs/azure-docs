@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 # Analyze Twitter data using Hive in HDInsight
@@ -33,7 +33,7 @@ Before you begin this tutorial, you must have the following:
 
 	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 - __Python__ and [pip](https://pypi.python.org/pypi/pip)
 

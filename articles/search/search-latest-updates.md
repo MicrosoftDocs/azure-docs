@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/23/2015" 
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
@@ -22,7 +22,7 @@ Azure Search is cloud hosted search service on Microsoft Azure. It is generally 
 
 ##How features are versioned and rolled out
 
-Features are released separately or jointly through the [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), or the service dashboard in the [Azure portal](https://portal.azure.com).
+Features are released separately or jointly through the [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), or the service dashboard in the [Azure Classic Portal](https://portal.azure.com).
 
 Both the .NET library and REST APIs have multiple versions. Older APIs remain operational as we roll out new features. You can visit [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) to learn more about our versioning policy.
 
@@ -89,7 +89,7 @@ Visit [Azure Search is now Generally Available](http://go.microsoft.com/fwlink/p
 
 - [Lucene language analyzers](search-api-2014-10-20-preview.md) was added to provide multi-lingual support for the custom language analyzers distributed with Lucene. 
 
-- Tool support was introduced for building indexes, including scoring profiles, in the [Azure management portal](https://portal.azure.com).
+- Tool support was introduced for building indexes, including scoring profiles, in the [Azure Classic Portal](https://portal.azure.com).
 
 ##Api-version 2014-07-31-Preview
 **Released: 2014 August 21**
@@ -102,7 +102,7 @@ This version was the public preview release for Azure Search, providing the foll
 
 - Geospatial support has been available from the beginning, provided through the `Edm.GeographyPoint` data type that has been part of Azure Search since its inception.
 
-- Provisioning in the preview version of the [Azure management portal](https://portal.azure.com ). Azure Search was one of the few services that has only been available in the new portal.
+- Provisioning in the preview version of the [Azure Classic Portal](https://portal.azure.com ). Azure Search was one of the few services that has only been available in the new portal.
 
 ##Management api-version 2015-08-19
 **Released: 2015 September 11**
