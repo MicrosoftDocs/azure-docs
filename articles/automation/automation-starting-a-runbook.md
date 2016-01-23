@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/19/2015"
+   ms.date="01/19/2016"
    ms.author="bwren;sngun"/>
 
 # Starting a runbook in Azure Automation
@@ -241,4 +241,4 @@ Assuming the username in the credential was *jsmith*, this results in the follow
 
 ## Next Steps
 
-- For details on child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md) 
+- The runbook architecture in current article provides a high-level description about the hybrid runbooks, to know more details, see [Child runbooks in Azure Automation](automation-child-runbooks.md) 
