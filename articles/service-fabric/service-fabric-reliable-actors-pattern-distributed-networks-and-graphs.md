@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/29/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Reliable Actors design pattern: Distributed networks and graphs
 The Azure Service Fabric Reliable Actors programming model is a natural fit for modeling complex solutions involving relations and for modeling those relations as objects.  
