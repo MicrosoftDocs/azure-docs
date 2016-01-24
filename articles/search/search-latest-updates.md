@@ -26,8 +26,8 @@ Features are released separately or jointly through the [REST API](https://msdn.
 
 Preview and generally available (GA) features are tied to an API version of the same category.
 
-- Preview features are experimental and could change or even be abandoned before graduating to GA. 
-- GA features are stable and unlikely to change. Any change to a GA feature is announced as a breaking change. 
+- Preview features are experimental and could change or even be abandoned before graduating to GA. Preview features are always available in the [preview version of the REST API](search-api-2015-02-28-preview.md), and sometimes in the [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216). Feature documentation will always explain how to access the feature in question.
+- GA features are stable and unlikely to change. Any change to a GA feature is announced as a breaking change.
 
 Features that are purely portal or tool-based are expected to change over time and are not classified as either preview or GA.
 
@@ -46,6 +46,8 @@ Search Explorer|January 2016|[Portal](https://portal.azure.com)|Built-in query t
 
 Feature|Released|Status|Details
 -------|--------|------|-------
+Lucene language analyzers|October 2015|GA|This feature is now GA, available in the service REST API and the .NET SDK.
+[Microsoft natural language processors](search-api-2015-02-28-Preview.md)|October 2015|GA|This feature is now GA, available in the service REST API and the .NET SDK. 
 [Lucene query syntax support](https://msdn.microsoft.com/library/azure/mt589323.aspx)|September 2015|[Preview](search-api-2015-02-28-preview.md)|Adds Lucene's query analyzer.To use the new syntax, you must specify the `queryType` in a Search Documents operation.
 [Natural language processors](search-language-support.md)|September 2015|[Preview](search-api-2015-02-28-preview.md)|Added Microsoft's language processors, increasing the number of overall languages and providing an alternative implementation for others.
 POST in search, suggestions, and lookup queries|September 2015|[Preview](search-api-2015-02-28-preview.md)|Applies to the Service REST API.
