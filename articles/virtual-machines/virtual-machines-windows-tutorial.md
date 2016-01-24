@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Create a virtual machine running Windows in the Azure portal | Microsoft Azure"
-	description="Learn how to create an Azure VM or virtual computer running Windows by using the Azure Marketplace in the Azure portal"
-	keywords="azure vm,create a virtual machine,virtual computer,setting up a virtual machine"
+	pageTitle="Create a Windows virtual machine in the Azure portal | Microsoft Azure"
+	description="Learn how to create a Windows virtual machine or virtual computer by using the Azure Marketplace in the Azure portal"
+	keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="01/07/2016"
 	ms.author="cynthn"/>
 
-# Create a virtual machine running Windows in the Azure portal#
+# Create a Windows virtual machine in the Azure portal#
 
 > [AZURE.SELECTOR]
 - [Portal - Windows](virtual-machines-windows-tutorial.md)
@@ -26,13 +26,13 @@
 - [Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
 - [CLI](virtual-machines-linux-tutorial.md)
 
-<br>
-
-
-
-This tutorial shows you how easy it is to create an Azure virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
+This tutorial shows you how easy it is to create a Windows virtual machine in just a few minutes in the Azure portal. We'll use a Windows Server 2012 R2 Datacenter image as an example to create the virtual machine, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, desktop images may be available to MSDN subscribers.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. 
+
+<br>
+
+>[AZURE.TIP] When using the portal, if you want your VM to be part of an availability set, you need to create the availability set before or during the creation of the first VM in the set. For more information about creating and using availability sets, see [Manage the availability of virtual machines](virtual-machines-manage-availability.md).
 
 You can also create virtual machines using your own images, with Resource Manager templates, or with automation tools. To learn about the different methods, see [Different Ways to Create a Windows Virtual Machine](virtual-machines-windows-choices-create-vm.md).
 
@@ -44,7 +44,7 @@ Here's a walkthrough of this tutorial.
 
 [AZURE.VIDEO create-a-virtual-machine-running-windows-in-the-azure-preview-portal]
 
-## Select the virtual machine image
+## Select the Windows virtual machine image
 
 1. Sign in to the Azure portal.
 
@@ -58,7 +58,7 @@ Here's a walkthrough of this tutorial.
 
 	![Screenshot that shows the deployment model to select for an Azure VM](./media/virtual-machines-windows-tutorial/marketplace_search_select.png)
 
-## Create a virtual machine
+## Create the Windows virtual machine
 
 After you select the image, you can use Azure's default settings for most of the configuration and quickly create the virtual machine.
 
@@ -66,7 +66,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 2. Enter a **Name** you want for the virtual machine. The name cannot contain special characters.
 
-3. Enter administrative **User name**, and a strong **Password**. The password must be at 8-123 characters long and have at least 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. **You'll need the user name and password to log on to the virtual machine**
+3. Enter administrative **User name**, and a strong **Password**. The password must be at 8-123 characters long and have at least 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character. **You'll need the user name and password to log on to the virtual machine**.
 
 4. If you have more than one subscription, specify the one for the new virtual machine, as well as a new or existing **Resource group** and an Azure datacenter **Location**.
 
@@ -89,7 +89,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 8. While Azure creates the virtual machine, you can track the progress under **Virtual Machines** in the hub menu. 
 
-## Log on to the virtual machine
+## Log on to the Windows virtual machine
 
 After you create the virtual machine, you'll want to log on to it so you can manage its settings and the applications that you'll run on it.
 

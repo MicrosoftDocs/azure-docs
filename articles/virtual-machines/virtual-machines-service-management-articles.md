@@ -26,7 +26,7 @@
 
 [Create a virtual machine running Windows in the Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 
-[Create a custom virtual machine running Windows in Azure](virtual-machines-windows-create-custom.md)
+[Create a custom virtual machine running Windows in Azure](virtual-machines-create-custom.md)
 
 [Create a custom virtual machine running Linux in Azure](virtual-machines-linux-create-custom.md)
 
@@ -42,7 +42,6 @@
 
 [Creating a custom VM running Linux by using the Azure Command-Line Interface (Azure CLI)](virtual-machines-linux-create-custom.md)
 
-[Create a multi-VM deployment by using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Plan
 

@@ -17,9 +17,7 @@ ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
 
-For quite some time now, Azure Search customers have been able to "automagically" index some popular data sources by using indexers for [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) and [Azure DocumentDB](../documentdb/documentdb-search-indexer.md).
-
-We're now adding support for indexing documents stored in Azure Blob storage. Many customers have asked us to simplify indexing documents stored in blobs, such as PDFs, Office documents, or HTML pages. Until now, this involved writing custom code to do text extraction and adding the documents to an Azure Search index. 
+This article shows how to use Azure Search to index documents (such as PDFs or Office files) stored in Azure Blob storage. The new Azure Search blob indexer makes this process quick and seamless. 
 
 > [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
 
@@ -203,6 +201,7 @@ You can add metadata properties to a blob to control certain aspects of the blob
 Property name | Property value | Explanation
 --------------|----------------|------------
 AzureSearch_Skip | "true" | Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction will be attempted. This is useful when you want to skip certain content types, or when a particular blob fails repeatedly and interrupts the indexing process.
+AzureSearch_SkipContent | "true" | Instructs the blob indexer to only index the metadata and skip extracting content of the blob. This is useful if the blob content is not interesting, but you still want to index the metadata attached to the blob.
 
 ## Help us make Azure Search better
 

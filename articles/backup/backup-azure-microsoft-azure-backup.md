@@ -1,11 +1,12 @@
 <properties
-  pageTitle="Preparing to back up workloads using Azure Backup Server | Microsoft Azure"
-  description="This article provides you with the definitive steps to prepare you environment to backup workloads using Azure Backup Server"
+  pageTitle="Preparing your environment to back up workloads using Azure Backup Server | Microsoft Azure"
+  description="Make sure your environment is properly prepared to back up workloads using Azure Backup Server"
   services="backup"
   documentationCenter=""
-  authors="SamirMehta"
-  manager="shreeshd"
-  editor=""/>
+  authors="Jim-Parker"
+  manager="jwhit"
+  editor=""
+  keywords="azure backup server; backup vault"/>
 
 <tags
   ms.service="backup"
@@ -13,8 +14,8 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="12/15/2015"
-  ms.author="sammehta; jimpark"; "aashishr"/>
+  ms.date="01/22/2016"
+  ms.author="jimpark; trinadhk;"/>
 
 # Preparing to back up workloads using Azure Backup Server
 
