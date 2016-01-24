@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="prasannas"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="01/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -115,7 +115,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Nomadesk support team via kenny.clement@nomadesk.com. Attach the downloaded certificate file to your mail and share the metadata urls (Entity ID, SSO Sign in URL and Sign Out URL) with Nomadesk team to set up SSO on their side.
+5. To get SSO configured for your application, contact your Nomadesk support team via [mailto:support@nomadesk.com](support@nomadesk.com). Attach the downloaded certificate file to your mail and share the metadata urls (Entity ID, SSO Sign in URL and Sign Out URL) with Nomadesk team to set up SSO on their side.
 
 
 6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
