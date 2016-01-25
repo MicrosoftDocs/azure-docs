@@ -2,7 +2,7 @@
 	pageTitle="Connect to SQL Database with a C# query | Microsoft Azure"
 	description="Write a program in C# to query and connect to SQL database. Info about IP addresses, connection strings, secure login, and free Visual Studio."
 	services="sql-database"
-	keywords="c# database query, c# query, connect to database"
+	keywords="c# database query, c# query, connect to database, SQL C#"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
