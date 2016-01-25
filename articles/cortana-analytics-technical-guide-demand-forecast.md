@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/24/2016"
 	ms.author="yijichen"/>
 
 # Technical guide to the Cortana Analytics Solution Template for demand forecast in energy
@@ -318,7 +318,8 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 		visualizations to your dashboard. To find detailed instructions, see [Pin a tile to a Power BI dashboard from a report](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
 		Go to the dashboard page and
 		adjust the size and location of your visualizations and edit their titles. To find detailed instructions on how to edit your tiles, see [Edit a tile -- resize, move, rename, pin, delete, add hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Here is an example dashboard with some cold path visualizations pinned to it.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic7.png)
+
+		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic7.png)
 
 4. (Optional) Schedule refresh of the data source.
 	-	  To schedule refresh of the data, hover your mouse over the **EnergyBPI-Final** dataset, click ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic3.png) and then choose **Schedule Refresh**.
@@ -376,7 +377,6 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
 	-	Hover the mouse over this tile on the dashboard, click "edit" icon on top right corner to change its title as "Demand by Timestamp"
 
 4.	Create other dashboard tiles based on appropriate datasets. The final dashboard view is shown below.
-
 		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic5.png)
 
 

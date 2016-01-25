@@ -3,8 +3,8 @@
 	description="A Solution Template with Microsoft Cortana Analytics that helps forecast demand for an energy utility company."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="garyericson"
-	manager="paulettm"
+	authors="yijichen;garyericson"
+	manager="ireiter"
 	editor="cgronlun"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
-	ms.author="garye" />
+	ms.date="01/24/2016"
+	ms.author="yijichen;garye" />
 
 # Cortana Analytics Solution Template Playbook for demand forecasting of energy  
 
@@ -342,19 +342,19 @@ In recent years advanced algorithms have been developed to accommodate time seri
 > [AZURE.NOTE] This section is not intended to be used as a machine learning and forecasting overview but rather as a short survey of modeling techniques that are commonly used for demand forecasting. For more information and educational material about time series forecasting, we highly
 recommend the online book [Forecasting: principles and practice](https://www.otexts.org/book/fpp).
 
-### [**MA (Moving Average)**](https://www.otexts.org/fpp/6/2)
+#### [**MA (Moving Average)**](https://www.otexts.org/fpp/6/2)
 Moving average is one of the first analytical techniques that has been used for time series forecasting and it is still one of the most commonly used techniques as of today. It is also the foundation for more advanced forecasting techniques. With moving average we are forecasting
 the next data point by averaging over the K most recent points, where K denotes the order of the moving average.
 
 The moving average technique has the effect of smoothing the forecast and therefore may not handle well large volatility in the data.
 
-### [**ETS (Exponential Smoothing)**](https://www.otexts.org/fpp/7/5)
+#### [**ETS (Exponential Smoothing)**](https://www.otexts.org/fpp/7/5)
 Exponential Smoothing (ETS) is a family of various methods which use weighted average of recent data points in order to predict the next data point. The idea is to assign higher weights to more recent values and gradually decrease this weight for older measured values. There are a
 number of different methods with this family, some of them include handling of seasonality in the data such as [Holt-Winters Seasonal Method](https://www.otexts.org/fpp/7/5).
 
 Some of these methods also factor in the seasonality of the data.
 
-### [**ARIMA (Auto Regression Integrated Moving Average)**](https://www.otexts.org/fpp/8)
+#### [**ARIMA (Auto Regression Integrated Moving Average)**](https://www.otexts.org/fpp/8)
 Auto Regression Integrated Moving Average (ARIMA) is another family of methods which is commonly used for time series forecasting. It practically combines auto-regression methods with moving average. Auto-regression methods use regression models by taking previous time series values in order to compute the next date point. ARIMA methods also apply differencing methods that include calculating the difference between data points and using those instead of the original measured value. Finally, ARIMA also makes use of the moving average
 techniques that are discussed above. The combination of all of these methods in various ways is what constructs the family of ARIMA methods.
 
@@ -402,7 +402,7 @@ When deploying an energy demand forecasting solution, we are interested in deplo
 up-to-date data features. That implies that the newly collected raw data is constantly ingested, processed, and transformed into the required feature set on which the model was built. At the same time, we would like to make the forecasted data available for the end consuming
 clients. An example data flow cycle (or data pipeline) is illustrated in the diagram below:
 
-![Energy Demand Forecase End to End Data Flow](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
+![Energy Demand Forecast End to End Data Flow](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
 
 These are the steps that take place as part of the energy demand forecast cycle:
 1.  Millions of deployed data meters are constantly generating power consumption data in real time.
@@ -421,10 +421,6 @@ In order to practically deploy an energy demand forecast solution on Cortana Ana
 
 The following diagram illustrates a typical Cortana Analytics based architecture that implements and orchestrates the data flow cycle that is described above:
 
-![End to End Deployment Architecture](media/cortana-analytics-playbook-demand-forecasting-energy/end-to-end-deployment-architecture.png)
-
-This architecture consists of Cortana Analytics based components. Here is a short description of each of the component elements:
-
-![Architecture's Components](media/cortana-analytics-playbook-demand-forecasting-energy/architectures-components.png)
+![End to End Deployment Architecture](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 For more information about each of the components and the entire architecture please refer to the Energy Solution Template.
