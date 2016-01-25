@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Overview: Microsoft Azure Stack" 
-	description="Overview: Microsoft Azure Stack" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+<properties
+	pageTitle="Overview: Microsoft Azure Stack"
+	description="Overview: Microsoft Azure Stack"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Overview: Microsoft Azure Stack
@@ -41,3 +41,7 @@ With Azure Stack, you can run Azure services in your datacenter for true hybrid 
 Enjoy unmatched agility and productivity, with the flexibility, oversight, and control to keep sensitive data and applications onsite. You decide where to keep your data and applications. Got sensitive data? Put it on-premises or with a trusted hosting service provider.
 
 With integrated IT and business processes, you have complete command and control of configuration, provisioning, and updating. Using Azure Resource Manager, you can manage pools of resources and resource groups in both the public cloud and your datacenter. Use role-based control to restrict access for enhanced security.
+
+## Next Steps
+
+[What is Azure Stack POC?](azure-stack-poc.md)

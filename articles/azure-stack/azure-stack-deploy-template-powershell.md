@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Deploy templates with PowerShell" 
-	description="Deploy templates with PowerShell" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="Deploy templates with PowerShell"
+	description="Deploy templates with PowerShell"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Deploy templates with PowerShell
@@ -22,39 +22,31 @@ You can deploy templates in Microsoft Azure Stack by using PowerShell. Your tena
 
 ## Authenticate PowerShell with Microsoft Azure Stack
 
-Before deploying, you must authenticate your PowerShell instance with Microsoft Azure Stack.
+Before deploying with PowerShell, you must authenticate to a Microsoft Azure Stack environment.
 
-1.  Get your tenant GUID. You can find this by following these steps:
+1.  Get your tenant GUID, configure the environment, and authenticate a user by running the following PowerShell cmdlet. Replace *EMAIL* with a tenant account in the Azure Active Directory (this email must end in <directoryname>.onmicrosoft.com). Replace *SUBSCRIPTION_NAME* with the default provider subscription name.
 
-    1.  In a browser, log in to the Microsoft Azure Portal with your tenant account.
+		# Add the Microsoft Azure Stack environment
+		[net.mail.mailaddress]$AadFullMailAddress="EMAIL"
+		$AadTenantId=(Invoke-WebRequest -Uri ('https://login.windows.net/'+($AadFullMailAddress.Host)+'/.well-known/openid-configuration')|ConvertFrom-Json).token_endpoint.Split('/')[3]
 
-    2.  Click Active Directory and then click your Active Directory tenant.
-
-    3.  In the browser’s Address Bar, copy the GUID from the URL.
-
-2.  Open PowerShell and run the authentication script below. Change “Your Tenant GUID” to your GUID. Also, change “Sub Name” to your subscription name that you created above.
-
-		# Add specific Azure Stack Environment
-		$AadTenantId = "Your Tenant GUID" #GUID Specific to the AAD Tenant
-		 
+		# Configure the environment with the Add-AzureRmEnvironment cmdlt
 		Add-AzureRmEnvironment -Name 'Azure Stack' `
-		    -ActiveDirectoryEndpoint ("https://login.windows.net/$AadTenantId/") `
-		    -ActiveDirectoryServiceEndpointResourceId "https://azurestack.local-api/" `
-		    -ResourceManagerEndpoint ("https://api.azurestack.local/") `
-		    -GalleryEndpoint ("https://gallery.azurestack.local:30016/") `
-		    -GraphEndpoint "https://graph.windows.net/"
-		 
-		# Get Azure Stack Environment Information
-		$env = Get-AzureRmEnvironment 'Azure Stack'
-		
-		# Authenticate to AAD with Azure Stack Environment
-		Add-AzureRmAccount -Environment $env -Verbose
-		
-		# Get Azure Stack Environment Subscription
-		Get-AzureRmSubscription -SubscriptionName "Sub Name"  | Select-AzureRmSubscription
+    		-ActiveDirectoryEndpoint ("https://login.windows.net/$AadTenantId/") `
+    		-ActiveDirectoryServiceEndpointResourceId "https://azurestack.local-api/"`
+    		-ResourceManagerEndpoint ("https://api.azurestack.local/") `
+    		-GalleryEndpoint ("https://gallery.azurestack.local/") `
+    		-GraphEndpoint "https://graph.windows.net/"
 
+		# Authenticate a user to the environment (you will be prompted during authentication)
+		$privateEnv = Get-AzureRmEnvironment 'Azure Stack'
+		$privateAzure = Add-AzureRmAccount -Environment $privateEnv -Verbose
+		Select-AzureRmProfile -Profile $privateAzure
 
-3.  When the Microsoft Azure sign in window opens, sign in with your Azure Stack tenant account.
+		# Select an existing subscription where the deployment will take place
+		Get-AzureRmSubscription -SubscriptionName "SUBSCRIPTION_NAME"  | Select-AzureRmSubscription
+
+2.  You can now execute AzureRM PowerShell cmdlts to deploy resources to Microsoft Azure Stack.
 
 ## Deploy a virtual machine using a template
 
@@ -71,11 +63,11 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		$RGName = "myRG$myNum"
 		$myLocation = "local"
 		$myBlobStorageEndpoint = "blob.azurestack.local"
-		
+
 		# Create Resource Group for Template Deployment
 		New-AzureRMResourceGroup -Name $RGName -Location $myLocation
-		
-		# Deploy Simple IaaS Template 
+
+		# Deploy Simple IaaS Template
 		New-AzureRmResourceGroupDeployment `
 		    -Name "myDeployment$myNum" `
 		    -ResourceGroupName $RGName `
@@ -87,9 +79,11 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		    -adminUsername "username" `
 		    -adminPassword ("password" | ConvertTo-SecureString -AsPlainText -Force) `
 		    -vmName "myVM$myNum" `
-		    -windowsOSVersion " WindowsServer-2012-R2-Datacenter "
+		    -windowsOSVersion "2012-R2-Datacenter "
 
 
 4.  Go to the Microsoft Azure Stack portal and you’ll see your new virtual machine named my Deployment001.
 
+## Next Steps
 
+[Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)

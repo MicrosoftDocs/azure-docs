@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="01/21/2016"
 	ms.author="ricksal"/>
 
 # Upload images to Azure Storage from an Android  device
@@ -35,7 +35,7 @@ Before you start this tutorial, you must first complete the Mobile Services quic
 
 This tutorial also requires the following:
 
-+ An [Azure Storage account](../storage-create-storage-account.md)
++ An [Azure Storage account](../storage/storage-create-storage-account.md)
 + An Android device with a camera
 
 ## How the app works
@@ -49,7 +49,7 @@ Uploading the photo image is a multistep process:
 
 So what is a SAS?
 
-It's not safe to store the credentials needed to upload data to the Azure Storage service inside your client app. Instead, you store these credentials in your mobile service and use them to generate a Shared Access Signature (SAS) that grants permission to upload a new image. The SAS, a credential with a 5 minute expiration, is returned securely by Mobile Services to the client app. The app then uses this temporary credential to upload the image. For more information, see [Shared Access Signatures, Part 1: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md)
+It's not safe to store the credentials needed to upload data to the Azure Storage service inside your client app. Instead, you store these credentials in your mobile service and use them to generate a Shared Access Signature (SAS) that grants permission to upload a new image. The SAS, a credential with a 5 minute expiration, is returned securely by Mobile Services to the client app. The app then uses this temporary credential to upload the image. For more information, see [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage/storage-dotnet-shared-access-signature-part-1.md)
 
 ## Code Sample
 [Here](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages) is the completed client source code part of this app. To run it you must complete the Mobile Services backend parts of this tutorial.

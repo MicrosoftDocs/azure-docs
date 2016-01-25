@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/13/2016"
+   ms.date="01/22/2016"
    ms.author="alkohli" />
 
 # Use the Web UI to administer your StorSimple Virtual Array (preview)
 
-![setup process flow](./media/storsimple-ova-web-ui-admin/manage2.png)
+![setup process flow](./media/storsimple-ova-web-ui-admin/manage4.png)
 
 ## Overview
 
@@ -33,7 +33,7 @@ This article includes the following tutorials:
 - Get the service data encryption key
 - Troubleshoot web UI setup errors
 - Generate a log package
-- Shutdown or restart your device
+- Shut down or restart your device
 
 ## Get the service data encryption key
 

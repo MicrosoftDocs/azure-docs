@@ -19,7 +19,7 @@
 # Configuring a Web Application Firewall (WAF) for App Service Environment
 
 ## Overview ##
-Web application firewalls like the [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure) that is available on the [Azure Marketplace](http://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) helps secure your web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads & application DDoS and other attacks. It also inspects the responses from the back-end web servers for Data Loss Prevention (DLP). Combined with the isolation and additional scaling provided by App Service Environments, this provides an ideal environment to host business critical web applications that need to withstand malicious requests and high volume traffic.
+Web application firewalls like the [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure) that is available on the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) helps secure your web applications by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads & application DDoS and other attacks. It also inspects the responses from the back-end web servers for Data Loss Prevention (DLP). Combined with the isolation and additional scaling provided by App Service Environments, this provides an ideal environment to host business critical web applications that need to withstand malicious requests and high volume traffic.
 
 +[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
@@ -35,7 +35,7 @@ To configure an App Service Environment refer to [our documentation](app-service
 Barracuda has a [detailed article](https://techlib.barracuda.com/WAF/AzureDeploy) on deploying its WAF on a virtual machine in Azure. But because we want redundancy and not introduce a single point of failure, you want to deploy at least 2 WAF instance VMs into the same Cloud Service when following these instructions.
 
 ### Adding Endpoints to Cloud Service ###
-Once you have 2 or more WAF VM instances in your Cloud Service you can use the [Azure Portal](https://portal.azure.com) to add HTTP and HTTPS endpoints that are used by your application as shown in the image below.
+Once you have 2 or more WAF VM instances in your Cloud Service you can use the [Azure Portal](https://portal.azure.com/) to add HTTP and HTTPS endpoints that are used by your application as shown in the image below.
 
 ![Configure Endpoint][ConfigureEndpoint]
 

@@ -67,6 +67,7 @@ The services that currently do not support moving a resource are:
 
 - Virtual Machines
 - Storage
+- Express Route
 
 When working with web apps, you cannot move only an App Service plan. To move web apps, your options are:
 

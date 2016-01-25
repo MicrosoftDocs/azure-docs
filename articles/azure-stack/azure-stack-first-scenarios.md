@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="First scenarios to try" 
-	description="First scenarios to try" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="First scenarios to try"
+	description="First scenarios to try"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # First scenarios to try
@@ -28,4 +28,12 @@ The primary objects in Microsoft Azure Stack – plans, offers, and subscription
 
 4.  [As a tenant, use the services provided by the offer’s plan to create a virtual machine.](azure-stack-subscribe-plan-provision-vm.md#provision-a-virtual-machine)
 
+## Deploy PaaS resource providers
 
+You can also deploy the following Platform-as-a-Service resource providers:
+[WebApps resource provider](http://tbd)
+[SQL Server resource provider](http://tbd)
+
+## Next Steps
+
+[Create a plan](azure-stack-create-plan.md)

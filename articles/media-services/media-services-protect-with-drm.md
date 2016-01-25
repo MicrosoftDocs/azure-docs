@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="01/10/2016" 
+	ms.date="01/20/2016" 
 	ms.author="juliako"/>
 
 
@@ -626,6 +626,8 @@ The following sample demonstrates functionality that was introduced in Azure Med
 
 
 ##See also
+
+[CENC with Multi-DRM and Access Control](media-services-cenc-with-multidrm-access-control.md)
 
 [Configure Widevine packaging with AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
