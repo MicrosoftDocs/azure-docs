@@ -21,7 +21,7 @@
 
 This article provides information about supplementary hardware that works with your Microsoft Azure StorSimple device.
 
-## List of supported devices
+## List of devices tested by Microsoft
 
 Microsoft has tested the following small form-factor pluggable (SFP) transceivers, cables, and switches to ensure that they function optimally with devices. (The following tables will be updated as new hardware is tested.)
 
@@ -48,7 +48,7 @@ Microsoft has tested the following small form-factor pluggable (SFP) transceiver
 | 2. |Cisco|N3K-C3048-ZM-F|
 | 3. |Cisco|N5K-C5596UP-FA|
 
-## List of devices supported by Mellanox  
+## List of devices tested by OEM provider (Mellanox)  
 
 Mellanox has tested the following small form-factor pluggable (SFP) transceivers, cables, and switches to ensure that they function optimally with Mellanox network interfaces such as the 10 GbE network interfaces on your StorSimple device.
 
