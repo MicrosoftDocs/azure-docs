@@ -98,7 +98,7 @@ Use the following steps to create a non-readable secondary as an elastic databas
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
-           , ELASTIC_POOL (name = MyElasticPool1));
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 
 4. Click **Execute** to run the query.
 
@@ -115,7 +115,7 @@ Use the following steps to create a readable secondary as an elastic database.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
-           , ELASTIC_POOL (name = MyElasticPool2));
+           , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool2));
 
 4. Click **Execute** to run the query.
 
