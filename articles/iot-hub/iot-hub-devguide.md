@@ -236,10 +236,10 @@ These are the expected values:
 
 | Value | Description |
 | ----- | ----------- |
-| {signature} | An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry` |
+| {signature} | An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation. |
 | {resourceURI} | URI prefix (by segment) of the endpoints that can be accessed with this token. For example, `/events` |
 | {expiry} | UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970. |
-| {URL-encoded-resourceURI} | URL-encoded resource URI (lower-case) |
+| {URL-encoded-resourceURI} | Lower case URL-encoding of the lower case resource URI |
 | {policyName} | The name of the shared access policy to which this token refers. Absent in the case of tokens referring to device-registry credentials. |
 
 **Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
@@ -350,6 +350,8 @@ Note that this does not mean that you can substitute IoT Hub for Event Hubs in a
 
 For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
 
+> [AZURE.NOTE] When using HTTP to send device-to-cloud messages, the following strings can contain only ASCII characters: system property values, and application property names and values.
+
 #### Non-telemetry traffic
 
 In many cases, in addition to telemetry data points, devices also send *interactive* messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the backend, or device responses to commands sent from the backend.
@@ -394,6 +396,8 @@ As detailed in the [Endpoints](#endpoints) section, you can send cloud-to-device
 Each cloud-to-device message is targeted at a single device, setting the **to** property to **/devices/{deviceId}/messages/devicebound**.
 
 **Important**: Each device queue can hold at most 50 cloud-to-device messages. Trying to send more messages to the same device will result in an error.
+
+> [AZURE.NOTE] When sending cloud-to-device messages, the following strings can contain only ASCII characters: system property values, and application property names and values.
 
 #### Message lifecycle <a id="message lifecycle"></a>
 
