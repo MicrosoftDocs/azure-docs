@@ -72,7 +72,7 @@ You will be prompted to authenticate with your credentials.
 ### Step 3
 Choose which of your Azure subscriptions to use.
 
-	PS C:\> Select-AzureRmContext -SubscriptionName "MySubscription"
+	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
 
 To see a list of available subscriptions, use the ‘Get-AzureRmSubscription’ cmdlet.
 

@@ -30,7 +30,7 @@ This tutorial shows you how to use a cloud-based backend service ([Azure Mobile 
 
 To complete this tutorial, you need the following:
 
-* An [active Azure account](http://azure.microsoft.com/pricing/free-trial/)
+* An [active Azure account](https://azure.microsoft.com/pricing/free-trial/)
 
 * A PC with [Visual Studio Community 2013] or newer
 
