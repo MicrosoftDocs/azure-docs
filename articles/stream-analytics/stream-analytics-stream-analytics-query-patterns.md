@@ -419,12 +419,13 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 
 
 **Solution**
-    SELECT
+````SELECT
     	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
     	Event = 'end'
-  
+````
+
 **Explanation**:
 Use LAST function to retrieve last Time value when event type was ‘Start’. Note that LAST function uses PARTITION BY [user] to indicate that result shall be computed per unique user.  The query has a 1 hour maximum threshold for time difference between ‘Start’ and ‘Stop’ events but is configurable as needed (LIMIT DURATION(hour, 1).
 
