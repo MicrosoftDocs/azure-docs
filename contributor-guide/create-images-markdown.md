@@ -62,6 +62,7 @@ Use the following guidelines when creating and including art files:
 - Conceptual images with whitespace do not need a gray border.  
     
     Example:
+
     ![This is an example of a conceptual image with whitespace and no gray border.](./media/create-images-markdown/ic727360.png)
 
 - Try not to make an image too wide.  Images will be automatically resized if they are too wide. However, the resizing sometimes causes fuzziness, so we recommend that you limit the width of your images to 780 px, and manually resize images before submission if necessary.
