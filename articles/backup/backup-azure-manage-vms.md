@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
-	ms.author="aashishr"; "jimpark"; "trinadhk"/>
+	ms.date="01/25/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Manage and monitor Azure virtual machine backups
 
