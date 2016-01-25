@@ -2,13 +2,14 @@
 	pageTitle="Customizing preconfigured solutions | Microsoft Azure"
 	description="Provides guidance on how to customize the Azure IoT Suite preconfigured solutions."
 	services=""
+    suite="iot-suite"
 	documentationCenter=".net"
 	authors="stevehob"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
