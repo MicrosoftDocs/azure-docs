@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2015" 
+	ms.date="01/08/2016" 
 	ms.author="erikre"/>
 
 # Create an ASP.NET 5 API app in Visual Studio Code
@@ -326,7 +326,7 @@ Later in this tutorial, you will replace the above host URL placeholder string w
 
 > [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [sign up for a free trial](/pricing/free-trial/) or [activate your MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/). You can also try for free the [App Service App Samples](http://tryappservice.azure.com).
 
-1. Log in to the [Azure preview portal](https://portal.azure.com).
+1. Log in to the [Azure preview portal](https://portal.azure.com/).
 
 2. Click **NEW** at the top left of the portal.
 

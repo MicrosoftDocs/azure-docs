@@ -1,11 +1,11 @@
 <properties
-	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
-	description="Create a new storage account, manage your access keys, or delete a storage account in the Azure Portal."
+	pageTitle="How to create, manage, or delete a storage account in the Azure Portal | Microsoft Azure"
+	description="Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts."
 	services="storage"
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
+	ms.date="01/20/2016"
 	ms.author="robinsh"/>
 
 
@@ -27,7 +27,7 @@ An Azure storage account gives you access to the Azure Blob, Queue, Table, and F
 
 There are two types of storage accounts:
 
-- A standard storage account includes Blob, Table, Queue, and File storage. 
+- A standard storage account includes Blob, Table, Queue, and File storage.
 - A premium storage account currently supports Azure virtual machine disks only. See [Premium Storage: High-performance storage for Azure virtual machine workloads](storage-premium-storage-preview-portal.md) for an in-depth overview of Premium Storage.
 
 ## Storage account billing
@@ -67,7 +67,7 @@ You can also configure a custom domain name to use with your storage account. Se
 
 1. Sign in to the [Azure Portal](https://portal.azure.com).
 
-2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**. 
+2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
 
 3. Select a deployment model: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
 
@@ -81,7 +81,7 @@ You can also configure a custom domain name to use with your storage account. Se
 
 5. Specify the type of storage account to create. The storage account type determines how the storage account is replication and whether it is a standard storage account or a premium storage account.
 
-	The default storage account type is **Standard-RAGRS**, which is a standard storage account with read-access geo-redundant replication. This type of storage account is replicated to a secondary region that is hundreds of miles away from the primary region, and provides read access to the secondary location. 
+	The default storage account type is **Standard-RAGRS**, which is a standard storage account with read-access geo-redundant replication. This type of storage account is replicated to a secondary region that is hundreds of miles away from the primary region, and provides read access to the secondary location.
 
 	For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md). For more details on standard and premium storage accounts, see [Introduction to Storage](storage-introduction.md) and [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md)
 
@@ -89,7 +89,7 @@ You can also configure a custom domain name to use with your storage account. Se
 
 7. If you have more than one Azure subscription, then the **Subscription** field is displayed. Select the subscription in which you want to create the new storage account.
 
-8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Use Azure Portal to manage Azure resources](../resource-group-portal.md).
+8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Use Azure Portal to manage Azure resources](../azure-portal/resource-group-portal.md).
 
 9. Select the geographic location for your storage account.
 
@@ -103,7 +103,7 @@ When you create a storage account, Azure generates two 512-bit storage access ke
 
 ### View and copy storage access keys
 
-In the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to view, copy, and regenerate your account access keys. The **Access Keys** blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications. 
+In the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to view, copy, and regenerate your account access keys. The **Access Keys** blade also includes pre-configured connection strings using your primary and secondary keys that you can copy to use in your applications.
 
 ### Regenerate storage access keys
 
@@ -115,7 +115,7 @@ We recommend that you change the access keys to your storage account periodicall
 
 **Media services** - If you have media services that are dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the keys.
 
-**Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys. 
+**Applications** - If you have web applications or cloud services that use the storage account, you will lose the connections if you regenerate keys, unless you roll your keys.
 
 Here is the process for rotating your storage access keys:
 
@@ -133,8 +133,23 @@ To remove a storage account that you are no longer using, navigate to the storag
 
 > [AZURE.WARNING] It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
 
+To delete a storage account that is associated with an Azure virtual machine, you must first ensure that any virtual machine disks have been deleted. If you do not first delete your virtual machine disks, then when you attempt to delete your storage account, you will see an error message similar to:
+
+    Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
+
+To remove the virtual machine disk, follow these steps in the Azure Classic Portal:
+
+1. Navigate to the [Azure Classic Portal](manage.windowsazure.com).
+2. Navigate to the Virtual Machines tab.
+3. Click the Disks tab.
+4. Select your data disk, then click Delete Disk.
+5. To delete disk images, navigate to the Images tab and delete any images that are stored in the account.
+
+For more information, see the [Azure Virtual Machine documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
+
 ## Next steps
 
-- To learn more about Azure Storage, see the Azure Storage documentation on [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
-- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Azure Storage replication](storage-replication)
+- [Configure a connection string to Azure Storage](storage-configure-connection-string)
 - [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).

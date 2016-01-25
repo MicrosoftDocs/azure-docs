@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="01/04/2015"
+   ms.date="01/04/2016"
    ms.author="larryfr"/>
 
 #Use the Hive View with Hadoop in HDInsight

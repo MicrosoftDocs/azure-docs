@@ -1,11 +1,11 @@
 <properties
-	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
-	description="Learn how to create, manage, or delete a storage account in the Azure Classic Portal."
+	pageTitle="How to create, manage, or delete a storage account in the Azure Classic Portal | Microsoft Azure"
+	description="Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts."
 	services="storage"
 	documentationCenter=""
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015" 
+	ms.date="01/20/2016"
 	ms.author="robinsh"/>
 
 
@@ -27,7 +27,7 @@ An Azure storage account gives you access to the Azure Blob, Queue, Table, and F
 
 There are two types of storage accounts:
 
-- A standard storage account includes Blob, Table, Queue, and File storage. 
+- A standard storage account includes Blob, Table, Queue, and File storage.
 - A premium storage account currently supports Azure virtual machine disks only. See [Premium Storage: High-performance storage for Azure virtual machine workloads](storage-premium-storage-preview-portal.md) for an in-depth overview of Premium Storage.
 
 ## Storage account billing
