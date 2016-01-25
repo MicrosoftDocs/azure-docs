@@ -1,7 +1,7 @@
 <properties
    pageTitle="Cloud disaster recovery solutions - SQL Database geo-replication | Microsoft Azure"
    description="Learn how to design cloud disaster recovery solutions for business continuity planning using geo-replication for app data backup with Azure SQL Database."
-   keywords="business continuity planning,cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication"
+   keywords="cloud disaster recovery,disaster recovery solutions,app data backup,geo-replication,business continuity planning"
    services="sql-database"
    documentationCenter=""
    authors="anosov1960"
@@ -141,7 +141,7 @@ The **tradeoffs** are:
 
 > [AZURE.NOTE] In case of a permanent service outage in the region you will have to manually activate database failover and accept the data loss. The application will be functional in the secondary region with read-write access to the database.
 
-## Summary: Decide on an application design for cloud disaster recovery
+## Business continuity planning: Choose an application design for cloud disaster recovery
 
 Your specific cloud disaster recovery strategy can combine or extend these design patterns to best meet the needs of your application.  As mentioned earlier, the strategy you choose will be based on the SLA you want to offer to your customers and the application deployment topology. To help guide your decision the table below compares the choices based on the estimated data loss or recovery point objective (RPO) and estimated recovery time (ERT).
 
