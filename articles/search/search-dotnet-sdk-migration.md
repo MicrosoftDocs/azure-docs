@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="01/21/2016"
+   ms.date="01/22/2016"
    ms.author="brjohnst"/>
 
 # Upgrading to the Azure Search .NET SDK version 1.0.1-preview
@@ -27,7 +27,7 @@ Version 1.0.1-preview of the Azure Search .NET SDK contains several breaking cha
 <a name="WhatsNew"></a>
 ## What's new in 1.0.1-preview
 
-Version 1.0.1-preview targets the same REST API version as older versions of the Azure Search .NET SDK (2015-02-28), so there are no new service features in this release. However, there is one new client-side feature for advanced users of the SDK.
+Version 1.0.1-preview targets the same REST API version as older versions of the Azure Search .NET SDK (2015-02-28), so there are no new service features in this release. However, there are new client-side serialization features.
 
 The SDK uses JSON.NET for serializing and deserializing documents. The new version of the SDK supports custom serialization via `JsonConverter` and `IContractResolver` (see the [JSON.NET documentation](http://www.newtonsoft.com/json/help/html/Introduction.htm) for more details). This can be useful when you want to adapt an existing model class from your application for use with Azure Search, and other more advanced scenarios. For example, with custom serialization you can:
  
@@ -36,6 +36,8 @@ The SDK uses JSON.NET for serializing and deserializing documents. The new versi
  - Create custom attributes that can be used for both mapping properties to document fields as well as creating the corresponding index definition.
 
 You can find examples of implementing custom serialization in the unit tests for the Azure Search .NET SDK on GitHub. A good starting point is [this folder](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Search/Search.Tests/Tests/Models). It contains classes that are used by the custom serialization tests. 
+
+In addition to custom serialization, the new SDK also supports serialization of `SearchContinuationToken` objects. This can be useful if you call Azure Search from a web application and you need to exchange continuation tokens with a browser or mobile client while paging through search results.
 
 <a name="UpgradeSteps"></a>
 ## Steps to upgrade
