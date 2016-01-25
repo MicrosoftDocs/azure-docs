@@ -464,33 +464,18 @@ e.g. Suppose that a bug that resulted in all cars having an incorrect (above 20,
 
 **Solution**:
 
-	SELECT
-	    PrevGood.Time AS StartFault,
-	    ThisGood.Time AS Endfault,
-	    DATEDIFF(second, PrevGood.Time, ThisGood.Time) AS FaultDuraitonSeconds
-	FROM
-	    Input AS ThisGood TIMESTAMP BY Time
-	    INNER JOIN Input AS PrevGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, ThisGood) BETWEEN 1 AND 3600
-	    AND PrevGood.Weight < 20000
-	    INNER JOIN Input AS Bad TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, Bad) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, Bad, ThisGood) BETWEEN 1 AND 3600
-	    AND Bad.Weight >= 20000
-	    LEFT JOIN Input AS MidGood TIMESTAMP BY Time
-	    ON DATEDIFF(second, PrevGood, MidGood) BETWEEN 1 AND 3600
-	    AND DATEDIFF(second, MidGood, ThisGood) BETWEEN 1 AND 3600
-	    AND MidGood.Weight < 20000
-	WHERE
-	    ThisGood.Weight < 20000
-	    AND MidGood.Weight IS NULL
+````
+SELECT 
+    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN weight < 20000 ) [StartFault],
+    [time] [EndFault]
+FROM input
+WHERE
+    [weight] < 20000
+    AND LAG(weight) OVER (LIMIT DURATION(hour, 24)) > 20000
+````
 
 **Explanation**:
-We are looking for 2 good events with a bad event in between and without a good event in between which means the 2 events are the first events before and after at least 1 bad event. Getting 2 good events with 1 bad event in the middle is simple using 2 JOINs and validating that we get good -> bad -> good by checking the weight and comparing the time stamps. 
-
-Using what we learned on “LEFT Outer Join to include NULLs or to do absence of events” we know how to check that no good event has occurred between the 2 good events we picked up.
-
-Composing those together and we get good -> bad -> good with no other good event in between. We can now compute the duration between the beginning and end good events which gives us the duration of the bug.
+Use LAG to view the input stream for 24 hours and look for instances where StartFault and StopFault are spanned by weight < 20000.
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
