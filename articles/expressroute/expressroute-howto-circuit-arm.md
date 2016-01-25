@@ -290,9 +290,7 @@ You can get detailed descriptions of all the parameters by running the following
 
 ## To modify an ExpressRoute circuit
 
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity. 
-
-You can do the following: 
+You can modify the following properties of an ExpressRoute circuit without impacting connectivity:
 
 - Enable / disable ExpressRoute premium add-on for your ExpressRoute circuit without any downtime.
 - Increase the bandwidth of your ExpressRoute circuit without any downtime.
@@ -315,7 +313,15 @@ Your circuit will now have the ExpressRoute premium add-on features enabled. Not
 
 ### How to disable the ExpressRoute premium add-on
 
-You can disable the ExpressRoute premium add-on for your existing circuit using the following PowerShell cmdlet:
+You can disable the ExpressRoute premium add-on for your existing circuit.
+
+Note the following considerations:
+
+- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do so, your update request will fail and you will be billed the premium rates.
+- You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and you will be billed the premium rates.
+- Your route table must be less than 4000 routes for private peering. If your route table size is greater than 4000 routes, the BGP session will drop and won't be re-enabled till the number of advertised prefixes goes below 4000.
+
+To disable the premium add-on, use the PowerShell cmdlet sample below. This operation can fail if you are using resources greater than what is permitted for the standard circuit.
 	
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 		
@@ -324,19 +330,13 @@ You can disable the ExpressRoute premium add-on for your existing circuit using 
 		
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-
-The premium add-on is now disabled for your circuit. 
-
-Note that this operation can fail if you are using resources greater than what is permitted for the standard circuit.
-
-- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do so, your update request will fail and you will be billed the premium rates.
-- You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and you will be billed the premium rates.
-- Your route table must be less than 4000 routes for private peering. If your route table size is greater than 4000 routes, the BGP session will drop and won't be re-enabled till the number of advertised prefixes goes below 4000.
-
-
 ### How to update the ExpressRoute circuit bandwidth
 
 Check the [ExpressRoute FAQ](expressroute-faqs.md) page for supported bandwidth options for your provider. You can pick any size greater than the size of your existing circuit. Once you decided what size you need, you can use the following command to re-size your circuit.
+After running the cmdlets below, your circuit will have been sized up on the Microsoft side. You must contact your connectivity provider to update configurations on their side to match this change. Note that we will start billing you for the updated bandwidth option from this point on.
+
+>[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit, and then re-provision a new ExpressRoute circuit.
+
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
@@ -344,21 +344,22 @@ Check the [ExpressRoute FAQ](expressroute-faqs.md) page for supported bandwidth 
 
 		Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-Your circuit will have been sized up on the Microsoft side. You must contact your connectivity provider to update configurations on their side to match this change. Note that we will start billing you for the updated bandwidth option from this point on.
-
->[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit, and then re-provision a new ExpressRoute circuit.
-
 ## To delete and deprovision an ExpressRoute circuit
 
-You can delete your ExpressRoute circuit by running the following command:
+You can delete your ExpressRoute circuit. 
+
+Note the following considerations:
+
+- You must unlink all virtual networks from the ExpressRoute for this operation to succeed. Check if you have any virtual networks linked to the circuit if this operation fails.
+
+- If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *disabling* from enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
+
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you. 
+
+To delete your ExpressRoute circuit, use the following PowerShell cmdlet sample below.
 
 		Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 
-Note that you must unlink all virtual networks from the ExpressRoute for this operation to succeed. Check if you have any virtual networks linked to the circuit if this operation fails.
-
-If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *disabling* from enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
-
-If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you. 
 
 ## Next steps
 
