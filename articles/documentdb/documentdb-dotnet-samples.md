@@ -18,7 +18,7 @@
 	ms.author="mimig"/>
 
 
-# DocumentDB .NET NoSQL examples
+# DocumentDB .NET examples
 
 > [AZURE.SELECTOR]
 - [.NET Examples](documentdb-dotnet-samples.md)
