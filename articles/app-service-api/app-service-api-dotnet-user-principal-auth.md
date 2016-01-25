@@ -147,7 +147,7 @@ If you didn't do the the first and second tutorials and you want to follow this 
 
 ## <a id="azureauth"></a> Set up authentication in Azure
 
-In this section you do the following tasks:
+At this point you have the application running in Azure App Service without requiring that users be authenticated. In this section you add authentication by doing the following tasks:
 
 * Configure App Service to require Azure Active Directory (Azure AD) authentication for calling the middle tier API app.
 * Create an Azure AD application.
@@ -382,7 +382,10 @@ Make the following changes in the ToDoListAPI project.
 
 The two Web API projects were created by using the **Azure API App** project template and replacing the default Values controller with a ToDoList controller. 
 
-For information about how to  create an AngularJS single-page application with a Web API back end like ToDoListAngular, see  [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). For information about how to add Azure AD authentication code, see [Securing AngularJS Single Page Apps with Azure AD](../active-directory/active-directory-devquickstarts-angular.md).
+For information about how to  create an AngularJS single-page application with a Web API 2 back end, see  [Hands On Lab: Build a Single Page Application (SPA) with ASP.NET Web API and Angular.js](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs). For information about how to add Azure AD authentication code, see the following resources:
+
+* [Securing AngularJS Single Page Apps with Azure AD](../active-directory/active-directory-devquickstarts-angular.md).
+* [Introducing ADAL JS v1](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/)
 
 ## Troubleshooting
 
@@ -392,10 +395,5 @@ For some errors, you'll get more information about what's wrong by setting [cust
 
 ## Next steps
 
-In this tutorial you learned how to use App Service authentication for an API app and how to call the API app by using the ADAL JS library. To learn more, see the following resources:
-
-* [Expanding App Service Authentication/Authorization](/blog/announcing-app-service-authentication-authorization/)
-* [Introducing ADAL JS v1](http://www.cloudidentity.com/blog/2015/02/19/introducing-adal-js-v1/)
-
-In the next tutorial you'll learn how to [secure access to your API app for service-to-service scenarios](app-service-api-dotnet-service-principal-auth.md).
+In this tutorial you learned how to use App Service authentication for an API app and how to call the API app by using the ADAL JS library. In the next tutorial you'll learn how to [secure access to your API app for service-to-service scenarios](app-service-api-dotnet-service-principal-auth.md).
 
