@@ -60,7 +60,8 @@ storedProcedureParameters | Specify values for stored procedure parameters | No
 ## Sample Walkthrough
 
 ### Sample table and stored procedure
-This samples uses Azure SQL Database but works in the same manner for Azure SQL Data Warehouse and SQL Server Database as well. 
+> [AZURE.NOTE] This samples uses Azure SQL Database but works in the same manner for Azure SQL Data Warehouse and SQL Server Database as well. 
+
 1. Create the following **table** in your Azure SQL Database using SQL Server Management Studio or any other tool you are comfortable with. The datetimestamp column is the date and time when the corresponding ID is generated. 
 
 		CREATE TABLE dbo.sampletable
