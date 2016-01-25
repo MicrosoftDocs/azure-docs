@@ -57,16 +57,24 @@ Data Management Gateway can be installed by downloading an MSI setup package fro
 ## Port and Security Considerations
 
 ### General considerations
-There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the gateway is installed. If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](#proxy-server-considerations) additionally. Here are some general considerations:
+There are two firewalls you need to consider: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed.  For both of them, you need to make sure that the outbound rule for TCP ports 80 and 443 are enabled. And optionally enable ports 9350 to 9354, which are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway and may improve performance of communication between them.
 
-**Prior to setting up the gateway:**
+#### At corporate firewall level
+Specifically, you need configure the following domains and ports:
 
-- For both **corporate firewall and Windows firewall**, you need to make sure that the outbound rule for **TCP** ports **80** and **443** are enabled, and optionally for ports **9350** to **9354**. These are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway. Opening the ports 9350 to 9354 is not mandatory, but opening them may improve performance of communication between Azure Data Factory and Data Management Gateway.
-
-**During the gateway setup:**
-
-- By default, the Data Management Gateway installation opens the inbound port **8050** on the **local Windows firewall** on the gateway machine. The port will be used by the **Setting Credentials** application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure Portal (details later in the article); it will not be reachable from internet, so you do not need to open it in the corporate firewall.
-- If you do not want the gateway installation to open port 8050 on Windows firewall for the gateway machine, you can use the following command to install the gateway without configuring the firewall.
+| Domain names | Ports | Description | 
+| :----------- | :---- | :---------- | 
+| *.servicebus.windows.net | 443 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control Token acquisition) |
+| *.servicebus.windows.net | 9350-9354 | Optional for service bus relay over TCP | 
+| *.core.windows.net | 443 | HTTPS | 
+| *.clouddatahub.net | 443 | HTTPS | 
+| *.graph.windows.net | 443 | HTTPS | 
+| login.windows.net | 443 | HTTPS | 
+ 
+#### At windows firewall level
+If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](#proxy-server-considerations) additionally.
+ 
+During gateway setup, by default, the Data Management Gateway installation opens the inbound port 8050 on the gateway machine. The port will be used by the Setting Credentials application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure Portal (details later in the article). If you do not want the gateway installation to open port 8050 on Windows firewall for the gateway machine, you can use the following command to install the gateway without configuring the firewall.
 
 		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
