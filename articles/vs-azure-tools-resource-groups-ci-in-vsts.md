@@ -114,28 +114,20 @@ To call the PowerShell script in VSTS, you need to update your build definition.
 
 1. After you select the script, update the path to the script so that it’s run from the Build.StagingDirectory (the same directory that *ArtifactsLocation* is set to). You can do this by adding “$(Build.StagingDirectory)/” to the beginning of the script path.
 
-	![10]
+	![][10]
 
 1.	In the **Script Arguments** box, enter the following parameters (in a single line). When you run the script in Visual Studio, you can see how VS uses the parameters in the **Output** window. You can use this as a starting point for setting the parameter values in your build step.
 
-	|Parameter|Description|
-	|---|---|
-	|-ResourceGroupLocation|The geo-location value where the resource group is located, such as **eastus** or **'East US'**. (Add single quotes if there's a space in the name.) See [Azure Regions](https://azure.microsoft.com/en-us/regions/) for more information.|
-	|-ResourceGroupName|The name of the resource group used for this deployment.|
-	|-UploadArtifacts|This parameter, when present, specifies that artifacts need to be uploaded to Azure from the local system. You only need to set this switch if your template deployment requires extra artifacts that you want to stage using the PowerShell script (such as configuration scripts or nested templates).|
-	|-StorageAccountName|The name of the storage account used to stage artifacts for this deployment. This parameter is required only if you’re copying artifacts to Azure. This storage account will not be automatically created by the deployment, it must already exist.|
-	|-StorageAccountResourceGroupName|The name of the resource group associated with the storage account. This parameter is required only if you’re copying artifacts to Azure.|
-	|-TemplateFile|The path to the template file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path. 
-	For example, instead of using:
-	-TemplateFile  'c:\users\someuser.somedomain\source\repos\reponame\projectname\templates\someproject.json'
-	use:
-	-TemplateFile '..\templates\someproject.json'|
-	|-TemplateParametersFile|The path to the parameters file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.
-	For example, instead of using: 
-	-TemplateParametersFile 'c:\users\someuser.somedomain\source\repos\reponame\projectname\templates\someproject.param.dev.json'
-	use:
-	-TemplateParametersFile '..\templates\someproject.parameters.dev.json'|
-	|-ArtifactStagingDirectory|This parameter lets the PowerShell script know the folder from where the project’s binary files should be copied. This value overrides the default value used by the PowerShell script. For VSTS use, set the value to: -ArtifactStagingDirectory $(Build.StagingDirectory)|
+    | Parameter | Description|
+    |---|---|
+    | -ResourceGroupLocation           | The geo-location value where the resource group is located, such as **eastus** or **'East US'**. (Add single quotes if there's a space in the name.) See [Azure Regions](https://azure.microsoft.com/en-us/regions/) for more information.|                                                                                                                                                                                                                              |
+    | -ResourceGroupName               | The name of the resource group used for this deployment.|                                                                                                                                                                                                                                                                                                                                                                                                                |
+    | -UploadArtifacts                 | This parameter, when present, specifies that artifacts need to be uploaded to Azure from the local system. You only need to set this switch if your template deployment requires extra artifacts that you want to stage using the PowerShell script (such as configuration scripts or nested templates).                                                                                                                                                                 |
+    | -StorageAccountName              | The name of the storage account used to stage artifacts for this deployment. This parameter is required only if you’re copying artifacts to Azure. This storage account will not be automatically created by the deployment, it must already exist.|                                                                                                                                                                                                                     |
+    | -StorageAccountResourceGroupName | The name of the resource group associated with the storage account. This parameter is required only if you’re copying artifacts to Azure.|                                                                                                                                                                                                                                                                                                                               |
+    | -TemplateFile                    | The path to the template file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.  For example, instead of using: -TemplateFile,'c:\users\someuser.somedomain\source\repos\reponame\projectname\templates\someproject.json',  Use: -TemplateFile '..\templates\someproject.json'                                                |
+    | -TemplateParametersFile          | The path to the parameters file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.  For example, instead of using: -TemplateParametersFile 'c:\users\someuser.somedomain\source\repos\reponame\projectname\templates\someproject.param.dev.json',  Use: -TemplateParametersFile '..\templates\someproject.parameters.dev.json' |
+    | -ArtifactStagingDirectory        | This parameter lets the PowerShell script know the folder from where the project’s binary files should be copied. This value overrides the default value used by the PowerShell script. For VSTS use, set the value to: -ArtifactStagingDirectory $(Build.StagingDirectory)                                                                                                                                                                                              |
 
 	Here’s a script arguments example:
 
