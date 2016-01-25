@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/24/2016"
-	ms.author="garye;yijichen"/>
+	ms.author="yijichen;garye"/>
 
 # Cortana Analytics Solution Template Playbook for demand forecasting of energy  
 
