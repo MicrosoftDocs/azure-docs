@@ -275,9 +275,9 @@ When you configured Azure AD authentication, App Service created an Azure AD app
 
 17. Copy the **Client ID** value and save it somewhere you can get it from later.
 
-## Configure the ToDoAngular project to use authentication
+## Configure the ToDoListAngular project to use authentication
 
-Make the following changes to files in the ToDoAngular project.
+Make the following changes to files in the ToDoListAngular project.
 
 1. Open the *index.html* file.
 
@@ -325,7 +325,7 @@ Make the following changes to files in the ToDoAngular project.
 
 2. Comment out the block of code marked for "without authentication" and uncomment the block of code marked for "with authentication".
 
-### Deploy the ToDoAngular project to Azure
+### Deploy the ToDoListAngular project to Azure
 
 8. In **Solution Explorer**, right-click the ToDoListAngular project, and then click **Publish**.
 
@@ -343,9 +343,9 @@ Make the following changes in the ToDoListAPI project.
 
 1. Open the *Controllers/ToDoListController.cs* file, and uncomment the line in each action method that sets `owner` to the Azure AD `NameIdentifier` claim value. For example:
 
-### Deploy the ToDoAngular project to Azure
+### Deploy the ToDoListAPI project to Azure
 
-8. In **Solution Explorer**, right-click the ToDoListAngular project, and then click **Publish**.
+8. In **Solution Explorer**, right-click the ToDoListAPI project, and then click **Publish**.
 
 9. Click **Publish**.
 
@@ -357,7 +357,7 @@ Make the following changes in the ToDoListAPI project.
 
 9. Go to the URL of the web app, **using HTTPS, not HTTP**.
 
-8. Click the **To Go List** tab.
+8. Click the **To Do List** tab.
 
 	You are prompted to log in.
 
