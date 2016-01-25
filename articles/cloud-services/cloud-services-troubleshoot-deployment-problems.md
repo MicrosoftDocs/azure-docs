@@ -48,7 +48,7 @@ Service healing occurs automatically when Azure detects problem nodes and theref
 1. In the Azure portal, click the deployment of your cloud service.
 2. In the **Properties** pane of the Azure portal, review the information and determine whether service healing occurred during the time that you observed the roles recycling.
 
-Roles will also recycle roughly once per month during host OS and guest OS updates.  
+Roles will also recycle roughly once per month during host-OS and guest-OS updates.  
 For more information, see the blog post [Role Instance Restarts Due to OS Upgrades](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
 ## Problem: I cannot do a VIP swap and receive an error
