@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015"  
+	ms.date="01/25/2016"  
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
@@ -60,6 +60,12 @@ Starting|Starting|No (transient state)
 Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running program)|YES
 Stopping|Stopping|No (transient state)
 Stopped|Stopped|No
+
+###Automatic shut-off for unused Channels
+
+Starting with January 25, 2016, Media Services rolled out an update that automatically stops a Channel (with live encoding enabled) after it has been running in an unused state for a long period. This applies to Channels that have no active Programs, and which have not received an input contribution feed for an extended period of time.
+
+The threshold for an unused period is nominally 12 hours, but is subject to change.
 
 ##Live Encoding Workflow
 The following diagram represents a live streaming workflow where a channel receives a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS); it then encodes the stream to a multi-bitrate stream. 
