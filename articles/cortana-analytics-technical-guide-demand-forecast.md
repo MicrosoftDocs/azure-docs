@@ -179,7 +179,7 @@ that move and process the data using various technologies.
 This section discusses the necessary [pipelines](data-factory-create-pipelines.md) and [activities](data-factory-create-pipelines.md) contained in the [Azure Data
 Factory](https://azure.microsoft.com/documentation/services/data-factory/). Below is the diagram view of the solution.
 
-![](media\cortana-analytics-technical-guide-demand-forecast\ADFdiagram.png)
+![](media\cortana-analytics-technical-guide-demand-forecast\ADF.png)
 
 Five of the pipelines of this factory contain
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
