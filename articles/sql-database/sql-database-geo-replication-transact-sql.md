@@ -63,7 +63,7 @@ Use the following steps to create a non-readable secondary as a single database.
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a non-readable secondary database on <MySecondaryServer1> where <MySecondaryServer1> is your friendly server name.
+3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a non-readable secondary database on MySecondaryServer1 where MySecondaryServer1 is your friendly server name.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
