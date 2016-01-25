@@ -208,7 +208,9 @@ The next step is to create a Visual Studio project and write two helper function
 	
 	        private static DataTable issues;
 	        private static List<BrokeredMessage> MessageList; 
-	        // Add these variables private static string ServiceNamespace;
+
+	        // Add these variables
+			private static string ServiceNamespace;
 	        private static string sasKeyName = "RootManageSharedAccessKey";
 	        private static string sasKeyValue;
 	        …
@@ -220,11 +222,11 @@ The next step is to create a Visual Studio project and write two helper function
 	static void CollectUserInput()
 	{
 	    // User service namespace
-	    Console.Write("Please enter the service namespace to use: ");
+	    Console.Write("Please enter the namespace to use: ");
 	    ServiceNamespace = Console.ReadLine();
 	
 	    // Issuer key
-	    Console.Write("Please enter the SAS key to use: ");
+	    Console.Write("Enter the SAS key to use: ");
 	    sasKeyValue = Console.ReadLine();
 	}
 	```
@@ -247,10 +249,6 @@ The next step is to create a Visual Studio project and write two helper function
 ### Build the solution
 
 From the **Build** menu in Visual Studio, you can click **Build Solution** or press F6 to confirm the accuracy of your work so far.
-
-Create Management Credentials
-
-This is the second step in the Service Bus messaging features tutorial. In this step, you define the management operations you will use to create shared access signature (SAS) credentials with which your application will be authorized.
 
 ## Create management credentials
 
@@ -279,7 +277,7 @@ In this step, you define the management operations you will use to create shared
 	```
 ### Create the namespace manager
 
-1. Create a new namespace management object, with a URI containing the namespace name and the management credentials obtained in the last step, as arguments. Add this code directly beneath the code added in the previous step:
+1. Create a new namespace management object, with a URI containing the namespace name and the management credentials obtained in the previous step, as arguments. Add this code directly beneath the code added in the previous step:
 	
 	```
 	NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", <namespaceName>, string.Empty), credentials);
@@ -456,7 +454,7 @@ In the `Queue()` method, iterate through the queue and receive the messages usin
 
 ### End the `Queue()` method and clean up resources
 
-Directly beneath the previous code, add the following code to clean up the message factory and queue resources:
+Directly after the previous code, add the following code to clean up the message factory and queue resources:
 
 	```
 	factory.Close();
