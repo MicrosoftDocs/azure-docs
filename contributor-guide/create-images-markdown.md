@@ -59,7 +59,7 @@ Use the following guidelines when creating and including art files:
 
     ![This is an example of a gray border around whitespace.](./media/create-images-markdown/agent.png)
 
-- Conceptual images with whitespace are allowed to not have a gray boder.  
+- Conceptual images with whitespace do not need a gray border.  
     
     Example:
     ![This is an example of a conceptual image with whitespace and no gray border.](./media/create-images-markdown/ic727360.png)
