@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="01/22/2016"
+	ms.date="01/25/2016"
 	ms.author="tarcher" />
 
 # Continuous integration in Visual Studio Team Services using Azure Resource Group deployment projects
@@ -125,14 +125,16 @@ To call the PowerShell script in VSTS, you need to update your build definition.
     | -UploadArtifacts                 | This parameter, when present, specifies that artifacts need to be uploaded to Azure from the local system. You only need to set this switch if your template deployment requires extra artifacts that you want to stage using the PowerShell script (such as configuration scripts or nested templates).                                                                                                                                                                 |
     | -StorageAccountName              | The name of the storage account used to stage artifacts for this deployment. This parameter is required only if you’re copying artifacts to Azure. This storage account will not be automatically created by the deployment, it must already exist.|                                                                                                                                                                                                                     |
     | -StorageAccountResourceGroupName | The name of the resource group associated with the storage account. This parameter is required only if you’re copying artifacts to Azure.|                                                                                                                                                                                                                                                                                                                               |
-    | -TemplateFile                    | The path to the template file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.  For example, instead of using: -TemplateFile,'c:\users\someuser.somedomain\source\repos\reponame\projectname\templates\someproject.json',  Use: -TemplateFile '..\templates\someproject.json'                                                |
-    | -TemplateParametersFile          | The path to the parameters file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.  For example, instead of using: -TemplateParametersFile 'c:\users\someuser.somedomain\source\repos\reponame\projectname\templates\someproject.param.dev.json',  Use: -TemplateParametersFile '..\templates\someproject.parameters.dev.json' |
+    | -TemplateFile                    | The path to the template file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.|
+    | -TemplateParametersFile          | The path to the parameters file in the Azure Resource Group deployment project. To enhance flexibility, use a path for this parameter that is relative to the location of the PowerShell script instead of an absolute path.|
     | -ArtifactStagingDirectory        | This parameter lets the PowerShell script know the folder from where the project’s binary files should be copied. This value overrides the default value used by the PowerShell script. For VSTS use, set the value to: -ArtifactStagingDirectory $(Build.StagingDirectory)                                                                                                                                                                                              |
 
-	Here’s a script arguments example:
+	Here’s a script arguments example (line broken for readability):
 
 	```	
-	-StorageAccountName 'mystorageacct' -ResourceGroupName 'MyGroup' -ResourceGroupLocation 'eastus' -TemplateFile '..\templates\myproject.json' -TemplateParametersFile '..\templates\myproject.parameters.dev.json' -UploadArtifacts –StorageAccountResourceGroupName 'Default-Storage-EastUS' -ArtifactStagingDirectory '$(Build.StagingDirectory)'
+	-StorageAccountName 'mystorageacct' -ResourceGroupName 'MyGroup' -ResourceGroupLocation 'eastus' 
+    -TemplateFile '..\templates\myproject.json' -TemplateParametersFile '..\templates\myproject.parameters.dev.json' 
+    -UploadArtifacts –StorageAccountResourceGroupName 'Default-Storage-EastUS' -ArtifactStagingDirectory '$(Build.StagingDirectory)'
 	```
 
 	When you’re finished, the **Script Arguments** box should resemble the following.
