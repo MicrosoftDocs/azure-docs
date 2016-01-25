@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Line of business application Phase 1 | Microsoft Azure" 
 	description="Create the virtual network and other Azure infrastructure elements in Phase 1 of the line of business application in Azure." 
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/21/2016" 
 	ms.author="josephd"/>
 
 # Line of Business Application Workload Phase 1: Configure Azure

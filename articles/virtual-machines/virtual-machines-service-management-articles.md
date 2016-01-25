@@ -42,7 +42,6 @@
 
 [Creating a custom VM running Linux by using the Azure Command-Line Interface (Azure CLI)](virtual-machines-linux-create-custom.md)
 
-[Create a multi-VM deployment by using the Azure CLI](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## Plan
 
