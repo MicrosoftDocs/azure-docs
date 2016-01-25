@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/21/2016"
+	ms.date="01/26/2016"
 	ms.author="tdykstra"/>
 
 # Get started with API Apps and ASP.NET in Azure App Service
@@ -22,7 +22,7 @@
 
 ## Overview
 
-This is the first in a series of tutorials that show how to use the following features of Azure App Service that are helpful for developing and hosting APIs:
+This is the first in a series of tutorials that show how to use features of Azure App Service that are helpful for developing and hosting APIs:
 
 * Integrated support for API metadata
 * CORS support
@@ -60,7 +60,7 @@ This tutorial requires version 2.8.2 or later of the Azure SDK for .NET.
 
 1. Download the [Azure-Samples/app-service-api-dotnet-to-do-list](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) repository.
 
-	You can [Download a .zip file](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list/archive/master.zip) or clone the repository on your local machine. 
+	You can click the **Download ZIP** button or clone the repository on your local machine. 
 
 2. Open the ToDoList solution in Visual Studio 2015 or 2013.
 
@@ -79,9 +79,11 @@ This tutorial requires version 2.8.2 or later of the Azure SDK for .NET.
 
 	* **ToDoListAngular** - The front end: an AngularJS SPA that calls the middle tier. 
 
-	* **ToDoListAPI** - The middle tier: an ASP.NET Web API project that calls the data tier to perform CRUD operations on to-do items. For the first two tutorials which don't require authentication, the user ID is always "*". For the authentication tutorials, the user ID is extracted from an Azure Active Directory bearer token sent by the client.
+	* **ToDoListAPI** - The middle tier: an ASP.NET Web API project that calls the data tier to perform CRUD operations on to-do items.
 
-	* **ToDoListDataAPI** - The data tier:  an ASP.NET Web API project that performs CRUD operations on to-do items. To-do items are stored in memory, so whenever the application is restarted all changes are lost. The caller must specify a user ID with every call, and it returns or updates to-do items only for the specified user.
+	* **ToDoListDataAPI** - The data tier:  an ASP.NET Web API project that performs CRUD operations on to-do items. To-do items are stored in memory, which means that whenever the application is restarted all changes are lost. 
+
+	The middle tier provides the user ID in the `Owner` field when it calls the data tier. In the code that you download, the user ID is always "*". When you add authentication in later tutorials, the middle tier will provide the actual user ID to the data tier.
 
 2. Build the solution to restore the NuGet packages.
 
@@ -123,11 +125,11 @@ In this section of the tutorial you take a look at the generated Swagger 2.0 met
  
 4. Press F5 to run the project in debug mode.
 
-	The browser opens and shows the 403 Forbidden page.
+	The browser opens and shows the HTTP 403 error page.
 
 12. In your browser address bar, add `swagger/docs/v1` to the end of the line, and then press Return. (The URL will be `http://localhost:45914/swagger/docs/v1`.)
 
-	This is the default URL used by Swashbuckle to return Swagger 2.0 JSON metadata for the API. If you're using Internet Explorer, the browser prompts you to download a v1.json file.
+	This is the default URL used by Swashbuckle to return Swagger 2.0 JSON metadata for the API. If you're using Internet Explorer, the browser prompts you to download a *v1.json* file.
 
 	![](./media/app-service-api-dotnet-get-started/iev1json.png)
 
@@ -254,13 +256,13 @@ In this section you use Azure tools that are integrated into the Visual Studio *
 
 	![](./media/app-service-api-dotnet-get-started/apptype.png)
 
-	Changing the type to **API App** doesn't determine the features that will be available to the new app. The API definition URL (which you'll see later in this tutorial), CORS support (which you'll see in the next tutorial), and authentication (which you'll see in the last 3 tutorials in this series) are available to web apps and mobile apps as well as API apps.  Creating an app as an API app has only the following effects:
+	Setting the type to **API App** doesn't determine the features that will be available to the new app. The API definition URL (which you'll see later in this tutorial), CORS support (which you'll see in the next tutorial), and authentication (which you'll see in the last 3 tutorials in this series) are available to web apps and mobile apps as well as API apps.  Creating an app as an API app has only the following effects:
 
 	a. In the Azure portal, the app type icon or text appears in blade headings and lists of apps; and on the **Settings** blade, the API section appears earlier in the list for an API app compared to other app types.
 
 	b. In Visual Studio with the Azure SDK for .NET 2.8.1, Visual Studio sets the API definition URL during creation of a new ASP.NET API app, but not for other app types.
 
-4. Enter an **API App Name** that is unique in the *azurewebsites.net* domain. 
+4. Enter an **API App Name** that is unique in the *azurewebsites.net* domain, such as ToDoListDataAPI plus a number to make it unique. 
 
 	Visual Studio proposes a unique name by appending a date-time string to the project name.  You can accept that name if you prefer. 
 
@@ -360,7 +362,7 @@ The ToDoListAPI project already has the generated client code, but you'll delete
 
 	![](./media/app-service-api-dotnet-get-started/codegenmenu.png)
 
-3. In the **Add REST API Client** dialog box, click **Download from Microsoft Azure API App**, and then click **Browse**.
+3. In the **Add REST API Client** dialog box, click **Swagger URL**, and then click **Select Azure Asset**.
 
 	![](./media/app-service-api-dotnet-get-started/codegenbrowse.png)
 
@@ -386,7 +388,7 @@ The ToDoListAPI project already has the generated client code, but you'll delete
 
 	![](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
-5. Open *Controllers\ToDoListController.cs* to see the code that calls the API by using the generated client. 
+5. In the ToDoListAPI project, open *Controllers\ToDoListController.cs* to see the code that calls the API by using the generated client. 
 
 	The following snippet shows how the code instantiates the client object and calls the Get method.
 
@@ -399,9 +401,9 @@ The ToDoListAPI project already has the generated client code, but you'll delete
 
 	This code passes in the local IIS Express URL of thet API project to the client class constructor so that you can run the the application locally. If you omit the constructor parameter, the default endpoint is the URL that you generated the code from.
 
-6. Your client class will be generated with a different name based on your API app name; change this code so that the type name matches what was generated in your project, and remove the URL. For example, if you named your API App ToDoListDataAPIContoso, the code would look like the following example:
+6. Your client class will be generated with a different name based on your API app name; change this code so that the type name matches what was generated in your project, and remove the URL. For example, if you named your API App ToDoListDataAPI0121, the code would look like the following example:
 
-		private ToDoListDataAPIContoso db = new ToDoListDataAPIContoso();
+		private ToDoListDataAPI0121 db = new ToDoListDataAPI0121();
 		
 		public ActionResult Index()
 		{
@@ -413,8 +415,6 @@ The ToDoListAPI project already has the generated client code, but you'll delete
 #### Create an API app to host the middle tier
 
 1. In **Solution Explorer**, right-click the ToDoListAPI project, and then click **Publish**.
-
-2. In the **Publish Web** wizard, click the **Profile** tab.
 
 3.  In the **Profile** tab of the **Publish Web** wizard, click **Microsoft Azure App Service**.
 
@@ -434,7 +434,7 @@ The ToDoListAPI project already has the generated client code, but you'll delete
 
 	Visual Studio creates the API app, creates a publish profile for it, and displays the **Connection** step of the **Publish Web** wizard.
 
-### Deploy the ContactsList.Web project to the new web app
+### Deploy the ToDoListAPI project to the new API app
 
 3.  In the **Connection** step of the **Publish Web** wizard, click **Publish**.
 
