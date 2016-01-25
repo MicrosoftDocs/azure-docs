@@ -151,7 +151,7 @@ Use Azure AD method to login:
 
 Use the Azure CLI to upload the image. You can upload an image by using the following command:
 
-		azure vm image create <image-name> --location <location-of-the-data-center> --os Linux <source-path-to the vhd>
+		azure vm image create <image-name> --blob-url "<BlobStorageURL>/<YourImagesFolder>/<VHDName>" --location "<location-of-the-data-center>" --os Linux <source-path-to the vhd>
 
 ### If using PowerShell
 
