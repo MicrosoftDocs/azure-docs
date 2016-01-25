@@ -360,5 +360,8 @@ To delete your ExpressRoute circuit, use the PowerShell cmdlet sample below.
 
 ## Next steps
 
-After you have created your circuit, you will need to [Create and modify routing for an ExpressRoute circuit](expressroute-howto-routing-arm.md), and then [Link your virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md).
+After you have created your circuit, you will need to do the following:
+
+1.  [Create and modify routing for your ExpressRoute circuit](expressroute-howto-routing-arm.md)
+2.  [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
 
