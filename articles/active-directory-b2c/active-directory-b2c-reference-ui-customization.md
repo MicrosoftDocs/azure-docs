@@ -267,7 +267,7 @@ This page enables users to verify their phone numbers (using text or voice) duri
 If you are planning to use the page UI customization feature, please review the following best practices:
 
 - Don't copy over Azure AD B2C's default template and attempt to modify it. It is best to build your HTML5 content from scratch and to use the default template as reference.
-- For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out-of-the-box. If not, please use [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory) to request new functionality.
+- For security reasons, we don't allow you to include any JavaScript in your content. Most of what you need should be available out-of-the-box. If not, please use [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) to request new functionality.
 - Supported browser versions:
 	- Internet Explorer 11
 	- Internet Explorer 10

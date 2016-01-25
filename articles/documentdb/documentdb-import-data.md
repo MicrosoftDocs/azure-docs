@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Import data to DocumentDB | Microsoft Azure" 
-	description="Learn how to use the open source DocumentDB data migration tool to import data to DocumentDB from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and DocumentDB collections." 
+	pageTitle="Database migration tools - Convert CSV to JSON | Microsoft Azure" 
+	description="Learn how to use the open source DocumentDB data migration tools to import data to DocumentDB. MongoDB, SQL, Table storage, DynamoDB, and CSV to JSON." 
+	keywords="csv to json, database migration tools, convert csv to json"
 	services="documentdb" 
 	authors="andrewhoh" 
 	manager="jhubbard" 
@@ -16,7 +17,7 @@
 	ms.date="10/16/2015" 
 	ms.author="anhoh"/>
 
-# Import data to DocumentDB #
+# Import data to DocumentDB - Database Migration Tool
 
 This article shows you how to use the open source DocumentDB data migration tool to import data to [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB and DocumentDB collections.
 
@@ -64,7 +65,7 @@ The migration tool source code is available on GitHub in [this repository](https
 
 The JSON file source importer option allows you to import one or more single document JSON files or JSON files that each contain an array of JSON documents.  When adding folders that contain JSON files to import, you have the option of recursively searching for files in subfolders.
 
-![Screenshot of JSON file source options](./media/documentdb-import-data/jsonsource.png)
+![Screenshot of JSON file source options - Database migration tools](./media/documentdb-import-data/jsonsource.png)
 
 Here are some command line samples to import JSON files:
 
@@ -87,7 +88,7 @@ Here are some command line samples to import JSON files:
 
 The MongoDB source importer option allows you to import from an individual MongoDB collection and optionally filter documents using a query and/or modify the document structure by using a projection.  
 
-![Screenshot of MongoDB source options](./media/documentdb-import-data/mongodbsource.png)
+![Screenshot of MongoDB source options - documentdb vs mongodb](./media/documentdb-import-data/mongodbsource.png)
 
 The connection string is in the standard MongoDB format:
 
@@ -109,7 +110,7 @@ Here are some command line samples to import from MongoDB:
 
 The MongoDB export JSON file source importer option allows you to import one or more JSON files produced from the mongoexport utility.  
 
-![Screenshot of MongoDB export source options](./media/documentdb-import-data/mongodbexportsource.png)
+![Screenshot of MongoDB export source options - documentdb vs mongodb](./media/documentdb-import-data/mongodbexportsource.png)
 
 When adding folders that contain MongoDB export JSON files for import, you have the option of recursively searching for files in subfolders.
 
@@ -121,7 +122,7 @@ Here is a command line sample to import from MongoDB export JSON files:
 
 The SQL source importer option allows you to import from an individual SQL Server database and optionally filter the records to be imported using a query.  In addition, you can modify the document structure by specifying a nesting separator (more on that in a moment).  
 
-![Screenshot of SQL source options](./media/documentdb-import-data/sqlexportsource.png)
+![Screenshot of SQL source options - database migration tools](./media/documentdb-import-data/sqlexportsource.png)
 
 The format of the connection string is the standard SQL connection string format.
 
@@ -160,15 +161,15 @@ Here are some command line samples to import from SQL Server:
 	#Import records from sql which match a query and create hierarchical relationships
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /s.NestingSeparator:. /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:StoresSub /t.IdField:Id /t.CollectionTier:S3
 
-##<a id="CSV"></a>Import CSV files ##
+##<a id="CSV"></a>Import CSV files - Convert CSV to JSON ##
 
 The CSV file source importer option enables you to import one or more CSV files.  When adding folders that contain CSV files for import, you have the option of recursively searching for files in subfolders.
 
-![Screenshot of CSV source options](media/documentdb-import-data/csvsource.png)
+![Screenshot of CSV source options - CSV to JSON](media/documentdb-import-data/csvsource.png)
 
 Similar to the SQL source, the nesting separator property may be used to create hierarchical relationships (sub-documents) during import.  Consider the following CSV header row and data rows:
 
-![Screenshot of CSV sample records](./media/documentdb-import-data/csvsample.png)
+![Screenshot of CSV sample records - CSV to JSON](./media/documentdb-import-data/csvsample.png)
 
 Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting.  By specifying a nesting separator of ‘.’, the import tool will create DomainInfo and RedirectInfo subdocuments during the import.  Here is an example of a resulting document in DocumentDB:
 
@@ -229,9 +230,9 @@ Here is a command line sample to import from Azure Table storage:
 
 The Amazon DynamoDB source importer option allows you to import from an individual Amazon DynamoDB table and optionally filter the entities to be imported.  Several templates are provided so that setting up an import is as easy as possible.
 
-![Screenshot of Amazon DynamoDB source options](./media/documentdb-import-data/dynamodbsource1.png)
+![Screenshot of Amazon DynamoDB source options - database migration tools](./media/documentdb-import-data/dynamodbsource1.png)
 
-![Screenshot of Amazon DynamoDB source options](./media/documentdb-import-data/dynamodbsource2.png)
+![Screenshot of Amazon DynamoDB source options - database migration tools](./media/documentdb-import-data/dynamodbsource2.png)
 
 The format of the Amazon DynamoDB connection string is:
 

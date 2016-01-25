@@ -83,7 +83,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com) assigned your app. |
+| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com/) assigned your app. |
 | response_type | required | Must include `id_token` for OpenID Connect.  If your web app will also need tokens for calling a web API, you can use `code+id_token`, as we've done here.  |
 | redirect_uri | required | The redirect_uri of your app, where authentication responses can be sent and receieved by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
 | scope | required | A space-separated list of scopes.  A single scope value indicates to Azure AD both thethe permissions being requested.  The `openid` scope indicates a permission to sign the user in and get data about the user in the form of **id_tokens** (more to come on this).  The `offline_access` scope is optional for web apps.  It indicates that your app will need a **refresh_token** for long-lived access to resources.  |
@@ -183,12 +183,12 @@ Content-Type: application/json
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | required | The policy that was used to acquire the authorization code.  You may not use a different policy in this request.  **Note that this parameter is added to the query string**, not in the POST body.  |
-| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com) assigned your app. |
+| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com/) assigned your app. |
 | grant_type | required | Must be `authorization_code` for the authorization code flow. |
 | scope | required | A space-separated list of scopes.  A single scope value indicates to Azure AD both thethe permissions being requested.  The `openid` scope indicates a permission to sign the user in and get data about the user in the form of **id_tokens**.  It can be used to get tokens to your app's own backend web API, represented by the same Application Id as the client.  The `offline_access` scope indicates that your app will need a **refresh_token** for long-lived access to resources.  |
 | code | required | The authorization_code that you acquired in the first leg of the flow.   |
 | redirect_uri | required | The redirect_uri of the application where you received the authorization_code.   |
-| client_secret | required | The application secret that you generated in the [Azure portal](https://portal.azure.com).  This application secret is an important security artifact, and should be stored securely on your server.  You should also take care to rotate this client secret on a periodic basis. |
+| client_secret | required | The application secret that you generated in the [Azure portal](https://portal.azure.com/).  This application secret is an important security artifact, and should be stored securely on your server.  You should also take care to rotate this client secret on a periodic basis. |
 
 A successful token response will look like:
 
@@ -262,12 +262,12 @@ Content-Type: application/json
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | -------- |
 | p | required | The policy that was used to acquire the original refresh token.  You may not use a different policy in this request.  **Note that this parameter is added to the query string**, not in the POST body.  |
-| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com) assigned your app. |
+| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com/) assigned your app. |
 | grant_type | required | Must be `refresh_token` for this leg of the authorization code flow. |
 | scope | required | A space-separated list of scopes.  A single scope value indicates to Azure AD both thethe permissions being requested.  The `openid` scope indicates a permission to sign the user in and get data about the user in the form of **id_tokens**.  It can be used to get tokens to your app's own backend web API, represented by the same Application Id as the client.  The `offline_access` scope indicates that your app will need a **refresh_token** for long-lived access to resources.  |
 | redirect_uri | required | The redirect_uri of the application where you received the authorization_code.   |
 | refresh_token | required | The original refresh_token that you acquired in the second leg of the flow.  Note that you must have used the scope `offline_access` in both the authorization and token requests in order to receive a refresh token.   |
-| client_secret | required | The application secret that you generated in the [Azure portal](https://portal.azure.com).  This application secret is an important security artifact, and should be stored securely on your server.  You should also take care to rotate this client secret on a periodic basis. |
+| client_secret | required | The application secret that you generated in the [Azure portal](https://portal.azure.com/).  This application secret is an important security artifact, and should be stored securely on your server.  You should also take care to rotate this client secret on a periodic basis. |
 
 A successful token response will look like:
 
