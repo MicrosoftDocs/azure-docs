@@ -100,7 +100,10 @@ The remainder of this article continues the .NET getting-started series for API 
 
 ## Set up authentication in Azure
 
-In this section you configure App Service so that the only HTTP requests it allows to reach your API app are the ones that have valid tokens.
+In this section you configure App Service so that the only HTTP requests it allows to reach your API app are the ones that have valid tokens. When you're done, the middle tier API app will send application credentials to Azure AD and get back a bearer token. It will then send the bearer token to the data tier API app, as shown in the diagram.
+
+![](./media/app-service-api-dotnet-service-principal-auth/appdiagram.png)
+ 
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to the API App blade of the API app that you created for the ToDoListDataAPI (data tier) API app, and then click **Settings**.
 

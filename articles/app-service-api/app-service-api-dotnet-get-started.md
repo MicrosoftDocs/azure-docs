@@ -54,7 +54,7 @@ In this tutorial, you'll learn:
 
 [AZURE.INCLUDE [set-up-dev-environment](../../includes/install-sdk-2015-2013.md)]
 
-This tutorial requires version 2.8.1 or later of the Azure SDK for .NET.
+This tutorial requires version 2.8.2 or later of the Azure SDK for .NET.
 
 ## Download the sample application 
 

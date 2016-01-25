@@ -153,6 +153,11 @@ At this point you have the application running in Azure App Service without requ
 * Create an Azure AD application.
 * Configure the Azure AD application to send the bearer token after logon to the AngularJS front end. 
 
+When you're done, the AngularJS front end will acquire a bearer token for the logged-on user from Azure AD and will include the token in HTTP requests sent to the middle tier, as shown in the following diagram. 
+
+![](./media/app-service-api-dotnet-user-principal-auth/appdiagram.png)
+
+
 ### Configure authentication in App Service
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you created for the ToDoListAPI project.
