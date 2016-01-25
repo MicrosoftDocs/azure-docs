@@ -3,7 +3,7 @@
 	description="Working with different resource types for role based access control."
 	services="azure-portal"
 	documentationCenter="na"
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="inhenk"/>
+	ms.date="01/22/2016"
+	ms.author="kgremban"/>
 
-# Role based access control troubleshooting
+# Role-Based access control troubleshooting
 
 ## Introduction
 
