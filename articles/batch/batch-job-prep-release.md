@@ -1,19 +1,19 @@
 <properties pageTitle="Job preparation and cleanup in Batch | Microsoft Azure"
-            description="Employ job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion."
-            services="batch"
-            documentationCenter=".net"
-            authors="mmacy"
-            manager="timlt"
-            editor="" />
-
+	description="Employ job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion."
+	services="batch"
+	documentationCenter=".net"
+	authors="mmacy"
+	manager="timlt"
+	editor="" />
+	
 <tags ms.service="batch"
-      ms.devlang="multiple"
-      ms.topic="article"
-      ms.tgt_pltfrm="vm-windows"
-      ms.workload="big-compute"
-      ms.date="01/22/2016"
-      ms.author="marsma" />
-
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="01/22/2016"
+	ms.author="marsma" />
+	
 # Run job preparation and completion tasks on Azure Batch compute nodes
 
 Azure Batch jobs often require some form of setup prior to execution, and similarly, some sort of post-job maintenance after the job's tasks are completed. Batch provides the mechanisms for this preparation and maintenance in the form of optional *job preparation* and *job release* tasks.

@@ -1,19 +1,19 @@
 <properties pageTitle="Maximize Batch node use with parallel tasks | Microsoft Azure"
-            description="Increase efficiency and lower costs by using fewer compute nodes while running concurrent tasks on each node in an Azure Batch pool"
-            services="batch"
-            documentationCenter=".net"
-            authors="mmacy"
-            manager="timlt"
-            editor="" />
-
+	description="Increase efficiency and lower costs by using fewer compute nodes while running concurrent tasks on each node in an Azure Batch pool"
+	services="batch"
+	documentationCenter=".net"
+	authors="mmacy"
+	manager="timlt"
+	editor="" />
+	
 <tags ms.service="batch"
-      ms.devlang="multiple"
-      ms.topic="article"
-      ms.tgt_pltfrm="vm-windows"
-      ms.workload="big-compute"
-      ms.date="01/22/2016"
-      ms.author="marsma" />
-
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="01/22/2016"
+	ms.author="marsma" />
+	
 # Maximize Azure Batch compute resource usage with concurrent node tasks
 
 In this article, you will learn how to run more than one task simultaneously on each compute node within your Azure Batch pool. By enabling concurrent task execution on a pool's compute nodes, you can maximize resource usage on a smaller number of nodes within the pool. For some workloads, this can save you both time and money.
