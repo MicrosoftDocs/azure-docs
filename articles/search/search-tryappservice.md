@@ -20,7 +20,9 @@
 
 [Try Azure App Service](https://tryappservice.azure.com/) is a free one-hour, browser-based session for trying out Azure Services, including **Azure Search**, with no subscription sign-up required. The site gives you several templates to choose from. When you select the ASP.NET template that includes Azure Search, you gain access to a fully functional web site, backed by the services you selected.   
 
-As part of the [Try Azure App Service](https://tryappservice.azure.com/) offering, the Azure Search service is already created and ready to receive search queries. You cannot upload or use your own index or data– but you can execute queries and make a number of code changes that reshapes the user experience. Search data is from the [United States Geological Survey (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), consisting of about 3 million rows of landmarks, historical sites, buildings, and other landmark features across the US.
+As part of the [Try Azure App Service](https://tryappservice.azure.com/) offering, the Azure Search service is already created and ready to receive search queries. You cannot upload or use your own index or data– but you can execute queries and make a number of code changes that reshapes the user experience. 
+
+Search data is from the [United States Geological Survey (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), consisting of about 3 million rows of landmarks, historical sites, buildings, and other landmark features across the US.
 
 ## Get started
 

@@ -24,9 +24,9 @@
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
-**Search Explorer** is a query tool built into the Azure Portal, used for code-free queries against an Azure Search index. It connects to any index in your service and provides a search box for entering a term input. Valid query syntax is generated based on the term you provide. Results are displayed in the portal page.
+**Search Explorer** is a query tool built into the Azure Portal for code-free queries against an Azure Search index. It connects to any index in your service and provides a search box for entering search strings and expressions. Valid query syntax is generated based on the input you provide. Results are displayed in the portal page.
 
-Search Explorer is ideal for learning query syntax, running an ad hoc query, or refining a query expression before attempting to put it in code. To use it, you must already have an Azure Search service and an index. See [Create an Azure Search service in the portal](search-create-service-portal.md) and [Import data to Azure Search using the portal](search-import-data-portal.md) for instructions.
+Search Explorer is ideal for learning query syntax, running the occasional ad hoc query, or refining a query expression before attempting to put it in code. To use it, you must already have an Azure Search service and an index. See [Create an Azure Search service in the portal](search-create-service-portal.md) and [Import data to Azure Search using the portal](search-import-data-portal.md) for help with these tasks.
 
 ## Open Search Explorer
 
