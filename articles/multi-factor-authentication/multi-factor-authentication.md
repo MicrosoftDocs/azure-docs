@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure Multi-Factor Authentication - What is It? | Microsoft Azure" 
-	description="Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions." 
-	keywords="introduction to MFA, mfa overview"
+	description="This topic explains what is multifactor authentication (mfa), why someone would use mfa, more information about the multifactor authentication client and the different methods and versions available. Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides an additional layer of security to user sign-ins and transactions." 
+	keywords="introduction to MFA, mfa overview, what is mfa"
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/11/2016" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # What is Azure Multi-Factor Authentication?
