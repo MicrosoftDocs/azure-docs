@@ -63,7 +63,7 @@ Use the following steps to create a non-readable secondary as a single database.
 
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
 
-3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a non-readable secondary database on <MySecondaryServer1>.
+3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a non-readable secondary database on <MySecondaryServer1> where <MySecondaryServer1> is your friendly server name.
 
         ALTER DATABASE <MyDB>
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
@@ -97,8 +97,8 @@ Use the following steps to create a non-readable secondary as an elastic databas
 3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a non-readable secondary database on a secondary server in an elastic pool.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool1);
+           ADD SECONDARY ON SERVER <MySecondaryServer3> WITH (ALLOW_CONNECTIONS = NO
+           , ELASTIC_POOL (name = MyElasticPool1));
 
 4. Click **Execute** to run the query.
 
@@ -114,8 +114,8 @@ Use the following steps to create a readable secondary as an elastic database.
 3. Use the following **ALTER DATABASE** statement to make a local database into a geo-replication primary with a readable secondary database on a secondary server in an elastic pool.
 
         ALTER DATABASE <MyDB>
-           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = NO)
-           , ELASTIC_POOL (name = MyElasticPool2);
+           ADD SECONDARY ON SERVER <MySecondaryServer4> WITH (ALLOW_CONNECTIONS = ALL
+           , ELASTIC_POOL (name = MyElasticPool2));
 
 4. Click **Execute** to run the query.
 
