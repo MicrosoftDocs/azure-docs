@@ -216,7 +216,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 6. **Configure routing and link a VNet**
 
-	1. **Create your routing configuration.** Routing must be configured for your circuit. Refer to [Create and modify routing for an ExpressRoute circuit](expressroute-howto-routing-arm.md) for step-by-step instructions. 
+	1. **Create your routing configuration.** Next, configure routing for your circuit. Refer to [Create and modify routing for an ExpressRoute circuit](expressroute-howto-routing-arm.md) for step-by-step instructions. 
 
 		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
 	2. **Link your VNet to an ExpressRoute circuit.** After you verify that routing has been configured, you'll need to link your VNet to your ExpressRoute circuit. Refer to [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) for step-by-step instructions.
