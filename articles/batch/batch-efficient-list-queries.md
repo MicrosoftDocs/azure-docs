@@ -1,4 +1,5 @@
-<properties pageTitle="Efficient list queries in Azure Batch | Microsoft Azure"
+<properties
+	pageTitle="Efficient list queries in Azure Batch | Microsoft Azure"
 	description="Increase performance by reducing the amount of data that is returned when querying Azure Batch entities such as pools, jobs, tasks, and compute nodes."
 	services="batch"
 	documentationCenter=".net"
@@ -6,7 +7,8 @@
 	manager="timlt"
 	editor="" />
 	
-<tags ms.service="batch"
+<tags
+	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"

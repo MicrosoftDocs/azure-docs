@@ -1,4 +1,5 @@
-<properties pageTitle="Job preparation and cleanup in Batch | Microsoft Azure"
+<properties
+	pageTitle="Job preparation and cleanup in Batch | Microsoft Azure"
 	description="Employ job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion."
 	services="batch"
 	documentationCenter=".net"
@@ -6,7 +7,8 @@
 	manager="timlt"
 	editor="" />
 	
-<tags ms.service="batch"
+<tags
+	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"

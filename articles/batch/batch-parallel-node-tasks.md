@@ -1,4 +1,5 @@
-<properties pageTitle="Maximize Batch node use with parallel tasks | Microsoft Azure"
+<properties
+	pageTitle="Maximize Batch node use with parallel tasks | Microsoft Azure"
 	description="Increase efficiency and lower costs by using fewer compute nodes while running concurrent tasks on each node in an Azure Batch pool"
 	services="batch"
 	documentationCenter=".net"
@@ -6,7 +7,8 @@
 	manager="timlt"
 	editor="" />
 	
-<tags ms.service="batch"
+<tags
+	ms.service="batch"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
