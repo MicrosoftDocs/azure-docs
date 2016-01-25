@@ -20,7 +20,7 @@
 
 A "multi-instance task" in Azure Batch is a [task][net_task] that is configured to run on more than one compute node. Normally, each task runs on a single compute node, but with multi-instance tasks, you can run a task on multiple compute nodes simultaneously. This enables high performance computing scenarios like Message Passing Interface (MPI) programs that require a group of compute nodes that are allocated together to process a workload.
 
-In this article, you will learn how to execute an MPI application built with Microsoft's MPI implementation for Windows, [MS-MPI][msmpi], and the [Batch .NET][api_net] library.
+In this article, you will learn how to execute an MPI application built with Microsoft's MPI implementation for Windows, [MS-MPI][msmpi_msdn], and the [Batch .NET][api_net] library.
 
 ## Multi-instance task overview
 
@@ -29,8 +29,8 @@ You create a multi-instance task in Batch by specifying multi-instance settings 
 When you submit a task with multi-instance settings to a job, the Batch service performs the following:
 
 1. Automatically creates one primary task and enough subtasks that together will execute on the total number of nodes you specified. Batch then schedules these tasks for execution on the nodes, which first download the common resource files you specified.
-2. After the common resource files have been downloaded, the coordination command is executed by the primary and subtasks. This coordination command typically launches a background service (such as [MS-MPI][msmpi]'s `smpd.exe`) and verifies that the nodes are ready to process inter-node messages.
-3. When the coordination command has been successfully completed by the primary and all subtasks, the task's command line (the "application command") is executed only by the primary task, which typically initiates a custom MPI-enabled application that processes your workload on the nodes. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi]'s `mpiexec.exe` using the application command.
+2. After the common resource files have been downloaded, the coordination command is executed by the primary and subtasks. This coordination command typically launches a background service (such as [MS-MPI][msmpi_msdn]'s `smpd.exe`) and verifies that the nodes are ready to process inter-node messages.
+3. When the coordination command has been successfully completed by the primary and all subtasks, the task's command line (the "application command") is executed only by the primary task, which typically initiates a custom MPI-enabled application that processes your workload on the nodes. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi_msdn]'s `mpiexec.exe` using the application command.
 
 ## Next steps
 
