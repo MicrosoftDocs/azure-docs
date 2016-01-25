@@ -406,20 +406,24 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 
 ## Query example: Detect duration between events
 **Description**: Find the duration of a given event. e.g. Given a web clickstream determine time spent on a feature.
-**Input**:
+**Input**:  
+  
 | User | Feature | Event | Time |
 | --- | --- | --- | --- |
 | user@location.com | RightMenu | Start | 2015-01-01T00:00:01.0000000Z |
 | user@location.com | RightMenu | End | 2015-01-01T00:00:08.0000000Z |
-
-**Output**:
+  
+**Output**:  
+  
 | User | Feature | Duration |
 | --- | --- | --- |
 | user@location.com | RightMenu | 7 |
-
+  
 
 **Solution**
-````SELECT
+
+````
+    SELECT
     	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
     FROM input TIMESTAMP BY Time
     WHERE
