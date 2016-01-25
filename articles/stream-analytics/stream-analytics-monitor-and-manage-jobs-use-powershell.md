@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="01/25/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -34,7 +34,6 @@ Learn how to monitor and manage Stream Analytics resources with Azure PowerShell
 		Select-AzureSubscription -SubscriptionName <subscription name>
  
 		# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace.
-
 		#Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
 		# Create an Azure resource group
