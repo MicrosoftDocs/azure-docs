@@ -114,7 +114,7 @@ To create a custom role, use the `azure role create` command.
 
 The following example creates a custom role called *Virtual Machine Operator* that grants access to all read operations of *Microsoft.Compute*, *Microsoft.Storage*, and *Microsoft.Network* resource providers, and grants access to start, restart, and monitor virtual machines. The custom role can be used in two subscriptions. This example employs a json file as an input.
 
-![JSON - custom role definition - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role create-1.png)
+![JSON - custom role definition - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-1.png)
 
 ![RBAC Azure command line - azure role create - screenshot](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="rest-api"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="01/25/2016"
 	ms.author="kgremban"/>
 
 # Managing Role-Based Access Control with the REST API
@@ -27,7 +27,7 @@
 
 Lists all of the role assignments at the specified scope and sub-scopes.
 
-To list role assignments, you must have access to `Microsoft.Authorization/roleAssignments/read` operation at the scope. All of the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-based Access Control](role-based-access-control-configure.md).
+To list role assignments, you must have access to `Microsoft.Authorization/roleAssignments/read` operation at the scope. All of the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 
@@ -89,7 +89,7 @@ Status code: 200
 
 Gets information about a single role assignment specified by the role assignment identifier.
 
-To get information about a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/read` operation. All of the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-based Access Control](role-based-access-control-configure.md).
+To get information about a role assignment, you must have access to `Microsoft.Authorization/roleAssignments/read` operation. All of the built-in roles are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 
@@ -649,7 +649,7 @@ Status code: 201
 
 Delete a custom role.
 
-To delete a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/delete` operation on all of its `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-based Access Control](role-based-access-control-configure.md).
+To delete a custom role, you must have access to `Microsoft.Authorization/roleDefinitions/delete` operation on all of its `AssignableScopes`. Of the built-in roles, only *Owner* and *User Access Administrator* are granted access to this operation. For more information about role assignments and managing access for Azure resources, see [Azure Role-Based Access Control](role-based-access-control-configure.md).
 
 ### Request
 
