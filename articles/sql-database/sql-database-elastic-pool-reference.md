@@ -1,31 +1,30 @@
-<properties 
-	pageTitle="Azure SQL elastic database pool reference" 
-	description="This reference provides links and details to elastic database pool articles and programmability information." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Elastic database pool reference for SQL Database | Microsoft Azure" 
+	description="This reference provides links and details to elastic database pool articles and programmability information."
+	keywords="eDTU"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="12/01/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
 # SQL Database elastic database pool reference
 
-For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases. 
-
-This reference provides links and details to elastic database pool articles and programmability information.
+This reference provides links and details to elastic database pool articles and programmability information. For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases.
 
 ## Overview
 
-An elastic database pool is a collection of elastic database throughput units (eDTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md). 
+An elastic database pool is a collection of elastic database throughput units (eDTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
 
 
@@ -45,7 +44,7 @@ An elastic database pool is a collection of elastic database throughput units (e
 
     | Service tier | Max databases per pool* | Max eDTUs per pool* |
     | :-- | :-- | :-- |
-    | Basic | 200 | 1200 | 
+    | Basic | 200 | 1200 |
     | Standard | 200 | 1200 |
     | Premium | 50 | 1500 |
 
@@ -119,7 +118,7 @@ Default values are **bold**.
 
 ## Worker and session limits
 
-The maximum number of concurrent workers and concurrent sessions supported for all databases in an elastic pool depends on the eDTU setting for the pool: 
+The maximum number of concurrent workers and concurrent sessions supported for all databases in an elastic pool depends on the eDTU setting for the pool:
 
 | eDTUs | Max concurrent workers | Max concurrent sessions |
 | :-- | :-- | :-- |
@@ -140,8 +139,8 @@ Azure SQL Database V12 servers are located in resource groups.
 
 ## Latency of elastic pool operations
 
-- Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less. 
-- Changing the eDTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less. 
+- Changing the guaranteed eDTUs per database (databaseDtuMin) or maximum eDTUs per database (databaseDtuMax) typically completes in 5 minutes or less.
+- Changing the eDTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU / storage limit is 3 hours or less.
 
 
 
@@ -175,9 +174,9 @@ You can use Transact-SQL to do the following elastic database management tasks:
 
 Elastic database pools are billed per the following characteristics:
 
-- An elastic pool is billed upon its creation, even when there are no databases in the pool. 
-- An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases. 
-- If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of standalone databases. 
+- An elastic pool is billed upon its creation, even when there are no databases in the pool.
+- An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
+- If an elastic pool is resized to a new amount of eDTUs, then the pool is not billed according to the new amount of eDTUS until the resizing operation completes. This follows the same pattern as changing the performance level of standalone databases.
 
 
 - The price of an elastic pool is based on the number of eDTUs of the pool. The price of an elastic pool is independent of the utilization of the elastic databases within it.
@@ -209,6 +208,3 @@ The unit eDTU price for an elastic pool is higher than the unit DTU price for a 
 | 40889 | EX_USER | The DTUs or storage limit for the elastic pool '%.*ls' cannot be decreased since that would not provide sufficient storage space for its databases. | Name of elastic pool. | Attempting to decrease the storage limit of the elastic pool below its storage usage. | Please consider reducing the storage usage of individual databases in the elastic pool or remove databases from the pool in order to reduce its DTUs or storage limit. |
 | 40891 | EX_USER | The DTU min per database (%d) cannot exceed the DTU max per database (%d). | DTU min per database; DTU max per database. | Attempting to set the DTU min per database higher than the DTU max per database. | Please ensure the DTU min per databases does not exceed the DTU max per database. |
 | TBD | EX_USER | The storage size for an individual database in a elastic pool cannot exceed the max size allowed by '%.*ls' service tier elastic pool. | elastic pool service tier | The max size for the database exceeds the max size allowed by the elastic pool service tier. | Please set the max size of the database within the limits of the max size allowed by the elastic pool service tier. |
-
-
-

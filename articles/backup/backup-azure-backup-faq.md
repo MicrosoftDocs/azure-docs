@@ -55,7 +55,7 @@ A5. Yes. As of July 2015, you can create 25 vaults per subscription. If you need
 A6. Though it is possible to get a detailed bill for each vault, we highly recommend that you consider an Azure subscription as a billing entity. It is consistent across all services and is easier to manage.
 
 **Q7. Are there any limits on the number of servers/machines that can be registered against each vault?** <br/>
-A7. Yes, you can register upto 50 machines per vault. For Azure IaaS virtual machines, limit is 100 VMs per vault. If you need to register more machines, create a new vault.
+A7. Yes, you can register upto 50 machines per vault. For Azure IaaS virtual machines, limit is 200 VMs per vault. If you need to register more machines, create a new vault.
 
 **Q8. Are there any limits on the amount of data that can be backed up from a Windows server/client or SCDPM server?** <br/>
 A8. No.
@@ -91,7 +91,7 @@ A12. The following types are supported:
 - Sparse Stream: Not supported, skipped
 
 **Q13. What's the minimum size requirement for the cache folder?** <br/>
-A13. The size of the cache folder is determined by the amount of data that you are backing up. In general you should expect that 10-15% of the space required for data storage should be allocated for the cache folder.
+A13. The size of the cache folder is determined by the amount of data that you are backing up. In general you should expect that 5% of the space required for data storage should be allocated for the cache folder.
 
 **Q14. How can I isolate specific server data from being recovered by other servers in my organization?**<br/>
 A14. Any servers that are registered using the same vault will be able to recover the data backed up by other servers that use the same passphrase. If you have servers that you want to ensure recovery only occurs to specific servers in your organization, you should use a separate passphrase designated for those servers. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
