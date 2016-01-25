@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/22/2016" 
+	ms.date="01/26/2016" 
 	ms.author="tdykstra"/>
 
 # Service principal authentication for API Apps in Azure App Service
@@ -21,8 +21,6 @@
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 ## Overview
-
-## What you'll learn 
 
 In this article you'll learn:
 
@@ -35,7 +33,7 @@ This method of securing an API app is commonly used for [internal scenarios such
 
 The article contains two sections:
 
-* The [How to configure service principal authentication in Azure App Service](#authconfig) section explains in general how to configure authentication for any API app, and how to consume the protected API app. This section applies equally to .NET, Node.js, and Java. 
+* The [How to configure service principal authentication in Azure App Service](#authconfig) section explains in general how to configure authentication for any API app, and how to consume the protected API app. This section applies equally to all frameworks supported by App Service, including .NET, Node.js, and Java.
 
 * The [remainder of the article](#tutorialstart) guides you through configuring a "internal access" scenario for a .NET sample application running in App Service. 
 

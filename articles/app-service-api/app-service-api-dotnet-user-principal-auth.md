@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="01/18/2016"
+	ms.date="01/26/2016"
 	ms.author="tdykstra"/>
 
 # User authentication for API Apps in Azure App Service
@@ -30,7 +30,7 @@ In this article you'll learn:
 
 The article contains two sections:
 
-* The [How to configure user authentication in Azure App Service](#authconfig) section explains in general how to configure user authentication for any API app and applies equally to .NET, Node.js, and Java.
+* The [How to configure user authentication in Azure App Service](#authconfig) section explains in general how to configure user authentication for any API app and applies equally to all frameworks supported by App Service, including .NET, Node.js, and Java.
 
 * The [remainder of the article](#tutorialstart) guides you through configuring a .NET sample application running in App Service so that it uses Azure Active Directory for user authentication. 
 
@@ -76,74 +76,68 @@ If you are following the Node.js or Java getting-started series for API apps, sk
 
 If you are following the .NET getting-started series for API apps and have already deployed the sample application as directed in the [first](app-service-api-dotnet-get-started.md) and [second](app-service-api-cors-consume-javascript.md) tutorials, skip to the [Configure authentication](#azureauth) section.
 
-If you didn't do the the first and second tutorials and you want to follow this one, see the [Prerequisites](app-service-api-dotnet-get-started.md#prerequisites) for the series, and then do the following steps to download and deploy the sample application. These instructions are an abbreviated version of what the first two tutorials have you do.
+If you didn't do the the first and second tutorials and you want to follow this one, first make sure you have all of the [Prerequisites](app-service-api-dotnet-get-started.md#prerequisites) for the series. Then do the following steps to download and deploy the sample application. These steps duplicate what you would have done in the first two tutorials, but the instructions are abbreviated here.
 
-#### Download the sample application
+1. Download the sample application.
 
-1. Download the [Azure-Samples/app-service-api-dotnet-todo-list](https://github.com/Azure-Samples/app-service-api-dotnet-to-do-list) repository.
+	a. Download from the [Azure-Samples/app-service-api-dotnet-todo-list](https://github.com/Azure-Samples/app-service-api-dotnet-to-do-list) repository.
 
-2. Open the ToDoList solution in Visual Studio 2015, and build the solution to restore the NuGet packages.
+	a. Open the ToDoList solution in Visual Studio 2015, and build the solution to restore the NuGet packages.
 
-#### Deploy the ToDoListDataAPI project to a new API app
+2. Deploy the ToDoListDataAPI project to a new API app.
 
-1. In the ToDoListDataAPI project, open the *App_Start/SwaggerConfig.cs* file, and uncomment the **EnableSwaggerUi** code.
+	a. In the ToDoListDataAPI project, open the *App_Start/SwaggerConfig.cs* file, and uncomment the **EnableSwaggerUi** code.
 
-1. In **Solution Explorer**, right-click the ToDoListDataAPI project, and then click **Publish**.
+	b. In **Solution Explorer**, right-click the ToDoListDataAPI project, and then click **Publish**.
 
-3.  In the **Profile** step of the **Publish Web** wizard, click **Microsoft Azure App Service**.
+	c.  In the **Profile** step of the **Publish Web** wizard, click **Microsoft Azure App Service**.
 
-4. In the **App Service** dialog box, choose the Azure **Subscription** you want to use, and then click **New**.
+	d. In the **App Service** dialog box, choose the Azure **Subscription** you want to use, and then click **New**.
 
-3. In the **Hosting** tab of the **Create App Service** dialog box, click **Change Type**, and then click **API App**.
+	e. In the **Hosting** tab of the **Create App Service** dialog box, click **Change Type**, and then click **API App**.
 
-	**Note:** This step is easy to miss; make sure you don't miss it, or you will have to redo the entire sequence of deployment steps. 
+	f. Enter an **API App Name** such as ToDoListDataAPI plus a number to make it unique in the *azurewebsites.net* domain, for example:  ToDoListDataAPI1230.
 
-4. Enter an **API App Name** such as ToDoListDataAPI plus a number to make it unique in the *azurewebsites.net* domain, for example:  ToDoListDataAPI1230.
+	g. In the **Resource Group** drop-down, enter a name such as TodoListGroup to create a new resource group. 
 
-6. In the **Resource Group** drop-down, enter a name such as TodoListGroup to create a new resource group. 
+	h. In the **App Service Plan** drop-down, click **New** and enter the required information on the **Configure App Service Plan** dialog box.
 
-4. In the **App Service Plan** drop-down, click **New** and enter the required information on the **Configure App Service Plan** dialog box.
+	i. Click **Create**.
 
-14. Click **Create**.
+	j. Click **Publish**.
 
-	The **Publish Web** wizard opens on the **Connection** tab.
+3. Deploy the ToDoListAPI project to a new API app.
 
-8. Click **Publish**.
-
-	The "API app successfully created" page appears in the browser. Close the browser.
-
-#### Deploy the ToDoListAPI project to a new API app
-
-1. In the ToDoListAPI project, open *Controllers\ToDoListController.cs* and change `http://localhost:45914` to `https://{your ToDoListDataAPI app name}.azurewebsites.net`.  For example, if you named the API app "ToDoListDataAPI0121", the code would look like this example: 
+	a. In the ToDoListAPI project, open *Controllers\ToDoListController.cs* and change `http://localhost:45914` to `https://{your ToDoListDataAPI app name}.azurewebsites.net`.  For example, if you named the API app "ToDoListDataAPI0121", the code would look like this example: 
 
 		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri("https://todolistdataapi0121.azurewebsites.net"));
 
-3. Follow the same procedure for deploying the ToDoListAPI project that you followed for the ToDoListDataAPI project. Don't forget to change the type to **API App**.
+	b. Follow the same procedure for deploying the ToDoListAPI project that you followed for the ToDoListDataAPI project. Don't forget to change the type to **API App**.
 
-#### Deploy the ToDoListAngular project to a new web app
+4. Deploy the ToDoListAngular project to a new web app.
 
-1. In the ToDoListAngular project, open the *app/scripts/todoListSvc.js* file.
+	a. In the ToDoListAngular project, open the *app/scripts/todoListSvc.js* file.
 
-2. Comment out the line that sets `apiEndpoint` to the localhost URL, uncomment the line that sets `apiEndPoint` to an azurewebsites.net URL, and replace the placeholder with the actual name of the API app you created for ToDoListAPI.  If you named the API app ToDoListAPI0121, the code now looks like the following example.
+	b. Comment out the line that sets `apiEndpoint` to the localhost URL, uncomment the line that sets `apiEndPoint` to an azurewebsites.net URL, and replace the placeholder with the actual name of the API app you created for ToDoListAPI.  If you named the API app ToDoListAPI0121, the code now looks like the following example.
 
 		var apiEndPoint = 'https://todolistapi0121.azurewebsites.net';
 		//var apiEndPoint = 'http://localhost:45914'
 
-3. Follow the same procedure for deploying the ToDoListAPI project that you followed for the ToDoListDataAPI project, **except do not change the type from Web App to API App**.
+	c. Follow the same procedure for deploying the ToDoListAPI project that you followed for the ToDoListDataAPI project, **except do not change the type from Web App to API App**.
 
-#### Configure CORS for the API app in Azure
+5. Configure CORS for the API app in Azure.
 
-8. Go to the [Azure portal](https://portal.azure.com/), and navigate to the API app that you created for the ToDoListAPI project.
+	a. Go to the [Azure portal](https://portal.azure.com/), and navigate to the API app that you created for the ToDoListAPI project.
 
-10. In the **API app** blade, click **Settings**.
+	b. In the **API app** blade, click **Settings**.
 
-11. Find the **API** section, and then click **CORS**.
+	c. Find the **API** section, and then click **CORS**.
 
-12. In the text box, enter the URL that you want to allow calls to come from, which for this tutorial is the URL of the web app that you created for the ToDoListAngular project. For example, enter "https://todolistangular.azurewebsites.net".
+	d. In the text box, enter the URL that you want to allow calls to come from, which for this tutorial is the URL of the web app that you created for the ToDoListAngular project. For example, enter "https://todolistangular.azurewebsites.net".
 
-13. Click **Save**.
+	e. Click **Save**.
 
-9. Open a browser to the HTTPS URL of the web app, and verify that you can view, add, edit, and delete to-do items. 
+6. Open a browser to the HTTPS URL of the web app, and verify that you can view, add, edit, and delete to-do items. 
 
 ## <a id="azureauth"></a> Set up authentication in Azure
 
