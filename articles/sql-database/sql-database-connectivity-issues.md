@@ -20,13 +20,13 @@
 
 # Troubleshoot, diagnose, and prevent SQL connection errors and transient errors for SQL Database
 
-This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL Database. Learn how to configure retry logic and
+This article describes how to prevent, troubleshoot, diagnose, and mitigate connection errors and transient errors that your client application encounters when it interacts with Azure SQL Database. Learn how to configure retry logic, build the connection string, and adjust other connection settings.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
-## Transient errors (faults)
+## Transient errors (transient faults)
 
-A transient error--also called "transient fault"--has an underlying cause that will soon resolve itself. An occasional cause of transient errors is when the Azure system quickly shifts hardware resources to better load-balance various workloads. During this reconfiguration time span, you may have connectivity issues to Azure SQL Database.
+A transient error - also, transient fault - has an underlying cause that will soon resolve itself. An occasional cause of transient errors is when the Azure system quickly shifts hardware resources to better load-balance various workloads. During this reconfiguration time span, you may have connectivity issues to Azure SQL Database.
 
 If your client program is using ADO.NET, your program is told about the transient error by the throw of an **SqlException**. The **Number** property can be compared against the list of transient errors near the top of the topic:
 [SQL error codes for SQL Database client applications](sql-database-develop-error-messages.md).
