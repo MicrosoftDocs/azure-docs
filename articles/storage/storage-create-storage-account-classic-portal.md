@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
-	description="Learn how to create, manage, or delete a storage account in the Azure Classic Portal."
+	pageTitle="How to create, manage, or delete a storage account in the Azure Classic Portal | Microsoft Azure"
+	description="Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts."
 	services="storage"
 	documentationCenter=""
 	authors="robinsh"
