@@ -21,7 +21,7 @@
 2. Open the PowerShell command prompt.
 3. Use the [Add-AzureAccount](https://msdn.microsoft.com/library/dn495128.aspx) to sign in.
 
-> [AZURE.NOTE] For further instruction on installing the Azure PowerShell cmdlet and connecting to your Azure subscription, refer to [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+ > [AZURE.NOTE] For further instruction on installing the Azure PowerShell cmdlet and connecting to your Azure subscription, refer to [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 4. Use the **New-AzureService** cmdlet to create an empty Azure cloud service container.
 
