@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows 10 for the enterprise: Ways to use devices for work | Microsoft Azure" 
-	description="Overview of deploying Windows 10 devices for enterprises, and how to integrate with Azure Active Directory for the windows cloud, contrasting the different ways a device can be provisioned and used in an enterprise through the Azure Portal."
+	description="Overview of deploying Windows 10 devices for enterprises, and how to integrate with Azure Active Directory for the Windows cloud, contrasting the different ways a device can be provisioned and used in an enterprise through the Azure Portal."
     keywords="windows cloud, Windows on Azure Active Directory, Windows 10 devices on Azure, Azure Windows devices" 
 	services="active-directory" 
 	documentationCenter="" 

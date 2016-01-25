@@ -2,7 +2,7 @@
 	pageTitle="Azure AD Connect: Custom installation | Microsoft Azure"
 	description="This document details the custom installation options for Azure AD Connect. Use these instructions to install active directory through Azure AD Connect."
 	services="active-directory"
-    keywords="what is Azure AD Connect, install active directory, required components for Azure AD"
+    keywords="what is Azure AD Connect, install Active Directory, required components for Azure AD"
 	documentationCenter=""
 	authors="billmath"
 	manager="stevenpo"
