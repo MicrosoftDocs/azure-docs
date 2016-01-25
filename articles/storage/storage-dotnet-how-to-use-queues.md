@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to use Queue storage from .NET | Microsoft Azure"
-	description="Learn how to use Queue storage to create and delete queues and insert, peek, get, and delete queue messages."
+	pageTitle="Get started with Azure Queue storage using .NET | Microsoft Azure"
+	description="Send and receive messages asynchronously between application components using Azure Queue storage. Get started with simple Queue storage operations, including creating and deleting queues and adding, reading, and deleting queue messages."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/04/2015"
+	ms.date="01/24/2016"
 	ms.author="gusapost"/>
 
-# How to use Queue storage from .NET
+# Get started with Azure Queue storage using .NET
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 ## Overview
 
-This guide will show you how to perform common scenarios using the
-Azure Queue storage service. The samples are written in C\# code
-and use the Azure Storage Client for .NET. The scenarios covered include **inserting**,
-**peeking**, **getting**, and **deleting** queue messages, as well as
-**creating and deleting queues**.
+Azure Queue storage is a service that provides messaging queues in the cloud. In designing applications for scale, application components are often decoupled, so that they can scale independently.  Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
+
+This tutorial shows how to write .NET code for some common scenarios using Azure Queue storage. Scenarios covered include creating and deleting queues and adding, reading, and deleting queue messages.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
