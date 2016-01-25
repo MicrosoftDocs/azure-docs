@@ -31,7 +31,7 @@ With the **scheduler** section in the activity JSON, you can specify a recurring
     
 ![Scheduler example](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
-As shown above, specifying an schedule for the activity creates a series of tumbling windows. Tumbling windows are series of fixed-sized, non-overlapping and contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**.
+As shown above, specifying a schedule for the activity creates a series of tumbling windows. Tumbling windows are series of fixed-sized, non-overlapping and contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**.
  
 For the currently executing activity window, the time interval associated with the activity window can be accessed with **WindowStart** and **WindowEnd** system variables in the activity JSON. You can use these variables for different purposes in your activity JSON and scripts associated with the activity including selecting data from input, output datasets representing time series data.
 
