@@ -332,7 +332,7 @@ To disable the premium add-on, use the PowerShell cmdlet sample below. This oper
 
 ### How to update the ExpressRoute circuit bandwidth
 
-Check the [ExpressRoute FAQ](expressroute-faqs.md) page for supported bandwidth options for your provider. You can pick any size greater than the size of your existing circuit. 
+Check the [ExpressRoute FAQ](expressroute-faqs.md) page for supported bandwidth options for your provider. You can pick any size **greater** than the size of your existing circuit without incurring downtime.
 
 >[AZURE.IMPORTANT] You cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth will require you to deprovision the ExpressRoute circuit, and then re-provision a new ExpressRoute circuit.
 
@@ -354,7 +354,7 @@ You can delete your ExpressRoute circuit. When deleting an ExpressRoute circuit,
 
 - If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the cmdlet, we will deprovision the circuit and stop billing you. 
 
-To delete your ExpressRoute circuit, use the following PowerShell cmdlet sample below.
+To delete your ExpressRoute circuit, use the PowerShell cmdlet sample below.
 
 		Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
 
