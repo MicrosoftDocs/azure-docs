@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="01/24/2016"
    ms.author="viviali"/>
 
-# Current preview limitations for Azure Active Directory (Azure AD) B2B collaboration
+# Azure AD B2B collaboration preview: Current preview limitations
 
 - Multi-factor authentication (MFA) not supported on external users. For example, if Contoso has MFA, but Partner Org does not, then Partner Org users can't be granted MFA through B2B collaboration.
 - Invites are possible only via CSV; individual invites and API access are not supported.

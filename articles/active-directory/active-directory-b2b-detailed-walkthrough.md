@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="10/27/2015"
+   ms.date="01/24/2016"
    ms.author="viviali"/>
 
-# Detailed walkthrough of using the Azure Active Directory (Azure AD) B2B collaboration preview
+# Azure AD B2B collaboration preview: Detailed walkthrough
+
 This walkthrough outlines how to use Azure AD B2B collaboration. As the IT administrator of Contoso, we want to share applications with employees from three partner companies. None of the partner companies need to have Azure AD.
 
 - Alice from Simple Partner Org
@@ -38,7 +39,7 @@ After invitations are sent out to partner users, we can configure them in Azure 
 4. From Alice's point of view, she will receive the following email.  
 ![Invitation email for Alice](./media/active-directory-b2b-detailed-walkthrough/AliceEmail.png)
 
-5. Alice clicks the link, and she is prompted to accept the invitation and to sign in using her work credentials. If Alice is not in the Azure AD directory, Alice will be prompted to sign up.  
+5. Alice clicks the link, and se is prompted to accept the invitation and to sign in using her work credentials. If Alice is not in the Azure AD directory, Alice will be prompted to sign up.  
 ![Sign up after invitation for Alice](./media/active-directory-b2b-detailed-walkthrough/AliceSignUp.png)
 
 6. Alice is redirected to the App Access Panel, empty until she is granted access to apps.  

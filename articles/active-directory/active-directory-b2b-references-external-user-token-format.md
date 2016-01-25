@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="01/24/2016"
    ms.author="viviali"/>
 
-# External user token format for Azure Active Directory (Azure AD) B2B collaboration preview
+# Azure AD B2B collaboration preview: External user token format
+
 The claims for a standard Azure AD token are described in the [Supported Token and Claim Types](active-directory-token-and-claims.md) article on azure.microsoft.com.
 
 The claims that are different for an authenticated B2B collaboration external user are as follows:<br/>
