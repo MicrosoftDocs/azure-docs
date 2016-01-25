@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/24/2015"
+	ms.date="24/01/2016"
 	ms.author="awills"/>
 
 # Get started with Application Insights in a Java web project
@@ -117,7 +117,7 @@ Manually add the SDK:
  * `applicationinsights-web` gives you metrics that track HTTP request counts and response times. You can omit this if you don't want this telemetry automatically collected. For example, if you want to write your own.
 
 * *To update the SDK when we publish changes*
- * Download the latest [Application Insights SDK for Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) and replace the old ones.
+ * Download the latest [Application Insights SDK for Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip) and replace the old ones.
  * Changes are described in the [SDK release notes](app-insights-release-notes-java.md).
 
 
