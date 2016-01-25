@@ -17,7 +17,7 @@
 	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-# NoSQL tutorial: DocumentDB C# console application 
+# NoSQL tutorial: Build a DocumentDB C# console application 
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
