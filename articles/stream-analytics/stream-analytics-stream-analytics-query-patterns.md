@@ -406,6 +406,7 @@ Use LAG to peek into the input stream one event back and get the Make value. The
 
 ## Query example: Detect duration between events
 **Description**: Find the duration of a given event. e.g. Given a web clickstream determine time spent on a feature.
+
 **Input**:  
   
 | User | Feature | Event | Time |
