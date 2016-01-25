@@ -170,7 +170,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 		
 		CircuitProvisioningState         : Enabled
 
-	The *ServiceProviderProvisioningState* provides information on the current state of provisioning on the service provider side and the Status provides the state on the Microsoft side. An ExpressRoute circuit must be in the following state for you to be able to use it.
+	The *ServiceProviderProvisioningState* provides information on the current state of provisioning on the service provider side, and the Status provides the state on the Microsoft side. An ExpressRoute circuit must be in the following state for you to be able to use it.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -317,7 +317,7 @@ Your circuit will now have the ExpressRoute premium add-on features enabled. Not
 
 You can disable the ExpressRoute premium add-on for your existing circuit. When disabling the ExpressRoute premium add-on, note the following considerations:
 
-- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do so, your update request will fail and you will be billed the premium rates.
+- You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do so, your update request will fail, and you will be billed the premium rates.
 - You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and you will be billed the premium rates.
 - Your route table must be less than 4000 routes for private peering. If your route table size is greater than 4000 routes, the BGP session will drop and won't be re-enabled till the number of advertised prefixes goes below 4000.
 
@@ -350,7 +350,7 @@ You can delete your ExpressRoute circuit. When deleting an ExpressRoute circuit,
 
 - You must unlink all virtual networks from the ExpressRoute for this operation to succeed. Check if you have any virtual networks linked to the circuit if this operation fails.
 
-- If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *disabling* from enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
+- If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *disabling* from the enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
 
 - If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you. 
 
