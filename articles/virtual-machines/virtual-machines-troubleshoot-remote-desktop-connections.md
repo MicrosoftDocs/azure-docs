@@ -26,7 +26,7 @@ The Remote Desktop (RDP) connection to your Windows-based Azure virtual machine 
 
 This article applies to Azure virtual machines running Windows. For Azure virtual machines running Linux, see [Troubleshoot SSH connection to an Azure VM](virtual-machines-troubleshoot-ssh-connections.md).
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
 
 <a id="quickfixrdp"></a>

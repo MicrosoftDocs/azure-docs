@@ -28,9 +28,9 @@ This article only applies to Azure virtual machines running Linux. For Azure vir
 
 ## Contact Azure Customer Support
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/).
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/).
 
-Alternatively, you can file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click **Get support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 
 ## Steps to fix common SSH errors in classic deployment model
