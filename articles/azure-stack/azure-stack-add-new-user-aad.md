@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.author="erikje"/>
 
 # Add a new Microsoft Azure Stack tenant account in Azure Active Directory
 
