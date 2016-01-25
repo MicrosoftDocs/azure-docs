@@ -118,20 +118,6 @@ Use the **RunOn** parameter  You could use the following command to start a runb
 
 >[AZURE.NOTE] The **RunOn** parameter was added to the **Start-AzureAutomationRunbook** cmdlet in version 0.9.1 of Microsoft Azure PowerShell.  You should [download the latest version](http://azure.microsoft.com/downloads) if you have an earlier one installed.  You only need to install this version on a workstation where you will be starting the runbook from Windows PowerShell.  You do not need to install it on the worker computer unless you intend to start runbooks from that computer.  You cannot currently start a runbook on a Hybrid Runbook Worker from another runbook since this would require the latest version of Azure Powershell to be installed in your Automation account.  The latest version will be automatically updated in Azure Automation and automatically pushed down to the workers soon.
 
-## Troubleshooting runbooks on Hybrid Runbook Worker
-
-[Runbook output and messages](automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs run in the cloud.  You can also enable the Verbose and Progress streams the same way you would for other runbooks.  
-
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.
-
-
-## Creating runbooks for Hybrid Runbook Worker
-
-There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud. 
-
-You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.  The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.  If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.
- 
-
 ## Runbook permissions
 
 Runbooks running on a Hybrid Runbook Worker cannot use the same [method that is typically used for runbooks authenticating to Azure resources](automation-configuring.md#configuring-authentication-to-azure-resources) since they will be accessing resources outside of Azure.  The runbook can either provide its own authentication to local resources, or you can specify a RunAs account to provide a user context for all runbooks.
@@ -162,6 +148,18 @@ Use the following procedure to specify a RunAs account for a Hybrid worker group
 4. Change **Run As** from **Default** to **Custom**.
 5. Select the credential and click **Save**.
 
+
+## Creating runbooks for Hybrid Runbook Worker
+
+There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud. 
+
+You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.  The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.  If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.
+
+## Troubleshooting runbooks on Hybrid Runbook Worker
+
+[Runbook output and messages](automation-runbook-output-and-messages.md) are sent to Azure Automation from hybrid workers just like runbook jobs run in the cloud.  You can also enable the Verbose and Progress streams the same way you would for other runbooks.  
+
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes.
 
 
 ## Relationship to Service Management Automation
