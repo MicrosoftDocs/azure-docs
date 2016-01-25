@@ -14,13 +14,13 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="01/19/2016"
+	 ms.date="01/22/2016"
 	 ms.author="jimpark;"/>
 
 # Back up Windows Server or Windows Client files and folders to Azure
 It’s easy to back up Windows files and folders to Azure with this simple procedure. If you haven't already done so, complete the [prerequisites](backup-configure-vault.md#before-you-start) to prepare your environment to back up your Windows machine before you proceed.
 
-## Backup files
+## Back up files and folders
 1. Once the machine is registered, open the Microsoft Azure Backup mmc snap-in.
 
     ![Search result](./media/backup-azure-backup-windows-server/result.png)
