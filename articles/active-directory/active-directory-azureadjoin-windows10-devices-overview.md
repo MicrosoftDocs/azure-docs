@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/25/2016" 
+	ms.date="01/25/2016" 
 	ms.author="femila"/>
 
 # Windows 10 for the enterprise: Ways to use devices for work
