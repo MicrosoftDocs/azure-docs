@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/03/2015"
+   ms.date="01/25/2016"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
 
-Runbooks in Azure Automation cannot access resources in your local data center since they run in the Azure cloud.  The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks on machines located in your data center in order to manage local resources. The runbooks are stored and managed in Azure Automation and then delivered to one or more on-premises machines where they are run.  
+Runbooks in Azure Automation cannot access resources in your local data center since they run in the Azure cloud.  The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks on machines located in your data center in order to manage local resources. The runbooks are stored and managed in Azure Automation and then delivered to one or more on-premises machines.  
 
 This functionality is illustrated in the following image.
 
@@ -87,7 +87,7 @@ Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
 
 	Add-HybridRunbookWorker –Name <String> -EndPoint <Url> -Token <String>
 
-You can get the information required for this cmdlet from the  **Manage Keys** blade in the Azure preview portal.  Open this blade by clicking the key icon on the Elements panel for the automation account.
+You can get the information required for this cmdlet from the  **Manage Keys** blade in the Azure portal.  Open this blade by clicking the key icon on the Elements panel for the automation account.
 
 ![Hybrid Runbook Worker Overview](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
@@ -110,7 +110,7 @@ You can remove Hybrid Runbook Worker from an on-premise machine with by running 
 
 [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) describes different methods for starting a runbook.  Hybrid Runbook Worker adds a **RunOn** option where you can specify the name of a Hybrid Runbook Worker Group.  If a group is specified, then the runbook is retrieved and run by of the workers in that group.  If this option is not specified, then it is run in Azure Automation as normal.
 
-When you start a runbook in the Azure preview portal, you will be presented with a **Run on** option where you can select **Azure** or **Hybrid Worker**.  If you select **Hybrid Worker**, then you can select the group from a dropdown.
+When you start a runbook in the Azure portal, you will be presented with a **Run on** option where you can select **Azure** or **Hybrid Worker**.  If you select **Hybrid Worker**, then you can select the group from a dropdown.
 
 Use the **RunOn** parameter  You could use the following command to start a runbook named Test-Runbook on a Hybrid Runbook Worker Group named MyHybridGroup using Windows PowerShell.
 
@@ -127,11 +127,18 @@ Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System
 
 ## Creating runbooks for Hybrid Runbook Worker
 
-There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud.  
+There is no difference in the structure of runbooks that run in Azure Automation and those that run on a Hybrid Runbook Worker. Runbooks that you use with each will most likely differ significantly though since runbooks for Hybrid Runbook Worker will typically manage local resources in your data center while runbooks in Azure Automation typically manage resources in the Azure cloud. 
 
-### Runbook permissions
+You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.  The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.  If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.
+ 
 
-Runbooks will run in the context of the local System account on the Hybrid Runbook Worker, so they must provide their own authentication to resources that they they will access.  They cannot use the same [method that is typically used for runbooks authenticating to Azure resources](automation-configuring.md#configuring-authentication-to-azure-resources) since they will be accessing resources outside of Azure.
+## Runbook permissions
+
+Runbooks running on a Hybrid Runbook Worker cannot use the same [method that is typically used for runbooks authenticating to Azure resources](automation-configuring.md#configuring-authentication-to-azure-resources) since they will be accessing resources outside of Azure.  The runbook can either provide its own authentication to local resources, or you can specify a RunAs account to provide a user context for all runbooks.
+
+### Runbook authentication
+
+By default, runbooks will run in the context of the local System account on the on-premises machine, so they must provide their own authentication to resources that they they will access.  
 
 You can use use [Credential](http://msdn.microsoft.com/library/dn940015.aspx) and [Certificate](http://msdn.microsoft.com/library/dn940013.aspx) assets in your runbook with cmdlets that allow you to specify credentials so you can authenticate to different resources.  The following example shows a portion of a runbook that restarts a computer.  It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the Restart-Computer cmdlet.
 
@@ -142,10 +149,20 @@ You can use use [Credential](http://msdn.microsoft.com/library/dn940015.aspx) an
 
 You can also leverage [InlineScript](automation-powershell-workflow.md#inline-script) which will allow you to run blocks of code on another computer with credentials specified by the [PSCredential common parameter](http://technet.microsoft.com/library/jj129719.aspx).
 
+### RunAs account
 
-### Authoring and testing runbooks
+Instead of having runbooks provide their own authentication to local resources, you can specify a **RunAs** account for a Hybrid worker group.  You specify a [credential asset](automation-credentials.md) that has access to local resources, and all runbooks will run under these credentials when running on a Hybrid Runbook Worker in the group.  
 
-You can edit a runbook for Hybrid Runbook Worker in Azure Automation, but you may have difficulties if you try to test the runbook in the editor.  The PowerShell modules that access the local resources may not be installed in your Azure Automation environment in which case, the test would fail.  If you do install the required modules, then the runbook will run, but it will not be able to access local resources for a complete test.
+Use the following procedure to specify a RunAs account for a Hybrid worker group:
+
+1. Create a [credential asset](automation-credentials.md) with access to local resources.
+2. Open the Automation account in the Azure portal.
+2. Select the **Hybrid Worker Groups** tile, and then select the group.
+3. Select **All settings** and then **Hybrid worker group settings**.
+4. Change **Run As** from **Default** to **Custom**.
+5. Select the credential and click **Save**.
+
+
 
 ## Relationship to Service Management Automation
 
