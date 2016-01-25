@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Continuous integration for Service Fabric | Microsoft Azure"
    description="Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Team Services (VSTS)."
    services="service-fabric"
@@ -132,7 +132,7 @@ Before you can set up the build machine, you need to create a [Service Principal
 
 2.	If you don't yet have a machine, you can quickly provision an Azure virtual machine (VM) with Visual Studio 2015 pre-installed. To do this:
 
-    1.	Log in to the [Azure Management Portal](http://portal.azure.com).
+    1.	Log in to the [Azure Management Portal](https://portal.azure.com).
 
     2.	Choose the **New** command in the top-left corner of the screen.
 

@@ -19,7 +19,7 @@
 
 # Azure Storage replication
 
-The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the [Azure Storage SLA](http://azure.microsoft.com/support/legal/sla/) even in the face of transient hardware failures.
+The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/) even in the face of transient hardware failures.
 
 When you create a storage account, you must select one of the following replication options:  
 

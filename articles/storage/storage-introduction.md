@@ -55,9 +55,9 @@ An Azure storage account is a secure account that gives you access to services i
 - A standard storage account includes Blob, Table, Queue, and File storage.
 - A premium storage account currently supports Azure Virtual Machine disks only.
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. [You can create up to 100 uniquely named storage accounts with a single subscription.](../azure-subscription-service-limits.md) See [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. [You can create up to 100 uniquely named storage accounts with a single subscription.](../azure-subscription-service-limits.md) See [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
 
-You can get started with Azure with a [free trial](http://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a plan, you can choose from a variety of [purchase options](http://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage.
+You can get started with Azure with a [free trial](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage.
 
 ### Standard Storage Accounts
 
@@ -155,7 +155,7 @@ Customers are charged for Azure Storage based on four factors: the storage capac
 
 Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated. Every read and write operation against Azure Storage also makes a request against the service. Data egress refers to data transferred out of a Microsoft Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Microsoft Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate process and data egress charges.) 
 
-The [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](http://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](http://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
+The [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
 
 ## Developing Against Storage
 
@@ -177,7 +177,7 @@ To get started with Azure Storage, explore these resources:
 ### Downloads
 
 - [Azure Storage NuGet Package - Client Libraries for .NET, Windows Phone, and Windows Runtime](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [Azure SDKs and Tools](http://azure.microsoft.com/downloads/)
+- [Azure SDKs and Tools](https://azure.microsoft.com/downloads/)
 - [Azure Storage Emulator](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 - [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
 
@@ -187,7 +187,7 @@ To get started with Azure Storage, explore these resources:
 
 ### Documentation
 
-- [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
+- [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 - [Azure Storage Services REST API Reference](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 - [AzCopy Command-Line Tool Reference](storage-use-azcopy.md)
 
