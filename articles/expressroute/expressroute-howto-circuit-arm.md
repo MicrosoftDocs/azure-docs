@@ -292,7 +292,7 @@ You can get detailed descriptions of all the parameters by running the following
 
 You can modify certain properties of an ExpressRoute circuit without impacting connectivity. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information on limits and limitations. 
 
-You can modify the following without incurring downtime:
+You can modify the following settings without incurring downtime:
 
 - Enable or Disable the ExpressRoute premium add-on for your ExpressRoute circuit without any downtime.
 - Increase the bandwidth of your ExpressRoute circuit without any downtime.
@@ -315,9 +315,7 @@ Your circuit will now have the ExpressRoute premium add-on features enabled. Not
 
 ### How to disable the ExpressRoute premium add-on
 
-You can disable the ExpressRoute premium add-on for your existing circuit.
-
-Note the following considerations:
+You can disable the ExpressRoute premium add-on for your existing circuit. When disabling the ExpressRoute premium add-on, note the following considerations:
 
 - You must ensure that the number of virtual networks linked to the circuit is less than 10 before you downgrade from premium to standard. If you don't do so, your update request will fail and you will be billed the premium rates.
 - You must unlink all virtual networks in other geopolitical regions. If you don't do so, your update request will fail and you will be billed the premium rates.
