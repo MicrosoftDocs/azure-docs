@@ -139,6 +139,13 @@ You can also leverage [InlineScript](automation-powershell-workflow.md#inline-sc
 
 Instead of having runbooks provide their own authentication to local resources, you can specify a **RunAs** account for a Hybrid worker group.  You specify a [credential asset](automation-credentials.md) that has access to local resources, and all runbooks will run under these credentials when running on a Hybrid Runbook Worker in the group.  
 
+The user name for the credential must be in one of the following formats:
+
+- domain\username 
+- username@domain
+- username (for accounts local to the on-premise machine)
+
+
 Use the following procedure to specify a RunAs account for a Hybrid worker group:
 
 1. Create a [credential asset](automation-credentials.md) with access to local resources.
