@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="jeffstok"/>
 
 
@@ -403,6 +403,30 @@ e.g. Have 2 consecutive cars from the same make entered the toll road within 90 
 
 **Explanation**:
 Use LAG to peek into the input stream one event back and get the Make value. Then compare it to the Make on the current event and output the event if they are the same and use LAG to get data about the previous car.
+
+## Query example: Detect duration between events
+**Description**: Find the duration of a given event. e.g. Given a web clickstream determine time spent on a feature.
+**Input**:
+| User | Feature | Event | Time |
+| --- | --- | --- | --- |
+| user@location.com | RightMenu | Start | 2015-01-01T00:00:01.0000000Z |
+| user@location.com | RightMenu | End | 2015-01-01T00:00:08.0000000Z |
+
+**Output**:
+| User | Feature | Duration |
+| --- | --- | --- |
+| user@location.com | RightMenu | 7 |
+
+
+**Solution**
+    SELECT
+    	[user], feature, DATEDIFF(second, LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'), Time) as duration
+    FROM input TIMESTAMP BY Time
+    WHERE
+    	Event = 'end'
+  
+**Explanation**:
+Use LAST function to retrieve last Time value when event type was ‘Start’. Note that LAST function uses PARTITION BY [user] to indicate that result shall be computed per unique user.  The query has a 1 hour maximum threshold for time difference between ‘Start’ and ‘Stop’ events but is configurable as needed (LIMIT DURATION(hour, 1).
 
 ## Query example: Detect duration of a condition ##
 **Description**: Find out how long a condition occurred for.
