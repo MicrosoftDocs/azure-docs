@@ -1,6 +1,6 @@
 <properties
-			pageTitle="How to use Azure Files with Windows | Microsoft Azure"
-    		description="Create an Azure file share in the cloud with this step-by-step tutorial. Manage your file share content, and mount a file share from an Azure virtual machine (VM) or from an on-premises application."
+			pageTitle="Get started with Azure File storage on Windows | Microsoft Azure"
+    		description="Store file data in the cloud with Azure File storage, and mount your cloud file share from an Azure virtual machine (VM) or from an on-premises application running Windows."
             services="storage"
             documentationCenter=".net"
             authors="robinsh"
@@ -12,22 +12,20 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="01/12/2015"
+      ms.date="01/24/2015"
       ms.author="robinsh" />
 
-# How to use Azure File storage with Windows
+# Get started with Azure File storage on Windows
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
 ## Overview
 
-Azure File storage offers file shares in the cloud using the standard [Server Message Block (SMB) Protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). It is now generally available and supports both SMB 2.1 and SMB 3.0.
+Azure File storage is a service that offers file shares in the cloud using the standard [Server Message Block (SMB) Protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Both SMB 2.1 and SMB 3.0 are supported. With Azure File storage, you can migrate legacy applications that rely on file shares to Azure quickly and without costly rewrites. Applications running in Azure virtual machines or cloud services or from on-premises clients can mount a file share in the cloud, just as a desktop application mounts a typical SMB share. Any number of application components can then mount and access the File storage share simultaneously.
+
+Since a File storage share is a standard SMB file share, applications running in Azure can access data in the share via file sytem I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
 
 You can create Azure file shares using [Azure Portal](portal.azure.com), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because these file shares are SMB shares, you can access them via standard and familiar file system APIs. 
-
-Applications running in Azure can easily mount file shares from Azure virtual machines. And with the general availability of File storage, you can also mount a file share from an on-premises client that supports SMB 3.0 (e.g. your local laptop, desktop and server). 
-
-File storage is built on the same technology as Blob, Table, and Queue storage, so it is able to leverage the existing availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform.
 
 For information on using File storage with Linux, see [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md).
 
