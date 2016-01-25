@@ -62,14 +62,16 @@ There are two firewalls you need to consider: corporate firewall running on the 
 #### At corporate firewall level
 Specifically, you need configure the following domains and ports:
 
-| Domain names | Ports | Description | 
-| :----------- | :---- | :---------- | 
-| *.servicebus.windows.net | 443 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control Token acquisition) |
-| *.servicebus.windows.net | 9350-9354 | Optional for service bus relay over TCP | 
-| *.core.windows.net | 443 | HTTPS | 
-| *.clouddatahub.net | 443 | HTTPS | 
-| *.graph.windows.net | 443 | HTTPS | 
-| login.windows.net | 443 | HTTPS | 
+<table>
+<tr align="left"><th>Domain names</th><th>Ports</th><th>Description</th></tr>
+<tr><td>*.servicebus.windows.net</td><td>443</td><td>Listeners on Service Bus Relay over TCP (requires 443 for Access Control Token acquisition)</td></tr>
+<tr><td>*.servicebus.windows.net</td><td>9350-9354</td><td>Optional for service bus relay over TCP</td></tr>
+<tr><td>*.core.windows.net</td><td>443</td><td>HTTPS</td></tr>
+<tr><td>*.clouddatahub.net</td><td>443</td><td>HTTPS</td></tr>
+<tr><td>*.graph.windows.net</td><td>443</td><td>HTTPS</td></tr> 
+<tr><td>login.windows.net</td><td>443</td><td>HTTPS</td></tr>
+</table>
+ 
  
 #### At windows firewall level
 If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](#proxy-server-considerations) additionally.
