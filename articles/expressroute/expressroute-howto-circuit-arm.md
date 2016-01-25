@@ -290,12 +290,14 @@ You can get detailed descriptions of all the parameters by running the following
 
 ## To modify an ExpressRoute circuit
 
-You can modify the following properties of an ExpressRoute circuit without impacting connectivity:
+You can modify certain properties of an ExpressRoute circuit without impacting connectivity. Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information on limits and limitations. 
 
-- Enable / disable ExpressRoute premium add-on for your ExpressRoute circuit without any downtime.
+You can modify the following without incurring downtime:
+
+- Enable or Disable the ExpressRoute premium add-on for your ExpressRoute circuit without any downtime.
 - Increase the bandwidth of your ExpressRoute circuit without any downtime.
 
-Refer to the [ExpressRoute FAQ](expressroute-faqs.md) page for more information on limits and limitations. 
+
 
 ### How to enable the ExpressRoute premium add-on
 
