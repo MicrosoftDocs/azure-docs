@@ -346,9 +346,7 @@ Once you decided what size you need, you can use the following sample, below,  t
 
 ## To delete and deprovision an ExpressRoute circuit
 
-You can delete your ExpressRoute circuit. 
-
-Note the following considerations:
+You can delete your ExpressRoute circuit. When deleting an ExpressRoute circuit, note the following considerations:
 
 - You must unlink all virtual networks from the ExpressRoute for this operation to succeed. Check if you have any virtual networks linked to the circuit if this operation fails.
 
@@ -359,7 +357,6 @@ Note the following considerations:
 To delete your ExpressRoute circuit, use the following PowerShell cmdlet sample below.
 
 		Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup" -Name "ExpressRouteARMCircuit"
-
 
 ## Next steps
 
