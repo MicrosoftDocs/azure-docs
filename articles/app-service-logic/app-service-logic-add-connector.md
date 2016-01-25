@@ -2,7 +2,7 @@
 	pageTitle="Create and configure a connector in logic apps | Microsoft Azure"
 	description="Learn about the available APIs in PowerApps and how to register them in the Azure portal"
 	services="app-service\logic" 
-	documentationCenter=".net,nodejs,java" 
+	documentationCenter="" 
 	authors="MandiOhlinger"
 	manager="dwrede"
 	editor=""/>
