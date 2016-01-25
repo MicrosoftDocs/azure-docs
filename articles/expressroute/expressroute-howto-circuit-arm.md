@@ -352,7 +352,7 @@ You can delete your ExpressRoute circuit. When deleting an ExpressRoute circuit,
 
 - If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *disabling* from the enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
 
-- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you. 
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *not provisioned*) before you run the cmdlet, we will deprovision the circuit and stop billing you. 
 
 To delete your ExpressRoute circuit, use the following PowerShell cmdlet sample below.
 
