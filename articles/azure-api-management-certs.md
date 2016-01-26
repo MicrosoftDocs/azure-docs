@@ -25,7 +25,7 @@ Management certificates allow you to authenticate with the Service Management AP
 
 More information about Azure certificates (including creating a self-signed certificate) is [available](cloud-services/cloud-services-certs-create.md#what-are-management-certificates) to you if you need it.
 
-You can also use [Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/) to authenticate client-code for automation purposes.
+You can also use [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/) to authenticate client-code for automation purposes.
 
 ## Upload a management certificate
 

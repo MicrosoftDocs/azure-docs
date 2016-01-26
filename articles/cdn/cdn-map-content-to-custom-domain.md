@@ -40,7 +40,7 @@ After you register your custom domain using one of the above procedures, you wil
 
 ## Register a custom domain for an Azure CDN endpoint
 
-1.	Log into the [Azure Portal](http://portal.azure.com/).
+1.	Log into the [Azure Portal](https://portal.azure.com/).
 2.	Click **Browse**, then **CDN Profiles**, then the CDN profile with the endpoint you want to map to a custom domain.  
 3.	In the **CDN Profile** blade, click the CDN endpoint with which you want to associate the subdomain.
 4.	At the top of the endpoint blade, click the **Add Custom Domain** button.  In the **Add a custom domain** blade, you'll see the endpoint host name, derived from your CDN endpoint, to use in creating a new CNAME record. The format of the host name address will appear as **&lt;EndpointName>.azureedge.net**.  You can copy this host name to use in creating the CNAME record.  
@@ -56,7 +56,7 @@ After you register your custom domain using one of the above procedures, you wil
 
 ## Register a custom domain for an Azure CDN endpoint using the intermediary cdnverify subdomain  
 
-1. Log into the [Azure Portal](http://portal.azure.com/).
+1. Log into the [Azure Portal](https://portal.azure.com/).
 2. Click **Browse**, then **CDN Profiles**, then the CDN profile with the endpoint you want to map to a custom domain.  
 3. In the **CDN Profile** blade, click the CDN endpoint with which you want to associate the subdomain.
 4. At the top of the endpoint blade, click the **Add Custom Domain** button.  In the **Add a custom domain** blade, you'll see the endpoint host name, derived from your CDN endpoint, to use in creating a new CNAME record. The format of the host name address will appear as **&lt;EndpointName>.azureedge.net**.  You can copy this host name to use in creating the CNAME record.

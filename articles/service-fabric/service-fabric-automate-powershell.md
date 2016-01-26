@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Automate Service Fabric application management by using PowerShell | Microsoft Azure"
 	description="Deploy, upgrade, test, and remove Service Fabric applications by using PowerShell."
 	services="service-fabric"
