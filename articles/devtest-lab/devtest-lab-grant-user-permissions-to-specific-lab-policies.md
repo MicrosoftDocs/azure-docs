@@ -28,6 +28,7 @@ In this article, we’ll illustrate how to use Windows PowerShell to grant users
 In order to get started, you’ll need to read the following article, which will explain how to install and configure the Azure PowerShell cmdlets: (https://azure.microsoft.com/en-us/blog/azps-1-0-pre)[https://azure.microsoft.com/en-us/blog/azps-1-0-pre].
 
 Once you’ve set up the Azure PowerShell cmdlets, you can perform the following tasks:
+
 - List all the operations/actions for a resource provider
 - List actions in a particular role:
 - Create a custom role
@@ -67,6 +68,7 @@ Once you have the **ObjectId** for the user and a custom role name, you can assi
     ng-rm/providers/Microsoft.DevTestLab/labs/xiaoying-lab2/policies/AllowedVmSizesInLab
 
 In the previous example, the **AllowedVmSizesInLab** policy is used. You can use any of the following polices:
+
 - MaxVmsAllowedPerUser
 - MaxVmsAllowedPerLab
 - AllowedVmSizesInLab
