@@ -51,22 +51,22 @@ Microsoft has tested the following small form-factor pluggable (SFP) transceiver
 ## List of devices tested in the field
 
 This section contains the list of devices that have been successfully deployed in the field by StorSimple customers. These have not been tested by Microsoft but are likely to work with your StorSimple device.
-
-
-|     Parameter                                     |     Value                                                             	|  
-|---------------------------------------------------|---------------------------------------------------                        |
-|    Switch make                                 	|    Juniper                                                           		| 
-|    Switch model                            		|    ex4550-32F                                                         	|  
-|    Switch operating system version                |    JunOS 12.3R9.4                                                   		|  
-|    Blade model                       				|    Ports onboard (PIC 0)                                            		|  
-|    Transceiver make                               |    Juniper   																|
-|    Transceiver model                              |    Part number 740-021308 <br></br>Part number 740-030658 				|   
-|    Transceiver firmware version                   |    Rev 01 Version 0.0 (reported)                                    		|  
-|    Cable model				    				|    Duplex Jumper LC/LC 50/125µ, OM3, LSZH                           		|  
-|    StorSimple model                               |    8600                                                               	|   
-|    StorSimple software version                    |    6.3.9600.17491                                                     	|   
-
  
+| Parameter                         | Value                                    |
+|-----------------------------------|------------------------------------------|
+| Switch   make                     | Juniper                                  |
+| Switch   model                    | ex4550-32F                               |
+| Switch   operating system version | JunOS 12.3R9.4                           |
+| Blade   model                     | Ports onboard (PIC 0)                    |
+| Transceiver make                  | Juniper                                  |
+| Transceiver   model               | Part number 740-021308                   |
+| Transceiver   model               | Part number 740-030658                   |
+| Transceiver   firmware version    | Rev 01 Version 0.0 (reported)            |
+| Cable   model                     | Duplex jumper LC/LC 50/125µ,   OM3, LSZH |
+| StorSimple   model                | 8600                                     |
+| StorSimple   software version     | 6.3.9600.17491                           |
+
+
 ## List of devices tested by OEM provider (Mellanox)  
 
 Mellanox has tested the following small form-factor pluggable (SFP) transceivers, cables, and switches to ensure that they function optimally with Mellanox network interfaces such as the 10 GbE network interfaces on your StorSimple device.
