@@ -1,12 +1,12 @@
 <properties
 	pageTitle="How to add or change Azure Administrator Roles | Microsoft Azure"
 	description="Describes how to add or change Azure Co-Administrator, Service Administrator and Account Administrator"
-	services="billing"
+	services=""
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	/>
+	Tags="billing"/>
 
 <tags
 	ms.service="billing"
@@ -17,7 +17,7 @@
 	ms.date="01/05/2016"
 	ms.author="genli"/>
 
-# How to add or change Azure Administrator Roles
+# How to add or change Azure Administrator Roles <Test>
 
 ## Administrator roles explained
 
