@@ -1,6 +1,6 @@
 <properties
 	pageTitle="What is Azure Backup? | Microsoft Azure"
-	description="With Azure Backup and recovery services you can back up and restore data and applications from Windows servers, Windows client machines, SCDPM servers or Azure virtual machines."
+	description="By using Azure Backup and recovery services, you can back up and restore data and applications from Windows servers, Windows client machines, SCDPM servers and Azure virtual machines."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
@@ -18,27 +18,27 @@
 	ms.author="trinadhk;jimpark"/>
 
 # What is Azure Backup?
-Azure Backup is the service you use to back up and restore your data in the Microsoft cloud. It replaces your existing on-premises or offsite backup solution with a cloud-based solution that is reliable, secure, and cost competitive. It also protects assets running in the cloud. Azure Backup provides recovery services built on a world class infrastructure that is scalable, durable and highly available.
+Azure Backup is the service you use to back up and restore your data in the Microsoft cloud. It replaces your existing on-premises or offsite backup solution with a cloud-based solution that is reliable, secure, and cost-competitive. It also protects assets that run in the cloud. Azure Backup provides recovery services built on a world-class infrastructure that is scalable, durable, and highly available.
 
 [Watch a video overview of Azure Backup](https://azure.microsoft.com/documentation/videos/what-is-azure-backup/)
 
 ## Why use Azure Backup?
-Traditional backup solutions have evolved to treat the cloud as an endpoint similar to disk or tape. While this approach is simple, it is limited and does not take full advantage of an underlying cloud platform. This translates to an inefficient, expensive solution.
-Azure Backup, on the other hand, delivers all the advantages of a powerful & affordable cloud backup solution. Some of the key benefits that Azure Backup provides include:
+Traditional backup solutions have evolved to treat the cloud as an endpoint similar to disks or tape. While this approach is simple, it is also limited. It does not take full advantage of an underlying cloud platform. This translates to an inefficient, expensive solution.
+Azure Backup, on the other hand, delivers all of the advantages of a powerful and affordable cloud backup solution. Some of the key benefits that Azure Backup provides are:
 
 | FEATURE | BENEFIT |
 | ------- | ------- |
-| Automatic storage management | No capital expenditure is needed for on-premises storage devices. Azure Backup automatically allocates and manages backup storage, with a pay-as-you-use consumption model. |
-| Unlimited scaling | High availability guarantees without the overhead of maintenance and monitoring. Azure Backup uses the underlying power and scale of the Azure cloud, with non-intrusive auto scaling capabilities. |
-| Multiple storage options | Choose the backup storage based on need: <li>LRS (Locally Redundant Storage) block blob is ideal for price-conscious customers while still protecting data against local hardware failures. <li>GRS (Geo Replication storage) block blob provides 3 additional copies in a paired data center, ensuring that your backup data is highly available even in the event of an Azure-site-level disaster. |
-| Unlimited data transfer | No charge for any egress (outbound) data transfer cost during a restore operation from the Azure Backup vault. Data inbound to Azure is also free. |
+| Automatic storage management | No capital expenditure is needed for on-premises storage devices. Azure Backup automatically allocates and manages backup storage, and it uses a pay-as-you-use consumption model. |
+| Unlimited scaling | High availability guarantees without the overhead of maintenance and monitoring. Azure Backup uses the underlying power and scale of the Azure cloud, with nonintrusive autoscaling capabilities. |
+| Multiple storage options | Choose your backup storage based on need: <li>Locally Redundant Storage (LRS) block blob is ideal for price-conscious customers while still protecting data against local hardware failures. <li>Geo-Replication storage (GRS) block blob provides three additional copies in a paired data center. This ensures that your backup data is highly available even in the event of an Azure-site-level disaster. |
+| Unlimited data transfer | No charge for any egress (outbound) data-transfer cost during a restore operation from the Backup vault. Data inbound to Azure is also free. |
 | Central management | Simplicity and familiarity of the Azure portal. As the service evolves, features like central management will allow you to manage your backup infrastructure from a single location. |
-| Data encryption | Secure transmission and storage of customer data in the public cloud. The encryption passphrase is stored at source and is never transmitted or stored in Azure. The encryption key is required to restore any of the data and only the customer has full access to the data in the service. |  
+| Data encryption | Secure transmission and storage of customer data in the public cloud. The encryption passphrase is stored at source, and it is never transmitted or stored in Azure. The encryption key is required to restore any of the data, and only the customer has full access to the data in the service. |  
 | Application consistent backups | Application consistent backups on Windows ensure that fix-up is not needed at the time of restore. This reduces the RTO and allows customers to return a running state quicker. |
-| Long term retention | Rather than paying for offsite tape backup solutions, customers can backup to Azure which provides a compelling solution with tape-like-semantics at a very low cost. |
+| Long-term retention | Rather than paying for offsite tape backup solutions, customers can back up to Azure. This provides a compelling solution with tape-like-semantics at a very low cost. |
 
 ## Azure Backup components
-As Azure Backup is a hybrid backup solution, it consists of multiple components that work together to enable the end-to-end backup and restore workflows.
+Because Backup is a hybrid backup solution, it consists of multiple components that work together to enable end-to-end backup and restore workflows.
 
 ![Azure Backup components](./media/backup-introduction-to-azure-backup/azure-backup-overview.png)
 
@@ -46,17 +46,17 @@ As Azure Backup is a hybrid backup solution, it consists of multiple components 
 
 | Component | Can be deployed in Azure? | Can be deployed on-premises? | Target storage supported|
 | --- | --- | --- | --- |
-| Azure Backup agent | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM running in Azure.</p> | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM or physical machine.</p> | <p>Azure Backup vault</p> |
-| System Center Data Protection Manager (SCDPM) | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [protecting workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault,</p> <p>Tape (on-premises only)</p> |
-| Azure Backup Server | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [protecting workloads in Azure using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>Azure Backup vault</p> |
-| Azure Backup (VM extension) | <p>Yes</p> <p>Specialized for [backup of Azure IaaS virtual machines](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use SCDPM to backup virtual machines in your datacenter.</p> | <p>Azure Backup vault</p> |
+| Azure Backup agent | <p>**Yes**</p> <p>The Azure Backup agent can be deployed on any Windows Server VM that runs in Azure.</p> | <p>**Yes**</p> <p>The Backup agent can be deployed on any Windows Server VM or physical machine.</p> | <p>Azure Backup vault</p> |
+| System Center Data Protection Manager (SCDPM) | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads and VMs in your datacenter](https://technet.microsoft.com/library/hh758173.aspx).</p> | <p>Locally attached disk,</p> <p>Azure Backup vault,</p> <p>tape (on-premises only)</p> |
+| Azure Backup Server | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>**Yes**</p> <p>Learn more about [how to protect workloads in Azure by using Azure Backup Server](backup-azure-microsoft-azure-backup.md).</p> | <p>Azure Backup vault</p> |
+| Azure Backup (VM extension) | <p>Yes</p> <p>Specialized for [backup of Azure infrastructure as a service (IaaS) virtual machines](backup-azure-vms-introduction.md).</p> | <p>**No**</p> <p>Use SCDPM to back up virtual machines in your datacenter.</p> | <p>Azure Backup vault</p> |
 
-## What applications and workloads can I backup?
+## Which applications and workloads can I back up?
 
 | Workload | Source machine | Azure Backup solution |
 | --- | --- |---|
-| Files & folders | Windows Server | <p>[Azure Backup agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>  |
-| Files & folders | Windows client | <p>[Azure Backup agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>  |
+| Files and folders | Windows Server | <p>[Azure Backup agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>  |
+| Files and folders | Windows client | <p>[Azure Backup agent](backup-configure-vault.md),</p> <p>[System Center DPM](backup-azure-dpm-introduction.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>  |
 | Hyper-V Virtual machine (Windows) | Windows Server | <p>System Center DPM,</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p> |
 | Hyper-V Virtual machine (Linux) | Windows Server |  <p>System Center DPM,</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>  |
 | Microsoft SQL Server | Windows Server | <p>[System Center DPM](backup-azure-backup-sql.md),</p> <p>[Azure Backup Server](backup-azure-microsoft-azure-backup.md)</p>  |
@@ -159,8 +159,8 @@ To make decisions around backup and disaster recovery, a few important concepts 
 ## Next steps
 
 - [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
-- Frequently asked question on the Azure Backup service is listed [here](backup-azure-backup-faq.md).
-- Visit the [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+- [Frequently asked question on the Azure Backup service](backup-azure-backup-faq.md).
+- Visit the [Azure Backup forum](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
