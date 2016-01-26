@@ -33,4 +33,4 @@ Virtual Machine Resource Extensions
 Developer Tools
 Visual Studio Template
 Azure CLI
-Azure PowerShell
+Azure PowerShell-Shri
