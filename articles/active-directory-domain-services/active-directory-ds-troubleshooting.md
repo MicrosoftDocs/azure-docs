@@ -29,7 +29,7 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 
 - Ensure that the affected user account's UPN prefix (i.e. the first part of the UPN) in your Azure AD tenant is less than 20 characters in length. For instance, for the UPN 'joereallylongnameuser@contoso.com', the prefix ('joereallylongnameuser') exceeds 20 characters and this account will not be available in the Azure AD Domain Services managed domain.
 
-- **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, ensure that the following steps are followed:
+- **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, verify the following:
     - You have deployed or updated to the latest recommended release of Azure AD Connect.
     - You have created the registry key required to enable synchronization of legacy credentials to Azure AD.
     - After creating the above mentioned registry key on the server running Azure AD Connect, you have forced Azure AD to perform a full synchronization as outlined in the document.
@@ -42,6 +42,16 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 If you encounter a situation where you try to enable Azure AD Domain Services for your directory and it fails or gets toggled back to 'Disabled', perform the following troubleshooting steps:
 
 - Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Subsequently, you try to enable an Azure AD Domain Services managed domain with the same domain name (i.e. 'contoso.com') on that virtual network. You will encounter a failure when trying to enable Azure AD Domain Services. This is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
+
+- Check to see if you have an application with the name 'Azure AD Domain Services Sync' in your Azure AD directory. If this application exists, you will need to delete it and then re-enable Azure AD Domain Services. Perform the following steps in order to check for the presence of the application and to delete it, if the application exists:
+
+  1. Navigate to the **Azure management portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
+  2. Select the **Active Directory** node on the left pane.
+  3. Select the Azure AD tenant (directory) for which you would like to enable Azure AD Domain Services.
+  4. Navigate to the **Applications** tab.
+  5. Select the **Applications my company owns** option in the dropdown.
+  6. Check for an application called **Azure AD Domain Services Sync**. If the application exists, proceed to delete it.
+  7. Once you have deleted the application, try to enable Azure AD Domain Services once again.
 
 
 ### Contact Us
