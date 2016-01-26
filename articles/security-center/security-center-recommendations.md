@@ -78,7 +78,7 @@ Use the table below as a reference to understand the available recommendations a
 |Enable server SQL Auditing|Recommends that you turn on Auditing for Azure SQL servers (Azure SQL service only, not including SQL running on your virtual machines).|
 |Enable database SQL Auditing|Recommends that you turn on Auditing for Azure SQL databases (Azure SQL service only, not including SQL running on your virtual machines).|
 |Enable Transparent Data Encryption on SQL databases|Recommends that you enable encryption for SQL databases (Azure SQL service only).|
-|Deploy the VM Agent|Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision Patch Scanning, Baseline Scanning, and Antimalware. The VM Agent is installed by default for VMs deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.|
+|Deploy the VM Agent|Enables you to see which VMs require the VM Agent. The VM Agent must be installed on VMs in order to provision Patch Scanning, Baseline Scanning, and Antimalware. The VM Agent is installed by default for VMs deployed from the Azure Marketplace. The article [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) provides information on how to install the VM Agent.|
 
 You can filter and dismiss recommendations.
 

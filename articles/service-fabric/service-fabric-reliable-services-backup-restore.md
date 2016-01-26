@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="01/25/2016"
    ms.author="mcoskun"/>
 
 # Back up and restore Reliable Services
@@ -87,7 +87,7 @@ In this case, the runtime would automatically detect the data loss and invoke th
 
 The service author needs to perform the following to recover:
 
-- Override **IReliableStateManager** to return a new **ReliableStateManager** and provide a callback function to be called in the case of a data-loss event.
+- Override **CreateReliableStateManager** to return a new **ReliableStateManager** and provide a callback function to be called in the case of a data-loss event.
 
 - Find the latest backup in the external location that contains the service's backups.
 

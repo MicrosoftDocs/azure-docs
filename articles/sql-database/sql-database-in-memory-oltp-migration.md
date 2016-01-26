@@ -52,7 +52,7 @@ Export your production database to a bacpac by using either:
 
 Import the bacpac into a new Premium database.
 
-1. In the Azure [portal](http://portal.azure.com/),
+1. In the Azure [portal](https://portal.azure.com/),
  - Navigate to the server.
  - Select the [Import Database](sql-database-import.md) option.
  - Select a Premium pricing tier.
