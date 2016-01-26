@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Having trouble with Azure Multi-Factor Authentication | Microsoft Azure" 
 	description="This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
+	services="multi-factor-authentication"
+	keywords = "multifactor authentication client, authentication problem, correlation ID"
 	documentationCenter="" 
 	authors="billmath" 
 	manager="stevenpo" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/10/2015" 
+	ms.date="01/25/2016" 
 	ms.author="billmath"/>
 
 # Having trouble with Azure Multi-Factor Authentication
