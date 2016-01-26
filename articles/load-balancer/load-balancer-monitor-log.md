@@ -29,22 +29,23 @@ You can use different types of logs in Azure to manage and troubleshoot load bal
 ##Enable logging
 Audit logging is automatically enabled at all times for every Resource Manager resource. You need to enable event and health probe logging to start collecting the data available through those logs. To enable logging, follow the steps below. 
 
-1.  Sign-in to the [Azure portal](http://portal.azure.com). If you don't already have a load balancer, [create a load balancer](load-balancer-internet-arm-ps.md) before you continue. 
+Sign-in to the [Azure portal](http://portal.azure.com). If you don't already have a load balancer, [create a load balancer](load-balancer-internet-arm-ps.md) before you continue. 
 
-2.  In the portal, click **Browse** >> **Load Balancers**.
+In the portal, click **Browse** >> **Load Balancers**.
 
-	![portal - load-balancer](./media/load-balancer-monitor-log/load-balancer-browse.png)
+![portal - load-balancer](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
-3. Select an existing load balancer >> **All Settings**.
+Select an existing load balancer >> **All Settings**.
 
-	![portal - load-balancer-settings](./media/load-balancer-monitor-log/load-balancer-settings.png)
+![portal - load-balancer-settings](./media/load-balancer-monitor-log/load-balancer-settings.png)
+<BR>
 
-4. In the **Settings** blade, click **Diagnostics**, and then in the **Diagnostics** pane, next to **Status**, click **On**
-5. In the **Settings** blade, click **Storage Account**, and either select an existing storage account, or create a new one.  
+In the **Settings** blade, click **Diagnostics**, and then in the **Diagnostics** pane, next to **Status**, click **On**
+In the **Settings** blade, click **Storage Account**, and either select an existing storage account, or create a new one.  
 
-6. In the drop-down list just under **Storage Account**, select whether you want to log events, probe health status or both and then click **Save**.
+In the drop-down list just under **Storage Account**, select whether you want to log events, probe health status or both and then click **Save**.
 
-	![Preview portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+![Preview portal - Diagnostics logs](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 >[AZURE.INFORMATION] Audit logs do not require a separate storage account. The use of storage for event and health probe logging will incur service charges.
 
