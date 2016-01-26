@@ -17,7 +17,9 @@
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+
 &nbsp;
 
 >[AZURE.NOTE]This is an Azure Mobile Services topic. Microsoft Azure recommends Azure App Service Mobile Apps for all new mobile backend deployments. For more information, see the [equivalent tutorial in Mobile Apps documentation](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
@@ -42,11 +44,9 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-<ol start="6">
-<li><p>In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
+&nbsp;&nbsp;6. In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-   	<p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
-</ol>
+&nbsp;&nbsp;&nbsp;&nbsp;his happens because the app attempts to access Mobile Services as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
@@ -74,11 +74,11 @@ In this section, you will modify the app to display a login screen before displa
             }
         }
 
-> [AZURE.NOTE] If you are using an identity provider other than a Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
+	> [AZURE.NOTE] When you use an identity provider other than a Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
 3. Open **QSTodoListViewController.cs** and modify the method definition of **ViewDidLoad** to remove or comment-out the call to **RefreshAsync()** near the end.
 
-4. Add the following code at the top of the method **RefreshAsync** definition:
+4. Add the following code at the top of the **RefreshAsync** method definition:
 
 		// Add at the start of the RefreshAsync method.
 		if (todoService.User == null) {
