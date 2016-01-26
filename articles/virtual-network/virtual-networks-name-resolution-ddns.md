@@ -21,7 +21,7 @@
 Azure doesn't have the ability (e.g. credentials) to directly register records in your DNS servers, so alternative arrangements are often needed.  Below provides some highlevel details of some of the more common scenarios.
 
 ## Windows Clients ##
-Non-domain joined Windows clients attempt unsecured DDNS updates when they boot or their IP address changes.  The DNS name is the hostname plus the primary DNS suffix.  Azure leaves the primary DNS suffix blank but this can be overridden in the VM, via the [UI](https://technet.microsoft.com/en-us/library/cc794784(v=ws.10).aspx) or [with automation](https://social.technet.microsoft.com/forums/windowsserver/en-US/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).  
+Non-domain joined Windows clients attempt unsecured DDNS updates when they boot or their IP address changes.  The DNS name is the hostname plus the primary DNS suffix.  Azure leaves the primary DNS suffix blank but this can be overridden in the VM, via the [UI](https://technet.microsoft.com/library/cc794784.aspx) or [with automation](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).  
 
 Domain-joined Windows clients register their IPs with the Domain Controller using Secure DDNS.  The domain-join process sets the primary DNS suffix on the client and manages the trust relationship.
 
