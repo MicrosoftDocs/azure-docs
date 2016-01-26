@@ -51,7 +51,7 @@ The following Windows PowerShell script illustrates examples of how to perform t
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policies/*")
     $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
 
-Assigning permissions to a user for a specific policy using custom roles
+##Assigning permissions to a user for a specific policy using custom roles
 Once you’ve defined your custom roles, you can assign them to users. In order to assign a custom role to a user, you must first obtain the **ObjectId** representing that user. To do that, use the **Get-AzureRmADUser** cmdlet.
 
 In the following example, the **ObjectId** of the *SomeUser* user is 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
