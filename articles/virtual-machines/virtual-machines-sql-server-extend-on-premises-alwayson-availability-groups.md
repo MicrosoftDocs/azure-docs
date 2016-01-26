@@ -25,7 +25,7 @@ You can extend on-premises Availability Groups to Microsoft Azure by provisionin
 
 This tutorial assumes you have the following:
 
-- An active Azure subscription. You can [sign up for a free trial](http://azure.microsoft.com/pricing/free-trial).
+- An active Azure subscription. You can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - An existing AlwaysOn Availability Group on-premises. For more information on Availability Groups, see [AlwaysOn Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx).
 

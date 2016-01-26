@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015"  
+	ms.date="01/25/2016"  
 	ms.author="juliako"/>
 
 #Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services
@@ -60,6 +60,12 @@ Starting|Starting|No (transient state)
 Running|Ready (no running programs)<br/>or<br/>Streaming (at least one running program)|YES
 Stopping|Stopping|No (transient state)
 Stopped|Stopped|No
+
+###Automatic shut-off for unused Channels
+
+Starting with January 25, 2016, Media Services rolled out an update that automatically stops a Channel (with live encoding enabled) after it has been running in an unused state for a long period. This applies to Channels that have no active Programs, and which have not received an input contribution feed for an extended period of time.
+
+The threshold for an unused period is nominally 12 hours, but is subject to change.
 
 ##Live Encoding Workflow
 The following diagram represents a live streaming workflow where a channel receives a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS); it then encodes the stream to a multi-bitrate stream. 
@@ -439,7 +445,7 @@ Stopped|Stopped|No
 ##Known Issues
 
 - Channel start up time has been improved to an average of 2 minutes, but at times of increased demand could still take up to 20+ minutes.
-- RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 - Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
 

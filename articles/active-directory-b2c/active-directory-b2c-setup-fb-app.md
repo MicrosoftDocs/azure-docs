@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/12/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Provide Sign up and Sign in to Consumers with Facebook Accounts
@@ -46,10 +46,7 @@ To use Facebook as an identity provider in Azure Active Directory (AD) B2C, you 
     ![FB - Settings](./media/active-directory-b2c-setup-fb-app/fb-website.png)
 
 7. Enter [https://login.microsoftonline.com/](https://login.microsoftonline.com/) in the **Site URL** field and then click **Save Changes**.
-8. Copy the value of **App ID**. Click **Show** and copy the value of **App Secret**. You will need both of them to configure Facebook as an identity provider in your tenant.
-
-> [AZURE.NOTE]
-**App Secret** is an important security credential.
+8. Copy the value of **App ID**. Click **Show** and copy the value of **App Secret**. You will need both of them to configure Facebook as an identity provider in your tenant. Note: **App Secret** is an important security credential.
 
     ![FB - Site URL](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
 

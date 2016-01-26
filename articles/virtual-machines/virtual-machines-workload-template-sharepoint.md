@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
+	ms.date="01/21/2016"
 	ms.author="josephd"/>
 
 # Deploy SharePoint farms with Azure Resource Manager templates
@@ -50,7 +50,7 @@ Depending on the template, it can take some time for Azure to build the workload
 
 ### Azure PowerShell
 
-> [AZURE.NOTE] This article contains commands for Azure PowerShell Preview 1.0. To run these commands in Azure PowerShell 0.9.8 and prior versions, replace **New-AzureRMResourceGroup** with **New-AzureResourceGroup**, replace **New-AzureRMResourceGroupDeployment** with **New-AzureResourceGroupDeployment**, and add the **Switch-AzureMode AzureResourceManager** command before the **New-AzureResourceGroup** command. For more information, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Fill in an Azure deployment name, a new Resource Group name, and an Azure datacenter location in the following set of commands. Remove everything within the quotes, including the < and > characters.
 
@@ -122,7 +122,7 @@ Depending on the template, it can take some time for Azure to build the workload
 
 ### Azure PowerShell
 
-> [AZURE.NOTE] This article contains commands for Azure PowerShell Preview 1.0. To run these commands in Azure PowerShell 0.9.8 and prior versions, replace **New-AzureRMResourceGroup** with **New-AzureResourceGroup**, replace **New-AzureRMResourceGroupDeployment** with **New-AzureResourceGroupDeployment**, and add the **Switch-AzureMode AzureResourceManager** command before the **New-AzureResourceGroup** command. For more information, see [Azure PowerShell 1.0 Preview](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE] The following command sets use Azure PowerShell 1.0 and later. For more information, see [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Fill in an Azure deployment name, a new Resource Group name, and an Azure datacenter location in the following set of commands. Remove everything within the quotes, including the < and > characters.
 
@@ -170,20 +170,8 @@ When you run the **azure group deployment create** command, you will be prompted
 When the template execution is complete, you now have a new nine-server SharePoint Server 2013 farm in your new resource group.
 
 
-## Additional resources
+## Next Step
 
-[SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Deploy and manage virtual machines using Azure Resource Manager templates and Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-[Azure Compute, Network and Storage providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
-
-[Azure Resource Manager overview](../resource-group-overview.md)
-
-[Deploy and manage virtual machines using Azure Resource Manager templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
-
-[Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)
+- Discover additional [SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) configurations in Azure infrastructure services.
 
 

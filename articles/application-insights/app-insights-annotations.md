@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/19/2016"
     ms.author="awills"/>
 
 # Release annotations in Application Insights
@@ -28,40 +28,47 @@ Release annotations are a feature of the cloud-based build and release service o
 To be able to create release annotations, you'll need to install one of the many Team Service extensions available in the Visual Studio Marketplace.
 
 1. Sign in to your [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) project.
-2. Open Visual Studio Marketplace, find the Application Insights Annotations extension, and add it to your Team Services account.
+2. In Visual Studio Marketplace, [get the Release Annotations extension](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), and add it to your Team Services account.
 
-![At top right of Team Services web page, open Marketplace. Search for and install Application Insights Annotations in your account.](./media/app-insights-annotations/10.png)
+![At top right of Team Services web page, open Marketplace. Select Visual Team Services and then under Build and Release, choose See More.](./media/app-insights-annotations/10.png)
 
 You only need to do this once for your Visual Studio Team Services account. Release annotations can now be configured for any project in your account. 
 
-
-
-## Add an annotation task to your release template
+## Get an API key from Application Insights
 
 You need to do this for each release template that you want to create release annotations.
 
-Open (or create) the release template that manages your deployments from Visual Studio Team Services. 
-
-Add a task, and select the Application Insights Release Annotation task from the menu.
-
-![At top right of Team Services web page, open Marketplace. Search for and install Application Insights Annotations in your account.](./media/app-insights-annotations/40.png)
-
-To finish this step, you'll need some details from the Application Insights resource that you use to monitor your application.
-
-Keep the Team Services window open while you get the details from Application Insights.
-
-## Copy an API key from Application Insights
-
-In a separate browser window:  
 
 1. Sign in to the [Microsoft Azure Portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. (Or [create one now](app-insights-overview.md), if you haven't done so yet.)
-2. Open the **Essentials** drop-down and copy the Subscription Id, the Resource group, and the Name of the resource to the release annotation task.
-![](./media/app-insights-annotations/50.png)
-2. Open **Settings**, **API Keys** and create a new key. Copy this across.
-![](./media/app-insights-annotations/30.png)
+2. Open **Settings**, **API Access**, and take a copy of **Application Insights Id**.
 
-Finally, **Save** the release definition.
+    ![In portal.azure.com, open your Application Insights resource and choose Settings. Open API Access. Copy the ](./media/app-insights-annotations/20.png)
 
-## Deployment markers
+2. In a separate browser window, open (or create) the release template that manages your deployments from Visual Studio Team Services. 
+
+    Add a task, and select the Application Insights Release Annotation task from the menu.
+
+    Paste the **Application Id** that you copied from the API Access blade.
+
+    ![In Visual Studio Team Services, open Release, select a release definition, and choose Edit. Click Add Task and select Application Insights Release Annotation. Paste the Application Insights Id.](./media/app-insights-annotations/30.png)
+
+3. Set the **APIKey** field to a variable `$(ApiKey)`.
+
+4. Back in the API Access blade, create a new API Key and take a copy of it.
+
+    ![In the API Access blade in the Azure window, click Create API Key. Provide a comment, check Write annotations, and click Generate Key. Copy the new key.](./media/app-insights-annotations/40.png)
+
+4. Open the Configuration tab of the release template.
+
+    Create a variable definition for `ApiKey`.
+
+    Paste your API key to the ApiKey variable definition.
+
+    ![In the Team Services window, select the Configuration tab and click Add Variable. Set the name to ApiKey and into the Value, paste the key you just generated.](./media/app-insights-annotations/50.png)
+
+
+5. Finally, **Save** the release definition.
+
+## Deployment annotations
 
 Now, whenever you use the release template to deploy a new release, an annotation will be sent to Application Insights. The annotations will appear on charts in Metrics Explorer.

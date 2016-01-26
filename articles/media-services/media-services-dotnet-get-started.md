@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="12/17/2015"
+	ms.date="01/18/2016"
 	ms.author="juliako"/>
 
 
@@ -59,7 +59,7 @@ The following are required to complete the tutorial.
 
 ##Download sample
 
-Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Get and run a sample from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Create a Media Services account using the portal
 
@@ -108,7 +108,7 @@ To change the number of streaming reserved units, do the following:
 
 3. To specify the number of streaming units, click the SCALE tab, and then move the **reserved capacity** slider.
 
-![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
+	![Scale page](./media/media-services-dotnet-get-started/media-services-origin-scale.png)
 
 4. Press **SAVE** to save your changes.
 

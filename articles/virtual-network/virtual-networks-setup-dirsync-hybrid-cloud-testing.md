@@ -45,7 +45,7 @@ There are three major phases to setting up this hybrid cloud test environment:
 2.	Configure the Office 365 FastTrack trial.
 3.	Configure the DirSync server (DS1).
 
-If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](https://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## Phase 1: Set up the hybrid cloud environment
 

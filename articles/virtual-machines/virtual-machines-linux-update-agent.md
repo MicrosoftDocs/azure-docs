@@ -40,7 +40,9 @@ and on CentOS, type:
 
     #sudo yum install waagent
 
-For Oracle Linux, make sure the add-on repository enabled in file `/etc/yum.repo.d/public-yum-ol6.repo` or `/etc/yum.repo.d/public-yum-ol7.repo`, then type:
+For Oracle Linux, make sure the `Addons`repository is enabled. Edit the file `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) or `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux ), and change the line `enabled=0` to `enabled=1` under **[ol6_addons]** or **[ol7_addons]** in this file.
+
+Then install the latest version of Azure Linux agent, type:
 
     #sudo yum install WALinuxAgent
 
