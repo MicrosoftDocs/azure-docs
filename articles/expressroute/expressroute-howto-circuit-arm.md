@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/12/2016"
+   ms.date="01/26/2016"
    ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit using Azure Resource Manager and PowerShell
@@ -184,7 +184,7 @@ This article walks you through the steps to create an ExpressRoute circuit using
 
 
 
-5. **Periodically check the status and the state of the circuit key.**
+6. **Periodically check the status and the state of the circuit key.**
 
 	This lets you know when your provider has enabled your circuit. Once the circuit has been configured, the *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the example below.
 
@@ -214,12 +214,12 @@ This article walks you through the steps to create an ExpressRoute circuit using
 		ServiceKey                       : **************************************
 		Peerings                         : []
 
-6. **Configure routing and link a VNet**
+7. **Configure routing and link a VNet**
 
-	1. **Create your routing configuration.** Next, configure routing for your circuit. Refer to [Create and modify routing for an ExpressRoute circuit](expressroute-howto-routing-arm.md) for step-by-step instructions. 
+	a. **Create your routing configuration.** Refer to [Create and modify routing for an ExpressRoute circuit](expressroute-howto-routing-arm.md) for step-by-step instructions. 
 
 		>[AZURE.NOTE] The instructions for routing only apply for circuits created with service providers offering Layer 2 connectivity services. If you are using a service provider offering managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you. You will not be able to create or manage peerings in such cases. 
-	2. **Link your VNet to an ExpressRoute circuit.** After you verify that routing has been configured, you'll need to link your VNet to your ExpressRoute circuit. Refer to [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) for step-by-step instructions.
+	b. **Link your VNet to an ExpressRoute circuit.** After you verify that routing has been configured, you'll need to link your VNet to your ExpressRoute circuit. Refer to [Linking virtual networks to ExpressRoute circuits](expressroute-howto-linkvnet-arm.md) for step-by-step instructions.
 
 ##  To get the status of an ExpressRoute circuit
 
