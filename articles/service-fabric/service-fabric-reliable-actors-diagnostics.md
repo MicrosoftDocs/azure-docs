@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="1/26/2016"
+   ms.date="01/26/2016"
    ms.author="abhisram"/>
 
 # Diagnostics and performance monitoring for Reliable Actors
