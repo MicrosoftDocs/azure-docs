@@ -27,7 +27,6 @@ Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.me)), make
 | **OS Version** | Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition). |
 | **Install Method** | Clean install. |
 | **Domain joined?** | No. |
-| **Time Zone** | **UTC-8** |
 
 ## Network
 
@@ -35,7 +34,9 @@ Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.me)), make
 
 One available port on a switch for the POC machine.  
 
-The Azure Stack POC machine supports connecting to a switch access port. Connecting to a trunk port or VLAN ID are not supported. If your POC machine has multiple ports that are connected to a switch, make sure they're all configured as access ports instead of trunk ports. No specialized features are required on the switch.
+The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. For example:
+
+	DeployAzureStack.ps1 –verbose –PublicVLan 305
 
 ### Subnet
 
@@ -49,7 +50,7 @@ Only IPv4 is supported. You cannot create IPv6 networks.
 
 Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and password as a deployment parameter. For example:
 
-	DeployAzureStack.ps1 -Verbose - -NATVMStaticIP 10.10.10.10/24 -NATVMStaticGateway 10.10.10.1
+	DeployAzureStack.ps1 -Verbose -NATVMStaticIP 10.10.10.10/24 -NATVMStaticGateway 10.10.10.1
 
 ### Internet access
 
