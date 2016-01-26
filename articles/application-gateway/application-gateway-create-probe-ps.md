@@ -125,7 +125,7 @@ The parameters used are:
 - **-Hostname and -path** - Complete URL path which is invoked by Application Gateway to determine health of the instance. For example: you have a web site http://contoso.com/ then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have successful HTTP response. 
 - **-UnhealthyThreshold** - the number of failed HTTP responses it's needed to flag the back end instance as *unhealthy*
 
-
+<BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
