@@ -132,10 +132,10 @@ To call the PowerShell script in VSTS, you need to update your build definition.
 	Here’s a script arguments example (line broken for readability):
 
 	```	
-	-StorageAccountName 'mystorageacct' -ResourceGroupName 'MyGroup' -ResourceGroupLocation 'eastus' 
-    -TemplateFile '..\templates\myproject.json' -TemplateParametersFile '..\templates\myproject.parameters.dev.json' 
-    -UploadArtifacts –StorageAccountResourceGroupName 'Default-Storage-EastUS' -ArtifactStagingDirectory '$(Build.StagingDirectory)'
-	```
+    -ResourceGroupName 'MyGroup' -ResourceGroupLocation 'eastus' -TemplateFile '..\templates\azuredeploy.json' 
+    -TemplateParametersFile '..\templates\azuredeploy.parameters.json' -UploadArtifacts -StorageAccountName 'mystorageacct' 
+    –StorageAccountResourceGroupName 'Default-Storage-EastUS' -ArtifactStagingDirectory '$(Build.StagingDirectory)'	
+    ```
 
 	When you’re finished, the **Script Arguments** box should resemble the following.
 
