@@ -148,13 +148,13 @@ To call the PowerShell script in VS Team Services, you need to update your build
 Read [Azure Resource Manager overview](resource-group-overview.md) to learn more about Azure Resource Manager and Azure resource groups.
 
 
-[0]: ./media/vs-azure-tools-resource-groups-ci-in-VS Team Services/walkthrough1.png
-[1]: ./media/vs-azure-tools-resource-groups-ci-in-VS Team Services/walkthrough2.png
-[2]: ./media/vs-azure-tools-resource-groups-ci-in-VS Team Services/walkthrough3.png
-[3]: ./media/vs-azure-tools-resource-groups-ci-in-VS Team Services/walkthrough4.png
-[4]: ./media/vs-azure-tools-resource-groups-ci-in-VS Team Services/walkthrough5.png
-[5]: ./media/vs-azure-tools-resource-groups-ci-in-VS Team Services/walkthrough6.png
-[8]: ./media/vs-azure-tools-resource-groups-ci-in-VS Team Services/walkthrough9.png
-[9]: ./media/vs-azure-tools-resource-groups-ci-in-VS Team Services/walkthrough10.png
-[10]: ./media/vs-azure-tools-resource-groups-ci-in-VS Team Services/walkthrough11b.png
-[11]: ./media/vs-azure-tools-resource-groups-ci-in-VS Team Services/walkthrough12.png
+[0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png
+[1]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough2.png
+[2]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough3.png
+[3]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough4.png
+[4]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough5.png
+[5]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough6.png
+[8]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough9.png
+[9]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough10.png
+[10]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough11b.png
+[11]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough12.png
