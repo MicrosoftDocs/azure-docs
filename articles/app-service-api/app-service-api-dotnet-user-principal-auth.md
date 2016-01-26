@@ -376,9 +376,16 @@ For information about how to  create an AngularJS single-page application with a
 
 ## Troubleshooting
 
-Most of the time, errors you encounter will be the result of incorrect or inconsistent configuration settings.  Start by double-checking all settings in the Azure Active Directory configure tab, in the AngularJS source code, and on the CORS blade in the portal. In Azure AD, download the manifest again and make sure that `oauth2AllowImplicitFlow` was successfully changed to `true`. 
+If you successfully run the application without authentication, and then it doesn't work when you implement authentication, most of the time the problem will be incorrect or inconsistent configuration settings.  Start by double-checking all settings in Azure App Service and Azure Active Directory. Here are some specific suggestions:
 
-For some errors, you'll get more information about what's wrong by setting [customErrors mode to Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview) 
+* In the Azure AD **Configure** tab, double-check **Reply URL**.
+* In Azure AD, download the manifest and make sure that `oauth2AllowImplicitFlow` was successfully changed to `true`. 
+* In the AngularJS source code, double-check the middle tier API app URL and the Azure AD client ID.
+* After configuring code in a project, make sure that you redeployed that project and not one of the other ones.
+* Make sure that you are going to HTTPS URLs in your browser, not HTTP URLs.
+* Make sure that CORS is still enabled on the middle tier API app, allowing calls to the middle tier from the front end HTTPS URL.  If in doubt about whether the problem is CORS-related, try "*" as the allowed origin URL. 
+* Make sure you are getting as much information in error messages as possible by setting [customErrors mode to Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
+* Your browser's Developer Tools Console tab often has more error information, and you can examine HTTP requests on the Network tab.
 
 ## Next steps
 
