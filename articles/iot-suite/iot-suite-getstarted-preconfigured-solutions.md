@@ -2,13 +2,14 @@
 	pageTitle="Get started with preconfigured solutions | Microsoft Azure"
 	description="Follow this tutorial to learn how to deploy an Azure IoT Suite preconfigured solution."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
