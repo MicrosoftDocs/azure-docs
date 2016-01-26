@@ -6,7 +6,7 @@
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor="tysonn"
-	keywords="backup and restore; recovery services"/>
+	keywords="backup and restore; recovery services; backup solutions"/>
 
 <tags
 	ms.service="backup"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/19/2016"
+	ms.date="01/22/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # What is Azure Backup?
