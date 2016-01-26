@@ -26,10 +26,10 @@ There could be various causes of SSH errors while trying to connect to a Linux-b
 
 This article only applies to Azure virtual machines running Linux. For Azure virtual machines running Windows, see [Troubleshoot Remote Desktop connection to an Azure VM](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click **Get support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
 
 
-Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click **Get support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+## Fix common SSH errors
 
 This section lists quick fix steps for common SSH connection issues.
 
@@ -64,7 +64,7 @@ To resolve the common SSH issues for virtual machines created using the Resource
 
 **Using Azure CLI**:
 
-	a. If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md) using the `azure login` command.
+a. If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md) using the `azure login` command.
 
 b. Make sure you are in the Resource Manager mode. Latest versions of the Azure CLI default into the Resource Manager mode.
 
@@ -72,25 +72,25 @@ b. Make sure you are in the Resource Manager mode. Latest versions of the Azure 
 	azure config mode arm
 	```
 
-	c. Reset the SSH connection using either of the following methods.
+c. Reset the SSH connection using either of the following methods.
 
-	* Use the `vm reset-access` command as in the following example.
+* Use the `vm reset-access` command as in the following example.
 
 	```
 	azure vm reset-access -g YourResourceGroupName -n YourVirtualMachineName -r
 	```
 
-	This will install the `VMAccessForLinux` extension on your virtual machine.
+This will install the `VMAccessForLinux` extension on your virtual machine.
 
-	* Alternatively, create a file named PrivateConf.json with the following content:
+* Alternatively, create a file named PrivateConf.json with the following content:
 
 	```
 	{  
-	"reset_ssh":"True"
+		"reset_ssh":"True"
 	}
 	```
 
-	Then manually run the `VMAccessForLinux` extension to reset your SSH connection.
+Then manually run the `VMAccessForLinux` extension to reset your SSH connection.
 
 	```
 	azure vm extension set "YourResourceGroupName" "YourVirtualMachineName" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
@@ -115,34 +115,34 @@ Click **Browse** > **Virtual machines** > your Linux virtual machine > **Restart
 
 Install and configure Azure CLI as mentioned above. Switch to Resource Manager mode if required and run the extension using either of the following methods.
 
-	* Run the `vm reset-access` command to set any of the SSH credentials.
+* Run the `vm reset-access` command to set any of the SSH credentials.
 
 	```
 	azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
 	```
 
-	See more information about this by typing `azure vm reset-access -h` on the command line.
+See more information about this by typing `azure vm reset-access -h` on the command line.
 
-	* Alternatively, create a file named PrivateConf.json with the following contents.
+* Alternatively, create a file named PrivateConf.json with the following contents.
 
 	```
 	{
-	"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
+		"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
 	}
 	```
 
-	Then run the Linux extension using the above file.
+Then run the Linux extension using the above file.
 
 	```
 	$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
 	```
 
-	Note that you can follow steps similar to [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) to try other variations. Remember to modify the Azure CLI instructions for the Resource Manager mode.
+Note that you can follow steps similar to [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md) to try other variations. Remember to modify the Azure CLI instructions for the Resource Manager mode.
 
 
 **Using Azure PowerShell**:
 
-	Install and configure Azure PowerShell as mentioned above. Switch to Resource Manager mode and then run the extension as follows.
+Install and configure Azure PowerShell as mentioned above. Switch to Resource Manager mode and then run the extension as follows.
 
 	```
 	$RGName = 'testRG'
@@ -159,7 +159,7 @@ Install and configure Azure CLI as mentioned above. Switch to Resource Manager m
 	Set-AzureRmVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
 	```
 
-	Make sure to replace the values of $RGName, $VmName, $Location, and the SSH credentials with values specific to your installation.
+Make sure to replace the values of $RGName, $VmName, $Location, and the SSH credentials with values specific to your installation.
 
 
 
