@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate Promapp with Azur
 
 - You can control in Azure AD who has access to Promapp 
 - You can enable your users to automatically get signed-on to Promapp (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory 
+- You can manage your accounts in one central location - the Azure Active Directory classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
