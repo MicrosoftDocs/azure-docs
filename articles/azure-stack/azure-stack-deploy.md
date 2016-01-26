@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Deploy Azure Stack POC (service administrator)"
-	description="Deploy Azure Stack POC (service administrator)"
+	pageTitle="Requirements for Azure Stack POC (service administrator)"
+	description="View the environment and hardware requirements for Azure Stack POC (service administrator)."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# Deploy Azure Stack POC (service administrator)
+# Requirements for Azure Stack POC (service administrator)
 
 The deployment process for Azure Stack POC has been simplified into a PowerShell script that you can run on a computer that fulfills the prerequisites below.
 

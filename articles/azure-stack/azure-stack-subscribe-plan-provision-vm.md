@@ -1,22 +1,22 @@
 ﻿<properties
-	pageTitle="Subscribe to an offer and then provision a VM (tenant)"
-	description="Subscribe to an offer and then provision a VM (tenant)"
+	pageTitle="Subscribe to an offer and then provision a VM in Azure Stack (tenant)"
+	description="As a tenant, learn how to subscribe to an offer and then provision a VM in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# Subscribe to an offer and then provision a VM (tenant)
+# Subscribe to an offer and then provision a VM in Azure Stack (tenant)
 
 Now that the service administrator has created an offer, tenants can subscribe to it. The tenant can then use the subscription to provision a virtual machine.
 

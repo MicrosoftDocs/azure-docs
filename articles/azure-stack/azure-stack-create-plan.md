@@ -1,22 +1,22 @@
 ﻿<properties
-	pageTitle="Create a plan (service administrator)"
-	description="Create a plan (service administrator)"
+	pageTitle="Create a plan in Azure Stack (service administrator)"
+	description="As a service administrator, create a plan that lets subscribers provision virtual machines."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# Create a plan (service administrator)
+# Create a plan in Azure Stack (service administrator)
 
 In this step, you’ll create a plan that includes the compute, network, and storage resource providers. This will give subscribers to the plan the ability to provision virtual machines.
 
