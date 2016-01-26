@@ -18,81 +18,41 @@
 
 # To create a new marketplace item
 
-1.  Create an Azure Resource Manager template or choose a template from GitHub. For more information and guidance, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+This document refers to the Azure Gallery Packaging Tool and a Sample Gallery Package which can both be downloaded <a href="http://www.aka.ms/marketplaceitem">here</a>. 
+
+1.  Create an Azure Resource Manager template or choose a template from GitHub. For more information and guidance, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). The marketplace item will use this template to create a new resource.
 
 2.  Test the template with the Microsoft Azure Stack APIs to make sure the resource can be deployed successfully.
 
-3.  Create the following folder structure and include the ARM template in the DeploymentTemplates folder (Replace 'Contoso.TodoList' with your choice of marketplace item name). These are the folders that will contain the resources for your marketplace item.
+3.  Open up the <b>SimpleVMTemplate</b> folder in the package you downloaded. This is a sample Marketplace Item. The folder structure inside sample should resemble the follwing. Rename the folder to whatever you want to call your marketplace item.
 
 		/Contoso.TodoList/
 		/Contoso.TodoList/Manifest.json
 		/Contoso.TodoList/UIDefinition.json
 		/Contoso.TodoList/Icons/
-		/Contoso.TodoList/Screenshots/
 		/Contoso.TodoList/Strings/
 		/Contoso.TodoList/DeploymentTemplates/
 
-4.  Edit the manifest.json. This file specifies all metadata for the marketplace item.
+4. Include your Azure Resource Manager template in the <b>DeploymentTemplates</b> folder.
 
-	    {
-		    "$schema": "https://gallery.contoso.com/schemas/2015-09-01/manifest.json#",
-		    "name": "string", // [A-Za-z0-9]+
-		    "publisher": "string", // [A-Za-z0-9]+
-		    "version": "string", // SemVer v2 Format - see http://semver.org/
-		    "displayName": "string", // max of 256 characters
-		    "publisherDisplayName": "string", // max of 256 characters
-		    "publisherLegalName": "string", // max of 256 characters -->
-		    "summary": "string", // max of 100 characters -->
-		    "longSummary": "string", // required, max of 256 characters
-		    "description": "string", // max of 2000 characters. Can contain HTML
-		    "properties": [
-		        /* optional. max of 10 properties
-		           displayName: max of 64 characters
-		           value: max of 64 characters \*/
-		        { "displayName": "string", "value": "string" }
-		    ],
-		    "uiDefinition": {
-		        "path": "string" // required, path to file
-		    },
-		    "artifacts": [
-		        // you probably want an artifact, because this is where the link to your ARM deployment template goes!
-		        /* name: max of 256 characters, [A-Za-z0-9\-_]+
-		           type: Fragment, Template
-		           path: path to artifact
-		           isDefault: true|false */
-		        { "name": "string", "type": "string", "path": "string", "isDefault": true } // max of 128 characters
-		    ],
-		    "icons": {
-		        "small": "string", // path to image file
-		        "medium": "string", // medium images must be 90x90 pixels if bitmaps...
-		        "large": "string", // 40x40
-		        "wide": "string", // 255x115 Not supported in Azure Stack UI
-		        "hero": "string" // Not supported in Azure Stack UI
-		    },
-		    "links": [
-		        /* optional, but highly recommended, max of 10 links
-		           displayName: max of 64 characters
-		           uri: uri */
-		        { "displayName": "string", "uri": "string" }
-		    ],
-		    "screenshots": [ "string" ],
-		    "categories": [ "string" ],
-		}
+5. Using the guidance provided [here](azure-stack-marketplace-item-ui-reference.md), select the icons and text you want for your marketplace item. Icons should go in the <b>Icons</b> folder and text should go into the <b>resources</b> file in the <b>Strings</b> folder. It is important to make sure the icon names match the convention of Large, Medium, Small. 
 
+6. You do not need to make any changes to the UIDefinition.json file in the sample. The UIDefinition.json file specifies the portal experience for creating the marketplace item resource, which will be a simple text-entry experience.
 
-5.  Include icons, screenshots, strings, and so on in the other folders. These are the icons and strings that populate the marketplace user interface.
+7. Now, we will bring everything together in the <b>manifest.json</b> file. This file tells the packaging tools where all the important inputs are, such as the text, icons, and template. The manifest.json in the sample already points to the correct locations for the icons and strings. But you will want to change some fields. For more information about the information in manifest, see [here](azure-stack-marketplace-item-metadata.md).
 
-6.  In the UIDefinition.json file, point to the Extension: HubsExtension as shown below:
+8. Change the <b>name</b> and <b>publisher</b>.
 
-		"createBlade": {
-		            "name": "DeployFromTemplateBlade",
-		            "extension": "HubsExtension"
+		"name": "SimpleVMTemplate",
+		"publisher": "Microsoft",
 
-    The UIDefinition.json file specifies the portal experience for creating the marketplace item resource. All items use the same blade that provides a simple create experience that collects parameters using textboxes.
+9. Under <b>artifacts</b>, replace <b>name</b> and <b>path</b> with the correct information for the Azure Resource Manager template you included.
 
-7.  Use AzureGallery.exe (http://aka.ms/t5ula4) to package the folders into an .azpkg file. For example:
+10. Under <b>categories</b>, you can specify the categories where your Marketplace Item will show up in the UI. 
 
-    	AzureGallery.exe package –m <path to manifest.json> -o <output location for the azpkg>
+11. Now, you can package your marketplace item using the packaging tool (part of the <a href="http://www.aka.ms/marketplaceitem">download</a>) In command prompt, Use AzureGalleryPackager.exe to package the folders into an .azpkg file. For example:
+
+    	AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
 
 ## Next Steps
 
