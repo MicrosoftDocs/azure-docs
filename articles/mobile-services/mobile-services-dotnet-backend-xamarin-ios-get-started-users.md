@@ -18,6 +18,7 @@
 
 # Add authentication to your Mobile Services app
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
+&nbsp;
 
 >[AZURE.NOTE]This is an Azure Mobile Services topic. Microsoft Azure recommends Azure App Service Mobile Apps for all new mobile backend deployments. For more information, see the [equivalent tutorial in Mobile Apps documentation](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
 
