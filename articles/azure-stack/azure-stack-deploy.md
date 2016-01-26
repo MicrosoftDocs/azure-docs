@@ -46,8 +46,7 @@ Before you begin deploying Azure Stack POC, make sure your environment complies 
 
 One available port on a switch for the POC machine.  
 
-The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If using trunk port or need to configure VLAN ID, you must provide the VLAN ID as a deployment parameter.
-For example:
+The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. For example:
 
 	DeployAzureStack.ps1 –verbose –PublicVLan 305
 
