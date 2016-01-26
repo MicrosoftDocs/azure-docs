@@ -103,7 +103,7 @@ To find the registration URL and key for the Automation account to onboard the m
      -VM $vm `
      -Publisher Microsoft.Powershell `
      -ExtensionName DSC `
-     -Version 2.11 `
+     -Version 2.13 `
      -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
