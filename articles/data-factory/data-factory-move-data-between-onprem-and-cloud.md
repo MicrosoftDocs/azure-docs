@@ -39,14 +39,16 @@ The data gateway provides the following capabilities:
 6.	You must **use the gateway even when you use ExpressRoute**. 
 7.	You should treat your data source as an on-premises data source (that is behind a firewall) even when you use **ExpressRoute** and **use the gateway** to establish connectivity between the service and the data source. 
 
-## Gateway installation - prerequisites
+## Install Data Management Gateway
+
+### Gateway installation - prerequisites
 1.	The supported **Operating System** versions are Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2.
 2.	The recommended **configuration** for the gateway machine is at least 2 GHz, 4 cores, 8 GB RAM and 80 GB disk.
 3.	If the host machine hibernates, the gateway won’t be able to respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. The gateway installation prompts a message if the machine is configured to hibernate.
 
 Due to the fact that copy activity runs happen on a specific frequency, the resource usage (CPU, memory) on the machine also follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress you will observe resource usage go up during peak times. While above is the minimum configuration it is always better to have a configuration with more resources than the min configuration described above depending on your specific load for data movement.
 
-## Installation
+### Installation
 Data Management Gateway can be installed by downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).  The MSI can also be used to upgrade existing Data Management Gateway to the latest version, with all settings preserved. You can find the link to the MSI package from Azure Portal by following the step by step walkthrough below.
 
 
@@ -54,7 +56,7 @@ Data Management Gateway can be installed by downloading an MSI setup package fro
 1.	Configure power plan on the host machine for the gateway so that the machine does not hibernate. If the host machine hibernates, the gateway won’t be able to respond to data requests.
 2.	You should backup the certificate associated with the gateway.
 
-## Updating Data Management Gateway
+## Update Data Management Gateway
 By default, Data Management Gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all the scheduled tasks are done. No further tasks are processed by the gateway until the update operation is completed. If the update fails, gateway is rolled back to the old version. You can disable/enable the auto-update feature by using the Enable-DataFactoryGatewayAutoUpdate and Disable-DataFactoryGatewayAutoUpdate cmdlets. You will see the scheduled update time in the portal in the gateway properties blade, in the home page of the Data Management Gateway Configuration Manager, and in the system tray notification message. You have an option to install the update right away or wait for the gateway to be automatically updated at the scheduled time. For example, the following screen shot shows you the notification message shown in the Data Management Gateway Configuration Manager along with the Update button that you click to install it immediately. 
 
 ![Update in DMG Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/gateway-auto-update-config-manager.png)
@@ -142,7 +144,7 @@ If you encounter errors such as the following ones, it is likely because of the 
 
 	![Test Connection](./media/data-factory-move-data-between-onprem-and-cloud/TestConnection.png)
 		
-## Using the Data Gateway – Step by Step Walkthrough
+## Walkthrough: Using the Data Management Gateway 
 In this walkthrough, you create a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. 
 
 ### Step 1: Create an Azure data factory
@@ -525,7 +527,7 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 
 	![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
-## Moving gateway from a machine to another
+## Move gateway from a machine to another
 This section provides steps for moving gateway client from one machine to another machine. 
 
 2. In the portal, navigate to the **Data Factory home page**, and click the **Linked Services** tile. 
@@ -558,7 +560,7 @@ This section provides steps for moving gateway client from one machine to anothe
 	You can export a certificate from the old gateway by doing the following: launch Data Management Gateway Configuration Manager on the old machine, switch to the **Certifcate** tab, click **Export** button and follow the instructions. 
 10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager. 
 
-## Setting Credentials and Security
+## Set Credentials and Security
 
 You can also create a SQL Server linked service using the Linked Services blade instead of using the Data Factory Editor. 
  
@@ -603,7 +605,7 @@ If you are looking for an API based approach for encrypting the credentials you 
 There is one more approach for setting credentials using Data Factory Editor. If you create a SQL Server linked service by using the editor and you enter credentials in plain text, the credentials are encrypted using a certificate that the Data Factory service owns, NOT the certificate that gateway is configured to use. While this approach might be a little faster in some cases it is less secure. Therefore, we recommend that you follow this approach only for development/testing purposes. 
 
 
-## Creating and registering a gateway using Azure PowerShell 
+## Create and register Data Management Gateway using Azure PowerShell 
 This section describes how to create and register a gateway using Azure PowerShell cmdlets. 
 
 1. Launch **Azure PowerShell** in administrator mode. 
