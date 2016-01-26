@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/25/2016"
+   ms.date="01/26/2016"
    ms.author="alkohli" />
 
-# Deploy the StorSimple Manager service
+# Deploy the StorSimple Manager service for StorSimple Virtual Array
 
 ## Overview
 
