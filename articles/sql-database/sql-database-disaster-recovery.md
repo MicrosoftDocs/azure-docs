@@ -64,7 +64,7 @@ Use REST to programmatically initiate failover to a secondary database.
 
 In the event of an outage of a database, you can recover your database from its latest geo redundant backup using Geo-Restore. 
 
-> [AZURE.NOTE] Recovering a database creates a new database. It is important to make sure the server you are recovering to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] Recovering a database creates a new database. It is important to make sure the server you are recovering to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Azure Classic Portal
 To restore a SQL Database using Geo-Restore in the Azure Classic Portal, use the following steps.

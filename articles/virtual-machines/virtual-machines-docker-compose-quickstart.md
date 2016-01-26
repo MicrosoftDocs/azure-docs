@@ -24,7 +24,7 @@ This article shows you how to get started using Docker and [Compose](http://gith
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
 
 
-If you're new to Docker and containers, see the [Docker high level whiteboard](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
+If you're new to Docker and containers, see the [Docker high level whiteboard](https://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 
 ## Step 1: Set up a Linux VM as a Docker host
 
@@ -118,7 +118,7 @@ You should now see the WordPress start screen, where you can complete the instal
 ## Next steps
 
 * Check out the [Compose CLI reference](http://docs.docker.com/compose/reference/) and [user guide](http://docs.docker.com/compose/) for more examples of building and deploying multi-container apps.
-* Use an Azure Resource Manager template, either your own or one contributed from the [community](http://azure.microsoft.com/documentation/templates/), to deploy an Azure VM with Docker and an application set up with Compose. For example, the [Deploy a WordPress blog with Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) template uses Docker and Compose to quickly deploy WordPress with a MySQL backend on an Ubuntu VM.
+* Use an Azure Resource Manager template, either your own or one contributed from the [community](https://azure.microsoft.com/documentation/templates/), to deploy an Azure VM with Docker and an application set up with Compose. For example, the [Deploy a WordPress blog with Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) template uses Docker and Compose to quickly deploy WordPress with a MySQL backend on an Ubuntu VM.
 * Try integrating Docker Compose with a [Docker Swarm](virtual-machines-docker-swarm.md) cluster. See
 [Docker Compose/Swarm integration](https://github.com/docker/compose/blob/master/SWARM.md) for scenarios.
 

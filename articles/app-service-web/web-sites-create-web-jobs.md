@@ -42,7 +42,7 @@ The following file types are accepted:
 
 ## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
 
-1. In the **Web App** blade of the [Azure Portal](http://portal.azure.com), click **All settings > WebJobs** to show the **WebJobs** blade.
+1. In the **Web App** blade of the [Azure Portal](https://portal.azure.com), click **All settings > WebJobs** to show the **WebJobs** blade.
 	
 	![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
 	

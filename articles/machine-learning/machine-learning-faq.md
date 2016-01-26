@@ -47,7 +47,7 @@ See [Connect to a Machine Learning web service](machine-learning-connect-to-azur
 
 **How does Machine Learning billing work?**
 
-For billing and pricing information, see [Machine Learning Pricing](http://azure.microsoft.com/pricing/details/machine-learning/).
+For billing and pricing information, see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 **Does Machine Learning have a free trial?**
 

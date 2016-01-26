@@ -31,7 +31,7 @@ Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and 
 | **Standard** | The go-to option for most cloud applications, supporting multiple concurrent queries. Examples include workgroup or web applications. |
 | **Premium** | Designed for high transactional volume, supporting a large number of concurrent users and requiring the highest level of business continuity capabilities. Examples are databases supporting mission critical applications. |
 
->[AZURE.NOTE] Web and Business editions are being retired. Find out how to [upgrade Web and Business editions](sql-database-upgrade-new-service-tiers.md). Please read the [Sunset FAQ](http://azure.microsoft.com/pricing/details/sql-database/web-business/) if you plan to continue using Web and Business Editions.
+>[AZURE.NOTE] Web and Business editions are being retired. Find out how to [upgrade Web and Business editions](sql-database-upgrade-new-service-tiers.md). Please read the [Sunset FAQ](https://azure.microsoft.com/pricing/details/sql-database/web-business/) if you plan to continue using Web and Business Editions.
 
 ### Single database service tiers and performance levels
 For single databases there are multiple performance levels within each service tier, you have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database in the Azure Classic Portal, with zero-downtime for your application. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
@@ -89,8 +89,8 @@ The same metrics that are exposed in the portal are also available through syste
 For elastic database pools, you can monitor individual databases in the pool with the techniques described in this section. But you can also monitor the pool as a whole. For information, see [Monitor and manage an elastic database pool](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool).
 
 ## Next steps
-Find out more about the pricing for these tiers on [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/).
+Find out more about the pricing for these tiers on [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 If you are interested in managing multiple databases as a group, consider [elastic database pools](sql-database-elastic-pool-guidance.md) along with the associated [price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md).
 
-Now that you know about the SQL Database tiers, try them out with a [free trial](http://azure.microsoft.com/pricing/free-trial/) and learn [how to create your first SQL database](sql-database-get-started.md)!
+Now that you know about the SQL Database tiers, try them out with a [free trial](https://azure.microsoft.com/pricing/free-trial/) and learn [how to create your first SQL database](sql-database-get-started.md)!
