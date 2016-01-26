@@ -18,22 +18,10 @@
 
 # Marketplace Item UI References
 
-## Create Hub
+## Create Blade
 
 ![](media/azure-stack-marketplace-item-ui-reference/image1.png)
 
-## Gallery Blade
-
-![](media/azure-stack-marketplace-item-ui-reference/image2.png)
-
-## <span class="anchor"><span id="_Toc438046860" class="anchor"></span></span>Gallery Item Details Blade
+## <span class="anchor"><span id="_Toc438046860" class="anchor"></span></span>Marketplace Item Details Blade
 
 ![](media/azure-stack-marketplace-item-ui-reference/image3.png)
-
-# Next Steps
-
-[Marketplace Item UI References](azure-stack-marketplace-item-ui-reference.md)
-
-## Next Steps
-
-[Add a new Microsoft Azure Stack tenant account in Azure Active Directory](azure-stack-add-new-user-aad.md)
