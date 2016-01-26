@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/05/2016"
+    ms.date="01/24/2016"
     ms.author="dineshm"/>
 
 # How to use Blob Storage from C++  
@@ -52,7 +52,7 @@ An Azure storage client uses a storage connection string to store endpoints and 
 	// Define the connection-string with your values.
 	const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 
-To test your application in your local Windows computer, you can use the Microsoft Azure [storage emulator](https://msdn.microsoft.com/library/azure/hh403989.aspx)  that is installed with the [Azure SDK](http://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
+To test your application in your local Windows computer, you can use the Microsoft Azure [storage emulator](https://msdn.microsoft.com/library/azure/hh403989.aspx)  that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
 
 	// Define the connection-string with Azure Storage Emulator.
 	const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
@@ -236,5 +236,5 @@ Now that you've learned the basics of blob storage, follow these links to learn 
 -	[How to use Table Storage from C++](storage-c-plus-plus-how-to-use-tables.md)
 -	[List Azure Storage Resources in C++](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
--	[Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
+-	[Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 - [Transfer data with the AzCopy command-line utility](storage-use-azcopy)

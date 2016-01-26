@@ -105,7 +105,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 - The latest version of WMF 5 must be installed for the PowerShell DSC agent for Windows to be able to communicate with Azure Automation. The latest version of the PowerShell DSC agent for Linux must be installed for Linux to be able to communicate with Azure Automation.
 
-- The traditional PowerShell DSC pull server expects module zips to be placed on the pull server in the format **ModuleName_Version.zip”**. Azure Automation expects PowerShell modules to be imported with names in the form of **ModuleName.zip**. See [this blog post](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/) for more info on the Integration Module format needed to import the module into Azure Automation. 
+- The traditional PowerShell DSC pull server expects module zips to be placed on the pull server in the format **ModuleName_Version.zip”**. Azure Automation expects PowerShell modules to be imported with names in the form of **ModuleName.zip**. See [this blog post](https://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/) for more info on the Integration Module format needed to import the module into Azure Automation. 
 
 - PowerShell modules imported into Azure Automation cannot contain .doc or .docx files. Some PowerShell modules containing DSC resources contain these files, for help purposes. These files should be removed from modules, prior to import into Azure Automation.
 
@@ -120,5 +120,5 @@ The following image illustrates detailed step-by-step process in the life cycle 
 - [Onboarding machines for management by Azure Automation DSC] (../automation/automation-dsc-onboarding.md)
 - [Compiling configurations in Azure Automation DSC] (../automation/automation-dsc-compile.md)
 - [Azure Automation DSC cmdlets] (https://msdn.microsoft.com/library/mt244122.aspx)
-- [Azure Automation DSC pricing] (http://azure.microsoft.com/pricing/details/automation/)
+- [Azure Automation DSC pricing] (https://azure.microsoft.com/pricing/details/automation/)
 - [Continuous Deployment to IaaS VMs Using Azure Automation DSC and Chocolatey] (automation-dsc-cd-chocolatey.md)

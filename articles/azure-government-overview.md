@@ -27,7 +27,7 @@ Azure Government is a government-community cloud (GCC) designed to support strat
 
 In addition, Azure Government is designed to meet the higher level security and compliance needs for sensitive, dedicated, U.S. Public Sector workloads found in regulations such as United States Federal Risk and Authorization Management Program (FedRAMP), Department of Defense Enterprise Cloud Service Broker (ECSB), Criminal Justice Information Services (CJIS) Security Policy and Health Insurance Portability and Accountability Act (HIPAA).     
 
-Below is a summary view of the Azure Government infrastructure, fabric, services and frameworks that are available to help government organizations build hybrid cloud solutions to meet their goals.  Please see the [regions page](http://azure.microsoft.com/regions/#services) as the most up to date services that are generally available are listed there.
+Below is a summary view of the Azure Government infrastructure, fabric, services and frameworks that are available to help government organizations build hybrid cloud solutions to meet their goals.  Please see the [regions page](https://azure.microsoft.com/regions/#services) as the most up to date services that are generally available are listed there.
 
 ![][2]
 
@@ -80,7 +80,7 @@ Azure Government services available in both US GOV IOWA and US GOV VIRGINIA regi
 - ExpressRoute
 - etc.
 
-Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](http://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
+Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](https://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
 
 Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure Government.  Please refer to the regions page above for current data centers and services available.
 
@@ -98,7 +98,7 @@ If you are interested in learning more and about Azure Government please leverag
 
 - **[Azure Government Blog](http://blogs.msdn.com/b/azuregov/)**
 
-- **[Azure Compliance](http://azure.microsoft.com/support/trust-center/compliance/)**
+- **[Azure Compliance](https://azure.microsoft.com/support/trust-center/compliance/)**
 
 
 

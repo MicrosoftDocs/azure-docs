@@ -107,7 +107,7 @@ exposing this information. A simple search on [GitHub](https://github.com), for 
 
 The best practice is to keep this information out of your app's configuration files. App Service lets you store configuration information as part of the runtime environment as **app settings** and **connection strings**. The values 
 are exposed to your application at runtime through *environment variables* for most programming languages. For .NET applications, these values are injected into your .NET configuration at runtime. Apart from these situations, these
-configuration settings will remain encrypted unless you view or configure them using the [Azure Portal](http://portal.azure.com) or utilities such as PowerShell or the Azure CLI. 
+configuration settings will remain encrypted unless you view or configure them using the [Azure Portal](https://portal.azure.com) or utilities such as PowerShell or the Azure CLI. 
 
 Storing configuration information in App Service makes it possible for the app's administrator to lock down sensitive information for the production apps. Developers can use a separate set of configuration settings
 for app development and the settings can be automatically superseded by the settings configured in App Service. Not even the developers need to know the secrets configured for the production app. For more information on 
@@ -120,7 +120,7 @@ always use FTPS instead of FTP.
 
 The FTPS link for your app can be found with the following steps:
 
-1. Open the [Azure Portal](http://portal.azure.com).
+1. Open the [Azure Portal](https://portal.azure.com).
 2. Select **Browse All**.
 3. From the **Browse** blade, select **App Services**.
 4. From the **App Services** blade, Select the desired app.
@@ -132,9 +132,9 @@ For more information on FTPS, see [File Transfer Protocol](http://en.wikipedia.o
 
 ## Next steps
 
-For more information on the security of the Azure platform, information on reporting a **security incident or abuse**, or to inform Microsoft that you will be performing **penetration testing** of your site, see the security section of the [Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/security/).
+For more information on the security of the Azure platform, information on reporting a **security incident or abuse**, or to inform Microsoft that you will be performing **penetration testing** of your site, see the security section of the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
 
-For more information on **web.config** or **applicationhost.config** files in App Service apps, see [Configuration options unlocked in Azure App Service web apps](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
+For more information on **web.config** or **applicationhost.config** files in App Service apps, see [Configuration options unlocked in Azure App Service web apps](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
 For information on logging information for App Service apps, which may be useful in detecting attacks, see [Enable diagnostic logging](web-sites-enable-diagnostic-log.md).
 

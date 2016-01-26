@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="01/22/2016"
+   	ms.date="01/25/2016"
    	ms.author="nitinme"/>
 
 
@@ -183,7 +183,7 @@ Use this to determine the version of HDInsight used for this cluster. For more i
 
 ### Use Azure virtual networks
 
-An [Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
+An [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
 
 * Connect cloud resources together in a private network (cloud-only).
 
@@ -227,8 +227,7 @@ In this article, you have learned basic information about creating a Linux-based
 | [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md)         | &nbsp; | ✔     | &nbsp; | &nbsp; | ✔      | ✔ |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) | &nbsp; | ✔     | &nbsp; | &nbsp; | &nbsp; | ✔ |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl.md) | &nbsp; | ✔     | ✔ | &nbsp; | ✔      | ✔ |
-| [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔      | ✔ |
-
+| [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) | &nbsp; | &nbsp; | &nbsp; | ✔ | ✔      | ✔ |
 
 
 [hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/

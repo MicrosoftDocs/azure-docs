@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Lock Resources with Resource Manager | Microsoft Azure" 
 	description="Prevent users from updating or deleting certain resources by applying a restriction to all users and roles." 
 	services="azure-resource-manager" 

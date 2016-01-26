@@ -18,7 +18,7 @@
     
 # Working with Geospatial data in Azure DocumentDB
 
-This article is an introduction to the geospatial functionality in [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). After reading this, you will be able to answer the following questions:
+This article is an introduction to the geospatial functionality in [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). After reading this, you will be able to answer the following questions:
 
 - How do I store spatial data in Azure DocumentDB?
 - How can I query geospatial data in Azure DocumentDB in SQL and LINQ?
