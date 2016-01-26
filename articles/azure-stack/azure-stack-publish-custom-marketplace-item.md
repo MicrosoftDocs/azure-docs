@@ -18,9 +18,9 @@
 
 # Publish a custom marketplace item (service administrator)
 
-The Microsoft Azure Stack Marketplace is a catalog of organizational, open source, and community software applications, developer services, and data pre-configured for Microsoft Azure Stack. Tenants use these items to enable various scenarios.
+The Microsoft Azure Stack Marketplace is a catalog of software applications configured for Microsoft Azure Stack. It is a single place where tenants come to create new resources and deploy new applications.
 
-These items are collected from resource providers every five minutes. Service administrators can also add custom items to the marketplace. Tenants can see custom items in the Custom node of the marketplace.
+These items are collected from resource providers every five minutes. Service administrators can also add custom items to the marketplace that are immediately visible to tenants.
 
 To see the Microsoft Azure Stack marketplace blade, click **New** in the portal.
 
