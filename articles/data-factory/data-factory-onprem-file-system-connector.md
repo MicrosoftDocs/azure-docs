@@ -22,7 +22,10 @@ This article outlines how you can use data factory copy activity to move data to
 
 Data factory supports connecting to and from on-premises File System via the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step by step instructions on setting up the gateway. 
 
-**Note:** Apart from the Data Management Gateway no other binaries need to be installed to communicate to and from on-premises File System. 
+> [AZURE.NOTE] 
+> Apart from the Data Management Gateway no other binaries need to be installed to communicate to and from on-premises File System.
+> 
+> See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
 ## Linux File Share 
 

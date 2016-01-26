@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2015"
+	ms.date="01/05/2016"
 	ms.author="genli"/>
 
 # How to add or change Azure Administrator Roles
@@ -68,4 +68,4 @@ Only the Account Administrator can change the Service Administrator for a subscr
 
 ## How to change the Account Administrator
 
-To transfer ownership of the Azure account to another account, see [Transferring an Azure subscription](../billing-subscription-transfer.md).
+To transfer ownership of the Azure account to another account, see [Transferring an Azure subscription](billing-subscription-transfer.md).

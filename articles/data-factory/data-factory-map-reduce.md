@@ -17,7 +17,7 @@
 	ms.author="spelluru"/>
 
 # Invoke MapReduce Programs from Data Factory
-This article describes how to invoke a **MapReduce** program from an Azure Data Factory pipeline by using the **HDInsight MapReduce Activity**. 
+The HDInsight MapReduce activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes MapReduce programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
 
 ## Introduction 
 A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. This article describes using the HDInsight MapReduce Activity.
@@ -130,7 +130,6 @@ Next, you create a linked service to link your Azure HDInsight cluster to the Az
 	        }
 	    }
 	}
-
 
 ### Datasets
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/07/2016" 
+	ms.date="01/21/2016" 
 	ms.author="spelluru"/>
 
 # Move Data Between On-premises Sources and Cloud with Data Management Gateway
@@ -57,16 +57,26 @@ Data Management Gateway can be installed by downloading an MSI setup package fro
 ## Port and Security Considerations
 
 ### General considerations
-There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the gateway is installed. If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](#proxy-server-considerations) additionally. Here are some general considerations:
+There are two firewalls you need to consider: corporate firewall running on the central router of the organization, and Windows firewall configured as a daemon on the local machine where the gateway is installed.  For both of them, you need to make sure that the outbound rule for TCP ports 80 and 443 are enabled. And optionally enable ports 9350 to 9354, which are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway and may improve performance of communication between them.
 
-**Prior to setting up the gateway:**
+#### At corporate firewall level
+Specifically, you need configure the following domains and ports:
 
-- For both **corporate firewall and Windows firewall**, you need to make sure that the outbound rule for **TCP** ports **80** and **443** are enabled, and optionally for ports **9350** to **9354**. These are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway. Opening the ports 9350 to 9354 is not mandatory, but opening them may improve performance of communication between Azure Data Factory and Data Management Gateway.
-
-**During the gateway setup:**
-
-- By default, the Data Management Gateway installation opens the inbound port **8050** on the **local Windows firewall** on the gateway machine. The port will be used by the **Setting Credentials** application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure Portal (details later in the article); it will not be reachable from internet, so you do not need to open it in the corporate firewall.
-- If you do not want the gateway installation to open port 8050 on Windows firewall for the gateway machine, you can use the following command to install the gateway without configuring the firewall.
+<table>
+<tr align="left"><th>Domain names</th><th>Ports</th><th>Description</th></tr>
+<tr><td>*.servicebus.windows.net</td><td>443</td><td>Listeners on Service Bus Relay over TCP (requires 443 for Access Control Token acquisition)</td></tr>
+<tr><td>*.servicebus.windows.net</td><td>9350-9354</td><td>Optional for service bus relay over TCP</td></tr>
+<tr><td>*.core.windows.net</td><td>443</td><td>HTTPS</td></tr>
+<tr><td>*.clouddatahub.net</td><td>443</td><td>HTTPS</td></tr>
+<tr><td>*.graph.windows.net</td><td>443</td><td>HTTPS</td></tr> 
+<tr><td>login.windows.net</td><td>443</td><td>HTTPS</td></tr>
+</table>
+ 
+ 
+#### At windows firewall level
+If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](#proxy-server-considerations) additionally.
+ 
+During gateway setup, by default, the Data Management Gateway installation opens the inbound port 8050 on the gateway machine. The port will be used by the Setting Credentials application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure Portal (details later in the article). If you do not want the gateway installation to open port 8050 on Windows firewall for the gateway machine, you can use the following command to install the gateway without configuring the firewall.
 
 		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
@@ -111,11 +121,15 @@ If you encounter errors such as the following ones, it is likely because of the 
 1.	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
 2.	When you open Configuration Manager, you see status as “Disconnected” or “Connecting”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway” you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and will restart automatically. Component name: Gateway.”
 
-## Gateway Troubleshooting:
-You can find detailed information in gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
+## Gateway Troubleshooting
 
-It the gateway stops working after you **change the certificate**, restart (stop and start) the **Data Management Gateway Service** using the Microsoft Data Management Gateway Configuration Manager tool or Services control panel applet. If you still see an error, you may have to give explicit permissions for the Data Management Gateway service user to access the certificate in Certificates Manager (certmgr.msc).  The default user account for the service is: **NT Service\DIAHostService**. 
 
+- You can find detailed information in gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
+- If the gateway stops working after you **change the certificate**, restart (stop and start) the **Data Management Gateway Service** using the Microsoft Data Management Gateway Configuration Manager tool or Services control panel applet. If you still see an error, you may have to give explicit permissions for the Data Management Gateway service user to access the certificate in Certificates Manager (certmgr.msc).  The default user account for the service is: **NT Service\DIAHostService**. 
+- If you see data store connection or driver related errors, launch **Data Management Gateway Configuration Manager** on the gateway machine, switch to the **Diagnostics** tab, select/enter appropriate values for fields in the **Test connection to an on-premises data source using this gateway** group, and click **Test connection** to see if you can connect to on-premises data source  from the gateway machine using the connection information and credentials. If the test connection still fails after you install a driver, restart the gateway for it to pick up the latest change.  
+
+	![Test Connection](./media/data-factory-move-data-between-onprem-and-cloud/TestConnection.png)
+		
 ## Using the Data Gateway – Step by Step Walkthrough
 In this walkthrough, you create a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. 
 
@@ -637,7 +651,7 @@ When you use a copy activity in a data pipeline to ingest on-premises data to cl
 Here high level data flow for and summary of steps for copy with data gateway:
 ![Data flow using gateway](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
-1.	Data developer creates a new gateway for an Azure Data Factory using either the [Azure Portal](http://portal.azure.com) or [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx). 
+1.	Data developer creates a new gateway for an Azure Data Factory using either the [Azure Portal](https://portal.azure.com) or [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx). 
 2.	Data developer uses “Linked services” panel to define a new linked service for an on-premises data store with the gateway. As part of setting up the linked service data developer uses the Setting Credentials application as show in the step by step walkthrough to specify authentication types and credentials.  The Setting Credentials application dialog will communicate with the data store to test connection and the gateway to save credentials.
 3.	Gateway will encrypt the credentials with the certificate associated with the gateway (supplied by data developer), before saving the credentials in the cloud.
 4.	Data factory movement service communicates with the gateway for scheduling & management of jobs via a control channel that uses a shared Azure service bus queue. When copy activity job needs to be kicked off, data factory queues up the request along with credential information. Gateway kicks off the job after polling the queue.

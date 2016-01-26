@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/19/2016"
+    ms.date="01/22/2016"
     ms.author="elizapo" />
 
 
@@ -31,7 +31,7 @@ The following applies to Azure RemoteApp a cloud or hybrid collection if you are
 *	 https://*remoteapp.windowsazure.com  
 *	 https://*.core.windows.net  
 *	 Outbound: TCP: 443, TCP: 10101-10175 
-*	 Optional – UDP: 10201-10275 
+*	 Optional – UDP: 10201-10275  
  
 ## Azure RemoteApp clients need access to these endpoints and URLs: 
 
@@ -45,4 +45,4 @@ By clients I mean the desktops, devices etc. that people use to connect to the a
 -  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  Outbound: TCP: 443  
--  Optional - UDP: 10201-10275
+-  Optional - UDP: 3391 

@@ -24,8 +24,8 @@ This article is an end-to-end tutorial of the scenarios and capabilities of Azur
 
 Before you begin this tutorial you must have the following:
 
--	**An Azure subscription** -  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article for details.
--	**Azure Active Directory** -  Azure Data Catalog uses [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) for identity and access management.
+-	**An Azure subscription** -  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article for details.
+-	**Azure Active Directory** -  Azure Data Catalog uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for identity and access management.
 -	**Data sources** - Azure Data Catalog provides capabilities for data source discovery, and to proceed with the tutorial you must have access to one or more data sources. The tutorial is written using the Adventure Works sample databases, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role.
 
 ## Exercise 1: Install Adventure Works sample database

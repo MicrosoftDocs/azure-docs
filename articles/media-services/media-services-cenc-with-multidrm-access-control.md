@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016"  
+	ms.date="01/21/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services
@@ -36,7 +36,7 @@ The benefits of CENC with multi-DRM are as follows:
 1. Reduces the cost of managing encrypted assets since only a single copy of encrypted assets is needed;
 1. Eliminates DRM client licensing cost since the native DRM client is usually free on its native platform.
 
-Microsoft has been an active promoter of DASH and CENC together with some major industry players. Microsoft Azure Media Services has been providing support of DASH and CENC. For recent announcements, please see Mingfei’s blogs: [Announcing Google Widevine license delivery services public preview in Azure Media Services](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/), and [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).  
+Microsoft has been an active promoter of DASH and CENC together with some major industry players. Microsoft Azure Media Services has been providing support of DASH and CENC. For recent announcements, please see Mingfei’s blogs: [Announcing Google Widevine license delivery services public preview in Azure Media Services](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/), and [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).  
 
 ###Overview of this article
 
@@ -133,7 +133,7 @@ The following table shows the mapping:
 
 **Building Block**|**Technology**
 ------|-------
-**Player**|[Azure Media Player](http://azure.microsoft.com/services/media-services/media-player/)
+**Player**|[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/)
 **Identity Provider (IDP)**|Azure Active Directory
 **Secure Token Service (STS)**|Azure Active Directory
 **DRM Protection Workflow**|Azure Media Services Dynamic Protection
@@ -171,10 +171,7 @@ During runtime, the flow is as below:
 
 1. Player makes a license acquisition request based on the browser/DRM supported. In the license acquisition request, key ID and the JWT token will also be submitted. License delivery service will verify the JWT token and the claims contained before issuing the needed license.
 
-
-##Implementation
-
-###Implementation procedures
+##Implementation procedures
 
 The implementation will include the following steps:
 
@@ -211,8 +208,6 @@ For information on Azure Active Directory:
 ###Some gotchas in implementation
 
 There are some “gotchas” in the implementation. Hopefully the following list of “gotchas” can help you troubleshooting in case you run into issues.
-
-
 
 1. **Issuer** URL should end with **"/"**.  
 
@@ -251,11 +246,7 @@ There are some “gotchas” in the implementation. Hopefully the following list
 
 	Since adding support of JWT (AAD) in addition to SWT (ACS), the default TokenType is TokenType.JWT. If you use SWT/ACS, you must set to TokenType.SWT.
 
-##Additional topics in our design and implementation
-
-Next we will discuss some additional topics in our design and implementation.
-
-###HTTP or HTTPS?
+##HTTP or HTTPS?
 
 The ASP.NET MVC player application we built must support the following:
 
@@ -271,7 +262,7 @@ Therefore, the ASP.NET player application will use HTTPS as a best practice. Thi
 
 In the reference implementation, for DRM protected contents, both application and streaming will be under HTTTPS. For open contents, the player does not need authentication or license, so you have the liberty to use either HTTP or HTTPS.
 
-###Azure Active Directory signing key rollover
+##Azure Active Directory signing key rollover
 
 This is an important point to take into consideration of your implementation. If you do not consider this in your implementation, the completed system will eventually stop working completely within at most 6 weeks.
 
@@ -301,8 +292,7 @@ What if the key rollover happens after AAD generates a JWT token but before the 
 
 Because a key may be rolled at any moment, there is always more than one valid public key available in the federation metadata document. Azure Media Services license delivery can use any of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth.
 
-
-###Where is the Access Token?
+##Where is the Access Token?
 
 If you look at how a web app calls an API app under [Application Identity with OAuth 2.0 Client Credentials Grant](active-directory-authentication-scenarios.md#web-application-to-web-api), the authentication flow is as below:
 
@@ -322,7 +312,6 @@ We need to register and configure the “pointer” app in Azure AD by following
 
 1.	In the Azure AD tenant
 
-
 	- add an application (resource) with sign-on URL: 
 
 	https://[resource_name].azurewebsites.net/ and 
@@ -336,7 +325,7 @@ We need to register and configure the “pointer” app in Azure AD by following
 	
 Therefore, the JWT token issued by Azure AD is indeed the access token for accessing this “pointer” resource.
 
-###What about Live Streaming?
+##What about Live Streaming?
 
 In the above, our discussion has been focusing on on-demand assets. What about live streaming?
 
@@ -344,14 +333,14 @@ The good news is that you can use exactly the same design and implementation for
 
 Specifically, it is well known that to do live streaming in Azure Media Services, you need to create a channel, then a program under the channel. To create the program, you need to create an asset which will contain the live archive for the program. In order to provide CENC with multi-DRM protection of the live content, all you need to do, is to apply the same setup/processing to the asset as if it was a “VOD asset” before you start the program.
 
-###What about license servers outside of Azure Media Services?
+##What about license servers outside of Azure Media Services?
 
 Often, customers may have invested in license server farm either in their own data center or hosted by DRM service providers. Fortunately, Azure Media Services Content Protection allows you to operate in hybrid mode: contents hosted and dynamically protected in Azure Media Services, while DRM licenses are delivered by servers outside Azure Media Services. In this case, there are the following considerations of changes:
 
 1. The Secure Token Service needs to issue tokens which are acceptable and can be verified by the license server farm. For example, the Widevine license servers provided by Axinom requires a specific JWT token which contains “entitlement message”. Therefore, you need to have an STS to issue such JWT token. The authors have completed such an implementation and you can find the details in the following document in [Azure Documentation Center](https://azure.microsoft.com/documentation/): [Using Axinom to deliver Widevine licenses to Azure Media Services](media-services-axinom-integration.md). 
 1. You no longer need to configure license delivery service (ContentKeyAuthorizationPolicy) in Azure Media Services. What you need to do is to provide the license acquisition URLs (for PlayReady, Widevine and FairPlay) when you configure AssetDeliveryPolicy in setting up CENC with multi-DRM.
  
-###What if I want to use a custom STS?
+##What if I want to use a custom STS?
 
 There could be a few reasons that a customer may choose to use a custom STS (Secure Token Service) for providing JWT tokens. Some of them are:
 
@@ -368,7 +357,7 @@ There are two types of security keys:
 1.	Symmetric key: the same key is used for both generating and verifying a JWT token;
 2.	Asymmetric key: a public-private key pair in an X509 certificate is used with private key for encrypting/generating a JWT token and the public key for verifying the token.
 
-####Tech note:
+###Tech note
 
 If you use .NET Framework/C# as your development platform, the X509 certificate used for asymmetric security key must have key length at least 2048. This is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception will be thrown:
 

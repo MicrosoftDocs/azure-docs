@@ -31,7 +31,7 @@ If you want to automate your Azure Docker VM from Windows, you can [install the 
 
 ## Log on to the Portal
 
-This part is easy, unless you don't have an Azure account. [Get a free one easily, too](http://azure.microsoft.com/pricing/free-trial/)!
+This part is easy, unless you don't have an Azure account. [Get a free one easily, too](https://azure.microsoft.com/pricing/free-trial/)!
 
 ## Create a VM with the Docker Image from Canonical and MSOpenTech
 

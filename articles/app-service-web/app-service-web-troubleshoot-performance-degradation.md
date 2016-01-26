@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="01/13/2016"
 	ms.author="cephalin"/>
 
 # Troubleshoot: performance degradation in a web app
 
 This article helps you troubleshoot performance issues in your web app hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
 ## Symptom
 
@@ -181,7 +181,7 @@ For more information, see [Auto-Healing Azure Web Sites](/blog/auto-healing-wind
 
 ####	Restart the web app
 
-This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com), on your web app’s blade, you have the options to stop or restart your app.
+This is often the simplest way to recover from one-time issues. On the [Azure Portal](https://portal.azure.com/), on your web app’s blade, you have the options to stop or restart your app.
 
  ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 

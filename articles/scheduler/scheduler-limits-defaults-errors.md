@@ -49,13 +49,7 @@ For example, an HTTP 404 error can occur for numerous reasons, so having the add
 |ConflictError|Conflict (409)|A conflict occurred to prevent the operation from completing.|
 |TemporaryRedirect|Temporary Redirect (307)|The requested object is not available. A temporary URI for the new location of the object can be obtained from the Location field in the response. The original request can be repeated on the new URI.|
 
-API operations may also return additional error information that is defined by the management service. This additional error information is returned in the response body. The body of the error response follows the basic format shown below.
-
-		<?xml version="1.0" encoding="utf-8"?>  
-		<Error>  
-			<Code>string-code</Code>  
-			<Message>detailed-error-message</Message>  
-		</Error>  
+API operations may also return additional error information that is defined by the management service. This additional error information is returned in the response body. 
 
 ## See Also
 
@@ -68,7 +62,7 @@ API operations may also return additional error information that is defined by t
 
  [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
  [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 

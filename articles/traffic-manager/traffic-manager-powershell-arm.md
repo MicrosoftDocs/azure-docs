@@ -72,7 +72,7 @@ You will be prompted to authenticate with your credentials.
 ### Step 3
 Choose which of your Azure subscriptions to use.
 
-	PS C:\> Select-AzureRmContext -SubscriptionName "MySubscription"
+	PS C:\> Set-AzureRmContext -SubscriptionName "MySubscription"
 
 To see a list of available subscriptions, use the ‘Get-AzureRmSubscription’ cmdlet.
 
@@ -191,7 +191,7 @@ Traffic Manager uses external endpoints to direct traffic to services hosted out
 
 When specifying external endpoints:
  - The endpoint domain name must be specified using the 'Target' parameter
- - The 'EndpointLocation' is required if the 'Performance' traffic-routing method is used, otherwise it is optional.  The value must be a [valid Azure region name](http://azure.microsoft.com/regions/).
+ - The 'EndpointLocation' is required if the 'Performance' traffic-routing method is used, otherwise it is optional.  The value must be a [valid Azure region name](https://azure.microsoft.com/regions/).
  - The 'Weight' and 'Priority' are optional, as for Azure endpoints.
 
 #### Example 1: Adding external endpoints using Add-AzureRmTrafficManagerEndpointConfig and Set-AzureRmTrafficManagerProfile

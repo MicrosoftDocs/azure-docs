@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Get started with Azure Batch PowerShell | Microsoft Azure"
    description="Get a quick introduction to the Azure PowerShell cmdlets you can use to manage the Azure Batch service"
    services="batch"
