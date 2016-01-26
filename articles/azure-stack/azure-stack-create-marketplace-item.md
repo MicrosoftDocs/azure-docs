@@ -1,22 +1,22 @@
 ﻿<properties
-	pageTitle="To create a new marketplace item"
-	description="To create a new marketplace item"
+	pageTitle="Create a new marketplace item in Azure Stack"
+	description="Learn how to create a new marketplace item to deploy resources in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# To create a new marketplace item
+# To create a new marketplace item in Azure Stack
 
 1.  Create an Azure Resource Manager template or choose a template from GitHub. For more information and guidance, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 

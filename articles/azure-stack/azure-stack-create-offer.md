@@ -1,22 +1,22 @@
 ﻿<properties
-	pageTitle="Create an offer (service administrator)"
-	description="Create an offer (service administrator)"
+	pageTitle="Create an offer in Azure Stack (service administrator)"
+	description="As a service administrator, learn how to create an offer for your tenants in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# Create an offer (service administrator)
+# Create an offer in Azure Stack (service administrator)
 
 Now that you have a plan, you can create and include it in an offer.
 

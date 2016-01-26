@@ -1,22 +1,22 @@
 ﻿<properties
-	pageTitle="Add a new Microsoft Azure Stack tenant account in Azure Active Directory"
-	description="Add a new Microsoft Azure Stack tenant account in Azure Active Directory"
+	pageTitle="Add a new Azure Stack tenant account in Azure Active Directory"
+	description="After deploying Microsoft Azure Stack POC, you’ll need to create at least one tenant user account so you can explore the tenant portal."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Add a new Microsoft Azure Stack tenant account in Azure Active Directory
+# Add a new Azure Stack tenant account in Azure Active Directory
 
 After deploying Microsoft Azure Stack POC, you’ll need to create at least one tenant user account so you can explore the tenant portal.
 

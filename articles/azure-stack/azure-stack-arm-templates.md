@@ -1,22 +1,22 @@
 ﻿<properties
-	pageTitle="Use Azure Resource Manager templates (tenant developers)"
-	description="Use Azure Resource Manager templates (tenant developers)"
+	pageTitle="Use Azure Resource Manager templates in Azure Stack (tenant developers)"
+	description="Learn how to use Azure Resource Manager templates in Azure Stack to deploy and provision all of the resources for your application in a single, coordinated operation."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# Use Azure Resource Manager templates (tenant developers)
+# Use Azure Resource Manager templates in Azure Stack (tenant developers)
 
 You can use Azure Resource Manager templates in Microsoft Azure Stack. Rather than deploying and managing each resource separately, an Azure Resource Manager template deploys and provisions all of the resources for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
