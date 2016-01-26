@@ -91,7 +91,7 @@ This log is only generated if you've enabled it on a per load balancer basis as 
 	]
 	}
 
-The JSON output shows in the properties field the basic information for the probe health status. The *dipDownCount* property shows the total number of instances on the back-end which are not receiving network traffic due to failed probe requests. 
+The JSON output shows in the properties field the basic information for the probe health status. The *dipDownCount* property shows the total number of instances on the back-end which are not receiving network traffic due to failed probe responses. 
 
 ##View and analyze the audit log
 You can view and analyze audit log data using any of the following methods:
