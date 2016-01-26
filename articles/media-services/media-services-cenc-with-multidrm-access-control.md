@@ -27,7 +27,7 @@ Azure Active Directory, Azure Media Services, Azure Media Player, Dynamic Encryp
 The following topics are covered in this article:
 
 - [Introduction](media-services-cenc-with-multidrm-access-control.md#introduction)
-	-[Overview of this article](media-services-cenc-with-multidrm-access-control.md#article_overview)
+	- [Overview of this article](media-services-cenc-with-multidrm-access-control.md#article_overview)
 - [A reference design](media-services-cenc-with-multidrm-access-control.md#ref_deign)
 - [Mapping design to technology for implementation](media-services-cenc-with-multidrm-access-control.md#mapping_to_technology)
 - [Implementation](media-services-cenc-with-multidrm-access-control.md#implementation)
@@ -55,7 +55,7 @@ It is well known that it is a complex task to design and build a DRM subsystem f
 
 The targeted readers of this document are engineers working in DRM subsystem of OTT or online streaming/multi-screen solutions, or any readers interested in DRM subsystem. The assumption is that readers are familiar with at least one of the DRM technologies on the market, such as PlayReady, Widevine, FairPlay or Adobe Access.
 
-By DRM, we also include CENC (Common Encryption) with multi-DRM. A major trend in online streaming and OTT industry is to use CENC with multi-native-DRM on various client platforms, which is a shift from the previous trend of using a single DRM and its client SDK for various client platforms. When using CENC with multi-native-DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271) specification.
+By DRM, we also include CENC (Common Encryption) with multi-DRM. A major trend in online streaming and OTT industry is to use CENC with multi-native-DRM on various client platforms, which is a shift from the previous trend of using a single DRM and its client SDK for various client platforms. When using CENC with multi-native-DRM, both PlayReady and Widevine are encrypted per the [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) specification.
 
 The benefits of CENC with multi-DRM are as follows:
 
@@ -229,7 +229,7 @@ The implementation will include the following steps:
 
 George Trifonov of Azure Media Services Team has written a blog providing detailed steps in setting up Azure Active Directory for an ASP.NET MVC player app: [Integrate Azure Media Services OWIN MVC based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
-George has also written a blog on [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). And here is his [sample on Azure AD integration with Azure Media Services key delivery](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration).
+George has also written a blog on [JWT token Authentication in Azure Media Services and Dynamic Encryption](http://gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/). And here is his [sample on Azure AD integration with Azure Media Services key delivery](https://github.com/AzureMediaServicesSamples/Key-delivery-with-AAD-integration/).
 
 For information on Azure Active Directory:
 
@@ -303,9 +303,9 @@ This is an important point to take into consideration of your implementation. If
 
 Azure AD uses industry standard to establish trust between itself and applications using Azure AD. Specifically, Azure AD uses a signing key that consists of a public and private key pair. When Azure AD creates a security token that contains information about the user, this token is signed by Azure AD using its private key before it is sent back to the application. To verify that the token is valid and actually originated from Azure AD, the application must validate the token’s signature using the public key exposed by Azure AD that is contained in the tenant’s federation metadata document. This public key – and the signing key from which it derives – is the same one used for all tenants in Azure AD.
 
-Detailed info on Azure AD key rollover can be found in the document: [Important Information about Signing Key Rollover in Azure AD](http://msdn.microsoft.com/library/azure/dn641920.aspx).
+Detailed info on Azure AD key rollover can be found in the document: [Important Information about Signing Key Rollover in Azure AD](http://msdn.microsoft.com/library/azure/dn641920.aspx/).
 
-Between the [public-private key pair](https://login.windows.net/common/discovery/keys), 
+Between the [public-private key pair](https://login.windows.net/common/discovery/keys/), 
 
 - The private key is used by Azure Active Directory to generate a JWT token;
 - The public key is used by an application such as DRM License Delivery Services in AMS to verify the JWT token;
@@ -337,7 +337,7 @@ If you look at how a web app calls an API app under [Application Identity with O
 4.	Azure AD authenticates the application and returns a JWT access token that is used to call the web API.
 5.	Over HTTPS, the web application uses the returned JWT access token to add the JWT string with a “Bearer” designation in the Authorization header of the request to the web API. The web API then validates the JWT token, and if validation is successful, returns the desired resource.
 
-In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](http://msdn.microsoft.com/library/azure/dn645542.aspx) describes how authorization code grant flow works.
+In this “application identity” flow, the web API trusts that the web application authenticated the user. For this reason, this pattern is called a trusted subsystem. The [diagram on this page](http://msdn.microsoft.com/library/azure/dn645542.aspx/) describes how authorization code grant flow works.
 
 In license acquisition with token restriction, we are following the same trusted subsystem pattern. And the license delivery service in Azure Media Services is the web API resource, the “backend resource” a web application needs to access. So where is the access token?
 
@@ -466,7 +466,7 @@ Notice that Widevine does not prevent one from making screen capture of protecte
 
 If a user is not a member of “Entitled Users” group, the user will not be able to pass “entitlement check” and the multi-DRM license service will refuse to issue the requested license as shown below. The detailed description is “License acquire failed”, which is as designed.
 
-![Un-entitled Users](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png.png)
+![Un-entitled Users](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
 ###<a id="custom_sts"></a>Running custom Secure Token Service (STS)
 
