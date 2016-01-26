@@ -23,7 +23,7 @@ Azure SQL Database's offers the following capabilities for recovering from an ou
 - Active Geo-Replication [(blog)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/)
 - Standard Geo-Replication [(blog)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/)
 - Geo-Restore [(blog)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
-- New Geo-replication capabilities [(blog)](https://azure.microsoft.com/blog/azure-sql-database-geo-replication-october-2015-update/)
+- New Geo-replication capabilities [(blog)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
 To learn about preparing for disaster and when to recover your database, visit our [Design for business continuity](sql-database-business-continuity-design.md) page. 
 
@@ -64,7 +64,7 @@ Use REST to programmatically initiate failover to a secondary database.
 
 In the event of an outage of a database, you can recover your database from its latest geo redundant backup using Geo-Restore. 
 
-> [AZURE.NOTE] Recovering a database creates a new database. It is important to make sure the server you are recovering to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE] Recovering a database creates a new database. It is important to make sure the server you are recovering to has enough DTU capacity for the new database. You can request an increase of this quota by [contacting support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Azure Classic Portal
 To restore a SQL Database using Geo-Restore in the Azure Classic Portal, use the following steps.

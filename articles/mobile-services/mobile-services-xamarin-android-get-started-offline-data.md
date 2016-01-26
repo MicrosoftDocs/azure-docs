@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/25/2015"
+	ms.date="12/07/2015"
 	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services

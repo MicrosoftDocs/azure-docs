@@ -1,19 +1,19 @@
 <properties
-   pageTitle="Browsing and managing storage resources with Server Explorer"
+   pageTitle="Browsing and managing storage resources with Server Explorer | Microsoft Azure"
    description="Browsing and managing storage resources with Server Explorer"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="storage"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.date="12/18/2015"
+   ms.author="tarcher" />
 
 # Browsing and Managing Storage Resources with Server Explorer
 

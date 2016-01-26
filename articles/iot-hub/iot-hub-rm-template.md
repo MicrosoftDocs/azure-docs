@@ -24,6 +24,8 @@
 
 You can use Azure Resource Manager to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use a resource manager template to create an IoT hub from a C# program.
 
+> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Resource Manager deployment model.
+
 In order to complete this tutorial you'll need the following:
 
 - Microsoft Visual Studio 2015.

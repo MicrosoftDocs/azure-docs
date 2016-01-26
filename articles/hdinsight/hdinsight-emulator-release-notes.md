@@ -90,7 +90,7 @@
 
 * New HDInsight dashboard with the following features: 
  
-	* Connect to multiple clusters, including the local installation as well as those running remotely via the Azure HDInsight service. For more information on the HDInsight service, see [http://azure.microsoft.com/documentation/services/hdinsight/](http://azure.microsoft.com/documentation/services/hdinsight/).
+	* Connect to multiple clusters, including the local installation as well as those running remotely via the Azure HDInsight service. For more information on the HDInsight service, see [http://azure.microsoft.com/documentation/services/hdinsight/](https://azure.microsoft.com/documentation/services/hdinsight/).
  
 	* Configure Azure Blob storage on the local cluster. See detailed instructions below.
 

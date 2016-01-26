@@ -30,6 +30,8 @@ Data factory currently supports only moving data from Sybase to other data store
 
 For Data Management Gateway to connect to the Sybase Database, you need to install the [data provider for Sybase](http://go.microsoft.com/fwlink/?linkid=324846) on the same system as the Data Management Gateway.
 
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+
 ## Sample: Copy data from Sybase to Azure Blob
 
 The sample below shows:

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;nicw;barbkess;jrj;sonyama;"/>
 
 # Management Tools for SQL Data Warehouse
 This topic explores and compares tools and options for managing SQL Data Warehouse, so you can pick the right tool for your needs. Choosing the right tool depends on how many databases you manage, the task, and how often a task is performed.
@@ -43,7 +43,7 @@ To start using these tools, head over to the [connection][] topic.
 [connection]: sql-data-warehouse-develop-connections.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/en-us/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/library/mt204009.aspx
 
 <!--Other web references-->
 [Azure Classic Portal]: http://portal.azure.com/

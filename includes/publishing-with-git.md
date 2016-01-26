@@ -60,7 +60,7 @@ Perform the following steps to enable a Git repository for your web app.
 
 1. Log in to the [Azure Portal].
 
-2. In your web app's blade, scroll down to the **Deployment** section and click **Set up continous deployment**. Click **Choose Source**, then click **Local Git Repository**, and then click **OK**.  
+2. In your web app's blade, click **Settings > Continuous deployment**. Click **Choose Source**, then click **Local Git Repository**, and then click **OK**.  
 
 	![Local Git Repository](./media/publishing-with-git/azure1-local-git.png)
 
@@ -76,7 +76,7 @@ Perform the following steps to enable a Git repository for your web app.
 
 Use the following steps to publish your web app to Azure using Local Git.
 
-1. In your web app's blade, in the Deployment section, click **No deployment found**.
+1. In your web app's blade, click **Settings > Properties** for the **Git URL**.
 
 	![](./media/publishing-with-git/azure3-repo-details.png)
 
@@ -138,7 +138,7 @@ Deploying files from either GitHub, CodePlex, or BitBucket requires that you hav
 
 1. First put your web app files into the selected repository that will be used for continuous deployment.
 
-2. In your web app's blade in the Portal, scroll down to the **Deployment** section and click **Set up continous deployment**. Click **Choose Source**, then click **GitHub**, for example.  
+2. In your web app's blade in the Portal, click **Settings > Continuous delivery**. Click **Choose Source**, then click **GitHub**, for example.  
 
 	![](./media/publishing-with-git/azure6-setup-github.png)
 	
@@ -192,11 +192,11 @@ Once you have set up your repository as described, and configured your web app i
 
 ## Disable continuous deployment
 
-Continuous deployment can be disabled from the **Deployments** blade. From your web app's blade, in the **Deployment** section, click **Active Deployment**. Then click **Disconnect**.
+Continuous deployment can be disabled from the **Deployments** blade. From your web app's blade, click **Settings > Continuous deployment**. Then click **Disconnect**.
 
 ![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)	
 
-After answering **Yes** to the confirmation message, you can return to your web app's blade and click **Set up continuous deployment** if you would like to set up publishing from another source.
+After answering **Yes** to the confirmation message, you can return to your web app's blade and click **Settings > Continuous deployment** if you would like to set up publishing from another source.
 
 ## <a id="Step8"></a>Troubleshooting
 

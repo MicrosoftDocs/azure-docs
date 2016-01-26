@@ -32,7 +32,7 @@ A domain is a unique name in the Domain Name System, for example ‘contoso.com�
 
 A DNS zone is used to host the DNS records for a particular domain.  For example, the domain ‘contoso.com’ may contain a number of DNS records such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a website).
 
-Azure DNS allows you to host a DNS zone and thereby manage the DNS records for a domain in Azure. Keep in mind Azure DNS is not domain registrar.
+Azure DNS allows you to host a DNS zone and thereby manage the DNS records for a domain in Azure. Keep in mind Azure DNS is not the domain registrar.
 
 The Domain Name System is a hierarchy of domains.  The hierarchy starts from the ‘root’ domain, whose name is simply ‘.’.  Below this come top-level domains, such as ‘com’, ‘net’, ‘org’, ‘uk’ or ‘jp’.  Below these are second-level domains, such as ‘org.uk’ or ‘co.jp’.  And so on.
 
@@ -87,6 +87,8 @@ Using Azure PowerShell, the authoritative NS records can be retrieved as follows
 In this example, the zone ‘contoso.com’ has been assigned name servers ‘ns1-04.azure-dns.com’, ‘ns2-04.azure-dns.net’, ‘ns3-04.azure-dns.org’, and ‘ns4-04.azure-dns.info’.
 
 Each registrar has their own DNS management tools to change the name server records for a domain. In the registrar’s DNS management page, edit the NS records and replace the NS records with the ones Azure DNS created.
+
+>[AZURE.NOTE] When delegating a domain to Azure DNS, you must use the name server names provided by Azure DNS.  You should not use 'glue records' to point to the Azure DNS name server IP addresses, since these IP addresses may change in future.  Delegations using name server names in your own zone (sometimes called 'vanity name servers') are not currently supported in Azure DNS.
 
 Having completed the delegation, you can verify that name resolution is working by using a tool such as ‘nslookup’ to query the SOA record for your zone (which is also automatically created when the zone is created).
 
@@ -152,8 +154,6 @@ As when delegating using a registrar, we can verify that everything is set up co
 [Manage DNS zones](dns-operations-dnszones.md)
 
 [Manage DNS records](dns-operations-recordsets.md)
-
-[Traffic Manager overview](traffic-manager-overview.md)
 
 [Automate Azure Operations with .NET SDK](dns-sdk.md)
 

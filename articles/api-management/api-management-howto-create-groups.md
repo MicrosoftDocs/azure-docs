@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # How to create and use groups to manage developer accounts in Azure API Management
@@ -34,7 +34,7 @@ This guide shows how administrators of an API Management instance can add new gr
 
 ## <a name="create-group"> </a>Create a group
 
-To create a new group, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+To create a new group, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 

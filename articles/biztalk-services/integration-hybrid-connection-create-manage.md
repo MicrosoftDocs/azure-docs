@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mandia"/>
 
 
@@ -41,7 +41,7 @@ A Hybrid Connection can be created in the Azure portal using Web Apps **or** usi
 2. In the left navigation pane, select **BizTalk Services** and then select your BizTalk Service. 
 
 	If you don't have an existing BizTalk Service, you can [Create a BizTalk Service](biztalk-provision-services.md).
-3. Select the Hybrid Connections tab:  
+3. Select the **Hybrid Connections** tab:  
 ![Hybrid Connections Tab][HybridConnectionTab]
 
 4. Select **Create a Hybrid Connection** or select the **ADD** button in the task bar. Enter the following:

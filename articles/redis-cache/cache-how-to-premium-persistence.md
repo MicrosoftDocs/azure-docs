@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # How to configure data persistence for a Premium Azure Redis Cache
@@ -33,7 +33,7 @@ Persistence can be configured from the **New Redis Cache** blade during cache cr
 
 ## Create a premium cache
 
-To create a cache and configure persistence, sign-in to the [Azure preview portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
+To create a cache and configure persistence, sign-in to the [Azure Portal](https://portal.azure.com) and click **New**->**Data + Storage**>**Redis Cache**.
 
 ![Create a Redis Cache][redis-cache-new-cache-menu]
 

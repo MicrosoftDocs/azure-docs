@@ -48,14 +48,14 @@ Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS), Premi
 
 Azure AD features that enable account sharing include:
 
-- [Password single sign-on](active-directory-passwords-getting-started.md)
+- [Password single sign-on](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 - Password single sign-on agent
 - [Group assignment](active-directory-accessmanagement-self-service-group-management.md)
 - Custom Password apps
 - [App usage dashboard/reports](active-directory-passwords-get-insights.md)
 - End user access portals
 - [App proxy](active-directory-application-proxy-get-started.md)
-- [Active Directory Marketplace](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Sharing an account
 To use Azure AD to share an account you will need to:

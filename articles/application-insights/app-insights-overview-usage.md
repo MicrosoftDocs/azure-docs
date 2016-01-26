@@ -42,7 +42,7 @@ You can also add Application Insights to your [ASP.NET](app-insights-asp-net.md)
 
 ### Run your project and see first results
 
-Run your project in debug mode for a few minutes, and then go to the [Azure portal](http://portal.azure.com) and browse to your project resource in Application Insights.
+Run your project in debug mode for a few minutes, and then go to the [Azure portal](https://portal.azure.com) and browse to your project resource in Application Insights.
 
 ![In Azure, click Browse, Application Insights, and select your project](./media/app-insights-overview-usage/00-start.png)
 

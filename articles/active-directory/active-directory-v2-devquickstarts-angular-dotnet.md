@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 
@@ -224,4 +224,4 @@ To continue learning about the app model v2.0 preview, head back to our [v2.0 de
 
 - [Azure-Samples on GitHub >>](https://github.com/Azure-Samples)
 - [Azure AD on Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
-- Azure AD documentation on [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+- Azure AD documentation on [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)

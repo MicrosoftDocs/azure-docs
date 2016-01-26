@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="12/22/2015"
    ms.author="shkurhek"/>
 
 # What is SQL Database? Introduction to SQL Database, technical details, and an explanation of DTUs
@@ -52,12 +52,12 @@ Azure's industry leading 99.99% availability service level agreement [(SLA)](htt
 See [Business Continuity](sql-database-business-continuity.md) for details about the different business continuity features available for different service tiers.
 
 ## Secure your data
-SQL Server has a tradition of solid  data security that SQL Database upholds  with features that limit access, protect data, and help you monitor activity. See [Securing your SQL database](sql-database-security.md) for a quick rundown of security options you have in SQL Database. See the [Security Center for SQL Server Database Engine and SQL Database](https://msdn.microsoft.com/library/bb510589) for a more comprehensive view of security features. And visit the [Azure Trust Center](http://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
+SQL Server has a tradition of solid  data security that SQL Database upholds  with features that limit access, protect data, and help you monitor activity. See [Securing your SQL database](sql-database-security.md) for a quick rundown of security options you have in SQL Database. See the [Security Center for SQL Server Database Engine and SQL Database](https://msdn.microsoft.com/library/bb510589) for a more comprehensive view of security features. And visit the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
 
 ## Next steps
 Now that you've read an introduction to SQL Database and answered the question "What is SQL Database?", you're ready for the following:
 
-- See the [pricing page](http://azure.microsoft.com/pricing/details/sql-database/) for single database and elastic database pricing and calculators.
+- See the [pricing page](https://azure.microsoft.com/pricing/details/sql-database/) for single database and elastic database pricing and calculators.
 
 - Get started by [creating your first database](sql-database-get-started.md). Then build your first app in [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md), or [Ruby](sql-database-develop-ruby-simple-linux). 
 

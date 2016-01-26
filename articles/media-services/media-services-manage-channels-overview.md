@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="11/03/2015"  
+	ms.date="12/15/2015"  
 	ms.author="juliako"/>
 
 #Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
@@ -208,7 +208,7 @@ Running|Ready (no running programs)<p>or<p>Streaming (at least one running progr
 Stopping|Stopping|No (transient state)
 Stopped|Stopped|No
 
-###Closed Captioning and Ad Insertion 
+##<a id="cc_and_ads"></a>Closed Captioning and Ad Insertion 
 
 The following table demonstrates supported closed captioning and ad insertion standards.
 

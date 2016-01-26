@@ -5,7 +5,7 @@
     documentationCenter="java"
     authors="rmcmurray"
     manager="wpickett"
-    editor="jimbe" />
+    editor="" />
 
 <tags
     ms.service="active-directory"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="10/12/2015" 
+    ms.date="01/09/2016" 
     ms.author="robmcm" />
 
 # How to Authenticate Web Users with Azure Access Control Service Using Eclipse
@@ -123,9 +123,9 @@ To complete the tasks in this guide, you will need the following:
 - Eclipse IDE for Java EE Developers, Indigo or later. This can be downloaded from <http://www.eclipse.org/downloads/>. 
 - A distribution of a Java-based web server or application server, such as Apache Tomcat, GlassFish, JBoss Application Server, or Jetty.
 - an Azure subscription, which can be acquired from <http://www.microsoft.com/windowsazure/offers/>.
-- The Azure Toolkit for Eclipse, April 2014 release or later. For more information, see [Installing the Azure Toolkit for Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+- The Azure Toolkit for Eclipse, April 2014 release or later. For more information, see [Installing the Azure Toolkit for Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - An X.509 certificate to use with your application. You will need this certificate in both public certificate (.cer) and Personal Information Exchange (.PFX) format. (Options for creating this certificate will be described later in this tutorial).
-- Familiarity with the Azure compute emulator and deployment techniques discussed at [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
+- Familiarity with the Azure compute emulator and deployment techniques discussed at [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 ## Create an ACS Namespace
 
@@ -274,7 +274,7 @@ In the **Login Page Integration: Azure Web App** page, the URL listed in **Optio
 
 1. In Eclipse's Project Explorer, right-click **MyACSHelloWorld**, click **Azure**, and then click **Package for Azure**.
 2. For **Project name**, type **MyAzureACSProject** and click **Next**.
-3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) tutorial).
+3. Select a JDK and application server. (These steps are covered in detail in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) tutorial).
 4. Click **Finish**.
 5. Click the **Run in Azure Emulator** button.
 6. After your Java web application starts in the compute emulator, close all instances of your browser (so that any current browser sessions do not interfere with your ACS login test).
@@ -308,11 +308,11 @@ To deploy to Azure, you'll need to change the relying party realm and return URL
 
 13. Click **Finish** to close the **Edit Library** dialog.
 14. Click **OK** to close the **Properties for MyACSHelloWorld** dialog.
-15. In Eclipse, click the **Publish to Azure Cloud** button. Respond to the prompts, similar as done in the **To deploy your application to Azure** section of the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) topic. 
+15. In Eclipse, click the **Publish to Azure Cloud** button. Respond to the prompts, similar as done in the **To deploy your application to Azure** section of the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) topic. 
 
 After your web application has been deployed, close any open browser sessions, run your web application, and you should be prompted to sign in with Windows Live ID credentials, followed by being sent to the return URL of your relying party application.
 
-When you are done using your ACS Hello World application, remember to delete the deployment (you can learn how to delete a deployment in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx) topic).
+When you are done using your ACS Hello World application, remember to delete the deployment (you can learn how to delete a deployment in the [Creating a Hello World Application for Azure in Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) topic).
 
 
 ## <a name="next_steps"></a>Next steps

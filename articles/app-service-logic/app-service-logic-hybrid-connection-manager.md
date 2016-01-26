@@ -25,7 +25,7 @@ The Hybrid Connection Manager (HCM) is a click-once installer that is installed 
 
 To get started, you need:
 
-- Azure Service Bus relay namespace SAS connection string. See [Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/) to determine which tier includes relays.
+- Azure Service Bus relay namespace SAS connection string. See [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/) to determine which tier includes relays.
 - On-premises system sign-in information, including user name and password. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server login account and password.
 - On-premises server information, including port number and server name. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server name and TCP port number.
 
@@ -33,7 +33,7 @@ To get started, you need:
 
 In the Azure portal, copy the Service Bus root SAS Connection String. This connection string connects your Azure connector to your on-premises system. 
 
-1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=213885), select your Service Bus namespace, and select **Connection Information**:
+1. In the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885), select your Service Bus namespace, and select **Connection Information**:
 
 	![][SB_ConnectInfo]
 
@@ -43,7 +43,7 @@ In the Azure portal, copy the Service Bus root SAS Connection String. This conne
 
 ## Install the Hybrid Connection Manager
 
-1. In the preview [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select the connector you created. To open it, you can select **Browse**, select **API Apps**, and then select your connector or API App. 
+1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select the connector you created. To open it, you can select **Browse**, select **API Apps**, and then select your connector or API App. 
 <br/><br/>
 In **Hybrid Connection**, the setup is **incomplete**:
 <br/>
@@ -112,7 +112,7 @@ On-prem system port | On the on-premises system, open the port used by the syste
 
 
 
-### In the Azure portal
+### In the Azure classic portal
 
 1. Confirm the Service Bus namespace has an **Active** state.
 2. When you create the connector, enter the Service Bus SAS connection string. Do not enter the ACS connection string.
@@ -136,7 +136,7 @@ If your custom API uses a TCP or HTTP port, you can use [Hybrid Connections](../
 ## Read More
 
 [Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/>
-[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
+[Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
 
 
 

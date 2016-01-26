@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="12/04/2015"
 	ms.author="jeedes"/>
 
 
@@ -23,7 +23,8 @@ The objective of this tutorial is to show you how to integrate Condeco with Azur
 
 - You can control in Azure AD who has access to Condeco
 - You can enable your users to automatically get signed-on to Condeco (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure Active Directory 
+- 
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +58,7 @@ To configure the integration of Condeco into Azure AD, you need to add Condeco f
 
 **To add Condeco from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -71,7 +72,8 @@ To configure the integration of Condeco into Azure AD, you need to add Condeco f
 6. In the search box, type **Condeco**.<br><br>
 ![Creating an Azure AD test user](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_01.png)<br>
 7. In the results pane, select **Condeco**, and then click **Complete** to add the application.
-<br><br>
+<br><br>![Creating an Azure AD test user](./media/active-directory-saas-condeco-tutorial/tutorial_condeco_02.png)<br>
+
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Condeco based on a test user called "Britta Simon".
@@ -89,13 +91,13 @@ To configure and test Azure AD single sign-on with Condeco, you need to complete
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your Condeco application.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Condeco application.
 
 
 
 **To configure Azure AD single sign-on with Condeco, perform the following steps:**
 
-1. In the Azure AD portal, on the **Condeco** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure classic portal, on the **Condeco** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to Condeco** page, select **Azure AD Single Sign-On**, and then click **Next**.
@@ -121,7 +123,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 5. To get SSO configured for your application, contact your Condesco support team via supportna@condecosoftware.com and attach the downloaded metadata file to your email.
 
 
-6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
@@ -131,12 +133,12 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.<br>
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.<br>
 In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<br>
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
 <br><br>![Creating an Azure AD test user](./media/active-directory-saas-condeco-tutorial/create_aaduser_09.png) <br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -197,7 +199,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 **To assign Britta Simon to Condeco, perform the following steps:**
 
-1. On the Azure portal, to open the applications view, in the directory view, click **Applications** in the top menu.
+1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
 <br><br>![Assign User][201] <br>
 
 2. In the applications list, select **Condeco**.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="12/01/2015" 
 	ms.author="ricksal"/>
 
 
@@ -83,7 +83,7 @@ Here are the canonical main-function signatures for the table operations:
 
 >[AZURE.NOTE]A function that's registered to the delete operation must be named _del_ because delete is a reserved keyword in JavaScript. 
 
-Every server script has a main function, and may have optional helper functions. Even though a server script may have been been created for a specific table, it can also reference other tables in the same database. You can also define common functions as modules that can be shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
+Every server script has a main function, and may have optional helper functions. Even though a server script may have been created for a specific table, it can also reference other tables in the same database. You can also define common functions as modules that can be shared across scripts. For more information, see [Source control and shared code][Source control, shared code, and helper functions].
 
 ###<a name="register-table-scripts"></a>How to: Register table scripts
 
@@ -289,7 +289,7 @@ In JavaScript it is a compact version of the lengthier equivalent:
 
 ###<a name="work-with-users"></a>How to: Work with users
 
-In Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user invokes a table operation, Mobile Services uses the [user object] to supply information about the user to the registered script function. The **userId** property can be used to store and retrieve user-specific information. The following example sets the owner property of an item based on the userId of an authenticated user:
+In Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user invokes a table operation, Mobile Services uses the [user object] to supply information about the user to the registered script function. The **userId** property can be used to store and retrieve user-specific information. The following example sets the owner property of an item based on the **userId** of an authenticated user:
 
 	function insert(item, user, request) {
 	    item.owner = user.userId;
@@ -378,7 +378,7 @@ This custom API function is invoked by an HTTP GET request to the following endp
 
 In Azure Mobile Services, you can use an identity provider to authenticate users. For more information, see [Get started with authentication]. When an authenticated user requests a custom API, Mobile Services uses the [user object] to provide information about the user to custom API code. The [user object] is accessed from the user property of the [request object]. The **userId** property can be used to store and retrieve user-specific information. 
 
-The following **OrderPizza** custom API function sets the owner property of an item based on the userId of an authenticated user:
+The following **OrderPizza** custom API function sets the owner property of an item based on the **userId** of an authenticated user:
 
 		exports.post = function(request, response) {
 			var userTable = request.service.tables.getTable('user');

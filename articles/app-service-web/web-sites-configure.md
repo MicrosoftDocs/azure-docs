@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/08/2015" 
 	ms.author="erikre"/>
 
 
@@ -25,7 +25,7 @@ This topic explains how to configure a web app using the [Azure Portal](http://g
 
 ## Application settings
 
-1. In the [Azure Portal](https://portal.azure.com), open the blade for the web app.
+1. In the [Azure Portal](https://portal.azure.com/), open the blade for the web app.
 2. Click **All Settings**.
 3. Click **Application Settings**.
 

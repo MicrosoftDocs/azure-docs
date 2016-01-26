@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Use Application Insights with Azure Diagnostics to troubleshoot Cloud Service issues | Microsoft Azure"
+   pageTitle="Troubleshoot Cloud Services using Application Insights | Microsoft Azure"
    description="Learn how to troubleshoot cloud service issues by using Application Insights to process data from Azure Diagnostics."
    services="cloud-services"
    documentationCenter=".net"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="12/15/2015"
    ms.author="saurabh" />
 
 
-# Use Application Insights with Azure Diagnostics to troubleshoot Cloud Service issues
+# Troubleshoot Cloud Services using Application Insights
 
 With [Azure SDK 2.8](https://azure.microsoft.com/downloads/) and Azure diagnostics extension 1.5 you can now send your Azure Diagnostics data for your Cloud Service directly to Application Insights. The various types of logs collected by Azure Diagnostics including application logs, windows event logs, ETW logs and performance counters can now be sent to Application Insights and visualized in the Application Insights portal UI. When used along with the Application Insights SDK you can now get insights into metrics and logs coming from your application as well as the system and infrastructure level data coming from Azure Diagnostics.
   
@@ -61,7 +61,7 @@ To view Azure diagnostics data in Application Insights:
 
 ![Custom Metrics in Metrics Explorer][5]
 
-- Use [Search](../application-insights/app-insights-diagnostic-search.md) to search across the various trace logs sent by Azure Diagnostics. For example if you had an unhanded exception in a Role which caused the Role to crash and recycle that information would show up in the *Application* channel of *Windows Event Log*. You can use the Search functionality to look at the Windows Event Log error and get the full stack trace for the exception enabling you to find the root cause of the issue. 
+- Use [Search](../application-insights/app-insights-diagnostic-search.md) to search across the various trace logs sent by Azure Diagnostics. For example if you had an unhandled exception in a Role which caused the Role to crash and recycle that information would show up in the *Application* channel of *Windows Event Log*. You can use the Search functionality to look at the Windows Event Log error and get the full stack trace for the exception enabling you to find the root cause of the issue. 
 
 ![Search Traces][6]
 

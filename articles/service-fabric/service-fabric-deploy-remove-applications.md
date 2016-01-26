@@ -3,7 +3,7 @@
    description="How to deploy and remove applications in Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/23/2015"
-   ms.author="alexwun"/>
+   ms.date="12/10/2015"
+   ms.author="seanmck"/>
 
 # Deploy an application
 
@@ -24,7 +24,7 @@ Once an [application type has been packaged][10], it's ready for deployment into
 2. Registering the application type
 3. Creating the application instance
 
->[AZURE.NOTE] If you use Visual Studio for deploying and debugging applications on your local development cluster, all of the steps described below are handled automatically through the PowerShell scripts found in the Scripts folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.
+>[AZURE.NOTE] If you use Visual Studio for deploying and debugging applications on your local development cluster, all of the steps described below are handled automatically through a PowerShell script found in the Scripts folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.
 
 ## Upload the application package
 
@@ -217,7 +217,7 @@ PS D:\temp>
 
 [Service Fabric health introduction](service-fabric-health-introduction.md)
 
-[Diagnose and troubleshoot a Service Fabric service](service-fabric-diagnose-monitor-your-service-index.md)
+[Diagnose and troubleshoot a Service Fabric service](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Model an application in Service Fabric](service-fabric-application-model.md)
 

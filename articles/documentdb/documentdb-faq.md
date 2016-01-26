@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mimig"/>
 
 
@@ -25,7 +25,7 @@
 ### What is Microsoft Azure DocumentDB? 
 Microsoft Azure DocumentDB is a highly-scalable NoSQL document database-as-a-service that offers rich querying over schema-free data, helps deliver configurable and reliable performance, and enables rapid development, all through a managed platform backed by the power and reach of Microsoft Azure. DocumentDB is the right solution for web and mobile applications when predictable throughput, low latency, and a schema-free data model are key requirements. DocumentDB delivers schema flexibility and rich indexing via a native JSON data model, and includes multi-document transactional support with integrated JavaScript.  
   
-For more database questions, answers, and instructions on deploying and using this service, see the [DocumentDB documentation page](http://azure.microsoft.com/documentation/services/documentdb/).
+For more database questions, answers, and instructions on deploying and using this service, see the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
 ### What kind of database is DocumentDB?
 DocumentDB is a NoSQL document oriented database that stores data in JSON format.  DocumentDB supports nested, self-contained-data structures that can be queried through a rich DocumentDB [SQL query grammar](documentdb-sql-query.md). DocumentDB provides high performance transactional processing of server side JavaScript through [stored procedures, triggers, and user defined functions](documentdb-programming.md). The database also supports developer tunable consistency levels with associated [performance levels](documentdb-performance-levels.md).
@@ -42,6 +42,9 @@ Yes, DocumentDB supports cross-document transactions expressed as JavaScript sto
 ### What are the typical use cases for DocumentDB?  
 DocumentDB is a good choice for new web and mobile applications where scale, performance, and the ability to query over schema-free data is important. DocumentDB lends itself to rapid development and supporting the continuous iteration of application data models. Applications that manage user generated content and data are [common use cases for DocumentDB](documentdb-use-cases.md).  
 
+### Is DocumentDB HIPAA compliant?
+DocumentDB is not currently HIPAA compliant; however, becoming a HIPAA compliant Azure service is on the roadmap. For more information about Microsoft and HIPAA see [HIPAA and the HITECH Act](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA).
+
 ### What are the scale limits of DocumentDB?
 DocumentDB accounts can be scaled in terms of storage and throughput by adding collections. Please see [DocumentDB limits](documentdb-limits.md) for the service quotas for the number of collections. If you require additional collections, please [contact support](documentdb-increase-limits.md) to have your account quota increased. 
 
@@ -49,7 +52,7 @@ DocumentDB accounts can be scaled in terms of storage and throughput by adding c
 Please refer to the [DocumentDB pricing details](http://go.microsoft.com/fwlink/p/?LinkID=402317) page for details. DocumentDB usage charges are determined by the number of collections in use, the number of hours the collections were online, and the [performance level](documentdb-performance-levels.md) of each collection. 
 
 ### Is there a free trial available?
-If you are new to Azure, you can sign up for an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. Or, if you have an Visual Studio subscription, you are eligible for [$150 in free Azure credits per month](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.  
+If you are new to Azure, you can sign up for an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/), which gives you 30 days and $200 to try all the Azure services. Or, if you have an Visual Studio subscription, you are eligible for [$150 in free Azure credits per month](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) to use on any Azure service.  
 
 ### How can I get additional help with DocumentDB?
 If you need any help, please reach out to us on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), the [Azure DocumentDB MSDN Developer Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB), or schedule a [1:1 chat with the DocumentDB engineering team](http://www.askdocdb.com/). To stay up to date on the latest DocumentDB news and features, follow us on [Twitter](https://twitter.com/DocumentDB).

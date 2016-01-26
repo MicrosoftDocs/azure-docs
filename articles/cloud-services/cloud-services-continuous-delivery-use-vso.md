@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Continuous delivery with Visual Studio Team Services in Azure"
+	pageTitle="Continuous delivery with Visual Studio Team Services in Azure | Microsoft Azure"
 	description="Learn how to configure your Visual Studio Team Services team projects to automatically build and deploy to the Web App feature in Azure App Service or cloud services."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="kempb"/>
+	ms.date="12/18/2015"
+	ms.author="tarcher"/>
 
 # Continuous delivery to Azure using Visual Studio Team Services
 

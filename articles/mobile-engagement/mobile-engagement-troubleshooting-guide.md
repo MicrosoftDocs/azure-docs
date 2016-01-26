@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Mobile Engagement Troubleshooting Guides" 
    description="Troubleshooting Guide for Azure Mobile Engagement" 
    services="mobile-engagement" 
@@ -79,7 +79,9 @@ More platform specific troubleshooting instructions below:
 
 	- Ensure that the certificates are valid and unexpired for iOS Push Notifications. 
 	- Ensure that you are correctly configuring a *Production* certificate in your Mobile Engagement app. 
+	- Ensure that you are testing on a *real, physical device.* The iOS simulator cannot process push messages.
 	- Ensure that the Bundle Identifier is correctly configured in the mobile app. See the instructions [here](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+	- When testing, use "Ad Hoc" distribution in your mobile provisioning profile. You will not be able to receive notification if your app is compiled using "Debug"
 
 2. **Android**
 
@@ -109,7 +111,7 @@ This is likely to happen during testing and if you are using emulators or some t
 If you are unable to resolve the issue yourself then you can:
 
 1. Search for your issue in the existing threads on StackOverflow forum and [MSDN forum](https://social.msdn.microsoft.com/Forums/windows/en-US/home?forum=azuremobileengagement) and if not then ask a question there. 
-2. If you find a feature missing then add/vote for the request on our [UserVoice forum](http://feedback.azure.com/forums/285737-mobile-engagement)
+2. If you find a feature missing then add/vote for the request on our [UserVoice forum](https://feedback.azure.com/forums/285737-mobile-engagement/)
 3. If you have Microsoft Support Open a support incident by providing the following details: 
 	- Azure Subscription ID
 	- Platform (e.g. iOS, Android etc)

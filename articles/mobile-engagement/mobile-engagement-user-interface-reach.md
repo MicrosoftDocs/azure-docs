@@ -25,22 +25,10 @@ The Reach section of the UI is the Push campaign management tool where you can c
 
 >[AZURE.NOTE] Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
 
- 
 ## Four types of Push notifications
 1.    Announcements - allow you to send advertising messages to users that redirect them to another location inside your app or to send them to a webpage or store outside of your app. 
 2.    Polls - allow you to gather information from end users by asking them questions.
 3.    Data Pushes - allow you to send a binary or base64 data file. The information contained in a data push is sent to your application to modify your users' current experience in your app. Your application needs to be able to process the data in a data push.
-
-
-## Three categories of Real time statistics shown for each campaign
-
-1.    Pushed - how many pushes were sent based on the criteria specified in the campaign. 
-2.    Replied - how many users reacted to the notification by either opening it from outside of app or closing it in the app. 
-3.    Actioned - how many users clicked on the link in the notification to be redirected to a new location in the app, to a store, or to a web browser. 
-
-> [AZURE.NOTE]: More verbose campaign statistics are available from the via Reach API Stats
-
-
 
 ## Campaign Details
 
@@ -50,11 +38,41 @@ You can edit, clone, delete, or activate campaigns that have not been activated 
 
 ## Reach Feedback
 
-To see details or statistics of a campaign, click on it. You can then switch from the details to the statistics view of an open campaign that has already been activated and switch from the simple to advanced view of the statistics to view more detailed information (depending on your permissions). You can also use the reach feedback information from a previous campaign as targeting criteria in a new campaign. Reach Feedback statistics can also be gathered with **Stats** from the Reach API. You can also customize the audience of your Push campaigns based on previous campaigns.
+Click on **Statistics** to see the details of a Reach campaign. The **Simple** view provides a visual representation in the form of a column bar graph about what happened after a campaign was activated. The **Advanced** view provides more granular details about the push campaign. These details will not be available if you are sending a test campaign i.e. a push sent to a test device. 
+Here is how you should interpret these details:
+
+1. **Pushed** - This specifies the number of messages pushed to the devices. This number will depend on the target audience you specified while creating the push campaign. If you do not specify any target audience, then this push will be sent out to all the registered devices. Like all other push services, we do not push the notifications directly to the devices but instead push them to the respective platform specific Push Notification Services (PNS - APNS/GCM/WNS) so that they can deliver the notifications to the devices. 
+
+2.	**Delivered** - This specifies the number of messages which are successfully delivered by the PNS to the device and acknowledged as received by Mobile Engagement SDK. 
+		
+	*Reasons for Delivered count being less than Pushed count:*
+	
+	1. If the user has uninstalled the app from the device but the PNS doesn't know about it at the time we send the push to the PNS then the message will be dropped.
+	2. If the device has the app but the devices themselves were offline for long periods of time, then the PNS will fail to deliver the message to the device. 
+	3. If the message does get delivered to the device but the Mobile Engagement SDK in the app doesn’t recognize the content of the message, then it drops that message. This could happen if the customization of the notification in the app generates an exception which we catch in the SDK and drop the message. This could also occur if the app on the device is using a version of the Mobile Engagement SDK which is not able to understand the newer version of the push message sent from the platform but this is only when the app was upgraded after the notification was dispatched from the service platform. The **Advanced** tab will tell how many messages were dropped. 
+
+3.	**Displayed** - This specifies the number of messages which are successfully shown to the app user on the device in the form of a system push/out-of-app notification in the notification center or an in-app notification within the mobile app.  The **Advanced** tab will tell you how many were system notifications and how many were in-app notifications. 
+
+4.	**User Interactions** - This specifies the number of messages which the app user has interacted with and will include the messages which are either actioned or exited. 
+
+	- *The app user can action a notification in either of the following ways:*
+			
+		1. If the notification is a system/out-of-app notification or an in-app notification sent as notification-only then the app user clicks on the notification.
+		2. If the notification is an in-app notification with a text or web-view or polls then the app user clicks on the Action button in the notification.
+		3. If the notification is an in-app notification with a web-view then the app user clicks on a URL in the web view [Android Only]
+	
+	- *The app user can exit a notification in either of the following ways:*
+	
+		1. Clicking the close button on the notification directly. 
+		2. Swiping away or deleting the notification. 
+		3. In-app notifications with text/web content and polls are typically displayed to the app user in a two-step process. They see a notification first and when they click on it, they see the subsequent text/web/poll content. The app user can exit a notification in either of these steps and the details in the Advanced view captures this. 
+
+5.	**Actioned** - This specifies the number of messages which were explicitly actioned by the app user. This is the most interesting number as this tells how many app users were interested by the message you pushed out in the notification. 
+ 
+> [AZURE.NOTE] On iOS & Windows platforms, if the user has the app open and the campaign was an "AnyTime" campaign then it is possible that both out of app and in-app notifications are displayed at the same time. This may cause a Displayed count higher than the Delivered. If the user interacts or actions the notification, then even the User Interactions/Actioned count could be greater than Delivered. 
 
 
 ![Reach2][19]
-
 
 ## See also
 
