@@ -145,7 +145,7 @@ To remove the virtual machine disk, follow these steps in the Azure Classic Port
 4. Select your data disk, then click Delete Disk.
 5. To delete disk images, navigate to the Images tab and delete any images that are stored in the account.
 
-For more information, see the [Azure Virtual Machine documentation](../services/virtual-machines.md).
+For more information, see the [Azure Virtual Machine documentation](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## Next steps
 
