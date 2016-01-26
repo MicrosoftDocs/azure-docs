@@ -25,7 +25,7 @@ This tutorial shows how to create a Java application and deploy it to Azure App 
 ## Prerequisites
 
 1. [Java Developer's Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (or later)
-1. A paid or [free trial](https://azure.microsoft.com/pricing/free-trial/) subscription to [Microsoft Azure](https://azure.microsoft.com)
+1. A paid or [free trial](https://azure.microsoft.com/pricing/free-trial/) subscription to [Microsoft Azure](https://azure.microsoft.com/)
 1. [Maven](https://maven.apache.org/) installed on your development machine
 1. Git installed on your development machine. 
 
@@ -254,7 +254,7 @@ In this section you'll replace the generated code's server-side implementation w
 ## Publish the output to Azure App Service
 In this section you'll learn how to create a new API App using the Azure Portal, prepare that API App for hosting Java applications, and deploy the newly-created WAR file to Azure App Service to run your new API App. 
 
-1. Create a new API app in the [Azure portal](http://portal.azure.com), by clicking on the **New -> Web + Mobile -> API app** menu item.
+1. Create a new API app in the [Azure portal](https://portal.azure.com/), by clicking on the **New -> Web + Mobile -> API app** menu item.
 	
 	![Create a new API App](media/app-service-api-java-api-app/create-api-app.png)
 

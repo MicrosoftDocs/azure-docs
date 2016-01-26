@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/07/2015"
+	ms.date="01/24/2016"
 	ms.author="robinsh"/>
 
 # Using Azure PowerShell with Azure Storage
 
 ## Overview
 
-In this guide, we’ll explore how to use the [Azure Service Management Cmdlets for Storage](https://msdn.microsoft.com/library/azure/dn806401.aspx) to perform a variety of development and administration tasks with Azure Storage.
-
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It is a task-based command-line shell and scripting language designed especially for system administration. With PowerShell, you can easily control and automate the administration of your Azure services and applications. For example, you can use the cmdlets to perform the same tasks that you can perform through the [Azure Portal](portal.azure.com).
+
+In this guide, we’ll explore how to use the [Azure Storage Cmdlets](https://msdn.microsoft.com/library/azure/mt269418.aspx) to perform a variety of development and administration tasks with Azure Storage.
 
 This guide assumes that you have prior experience using [Azure Storage](http://azure.microsoft.com/documentation/services/storage/) and [Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx). The guide provides a number of scripts to demonstrate the usage of PowerShell with Azure Storage. You should update the script variables based on your configuration before running each script.
 

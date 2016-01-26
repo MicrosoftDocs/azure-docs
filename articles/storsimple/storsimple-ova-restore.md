@@ -130,6 +130,11 @@ Every share has a *.backups* folder that contains the most recent backups. The u
 
 3.  Copy the file or the folder to the appropriate share on your StorSimple file server.
 
+![video_icon](./media/storsimple-ova-restore/video_icon.png) **Video available**
+
+Watch the video to see how you can create shares, back up shares, and restore data on a StorSimple Virtual Array.
+
+> [AZURE.VIDEO use-the-storsimple-virtual-array]
 
 ## Next steps
 

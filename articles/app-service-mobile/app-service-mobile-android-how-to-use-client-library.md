@@ -126,7 +126,7 @@ This code creates the **MobileServiceClient** object that is used to access your
 				"MobileAppUrl", // Replace with the above Site URL
 				this)
 
-In this code, replace `MobileAppUrl` with the URL of your Mobile App backend, which can be found in the [Azure portal](https://portal.azure.com) in the blade for your Mobile App backend. For this line of code to compile, you also need to add the following **import** statement:
+In this code, replace `MobileAppUrl` with the URL of your Mobile App backend, which can be found in the [Azure portal](https://portal.azure.com/) in the blade for your Mobile App backend. For this line of code to compile, you also need to add the following **import** statement:
 
 	import com.microsoft.windowsazure.mobileservices.*;
 

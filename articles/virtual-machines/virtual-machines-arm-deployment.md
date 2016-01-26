@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/05/2016"
+	ms.date="01/20/2016"
 	ms.author="davidmu"/>
 
 # Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries
@@ -28,7 +28,7 @@ This tutorial shows you how to use the Compute, Storage, and Network .NET librar
 To complete this tutorial you also need:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Azure storage account](../storage-create-storage-account.md)
+- [Azure storage account](../storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855)
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
@@ -73,7 +73,7 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 6. Type *Microsoft.Azure.Management.Network* in the search box, click **Install** for the Network .NET Libraries, and then follow the instructions to install the package.
 
-7. Type *Microsoft.Azure.Management.Storage* in the search box, click **Install** for the Network .NET Libraries, and then follow the instructions to install the package.
+7. Type *Microsoft.Azure.Management.Storage* in the search box, click **Install** for the Storage .NET Libraries, and then follow the instructions to install the package.
 
 8. Type *Microsoft.Azure.Management.Resources* in the search box, click **Install** for the Resource Management Libraries.
 

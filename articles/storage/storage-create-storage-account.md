@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
-	description="Create a new storage account, manage your access keys, or delete a storage account in the Azure Portal."
+	pageTitle="How to create, manage, or delete a storage account in the Azure Portal | Microsoft Azure"
+	description="Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts."
 	services="storage"
 	documentationCenter=""
 	authors="robinsh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="01/20/2016"
 	ms.author="robinsh"/>
 
 
@@ -89,7 +89,7 @@ You can also configure a custom domain name to use with your storage account. Se
 
 7. If you have more than one Azure subscription, then the **Subscription** field is displayed. Select the subscription in which you want to create the new storage account.
 
-8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Use Azure Portal to manage Azure resources](../resource-group-portal.md).
+8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Use Azure Portal to manage Azure resources](../azure-portal/resource-group-portal.md).
 
 9. Select the geographic location for your storage account.
 
@@ -133,8 +133,23 @@ To remove a storage account that you are no longer using, navigate to the storag
 
 > [AZURE.WARNING] It's not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. Be sure to back up anything you want to save before you delete the account. This also holds true for any resources in the account—once you delete a blob, table, queue, or file, it is permanently deleted.
 
+To delete a storage account that is associated with an Azure virtual machine, you must first ensure that any virtual machine disks have been deleted. If you do not first delete your virtual machine disks, then when you attempt to delete your storage account, you will see an error message similar to:
+
+    Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
+
+To remove the virtual machine disk, follow these steps in the Azure Classic Portal:
+
+1. Navigate to the [Azure Classic Portal](manage.windowsazure.com).
+2. Navigate to the Virtual Machines tab.
+3. Click the Disks tab.
+4. Select your data disk, then click Delete Disk.
+5. To delete disk images, navigate to the Images tab and delete any images that are stored in the account.
+
+For more information, see the [Azure Virtual Machine documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
+
 ## Next steps
 
-- To learn more about Azure Storage, see the Azure Storage documentation on [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
-- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Azure Storage replication](storage-replication)
+- [Configure a connection string to Azure Storage](storage-configure-connection-string)
 - [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
