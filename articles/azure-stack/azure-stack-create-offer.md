@@ -1,40 +1,40 @@
-﻿<properties 
-	pageTitle="Create an offer (service administrator)" 
-	description="Create an offer (service administrator)" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="Create an offer (service administrator)"
+	description="Create an offer (service administrator)"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Create an offer (service administrator)
 
 Now that you have a plan, you can create and include it in an offer.
 
-1.  Login in to the Admin portal as a service administrator. 
+1.  Login in to the Admin portal as a service administrator.
 	![](media/azure-stack-create-offer/image1.png)
 
 2.  Click **New**.
 
-3.  Click **Tenant Offers and Plans**, then click **Offer**. 
+3.  Click **Tenant Offers and Plans**, then click **Offer**.
 	![](media/azure-stack-create-offer/image2.png)
 
 4.  In the New Offer blade, complete the following:
 
-    1.  Fill in **Display Name** and **Resource Name**.
+    1.  Fill in **Display Name** and **Resource Name**. The Display Name is the name that tenants will see when they see offers available to them. It may contain spaces and special characters. The Resource Name is only exposed to the admin and is the name that admins will use to interact with the offer as an Azure Resource Manager resource.
 
-    2.  Select provider subscription (locked here).
+    2.  Select provider subscription (locked here). The Offer is created as a resource on this subscription.
 
-    3.  Select a **Resource Group** (the plan must be in the same Resource Group as its offer). 
+    3.  Select a new or existing **Resource Group**
 
     	![](media/azure-stack-create-offer/image3.png)
 
@@ -46,7 +46,7 @@ Now that you have a plan, you can create and include it in an offer.
 
     ![](media/azure-stack-create-offer/image5.png)
 
-7.  Click **Change State**, and then click **Public**.
+7.  Click **Change State**, and then click **Public**. This makes the offer visible to tenants.
 
     ![](media/azure-stack-create-offer/image6.png)
 
@@ -64,4 +64,6 @@ Now that you have a plan, you can create and include it in an offer.
 
 3.  Even after an additional subscription has been created and is InSync, you might have to logout/login to see the new subscription in the “Subscription picker” when creating new resources/resource groups.
 
+## Next Steps
 
+[Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)

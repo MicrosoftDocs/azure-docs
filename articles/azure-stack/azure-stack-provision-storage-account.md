@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Storage accounts" 
-	description="Storage accounts" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+<properties
+	pageTitle="Storage accounts"
+	description="Storage accounts"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Storage accounts
@@ -37,3 +37,7 @@ A storage account gives you access to the Blob and Table services. Your storage 
 ## Delete a storage account
 
 To remove a storage account that you are no longer using, navigate to the storage account in portal, and click **Delete**. Deleting a storage account deletes the entire account, including all data in the account.
+
+## Next Steps
+
+[Use Azure Resource Manager templates](azure-stack-arm-templates.md)

@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Use Azure Resource Manager templates (tenant developers)" 
-	description="Use Azure Resource Manager templates (tenant developers)" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="Use Azure Resource Manager templates (tenant developers)"
+	description="Use Azure Resource Manager templates (tenant developers)"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # Use Azure Resource Manager templates (tenant developers)
@@ -91,3 +91,11 @@ Deploys a simple Windows VM. This template also deploys a Virtual Network (with 
 For more information on templates, see the [Azure Resource Manager overview](../resource-group-overview.md) topic.
 
 Azure Resource Manager templates can be used with the Microsoft Azure Stack portal, PowerShell, the command line, PowerShell, and Visual Studio.
+
+## Cancel a running template deployment
+
+To cancel a running template deployment, use the Stop-AzureRmResourceGroupDeployment PowerShell cmdlt.
+
+## Next Steps
+
+[Deploy templates with the portal](azure-stack-deploy-template-portal.md)

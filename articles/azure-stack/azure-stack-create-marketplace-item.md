@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="To create a new marketplace item" 
-	description="To create a new marketplace item" 
-	services="" 
-	documentationCenter="" 
-	authors="v-anpasi" 
-	manager="v-kiwhit" 
+﻿<properties
+	pageTitle="To create a new marketplace item"
+	description="To create a new marketplace item"
+	services="azure-stack"
+	documentationCenter=""
+	authors="v-anpasi"
+	manager="v-kiwhit"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/04/2016" 
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
 # To create a new marketplace item
@@ -24,13 +24,13 @@
 
 3.  Create the following folder structure and include the ARM template in the DeploymentTemplates folder (Replace 'Contoso.TodoList' with your choice of marketplace item name). These are the folders that will contain the resources for your marketplace item.
 
-		/Contoso.TodoList/ 
-		/Contoso.TodoList/Manifest.json 
-		/Contoso.TodoList/UIDefinition.json 
-		/Contoso.TodoList/Icons/ 
-		/Contoso.TodoList/Screenshots/ 
-		/Contoso.TodoList/Strings/ 
-		/Contoso.TodoList/DeploymentTemplates/ 
+		/Contoso.TodoList/
+		/Contoso.TodoList/Manifest.json
+		/Contoso.TodoList/UIDefinition.json
+		/Contoso.TodoList/Icons/
+		/Contoso.TodoList/Screenshots/
+		/Contoso.TodoList/Strings/
+		/Contoso.TodoList/DeploymentTemplates/
 
 4.  Edit the manifest.json. This file specifies all metadata for the marketplace item.
 
@@ -39,8 +39,8 @@
 		    "name": "string", // [A-Za-z0-9]+
 		    "publisher": "string", // [A-Za-z0-9]+
 		    "version": "string", // SemVer v2 Format - see http://semver.org/
-		    "displayName": "string", // max of 256 characters 
-		    "publisherDisplayName": "string", // max of 256 characters 
+		    "displayName": "string", // max of 256 characters
+		    "publisherDisplayName": "string", // max of 256 characters
 		    "publisherLegalName": "string", // max of 256 characters -->
 		    "summary": "string", // max of 100 characters -->
 		    "longSummary": "string", // required, max of 256 characters
@@ -48,7 +48,7 @@
 		    "properties": [
 		        /* optional. max of 10 properties
 		           displayName: max of 64 characters
-		           value: max of 64 characters */
+		           value: max of 64 characters \*/
 		        { "displayName": "string", "value": "string" }
 		    ],
 		    "uiDefinition": {
@@ -83,10 +83,10 @@
 5.  Include icons, screenshots, strings, and so on in the other folders. These are the icons and strings that populate the marketplace user interface.
 
 6.  In the UIDefinition.json file, point to the Extension: HubsExtension as shown below:
-	
-		"createBlade": { 
-		            "name": "DeployFromTemplateBlade", 
-		            "extension": "HubsExtension" 
+
+		"createBlade": {
+		            "name": "DeployFromTemplateBlade",
+		            "extension": "HubsExtension"
 
     The UIDefinition.json file specifies the portal experience for creating the marketplace item resource. All items use the same blade that provides a simple create experience that collects parameters using textboxes.
 
@@ -94,4 +94,6 @@
 
     	AzureGallery.exe package –m <path to manifest.json> -o <output location for the azpkg>
 
+## Next Steps
 
+[Publish a marketplace item](azure-stack-publish-marketplace-item.md)
