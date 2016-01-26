@@ -171,4 +171,4 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 
 - To learn more about Azure Storage, see the Azure Storage documentation on [Azure.com](https://azure.microsoft.com/documentation/services/storage/).
 - Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
