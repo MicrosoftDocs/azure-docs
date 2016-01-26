@@ -59,8 +59,7 @@ This section contains the list of devices that have been successfully deployed i
 | Switch   operating system version | JunOS 12.3R9.4                           |
 | Blade   model                     | Ports onboard (PIC 0)                    |
 | Transceiver make                  | Juniper                                  |
-| Transceiver   model               | Part number 740-021308                   |
-| Transceiver   model               | Part number 740-030658                   |
+| Transceiver   model               | Part number 740-021308 <br></br> Part number 740-030658                   |
 | Transceiver   firmware version    | Rev 01 Version 0.0 (reported)            |
 | Cable   model                     | Duplex jumper LC/LC 50/125µ,   OM3, LSZH |
 | StorSimple   model                | 8600                                     |
