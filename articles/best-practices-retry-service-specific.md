@@ -212,7 +212,7 @@ namespace RetryCodeSamples
 
 ## More information
 
-- [Azure Storage Client Library Retry Policy Recommendations](http://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
+- [Azure Storage Client Library Retry Policy Recommendations](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
 - [Storage Client Library 2.0 – Implementing Retry Policies](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
 
 ## SQL Database using Entity Framework 6 retry guidelines

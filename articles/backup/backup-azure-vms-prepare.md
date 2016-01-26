@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Preparing your environment to back up Azure virtual machines | Microsoft Azure"
 	description="Make sure your environment is prepared for backing up virtual machines in Azure"
 	services="backup"
@@ -162,7 +162,7 @@ The VM agent is already present in VMs that are created from the Azure gallery. 
 | Validating the VM agent installation | <li>Navigate to the *C:\WindowsAzure\Packages* folder in the Azure VM. <li>You should find the WaAppAgent.exe file present.<li> Right-click the file, go to **Properties**, and then select the **Details** tab. The Product Version field should be 2.6.1198.718 or higher. | - |
 
 
-Learn about the [VM agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+Learn about the [VM agent](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) and [how to install it](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
 ### Backup extension
 
@@ -179,7 +179,7 @@ The backup extension is installed if the VM is running. A running VM also provid
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
 - Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
 - Cross-region backup and restore is not supported.
-- Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](http://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
+- Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 - Backing up virtual machines by using the Azure Backup service is supported only for select operating system versions:
   - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distributions.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
