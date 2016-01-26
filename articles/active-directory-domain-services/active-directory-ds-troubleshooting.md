@@ -47,7 +47,7 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 
 - **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, verify the following:
     - You have deployed or updated to the [latest recommended release of Azure AD Connect](active-directory-ds-getting-started-password-sync.md/#install-or-update-azure-ad-connect).
-    - After creating the above mentioned registry key on the server running Azure AD Connect, you have forced Azure AD to perform a full synchronization as outlined in the document.
+    - You have configured Azure AD Connect to [perform a full synchronization](active-directory-ds-getting-started-password-sync).
     - Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD Domain Services. Ensure you wait long enough before retrying authentication (depending on the size of your directory - a few hours to a day or two for large directories).
 
 - **Cloud-only accounts**: If the affected user account is a cloud-only user account, ensure that the user has changed their password after you enabled Azure AD Domain Services. This step causes the credential hashes required for Azure AD Domain Services to be generated.
