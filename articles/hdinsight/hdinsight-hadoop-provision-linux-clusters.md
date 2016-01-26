@@ -183,7 +183,7 @@ Use this to determine the version of HDInsight used for this cluster. For more i
 
 ### Use Azure virtual networks
 
-An [Azure Virtual Network](http://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
+An [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) allows you to create a secure, persistent network containing the resources you need for your solution. A virtual network allows you to:
 
 * Connect cloud resources together in a private network (cloud-only).
 

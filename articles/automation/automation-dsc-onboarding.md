@@ -40,7 +40,7 @@ With Azure Automation DSC, you can easily onboard Azure virtual machines (classi
 
 ### Azure portal
 
-In the [Azure preview portal](http://portal.azure.com/), click **Browse** -> **Virtual machines (classic)**. Select the Windows VM you want to onboard. On the virtual machine’s dashboard blade, click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**. Enter the [PowerShell DSC Local Configuration Manager values](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) required for your use case, your Automation account’s registration key and registration URL, and optionally a node configuration to assign to the VM.
+In the [Azure preview portal](https://portal.azure.com/), click **Browse** -> **Virtual machines (classic)**. Select the Windows VM you want to onboard. On the virtual machine’s dashboard blade, click **All settings** -> **Extensions** -> **Add** -> **Azure Automation DSC** -> **Create**. Enter the [PowerShell DSC Local Configuration Manager values](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) required for your use case, your Automation account’s registration key and registration URL, and optionally a node configuration to assign to the VM.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
@@ -116,7 +116,7 @@ Azure Automation DSC lets you easily onboard Azure virtual machines for configur
 
 ### Azure portal
 
-In the [Azure preview portal](http://portal.azure.com/), navigate to the Azure Automation account where you want to onboard virtual machines. On the Automation account dashboard, click **DSC Nodes** -> **Add Azure VM**.
+In the [Azure preview portal](https://portal.azure.com/), navigate to the Azure Automation account where you want to onboard virtual machines. On the Automation account dashboard, click **DSC Nodes** -> **Add Azure VM**.
 
 Under **Select virtual machines to onboard**, select one or more Azure virtual machines to onboard.
 
@@ -130,7 +130,7 @@ Under **Configure registration data**, enter the [PowerShell DSC Local Configura
  
 ### Azure Resource Manager templates
 
-Azure virtual machines can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC. To find the registration key and registration URL taken as input in this template, see the [**Secure registration**](#secure-registration) section below.
+Azure virtual machines can be deployed and onboarded to Azure Automation DSC via Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/) for an example template that onboards an existing VM to Azure Automation DSC. To find the registration key and registration URL taken as input in this template, see the [**Secure registration**](#secure-registration) section below.
 
 ### PowerShell
 
@@ -348,7 +348,7 @@ After registering, each node automatically negotiates a unique certificate for a
 ## Related Articles
 * [Azure Automation DSC overview](automation-dsc-overview.md)
 * [Azure Automation DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
-* [Azure Automation DSC pricing](http://azure.microsoft.com/pricing/details/automation/)
+* [Azure Automation DSC pricing](https://azure.microsoft.com/pricing/details/automation/)
 
 
 

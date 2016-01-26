@@ -32,7 +32,7 @@ Learn how to create an HBase cluster in HDInsight, create HBase tables, and quer
 
 Before you begin this HBase tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - PuTTY and PuTTYGen for Windows-based clients. These utilities are available from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - [curl](http://curl.haxx.se/download.html).
 

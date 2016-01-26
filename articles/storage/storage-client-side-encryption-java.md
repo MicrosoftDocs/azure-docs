@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Overview  
-The [Azure Storage Client Library for Java](https://www.nuget.org/packages/WindowsAzure.Storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](http://azure.microsoft.com/services/key-vault/) for storage account key management.
+The [Azure Storage Client Library for Java](https://www.nuget.org/packages/WindowsAzure.Storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
 ## Encryption and decryption via the envelope technique    
 The processes of encryption and decryption follow the envelope technique.  

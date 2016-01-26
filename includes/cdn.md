@@ -116,7 +116,7 @@ Delivery Network (CDN), you can take one of the following steps:
 
 -   For an Azure blob, you can delete the blob from the public
     container.
--   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](http://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) for more information.
+-   You can make the container private instead of public. See [Restrict Access to Containers and Blobs](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/#restrict-access-to-containers-and-blobs) for more information.
 -   You can disable or delete the CDN endpoint using the Management
     Portal.
 -   You can modify your hosted service to no longer respond to requests for the
@@ -128,7 +128,7 @@ expires, the CDN will check to see whether the CDN endpoint is still
 valid and the object still anonymously accessible. If it is not, then
 the object will no longer be cached.
 
-The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](http://azure.microsoft.com/support/options/)  if you need to immediately purge content. 
+The ability to immediately purge content is currently not supported on Azure Management Portal. Please contact [Azure support](https://azure.microsoft.com/support/options/)  if you need to immediately purge content. 
 
 ## Additional resources
 

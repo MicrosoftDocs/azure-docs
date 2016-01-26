@@ -32,5 +32,5 @@ Here are detailed release notes and update instructions for our SDKs:
 * [Visual Studio tools](app-insights-release-notes-vsix.md)
 * [Other platforms](https://github.com/Microsoft/ApplicationInsights-Home)
 
-Read also our [Service Updates](http://azure.microsoft.com/updates/?service=application-insights) which summarize major improvements in the Application Insights service as a whole.
+Read also our [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) which summarize major improvements in the Application Insights service as a whole.
 

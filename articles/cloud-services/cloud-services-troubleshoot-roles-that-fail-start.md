@@ -22,9 +22,9 @@ Here are some common problems and solutions related to Azure Cloud Service roles
 
 ## Contact Azure Customer Support
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/).
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/).
 
-Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 
 ## Missing DLLs or dependencies
@@ -107,7 +107,7 @@ You can use the Azure Microsoft Azure compute emulator to diagnose and troublesh
 
 For best results in using this method of diagnosis, you should use a computer or virtual machine that has a clean installation of Windows. To best simulate the Azure environment you should use Windows Server 2008 R2 x64.
 
-1. Install the standalone version of the [Azure SDK](https://azure.microsoft.com/downloads)
+1. Install the standalone version of the [Azure SDK](https://azure.microsoft.com/downloads/)
 
 2. On the development machine build the cloud service project.
 

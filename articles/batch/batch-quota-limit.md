@@ -53,7 +53,7 @@ View your Batch account quotas in the [Azure portal](https://portal.azure.com).
 
 ## Increase a quota
 
-Use the following steps to request a quota increase in the Azure portal (you can also request an increase in the [Azure classic portal](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
+Use the following steps to request a quota increase in the Azure portal (you can also request an increase in the [Azure classic portal](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)).
 
 1. On the dashboard of the preview portal, click **Help + support**.
 

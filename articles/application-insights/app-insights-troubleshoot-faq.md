@@ -32,7 +32,7 @@
 
 #### What do I get if I pay?
 
-* A larger [monthly quota of data](http://azure.microsoft.com/pricing/details/application-insights/).
+* A larger [monthly quota of data](https://azure.microsoft.com/pricing/details/application-insights/).
 * Option to pay 'overage' to continue collecting data over the monthly quota. If your data goes over quota, you're charged per Mb.
 * [Continuous export](app-insights-export-telemetry.md).
 
@@ -159,7 +159,7 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 #### I used to see data, but it has stopped
 
 * Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
-* Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+* Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 #### I don't see all the data I'm expecting
