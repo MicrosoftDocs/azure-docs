@@ -18,19 +18,27 @@
 
 # Tools and PaaS services for Azure Stack
 
-<overview>
+##Overview [David]
+why would a customer use these etc?
 
-Additional PaaS Services
-Web Apps
-SQL Server Resource Adapter 
-MySQL
+##Additional PaaS Services
+###Web Apps [David]
 
-Template Tools
-Azure Stack Github Templates
-Marketplace Item Packaging Tool and Sample
-Virtual Machine Resource Extensions
+###SQL Server Resource Adapter [David] 
 
-Developer Tools
-Visual Studio Template
-Azure CLI
-Azure PowerShell-Shri
+###MySQL [David]
+
+##Template Tools
+###Azure Stack Github Templates [Charles]
+
+###Marketplace Item Packaging Tool and Sample [Download](http://www.aka.ms/azurestackmarketplaceitem)
+Use the Packaging tool to create marketplace items for your own custom templates to add to the Azure Stack marketplace. Instructions on how to create a marketplace item and make it available to your tenants can be found in [Publish Custom Marketplace Item](azure-stack-publish-custom-marketplace-item.md).
+
+###Virtual Machine Resource Extensions [Charles]
+
+##Developer Tools
+###Visual Studio Template [Shri]
+
+###Azure CLI [Shri]
+
+###Azure PowerShell [Shri]
