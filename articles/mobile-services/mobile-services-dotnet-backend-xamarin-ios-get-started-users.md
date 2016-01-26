@@ -13,19 +13,15 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="01/25/2015" 
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-This topic shows you how to authenticate users in Azure Mobile Services from your app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
+>[AZURE.NOTE]This is an Azure Mobile Services topic. Microsoft Azure recommends Azure App Service Mobile Apps for all new mobile backend deployments. For more information, see the [equivalent tutorial in Mobile Apps documentation](../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md).
+
+This topic shows you how to authenticate users in Mobile Services from your app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 
@@ -79,48 +75,29 @@ In this section, you will modify the app to display a login screen before displa
 
 > [AZURE.NOTE] If you are using an identity provider other than a Facebook, change the value passed to **LoginAsync** above to one of the following: _MicrosoftAccount_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
-3. Open **QSTodoListViewController.cs**. Modify the method definition of **ViewDidLoad** to remove the call to **RefreshAsync()** near the end:
+3. Open **QSTodoListViewController.cs** and modify the method definition of **ViewDidLoad** to remove or comment-out the call to **RefreshAsync()** near the end.
 
-		public override async void ViewDidLoad ()
-		{
-			base.ViewDidLoad ();
+4. Add the following code at the top of the method **RefreshAsync** definition:
 
-			todoService = QSTodoService.DefaultService;
-
-			todoService.BusyUpdate += (bool busy) => {
-				if (busy)
-					activityIndicator.StartAnimating ();
-				else
-					activityIndicator.StopAnimating ();
-			};
-
-			// Comment out the call to RefreshAsync
-			// await RefreshAsync ();
-
-			AddRefreshControl ();
-		}
-
-
-4. Modify the method **RefreshAsync** to authenticate and display a login screen if the **User** property is null. At the following code at the top of the method definition:
-
-		// start of RefreshAsync method
+		// Add at the start of the RefreshAsync method.
 		if (todoService.User == null) {
 			await QSTodoService.DefaultService.Authenticate (this);
 			if (todoService.User == null) {
-				Console.WriteLine ("couldn't login!!");
+				Console.WriteLine ("You must sign in.");
 				return;
 			}
 		}
-		// rest of RefreshAsync method
+		
+	This displays a sign-in screen to attempt authentication when the **User** property is null. When the login is successful the **User** is set. 
 
-5. Press the **Run** button to build the project and start the app in the iPhone simulator. Verify that the app displays no data.
+5. Press the **Run** button to build the project and start the app in the iPhone simulator. Verify that the app displays no data. **RefreshAsync()** has not yet been called.
 
-	Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items and you can make updates to the data.
+6. Perform the refresh gesture by pulling down the list of items, which calls **RefreshAsync()**. This calls **Authenticate()** to start authentication and the login screen is displayed. After you have successfully authenticated, the app displays the list of todo items and you can make updates to the data.
 
-<!-- ## <a name="next-steps"> </a>Next steps
+## <a name="next-steps"> </a>Next steps
 
 In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
- -->
+
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
