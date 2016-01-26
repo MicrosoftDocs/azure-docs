@@ -34,7 +34,7 @@ See this page for service location and availability: [ExpressRoute partners and 
 You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the provider location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your service provider is present in any of the Exchange locations. You can then order an ExpressRoute circuit through the service provider to connect to Azure.
 
 ### How much does ExpressRoute cost?
-Check [pricing details](http://azure.microsoft.com/pricing/details/expressroute/) for pricing information.
+Check [pricing details](https://azure.microsoft.com/pricing/details/expressroute/) for pricing information.
 
 ### If I pay for an ExpressRoute circuit of a given bandwidth, does the VPN connection I purchase from my network service provider have to be the same speed?
 No. You can purchase a VPN connection of any speed from your service provider. However, your connection to Azure will be limited to the ExpressRoute circuit bandwidth that you purchase.
@@ -46,7 +46,7 @@ Yes. ExpressRoute circuits are configured to support cases where you can burst u
 Yes. An ExpressRoute circuit, once setup will allow you to access services within a virtual network and other Azure services simultaneously. You will connect to virtual networks over the private peering path and other services over the public peering path.
 
 ### Does ExpressRoute offer a Service Level Agreement (SLA)?
-Please refer to the [ExpressRoute SLA page](http://azure.microsoft.com/support/legal/sla/) for more information.
+Please refer to the [ExpressRoute SLA page](https://azure.microsoft.com/support/legal/sla/) for more information.
 
 ## Supported services
 Most Azure services are supported over ExpressRoute.
@@ -65,7 +65,7 @@ Most Azure services are supported over ExpressRoute.
 ## Data and connections
 
 ### Are there limits on the amount of data that I can transfer using ExpressRoute?
-We do not set a limit on the amount of data transfer. Refer to [pricing details](http://azure.microsoft.com/pricing/details/expressroute/) for information on bandwidth rates.
+We do not set a limit on the amount of data transfer. Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressroute/) for information on bandwidth rates.
 
 ### What connection speeds are supported by ExpressRoute?
 Supported bandwidth offers:
@@ -208,7 +208,7 @@ You can disable ExpressRoute premium by calling the update dedicated circuit API
 No. You will not be able to pick the features you need. We enable all features when you turn on ExpressRoute premium.
 
 ### How much does ExpressRoute premium cost?
-Refer to [pricing details](http://azure.microsoft.com/pricing/details/expressroute/) for cost.
+Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressroute/) for cost.
 
 ### Do I pay for ExpressRoute premium in addition to standard ExpressRoute charges?
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
@@ -250,7 +250,7 @@ Yes. Your existing ExpressRoute circuit can be configured to support connectivit
 You can connect to these services over the internet.
 
 ### How much does ExpressRoute for Office 365 cost?
-There is no additional cost for connecting to Office 365 over ExpressRoute.  The [pricing details page](http://azure.microsoft.com/pricing/details/expressroute/) provides details of costs for ExpressRoute.
+There is no additional cost for connecting to Office 365 over ExpressRoute.  The [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) provides details of costs for ExpressRoute.
 
 ### What regions is ExpressRoute for Office 365 supported in?
 Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of partners and locations where ExpressRoute is supported.

@@ -65,7 +65,7 @@ While your web app is running, you want to make sure it is available, and that i
  
 ### Backups
 
-- Set [automatic backups](web-sites-backup.md) of your web app. Learn more about backups in [this video](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
+- Set [automatic backups](web-sites-backup.md) of your web app. Learn more about backups in [this video](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
 - Learn about the options for [database recovery](../sql-database-business-continuity.md) in Azure SQL Database.
 
 ### Troubleshooting

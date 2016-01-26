@@ -30,7 +30,7 @@ This source is provided to demonstrate a pattern for implementing the core funct
 
 ## Changing the preconfigured rules
 
-The remote monitoring solution includes two [Azure Stream Analytics](http://azure.microsoft.com/services/stream-analytics) jobs to implement the telemetry and alarm logic displayed on the dashboard.
+The remote monitoring solution includes two [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) jobs to implement the telemetry and alarm logic displayed on the dashboard.
 
 The first job selects all the data from the incoming stream of telemetry and creates two different outputs. The job is named **[solution name]-Telemetry**.
 
@@ -65,6 +65,6 @@ The [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) provide libraries 
 
 ## Next steps
 
-For more information about IoT devices, see the [Azure IoT Developer Site](http://azure.microsoft.com/develop/iot) to find links and documentation.
+For more information about IoT devices, see the [Azure IoT Developer Site](https://azure.microsoft.com/develop/iot/) to find links and documentation.
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
