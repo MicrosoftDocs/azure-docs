@@ -33,7 +33,7 @@ Audit logging is automatically enabled at all times for every Resource Manager r
 
 2.  In the portal, click **Browse** >> **Load Balancers**.
 
-	![portal - load-balancer](../media/load-balancer-monitor-log/load-balancer-browse.png)
+	![portal - load-balancer](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
 3. Select an existing load balancer >> **All Settings**.
 
