@@ -65,7 +65,7 @@ The benefits of CENC with multi-DRM are as follows:
 
 Microsoft has been an active promoter of DASH and CENC together with some major industry players. Microsoft Azure Media Services has been providing support of DASH and CENC. For recent announcements, please see Mingfei’s blogs: [Announcing Google Widevine license delivery services public preview in Azure Media Services](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/), and [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).  
 
-###<a id="article_overview></a>Overview of this article
+###<a id="article_overview"></a>Overview of this article
 
 In this article, “multi-DRM” covers the following:
 
@@ -366,7 +366,7 @@ The good news is that you can use exactly the same design and implementation for
 
 Specifically, it is well known that to do live streaming in Azure Media Services, you need to create a channel, then a program under the channel. To create the program, you need to create an asset which will contain the live archive for the program. In order to provide CENC with multi-DRM protection of the live content, all you need to do, is to apply the same setup/processing to the asset as if it was a “VOD asset” before you start the program.
 
-###<a id="license_servier_outside_ams></a>What about license servers outside of Azure Media Services?
+###<a id="license_servier_outside_ams"></a>What about license servers outside of Azure Media Services?
 
 Often, customers may have invested in license server farm either in their own data center or hosted by DRM service providers. Fortunately, Azure Media Services Content Protection allows you to operate in hybrid mode: contents hosted and dynamically protected in Azure Media Services, while DRM licenses are delivered by servers outside Azure Media Services. In this case, there are the following considerations of changes:
 
