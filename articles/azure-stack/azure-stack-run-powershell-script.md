@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prepare the physical machine for Azure Stack POC deployment"
-	description="Learn how to prepare the physical machine and run the PowerShell script for Azure Stack POC deployment."
+	pageTitle="Deploy Azure Stack POC"
+	description="Learn how to prepare the Azure Stack POC and run the PowerShell script to deploy Azure Stack POC."
 	services="azure-stack"
 	documentationCenter=""
 	authors="erikje"
@@ -16,11 +16,11 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Prepare the physical machine for Azure Stack POC deployment
+# Deploy Azure Stack POC
+Before you deploy, prepare the Azure Stack POC machine.
+1.  Install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 
-1.  On the Azure Stack POC machine, install Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
-
-2.  Download the Azure Stack POC deployment package to a folder such as c:\\AzureStack.
+2.  Download the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
 
 3.  Run the **Microsoft Azure Stack POC.exe** file.
 
@@ -59,7 +59,7 @@
 
 11. Verify network connectivity to Azure.com.
 
-## Run the PowerShell script
+## Run the PowerShell deployment script
 
 1.  Open PowerShell as an administrator.
 
@@ -73,7 +73,7 @@
 
     	.\DeployAzureStack.ps1 –verbose -UseAADChina $true
 
-    The deploy process begins and various prerequisite checks are conducted. The Azure Stack POC domain name is hardcoded as azurestack.local.
+    Deployment starts and the Azure Stack POC domain name is hardcoded as azurestack.local.
 
 4.  At the **Enter the password for the built-in administrator** prompt, enter a password and then confirm it. This is the password to all the virtual machines. Be sure to record this Service Admin password.
 
@@ -111,14 +111,13 @@ You can find the script logs on the POC host `C:\ProgramData\microsoft\azurestac
 
 ## Turn off telemetry for Microsoft Azure Stack POC (optional)
 
-### How to turn off telemetry for Microsoft Azure Stack before the deployment
 
 Before deploying Microsoft Azure Stack POC, you can turn off telemetry for Microsoft Azure Stack on the machine from which the deployment is performed. To turn off this feature on a single machine, please refer to: <http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq>, and change the **Diagnostic and usage data** setting to **Basic**.
 
-### How to turn off telemetry after the Microsoft Azure Stack deployment
+
 
 After deploying Microsoft Azure Stack POC, you can turn off telemetry on all the virtual machines that joined the Azure Stack domain. To create a group policy and manage your telemetry settings on those virtual machines, please refer to: [https://technet.microsoft.com/library/mt577208(v=vs.85).aspx\#BKMK\_UTC](https://technet.microsoft.com/library/mt577208%28v=vs.85%29.aspx#BKMK_UTC), and select **0** or **1** for the **Allow Telemetry** group policy. There are two virtual machines (bgpvm and natvm) not joining the Azure Stack domain. To change the Feedback and Diagnostics settings on these virtual machines separately, please refer to:  <http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq>.
 
 ## Next Steps
 
-[Prepare the physical machine](azure-stack-connect-azure-stack.md)
+[Connect to Azure Stack](azure-stack-connect-azure-stack.md)

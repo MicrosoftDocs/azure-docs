@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Overview: Microsoft Azure Stack"
-	description="Overview: Microsoft Azure Stack "
+	description="Overview: Microsoft Azure Stack"
 	services="azure-stack"
 	documentationCenter=""
 	authors="erikje"
