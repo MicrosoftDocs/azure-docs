@@ -36,6 +36,8 @@ The article contains two sections:
 
 ## <a id="authconfig"></a> How to configure user authentication in Azure App Service
 
+This section provides general instructions that apply to any API app. For steps specific to the To Do List .NET sample application, go to [Continuing the .NET getting-started tutorials](#tutorialstart).
+
 1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you want to protect, and then click **Settings**
 
 2. In the **Settings** blade, find the **Features** section, and then click **Authentication/ Authorization**.

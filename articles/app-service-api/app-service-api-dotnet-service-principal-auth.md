@@ -29,15 +29,17 @@ In this article you'll learn:
 * How to make sure that the protected API app can't be called from a browser by logged on users.
 * How to make sure that the protected API app can only be called by a specific Azure AD service principal.
 
-This method of securing an API app is commonly used for [internal scenarios such as for calling from one API app to another API app](app-service-api-authentication.md#internal).
+This method of securing an API app is commonly used for [internal scenarios](app-service-api-authentication.md#internal), such as for calling from one API app to another API app.
 
 The article contains two sections:
 
 * The [How to configure service principal authentication in Azure App Service](#authconfig) section explains in general how to configure authentication for any API app, and how to consume the protected API app. This section applies equally to all frameworks supported by App Service, including .NET, Node.js, and Java.
 
-* The [remainder of the article](#tutorialstart) guides you through configuring a "internal access" scenario for a .NET sample application running in App Service. 
+* The [remainder of the article](#tutorialstart) guides you through configuring an "internal access" scenario for a .NET sample application running in App Service. 
 
 ## <a id="authconfig"></a> How to configure service principal authentication in Azure App Service
+
+This section provides general instructions that apply to any API app. For steps specific to the To Do List .NET sample application, go to [Continuing the .NET getting-started tutorials](#tutorialstart).
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to the **API App** blade of the API app that you want to protect, and then click **Settings**
 
@@ -98,10 +100,11 @@ The remainder of this article continues the .NET getting-started series for API 
 
 ## Set up authentication in Azure
 
-In this section you configure App Service so that the only HTTP requests it allows to reach your API app are the ones that have valid tokens. When you're done, the middle tier API app will send application credentials to Azure AD and get back a bearer token. It will then send the bearer token to the data tier API app, as shown in the diagram.
+In this section you configure App Service so that the only HTTP requests it allows to reach the data tier API app are the ones that have valid Azure AD bearer tokens. 
+
+In the following section, you configure the middle tier API app to send application credentials to Azure AD, get back a bearer token, and send the bearer token to the data tier API app. This process is illustrated in the diagram.
 
 ![](./media/app-service-api-dotnet-service-principal-auth/appdiagram.png)
- 
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to the API App blade of the API app that you created for the ToDoListDataAPI (data tier) API app, and then click **Settings**.
 
@@ -123,16 +126,16 @@ In this section you configure App Service so that the only HTTP requests it allo
 
 7. Under **Management mode**, click **Create New AD App**.
 
-	For this tutorial you'll use separate Azure AD applications for the calling API app and the protected API app. Another option is to use a single Azure AD application, and if you chose that option you would not need the **Create New AD App** option here.
-
 	The portal plugs the **Create App** input box with a default value. 
 	
 	![](./media/app-service-api-dotnet-service-principal-auth/aadsettings.png)
 
+	By default, the Azure AD application is named the same as the API app. If you prefer, you can enter a different name.
+
+	As an alternative, you could use a single Azure AD application for both the calling API app and the protected API app. If you chose that alternative, you would not need the **Create New AD App** option here because you already created an Azure AD application earlier in the user authentication tutorial. For this tutorial, you'll use separate Azure AD applications for the calling API app and the protected API app.
+
 8. Make a note of the value that is in the **Create App** input box; you'll look up this AAD application in the Azure classic portal later.
 
-	Azure will automatically create an Azure AD application in your Azure AD tenant. By default, the Azure AD application is named the same as the API app. If you prefer, you can enter a different name.
- 
 7. Click **OK**.
 
 10. In the **Authentication / Authorization** blade, click **Save**.
@@ -153,9 +156,13 @@ In this section you configure App Service so that the only HTTP requests it allo
 
 	When you're logged on, the "successfully created" page appears in the browser.
 
-### Get Azure AD configuration values
+## Configure the ToDoListAPI project to acquire and send the Azure AD token
 
-To acquire an Azure AD service principal token, the middle tier API app will have to provide Azure AD with some configuration values. In this section you get those values and save them so that you can enter them into the API app's runtime environment later. 
+In this section you get service principal credentials from Azure AD. Then you add code in the middle tier API app that uses those credentials to acquire a token and send it to the data tier API app, as shown in the diagram.
+
+![](./media/app-service-api-dotnet-service-principal-auth/appdiagram.png)
+
+### Get Azure AD configuration values
 
 11. In the [Azure classic portal](https://manage.windowsazure.com/), go to **Azure Active Directory**.
 
@@ -187,7 +194,9 @@ To acquire an Azure AD service principal token, the middle tier API app will hav
 
 ## Configure the ToDoListAPI project to acquire and send the Azure AD token
 
-1. Uncomment all of the code in the ServicePrincipal.cs file.
+Make the following changes in the ToDoListAPI project in Visual Studio.
+
+1. Uncomment all of the code in the *ServicePrincipal.cs* file.
 
 	This is the code that uses ADAL for .NET to acquire the Azure AD bearer token.  It uses several configuration values that you'll set in the Azure runtime environment later. Here's the code: 
 
@@ -214,31 +223,33 @@ To acquire an Azure AD service principal token, the middle tier API app will hav
 		    }
 		}
 
-	**Note:** This code requires the ADAL for .NET NuGet package (Microsoft.IdentityModel.Clients.ActiveDirectory), which is already installed in the project. If you were creating this project from scratch, you would have to install this package; it's not automatically installed by the API App new-project template.
+	**Note:** This code requires the ADAL for .NET NuGet package (Microsoft.IdentityModel.Clients.ActiveDirectory), which is already installed in the project. If you were creating this project from scratch, you would have to install this package. This package is not automatically installed by the API app new-project template.
 
 2. In *Controllers/ToDoListController*, uncomment the code in the `NewDataAPIClient` method that adds the token to HTTP requests in the authorization header.
 
 		client.HttpClient.DefaultRequestHeaders.Authorization =
 		    new AuthenticationHeaderValue("Bearer", ServicePrincipal.GetS2SAccessTokenForProdMSA().AccessToken);
 
-3. Deploy the ToDoListAPI project.
+3. Deploy the ToDoListAPI project. (Right-click the project, then click **Publish > Publish**.)
 
-### Configure Azure AD settings in the API app's runtime environment
+4. Close the browser window that opens after the project is successfully deployed.
 
-1. Go to the [Azure portal](https://portal.azure.com/), and then navigate to the **API App** blade for the API app that you deployed the TodoListAPI (middle tier) project to.
+### Configure Azure AD settings in the middle tier API app's runtime environment
+
+1. Go to the [Azure portal](https://portal.azure.com/), and then navigate to the **API App** blade for the API app that hosts the TodoListAPI (middle tier) project.
 
 2. Click **Settings > Application Settings**.
 
-3. In the **App settings** section, add the following keys and values:??
+3. In the **App settings** section, add the following keys and values:
 
 	|Key|Value|Example
 	|---|---|---|
 	|ida:Authority|https://login.microsoftonline.com/{your Azure AD tenant name}|https://login.microsoftonline.com/contoso.onmicrosoft.com|
-	|ida:ClientId|Client ID of calling application (ToDoListAPI)|960adec2-b74a-484a-960adec2-b74a-484a|
-	|ida:AppKey|App key of calling application (ToDoListAPI)|oCgdj3EYLfnR0p6iR3UvHFAfkn+zQB+0VqZT/6=
+	|ida:ClientId|Client ID of the calling application (ToDoListAPI)|960adec2-b74a-484a-960adec2-b74a-484a|
+	|ida:ClientSecret|App key of the calling application (ToDoListAPI)|oCgdj3EYLfnR0p6iR3UvHFAfkn+zQB+0VqZT/6=
 	|ida:Resource|Client ID of the called application (ToDoListDataAPI)|e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8|
 
-	If you were using a single Azure AD application as in [the internal access scenario described earlier](#internal), you would use the same value in both `ida:ClientId` and `ida:Resource`.
+	If you were using a single Azure AD application for both the calling API app and the protected API app, you would use the same value in both `ida:ClientId` and `ida:Resource`.
 
 	The code uses ConfigurationManager to get these values, so they could be stored in the project's Web.config file or in the Azure runtime environment. While an ASP.NET application is running in Azure App Service, environment settings automatically override settings from Web.config. Environment settings are generally a [more secure way to store sensitive information compared to a Web.config file](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
@@ -248,11 +259,11 @@ To acquire an Azure AD service principal token, the middle tier API app will hav
 
 ### Test the application
 
-1. In a browser go to the URL of the AngularJS front end web app.
+1. In a browser go to the HTTPS URL of the AngularJS front end web app.
 
 2. Click the **To Do List** tab and log in with credentials for a user in your Azure AD tenant. 
 
-4. Add to-do items.
+4. Add to-do items to verify that the application is working.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/mvchome.png)
 
@@ -260,7 +271,7 @@ To acquire an Azure AD service principal token, the middle tier API app will hav
 
 ## Protect the API app from browser access
 
-For this tutorial you created a separate Azure AD application for the ToDoListDataAPI (data tier) API app. As you've seen, when App Service creates an AAD application, it configures the AAD application in a way that enables a user to go to the API app's URL in a browser and log on. That means it's possible for an end user, not just a service principal, to access the API. 
+For this tutorial you created a separate Azure AD application for the ToDoListDataAPI (data tier) API app. As you've seen, when App Service creates an AAD application, it configures the AAD application in a way that enables a user to go to the API app's URL in a browser and log on. That means it's possible for an end user in your Azure AD tenant, not just a service principal, to access the API. 
 
 If you want to prevent browser access without writing any code in the protected API app, you can change the **Reply URL** in the AAD application so that it's different from the API app's base URL. 
 
@@ -272,7 +283,7 @@ If you want to prevent browser access without writing any code in the protected 
 
 ### Verify browser access no longer works
 
-Earlier you verified that you can run the API app's Swagger UI from a browser by logging on with an individual user's credentials. In this section, you verify that this is no longer possible. 
+Earlier you verified that you can go to the API app URL from a browser by logging on with an individual user's credentials. In this section, you verify that this is no longer possible. 
 
 1. In a new browser window, go to the URL of the API app again.
 
@@ -284,9 +295,7 @@ Earlier you verified that you can run the API app's Swagger UI from a browser by
 
 ## Restrict access to a particular service principal  
 
-Right now other AAD applications in the same tenant can get a token and call in to the API app. You might want to make sure that the TodoListService only accepts calls from the TodoListWebApp Azure AD application.
-
-You might also want to restrict access not just to a particular application but to a particular service principal. 
+Right now, any caller that can get a token for a user or service principal in your Azure AD tenant can call the TodoListDataAPI (data tier) API app. You might want to make sure that the data tier API app only accepts calls from the TodoListAPI (middle tier) API app, and only from a particular service principal. 
 
 You can add these restrictions by adding code to validate the `appid` and `objectidentifier` claims on incoming calls.
 
@@ -313,11 +322,11 @@ Make the following changes to the TodoListDataAPI project.
 		    }
 		}
 
-5. Redeploy the ToDoListService project to Azure App Service.
+5. Redeploy the ToDoListDataAPI project to Azure App Service.
 
-6. In your browser, go to the AngularJS front end web app's URL, and in the home page click the **To Do List** tab.
+6. In your browser, go to the AngularJS front end web app's HTTPS URL, and in the home page click the **To Do List** tab.
 
-	The application doesn't work because calls to the back end are failing. The new code is checking actual appid and objectidentifier but it doesn't yet have the correct values to check them against.
+	The application doesn't work because calls to the back end are failing. The new code is checking actual appid and objectidentifier but it doesn't yet have the correct values to check them against. The browser Developer Tools Console reports that the server is returning an HTTP 401 error.
 
 	![](./media/app-service-api-dotnet-service-principal-auth/webapperror.png)
 
@@ -327,20 +336,20 @@ Make the following changes to the TodoListDataAPI project.
 
 	a. For instructions on how to install Azure PowerShell and connect to your subscription, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
-	b. To get a list of service principals, execute the `Get-AzureRmADServicePrincipal` command.
+	b. To get a list of service principals, execute the `Login-AzureRmAccount` command and then the `Get-AzureRmADServicePrincipal` command.
 
-	c. Find the objectid for the service principal of the TodoListWebApp application, and save it in a location you can copy from later.
+	c. Find the objectid for the service principal of the TodoListAPI application, and save it in a location you can copy from later.
 
 7. In the Azure portal, navigate to the web app blade for the web app that you deployed the ToDoListAngular project to.
 
 9. Click **Settings > Application settings**.
 
-3. In the **App settings** section, add the following key and value:
+3. In the **App settings** section, add the following keys and values:
 
 	|Key|Value|Example
 	|---|---|---|
 	|todo:TrustedCallerServicePrincipalId|Service principal id of calling application|4f4a94a4-6f0d-4072-4f4a94a4-6f0d-4072|
-	|todo:TrustedCallerClientId|Client ID of calling application - copied from the TodoListWebApp AAD application|960adec2-b74a-484a-960adec2-b74a-484a|
+	|todo:TrustedCallerClientId|Client ID of calling application - copied from the TodoListAPI AAD application|960adec2-b74a-484a-960adec2-b74a-484a|
 
 6. Click **Save**.
 
@@ -360,11 +369,14 @@ For information about how to  create an AngularJS single-page application with a
 
 ## Troubleshooting
 
-If you successfully run the application without authentication, and then it doesn't work when you implement authentication, most of the time the problem will be incorrect or inconsistent configuration settings.  Start by double-checking all settings in Azure App Service and Azure Active Directory. 
+If you successfully run the application without authentication, and then it doesn't work when you implement authentication, most of the time the problem will be incorrect or inconsistent configuration settings.  Start by double-checking all settings in Azure App Service and Azure Active Directory. Here are some specific suggestions:
 
-The next step is to make sure you have are getting as much information in error messages as possible by setting [customErrors mode to Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
-
-If that doesn't provide enough information, start a [remote debugging session](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), and examine the values of the variables that are passed to the code that acquires the bearer token and code that validates values received from Azure AD compared to expected values. Note that your code can pick up configuration values from many different sources, so it's possible to find surprises this way. For example, if you misname `ida:ClientId` as `ida:ClientID` when configuring App Service settings, the code won't fail -- it will get the `ida:ClientId` value it's looking for from the Web.config file, ignoring the App Service setting. If you accidentally enable organizational authentication while publishing, the value could even come from the publish profile instead of the Web.config file.   
+* After configuring code in a project, make sure that you redeployed that project and not one of the other ones.
+* For settings configured in the Azure portal **Application Settings** blade, make sure that the correct API app or web app was selected when the settings were entered.
+* Make sure that you are going to HTTPS URLs in your browser, not HTTP URLs.
+* Make sure that CORS is still enabled on the middle tier API app, allowing calls to the middle tier from the front end HTTPS URL.  If in doubt about whether the problem is CORS-related, try "*" as the allowed origin URL. **Important:** some browser Developer Tools Console error messages may report a CORS error when the real issue is data tier authentication. You can check if this is the case by temporarily disabling authentication for the ToDoListDataAPI API app. 
+* Make sure you have are getting as much information in error messages as possible by setting [customErrors mode to Off](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remoteview).
+* If other methods fail, try a [remote debugging session](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebug), and examine the values of the variables that are passed to code that acquires the bearer token in ToDoListAPI, and code that validates Azure AD values received in ToDoListDataAPI. Note that your code can pick up configuration values from many different sources, so it's possible to find surprises this way. For example, if you misname `ida:ClientId` as `ida:ClientID` when configuring App Service settings, the code might get the `ida:ClientId` value that it's looking for from the Web.config file, ignoring the App Service setting. 
 
 ## Next steps
 
@@ -372,8 +384,8 @@ This is the last article in the getting started with API Apps series.
 
 For more information about Azure Active Directory, see the following resources.
 
-* [Azure AD scenarios](http://aka.ms/aadscenarios)
 * [Azure AD developers' guide](http://aka.ms/aaddev)
+* [Azure AD scenarios](http://aka.ms/aadscenarios)
 * [Azure AD samples](http://aka.ms/aadsamples)
 
 For information about other ways to deploy Visual Studio projects to API apps, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure App Service app](web-sites-deploy.md).
