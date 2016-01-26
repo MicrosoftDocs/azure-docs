@@ -55,7 +55,11 @@ Data Management Gateway can be installed by downloading an MSI setup package fro
 2.	You should backup the certificate associated with the gateway.
 
 ## Updating Data Management Gateway
-By default, Data Management Gateway is automatically updated when a newer version of the gateway is available.  
+By default, Data Management Gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all the scheduled tasks are done. No further tasks are processed by the gateway until the update operation is completed. If the update fails, gateway is rolled back to the old version. You can disable/enable the auto-update feature by using the cmdlets.   
+
+When a newer version of the gateway is available, you will see a notification message in the Azure Portal, Data Management Gateway Configuration Manager on the gateway machine, or in the system tray. You have an option to install the update right away or wait for the gateway to be automatically 
+
+updated at the scheduled time. 
 
 ## Port and Security Considerations
 
