@@ -158,41 +158,13 @@ In the following section, you configure the middle tier API app to send applicat
 
 ## Configure the ToDoListAPI project to acquire and send the Azure AD token
 
-In this section you get service principal credentials from Azure AD. Then you add code in the middle tier API app that uses those credentials to acquire a token and send it to the data tier API app, as shown in the diagram.
+In this section you do the following tasks:
 
-![](./media/app-service-api-dotnet-service-principal-auth/appdiagram.png)
+* Add code in the middle tier API app that uses Azure AD application credentials to acquire a token and send it with HTTP requests to the data tier API app.
+* Get the credentials you need from Azure AD.
+* Enter the credentials into Azure App Service runtime environment settings in the middle tier API app. 
 
-### Get Azure AD configuration values
-
-11. In the [Azure classic portal](https://manage.windowsazure.com/), go to **Azure Active Directory**.
-
-12. On the **Directory** tab, click your AAD tenant.
-
-14. Click **Applications > Applications my company owns**, and then click the check mark.
-
-15. In the list of applications, click the name of the one that Azure created for you when you enabled authentication for the ToDoListDataAPI (data tier) API app.
-
-16. Click the **Configure** tab.
-
-5. Copy the **Client ID** value and save it someplace you can get it from later. 
-
-8. In the Azure classic portal go back to the list of **Applications my company owns**, and click the AAD application that you created for the ToDoListAPI (middle tier) API app.
-
-16. Click the **Configure** tab.
-
-5. Copy the **Client ID** value and save it someplace you can get it from later.
-
-6. Under **keys**, select **1 year** from the **Select duration** drop-down list.
-
-6. Click **Save**.
-
-	![](./media/app-service-api-dotnet-service-principal-auth/genkey.png)
-
-7. Copy the key value and save it someplace you can get it from later.
-
-	![](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
-
-## Configure the ToDoListAPI project to acquire and send the Azure AD token
+### Configure the ToDoListAPI project to acquire and send the Azure AD token
 
 Make the following changes in the ToDoListAPI project in Visual Studio.
 
@@ -233,6 +205,36 @@ Make the following changes in the ToDoListAPI project in Visual Studio.
 3. Deploy the ToDoListAPI project. (Right-click the project, then click **Publish > Publish**.)
 
 4. Close the browser window that opens after the project is successfully deployed.
+
+### Get Azure AD configuration values
+
+11. In the [Azure classic portal](https://manage.windowsazure.com/), go to **Azure Active Directory**.
+
+12. On the **Directory** tab, click your AAD tenant.
+
+14. Click **Applications > Applications my company owns**, and then click the check mark.
+
+15. In the list of applications, click the name of the one that Azure created for you when you enabled authentication for the ToDoListDataAPI (data tier) API app.
+
+16. Click the **Configure** tab.
+
+5. Copy the **Client ID** value and save it someplace you can get it from later. 
+
+8. In the Azure classic portal go back to the list of **Applications my company owns**, and click the AAD application that you created for the ToDoListAPI (middle tier) API app.
+
+16. Click the **Configure** tab.
+
+5. Copy the **Client ID** value and save it someplace you can get it from later.
+
+6. Under **keys**, select **1 year** from the **Select duration** drop-down list.
+
+6. Click **Save**.
+
+	![](./media/app-service-api-dotnet-service-principal-auth/genkey.png)
+
+7. Copy the key value and save it someplace you can get it from later.
+
+	![](./media/app-service-api-dotnet-service-principal-auth/genkeycopy.png)
 
 ### Configure Azure AD settings in the middle tier API app's runtime environment
 
