@@ -77,7 +77,7 @@ The following five tables summarize how Backup functionality is handled in each 
 | Tape storage | | ![Yes][green] |  | |
 | Compression (in backup vault) | ![Yes][green] | ![Yes][green]| ![Yes][green] | |
 | Incremental backup | ![Yes][green] | ![Yes][green] | ![Yes][green] | ![Yes][green] |
-| Disk Deduplication | | ![Partially][yellow] | ![Partially][yellow]| | |
+| Disk deduplication | | ![Partially][yellow] | ![Partially][yellow]| | |
 
 The Backup vault is the preferred storage target across all components. The System Center DPM and Backup Server also provide the option to have a local disk copy, but only the System Center DPM provides the option to write data to a tape storage device.
 
@@ -98,7 +98,7 @@ Deduplication is supported for the System Center DPM and Backup Server when it i
 | Network security (to Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
 | Data security (in Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
 
-All backup traffic from your servers to the Backup vault is encrypted using AES256. The data is sent over a secure HTTPS link. The backup data is also stored in the Backup vault in encrypted form. Only the customer holds the passphrase to unlock this data. Microsoft cannot decrypt the backup data at any point.
+All backup traffic from your servers to the Backup vault is encrypted by using Advanced Encryption Standard 256. The data is sent over a secure HTTPS link. The backup data is also stored in the Backup vault in encrypted form. Only the customer holds the passphrase to unlock this data. Microsoft cannot decrypt the backup data at any point.
 
 >[AZURE.WARNING] The key used to encrypt the backup data is present only with the customer. Microsoft does not maintain a copy in Azure and does not have any access to the key. If the key is misplaced, Microsoft cannot recover the backup data.
 
@@ -129,31 +129,31 @@ For backup of Azure VMs, you must explicitly set up encryption *within* the virt
 
 Because the VM extension reads the data directly from the Azure storage account over the storage network, it is not necessary to optimize this traffic. The traffic is over the local storage network in the Azure domain controller, so there is little need for compression because of bandwidth considerations.
 
-For customers who protect their data to a backup server (the System Center DPM or Backup Server), the traffic from the primary server to the backup server can also be compressed to save on bandwidth use.
+For customers who protect their data to a backup server (the System Center DPM or Backup Server), the traffic from the primary server to the backup server can also be compressed to save on bandwidth.
 
 ### 5. Backup and retention
 
 |  | Azure Backup agent | System Center DPM and Azure Backup Server | Azure Backup (VM extension) |
 | --- | --- | --- | --- |
-| Backup frequency (to Azure vault) | Three backups per day | Two backups per day | One backup per day |
+| Backup frequency (to Backup vault) | Three backups per day | Two backups per day | One backup per day |
 | Backup frequency (to disk) | Not applicable | <p>Every 15 minutes for SQL Server</p> <p>Every hour for other workloads</p> | Not applicable |
 | Retention options | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly | Daily, weekly, monthly, yearly |
 | Retention period | Up to 99 years | Up to 99 years | Up to 99 years |
-| Recovery points in Azure vault | Unlimited | Unlimited | Unlimited |
+| Recovery points in Backup vault | Unlimited | Unlimited | Unlimited |
 | Recovery points on local disk | Not applicable | Not applicable | Not applicable |
 | Recovery points on tape | Not applicable | Not applicable | Not applicable |
 
 ## How does Backup differ from Azure Site Recovery?
-Many customers confuse backup and disaster recovery. Both capture data and provide restore semantics, but their core value propositions are different.
+Many customers confuse backup recovery and disaster recovery. Both capture data and provide restore semantics, but their core value propositions are different.
 
-Azure Backup backs up data on-premises or in the cloud. Azure Site Recovery coordinates virtual-machine and physical-server replication, failover, and failback. You need both of these for a complete disaster recovery solution. Your disaster recovery strategy needs to keep your data safe and recoverable (Backup) *and* keep your workloads available and accessible (Site Recovery) when outages occur.
+Azure Backup backs up data on-premises and in the cloud. Azure Site Recovery coordinates virtual-machine and physical-server replication, failover, and failback. You need both of these for a complete disaster recovery solution. Your disaster recovery strategy needs to keep your data safe and recoverable (Backup) *and* keep your workloads available and accessible (Site Recovery) when outages occur.
 
 To make decisions around backup and disaster recovery, the following important concepts should be understood.
 
 | CONCEPT | DETAILS | BACKUP | DISASTER RECOVERY (DR) |
 | ------- | ------- | ------ | ----------------- |
 | Recovery point objective (RPO) | The amount of data loss that is acceptable in case a recovery needs to be done. | Backup solutions have wide variability in the acceptable RPO. Virtual machine backups usually have an RPO of one day, while database backups have RPOs as low as 15 minutes. | Disaster recovery solutions have extremely low RPOs. The DR copy can be behind by a few seconds or a few minutes. |
-| Recovery time objective (RTO) | The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher. This leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time taken to transport the tape from an off-site location. | Disaster recovery solutions have smaller RTOs because they are more in sync with the source. Fewer changes need to be processed. |
+| Recovery time objective (RTO) | The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher. This leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time it takes to transport the tape from an off-site location. | Disaster recovery solutions have smaller RTOs because they are more in sync with the source. Fewer changes need to be processed. |
 | Retention | How long data needs to be stored | <p>For scenarios that require operational recovery (data corruption, inadvertent file deletion, OS failure), backup data is typically retained for 30 days or less.</p> <p>From a compliance standpoint, data might need to be stored for months or even years. Backup data is ideally suited for archiving in such cases.</p> | Disaster recovery needs only operational recovery data. This typically takes a few hours or up to a day. Because of the fine-grained data capture used in DR solutions, using DR data for long-term retention is not recommended. |
 
 ## Next steps
