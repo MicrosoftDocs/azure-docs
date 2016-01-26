@@ -52,7 +52,7 @@ Before you can add an image to the PIR, you must prepare a virtual hard disk ima
 
 The image will automatically appear in the Microsoft Azure Stack Marketplace.  The image is also available for you to reference in your virtual machine deployment templates.  
 
->[AZURE.NOTE] The marketplace UI may error after you remove a previously added image from the PIR. To fix this, click on <b>Settings</b> in the portal. And then select <b>Discard modifications</b> under Portal customization.
+>[AZURE.NOTE] The marketplace UI may error after you remove a previously added image from the PIR. To fix this, click **Settings** in the portal. Then, click **Discard modifications** under **Portal customization**.
 
 ## Next Steps
 
