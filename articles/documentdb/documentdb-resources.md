@@ -95,7 +95,7 @@ The values of the _self and the  _rid properties are both alternate and canonica
 ## Database accounts
 You can provision one or more DocumentDB database accounts using your Azure subscription. Each Standard tier database account will be given a minimum capacity of one S1 collection.
 
-You can [create and manage DocumentDB database accounts](documentdb-create-account.md) via the Azure Classic Portal at [http://portal.azure.com/](http://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
+You can [create and manage DocumentDB database accounts](documentdb-create-account.md) via the Azure Classic Portal at [http://portal.azure.com/](https://portal.azure.com/). Creating and managing a database account requires administrative access and can only be performed under your Azure subscription. 
 
 ### Database account properties
 As part of provisioning and managing a database account you can configure and read the following properties:  

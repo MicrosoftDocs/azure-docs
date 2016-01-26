@@ -92,7 +92,7 @@ This would be possible by writing a [telemetry processor plugin](app-insights-ap
 
 ## How long is the data kept? 
 
-It depends on your [pricing plan](http://azure.microsoft.com/pricing/details/application-insights/).
+It depends on your [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Raw data points (that is, items that you can inspect in Diagnostic Search): between 7 and 30 days.
 

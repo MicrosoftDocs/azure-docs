@@ -29,7 +29,7 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
 
 ###Prerequisites
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Visual Studio 2013 or 2015__
 

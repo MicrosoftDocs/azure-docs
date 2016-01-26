@@ -88,7 +88,7 @@ Virtual machines you want to replicate to Azure should comply with [Azure requir
 
 ### Can I replicate Hyper-V generation 2 virtual machines to Azure?
 
-Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2. [Read more](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2. [Read more](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### If I replicate to Azure how do I pay for Azure VMs? 
 
@@ -129,28 +129,28 @@ When replicating virtual machines and physical servers between on-premises sites
 
 You'll need a storage account with [standard geo-redundant storage](../storage/storage-redundancy.md/#geo-redundant-storage). A [premium storage account](../storage/storage-premium-storage-preview-portal/) is only supported if you're replicating VMware virtual machines or Windows/Linux physical servers to Azure.   
 
-Support for standard locally redundant storage is in backlog, send feedback about this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support).
+Support for standard locally redundant storage is in backlog, send feedback about this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support/).
 
 ### How often can I replicate data?
 - **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds, 5 minutes or 15 minutes. If you've set up SAN replication then replication with be synchronous.
 - **VMware and physical servers:** A replication frequency isn't relevant here. Replication will be continuous. 
 
 ### Can I extend replication from existing recovery site to another tertiary site?
-Extended or chained replication isn't supported. Send feedback about this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
+Extended or chained replication isn't supported. Send feedback about this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication/).
 
 
 ### Can I do an offline replication the first time I replicate to Azure? 
 
-This isn't supported. Send us feedback about this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+This isn't supported. Send us feedback about this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from/).
 
 
 ### Can I exclude specific disks from replication?
 
-This isn't supported. Send us feedback about this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication).
+This isn't supported. Send us feedback about this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication/).
 
 ### Can I replicate virtual machines with  dynamic disks?
 
-Dynamic disks are supported when replicating Hyper-V virtual machines. They're not supported when replicating VMware virtual machines or physical servers. Send us feedback about this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery).
+Dynamic disks are supported when replicating Hyper-V virtual machines. They're not supported when replicating VMware virtual machines or physical servers. Send us feedback about this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/).
 
 ### If I'm failing over to Azure how to I access the Azure virtual machines after failover? 
 

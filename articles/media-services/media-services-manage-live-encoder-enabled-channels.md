@@ -445,7 +445,7 @@ Stopped|Stopped|No
 ##Known Issues
 
 - Channel start up time has been improved to an average of 2 minutes, but at times of increased demand could still take up to 20+ minutes.
-- RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- RTP support is catered towards professional broadcasters. Please review the notes on RTP in [this](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - Slate images should conform to restrictions described [here](media-services-manage-live-encoder-enabled-channels.md#default_slate). If you attempt create a Channel with a default slate that is larger than 1920x1080, the request will eventually error out.
 - Once again....don't forget to STOP YOUR CHANNELS when you are done streaming. If you don't, billing will continue.
 
