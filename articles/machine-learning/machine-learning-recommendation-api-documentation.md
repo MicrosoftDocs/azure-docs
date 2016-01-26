@@ -2854,7 +2854,7 @@ Notes:
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | userId  | Unique identifier of the user |
-| itemIds | Comma-separated list of the items to recommend for. Max length: 1024 |
+| itemsIds | Comma-separated list of the items to recommend for. Max length: 1024 |
 | numberOfResults | Number of required results |
 | includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |
