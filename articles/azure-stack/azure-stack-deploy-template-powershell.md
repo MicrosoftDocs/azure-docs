@@ -1,22 +1,22 @@
 ﻿<properties
-	pageTitle="Deploy templates with PowerShell"
-	description="Deploy templates with PowerShell"
+	pageTitle="Deploy templates with PowerShell in Azure Stack"
+	description="Learn how to deploy a virtual machine using a template and PowerShell."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# Deploy templates with PowerShell
+# Deploy templates with PowerShell in Azure Stack
 
 You can deploy templates in Microsoft Azure Stack by using PowerShell. Your tenant subscription must be enabled for virtual machine deployment. This example shows how to deploy a virtual machine using a template and PowerShell.
 

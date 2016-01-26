@@ -1,24 +1,24 @@
 ﻿<properties
-	pageTitle="First scenarios to try"
-	description="First scenarios to try"
+	pageTitle="First scenarios to try in Azure Stack POC"
+	description="Learn how to create a plan and offer and then subscribe to that offer and use the services provided to create a virtual machine."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
 # First scenarios to try
 
-The primary objects in Microsoft Azure Stack – plans, offers, and subscriptions – provide IaaS services to tenants, such as virtual machines, web sites, and so on. It is these services that provide value to your tenants. Below are four common tasks used by service administrators and tenants in this area (or something like that)
+The primary objects in Microsoft Azure Stack – plans, offers, and subscriptions – provide IaaS services to tenants, such as virtual machines, web sites, and so on. It is these services that provide value to your tenants. Here are four common tasks used by service administrators and tenants:
 
 1.  [As a service administrator, create a plan (to provide compute, network, and storage services).](azure-stack-create-plan.md)
 

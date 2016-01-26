@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Deploy templates with Visual Studio"
-	description="Deploy templates with Visual Studio"
+	pageTitle="Deploy templates with Visual Studio in Azure Stack"
+	description="Learn how to deploy templates with Visual Studio in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# Deploy templates with Visual Studio
+# Deploy templates with Visual Studio in Azure Stack
 
 1.  Open Visual Studio 2015 Update 1.
 
