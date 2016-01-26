@@ -59,7 +59,7 @@ This log is only generated if you've enabled it on a per load balancer basis as 
 	{
        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
        "category": "LoadBalancerAlertEvent",
-       "resourceId": "/SUBSCRIPTIONS/628DAD04-B5D1-4F10-B3A4-DC61D88CF97C/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
+       "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
       "operationName": "LoadBalancerProbeHealthStatus",
       "properties": {"eventTimeStampUtc":"1/23/2016 2:27:07 AM","eventName":"Resource Limits Hit","eventDescription":"Ports exhausted","eventProperties":{"public ip address":"40.117.227.32"}}
 }
@@ -75,7 +75,7 @@ This log is only generated if you've enabled it on a per load balancer basis as 
 		{
 			 "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
 			 "category": "LoadBalancerProbeHealthStatus",
-			 "resourceId": "/SUBSCRIPTIONS/628DAD04-B5D1-4F10-B3A4-DC61D88CF97C/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
+			 "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
 			 "operationName": "LoadBalancerProbeHealthStatus",
 			 "properties": {"eventTimeStampUtc":"1/23/2016 2:18:58 AM","publicIpAddress":"40.83.190.158","port":"81","totalDipCount":2,"dipDownCount":1,"healthPercentage":50.000000}
 		}
@@ -83,7 +83,7 @@ This log is only generated if you've enabled it on a per load balancer basis as 
 		{
 			 "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
 			 "category": "LoadBalancerProbeHealthStatus",
-			 "resourceId": "/SUBSCRIPTIONS/628DAD04-B5D1-4F10-B3A4-DC61D88CF97C/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
+			 "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
 			 "operationName": "LoadBalancerProbeHealthStatus",
 			 "properties": {"eventTimeStampUtc":"1/23/2016 2:20:31 AM","publicIpAddress":"40.83.190.158","port":"81","totalDipCount":2,"dipDownCount":0,"healthPercentage":100.000000}
 		}
