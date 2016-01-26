@@ -44,9 +44,9 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;6. In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
+&nbsp;&nbsp;&nbsp;6. In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-&nbsp;&nbsp;&nbsp;&nbsp;his happens because the app attempts to access Mobile Services as an unauthenticated user, but the *TodoItem* table now requires authentication.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This happens because the app attempts to access Mobile Services as an unauthenticated user, but the *TodoItem* table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
