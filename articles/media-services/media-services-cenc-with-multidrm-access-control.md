@@ -22,32 +22,6 @@
  
 Azure Active Directory, Azure Media Services, Azure Media Player, Dynamic Encryption, License Delivery,PlayReady, Widevine, FairPlay, Common Encryption(CENC), Multi-DRM, Axinom, DASH, EME, MSE, JSON Web Token (JWT), Claims, Modern Browsers,Key Rollover, Symmetric Key, Asymmetric Key, OpenID Connect, X509 certificate. 
 
-##In this article
-
-The following topics are covered in this article:
-
-- [Introduction](media-services-cenc-with-multidrm-access-control.md#introduction)
-	-[Overview of this article](media-services-cenc-with-multidrm-access-control.md#article_overview)
-- [A reference design](media-services-cenc-with-multidrm-access-control.md#ref_deign)
-- [Mapping design to technology for implementation](media-services-cenc-with-multidrm-access-control.md#mapping_to_technology)
-- [Implementation](media-services-cenc-with-multidrm-access-control.md#implementation)
-	- [Implementation procedures](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
-	- [Some gotchas in implementation](media-services-cenc-with-multidrm-access-control.md#gotchas)
-- [Additional Topics for Implementation](media-services-cenc-with-multidrm-access-control.md#additional_topics)
-	- [HTTP or HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
-	- [Azure Active Directory signing key rollover](media-services-cenc-with-multidrm-access-control.md#key_rollover)
-	- [Where is the Access Token?](media-services-cenc-with-multidrm-access-control.md#access_token)
-	- [What about Live Streaming?](media-services-cenc-with-multidrm-access-control.md#live_streaming)
-	- [What about license servers outside of Azure Media Services?](media-services-cenc-with-multidrm-access-control.md#license_servier_outside_ams)
-	- [What if I want to use a custom STS?](media-services-cenc-with-multidrm-access-control.md#license_servier_outside_ams)
-	- [Tech note](media-services-cenc-with-multidrm-access-control.md#tech-note)
-- [The completed system and test](media-services-cenc-with-multidrm-access-control.md#test)
-	- [User login](media-services-cenc-with-multidrm-access-control.md#user-login)
-	- [Using Encrypted Media Extensions (EME) for PlayReady](media-services-cenc-with-multidrm-access-control.md#eme_playready)
-	- [Using EME for Widevine](media-services-cenc-with-multidrm-access-control.md#eme_widevine)
-	- [Not entitled users](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
-	- [Running custom Secure Token Service (STS)](media-services-cenc-with-multidrm-access-control.md#custom_sts)
-
  
 ##Introduction
 
