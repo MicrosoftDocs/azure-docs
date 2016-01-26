@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/29/2016"
-	ms.author="azure=stack"/>
+	ms.author="erikje"/>
 
 # Key features and concepts in Azure Stack
 
