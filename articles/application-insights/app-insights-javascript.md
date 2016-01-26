@@ -33,7 +33,7 @@ If you don't have an Azure subscription and would like to try Application Insigh
 
 The Application Insights resource is where data about your page's performance and usage is displayed. (If you already created a resource, maybe to collect data from your web server, skip this step.)
 
-Sign into [Azure portal](http://portal.azure.com).
+Sign into [Azure portal](https://portal.azure.com).
 
 If you already set up monitoring for the server side of your app, you'll already have a resource:
 

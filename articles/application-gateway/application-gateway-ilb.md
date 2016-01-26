@@ -26,7 +26,7 @@ Application Gateway can be configured with an internet facing VIP or with an int
 
 ## Before you begin
 
-1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).
+1. Install latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](https://azure.microsoft.com/downloads/).
 2. Verify that you have a working virtual network with valid subnet.
 3. Verify that you have backend servers either in the virtual network, or with a public IP/VIP assigned.
 

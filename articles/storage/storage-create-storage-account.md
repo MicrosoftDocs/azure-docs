@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to create, manage, or delete a storage account | Microsoft Azure"
-	description="Create a new storage account, manage your access keys, or delete a storage account in the Azure Portal."
+	pageTitle="How to create, manage, or delete a storage account in the Azure Portal | Microsoft Azure"
+	description="Create a new storage account, manage your account access keys, or delete a storage account in the Azure Portal. Learn about standard and premium storage accounts."
 	services="storage"
 	documentationCenter=""
 	authors="robinsh"
@@ -147,9 +147,9 @@ To remove the virtual machine disk, follow these steps in the Azure Classic Port
 
 For more information, see the [Azure Virtual Machine documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-
 ## Next steps
 
-- To learn more about Azure Storage, see the Azure Storage documentation on [Azure.com](https://azure.microsoft.com/documentation/services/storage/).
-- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+- [Azure Storage replication](storage-replication)
+- [Configure a connection string to Azure Storage](storage-configure-connection-string)
 - [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
