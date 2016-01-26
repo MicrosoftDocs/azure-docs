@@ -20,14 +20,13 @@
 # Log analytics for Azure Load Balancer 
 You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 
->[AZURE.IMPORTANT] Log analytics currently works only for Internet facing load balancers. This limitation is temporary, and may change at any time. Make sure to revisit this page to verify future changes. 
 
 - **Audit logs:** You can use [Azure Audit Logs](insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription(s), and their status. Audit logs are enabled by default, and can be viewed in the Azure portal.
 - **Alert event logs:** You can use this log to view what alerts for load balancer are raised. The status for the load balancer is collected every five minutes. This log is only written if a load balancer alert event is raised.  
 - **Health probe logs:** You can use this log to check for probe health check status, how many instances are online in the load balancer back-end and percentage of virtual machines receiving network traffic from the load balancer. This log is written on probe status event change.
 
->[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md) article. 
-
+>[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](resource-manager-deployment-model.md) article. <BR>
+>Log analytics currently works only for Internet facing load balancers. This limitation is temporary, and may change at any time. Make sure to revisit this page to verify future changes.
 
 ##Enable logging
 Audit logging is automatically enabled at all times for every Resource Manager resource. You need to enable event and health probe logging to start collecting the data available through those logs. To enable logging, follow the steps below. 
