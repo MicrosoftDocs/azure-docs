@@ -61,7 +61,7 @@ You can connect to an on-premises FTP server, or create a web app that **INSERT 
 ## REST API reference
 
 ### Create file
-Uploads a file to FTP server
+Uploads a file to FTP server.
 ```POST: /datasets/default/files```
 
 | Name|Data Type|Required|Located In|Description|
@@ -77,7 +77,7 @@ Uploads a file to FTP server
 |default|Operation Failed.|
 
 ### Copy file
-Copies a file to FTP server
+Copies a file to FTP server. 
 ```POST: /datasets/default/copyFile```
 
 | Name|Data Type|Required|Located In|Description|
@@ -93,7 +93,7 @@ Copies a file to FTP server
 |default|Operation Failed.|
 
 ### Delete file 
-Deletes a file from FTP server
+Deletes a file from FTP server. 
 ```DELETE: /datasets/default/files/{id}```
 
 | Name| Data Type|Required|Located In|Description|
@@ -107,7 +107,7 @@ Deletes a file from FTP server
 |default|Operation Failed.|
 
 ### Extract archive to folder
-Extracts an archive file into a folder in FTP server (example: .zip)
+Extracts an archive file into a folder in FTP server (example: .zip). 
 ```POST: /datasets/default/extractFolder```
 
 | Name|Data Type|Required|Located In|Description|
@@ -123,7 +123,7 @@ Extracts an archive file into a folder in FTP server (example: .zip)
 |default|Operation Failed.|
 
 ### Get file content
-Retrieves file contents from FTP Server using id
+Retrieves file contents from FTP Server using id. 
 ```GET: /datasets/default/files/{id}/content```
 
 | Name|Data Type|Required|Located In|Description|
@@ -138,7 +138,7 @@ Retrieves file contents from FTP Server using id
 
 
 ### Get file content using path
-Retrieves file contents from FTP server using path
+Retrieves file contents from FTP server using path. 
 ```GET: /datasets/default/GetFileContentByPath```
 
 | Name|Data Type|Required|Located In|Description|
@@ -153,7 +153,7 @@ Retrieves file contents from FTP server using path
 
 
 ### Get File Metadata 
-Retrieves file metadata from FTP server using file id 
+Retrieves file metadata from FTP server using file id. 
 ```GET: /datasets/default/files/{id}```
 
 | Name | Data Type | Required | Located In | Description |
@@ -168,7 +168,7 @@ Retrieves file metadata from FTP server using file id
 
 
 ### Get File Metadata using path
-Retrieves file metadata from FTP server using path
+Retrieves file metadata from FTP server using path. 
 ```GET: /datasets/default/GetFileByPath```
 
 | Name|Data Type|Required|Located In|Description|
@@ -183,7 +183,7 @@ Retrieves file metadata from FTP server using path
 
 
 ### Gets an updated file
-Gets an updated file
+Gets an updated file. 
 ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Name|Data Type|Required|Located In|Description|
@@ -198,7 +198,7 @@ Gets an updated file
 
 
 ### Update file 
-Updates a file in FTP server
+Updates a file in FTP server. 
 ```PUT: /datasets/default/files/{id}```
 
 | Name| Data Type | Required |Located In | Description |

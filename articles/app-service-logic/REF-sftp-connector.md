@@ -61,7 +61,7 @@ You can connect to an on-premises SFTP server, or create a web app that **INSERT
 ## REST API reference
 
 ### Create file
-Uploads a file in SFTP
+Uploads a file in SFTP.
 ```POST: /datasets/default/files```
 
 | Name|Data Type|Required|Located In|Description|
@@ -77,7 +77,7 @@ Uploads a file in SFTP
 |default|Operation Failed.|
 
 ### Copy file
-Copies a file to SFTP
+Copies a file to SFTP. 
 ```POST: /datasets/default/copyFile```
 
 | Name|Data Type|Required|Located In|Description|
@@ -93,7 +93,7 @@ Copies a file to SFTP
 |default|Operation Failed.|
 
 ### Delete file 
-Deletes a file in SFTP
+Deletes a file in SFTP. 
 ```DELETE: /datasets/default/files/{id}```
 
 | Name| Data Type|Required|Located In|Description|
@@ -107,7 +107,7 @@ Deletes a file in SFTP
 |default|Operation Failed.|
 
 ### Extract archive to folder
-Extracts an archive file into a folder using SFTP (example: .zip)
+Extracts an archive file into a folder using SFTP (example: .zip).
 ```POST: /datasets/default/extractFolder```
 
 | Name|Data Type|Required|Located In|Description|
@@ -123,7 +123,7 @@ Extracts an archive file into a folder using SFTP (example: .zip)
 |default|Operation Failed.|
 
 ### Get file content
-Retrieves file contents from SFTP using id
+Retrieves file contents from SFTP using id. 
 ```GET: /datasets/default/files/{id}/content```
 
 | Name|Data Type|Required|Located In|Description|
@@ -138,7 +138,7 @@ Retrieves file contents from SFTP using id
 
 
 ### Get file content using path
-Retrieves file contents from SFTP using path
+Retrieves file contents from SFTP using path. 
 ```GET: /datasets/default/GetFileContentByPath```
 
 | Name|Data Type|Required|Located In|Description|
@@ -153,7 +153,7 @@ Retrieves file contents from SFTP using path
 
 
 ### Get File Metadata 
-Retrieves file metadata from SFTP using file id 
+Retrieves file metadata from SFTP using file id. 
 ```GET: /datasets/default/files/{id}```
 
 | Name | Data Type | Required | Located In | Description |
@@ -168,7 +168,7 @@ Retrieves file metadata from SFTP using file id
 
 
 ### Get File Metadata using path
-Retrieves file metadata from SFTP using path
+Retrieves file metadata from SFTP using path. 
 ```GET: /datasets/default/GetFileByPath```
 
 | Name|Data Type|Required|Located In|Description|
@@ -183,7 +183,7 @@ Retrieves file metadata from SFTP using path
 
 
 ### Update file
-Updates file content using SFTP 
+Updates file content using SFTP. 
 ```PUT: /datasets/default/files/{id}```
 
 | Name|Data Type|Required|Located In|Description|
@@ -198,24 +198,8 @@ Updates file content using SFTP
 |default|Operation Failed.|
 
 
-### Update file 
-Updates a file in FTP server
-```PUT: /datasets/default/files/{id}```
-
-| Name| Data Type | Required |Located In | Description |
-| ---|---|---|---|---|
-|id|string|Yes|path|Unique identifier of the file to update in FTP server|
-|body|string|Yes|body|Content of the file to update in FTP server|
-
-#### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-
-
 ### When a file is modified
-Updates a file in FTP server
+Updates a file in FTP server. 
 ```GET: /datasets/default/triggers/onupdatedfile```
 
 | Name| Data Type|Required|Located In|Description|
