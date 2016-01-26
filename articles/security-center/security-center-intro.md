@@ -20,7 +20,7 @@
 
 Learn about Azure Security Center, its key capabilities, and how it works.
 
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This introduction to the service  uses a sample deployment.
+> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment.
 
 ## What is Azure Security Center?
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
