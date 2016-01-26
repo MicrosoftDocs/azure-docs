@@ -108,9 +108,7 @@ If you didn't do the the first and second tutorials and you want to follow this 
 
 3. Deploy the ToDoListAPI project to a new API app.
 
-	a. In the ToDoListAPI project, open *Controllers\ToDoListController.cs* and change `http://localhost:45914` to `https://{your ToDoListDataAPI app name}.azurewebsites.net`.  For example, if you named the API app "ToDoListDataAPI0121", the code would look like this example: 
-
-		private ToDoListDataAPI db = new ToDoListDataAPI(new Uri("https://todolistdataapi0121.azurewebsites.net"));
+	a. In the ToDoListAPI project, open *Controllers\ToDoListController.cs* and change `http://localhost:45914` to `https://{your ToDoListDataAPI app name}.azurewebsites.net`.
 
 	b. Follow the same procedure for deploying the ToDoListAPI project that you followed for the ToDoListDataAPI project. Don't forget to change the type to **API App**.
 
@@ -118,10 +116,7 @@ If you didn't do the the first and second tutorials and you want to follow this 
 
 	a. In the ToDoListAngular project, open the *app/scripts/todoListSvc.js* file.
 
-	b. Comment out the line that sets `apiEndpoint` to the localhost URL, uncomment the line that sets `apiEndPoint` to an azurewebsites.net URL, and replace the placeholder with the actual name of the API app you created for ToDoListAPI.  If you named the API app ToDoListAPI0121, the code now looks like the following example.
-
-		var apiEndPoint = 'https://todolistapi0121.azurewebsites.net';
-		//var apiEndPoint = 'http://localhost:45914'
+	b. Comment out the line that sets `apiEndpoint` to the localhost URL, uncomment the line that sets `apiEndPoint` to an azurewebsites.net URL, and replace the placeholder with the actual name of the API app you created for ToDoListAPI.
 
 	c. Follow the same procedure for deploying the ToDoListAPI project that you followed for the ToDoListDataAPI project, **except do not change the type from Web App to API App**.
 
@@ -146,11 +141,6 @@ At this point you have the application running in Azure App Service without requ
 * Configure App Service to require Azure Active Directory (Azure AD) authentication for calling the middle tier API app.
 * Create an Azure AD application.
 * Configure the Azure AD application to send the bearer token after logon to the AngularJS front end. 
-
-When you're done, the AngularJS front end will acquire a bearer token for the logged-on user from Azure AD and will include the token in HTTP requests sent to the middle tier, as shown in the following diagram. 
-
-![](./media/app-service-api-dotnet-user-principal-auth/appdiagram.png)
-
 
 ### Configure authentication in App Service
 
@@ -194,7 +184,7 @@ When you're done, the AngularJS front end will acquire a bearer token for the lo
 
 7. In the **Authentication / Authorization** blade, click **Save**.
 
-Now only users in your Azure AD tenant can access the API app.
+Now only users in your Azure AD tenant can call the API app.
 
 ### Optional: Test the API app
 
@@ -207,18 +197,6 @@ Now only users in your Azure AD tenant can access the API app.
 2. Log on using credentials for a user in your Azure AD tenant.
 
 	When you're logged on, the "successfully created" page appears in the browser.
-
-2. In the browser address bar, add /swagger to the URL and press return.
-
-	The full URL is now `https://{API app name}.azurewebsites.net/swagger/ui/index` and the page displays the Swagger UI.
-
-	![](./media/app-service-api-dotnet-user-principal-auth/swaggerui.png)
-
-2. Click **ToDoList > Get > Try it out**.
-
-	The Swagger UI calls the ToDoListAPI Get method and displays the JSON results.
-
-	You have now validated that the TodoListAPI API app requires that callers be authenticated.
 
 9. Close the browser.
 
@@ -276,6 +254,10 @@ When you configured Azure AD authentication, App Service created an Azure AD app
 
 ## Configure the ToDoListAngular project to use authentication
 
+In this section you change the AngularJS front end so that it uses Active Directory Authentication Library (ADAL) for JS to acquire a bearer token for the logged-on user from Azure AD. The code will include the token in HTTP requests sent to the middle tier, as shown in the following diagram. 
+
+![](./media/app-service-api-dotnet-user-principal-auth/appdiagram.png)
+
 Make the following changes to files in the ToDoListAngular project.
 
 1. Open the *index.html* file.
@@ -296,7 +278,7 @@ Make the following changes to files in the ToDoListAngular project.
 	The code is now similar to the following example.
 
 		var endpoints = {
-		    "https://todolistapi.azurewebsites.net/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
+		    "https://todolistapi0121.azurewebsites.net/": "1cf55bc9-9ed8-4df31cf55bc9-9ed8-4df3"
 		};
 
 9. In the call to `adalProvider.init`, set `tenant` to your tenant name and `clientId` to same value you used in the previous step.
@@ -330,7 +312,9 @@ Make the following changes to files in the ToDoListAngular project.
 
 9. Click **Publish**.
 
-	Visual Studio deploys the project and opens a browser to the web app's base URL, but you have to make a change to the middle tier API app before you can test the application.
+	Visual Studio deploys the project and opens a browser to the web app's base URL.
+
+	You still have to make a change to the middle tier API app before you can test the application.
 
 10. Close the browser.
 
@@ -341,6 +325,8 @@ Currently the ToDoListAPI project sends "*" as the `owner` value to ToDoListData
 Make the following changes in the ToDoListAPI project.
 
 1. Open the *Controllers/ToDoListController.cs* file, and uncomment the line in each action method that sets `owner` to the Azure AD `NameIdentifier` claim value. For example:
+
+		owner = ((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.NameIdentifier).Value;
 
 ### Deploy the ToDoListAPI project to Azure
 
@@ -370,7 +356,7 @@ Make the following changes in the ToDoListAPI project.
 
 11. Add new to-do items to verify that the application is working.
 
-12. In another browser window, go to the Swagger UI URL for the ToDoListDataAPI API app and click **ToDoList > Get > Try it out**.
+12. In another browser window, go to the Swagger UI URL for the ToDoListDataAPI API app and click **ToDoList > Get**. Enter an asterisk for the `owner` parameter, and then click **Try it out**.
 
 	The response shows that the new to-do items have the actual Azure AD user ID in the Owner property.
 
