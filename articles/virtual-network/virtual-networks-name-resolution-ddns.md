@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="GarethBradshawMSFT"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/21/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma" />
 
 #Using Dynamic DNS to Register Hostnames
