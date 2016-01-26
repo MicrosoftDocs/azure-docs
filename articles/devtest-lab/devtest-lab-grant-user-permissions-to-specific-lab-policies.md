@@ -29,9 +29,9 @@ In order to get started, you’ll need to read the following article, which will
 
 Once you’ve set up the Azure PowerShell cmdlets, you can perform the following tasks:
 
-- List all the operations/actions for a resource provider
-- List actions in a particular role:
-- Create a custom role
+    - List all the operations/actions for a resource provider
+    - List actions in a particular role:
+    - Create a custom role
 
 The following Windows PowerShell script illustrates examples of how to perform these tasks:
 
@@ -69,7 +69,7 @@ Once you have the **ObjectId** for the user and a custom role name, you can assi
 
 In the previous example, the **AllowedVmSizesInLab** policy is used. You can use any of the following polices:
 
-- MaxVmsAllowedPerUser
-- MaxVmsAllowedPerLab
-- AllowedVmSizesInLab
-- LabVmsShutdown
+    - MaxVmsAllowedPerUser
+    - MaxVmsAllowedPerLab
+    - AllowedVmSizesInLab
+    - LabVmsShutdown
