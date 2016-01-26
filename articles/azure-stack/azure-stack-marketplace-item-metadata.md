@@ -39,12 +39,10 @@
 
 ## Images
 
-Below is the list of icons used in the gallery.
+Below is the list of icons used in the marketplace.
 
 | NAME          | WIDTH | HEIGHT | NOTES                             |
 |---------------|-------|--------|-----------------------------------|
-| Hero          | 815px | 290px  | Not yet applicable in Azure Stack |
-| Wide          | 255px | 115px  | Not yet applicable in Azure Stack |
 | Large         | 115px | 115px  | Always required.                  |
 | Medium        | 90px  | 90px   | Always required.                  |
 | Small         | 40px  | 40px   | Always required.                  |
@@ -56,7 +54,7 @@ Each marketplace item should be tagged with a category. This dictates which cate
 
 ## Links
 
-Each gallery item can include a variety of links to additional content. The links are specified as a list of names and URIs.
+Each marketplace item can include a variety of links to additional content. The links are specified as a list of names and URIs.
 
 | NAME        | REQUIRED | TYPE   | CONSTRAINTS          | DESCRIPTION |
 |-------------|----------|--------|----------------------|-------------|
