@@ -43,7 +43,7 @@ However, using resource group _templates_ that describe a resource group is a de
 
 The set-up requirements to use the Resource Manager mode with the Azure CLI are:
 
-- an Azure account ([get a free trial here](http://azure.microsoft.com/pricing/free-trial/))
+- an Azure account ([get a free trial here](https://azure.microsoft.com/pricing/free-trial/))
 - [installing the Azure CLI](../xplat-cli-install.md)
 
 
