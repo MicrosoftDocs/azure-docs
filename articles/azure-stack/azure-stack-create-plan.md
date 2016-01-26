@@ -34,13 +34,13 @@ In this step, you’ll create a plan that includes the compute, network, and sto
 
 	![](media/azure-stack-create-plan/image2.png)
 
-5.  Fill in **Display Name** and **Resource Name**.
+5.  Fill in **Display Name** and **Resource Name**. The Display Name is the name that tenants will see when they see plans available to them. It may contain spaces and special characters. The Resource Name is only exposed to the admin and is the name that admins will use to interact with the plan as an Azure Resource Manager resource.
 
 	![](media/azure-stack-create-plan/image3.png)
 
-6.  Select or create a new **Resource Group** as a container for the plan. This is required to support RBAC. By default, all plans and offers will go into a resource group called OffersAndPlans.
+6.  Select or create a new **Resource Group** as a container for the plan. By default, all plans and offers will go into a resource group called OffersAndPlans.
 
-7.  Select **Offered Services**, select all three providers (**Compute Provider**, **Storage Provider**, and **Network Provider**) and then click **Select**.
+7.  Select **Offered Services**, use the Shift key to multi-select all three providers (**Compute Provider**, **Storage Provider**, and **Network Provider**) and then click **Select**.
 
 	![](media/azure-stack-create-plan/image4.png)
 
