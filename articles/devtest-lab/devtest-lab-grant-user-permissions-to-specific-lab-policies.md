@@ -24,7 +24,7 @@ As discussed in the (AzureRole-based Access Control)[role-based-access-control-c
 
 In this article, we’ll illustrate how to use Windows PowerShell to grant users permissions to a particular Lab policy. That way, permissions can be applied based on each user's needs. For example, you might want to grant a particular user the ability to change the VM policy settings, but not the cost policies.
 
-##Creating a DevTest Lab custom role using PowerShell
+##Creating a DevTest Lab custom role using Windows PowerShell
 In order to get started, you’ll need to read the following article, which will explain how to install and configure the Azure PowerShell cmdlets: (https://azure.microsoft.com/en-us/blog/azps-1-0-pre)[https://azure.microsoft.com/en-us/blog/azps-1-0-pre].
 
 Once you’ve set up the Azure PowerShell cmdlets, you can perform the following tasks:
@@ -32,7 +32,7 @@ Once you’ve set up the Azure PowerShell cmdlets, you can perform the following
 - List actions in a particular role:
 - Create a custom role
 
-The following PowerShell script illustrates examples of how to perform these tasks:
+The following Windows PowerShell script illustrates examples of how to perform these tasks:
 
     ‘List all the operations/actions for a resource provider.
     Get-AzureRmProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
