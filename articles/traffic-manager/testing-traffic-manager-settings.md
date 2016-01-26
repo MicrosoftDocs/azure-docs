@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Testing your Traffic Manager settings"
    description="This article will help you test your Traffic Manager settings."
    services="traffic-manager"

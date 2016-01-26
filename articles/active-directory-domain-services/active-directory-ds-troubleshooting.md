@@ -41,5 +41,5 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 ### Contact Us
 If you have issues with your managed domain, check to see if the steps outlined in this troubleshooting guide resolve the issue. If you're still having trouble, feel free to reach out to us at:
 
-- The [Azure Active Directory User Voice channel](http://feedback.azure.com/forums/169401-azure-active-directory). Ensure you pre-pend your question with the words **'AADDS'** in order to reach us.
+- The [Azure Active Directory User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/). Ensure you pre-pend your question with the words **'AADDS'** in order to reach us.
 - You may also email us at [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com)

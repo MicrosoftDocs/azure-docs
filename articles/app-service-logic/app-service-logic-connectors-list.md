@@ -20,7 +20,7 @@
 # List of Connectors and API Apps to use in your Logic Apps
 Learn about all the available connectors and API Apps created by Microsoft to use within your Logic Apps.
 
-For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](http://azure.microsoft.com/pricing/details/app-service/).
+For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 > [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
 
