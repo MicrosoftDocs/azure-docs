@@ -1,6 +1,6 @@
 ﻿<properties
-	pageTitle="Add an image to the Platform Image Repository in Azure Stack"
-	description="Before you can add an image to the PIR, you must prepare a virtual hard disk image."
+	pageTitle="Add an image to the Platform Image Repository (PIR) in Azure Stack"
+	description="Learn how to prepare a virtual hard disk image before you add an image to the PIR in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
 	authors="erikje"
@@ -16,7 +16,7 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Add an image to the Platform Image Repository in Azure Stack
+# Add an image to the Platform Image Repository (PIR) in Azure Stack
 
 Before you can add an image to the PIR, you must prepare a virtual hard disk image with either a Windows or Linux operating system. This virtual hard disk must be in the VHD format (not VHDX). 
 

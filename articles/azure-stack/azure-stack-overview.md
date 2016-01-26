@@ -18,7 +18,7 @@
 
 # Overview: Microsoft Azure Stack
 
-Microsoft Azure Stack is a cloud-optimized hybrid application platform which employs a collection of Microsoft Azure technologies that let you offer a rich, self-service, multi-tenant cloud, consistent with the Microsoft Azure experience. It gives you the power of Azure and the control of a datacenter, enabling you to offer Infrastructure-as-a-Service services to tenants.
+Microsoft Azure Stack is a cloud-optimized hybrid application platform which uses a collection of Microsoft Azure technologies that let you offer a rich, self-service, multi-tenant cloud, consistent with the Microsoft Azure experience. It gives you the power of Azure and the control of a datacenter, enabling you to offer Infrastructure-as-a-Service services to tenants.
 
 Microsoft Azure Stack brings proven innovation from Microsoft’s hyper-scale public cloud (Azure) into your datacenter. For more information about Microsoft Azure, visit [www.Azure.com](http://www.Azure.com).
 

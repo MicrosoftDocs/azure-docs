@@ -1,20 +1,20 @@
 ﻿<properties
 	pageTitle="What is Azure Stack POC?"
-	description="What is Azure Stack POC?"
+	description="Azure Stack POC is an environment for learning about core Azure Stack features and scenarios."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
 # What is Azure Stack POC?
 
