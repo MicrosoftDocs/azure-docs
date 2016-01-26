@@ -12,11 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-<<<<<<< HEAD
-   ms.date="12/30/2015"
-=======
    ms.date="01/25/2016"
->>>>>>> dfcbfadd4068803dd7915932f0679468c6e6aae0
    ms.author="joaoma" />
 
 # Azure Resource Manager support for Azure Traffic Manager Preview
@@ -47,12 +43,9 @@ There are currently a small number of limitations in the ARM support for Azure T
 
 - Traffic Manager profiles created using the existing (non-ARM) Azure Service Management (ASM) API, tools and 'classic' portal are not available via ARM, and vice versa. Migration of profiles from ASM to ARM APIs is not currently supported, other than by deleting and re-creating the profile.
 
-<<<<<<< HEAD
-- 'Nested' Traffic Manager endpoints are not currently supported in the ARM API.
 
-=======
-- 'Nested' Traffic Manager endpoints are supported via the ARM API, ARM PowerShell and ARM-mode Azure CLI.  They are not currently supported in the new Azure mangement portal (which also uses the ARM API).
->>>>>>> dfcbfadd4068803dd7915932f0679468c6e6aae0
+- 'Nested' Traffic Manager endpoints are supported via the ARM API, ARM PowerShell and ARM-mode Azure CLI.  They are not currently supported in the new Azure management portal (which also uses the ARM API).
+
 
 ## Setting up Azure PowerShell
 
