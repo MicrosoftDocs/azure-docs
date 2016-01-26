@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="01/25/2016"
 	ms.author="paulettm"/>
 
 # Azure Machine Learning Frequently Asked Questions (FAQ): Billing, capabilities, limitations, and support
@@ -224,6 +224,9 @@ For RRS, the web service response is typically where you see the result. You can
 
  **Can I create web services only from models created in the Studio?
  No. You can also create web services directly from Jupyter Notebooks, and RStudio.
+ 
+ **Where can I find information about error codes?
+ Error codes are described [here.] (https://msdn.microsoft.com/en-us/library/azure/dn905910.aspx)
 
 ## Scalability
 
