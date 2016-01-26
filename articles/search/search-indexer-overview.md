@@ -35,7 +35,7 @@ Each indexer has a single **DataSource** that can be set to any supported type:
 
 - [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) (or SQL Server in an Azure virtual machine)
 - [DocumentDB](../documentdb/documentdb-search-indexer.md)
-- [Azure Blob storage]search-howto-indexing-azure-blob-storage.md) (Currently in preview. Extracts text from PDF, Office documents, HTML, XML.)
+- [Azure Blob storage](search-howto-indexing-azure-blob-storage.md) (Currently in preview. Extracts text from PDF, Office documents, HTML, XML.)
 
 Data sources are configured and managed independently of the indexers that use them, which means a data source can be used by multiple indexers to load multiple indexes at a time.
 
