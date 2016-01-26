@@ -6,7 +6,7 @@
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	Tags="billing"/>
+	tags="billing"/>
 
 <tags
 	ms.service="billing"
