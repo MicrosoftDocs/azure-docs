@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="01/22/2015"
+   ms.date="01/23/2015"
    ms.author="sstein"/>
 
 # SQL Database Index Advisor
@@ -22,13 +22,13 @@ The Azure SQL Database Index Advisor provides index recommendations for your exi
 
 Index advisor assists you in tuning your database performance by:
 
-- providing recommendations on which indexes to create and/or drop*.
+- providing recommendations on which indexes to create (recommendations are available for non-clustered indexes only).
+- providing recommendations on which indexes to drop (drop index recommendations are in preview and currently apply to duplicate indexes only).
 - allowing you to opt-in to apply index recommendations automatically without any user interaction. (Automated recommendations require [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is enabled and running.)
 - automatically rolling back recommendations that have a negative impact on performance. 
 
 
-> [AZURE.NOTE] *Drop index recommendations are in preview and currently apply to duplicate indexes only.
-
+This article describes Index Advisor for V12 servers. Index recommendations are available for V11 servers but you must run the provided Transact-SQL (T-SQL) script to implement the recommendation. The advisor will not revert index operations on V11 servers so you should monitor and revert the performance impact as necessary.
 
 
 ### Permissions
@@ -40,6 +40,8 @@ To view and create index recommendations, you need the correct [role-based acces
 
 
 ## Viewing index recommendations
+
+The Index recommendations page is where you view the top suggested indexes based on their potential impact to improve performance. You can also view the status of the last several index operations. Select a recommendation or status to see it's details.
 
 To view index recommendations:
 
@@ -78,20 +80,21 @@ If desired, you can add discarded indexes back to the **Recommended indexes** li
 
 
 
-## Implementing index recommendations
+## Applying index recommendations
 
-Index Advisor gives you full control over how index recommendations are enabled using any of the 3 options below. (Select a recommendation and click **View script** to review the exact details of how the recommendation will be created.)
+Index Advisor gives you full control over how index recommendations are enabled using any of the 3 options below. 
 
 - Apply individual recommendations one at a time.
 - Enable Index Advisor to automatically apply index recommendations.
 - Manually run the recommended T-SQL script against your database to implement a recommendation.
 
+Select any recommendation to view it's details and then click **View script** to review the exact details of how the recommendation will be created.
 
 The database remains online while the advisor applies the recommendation -- using Index Advisor will never take a database offline.
 
 ### Apply an individual recommendation
 
-
+You can review and accept recommendations one at a time.
 
 1. On the **Index recommendations** blade click a recommendation.
 2. On the **Index details** blade click **Apply**.
@@ -100,6 +103,8 @@ The database remains online while the advisor applies the recommendation -- usin
 
 
 ### Enable automatic index management
+
+You can set the Index Advisor to implement recommendations automatically. As recommendations become available they will automatically be applied. As with all index operations managed by the service if the performance impact is negative the recommendation will be reverted.
 
 1. On the **Index recommendations** blade click **Advisor settings**:
 
@@ -114,7 +119,9 @@ The database remains online while the advisor applies the recommendation -- usin
 
 ### Manually run the recommended T-SQL script
 
-Select any recommendation and then click **View script**. Run this script against your database to manually apply the recommendation. Indexes that are manually created are not monitored and validated for actual performance impact so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+Select any recommendation and then click **View script**. Run this script against your database to manually apply the recommendation.
+
+*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
 
 ### Canceling index creation
@@ -145,24 +152,26 @@ Click an in-process recommendation from the list to see it's details:
 
 
 ### Reverting an index
-You can revert indexes that have been created with the Index Advisor.
+
+If you used the advisor to create an index (meaning you did not manually run the T-SQL script) it will automatically revert the index if it finds the performance impact to be negative. If for any reason you simply want to revert an index advisor operation you can do the following.
 
 
 1. Select a successfully created index in the list of **Index operations**.
-2. Click **Revert** on the **Index details** blade, or click **View Script** for a DROP INDEX script.
+2. Click **Revert** on the **Index details** blade, or click **View Script** for a DROP INDEX script that you can run.
 
 ![Recommended Indexes](./media/sql-database-index-advisor/details.png)
 
 
-## Monitoring performance of index recommendations
+## Monitoring performance impact of index recommendations
 
-After recommendations are successfully implemented you can click **Query Insights** on the Index details blade to open the [Query Performance Insights](sql-database-query-performance.md) and see the performance impact of your top queries.
+After recommendations are successfully implemented you can click **Query Insights** on the Index details blade to open [Query Performance Insights](sql-database-query-performance.md) and see the performance impact of your top queries.
 
+![Monitor performance impact](./media/sql-database-index-advisor/query-insights.png)
 
 
 ## Summary
 
-Index recommendations provide an automated experience for managing indexes for each SQL database.
+Index Advisor provides index recommendations and an automated experience for managing indexes for SQL database. By providing T-SQL scripts, as well as individual and fully-automatic index management options, the Index Advisor provides helpful assistance in optimizing your databases indexes and ultimately improving query performance.
 
 
 
