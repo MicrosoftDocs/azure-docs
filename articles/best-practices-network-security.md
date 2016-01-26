@@ -36,7 +36,7 @@ Examples for adding VNet to VNet connections, high availability, and service cha
 Microsoft has taken a leadership position supporting compliance initiatives required by enterprise customers. The following are some of the compliance certifications for Azure:
 ![Azure Compliance Badges][1]
 
-More details can be found at: [http://azure.microsoft.com/support/trust-center/compliance/](http://azure.microsoft.com/support/trust-center/compliance/)
+More details can be found at: [http://azure.microsoft.com/support/trust-center/compliance/](https://azure.microsoft.com/support/trust-center/compliance/)
 
 Microsoft has a comprehensive approach to protect cloud infrastructure needed to run hyper-scale global services. Microsoft cloud infrastructure includes hardware, software, networks, administrative and operations staff, as well as the physical data centers.
 

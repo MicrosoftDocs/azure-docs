@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Release notes for Application Insights for .NET" 
 	description="The latest updates for .NET SDK." 
 	services="application-insights" 
@@ -16,7 +16,7 @@
  
 # Release Notes for Application Insights SDK for .NET
 
-The [Application Insights SDK for .NET](app-insights-asp-net.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
+The [Application Insights SDK for .NET](app-insights-asp-net.md) sends telemetry about your live app to [Application Insights](https://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
 
 
 #### To install the SDK in your application

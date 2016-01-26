@@ -81,7 +81,7 @@ Fraud alert can be reported two ways.  Either through the mobile app or through 
 
 ### To view the fraud report
 
-1. Log on to [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Log on to [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. On the left, select Active Directory.
 3. At the top select Multi-Factor Auth Providers. This will bring up a list of your Multi-Factor Auth Providers.
 4. If you have more than one Multi-Factor Auth Provider, select the one you wish to view the fraud alert report and click Manage at the bottom of the page. If you have only one, just click Manage. This will open the Azure Multi-Factor Authentication Management Portal.
@@ -109,7 +109,7 @@ A one-time bypass allows a user to authenticate a single time by "bypassing" mul
 
 ### To view the one-time bypass report
 
-1. Log on to [http://azure.microsoft.com](http://azure.microsoft.com)
+1. Log on to [http://azure.microsoft.com](https://azure.microsoft.com/)
 2. On the left, select Active Directory.
 3. At the top select Multi-Factor Auth Providers. This will bring up a list of your Multi-Factor Auth Providers.
 4. If you have more than one Multi-Factor Auth Provider, select the one you wish to view the fraud alert report and click Manage at the bottom of the page. If you have only one, just click Manage. This will open the Azure Multi-Factor Authentication Management Portal.

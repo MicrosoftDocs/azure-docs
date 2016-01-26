@@ -109,7 +109,7 @@ XUF99EW9OIQOMV7Q7 | Family Saloon
 
 [Vehicle Telematics Simulator Visual Studio Solution](http://go.microsoft.com/fwlink/?LinkId=717075) 
 
-[Azure Event Hub](http://azure.microsoft.com/services/event-hubs/)
+[Azure Event Hub](https://azure.microsoft.com/services/event-hubs/)
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
