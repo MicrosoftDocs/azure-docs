@@ -38,6 +38,12 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 - **Cloud-only accounts**: If the affected user account is a cloud-only user account, ensure that the user has changed their password after you enabled Azure AD Domain Services. This step causes the credential hashes required for Azure AD Domain Services to be generated.
 
 
+### You are unable to enable Azure AD Domain Services for your Azure AD directory
+If you encounter a situation where you try to enable Azure AD Domain Services for your directory and it fails or gets toggled back to 'Disabled', perform the following troubleshooting steps:
+
+- Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Subsequently, you try to enable an Azure AD Domain Services managed domain with the same domain name (i.e. 'contoso.com') on that virtual network. You will encounter a failure when trying to enable Azure AD Domain Services. This is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
+
+
 ### Contact Us
 If you have issues with your managed domain, check to see if the steps outlined in this troubleshooting guide resolve the issue. If you're still having trouble, feel free to reach out to us at:
 
