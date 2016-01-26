@@ -15,7 +15,7 @@
    ms.date="01/21/2016"
    ms.author="joaoma" />
 
-#Using Dynamic DNS to Register Hostnames
+# Using Dynamic DNS to Register Hostnames
 [Azure provides name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) for VMs and role instances.  When your name resolution needs go beyond those provided by Azure you are able to provide your own DNS servers.  This gives you the power to tailor your DNS solution to suit your own specific needs.  For example, accessing your on-premise AD Domain Controller.
 
 Azure doesn't have the ability (e.g. credentials) to directly register records in your DNS servers, so alternative arrangements are often needed.  Below provides some highlevel details of some of the more common scenarios.
