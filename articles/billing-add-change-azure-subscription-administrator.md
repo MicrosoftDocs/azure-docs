@@ -6,7 +6,6 @@
 	authors="genlin"
 	manager="msmbaldwin"
 	editor="meerak"
-	tags=""
 	/>
 
 <tags
