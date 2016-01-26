@@ -1,4 +1,4 @@
-The following table lists the limits associated with the the different service tiers (S1, S2, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](http://azure.microsoft.com/pricing/details/iot-hub/).
+The following table lists the limits associated with the the different service tiers (S1, S2, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Resource | S1 Standard | S2 Standard | F1 Free |
 | -------- | ----------- | ----------- | ------- |

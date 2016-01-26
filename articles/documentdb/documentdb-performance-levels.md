@@ -18,7 +18,7 @@
 
 #Performance levels in DocumentDB
 
-This article provides an overview of performance levels in [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). 
+This article provides an overview of performance levels in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
 
 After reading this article, you'll be able to answer the following questions:  
 
@@ -31,7 +31,7 @@ After reading this article, you'll be able to answer the following questions:
 
 Each DocumentDB collection created under a Standard account is provisioned with an associated performance level. Performance levels are designated as S1, S2 or S3 ranging from lowest to highest in performance. The collection’s performance level determines the amount of request processing resources reserved for your application. Each collection in a database can have a different performance level allowing you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections. The minimum performance level for any collection is S1.
 
-Each performance level has an associated request unit (RU) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. Collections can be created through the [Azure Classic Portal](http://portal.azure.com) or any of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The DocumentDB APIs allow you to specify the performance level of a collection. 
+Each performance level has an associated request unit (RU) rate limit. This is the throughput that will be reserved for a collection based on its performance level, and is available for use by that collection exclusively. Collections can be created through the [Azure Classic Portal](https://portal.azure.com) or any of the [DocumentDB SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). The DocumentDB APIs allow you to specify the performance level of a collection. 
 
 Collection performance leve|Reserved throughput
 ---|---
@@ -113,11 +113,11 @@ Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.
 
 To learn more about pricing and managing data with Azure DocumentDB, explore these resources:
  
-- [DocumentDB pricing](http://azure.microsoft.com/pricing/details/documentdb/)
+- [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Managing DocumentDB capacity](documentdb-manage.md) 
 - [Modeling data in DocumentDB](documentdb-modeling-data.md)
 - [Partitioning data in DocumentDB](documentdb-partition-data.md)
 
-To learn more about DocumentDB, see the Azure DocumentDB [documentation](http://azure.microsoft.com/documentation/services/documentdb/). 
+To learn more about DocumentDB, see the Azure DocumentDB [documentation](https://azure.microsoft.com/documentation/services/documentdb/). 
 
 [1]: ./media/documentdb-performance-levels/img1.png 

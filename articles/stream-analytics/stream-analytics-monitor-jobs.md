@@ -27,7 +27,7 @@
 Before you begin this article, you must have the following:
 
 - Visual Studio 2012 or 2013.
-- Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+- Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 - An existing Stream Analytics job that needs monitoring enabled.
 
 ## Setup a project

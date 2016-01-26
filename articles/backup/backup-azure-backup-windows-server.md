@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Back up Windows Server or Windows Client files and folders to Azure | Microsoft Azure"
    description="Backup a Windows Server or Windows Client to Azure with this simple procedure. You can backup Windows files and folders to the cloud in a few easy steps."
    services="backup"

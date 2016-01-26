@@ -1039,7 +1039,7 @@ You should also create and run performance tests to check that the web API opera
 
 ## Publishing and managing a web API by using the Azure API Management Service
 
-Azure provides the [API Management Service](http://azure.microsoft.com/documentation/services/api-management/) which you can use to publish and manage a web API. Using this facility, you can generate a service that acts a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure Management portal. You can use this service to publish and manage a web API as follows:
+Azure provides the [API Management Service](https://azure.microsoft.com/documentation/services/api-management/) which you can use to publish and manage a web API. Using this facility, you can generate a service that acts a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure Management portal. You can use this service to publish and manage a web API as follows:
 
 1. Deploy the web API to a website, Azure cloud service, or Azure virtual machine.
 
@@ -1059,7 +1059,7 @@ Azure provides the [API Management Service](http://azure.microsoft.com/documenta
 
 6.	Configure policies for each web API. Policies govern aspects such as whether cross-domain calls should be allowed, how to authenticate clients, whether to convert between XML and JSON data formats transparently, whether to restrict calls from a given IP range, usage quotas, and whether to limit the call rate. Policies can be applied globally across the entire product, for a single web API in a product, or for individual operations in a web API.
 
-You can find full details describing how to perform these tasks on the [API Management](http://azure.microsoft.com/services/api-management/) page on the Microsoft website. The Azure API Management Service also provides its own REST interface, enabling you to build a custom interface for simplifying the process of configuring a web API. For more information, visit the [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website.
+You can find full details describing how to perform these tasks on the [API Management](https://azure.microsoft.com/services/api-management/) page on the Microsoft website. The Azure API Management Service also provides its own REST interface, enabling you to build a custom interface for simplifying the process of configuring a web API. For more information, visit the [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website.
 
 > [AZURE.TIP] Azure provides the Azure Traffic Manager which enables you to implement failover and load-balancing, and reduce latency across multiple instances of a web site hosted in different geographic locations. You can use Azure Traffic Manager in conjunction with the API Management Service; the API Management Service can route requests to instances of a web site through Azure Traffic Manager.  For more information, visit the [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md) page on the Microsoft website.
 
@@ -1145,7 +1145,7 @@ You can use this information to determine whether a particular web API or operat
 - The article [Web API Global Error Handling](http://www.asp.net/web-api/overview/error-handling/web-api-global-error-handling) on the Microsoft website describes how to implement a global error handling and logging strategy for a web API.
 - The page [Use WebJobs to run background tasks in Microsoft Azure Websites](web-sites-create-web-jobs.md) on the Microsoft website provides information and examples on using WebJobs to perform background operations on an Azure Website.
 - The page [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users/) on the Microsoft website shows how you can use an Azure Notification Hub to push asynchronous responses to client applications.
-- The [API Management](http://azure.microsoft.com/services/api-management/) page on the Microsoft website describes how to publish a product that provides controlled and secure access to a web API.
+- The [API Management](https://azure.microsoft.com/services/api-management/) page on the Microsoft website describes how to publish a product that provides controlled and secure access to a web API.
 - The [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx) page on the Microsoft website describes how to use the API Management REST API to build custom management applications.
 - The [About Traffic Manager Load Balancing Methods](../traffic-manager/traffic-manager-load-balancing-methods.md) page on the Microsoft website summarizes how Azure Traffic Manager can be used to load-balance requests across multiple instances of a website hosting a web API.
 - The [Application Insights - Start monitoring your app's health and usage](app-insights-start-monitoring-app-health-usage.md) page on the Microsoft website provides detailed information on installing and configuring Application Insights in an ASP.NET Web API project.

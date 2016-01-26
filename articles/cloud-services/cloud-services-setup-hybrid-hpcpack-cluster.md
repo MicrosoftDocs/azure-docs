@@ -31,7 +31,7 @@ This tutorial assumes no prior experience with compute clusters or HPC Pack. It 
 
 ## Prerequisites
 
-* **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 * **An on-premises computer running Windows Server 2012 R2 or Windows Server 2012** - This computer will be the head node of the HPC cluster. If you are not already running Windows Server, you can download and install an [evaluation version](http://technet.microsoft.com/evalcenter/dn205286.aspx).
 

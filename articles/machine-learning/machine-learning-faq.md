@@ -47,7 +47,7 @@ See [Connect to a Machine Learning web service](machine-learning-connect-to-azur
 
 **How does Machine Learning billing work?**
 
-For billing and pricing information, see [Machine Learning Pricing](http://azure.microsoft.com/pricing/details/machine-learning/).
+For billing and pricing information, see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 **Does Machine Learning have a free trial?**
 
@@ -226,7 +226,7 @@ For RRS, the web service response is typically where you see the result. You can
  No. You can also create web services directly from Jupyter Notebooks, and RStudio.
  
  **Where can I find information about error codes?
- Error codes are described [here.] (https://msdn.microsoft.com/en-us/library/azure/dn905910.aspx)
+ Error codes are described [here.] (https://msdn.microsoft.com/library/azure/dn905910.aspx)
 
 ## Scalability
 
