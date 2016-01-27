@@ -34,7 +34,7 @@ For more information:
 
 - [Azure Media Player](http://aka.ms/ampinfo)
 - [Azure Media Player Documentation](http://aka.ms/ampdocs) 
-- [Azure Media Player Getting Started Blog](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
+- [Azure Media Player Getting Started Blog](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
 - [Sign up to stay up to date with the latest from Azure Media Player](http://aka.ms/ampsignup)
 - [Add new feature requests, ideas, feedback](http://aka.ms/ampuservoice ) 
 

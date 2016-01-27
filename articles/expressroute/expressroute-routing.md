@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -38,7 +38,7 @@ You can use either private IP addresses or public IP addresses to configure the 
  - If a /29 subnet is used, it will be split into two /30 subnets. 
 	 - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
 	 - For each of the /30 subnets, you must the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	 - You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.  
+	 - You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
 
 #### Example for private peering
 
@@ -59,7 +59,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 - If a /29 subnet is used, it will be split into two /30 subnets. 
 	- The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
 	- For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	- You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.
+	- You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 Make sure that your IP address and AS number are registered to you in one of the registries listed below.
 
@@ -163,7 +163,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 ### Manipulating routing preferences
 
-Microsoft does not honor any BGP community values that you set. You are required to setup a pair of BGP sessions per peering to ensure that the requirements for the [availability SLA](http://azure.microsoft.com/support/legal/sla/) are met. You can can, however, configure your network to prefer one link over the other by relying on standard BGP route manipulation techniques. You can apply different BGP local preferences to each link to favor one path over the other from your network to Microsoft. You can prepend the AS-PATH on route advertisements to influence traffic flow from Microsoft into your network.
+Microsoft does not honor any BGP community values that you set. You are required to setup a pair of BGP sessions per peering to ensure that the requirements for the [availability SLA](https://azure.microsoft.com/support/legal/sla/) are met. You can can, however, configure your network to prefer one link over the other by relying on standard BGP route manipulation techniques. You can apply different BGP local preferences to each link to favor one path over the other from your network to Microsoft. You can prepend the AS-PATH on route advertisements to influence traffic flow from Microsoft into your network.
 
 ## Next steps
 

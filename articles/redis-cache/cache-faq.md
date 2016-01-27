@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="01/21/2016" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -75,12 +75,12 @@ For best performance and lowest latency, locate your Azure Redis Cache in the sa
 <a name="cache-billing"></a>
 ## How am I billed for Azure Redis Cache?
 
-Azure Redis Cache pricing is [here](http://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
+Azure Redis Cache pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
 <a name="cache-timeouts"></a>
 ## Why am I seeing timeouts?
 
-Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](http://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
+Timeouts happen in the client that you use to talk to Redis. For the most part Redis server does not time out. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Investigating timeout exceptions in StackExchange.Redis for Azure Redis Cache](https://azure.microsoft.com/blog/2015/02/10/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
 
 <a name="cache-monitor"></a>
 ## How do I monitor the health and performance of my cache?
@@ -169,11 +169,20 @@ Given this information, we strongly recommend that customers set the minimum con
 
 How to configure this setting:
 
--	In ASP.NET, use the ["minIoThreads" configuration setting](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under the `<processModel>` configuration element in web.config.  If you are running inside of Azure WebSites, this setting is not exposed through the configuration options.  However, you should still be able to set this programmatically (see below) from your Application_Start method in global.asax.cs.
+-	In ASP.NET, use the ["minIoThreads" configuration setting][] under the `<processModel>` configuration element in web.config.  If you are running inside of Azure WebSites, this setting is not exposed through the configuration options.  However, you should still be able to set this programmatically (see below) from your Application_Start method in global.asax.cs.
 
 > **Important Note:** the value specified in this configuration element is a *per-core* setting.  For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
 
--	Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com//en-us/library/system.threading.threadpool.setminthreads(v=vs.100).aspx) API.
+-	Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+
+<a name="server-gc"></a>
+## Enable server GC to get more throughput on the client when using StackExchange.Redis
+
+Enabling server GC can optimize the client and provide better performance and throughput when using StackExchange.Redis. For more information on server GC and how to enable it, see the following articles.
+
+-	[To enable server GC](https://msdn.microsoft.com/library/ms229357.aspx)
+-	[Fundamentals of Garbage Collection](https://msdn.microsoft.com/library/ee787088.aspx)
+-	[Garbage Collection and Performance](https://msdn.microsoft.com/library/ee851764.aspx)
 
 <a name="cache-redis-commands"></a>
 ## What are some of the considerations when using common Redis commands?
@@ -230,7 +239,7 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 
 Microsoft Azure Redis Cache is based on the popular open source Redis Cache, giving you access to a secure, dedicated Redis cache, managed by Microsoft. A variety of [Redis clients](http://redis.io/clients) are available for many programming languages. Each client has its own API that makes calls to the Redis cache instance using [Redis commands](http://redis.io/commands).
 
-Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials on Azure.com showing how to get started with Azure Redis Cache using different languages and cache clients on the [Redis Cache documentation](http://azure.microsoft.com/documentation/services/redis-cache/) page.
+Because each client is different, there is not one centralized class reference on MSDN; instead each client maintains its own reference documentation. In addition to the reference documentation, there are several tutorials on Azure.com showing how to get started with Azure Redis Cache using different languages and cache clients on the [Redis Cache documentation](https://azure.microsoft.com/documentation/services/redis-cache/) page.
 
 
 ## Which Azure Cache offering is right for me?
@@ -271,3 +280,5 @@ Managed Cache service is set to be retired November 30, 2016.
 
 ### In-Role Cache
 In-Role Cache is set to be retired November 30, 2016.
+
+["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

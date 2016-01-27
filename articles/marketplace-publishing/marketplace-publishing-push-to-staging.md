@@ -115,7 +115,7 @@ Some of this information will have been completed during the certification step.
 The **Categories** tab provides an array of selections. Your offer may fall under these, and you may select up to five categories.
 
 ## How your marketing will appear
-Below is a detailed view of how the offer marketing information is used on the [Azure Marketplace website](http://azure.microsoft.com/marketplace) and in the [Azure preview portal](https://ms.portal.azure.com).
+Below is a detailed view of how the offer marketing information is used on the [Azure Marketplace website](https://azure.microsoft.com/marketplace/) and in the [Azure preview portal](https://ms.portal.azure.com).
 
 ### Azure Marketplace website
 ![drawing](media/marketplace-publishing-push-to-staging/acom-catalog-01.png)

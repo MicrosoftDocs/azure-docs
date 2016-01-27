@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configure a Point-to-Site VPN Gateway connection to an Azure Virtual Network | Microsoft Azure"
-   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN connection. This configuration is helpful when needing a cross-premises connection from a remote location with out using a VPN device and can be used with hybrid network configurations. This article contains PowerShell instructions for VNets that were created using the Resource Manager deployment model."
+   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN connection. This configuration is helpful when you need a cross-premises connection from a remote location without using a VPN device and can be used with hybrid network configurations. This article contains PowerShell instructions for VNets that were created using the Resource Manager deployment model."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/14/2016"
+   ms.date="01/19/2016"
    ms.author="cherylmc" />
 
 # Configure a Point-to-Site connection to a virtual network using PowerShell
@@ -24,7 +24,7 @@
 
 A Point-to-Site configuration allows you to create a secure connection to your virtual network from a client computer, individually. A VPN connection is established by starting the connection from the client computer. Point-to-Site is an excellent solution when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. Point-to-Site connections do not require a VPN device or a public-facing IP address to work. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [About cross-premises connections](vpn-gateway-cross-premises-options.md).
 
-This article applies to VNets and VPN Gateways created using the **Azure Resource Manager** deployment model. If you want to configure a Point-to-Site connection for a VNet that was created using Service Management (also known as the classic deployment model), see [this article](vpn-gateway-point-to-site-create.md). 
+This article applies to VNets and VPN Gateways created using the **Azure Resource Manager** deployment model. If you want to configure a Point-to-Site connection for a VNet that was created using Service Management (also known as the classic deployment model), see [Configure a Point-to-Site VPN connection to a VNet](vpn-gateway-point-to-site-create.md). 
 
 [AZURE.INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
@@ -34,23 +34,23 @@ In this scenario, you will create a virtual network with a Point-to-Site connect
 
 We'll use the following values for this configuration:
 
-- Name = **TestVNet**, using address spaces 192.168.0.0/16 and 10.254.0.0/16. Notice that you can use more than one address space for a VNet.
-- Subnet name = **FrontEnd**, using 192.168.1.0/24
-- Subnet name = **BackEnd**, using 10.254.1.0/24
-- Subnet name = **GatewaySubnet**, using 192.168.200.0/24. The Subnet name *GatewaySubnet* is mandatory for the gateway to work. 
-- VPN client address pool: 172.16.201.0/24. VPN clients that connect to the VNet using this Point-to-Site connection will receive an IP address from this pool.
-- Subscription = Verify you have the correct subscription if you have more than one.
-- Resource Group = **TestRG**
-- Location = **East US**
-- DNS Server = IP address of the DNS server that you want to use for name resolution.
-- GW Name = **GW**
-- Public IP name = **GWIP**
-- VpnType = **RouteBased**
+- Name: **TestVNet**, using address spaces **192.168.0.0/16** and **10.254.0.0/16**. Notice that you can use more than one address space for a VNet.
+- Subnet name: **FrontEnd**, using **192.168.1.0/24**
+- Subnet name: **BackEnd**, using **10.254.1.0/24**
+- Subnet name: **GatewaySubnet**, using **192.168.200.0/24**. The Subnet name *GatewaySubnet* is mandatory for the gateway to work. 
+- VPN client address pool: **172.16.201.0/24**. VPN clients that connect to the VNet using this Point-to-Site connection will receive an IP address from this pool.
+- Subscription: Verify that you have the correct subscription if you have more than one.
+- Resource Group: **TestRG**
+- Location: **East US**
+- DNS Server: **IP address** of the DNS server that you want to use for name resolution.
+- GW Name: **GW**
+- Public IP name: **GWIP**
+- VpnType: **RouteBased**
 
 
 ## Before beginning
 
-Verify that you have an Azure subscription, and have installed the Azure PowerShell cmdlets needed for this configuration (1.0.2 or later). If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
+Verify that you have an Azure subscription, and have installed the Azure PowerShell cmdlets needed for this configuration (1.0.2 or later). If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 	
 **About installing PowerShell cmdlet modules**
 
@@ -58,7 +58,7 @@ Verify that you have an Azure subscription, and have installed the Azure PowerSh
 
 ## Configure a Point-to-Site connection for Azure
 
-1. In the PowerShell console, log in to your Azure account. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so they are available to Azure PowerShell.
+1. In the PowerShell console, log in to your Azure account. This cmdlet prompts you for the login credentials for your Azure Account. After logging in, it downloads your account settings so that they are available to Azure PowerShell.
 
 		Login-AzureRmAccount 
 
@@ -114,7 +114,7 @@ Verify that you have an Azure subscription, and have installed the Azure PowerSh
 		$pip = New-AzureRmPublicIpAddress -Name $GWIPName -ResourceGroupName $RG -Location $Location -AllocationMethod Dynamic
 		$ipconf = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
 		
-10. Upload a root certificate .cer file to Azure. You can use a root certificate from your enterprise certificate environment, or you can use a self-signed root certificate. You can upload up to 20 root certificates. For instructions to create a self-signed root certificate using *makecert*, see the section at the end of this article. Note that the .cer file should not contain the private key of the root certificate. 
+10. Upload a root certificate .cer file to Azure. You can use a root certificate from your enterprise certificate environment, or you can use a self-signed root certificate. You can upload up to 20 root certificates. For instructions to create a self-signed root certificate using *makecert*, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). Note that the .cer file should not contain the private key of the root certificate. 
 	
 	Below is a sample of what this looks like. The challenging part of uploading the public certificate data is that you must copy and paste the entire string with no spaces. Otherwise, the upload will not work. You'll need to use your own certificate .cer file for this step. Don't try to copy and paste the sample from below.
 
@@ -137,7 +137,7 @@ Each client that connects to Azure by using Point-to-Site must have two things: 
 
     	"https://mdsbrketwprodsn1prod.blob.core.windows.net/cmakexe/4a431aa7-b5c2-45d9-97a0-859940069d3f/amd64/4a431aa7-b5c2-45d9-97a0-859940069d3f.exe?sv=2014-02-14&sr=b&sig=jSNCNQ9aUKkCiEokdo%2BqvfjAfyhSXGnRG0vYAv4efg0%3D&st=2016-01-08T07%3A10%3A08Z&se=2016-01-08T08%3A10%3A08Z&sp=r&fileExtension=.exe"
 	
-2. Generate and install the client certificates (*.pfx) created from the root certificate on the client computers. You can use any method of installing that you are comfortable with. If you are using a self-signed root certificate and are unfamiliar with how to do this, you can refer to the instructions located at the end of this article.  
+2. Generate and install the client certificates (*.pfx) created from the root certificate on the client computers. You can use any method of installing that you are comfortable with. If you are using a self-signed root certificate and are unfamiliar with how to do this, you can refer to [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). 
 
 3. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you just created. It will be named the same name as your virtual network. Click **Connect**. A pop up message may appear that refers to using the certificate. If this happens, click **Continue** to use elevated privileges. 
 
@@ -164,6 +164,8 @@ Each client that connects to Azure by using Point-to-Site must have two things: 
 
 ## To add or remove a root certificate
 
+Certificates are used to authenticate VPN clients for Point-to-Site VPNs. The following steps will walk you through adding and removing root certificates.
+
 ### Add a root certificate
 
 You can add up to 20 root certificates to Azure. Follow the steps below to add a root certificate.
@@ -177,7 +179,7 @@ You can add up to 20 root certificates to Azure. Follow the steps below to add a
 
 		Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname $GWName -ResourceGroupName $RG -PublicCertData $MyP2SCertPubKeyBase64_2
 
-3. You can check whether the new certificate was added correctly with the following cmdlet.
+3. You can verify that the new certificate was added correctly by using the following cmdlet.
 
 		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName
 
@@ -190,13 +192,13 @@ You can remove a root certificate from Azure. When you remove a root certificate
 		Remove-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -PublicCertData "MIIC/zCCAeugAwIBAgIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAMBgxFjAUBgNVBAMTDU15UDJTUm9vdENlcnQwHhcNMTUxMjE5MDI1MTIxWhcNMzkxMjMxMjM1OTU5WjAYMRYwFAYDVQQDEw1NeVAyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyjIXoWy8xE/GF1OSIvUaA0bxBjZ1PJfcXkMWsHPzvhWc2esOKrVQtgFgDz4ggAnOUFEkFaszjiHdnXv3mjzE2SpmAVIZPf2/yPWqkoHwkmrp6BpOvNVOpKxaGPOuK8+dql1xcL0eCkt69g4lxy0FGRFkBcSIgVTViS9wjuuS7LPo5+OXgyFkAY3pSDiMzQCkRGNFgw5WGMHRDAiruDQF1ciLNojAQCsDdLnI3pDYsvRW73HZEhmOqRRnJQe6VekvBYKLvnKaxUTKhFIYwuymHBB96nMFdRUKCZIiWRIy8Hc8+sQEsAML2EItAjQv4+fqgYiFdSWqnQCPf/7IZbotgQIDAQABo00wSzBJBgNVHQEEQjBAgBAkuVrWvFsCJAdK5pb/eoCNoRowGDEWMBQGA1UEAxMNTXlQMlNSb290Q2VydIIQKazxzFjMkp9JRiX+tkTfSzAJBgUrDgMCHQUAA4IBAQA223veAZEIar9N12ubNH2+HwZASNzDVNqspkPKD97TXfKHlPlIcS43TaYkTz38eVrwI6E0yDk4jAuPaKnPuPYFRj9w540SvY6PdOUwDoEqpIcAVp+b4VYwxPL6oyEQ8wnOYuoAK1hhh20lCbo8h9mMy9ofU+RP6HJ7lTqupLfXdID/XevI8tW6Dm+C/wCeV3EmIlO9KUoblD/e24zlo3YzOtbyXwTIh34T0fO/zQvUuBqZMcIPfM1cDvqcqiEFLWvWKoAnxbzckye2uk1gHO52d8AVL3mGiX8wBJkjc/pMdxrEvvCzJkltBmqxTM6XjDJALuVh16qFlqgTWCIcb7ju"
 
  
-2. Use the following cmdlet to check if the certificate is removed successfully.
+2. Use the following cmdlet to verify that the certificate was removed successfully. 
 
 		Get-AzureRmVpnClientRootCertificate -ResourceGroupName $RG -VirtualNetworkGatewayName $GWName
 
 ## Manage the list of revoked client certificates
 
-The list of revoked client certificates allows you to selectively deny Point-to-Site connectivity based on individual client certificates. Removing a root certificate will revoke the access for all client certificates generated/signed by the revoked root certificate. The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine grain access control on individual users.
+You can revoke client certificates. The certificate revocation list allows you to selectively deny Point-to-Site connectivity based on individual client certificates. While removing a root certificate from Azure will revoke the access for all client certificates generated/signed by the revoked root certificate, revoking a client certificate will allow you to remove access for a particular certificate. The common practice is to use the root certificate to manage access at team or organization levels, while using revoked client certificates for fine-grained access control on individual users.
 
 ### Revoke a client certificate
 
@@ -209,11 +211,11 @@ The list of revoked client certificates allows you to selectively deny Point-to-
 
 		Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG -Thumbprint $RevokedThumbprint1
 
-3. Check if the thumbprint is added to the revoke list. You need to add one thumbprint at a time.
+3. Verify that the thumbprint was added to the certificate revocation list. You need to add one thumbprint at a time.
 
 		Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
 
-### Re-instate a client certificate
+### Reinstate a client certificate
 
 You can reinstate a client certificate by removing the thumbprint from the list of revoked client certificates.
 
@@ -224,58 +226,6 @@ You can reinstate a client certificate by removing the thumbprint from the list 
 2. Check if the thumbprint is removed from the revoked list.
 
 		Get-AzureRmVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
-
-## To create a self-signed root certificate by using makecert
-
-Makecert is one way of creating a self-signed root certificate. The steps below will walk you through the procedure.
-
-1. From a computer running Windows 10, download and install the Windows 10 SDK from [this link](https://dev.windows.com/en-us/downloads/windows-10-sdk).
-
-2. After installation, you can find the makecert.exe utility under this path: C:\Program Files (x86)\Windows Kits\10\bin\<arch>. 
-		
-	Example: 
-	
-		C:\Program Files (x86)\Windows Kits\10\bin\x64\makecert.exe
-
-3. Next, create and install a root certificate in the Personal certificate store on your computer. The example below creates a corresponding *.cer* file that you'll later upload. Run the following command, as administrator, where *RootCertificateName* is the name that you want to use for the certificate. 
-
-	Note: If you run the following example with no changes, the result will be a root certificate and the corresponding file *RootCertificateName.cer*. You can find the .cer file in the directory from which you ran the command. The certificate will be located in your Certificates - Current User\Personal\Certificates.
-
-    	makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
-
-	>[AZURE.NOTE] Because you have created a root certificate from which client certificates will be generated, you may want to export this certificate along with its private key and save it to a safe location where it may be recovered.
-
-## To generate a client certificate from a self-signed root certificate
-
-The steps below will help you generate a client certificate from a self-signed root certificate, and then export and install the client certificate. 
-
-### Generate a client certificate
-
-The steps below will walk you through one way to generate a client certificate from a self-signed root certificate. You may generate multiple client certificates from the same root certificate. Each client certificate can then be exported and installed on the client computer. 
-
-1. On the same computer that you used to create the self-signed root certificate, open a command prompt as administrator.
-2. Change the directory to the location to which you want to save the client certificate file. *RootCertificateName* refers to the self-signed root certificate that you generated. If you run the following example (changing the RootCertificateName to the name of your root certificate), the result will be a client certificate named "ClientCertificateName" in your Personal certificate store.
-3. Type the following command:
-
-    	makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
-
-4. All certificates are stored in your Certificates - Current User\Personal\Certificates store on your computer. You can generate as many client certificates as needed based on this procedure.
-
-### Export and install a client certificate
-
-Installing a client certificate on each computer that you want to connect to the virtual network is a mandatory step. The steps below will walk you through installing the client certificate manually.
-
-1. To export a client certificate, use *certmgr.msc*. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This will open the Certificate Export Wizard.
-2. In the Wizard, click **Next**, then select **Yes, export the private key**, and then click **Next**.
-3. On the **Export File Format** page, you can leave the defaults selected. Then click **Next**.  
-4. On the **Security** page, you must protect the private key. If you select to use a password, make sure to record or remember the password that you set for this certificate.Then click **Next**.
-5. On the **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then click **Next**.
-6. Click **Finish** to export the certificate.	
-3. Locate and copy the *.pfx* file to the client computer. On the client computer, double-click the *.pfx* file to install. Leave the **Store Location** as **Current User**, then click **Next**.
-4. On the **File** to import page, don't make any changes. Click **Next**.
-5. On the **Private key protection** page, input the password for the certificate if you used one, or verify that the security principal that is installing the certificate is correct, then click **Next**.
-6. On the **Certificate Store** page, leave the default location, and then click **Next**.
-7. Click **Finish**. On the **Security Warning** for the certificate installation, click **Yes**. The certificate is now successfully imported.
 
 ## Next steps
 

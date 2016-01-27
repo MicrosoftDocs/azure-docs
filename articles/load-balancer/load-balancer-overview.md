@@ -119,7 +119,7 @@ You can get more than one load-balanced public IP address assigned to a set of v
 
 **Template-based deployments through Azure Resource Manager**
 
-Azure Resource Manager is the new management framework for services in Azure. Azure Load Balancer can now be managed through Resource Manager-based APIs and tools. To learn more about Resource Manager, see [IaaS just got easier with Azure Resource Manager](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
+Azure Resource Manager is the new management framework for services in Azure. Azure Load Balancer can now be managed through Resource Manager-based APIs and tools. To learn more about Resource Manager, see [IaaS just got easier with Azure Resource Manager](https://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/).
 
 
 ## Next steps

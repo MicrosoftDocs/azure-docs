@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/06/2015"
+   ms.date="1/19/2016"
    ms.author="bruceper" />
 
 # Azure Key Vault Developer's Guide
@@ -38,7 +38,8 @@ The Key Vault management system for programmers consists of several interfaces, 
 
 |[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 |:--:|:--:|
-|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|[.NET SDK Documentation](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.js SDK Documentation](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)|
+|[.NET SDK Package](https://azure.microsoft.com/en-us/documentation/api/)|[Node.js SDK Package](https://www.npmjs.com/package/azure-keyvault)|
 
 ## Managing Key Vaults
 

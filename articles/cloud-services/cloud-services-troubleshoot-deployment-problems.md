@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter=""
    authors="dalechen"
-   manager="msmets"
+   manager="felixwu"
    editor=""
    tags="top-support-issue"/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="01/07/2016"
+   ms.date="01/20/2016"
    ms.author="daleche" />
 
 # How to troubleshoot Cloud Service deployment problems you may run into
@@ -29,9 +29,9 @@ You can find the **Properties** pane as follows:
 
 ## Contact Azure Customer Support
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/).
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/).
 
-Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 
 
@@ -87,5 +87,4 @@ For more information on how to troubleshoot for this problem, see the blog post 
 
 View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
 
-
-[Azure PaaS Compute Diagnostics Data]: http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx
+To learn how to troubleshoot Cloud Service roles' issue by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

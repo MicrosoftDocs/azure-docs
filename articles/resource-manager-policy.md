@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Azure Resource Manager Policy | Microsoft Azure"
 	description="Describes how to use Azure Resource Manager Policy to prevent violations at different scopes like subscription, resource groups or individual resources."
 	services="azure-resource-manager"

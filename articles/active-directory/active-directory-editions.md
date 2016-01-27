@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory editions | Microsoft Azure"
-	description="A topic that explains choices for free and paid editions of Azure Active Directory."
+	description="A topic that explains choices for free and paid editions of Azure Active Directory.Azure Active Directory Basic is the free edition and Azure Active Directory Premium is the paid edition."
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/04/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Azure Active Directory editions

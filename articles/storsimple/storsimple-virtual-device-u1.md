@@ -70,7 +70,7 @@ The following sections will help you prepare to use the StorSimple virtual devic
 
 Before you provision the virtual device, you need to make the following preparations in your Azure environment:
 
-- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet.md). 
+- For the virtual device, [configure a virtual network on Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). 
 - It is advisable to use the default DNS server provided by Azure instead of specifying your own DNS server name. If your DNS server name is not valid, creation of the virtual device will fail.
 - Point-to-site and site-to-site are optional, but not required. If you wish, you can configure these options for more advanced scenarios. 
 
@@ -137,7 +137,7 @@ Perform the following steps to create the StorSimple virtual device.
 
 	4. **Subnet** – The subnet on the virtual network for use with the virtual device.
 
-	5. **Storage Account for Virtual Device Creation** – This storage account will be used to hold the image of the virtual device during provisioning, and will host the disks of the virtal device after provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. 
+	5. **Storage Account for Virtual Device Creation** – This storage account will be used to hold the image of the virtual device during provisioning, and will host the disks of the virtual device after provisioning. This storage account should be in the same region as the virtual device and virtual network. It should not be used for data storage by either the physical device or the virtual device. By default, a new storage account will be created for this purpose. However, if you know that you already have a storage account that is suitable for this use, you can select it from the list. 
 
     >[AZURE.NOTE] The virtual device can only work with the Azure storage accounts. Other cloud service providers such as Amazon, HP and OpenStack (that are supported for the physical device) are not supported for the StorSimple virtual device.
 	
@@ -372,7 +372,7 @@ The failover process will begin. When the failover is finished, go to the Device
 
 If you previously configured and used a StorSimple virtual device but now want to stop accruing compute charges for its use, you can shut down the virtual device. Shutting down the virtual device doesn’t delete its operating system or data disks in storage. It does stop charges accruing on your subscription, but storage charges for the OS and data disks will continue.
 
-If you delete or shut down the virtual device, it will appear as **Offline** on the Devices page of the StorSimple Manager service. You can choose to deactivate it or delete it as a device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate a device](storsimple-deactivate-and-delete-device.md#deactivate-a-device).
+If you delete or shut down the virtual device, it will appear as **Offline** on the Devices page of the StorSimple Manager service. You can choose to deactivate it or delete it as a device if you also wish to delete the backups created by the virtual device. For more information, see [Deactivate and delete a StorSimple device](storsimple-deactivate-and-delete-device.md).
 
 ### To shut down the StorSimple virtual device
 
@@ -386,9 +386,9 @@ If you delete or shut down the virtual device, it will appear as **Offline** on 
 
 1. Sign in to the Azure classic portal.
 
-- Click **Virtual Machines**, and then select the virtual device.
+2. Click **Virtual Machines**, and then select the virtual device.
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+3. Click **Delete** and choose to delete all the virtual machine disks.
 
 ## Next steps
 

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Analytics for Windows Phone and Store apps | Microsoft Azure"
 	description="Analyze usage and performance of your Windows device app."
 	services="application-insights"

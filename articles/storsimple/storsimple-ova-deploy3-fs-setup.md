@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/13/2016"
+   ms.date="01/20/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Set up as file server (Preview)
 
-![](./media/storsimple-ova-deploy3-fs-setup/fileserver3.png)
+![](./media/storsimple-ova-deploy3-fs-setup/fileserver4.png)
 
 ## Introduction 
 
@@ -32,7 +32,7 @@ The setup and configuration process can take around 10 minutes to complete.
 
 ## Setup prerequisites
 
-Before you configure and setup your StorSimple virtual device, make sure that:
+Before you configure and set up your StorSimple virtual device, make sure that:
 
 -   You have provisioned a virtual device and connected to it as detailed in the [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
@@ -57,11 +57,11 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image2.png)
 
-1.  Sign in to the web UI of your virtual device as **StorSimpleAdmin**. Enter the device administrator password that you changed in the Step 3: Start the virtual device in [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or in [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
+1.  Sign in to the web UI of your virtual device as **StorSimpleAdmin**. Enter the device administrator password that you changed in Step 3: Start the virtual device in [Provision a StorSimple Virtual Array in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md) or in [Provision a StorSimple Virtual Array in VMware](storsimple-ova-deploy2-provision-vmware.md).
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image3.png)
 
-1.  You will be taken to the **Home** page. This page describes the various settings required to configure and register the virtual device with StorSimple Manager service. Note that the **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Device settings** and **Cloud settings**.
+1.  You will be taken to the **Home** page. This page describes the various settings required to configure and register the virtual device with the StorSimple Manager service. Note that the **Network settings**, **Web proxy settings**, and **Time settings** are optional. The only required settings are **Device settings** and **Cloud settings**.
 
 	![](./media/storsimple-ova-deploy3-fs-setup/image4.png)
 
@@ -134,7 +134,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 		![](./media/storsimple-ova-deploy3-fs-setup/image13.png)
 	
 
-1.  Return to the Azure Portal. On the Devices page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
+1.  Return to the Azure classic portal. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Active**.
 
 ![](./media/storsimple-ova-deploy3-fs-setup/image12.png)
 
@@ -221,7 +221,12 @@ You will now need to connect to the share(s) that you created in the previous st
 
 3.  You can now add files to these shares and take a backup.
 
+![video icon](./media/storsimple-ova-deploy3-fs-setup/video_icon.png) **Video available**
+
+Watch the video to see how you can configure and register a StorSimple Virtual Array as a file server.
+
+> [AZURE.VIDEO configure-a-storsimple-virtual-array]
 
 ## Next steps
 
-Learn how to [Administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md) using the local web UI.
+Learn how to use the local web UI to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
