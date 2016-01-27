@@ -34,8 +34,6 @@ why would a customer use these etc?
 ###Marketplace Item Packaging Tool and Sample
 [Download and use the Packaging tool](http://www.aka.ms/azurestackmarketplaceitem) to create marketplace items for your own custom templates to add to the Azure Stack marketplace. Instructions on how to create a marketplace item and make it available to your tenants can be found in [Publish Custom Marketplace Item](azure-stack-publish-custom-marketplace-item.md).
 
-###Virtual Machine Resource Extensions [Charles]
-
 ##Developer Tools
 ###Visual Studio Cloud Tools
 Use the Visual Studio Cloud Tools to quickly build new applications or deploy existing applications to Azure Stack
