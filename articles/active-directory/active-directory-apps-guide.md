@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="1/27/2015"
+	ms.date="01/27/2015"
 	ms.author="liviodlc"/>
 
 #Every Article on Application Management in Azure Active Directory
@@ -133,7 +133,7 @@ The Azure AD Access Panel is where end-users can launch their apps and access th
 
 Access Panel is available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-###Reports: Easily monitor app sign-ins, and audit changes in app access
+###Reports: Easily audit app access changes and monitor sign-ins to apps
 
 Azure Active Directory provides several reports and alerts to help you monitor your organization's access to applications. You can receive alerts for anomalous sign-ins to your apps, and you can track when and why a users' access to an application has changed.
 
