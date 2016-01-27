@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/29/2015" 
+	ms.date="01/27/2016" 
 	ms.author="nitinme"/>
 
 
@@ -123,9 +123,9 @@ A sample Scala application to receive the event and route it to different destin
 
 5. The application requires two dependency jars:
 
-	* **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. This jar is available on your Spark Linux cluster at `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`. You can use pscp to copy the jar to your local computer.
+	* **EventHub receiver jar**. This is required for Spark to receive the messages from Event Hub. This jar is available on your Spark Linux cluster at `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar`. You can use pscp to copy the jar to your local computer.
 
-			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar C:/eventhubjar
+			pscp sshuser@mysparkcluster-ssh.azurehdinsight.net:/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.2.2.3.3.1-7-jar-with-dependencies.jar C:/eventhubjar
 
 		This will copy the jar file from the Spark cluster on to your local computer. 
 
