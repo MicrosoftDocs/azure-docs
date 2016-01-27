@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Azure Automation DSC Continuous Deployment with Chocolatey | Microsoft Azure"
    description="DevOps continuous deployment using Azure Automation DSC and Chocolatey package manager.  Example with full JSON ARM template and PowerShell source."
    services="automation"

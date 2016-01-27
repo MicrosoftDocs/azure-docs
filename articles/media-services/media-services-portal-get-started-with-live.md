@@ -95,7 +95,7 @@ For more information about Ingest URLs, see [Using on-premises encoders to send 
 
 >[AZURE.NOTE] This step will require the channel’s ingest URL that was mentioned in the previous step.
 
-For detailed information about how to configure Wirecast and start ingesting the stream, see [Wirecast Configuration](http://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+For detailed information about how to configure Wirecast and start ingesting the stream, see [Wirecast Configuration](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
 >[AZURE.NOTE] If for any reason you stop the encoder and then need to restart it you should first reset the channel by clicking the **RESET** command in the Azure Classic Portal.
 
@@ -206,7 +206,7 @@ If this topic didn't contain what you were expecting, is missing something, or i
 
 
 ## Additional resources
-- [Getting Started with Live Streaming Using the Azure Classic Portal](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
+- [Getting Started with Live Streaming Using the Azure Classic Portal](https://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
 
 <!-- URLs. -->
 [Azure Classic Portal]: http://manage.windowsazure.com/

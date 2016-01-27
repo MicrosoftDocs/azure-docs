@@ -178,7 +178,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 		            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
 		        }
 		
-		        public static bool CreateDir(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string path, string dlAccountName, string permission)
+		        public static bool CreateDir(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string dlAccountName, string path, string permission)
 		        {
 		            dataLakeStoreFileSystemClient.FileSystem.Mkdirs(path, dlAccountName, permission);
 		            return true;
@@ -190,6 +190,14 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 		            var frontend = new DataLakeStoreFrontEndAdapter(dlAccountName, dataLakeStoreFileSystemClient);
 		            var uploader = new DataLakeStoreUploader(parameters, frontend);
 		            uploader.Execute();
+		            return true;
+		        }
+		        
+		        public static bool AppendToFile(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string dlAccountName, string path, string content)
+		        {
+		            var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
+		            
+		            dataLakeStoreFileSystemClient.FileSystem.DirectAppend(filePath, accountName, stream);
 		            return true;
 		        }
 		

@@ -35,7 +35,7 @@ This tutorial walks you through the process of creating a cloud collection. Ther
 
 You need to do the following before creating the collection:
 
-- [Sign up](http://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp. 
+- [Sign up](https://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp. 
 - Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information for users.
 - This procedure assumes you are either going to use one of the template images provided as part of your subscription or that you have already uploaded the template image you want to use. If you need to upload a different template image, you can do that from the Template Images page. Just click **upload a template image** and follow the steps in the wizard. 
 - Want to use the Office 365 ProPlus image? Check out info [here](remoteapp-officesubscription.md).

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Azure Mobile Engagement Troubleshooting Guides" 
    description="Troubleshooting Guide for Azure Mobile Engagement" 
    services="mobile-engagement" 
@@ -111,7 +111,7 @@ This is likely to happen during testing and if you are using emulators or some t
 If you are unable to resolve the issue yourself then you can:
 
 1. Search for your issue in the existing threads on StackOverflow forum and [MSDN forum](https://social.msdn.microsoft.com/Forums/windows/en-US/home?forum=azuremobileengagement) and if not then ask a question there. 
-2. If you find a feature missing then add/vote for the request on our [UserVoice forum](http://feedback.azure.com/forums/285737-mobile-engagement)
+2. If you find a feature missing then add/vote for the request on our [UserVoice forum](https://feedback.azure.com/forums/285737-mobile-engagement/)
 3. If you have Microsoft Support Open a support incident by providing the following details: 
 	- Azure Subscription ID
 	- Platform (e.g. iOS, Android etc)

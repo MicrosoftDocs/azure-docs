@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="How a Machine Learning model progresses from an experiment to an operationalized web service | Microsoft Azure"
 	description="An overview of the mechanics of how your Azure Machine Learning model progresses from a development experiment to an operationalized web service."
 	services="machine-learning"

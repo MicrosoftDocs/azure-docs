@@ -55,7 +55,7 @@ The following section shows how to use Service Bus to build this application.
 
 ### Sign up for a Service Bus account and subscription
 
-You’ll need an Azure account in order to start working with Service Bus. If you do not already have one, you can sign up for a free trial [here](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+You’ll need an Azure account in order to start working with Service Bus. If you do not already have one, you can sign up for a free trial [here](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Create a service namespace
 
@@ -63,7 +63,7 @@ Once you have a subscription, you can create a new namespace. You’ll have to g
 
 ### Install the NuGet package
 
-To use the Service Bus service namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. You can find this assembly as part of the Microsoft Azure SDK, and the download is available at the [Azure SDK download page](http://azure.microsoft.com/downloads/). However, the Service Bus NuGet package is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. For details about using NuGet and the Service Bus package, see [Using the NuGet Service Bus Package](https://msdn.microsoft.com/library/dn741354.aspx).
+To use the Service Bus service namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. You can find this assembly as part of the Microsoft Azure SDK, and the download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/). However, the Service Bus NuGet package is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. For details about using NuGet and the Service Bus package, see [Using the NuGet Service Bus Package](https://msdn.microsoft.com/library/dn741354.aspx).
 
 ### Create the queue
 

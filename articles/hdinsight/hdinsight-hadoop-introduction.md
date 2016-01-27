@@ -190,7 +190,7 @@ Build on this introduction to Hadoop in the cloud and big data analysis with the
 
 ### Hadoop documentation for HDInsight
 
-* [HDInsight documentation](http://azure.microsoft.com/documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
+* [HDInsight documentation](https://azure.microsoft.com/documentation/services/hdinsight/): The documentation page for Azure HDInsight with links to articles, videos, and more resources.
 
 * [Get started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md): A quick-start tutorial for provisioning HDInsight Hadoop clusters on Linux and running sample Hive queries.
 
