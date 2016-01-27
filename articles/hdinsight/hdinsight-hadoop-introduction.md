@@ -185,7 +185,7 @@ Additional languages can be installed using script actions: [Script action devel
 
 Many languages other than Java can be run using a Java virtual machine (JVM); however, running some of these languages may require additional components installed on the cluster.
 
-These JVM-based languages are support on HDInsight clusters:
+These JVM-based languages are supported on HDInsight clusters:
 * Clojure
 * Jython (Python for Java)
 * Scala
