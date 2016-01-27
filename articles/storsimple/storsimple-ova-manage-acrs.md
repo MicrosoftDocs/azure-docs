@@ -58,7 +58,7 @@ Typically, you add an ACR when you add a volume; however, you can add or modify 
 
     1. select the device and then click the **Volumes** tab. 
     2. At the bottom of the page, click **Take offline** to take the volume offline. You will see the following confirmation message.
-    ![take offline](./media/storsimple-ova-manage-acrs/offline-prompt.png).
+    ![take offline](./media/storsimple-ova-manage-acrs/offline-prompt.png)
     3. Click the check icon ![](./media/storsimple-ova-manage-acrs/check-icon.png).
 
 2. Select the volume, and at the bottom of the page, click **Modify**. The Modify a volume wizard starts.
@@ -105,7 +105,7 @@ Perform the following steps to delete an access control record.
 
 3. At the bottom of the page, click **Take offline** to take the volume offline. You will see the following confirmation message.
 
-    ![take offline](./media/storsimple-ova-manage-acrs/offline-prompt.png).
+    ![take offline](./media/storsimple-ova-manage-acrs/offline-prompt.png)
 
 4. Click the check icon ![](./media/storsimple-ova-manage-acrs/check-icon.png).
 
