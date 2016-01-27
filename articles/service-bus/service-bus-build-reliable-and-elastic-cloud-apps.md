@@ -42,5 +42,5 @@ Dynamic demand is a reality for today's applications. From seasonal and variable
 
 ## Related services
 
-- [Cloud Services](http://azure.microsoft.com/services/cloud-services/) 
+- [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
  

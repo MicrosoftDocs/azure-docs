@@ -85,7 +85,7 @@ You should use latest Guest OS family for designing your Cloud Services.
 
 **What if my web application requires deeper integration with the OS?**
 
-If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as [startup tasks](cloud-services-startup-tasks.md) or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](http://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.
+If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as [startup tasks](cloud-services-startup-tasks.md) or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.
  
 ## Next steps
 Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).

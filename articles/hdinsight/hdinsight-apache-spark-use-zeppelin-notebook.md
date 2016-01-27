@@ -13,17 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2016" 
+	ms.date="01/15/2016" 
 	ms.author="nitinme"/>
 
 
 # Use Zeppelin notebooks with Spark cluster on HDInsight (Linux)
 
-Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zeppelin notebooks. 
+Learn how to install Zeppelin notebooks on Spark clusters and how to use the Zeppelin notebooks.
+
+> [AZURE.IMPORTANT] Zeppelin notebook for HDInsight Spark cluster is an offering just to showcase how to use Zeppelin in an Azure HDInsight Spark environment. If you want to use notebooks to work with HDInsight Spark, we recommend that you use Jupyter notebooks instead. Jupyter notebooks also provide different kernel options, such as Scala, and will continue to have feature improvements. For instructions on how to use Jupyter notebooks with HDInsight spark, see [Run Spark SQL queries using a Jupyter notebook](hdinsight-apache-spark-jupyter-spark-sql.md#jupyter). 
 
 **Prerequisites:**
 
-* Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster. For instructions, see [Create Apache Spark clusters in Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
 * An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 

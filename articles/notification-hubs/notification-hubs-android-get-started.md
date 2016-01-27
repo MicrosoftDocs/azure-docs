@@ -39,7 +39,7 @@ The completed code for this tutorial can be found on GitHub [here](https://githu
 This tutorial requires the following:
 
 + Android Studio, which you can download from <a href="http://go.microsoft.com/fwlink/?LinkId=389797">the Android site</a>.
-+ An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
++ An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
 
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Android apps.
@@ -154,10 +154,10 @@ Your notification hub is now configured to work with GCM, and you have the conne
             	protected Object doInBackground(Object... params) {
                 	try {
                     	String regid = gcm.register(SENDER_ID);
-                    DialogNotify("Registered Successfully","RegId : " +
+                    ToastNotify("Registered Successfully - RegId : " +
 						hub.register(regid).getRegistrationId());
                 	} catch (Exception e) {
-                    	DialogNotify("Exception",e.getMessage());
+                    	ToastNotify("Registration Exception Message - " + e.getMessage());
                     	return e;
                 	}
                 	return null;

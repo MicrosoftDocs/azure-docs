@@ -26,7 +26,7 @@ DevTest Lab allows you to specify key policies that govern how your lab and its 
 
 In order to view (and change) the policies for a lab, follow these steps:
 
-1. Sign in to the [Azure preview portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](https://portal.azure.com).
 
 1. Tap **Browse**, and then tap **DevTest Labs** from the list.
 

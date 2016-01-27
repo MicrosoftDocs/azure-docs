@@ -122,7 +122,7 @@ The following heuristic can help estimate whether an elastic database pool is mo
 
     pool price = *pool eDTUs* * *pool eDTU unit price*
 
-    See [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/) for pricing information.   
+    See [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/) for pricing information.   
 
 
 4. Compare the pool price from Step 3 to the price of using the appropriate performance levels for single databases. 
@@ -192,7 +192,7 @@ Install the following prior to running the script.:
 ### Script details
 
 
-You can run the script from your local machine or a VM on the cloud. When running it from your local machine, you may incur data egress charges because the script needs to download data from your target databases. Below shows data volume estimation based on number of target databases and duration of running the script. For Azure data transfer costs refer to [Data Transfer Pricing Details](http://azure.microsoft.com/pricing/details/data-transfers/).
+You can run the script from your local machine or a VM on the cloud. When running it from your local machine, you may incur data egress charges because the script needs to download data from your target databases. Below shows data volume estimation based on number of target databases and duration of running the script. For Azure data transfer costs refer to [Data Transfer Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
        
  -     1 database per hour = 38KB
  -     1 database per day = 900KB

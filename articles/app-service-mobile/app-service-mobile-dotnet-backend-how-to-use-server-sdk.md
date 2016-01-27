@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/03/2015"
+	ms.date="01/24/2016"
 	ms.author="glenga"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -302,7 +302,7 @@ Replace the string "CustomAuth" above with the name of the contoller hosting you
 When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This is useful for making authorization decisions for a given user in the backend, such as whether a specific user can access a table row or other resource. The following code shows how to obtain the 
 user ID for a logged-in user:
 
-    // Get the current user SID and create a tag for the current user.
+    // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 

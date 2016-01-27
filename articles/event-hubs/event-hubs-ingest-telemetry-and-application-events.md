@@ -23,7 +23,7 @@ Modern applications create a large amount of information while they are running.
 
 ## Explore
 - [Event Hubs](event-hubs-overview.md)
-- [Event Hubs pricing details](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/)
 - [Event Hubs availability and support FAQ](event-hubs-availability-and-support-faq.md)
 - [Event sourcing pattern](http://msdn.microsoft.com/library/dn589792.aspx)
  
@@ -32,7 +32,7 @@ Modern applications create a large amount of information while they are running.
 - [Event Hubs code samples](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Related services
-- [Service Bus](http://azure.microsoft.com/services/service-bus/)
-- [Azure Storage](http://azure.microsoft.com/services/storage/)
-- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
+- [Service Bus](https://azure.microsoft.com/services/service-bus/)
+- [Azure Storage](https://azure.microsoft.com/services/storage/)
+- [HDInsight](https://azure.microsoft.com/services/hdinsight/)
  

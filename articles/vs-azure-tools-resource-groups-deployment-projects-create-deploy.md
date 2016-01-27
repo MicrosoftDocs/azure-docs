@@ -1,9 +1,9 @@
-﻿<properties
+<properties
    pageTitle="Creating and deploying Azure Resource Group Visual Studio projects | Microsoft Azure"
    description="Use Visual Studio to create a Azure resource group project and deploy the resources to Azure."
-   services="visual-studio-online"
+   services="azure-resource-manager"
    documentationCenter="na"
-   authors="TomArcher"
+   authors="tfitzmac"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="tarcher" />
+   ms.author="tomfitz" />
 
 # Creating and deploying Azure resource groups through Visual Studio
 
@@ -108,9 +108,9 @@ When you deploy an Azure Resource Group project, you deploy it to an Azure resou
 
     - The *siteName* parameter is the first part of the URL of the web page. For example, for the URL mywebsitename.azurewebsites.net, the site name is **mywebsitename**.
 
-    - The *hostingPlanName* parameter specifies your hosting plan. For this example, you can use "Free". For more information about hosting plans, see [Azure App Service plans in-depth overview](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
+    - The *hostingPlanName* parameter specifies your hosting plan. For this example, you can use "Free". For more information about hosting plans, see [Azure App Service plans in-depth overview](https://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/)
 
-    - The *siteLocation* parameter refers to the Azure region where the site is to be hosted, such as "West US". For a list of available regions, see [Azure Regions](http://azure.microsoft.com/regions/).
+    - The *siteLocation* parameter refers to the Azure region where the site is to be hosted, such as "West US". For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/).
 
 1. Choose the **Deploy** button to deploy the project to Azure.
 

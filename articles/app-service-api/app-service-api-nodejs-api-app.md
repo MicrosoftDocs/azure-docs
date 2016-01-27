@@ -151,7 +151,7 @@ In this section you'll walk through the process of creating a new, empty API App
 
 The GitHub repository from which you cloned the source code is not the same repository you'll be pushing the code into for deployment. The sample GitHub repository contained the "Start" state of the code, and now that you've scaffolded the "end" state of the code you'll need to push that code only into the Git repository associated with your API App. The first step will be to create your API App using the Azure Portal, then you'll 
 
-1. Browse to the [Azure Portal](http://portal.azure.com). 
+1. Browse to the [Azure Portal](https://portal.azure.com/). 
 
 1. Create a new API App. 
 
