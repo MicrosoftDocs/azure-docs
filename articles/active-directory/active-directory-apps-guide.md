@@ -78,21 +78,16 @@ Application Proxy is available for all editions of Azure AD for up to ten apps p
 
 You may also be interested in [Azure AD Domain Services](active-directory-ds-overview.md), which allows you to migrate your on-premises applications to Azure while still satisfying the identity needs of those applications.
 
-###On-Prem Stuff
+###Integrating Azure AD Single Sign-On with an On-Premises Domain 
 
-description
+desc
 
 | Article Guide |   |
 | :---: | --- |
-| todo | todo |
+| An overview on the sign-on options available with Azure AD Connect, as well as information on managing hybrid environments | [Azure AD Connect: User Sign On Options](active-directory-aadconnect-user-signin.md)<br /><br />[Azure AD Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrating your On-Premises Identities with Azure Active Directory](active-directory-aadconnect.md) |
+| Guidance on using Password Sync, Password Writeback, and Self-Service Password Reset to authenticate on-prem users in Azure AD | [Azure AD Connect: Implement Password Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Getting Started with Password Management](active-directory-passwords-getting-started.md) |
+| todo | [Extending Cloud Capabilities to Windows 10 Devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 
-[Azure Active Directory Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview.md)
-
-[Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
-[Azure AD Connect User Sign on options](active-directory-aadconnect-user-signin.md)
-
-[Azure AD Connect sync: Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
 
 ###Conditional Access: Enforce additional security requirements for high-risk apps
 
