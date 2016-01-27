@@ -243,10 +243,12 @@ If you want to replicate VMware virtual machines install the following VMware co
 - *.backup.windowsazure.com
 - *.blob.core.windows.net
 - *.store.core.windows.net
-- http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
+- http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi
 
 
-> [AZURE.VIDEO enhanced-vmware-to-azure-setup-registration]
+
+
+	> [AZURE.VIDEO enhanced-vmware-to-azure-setup-registration]
 
 1. On the **Quick Start** page download the unified installation file to the server.
 2. Run the installation file to start setup in the Site Recovery Unified Setup wizard.
