@@ -46,8 +46,8 @@ If you encounter a situation where one or more users in your Azure AD tenant are
 - Ensure that the affected user account's UPN prefix (i.e. the first part of the UPN) in your Azure AD tenant is less than 20 characters in length. For instance, for the UPN 'joereallylongnameuser@contoso.com', the prefix ('joereallylongnameuser') exceeds 20 characters and this account will not be available in the Azure AD Domain Services managed domain.
 
 - **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, verify the following:
-    - You have deployed or updated to the [latest recommended release of Azure AD Connect](active-directory-ds-getting-started-password-sync.md/#install-or-update-azure-ad-connect).
-    - You have configured Azure AD Connect to [perform a full synchronization](active-directory-ds-getting-started-password-sync).
+    - You have deployed or updated to the [latest recommended release of Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect).
+    - You have configured Azure AD Connect to [perform a full synchronization](active-directory-ds-getting-started-password-sync.md).
     - Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD Domain Services. Ensure you wait long enough before retrying authentication (depending on the size of your directory - a few hours to a day or two for large directories).
 
 - **Cloud-only accounts**: If the affected user account is a cloud-only user account, ensure that the user has changed their password after you enabled Azure AD Domain Services. This step causes the credential hashes required for Azure AD Domain Services to be generated.
