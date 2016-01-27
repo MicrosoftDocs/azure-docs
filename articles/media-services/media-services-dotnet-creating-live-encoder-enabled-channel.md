@@ -104,7 +104,7 @@ The following are required to complete the tutorial.
 
 ##Download sample
 
-Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
+Get and run a sample from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 
 ##Set up for development with Media Services SDK for .NET

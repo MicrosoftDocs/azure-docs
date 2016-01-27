@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Using tags to organize your Azure resources | Microsoft Azure"
 	description="Shows how to apply tags to organize resources for billing and managing."
 	services="azure-resource-manager"

@@ -45,7 +45,7 @@ There are four major phases to setting up this hybrid cloud test environment:
 3.	Create the VNet-to-VNet VPN connection.
 4.	Configure DC2. 
 
-If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you don't already have an Azure subscription, you can sign up for a free trial at [Try Azure](https://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Virtual machines and virtual network gateways in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. To reduce the costs of running this test environment when you are not using it, see [Minimizing the ongoing costs of this environment](#costs) in this article for more information.
 
@@ -232,7 +232,7 @@ Set up the following workloads in the TestVNET virtual network:
 
 To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the TestLab and Test_VNET virtual networks at the end of each business day. For more information, see [Get started with Azure Automation](../automation-create-runbook-from-samples.md). When you start the virtual machines on the Corpnet subnet again, start DC1 first.
 
-An Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. For the details, see [Pricing - Virtual Network](http://azure.microsoft.com/pricing/details/virtual-network/). To minimize the costs of the two VPN gateways (one for TestLab and one for TestVNET), create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateways with these steps.
+An Azure VPN gateway is implemented as a set of two Azure virtual machines that incur an ongoing monetary cost. For the details, see [Pricing - Virtual Network](https://azure.microsoft.com/pricing/details/virtual-network/). To minimize the costs of the two VPN gateways (one for TestLab and one for TestVNET), create the test environment and perform your needed testing and demonstration as quickly as possible or delete the gateways with these steps.
  
 1.	From the Azure Management Portal on your local computer, click **Networks** in the left pane, click **TestLab**, and then click **Dashboard**.
 2.	In the task bar, click **Delete Gateway**. Click **Yes** when prompted. Wait until the gateway is deleted and its status changes to **The Gateway Was Not Created**.

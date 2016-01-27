@@ -30,7 +30,7 @@
 
 ![Video available](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to mount, initialize, and format a StorSimple volume, click [here](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
+To watch a video that demonstrates how to mount, initialize, and format a StorSimple volume, click [here](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/).
 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx

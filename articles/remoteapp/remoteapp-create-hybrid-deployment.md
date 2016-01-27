@@ -40,7 +40,7 @@ This tutorial walks you through the process of creating a hybrid collection. The
 
 You need to do the following before creating the collection:
 
-- [Sign up](http://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp. 
+- [Sign up](https://azure.microsoft.com/services/remoteapp/) for Azure RemoteApp. 
 - Create a user account in Active Directory to use as the Azure RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
 - Gather information about your on-premises network: IP address information and VPN device details.
 - Install the [Azure PowerShell](../install-configure-powershell.md) module.
