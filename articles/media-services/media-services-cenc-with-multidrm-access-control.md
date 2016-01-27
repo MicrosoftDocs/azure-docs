@@ -302,7 +302,7 @@ The ASP.NET MVC player application we built must support the following:
 
 1. User authentication through Azure AD which needs to be under HTTPS;
 1. JWT token exchange between client and Azure AD which needs to be under HTTPS;
-1. DRM license acquisition by the client which needs to be under HTTPS.
+1. DRM license acquisition by the client which is required to be under HTTPS if license delivery is provided by Azure Media Services. Of course, PlayReady product suite does not mandate HTTPS for license delivery. If your PlayReady license server is outside of Azure Media Services, either HTTP or HTTPS could be used.
 
 Therefore, the ASP.NET player application will use HTTPS as a best practice. This means the Azure Media Player will be on a page under HTTPS. However, for streaming we prefer HTTP, hence we need to consider mixed content issue.
 
@@ -467,6 +467,11 @@ The following screen shows the player plugins and MSE/EME support.
 
 ![Using EME for PlayReady](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready2.png)
 
+EME in Microsoft Edge and IE 11 on Windows 10 allows invoking of [PlayReady SL3000](https://www.microsoft.com/playready/features/EnhancedContentProtection.aspx/) on Windows 10 devices which support it. PlayReady SL3000 unlocks the flow of enhanced premium content (4K, HDR, etc.) and new content delivery models (early window for Enhanced Content).
+
+Focus on the Windows devices: PlayReady is the only DRM in the HW available on Windows devices (PlayReady SL3000). A streaming service can use PlayReady through EME or through a UWP application and offer a higher video quality using PlayReady SL3000 than another DRM. Typically, 2K content will flow through Chrome or Firefox, and 4K content through Microsoft Edge/IE11 or a UWP application on the same device (depending on service settings and implementation).
+
+
 #### Using EME for Widevine
 
 On a modern browser with EME/Widevine support, such as Chrome 41+ on Windows 10, Windows 8.1, Mac OSX Yosemite, and Chrome on Android 4.4.4, Google Widevine is the DRM behind EME.
@@ -516,4 +521,4 @@ In this document, we discussed CENC with multi-native-DRM and access control via
 
 ###Acknowledgments 
 
-William Zhang, Mingfei Yan, Kilroy Hughes, Julia Kornich
+William Zhang, Mingfei Yan, Kilroy Hughes, Roland Le Franc, Julia Kornich
