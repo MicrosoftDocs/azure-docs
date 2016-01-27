@@ -170,7 +170,7 @@ Type “.\\Setup.ps1” to set up your azure account, create and configure all r
 
 ![](media/build-an-iot-solution-using-stream-analytics/image5.png)
 
-The script will open “Sign In” page for Windows Azure. Enter your account credentials.
+The script will open “Sign In” page for Microsoft Azure. Enter your account credentials.
 
 Please note that if your account has access to multiple subscriptions, you will be asked to enter the subscription name that you want to use for the tutorial.
 
