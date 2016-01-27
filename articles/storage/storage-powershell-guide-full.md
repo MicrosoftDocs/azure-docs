@@ -19,7 +19,7 @@
 
 ## Overview
 
-Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It is a task-based command-line shell and scripting language designed especially for system administration. With PowerShell, you can easily control and automate the administration of your Azure services and applications. For example, you can use the cmdlets to perform the same tasks that you can perform through the [Azure Portal](portal.azure.com).
+Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. It is a task-based command-line shell and scripting language designed especially for system administration. With PowerShell, you can easily control and automate the administration of your Azure services and applications. For example, you can use the cmdlets to perform the same tasks that you can perform through the [Azure Portal](https://portal.azure.com).
 
 In this guide, we’ll explore how to use the [Azure Storage Cmdlets](https://msdn.microsoft.com/library/azure/mt269418.aspx) to perform a variety of development and administration tasks with Azure Storage.
 
@@ -106,7 +106,7 @@ See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.micr
 			Add-AzureAccount
 				Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
 		
-		b. To locate and copy your subscription name in the [Azure Portal](portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
+		b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
 		
 		![Azure Portal][Image2]
 		  
