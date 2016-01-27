@@ -2,15 +2,16 @@
   pageTitle="Azure IoT Suite FAQ | Microsoft Azure"
   description="FAQ for IoT Suite."
   services=""
+  suite="iot-suite"
   documentationCenter=""
   authors="aguilaaj"
   manager="timlt"
   editor=""/>
 
 <tags
-  ms.service="na"
+  ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="hero-article"
+  ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
   ms.date="11/17/2015"

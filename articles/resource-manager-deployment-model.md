@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2015"
+   ms.date="01/22/2016"
    ms.author="tomfitz"/>
 
 # Understanding Resource Manager deployment and classic deployment
