@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Resource Manager templates in Azure Stack to deploy and provision all of the resources for your application in a single, coordinated operation."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -14,19 +14,19 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/29/2016"
-	ms.author="erikje"/>
+	ms.author="ErikjeMS"/>
 
-# Use Azure Resource Manager templates in Azure Stack (tenant developers)
+# Use Azure Resource Manager templates in Azure Stack
 
-You can use Azure Resource Manager templates in Microsoft Azure Stack. Rather than deploying and managing each resource separately, an Azure Resource Manager template deploys and provisions all of the resources for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
+Azure Resource Manager templates deploy and provision all of the resources for your application in a single, coordinated operation. You define the resources for the application and how it will be deployed.
 
-You can find a repository of several templates at <http://aka.ms/azurestackgithub>.
+These templates can be deployed with the Microsoft Azure Stack portal, PowerShell, the command line, and Visual Studio.
 
-## Deploy SharePoint (non HA) template
+The following templates are available at <http://aka.ms/azurestackgithub>:
 
-SharePoint 2013 farm with PowerShell DSC Extension.
+## Deploy SharePoint (non-high availability)
 
-Creates a SharePoint 2013 farm using the PowerShell DSC Extension. It creates the following resources:
+Use the PowerShell DSC extension to create a SharePoint 2013 farm that includes the following:
 
 -	A virtual network
 
@@ -36,66 +36,54 @@ Creates a SharePoint 2013 farm using the PowerShell DSC Extension. It creates th
 
 -	One VM configured as domain controller for a new forest with a single domain
 
--	One VM configured as SQL Server 2014 stand alone
+-	One VM configured as a SQL Server 2014 stand-alone server
 
 -	One VM configured as a one machine SharePoint 2013 farm
 
-## Deploy AD/SQL template
+## Deploy AD/SQL (non-high availability)
 
-Create an AD domain controller server non-HA with PowerShell DSC Extension.
+Use the PowerShell DSC extension to create an AD domain controller server that includes the following:
 
-Creates an AD domain controller Server using the PowerShell DSC Extension. It creates the following resources:
+-	A virtual network
 
--	A Virtual Network
-
--	One Storage Account
+-	One storage account
 
 -	One external load balancer
 
--	One VM configured as Domain Controller for a new forest with a single domain
+-	One VM configured as domain controller for a new forest with a single domain
 
-## Deploy AD/SQL template
+## Deploy AD/SQL
 
-Create a SQL Server 2014 Stand alone with PowerShell DSC Extension.
+Use the PowerShell DSC extension to create a SQL Server 2014 stand-alone server that includes the following:
 
-PowerShell DSC Extension. It creates the following resources:
+-	A virtual network
 
--	A Virtual Network
-
--	Two Storage Accounts
+-	Two storage accounts
 
 -	One external load balancer
 
--	One VM configured as Domain Controller for a new forest with a single domain
+-	One VM configured as domain controller for a new forest with a single domain
 
--	One VM configured as SQL Server 2014 stand alone
+-	One VM configured as SQL Server 2014 stand-alone server
 
-## VM-DSC-Extension-Azure-Automation-Pull-Server template
+## VM-DSC-Extension-Azure-Automation-Pull-Server
 
-Deploy template from Git repo ARM Template to Azure and Azure Stack.
+Use the PowerShell DSC extension to configure an existing virtual machine Local Configuration Manager (LCM) and register it to an Azure Automation Account DSC Pull Server.
 
-Configures an existing Virtual Machine Local Configuration Manager (LCM) via the DSC extension, registering it to an existing Azure Automation Account DSC Pull Server.
+## Create a virtual machine from a user image
 
-## Create a Virtual Machine from a User Image template
+Create a virtual machine from a custom user image. This template also deploys a virtual network (with DNS), public IP address, and a network interface.
 
-Upload existing VHD to storage, Create and Deploy custom ARM template to Azure Stack.
+## Simple VM
 
-Creates a Virtual Machine from a custom user image. This template also deploys a Virtual Network (with DNS), Public IP address, and a Network Interface.
-
-## Simple VM template
-
-Very simple deployment of a Windows VM.
-
-Deploys a simple Windows VM. This template also deploys a Virtual Network (with DNS), Public IP address, and a Network Interface.
-
-For more information on templates, see the [Azure Resource Manager overview](../resource-group-overview.md) topic.
-
-Azure Resource Manager templates can be used with the Microsoft Azure Stack portal, PowerShell, the command line, PowerShell, and Visual Studio.
+Deploy a simple Windows VM that includes a virtual network (with DNS), public IP address, and a network interface.
 
 ## Cancel a running template deployment
 
-To cancel a running template deployment, use the Stop-AzureRmResourceGroupDeployment PowerShell cmdlt.
+To cancel a running template deployment, use the `Stop-AzureRmResourceGroupDeployment` PowerShell cmdlt.
 
 ## Next Steps
 
 [Deploy templates with the portal](azure-stack-deploy-template-portal.md)
+
+[Azure Resource Manager overview](../resource-group-overview.md)
