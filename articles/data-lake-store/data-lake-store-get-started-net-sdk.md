@@ -186,7 +186,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 		
 		        public static bool UploadFile(DataLakeStoreFileSystemManagementClient dataLakeStoreFileSystemClient, string dlAccountName, string srcPath, string destPath, bool force = false)
 		        {
-		            var parameters = new UploadParameters(srcPath, destPath, dlAccountName, isOverwrite: true);
+		            var parameters = new UploadParameters(srcPath, destPath, dlAccountName, isOverwrite: force);
 		            var frontend = new DataLakeStoreFrontEndAdapter(dlAccountName, dataLakeStoreFileSystemClient);
 		            var uploader = new DataLakeStoreUploader(parameters, frontend);
 		            uploader.Execute();
