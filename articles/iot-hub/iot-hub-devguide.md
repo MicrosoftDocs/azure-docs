@@ -316,17 +316,17 @@ This is the set of system properties in IoT Hub messages.
 
 ### Choosing your communication protocol <a id="amqpvshttp"></a>
 
-Iot Hub supports both the [AMQP][lnk-amqp] and HTTP/1 protocols for device-side communications. The following is a list of considerations regarding their uses.
+Iot Hub supports [AMQP][lnk-amqp], AMQP over WebSockets, MQTT, and HTTP/1 protocols for device-side communications. The following is a list of considerations regarding their uses.
 
-* **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This is very inefficient for both the device and IoT Hub. The current guidelines, when using HTTP/1 is to set a polling interval for each device of less than once per 25 minutes. On the other hand, AMQP supports server push when receiving cloud-to-device messages, and it enables immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP is the best protocol to use. On the other hand, for scarcely connected devices, HTTP/1 works as well.
-* **Field gateways**. Given the HTTP/1 limitations with respect to server push, it is not suitable to be used in [Field gateway scenarios][lnk-azure-gateway-guidance].
-* **Low resource devices**. HTTP/1 libraries are significantly smaller than AMQP ones. As such, if the device has few resources (for example, less than 1Mb RAM), HTTP/1 might be the only protocol implementation available.
-* **Network traversal**. AMQP standard listens on port 5672. This could cause problems in networks that are closed to non-HTTP protocols.
-* **Payload size**. AMQP is a binary protocol, which is significantly more compact than HTTP/1.
+* **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This is very inefficient for both the device and IoT Hub. The current guidelines, when using HTTP/1 is to have each device poll every 25 minutes or more. On the other hand, AMQP and MQTT support server push when receiving cloud-to-device messages, and they enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP or MQTT is the best protocol to use. On the other hand, for scarcely connected devices, HTTP/1 works as well.
+* **Field gateways**. When using HTTP/1 and MQTT, it is not possible to connect multiple devices (each with its own per-device credentials) using the same TLS connection. It follows that these protocols are suboptimal when implementing [Field gateway scenarios][lnk-azure-gateway-guidance], as they require one TLS connection between the field gateway and IoT Hub for each device connected to the field gateway.
+* **Low resource devices**. MQTT and HTTP/1 libraries have a smaller footprint than AMQP ones. As such, if the device has few resources (for example, less than 1Mb RAM), these protocols might be the only protocol implementation available.
+* **Network traversal**. MQTT standard listens on port 8883. This could cause problems in networks that are closed to non-HTTP protocols. Both HTTP and AMQP (over WebSockets) are available to be used in this scenario.
+* **Payload size**. AMQP and MQTT are binary protocols, which are significantly more compact than HTTP/1.
 
-At a high level, you should use AMQP whenever possible, and only use HTTP/1 if device resources or network configuration does not allow AMQP. Moreover, when using HTTP/1, polling frequency should be set to less than once every 25 minutes for each device. Clearly during development, it is acceptable to have more frequent polling frequencies.
+At a high level, you should use AMQP (or AMQP over WebSockets) whenever possible, and only use MQTT when resource contraints prevent the use of AMQP. HTTP/1 should be used only if both network traversal and network configuration prevent the use of MQTT and AMQP. Moreover, when using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more. Clearly during development, it is acceptable to have more frequent polling frequencies.
 
-As a final consideration, it is important to see the [Azure IoT Protocol Gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance MQTT gateway that interfaces directly with IoT Hub. The MQTT protocol supports server push (thus enabling immediate delivery of cloud-to-device messages to the device) and is available for very low resource devices. The main disadvantage of this approach is the requirement to self-host and manage a protocol gateway.
+As a final consideration, it is important to see the [Azure IoT Protocol Gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance custom MQTT gateway that interfaces directly with IoT Hub. The IoT Protocol Gateway allows the customization of the device protocol to accommodate brownfield MQTT deployments, and completely custom protocols. The main disadvantage of this approach is the requirement to self-host and manage a protocol gateway.
 
 ### Device to cloud <a id="d2c"></a>
 
