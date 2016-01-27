@@ -17,7 +17,7 @@
 	ms.date="01/05/2016"
 	ms.author="genli"/>
 
-# How to add or change Azure Administrator Roles <Test>
+# How to add or change Azure Administrator Roles Test
 
 ## Administrator roles explained
 
