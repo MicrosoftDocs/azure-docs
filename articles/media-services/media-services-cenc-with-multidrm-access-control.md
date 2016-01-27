@@ -23,6 +23,32 @@
 Azure Active Directory, Azure Media Services, Azure Media Player, Dynamic Encryption, License Delivery,PlayReady, Widevine, FairPlay, Common Encryption(CENC), Multi-DRM, Axinom, DASH, EME, MSE, JSON Web Token (JWT), Claims, Modern Browsers,Key Rollover, Symmetric Key, Asymmetric Key, OpenID Connect, X509 certificate. 
 
 
+##In this article
+
+The following topics are covered in this article:
+
+- [Introduction](media-services-cenc-with-multidrm-access-control.md#introduction)
+	- [Overview of this article](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
+- [A reference design](media-services-cenc-with-multidrm-access-control.md#a-reference-design)
+- [Mapping design to technology for implementation](media-services-cenc-with-multidrm-access-control.md#mapping-design-to-technology-for-implementation)
+- [Implementation](media-services-cenc-with-multidrm-access-control.md#implementation)
+	- [Implementation procedures](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
+	- [Some gotchas in implementation](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
+- [Additional Topics for Implementation](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
+	- [HTTP or HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
+	- [Azure Active Directory signing key rollover](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
+	- [Where is the Access Token?](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
+	- [What about Live Streaming?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
+	- [What about license servers outside of Azure Media Services?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
+	- [What if I want to use a custom STS?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
+	- [Tech note](media-services-cenc-with-multidrm-access-control.md#tech-note)
+- [The completed system and test](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
+	- [User login](media-services-cenc-with-multidrm-access-control.md#user-login)
+	- [Using Encrypted Media Extensions for PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
+	- [Using EME for Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
+	- [Not entitled users](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
+	- [Running custom Secure Token Service](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
+
 ##Introduction
 
 It is well known that it is a complex task to design and build a DRM subsystem for an OTT or online streaming solution. And it is a common practice for operators/online video providers to outsource this part to specialized DRM service providers. The goal of this document is to present a reference design and implementation of end-to-end DRM subsystem in OTT or online streaming solution.
@@ -430,9 +456,9 @@ Below are the screenshots of different login pages used by different domain acco
 
 ![Custom Azure AD tenant domain account](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain3.png)
 
-### Using Encrypted Media Extensions (EME) for PlayReady
+### Using Encrypted Media Extensions for PlayReady
 
-On a modern browser with EME/PlayReady support, such as IE 11 on Windows 8.1 and up, and Microsoft Edge browser on Windows 10, PlayReady will be the underlying DRM for EME.
+On a modern browser with Encrypted Media Extensions (EME) for PlayReady support, such as IE 11 on Windows 8.1 and up, and Microsoft Edge browser on Windows 10, PlayReady will be the underlying DRM for EME.
 
 ![Using EME for PlayReady](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-playready1.png)
 
@@ -458,9 +484,9 @@ If a user is not a member of “Entitled Users” group, the user will not be ab
 
 ![Un-entitled Users](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
-### Running custom Secure Token Service (STS)
+### Running custom Secure Token Service
 
-For the scenario of running custom STS, the JWT token will be issued by the custom STS using either symmetric or asymmetric key. 
+For the scenario of running custom Secure Token Service (STS), the JWT token will be issued by the custom STS using either symmetric or asymmetric key. 
 
 The case of using symmetric key (using Chrome):
 
