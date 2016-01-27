@@ -176,7 +176,9 @@ HDInsight clusters--Hadoop, HBase, Storm, and Spark clusters--support a number o
 ### Default programming language support
 
 By default, HDInsight clusters support:
+
 * Java
+
 * Python
 
 Additional languages can be installed using script actions: [Script action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -186,14 +188,19 @@ Additional languages can be installed using script actions: [Script action devel
 Many languages other than Java can be run using a Java virtual machine (JVM); however, running some of these languages may require additional components installed on the cluster.
 
 These JVM-based languages are supported on HDInsight clusters:
+
 * Clojure
+
 * Jython (Python for Java)
+
 * Scala
 
 ### Hadoop-specific languages
 
 HDInsight clusters provide support for the following languages that are specific to the Hadoop ecosystem:
+
 * Pig Latin for Pig jobs
+
 * HiveQL for Hive jobs and SparkSQL
 
 
