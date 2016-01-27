@@ -19,6 +19,10 @@
 
 #Release notes
 
+##4.1.4 (01/26/2016)
+
+- Stability improvements.
+
 ##4.1.3 (12/9/2015)
 
 - Stability improvements.
