@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="01/07/2016"
+ ms.date="02/03/2016"
  ms.author="dobett"/>
 
 # Azure IoT Hub developer guide
@@ -44,9 +44,11 @@ The following is a description of the endpoints:
 
 * **Resource provider**: The IoT Hub resource provider exposes an [Azure Resource Manager][lnk-arm] interface that enables Azure subscription owners to create IoT hubs, update IoT hub properties, and delete IoT hubs. IoT Hub properties govern hub-level security policies as opposed to device-level access control (see [Access Control](#accesscontrol) below) and functional options for cloud-to-device and device-to-cloud messaging. The resource provider also enables you to [export device identities](#importexport).
 * **Device identity management**: Each IoT hub exposes a set of HTTP REST endpoints to manage device identities (create, retrieve, update, and delete). Device identities are used for device authentication and access control. See [Device identity registry](#device-identity-registry) for more information.
-* **Device endpoints**: For each device provisioned in the device identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages. These endpoints are currently exposed using both the HTTP and [AMQP][lnk-amqp] protocols:
+* **Device endpoints**: For each device provisioned in the device identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages:
     - *Send device-to-cloud messages*. Use this endpoint to send device-to-cloud messages. For more information, see [Device to cloud messaging](#d2c).
     - *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted cloud-to-device messages. For more information, see [Cloud to device messaging](#c2d).
+
+    These endpoints are exposed using HTTP, [MQTT][lnk-mqtt], and [AMQP][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
 * **Service endpoints**: Each IoT hub exposes a set of endpoints your application backend can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
     - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs] and a backend service can use it to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
     - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application backend to send reliable cloud-to-device messages, and to receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
@@ -104,7 +106,7 @@ Device identities are represented as JSON documents with the following propertie
 | status | required | Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
 | statusReason | optional | A 128 char-long string storing the reason for the device identity status. All UTF-8 characters are allowed. |
 | statusUpdateTime | read-only | Date and time of the last status update. |
-| connectionState | read-only | **Connected** or **Disconnected**, represents the IoT Hub view of the device connection status. |
+| connectionState | read-only | **Connected** or **Disconnected**, represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using AMQP or MQTT. Also, it is based on protocol-level pings (i.e. MQTT pings, or AMQP pings) and it can have a delay of at most 5 minutes. For these reasons there can be false positives (i.e. devices reported as connected but actually disconnected). |
 | connectionStateUpdatedTime | read-only | Date and last time the connection state was updated. |
 | lastActivityTime  | read-only | Date and last time the device connected, received, or sent a message. |
 
@@ -213,7 +215,7 @@ You can grant permissions in the following ways:
 **Example**. In a typical IoT solution:
 - The device management component uses the *registryReadWrite* policy.
 - The event processor component uses the *service* policy.
-- The runtime device business logic component uses the *service* policy. 
+- The runtime device business logic component uses the *service* policy.
 - Individual devices connect using credentials stored in the IoT hub's identity registry.
 
 For guidance on IoT Hub security topics, see the security section in [Design your solution][lnk-guidance-security].
@@ -538,6 +540,8 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 
 [lnk-amqp]: https://www.amqp.org/
+[lnk-mqtt]: http://mqtt.org/
+[lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../resource-group-overview.md
 [lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
