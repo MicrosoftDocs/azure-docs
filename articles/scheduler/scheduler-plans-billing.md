@@ -64,7 +64,7 @@ Although you may disable all jobs within a job collection in a single operation,
 
 ## Pricing
 
-For pricing details, please see [Scheduler Pricing](http://azure.microsoft.com/pricing/details/scheduler/).
+For pricing details, please see [Scheduler Pricing](https://azure.microsoft.com/pricing/details/scheduler/).
 
 ## See Also
  
@@ -75,7 +75,7 @@ For pricing details, please see [Scheduler Pricing](http://azure.microsoft.com/p
 
  [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
  [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 

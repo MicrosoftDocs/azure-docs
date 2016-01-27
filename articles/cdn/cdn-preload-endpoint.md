@@ -22,7 +22,7 @@ This tutorial walks you through pre-loading cached content on all Azure CDN edge
 
 ## Walkthrough
 
-1. In the [Azure Portal](http://portal.azure.com), browse to the CDN profile containing the endpoint you wish to pre-load.  The profile blade opens.
+1. In the [Azure Portal](https://portal.azure.com), browse to the CDN profile containing the endpoint you wish to pre-load.  The profile blade opens.
 
 2. Click the endpoint in the list.  The endpoint blade opens.
 

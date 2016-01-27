@@ -225,7 +225,7 @@ The BizTalk Adapter Service is used by an Azure BizTalk Service. The BizTalk Ada
 
 #### What does "Hybrid Connection Data Transfer (GB) per unit" mean? Is this per minute/hour/day/week/month? What happens when the limit is reached?
 
-The Hybrid Connection cost per unit depends on the BizTalk Services edition. Simply put, costs  depend on how much data you transfer. For example, transferring 10 GB data daily costs less than transferring 100 GB daily. Use the [Pricing Calculator](http://azure.microsoft.com/pricing/calculator/?scenario=full) for BizTalk Services to determine specific costs. Typically, the limits are enforced daily. If you exceed the limit, any overage is charged at the rate of $1 per GB.
+The Hybrid Connection cost per unit depends on the BizTalk Services edition. Simply put, costs  depend on how much data you transfer. For example, transferring 10 GB data daily costs less than transferring 100 GB daily. Use the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=full) for BizTalk Services to determine specific costs. Typically, the limits are enforced daily. If you exceed the limit, any overage is charged at the rate of $1 per GB.
 
 #### When I create an agreement in BizTalk Services, why does the number of bridges go up by two instead of just one?
 

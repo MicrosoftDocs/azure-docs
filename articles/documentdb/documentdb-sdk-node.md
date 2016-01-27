@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="01/25/2016" 
 	ms.author="ryancraw"/>
 
 # DocumentDB SDK
@@ -36,6 +36,10 @@
 </table></br>
 
 ##Release notes
+
+###<a name="1.5.2"/>1.5.2</a>
+
+- Fixes issue [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter listener leak warning
 
 ###<a name="1.5.1"/>1.5.1</a>
 
@@ -105,6 +109,7 @@ All versions of the Azure DocumentDB SDK for Node.js prior to version **1.0.0** 
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.5.2](#1.5.2) | January 22, 2016 |---
 | [1.5.1](#1.5.1) | January 4, 2016 |---
 | [1.5.0](#1.5.0) | December 31, 2015 |---
 | [1.4.0](#1.4.0) | October 06, 2015 |---

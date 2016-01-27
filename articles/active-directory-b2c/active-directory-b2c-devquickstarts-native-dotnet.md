@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Build a Windows desktop app
@@ -44,8 +44,8 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 
 ## 3. Create your policies
 
-In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This code sample contains three 
-identity experiences - sign-up, sign-in, and edit profile.  You will need to create one policy of each type, as described in the 
+In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This code sample contains three
+identity experiences - sign-up, sign-in, and edit profile.  You will need to create one policy of each type, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
 
 - Choose **User ID signup** or **Email signup** in the identity providers blade.
@@ -53,13 +53,13 @@ identity experiences - sign-up, sign-in, and edit profile.  You will need to cre
 - Choose the **Display Name** and **Object ID** claims as an application claim in every policy.  You can choose other claims as well.
 - Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)] 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Once you have your three policies successfully created, you're ready to build your app.
 
 ## 4. Download the code
 
-The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet).  To build the sample as you go, you can 
+The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet).  To build the sample as you go, you can
 [download a skeleton project as a .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip) or clone the skeleton:
 
 ```
@@ -69,14 +69,14 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 The completed app is also [available as a .zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) or on the
 `complete` branch of the same repo.
 
-Once you've downloaded the sample code, open the Visual Studio `.sln` file to get started.  You'll notice that there are two projects in the solution: a `TaskClient` project and a `TaskService` project.  The `TaskClient` is the WPF 
+Once you've downloaded the sample code, open the Visual Studio `.sln` file to get started.  You'll notice that there are two projects in the solution: a `TaskClient` project and a `TaskService` project.  The `TaskClient` is the WPF
 desktop application that the user interacts with.  The `TaskService` is the app's backend web API that stores each user's to-do list.  Both the `TaskClient` and the `TaskService` will be represented by a single **Application ID**
-in this case, since they both comprise one logical application. 
+in this case, since they both comprise one logical application.
 
 ## 5. Configure the task service
 
-When the `TaskService` receieves requests from the `TaskClient`, it checks for a valid access token to authenticate the request.  In order to validate the access token, 
-you need to provide the `TaskService` with some information about your app.  In the `TaskService` project, open up the `web.config` file in the root 
+When the `TaskService` receieves requests from the `TaskClient`, it checks for a valid access token to authenticate the request.  In order to validate the access token,
+you need to provide the `TaskService` with some information about your app.  In the `TaskService` project, open up the `web.config` file in the root
 of the project and replace the values in the `<appSettings>` section:
 
 ```
@@ -91,7 +91,7 @@ of the project and replace the values in the `<appSettings>` section:
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
   </appSettings>
 ```
-  
+
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 If you want to learn how a web API securely authenticates requests using Azure AD B2C, check out our
@@ -126,7 +126,7 @@ public static class Globals
 	public static string redirectUri = "urn:ietf:wg:oauth:2.0:oob";
 
 }
-``` 
+```
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
@@ -146,7 +146,7 @@ public partial class MainWindow : Window
 		base.OnInitialized(e);
 
 		// The authority parameter can be constructed by appending the name of your tenant to 'https://login.microsoftonline.com/'.
-		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app, 
+		// ADAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
 		// we've extended the ADAL TokenCache and created a simple FileCache in this app.
 		authContext = new AuthenticationContext("https://login.microsoftonline.com/contoso.onmicrosoft.com", new FileCache());
 		...
@@ -154,8 +154,8 @@ public partial class MainWindow : Window
 ```
 
 #### Initiate a sign-up flow
-When the user clicks the sign-up button, we want to initiate a sign-up flow using the sign-up policy you created.  With ADAL, you just need to call 
-`authContext.AcquireTokenAsync(...)`.  The parameters you pass to `AcquireTokenAsync(...)` will determine what token you receive, the policy used in 
+When the user clicks the sign-up button, we want to initiate a sign-up flow using the sign-up policy you created.  With ADAL, you just need to call
+`authContext.AcquireTokenAsync(...)`.  The parameters you pass to `AcquireTokenAsync(...)` will determine what token you receive, the policy used in
 the authentication request, and so on.
 
 ```C#
@@ -176,14 +176,14 @@ private async void SignUp(object sender, RoutedEventArgs e)
 		SignUpButton.Visibility = Visibility.Collapsed;
 		EditProfileButton.Visibility = Visibility.Visible;
 		SignOutButton.Visibility = Visibility.Visible;
-		
+
 		// When the request completes successfully, you can get user information form the AuthenticationResult
 		UsernameLabel.Content = result.UserInfo.Name;
 
 		// After the sign up successfully completes, display the user's To-Do List
 		GetTodoList();
 	}
-	
+
 	// Handle any exeptions that occurred during execution of the policy.
 	catch (AdalException ex)
 	{
@@ -237,8 +237,8 @@ private async void EditProfile(object sender, RoutedEventArgs e)
                     new PlatformParameters(PromptBehavior.Always, null), Globals.editProfilePolicy);
 ```
 
-In all of these cases, ADAL will either return a token in its `AuthenticationResult` or throw an exception.  Each time you get a token from ADAL, 
-you can use the `AuthenticationResult.UserInfo` object to update the user data in the app, such as the UI.  ADAL will also cache the token, for use 
+In all of these cases, ADAL will either return a token in its `AuthenticationResult` or throw an exception.  Each time you get a token from ADAL,
+you can use the `AuthenticationResult.UserInfo` object to update the user data in the app, such as the UI.  ADAL will also cache the token, for use
 in other parts of the application.
 
 ## 7. Call APIs
@@ -256,12 +256,12 @@ private async void GetTodoList()
 		TokenCacheItem tci = authContext.TokenCache.ReadItems().Where(i => i.Scope.Contains(Globals.clientId) && !string.IsNullOrEmpty(i.Policy)).FirstOrDefault();
 		string existingPolicy = tci == null ? null : tci.Policy;
 
-		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token 
-		// could not be acquired from the cache, rather than automatically prompting the user to sign in. 
+		// We use the PromptBehavior.Never flag to indicate that ADAL should throw an exception if a token
+		// could not be acquired from the cache, rather than automatically prompting the user to sign in.
 		result = await authContext.AcquireTokenAsync(new string[] { Globals.clientId },
 			null, Globals.clientId, new Uri(Globals.redirectUri),
 			new PlatformParameters(PromptBehavior.Never, null), existingPolicy);
-	
+
 	}
 
 	// If a token could not be acquired silently, we'll catch the exception and show the user a message.
@@ -295,7 +295,7 @@ private async void GetTodoList()
 ```
 
 When the call to `AcquireTokenAsync(...)` succeeds and a token is found in the cache, you can add the token to the `Authorization` header of the HTTP request so that the `TaskService` can authenticate
-the request to read the user's to-do list: 
+the request to read the user's to-do list:
 
 ```C#
 	...
@@ -305,7 +305,7 @@ the request to read the user's to-do list:
 	// Call the To Do list service.
 	HttpResponseMessage response = await httpClient.GetAsync(taskServiceUrl + "/api/tasks");
 	...
-``` 
+```
 
 You can use this same pattern any time you want to check the token cache for tokens without prompting the user to sign in.  For instance - when the app starts up,
 we want to check the `FileCache` for any existing tokens, so that the user's sign-in session is maintained each time the app runs.  You can see the same
@@ -350,7 +350,7 @@ in their system and obtain a client ID.
 - [Set up Facebook as an IDP](active-directory-b2c-setup-fb-app.md)
 - [Set up Google as an IDP](active-directory-b2c-setup-goog-app.md)
 - [Set up Amazon as an IDP](active-directory-b2c-setup-amzn-app.md)
-- [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md) 
+- [Set up LinkedIn as an IDP](active-directory-b2c-setup-li-app.md)
 
 When you've added the identity providers to your B2C directory, you'll need to go back and edit each of your three policies to include the new IDPs,
 as described in the [policy reference article](active-directory-b2c-reference-policies.md).  After you've saved your policies, just run the app again.  You should see
