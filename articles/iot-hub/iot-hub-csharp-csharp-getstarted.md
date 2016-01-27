@@ -16,7 +16,7 @@
      ms.date="12/14/2015"
      ms.author="dobett"/>
 
-# Get started with Azure IoT Hub for C#
+# Get started with Azure IoT Hub for .NET
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
