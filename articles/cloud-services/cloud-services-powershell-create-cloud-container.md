@@ -40,7 +40,7 @@ For more information about creating the Azure cloud service, run:
 Get-help New-AzureService
 ```
 
-Next steps:
+### Next steps
 
  * To manage the cloud service deployment, refer to the [Get-AzureService](https://msdn.microsoft.com/library/azure/dn495131.aspx), [Remove-AzureService](https://msdn.microsoft.com/library/azure/dn495120.aspx), and [Set-AzureService](https://msdn.microsoft.com/library/azure/dn495242.aspx) commands. You may also refer to [How to configure cloud services](cloud-services-how-to-configure.md) for further information.
 
