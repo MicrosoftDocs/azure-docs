@@ -248,7 +248,7 @@ If you want to replicate VMware virtual machines install the following VMware co
 
 
 
-	> [AZURE.VIDEO enhanced-vmware-to-azure-setup-registration]
+[AZURE.VIDEO enhanced-vmware-to-azure-setup-registration]
 
 1. On the **Quick Start** page download the unified installation file to the server.
 2. Run the installation file to start setup in the Site Recovery Unified Setup wizard.
