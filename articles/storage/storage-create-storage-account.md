@@ -152,5 +152,4 @@ For more information, see the [Azure Virtual Machine documentation](http://azure
 - [Azure Storage replication](storage-redundancy.md)
 - [Configure a connection string to Azure Storage](storage-configure-connection-string.md)
 - [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
-- Visit the [Azure Storage Team Blog](
-- http://blogs.msdn.com/b/windowsazurestorage/).
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
