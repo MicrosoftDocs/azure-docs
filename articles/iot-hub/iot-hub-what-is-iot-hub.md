@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="11/09/2015"
+ ms.date="27/01/2016"
  ms.author="dobett"/>
 
 # What is Azure IoT Hub?
@@ -50,7 +50,7 @@ Azure IoT Hub addresses the device-connectivity challenges in the following ways
 
 -   **An extensive set of device libraries**. Azure IoT device SDKs are available and supported for a variety of languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
 
--   **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to natively use the HTTP 1.1 and AMQP 1.0 protocols. You can also extend IoT Hub to provide support for MQTT v3.1.1 with the [Azure IoT protocol gateway][protocol-gateway] open source component. You can run the Azure IoT protocol gateway in the cloud or on-premises. You can also extend it to support custom protocols.
+-   **IoT protocols and extensibility**. If your solution cannot use the device libraries, IoT Hub exposes a public protocol that enables devices to use the HTTP 1.1 and AMQP 1.0 protocols natively. You can also extend IoT Hub to provide support for MQTT v3.1.1 with the [Azure IoT protocol gateway][protocol-gateway] open source component. You can run the Azure IoT protocol gateway in the cloud or on-premises. You can also extend it to support custom protocols.
 
 -   **Scale**. Azure IoT Hub scales to millions of simultaneously connected devices and millions of events per second.
 
@@ -78,7 +78,7 @@ Azure IoT Hub implements the [service-assisted communication][lnk-service-assist
 
 - Security takes precedence over all other capabilities.
 - Devices do not accept unsolicited network information. A device establishes all connections and routes in an outbound-only fashion. For a device to receive a command from the back end, the device must regularly initiate a connection to check for any pending commands to process.
-- Devices should only connect to or establish routes to well-known services that they are peered with, such as IoT Hub.
+- Devices should only connect to or establish routes to well-known services they are peered with, such as IoT Hub.
 - The communication path between device and service or between device and gateway is secured at the application protocol layer.
 - System-level authorization and authentication are based on per-device identities. They make access credentials and permissions nearly instantly revocable.
 - Bidirectional communication for devices that connect sporadically due to power or connectivity concerns is facilitated by holding commands and device notifications until a device connects to receive them. IoT Hub maintains device specific queues for the commands it sends.
