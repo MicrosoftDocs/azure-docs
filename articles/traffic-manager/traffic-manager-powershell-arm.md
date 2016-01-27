@@ -44,14 +44,14 @@ There are currently a small number of limitations in the ARM support for Azure T
 - Traffic Manager profiles created using the existing (non-ARM) Azure Service Management (ASM) API, tools and 'classic' portal are not available via ARM, and vice versa. Migration of profiles from ASM to ARM APIs is not currently supported, other than by deleting and re-creating the profile.
 
 
-- 'Nested' Traffic Manager endpoints are supported via the ARM API, ARM PowerShell and ARM-mode Azure CLI.  They are not currently supported in the new Azure management portal (which also uses the ARM API).
+- 'Nested' Traffic Manager endpoints are supported via the ARM API, ARM PowerShell and ARM-mode Azure CLI.  They are not currently supported in the Azure portal (which also uses the ARM API).
 
 
 ## Setting up Azure PowerShell
 
 These instructions use Microsoft Azure PowerShell, which needs to be configured using the steps below.
 
-For non-PowerShell users, or non-Windows users, analogous operations can be executed via the Azure CLI.  All operations, with the exception of managing 'nested' Traffic Manager profiles, are also available via the new Azure management portal.
+For non-PowerShell users, or non-Windows users, analogous operations can be executed via the Azure CLI.  All operations, with the exception of managing 'nested' Traffic Manager profiles, are also available via the Azure portal.
 
 ### Step 1
 Install the latest Azure PowerShell, available from the Azure downloads page.
