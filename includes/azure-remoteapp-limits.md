@@ -18,6 +18,13 @@
 |Idle timeout| 4 hours|
 |Disconnected timeout| 4 hours|
 
-*User limits in basic and standard tiers cannot be increased beyond the maximum limit listed above. The number of users is determined by the number of VMs used for your collection. For basic tiers, there are 16 users per VM; for standard, 10 users per VM. For premium tiers, there are 4 users per VM; for premium plus, 2 users per VM.
+*User limits in basic and standard tiers cannot be increased beyond the maximum limit listed above. 
+
+The number of users is determined by the number of VMs used for your collection:
+
+- Basic = 16 users per VM
+- Standard = 10 users per VM
+- Premium = 4 users per VM
+- Premium plus = 2 users per VM
 
 To request an increase for number of paid collections or concurrent connections, send an email to [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com) with details of what you need, including your subscription ID. 
