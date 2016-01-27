@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Build an IOT solution using Stream Analytics | Microsoft Azure" 
 	description="getting started tutorial for the Stream Analytics iot solution of a tollbooth scenario"
 	keywords=""
@@ -23,7 +23,7 @@
 
 ## Introduction ##
 
-In this tutorial you will learn how to get real-time insights from your data using Azure Stream Analytics. Azure's new stream processing service enables developers to easily tackle the space of data in motion by combining streams of data such as click-streams, logs and device generated events with historical records or reference data to derive business insights easily and quickly. Being a fully managed, real-time stream computation service hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
+In this tutorial you will learn how to get real-time insights from your data using Azure Stream Analytics. Azure's stream processing service enables developers to easily tackle the space of data in motion by combining streams of data such as click-streams, logs and device generated events with historical records or reference data to derive business insights easily and quickly. Being a fully managed, real-time stream computation service hosted in Microsoft Azure, Azure Stream Analytics provides built-in resiliency, low latency, and scalability to get you up and running in minutes.
 
 After completing this tutorial, you will be able to:
 
@@ -32,8 +32,6 @@ After completing this tutorial, you will be able to:
 -   Articulate real world problems and solve them using Stream Analytics Query Language.
 -   Develop streaming solutions for your customers using Azure Streaming Analytics with confidence.
 -   Use the monitoring and logging experience to troubleshoot issues.
-
-This tutorial will use sample highway toll data to help you learn Azure Stream Analytics.
 
 ## Prerequisites ##
 
