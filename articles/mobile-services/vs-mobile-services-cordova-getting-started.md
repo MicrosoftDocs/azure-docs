@@ -88,4 +88,4 @@ Delete a row in a data table using the **del** method. Call the **done** method 
         items.splice(items.indexOf(todoItem), 1);
     });
 
-[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Learn more about mobile services](https://azure.microsoft.com/documentation/services/mobile-services/)

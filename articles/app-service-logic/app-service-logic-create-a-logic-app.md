@@ -40,7 +40,7 @@ First, you need to create the two connectors you will be using: [Dropbox Connect
 
 1. Sign in to the Azure portal.
 
-2. Click  [Marketplace ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps) on the home screen and search for Twitter (or [click here](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)).
+2. Click  [Marketplace ](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps/) on the home screen and search for Twitter (or [click here](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2/)).
 
 3. Select **Twitter Connector** and click **Create**. You get a view for all of your settings. You can leave the name as **Twitter Connector**.  
 4. Select **Package settings**--here you'll need to input the information from your Twitter Application.  You can set up a free application using these steps:
@@ -70,7 +70,7 @@ First, you need to create the two connectors you will be using: [Dropbox Connect
 
 10. Click **Create**. The provisioning step may take a minute or two.
 
-11. Now repeat the process with [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2).
+11. Now repeat the process with [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2/).
 
 ## Start the Logic app
 

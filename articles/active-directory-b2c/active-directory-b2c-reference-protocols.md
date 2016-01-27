@@ -25,7 +25,7 @@ Azure AD B2C provides identity-as-a-service for your apps by supporting two indu
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 ## The Basics
-Every app that uses Azure AD B2C will need to be registered your B2C directory in the [Azure Portal](https://portal.azure.com).  The app registration process will collect & assign a few values to your app:
+Every app that uses Azure AD B2C will need to be registered your B2C directory in the [Azure Portal](https://portal.azure.com/).  The app registration process will collect & assign a few values to your app:
 
 - An **Application Id** that uniquely identifies your app
 - A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app

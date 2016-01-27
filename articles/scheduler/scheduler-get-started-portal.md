@@ -1,4 +1,4 @@
-﻿<properties
+<properties
  pageTitle="Get started using Azure Scheduler in the Azure portal | Microsoft Azure"
  description=""
  services="scheduler"

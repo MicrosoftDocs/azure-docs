@@ -23,7 +23,7 @@ This article discusses availability information and answers some frequently-aske
 
 ## Pricing information
 
-For complete information about Event Hubs pricing, see the [Event Hubs pricing details](http://azure.microsoft.com/pricing/details/event-hubs/).
+For complete information about Event Hubs pricing, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## How are Event Hubs ingress events calculated?
 
@@ -73,11 +73,11 @@ Yes, as long as all the Event Hubs, queues, and topics are in the same Service B
 
 ## Do brokered connection charges apply to Event Hubs?
 
-For senders, connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication on Internet of Things command and control scenarios), please refer to the [Service Bus pricing information](http://azure.microsoft.com/pricing/details/service-bus/) page for information about what constitutes a brokered connection, and how they are metered.
+For senders, connection charges apply only when the AMQP protocol is used. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. If you plan to use AMQP (for example, to achieve more efficient event streaming or to enable bi-directional communication on Internet of Things command and control scenarios), please refer to the [Service Bus pricing information](https://azure.microsoft.com/pricing/details/service-bus/) page for information about what constitutes a brokered connection, and how they are metered.
 
 ## What is the difference between Event Hubs Basic and Standard tiers?
 
-Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, as well as in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with sub-second latencies, as well as to send telemetry from those devices into Event Hubs. Refer to the [pricing details]([Event Hubs Pricing Details](http://azure.microsoft.com/pricing/details/event-hubs/)) for the list of features.
+Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, as well as in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with sub-second latencies, as well as to send telemetry from those devices into Event Hubs. Refer to the [pricing details]([Event Hubs Pricing Details](https://azure.microsoft.com/pricing/details/event-hubs/)) for the list of features.
 
 ## Geographic Availability
 
@@ -96,7 +96,7 @@ Event Hubs is available in the following regions:
 
 Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home). Billing and subscription management support is provided at no cost.
 
-To learn more about our SLA, please visit the [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/) page.
+To learn more about our SLA, please visit the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
 
 ## Next steps
 
