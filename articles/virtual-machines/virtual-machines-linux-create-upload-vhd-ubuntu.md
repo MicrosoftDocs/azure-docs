@@ -38,7 +38,9 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 
 ## Manual Steps
-**Note:** Before creating your own custom Ubuntu image for Azure, please consider using the images from [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) instead.
+
+> [AZURE.NOTE] Before creating your own custom Ubuntu image for Azure, please consider using the images from [http://cloud-images.ubuntu.com/](http://cloud-images.ubuntu.com/) instead.
+
 
 1. In the center pane of Hyper-V Manager, select the virtual machine.
 
