@@ -78,6 +78,22 @@ Application Proxy is available for all editions of Azure AD for up to ten apps p
 
 You may also be interested in [Azure AD Domain Services](active-directory-ds-overview.md), which allows you to migrate your on-premises applications to Azure while still satisfying the identity needs of those applications.
 
+###On-Prem Stuff
+
+description
+
+| Article Guide |   |
+| :---: | --- |
+| todo | todo |
+
+[Azure Active Directory Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview.md)
+
+[Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+[Azure AD Connect User Sign on options](active-directory-aadconnect-user-signin.md)
+
+[Azure AD Connect sync: Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
+
 ###Conditional Access: Enforce additional security requirements for high-risk apps
 
 Once you set up single sign-on to your apps and resources, you can then further secure sensitive applications by enforcing specific security requirements on every sign-in to that app. For instance, you can use Azure AD to demand that all access to a particular app always require multi-factor authentication, regardless of whether or not that app innately supports that functionality. Another common example of conditional access is to require that users be connected to the organization's trusted network in order to access a particularly sensitive application.
@@ -197,4 +213,3 @@ If you're developing consumer-facing applications, you may be interested in usin
 [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/)
-
