@@ -235,7 +235,7 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 
 ## Monitor the pipeline
  
-1.	After logging into the [Azure Portal](http://portal.azure.com/), Click **Browse** and select **Data factories**.
+1.	After logging into the [Azure Portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
 		![Browse->Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	In the **Data Factories** blade, click the data factory (**TutorialFactoryARM**) you created.	
 2.	In the **Data Factory** blade for your data factory, click **Diagram**.

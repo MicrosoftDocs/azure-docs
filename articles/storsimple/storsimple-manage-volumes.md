@@ -128,7 +128,7 @@ Modify a volume when you need to expand it or change the hosts that access the v
 
 ![Video available](./media/storsimple-manage-volumes/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to expand a volume, click [here](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+To watch a video that demonstrates how to expand a volume, click [here](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Take a volume offline
 

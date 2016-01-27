@@ -35,7 +35,7 @@ Increasing the number of worker nodes in a cluster can leverage more mappers and
 - At the run time, you can also scale out a cluster without recreating one. This is shown below.
 ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
-For more details on the different virtual machines supported by HDInsight, see [HDInsight pricing](http://azure.microsoft.com/pricing/details/hdinsight/).
+For more details on the different virtual machines supported by HDInsight, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Enable Tez
 

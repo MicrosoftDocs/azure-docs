@@ -31,7 +31,7 @@ This document gets you started quickly with Azure HDInsight on Linux by showing 
 
 Before you begin this Linux tutorial for Hadoop, you must have the following:
 
-- **An Azure subscription**: See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="provision"></a>Provision an HDInsight cluster on Linux
 

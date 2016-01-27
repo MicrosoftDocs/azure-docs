@@ -19,7 +19,7 @@
 
 # Target Azure DocumentDB for JSON output from Stream Analytics
 
-Stream Analytics can target [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. Learn how to best implement this integration.
+Stream Analytics can target [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) for JSON output, enabling data archiving and low-latency queries on unstructured JSON data. Learn how to best implement this integration.
 
 For those who are unfamiliar with DocumentDB, take a look at [DocumentDB’s learning path](https://azure.microsoft.com/documentation/learning-paths/documentdb/) to get started.
 
