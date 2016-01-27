@@ -139,7 +139,7 @@ To delete a storage account that is associated with an Azure virtual machine, yo
 
 To remove the virtual machine disk, follow these steps in the Azure Classic Portal:
 
-1. Navigate to the [Azure Classic Portal](http://manage.windowsazure.com).
+1. Navigate to the [Azure Classic Portal](https://manage.windowsazure.com).
 2. Navigate to the Virtual Machines tab.
 3. Click the Disks tab.
 4. Select your data disk, then click Delete Disk.
@@ -152,4 +152,5 @@ For more information, see the [Azure Virtual Machine documentation](http://azure
 - [Azure Storage replication](storage-redundancy.md)
 - [Configure a connection string to Azure Storage](storage-configure-connection-string.md)
 - [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
-- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
+- Visit the [Azure Storage Team Blog](
+- http://blogs.msdn.com/b/windowsazurestorage/).
