@@ -64,14 +64,6 @@ Offers are groups of one or more plans that providers present to tenants to buy 
 
 An offer comes with a set of base plans, and service administrators can create add-on plans that tenants can add to their subscription.
 
-### Delegated Providers
-
-A delegated provider can resell Offers created by the Admin to their tenants. They are given access to the Subscriptions resource provider via plans created by the service administrator.
-
-The delegated provider hierarchy can be used by service providers to create reseller or organizational hierarchies in Microsoft Azure Stack. The administrator is responsible for maintaining the infrastructure and any Resource Providers, and can create Offers that are available to resell.
-
-Microsoft Azure Stack supports up to five levels of delegation. Delegated providers can also access their own usage data to create their own bill.
-
 ### Subscriptions
 
 A subscription is how tenants buy your offers. A subscription is a combination of a tenant with an offer. A tenant can have subscriptions to multiple offers. Each subscription applies to only one offer. A tenant’s subscriptions determine which plans/services they can access.
