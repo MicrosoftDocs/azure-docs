@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Deploy templates with PowerShell in Azure Stack"
+	pageTitle="Deploy templates with PowerShell in Azure Stack | Microsoft Azure"
 	description="Learn how to deploy a virtual machine using a template and PowerShell."
 	services="azure-stack"
 	documentationCenter=""

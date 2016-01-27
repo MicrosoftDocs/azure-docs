@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Publish a marketplace item in Azure Stack"
+	pageTitle="Publish a marketplace item in Azure Stack | Microsoft Azure"
 	description="Publish a marketplace item in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""

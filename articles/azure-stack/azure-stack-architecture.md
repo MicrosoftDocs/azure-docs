@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Architecture and default state of Microsoft Azure Stack POC"
-	description="View the architecture and default state of Azure Stack POC."
+	pageTitle="Microsoft Azure Stack POC architecture | Microsoft Azure"
+	description="View the Microsoft Azure Stack POC architecture."
 	services="azure-stack"
 	documentationCenter=""
 	authors="erikje"
@@ -16,7 +16,7 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Architecture and default state of Microsoft Azure Stack POC
+# Microsoft Azure Stack POC architecture
 
 ![](media/azure-stack-architecture/image1.png)
 

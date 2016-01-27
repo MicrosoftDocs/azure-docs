@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Deploy templates with Visual Studio in Azure Stack"
+	pageTitle="Deploy templates with Visual Studio in Azure Stack | Microsoft Azure"
 	description="Learn how to deploy templates with Visual Studio in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""

@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Add an image to the Platform Image Repository (PIR) in Azure Stack"
+	pageTitle="Add an image to the Platform Image Repository (PIR) in Azure Stack | Microsoft Azure"
 	description="Learn how to prepare a virtual hard disk image before you add an image to the PIR in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""

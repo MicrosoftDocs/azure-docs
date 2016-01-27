@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Subscribe to an offer and then provision a VM in Azure Stack (tenant)"
+	pageTitle="Subscribe to an offer and then provision a VM in Azure Stack (tenant) | Microsoft Azure"
 	description="As a tenant, learn how to subscribe to an offer and then provision a VM in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""

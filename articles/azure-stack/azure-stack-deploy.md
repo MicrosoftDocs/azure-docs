@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Requirements for Azure Stack POC (service administrator)"
+	pageTitle="Before you deploy Azure Stack POC | Microsoft Azure"
 	description="View the environment and hardware requirements for Azure Stack POC (service administrator)."
 	services="azure-stack"
 	documentationCenter=""
@@ -16,23 +16,11 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Requirements for Azure Stack POC (service administrator)
+# Before you deploy Azure Stack POC
 
-The deployment process for Azure Stack POC has been simplified into a PowerShell script that you can run on a computer that fulfills the prerequisites below.
+Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.me)), make sure your computer meets the following requirements.
 
-## Pre-deployment requirements
-
-Before you begin deploying Azure Stack POC, make sure your environment complies with these requirements:
-
-- Operating system requirements
-
-- Networking requirements
-
-- Microsoft Azure Active Directory requirements
-
-- Hardware requirements
-
-### Operating system requirements
+## Operating system
 
 | | **Requirements**  |
 |---|---|
@@ -40,9 +28,9 @@ Before you begin deploying Azure Stack POC, make sure your environment complies 
 | **Install Method** | Clean install. |
 | **Domain joined?** | No. |
 
-### Networking requirements
+## Network
 
-#### Switch requirements
+### Switch
 
 One available port on a switch for the POC machine.  
 
@@ -50,25 +38,25 @@ The Azure Stack POC machine supports connecting to a switch access port or trunk
 
 	DeployAzureStack.ps1 –verbose –PublicVLan 305
 
-#### Subnet requirements
+### Subnet
 
 Do not connect the POC machine to the subnets 192.168.200.0/24, 192.168.100.0/24, or 192.168.133.0/24. These are reserved for the internal networks within the Microsoft Azure Stack POC environment.
 
-#### IPv4/IPv6 requirements
+### IPv4/IPv6
 
 Only IPv4 is supported. You cannot create IPv6 networks.
 
-#### DHCP requirements
+### DHCP
 
 Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and password as a deployment parameter. For example:
 
 	DeployAzureStack.ps1 -Verbose -NATVMStaticIP 10.10.10.10/24 -NATVMStaticGateway 10.10.10.1
 
-#### Internet access requirements
+### Internet access
 
 Make sure the NIC can connect to the Internet. Both the host IP and the new IP assigned to the NATVM (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
 
-#### Proxy requirements
+### Proxy
 
 If a proxy is required in your environment, specify the proxy server address and port as a deployment parameter. For example:
 
@@ -76,11 +64,11 @@ If a proxy is required in your environment, specify the proxy server address and
 
 Azure Stack POC does not support proxy authentication. 
 
-#### Telemetry requirements
+### Telemetry
 
 Port 443 (HTTPS) must be open for your network. The client end-point is https://vortex-win.data.microsoft.com.
 
-### Microsoft Azure Active Directory accounts requirements
+## Microsoft Azure Active Directory accounts
 
 To deploy Azure Stack POC, you must have a valid Microsoft Azure AD account that is the directory administrator for at least one Azure Active Directory. If you don’t have any existing Azure AD account, you can create one for free at [*http://azure.microsoft.com/en-us/pricing/free-trial/*](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
 
@@ -99,7 +87,7 @@ You should also create at least one account so you can sign in to the Azure Stac
 | Organization ID with valid China Azure Subscription  | Yes |
 | Organization ID with valid US Government Azure Subscription  | No |
 
-### Hardware requirements
+## Hardware
 
 These requirements apply to the Azure Stack POC only and might change for future releases.
 
@@ -142,4 +130,4 @@ Sample OEM configurations are available.
 
 ## Next Steps
 
-[Prepare the physical machine](azure-stack-run-powershell-script.md)
+[Deploy Azure Stack POC](azure-stack-run-powershell-script.md)

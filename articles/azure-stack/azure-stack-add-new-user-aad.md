@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Add a new Azure Stack tenant account in Azure Active Directory"
+	pageTitle="Add a new Azure Stack tenant account in Azure Active Directory | Microsoft Azure"
 	description="After deploying Microsoft Azure Stack POC, you’ll need to create at least one tenant user account so you can explore the tenant portal."
 	services="azure-stack"
 	documentationCenter=""

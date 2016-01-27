@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tools and PaaS services for Azure Stack"
+	pageTitle="Tools and PaaS services for Azure Stack | Microsoft Azure"
 	description="Learn how to get started with PaaS services in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
