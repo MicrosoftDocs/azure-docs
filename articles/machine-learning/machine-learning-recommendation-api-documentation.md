@@ -49,6 +49,7 @@ The Azure Machine Learning Recommendations API can be divided into the following
 - The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
 - The maximum size of data that can be sent in POST (e.g. import catalog data, import usage data) is 200MB.
 - The number of transactions per second for a recommendation model build that is not active is ~2TPS. A recommendation model build that is active can hold up to 20TPS.
+- The maximum number of items that can be asked for when getting recommendations is 150.
 
 ##3. APIs - general information
 
@@ -2478,7 +2479,7 @@ Get recommendations of the active build of type "Recommendation" or "Fbt" based 
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | itemIds | Comma-separated list of the items to recommend for. <br>If the active build is of type FBT then you can send only one item. <br>Max length: 1024 |
-| numberOfResults | Number of required results |
+| numberOfResults | Number of required results <br> Max: 150 |
 | includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |
 
@@ -2658,7 +2659,7 @@ Get recommendations of a specific build of type "Recommendation" or "Fbt".
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | itemIds | Comma-separated list of the items to recommend for. <br>If the active build is of type FBT then you can send only one item. <br>Max length: 1024 |
-| numberOfResults | Number of required results |
+| numberOfResults | Number of required results <br> Max: 150  |
 | includeMetatadata | Future use, always false
 | buildId | the build id to use for this recommendation request |
 | apiVersion | 1.0 |
@@ -2688,7 +2689,7 @@ Get recommendations of the active build of type "Fbt" based on a seed (input) it
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | itemId | Item to recommend for. <br>Max length: 1024 |
-| numberOfResults | Number of required results |
+| numberOfResults | Number of required results <br>Max: 150 |
 | minimalScore | Minimal score that a frequent set should have in order to be included in the returned results |
 | includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |
@@ -2779,7 +2780,7 @@ Get recommendations of a specific build of type "Fbt".
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | itemId | Item to recommend for. <br>Max length: 1024 |
-| numberOfResults | Number of required results |
+| numberOfResults | Number of required results <br>Max: 150 |
 | minimalScore | Minimal score that a frequent set should have in order to be included in the returned results |
 | includeMetatadata | Future use, always false |
 | buildId | the build id to use for this recommendation request |
@@ -2854,7 +2855,7 @@ Notes:
 |:--------			|:--------								|
 | modelId | Unique identifier of the model |
 | userId  | Unique identifier of the user |
-| itemIds | Comma-separated list of the items to recommend for. Max length: 1024 |
+| itemsIds | Comma-separated list of the items to recommend for. Max length: 1024 |
 | numberOfResults | Number of required results |
 | includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |

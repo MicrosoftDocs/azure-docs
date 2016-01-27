@@ -46,7 +46,7 @@ The following table describes and links to the reference page of each of the maj
 
  [Plans and billing in Azure Scheduler](scheduler-plans-billing.md)
 
- [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/dn528946)
+ [Azure Scheduler REST API reference](https://msdn.microsoft.com/library/mt629143)
 
  [Azure Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 

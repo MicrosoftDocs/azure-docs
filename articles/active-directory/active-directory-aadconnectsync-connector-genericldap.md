@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: Generic LDAP Connector"
+   pageTitle="Azure AD Connect sync: Generic LDAP Connector | Microsoft Azure"
    description="This article describes how to configure Microsoft's Generic LDAP Connector."
    services="active-directory"
    documentationCenter=""

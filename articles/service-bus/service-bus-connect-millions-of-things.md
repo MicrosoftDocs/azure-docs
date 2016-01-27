@@ -25,7 +25,7 @@ Smart and connected "things" increasingly proliferate in modern technology ecosy
 - [Event Hubs](event-hubs-overview.md)
 - [Sharding Pattern](http://msdn.microsoft.com/library/dn589797.aspx)
 - [Service Bus and AMQP 1.0](service-bus-amqp-overview.md)
-- [Introduction to Service Bus](http://azure.microsoft.com/services/service-bus/)
+- [Introduction to Service Bus](https://azure.microsoft.com/services/service-bus/)
  
 ## Build
 
@@ -40,6 +40,6 @@ Smart and connected "things" increasingly proliferate in modern technology ecosy
 ## Related services
 
 - [Internet of Things (Microsoft blog post announcement)](http://blogs.microsoft.com/iot/2015/03/16/microsoft-announces-azure-iot-suite)
-- [Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
-- [Cloud Services](http://azure.microsoft.com/services/cloud-services/) 
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+- [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 
  

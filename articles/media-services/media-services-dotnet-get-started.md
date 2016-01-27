@@ -59,7 +59,7 @@ The following are required to complete the tutorial.
 
 ##Download sample
 
-Get and run a sample from [here](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Get and run a sample from [here](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Create a Media Services account using the portal
 

@@ -104,7 +104,7 @@ You can use the same basic steps to deploy more complex apps. In this example th
 
 Additional resources for Azure CLI, Linux and the CustomScript Extension are listed next.
 
-[Automate Linux VM Customization Tasks Using CustomScript Extension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
+[Automate Linux VM Customization Tasks Using CustomScript Extension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)
 
 [Azure Linux Extensions (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
