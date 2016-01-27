@@ -41,7 +41,7 @@
 
 >[AZURE.NOTE] Do not upload the same package with different names in the cmdlet, it will cause the resources to be orphaned.
 
->[AZURE.NOTE] The marketplace UI may error after you remove an item. To fix this, click on <b>Settings</b> in the portal. And then select <b>Discard modifications</b> under Portal customization.
+>[AZURE.NOTE] The marketplace UI may error after you remove an item. To fix this, click **Settings** in the portal. Then, select **Discard modifications** under Portal customization.
 
 ## Next Steps
 
