@@ -76,7 +76,7 @@ When using Shared Key authentication, you will create a connection string. The c
 
 - The **DefaultEndpointsProtocol** - you can choose HTTP or HTTPS. However, using HTTPS is highly recommended.
 - The **Account Name** - the name of your storage account
-- The **Account Key** - If you're using the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to find this information. If using the [Azure Classic Portal](manage.windowsazure.com), navigate to your storage account in the portal and click **Manage Access Keys**. 
+- The **Account Key** - If you're using the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to find this information. If using the [Azure Classic Portal](https://manage.windowsazure.com), navigate to your storage account in the portal and click **Manage Access Keys**. 
 
 Here is how it will look in your application:
 
