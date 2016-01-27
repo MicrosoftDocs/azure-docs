@@ -24,8 +24,8 @@ Access control records (ACRs) allow you to specify which hosts can connect to a 
 This tutorial explains the following common ACR-related tasks:
 
 - Get the IQN
-- Add or modify an access control record  
-- Delete an access control record 
+- Add or modify an ACR 
+- Delete an ACR
 
 > [AZURE.IMPORTANT] 
 > 
@@ -34,7 +34,7 @@ This tutorial explains the following common ACR-related tasks:
 
 ## Get the IQN
 
-Perform the following steps to get the iSCSI Qualified Name (IQN) of a Windows host that is running Windows Server 2012.
+Perform the following steps to get the IQN of a Windows host that is running Windows Server 2012.
 
 #### To get the IQN of a Windows host
 
@@ -89,7 +89,7 @@ Typically, you add an ACR when you add a volume; however, you can add or modify 
 
 5. At the bottom of the page, click **Bring online** to bring the volume online.
 
-## Delete an access control record
+## Delete an ACR
 
 You use the **Configure** page in the Azure classic portal to delete ACRs. 
 
@@ -97,7 +97,7 @@ You use the **Configure** page in the Azure classic portal to delete ACRs.
 
 Perform the following steps to delete an access control record.
 
-#### To delete an access control record
+#### To delete an ACR
 
 1. select the device and then click the **Volumes** tab. 
 
