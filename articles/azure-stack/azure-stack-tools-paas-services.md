@@ -37,8 +37,14 @@ Use the Packaging tool to create marketplace items for your own custom templates
 ###Virtual Machine Resource Extensions [Charles]
 
 ##Developer Tools
-###Visual Studio Template [Shri]
+###Visual Studio Cloud Tools
+Use the Visual Studio Cloud Tools to quickly build new applications or deploy existing applications to Azure Stack
+Download for [Visual Studio 2015] (http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
 
-###Azure CLI [Shri]
+###Azure PowerShell SDK
+Azure PowerShell is a module that provides cmdlets to manage Azure and Azure Stack with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure Stack platform
+[Download Azure PowerShell SDK](http://aka.ms/webpi-azps)
 
-###Azure PowerShell [Shri]
+###Azure Cross Platform Command Line Interfaces
+Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack
+Download CLI for: [Windows](http://go.microsoft.com/?linkid=9828653&clcid=0x409) [Mac](http://go.microsoft.com/fwlink/?linkid=253471&clcid=0x409) [Linux] (http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409)
