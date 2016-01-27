@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="DocumentDB - Capacity - Data storage | Microsoft Azure" 
 	description="Learn about data storage and document storage in DocumentDB and how you can scale DocumentDB to meet the capacity needs of your application." 
-	services="documentdb" 
 	keywords="data storage, document storage"
+	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="cgronlun" 
