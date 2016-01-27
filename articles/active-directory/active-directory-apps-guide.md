@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="1/27/2015"
 	ms.author="liviodlc"/>
 
 #Every Article on Application Management in Azure Active Directory
 
-This page provides a comprehensive list of every document written about the various app-related features in Azure Active Directory. Each major feature area is listed below with a brief introduction and links to every article written about that feature.
+This page provides a comprehensive list of every document written about the various application-related features in Azure Active Directory (Azure AD).
+
+There is a brief introduction to each major feature area, as well as guidance on which articles to read depending on what information you're looking for. 
 
 ##Overviews
 
