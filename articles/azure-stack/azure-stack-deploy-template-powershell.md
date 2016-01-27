@@ -3,7 +3,7 @@
 	description="Learn how to deploy a virtual machine using a template and PowerShell."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/29/2016"
-	ms.author="ErikjeMS"/>
+	ms.author="erikje"/>
 
 # Use Azure Resource Manager templates in Azure Stack
 

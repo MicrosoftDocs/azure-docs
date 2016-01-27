@@ -14,11 +14,13 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/29/2016"
-	ms.author="ErikjeMS"/>
+	ms.author="erikje"/>
 
 # Publish a marketplace item in Azure Stack
 
-1.  First, ensure that you have a marketplace item (.azpkg) ready to upload. If you do not, follow the instructions in [Create a Marketplace Item](azure-stack-create-marketplace-item.md) to create a marketplace item.
+
+
+1.  Ensure that you have a marketplace item (.azpkg) ready to upload. If you do not, follow the instructions in [Create a Marketplace Item](azure-stack-create-marketplace-item.md) to create a marketplace item.
 
 2.  On the Client VM in Microsoft Azure Stack environment, ensure that your PowerShell Session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in  [Deploy a Template with PowerShell](azure-stack-deploy-template-powershell.md).
 

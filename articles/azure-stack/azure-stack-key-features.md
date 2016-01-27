@@ -118,7 +118,7 @@ There are three main RPs: Network, Storage, and Compute. Each of these RPs helps
 
 ### Compute RP
 
-The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. It also provides functionality for the administrator to setup and configure the resource provider for tenants. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines.
+The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. It also provides functionality for the administrator to setup and configure the resource provider for tenants. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines. For more information on the CRP, [download the Compute Resource Provider scenario validation guide now](http://TBD).
 
 ### Network RP
 
@@ -126,7 +126,7 @@ The Network Resource Provider (NRP) delivers a series of Software Defined Networ
 
 ### Storage RP
 
-The Storage RP delivers three Azure-consistent storage services: blob, table, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) on Azure.com.
+The Storage RP delivers three Azure-consistent storage services: blob, table, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) on Azure.com or [download the Azure-consistent storage scenario validation guide now](http://TBD).
 
 #### Blob storage
 

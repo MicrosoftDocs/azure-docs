@@ -3,7 +3,7 @@
 	description="Learn how to deploy templates with Visual Studio in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -38,7 +38,7 @@ ARM templates deploy and provision all of the resources for your application in 
 
 7.  In the **Resource Group** list, choose an existing resource group or create a new one.
 
-8.  In the **Resource group location** list, choose a location, and then gosh darn it click **Deploy**.
+8.  In the **Resource group location** list, choose a location, and then click **Deploy**.
 
 9.  In the **Edit Parameters** dialog box, enter values for the parameters (which vary by template), and then click **Save**.
 
