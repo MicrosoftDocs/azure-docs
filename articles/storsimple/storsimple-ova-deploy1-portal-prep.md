@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/20/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # Deploy StorSimple Virtual Array - Prepare the portal (Preview)
@@ -119,7 +119,7 @@ A single instance of the StorSimple Manager service can manage multiple StorSimp
 > If you did not enable the automatic creation of a storage account with your service, you will need to create at least one storage account after you have successfully created a service.
 > 
 
-> - If you did not create a storage account automatically, go to [Configure a new storage account for the service](#appendix-a-configure-a-new-storage-account-for-the-service) for detailed instructions.
+> - If you did not create a storage account automatically, go to [Configure a new storage account for the service](#optional-step-configure-a-new-storage-account-for-the-service) for detailed instructions.
 > 
 
 > - If you enabled the automatic creation of a storage account, go to [Step 2: Get the service registration key](#step-2-get-the-service-registration-key).
@@ -168,16 +168,9 @@ Watch the video for step-by-step instructions to get started with the StorSimple
 
 > [AZURE.VIDEO get-started-with-the-storsimple-virtual-array]
 
-## Next step
-
-The next step is to provision a virtual machine for your StorSimple virtual device. Depending on your host operating system, see the detailed instructions in:
-
--   [StorSimple Virtual Array Provisioning in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
-
--   [StorSimple Virtual Array Provisioning in VMware](storsimple-ova-deploy2-provision-vmware.md)
 
 
-## Appendix A: Configure a new storage account for the service
+## Optional step: Configure a new storage account for the service
 
 This is an optional step that needs to be performed only if you did not enable the automatic creation of a storage account with your service.
 
@@ -204,3 +197,12 @@ Perform the following steps in the [Azure classic portal](https://manage.windows
 		![](./media/storsimple-ova-deploy1-portal-prep/image11.png)
 
 1.  The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the newly created storage account. Click **OK** when prompted for confirmation.
+
+
+## Next step
+
+The next step is to provision a virtual machine for your StorSimple virtual device. Depending on your host operating system, see the detailed instructions in:
+
+-   [StorSimple Virtual Array Provisioning in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
+
+-   [StorSimple Virtual Array Provisioning in VMware](storsimple-ova-deploy2-provision-vmware.md)
