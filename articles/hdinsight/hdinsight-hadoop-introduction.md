@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/02/2015"
+   ms.date="01/27/2016"
    ms.author="cgronlun"/>
 
 
@@ -85,7 +85,7 @@ For information on developing your own Script Actions, see [Script Action develo
 
 The following components and utilities are included on HDInsight clusters.
 
-* **[Ambari](#ambari)**: Cluster provisioning, management, and monitoring.
+* **[Ambari](#ambari)**: Cluster provisioning, management, monitoring, and utilities.
 
 * **[Avro](#avro)** (Microsoft .NET Library for Avro): Data serialization for the Microsoft .NET environment.
 
@@ -109,9 +109,9 @@ The following components and utilities are included on HDInsight clusters.
 
 > [AZURE.NOTE] For information on the specific components and version information, see [What's new in the Hadoop cluster versions provided by HDInsight?][component-versioning]
 
-###<a name="ambari"></a>Ambari
+### <a name="ambari"></a>Ambari
 
-Apache Ambari is for provisioning, managing and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. Linux-based HDInsight clusters provide both the Ambari web UI and the Ambari REST API, while Windows-based clusters provide a subset of the REST API.
+Apache Ambari is for provisioning, managing and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. Linux-based HDInsight clusters provide both the Ambari web UI and the Ambari REST API, while Windows-based clusters provide a subset of the REST API. Ambari Views on HDInsight clusters allow plug-in UI capabilities.
 
 See [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md) (Linux only), [Monitor Hadoop clusters in HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md), and <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API reference</a>.
 
@@ -161,6 +161,34 @@ For more information on MapReduce, see <a target="_blank" href="http://wiki.apac
 
 ### <a name="zookeeper"></a>ZooKeeper
 <a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> coordinates processes in large distributed systems by means of a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate processes: status, location, configuration, and so on.
+
+## Programming languages on HDInsight
+
+HDInsight clusters--Hadoop, HBase, Storm, and Spark clusters--support a number of programming languages, but some aren't installed by default. For libraries, modules, or packages not installed by default, use a script action to install the component. See [Script action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
+### Default programming language support
+
+By default, HDInsight clusters support:
+* Java
+* Python
+
+Additional languages can be installed using script actions: [Script action development with HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
+### Java virtual machine (JVM) languages
+
+Many languages other than Java can be run using a Java virtual machine (JVM); however, running some of these languages may require additional components installed on the cluster.
+
+These JVM-based languages are support on HDInsight clusters:
+* Clojure
+* Jython (Python for Java)
+* Scala
+
+### Hadoop-specific languages
+
+HDInsight clusters provide support for the following languages that are specific to the Hadoop ecosystem:
+* Pig Latin for Pig jobs
+* HiveQL for Hive jobs and SparkSQL
+
 
 ## <a name="advantage"></a>Advantages of Hadoop in the cloud
 
