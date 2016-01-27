@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure Stack portal to deploy templates."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -14,25 +14,25 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/29/2016"
-	ms.author="erikje"/>
+	ms.author="ErikjeMS"/>
 
-# Deploy templates with the portal in Azure Stack
+# Deploy templates using the Azure Stack portal
 
-You can use the Microsoft Azure Stack portal to deploy templates.
+Use the portal to deploy Azure Resource Manager (ARM) templates to the Azure Stack POC.
 
-1.  Click **New**, click **Custom**, and then click **Template deployment**.
+ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
+
+1.  Log in to the portal as a tenant, click **New**, click **Custom**, and then click **Template deployment**.
 
 2.  Click **Edit template**, copy and paste your JSON template code into the blade, and then click **Save**.
 
-3.  Click **Edit parameters**, provide values for the parameters listed, and then click **OK**.
+3.  Click **Edit parameters**, type values for the parameters listed, and then click **OK**.
 
-4.  Click **Subscription**, select the subscription for which you want to use the template, and then click **OK**.
+4.  Click **Subscription**, chose the subscription you want to use, and then click **OK**.
 
-5.  Click **Resource group**, select or great a resource group, and then click **OK**.
+5.  Click **Resource group**, choose an existing resource group or create a new one, and then click **OK**.
 
-6.  Click **Create**.
-
-7.  A new progress tile will appear on the dashboard for you to track the progress of template deployment.
+6.  Click **Create**. A new tile on the dashboard tracks the progress of your template deployment.
 
 ## Next Steps
 

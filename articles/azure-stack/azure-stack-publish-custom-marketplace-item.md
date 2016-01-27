@@ -3,7 +3,7 @@
 	description="As a service administrator, learn how to publish a custom marketplace item in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -14,9 +14,9 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/29/2016"
-	ms.author="erikje"/>
+	ms.author="ErikjeMS"/>
 
-# Publish a custom marketplace item in Azure Stack (service administrator)
+# Publish a custom marketplace item in Azure Stack
 
 The Microsoft Azure Stack Marketplace is a catalog of software applications configured for Microsoft Azure Stack. It is a single place where tenants come to create new resources and deploy new applications.
 

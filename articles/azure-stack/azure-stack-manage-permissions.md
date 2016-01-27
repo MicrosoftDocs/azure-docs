@@ -3,7 +3,7 @@
 	description="As a service administrator or tenant, learn how to manage permissions to resources per user."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -14,11 +14,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/29/2016"
-	ms.author="erikje"/>
+	ms.author="ErikjeMS"/>
 
-# Manage permissions to resources per user in Azure Stack (service administrator and tenant)
+# Manage user permissions
 
-For each subscription, resource group, or service, you can assign any user in Microsoft Azure Stack one of three different roles: Reader, Owner, or Contributor.
+A user in Azure Stack can be a reader, owner, or contributor for each instance of a subscription, resource group, or service. For example, User A might have reader permissions to Subscription 1, but have owner permissions to Virtual Machine 7.
 
 -   Reader: User can view everything, but can’t make any changes.
 
@@ -26,7 +26,6 @@ For each subscription, resource group, or service, you can assign any user in Mi
 
 -   Owner: User can manage everything, including access to resources.
 
-For example, User A might have reader permissions to Subscription 1, but have owner permissions to Virtual Machine 7.
 
 ## To set access permissions for a user
 
