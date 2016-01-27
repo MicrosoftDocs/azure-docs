@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connect to Microsoft Azure Stack POC"
+	pageTitle="Connect to Microsoft Azure Stack POC | Microsoft Azure"
 	description="Learn how to connect to the Azure Stack POC portal as a service administrator or tenant."
 	services="azure-stack"
 	documentationCenter=""

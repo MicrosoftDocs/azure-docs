@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Use Azure Resource Manager templates in Azure Stack (tenant developers)"
+	pageTitle="Use Azure Resource Manager templates in Azure Stack (tenant developers) | Microsoft Azure"
 	description="Learn how to use Azure Resource Manager templates in Azure Stack to deploy and provision all of the resources for your application in a single, coordinated operation."
 	services="azure-stack"
 	documentationCenter=""

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Marketplace Item Metadata for Azure Stack"
+	pageTitle="Marketplace Item Metadata for Azure Stack | Microsoft Azure"
 	description="Learn about the kinds of Marketplace Item metadata for Azure Stack."
 	services="azure-stack"
 	documentationCenter=""

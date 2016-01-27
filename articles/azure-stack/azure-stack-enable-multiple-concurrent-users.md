@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Enable multiple concurrent user connections in Azure Stack"
+	pageTitle="Enable multiple concurrent user connections in Azure Stack | Microsoft Azure"
 	description="To configure external Windows or Mac machines to connect to the Azure Stack POC, follow these steps."
 	services="azure-stack"
 	documentationCenter=""

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Deploy Azure Stack POC"
+	pageTitle="Deploy Azure Stack POC | Microsoft Azure"
 	description="Learn how to prepare the Azure Stack POC and run the PowerShell script to deploy Azure Stack POC."
 	services="azure-stack"
 	documentationCenter=""

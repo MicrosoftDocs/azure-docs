@@ -1,5 +1,5 @@
 ﻿<properties
-	pageTitle="Key features and concepts in Azure Stack"
+	pageTitle="Key features and concepts in Azure Stack | Microsoft Azure"
 	description="Learn about the key features and concepts in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""

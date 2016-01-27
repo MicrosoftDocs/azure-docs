@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Storage accounts in Azure Stack"
+	pageTitle="Storage accounts in Azure Stack | Microsoft Azure"
 	description="Learn how an Azure Stack storage account gives you access to the Blob and Table services."
 	services="azure-stack"
 	documentationCenter=""

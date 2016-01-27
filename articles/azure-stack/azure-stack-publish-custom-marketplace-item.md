@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Publish a custom marketplace item in Azure Stack (service administrator)"
+	pageTitle="Publish a custom marketplace item in Azure Stack (service administrator) | Microsoft Azure"
 	description="As a service administrator, learn how to publish a custom marketplace item in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""

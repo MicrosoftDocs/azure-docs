@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Before you deploy Azure Stack POC"
+	pageTitle="Before you deploy Azure Stack POC | Microsoft Azure"
 	description="View the environment and hardware requirements for Azure Stack POC (service administrator)."
 	services="azure-stack"
 	documentationCenter=""
