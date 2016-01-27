@@ -18,19 +18,30 @@
 
 # Publish a marketplace item in Azure Stack
 
-1.  On the Client VM in Microsoft Azure Stack environment, ensure that your PowerShell Session is set up right for service administrator credentials.
+1.  First, ensure that you have a marketplace item (.azpkg) ready to upload. If you do not, follow the instructions in [Create a Marketplace Item](azure-stack-create-marketplace-item.md) to create a marketplace item.
 
-    For example, local environment setup using the Add-AzureRMEnvironment and Add-AzureRMAccount with ServiceAdmin Credentials.
+2.  On the Client VM in Microsoft Azure Stack environment, ensure that your PowerShell Session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in  [Deploy a Template with PowerShell](azure-stack-deploy-template-powershell.md).
 
-2.  Use the Add-AzureRMGalleryItem cmdlet from the Azure SDK to publish the marketplace item to your Azure Stack. The GalleryItemName must match the Publisher.Name.Version given to the item in Manifest.json file. If not, then other cmdlets may not work correctly. For example:
+3.  Use the Add-AzureRMGalleryItem PowerShell cmdlet to publish the marketplace item to your Azure Stack. The GalleryItemName **must** match the Publisher.Name.Version given to the item in Manifest.json file. If not, then other cmdlets may not work correctly. For example:
 
-		Add-AzureRMGalleryItem -SubscriptionId $SubscriptionId -ResourceGroup $resourceGroupName -Name $GalleryItemName -Path $Package  -Apiversion "2015-04-01" –Verbose
+		Add-AzureRMGalleryItem -SubscriptionId $SubscriptionId -ResourceGroup MarketplaceItems -Name Contoso.SimpleVMTemplate.1.0.0 -Path C:\Users\adminuser\Contoso.SimpleVMTemplate.1.0.0.azpkg  -Apiversion "2015-04-01" –Verbose
 
-3.  You can now see the marketplace item in the portal.
+	| Parameter | Description |
+	|-----------|-------------|
+	| SubscriptionID | Admin subscription ID. This can be retrieved using PowerShell or in the portal by navigating to the provider Subscription and copying the Subscription ID |
+	| ResourceGroup | A valid resource group already created on the provider subscription |
+	| Name | Name of the package which must match 'Publisher.Name.Version' as declared in the manifest of the marketplace item |
+	| Path | Path to the .azpkg file |
+	| Apiversion | Set as "2015-04-01" |
 
-4.  You can remove a marketplace item by using the Remove-AzureRMGalleryItem cmdlet.
+4. Navigate to the portal. You can now see the marketplace item in the portal -- as an admin or as a tenant.
+5. You can remove a marketplace item by using the Remove-AzureRMGalleryItem cmdlet. Example:
+
+		Remove-AzureRMGalleryItem -SubscriptionId $SubscriptionId -ResourceGroup MarketplaceItems -Name Microsoft.SimpleTemplate.1.0.0 -Apiversion "2015-04-01" –Verbose
 
 >[AZURE.NOTE] Do not upload the same package with different names in the cmdlet, it will cause the resources to be orphaned.
+
+>[AZURE.NOTE] The marketplace UI may error after you remove an item. To fix this, click **Settings** in the portal. Then, select **Discard modifications** under Portal customization.
 
 ## Next Steps
 

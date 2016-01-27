@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Overview: Microsoft Azure Stack | Microsoft Azure"
-	description="Overview: Microsoft Azure Stack"
+	pageTitle="Overview: Microsoft Azure Stack"
+	description="Overview: Microsoft Azure Stack "
 	services="azure-stack"
 	documentationCenter=""
 	authors="erikje"
@@ -18,30 +18,35 @@
 
 # Overview: Microsoft Azure Stack
 
-Microsoft Azure Stack brings proven innovation from Microsoft’s hyper-scale public cloud (Azure) into your datacenter.
+Azure Stack extends the Azure vision by bringing the cloud model of computing to every datacenter. Azure Stack is a new hybrid cloud platform product that enables organizations to deliver Azure services from their own datacenter in a way that is consistent with Azure.  In this way customers can focus on business innovation rather than spend time building their own cloud computing platform.   
 
-Microsoft Azure Stack is a cloud-optimized hybrid application platform which employs a collection of Microsoft Azure technologies to let you offer a self-service, multi-tenant cloud consistent with the Microsoft Azure experience. It gives you the power of Azure and the control of a datacenter, enabling you to offer Infrastructure- and Platform-as-a-Service services to tenants.
+Organizations can create these Azure services from datacenter resources - enabling developers and IT professionals to quickly provision and scale services using the same self-service experience found in Azure.  The product also enables IT organizations to leverage the same management and automation tools used with Azure to customize the service delivery experience to the business units they serve.  
 
->[AZURE.NOTE] Some of these features will come at different times of the preview cycle and may not be available at TP1.
+This all adds up to an environment in which application developers can maximize their productivity using a ‘write once, deploy to Azure or Azure Stack’ approach, because the Azure APIs are consistent regardless of where the resources are provisioned - Azure Stack is simply an extension of Azure. Part of the value of this approach is bringing the large ecosystem of operating systems, frameworks, languages, tools, and applications we are building in Azure to individual datacenters. Developers can create applications based on a variety of technologies such as Windows, Linux, .NET, PHP, Ruby or Java that can be deployed and operated the same way on-premises or in Microsoft Azure datacenters. They are also able to leverage the rich Azure ecosystem of templates, tools, and applications to jumpstart their Azure Stack development and operational efforts.   
 
-## Develop once, deploy anywhere
+>[AZURE.NOTE] Some of these features will come at different times of the preview cycle and may not be available as part of Tehnical Preview 1.
 
-You can build and deploy your application the same way regardless of whether it runs on Azure or Azure Stack. Using the same Azure APIs, you can develop an application once and, using Azure Resource Manager templates, deploy it to both Microsoft Azure and to an Azure Stack private or hosted datacenter. Developing with familiar tools, such as Linux, Java, and PHP (as they become available in Microsoft Azure Stack), you can use the same Azure Infrastructure-as-a-Service (IaaS) and Platform-as-a-Service (PaaS) services.
+## Developer and IT Professional Experiences 
 
-You can use Azure Virtual Machines, Virtual Network, and Storage to run traditional applications like SQL Server or SharePoint Server, or write cloud-native applications with Azure services such as Web Apps and containers provisioned and managed by Docker.
+Developers and IT pros have an experience with Azure Stack that is consistent to that which they experience in Azure.  This is fundamentally made possible because the Azure Stack portal environment is the same code as Azure.  However, the real innovation of Azure Stack is the implementation of an identical cloud API as Azure, so there is a consistent developer experience across clouds. Simply connecting to a portal to choose from preconfigured patterns is not enough; the definition of self-service has evolved to include programmatic access to the cloud API for the creation, deployment and operations of workloads in a cloud.  
 
-In addition, you have access to a single marketplace for thousands of certified, open source and community software applications and add-ons. Content designed for Azure, such as Azure Resource Manager templates, Windows Server/Linux virtual machine images, or third-party services, will work with Azure Stack.
+A consistent API surface area between Azure and Azure Stack is the path to a set of experiences, tools, application patterns, automation capabilities, deployment and configuration, and operations that work across clouds.  
 
-All of this grants application owners unprecedented development agility and productivity.
+- Experiences: The first engagement with Azure and Azure Stack usually comes through the portal which provides a web-accessible conduit into the system. The portal is a graphical expression of the cloud API.  
 
-## IT flexibility and control
+- Tools: Cloud developers and IT can use the tools they use in Azure and know they will work in Azure Stack. They can focus on solving business problems, rather than constant tooling and deployment transitions.  
 
-With Azure Stack, you can run Azure services in your datacenter for true hybrid cloud agility. Azure Stack delivers a new cloud-inspired infrastructure and platform as a service that enables you to accelerate your organization’s cloud transformation. Scale your resources running on Azure Stack at busy times of the year, for dev/test, or whenever you need them.
+- Application Patterns: Programmatic and abundant access to Cloud Services is changing the way that applications are being designed, developed and operated. You can work with the resources in your application as a group – mixing resources across IaaS and PaaS services.  
 
-Enjoy unmatched agility and productivity, with the flexibility, oversight, and control to keep sensitive data and applications onsite. You decide where to keep your data and applications, so if you have sensitive data, you can put it on-premises or with a trusted hosting service provider.
+- Automation Capabilities: Having a consistent API means that developers and IT can invest in automating development, deployment and operational activities knowing that they will not have to be rewritten to be used with a cloud supplier that offers Azure services. 
 
-With integrated IT and business processes, you have complete command and control of configuration, provisioning, and updating. Using Azure Resource Manager, you can manage pools of resources and resource groups in both the public cloud and your datacenter. Use role-based control to restrict access for enhanced security.
+- Deployment and Configuration:  Deploy, update or delete all of the resources for your application in a single, coordinated operation. This can be done from the portal or programmatically through the SDK as code.  
+
+- Operations: Templated deployments work for different environments such as testing, staging and production. Role based access control, usage and audit capabilities are standardized across all cloud resources in the deployment.  Updates made to application resources can be performed in an incremental and non-destructive manner. 
+
+These are all examples of the breadth of impact enabled by this hybrid cloud platform. In each area Azure customers should be confident that their investments in people, processes and technologies will be transferable between Azure and Azure Stack.  
+
 
 ## Next Steps
 
-[What is Azure Stack POC?](azure-stack-poc.md)
+[What is Azure Stack Technical Preview 1?](azure-stack-poc.md)
