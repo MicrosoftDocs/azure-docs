@@ -152,11 +152,12 @@ To make decisions around backup and disaster recovery, the following important c
 
 | CONCEPT | DETAILS | BACKUP | DISASTER RECOVERY (DR) |
 | ------- | ------- | ------ | ----------------- |
-| Recovery point objective (RPO) | The amount of data loss that is acceptable in case a recovery needs to be done. | Backup solutions have wide variability in the acceptable RPO. Virtual machine backups usually have an RPO of one day, while database backups have RPOs as low as 15 minutes. | Disaster recovery solutions have extremely low RPOs. The DR copy can be behind by a few seconds or a few minutes. |
+| Recovery point objective (RPO) | The amount of data loss that is acceptable in case a recovery needs to be done. | Backup solutions have wide variability in their acceptable RPO. Virtual machine backups usually have an RPO of one day, while database backups have RPOs as low as 15 minutes. | Disaster recovery solutions have extremely low RPOs. The DR copy can be behind by a few seconds or a few minutes. |
 | Recovery time objective (RTO) | The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher. This leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time it takes to transport the tape from an off-site location. | Disaster recovery solutions have smaller RTOs because they are more in sync with the source. Fewer changes need to be processed. |
 | Retention | How long data needs to be stored | <p>For scenarios that require operational recovery (data corruption, inadvertent file deletion, OS failure), backup data is typically retained for 30 days or less.</p> <p>From a compliance standpoint, data might need to be stored for months or even years. Backup data is ideally suited for archiving in such cases.</p> | Disaster recovery needs only operational recovery data. This typically takes a few hours or up to a day. Because of the fine-grained data capture used in DR solutions, using DR data for long-term retention is not recommended. |
 
-## Next steps 
+
+## Next steps
 
 - [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
 - [Frequently asked question on the Azure Backup service](backup-azure-backup-faq.md)
