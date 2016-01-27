@@ -19,12 +19,12 @@
 
 ## Overview
 
-Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple Virtual Array (also known as the StorSimple on-premises virtual device). ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name, and if there is a match, then the connection is established. The access control records section on the **Configure** page displays all the access control records with the corresponding IQNs of the hosts.
+Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple Virtual Array (also known as the StorSimple on-premises virtual device). ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name, and if there is a match, then the connection is established. The access control records section on the **Configuration** page displays all the access control records with the corresponding IQNs of the hosts.
 
 This tutorial explains the following common ACR-related tasks:
 
 - Get the IQN
-- Add or edit an access control record  
+- Add or modify an access control record  
 - Delete an access control record 
 
 > [AZURE.IMPORTANT] 
@@ -52,7 +52,7 @@ Typically, you add an ACR when you add a volume; however, you can add or modify 
 
 > [AZURE.NOTE] You can modify only those ACRs that are currently not in use. To edit an ACR associated with a volume that is currently in use, you must first take the volume offline.
 
-#### To add or modify the ACR
+#### To add or modify an ACR
 
 1. Take the volume offline: 
 
