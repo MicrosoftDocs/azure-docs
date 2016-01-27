@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="12/02/2015" 
+	 ms.date="01/20/2016" 
 	 ms.author="casoper"/>
 
 
@@ -25,7 +25,7 @@ CDN can be enabled for your origin via Azure Management Portal. Several types of
 
 A CDN profile is a collection of CDN endpoints.  Each profile contains one or more CDN endpoints.  You may wish to use multiple profiles to organize your CDN endpoints by internet domain, web application, or some other criteria.
 
-> [AZURE.NOTE] A single Azure subscription is limited to four CDN profiles. Each CDN profile is limited to four CDN endpoints.
+> [AZURE.NOTE] By default, a single Azure subscription is limited to four CDN profiles. Each CDN profile is limited to ten CDN endpoints.
 >
 > CDN pricing is applied at the CDN profile level. If you wish to use a mix of Standard and Premium CDN features, you will need multiple CDN profiles.
 

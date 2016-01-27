@@ -23,9 +23,9 @@ This article analyzes the differences and similarities between the two types of 
 
 Microsoft Azure supports two types of queue mechanisms: **Azure Queues** and **Service Bus Queues**.
 
-**Azure Queues**, which are part of the [Azure storage](http://azure.microsoft.com/services/storage/) infrastructure, feature a simple REST-based Get/Put/Peek interface, providing reliable, persistent messaging within and between services.
+**Azure Queues**, which are part of the [Azure storage](https://azure.microsoft.com/services/storage/) infrastructure, feature a simple REST-based Get/Put/Peek interface, providing reliable, persistent messaging within and between services.
 
-**Service Bus queues** are part of a broader [Azure messaging](http://azure.microsoft.com/services/service-bus/) infrastructure that supports queuing as well as publish/subscribe, Web service remoting, and integration patterns. For more information about Service Bus queues, topics/subscriptions, and relays, see the [overview of Service Bus messaging](service-bus-messaging-overview.md).
+**Service Bus queues** are part of a broader [Azure messaging](https://azure.microsoft.com/services/service-bus/) infrastructure that supports queuing as well as publish/subscribe, Web service remoting, and integration patterns. For more information about Service Bus queues, topics/subscriptions, and relays, see the [overview of Service Bus messaging](service-bus-messaging-overview.md).
 
 While both queuing technologies exist concurrently, Azure Queues were introduced first, as a dedicated queue storage mechanism built on top of the Azure storage services. Service Bus queues are built on top of the broader "brokered messaging" infrastructure designed to integrate applications or application components that may span multiple communication protocols, data contracts, trust domains, and/or network environments.
 
@@ -289,7 +289,7 @@ This section compares Azure Queues and Service Bus queues from a cost perspectiv
 
 - Given the support for long polling, using Service Bus queues can be cost effective in situations where low-latency delivery is required.
 
->[AZURE.NOTE] All costs are subject to change. This table reflects current pricing as of the writing of this article and does not include any promotional offers that may currently be available. For up-to-date information about Azure pricing, see the [Azure pricing](http://azure.microsoft.com/pricing/) page. For more information about Service Bus pricing, see [Service Bus pricing](http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE] All costs are subject to change. This table reflects current pricing as of the writing of this article and does not include any promotional offers that may currently be available. For up-to-date information about Azure pricing, see the [Azure pricing](https://azure.microsoft.com/pricing/) page. For more information about Service Bus pricing, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusion
 

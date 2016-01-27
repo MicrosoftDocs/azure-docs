@@ -29,7 +29,7 @@ This topic describes the scalability and performance topics for Microsoft Azure 
 
 >When your application reaches the limit of what a partition can handle for your workload, Azure Storage will begin to return error code 503 (Server Busy) or error code 500 (Operation Timeout) responses. When this occurs, the application should use an exponential backoff policy for retries. The exponential backoff allows the load on the partition to decrease, and to ease out spikes in traffic to that partition.
 
-If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts, and partition your data objects across those storage accounts. See [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts, and partition your data objects across those storage accounts. See [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
 
 
 ## Scalability targets for blobs, queues, tables, and files
@@ -78,7 +78,7 @@ Partitions affect load balancing and scalability for each of the storage service
 
 ## See Also
 
-- [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/)
+- [Storage Pricing Details](https://azure.microsoft.com/pricing/details/storage/)
 - [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md)
 - [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal/)
 - [Azure Storage Replication](storage-redundancy.md)

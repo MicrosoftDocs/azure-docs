@@ -140,7 +140,7 @@ Throughput units are provisioned on a best effort basis and may not always be av
 
 It is recommended that you carefully balance throughput units and partitions in order to achieve optimal scale with Event Hubs. A single partition has a maximum scale of one throughput unit. The number of throughput units should be less than or equal to the number of partitions in an Event Hub.
 
-For detailed pricing information, see [Event Hubs Pricing](http://azure.microsoft.com/pricing/details/event-hubs/).
+For detailed pricing information, see [Event Hubs Pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### Publisher policy
 

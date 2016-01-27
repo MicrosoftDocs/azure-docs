@@ -194,7 +194,7 @@ You can use the AzCopy command-line tool to download these server-side log files
 
 	AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 
-AzCopy is available for download on the [Azure Downloads](http://azure.microsoft.com/downloads/) page. For details about using AzCopy, see [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md).
+AzCopy is available for download on the [Azure Downloads](https://azure.microsoft.com/downloads/) page. For details about using AzCopy, see [How to use AzCopy with Microsoft Azure Storage](storage-use-azcopy.md).
 
 For additional information about downloading server-side logs, see [Enabling Storage Logging and Accessing Log Data](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata). 
 
