@@ -2,13 +2,14 @@
  pageTitle="Azure IoT preconfigured solutions | Microsoft Azure"
  description="A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
