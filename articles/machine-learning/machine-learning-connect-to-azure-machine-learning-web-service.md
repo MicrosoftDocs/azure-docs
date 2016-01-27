@@ -25,9 +25,9 @@ The Azure Machine Learning developer experience is a web service API to make pre
 To learn about how to create and deploy an Azure Machine Learning web service using Studio:
 
 - [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
-- [Getting Started with ML Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+- [Getting Started with ML Studio](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Azure Machine Learning Preview](https://studio.azureml.net/)
-- [Machine Learning Documentation Center](http://azure.microsoft.com/documentation/services/machine-learning/)
+- [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Azure Machine Learning web service ##
 

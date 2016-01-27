@@ -34,7 +34,7 @@ In this article, you will learn how to use the [Azure Portal](https://portal.azu
 ## Step 1: Create the data factory
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Let's start with creating the data factory in this step. 
 
-1.	After logging into the [Azure Portal](http://portal.azure.com/), do the following:
+1.	After logging into the [Azure Portal](https://portal.azure.com/), do the following:
 	1.	Click **NEW** on the left menu. 
 	2.	Click **Data analytics** in the **Create** blade.
 	3.	Click **Data Factory** on the **Data analytics** blade.

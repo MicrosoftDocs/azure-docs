@@ -31,7 +31,7 @@
 
 To create a VM with a static public IP address in the Azure portal, follow the steps below.
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
 2. On the top left hand corner of the portal, click **New**>>**Compute**>**Windows Server 2012 R2 Datacenter**.
 3. In the **Select a deployment model** list, select **Resource Manager** and click **Create**.
 4. In the **Basics** blade, enter the VM information as shown below, and then click **OK**.

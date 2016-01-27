@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/09/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 # What is Application Gateway?
@@ -20,7 +20,7 @@
 
 Microsoft Azure Application Gateway provides an Azure-managed HTTP load-balancing solution based on layer-7 load balancing.
 
-Application load balancing enables IT administrators and developers to create routing rules for network traffic based on HTTP.  The Application Gateway service is highly available and metered. For the SLA and pricing, refer to the [SLA](http://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
+Application load balancing enables IT administrators and developers to create routing rules for network traffic based on HTTP.  The Application Gateway service is highly available and metered. For the SLA and pricing, refer to the [SLA](https://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
 Application Gateway currently supports layer-7 application delivery for the following:
 
@@ -28,11 +28,16 @@ Application Gateway currently supports layer-7 application delivery for the foll
 - Cookie-based session affinity
 - Secure Sockets Layer (SSL) offload
 
-![Application Gateway](./media/application-gateway-introduction/appgateway1.png)
 
-HTTP layer-7 load balancing is useful for:
+## HTTP layer 7 load balancing
 
-- Applications that require requests from the same user/client session to reach the same back-end VM. Examples of this would be shopping cart apps and web mail servers.
+Azure provides layer 4 load balancing via Azure load balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway service. The Application Gateway then will apply the routing rules to HTTP traffic, providing layer 7 (HTTP) load balancing. When you create an application gateway, an endpoint (VIP) will be associated and used as public IP for ingress network traffic.
+
+The Application Gateway will route the HTTP traffic based on its configuration whether it's a virtual machine, cloud service, web app or an external IP address.
+
+HTTP layer 7 load balancing is useful for:
+
+- Applications that require requests from the same user/client session to reach the same back-end virtual machine . Examples of this would be shopping cart apps and web mail servers.
 - Applications that want to free web server farms from SSL termination overhead.
 - Applications, such as a content delivery network, that require multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
@@ -56,7 +61,6 @@ The table below shows an average performance throughput for each application gat
 
 ## Health monitoring
 
-
 Azure Application Gateway automatically monitors the health of the back-end instances. For more information, see [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
 
 ## Configuring and managing
@@ -64,9 +68,7 @@ Azure Application Gateway automatically monitors the health of the back-end inst
 You can create and manage an application gateway by using REST APIs and by using PowerShell cmdlets.
 
 
-
 ## Next steps
 
-Create an application gateway. See [Create an application gateway](application-gateway-create-gateway.md).
+After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway.md) or you can [create an application gateway SSL offload](application-gateway-ssl.md) to load-balance HTTPS connections.
 
-Configure SSL offload. See [Configure SSL offload with Application Gateway](application-gateway-ssl.md).

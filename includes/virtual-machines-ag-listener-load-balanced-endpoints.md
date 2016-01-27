@@ -6,7 +6,7 @@ You must create a load-balanced endpoint for each VM hosting an Azure replica. I
 
 1. Verify that the **Name** and **Public Port** of the listener endpoint you want to use is not already in use. In the example below, the name is “MyEndpoint” and the port is “1433”.
 
-1. On your local client, download and install [the latest PowerShell module](http://azure.microsoft.com/downloads/).
+1. On your local client, download and install [the latest PowerShell module](https://azure.microsoft.com/downloads/).
 
 1. Launch **Azure PowerShell**. A new PowerShell session is opened with the Azure administrative modules loaded.
 
