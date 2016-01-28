@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="1/28/2015"
+	ms.date="01/28/2015"
     ms.author="wesmc"/>
 
 # Enable offline sync for your Xamarin.iOS mobile app
