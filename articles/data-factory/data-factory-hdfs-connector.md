@@ -29,7 +29,7 @@ While you can install the gateway on the same on-premises machine or the Azure V
 
 ## Sample: Copy data from on-premises HDFS to Azure Blob
 
-The following sample shows how to copy data from an on-premises HDFS to Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+This sample shows how to copy data from an on-premises HDFS to Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
  
 The sample has the following data factory entities:
 
