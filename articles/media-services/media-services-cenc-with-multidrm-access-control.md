@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016"  
+	ms.date="01/27/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services
@@ -83,7 +83,7 @@ The following table summarizes the native platform/native app, and browsers supp
 **Client Platform**|**Native DRM Support**|**Browser/App**|**Streaming Formats**
 ----|------|----|----
 **Smart TVs, operator STBs, OTT STBs**|PlayReady primarily, and/or Widevine, and/or other|Linux, Opera, WebKit, Other|Various formats
-**Windows 10 devices (Windows PC, Windows Tablets, Windows Phone, Xbox)**|PlayReady|MS Edge/IE11 /EME<br/><br/>UWP|DASH (For HLS, PlayReady is not supported)<br/><br/>DASH, Smooth Streaming (For HLS, PlayReady is not supported) 
+**Windows 10 devices (Windows PC, Windows Tablets, Windows Phone, Xbox)**|PlayReady|MS Edge/IE11/EME<br/><br/><br/>UWP|DASH (For HLS, PlayReady is not supported)<br/><br/>DASH, Smooth Streaming (For HLS, PlayReady is not supported) 
 **Android devices (Phone, Tablet, TV)**|Widevine|Chrome/EME|DASH
 **iOS (iPhone, iPad), OS X clients and Apple TV**|FairPlay|Safari 8+/EME|HLS
 **Plugin: Adobe Primetime**|Primetime Access|Browser plugin|HDS, HLS
