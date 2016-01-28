@@ -23,14 +23,24 @@ One of the challenges for modern data integration is to seamlessly move data to 
 Please refer to [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) for more information.
 
 
-## CURRENT VERSION (1.8.5822.1)
+## CURRENT VERSION (1.9.5863.1)
+
+•	Zero touch auto update capability
+•	New tray icon with gateway status indicators
+•	Ability to “Update now” from the client
+•	Ability to set update schedule time
+•	PowerShell script for toggling auto-update on/off 
+•	Performance improvements
+•	Bug fixes
+
+
+## EARLIER VERSIONS
+
+## 1.8.5822.1
 
 - Improve troubleshooting experience
 - Performance improvements
 - Bug fixes
-
-
-## EARLIER VERSIONS
 
 ### 1.7.5795.1
 
