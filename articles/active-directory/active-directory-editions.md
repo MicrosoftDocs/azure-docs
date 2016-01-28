@@ -54,17 +54,16 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 | --- | --- | --- | --- | --- | --- |
 | **Common features**| Directory objects [1]| Up to 500,000 objects| No object limit| No object limit| No object limit for Office 365 user accounts|
 |  | [User and group management (add / update / delete), user-based provisioning](active-directory-administer.md), [device registration](active-directory-conditional-access-device-registration-overview.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
-|  | [Single Sign-On (SSO)](active-directory-enable-sso-scenario.md)| 10 apps per user [2] <br>(pre-integrated SaaS and developer-integrated apps)| 10 apps per user [2] <br>(free tier + Application proxy apps) | No Limit [4] <br> (free, Basic tiers +Self-Service App Integration templates4)| 10 apps per user [2] <br> (pre-integrated SaaS and developer-integrated apps)|
+|  | [Single Sign-On (SSO)](active-directory-enable-sso-scenario.md)| 10 apps per user [2] <br>(pre-integrated SaaS and developer-integrated apps)| 10 apps per user [2] <br>(free tier + Application proxy apps) | No Limit [4] <br> (free, Basic tiers +Self-Service App Integration templates)| 10 apps per user [2] <br> (pre-integrated SaaS and developer-integrated apps)|
 |  | [Self-service password change for cloud users](active-directory-passwords-update-your-own-password.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Connect - For syncing between on-premises directories and Azure Active Directory](active-directory-aadconnect.md)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
-|  | [Security / usage reports](active-directory-view-access-usage-reports.md)| Basic reports| Basic reports| Advanced reports| Basic reports|
+|  | [Security / usage reports](active-directory-view-access-usage-reports.md)| 3 Basic reports| 3 Basic reports| Advanced reports| 3 Basic reports|
 | **Premium and Basic features**| [Group-based application access management and provisioning](active-directory-accessmanagement-group-saasapps.md)|  | ![Check][12]| ![Check][12]|  |
 |  | [Self-service password reset for cloud users](active-directory-passwords.md)|  | ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Company branding (Log-on pages and Access Panel customization)](active-directory-add-company-branding.md)|  | ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Application Proxy](active-directory-application-proxy-get-started.md)|  | ![Check][12]| ![Check][12]|  |
 |  | [High availability SLA uptime (99.9%)](https://azure.microsoft.com/support/legal/sla/)|  | ![Check][12]| ![Check][12]| ![Check][12]|
-| **Premium only features**| Self-service group management / self-service application addition / dynamic group membership|  |  | ![Check][12]|  |
-|  | [Self-Service Group and app Management/Self-Service application additions/ Dynamic Groups](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)|  |  | ![Check][12]|  |
+| **Premium only features**| [Self-service group management / self-service application addition / dynamic group membership](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)|  |  | ![Check][12]|  |
 |  | [Multi-Factor Authentication (cloud and on-premises)](multi-factor-authentication.md)|  |  | ![Check][12]| Limited cloud-only for Office 365 Apps|
 |  | [Microsoft Identity Manager (MIM) user licenses and MIM server [3]](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)|  |  | ![Check][12]|  |
 |  | [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)|  |  | ![Check][12]|  |
