@@ -18,7 +18,7 @@
 
 # Tools and PaaS services for Azure Stack
 
-##Overview [David]
+##Overview
 Azure Stack will allow hosting Platform as a Service (PaaS) services from Azure and other providers. This page will contain the latest PaaS services from Microsoft Azure that can deploy on Azure Stack, as well as tools to that will help build these services, interact with them and unlock the full potential of having them in your local Azure Stack.
 Make sure you visit this page often as new Azure services get unlocked for Azure Stack preview.
 
