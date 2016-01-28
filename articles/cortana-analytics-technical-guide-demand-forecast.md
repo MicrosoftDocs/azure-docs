@@ -261,7 +261,7 @@ Once the Data Generator is launched, the pipeline begins to get hydrated and the
 	![](media\cortana-analytics-technical-guide-demand-forecast\icon-manage.png)
 
 	Here, you can click on New Query and query for the number of rows (e.g. select count(*) from DemandRealHourly). As your database grows, the number of rows in the table should increase.
-	
+
 
 ## **Power BI Dashboard**
 
@@ -297,8 +297,9 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 	-   Your database **username** and **password** are the same as
 	the username and password previously recorded during deployment of the solution.
 
-2.	Update the data source of the cold path report file with [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
-	-	In the folder on your PC where you downloaded and unzipped the Generator file, double click the **‘PowerBI\demoprediction.pbix’** file. Once you open it, on the top of the file, click **‘Edit Queries’**. In the pop out window, double click **‘Source’** on the right panel.
+2.	Update the data source of the cold path Power BI file
+	-  Make sure you have installed [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
+	-	In the **'DemandForecastingDataGeneratorv1.0'** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. Once you open it, on the top of the file, click **‘Edit Queries’**. In the pop out window, double click **‘Source’** on the right panel.
 	![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   In the pop out window, replace **'Server'** and **'Database'** with
