@@ -32,7 +32,7 @@ Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is i
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Azure CLI**: See [Install and Configure the Azure CLI](../xplat-cli-install.md)
 
