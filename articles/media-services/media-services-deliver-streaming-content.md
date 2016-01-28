@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015" 
+	ms.date="12/17/2015" 
 	ms.author="juliako"/>
 
 
@@ -54,6 +54,7 @@ Build Streaming URLs
 	{
 	
 	    // Create a 30-day readonly access policy. 
+      	// You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
 	    IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
 	        TimeSpan.FromDays(30),
 	        AccessPermissions.Read);
@@ -169,3 +170,4 @@ The following code calls .NET SDK extensions methods that create a locator and g
 ##See Also
 
 [Download assets](media-services-deliver-asset-download.md)
+[Configure asset delivery policy](media-services-dotnet-configure-asset-delivery-policy.md)

@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/10/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Service Bus pricing and billing
 
 Service Bus is offered in Basic, Standard, and [Premium](service-bus-premium-messaging.md) tiers. You can choose a service tier for each Service Bus service namespace that you create, and this tier selection applies across all queues, topics/subscriptions, relays, and Event Hubs created within that namespace.
 
->[AZURE.NOTE] For information about current Service Bus pricing, see the [Service Bus Pricing FAQ](service-bus-pricing-faq.md).
+>[AZURE.NOTE] For detailed information about current Service Bus pricing, see the [Service Bus Pricing FAQ](service-bus-pricing-faq.md).
 
 Service Bus uses the following two meters for queues and topics/subscriptions:
 
@@ -39,21 +39,21 @@ The following table summarizes the functional differences between the Basic and 
 
 |Capability|Basic|Standard/Premium|
 |---|---|---|
-|Event Hubs|YES|YES|
-|Queues|YES|YES|
-|Scheduled messages|YES|YES|
-|Topics/Subscriptions|NO|YES|
-|Relays|NO|YES|
-|Transactions|NO|YES|
-|De-Duplication|NO|YES|
-|Sessions|NO|YES|
-|Large messages|NO|YES|
-|ForwardTo|NO|YES|
-|SendVia|NO|YES|
+|Event Hubs|Yes|Yes|
+|Queues|Yes|Yes|
+|Scheduled messages|Yes|Yes|
+|Topics/Subscriptions|No|Yes|
+|Relays|No|Yes|
+|Transactions|No|Yes|
+|De-Duplication|No|Yes|
+|Sessions|No|Yes|
+|Large messages|No|Yes|
+|ForwardTo|No|Yes|
+|SendVia|No|Yes|
 |Brokered connections (included)|100 per Service Bus namespace|1,000 per Azure subscription|
-|Brokered connections (overage allowed)|NO|YES (billable)|
+|Brokered connections (overage allowed)|No|Yes (billable)|
 
-## Messaging Operations
+## Messaging operations
 
 As part of the new pricing model, billing for queues and topics/subscriptions is changing. These entities are transitioning from billing per message to billing per operation. An "operation" refers to any API call made against a queue or topic/subscription service endpoint. This includes management, send/receive, and session state operations.
 
@@ -83,9 +83,9 @@ The following prices were effective starting November 1, 2014:
 |---|---|
 |Daily|$11.13 fixed rate per Message Unit|
 
-## Brokered Connections
+## Brokered connections
 
-*Brokered connections* accommodate customer usage patterns that involve a large number of “persistently connected” senders/receivers against queues, topics/subscriptions or Event Hubs. Persistently connected senders/receivers are those that connect using either AMQP or HTTP with a non-zero receive timeout (for example, HTTP long polling). HTTP senders and receivers with an immediate timeout do not generate brokered connections.
+*Brokered connections* accommodate customer usage patterns that involve a large number of "persistently connected" senders/receivers against queues, topics/subscriptions or Event Hubs. Persistently connected senders/receivers are those that connect using either AMQP or HTTP with a non-zero receive timeout (for example, HTTP long polling). HTTP senders and receivers with an immediate timeout do not generate brokered connections.
 
 Previously, queues and topics/subscriptions had a limit of 100 concurrent connections per URL. The current billing scheme removes the per-URL limit for queues and topics/subscriptions, and implements quotas and metering on brokered connections at the Service Bus namespace and Azure subscription levels.
 
@@ -143,8 +143,8 @@ For example:
 
 Yes. There are no connection charges for sending events using HTTP, regardless of the number of sending systems or devices. Receiving events with HTTP using a timeout greater than zero, sometimes called "long polling," generates brokered connection charges. AMQP connections generate brokered connection charges regardless of whether the connections are being used to send or receive. Note that 100 brokered connections are allowed at no charge in a Basic namespace. This is also the maximum number of brokered connections allowed for the Azure subscription. The first 1,000 brokered connections across all Standard namespaces in an Azure subscription are included at no extra charge (beyond the base charge). Because these allowances are enough to cover many service-to-service messaging scenarios, brokered connection charges usually only become relevant if you plan to use AMQP or HTTP long-polling with a large number of clients; for example, to achieve more efficient event streaming or enable bi-directional communication with many devices or application instances.
 
-## See Also
+## Next steps
 
-[Service Bus Pricing FAQ](service-bus-pricing-faq.md)
+For more details about Service Bus pricing, see the [Service Bus Pricing FAQ](service-bus-pricing-faq.md).
 
 [Azure classic portal]: http://manage.windowsazure.com

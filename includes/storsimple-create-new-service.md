@@ -1,9 +1,9 @@
-<!--author=alkohli last changed: 12/1/15-->
+<!--author=alkohli last changed:01/14/2016-->
 
 
 #### To create a new service
 
-1. Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [http://azure.microsoft.com/](http://azure.microsoft.com/).
+1. Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
 2. In the Azure classic portal , click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
 
@@ -26,4 +26,4 @@
 
 ![Video available](./media/storsimple-create-new-service/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to create a new StorSimple Manager service, click [here](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+To watch a video that demonstrates how to create a new StorSimple Manager service, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="12/04/2015"
+ ms.date="01/08/2016"
  ms.author="larryfr"/>
 
 # Use Power BI (preview) to visualize data from an Apache Storm topology
@@ -25,7 +25,7 @@ In this document, you will learn how to use Power BI to create a report and dash
 
 ## Prerequisites
 
-- An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * An Azure Active Directory user with [Power BI](https://powerbi.com) access
 
@@ -67,7 +67,7 @@ Download the [HDInsight C# Storm Power BI example](https://github.com/Blackmist/
 
 ## Configure the sample
 
-1. Open the sample in Visual Studio. From **Solution Explorer**, open the **SCPHost.exe.config** file, and then find the **<OAuth .../>** element. Enter values for the following properties of this element.
+1. Open the sample in Visual Studio. From **Solution Explorer**, open the **App.config** file, and then find the **<OAuth .../>** element. Enter values for the following properties of this element.
 
     * **Client**: The Client ID for the application registration you created earlier.
 

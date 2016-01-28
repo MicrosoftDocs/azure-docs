@@ -5,7 +5,7 @@
 	documentationCenter="python"
 	authors="emgerner-msft"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"

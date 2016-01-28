@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="01/14/2016"
    ms.author="alkohli" />
 
 # Replace a controller module on your StorSimple device
@@ -75,7 +75,7 @@ Complete the following steps if one of the controllers in your Microsoft Azure S
 
 #### To remove a single failed controller module
 
-1. In the Azure classic portal of the StorSimple Manager service, click the **Devices** tab, and then click the name of the device that you want to monitor.
+1. In the Azure classic portal, go to the StorSimple Manager service, click the **Devices** tab, and then click the name of the device that you want to monitor.
 
 2. Click the **Maintenance** tab, and then navigate to **Hardware Status**. The status of either Controller 0 or Controller 1 should be red, which indicates a failure.
 
@@ -230,9 +230,9 @@ Each of these procedures is described next.
 
 ### Use the Azure classic portal to identify the active controller
 
-In the Management Portal, navigate to **Devices** > **Maintenance**, and scroll to the **Controllers** section. Here you can verify which controller is active.
+In the Azure classic portal, navigate to **Devices** > **Maintenance**, and scroll to the **Controllers** section. Here you can verify which controller is active.
 
-![Identify active controller in Management Portal](./media/storsimple-controller-replacement/IC752072.png)
+![Identify active controller in Azure classic portal](./media/storsimple-controller-replacement/IC752072.png)
 
 **Figure 6** Azure classic portal showing the active controller
 

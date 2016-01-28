@@ -63,9 +63,9 @@ A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that conne
 
 ## Considerations for the subscription
 
-* **Azure account** – If you want to deploy more than a small number of compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. You can also use your MSDN subscription. See [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). If you're using an [Azure free trial](http://azure.microsoft.com/pricing/free-trial/), you can use only a limited number of Azure compute cores.
+* **Azure account** – If you want to deploy more than a small number of compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. You can also use your MSDN subscription. See [Azure benefit for MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). If you're using an [Azure free trial](https://azure.microsoft.com/pricing/free-trial/), you can use only a limited number of Azure compute cores.
 
-* **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default of 20 cores per subscription (for Azure Service Management deployments) or 20 cores per region (for Azure Resource Manager deployments), which is not enough for many scenarios with 8-core or 16-core instances. For initial tests, you might consider requesting a quota increase to 100 cores. To do this, open a support ticket at no charge as shown in [Understanding Azure limits and increases](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+* **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default of 20 cores per subscription (for Azure Service Management deployments) or 20 cores per region (for Azure Resource Manager deployments), which is not enough for many scenarios with 8-core or 16-core instances. For initial tests, you might consider requesting a quota increase to 100 cores. To do this, open a support ticket at no charge as shown in [Understanding Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
     >[AZURE.NOTE]Azure quotas are credit limits, not capacity guarantees. You are charged only for cores that you use.
 
@@ -126,6 +126,6 @@ MPI | MS-MPI 2012 R2 or later, either stand-alone or installed via HPC Pack 2012
 
 ## Next steps
 
-* For details about availability and pricing of the A8, A9, A10, and A11 instances, see [Virtual Machines pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) and [Cloud Services pricing](http://azure.microsoft.com/pricing/details/cloud-services/).
+* For details about availability and pricing of the A8, A9, A10, and A11 instances, see [Virtual Machines pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) and [Cloud Services pricing](https://azure.microsoft.com/pricing/details/cloud-services/).
 * To deploy and configure a Linux-based cluster with A8 and A9 instances to access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-cluster-rdma.md).
 * To get started deploying and using A8 and A9 instances with HPC Pack on Windows, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](virtual-machines-windows-hpcpack-cluster-rdma.md).

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Configure Traffic Manager failover traffic routing method | Microsoft Azure"
    description="This article will help you configure failover traffic routing method in Traffic Manager"
    services="traffic-manager"
