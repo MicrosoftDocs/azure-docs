@@ -298,7 +298,7 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 
 2.	Update the data source of the cold path Power BI file
 	-  Make sure you have installed [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
-	
+
 	-	In the **'DemandForecastingDataGeneratorv1.0'** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. Once you open it, on the top of the file, click **‘Edit Queries’**. In the pop out window, double click **‘Source’** on the right panel.
 
 		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
@@ -321,8 +321,7 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 	the changes. Your Power BI file has now established connection to the server. If your visualizations are empty, make sure you clear the selections on the visualizations to visualize all the data by clicking the eraser icon on the upper right corner of the legends. Use the refresh button to reflect new data on the visualizations. Initially, you will only see the seed data on your visualizations as the data factory is scheduled to refresh every 3 hours. After 3 hours, you will see new predictions reflected in your visualizations when you refresh the data.
 
 3. (Optional) Publish the cold path dashboard to [Power BI
-    online](http://www.powerbi.com/).
-		Note that this step needs a Power BI account (or Office 365 account).
+    online](http://www.powerbi.com/). Note that this step needs a Power BI account (or Office 365 account).
 
 	-   Click **'Publish'** and few seconds later a window appears
 		displaying "Publishing to Power BI Success!" with a green
