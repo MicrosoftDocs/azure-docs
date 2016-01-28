@@ -85,6 +85,19 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 [4] Self-service integration of any application supporting SAML, SCIM, or forms-based authentication by using templates provided in the application gallery menu. For more details, please read this article. [https://azure.microsoft.com/en-us/documentation/articles/active-directory-saas-custom-apps
 
 
+##Comparing preview features of the Free, Basic, and Premium editions
+
+<br>
+
+| Feature Type| Features| Free Edition| Basic Edition| Premium Edition| Office 365 Apps Only |
+| --- | --- | :-: | :-: | :-: | :-: |
+| **Common features**| [B2B collaboration](https://azure.microsoft.com/en-us/documentation/articles/active-directory-b2b-collaboration-overview/)| ![Check][12]| ![Check][12]| ![Check][12]| ![Check][12]|
+| **Premium Features** | Conditional Access |  | | ![Check][12] |  |
+|                      | Privileged Identity Management |  | | ![Check][12] |  |
+
+
+
+
 
 ## What's next
 
