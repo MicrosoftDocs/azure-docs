@@ -18,6 +18,9 @@
 
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
 
 ## Install Azure PowerShell
