@@ -49,7 +49,8 @@ Note the following:
 	- If anything is written out to STDERR, the script will be classified as failed. This information will be displayed in the script execution details.
 	- If you're using VMM in your deployment note that:
 
-		- Scripts in a recovery plan run in the context of the VMM Service account. Make sure this account has Read permissions on the remote share on which the script is located, and test the script to run at the VMM service account privilege level.- VMM cmdlets are delivered in a Windows PowerShell module. The VMM Windows PowerShell module is installed when you install the VMM console. The VMM module can be loaded into your script using the following command in the script: Import-Module -Name virtualmachinemanager. [Get more details](hhttps://technet.microsoft.com/library/hh875013.aspx).
+		- Scripts in a recovery plan run in the context of the VMM Service account. Make sure this account has Read permissions on the remote share on which the script is located, and test the script to run at the VMM service account privilege level.
+		- VMM cmdlets are delivered in a Windows PowerShell module. The VMM Windows PowerShell module is installed when you install the VMM console. The VMM module can be loaded into your script using the following command in the script: Import-Module -Name virtualmachinemanager. [Get more details](hhttps://technet.microsoft.com/library/hh875013.aspx).
 		- Ensure you have at least one library server in your VMM deployment. By default the library share path for a VMM server is located locally on the VMM server with the folder name MSCVMMLibrary.
 		- If your library share path is remote (or local but not shared with MSCVMMLibrary, configure the share as follows (using \\libserver2.contoso.com\share\ as an example):
 			- Open the Registry Editor and navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
@@ -89,14 +90,14 @@ After you've added protected virtual machines or replication groups to the defau
 - **Add a script **—You can add scripts that before or after a recovery plan group. When you add a script it adds a new set of actions for the group. For example a set of pre-steps for Group 1 will be created with the name: Group 1: Pre-steps. All pre-steps will be listed inside this set. Note that you can only add a script on the primary site if you have a VMM server deployed.
 - **Add a manual action**—You can add manual actions that run before or after a recovery plan group. When the recovery plan runs, it stops at the point at which you inserted the manual action, and a dialog box prompts you to specify that the manual action was completed.
 
-##3 Extend recovery plans with scripts
+## Extend recovery plans with scripts
 
 You can add a script to your recovery plan:
 
 - If you have a VMM source site you can create a script on the VMM server and include it in your recovery plan.
 - If you're replicating to Azure you can integrate Azure automation runbooks into your recovery plan
 
-#### Create a VMM script
+### Create a VMM script
 
 
 Create the script as follows:
@@ -105,12 +106,12 @@ Create the script as follows:
 2. Create the script (for example RPScript), and check it works as expected.
 3. Place the script in the location \<VMMServerName>\MSSCVMMLibrary on the source and target VMM servers.
 
-#### Create an Azure automation runbook
+### Create an Azure automation runbook
 
 You can extend your recovery plan by running an Azure automation runbook as part of the plan. [Read more](site-recovery-runbook-automation.md).
 
 
-#### Add custom settings to a recovery plan
+### Add custom settings to a recovery plan
 
 1. Open the recovery plan you want to customize.
 2. Click to add a virtual machines or new group.
