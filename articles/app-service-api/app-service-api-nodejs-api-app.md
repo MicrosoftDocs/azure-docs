@@ -86,7 +86,7 @@ The commands below should be performed using the Node.js command line. By using 
         
         module.exports = {
             get: function contacts_get(req, res) {
-                res.json(repository.get(req.params['id']))
+                res.json(repository.get(req.params['id']));
             }    
         };
 
