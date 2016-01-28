@@ -92,25 +92,7 @@ Only one NIC is allowed during the deployment process. If you want to use a spec
 
 9.  The deployment process will take a few hours, during which several automated system reboots will occur. Signing in during deployment will automatically launch a PowerShell window that will display deployment progress. The PowerShell window closes after deployment completes.
 
-10. On the host, run the following command from an elevated Command Prompt window:
-
-    	bcdedit /set testsigning on
-
-11. In the `\Microsoft Azure Stack POC\Updates\` folder, run the `Windows10.0-KB625402-x64-InstallForTestingPurposesOnly.exe` file.
-
-12. Accept the license.
-
-13. At the **Do you want to restart your computer now?** prompt, type *y*.
-
-14. After the computer reboots, confirm that the patch was installed on the host by following these steps:
-
-    1.  Open a Command Prompt window and type appwiz.cpl.
-
-    2.  In the **Installed Updates** window, click **View installed updates**.
-
-    3.  Confirm that **Hotfix for Microsoft Windows (KB625402) (FOR TESTING PURPOSES ONLY)** is in the list.
-
-15. On the Azure Stack POC machine, sign in as an AzureStack/administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
+10. On the Azure Stack POC machine, sign in as an AzureStack/administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
 
 If the deployment fails with a time or date error, configure the BIOS to use Local Time instead of UTC. Then redeploy.
 

@@ -16,9 +16,9 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# What is Azure Stack POC?
+# What is Azure Stack Technical Preview 1?
 
-Microsoft Azure Stack POC (Proof of Concept) is an environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine where you’ll have an ideal developer environment for evaluating features and validating the Azure Stack extensibility model for APIs.
+Microsoft Azure Stack Technical Preview 1 release is being made available through a Proof of Concept (POC). The POC is an environment for learning and demonstrating Azure Stack features. It lets you deploy all required components on a single physical machine where you’ll have an ideal developer environment for evaluating features and validating the Azure Stack extensibility model for APIs.
 
 ## Scope of Azure Stack POC
 
