@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/27/2016"
+   ms.date="01/28/2016"
    ms.author="seanmck"/>
 
 # Disaster recovery in Azure Service Fabric
@@ -28,7 +28,7 @@ When you create a Service Fabric clusters in Azure, you are required to choose a
 
 ### Fault domains
 
-By default, the VMs in the cluster will be evenly spread across logical groups known as fault domains, which segment the machines based on potential failures in the host hardware. Specifically, if two VMs reside in two distinct fault domains, you can be sure that they do not share the same physical rack or network switch. As a result, local network or power failure affecting one VM will not affect the other, allowing Service Fabric to rebalance the work load of the unresponsive machine with the cluster.
+By default, the VMs in the cluster will be evenly spread across logical groups known as fault domains, which segment the machines based on potential failures in the host hardware. Specifically, if two VMs reside in two distinct fault domains, you can be sure that they do not share the same physical rack or network switch. As a result, local network or power failure affecting one VM will not affect the other, allowing Service Fabric to rebalance the work load of the unresponsive machine within the cluster.
 
 ### Geographic distribution
 
