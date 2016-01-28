@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="jasonnewyork"
 	manager="tadb"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="01/12/2016"
 	ms.author="jahogg"/>
 
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage
@@ -102,7 +102,7 @@ The "[Appendices]" include information about using other tools such as Wireshark
 
 If you are familiar with Windows performance monitoring, you can think of Storage Metrics as being an Azure Storage equivalent of Windows Performance Monitor counters. In Storage Metrics you will find a comprehensive set of metrics (counters in Windows Performance Monitor terminology) such as service availability, total number of requests to service, or percentage of successful requests to service (for a full list of the available metrics, see <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Storage Analytics Metrics Table Schema</a> on MSDN). You can specify whether you want the storage service to collect and aggregate metrics every hour or every minute. For more information about how to enable metrics and monitor your storage accounts, see <a href="http://go.microsoft.com/fwlink/?LinkId=510865" target="_blank">Enabling storage metrics</a> on MSDN.
 
-You can choose which hourly metrics you want to display in the [Azure Portal](portal.azure.com) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold (for more information, see the page <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">How to: Receive Alert Notifications and Manage Alert Rules in Azure</a>). The storage service collects metrics using a best effort, but may not record every storage operation.
+You can choose which hourly metrics you want to display in the [Azure Portal](https://portal.azure.com) and configure rules that notify administrators by email whenever an hourly metric exceeds a particular threshold (for more information, see the page <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">How to: Receive Alert Notifications and Manage Alert Rules in Azure</a>). The storage service collects metrics using a best effort, but may not record every storage operation.
 
 In the Azure Portal, you can view metrics such as availability, total requests, and average latency numbers for a storage account. A notification rule has also been set up to alert an administrator if availability drops below a certain level. From viewing this data, one possible area for investigation is the table service success percentage being below 100% (for more information, see the section "[Metrics show low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors]").
 
@@ -121,12 +121,12 @@ The remainder of this section describes what metrics you should monitor and why.
 
 ### <a name="monitoring-service-health"></a>Monitoring service health
 
-You can use the [Azure Portal](portal.azure.com) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. This enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application.
+You can use the [Azure Portal](https://portal.azure.com) to view the health of the Storage service (and other Azure services) in all the Azure regions around the world. This enables you to see immediately if an issue outside of your control is affecting the Storage service in the region you use for your application.
 
-The [Azure Portal](portal.azure.com) can also provide with notifications of incidents that affect the various Azure services.
+The [Azure Portal](https://portal.azure.com) can also provide notifications of incidents that affect the various Azure services.
 Note: This information was previously available, along with historical data, on the Azure Service Dashboard at <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
 
-While the [Azure Portal](portal.azure.com) collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a>, and Application Insights for Visual Studio Team Services are examples of this outside-in approach. For more information about Application Insights for Visual Studio Team Services, see the appendix "[Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]."
+While the [Azure Portal](https://portal.azure.com) collects health information from inside the Azure datacenters (inside-out monitoring), you could also consider adopting an outside-in approach to generate synthetic transactions that periodically access your Azure-hosted web application from multiple locations. The services offered by <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a>, and Application Insights for Visual Studio Team Services are examples of this outside-in approach. For more information about Application Insights for Visual Studio Team Services, see the appendix "[Appendix 5: Monitoring with Application Insights for Visual Studio Team Services]."
 
 ### <a name="monitoring-capacity"></a>Monitoring capacity
 
@@ -142,7 +142,7 @@ You should monitor the availability of the storage services in your storage acco
 
 Any value less than 100% indicates that some storage requests are failing. You can see why they are failing by examining the other columns in the metrics data that show the numbers of requests with different error types such as **ServerTimeoutError**. You should expect to see **Availability** fall temporarily below 100% for reasons such as transient server timeouts while the service moves partitions to better load-balance request; the retry logic in your client application should handle such intermittent conditions. The page <a href="http://msdn.microsoft.com/library/azure/hh343260.aspx" target="_blank"></a> lists the transaction types that Storage Metrics includes in its **Availability** calculation.
 
-In the [Azure Portal](portal.azure.com), you can add alert rules to notify you if **Availability** for a service falls below a threshold that you specify.
+In the [Azure Portal](https://portal.azure.com), you can add alert rules to notify you if **Availability** for a service falls below a threshold that you specify.
 
 The "[Troubleshooting guidance]" section of this guide describes some common storage service issues related to availability.
 
@@ -150,13 +150,13 @@ The "[Troubleshooting guidance]" section of this guide describes some common sto
 
 To monitor the performance of the storage services, you can use the following metrics from the hourly and minute metrics tables.
 
-- The values in the **AverageE2ELatency** and **AverageServerLatency** show the average time the storage service or API operation type is taking to process requests. **AverageE2ELatency** is a measure of end-to-end latency that includes the time taken to read the request and send the response in addition to the time taken to process the request (therefore includes network latency once the request reaches the storage service); **AverageServerLatency** is a measure of just the processing time and therefore excludes any network latency related to communicating with the client. See the section "[Metrics show high AverageE2ELatency and low AverageServerLatency]" later in this guide for a discussion of why there might be a significant difference between these two values.
+- The values in the **AverageE2ELatency** and **AverageServerLatency** columns show the average time the storage service or API operation type is taking to process requests. **AverageE2ELatency** is a measure of end-to-end latency that includes the time taken to read the request and send the response in addition to the time taken to process the request (therefore includes network latency once the request reaches the storage service); **AverageServerLatency** is a measure of just the processing time and therefore excludes any network latency related to communicating with the client. See the section "[Metrics show high AverageE2ELatency and low AverageServerLatency]" later in this guide for a discussion of why there might be a significant difference between these two values.
 - The values in the **TotalIngress** and **TotalEgress** columns show the total amount of data, in bytes, coming in to and going out of your storage service or through a specific API operation type.
 - The values in the **TotalRequests** column show the total number of requests that the storage service of API operation is receiving. **TotalRequests** is the total number of requests that the storage service receives.
 
 Typically, you will monitor for unexpected changes in any of these values as an indicator that you have an issue that requires investigation.
 
-In the [Azure Portal](portal.azure.com), you can add alert rules to notify you if any of the performance metrics for this service fall below or exceed a threshold that you specify.
+In the [Azure Portal](https://portal.azure.com), you can add alert rules to notify you if any of the performance metrics for this service fall below or exceed a threshold that you specify.
 
 The "[Troubleshooting guidance]" section of this guide describes some common storage service issues related to performance.
 
@@ -181,7 +181,7 @@ The following sections outline the steps you should follow to diagnose and troub
 
 ### <a name="service-health-issues"></a>Service health issues
 
-Service health issues are typically outside of your control. The [Azure Portal](portal.azure.com) provides information about any ongoing issues with Azure services including storage services. If you opted for Read-Access Geo-Redundant Storage when you created your storage account, then in the event of your data being unavailable in the primary location, your application could switch temporarily to the read-only copy in the secondary location. To do this, your application must be able to switch between using the primary and secondary storage locations, and be able to work in a reduced functionality mode with read-only data. The Azure Storage Client libraries allow you to define a retry policy that can read from secondary storage in case a read from primary storage fails. Your application also needs to be aware that the data in the secondary location is eventually consistent. For more information, see the blog post <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Azure Storage Redundancy Options and Read Access Geo Redundant Storage</a>.
+Service health issues are typically outside of your control. The [Azure Portal](https://portal.azure.com) provides information about any ongoing issues with Azure services including storage services. If you opted for Read-Access Geo-Redundant Storage when you created your storage account, then in the event of your data being unavailable in the primary location, your application could switch temporarily to the read-only copy in the secondary location. To do this, your application must be able to switch between using the primary and secondary storage locations, and be able to work in a reduced functionality mode with read-only data. The Azure Storage Client libraries allow you to define a retry policy that can read from secondary storage in case a read from primary storage fails. Your application also needs to be aware that the data in the secondary location is eventually consistent. For more information, see the blog post <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/04/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx" target="_blank">Azure Storage Redundancy Options and Read Access Geo Redundant Storage</a>.
 
 ### <a name="performance-issues"></a>Performance issues
 
@@ -355,7 +355,7 @@ Is your client application receiving an HTTP 4XX (such as 404) response from a s
 
 ### <a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Metrics show high AverageE2ELatency and low AverageServerLatency
 
-The illustration below from the [Azure Portal](portal.azure.com) monitoring tool shows an example where the **AverageE2ELatency** is significantly higher than the **AverageServerLatency**.
+The illustration below from the [Azure Portal](https://portal.azure.com) monitoring tool shows an example where the **AverageE2ELatency** is significantly higher than the **AverageServerLatency**.
 
 ![][4]
 
@@ -365,7 +365,7 @@ Note that the storage service only calculates the metric **AverageE2ELatency** f
 
 #### Investigating client performance issues
 
-Possible reasons for the client responding slowly include having a limited number of available connections or threads. You may be able to resolve the issue by modifying the client code to be more efficient (for example by using asynchronous calls to the storage service), or by using a larger Virtual Machine (with more cores and more memory).
+Possible reasons for the client responding slowly include having a limited number of available connections or threads, or being low on resources such as CPU, memory or network bandwidth. You may be able to resolve the issue by modifying the client code to be more efficient (for example by using asynchronous calls to the storage service), or by using a larger Virtual Machine (with more cores and more memory).
 
 For the table and queue services, the Nagle algorithm can also cause high **AverageE2ELatency** as compared to **AverageServerLatency**: for more information see the post <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Nagle’s Algorithm is Not Friendly towards Small Requests</a> on the Microsoft Azure Storage Team Blog. You can disable the Nagle algorithm in code by using the **ServicePointManager** class in the **System.Net** namespace. You should do this before you make any calls to the table or queue services in your application since this does not affect connections that are already open. The following example comes from the **Application_Start** method in a worker role.
 
@@ -389,7 +389,13 @@ For more information about using Microsoft Message Analyzer to troubleshoot netw
 
 In this scenario, the most likely cause is a delay in the storage requests reaching the storage service. You should investigate why requests from the client are not making it through to the blob service.
 
-Possible reasons for the client delaying sending requests include having a limited number of available connections or threads. You should also check if the client is performing multiple retries, and investigate the reason if this is the case. You can do this programmatically by looking in the **OperationContext** object associated with the request and retrieving the **ServerRequestId** value. For more information, see the code sample in the section "[Server request ID]."
+One possible reason for the client delaying sending requests is that there are a limited number of available connections or threads. 
+
+You should also check whether the client is performing multiple retries, and investigate the reason if this is the case. To determine whether the client is performing multiple retries, you can:
+
+- Examine the Storage Analytics logs. If multiple retries are happening, you will see multiple operations with the same client request ID but with different server request IDs.
+- Examine the client logs. Verbose logging will indicate that a retry has occurred.
+- Debug your code, and check the properties of the **OperationContext** object associated with the request. If the operation has retried, the **RequestResults** property will include multiple unique server request IDs. You can also check the start and end times for each request. For more information, see the code sample in the section [Server request ID]. 
 
 If there are no issues in the client, you should investigate potential network issues such as packet loss. You can use tools such as Wireshark or Microsoft Message Analyzer to investigate network issues.
 
@@ -405,7 +411,7 @@ If you are seeing high **AverageServerLatency** for blob download requests when 
 
 High **AverageServerLatency** values can also be a symptom of poorly designed tables or queries that result in scan operations or that follow the append/prepend anti-pattern. See "[Metrics show an increase in PercentThrottlingError]" for more information.
 
-> [AZURE.NOTE] You can find a comprehensive checklist including other issues to be aware here: "[Designing Scalable and Performant Storage Based Applications Checklist](storage-performance-checklist.md)."
+> [AZURE.NOTE] You can find a comprehensive checklist including other issues to be aware here: [Microsoft Azure Storage Performance and Scalability Checklist](storage-performance-checklist.md).
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>You are experiencing unexpected delays in message delivery on a queue
 
@@ -483,7 +489,7 @@ In this scenario, you should investigate why the SAS token is expiring before th
 
 - Typically, you should not set a start time when you create a SAS for a client to use immediately. If there are small clock differences between the host generating the SAS using the current time and the storage service, then it is possible for the storage service to receive a SAS that is not yet valid.
 - You should not set a very short expiry time on a SAS. Again, small clock differences between the host generating the SAS and the storage service can lead to a SAS apparently expiring earlier than anticipated.
-- Does the version parameter in the SAS key (for example **sv=2012-02-12**) match the version of the Storage Client Library you are using. You should always use the latest version of the Storage Client Library. For more information on SAS token versioning and dependencies on client library version see <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">What's new for Microsoft Azure Storage</a>.
+- Does the version parameter in the SAS key (for example **sv=2015-04-05**) match the version of the Storage Client Library you are using? We recommend that you always use the latest version of the [Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/). For more information on SAS token versioning and dependencies on client library version see [What's new for Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx).
 - If you regenerate your storage access keys, this can invalidate any existing SAS tokens. This may be an issue if you generate SAS tokens with a long expiry time for client applications to cache.
 
 If you are using the Storage Client Library to generate SAS tokens, then it is easy to build a valid token. However, if you are using the Storage REST API and constructing the SAS tokens by hand you should carefully read the topic <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">Delegating Access with a Shared Access Signature</a> on MSDN.
@@ -795,7 +801,7 @@ You can use Microsoft Message Analyzer to capture HTTP and HTTPS traffic in a si
 
 #### Configure a web tracing session using Microsoft Message Analyzer
 
-To configure a web tracing session for HTTP and HTTPS traffic using Microsoft Message Analyzer, run the Microsoft Message Analyzer application and then on the **File** menu, click **Capture/Trace**. In the list of available trace scenarios, select **Web Proxy**. Then in the **Trace Scenario Configuration** panel, in the **HostnameFilter** textbox, add the names of your storage endpoints (you can look up these names in the [Azure Portal](portal.azure.com)). For example, if the name of your Azure storage account is **contosodata**, you should add the following to the **HostnameFilter** textbox:
+To configure a web tracing session for HTTP and HTTPS traffic using Microsoft Message Analyzer, run the Microsoft Message Analyzer application and then on the **File** menu, click **Capture/Trace**. In the list of available trace scenarios, select **Web Proxy**. Then in the **Trace Scenario Configuration** panel, in the **HostnameFilter** textbox, add the names of your storage endpoints (you can look up these names in the [Azure Portal](https://portal.azure.com)). For example, if the name of your Azure storage account is **contosodata**, you should add the following to the **HostnameFilter** textbox:
 
     contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 # Configure ExpressRoute and site-to-site VPN connections to coexist for a VNet
@@ -67,7 +67,7 @@ There are two different sets of procedures to choose from in order to configure 
 
 This procedure will walk you through creating a VNet and create site-to-site and ExpressRoute connections that will coexist.
 
-1. Verify that you have the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
+1. Verify that you have the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](https://azure.microsoft.com/downloads/).
 
 2. Create a schema for your virtual network. For more information about working with the network configuration file, see [Configure a Virtual Network using a network configuration file](../virtual-network/virtual-networks-create-vnet-classic-portal.md). For more information about the configuration schema, see [Azure Virtual Network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -179,7 +179,7 @@ If you have an existing virtual network connected via either ExpressRoute or sit
 
 **Before you begin configuration:** Verify that you have enough IP addresses left in your virtual network so that you can increase the gateway subnet size.
 
-1. Download the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](http://azure.microsoft.com/downloads/).
+1. Download the latest version of the PowerShell cmdlets. You can download and install the latest PowerShell cmdlets from the PowerShell section of the [Download page](https://azure.microsoft.com/downloads/).
 
 2. Delete the existing site-to-site VPN gateway. Use the following cmdlet, replacing the values with your own.
 
@@ -205,7 +205,7 @@ If you have an existing virtual network connected via either ExpressRoute or sit
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. At this point, you'll have a VNet with no gateways. To create new gateways and complete your connections, you can proceed with **Step 3** in this section of this article, [Create a new virtual network with both ExpressRoute and site-to-site connectivity](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
+5. At this point, you'll have a VNet with no gateways. To create new gateways and complete your connections, you can proceed with **Step 4** in this section of this article, [Create a new virtual network with both ExpressRoute and site-to-site connectivity](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity).
 
 ## Next steps
 

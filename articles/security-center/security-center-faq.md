@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/08/2015"
+   ms.date="12/10/2015"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
@@ -28,7 +28,7 @@ This FAQ answers questions about Azure Security Center, a service that helps you
 Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 ### How do I get Azure Security Center?
-Azure Security Center is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](http://azure.microsoft.com/features/azure-portal/). ([Sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Security Center**). You may see some security recommendations in the dashboard right away. That is because the service can assess the security state of some controls based on their configuration in Azure. In order to light up the full set of security monitoring, recommendations and alerting capabilities, you will need to [enable Data Collection](#data-collection).  
+Azure Security Center is enabled with your Microsoft Azure subscription and accessed from the [Azure portal](https://azure.microsoft.com/features/azure-portal/). ([Sign in to the portal](https://portal.azure.com), select **Browse**, and scroll to **Security Center**). You may see some security recommendations in the dashboard right away. That is because the service can assess the security state of some controls based on their configuration in Azure. In order to light up the full set of security monitoring, recommendations and alerting capabilities, you will need to [enable Data Collection](#data-collection).  
 
 ## Billing
 
@@ -101,4 +101,4 @@ Both [Classic and Resource Manager](azure-classic-rm.md) virtual machines are su
 Access Control List recommendations currently apply to Classic virtual machines. Network Security Groups and recommendations for installation of Web Application Firewall currently only apply to Resource Manager virtual machines.
 
 ### Are Linux virtual machines supported?
-Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu versions 12.04, 14.04, 14.10, 15.04 only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distros.
+Azure Security Center offers baseline monitoring for Linux virtual machines (Ubuntu versions 12.04, 14.04, 14.10, and 15.04 only). In the future, additional security health monitoring and data collection/analysis will be available, as well as support for additional Linux distros.

@@ -257,7 +257,7 @@ Here is the corresponding Azure PowerShell command set to create this virtual ma
 
 ## Additional resources
 
-[Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Virtual machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
 

@@ -279,11 +279,11 @@ The fields that are used in this query are GPS coordinates of pickup and dropoff
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-The mathematical equations of calculating distance between two GPS coordinates can be found at [here](http://www.movable-type.co.uk/scripts/latlong.html), authored by Peter Lapisu. In his Javascript, the function toRad() is just `lat_or_lon*pi/180`, which converts degrees to radians. Here, `lat_or_lon` is the latitude or longitude. Since Hive does not provide function `atan2`, but provides function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query, based on its definition in [Wikipedia](http://en.wikipedia.org/wiki/Atan2). 
+The mathematical equations of calculating distance between two GPS coordinates can be found at [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html), authored by Peter Lapisu. In his Javascript, the function toRad() is just `lat_or_lon*pi/180`, which converts degrees to radians. Here, `lat_or_lon` is the latitude or longitude. Since Hive does not provide function `atan2`, but provides function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query, based on its definition in [Wikipedia](http://en.wikipedia.org/wiki/Atan2). 
 
 ![Create workspace][1]
 
-A full list of Hive embedded UDFs can be found [here](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions). 
+A full list of Hive embedded UDFs can be found in the [UDF Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions). 
 
 ## <a name="tuning"></a> Advanced topics: Tune Hive Parameters to Improve Query Speed
 

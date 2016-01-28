@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ Historically, managing a resource (such as a database server, database, or web a
 
 Typically, a resource group contains resources related to a specific application. For example, a group may contain a web app that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage account that stores non-relational assets. Every resource in a resource group should share the same lifecycle. For more information about Resource Manager, see [Resource Manager overview](../resource-group-overview.md).
 
-This topic provides an overview of how to use resource groups within the Azure portal. Currently, not every service supports the portal or Resource Manager. For those services, you will need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Resource Manager support for services, regions, and API versions](resource-manager-supported-services.md)
+This topic provides an overview of how to use resource groups within the Azure portal. Currently, not every service supports the portal or Resource Manager. For those services, you will need to use the [classic portal](https://manage.windowsazure.com). For the status of each service, see [Azure portal availability chart](https://azure.microsoft.com/features/azure-portal/availability/)
 
 ## Create resource group and resources
 

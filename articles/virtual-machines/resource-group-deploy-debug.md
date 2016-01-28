@@ -3,6 +3,7 @@
    description="Describes common problems deploying resources created using Resource Manager deployment model, and shows how to detect and fix these issues."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
+   tags="top-support-issue"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="10/14/2015"
+   ms.date="01/06/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Troubleshooting resource group deployments in Azure
@@ -410,7 +411,7 @@ If you are using templates that you created, it's important to understand that t
 
 Note however, that this does not necessarily mean that your resource group is "active and ready for your users". For example, most deployments request the deployment to download upgrades, wait on other, non-template resources, or to install complex scripts or some other executable activity that Azure does not know about because it is not an activity that a provider is tracking. In these cases, it can be some time before your resources are ready for real-world use. As a result, you should expect that the deployment status succeeds some time before your deployment can be used.
 
-You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template. An example can be seen [here](https://msdn.microsoft.com/library/azure/dn790564.aspx).
+You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the [CustomScriptExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template. An example can be seen when [creating template deployments](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
 ## Useful tools to interact with Azure
 When you work with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure Resource Manager API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.

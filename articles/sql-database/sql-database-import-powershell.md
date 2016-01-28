@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Import a BACPAC file to create a new Azure SQL database using PowerShell" 
+    pageTitle="Import a BACPAC file to create a new Azure SQL database using PowerShell | Microsoft Azure" 
     description="Import a BACPAC file to create a new Azure SQL database using PowerShell" 
     services="sql-database" 
     documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="01/20/2016"
     ms.author="sstein"/>
 
 # Import a BACPAC file to create a new Azure SQL database using PowerShell
@@ -21,9 +21,10 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-import.md)
+- [Azure Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
-
+- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 
 This article provides directions for creating an Azure SQL database by importing a BACPAC with PowerShell.
 
@@ -141,7 +142,7 @@ Running this command will prompt you for a password. Enter the admin login and p
 
 ## Next steps
 
-- [Connect with SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
+- [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 
 
 

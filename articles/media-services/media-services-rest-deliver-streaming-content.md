@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+	ms.date="12/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -46,6 +46,7 @@ To create the OnDemand streaming locator and get URLs you need to do the followi
    		
 	If you plan to progressively download, get the names of MP4 files in the asset. 
    4. Build URLs to the manifest file or MP4 files. 
+   5. Note that you cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.
 
 
 ###Create an access policy
@@ -185,3 +186,7 @@ example:
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+##See also
+
+[Configure asset delivery policy](media-services-rest-configure-asset-delivery-policy.md)

@@ -1,8 +1,8 @@
 ## Receive messages with EventProcessorHost
 
-[EventProcessorHost][] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using [EventProcessorHost], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use [EventProcessorHost] for a single receiver. The [Scaled out event processing] sample shows how to use [EventProcessorHost] with multiple receivers.
+[EventProcessorHost][] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using [EventProcessorHost][], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use [EventProcessorHost][] for a single receiver. The [Scaled out event processing][] sample shows how to use [EventProcessorHost][] with multiple receivers.
 
-In order to use [EventProcessorHost], you must have an [Azure Storage account]:
+In order to use [EventProcessorHost][], you must have an [Azure Storage account][]:
 
 1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
 
@@ -74,7 +74,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 	                context.Lease.PartitionId, data));
 	        }
 
-	        //Call checkpoint every 5 minutes, so that worker can resume processing from the 5 minutes back if it restarts.
+	        //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
 	        if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
             {
                 await context.CheckpointAsync();
@@ -86,7 +86,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 
 	This class will be called by the **EventProcessorHost** to process events received from the Event Hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
 
-9. In the **Program** class, add the following `using` statements at the top:
+9. In the **Program** class, add the following `using` statements at the top of the file:
 
 	```
 	using Microsoft.ServiceBus.Messaging;
@@ -94,7 +94,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 	using System.Threading.Tasks;
 	```
 
-	Then, modify the **Main** method to the **Program** class as shown below, substituting the Event Hub name and connection string, and the storage account and key that you copied in the previous sections:
+	Then, modify the `Main` method in the `Program` class as follows, substituting the Event Hub name and connection string, and the storage account and key that you copied in the previous sections:
 
     ```
 	static void Main(string[] args)
@@ -116,7 +116,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
     }
 	````
 
-> [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost][]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost][], as shown in the [Scaled out event processing] sample. In those cases, the various instances  automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost][] instances based on the machines (or roles) in which they are deployed. For more information about these topics, see the [Event Hubs Overview][] and [Event Hubs Programming Guide][] topics.
+> [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost][]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost][], as shown in the [Scaled out event processing][] sample. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost][] instances based on the machines (or roles) in which they are deployed. For more information about these topics, see the [Event Hubs Overview][] and [Event Hubs Programming Guide][] topics.
 
 <!-- Links -->
 [Event Hubs Overview]: event-hubs-overview.md

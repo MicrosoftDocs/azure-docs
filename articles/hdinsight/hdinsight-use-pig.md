@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/06/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Use Pig with Hadoop on HDInsight
@@ -57,7 +57,7 @@ This example uses a *log4j* sample file, which is stored at **/example/data/samp
 
 In the previous example, the log level is ERROR.
 
-> [AZURE.NOTE] You can also generate a log4j file by using the [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](../hdinsight-use-blob-storage.md).
+> [AZURE.NOTE] You can also generate a log4j file by using the [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters. HDInsight can access files stored in blobs by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
@@ -126,7 +126,7 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: ../hdinsight-get-started.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md

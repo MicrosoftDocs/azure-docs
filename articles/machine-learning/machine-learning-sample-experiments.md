@@ -28,7 +28,7 @@ When you want to create an experiment, look for examples in Machine Learning tea
 ![](./media/machine-learning-sample-experiments/image1.png) 
 4. Click an experiment to learn more about it. To run and/or modify the experiment, click **Open in Studio**.
 ![](./media/machine-learning-sample-experiments/image2.png) 
-5.  Sign in with your Microsoft account credentials. If you don’t have a Machine Learning workspace yet, a free trial workspace is created. [Learn what’s included in the Machine Learning free trial](http://azure.microsoft.com/pricing/details/machine-learning/)
+5.  Sign in with your Microsoft account credentials. If you don’t have a Machine Learning workspace yet, a free trial workspace is created. [Learn what’s included in the Machine Learning free trial](https://azure.microsoft.com/pricing/details/machine-learning/)
 ![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Use as template in Studio

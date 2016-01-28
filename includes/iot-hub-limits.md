@@ -1,9 +1,8 @@
-The following table lists the limits associated with the the different service tiers (S1, S2, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](http://azure.microsoft.com/pricing/details/iot-hub/).
+The following table lists the limits associated with the the different service tiers (S1, S2, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Resource | S1 Standard | S2 Standard | F1 Free |
 | -------- | ----------- | ----------- | ------- |
-| Devices/unit | 500 | 500 | 10 |
-| Messages/day | 50,000 | 1,500,000 | 3,000 |
+| Messages/day | 400,000 | 6,000,000 | 8,000 |
 | Maximum units | 200 | 200 | 1 |
 | Device updates (create, update, <br/> delete) per unit per day | 1100 | 1100 | 1100 |
 
@@ -31,5 +30,5 @@ The IoT Hub service throttles requests when the following quotas are exceeded:
 | -------- | ------------- |
 | Identity registry operations <br/> (create, retrieve, list, update, delete), <br/> individual or bulk import/export | 100/min/unit, up to 5000/min |
 | Device connections | 100/sec/unit |
-| Device-to-cloud sends | 2000/min/unit (for S2), 60/min/unit (for S1) <br/> Minimum of 100/sec |
+| Device-to-cloud sends | 120/sec/unit (for S2), 12/sec/unit (for S1) <br/> Minimum of 100/sec |
 | Cloud-to-device operations <br/> (sends, receives, feedback) | 100/min/unit |

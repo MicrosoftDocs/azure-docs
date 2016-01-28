@@ -29,7 +29,7 @@ Azure Data Factory is a fully managed cloud-based data integration service that 
 
 With ADF, existing data processing services can be composed into data pipelines that are highly available and managed in the cloud. These data pipelines can be scheduled to ingest, prepare, transform, analyze, and publish data, and ADF will manage and orchestrate all of the complex data and processing dependencies. Solutions can be quickly built and deployed in the cloud, connecting a growing number of on-premises and cloud data sources.
 
-Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations. For more information on ADF, see the documentation at [Azure Data Factory (ADF)](http://azure.microsoft.com/services/data-factory/).
+Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations. For more information on ADF, see the documentation at [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>The Scenario
 
@@ -53,14 +53,14 @@ This tutorial assumes you have:
 
 ##<a name="upload-data"></a> Upload the data to your on-premise SQL Server
 
-We use the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) to demonstrate the migration process. The NYC Taxi dataset is available, as noted that post, on Azure blob storage [here](http://www.andresmh.com/nyctaxitrips/). The data has two files, the trip_data.csv file which contains trip details and the  trip_far.csv file which contains details of the fare paid for each trip. A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](machine-learning-data-science-process-sql-walkthrough.md#dataset).
+We use the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) to demonstrate the migration process. The NYC Taxi dataset is available, as noted that post, on Azure blob storage [NYC Taxi Data](http://www.andresmh.com/nyctaxitrips/). The data has two files, the trip_data.csv file which contains trip details and the  trip_far.csv file which contains details of the fare paid for each trip. A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](machine-learning-data-science-process-sql-walkthrough.md#dataset).
 
 
 You can either adapt the procedure provided here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your on-premise SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premise SQL Server is the same.
 
 ##<a name="create-adf"></a> Create an Azure Data Factory
 
-The instructions for creating a new Azure Data Factory and a resource group in the [Azure Portal](https://ms.portal.azure.com/) are provided [here](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
+The instructions for creating a new Azure Data Factory and a resource group in the [Azure Portal](https://ms.portal.azure.com/) are provided [Create an Azure Data Factory](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
 
 ## Install and configure up the Data Management Gateway
 
@@ -299,4 +299,4 @@ The *startdate* and *enddate* parameter values need to be replaced with the actu
 
 Once the pipeline executes, you should be able to see the data show up in the container selected for the blob, one file per day.
 
-Note that we have not leveraged the functionality provided by ADF to pipe data incrementally. For more details on how to do this and other capabilities provided by ADF, see the [ADF documentation](http://azure.microsoft.com/services/data-factory/).
+Note that we have not leveraged the functionality provided by ADF to pipe data incrementally. For more details on how to do this and other capabilities provided by ADF, see the [ADF documentation](https://azure.microsoft.com/services/data-factory/).

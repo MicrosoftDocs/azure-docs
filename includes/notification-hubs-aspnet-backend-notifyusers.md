@@ -13,7 +13,7 @@ The following steps show how to create the new ASP.NET WebAPI backend:
 > 
 > ![][B4]
 
-> [AZURE.NOTE] Make sure you have installed the Visual Studio [Azure SDK](http://azure.microsoft.com/downloads/) for website deployment.
+> [AZURE.NOTE] Make sure you have installed the Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) for website deployment.
 
 1. Start Visual Studio or Visual Studio Express. Click **Server Explorer** and sign in to your Azure account. Visual Studio will need you signed in to create the web site resources on your account.
 2. In Visual Studio, click **File**, then click **New**, then **Project**, expand **Templates**, **Visual C#**, then click **Web** and **ASP.NET Web Application**, type the name **AppBackend**, and then click **OK**. 
@@ -135,7 +135,7 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
         using Microsoft.Azure.NotificationHubs;
 
-6. Replace the `Notifications` class definition with the following and make sure to replace the two placeholders with the connection string (with full access) for your notification hub, and the hub name (available at [Azure Management Portal](http://manage.windowsazure.com)):
+6. Replace the `Notifications` class definition with the following and make sure to replace the two placeholders with the connection string (with full access) for your notification hub, and the hub name (available at [Azure Classic Portal](http://manage.windowsazure.com)):
 
 		public class Notifications
         {

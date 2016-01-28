@@ -3,7 +3,7 @@
 	description="This topic describes the built in roles for role-based access control (RBAC)."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
+	authors="kgremban"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
-	ms.author="inhenk"/>
+	ms.date="01/21/2016"
+	ms.author="kgremban"/>
 
-#RBAC: Built in Roles
+#RBAC: Built-in roles
 
 ## Built-in roles
 
-Azure role-based access control comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources.
+Azure Role-Based Access Control (RBAC) comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources.
 
-Click the corresponding link to see the **actions** and **not actions** properties of a role definition. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property of a role definition specifies the actions that must be excluded from the allowed actions.
+Click the links below to see the **actions** and **not actions** properties of a role definition. The **actions** property specifies the allowed actions on Azure resources. Action strings can use wildcard characters. The **not actions** property of a role definition specifies the actions that must be excluded from the allowed actions.
 
 
 | Role Name | Description |
@@ -34,20 +34,20 @@ Click the corresponding link to see the **actions** and **not actions** properti
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) | Can manage ClearDB MySQL databases |
 | [Contributor](#contributor) | Can manage everything except access. |
 | [Data Factory Contributor](#data-factory-contributor) | Can manage data factories |
-| [DevTest Lab User](#devtest-lab-user) | Can view everything, and connect, start, restart, and shutdown virtual machines. |
+| [DevTest Lab User](#devtest-lab-user) | Can view everything and connect, start, restart, and shutdown virtual machines |
 | [Document DB Account Contributor](#document-db-account-contributor) | Can manage Document DB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Can manage Intelligent Systems accounts |
 | [Network Contributor](#network-contributor) | Can manage all network resources |
 | [NewRelic APM Account Contributor](#newrelic-apm-account-contributor) | Can manage NewRelic Application Performance Management accounts and applications |
-| [Owner](#owner) | Owners can manage everything, including access. |
-| [Reader](#reader) | Readers can view everything, but can't make changes. |
+| [Owner](#owner) | Can manage everything, including access |
+| [Reader](#reader) | Can view everything, but can't make changes |
 | [Redis Cache Contributor](#redis-cache-contributor]) | Can manage Redis caches |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Can manage scheduler job collections |
 | [Search Service Contributor](#search-service-contributor) | Can manage search services |
-| [Security Manager](#security-manager) | Can manage security components, security policies and virtual machines |
+| [Security Manager](#security-manager) | Can manage security components, security policies, and virtual machines |
 | [SQL DB Contributor](#sql-db-contributor) | Can manage SQL databases but not their security related policies |
 | [SQL Security Manager](#sql-security-manager) | Can manage the security related policies of SQL servers and databases |
-| [SQL Server Contributor](#sql-server-contributor) | Can manage SQL servers and databases but not their security related policies |
+| [SQL Server Contributor](#sql-server-contributor) | Can manage SQL servers and databases but not their security-related policies |
 | [Classic Storage Account Contributor](#classic-storage-account-contributor) | Can manage classic storage accounts |
 | [Storage Account Contributor](#storage-account-contributor) | Can manage storage accounts |
 | [User Access Administrator](#user-access-administrator) | Can manage user access to Azure resources |
@@ -85,7 +85,7 @@ Can manage Application Insights components
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### Automation Operator
-Automation Operators are able to start, stop, suspend, and resume jobs
+Able to start, stop, suspend, and resume jobs
 
 | **Actions** ||
 | ------- | ------ |
@@ -128,12 +128,14 @@ Can manage ClearDB MySQL databases
 | Microsoft.Support/* | Create and manage support tickets |
 
 ### Contributor
-Contributors can manage everything except access
+Can manage everything except access
 
 | **Actions** ||
 | ------- | ------ |
 | * | Create and manage resources of all types |
-| **Not Actions |  |
+
+| **Not Actions** |  |
+| ------- | ------ |
 | Microsoft.Authorization/*/Write | Can’t create roles and role assignments |
 | Microsoft.Authorization/*/Delete | Can’t delete roles and role assignments |
 
@@ -151,7 +153,7 @@ Can manage data factories
 | Microsoft.Support/* | Create and manage support tickets  |
 
 ### DevTest Lab User
-Can view everything, and connect, start, restart, and shutdown virtual machines
+Can view everything and connect, start, restart, and shutdown virtual machines
 
 | **Actions** ||
 | ------- | ------ |
@@ -303,7 +305,9 @@ Can manage SQL databases but not their security related policies
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage resource group deployments |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.Support/* | Create and manage support tickets  |
+
 | **Not Actions** |  |
+| ------- | ------ |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit audit policies |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit connection policies |
 | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Can't edit data masking policies |
@@ -343,7 +347,9 @@ Can manage SQL servers and databases but not their security related policies
 | Microsoft.Resources/subscriptions/resourceGroups/deployments/* | Create and manage subscriptions resource group deployments |
 | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 | Microsoft.Support/* | Create and manage support tickets |
+
 | **Not Actions** | |
+| ------- | ------ |
 | Microsoft.Sql/servers/auditingPolicies/* | Can't edit SQL server auditing policies |
 | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit SQL server database auditing policies |
 | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit SQL server database connection policies |

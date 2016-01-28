@@ -42,7 +42,7 @@ Remote access such as VPN, RDG| |* |
 
 ## Where are the users located
 
-Next, depending on where are users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.
+Next, depending on where our users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.
 
 
 

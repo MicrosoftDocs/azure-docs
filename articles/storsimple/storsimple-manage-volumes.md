@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/01/2015"
+   ms.date="01/15/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage volumes
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
 ## Overview
 
@@ -126,7 +128,7 @@ Modify a volume when you need to expand it or change the hosts that access the v
 
 ![Video available](./media/storsimple-manage-volumes/Video_icon.png) **Video available**
 
-To watch a video that demonstrates how to expand a volume, click [here](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume).
+To watch a video that demonstrates how to expand a volume, click [here](https://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume/).
 
 ## Take a volume offline
 
@@ -191,6 +193,7 @@ Perform the following steps to enable or disable monitoring for a volume.
 ## Next steps
 
 - Learn how to [clone a StorSimple volume](storsimple-clone-volume.md).
+
 - Learn how to [use the StorSimple Manager service to administer your StorSimple device](storsimple-manager-service-administration.md).
 
  

@@ -2,13 +2,14 @@
  pageTitle="Predictive maintenance preconfigured solution | Microsoft Azure"
  description="A description of the Azure IoT predictive maintenance preconfigured solution."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="stevehob"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -35,7 +36,7 @@ By predicting the point when maintenance is required, Fabrikam can optimize its 
 
 To understand how [Azure IoT Suite][lnk_iot_suite] provides the capabilities customers need to realize the potential of predictive maintenance, please review this [infographic][lnk_infographic].
 
-To show these capabilities working from device telemetry collected through IoT Suite services, and surfaced to users in a web application, the solution leverages an existing Azure Machine Learning model available as a template. Microsoft has built a regression model and published the complete template, data<sup>\[1\]</sup>, and step-by-step guidance [here][lnk_regression_model].
+To show these capabilities working from device telemetry collected through IoT Suite services, and surfaced to users in a web application, the solution leverages an existing Azure Machine Learning model available as a template. Microsoft has built a [regression model][lnk_regression_model] and published the complete template, data<sup>\[1\]</sup>, and step-by-step guidance.
 
 The Azure IoT predictive maintenance preconfigured solution uses the regression model created from this template; it is deployed into your Azure subscription and exposed via a published API. The solution includes a subset of the testing data representing 4 (of 100 total) engines and the 4 (of 21 total) sensor data streams which provide an accurate result from the trained model.
 

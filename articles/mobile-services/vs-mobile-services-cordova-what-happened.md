@@ -3,7 +3,7 @@
 	description="Describes what happened to your Azure Cordova project after adding Azure Mobile Services by using Visual Studio Connected Services " 
 	services="mobile-services" 
 	documentationCenter="na" 
-	authors="TomArcher" 
+	authors="mlhoop" 
 	manager="douge" 
 	editor=""/>
 
@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
-	ms.author="tarcher"/>
+	ms.date="01/05/2016" 
+	ms.author="mlearned"/>
 
 # What happened to my Azure Cordova project after adding Azure Mobile Services by using Visual Studio Connected Services?
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
-> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ##References Added
 
@@ -37,4 +33,4 @@ Under `services\mobileServices\settings`, a new JavaScript (.js) file with a **M
 	        "<insert your key>"
 	    );
 
-[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/) 
+[Learn more about mobile services](https://azure.microsoft.com/documentation/services/mobile-services/) 

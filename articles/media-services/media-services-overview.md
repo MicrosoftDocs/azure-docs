@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.date="01/14/2016"
 	ms.author="juliako"/>
 
 #Azure Media Services Overview and Common Scenarios
@@ -29,7 +29,10 @@ You can choose to stream your content live or deliver content on demand. This to
 To build Media Services solutions, you can use:
 
 - [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
-- One of the available client SDKs: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services for Node.js](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
+- One of the available client SDKs: 
+	- [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), 
+	- [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php), 
+	- [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs). 
 - Existing tools: [Azure Classic Portal](http://manage.windowsazure.com/) or [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
@@ -37,13 +40,13 @@ To build Media Services solutions, you can use:
 
 You can view AMS learning paths here:
 
-- [AMS Live Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [AMS on Demand Streaming Workflow](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+- [AMS Live Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS on Demand Streaming Workflow](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Poster
 
 
-[Here](http://azure.microsoft.com/documentation/infographics/media-services/) you can view the Azure Media Services  poster that depicts AMS workflows, from media creation through consumption. 
+[Here](https://azure.microsoft.com/documentation/infographics/media-services/) you can view the Azure Media Services  poster that depicts AMS workflows, from media creation through consumption. 
 
 ##Prerequisites
 
@@ -204,7 +207,7 @@ You can also scale your Media Services account by adding storage accounts to it.
 
 ##Support
 
-[Azure Support](http://azure.microsoft.com/support/options/) provides support options for Azure, including Media Services.
+[Azure Support](https://azure.microsoft.com/support/options/) provides support options for Azure, including Media Services.
 
 ##Patterns & practices guidance
 
@@ -225,7 +228,7 @@ You can also scale your Media Services account by adding storage accounts to it.
 - For Content Protection, we guarantee that we will successfully fulfill key requests at least 99.9% of the time.
 - For Indexer, we will successfully service Indexer Task requests processed with an Encoding Reserved Unit 99.9% of the time.
 
-	For more information, see [Microsoft Azure SLA](http://azure.microsoft.com/support/legal/sla/).
+	For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
