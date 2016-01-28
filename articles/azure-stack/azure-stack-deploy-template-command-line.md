@@ -18,7 +18,7 @@
 
 # Deploy templates in Azure Stack using the command line
 
-Use the command line to deploy Azure Resource Manager (ARM) templates to the Azure Stack POC.
+Use the command line to deploy Azure Resource Manager templates to the Azure Stack POC.
 
 ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
