@@ -3,7 +3,7 @@
 	description="Learn how to deploy a virtual machine using a template and PowerShell."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -16,21 +16,27 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Deploy templates with PowerShell in Azure Stack
+# Deploy templates in Azure Stack using PowerShell
 
-You can deploy templates in Microsoft Azure Stack by using PowerShell. Your tenant subscription must be enabled for virtual machine deployment. This example shows how to deploy a virtual machine using a template and PowerShell.
+Use PowerShell to deploy Azure Resource Manager (ARM) templates to the Azure Stack POC.
 
-## Authenticate PowerShell with Microsoft Azure Stack
+ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
-Before deploying with PowerShell, you must authenticate to a Microsoft Azure Stack environment.
+## Authenticate PowerShell with Microsoft Azure Stack (required)
 
-1.  Get your tenant GUID, configure the environment, and authenticate a user by running the following PowerShell cmdlet. Replace *EMAIL* with a tenant account in the Azure Active Directory (this email must end in <directoryname>.onmicrosoft.com). Replace *SUBSCRIPTION_NAME* with the default provider subscription name.
+1.  Run the following PowerShell cmdlet to get your tenant GUID, configure the environment, and authenticate a user.
 
-		# Add the Microsoft Azure Stack environment
+	- Replace *EMAIL* with a tenant account in the Azure Active Directory (this email must end in <directoryname>.onmicrosoft.com).
+
+	- Replace *SUBSCRIPTION_NAME* with the default provider subscription name.
+
+```
+
+# Add the Microsoft Azure Stack environment
 		[net.mail.mailaddress]$AadFullMailAddress="EMAIL"
 		$AadTenantId=(Invoke-WebRequest -Uri ('https://login.windows.net/'+($AadFullMailAddress.Host)+'/.well-known/openid-configuration')|ConvertFrom-Json).token_endpoint.Split('/')[3]
 
-		# Configure the environment with the Add-AzureRmEnvironment cmdlt
+# Configure the environment with the Add-AzureRmEnvironment cmdlt
 		Add-AzureRmEnvironment -Name 'Azure Stack' `
     		-ActiveDirectoryEndpoint ("https://login.windows.net/$AadTenantId/") `
     		-ActiveDirectoryServiceEndpointResourceId "https://azurestack.local-api/"`
@@ -46,18 +52,22 @@ Before deploying with PowerShell, you must authenticate to a Microsoft Azure Sta
 		# Select an existing subscription where the deployment will take place
 		Get-AzureRmSubscription -SubscriptionName "SUBSCRIPTION_NAME"  | Select-AzureRmSubscription
 
-2.  You can now execute AzureRM PowerShell cmdlts to deploy resources to Microsoft Azure Stack.
+```
 
-## Deploy a virtual machine using a template
+
+## Run AzureRM PowerShell cmdlets
+
+In this example, you'll run the following script to deploy a virtual machine to Azure Stack POC using an ARM template.
 
 The VHD used in this example template is a default marketplace image (WindowsServer-2012-R2-Datacenter). If you want to target another VHD, you must first add an image to the Platform Image Repository as described in [Appendix C](#_Appendix_C:_Add).
 
-1.  Navigate to <http://aka.ms/AzureStackGitHub>.
+1.  Go to <http://aka.ms/AzureStackGitHub>, search for the **101-simple-windows-vm** template, and save it to the following location: c:\\templates\\azuredeploy.json.
 
-2.  Search for the **101-simple-windows-vm** template and save the template file to the following location: c:\\templates\\azuredeploy.json.
+2.  In PowerShell, run the following deployment script.
 
-3.  In PowerShell, run the following deployment script. Replace “username” and “password” with your username and password. On subsequent uses, increment the value for the $myNum parameter. If you don’t do this, your previous virtual machine deployment will be overwritten.
+  Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter. If you don’t do this, your previous virtual machine deployment will be overwritten.
 
+```
 		# Set Deployment Variables
 		$myNum = "001" #Modify this per deployment
 		$RGName = "myRG$myNum"
@@ -80,9 +90,9 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		    -adminPassword ("password" | ConvertTo-SecureString -AsPlainText -Force) `
 		    -vmName "myVM$myNum" `
 		    -windowsOSVersion "2012-R2-Datacenter "
+```
 
-
-4.  Go to the Microsoft Azure Stack portal and you’ll see your new virtual machine named my Deployment001.
+4.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
 
 ## Next Steps
 

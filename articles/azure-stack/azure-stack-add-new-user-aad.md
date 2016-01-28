@@ -3,7 +3,7 @@
 	description="After deploying Microsoft Azure Stack POC, you’ll need to create at least one tenant user account so you can explore the tenant portal."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 

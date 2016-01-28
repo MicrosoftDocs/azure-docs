@@ -3,7 +3,7 @@
 	description="Learn how to create a plan and offer and then subscribe to that offer and use the services provided to create a virtual machine."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 

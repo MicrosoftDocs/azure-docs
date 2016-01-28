@@ -45,7 +45,7 @@ The sample copies data from a query result in an ODBC data store to a blob every
 As a first step, please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
 
 **ODBC linked service**
-This example uses the Windows authentication. See [ODBC linked service](#odbc-linked-service-properties) section for different types of authentication you can use. 
+This example uses the Basic authentication. See [ODBC linked service](#odbc-linked-service-properties) section for different types of authentication you can use. 
 
 	{
 	    "name": "OnPremOdbcLinkedService",
@@ -54,10 +54,10 @@ This example uses the Windows authentication. See [ODBC linked service](#odbc-li
 	        "type": "OnPremisesOdbc",
 	        "typeProperties":
 	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=<database>;",
-	            "userName": "<domain>\\<user>",
-	            "password": "<password>",
+	            "authenticationType": "Basic",
+	            "connectionString": "Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;",
+	            "userName": "username",
+	            "password": "password",
 	            "gatewayName": "mygateway"
 	        }
 	    }
@@ -224,8 +224,8 @@ The following table provides description for JSON elements specific to ODBC link
 | type | The type property must be set to: **OnPremisesOdbc** | Yes |
 | connectionString | The non-access credential portion of the connection string as well as an optional encrypted credential. See examples below. | Yes
 | credential | The access credential portion of the connection string specified in driver-specific property-value format, e.g. “Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”. | No
-| authenticationType | Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous, Basic, and Windows. | Yes | 
-| username | Specify user name if you are using Basic or Windows authentication. | No | 
+| authenticationType | Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. | Yes | 
+| username | Specify user name if you are using Basic authentication. | No | 
 | password | Specify password for the user account you specified for the username. | No | 
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the ODBC data store. | Yes |
 
@@ -266,24 +266,6 @@ You can encrypt the credentials using the [New-AzureRMDataFactoryEncryptValue](h
 	        }
 	    }
 	}
-
-### Using Windows authentication
-
-	{
-	    "name": "odbc",
-	    "properties":
-	    {
-	        "type": "OnPremisesOdbc",
-	        "typeProperties":
-	        {
-	            "authenticationType": "Windows",
-	            "connectionString": "Driver={SQL Server};Server=servername; Database=TestDatabase;",
-	            "userName": "<domain>\\<user>",
-	            "password": "<password>",
-	            "gatewayName": "mygateway"
-	        }
-	    }
-	} 
 
 
 ### Using Anonymous authentication

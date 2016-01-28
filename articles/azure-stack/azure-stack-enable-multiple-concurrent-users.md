@@ -3,7 +3,7 @@
 	description="To configure external Windows or Mac machines to connect to the Azure Stack POC, follow these steps."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -151,7 +151,7 @@ You can configure Windows and Mac machines to connect to the Microsoft Azure Sta
 
 12. You are now ready to connect the VPN. Click **Connect**.
 
-13. You must copy the certificate file over to the Mac. Double click the certificate and add it to the Root Certificate Authority. Click **Always Trust**.
+13. Copy the certificate file over to the Mac. Double click the certificate and add it to the Keychain->Login. Double click and change **Trust** to **Always Trust**. Make sure to hit the red icon in top left corner to save the trust.
 
 	![](media/azure-stack-enable-multiple-concurrent-users/image8.png)
 

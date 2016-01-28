@@ -3,7 +3,7 @@
 	description="View the environment and hardware requirements for Azure Stack POC (service administrator)."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 

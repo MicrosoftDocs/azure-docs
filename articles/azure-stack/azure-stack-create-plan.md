@@ -3,7 +3,7 @@
 	description="As a service administrator, create a plan that lets subscribers provision virtual machines."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 

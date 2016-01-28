@@ -3,7 +3,7 @@
 	description="As a service administrator, learn how to create an offer for your tenants in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 

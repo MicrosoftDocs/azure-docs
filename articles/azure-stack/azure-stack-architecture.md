@@ -3,7 +3,7 @@
 	description="View the Microsoft Azure Stack POC architecture."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
