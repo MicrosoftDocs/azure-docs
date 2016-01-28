@@ -28,7 +28,7 @@ This article assumes that you have a working knowledge of C# and Visual Studio, 
 
 ### Accounts
 
-- **Azure account** - If you do not already have an Azure subscription, you can create a free trial account in minutes at [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+- **Azure account** - If you do not already have an Azure subscription, you can create a free trial account in minutes at [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - **Batch account** - Once you have an Azure subscription, [Create and manage an Azure Batch account](batch-account-create-portal.md).
 - **Storage account** - See the *Create a storage account* section in [About Azure storage accounts](../storage-create-storage-account.md).
 

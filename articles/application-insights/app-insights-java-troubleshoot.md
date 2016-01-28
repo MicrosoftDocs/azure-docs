@@ -44,7 +44,7 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 #### I used to see data, but it has stopped
 
 * Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
-* Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+* Have you hit your monthly quota of data points? Open Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 
 
 
@@ -89,7 +89,7 @@ Using the XML method, you have to restart the application when you change the va
 
 ## The Azure start screen
 
-*I'm looking at [the Azure portal](http://portal.azure.com). Does the map tell me something about my app?*
+*I'm looking at [the Azure portal](https://portal.azure.com). Does the map tell me something about my app?*
 
 No, it shows the health of Azure servers around the world.
 

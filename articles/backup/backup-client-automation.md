@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Deploy and manage backup for Windows Server/Client using PowerShell | Microsoft Azure"
 	description="Learn how to deploy and manage Azure Backup using PowerShell"
 	services="backup"
