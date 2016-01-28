@@ -57,7 +57,7 @@ Once you've deployed your web service, you can follow the steps below to use the
 
 	![Request URI][image4]
 
-3. Go to [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) and click **Create Web App**. The template takes you to the Microsoft Azure Classic Portal where the new web app is created.
+3. Go to the [Azure Portal](https://portal.azure.com), **Login**, click **New**, Search for and select **Azure ML Request-Response Service Web App**, then click **Create**. 
 
 	- Give your web app a unique name. The URL of the web app will be this name followed by `.azurewebsites.net.` For example, `http://carprediction.azurewebsites.net.`
 

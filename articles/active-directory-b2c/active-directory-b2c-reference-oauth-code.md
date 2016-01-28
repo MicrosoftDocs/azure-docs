@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: OAuth 2.0 Authorization Code Flow
@@ -21,7 +21,7 @@
 The OAuth 2.0 authorization code grant can be used in apps that are installed on a device to gain access to protected resources, such as web APIs.  Using Azure AD B2C's implementation of OAuth 2.0, you can add sign-up, sign-in,
 and other identity management tasks to your mobile and desktop apps.  This guide is language-independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
-<!-- TODO: Need link to libraries -->
+<!-- TODO: Need link to libraries -->	
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -29,8 +29,8 @@ The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAu
 on a particular flavor of the OAuth 2.0 authorization code flow - **public clients**.  A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password.  This includes mobile apps, desktop apps, and pretty much any application that
 runs on a device and needs to get access_tokens.  If you want to add identity management to a web app using Azure AD B2C, you should use [OpenID Connect](active-directory-b2c-reference-oidc.md) rather than OAuth 2.0.
 
-Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization.  It introduces the [**policy parameter**](active-directory-b2c-reference-poliices.md),
-which enables you to use OAuth 2.0 to add user experiences to your app such as sign-up, sign-in, and profile management.  Here we'll show how to to use OAuth 2.0 and policies to implement each of these experiences
+Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization.  It introduces the [**policy parameter**](active-directory-b2c-reference-policies.md), 
+which enables you to use OAuth 2.0 to add user experiences to your app such as sign-up, sign-in, and profile management.  Here we'll show how to to use OAuth 2.0 and policies to implement each of these experiences 
 in your native applications and get access_tokens for accessing web APIs.
 
 The example HTTP requests below will use our sample B2C directory, **fabrikamb2c.onmicrosoft.com**, as well as our sample application and policies.  You are free to try the requests out yourself using these values, or you can replace them with your own.
@@ -82,7 +82,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | ----------------------- |
-| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com/) assigned your app. |
+| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com) assigned your app. |
 | response_type | required | Must include `code` for the authorization code flow. |
 | redirect_uri | required | The redirect_uri of your app, where authentication responses can be sent and receieved by your app.  It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
 | scope | required | A space-separated list of scopes.  A single scope value indicates to Azure AD both thethe permissions being requested.  The `openid` scope indicates a permission to sign the user in and get data about the user in the form of **id_tokens** (more to come on this).  The `offline_access` scope indicates that your app will need a **refresh_token** for long-lived access to resources.  |
@@ -144,7 +144,7 @@ Content-Type: application/json
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | --------------------- |
 | p | required | The policy that was used to acquire the authorization code.  You may not use a different policy in this request.  **Note that this parameter is added to the query string**, not in the POST body.  |
-| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com/) assigned your app. |
+| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com) assigned your app. |
 | grant_type | required | Must be `authorization_code` for the authorization code flow. |
 | scope | required | A space-separated list of scopes.  A single scope value indicates to Azure AD both thethe permissions being requested.  The `openid` scope indicates a permission to sign the user in and get data about the user in the form of **id_tokens**.  It can be used to get tokens to your app's own backend web API, represented by the same Application Id as the client.  The `offline_access` scope indicates that your app will need a **refresh_token** for long-lived access to resources.  |
 | code | required | The authorization_code that you acquired in the first leg of the flow.   |
@@ -221,7 +221,7 @@ Content-Type: application/json
 | Parameter | | Description |
 | ----------------------- | ------------------------------- | -------- |
 | p | required | The policy that was used to acquire the original refresh token.  You may not use a different policy in this request.  **Note that this parameter is added to the query string**, not in the POST body.  |
-| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com/) assigned your app. |
+| client_id | required | The Application Id that the [Azure portal](https://portal.azure.com) assigned your app. |
 | grant_type | required | Must be `refresh_token` for this leg of the authorization code flow. |
 | scope | required | A space-separated list of scopes.  A single scope value indicates to Azure AD both thethe permissions being requested.  The `openid` scope indicates a permission to sign the user in and get data about the user in the form of **id_tokens**.  It can be used to get tokens to your app's own backend web API, represented by the same Application Id as the client.  The `offline_access` scope indicates that your app will need a **refresh_token** for long-lived access to resources.  |
 | redirect_uri | required | The redirect_uri of the application where you received the authorization_code.   |
@@ -267,11 +267,11 @@ Error responses will look like:
 | error_description | A specific error message that can help a developer identify the root cause of an authentication error.  |
 
 
-<!--
+<!-- 
 
 Here is the entire flow for a native  app; each request is detailed in the sections below:
 
-![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png)
+![OAuth Auth Code Flow](./media/active-directory-b2c-reference-oauth-code/convergence_scenarios_native.png) 
 
 -->
 

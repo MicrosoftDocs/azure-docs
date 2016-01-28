@@ -170,6 +170,8 @@ The following example shows how to define parameters:
        }
     }
 
+For how to input the parameter values during deployment, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md/#parameter-file). 
+
 ## Variables
 
 In the variables section, you construct values that can be used throughout your template. Typically, these variables will be based on values provided from the parameters. You do not need to define variables, but they often simplify your template by reducing complex expressions.
