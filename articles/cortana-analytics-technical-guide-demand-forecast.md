@@ -347,7 +347,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
     [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
     to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
 
-	- Locate the stream analytics job **energyforecastasapbi** in the [Azure Portal](https://manage.windowsazure.com).
+	- Locate the stream analytics job in your [Azure Portal](https://manage.windowsazure.com). The name of the job should be: YourSoutionName+'streamingjob'+random number+'asapbi' (i.e. demostreamingjob123456asapbi).
 
 	- Setup the output of the ASA query which is **PBIoutput**. Make sure the **Output Alias** is the same as in your query. You can name your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
     you have added all three output tables and started the Stream
