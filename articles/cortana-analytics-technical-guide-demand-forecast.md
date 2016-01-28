@@ -290,7 +290,6 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 
     -   Select the subscription you're using for deploying the solution, and
     then select **'YourSolutionName\_ResourceGroup'**.
-
     -   In the new pop out panel, click the  ![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon.png) icon to access your
     database. Your database name is next to the this icon (*e.g.*, **'mytest1db'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSoutionName.database.windows.net**.
 
@@ -299,8 +298,10 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 
 2.	Update the data source of the cold path Power BI file
 	-  Make sure you have installed [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
+	
 	-	In the **'DemandForecastingDataGeneratorv1.0'** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. Once you open it, on the top of the file, click **‘Edit Queries’**. In the pop out window, double click **‘Source’** on the right panel.
-	![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
+
+		![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic1.png)
 
 	-   In the pop out window, replace **'Server'** and **'Database'** with
 	your own server and database names, and then click **'OK'**. For server
@@ -341,7 +342,8 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 4. (Optional) Schedule refresh of the data source.
 	-	  To schedule refresh of the data, hover your mouse over the **EnergyBPI-Final** dataset, click ![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic3.png) and then choose **Schedule Refresh**.
 	**Note:** If you see a warning massage, click **Edit Credentials** and make sure your database credentials are the same as those described in step 1.
-![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic4.png)
+
+	![](media\cortana-analytics-technical-guide-demand-forecast\PowerBIpic4.png)
 
 	-   Expand the **Schedule Refresh** section. Turn on "keep your
 data up-to-date".
