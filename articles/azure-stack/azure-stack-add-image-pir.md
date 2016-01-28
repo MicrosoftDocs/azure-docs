@@ -18,6 +18,8 @@
 
 # Add an image to the Platform Image Repository (PIR) in Azure Stack
 
+Before a virtual machine can be added to the Marketplace, its image must be added to the Platform Image Repository. This repository  contains all the images for virtual machines offered in the Marketplace and referenced by Azure Resource Manager (ARM) templates.
+
 Before you can add an image to the PIR, you must prepare a virtual hard disk image with either a Windows or Linux operating system. This virtual hard disk must be in the VHD format (not VHDX). 
 
 -   To prepare a Windows VHD, follow Step 1 from the [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server.md) article.

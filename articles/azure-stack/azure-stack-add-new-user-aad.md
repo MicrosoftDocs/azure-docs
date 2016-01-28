@@ -18,9 +18,11 @@
 
 # Add a new Azure Stack tenant account in Azure Active Directory
 
-After deploying Microsoft Azure Stack POC, you’ll need to create at least one tenant user account so you can explore the tenant portal.
+After [deploying Azure Stack POC](azure-stack-run-powershell-script.md), create at least one tenant user account so you can explore the tenant portal.
 
-## Create a Microsoft Azure Stack tenant account by using Windows PowerShell with Azure Active Directory Module (no Azure subscription required)
+## Create an Azure Stack tenant account using  PowerShell
+
+No Azure subscription is required when using PowerShell to create an account.
 
 1.  Install the [Microsoft Online Services Sign-In Assistant for IT Professionals RTW](http://go.microsoft.com/fwlink/?LinkID=286152).
 
@@ -33,37 +35,41 @@ After deploying Microsoft Azure Stack POC, you’ll need to create at least one 
 	    $user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName \<username\>@\<yourdomainname\> -Password \<password\>
 		Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberType User -RoleMemberObjectId $user.ObjectId
 
-## Create a Microsoft Azure Stack tenant account by using the Azure Portal (Azure subscription required)
+## Create an Azure Stack tenant account using the Azure portal
 
-1.  In Microsoft Azure left navigation bar, click **Active Directory**.
+You must have an Azure subscription to use the Azure portal.
 
-2.  In the directory list, click your Microsoft Azure Stack directory.
+1. Log in to [Azure](https://portal.azure.com).
 
-3.  On the Microsoft Azure Stack directory page, click **Users**.
+2.  In Microsoft Azure left navigation bar, click **Active Directory**.
 
-4.  Click **Add user**.
+3.  In the directory list, click your Microsoft Azure Stack directory.
 
-5.  In the **Add user** wizard, in the **Type of user** dropdown box, select **New user in your organization**.
+4.  On the Microsoft Azure Stack directory page, click **Users**.
 
-6.  In the **User name** box, enter a name for the user.
+5.  Click **Add user**.
 
-7.  In the **@** box, select the appropriate entry.
+6.  In the **Add user** wizard, in the **Type of user** list, choose **New user in your organization**.
 
-8.  Click the next arrow.
+7.  In the **User name** box, type a name for the user.
 
-9.  In the **User profile** page of the wizard, provide a **First name**, **Last name**, and **Display name**.
+8.  In the **@** box, choose the appropriate entry.
 
-10. In the **Role** dropdown box, select **User**.
+9.  Click the next arrow.
 
-11. Click the next arrow.
+10.  In the **User profile** page of the wizard, type a **First name**, **Last name**, and **Display name**.
 
-12. On the **Get temporary password** page, click **Create**.
+11. In the **Role** list, choose **User**.
 
-13. Copy the **New password**.
+12. Click the next arrow.
 
-14. Navigate to your Microsoft Azure sign in page and sign in with the new account. Azure will prompt you to change the password.
+13. On the **Get temporary password** page, click **Create**.
 
-15. Navigate to https://portal.azurestack.local and sign in with the new account to see the tenant portal.
+14. Copy the **New password**.
+
+15. Log in to Microsoft Azure with the new account. Change the password when prompted.
+
+16. Log in to `https://portal.azurestack.local` with the new account to see the tenant portal.
 
 ## Next Steps
 
