@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/04/2016" 
+	ms.date="01/28/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -115,6 +115,6 @@ In the request body, you specify the target resource group and the resources to 
 
 ## Next steps
 - [Using Azure PowerShell with Resource Manager](./powershell-azure-resource-manager.md)
-- [Using the Azure CLI with Resource Manager](./virtual-machines/xplat-cli-azure-resource-manager.md)
+- [Using the Azure CLI with Resource Manager](./xplat-cli-azure-resource-manager.md)
 - [Using the Azure Portal to manage resources](azure-portal/resource-group-portal.md)
 - [Using tags to organize your resources](./resource-group-using-tags.md)
