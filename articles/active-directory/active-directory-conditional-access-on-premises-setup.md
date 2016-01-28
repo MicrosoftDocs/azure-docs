@@ -190,6 +190,9 @@ There are many different ways to communicate this URL to your users. One recomme
 3. Select **Join**.
 4. When prompted, sign-in with your credentials. The device is now joined.
 
+###Join a Windows 7 device using Azure Active Directory Device Registration
+To register Windows 7 domain joined devices you need to deploy the device registration software package. The software package is called Workplace Join for Windows 7 and is available for download at the [Microsoft Connect website](https://connect.microsoft.com/site1164). Instructions how to use the package are available at [Configure automatic device registration for Windows 7 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows7.md).
+
 ### Join an Android device using Azure Active Directory Device Registration
 
 The [Azure Authenticator for Android topic](active-directory-conditional-access-azure-authenticator-app.md) has instructions on how to install Azure authenticator app on your Android device and add a work account. When a work account is created successfully on an Android device, that device is workplace joined to the organization.
