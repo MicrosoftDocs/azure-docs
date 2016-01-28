@@ -43,6 +43,8 @@ The sample copies data belonging to the default partition in an Azure Table to a
 	  }
 	}
 
+Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri.   See [Linked Services](#linked-services) section for details.  
+
 **Azure Table input dataset:**
 
 The sample assumes you have created a table “MyTable” in Azure Table.
@@ -203,6 +205,8 @@ The sample copies data belonging to a time series from Azure blob to a table in 
 	  }
 	}
 
+Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri.   See [Linked Services](#linked-services) section for details. 
+
 **Azure Blob input dataset:**
 
 Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.
@@ -340,14 +344,10 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	   }
 	}
 
-## Azure Storage Linked Service properties
+## Linked Services
+There are two types of linked services you can use to link an Azure blob storage to an Azure data factory. They are: **AzureStorage** linked service and **AzureStorageSas** linked service. The Azure Storage linked service provides the data factory with global access to the Azure Storage. Whereas, The Azure Storage SAS (Shared Access Signature) linked service provides the data factory with restricted/time-bound access to the Azure Storage. There are no other differences between these two linked services. Choose the linked service that suits your needs. The following sections provide more details on these two linked services.
 
-You can link an Azure storage account to an Azure data factory with Azure Storage linked service. The following table provides descriptions for JSON elements specific to Azure Storage linked service.
-
-| Property | Description | Required |
-| -------- | ----------- | -------- |
-| type | The type property must be set to: AzureStorage | Yes |
-| connectionString | Specify information needed to connect to Azure storage for the connectionString property. You can get the connectionString for the Azure storage from the Azure Classic Portal. | Yes |
+[AZURE.INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## Azure Table Dataset type properties
 
