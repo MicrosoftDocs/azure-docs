@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Use Azure Backup to replace your tape infrastructure | Microsoft Azure"
    description="Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure"
    services="backup"

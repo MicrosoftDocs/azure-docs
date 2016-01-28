@@ -25,7 +25,7 @@ The Hybrid Connection Manager (HCM) is a click-once installer that is installed 
 
 To get started, you need:
 
-- Azure Service Bus relay namespace SAS connection string. See [Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/) to determine which tier includes relays.
+- Azure Service Bus relay namespace SAS connection string. See [Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/) to determine which tier includes relays.
 - On-premises system sign-in information, including user name and password. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server login account and password.
 - On-premises server information, including port number and server name. For example, if you're connecting to an on-premises SQL Server, you need the SQL Server name and TCP port number.
 
@@ -136,7 +136,7 @@ If your custom API uses a TCP or HTTP port, you can use [Hybrid Connections](../
 ## Read More
 
 [Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md)<br/>
-[Service Bus Pricing](http://azure.microsoft.com/pricing/details/service-bus/)
+[Service Bus Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
 
 
 

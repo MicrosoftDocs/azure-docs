@@ -1,11 +1,11 @@
 <properties
 	pageTitle="How to use Blob storage from Ruby | Microsoft Azure"
-	description="Learn how to use the Azure Blob service to upload, download, list, and delete blob content. Samples written in Ruby."
+	description="Learn how to use Blob storage to upload, download, list, and delete blob content. Samples written in Ruby."
 	services="storage"
 	documentationCenter="ruby"
 	authors="tfitzmac"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -23,7 +23,7 @@
 
 ## Overview
 
-This guide will show you how to perform common scenarios using the Azure Blob service. The samples are written using the Ruby API. The scenarios covered include **uploading, listing, downloading,** and **deleting** blobs.
+This guide will show you how to perform common scenarios using Blob storage. The samples are written using the Ruby API. The scenarios covered include **uploading, listing, downloading,** and **deleting** blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -61,7 +61,7 @@ for information required to connect to your Azure storage account. If these envi
 
 To obtain these values:
 
-1. Log in to the [Azure Portal](portal.azure.com).
+1. Log in to the [Azure Portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use.
 3. Click **MANAGE KEYS** at the bottom of the navigation pane.
 4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.

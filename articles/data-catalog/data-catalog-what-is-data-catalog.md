@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="maroche"/>
 
 # What is Azure Data Catalog?
@@ -80,6 +80,10 @@ The registration process involves three basic steps:
 - HDFS File
 - HDFS Directory
 - Hive Table
+- Azure Data Lake Store File
+- Azure Data Lake Store Directory
+- MySQL Table
+- MySQL View
 
 Additional data sources and asset types will be added during the **Azure Data Catalog** preview.
 

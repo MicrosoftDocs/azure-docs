@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/21/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: Token Reference
@@ -125,7 +125,7 @@ You can acquire the signing key data necessary to validate the signature by usin
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
-where `fabrikamb2c.onmicrosoft.com` is the b2c directory used to authenticate the user and `b2c_1_sign_in` is the policy used to acquire the id_token.  In order to determine which policy was used in signing an id_token (and where to fetch the metadata from), you have two options.  First, the policy name is included in the `acr` claim in the id_token.  You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the resulting JSON string.  The `acr` claim will be the name of the policy that was used to issue the id_token.  Your other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used.  Either method is perfectly valid. 
+where `fabrikamb2c.onmicrosoft.com` is the b2c directory used to authenticate the user and `b2c_1_sign_in` is the policy used to acquire the id_token.  In order to determine which policy was used in signing an id_token (and where to fetch the metadata from), you have two options.  First, the policy name is included in the `acr` claim in the id_token.  You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the resulting JSON string.  The `acr` claim will be the name of the policy that was used to issue the id_token.  Your other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used.  Either method is perfectly valid.
 
 The metadata document is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for performing OpenID Connect authentication.  It also includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens.  That location is provided below, but it is best to fetch that location dynamically by using the metadata document and parsing out the `jwks_uri`:
 

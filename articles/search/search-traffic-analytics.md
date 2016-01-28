@@ -28,7 +28,7 @@ Once there, you can process and manipulate the usage data in any way.
 ## How to enable Search Traffic Analytics
 
 ### 1. Using the portal
-Open your Azure Search service in the [Azure Portal](http://portal.azure.com). Under Settings, you will find the Search traffic analytics option. 
+Open your Azure Search service in the [Azure Portal](https://portal.azure.com). Under Settings, you will find the Search traffic analytics option. 
 
 ![][1]
 

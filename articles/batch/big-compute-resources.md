@@ -25,14 +25,14 @@ Learn about Big Compute options in Azure, and choose the right approach for your
 
 * [Batch and HPC solutions](batch-hpc-solutions.md)
 
-* [Video: Big Compute in the cloud with Azure and HPC](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
+* [Video: Big Compute in the cloud with Azure and HPC](https://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
 
 ## Azure Batch
 
-[Batch](http://azure.microsoft.com/services/batch/) is a platform service that makes it easy to cloud-enable your applications and run jobs without setting up and managing a cluster and job scheduler. Use the SDK to integrate client applications with Azure Batch through a variety of languages, stage data to Azure, and build job execution pipelines.
+[Batch](https://azure.microsoft.com/services/batch/) is a platform service that makes it easy to cloud-enable your applications and run jobs without setting up and managing a cluster and job scheduler. Use the SDK to integrate client applications with Azure Batch through a variety of languages, stage data to Azure, and build job execution pipelines.
 
-* [Documentation](http://azure.microsoft.com/documentation/services/batch/)
+* [Documentation](https://azure.microsoft.com/documentation/services/batch/)
 
 * [API reference](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
@@ -68,10 +68,10 @@ HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows S
 
 Use these Azure quickstart templates to deploy Linux HPC clusters with open source tools.
 
-* [Spin up a SLURM cluster](http://azure.microsoft.com/documentation/templates/slurm/)
+* [Spin up a SLURM cluster](https://azure.microsoft.com/documentation/templates/slurm/)
  and [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
-* [Spin up a Torque cluster](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+* [Spin up a Torque cluster](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -95,31 +95,29 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 
 ## Architecture blueprints
 
-* [Large-scale computing - financial services](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF) shows how to operationalize and orchestrate large-scale computation and data analysis in the cloud for risk management, reporting, and simulations.
+* Microsoft Azure Batch and Azure Data Factory: Architecture for large-scale data processing ([PDF](http://go.microsoft.com/fwlink/?linkid=717686) and [article](../data-factory/data-factory-data-processing-using-batch.md)) illustrates how Data Factory orchestrates data movement and processing and how Azure Batch processes the data in a parallel manner.
 
 ## Samples and demos
 
 * [Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 
-* [Batch Apps Blender sample](https://github.com/Azure/azure-batch-apps-blender) and [blog post](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
-
 ## Related Azure services
 
-* [Data Factory](http://azure.microsoft.com/documentation/services/data-factory/)
+* [Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
-* [Machine Learning](http://azure.microsoft.com/documentation/services/machine-learning/)
+* [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
-* [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+* [HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
 
-* [Virtual Machines](http://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
-* [Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services/)
+* [Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)
 
-* [Media Services](http://azure.microsoft.com/documentation/services/media-services/)
+* [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
 
 
 
 ## Next steps
 
-* For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](http://azure.microsoft.com/blog/tag/hpc/).
-* Also see [what's new in Batch](http://azure.microsoft.com/updates/?service=batch) or subscribe to the [RSS feed](http://azure.microsoft.com/updates/feed/?service=batch).
+* For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
+* Also see [what's new in Batch](https://azure.microsoft.com/updates/?service=batch) or subscribe to the [RSS feed](https://azure.microsoft.com/updates/feed/?service=batch).
