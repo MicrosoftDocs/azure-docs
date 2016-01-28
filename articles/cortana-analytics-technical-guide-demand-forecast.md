@@ -256,7 +256,11 @@ Once the Data Generator is launched, the pipeline begins to get hydrated and the
 
 2. Check the data from Azure SQL Database.
 
-	The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of 2 hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [azure management portal](manage.windowsazure.com/). On the left panel locate SQL DATABASES![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon2.png)  and click it. Then locate your database (i.e. demo123456db) and click on it. On the next page at the bottom, click on MANAGE.![](media\cortana-analytics-technical-guide-demand-forecast\icon-manage.png) Here, you can click on New Query and query for the number of rows (e.g. select count(*) from DemandRealHourly). As your database grows, the number of rows in the table should increase.
+	The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of 2 hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [azure management portal](manage.windowsazure.com/). On the left panel locate SQL DATABASES![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon2.png)  and click it. Then locate your database (i.e. demo123456db) and click on it. On the next page at the bottom, click on MANAGE.
+
+	![](media\cortana-analytics-technical-guide-demand-forecast\icon-manage.png)
+
+	Here, you can click on New Query and query for the number of rows (e.g. select count(*) from DemandRealHourly). As your database grows, the number of rows in the table should increase.
 	
 
 ## **Power BI Dashboard**
