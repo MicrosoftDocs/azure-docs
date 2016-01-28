@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 01/12/15-->
+<!--author=alkohli last changed: 01/26/16-->
 
 #### To download hotfixes
 
@@ -109,7 +109,11 @@ Perform the following steps to install and verify the regular hotfixes.
 
 #### To install and verify maintenance mode hotfix
 
-Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console. To install disk firmware updates, follow the instructions below.
+Use the `DiskFirmwarePackage.exe` package (KB3121899) to install disk firmware updates. These are disruptive updates and take around 30 minutes to complete. You can choose to install these in a planned maintenance window by connecting to the device serial console. 
+
+Note that if your disk firmware is already up-to-date, you will not need to install these updates. Run the `Get-HcsUpdateAvailability` cmdlet from the device serial console. You will be notified if updates are available and whether the updates are disruptive (maintenance mode updates) or non-disruptive (regular).
+ 
+To install the disk firmware updates, follow the instructions below.
 
 1. Place the device in the Maintenance mode. Note that you should not use Windows PowerShell remoting when connecting to a device in Maintenance mode. You will need to run this cmdlet on the device controller when connected through the device serial console. Type:
 		

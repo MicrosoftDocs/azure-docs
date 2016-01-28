@@ -207,8 +207,6 @@ In this step, you will create the following linked services:
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
 
-	See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor.
-
 2.  In the **Editor**, click **New data store** button on the toolbar and select **Azure storage** from the drop down menu. You should see the JSON template for creating an Azure storage linked service in the right pane.	
 	
 	![Editor New data store button][image-editor-newdatastore-button]
@@ -421,7 +419,6 @@ Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] t
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[data-factory-editor]: data-factory-editor.md
 
 [adfsamples]: data-factory-samples.md
 [adfgetstarted]: data-factory-get-started.md

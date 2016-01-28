@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
@@ -295,7 +295,7 @@ See the blob post: [Azure Data Factory Update - New Data Stores](https://azure.m
 ## Notes for 2/27/2015 release of Data Factory
 
 ### New improvements
-- **Azure Data Factory Editor**. The Data Factory Editor, which is part of the Azure Portal, allows you to create, edit, and deploy JSON files that define linked services, data sets, and pipelines.The main goal of the editor is to provide you a fast and light-weight user-interface (UI) to create Azure Data Factory artifacts without requiring you to install Azure PowerShell and ramp up on using PowerShell cmdlets. See the [Azure Data Factory Editor - A Light Weight Web Editor][adf-editor-blog] blog post for a quick overview and a video on Data Factory Editor. For detailed overview of the editor, see the [Data Factory Editor][adf-editor] article.          
+- **Azure Data Factory Editor**. The Data Factory Editor, which is part of the Azure Portal, allows you to create, edit, and deploy JSON files that define linked services, data sets, and pipelines.The main goal of the editor is to provide you a fast and light-weight user-interface (UI) to create Azure Data Factory artifacts without requiring you to install Azure PowerShell and ramp up on using PowerShell cmdlets. See the [Azure Data Factory Editor - A Light Weight Web Editor][adf-editor-blog] blog post for a quick overview and a video on Data Factory Editor.  
 
 ### Changes
 
@@ -343,7 +343,6 @@ See the blob post: [Azure Data Factory Update - New Data Stores](https://azure.m
 
 [adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-editor]: data-factory-editor.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
