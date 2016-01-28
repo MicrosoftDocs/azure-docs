@@ -2,13 +2,14 @@
  pageTitle="Predictive maintenance walkthrough | Microsoft Azure"
  description="A walkthrough of the Azure IoT predictive maintenance preconfigured solution."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="aguilaaj"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"

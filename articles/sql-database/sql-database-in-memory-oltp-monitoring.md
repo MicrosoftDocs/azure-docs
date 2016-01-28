@@ -32,7 +32,7 @@ Note that the table and table variable rows, as well as indexes, count toward th
 
 ## Monitoring and alerting
 
-You can monitor in-memory storage use as a percentage of the [storage cap for your performance tier](sql-database-service-tiers.md#service-tiers-for-single-databases) in the Azure [portal](http://portal.azure.com/): 
+You can monitor in-memory storage use as a percentage of the [storage cap for your performance tier](sql-database-service-tiers.md#service-tiers-for-single-databases) in the Azure [portal](https://portal.azure.com/): 
 
 - On the Database blade, locate the Resource utilization box and click on Edit.
 - Then select the metric XTP In-Memory Storage percentage.

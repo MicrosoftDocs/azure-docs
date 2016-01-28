@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Marketplace Item Metadata"
-	description="Marketplace Item Metadata"
+	pageTitle="Marketplace Item Metadata for Azure Stack | Microsoft Azure"
+	description="Learn about the kinds of Marketplace Item metadata for Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.author="erikje"/>
 
-# Marketplace Item Metadata
+# Marketplace Item metadata for Azure Stack
 
 ## Identity Information
 
@@ -39,12 +39,10 @@
 
 ## Images
 
-Below is the list of icons used in the gallery.
+Below is the list of icons used in the marketplace.
 
 | NAME          | WIDTH | HEIGHT | NOTES                             |
 |---------------|-------|--------|-----------------------------------|
-| Hero          | 815px | 290px  | Not yet applicable in Azure Stack |
-| Wide          | 255px | 115px  | Not yet applicable in Azure Stack |
 | Large         | 115px | 115px  | Always required.                  |
 | Medium        | 90px  | 90px   | Always required.                  |
 | Small         | 40px  | 40px   | Always required.                  |
@@ -52,11 +50,11 @@ Below is the list of icons used in the gallery.
 
 ## Categories
 
-Each marketplace item should be tagged with a category. This dictates which category the item appears in the portal UI. You can choose one of the existing categories in MAS (Compute, Data + Storage, etc.) or choose a completely new one.
+Each marketplace item should be tagged with a category. This dictates which category the item appears in the portal UI. You can choose one of the existing categories in Azure Stack (Compute, Data + Storage, etc.) or choose a completely new one.
 
 ## Links
 
-Each gallery item can include a variety of links to additional content. The links are specified as a list of names and URIs.
+Each marketplace item can include a variety of links to additional content. The links are specified as a list of names and URIs.
 
 | NAME        | REQUIRED | TYPE   | CONSTRAINTS          | DESCRIPTION |
 |-------------|----------|--------|----------------------|-------------|

@@ -192,7 +192,7 @@ To combine filters, you need to set the filter names to the manifest/playlist UR
 
 You can combine up to 3 filters. 
 
-For more information see [this](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
+For more information see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 
 ##Know issues and limitations

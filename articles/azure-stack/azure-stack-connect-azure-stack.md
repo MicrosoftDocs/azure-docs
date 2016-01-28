@@ -1,28 +1,28 @@
 <properties
-	pageTitle="How to connect to Microsoft Azure Stack POC"
-	description="How to connect to Microsoft Azure Stack POC"
+	pageTitle="Connect to Microsoft Azure Stack POC | Microsoft Azure"
+	description="Learn how to connect to the Azure Stack POC portal as a service administrator or tenant."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# How to connect to Microsoft Azure Stack POC
+# Log in to Microsoft Azure Stack POC
 
-The Microsoft Azure Stack POC is a single-computer environment provided for evaluation purposes. As such, you have the following options when connecting to the environment:
+There are two ways to log in to the Azure Stack POC.
 
-## Log into the portal as service administrator
-
-1.  Log in to the Microsoft Azure Stack physical machine.
+## Log in as a service administrator
+A service administrator manages resource providers, tenant offers, plans, services, quotas, and pricing.
+1.  Log in to the Azure Stack POC physical machine.
 
 2.  Double-click the **ClientVM.AzureStack.local.rdp** desktop icon to open a Remote Desktop Connection to the client virtual machine. This automatically uses the AzureStack\\AzureStackUser account that was created by the deployment script. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
@@ -30,11 +30,11 @@ The Microsoft Azure Stack POC is a single-computer environment provided for eval
 
 4.  Log in using the service administrator account.
 
-## Log into the portal as a tenant
+## Log in as a tenant
+Tenants provision, monitor, and manage services that they subscribe to, like Web Apps, storage, and virtual machines. A service administrator can log in as a tenant to test the plans, offers, and subscriptions that their tenants might use.
+If you don’t already have one, [Create a tenant account](azure-stack-add-new-user-aad.md) before you log in.
 
-Before logging in as a tenant, you must have created a tenant account. If you don’t already have a tenant account, see the instruction in [Appendix A: Add a new user in Azure Active Directory](azure-stack-add-new-user-aad.md).
-
-1.  Log in to the Microsoft Azure Stack physical machine.
+1.  Log in to the Azure Stack physical machine.
 
 2.  Double-click the **ClientVM.AzureStack.local.rdp** desktop icon to open a Remote Desktop Connection to the client virtual machine. This automatically uses the AzureStack\\AzureStackUser account that was created by the deployment script. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 

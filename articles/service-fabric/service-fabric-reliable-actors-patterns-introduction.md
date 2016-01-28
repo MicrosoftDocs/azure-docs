@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Reliable Actors patterns and antipatterns | Microsoft Azure"
    description="Provides an overview of the actor programming model, design patterns that work well with Service Fabric Reliable Actors, and some antipatterns to avoid."
    services="service-fabric"

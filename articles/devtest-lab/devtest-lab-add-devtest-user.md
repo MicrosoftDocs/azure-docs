@@ -40,7 +40,7 @@ DevTest Lab considers the owner(s) of an Azure subscription that contains labs t
 
 To add an owner to an Azure subscription where you have labs already created or will be creating new labs, follow these steps:
 
-1. Sign in to the [Azure preview portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](https://portal.azure.com).
 
 1. In the left-nav, tap **Subscriptions**.
 
@@ -72,7 +72,7 @@ To add an owner to an Azure subscription where you have labs already created or 
 
 To add a DevTest Lab user to your lab, follow these steps:
 
-1. Sign in to the [Azure preview portal](http://portal.azure.com).
+1. Sign in to the [Azure preview portal](https://portal.azure.com).
 
 1. Tap **Browse**.
 

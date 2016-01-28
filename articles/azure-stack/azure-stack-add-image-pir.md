@@ -1,22 +1,22 @@
 ﻿<properties
-	pageTitle="Add an image to the Platform Image Repository"
-	description="Add an image to the Platform Image Repository"
+	pageTitle="Add an image to the Platform Image Repository (PIR) in Azure Stack | Microsoft Azure"
+	description="Learn how to prepare a virtual hard disk image before you add an image to the PIR in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# Add an image to the Platform Image Repository
+# Add an image to the Platform Image Repository (PIR) in Azure Stack
 
 Before you can add an image to the PIR, you must prepare a virtual hard disk image with either a Windows or Linux operating system. This virtual hard disk must be in the VHD format (not VHDX). 
 
@@ -51,6 +51,8 @@ Before you can add an image to the PIR, you must prepare a virtual hard disk ima
 5.  Wait for the command to complete. You may need to close any browser windows in the ClientVM and reopen them to see the changes in the Marketplace.
 
 The image will automatically appear in the Microsoft Azure Stack Marketplace.  The image is also available for you to reference in your virtual machine deployment templates.  
+
+>[AZURE.NOTE] The marketplace UI may error after you remove a previously added image from the PIR. To fix this, click **Settings** in the portal. Then, click **Discard modifications** under **Portal customization**.
 
 ## Next Steps
 

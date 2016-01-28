@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prepare the physical machine"
-	description="Prepare the physical machine"
+	pageTitle="Tools and PaaS services for Azure Stack | Microsoft Azure"
+	description="Learn how to get started with PaaS services in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
 	authors="erikje"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
 # Tools and PaaS services for Azure Stack
 

@@ -1,38 +1,37 @@
 ﻿<properties
-	pageTitle="First scenarios to try"
-	description="First scenarios to try"
+	pageTitle="Azure Stack POC key tasks | Microsoft Azure"
+	description="Learn how to create a plan and offer and then subscribe to that offer and use the services provided to create a virtual machine."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# First scenarios to try
+# Azure Stack POC first tasks
 
-The primary objects in Microsoft Azure Stack – plans, offers, and subscriptions – provide IaaS services to tenants, such as virtual machines, web sites, and so on. It is these services that provide value to your tenants. Below are four common tasks used by service administrators and tenants in this area (or something like that)
+The primary objects in Azure Stack – [plans, offers, and subscriptions](azure-stack-key-features) – provide IaaS services to tenants like  virtual machines and web sites. It's these services that provide value to your tenants.
 
-1.  [As a service administrator, create a plan (to provide compute, network, and storage services).](azure-stack-create-plan.md)
+Now that you've [deployed](azure-stack-deploy) and [logged in](azure-stack-connect-azure-stack) to Azure Stack POC, here are the next steps.
 
-2.  [As a service administrator, create an offer (which contains the plan).](azure-stack-create-offer.md)
+First, sign in as a service administrator and:
+1.  [Create a plan](azure-stack-create-plan.md) to provide compute, network, and storage services.
 
-3.  [As a tenant, subscribe to the offer (which grants access to the offer’s plans).](azure-stack-subscribe-plan-provision-vm.md#subscribe-to-an-offer)
+2.  [Create an offer](azure-stack-create-offer.md) that will contain the plan.
 
-4.  [As a tenant, use the services provided by the offer’s plan to create a virtual machine.](azure-stack-subscribe-plan-provision-vm.md#provision-a-virtual-machine)
+Then, sign in as a tenant and:
 
-## Deploy PaaS resource providers
+1.  [Subscribe to the offer](azure-stack-subscribe-plan-provision-vm.md#subscribe-to-an-offer) and get access to the offer’s plans.
 
-You can also deploy the following Platform-as-a-Service resource providers:
-[WebApps resource provider](http://tbd)
-[SQL Server resource provider](http://tbd)
+2.  [Use the services](azure-stack-subscribe-plan-provision-vm.md#provision-a-virtual-machine) provided by the offer’s plan to create a virtual machine.
 
 ## Next Steps
 

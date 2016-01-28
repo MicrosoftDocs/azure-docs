@@ -1,22 +1,22 @@
 ﻿<properties
-	pageTitle="Enable multiple concurrent user connections"
-	description="Enable multiple concurrent user connections"
+	pageTitle="Enable multiple concurrent user connections in Azure Stack | Microsoft Azure"
+	description="To configure external Windows or Mac machines to connect to the Azure Stack POC, follow these steps."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# Enable multiple concurrent user connections
+# Enable multiple concurrent user connections in Azure Stack
 
 If you want to configure external Windows or Mac machines to connect to the Azure Stack POC, follow these steps.
 

@@ -2,7 +2,7 @@
     pageTitle="Tutorial: Azure Active Directory integration with ServiceNow | Microsoft Azure" 
     description="Learn how to use ServiceNow with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="11/02/2015" 
-    ms.author="markvi" />
+    ms.date="01/26/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with ServiceNow
   
@@ -38,7 +38,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for ServiceNow, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-servicenow-tutorial/IC700993.png "Active Directory")
 
@@ -71,7 +71,7 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **ServiceNow** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure AD classic portal, on the **ServiceNow** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC749323.png "Configure single sign-on")
 
@@ -175,11 +175,11 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
     b. In the **User Field** textbox, type **email**. 
 
-    c. In the Azure AD portal, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider URL** textbox.
+    c. In the Azure AD classic portal, copy the **Identity Provider ID** value, and then paste it into the **Identity Provider URL** textbox.
 
-    d. In the Azure AD portal, copy the **Authentication Request URL** value, and then paste it into the **Identity Provider's AuthnRequest** textbox.
+    d. In the Azure AD classic portal, copy the **Authentication Request URL** value, and then paste it into the **Identity Provider's AuthnRequest** textbox.
 
-    e. In the Azure AD portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Identity Provider's SingleLogoutRequest** textbox.
+    e. In the Azure AD classic portal, copy the **Single Sign-Out Service URL** value, and then paste it into the **Identity Provider's SingleLogoutRequest** textbox.
 
     f. In the **ServiceNow Homepage** textbox, type the URL of your ServiceNow instance homepage.
 
@@ -208,7 +208,7 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
 
 
-6. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**. 
+6. On the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
 
     ![Configure single sign-on](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "Configure single sign-on")
 
@@ -225,7 +225,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 ### To configure user provisioning, perform the following steps:
 
-1. In the Azure Management Portal, on the **ServiceNow** application integration page, click **Configure user provisioning**. <br><br> ![User provisioning](./media/active-directory-saas-servicenow-tutorial/IC769498.png "User provisioning")
+1. In the Azure Management classic portal, on the **ServiceNow** application integration page, click **Configure user provisioning**. <br><br> ![User provisioning](./media/active-directory-saas-servicenow-tutorial/IC769498.png "User provisioning")
 
 
 2. On the **Enter your ServiceNow credentials to enable automatic user provisioning** page, provide the following configuration settings:
@@ -261,7 +261,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to ServiceNow, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure AD classic portal, create a test account.
 
 2.  On the **ServiceNow **application integration page, click **Assign users**.
 

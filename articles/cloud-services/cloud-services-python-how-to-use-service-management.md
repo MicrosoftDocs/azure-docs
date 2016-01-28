@@ -26,7 +26,7 @@ This guide will show you how to programmatically perform common service manageme
 ## <a name="WhatIs"> </a>What is Service Management
 The Service Management API provides programmatic access to much of the service management functionality available through the [Azure classic portal][management-portal]. The Azure SDK for Python allows you to manage your cloud services and storage accounts.
 
-To use the Service Management API, you will need to [create an Azure account](http://azure.microsoft.com/pricing/free-trial/).
+To use the Service Management API, you will need to [create an Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Concepts
 The Azure SDK for Python wraps the [Azure Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates. The management service may be accessed from within a service running in Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.

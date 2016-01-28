@@ -1,22 +1,22 @@
 ﻿<properties
-	pageTitle="Key features and concepts"
-	description="Key features and concepts"
+	pageTitle="Key features and concepts in Azure Stack | Microsoft Azure"
+	description="Learn about the key features and concepts in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="v-anpasi"
+	authors="erikje"
 	manager="v-kiwhit"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-stack"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
-	ms.author="v-anpasi"/>
+	ms.date="01/29/2016"
+	ms.author="erikje"/>
 
-# Key features and concepts
+# Key features and concepts in Azure Stack
 
 If you’re new to Microsoft Azure Stack, these terms and feature descriptions might be helpful.
 
