@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Import data to DocumentDB | Microsoft Azure" 
-	description="Learn how to use the open source DocumentDB data migration tool to import data to DocumentDB from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and DocumentDB collections." 
-	services="documentdb" 
-	authors="andrewhoh" 
-	manager="jhubbard" 
-	editor="monicar" 
+<properties
+	pageTitle="Import data to DocumentDB | Microsoft Azure"
+	description="Learn how to use the open source DocumentDB data migration tool to import data to DocumentDB from various sources, including JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and DocumentDB collections."
+	services="documentdb"
+	authors="andrewhoh"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/16/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/27/2016"
 	ms.author="anhoh"/>
 
 # Import data to DocumentDB #
@@ -68,7 +68,7 @@ The JSON file source importer option allows you to import one or more single doc
 
 Here are some command line samples to import JSON files:
 
-	#Import a single JSON file	
+	#Import a single JSON file
 	dt.exe /s:JsonFile /s.Files:.\Sessions.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Sessions /t.CollectionTier:S3
 
 	#Import a directory of JSON files
@@ -93,7 +93,7 @@ The connection string is in the standard MongoDB format:
 
 	mongodb://<dbuser>:<dbpassword>@<host>:<port>/<database>
 
-> [AZURE.NOTE] Use the Verify command to ensure that the MongoDB instance specified in the connection string field can be accessed. 
+> [AZURE.NOTE] Use the Verify command to ensure that the MongoDB instance specified in the connection string field can be accessed.
 
 Enter the name of the collection from which data will be imported.  You may optionally specify or provide a file for a query (e.g. {pop: {$gt:5000}}) and/or projection (e.g. {loc:0}) to both filter and shape the data to be imported.
 
@@ -125,7 +125,7 @@ The SQL source importer option allows you to import from an individual SQL Serve
 
 The format of the connection string is the standard SQL connection string format.
 
-> [AZURE.NOTE] Use the Verify command to ensure that the SQL Server instance specified in the connection string field can be accessed. 
+> [AZURE.NOTE] Use the Verify command to ensure that the SQL Server instance specified in the connection string field can be accessed.
 
 The nesting separator property is used to create hierarchical relationships (sub-documents) during import.  Consider the following SQL query:
 
@@ -151,10 +151,10 @@ Note the aliases such as Address.AddressType and Address.Location.StateProvinceN
     "CountryRegionName": "Canada"
   }
 }*
- 
+
 Here are some command line samples to import from SQL Server:
 
-	#Import records from SQL which match a query	
+	#Import records from SQL which match a query
 	dt.exe /s:SQL /s.ConnectionString:"Data Source=<server>;Initial Catalog=AdventureWorks;User Id=advworks;Password=<password>;" /s.Query:"select CAST(BusinessEntityID AS varchar) as Id, * from Sales.vStoreWithAddresses WHERE AddressType='Main Office'" /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Stores /t.IdField:Id /t.CollectionTier:S3
 
 	#Import records from sql which match a query and create hierarchical relationships
@@ -187,7 +187,7 @@ Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting.  B
 
 The import tool will attempt to infer type information for unquoted values in CSV files (quoted values are always treated as strings).  Types are identified in the following order: number, datetime, boolean.  
 
-There are two other things to note about CSV import: 
+There are two other things to note about CSV import:
 
 1.	By default, unquoted values are always trimmed for tabs and spaces, while quoted values are preserved as-is.  This behavior can be overridden with the Trim quoted values checkbox or the /s.TrimQuoted command line option.
 
@@ -208,13 +208,13 @@ The format of the Azure Table storage connection string is:
 
 	DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;
 
-> [AZURE.NOTE] Use the Verify command to ensure that the Azure Table storage instance specified in the connection string field can be accessed. 
+> [AZURE.NOTE] Use the Verify command to ensure that the Azure Table storage instance specified in the connection string field can be accessed.
 
 Enter the name of the Azure table from which data will be imported.  You may optionally specify a [filter](https://msdn.microsoft.com/library/azure/ff683669.aspx).
 
 The Azure Table storage source importer option has the following additional options:
 
-1. Include Internal Fields 
+1. Include Internal Fields
 	2. All - Include all internal fields (PartitionKey, RowKey, and Timestamp)
 	3. None - Exclude all internal fields
 	4. RowKey - Only include the RowKey field
@@ -237,7 +237,7 @@ The format of the Amazon DynamoDB connection string is:
 
 	ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
 
-> [AZURE.NOTE] Use the Verify command to ensure that the Amazon DynamoDB instance specified in the connection string field can be accessed. 
+> [AZURE.NOTE] Use the Verify command to ensure that the Amazon DynamoDB instance specified in the connection string field can be accessed.
 
 Here is a command line sample to import from Amazon DynamoDB:
 
@@ -263,7 +263,7 @@ The format of the DocumentDB connection string is:
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
 
-> [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed. 
+> [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed.
 
 To import from a single DocumentDB collection, enter the name of the collection from which data will be imported.  To import from multiple DocumentDB collections, provide a regular expression to match one or more collection names (e.g. collection01 | collection02 | collection03).  You may optionally specify, or provide a file for, a query to both filter and shape the data to be imported.
 
@@ -294,7 +294,7 @@ Here are some command line samples to import from DocumentDB:
 
 ##<a id="HBaseSource"></a>Import from HBase ##
 
-The HBase source importer option allows you to import data from an HBase table and optionally filter the data. Several templates are provided so that setting up an import is as easy as possible. 
+The HBase source importer option allows you to import data from an HBase table and optionally filter the data. Several templates are provided so that setting up an import is as easy as possible.
 
 ![Screenshot of HBase source options](./media/documentdb-import-data/hbasesource1.png)
 
@@ -304,7 +304,7 @@ The format of the HBase Stargate connection string is:
 
 	ServiceURL=<server-address>;Username=<username>;Password=<password>
 
-> [AZURE.NOTE] Use the Verify command to ensure that the HBase instance specified in the connection string field can be accessed. 
+> [AZURE.NOTE] Use the Verify command to ensure that the HBase instance specified in the connection string field can be accessed.
 
 Here is a command line sample to import from HBase:
 
@@ -320,7 +320,7 @@ The format of the DocumentDB connection string is:
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
 
-> [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed. 
+> [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed.
 
 To import to a single collection, enter the name of the collection to which data will be imported and click the Add button.  To import to multiple collections, either enter each collection name individually or use the following syntax to specify multiple collections: *collection_prefix*[start index - end index].  When specifying multiple collections via the aforementioned syntax, keep the following in mind:
 
@@ -332,7 +332,7 @@ Once the collection name(s) have been specified, choose the desired pricing tier
 
 > [AZURE.NOTE] The performance tier setting only applies to collection creation.  If the specified collection already exists, its pricing tier will not be modified.
 
-When importing to multiple collections, the import tool supports hash based sharding.  In this scenario, specify the document property you wish to use as the Partition Key (if Partition Key is left blank, documents will be sharded randomly across the target collections). 
+When importing to multiple collections, the import tool supports hash based sharding.  In this scenario, specify the document property you wish to use as the Partition Key (if Partition Key is left blank, documents will be sharded randomly across the target collections).
 
 You may optionally specify which field in the import source should be used as the DocumentDB document id property during the import (note that if documents do not contain this property, then the import tool will generate a GUID as the id property value).
 
@@ -350,17 +350,18 @@ Additionally, when importing date types (e.g. from SQL Server or MongoDB), you c
 "date_joined": {
     "Value": "2013-10-21T21:17:25.2410000Z",
     "Epoch": 1382390245
-  } 
+  }
 
 
 The DocumentDB Bulk importer has the following additional advanced options:
 
 1. Batch Size: The tool defaults to a batch size of 50.  If the documents to be imported are large, consider lowering the batch size.  Conversely, if the documents to be imported are small, consider raising the batch size.
-2. Max Script Size (bytes): The tool defaults to a max script size of 960KB
-3. Disable Sutomatic Id Generation: If every document to be imported contains an id field, then selecting this option can increase performance.  Documents missing a unique id field will not be imported.
-4. Number of Retries on Failure: Specifies the number of times to retry the connection to DocumentDB in case of transient failures (e.g. network connectivity interruption).
-5. Retry Interval: Specifies how long to wait between retrying the connection to DocumentDB in case of transient failures (e.g. network connectivity interruption).
-6. Connection Mode: Specifies the connection mode to use with DocumentDB.  The available choices are DirectTcp, DirectHttps, and Gateway.  The direct connection modes are faster, while the gateway mode is more firewall friendly as it only uses port 443.
+2. Max Script Size (bytes): The tool defaults to a max script size of 512KB
+3. Disable Automatic Id Generation: If every document to be imported contains an id field, then selecting this option can increase performance.  Documents missing a unique id field will not be imported.
+4. Update Existing Documents: The tool defaults to not replacing existing documents with id conflicts.  Selecting this option will allow overwriting existing documents with matching ids. This feature is useful for scheduled data migrations that update existing documents.
+5. Number of Retries on Failure: Specifies the number of times to retry the connection to DocumentDB in case of transient failures (e.g. network connectivity interruption).
+6. Retry Interval: Specifies how long to wait between retrying the connection to DocumentDB in case of transient failures (e.g. network connectivity interruption).
+7. Connection Mode: Specifies the connection mode to use with DocumentDB.  The available choices are DirectTcp, DirectHttps, and Gateway.  The direct connection modes are faster, while the gateway mode is more firewall friendly as it only uses port 443.
 
 ![Screenshot of DocumentDB bulk import advanced options](./media/documentdb-import-data/docdbbulkoptions.png)
 
@@ -368,7 +369,7 @@ The DocumentDB Bulk importer has the following additional advanced options:
 
 ##<a id="DocumentDBSeqTarget"></a>Import to DocumentDB (Sequential Record Import) ##
 
-The DocumentDB sequential record importer allows you to import from any of the available source options on a record by record basis.  You might choose this option if you’re importing to an existing collection that has reached its quota of stored procedures.  The tool supports import to a single DocumentDB collection, as well as sharded import whereby data is partitioned across multiple DocumentDB collections.  Read more about partitioning data in DocumentDB [here](documentdb-partition-data.md). 
+The DocumentDB sequential record importer allows you to import from any of the available source options on a record by record basis.  You might choose this option if you’re importing to an existing collection that has reached its quota of stored procedures.  The tool supports import to a single DocumentDB collection, as well as sharded import whereby data is partitioned across multiple DocumentDB collections.  Read more about partitioning data in DocumentDB [here](documentdb-partition-data.md).
 
 ![Screenshot of DocumentDB sequential record import options](./media/documentdb-import-data/documentdbsequential.png)
 
@@ -376,7 +377,7 @@ The format of the DocumentDB connection string is:
 
 	AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;
 
-> [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed. 
+> [AZURE.NOTE] Use the Verify command to ensure that the DocumentDB instance specified in the connection string field can be accessed.
 
 To import to a single collection, enter the name of the collection to which data will be imported and click the Add button.  To import to multiple collections, either enter each collection name individually or use the following syntax to specify multiple collections: *collection_prefix*[start index - end index].  When specifying multiple collections via the aforementioned syntax, keep the following in mind:
 
@@ -388,7 +389,7 @@ Once the collection name(s) have been specified, choose the desired pricing tier
 
 > [AZURE.NOTE] The performance tier setting only applies to collection creation.  If the specified collection already exists, its pricing tier will not be modified.
 
-When importing to multiple collections, the import tool supports hash based sharding.  In this scenario, specify the document property you wish to use as the Partition Key (if Partition Key is left blank, documents will be sharded randomly across the target collections). 
+When importing to multiple collections, the import tool supports hash based sharding.  In this scenario, specify the document property you wish to use as the Partition Key (if Partition Key is left blank, documents will be sharded randomly across the target collections).
 
 You may optionally specify which field in the import source should be used as the DocumentDB document id property during the import (note that if documents do not contain this property, then the import tool will generate a GUID as the id property value).
 
@@ -402,15 +403,16 @@ There are a number of advanced options available during import.  First, when imp
 "date_joined": {
     "Value": "2013-10-21T21:17:25.2410000Z",
     "Epoch": 1382390245
-  } 
+  }
 
 The DocumentDB - Sequential record importer has the following additional advanced options:
 
 1. Number of Parallel Requests: The tool defaults to 2 parallel requests.  If the documents to be imported are small, consider raising the number of parallel requests.  Note that if this number is raised too much, the import may experience throttling.
 2. Disable Automatic Id Generation: If every document to be imported contains an id field, then selecting this option can increase performance.  Documents missing a unique id field will not be imported.
-3. Number of Retries on Failure: Specifies the number of times to retry the connection to DocumentDB in case of transient failures (e.g. network connectivity interruption).
-4. Retry Interval: Specifies how long to wait between retrying the connection to DocumentDB in case of transient failures (e.g. network connectivity interruption).
-5. Connection Mode: Specifies the connection mode to use with DocumentDB.  The available choices are DirectTcp, DirectHttps, and Gateway.  The direct connection modes are faster, while the gateway mode is more firewall friendly as it only uses port 443.
+3. Update Existing Documents: The tool defaults to not replacing existing documents with id conflicts.  Selecting this option will allow overwriting existing documents with matching ids. This feature is useful for scheduled data migrations that update existing documents.
+4. Number of Retries on Failure: Specifies the number of times to retry the connection to DocumentDB in case of transient failures (e.g. network connectivity interruption).
+5. Retry Interval: Specifies how long to wait between retrying the connection to DocumentDB in case of transient failures (e.g. network connectivity interruption).
+6. Connection Mode: Specifies the connection mode to use with DocumentDB.  The available choices are DirectTcp, DirectHttps, and Gateway.  The direct connection modes are faster, while the gateway mode is more firewall friendly as it only uses port 443.
 
 ![Screenshot of DocumentDB sequential record import advanced options](./media/documentdb-import-data/documentdbsequentialoptions.png)
 
@@ -427,13 +429,12 @@ Using the Indexing Policy advanced option, you can select an indexing policy fil
 The policy templates the tool provides are:
 
 - Default.  This policy is best when you’re performing equality queries against strings and using ORDER BY, range, and equality queries for numbers.  This policy has a lower index storage overhead than Range.
-- Hash. This policy is best when you’re performing equality queries for both numbers and strings.  This policy has the lowest index storage overhead.
 - Range. This policy is best you’re using ORDER BY, range and equality queries on both numbers and strings.  This policy has a higher index storage overhead than Default or Hash.
 
 
 ![Screenshot of DocumentDB Indexing Policy advanced options](./media/documentdb-import-data/indexingpolicy2.png)
 
-> [AZURE.NOTE] If you do not specify an indexing policy, then the default policy will be applied.  Read more about DocumentDB indexing policies [here](documentdb-indexing-policies.md). 
+> [AZURE.NOTE] If you do not specify an indexing policy, then the default policy will be applied.  Read more about DocumentDB indexing policies [here](documentdb-indexing-policies.md).
 
 
 ## Export to JSON file
@@ -448,7 +449,7 @@ You may optionally choose to prettify the resulting JSON, which will increase th
 
 	Standard JSON export
 	[{"id":"Sample","Title":"About Paris","Language":{"Name":"English"},"Author":{"Name":"Don","Location":{"City":"Paris","Country":"France"}},"Content":"Don's document in DocumentDB is a valid JSON document as defined by the JSON spec.","PageViews":10000,"Topics":[{"Title":"History of Paris"},{"Title":"Places to see in Paris"}]}]
-	
+
 	Prettified JSON export
 	[
  	{
@@ -475,7 +476,7 @@ You may optionally choose to prettify the resulting JSON, which will increase th
       }
     ]
 	}]
-	
+
 ## Advanced Configuration
 
 In the Advanced configuration screen, specify the location of the log file to which you would like any errors written. The following rules apply to this page:
@@ -483,6 +484,8 @@ In the Advanced configuration screen, specify the location of the log file to wh
 1.	If a file name is not provided, then all errors will be returned on the Results page.
 2.	If a file name is provided without a directory, then the file will be created (or overwritten) in the current environment directory.
 3.	If you select an existing file, then the file will be overwritten, there is no append option.
+
+Then, choose whether to log all, critical, or no error messages. Finally, decide how frequently the on screen transfer message will be updated with its progress.
 
 	![Screenshot of Advanced configuration screen](./media/documentdb-import-data/AdvancedConfiguration.png)
 
@@ -494,17 +497,14 @@ In the Advanced configuration screen, specify the location of the log file to wh
 
 	![Screenshot of summary screen](./media/documentdb-import-data/summarycommand.png)
 
-2. Once you’re satisfied with your source and target options, click **Import**.  The elapsed time, transferred count, and failure information (if you didn't provide a file name in the Advanced configuration) will update as the import is in process.  Once complete, you can export the results (e.g. to deal with any import failures). 
+2. Once you’re satisfied with your source and target options, click **Import**.  The elapsed time, transferred count, and failure information (if you didn't provide a file name in the Advanced configuration) will update as the import is in process.  Once complete, you can export the results (e.g. to deal with any import failures).
 
 	![Screenshot of DocumentDB JSON export option](./media/documentdb-import-data/viewresults.png)
 
-3. You may also start a new import, either keeping the existing settings (e.g. connection string information, source and target choice, etc.) or resetting all values. 
+3. You may also start a new import, either keeping the existing settings (e.g. connection string information, source and target choice, etc.) or resetting all values.
 
 	![Screenshot of DocumentDB JSON export option](./media/documentdb-import-data/newimport.png)
 
 ## Next steps
 
 - To learn more about DocumentDB, click [here](http://azure.com/docdb).
-
-
- 
