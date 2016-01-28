@@ -24,7 +24,7 @@ The **Configure** page presents the global service parameters that can be create
 - Storage accounts 
 - Access control records 
 
-This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts, or rotate the security keys for a storage account.
+This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts for your StorSimple Virtual Array.
 
  ![Configure page](./media/storsimple-ova-manage-storage-accounts/configure_service_page.png)  
 
@@ -40,7 +40,7 @@ The most common tasks related to storage accounts that can be performed on the *
 - Add a storage account 
 - Edit a storage account 
 - Delete a storage account 
-- Key rotation of storage accounts 
+
 
 ## Types of storage accounts
 
@@ -74,7 +74,7 @@ You can edit a storage account used by your device. If you edit a storage accoun
 
   1. In the drop-down list of **Storage Accounts**, choose an existing account that you would like to modify. This could also include the storage accounts that were automatically generated when the service was first created.
   2. If necessary, you can modify the **Enable SSL Mode** selection.
-  3. You can choose to regenerate your storage account access keys. For more information, see [Key rotation of storage accounts](#key-rotation-of-storage-accounts) or [Regenerate the storage account keys](storage-create-storage-account.md#manage-your-storage-access-keys). Supply the new storage account key. For an Azure storage account, this is the primary access key. 
+  3. You can choose to regenerate your storage account access keys. For more information, see [Regenerate the storage account keys](storage-create-storage-account.md#manage-your-storage-access-keys). Supply the new storage account key. For an Azure storage account, this is the primary access key. 
   4. Click the check icon ![check icon](./media/storsimple-ova-manage-storage-accounts/checkicon.png) to save the settings. The settings will be updated on the **Configure** page. 
   5. At the bottom of the page, click **Save** to save the newly updated settings. 
 
