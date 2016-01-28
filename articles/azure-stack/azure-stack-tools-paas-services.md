@@ -19,14 +19,11 @@
 # Tools and PaaS services for Azure Stack
 
 ##Overview [David]
-why would a customer use these etc?
+Azure Stack will allow hosting Platform as a Service (PaaS) services from Azure and other providers. This page will contain the latest PaaS services from Microsoft Azure that can deploy on Azure Stack, as well as tools to that will help build these services, interact with them and unlock the full potential of having them in your local Azure Stack.
+Make sure you visit this page often as new Azure services get unlocked for Azure Stack preview.
 
 ##Additional PaaS Services
-###Web Apps [Christina]
-
-###SQL Server Resource Adapter [David] 
-
-###MySQL [David]
+Very soon, we will enable hosting Azure Web Apps on Azure Stack as well as some supporting PaaS services to serve as a web app data tier.
 
 ##Template Tools
 ###Azure Stack Github Templates [Charles]
