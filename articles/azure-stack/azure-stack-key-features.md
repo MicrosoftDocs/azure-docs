@@ -3,7 +3,7 @@
 	description="Learn about the key features and concepts in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -118,7 +118,7 @@ There are three main RPs: Network, Storage, and Compute. Each of these RPs helps
 
 ### Compute RP
 
-The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. It also provides functionality for the administrator to setup and configure the resource provider for tenants. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines. For more information on the CRP, [download the Compute Resource Provider scenario validation guide now](http://TBD).
+The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. It also provides functionality for the administrator to setup and configure the resource provider for tenants. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines.
 
 ### Network RP
 

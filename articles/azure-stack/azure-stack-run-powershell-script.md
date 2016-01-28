@@ -110,6 +110,38 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 You can find the script logs on the POC host `C:\ProgramData\microsoft\azurestack`.
 
+### DeployAzureStack.ps1 optional parameters
+
+
+
+**AADCredential** (PSCredential) - Sets the Azure Active Directory user name and password. If this parameter is not provided, the script prompts for the user name and password.
+
+**AADTenant** (string) - Sets the tenant directory. Use this parameter to specify a specific directory when the AAD account has permissions to manage multiple directories. If this parameter is not provided, the script prompts for the directory.
+
+**AdminPassword** (SecureString) - Sets the default admin password. If this parameter is not provided, the script prompts for the password.
+
+**Force** (Switch) - Sets the cmdlet to run without confirmations.
+
+**NATVMStaticGateway** (String) - Sets the default gateway used in the static IP address for the NATVM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. If this parameter is used, then you must also use the NATVMStaticIP parameter.
+For example, `.\DeployAzureStack.ps1 –verbose -NATVMStaticIP 10.10.10.10/24 – NATVMStaticGateway 10.10.10.1`
+
+**NATVMStaticIP** (string) - Sets an additional static IP address for the NATVM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.
+For example, `.\DeployAzureStack.ps1 –verbose -NATVMStaticIP 10.10.10.10/24`
+
+**NoAutoReboot** (switch) - Sets the script to run without automatic reboots.
+
+**ProxyServer** (String) - Sets the proxy information. Only use this parameter if your environment must use a proxy to access the Internet. Proxy servers that require credentials are not supported.
+For example, `.\DeployAzureStack.ps1 -Verbose -ProxyServer 172.11.1.1:8080`
+
+**PublicVLan** (String) - Sets the VLAN ID. Only use this parameter if the host and NATVM must configure VLAN ID to access the physical network (and Internet).
+For example, `.\DeployAzureStack.ps1 –verbose –PublicVLan 305`
+
+**TIPServiceAdminCredential** (PSCredential) - Sets the credentials of an existing service administrator Azure Active Directory account. This account is used by TiP (Test in Production). If this parameter is not provided, an account is automatically created.
+
+**TIPTenantAdminCredential** (PSCredential) - Sets the credentials of an existing tenant administrator Azure Active Directory account. This account is used by TiP (Test in Production). If this parameter is not provided, an account is automatically created.
+
+**UseAADChina**(Boolean) - Set this Boolean parameter to $true if you want to deploy the Microsoft Azure Stack POC with Azure China (Mooncake).
+
 ## Turn off telemetry for Microsoft Azure Stack POC (optional)
 
 

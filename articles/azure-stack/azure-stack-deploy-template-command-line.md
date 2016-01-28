@@ -39,9 +39,13 @@ On a Mac, you might need to disable certificate validation in the terminal using
 
 		azure login -e AzureStack -u “<username>”
 
-4. .  Download [this example template](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/simple-template-examples/storage-resource-creation/azuredeploy-storageacct.json) file to a folder on the Microsoft Azure Stack POC client.
+4. Set the Azure configuration mode to ARM by using the following command.
 
-5.  In that same folder, create a JSON file containing the following script. Save the file as azuredeploy-storageaccount.paramaters.json.
+        azure config mode arm
+
+5. Download [this example template](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/simple-template-examples/storage-resource-creation/azuredeploy-storageacct.json) file to a folder on the Microsoft Azure Stack POC client.
+
+6.  In that same folder, create a JSON file containing the following script. Save the file as azuredeploy-storageaccount.paramaters.json.
 
 		{
 		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -54,15 +58,15 @@ On a Mac, you might need to disable certificate validation in the terminal using
 		}
 
 
-6.  In the command line, navigate to the folder where the two files are located.
+7.  In the command line, navigate to the folder where the two files are located.
 
-7.  Run the following command to deploy the template:
+8.  Run the following command to deploy the template:
 
 		Azure group create "cliRG" "local" -f azuredeploy-storageacct.json -d "testDeploy" -e azuredeploy-storageaccount.paramaters.json
 
 	This deploys the template to the resource group **cliRG** in the Azure Stack POC's default location.
 
-8.  To see this resource group and storage account, use the following commands:
+9.  To see this resource group and storage account, use the following commands:
 
 		azure group list
 
