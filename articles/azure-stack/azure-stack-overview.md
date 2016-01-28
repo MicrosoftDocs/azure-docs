@@ -24,7 +24,7 @@ Organizations can create these Azure services from datacenter resources - enabli
 
 This all adds up to an environment in which application developers can maximize their productivity using a ‘write once, deploy to Azure or Azure Stack’ approach, because the Azure APIs are consistent regardless of where the resources are provisioned - Azure Stack is simply an extension of Azure. Part of the value of this approach is bringing the large ecosystem of operating systems, frameworks, languages, tools, and applications we are building in Azure to individual datacenters. Developers can create applications based on a variety of technologies such as Windows, Linux, .NET, PHP, Ruby or Java that can be deployed and operated the same way on-premises or in Microsoft Azure datacenters. They are also able to leverage the rich Azure ecosystem of templates, tools, and applications to jumpstart their Azure Stack development and operational efforts.   
 
->[AZURE.NOTE] Some of these features will come at different times of the preview cycle and may not be available as part of Tehnical Preview 1.
+>[AZURE.NOTE] The first release of Azure Stack is Technical Preview 1. Some of the features described will come at different times during the preview cycle.
 
 ## Developer and IT Professional Experiences
 

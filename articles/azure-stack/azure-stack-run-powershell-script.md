@@ -49,16 +49,20 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared.
 
-8. Verify that four drives for Azure Stack POC data:
+8. Configure the BIOS to use Local Time instead of UTC.
+
+9. Verify that four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
   - Show as Online, RAW
 
-9. Verify that the host is not joined to a domain.
+10. Verify that the host is not joined to a domain.
 
-10. Log in using a local account with administrator permissions.
+11. Log in using a local account with administrator permissions.
 
-11. Verify network connectivity to Azure.com.
+12. Verify network connectivity to Azure.com.
+
+Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
 
 ## Run the PowerShell deployment script
 
@@ -88,31 +92,15 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 9.  The deployment process will take a few hours, during which several automated system reboots will occur. Signing in during deployment will automatically launch a PowerShell window that will display deployment progress. The PowerShell window closes after deployment completes.
 
-10. On the host, run the following command from an elevated Command Prompt window:
+10. On the Azure Stack POC machine, sign in as an AzureStack/administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
 
-    	bcdedit /set testsigning on
+If the deployment fails with a time or date error, configure the BIOS to use Local Time instead of UTC. Then redeploy.
 
-11. In the `\Microsoft Azure Stack POC\Updates\` folder, run the `Windows10.0-KB625402-x64-InstallForTestingPurposesOnly.exe` file.
-
-12. Accept the license.
-
-13. At the **Do you want to restart your computer now?** prompt, type *y*.
-
-14. After the computer reboots, confirm that the patch was installed on the host by following these steps:
-
-    1.  Open a Command Prompt window and type appwiz.cpl.
-
-    2.  In the **Installed Updates** window, click **View installed updates**.
-
-    3.  Confirm that **Hotfix for Microsoft Windows (KB625402) (FOR TESTING PURPOSES ONLY)** is in the list.
-
->[AZURE.NOTE] If the script fails, restart the script. If it continues to fail, wipe and restart.
+If the script fails, restart the script. If it continues to fail, wipe and restart.
 
 You can find the script logs on the POC host `C:\ProgramData\microsoft\azurestack`.
 
 ### DeployAzureStack.ps1 optional parameters
-
-
 
 **AADCredential** (PSCredential) - Sets the Azure Active Directory user name and password. If this parameter is not provided, the script prompts for the user name and password.
 
