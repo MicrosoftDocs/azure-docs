@@ -258,6 +258,14 @@ If you use a parameter file to pass the parameter values to your template during
             },
             "webSiteLocation": {
                 "value": "West US"
+            },
+            "adminPassword": {
+                "reference": {
+                   "keyVault": {
+                      "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
+                   }, 
+                   "secretName": "sqlAdminPassword" 
+                }   
             }
        }
     }
@@ -265,6 +273,8 @@ If you use a parameter file to pass the parameter values to your template during
 The size of the parameter file cannot be more than 64 KB.
 
 For how to define parameters in template, see [Authoring templates](resource-group-authoring-templates.md/#parameters)
+For details about KeyVault reference to pass secure values, see [Pass secure values during deployment
+](resource-manager-keyvault-parameter.md)
 
 ## Next steps
 - For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](arm-template-deployment.md)
