@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/25/2016"
+   ms.date="01/27/2016"
    ms.author="seanmck"/>
 
 # Disaster recovery in Azure Service Fabric
@@ -28,7 +28,7 @@ When you create a Service Fabric clusters in Azure, you are required to choose a
 
 ### Fault domains
 
-By default, the VMs in the cluster will be evenly spread across logical groups known as fault domains, which segment the machines based on potential failures in the host hardware. Specifically, if two VMs reside in two distinct fault domains, you can be sure that they do not share the same physical rack or network switch. As a result, local network or power failure affecting one VM will not affect others, allowing Service Fabric to rebalance the work load of the unresponsive machine with the cluster.
+By default, the VMs in the cluster will be evenly spread across logical groups known as fault domains, which segment the machines based on potential failures in the host hardware. Specifically, if two VMs reside in two distinct fault domains, you can be sure that they do not share the same physical rack or network switch. As a result, local network or power failure affecting one VM will not affect the other, allowing Service Fabric to rebalance the work load of the unresponsive machine with the cluster.
 
 ### Geographic distribution
 
@@ -52,8 +52,14 @@ In general, as long as a majority of the nodes remain available, the cluster wil
 
 Once in quorum loss, the cluster's applications and services will remain unavailable until a majority of nodes have come back up. At that point, assuming that the state stored on those nodes is still available, the cluster can return to normal operation.
 
-### Temporary data center outages
-
-
-
 ### Physical data center destruction
+
+In the highly unlikely event that an entire physical data center is destroyed, any Service Fabric clusters hosted there will be lost, along with their state.
+
+To protect against this possibility, it is important to periodically [backup your state](service-fabric-reliable-services-backup-restore.md) to a geo-redundant store and ensure that you have validated the ability to restore it. How often you perform a backup will be dependent on your recovery point objective (RPO).
+
+>[AZURE.NOTE] Backup and restore is currently only available for the Reliable Services API. Backup and restore for Reliable Actors will be available in an upcoming release.
+
+## Next Steps
+
+- Learn how to simulate various failures using the [testability framework](service-fabric-testability-overview.md)
