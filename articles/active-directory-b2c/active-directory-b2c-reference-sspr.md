@@ -35,4 +35,4 @@ This feature allows your consumers (who have signed up for local accounts) to re
 To test, use the "Run now" feature on any sign-in policy (which has local accounts as an identity provider). On the local account sign-in page (where you enter email address & password or username & password), click on **Can't access your account?** to verify the consumer experience.
 
 > [AZURE.NOTE]
-The self-service password reset pages are customizable using the [company branding feature](active-directory-add-company-branding.md).
+The self-service password reset pages are customizable using the [company branding feature](../active-directory/active-directory-add-company-branding.md).

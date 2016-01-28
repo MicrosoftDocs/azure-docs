@@ -28,7 +28,7 @@ If you encounter during the [creation of an Azure AD B2C tenant](active-director
 
 ## Branding issues on Verification Email
 
-The default verification email contains "Microsoft" branding. We will remove it in the future. For now, you can remove it using the [company branding feature](./active-directory/active-directory-add-company-branding.md).
+The default verification email contains "Microsoft" branding. We will remove it in the future. For now, you can remove it using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
 
 ## Support for Production Applications
 
@@ -68,7 +68,7 @@ Azure AD B2C preview supports OpenID Connect and OAuth 2.0. However, not all fea
 
 ## Restriction on Tokens
 
-Many of the tokens issued by Azure AD B2C preview are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") is quite as it should be or is missing. Some examples include the "sub" and the "preferred_username" claims. You should expect things here to change quite a bit during the preview. To better understand the tokens emitted currently by the Azure AD B2C service, read through our [token reference](active-directory-b2c-tokens.md).
+Many of the tokens issued by Azure AD B2C preview are implemented as JSON Web Tokens, or JWTs. However, not all information contained in JWTs (known as "claims") is quite as it should be or is missing. Some examples include the "sub" and the "preferred_username" claims. You should expect things here to change quite a bit during the preview. To better understand the tokens emitted currently by the Azure AD B2C service, read through our [token reference](active-directory-b2c-reference-tokens.md).
 
 ## Issues with User Management on the Azure Classic Portal
 
