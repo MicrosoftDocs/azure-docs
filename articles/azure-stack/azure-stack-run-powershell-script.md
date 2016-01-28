@@ -49,16 +49,20 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 7. Reboot the machine. It will automatically run Windows Setup as the VHD system is prepared.
 
-8. Verify that four drives for Azure Stack POC data:
+8. Configure the BIOS to use Local Time instead of UTC.
+
+9. Verify that four drives for Azure Stack POC data:
   - Are visible in disk management
   - Are not in use
   - Show as Online, RAW
 
-9. Verify that the host is not joined to a domain.
+10. Verify that the host is not joined to a domain.
 
-10. Log in using a local account with administrator permissions.
+11. Log in using a local account with administrator permissions.
 
-11. Verify network connectivity to Azure.com.
+12. Verify network connectivity to Azure.com.
+
+Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
 
 ## Run the PowerShell deployment script
 
@@ -106,13 +110,15 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
     3.  Confirm that **Hotfix for Microsoft Windows (KB625402) (FOR TESTING PURPOSES ONLY)** is in the list.
 
->[AZURE.NOTE] If the script fails, restart the script. If it continues to fail, wipe and restart.
+15. On the Azure Stack POC machine, sign in as an AzureStack/administrator, open **Server Manager**, and turn off **IE Enhanced Security Configuration** for both admins and users.
+
+If the deployment fails with a time or date error, configure the BIOS to use Local Time instead of UTC. Then redeploy.
+
+If the script fails, restart the script. If it continues to fail, wipe and restart.
 
 You can find the script logs on the POC host `C:\ProgramData\microsoft\azurestack`.
 
 ### DeployAzureStack.ps1 optional parameters
-
-
 
 **AADCredential** (PSCredential) - Sets the Azure Active Directory user name and password. If this parameter is not provided, the script prompts for the user name and password.
 

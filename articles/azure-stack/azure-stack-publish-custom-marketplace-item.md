@@ -16,28 +16,28 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Publish a custom marketplace item in Azure Stack
+# The Azure Stack Marketplace
 
-The Microsoft Azure Stack Marketplace is a catalog of software applications configured for Microsoft Azure Stack. It is a single place where tenants come to create new resources and deploy new applications.
+The Marketplace is a collection of items customized for Azure Stack, like services, applications, and resources. It's the place where tenants come to create new resources and deploy new applications. Service administrators can add custom items to the Marketplace and tenants will see them right away.
 
-These items are collected from resource providers every five minutes. Service administrators can also add custom items to the marketplace that are immediately visible to tenants.
-
-To see the Microsoft Azure Stack marketplace blade, click **New** in the portal.
+To open the Marketplace, click **New**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
-## What is a marketplace item?
+The Marketplace is updated every five minutes.
 
-A marketplace item is a service, application, or data that a tenant can use. It contains three important things:
+## Marketplace items
 
--   An Azure Resource Manager template for the resource provisioning.
+Every Marketplace item has:
 
--   Metadata, such as strings, icons, and other marketing collateral.
+-   An Azure Resource Manager template for resource provisioning
 
--   Content and parameters needed to render the portal experience.
+-   Metadata, like strings, icons, and other marketing collateral
 
-Each item published to the marketplace uses a format called the Azure Gallery Package (azpkg). This file does not contain deployment or runtime resources (such as code, zip files with software, virtual machines, or disks). These resources are only referenced by the templates and should be hosted external to the Azure Gallery Package.
+-   Formatting info to display the item in the portal
+
+Every item published to the Marketplace uses a format called the Azure Gallery Package (azpkg). Deployment or runtime resources (like code, zip files with software, virtual machines, or disks) shouldn't be included the Azure Gallery Package.
 
 ## Next Steps
 
-[To create a new marketplace item](azure-stack-create-marketplace-item.md)
+[Create a marketplace item](azure-stack-create-marketplace-item.md)
