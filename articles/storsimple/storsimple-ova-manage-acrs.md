@@ -19,7 +19,7 @@
 
 ## Overview
 
-Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple Virtual Array (also known as the StorSimple on-premises virtual device). ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name, and if there is a match, then the connection is established. The **access control records** section on the **Configuration** page displays all the access control records with the corresponding IQNs of the hosts.
+Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple Virtual Array (also known as the StorSimple on-premises virtual device). ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name, and if there is a match, then the connection is established. The **access control records** section on the **Configure** page displays all the access control records with the corresponding IQNs of the hosts.
 
 This tutorial explains the following common ACR-related tasks:
 
@@ -40,7 +40,7 @@ Perform the following steps to get the IQN of a Windows host that is running Win
 
 1. Start the Microsoft iSCSI initiator on your Windows host. Click **Start** > **Administrative Tools** > **iSCSI initiator**.
 
-2. In the **iSCSI Initiator Properties** window, on the **Configuration** tab, select and copy the string from the **Initiator Name** field.
+2. In the **iSCSI Initiator Properties** window, on the **Configure** tab, select and copy the string from the **Initiator Name** field.
 
     ![iSCSI initiator properties](./media/storsimple-ova-manage-acrs/image34.png)
 
@@ -129,6 +129,6 @@ Perform the following steps to delete an access control record.
 
 ## Next steps
 
-Learn more about [using the StorSimple Manager service to manage your StorSimple Virtual Array](storsimple-ova-manager-service-administration).
+Learn more about [using the StorSimple Manager service to manage your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md).
 
 
