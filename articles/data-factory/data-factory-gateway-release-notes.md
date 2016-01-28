@@ -25,13 +25,13 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 
 ## CURRENT VERSION (1.9.5863.1)
 
-•	Zero touch auto update capability
-•	New tray icon with gateway status indicators
-•	Ability to “Update now” from the client
-•	Ability to set update schedule time
-•	PowerShell script for toggling auto-update on/off 
-•	Performance improvements
-•	Bug fixes
+- Zero touch auto update capability
+- New tray icon with gateway status indicators
+- Ability to “Update now” from the client
+- Ability to set update schedule time
+- PowerShell script for toggling auto-update on/off 
+- Performance improvements
+- Bug fixes
 
 
 ## EARLIER VERSIONS
