@@ -102,8 +102,8 @@ To maintain gateway’s connectivity with Azure Data Factory and other cloud ser
 
 At corporate firewall level,  you need configure the following domains and outbound ports:
 
-| Domain names | Ports | Description | 
-| :----------- | :---- | :---------- | 
+| Domain names | Ports | Description |
+| ------ | --------- | ------------ |
 | *.servicebus.windows.net | 443, 80 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) | 
 | *.servicebus.windows.net | 9350-9354 | Optional service bus relay over TCP | 
 | *.core.windows.net | 443 | HTTPS | 
