@@ -3,7 +3,7 @@
 	description="Learn how to create a new marketplace item to deploy resources in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -18,7 +18,7 @@
 
 # To create a new marketplace item in Azure Stack
 
-This document refers to the Azure Gallery Packaging Tool and a Sample Gallery Package. To download the tool and sample package, visit [http://www.aka.ms/azurestackmarketplaceitem](http://www.aka.ms/azurestackmarketplaceitem). 
+This document refers to the Azure Gallery Packaging Tool and a Sample Gallery Package. To download the tool and sample package, visit [http://www.aka.ms/azurestackmarketplaceitem](http://www.aka.ms/azurestackmarketplaceitem).
 
 1.  Create an Azure Resource Manager template or choose a template from GitHub. For more information and guidance, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). The marketplace item will use this template to create a new resource.
 
@@ -35,7 +35,7 @@ This document refers to the Azure Gallery Packaging Tool and a Sample Gallery Pa
 
 4. Include your Azure Resource Manager template in the **DeploymentTemplates** folder.
 
-5. Using the guidance provided in [Marketplace Item UI Reference](azure-stack-marketplace-item-ui-reference.md), select the icons and text you want for your marketplace item. Icons should go in the **Icons** folder and text should go into the **resources** file in the **Strings** folder. It is important to make sure the icon names match the convention of Large, Medium, Small, and Wide. 
+5. Using the guidance provided in [Marketplace Item UI Reference](azure-stack-marketplace-item-ui-reference.md), select the icons and text you want for your marketplace item. Icons should go in the **Icons** folder and text should go into the **resources** file in the **Strings** folder. It is important to make sure the icon names match the convention of Large, Medium, Small, and Wide.
 
 6. You do not need to make any changes to the UIDefinition.json file in the sample. The UIDefinition.json file specifies the portal experience for creating the marketplace item resource, which will be a simple text-entry experience.
 
@@ -56,7 +56,7 @@ This document refers to the Azure Gallery Packaging Tool and a Sample Gallery Pa
 	            "isDefault": true
             }
 
-10. Under **categories**, you can specify the categories where your Marketplace Item will show up in the UI. 
+10. Under **categories**, you can specify the categories where your Marketplace Item will show up in the UI.
 
              "categories":[
          		"My Marketplace Items"

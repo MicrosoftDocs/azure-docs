@@ -3,7 +3,7 @@
 	description="Azure Stack POC is an environment for learning about core Azure Stack features and scenarios."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 

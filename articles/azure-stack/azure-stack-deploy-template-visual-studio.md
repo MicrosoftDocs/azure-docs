@@ -3,7 +3,7 @@
 	description="Learn how to deploy templates with Visual Studio in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -16,7 +16,11 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Deploy templates with Visual Studio in Azure Stack
+# Deploy templates in Azure Stack using Visual Studio
+
+Use Visual Studio to deploy Azure Resource Manager (ARM) templates to the Azure Stack POC.
+
+ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
 1.  Open Visual Studio 2015 Update 1.
 
@@ -26,17 +30,17 @@
 
 4.  In the **Select Azure Template** dialog box, click **Windows Virtual Machine**, and then click **OK**.
 
-    >[AZURE.NOTE] You can see a list of templates available in your new project by expanding the **Templates** node in the **Solution Explorer** pane.
+  You can see a list of templates available in your new project by expanding the **Templates** node in the **Solution Explorer** pane.
 
 5.  In the **Solution Explorer** pane, right-click the name of your project, click **Deploy**, then click **New Deployment**.
 
 6.  In the **Deploy to Resource Group** dialog box, in the **Subscription** drop-down, select your Microsoft Azure Stack subscription.
 
-7.  In the **Resource Group** drop-down, select or create a resource group into which you want the template to deploy.
+7.  In the **Resource Group** list, choose an existing resource group or create a new one.
 
-8.  In the **Resource group location** drop down, select a location.
+8.  In the **Resource group location** list, choose a location, and then click **Deploy**.
 
-9.  Click **Deploy**. In the **Edit Parameters** dialog box, enter values for the parameters (which vary by template), and then click **Save**. Your resource is then created.
+9.  In the **Edit Parameters** dialog box, enter values for the parameters (which vary by template), and then click **Save**.
 
 ## Next Steps
 

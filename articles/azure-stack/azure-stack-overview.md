@@ -3,7 +3,7 @@
 	description="Overview: Microsoft Azure Stack "
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
@@ -26,7 +26,7 @@ This all adds up to an environment in which application developers can maximize 
 
 >[AZURE.NOTE] Some of these features will come at different times of the preview cycle and may not be available as part of Tehnical Preview 1.
 
-## Developer and IT Professional Experiences 
+## Developer and IT Professional Experiences
 
 Developers and IT pros have an experience with Azure Stack that is consistent to that which they experience in Azure.  This is fundamentally made possible because the Azure Stack portal environment is the same code as Azure.  However, the real innovation of Azure Stack is the implementation of an identical cloud API as Azure, so there is a consistent developer experience across clouds. Simply connecting to a portal to choose from preconfigured patterns is not enough; the definition of self-service has evolved to include programmatic access to the cloud API for the creation, deployment and operations of workloads in a cloud.  
 
@@ -38,11 +38,11 @@ A consistent API surface area between Azure and Azure Stack is the path to a set
 
 - Application Patterns: Programmatic and abundant access to Cloud Services is changing the way that applications are being designed, developed and operated. You can work with the resources in your application as a group – mixing resources across IaaS and PaaS services.  
 
-- Automation Capabilities: Having a consistent API means that developers and IT can invest in automating development, deployment and operational activities knowing that they will not have to be rewritten to be used with a cloud supplier that offers Azure services. 
+- Automation Capabilities: Having a consistent API means that developers and IT can invest in automating development, deployment and operational activities knowing that they will not have to be rewritten to be used with a cloud supplier that offers Azure services.
 
 - Deployment and Configuration:  Deploy, update or delete all of the resources for your application in a single, coordinated operation. This can be done from the portal or programmatically through the SDK as code.  
 
-- Operations: Templated deployments work for different environments such as testing, staging and production. Role based access control, usage and audit capabilities are standardized across all cloud resources in the deployment.  Updates made to application resources can be performed in an incremental and non-destructive manner. 
+- Operations: Templated deployments work for different environments such as testing, staging and production. Role based access control, usage and audit capabilities are standardized across all cloud resources in the deployment.  Updates made to application resources can be performed in an incremental and non-destructive manner.
 
 These are all examples of the breadth of impact enabled by this hybrid cloud platform. In each area Azure customers should be confident that their investments in people, processes and technologies will be transferable between Azure and Azure Stack.  
 

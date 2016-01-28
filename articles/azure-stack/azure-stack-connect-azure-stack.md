@@ -3,7 +3,7 @@
 	description="Learn how to connect to the Azure Stack POC portal as a service administrator or tenant."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 

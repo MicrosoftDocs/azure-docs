@@ -3,7 +3,7 @@
 	description="Learn how to prepare a virtual hard disk image before you add an image to the PIR in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="erikje"
+	authors="ErikjeMS"
 	manager="v-kiwhit"
 	editor=""/>
 
