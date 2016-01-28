@@ -264,6 +264,8 @@ If you use a parameter file to pass the parameter values to your template during
 
 The size of the parameter file cannot be more than 64 KB.
 
+For how to define parameters in template, see [Authoring templates](resource-group-authoring-templates.md/#parameters)
+
 ## Next steps
 - For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](arm-template-deployment.md)
 - For an in-depth example of deploying an application, see [Provision and deploy microservices predictably in Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
