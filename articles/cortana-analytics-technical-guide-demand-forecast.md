@@ -247,6 +247,18 @@ These [pipelines](data-factory-create-pipelines.md) contain a single activity - 
 The [Azure Machine
 Learning](https://azure.microsoft.com/services/machine-learning/) experiment used for this solution template provides the prediction of demand of region. The experiment is specific to the data set consumed and therefore will require modification or replacement specific to the data that is brought in.
 
+## **Monitor Progress**
+Once the Data Generator is launched, the pipeline begins to get hydrated and the different components of your solution start kicking into action following the commands issued by the Data Factory. There are two ways you can monitor the pipeline.
+
+1. Check the data from Azure Blob Storage.
+
+	One of the Stream Analytics job writes the raw incoming data to blob storage. If you click on **Azure Blob Storage** component of your solution from the screen you successfully deployed the solution and then click **Open** in the right panel, it will take you to the [management portal](portal.azure.com). Once there, click on **Blobs**. In the next panel, you will see a list of Containers. Click on **'energysadata'**. In the next panel, you will see the **'demandongoing'** folder. Inside the rawdata folder, you will see folders with names such as date=2016-01-28 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see files that should have finite sizes in MB in those folders.
+
+2. Check the data from Azure SQL Database.
+
+	The last step of the pipeline is to write data (e.g. predictions from machine learning) into SQL Database. You might have to wait a maximum of 2 hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [azure management portal](manage.windowsazure.com/). On the left panel locate SQL DATABASES![](media\cortana-analytics-technical-guide-demand-forecast\SQLicon2.png)  and click it. Then locate your database (i.e. demo123456db) and click on it. On the next page at the bottom, click on MANAGE.![](media\cortana-analytics-technical-guide-demand-forecast\icon-manage.png) Here, you can click on New Query and query for the number of rows (e.g. select count(*) from DemandRealHourly). As your database grows, the number of rows in the table should increase.
+	
+
 ## **Power BI Dashboard**
 
 ### Overview
