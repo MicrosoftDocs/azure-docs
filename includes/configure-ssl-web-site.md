@@ -386,7 +386,7 @@ You can create a test certificate from a Windows system that has Visual Studio i
 	The **myserver.pfx** produced by this command can be used to secure your app for testing purposes.
 
 <a name="bkmk_standardmode"></a>
-## 2. Configure Standard pricing tier
+## 2. Configure Standard or Premium pricing tier
 
 Enabling HTTPS for a custom domain is only available for the **Standard** and **Premium** pricing tiers in Azure App Service. Use the following steps to switch your App Service plan to **Standard** tier.
 
