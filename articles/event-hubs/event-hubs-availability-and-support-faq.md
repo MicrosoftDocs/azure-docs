@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="10/07/2015"
+   ms.workload="na"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Event Hubs availability and support FAQ
@@ -27,17 +27,17 @@ For complete information about Event Hubs pricing, see the [Event Hubs pricing d
 
 ## How are Event Hubs ingress events calculated?
 
-Each event sent to an Event Hub counts as a billable message. An *ingress event* is defined as a unit of data that is less than or equal to 64KB. Any event that is less than or equal to 64KB in size is considered to be one billable event. If the event is greater than 64KB, the number of billable events is calculated according to the event size, in multiples of 64KB. For example, an 8 KB event sent to the Event Hub is billed as one event, but a 96 KB message sent to the Event Hub is billed as two events.
+Each event sent to an Event hub counts as a billable message. An *ingress event* is defined as a unit of data that is less than or equal to 64KB. Any event that is less than or equal to 64KB in size is considered to be one billable event. If the event is greater than 64KB, the number of billable events is calculated according to the event size, in multiples of 64KB. For example, an 8 KB event sent to the Event hub is billed as one event, but a 96 KB message sent to the Event hub is billed as two events.
 
-Events consumed from an Event Hub, as well as management operations and control calls such as checkpoints, are not counted as billable ingress events, but accrue up to the throughput unit allowance.
+Events consumed from an Event hub, as well as management operations and control calls such as checkpoints, are not counted as billable ingress events, but accrue up to the throughput unit allowance.
 
 ## What are Event Hubs throughput units?
 
 Event Hubs throughput units are explicitly selected by the user, either through the Azure classic portal or Event Hubs management APIs. Throughput units apply to all Event Hubs in a Service Bus namespace, and each throughput unit entitles the namespace to the following capabilities:
 
-- Up to 1 MB per second of ingress events (events sent into an Event Hub), but no more than 1000 ingress events, management operations or control API calls per second.
+- Up to 1 MB per second of ingress events (events sent into an Event hub), but no more than 1000 ingress events, management operations or control API calls per second.
 
-- Up to 2 MB per second of egress events (events consumed from an Event Hub).
+- Up to 2 MB per second of egress events (events consumed from an Event hub).
 
 - Up to 84 GB of event storage (sufficient for the default 24-hour retention period).
 
@@ -45,11 +45,11 @@ Event Hubs throughput units are billed hourly, based on the maximum number of un
 
 ## How are Event Hubs throughput unit limits enforced?
 
-If the total ingress throughput or the total ingress event rate across all Event Hubs in a namespace exceeds the aggregate throughput unit allowances, senders will be throttled and receive errors indicating that the ingress quota has been exceeded.
+If the total ingress throughput or the total ingress event rate across all Event hubs in a namespace exceeds the aggregate throughput unit allowances, senders will be throttled and receive errors indicating that the ingress quota has been exceeded.
 
-If the total egress throughput or the total event egress rate across all Event Hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled and receive errors indicating that the egress quota has been exceeded. Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an Event Hub.
+If the total egress throughput or the total event egress rate across all Event hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled and receive errors indicating that the egress quota has been exceeded. Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an Event hub.
 
-Note that the throughput unit selection is independent of the number of Event Hubs partitions. While each partition offers a maximum throughput of 1 MB per second ingress (with a maximum of 1000 events per second), and 2 MB per second egress, there is no fixed charge for the partitions themselves. The charge is for the aggregated throughput units on all Event Hubs in a Service Bus namespace. With this pattern, you can create enough partitions to support the anticipated maximum load for their systems, without incurring any throughput unit charges until the event load on the system actually requires higher throughput numbers, and without having to change the structure and architecture of your systems as the load on the system increases.
+Note that the throughput unit selection is independent of the number of Event Hubs partitions. While each partition offers a maximum throughput of 1 MB per second ingress (with a maximum of 1000 events per second), and 2 MB per second egress, there is no fixed charge for the partitions themselves. The charge is for the aggregated throughput units on all Event hubs in a Service Bus namespace. With this pattern, you can create enough partitions to support the anticipated maximum load for their systems, without incurring any throughput unit charges until the event load on the system actually requires higher throughput numbers, and without having to change the structure and architecture of your systems as the load on the system increases.
 
 ## Is there a limit on the number of throughput units that can be selected?
 
@@ -65,7 +65,7 @@ Event Hubs Standard tier currently supports a maximum retention period of 7 days
 
 ## How is the Event Hubs storage size calculated and charged?
 
-The total size of all stored events, including any internal overhead for event headers or on disk storage structures in all Event Hubs, is measured throughout the day. At the end of the day, the peak storage size is calculated. The daily storage allowance is calculated based on the minimum number of throughput units that were selected during the day (each throughput unit provides an allowance of 84 GB). If the total size exceeds the calculated daily storage allowance, the excess storage is billed using Azure Blob storage rates (at the **Locally Redundant Storage** rate).
+The total size of all stored events, including any internal overhead for event headers or on disk storage structures in all Event hubs, is measured throughout the day. At the end of the day, the peak storage size is calculated. The daily storage allowance is calculated based on the minimum number of throughput units that were selected during the day (each throughput unit provides an allowance of 84 GB). If the total size exceeds the calculated daily storage allowance, the excess storage is billed using Azure Blob storage rates (at the **Locally Redundant Storage** rate).
 
 ## Can I use a single AMQP connection to send and receive from Event Hubs and Service Bus queues/topics?
 
@@ -77,7 +77,7 @@ For senders, connection charges apply only when the AMQP protocol is used. There
 
 ## What is the difference between Event Hubs Basic and Standard tiers?
 
-Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, as well as in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with sub-second latencies, as well as to send telemetry from those devices into Event Hubs. Refer to the [pricing details]([Event Hubs Pricing Details](https://azure.microsoft.com/pricing/details/event-hubs/)) for the list of features.
+Event Hubs Standard tier provides features beyond what is available in Event Hubs Basic, as well as in some competitive systems. These features include retention periods of more than 24 hours, and the ability to use a single AMQP connection to send commands to large numbers of devices with sub-second latencies, as well as to send telemetry from those devices into Event Hubs. For the list of features, see the [Event Hubs Pricing Details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ## Geographic Availability
 
