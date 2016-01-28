@@ -55,7 +55,7 @@ Note the following:
 		- If your library share path is remote (or local but not shared with MSCVMMLibrary, configure the share as follows (using \\libserver2.contoso.com\share\ as an example):
 			- Open the Registry Editor and navigate to HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
 			-  Edit the value ScriptLibraryPath and place the value as \\libserver2.contoso.com\share\. Specify the full FQDN. Provide permissions to the share location.
-			-  Ensure that you test the script with a user account that has the same permissions as the VMM service account, to ensure that stand-alone tested scripts run in the same way that they will in recovery plans.On the VMM server, set the execution policy to bypass as follows:
+			-  Ensure that you test the script with a user account that has the same permissions as the VMM service account, to ensure that stand-alone tested scripts run in the same way that they will in recovery plans. On the VMM server, set the execution policy to bypass as follows:
 				-  Open the 64-bit Windows PowerShell console using elevated privileges.
 				-  Type: **Set-executionpolicy bypass**. [Get more details](https://technet.microsoft.com/library/ee176961.aspx).
 
@@ -80,7 +80,7 @@ Specify a name for the recovery plan, and a source and target. The source server
 	- If you're replicating from a Hyper-V site select **Source Type** > **Hyper-V site**. Select the site as the source and **Azure **as the target.
 	- If you're replicating from VMware or a physical on-premises server to Azure, select a configuration server as the source and **Azure** as the target
 
-2.In **Select virtual machines** select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan.
+2. In **Select virtual machines** select the virtual machines (or replication group) that you want to add to the default group (Group 1) in the recovery plan.
 
 ## Customize recovery plans
 
