@@ -58,9 +58,10 @@ To enable single sign-on to applications that don't support federation, Azure AD
 | :---: | --- |
 | An introduction to how password-based SSO works and a brief technical overview | [Password-Based Single Sign-On with Azure AD](active-directory-appssoaccess-whatis.md#password-based-single-sign-on) |
 | A summary of the scenarios related to account sharing and how these problems are solved by Azure AD | [Sharing accounts with Azure AD](active-directory-sharing-accounts.md) |
+| Automatically change the password for certain apps at a regular interval | [Automated Password Rollover (preview)](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx0) |
 | Deployment and troubleshooting guides for the Internet Explorer version of the Azure AD password management extension | [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](active-directory-saas-ie-group-policy.md)<br /><br />[Troubleshooting the Access Panel Extension for Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 
-Password-based single sign-on is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to assign access to applications](#how-to-manage-who-has-access-to-which-apps).
+Password-based single sign-on is available for all editions of Azure AD for up to ten apps per user. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) supports unlimited applications. If your organization has [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) or [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), then you can [use groups to assign access to applications](#how-to-manage-who-has-access-to-which-apps). Automated password rollover is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature.
 
 ###App Proxy: Single sign-on and remote access to on-premises applications
 
@@ -78,16 +79,18 @@ Application Proxy is available for all editions of Azure AD for up to ten apps p
 
 You may also be interested in [Azure AD Domain Services](active-directory-ds-overview.md), which allows you to migrate your on-premises applications to Azure while still satisfying the identity needs of those applications.
 
-###Integrating Azure AD Single Sign-On with an On-Premises Domain 
+###Enabling single sign-on between Azure AD and on-premises AD
 
-desc
+If your organization maintains a Windows Server Active Directory on premises along with your Azure Active Directory in the cloud, then you will likely want to enable single sign-on between these two systems. Azure AD Connect (the tool that integrates these two systems together) provides multiple options for setting up single sign-on: establish federation with ADFS or another federation provider, or enable password synchronization.
 
 | Article Guide |   |
 | :---: | --- |
-| An overview on the sign-on options available with Azure AD Connect, as well as information on managing hybrid environments | [Azure AD Connect: User Sign On Options](active-directory-aadconnect-user-signin.md)<br /><br />[Azure AD Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrating your On-Premises Identities with Azure Active Directory](active-directory-aadconnect.md) |
-| Guidance on using Password Sync, Password Writeback, and Self-Service Password Reset to authenticate on-prem users in Azure AD | [Azure AD Connect: Implement Password Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Getting Started with Password Management](active-directory-passwords-getting-started.md) |
-| todo | [Extending Cloud Capabilities to Windows 10 Devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
+| An overview on the single sign-on options offered in Azure AD Connect, as well as information on managing hybrid environments | [User Sign On Options in Azure AD Connect](active-directory-aadconnect-user-signin.md) |
+| General guidance for managing environments with both on-premises Active Directory and Azure Active Directory | [Azure AD Hybrid Identity Design Considerations](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Integrating your On-Premises Identities with Azure Active Directory](active-directory-aadconnect.md) |
+| Guidance on using Password Sync to enable SSO, and how to use Password Writeback with Azure AD Self-Service Password Reset | [Implement Password Synchronization with Azure AD Connect](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Getting Started with Password Management in Azure AD](active-directory-passwords-getting-started.md) |
+| How Windows 10 users can enjoy the benefits of single sign-on via Azure AD Join | [Extending Cloud Capabilities to Windows 10 Devices through Azure Active Directory Join](active-directory-azureadjoin-overview.md) |
 
+Azure AD Connect is available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Azure AD Self-Service Password Reset is available for [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) and [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Password Writeback to on-prem AD is an [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) feature. 
 
 ###Conditional Access: Enforce additional security requirements for high-risk apps
 
