@@ -93,23 +93,34 @@ You can disable/enable the auto-update feature by doing the following:
 		.\GatewayAutoUpdateToggle.ps1  -on  
 
 ## Port and Security Considerations
+There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the gateway is installed.  
 
-### General considerations
-There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the gateway is installed. If you are using a third party firewall instead of Windows firewall, use the following recommendations as a reference and configure ports appropriately. If a proxy server is being leveraged in your organization, refer to [proxy server considerations](#proxy-server-considerations) additionally. Here are some general considerations:
+![firewalls](./media/data-factory-move-data-between-onprem-and-cloud/firewalls.png)
 
-**Prior to setting up the gateway:**
+### Connect gateway with cloud services
+To maintain gateway’s connectivity with Azure Data Factory and other cloud services, you need to make sure that the outbound rule for **TCP** ports **80** and **443** are configured. And optionally enable ports **9350** to **9354**, which are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway and may improve performance of communication between them.
 
-- For both **corporate firewall and Windows firewall**, you need to make sure that the outbound rule for **TCP** ports **80** and **443** are enabled, and optionally for ports **9350** to **9354**. These are used by Microsoft Azure Service Bus to establish connection between Azure Data Factory and the Data Management Gateway. Opening the ports 9350 to 9354 is not mandatory, but opening them may improve performance of communication between Azure Data Factory and Data Management Gateway.
+At corporate firewall level,  you need configure the following domains and outbound ports:
 
-**During the gateway setup:**
+| Domain names | Ports | Description | 
+| :----------- | :---- | :---------- | 
+| *.servicebus.windows.net | 443, 80 | Listeners on Service Bus Relay over TCP (requires 443 for Access Control token acquisition) | 
+| *.servicebus.windows.net | 9350-9354 | Optional service bus relay over TCP | 
+| *.core.windows.net | 443 | HTTPS | 
+| *.clouddatahub.net | 443 | HTTPS | 
+| graph.windows.net | 443 | HTTPS |
+| login.windows.net | 443 | HTTPS | 
 
-- By default, the Data Management Gateway installation opens the inbound port **8050** on the **local Windows firewall** on the gateway machine. The port will be used by the **Setting Credentials** application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure Portal (details later in the article); it will not be reachable from internet, so you do not need to open it in the corporate firewall.
-- If you do not want the gateway installation to open port 8050 on Windows firewall for the gateway machine, you can use the following command to install the gateway without configuring the firewall.
+At windows firewall level, these outbound ports are normally enabled. If not, you can configure the domains and ports accordingly on gateway machine.
 
-		msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
+### Set credentials
+The inbound port **8050** will be used by the **Setting Credentials** application to relay the credentials to the gateway when you set up an on-premises linked service in the Azure Portal (details later in the article). During gateway setup, by default, the Data Management Gateway installation opens it on the gateway machine.
+ 
+In case of using a third party firewall, you can manually open the port 8050. If you run into firewall issue during gateway setup, you can try use the following command to install the gateway without configuring the firewall.
 
-If inbound port 8050 is not opened on the gateway machine, then to set up an on-premises linked service, you need to use mechanisms other than using the **Setting Credentials** application to configure the data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#setting-credentials-and-security) section on how data store credentials can be set.
+	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
+If you choose not to open the port 8050 on the gateway machine, then to set up an on-premises linked service, you need to use mechanisms other than using the **Setting Credentials** application to configure the data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#setting-credentials-and-security) section on how data store credentials can be set.
 
 **To copy data from a source data store to a sink data store:**
 
