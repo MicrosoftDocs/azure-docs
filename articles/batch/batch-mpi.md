@@ -18,11 +18,13 @@
 
 # Execute Message Passing Interface (MPI) applications in Azure Batch with multi-instance tasks
 
-A "multi-instance task" in Azure Batch is a [task][net_task] that is configured to run on more than one compute node. Normally, each task runs on a single compute node, but with multi-instance tasks, you can run a task on multiple compute nodes simultaneously. This enables high performance computing scenarios like Message Passing Interface (MPI) programs that require a group of compute nodes that are allocated together to process a workload.
+A multi-instance task in Azure Batch is a [task][net_task] that is configured to run on more than one compute node. Multi-instance tasks enable high performance computing scenarios like Message Passing Interface (MPI) programs that require a group of compute nodes that are allocated together to process a workload.
 
 In this article, you will learn how to execute an MPI application built with Microsoft's MPI implementation for Windows, [MS-MPI][msmpi_msdn], and the [Batch .NET][api_net] library.
 
 ## Multi-instance task overview
+
+Normally, each task runs on a single compute node, but with multi-instance tasks, you can run a task on multiple compute nodes simultaneously.
 
 You create a multi-instance task in Batch by specifying multi-instance settings for a normal [CloudTask][net_task]. These settings include the number of compute nodes to execute the task, a command line for the main task (the "application command"), a coordination command, and a list of common resource files for each task.
 
