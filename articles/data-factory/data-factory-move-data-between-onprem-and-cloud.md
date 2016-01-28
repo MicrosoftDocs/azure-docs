@@ -59,18 +59,6 @@ Data Management Gateway can be installed by downloading an MSI setup package fro
 ## Update Data Management Gateway
 By default, Data Management Gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all the scheduled tasks are done. No further tasks are processed by the gateway until the update operation is completed. If the update fails, gateway is rolled back to the old version. 
 
-You can disable/enable the auto-update feature by doing the following: 
-
-1. Launch Windows PowerShell on the gateway machine. 
-2. Switch to the C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript folder.
-3. Run the following command to turn the auto-update feature OFF (disable).   
-
-		.\GatewayAutoUpdateToggle.ps1  -off
-
-4. To turn it back on: 
-	
-		.\GatewayAutoUpdateToggle.ps1  -on
-
 You will see the scheduled update time in the portal in the gateway properties blade, in the home page of the Data Management Gateway Configuration Manager, and in the system tray notification message. You have an option to install the update right away or wait for the gateway to be automatically updated at the scheduled time. For example, the following screen shot shows you the notification message shown in the Data Management Gateway Configuration Manager along with the Update button that you click to install it immediately. 
 
 ![Update in DMG Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/gateway-auto-update-config-manager.png)
@@ -82,7 +70,6 @@ The notification message in the system tray would look like the following:
 You will see the status of update operation (manual or automatic) in the system tray. When you open  Data Management Gateway Configuration Manager next time, you will see a message on the notification bar that the gateway has been updated along with a link to the [what's new topic](data-factory-gateway-release-notes.md).
 
 The Update tab of the Data Management Gateway Configuration Manager displays the update schedule as well as the last time the gateway was installed/updated. If the auto-update is disabled, it shows a message about, but you will not be able to enable the feature on the tab; You will have to use the cmdlet to enable the feature. 
-
   
 
 ## System Tray Icons/Notifications
@@ -90,7 +77,20 @@ The following image shows some of the tray icons that you will see.
 
 ![system tray icons](./media/data-factory-move-data-between-onprem-and-cloud/gateway-tray-icons.png)
 
-If you move cursor over the system tray icon/notification message, you will see details about the state of the gateway/update operation in a popup window.  
+If you move cursor over the system tray icon/notification message, you will see details about the state of the gateway/update operation in a popup window.
+
+## To disable/enable auto-update feature
+You can disable/enable the auto-update feature by doing the following: 
+
+1. Launch Windows PowerShell on the gateway machine. 
+2. Switch to the C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript folder.
+3. Run the following command to turn the auto-update feature OFF (disable).   
+
+		.\GatewayAutoUpdateToggle.ps1  -off
+
+4. To turn it back on: 
+	
+		.\GatewayAutoUpdateToggle.ps1  -on  
 
 ## Port and Security Considerations
 
