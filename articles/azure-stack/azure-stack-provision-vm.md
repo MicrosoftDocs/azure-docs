@@ -16,7 +16,7 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-## Provision a virtual machine
+# Provision a virtual machine
 
 Now that you've created a subscription, test that your tenants can provision a virtual machine.
 
