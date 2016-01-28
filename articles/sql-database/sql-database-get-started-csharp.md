@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="01/21/2016"
+   ms.date="01/22/2016"
    ms.author="sstein"/>
 
 # Try SQL Database: Use C&#x23; to create a SQL database with the SQL Database Library for .NET 
@@ -50,36 +50,31 @@ To complete the steps in this article you need the following:
 
 ## Installing the required libraries
 
-To set up a SQL database with C#, get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console):
+To set up a SQL database with C#, get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
-    PM> Install-Package Microsoft.Azure.Management.Resources –Pre
-    PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
+    Install-Package Microsoft.Azure.Management.Sql –Pre
+    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
 ## Configure authentication with Azure Active Directory
 
 You must first enable your client application to access the SQL Database service by setting up the required authentication.
 
-To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain. Registering the application can be done in the [Azure Classic Portal](https://manage.windowsazure.com/). 
+To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain.
 
 To create a new application and register it in the correct active directory do the following:
 
-1. Scroll the menu on the left side to locate the **Active Directory** service and open it.
+1. Go to the [Azure Classic Portal](https://manage.windowsazure.com/).
+1. On the left side select the **Active Directory** service and then select the directory to authenticate your application and click it's **Name**.
 
     ![Try SQL Database: Set up Azure Active Directory (AAD).][1]
 
-2. Select the directory to authenticate your application and click it's **Name**.
-
-    ![Select the directory to authenticate your SQL C# application.][4]
-
-3. On the directory page, click **APPLICATIONS**.
+2. On the directory page, click **APPLICATIONS**.
 
     ![The directory page with Applications.][5]
 
-4. Click **ADD** to create a new C# application for your SQL database.
-
-    ![Add your SQL C# application.][6]
+4. Click **ADD** to create a new application.
 
 5. Select **Add an application my organization is developing**.
 
@@ -91,7 +86,7 @@ To create a new application and register it in the correct active directory do t
 
     ![Add a redirect URL for your SQL C# application.][8]
 
-7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (you will need the client id in your code).
+7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (you will need the client id later in your code).
 
     ![Get client ID for your SQL C# application.][9]
 
@@ -248,7 +243,7 @@ To allow other Azure services to access a server add a firewall rule and set bot
 
 ## Use C&#x23; to create a SQL database
 
-The following C# command will create a new Basic SQL database if a database with the same name does not already exist on the server; if a database with the same name does exist it will be updated. 
+The following C# command will create a new SQL database if a database with the same name does not already exist on the server; if a database with the same name does exist it will be updated. 
 
 
         static void CreateDatabase()
