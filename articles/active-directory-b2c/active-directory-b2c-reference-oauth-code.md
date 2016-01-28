@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: OAuth 2.0 Authorization Code Flow
