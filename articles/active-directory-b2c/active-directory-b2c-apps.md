@@ -72,7 +72,7 @@ In a web app, each execution of a [policy](active-directory-b2c-reference-polici
 
 ![Web App Swimlanes Image](./media/active-directory-b2c-apps/webapp.png)
 
-Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to identify the user. This also sets a session cookie that can be used to identify the user on subsequent page requests.
+Validation of the `id_token` by using a public signing key that is received from Azure AD is sufficient to verify the identity of the user. This also sets a session cookie that can be used to identify the user on subsequent page requests.
 
 To see this scenario in action, try one of the web app sign-in code samples in our [Getting started section](active-directory-b2c-overview.md#getting-started).
 
@@ -110,7 +110,7 @@ Apps that are installed on devices, such as mobile and desktop apps, often need 
 In this flow, the app executes [policies](active-directory-b2c-reference-policies.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the app's permission to call back-end services on behalf of the user who is currently signed in. The app can then exchange the `authorization_code` in the background for an `id_token` and a `refresh_token`.  The app can use the `id_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `id_token` when an older one expires.
 
 > [AZURE.NOTE]
-	The Azure AD B2C preview currently supports only ID tokens that are used to access an app's own back-end web service. For instance, your complete app may include an iOS app, an Android app, and a back-end web API. This architecture is fully supported. Allowing your iOS app to access a partner web API by using OAuth 2.0 access tokens is not currently supported. All components of your complete app must share a single application ID.
+	The Azure AD B2C preview currently supports only ID tokens that are used to access an app's own back-end web service. For instance, your complete app may include an iOS app, an Android app, and a back-end web API. This architecture is fully supported. Allowing your iOS app to access a partner web API by using OAuth 2.0 access tokens is not currently supported. All of the components of your complete app must share a single application ID.
 
 ![Native App Swimlanes Image](./media/active-directory-b2c-apps/native.png)
 
