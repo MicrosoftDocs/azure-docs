@@ -167,8 +167,8 @@ The early adopters who participated in the pilot can be very helpful to get the 
 This article was about getting started with **Azure Data Catalog** in your organization. We hope you were able to start a Data Catalog pilot project, and expand Data Catalog throughout your organization.
 
 ## More information about Azure Data Catalog
--	[Azure Data Catalog product page](https://azure.microsoft.com/en-us/services/data-catalog/)
--	[Azure Data Catalog documentation](https://azure.microsoft.com/en-us/documentation/services/data-catalog/)
+-	[Azure Data Catalog product page](https://azure.microsoft.com/services/data-catalog/)
+-	[Azure Data Catalog documentation](https://azure.microsoft.com/documentation/services/data-catalog/)
 -	[Azure Data Catalog common scenarios](data-catalog-common-scenarios.md)
 -	[Register data sources](data-catalog-get-started.md#exercise-2-registering-data-sources)
 -	[Search data sources](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
