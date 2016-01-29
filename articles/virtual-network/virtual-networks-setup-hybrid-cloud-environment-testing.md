@@ -291,7 +291,7 @@ This is your current configuration.
  
 Your hybrid cloud environment is now ready for testing.
 
-## Next Step
+## Next steps
 
 - Set up a [SharePoint intranet farm](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), a [web-based LOB application](virtual-networks-setup-lobapp-hybrid-cloud-testing.md), or an [Office 365 Directory Synchronization (DirSync) server](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) in this environment.
 
