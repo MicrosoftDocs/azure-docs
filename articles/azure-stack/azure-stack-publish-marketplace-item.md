@@ -16,7 +16,7 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Add a Marketplace item
+# Publish a Marketplace item
 
 
 
