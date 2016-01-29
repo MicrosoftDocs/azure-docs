@@ -157,7 +157,6 @@ The following C# code snippet shows how to initiate an import job:
 
 ```
 JobProperties importJob = await registryManager.ImportDevicesAsync(containerSasUri, containerSasUri);
-
 ```
 
 ## Import behavior
@@ -176,7 +175,7 @@ You can control the import process per-device by using the optional **importMode
 
 -   **createOrUpdate**
     - If a device does not exist with the specified **id**, it is newly registered. 
-    - If the device already exists, existing information wis overwritten with the provided input data without regard to the **ETag** value.
+    - If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value.
 
 -   **create**
     - If a device does not exist with the specified **id**, it is newly registered.

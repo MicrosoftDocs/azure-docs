@@ -121,12 +121,15 @@ The IoT Hub device identity registry exposes the following operations:
 * Retrieve device identity by ID
 * Delete device identity
 * List up to 1000 identities
+* Export all identities to blob storage
+* Import identities from blob storage
 
 All these operations allow the use of optimistic concurrency as specified in [RFC7232][lnk-rfc7232].
 
 > [AZURE.IMPORTANT] The only way to retrieve all identities in a hub's identity registry is to use the [Export](#importexport) functionality.
 
 An IoT Hub device identity registry:
+
 - Does not contain any application metadata.
 - Can be accessed like a dictionary using the **deviceId** as the key.
 - Does not support expressive queries.
@@ -142,7 +145,7 @@ You can disable devices by updating the **status** property of an identity in th
 
 ### Export device identities <a id="importexport"></a>
 
-Exports are long-running jobs that use a customer-supplied blob container to read and write device identity data.
+Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity register.
 
 You can export device identities in bulk from an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints).
 
@@ -156,7 +159,9 @@ The following operations are possible on export jobs:
 
 For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
 
-#### Jobs
+To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity]
+
+### Export jobs
 
 All export jobs have the following properties:
 
@@ -165,26 +170,79 @@ All export jobs have the following properties:
 | jobId | system-generated, ignored at creation | |
 | creationTime | system-generated, ignored at creation | |
 | endOfProcessingTime | system-generated, ignored at creation | |
-| type | read-only | **Export** |
+| type | read-only | **ExportDevices** |
 | status | system-generated, ignored at creation | **Enqueued**, **Started**, **Completed**, **Failed** |
 | progress | system-generated, ignored at creation | Integer value of the percentage of completion. |
 | outputBlobContainerURI | required for all jobs | Blob Shared Access Signature URI with write access to a blob container (see [Create and Use a SAS with the Blob Service][lnk-createuse-sas]). This is used to output the status of the job and the results. |
-| includeKeysInExport | optional | If **true**, keys are included in export output; otherwise keys are exported as **null**. The default is **false**. |
+| excludeKeysInExport | optional | If **false**, keys are included in export output; otherwise keys are exported as **null**. The default is **false**. |
 | failureReason | system-generated, ignored at creation | If status is **Failed**, a string containing the reason. |
-
-#### Export jobs
 
 Export jobs take a blob Shared Access Signature URI as a parameter. This grants write access to a blob container to enable the job to output its results.
 
-The job writes the output results to the specified blob container in a file called **job_{job_id}_devices.txt**. This file contains device identities serialized as JSON, as specified in [Device identity properties](#deviceproperties). The security materials are set to **null** if the **includeKeysInExport** is set to **false**.
+The job writes the output results to the specified blob container in a file called **devices.txt**. This file contains device identities serialized as JSON, as specified in [Device identity properties](#deviceproperties). The authentication value is set to **null** for each device in the **devices.txt** file if the **excludeKeysInExport** parameter is set to **true**.
 
 **Example**:
 
 ```
-{"deviceId":"devA","auth":{"symKey":{"primaryKey":"123"}},"status":"enabled"}
-{"deviceId":"devB","auth":{"symKey":{"primaryKey":"234"}},"status":"enabled"}
-{"deviceId":"devC","auth":{"symKey":{"primaryKey":"345"}},"status":"enabled"}
-{"deviceId":"devD","auth":{"symKey":{"primaryKey":"456"}},"status":"enabled"}
+{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
+{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
+{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}}
+```
+
+### Import device identities
+
+Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity register.
+
+You can import device identities in bulk to an IoT hub's identity registry, using asynchronous operations on the [IoT Hub Resource Provider endpoint](#endpoints).
+
+The following operations are possible on import jobs:
+
+* Create an import job
+* Retrieve the status of a running job
+* Cancel a running job
+
+> [AZURE.NOTE] Each hub can have only a single job running at any given time.
+
+For detailed information about the import and export APIs, see [Azure IoT Hub - Resource Provider APIs][lnk-resource-provider-apis].
+
+To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity]
+
+### Import jobs
+
+All import jobs have the following properties:
+
+| Property | Options | Description |
+| -------- | ------- | ----------- |
+| jobId | system-generated, ignored at creation | |
+| creationTime | system-generated, ignored at creation | |
+| endOfProcessingTime | system-generated, ignored at creation | |
+| type | read-only | **ImportDevices** |
+| status | system-generated, ignored at creation | **Enqueued**, **Started**, **Completed**, **Failed** |
+| progress | system-generated, ignored at creation | Integer value of the percentage of completion. |
+| outputBlobContainerURI | required for all jobs | Blob Shared Access Signature URI with write access to a blob container (see [Create and Use a SAS with the Blob Service][lnk-createuse-sas]). This is used to output the status of the job. |
+| inputBlobContainerURI | required | Blob Shared Access Signature URI with read access to a blob container (see [Create and Use a SAS with the Blob Service][lnk-createuse-sas]). The job reads the device information to import from this blob. |
+| failureReason | system-generated, ignored at creation | If status is **Failed**, a string containing the reason. |
+
+Import jobs take two blob Shared Access Signature URIs as parameters. One grants write access to a blob container to enable the job to output its status, the other grants read access to a blob container to enable the job to read its input data.
+
+The job reads the input data from the specified blob container in a file called **devices.txt**. This file contains device identities serialized as JSON, as specified in [Device identity properties](#deviceproperties). You can override the default import behaviour for each device by adding an **importMode** property. This property can take one of the following values:
+
+| importMode |  Description |
+| -------- | ----------- |
+| **createOrUpdate** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. |
+| **create** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, an error is written to the log file. |
+| **update** | If a device already exists with the specified **id**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
+| **updateIfMatchETag** | If a device already exists with the specified **id**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
+| **createOrUpdateIfMatchETag** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
+| **delete** | If a device already exists with the specified **id**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
+| **deleteIfMatchETag** | If a device already exists with the specified **id**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
+
+**Example**:
+
+```
+{"id":"devA","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"delete"}
+{"id":"devB","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"createOrUpdate"}
+{"id":"devC","eTag":"MQ==","status":"enabled","authentication":{"symmetricKey":{"primaryKey":"123","secondaryKey":"123"}}, "importMode":"create"}
 ```
 
 ## Security <a id="security"></a>
@@ -556,3 +614,4 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
+[lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
