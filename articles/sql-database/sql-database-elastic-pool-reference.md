@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="12/01/2015"
+	ms.date="01/28/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -44,8 +44,8 @@ An elastic database pool is a collection of elastic database throughput units (e
 
     | Service tier | Max databases per pool* | Max eDTUs per pool* |
     | :-- | :-- | :-- |
-    | Basic | 200 | 1200 |
-    | Standard | 200 | 1200 |
+    | Basic | 400 | 1200 |
+    | Standard | 400 | 1200 |
     | Premium | 50 | 1500 |
 
     ****The current limits for the number of databases per pool and number of pool eDTUs is expected to increase.***
@@ -92,7 +92,7 @@ An elastic database pool is an Azure Resource Manager resource of type “Elasti
 | elasticPoolName | Name of the pool.  The name is unique relative to its parent server. |
 | location | Data center location where the pool was created. |
 | state | State is “Disabled” if payment of the bill for subscription is delinquent, and “Ready” otherwise. |
-| storageMB | Storage limit in MB for the pool.  Any single database in the pool can use up to Standard Edition storage limit (250 GB), but the total of storage used by all databases in the pool cannot exceed this pool limit.   |
+| storageMB | Storage limit in MB for the pool. The total of storage used by all databases in the pool cannot exceed this pool limit.  |
 
 
 ## eDTU and storage limits for elastic pools and elastic databases
@@ -104,9 +104,9 @@ The storage limit of the pool is determined by the amount of eDTUs of the pool.
 | dtu | **100**, 200, 400, 800, 1200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
 | databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1000 |
 | databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
-| storageMB* | **10000 MB**, 20000 MB, 40000 MB, 80000 MB, 120000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1200 GB | **62.5 GB**, 125 GB, 250 GB, 500 GB, 750 GB |
-| storage per DTU | 100 MB | 1 GB | .5 GB |
-| max databases per pool | 200 | 200 | 50 |
+| storageMB* | **10000 MB**, 20000 MB, 40000 MB, 80000 MB, 120000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1200 GB | **250 GB**, 500 GB, 750 GB, 750 GB, 750 GB |
+| storage per DTU | 100 MB | 1 GB | .5 to 2 GB |
+| max databases per pool | 400 | 400 | 50 |
 
 Default values are **bold**.
 
