@@ -111,7 +111,7 @@ Device identities are represented as JSON documents with the following propertie
 | status | required | Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
 | statusReason | optional | A 128 char-long string storing the reason for the device identity status. All UTF-8 characters are allowed. |
 | statusUpdateTime | read-only | Date and time of the last status update. |
-| connectionState | read-only | **Connected** or **Disconnected**, represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using AMQP or MQTT. Also, it is based on protocol-level pings (i.e. MQTT pings, or AMQP pings) and it can have a delay of at most 5 minutes. For these reasons there can be false positives (i.e. devices reported as connected but actually disconnected). |
+| connectionState | read-only | **Connected** or **Disconnected**, represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using AMQP or MQTT. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings) and it can have a delay of at most 5 minutes. For these reasons there can be false positives (such as devices reported as connected but actually disconnected). |
 | connectionStateUpdatedTime | read-only | Date and last time the connection state was updated. |
 | lastActivityTime  | read-only | Date and last time the device connected, received, or sent a message. |
 
