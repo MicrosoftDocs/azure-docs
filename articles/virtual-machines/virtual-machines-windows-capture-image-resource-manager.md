@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-capture-image.md).
 
 
-This article shows you how to use the Azure PowerShell to capture an Azure virtual machine running Windows so you can use it to create other virtual machines. This image includes the OS disk and data disks attached to the virtual machine. It doesn't include the virtual network resources you'll need to create an Azure Resource Manager VM, so you'll need to set those up before you create another virtual machine that uses the image. This image will also be prepared to be a [generalized Windows image](https://technet.microsoft.com/en-us/library/hh824938.aspx).
+This article shows you how to use the Azure PowerShell to capture an Azure virtual machine running Windows so you can use it to create other virtual machines. This image includes the OS disk and data disks attached to the virtual machine. It doesn't include the virtual network resources you'll need to create an Azure Resource Manager VM, so you'll need to set those up before you create another virtual machine that uses the image. This image will also be prepared to be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
 
 
 ## Prerequisites
@@ -60,7 +60,7 @@ You can capture the generalized Windows VM by using either the Azure PowerShell 
 
 ### Using PowerShell
 
-This article assumes you have installed the Azure PowerShell version 1.0.x. We recommend using this version since new Resource Manager features will not be added to older PowerShell versions. Read [Azure PowerShell 1.0](https://azure.microsoft.com/en-us/blog/azps-1-0/) to know more about the version differences.
+This article assumes you have installed the Azure PowerShell version 1.0.x. We recommend using this version since new Resource Manager features will not be added to older PowerShell versions. Read [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) to know more about the version differences.
 
 1. Open the Azure PowerShell 1.0.x and login to your Azure account.
 
@@ -105,7 +105,7 @@ This article assumes you have installed the Azure PowerShell version 1.0.x. We r
 
 ### Using ARM Explorer
 
-[Azure Resource Manager or the ARM Explorer](https://azure.microsoft.com/en-us/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/) is a new tool developed for the Resource Manager deployment model. With this tool, you can easily
+[Azure Resource Manager or the ARM Explorer](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/) is a new tool developed for the Resource Manager deployment model. With this tool, you can easily
 
 - discover the Azure Resource Management APIs
 - get API documentation, and
