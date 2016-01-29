@@ -133,7 +133,7 @@ For example, `.\DeployAzureStack.ps1 –verbose –PublicVLan 305`
 ## Turn off telemetry for Microsoft Azure Stack POC (optional)
 
 
-Before deploying Microsoft Azure Stack POC, you can turn off telemetry for Microsoft Azure Stack on the machine from which the deployment is performed. To turn off this feature on a single machine, please refer to: [http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq](http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq)>, and change the **Diagnostic and usage data** setting to **Basic**.
+Before deploying Microsoft Azure Stack POC, you can turn off telemetry for Microsoft Azure Stack on the machine from which the deployment is performed. To turn off this feature on a single machine, please refer to: [http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq](http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq), and change the **Diagnostic and usage data** setting to **Basic**.
 
 
 
