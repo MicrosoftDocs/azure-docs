@@ -23,7 +23,7 @@ Microsoft Azure is available for purchase in over 140 countries around the world
 
 | Country                         | Currency Code |
 |---------------------------------|---------------|
-| Afghanistan                     | USD           |
+| Afghanistan                     | USD   <ul><li>item1</li><li>item2</li></ul>        |
 | Albania                         | USD           |
 | Angola                          | USD           |
 | Armenia                         | USD           |
