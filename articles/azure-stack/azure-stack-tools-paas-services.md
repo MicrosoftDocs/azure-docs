@@ -21,7 +21,7 @@
 Azure Stack enables deploying Platform as a Service (PaaS) services from Microsoft and other 3rd party providers. You can also download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
 
 ## Additional PaaS services
-The Azure Web Apps PaaS service along with a set of web data services will be available next week for deployment on Azure Stack Technical Preview 1. This will provide the same Azure experience for deploying Web Apps using SQL or MySQL data.
+The Azure Web Apps PaaS service along with a set of web data services will be available for deployment on Azure Stack Technical Preview 1. This will provide the same Azure experience for deploying Web Apps using SQL or MySQL data.
 
 ## Template tools
 
@@ -42,9 +42,3 @@ Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of ope
 [Download the Mac CLI](http://go.microsoft.com/fwlink/?linkid=253471&clcid=0x409)
 
 [Download the Linux CLI](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409)
-
-### Other planned tools
-
-**Visual Studio cloud tools** - Quickly build new applications or deploy existing applications to Azure Stack.
-
-**Azure PowerShell SDK** - Manage Azure and Azure Stack with Windows PowerShell cmdlets. Use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure Stack platform.
