@@ -195,7 +195,7 @@ This is your current configuration.
  
 Your SharePoint intranet farm in a hybrid cloud environment is now ready for testing.
 
-## Next Step
+## Next steps
 
 - Set up the [production workload](../virtual-machines/virtual-machines-workload-intranet-sharepoint-overview.md).
 
