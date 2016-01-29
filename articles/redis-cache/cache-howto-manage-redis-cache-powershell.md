@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2015" 
+	ms.date="01/29/2016" 
 	ms.author="sdanie"/>
 
 # Manage Azure Redis Cache with Azure PowerShell
@@ -59,6 +59,32 @@ To get detailed help for any cmdlet you see in this tutorial, use the Get-Help c
 For example, to get help for the `New-AzureRmRedisCache` cmdlet, type:
 
 	Get-Help New-AzureRmRedisCache -Detailed
+
+## How to connect to Azure Government Cloud or Azure China Cloud
+
+By default the Azure environment is `AzureCloud` which represents the public Azure cloud instance. To connect to a different instance, use the `Add-AzureRmAccount` command with the `-Environment` command line switch with the desired environment name.
+
+To see the list of available environments, run the `Get-AzureRmEnvironment` cmdlet.
+
+### To connect to the AzureGovernment Cloud
+
+To connect to the Azure Government Cloud, use one of the following commands.
+
+	Add-AzureRMAccount -EnvironmentName AzureUSGovernment
+
+or
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
+
+### To connect to the Azure China Cloud
+
+To connect to the Azure China Cloud, use one of the following commands.
+
+	Add-AzureRMAccount -EnvironmentName AzureChinaCloud
+
+or
+
+	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
 
 ## Properties used for Azure Redis Cache PowerShell
 
