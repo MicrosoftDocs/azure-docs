@@ -16,12 +16,13 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Marketplace Item UI references for Azure Stack
+# Marketplace item UI references for Azure Stack
 
-## Create Blade
+## Create blade
 
 ![](media/azure-stack-marketplace-item-ui-reference/image1.png)
 
-## <span class="anchor"><span id="_Toc438046860" class="anchor"></span></span>Marketplace Item Details Blade
+
+## Marketplace item details blade
 
 ![](media/azure-stack-marketplace-item-ui-reference/image3.png)

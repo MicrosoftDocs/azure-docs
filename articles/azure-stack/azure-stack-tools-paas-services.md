@@ -19,13 +19,14 @@
 # Tools and PaaS services for Azure Stack
 
 ## Overview
-Azure Stack will allow hosting Platform as a Service (PaaS) services from Azure and other providers. This page will contain the latest PaaS services from Microsoft Azure that can deploy on Azure Stack, as well as tools to that will help build these services, interact with them and unlock the full potential of having them in your local Azure Stack.
-Make sure you visit this page often as new Azure services get unlocked for Azure Stack preview.
+Azure Stack enables deploying Platform as a Service (PaaS) services from Microsoft and other 3rd party providers. You can also download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
 
 ## Additional PaaS Services
-Very soon, we will enable hosting Azure Web Apps on Azure Stack as well as some supporting PaaS services to serve as a web app data tier.
+The Azure Web Apps PaaS service along with a set of web data services will be available for deployment on Azure Stack technical preview 1.  This will provide the same Azure experience for deploying Web Apps using SQL or MySQL data.
 
 ## Template Tools
+
+
 ### Azure Stack Github Templates
 Explore the growing collection of [Azure Stack GitHub Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). Just like [Azure](https://github.com/Azure/azure-quickstart-templates), these “Quick Start” Azure Resource Manager templates aim to get you started with simple building blocks and examples, ready to deploy on the Microsoft Azure Stack Technical Preview Proof of Concept Environment. Included are first party workload examples for [ad-non-ha](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/ad-non-ha),[sql-2014-non-ha](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2014-non-ha), [sharepoint-2013-non-ha](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha), as well as several simple 101 templates like [101-simple-windows-vm](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm).
 
