@@ -45,7 +45,7 @@ There are currently a small number of limitations in the ARM support for Azure T
 
 - 'Nested' Traffic Manager endpoints are supported via the ARM API, ARM PowerShell and ARM-mode Azure CLI.  They are not currently supported in the Azure portal (which also uses the ARM API).
 
-- Traffic Manager endpoints of type 'AzureEndpoints', when referencing a Web App, can only reference the default (production) Web App [slot](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/).  Custom slots are not yet supported.  As a workaround, custom slots can be configured using the 'ExternalEndpoints' type. 
+- Traffic Manager endpoints of type 'AzureEndpoints', when referencing a Web App, can only reference the default (production) Web App [slot](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).  Custom slots are not yet supported.  As a workaround, custom slots can be configured using the 'ExternalEndpoints' type. 
 
 ## Setting up Azure PowerShell
 
