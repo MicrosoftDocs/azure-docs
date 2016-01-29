@@ -1,7 +1,7 @@
 <properties
 	pageTitle="In which countries and regions are Microsoft Azure commercially available, and what currencies can be used to purchase Azure? | Microsoft Azure"
-	description="Lists countries in which Azure is commercially available, and the supported currencies."
-	services=""
+	description="Lists the countries in which Azure is commercially available, along with the supported currencies."
+	services="billing"
 	documentationCenter=""
 	authors="genlin"
 	manager="msmbaldwin"
@@ -17,9 +17,9 @@
 	ms.date="01/27/2016"
 	ms.author="genli"/>
 
-# In which countries and regions are Microsoft Azure commercially available, and what currencies can be used to purchase Azure?
+# In which countries and regions is Microsoft Azure commercially available, and what currencies can be used to purchase Azure?
 
-Microsoft Azure is available for purchase in over 140 countries around the world and supports billing in many currencies. Here is a list of countries in which Azure is commercially available, and the currencies that can be used for paying your Azure bill.
+You can purchase Microsoft Azure in more than 140 countries around the world, and many different currencies are supported. Here’s a list of countries where you can buy Azure and the currencies that you can use to pay your Azure bill. 
 
 | Country                         | Currency Code |
 |---------------------------------|---------------|
