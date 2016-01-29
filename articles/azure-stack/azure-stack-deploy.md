@@ -74,7 +74,7 @@ To deploy Azure Stack POC, you must have a valid Microsoft Azure AD account that
 
 This Azure AD account is used as the service administrator account for the environment. The service administrator can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
 
-Save these credentials for use in step 7 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section below. This will be the day 0 administrator.
+Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This will be the day 0 administrator.
 
 You should also create at least one account so you can sign in to the Azure Stack POC as a tenant. Or add users from other AD accounts into your tenant accounts. See Appendix A for instructions on how to add a user in Azure Active Directory.
 
