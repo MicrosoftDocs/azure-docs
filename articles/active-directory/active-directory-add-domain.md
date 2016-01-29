@@ -20,15 +20,15 @@
 
 You can use your own custom domain names to improve and simplify sign-in and other user experiences in Azure Active Directory. For example, if your organization owns the domain name ‘contoso.com,’ your users can sign in with user names they're familiar with, such as ‘joe@contoso.com.'
 
-Every directory in Azure Active Directory comes with a built-in domain name in the form ‘contoso.onmicrosoft.com’ that lets you get started using Azure or other Microsoft services. [Learn about built-in domains](#_Built_in_domain).
+Every directory in Azure Active Directory comes with a built-in domain name in the form ‘contoso.onmicrosoft.com’ that lets you get started using Azure or other Microsoft services. [Learn about built-in domains](active-directory-add-domain-builtin-domains.md).
 
 ## Use your custom domain name with Azure AD
 
 If your organization owns a custom domain name that is familiar to your users, it is a best practice to use that custom domain name with Azure Active Directory. To use a custom domain name with Azure Active Directory, you:
 
--   [Add and verify your custom domain name](#_Add_and_verify)
+-   [Add and verify your custom domain name](active-directory-add-domain-add-verify-general.md)
 
--   [Assign users to the custom domain](#assign-users-to-a-custom-domain)
+-   [Assign users to the custom domain](active-directory-add-domain-add-users.md)
 
 ## Use your custom domain name with Office 365 and other services
 
@@ -42,9 +42,9 @@ Like other resources in your Azure AD, custom domain names that you have added a
 
 Domain names generally require no ongoing management or administration in Azure Active Directory.
 
--   [See the list of domain names in your Azure Active Directory](#_Seeing_the_list)
+-   [See the list of domain names in your Azure Active Directory](active-directory-add-domain-add-users.md)
 
--   [What to do if you change the DNS registrar for your custom domain name](#what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name)
+-   [What to do if you change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.mdfs)
 
 ## Delete a custom domain name
 
@@ -57,7 +57,12 @@ You can delete a custom domain name from your Azure AD if your organization no l
 Most management tasks for domain names in Azure Active Directory can also be completed via PowerShell, or programmatically.
 
 -   [Using PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
+
 -   [Using the Graph API to manage domain names in Azure AD (preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 
-**Add link to company branding**
+## Additional resources
+
+If you need additional resources to understand domain name usage in Azure Active Diretory, try:
+
+- [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
