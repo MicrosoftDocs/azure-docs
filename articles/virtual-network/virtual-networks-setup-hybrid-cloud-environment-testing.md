@@ -291,10 +291,6 @@ This is your current configuration.
  
 Your hybrid cloud environment is now ready for testing.
 
-## Next steps
-
-- Set up a [SharePoint intranet farm](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), a [web-based LOB application](virtual-networks-setup-lobapp-hybrid-cloud-testing.md), or an [Office 365 Directory Synchronization (DirSync) server](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) in this environment.
-
 ## Minimizing the ongoing costs of this environment
 
 To minimize the costs of running the virtual machines in this environment, perform your needed testing and demonstration as quickly as possible and then delete them or shut down the virtual machines when you are not using them. For example, you could use Azure automation and a runbook to automatically shut down the virtual machines in the Test_VNET virtual network at the end of each business day. For more information, see [Get started with Azure Automation](../automation-create-runbook-from-samples.md). 
@@ -318,3 +314,6 @@ Next, log on to RRAS1 as the local administrator and run these commands at an ad
 
 Next, go to the Azure Management Portal on your local computer and wait until the TestVNET virtual network shows a connected status.
  
+## Next steps
+
+- Set up a [SharePoint intranet farm](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), a [web-based LOB application](virtual-networks-setup-lobapp-hybrid-cloud-testing.md), or an [Office 365 Directory Synchronization (DirSync) server](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) in this environment.
