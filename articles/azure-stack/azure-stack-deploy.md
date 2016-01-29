@@ -20,16 +20,12 @@
 
 Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.me)), make sure your computer meets the following requirements.
 
-Before you run the Azure Stack POC installer on a machine, that machine must  be running [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed, including KB 3124262.
-
-
-
 ## Operating system
 
 | | **Requirements**  |
 |---|---|
-| **OS Version** | Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition). |
-| **Install Method** | Clean install. |
+| **OS Version** | [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed, including KB 3124262.|
+| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually the operating system, updates, and KB 3124262.|
 | **Domain joined?** | No. |
 
 ## Network
