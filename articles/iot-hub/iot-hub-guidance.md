@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="11/10/2015"
  ms.author="dobett"/>
 
 # Design your solution
@@ -64,8 +64,6 @@ A field gateway can be *transparent* or *opaque*:
 | Identities that are stored in the IoT Hub identity registry | Identities of all connected devices | Only the identity of the field gateway |
 | IoT Hub can provide [device identity anti-spoofing][lnk-devguide-antispoofing] | Yes | No |
 | [Throttles and quotas][lnk-throttles-quotas] | Apply to each device | Apply to the field gateway |
-
-**Important**: When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
 
 ### Other considerations
 
