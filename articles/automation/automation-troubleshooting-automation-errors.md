@@ -119,9 +119,12 @@ This error is caused when the PowerShell engine cannot find the cmdlet you are u
 
 **Troubleshooting tips:** 
 Any of the following solutions will fix the problem:  
-    - Check if you have entered the cmdlet name correctly, and verify that the path to the cmdlet is correct.  
-    - Make sure the cmdlet exists in your Automation account and there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run **Get-Command ``<CommandName>``**.  Once you have validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and ensure that you are using a valid parameter set in your runbook.  
-    - If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this by using the fully qualified name for the cmdlet, for example, you can use **ModuleName\CmdletName**.  
+
+- Check if you have entered the cmdlet name correctly, and verify that the path to the cmdlet is correct.  
+
+- Make sure the cmdlet exists in your Automation account and there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run **Get-Command ``<CommandName>``**.  Once you have validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and ensure that you are using a valid parameter set in your runbook.  
+
+- If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this by using the fully qualified name for the cmdlet, for example, you can use **ModuleName\CmdletName**.  
 
 
 ## Troubleshoot common errors when working with importing modules 
@@ -133,6 +136,7 @@ My module fails to import or imports successfully, but no cmdlets are extracted.
 
 **Reason:** 
 Some common reasons that a module might not successfully import to Azure Automation are:  
+
 - If the structure does not match the structure Automation needs it to be in.  
 
 - If the module is dependent on another module that has not been deployed to your Automation account.  
@@ -142,13 +146,14 @@ Some common reasons that a module might not successfully import to Azure Automat
 - You are using the **New-AzureRmAutomationModule** cmdlet to upload the module and have not given the full storage path or have not loaded the module using a publicly accessible URL.  
 
 **Troubleshooting tips:**  
-    - Make sure that the module follows the following format:  
+- Make sure that the module follows the following format:  
             ModuleName.Zip  
                 ModuleName or Version Number  
                     ModuleName.psm1  
                     ModuleName.psd1  
-    - Open up the .psd1 file and check if the module has any dependencies.  If it does, upload these modules to the Automation account first.  
-    - Make sure that any referenced .dlls are present in the module folder.  
+- Open up the .psd1 file and check if the module has any dependencies.  If it does, upload these modules to the Automation account first.  
+
+- Make sure that any referenced .dlls are present in the module folder.  
 
 
 
