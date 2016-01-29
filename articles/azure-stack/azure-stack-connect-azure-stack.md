@@ -16,11 +16,12 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Log in to Microsoft Azure Stack POC
+# Log in to Azure Stack POC
 
 There are two ways to log in to the Azure Stack POC.
 
 ## Log in as a service administrator
+
 A service administrator manages resource providers, tenant offers, plans, services, quotas, and pricing.
 
 1.  Log in to the Azure Stack POC physical machine.

@@ -43,9 +43,9 @@ You must have an Azure subscription to use the Azure portal.
 
 2.  In Microsoft Azure left navigation bar, click **Active Directory**.
 
-3.  In the directory list, click your Microsoft Azure Stack directory.
+3.  In the directory list, click the directory that you want to use for Azure Stack, or create a new one.
 
-4.  On the Microsoft Azure Stack directory page, click **Users**.
+4.  On this directory page, click **Users**.
 
 5.  Click **Add user**.
 
