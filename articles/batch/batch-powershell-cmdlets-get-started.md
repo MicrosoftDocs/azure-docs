@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="01/21/2015"
+   ms.date="01/21/2016"
    ms.author="danlep"/>
 
 # Get started with Azure Batch PowerShell cmdlets
