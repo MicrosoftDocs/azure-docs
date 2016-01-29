@@ -1,5 +1,5 @@
 > [AZURE.SELECTOR]
-- [1. Get started(.NET)](app-service-api-dotnet-get-started.md)
+- [1. Get started (.NET)](app-service-api-dotnet-get-started.md)
 - [1. Get started (Node.js)](app-service-api-nodejs-api-app.md)
 - [1. Get started (Java)](app-service-api-java-api-app.md)
 - [2. CORS](app-service-api-cors-consume-javascript.md)
