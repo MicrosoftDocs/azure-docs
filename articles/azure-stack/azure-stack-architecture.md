@@ -18,6 +18,8 @@
 
 # Microsoft Azure Stack POC architecture
 
+The Azure Stack POC architecture includes the virtual machines and other components described here.
+
 ![](media/azure-stack-architecture/image1.png)
 
 **ADVM** Virtual machine that hosts Active Directory, DNS, and DHCP services for Microsoft Azure Stack. These infrastructure foundational services are required to bring up the Azure Stack as well as the ongoing maintenance.

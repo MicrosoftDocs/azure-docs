@@ -157,6 +157,6 @@ You can configure Windows and Mac machines to connect to the Microsoft Azure Sta
 
 14. You should now be able to access the Azure Stack POC externally. You should be able to access the portal at **https://portal.azurestack.local.**
 
-## Next Steps
+## Next steps
 
 [Add an image to the Platform Image Repository](azure-stack-add-image-pir.md)
