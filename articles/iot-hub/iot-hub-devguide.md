@@ -57,6 +57,11 @@ The [IoT Hub APIs and SDKs][lnk-apis-sdks] article describes the various ways to
 
 Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tls] protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
 
+### Notes on MQTT support
+Although the IoT Hub implementation is based on MQTT v3.1.1, it deviates from the specification as follows:
+  * **QoS 2 is not supported**: When a client publishes with QoS 2, IoT hub closes the network connection. When a client subscribes to a topic with QoS 2, IoT Hub grants maximum QoS level 1 in the SUBACK packet.
+  * **Retain**: If RETAIN flag is 1, IoT Hub will add ‘x-opt-retain’ property to the message. This means the IoT Hub doesn’t persist the retain message, but passes it instead to the backend application.
+
 ### How to read from Event Hubs-compatible endpoints <a id="eventhubcompatible"></a>
 
 When you use the [Azure Service Bus SDK for .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) or the [Event Hubs - Event Processor Host][], you can use any IoT Hub connection strings with the correct permissions, and then use **messages/events** as the Event Hub name.
@@ -132,6 +137,8 @@ An IoT Hub device identity registry:
 - Does not support expressive queries.
 
 An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
+
+> [AZURE.IMPORTANT] The device identity registry should be used only for device management and provisioning operations. Runtime high throughput operations should not depend on information in the device identity registry to be performed. For instance, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](#throttling) for the device identity registry.
 
 ### Disabling devices
 
@@ -248,7 +255,7 @@ These are the expected values:
 
 #### Protocol specifics
 
-Each supported protocol, such as AMQP and HTTP, transports tokens in different ways.
+Each supported protocol, such as AMQP, MQTT, and HTTP, transports tokens in different ways.
 
 HTTP implements authentication by including a valid token in the **Authorization** request header. A query parameter called **Authorization** can also transport the token.
 
@@ -262,6 +269,8 @@ For SASL PLAIN, the **username** can be:
 * `{deviceId}` in the case of device-scoped tokens.
 
 In both cases, the password field contains the token, as described in the [Token format](#tokenformat) section.
+
+When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubname}/{deviceId} in the Username field and a SAS token in the Password field.
 
 > [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens when connecting to the service. In some cases, the SDKs do not support all the protocols or all the authentication methods.
 
@@ -356,7 +365,7 @@ For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SD
 
 #### Non-telemetry traffic
 
-In many cases, in addition to telemetry data points, devices also send *interactive* messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the backend, or device responses to commands sent from the backend.
+In many cases, in addition to telemetry data points, devices also send messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the backend, or device responses to commands sent from the backend.
 
 See [Device-to-cloud processing][lnk-guidance-d2c-processing] for more information about the best way to process these kind of messages.
 
@@ -488,13 +497,9 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 
 Each Azure subscription can have at most 10 IoT hubs.
 
-Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send, and the maximum number of device identities in the identity registry. The number of identities in the registry limits the number of simultaneously connected devices.
+Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send.
 
-The SKU also determines the throttling limits that IoT Hub enforces on operations.
-
-### Device identity registry quota
-
-IoT Hub allows at most 1100 device updates (create, update, delete) per unit (irrespective of SKU) per day.
+The SKU also determines the throttling limits that IoT Hub enforces on all operations.
 
 ### Operation throttles
 
@@ -504,12 +509,14 @@ The following is the list of enforced throttles. Values refer to an individual h
 
 | Throttle | Per-hub value |
 | -------- | ------------- |
-| Identity registry operations (create, retrieve, list, update, delete), individual or bulk import/export | 100/min/unit, up to 5000/min |
+| Identity registry operations (create, retrieve, list, update, delete) | 100/min/unit, up to 5000/min |
 | Device connections | 100/sec/unit |
 | Device-to-cloud sends | 120/sec/unit (for S2), 12/sec/unit (for S1). Minimum of 100/sec. |
 | Cloud-to-device operations (sends, receive, feedback) | 100/min/unit |
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
+
+**Important**: Identity registry operations are intended for runtime use in device management and provisioning scenarios. Reading or updating large number of device identities is supported through [import/export jobs](#importexport).
 
 ## Next steps
 
