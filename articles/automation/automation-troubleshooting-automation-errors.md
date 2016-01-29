@@ -147,11 +147,11 @@ Some common reasons that a module might not successfully import to Azure Automat
 
 **Troubleshooting tips:**  
 - Make sure that the module follows the following format:  
-    ModuleName.Zip  
-      ModuleName or Version Number  
-        ModuleName.psm1  
-        ModuleName.psd1  
-        
+      ModuleName.Zip  
+        ModuleName or Version Number  
+          ModuleName.psm1  
+          ModuleName.psd1  
+
 - Open up the .psd1 file and check if the module has any dependencies.  If it does, upload these modules to the Automation account first.  
 
 - Make sure that any referenced .dlls are present in the module folder.  
