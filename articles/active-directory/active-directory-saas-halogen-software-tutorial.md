@@ -148,22 +148,31 @@ The objective of this section is to create a test user in the Azure portal calle
 <br><br>![What is Azure AD Connect][102] 
 5. On the **Tell us about this user** dialog page, perform the following steps:
 <br><br>![What is Azure AD Connect][103] 
-  a. As **Type Of User**, select **New user in your organization**.
-  b. In the User Name **textbox**, type **BrittaSimon**.
-  c. Click Next.
+ 
+    a. As **Type Of User**, select **New user in your organization**.
+
+    b. In the User Name **textbox**, type **BrittaSimon**.
+
+    c. Click Next.
 6.  On the **User Profile** dialog page, perform the following steps: 
 <br><br>![What is Azure AD Connect][104] 
-  a. In the **First Name** textbox, type **Britta**.  
-  b. In the **Last Name** txtbox, type, **Simon**.
-  c. In the **Display Name** textbox, type **Britta Simon**.
-  d. In the **Role** list, select **User**.
-  e. Click **Next**.
+
+    a. In the **First Name** textbox, type **Britta**.  
+
+    b. In the **Last Name** txtbox, type, **Simon**.
+
+    c. In the **Display Name** textbox, type **Britta Simon**.
+
+    d. In the **Role** list, select **User**.
+
+    e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
 <br><br>![What is Azure AD Connect][105]  
 8. On the **Get temporary password** dialog page, perform the following steps:
 <br><br>![What is Azure AD Connect][106]   
-  a. Write down the value of the **New Password**.
-  b. Click **Complete**.   
+
+    a. Write down the value of the **New Password**.
+    b. Click **Complete**.   
   
  
 ### Creating a Halogen Software test user
