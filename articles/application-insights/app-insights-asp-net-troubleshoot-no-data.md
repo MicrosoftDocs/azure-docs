@@ -52,6 +52,11 @@ Fix:
 + [Add Application Insights to your existing project](app-insights-asp-net.md): In Solution Explorer, right click your project and choose "Add Application Insights."
 + If it still isn't working, follow the [manual procedure](app-insights-start-monitoring-app-health-usage.md) to add a resource in the portal and then add the SDK to your project. 
 
+## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
+
+Looks like something went wrong while you were installing Application Insights or maybe a logging adapter.
+
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Configure Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one.
 
 
 ##<a name="NuGetBuild"></a> "NuGet package(s) are missing" on my build server
@@ -113,6 +118,18 @@ Fix:
 
 * In Solution Explorer, right-click the project and choose Application Insights, Configure Application Insights. In the dialog, you can either choose to send telemetry to an existing resource, or create a new one. Or:
 * Open the resource directly. Sign in to [the Azure portal](https://portal.azure.com), click Application Insights on the left navigation bar, and then select your app.
+
+
+
+## Where do I find my telemetry?
+
+*I signed in to the [Microsoft Azure portal](https://portal.azure.com), and I'm looking at the Azure home dashboard. So where do I find my Application Insights data?*
+
+* On the left navigation bar, click Application Insights, then your app name. If you don't have any projects there, you need to [add or configure Application Insights in your web project](app-insights-asp-net.md).
+
+    There you'll see some summary charts. You can click through them to see more detail.
+
+* In Visual Studio, while you're debugging your app, click the Application Insights button.
 
 
 ## <a name="q03"></a> No server data (or no data at all)
