@@ -63,7 +63,7 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 |  | [Company branding (Log-on pages and Access Panel customization)](active-directory-add-company-branding.md)|  | ![Check][12]| ![Check][12]| ![Check][12]|
 |  | [Application Proxy](active-directory-application-proxy-get-started.md)|  | ![Check][12]| ![Check][12]|  |
 |  | [High availability SLA uptime (99.9%)](https://azure.microsoft.com/support/legal/sla/)|  | ![Check][12]| ![Check][12]| ![Check][12]|
-| **Premium only features**| [Self-service group management / self-service application addition / dynamic group membership](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)|  |  | ![Check][12]|  |
+| **Premium only features**| [Self-service group management](active-directory-accessmanagement-self-service-group-management.md) / self-service application addition / [dynamic group membership](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups)|  |  | ![Check][12]|  |
 |  | [Multi-Factor Authentication (cloud and on-premises)](multi-factor-authentication.md)|  |  | ![Check][12]| Limited cloud-only for Office 365 Apps|
 |  | [Microsoft Identity Manager (MIM) user licenses and MIM server [3]](http://www.microsoft.com/server-cloud/products/microsoft-identity-manager/default.aspx)|  |  | ![Check][12]|  |
 |  | [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)|  |  | ![Check][12]|  |
@@ -94,8 +94,8 @@ In addition to the generally available features of the Free, Basic, and Premium 
 
 - [B2B collaboration](active-directory-b2b-collaboration-overview.md)
 - PIM
-- Conditional Access
-- Administrative Units
+- [Conditional Access](overview active-directory-conditional-access.md)
+- [Administrative Units](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [HR application Integration](active-directory-saas-workday-inbound-tutorial.md)
 
