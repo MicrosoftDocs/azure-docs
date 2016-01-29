@@ -13,12 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="01/08/2016"
+   ms.date="01/29/2016"
    ms.author="maroche"/>
 
 # What's new in Azure Data Catalog
 
 Updates to **Azure Data Catalog** are released on a regular basis. Not every release will include new user-facing features, as some releases are focused on back-end service capabilities. This page will highlight new user-facing capabilities added to the **Azure Data Catalog** service.
+
+## What's new for the week of January 29, 2016 release
+
+As of the week of January 29, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Support for manually registering additional data data source. Users can now use "Create Manual Entry" in the **Azure Data Catalog** portal, or use the **Azure Data Catalog** REST API to register the following data sources:
+   + OData - Function, Entity Set, and Entity Container
+   + HTTP - File, Endpoint, Report, and Site
+   + File System - File
+   + SharePoint - List
+   + FTP - File and Directory
+   + Salesforce.com - Object
+   + DB2 - Table, View, and Database
+   + PostgreSQL - Table, View, and Database
+- Support for "Open in SQL Server Data Tools" for SQL Server (including Azure SQL DB and Azure SQL Data Warehouse) data sources.  
+
+> [AZURE.NOTE] "Open in SQL Server Data Tools" requires Visual Studio 2013 with Update 4 and SQL Server Tooling to be installed. To install the latest version of SQL Server Data Tools, visit [Download SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx).
+
+## What's new for the week of January 22, 2016 release
+
+As of the week of January 22, 2016, the following capabilities have been added to Azure Data Catalog:
+
+- Support for registering and discovering SAP HANA views and packages. Users can register SAP HANA data sources using the **Azure Data Catalog** data source registration tool, and can annotate and discover registered SAP HANA data sources using the **Azure Data Catalog** portal.
 
 ## What's new for the week of January 8, 2016 release
 
@@ -43,8 +66,6 @@ As of the week of December 4, 2015, the following capabilities have been added t
 - Support for SPNEGO and Windows authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using SPNEGO and Windows as well as LDAP and TD2 authentication.
 - Support for Azure Data Lake Store data sources. Users can now register and discover Azure Data Lake Store data sources using Azure Data Catalog.
 - Support for manually specifying network proxy settings in the Azure Data Catalog data source registration tool. Users can select "Modify proxy settings" from the tool's welcome page, and can specify the proxy address and port to be used by the tool.
-
-> [AZURE.NOTE] "Open in Power BI Desktop" requires a current version of the Power BI Desktop application to be installed. If you encounter problems or errors using this feature, please ensure that you have the latest version of Power BI Desktop from [PowerBI.com](https://powerbi.com/).
 
 
 ## What's new for the week of November 20, 2015 release
