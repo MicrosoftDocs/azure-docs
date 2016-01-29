@@ -125,11 +125,11 @@ You can use the ARM Explorer to capture the virtual machine, as an alternative t
 
 4. On the top right side of the template page, you should see tabs for the various operations available for this virtual machine. Click the tab for **Actions (POST/DELETE)**.
 
-	![ARM Explorer set Read/Write](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_ActionMenu.png)
+	![ARM Explorer Action menu](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_ActionMenu.png)
 
 5. You will see a list of all the actions that you can perform on the virtual machine.
 
-	![ARM Explorer set Read/Write](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_ActionItems.png)
+	![ARM Explorer Action buttons](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_ActionItems.png)
 
 6. Deallocate the virtual machine by clicking the action button for **deallocate**. The status of your VM will change from **Stopped** to **Stopped (deallocated)**.
 
