@@ -16,7 +16,7 @@
 	ms.date="01/29/2016"
 	ms.author="erikje"/>
 
-# Overview: Microsoft Azure Stack
+# Introduction to Azure Stack
 
 Azure Stack extends the Azure vision by bringing the cloud model of computing to every datacenter. Azure Stack is a new hybrid cloud platform product that enables organizations to deliver Azure services from their own datacenter in a way that is consistent with Azure.  In this way customers can focus on business innovation rather than spend time building their own cloud computing platform.   
 
@@ -26,7 +26,7 @@ This all adds up to an environment in which application developers can maximize 
 
 >[AZURE.NOTE] The first release of Azure Stack is Technical Preview 1. Some of the features described will come at different times during the preview cycle.
 
-## Developer and IT Professional Experiences
+## Developer and IT professional experiences
 
 Developers and IT pros have an experience with Azure Stack that is consistent to that which they experience in Azure.  This is fundamentally made possible because the Azure Stack portal environment is the same code as Azure.  However, the real innovation of Azure Stack is the implementation of an identical cloud API as Azure, so there is a consistent developer experience across clouds. Simply connecting to a portal to choose from preconfigured patterns is not enough; the definition of self-service has evolved to include programmatic access to the cloud API for the creation, deployment and operations of workloads in a cloud.  
 
@@ -47,6 +47,6 @@ A consistent API surface area between Azure and Azure Stack is the path to a set
 These are all examples of the breadth of impact enabled by this hybrid cloud platform. In each area Azure customers should be confident that their investments in people, processes and technologies will be transferable between Azure and Azure Stack.  
 
 
-## Next Steps
+## Next steps
 
 [What is Azure Stack Technical Preview 1?](azure-stack-poc.md)

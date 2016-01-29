@@ -28,7 +28,7 @@ Microsoft Azure Stack Technical Preview 1 release is being made available throug
 
 -   With all components deployed on the single machine, there are limited physical resources available for tenant resources. This configuration is not intended for scale and performance evaluation.
 
--   Limited Networking scenarios due to single host/NIC requirement
+-   Networking scenarios are limited due to the single host/NIC requirement.
 
 ## Next Steps
 

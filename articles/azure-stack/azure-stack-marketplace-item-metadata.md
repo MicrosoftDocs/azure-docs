@@ -16,9 +16,9 @@
 	ms.date="01/04/2016"
 	ms.author="erikje"/>
 
-# Marketplace Item metadata for Azure Stack
+# Marketplace item metadata for Azure Stack
 
-## Identity Information
+## Identity information
 
 | NAME      | REQUIRED | TYPE   | CONSTRAINTS                     | DESCRIPTION |
 |-----------|----------|--------|---------------------------------|-------------|
@@ -61,7 +61,7 @@ Each marketplace item can include a variety of links to additional content. The 
 | DisplayName | X        | string | max of 64 characters |             |
 | Uri         | X        | uri    |                      |             |
 
-## Additional Properties
+## Additional properties
 
 In addition to the above metadata, marketplace authors can also provide custom key/value pair data in the following form.
 
@@ -70,12 +70,12 @@ In addition to the above metadata, marketplace authors can also provide custom k
 | DisplayName | X        | string | max of 25 characters |             |
 | Value       | X        | string | max of 30 characters |             |
 
-## HTML Sanitization
+## HTML sanitization
 
 For any field that allows HTML, the following elements and attributes are allowed.
 
 "h1", "h2", "h3", "h4", "h5", "p", "ol", "ul", "li", "a[target|href]", "br", "strong", "em", "b", "i"
 
-## Next Steps
+## Next steps
 
 [Marketplace Item UI References](azure-stack-marketplace-item-ui-reference.md)
