@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="01/28/2016" 
 	ms.author="josephd"/>
 
 # Set up a hybrid cloud environment for testing
@@ -291,19 +291,9 @@ This is your current configuration.
  
 Your hybrid cloud environment is now ready for testing.
 
-## Additional resources
+## Next Step
 
-[Set up a SharePoint intranet farm in a hybrid cloud for testing](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Set up a web-based LOB application in a hybrid cloud for testing](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
-
-[Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-
-[Azure hybrid cloud test environments](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
-
-[Azure infrastructure services implementation guidelines](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
+- Set up a [SharePoint intranet farm](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), a [web-based LOB application](virtual-networks-setup-lobapp-hybrid-cloud-testing.md), or an [Office 365 Directory Synchronization (DirSync) server](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) in this environment.
 
 ## Minimizing the ongoing costs of this environment
 
