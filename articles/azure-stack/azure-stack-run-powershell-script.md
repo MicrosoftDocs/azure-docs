@@ -35,7 +35,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 	-   WindowsServer2012R2DatacenterEval.vhd
 
-	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD
+	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD (includes KB 3124262)
 
 	**Important**: You must have at least 128GB of free space on the physical boot volume.
 
