@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Using tags to organize your Azure resources | Microsoft Azure"
 	description="Shows how to apply tags to organize resources for billing and managing."
 	services="azure-resource-manager"
@@ -27,7 +27,7 @@ Each tag you add to a resource or resource group is automatically added to the s
 
 Each resource or resource group can have a maximum of 15 tags. The tag name is limited to 512 characters, and the tag value is limited to 256 characters.
 
-> [AZURE.NOTE] You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the Azure portal or [Service Management API](../services/api-management/)), you cannot apply a tag to that resource. You must re-deploy these resources through Resource Manager to support tagging. All other resources support tagging.
+> [AZURE.NOTE] You can only apply tags to resources that support Resource Manager operations. If you created a Virtual Machine, Virtual Network, or Storage through the classic deployment model (such as through the classic portal or Service Management API), you cannot apply a tag to that resource. You must re-deploy these resources through Resource Manager to support tagging. All other resources support tagging.
 
 ## Tags in templates
 
@@ -168,7 +168,7 @@ The portal and PowerShell both use the [Resource Manager REST API](https://msdn.
 
 ## Tagging and billing
 
-For supported services, you can use tags to group your billing data. For example, [Virtual Machines integrated with Azure Resource Manager](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) enable
+For supported services, you can use tags to group your billing data. For example, [Virtual Machines integrated with Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md) enable
 you to define and apply tags to organize the billing usage for virtual machines. If you are running multiple VMs for different organizations, you can use the tags to group usage by cost center.  
 You can also use tags to categorize costs by runtime environment; such as, the billing usage for VMs running in production environment.
 
@@ -184,4 +184,4 @@ When you download the usage CSV for services that support tags with billing, the
 - You can apply restrictions and conventions across your subscription with customized policies. The policy you define could require that a particular tag be set for all resources. For more information, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 - For an introduction to using Azure PowerShell when deploying resources, see [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md).
 - For an introduction to using Azure CLI when deploying resources, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
-- For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](./resource-group-portal.md)  
+- For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](./azure-portal/resource-group-portal.md)  

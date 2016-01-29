@@ -50,7 +50,7 @@ For more information about configuring your virtual machines for high availabili
 
 By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA), which requires that two or more virtual machines are deployed under the same availability set.
 
-For more information about SLAs, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
+For more information about SLAs, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 
 ## Multi-instance configuration updates

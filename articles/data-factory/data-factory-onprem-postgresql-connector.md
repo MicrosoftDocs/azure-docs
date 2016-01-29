@@ -30,9 +30,13 @@ Data factory only supports moving data from PostgreSQL to other data stores, not
 
 For Data Management Gateway to connect to the PostgreSQL Database, you need to install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) on the same system as the Data Management Gateway.
 
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+
 ## Sample: Copy data from PostgreSQL to Azure Blob
 
-The sample below shows:
+This sample shows how to copy data from a PostgreSQL database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#postgresql-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).

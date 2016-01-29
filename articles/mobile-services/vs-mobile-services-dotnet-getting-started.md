@@ -3,7 +3,7 @@
 	description="How to get started with Azure Mobile Services in a Visual Studio .NET project"
 	services="mobile-services"
 	documentationCenter=""
-	authors="TomArcher"
+	authors="mlhoop"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="01/05/2016"
-	ms.author="tarcher"/>
+	ms.author="mlearned"/>
 
 # Getting Started with Mobile Services (.NET Projects)
 
@@ -81,4 +81,4 @@ Delete a row in the database. The parameter item is the TodoItem object to be de
 	await todoTable.DeleteAsync(item);
 
 
-[Learn more about mobile services](http://azure.microsoft.com/documentation/services/mobile-services/)
+[Learn more about mobile services](https://azure.microsoft.com/documentation/services/mobile-services/)

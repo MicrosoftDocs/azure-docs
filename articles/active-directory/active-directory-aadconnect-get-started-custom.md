@@ -1,7 +1,8 @@
-﻿<properties
+<properties
 	pageTitle="Azure AD Connect: Custom installation | Microsoft Azure"
-	description="This document details the custom installation options for Azure AD Connect."
+	description="This document details the custom installation options for Azure AD Connect. Use these instructions to install Active Directory through Azure AD Connect."
 	services="active-directory"
+    keywords="what is Azure AD Connect, install Active Directory, required components for Azure AD"
 	documentationCenter=""
 	authors="billmath"
 	manager="stevenpo"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/25/2016"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -71,6 +72,7 @@ This account is only used to create a service account in Azure AD and is not use
 
 ![User Signin](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
+If you receive an error and have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ## Pages under the section Sync
 
@@ -123,7 +125,7 @@ This screen allows you to select the optional features for your specific scenari
 
 Optional Features      | Description
 -------------------    | ------------- |
-Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Azure by synchronizing a specific set of [attributes](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory.
+Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Azure by synchronizing a specific set of [attributes](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory.
 Azure AD app and attribute filtering|By enabling Azure AD app and attribute filtering, the set of synchronized attributes can be tailored to a specific set on a subsequent page of the wizard.  This opens two additional configuration pages in the wizard.  
 Password synchronization | You can enable this option if you selected federation as the sign-in solution. Password synchronization can then be used as a backup option. For additional information see [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md).
 Password writeback|By enabling password writeback, password changes that originate with Azure AD will be written back to your on-premises directory. For additional information see [Getting started with password management](active-directory-passwords-getting-started.md).

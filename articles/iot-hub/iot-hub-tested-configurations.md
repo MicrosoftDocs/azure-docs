@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/15/2016"
+     ms.date="01/29/2016"
      ms.author="hegate"/>
 
 # OS Platforms and hardware compatibility with device SDKs
@@ -116,6 +116,8 @@ Each device has been certified to work with our SDK in the OS and language chose
 
 |Device| Tested OS |Language|
 |:---------|:----------|:----------|
+|[AAEON PICO-BT01](http://www.aaeon.com/en/p/pico-itx-boards-pico-bt01) |Windows 10 | C#|
+|[AAEON UP](http://www.aaeon.com/) |Windows 10 | C#|
 |[Acme Systems Arietta G25](http://www.acmesystems.it/arietta) |Debian | C|
 |[ADLINK MXE-202i](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1589) |Wind River | Javascript|
 |[ADLINK MXE-5400](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1318) |Windows 10 | C#|
@@ -130,12 +132,17 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[Axiomtek ICO300](http://www.axiomtek.com/Default.aspx?MenuId=Products&FunctionId=ProductView&ItemId=1151) |Windows 10 | C#|
 |[BeagleBone Black](http://beagleboard.org/black) | Debian | C, Javascript, Java|
 |[BeagleBone Green](http://beagleboard.org/green) |Debian | C, Javascript, Java|
+|[ComponentSoft RFID Tunnel](http://www.componentsoft.com/) |Windows 10 | C#|
 |[Dell Edge Gateway 5000 Series](http://www.dell.com/IoTgateway) |Ubuntu | Java|
+|[e-con Systems Almach](http://www.e-consystems.com/DM3730-development-board.asp) |Linux Yocto | C|
 |[e-con Systems Ankaa](http://www.e-consystems.com/iMX6-development-board.asp) |Ubuntu | C|
 |[embedded systems LogicMachine Series](http://openrb.com/products/) |Custom Linux | C|
 |[Freescale FRDM K64](http://www.freescale.com/products/arm-processors/kinetis-cortex-m/k-series/k6x-ethernet-mcus/freescale-freedom-development-platform-for-kinetis-k64-k63-and-k24-mcus:FRDM-K64F) |mbed 2.0 | C|
 |[HPE Edgeline EL10](http://www8.hp.com/h20195/v2/GetPDF.aspx/c04884747.pdf) |Windows 10 | C#|
 |[HPE Edgeline EL20](http://www8.hp.com/h20195/v2/GetPDF.aspx/c04884769.pdf) |Windows 10 | C#|
+|[IEI ICECARE-10W](http://ieiworld.com/ieimobile/ICECARE-10W/UserManual/ICECARE-10W_UMN_v1.02.pdf) |Windows 10 | C#|
+|[IEI DRPC-120](http://www.ieiworld.com/product_groups/industrial/content.aspx?gid=09049552811981014603&cid=0D182494345754583862&id=0E318374091597499543#.VqW3Q_l97Dd) |Windows 10 | C#|
+|[IEI IVS-100-BT](http://tw.ieiworld.com/product_groups/industrial/content.aspx?gid=09049552811981014603&cid=0F202412454715193114&id=0F202496627608256517#.VqH1hvl97Dc) |Windows 10 | C#|
 |[Ilevia Eve Raspberry](http://www.ilevia.com/overview/) |Debian | C|
 |[Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) |Yocto | C, Javascript|
 |[Libelium Meshlium Xtreme](http://www.libelium.com/products/meshlium/) |Debian | Java|
@@ -152,7 +159,9 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[Toradex Colibri T20](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-2) |Linux Angstrom(Yocto) | Java|
 |[Toradex Colibri T30](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-3) |Windows 10 IoT Core | C#|
 |[Toradex Colibri VF61](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-vybrid-vf6xx) |Linux Angstrom(Yocto) | Javascript, Java|
+|[Trex NGP](http://www.trex.com.tr/en/donanim_dcasngp8739_73.php) |Windows 10 | C#|
 |[Trueverit V4](http://www.trueverit.com/) |Custom Linux | C|
+|[USISH EDA8909](http://www.usish.com/) |Windows 10 | C#|
 
 [Get started using these devices](https://azure.microsoft.com/develop/iot/get-started/) or visit our GitHub [repository](https://github.com/Azure/azure-iot-sdks) and search on device docs per language.
 

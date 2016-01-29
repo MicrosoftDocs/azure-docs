@@ -1,6 +1,7 @@
 <properties 
-	pageTitle=".NET samples on github for DocumentDB | Microsoft Azure" 
-	description="Find C# .NET samples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases." 
+	pageTitle=".NET NoSQL example for DocumentDB | Microsoft Azure" 
+	description="Find C# .NET NoSQL examples on github for common tasks in DocumentDB, including CRUD operations for JSON documents in NoSQL databases." 
+	keywords="NoSQL example"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -17,21 +18,21 @@
 	ms.author="mimig"/>
 
 
-# DocumentDB .NET samples
+# DocumentDB .NET examples
 
 > [AZURE.SELECTOR]
-- [.NET Samples](documentdb-dotnet-samples.md)
-- [Node.js Samples](documentdb-nodejs-samples.md)
+- [.NET Examples](documentdb-dotnet-samples.md)
+- [Node.js Examples](documentdb-nodejs-samples.md)
 - [Azure Code Sample Gallery](https://azure.microsoft.com/documentation/samples/?service=documentdb)
 
 Sample solutions that perform CRUD operations and other common operations on DocumentDB resources are included in the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) GitHub repository. This article provides:
 
-- Links to the tasks in each of the sample C# project files. 
+- Links to the tasks in each of the example C# project files. 
 - Links to the related API reference content.
 
 **Prerequisites**
 
-1. You need an Azure account to use these samples:
+1. You need an Azure account to use these NoSQL examples:
     - You can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged.
    - You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 2. You also need the [Microsoft.Azure.DocumentDB NuGet package](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
@@ -39,7 +40,7 @@ Sample solutions that perform CRUD operations and other common operations on Doc
 > [AZURE.NOTE]
 Each sample is self-contained, it sets itself up and cleans up after itself. As such, the samples issue multiple calls to CreateDocumentCollectionAsync(). Each time this is done your subscription is billed for 1 hour of usage per the performance tier of the collection being created. 
 
-## Database samples
+## Database examples
 
 The [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) method of the sample of the DatabaseManagement project shows how to perform the following tasks.
 
@@ -51,7 +52,7 @@ Task | API reference
 [List databases for an account](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L108-L113) | [DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx)
 [Delete a database](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) | [DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx)
 
-## Collection samples 
+## Collection examples 
 
 The [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) method of the sample CollectionManagement project shows how to do the following tasks.
 
@@ -64,7 +65,7 @@ Task | API reference
 [Read a list of all collections in a database](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L162) | [DocumentClient.ReadDocumentCollectionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentcollectionfeedasync.aspx)
 [Delete a collection](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) | [DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx)
 
-## Document samples
+## Document examples
 
 The [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) method of the sample DocumentManagement project shows how to do the following tasks.
 
@@ -79,7 +80,7 @@ Task | API reference
 [Delete document](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L322) | [DocumentClient.DeleteDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentasync.aspx)
 [Working with .NET dynamic objects](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L331-L380) | [DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx)<br>[DocumentClient.ReadDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentasync.aspx)<br>[DocumentClient.ReplaceDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentasync.aspx)
 
-## Indexing samples
+## Indexing examples
 
 The [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) method of the sample IndexManagement project shows how to perform the following tasks.
 
@@ -95,7 +96,7 @@ Task | API reference
 
 For more information about indexing, see [DocumentDB indexing policies](documentdb-indexing-policies.md).
  
-## Partitioning samples
+## Partitioning examples
 
 The partitioning sample file, [azure-documentdb-net/samples/code-samples/Partitioning/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Partitioning/Program.cs), shows how to do the following tasks. In some cases, additional helper files are used to complete the task.
 
@@ -113,7 +114,7 @@ Task | API reference
 
 For more information about partitioning and sharding, see [Partition and scale data in DocumentDB](documentdb-partition-data.md).
 
-## Geospatial samples  
+## Geospatial examples  
 
 The geospatial sample file, [azure-documentdb-net/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), shows how to do the following tasks.  
  
@@ -128,7 +129,7 @@ Task | API reference
  
 For more information about working with Geospatial data, see [Working with Geospatial data in Azure DocumentDB](documentdb-geospatial.md).  
  
-## Query samples
+## Query examples
 
 The query document file, [azure-documentdb-net/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries/Program.cs), shows how to do each of the following tasks using the SQL query grammar, the LINQ provider with query, and with Lambda.
 
@@ -149,7 +150,7 @@ Task | API reference
 For more information about writing queries, see [SQL query within DocumentDB](documentdb-sql-query.md).
 
 
-## Server-side programming samples
+## Server-side programming examples
 
 The server-side programming file, [azure-documentdb-net/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/ServerSideScripts/Program.cs), shows how to do the following tasks.
 
@@ -165,7 +166,7 @@ Task | API reference
 
 For more information about server-side programming, see [DocumentDB server-side programming: Stored procedures, database triggers, and UDFs](documentdb-programming.md).
 
-## User management samples
+## User management examples
 
 The user management file, [azure-documentdb-net/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs), shows how to do the following tasks.
 
