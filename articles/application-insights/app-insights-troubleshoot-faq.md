@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="01/26/2016" 
 	ms.author="awills"/>
  
 # Troubleshooting and Questions - Application Insights for ASP.NET
@@ -63,7 +63,7 @@ Remedy:
 
 Looks like something went wrong while you were installing Application Insights or maybe a logging adapter.
 
-In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one.
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Configure Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one.
 
 
 #### <a name="q14"></a>What does Application Insights modify in my project?
@@ -136,7 +136,7 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 
 #### <a name="q03"></a>I added Application Insights successfully and ran my app, but I've never seen data in the portal.
 
-+ On the Overview page, click the Search tile to open Diagnostic Search. Data appears here first.
++ On the Overview page, click the Search tile to open Diagnostic Search. Data usually appears here first.
 + Click the Refresh button. The blade refreshes itself periodically, but you can also do it manually. The refresh interval is longer for larger time ranges.
 + In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 + Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/).
@@ -166,8 +166,11 @@ See the [release notes](app-insights-release-notes.md) for the SDK appropriate t
 
 * **Sampling.** If your application sends a lot of data and you are using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the adaptive sampling feature may operate and send only a percentage of your telemetry. You can disable it. [Learn more about sampling.](app-insights-sampling.md)
 
+#### User telemetry shows wrong geographical data
 
-#### <a name="q08"></a>Can I use Application Insights to monitor an intranet web server?
+The city, region, and country dimensions are derived from IP addresses and aren't always accurate.
+
+## <a name="q08"></a>Can I use Application Insights to monitor an intranet web server?
 
 Yes, you can monitor health and usage if your server can send data to the public internet. In your firewall, open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 
@@ -239,7 +242,7 @@ If your web service is running in an Azure VM, you can also [get diagnostics][az
 
 ## Automation
 
-You can [write a PowerShell script](app-insights-powershell-script-create-resource.md) to create an Application Insights resource.
+You can [write PowerShell scripts](app-insights-powershell.md) to create and update Application Insights resources.
 
 ## More answers
 
