@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-capture-image.md).
 
 
-This article shows you how to use the Azure PowerShell to capture an Azure virtual machine running Windows so you can use it to create other virtual machines. This image includes the OS disk and data disks attached to the virtual machine. It doesn't include the virtual network resources you'll need to create an Azure Resource Manager VM, so you'll need to set those up before you create another virtual machine that uses the image. This image will also be prepared to be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
+This article shows you how to use the Azure PowerShell to capture an Azure virtual machine running Windows so you can use it to create other virtual machines. This image includes the OS disk and data disks attached to the virtual machine. It doesn't include the virtual network resources you'll need to create a Windows VM, so you'll need to set those up before you create another virtual machine that uses the image. This image will also be prepared to be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
 
 
 ## Prerequisites
@@ -41,7 +41,7 @@ This section shows you how to generalize your Windows virtual machine. This remo
 
 3. Change the directory to `%windir%\system32\sysprep`, and then run sysprep.exe.
 
-4. 	The **System Preparation Tool** dialog box appears. Do the following:
+4. In the **System Preparation Tool** dialog box, do the following:
 
 	- In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked. For more information about using Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
@@ -54,6 +54,7 @@ This section shows you how to generalize your Windows virtual machine. This remo
 5.	Sysprep shuts down the virtual machine. It's status changes to **Stopped** in the Azure portal.
 
 
+</br>
 ## Capture the VM
 
 You can capture the generalized Windows VM by using either the Azure PowerShell or the new Azure Resource Manager (ARM) Explorer tool. This section will show you the steps for both.
@@ -100,18 +101,18 @@ This article assumes you have installed the Azure PowerShell version 1.0.x. We r
 
 	The `-Path` variable is optional and can be used to save the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images in. The URL of the image stored will be similar to `https://YourStorageAccountName.blob.core.windows.net/system/Microsoft.Compute/Images/YourImagesContainer/YourTemplatePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`. It will be created in the same storage account as that of the original virtual machine.
 
-	>[AZURE.NOTE] To find the location of your image, open the local JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. As of now, there is no easy way to check these images on the portal, since the _system_ container in the storage account is hidden. For this reason, although the `-Path` variable is optional, you definitely want to use it to save the template locally and to find out the image URL.
+	>[AZURE.NOTE] To find the location of your image, open the local JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. As of now, there is no easy way to check these images on the portal, since the _system_ container in the storage account is hidden. For this reason, although the `-Path` variable is optional, you definitely want to use it to save the template locally and to easily find out the image URL. Alternatively, you can find this out using a tool called the **Azure Storage Explorer** which is explained in the next section.
 
 
 ### Using ARM Explorer
 
 [Azure Resource Manager or the ARM Explorer](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/) is a new tool developed for the Resource Manager deployment model. With this tool, you can easily
 
-- discover the Azure Resource Management APIs
+- discover the Azure Resource Management APIs,
 - get API documentation, and
-- make actual API calls directly in your Azure subscriptions
+- make actual API calls directly in your Azure subscriptions.
 
-To know more what all you can do with this powerful tool, view the video at [Azure Resource Manager Explorer with David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo).
+To know more about what all you can do with this powerful tool, view the video at [Azure Resource Manager Explorer with David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo).
 
 You can use the ARM Explorer to capture the virtual machine, as an alternative to the PowerShell method.
 
@@ -143,28 +144,28 @@ You can use the ARM Explorer to capture the virtual machine, as an alternative t
 
 9. To access the new image VHD as well as the template, download and install the Azure tool for managing storage resources, the [Azure Storage Explorer](http://storageexplorer.com/). It will install the Azure Storage Explorer locally on your machine.
 
-- Open the Storage Explorer and login to your Azure subscription. It should show you all the storage accounts available to your subscription.
+	- Open the Storage Explorer and login to your Azure subscription. It should show you all the storage accounts available to your subscription.
 
-- On the left hand side, you should see the storage account of the virtual machine which we captured in the above steps. Double click on the **system** menu underneath it. You should see the contents of the **system** folder on the right side.
+	- On the left hand side, you should see the storage account of the virtual machine which we captured in the above steps. Double click on the **system** menu underneath it. You should see the contents of the **system** folder on the right side.
 
-	![Storage Explorer system](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer1.png)
+		![Storage Explorer system](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer1.png)
 
-- Double click **Microsoft.Compute** and then **Images** which will show you all your image folders. Double click on the folder name that you entered for the **destinationContainerName** variable while capturing the image from ARM Explorer. It will show you both the VHD as well as the JSON template file.
+	- Double click **Microsoft.Compute** and then **Images** which will show you all your image folders. Double click on the folder name that you entered for the **destinationContainerName** variable while capturing the image from ARM Explorer. It will show you both the VHD as well as the JSON template file.
 
-- From here, you can either find out the URL or download the VHD/template by right clicking on it.
+	- From here, you can either find out the URL or download the VHD/template by right clicking on it.
 
-	![Storage Explorer template](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer2.png)
+		![Storage Explorer template](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer2.png)
 
 
 ## Deploy a new VM from the captured image
 
-Now you can use the image template to create a new Windows VM. These steps show you how to use the Azure PowerShell and the VM image captured in the above steps, to create the VM in a new virtual network.
+Now you can use the captured image to create a new Windows VM. These steps show you how to use the Azure PowerShell and the VM image captured in the above steps, to create the VM in a new virtual network.
 
 >[AZURE.NOTE] The VM image should be present in the same storage account as the actual virtual machine that will be created.
 
 ### Create network resources
 
-Use the following sample PowerShell script to set up a virtual network and NIC for your new VM. Substitute the resource names and locations as appropriate to your application.
+Use the following sample PowerShell script to set up a virtual network and NIC for your new VM. Use values for the variables represented by the **$** sign as appropriate to your application.
 
 	$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
 
@@ -196,7 +197,8 @@ The following PowerShell script shows how to set up the virtual machine configur
 	#Create the OS disk URI
 	$osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
-	#Configure the OS disk to be created from image (-CreateOption fromImage) and give the URL of the captured image VHD for the -SourceImageUri parameter. We found this URL in the local JSON template in the previous sections.
+	#Configure the OS disk to be created from image (-CreateOption fromImage) and give the URL of the captured image VHD for the -SourceImageUri parameter.
+	#We found this URL in the local JSON template in the previous sections.
 	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfCapturedImageVhd -Windows
 
 	#Create the new VM
