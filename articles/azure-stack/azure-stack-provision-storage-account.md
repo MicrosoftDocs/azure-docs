@@ -20,10 +20,6 @@
 
 Storage accounts include Blob and Table services, and the unique namespace for your storage data objects. By default, the data in your account is available only to you, the storage account owner.
 
-[About Azure storage accounts](../storage/storage-create-storage-account.md)
-
-## Create a storage account
-
 1.  Click **New**, then click **Data + Storage**, and then click **Storage** account.
 
   **Important**: Do not type a name before selecting the subscription and resource group. If you do, close the blade and repeat this step.
@@ -39,5 +35,7 @@ Storage accounts include Blob and Table services, and the unique namespace for y
 ## Next Steps
 
 [Use Azure Resource Manager templates](azure-stack-arm-templates.md)
+
+[Learn about Azure storage accounts](../storage/storage-create-storage-account.md)
 
 [Download the Azure Stack Azure-consistent Storage Validation Guide](http://http://download.microsoft.com/download/A/3/0/A301E0CF-06D3-47BD-AA65-4B3108D5974D/Azure)
