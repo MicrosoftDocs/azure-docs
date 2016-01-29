@@ -25,7 +25,7 @@ This article describes how to monitor, manage and debug your pipelines. It also 
 Using the Azure Portal, you can view your data factory as a diagram, view activities in a pipeline, view input and output datasets, and more. This section also provides how a slice transitions from one state to another state.   
 
 ### Navigate to your data factory
-1.	Sign-in to the [Azure Portal](http://portal.azure.com).
+1.	Sign-in to the [Azure Portal](https://portal.azure.com).
 2.	Click **Browse All** and select **Data Factories**.
 	
 	![Browse All -> Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)

@@ -18,12 +18,12 @@
 	
 # Deploy from Visual Studio
 
-Although the [Azure Portal](https://portal.azure.com) gives you a great way to design and manage your Logic apps, you may also want to deploy your Logic app from Visual Studio instead. There are a couple key capabilities this enables:
+Although the [Azure Portal](https://portal.azure.com/) gives you a great way to design and manage your Logic apps, you may also want to deploy your Logic app from Visual Studio instead. There are a couple key capabilities this enables:
 
 - Store your Logic app alongside the other assets in your Solution, so it can contain all aspects of your application
 - Keep your Logic app definition checked into source control so that you can use TFS or Git to track revisions to it 
 
-You have to have the Azure SDK 2.7 or later installed in order to follow the steps below. Find [the latest SDK for VS](http://azure.microsoft.com/downloads/) here.
+You have to have the Azure SDK 2.7 or later installed in order to follow the steps below. Find [the latest SDK for VS](https://azure.microsoft.com/downloads/) here.
 
 ## Create a project
 

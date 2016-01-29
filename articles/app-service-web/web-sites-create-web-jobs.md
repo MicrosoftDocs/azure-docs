@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="01/12/2016" 
 	ms.author="tdykstra"/>
 
 # Run Background tasks with WebJobs
@@ -42,7 +42,7 @@ The following file types are accepted:
 
 ## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
 
-1. In the **Web App** blade of the [Azure Portal](http://portal.azure.com), click **All settings > WebJobs** to show the **WebJobs** blade.
+1. In the **Web App** blade of the [Azure Portal](https://portal.azure.com), click **All settings > WebJobs** to show the **WebJobs** blade.
 	
 	![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
 	

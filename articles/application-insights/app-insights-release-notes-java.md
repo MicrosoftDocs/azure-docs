@@ -16,7 +16,7 @@
 
 # Release Notes for Application Insights SDK for Java
 
-The [Application Insights SDK for Java](app-insights-java-get-started.md) sends telemetry about your live app to [Application Insights](http://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
+The [Application Insights SDK for Java](app-insights-java-get-started.md) sends telemetry about your live app to [Application Insights](https://azure.microsoft.com/services/application-insights/), where you can analyze its usage and performance.
 
 #### To install the SDK in your application
 

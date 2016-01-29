@@ -18,7 +18,7 @@
 
 # Supporting additional protocols for IoT Hub
 
-Azure IoT Hub natively supports communication over the HTTPS and AMQP protocols. In some cases, devices or field gateways might not be able to use one of these standard protocols and will require protocol adaptation. In such cases, you can use a custom gateway. A custom gateway can enable protocol adaptation for IoT Hub endpoints by bridging the traffic to and from IoT Hub. An Azure Internet of Things (IoT) protocol gateway enables protocol adaptation for IoT Hub. It also implements an MQTT protocol adapter to enable communication between an IoT device and IoT Hub over the MQTT protocol.
+Azure IoT Hub natively supports communication over the AMQP, MQTT, and HTTP/1 protocols. In some cases, devices or field gateways might not be able to use one of these standard protocols and will require protocol adaptation. In such cases, you can use a custom gateway. A custom gateway can enable protocol adaptation for IoT Hub endpoints by bridging the traffic to and from IoT Hub. An Azure Internet of Things (IoT) protocol gateway enables protocol adaptation for IoT Hub. It also implements a customizable MQTT protocol adapter to enable communication between an IoT device and IoT Hub over the MQTT protocol.
 
 ## Azure IoT protocol gateway
 

@@ -166,5 +166,5 @@ You can chain PartitionResolvers by implementing your own IPartitionResolver tha
 * [DocumentDB .NET SDK Documentation at MSDN](https://msdn.microsoft.com/library/azure/dn948556.aspx)
 * [DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net)
 * [DocumentDB Limits](documentdb-limits.md)
-* [DocumentDB Blog on Performance Tips](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
+* [DocumentDB Blog on Performance Tips](https://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
