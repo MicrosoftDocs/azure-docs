@@ -79,25 +79,25 @@ The **ExportDevicesAsync** method requires two parameters:
 
 The following C# code snippet shows how to initiate an export job and then poll for completion:
 
-    ```
-    // Call an export job on the IoT Hub to retrieve all devices
-    JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
-    
-    // Wait until job is finished
-    while(true)
-    {
-      exportJob = await registryManager.GetJobAsync(exportJob.JobId);
-      if (exportJob.Status == JobStatus.Completed || 
-          exportJob.Status == JobStatus.Failed ||
-          exportJob.Status == JobStatus.Cancelled)
-      {
-      // Job has finished executing
-        break;
-      }
+```
+// Call an export job on the IoT Hub to retrieve all devices
+JobProperties exportJob = await registryManager.ExportDevicesAsync(containerSasUri, false);
 
-      await Task.Delay(TimeSpan.FromSeconds(5));
+// Wait until job is finished
+while(true)
+{
+    exportJob = await registryManager.GetJobAsync(exportJob.JobId);
+    if (exportJob.Status == JobStatus.Completed || 
+        exportJob.Status == JobStatus.Failed ||
+        exportJob.Status == JobStatus.Cancelled)
+    {
+    // Job has finished executing
+    break;
     }
-    ```
+
+    await Task.Delay(TimeSpan.FromSeconds(5));
+}
+```
 
 The job stores its output in the provided blob container as a block blob with the name **devices.txt**. The output data consists of JSON serialized device data, with one device per line.
 
@@ -171,42 +171,21 @@ You can use the **ImportDevicesAsync** method to perform the following bulk oper
 
 You can perform any combination of the above operations within a single **ImportDevicesAsync** call. For example, you can register new devices and delete or update existing devices at the same time. When used along with the **ExportDevicesAsync** method, you can completely migrate all your devices from one IoT hub to another.
 
-You can control the import process per-device by using the optional **importMode** flag in the import serialization data for each device. The **importMode** flag has the following options:
+You can control the import process per-device by using the optional **importMode** property in the import serialization data for each device. The **importMode** property has the following options:
 
--   **createOrUpdate**
-    - If a device does not exist with the specified **id**, it is newly registered. 
-    - If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value.
-
--   **create**
-    - If a device does not exist with the specified **id**, it is newly registered.
-    - If the device already exists, an error is written to the log file.
-
--   **update**
-    - If a device already exists with the specified **id**, existing information is overwritten with the provided input data without regard to the **ETag** value.
-    - If the device does not exist, an error is written to the log file.
-
--   **updateIfMatchETag**
-    - If a device already exists with the specified **id**, existing information is overwritten with the provided input data only if there is an **ETag** match.
-    - If the device does not exist, an error is written to the log file.
-    - If there is an **ETag** mismatch, an error is written to the log file.
-
--   **createOrUpdateIfMatchETag**
-    - If a device does not exist with the specified **id**, it is newly registered.
-    - If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match.
-    - If there is an **ETag** mismatch, an error is written to the log file.
-
--   **delete**
-    - If a device already exists with the specified **id**, it is deleted without regard to the **ETag** value.
-    - If the device does not exist, an error is written to the log file.
-
--   **deleteIfMatchETag**
-    - If a device already exists with the specified **id**, it is deleted only if there is an **ETag** match.
-    - If the device does not exist, an error is written to the log file.
-    - If there is an ETag mismatch, an error is written to the log file.
+| importMode |  Description |
+| -------- | ----------- |
+| **createOrUpdate** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. |
+| **create** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, an error is written to the log file. |
+| **update** | If a device already exists with the specified **id**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
+| **updateIfMatchETag** | If a device already exists with the specified **id**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
+| **createOrUpdateIfMatchETag** | If a device does not exist with the specified **id**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
+| **delete** | If a device already exists with the specified **id**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
+| **deleteIfMatchETag** | If a device already exists with the specified **id**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
 
 > [AZURE.NOTE] If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
 
-## Import devices example – bulk device Provisioning 
+## Import devices example – bulk device provisioning 
 
 The following C# code sample illustrates how to generate multiple device identities that include authentication keys, write that device information to an Azure storage block blob, and then import the devices into the device identity registry:
 
@@ -271,7 +250,7 @@ while(true)
 }
 ```
 
-## Import devices example – bulk Deletion
+## Import devices example – bulk deletion
 
 The following code sample shows you how to delete the devices you added using the previous code sample:
 
@@ -322,7 +301,7 @@ while(true)
 
 ```
 
-## Getting The Container SAS URI
+## Getting the container SAS URI
 
 
 The following code sample shows you how to generate a [SAS URI](../storage/storage-dotnet-shared-access-signature-part-2.md) with read, wrtire, and delete permissions for a blob container:
@@ -355,6 +334,6 @@ static string GetContainerSasUri(CloudBlobContainer container)
 
 In this article, you learned how to perform bulk operations against the device identity registry in an IoT hub. You can continue to explore IoT Hub features and other IoT scenarios in the following articles:
 
-- [Create and IoT hub programatically](iot-hub-rm-template.md)
+- [Create an IoT hub programatically](iot-hub-rm-template.md)
 - [IoT Hub usage metrics](iot-hub-metrics.md)
 - [IoT Hub operations monitoring](iot-hub-operations-montoring.md)
