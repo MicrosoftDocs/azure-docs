@@ -94,7 +94,7 @@ In addition to the generally available features of the Free, Basic, and Premium 
 
 - [B2B collaboration](active-directory-b2b-collaboration-overview.md)
 - PIM
-- [Conditional Access](overview active-directory-conditional-access.md)
+- Conditional Access
 - [Administrative Units](active-directory-administrative-units-management.md)
 - Privileged Identity Management
 - [HR application Integration](active-directory-saas-workday-inbound-tutorial.md)
