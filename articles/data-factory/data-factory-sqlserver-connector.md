@@ -28,6 +28,8 @@ See [moving data between on-premises locations and cloud](data-factory-move-data
 
 While you can install the gateway on the same on-premises machine or cloud VM instance as the SQL Server for better performance it is recommended to install them on separate machines or cloud VM to avoid resource contention. 
 
+The following sample(s) show how to copy data to and from SQL Server and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+
 ## Sample: Copy data from SQL Server to Azure Blob
 
 The sample below shows:

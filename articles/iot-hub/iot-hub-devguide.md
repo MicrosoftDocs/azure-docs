@@ -510,9 +510,10 @@ The following is the list of enforced throttles. Values refer to an individual h
 | Throttle | Per-hub value |
 | -------- | ------------- |
 | Identity registry operations (create, retrieve, list, update, delete) | 100/min/unit, up to 5000/min |
-| Device connections | 100/sec/unit |
+| Device connections | 120/sec/unit (for S2), 12/sec/unit (for S1). Minimum of 100/sec. |
 | Device-to-cloud sends | 120/sec/unit (for S2), 12/sec/unit (for S1). Minimum of 100/sec. |
-| Cloud-to-device operations (sends, receive, feedback) | 100/min/unit |
+| Cloud-to-device sends | 100/min/unit |
+| Cloud-to-device receives | 1000/min/unit |
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 
