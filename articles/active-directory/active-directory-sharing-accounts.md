@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="10/16/2015"  
+ 	ms.date="01/28/2015"  
  	ms.author="stevenpo"/>
 
 # Sharing accounts with Azure AD
@@ -55,7 +55,7 @@ Azure AD features that enable account sharing include:
 - [App usage dashboard/reports](active-directory-passwords-get-insights.md)
 - End user access portals
 - [App proxy](active-directory-application-proxy-get-started.md)
-- [Active Directory Marketplace](http://azure.microsoft.com/marketplace/active-directory/all/)
+- [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Sharing an account
 To use Azure AD to share an account you will need to:

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/09/2016"
+	ms.date="01/24/2016"
 	ms.author="glenga"/>
 
 # Work with the .NET backend server SDK for Azure Mobile Apps
@@ -193,7 +193,7 @@ For an example of a table controller that uses Entity Framework to access data f
 
 ## How to: Define a custom API controller
 
-The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a mobile-specific API controller using the attribute `MobileAppControllerAttribute`. This attribute registers the route and also sets up the Mobile Apps JSON serializer. 
+The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a mobile-specific API controller using the [MobileAppController] attribute. This attribute registers the route and also sets up the Mobile Apps JSON serializer. 
 
 1. In Visual Studio, right-click the Controllers folder, then click **Add** > **Controller**, select **Web API 2 Controller&mdash;Empty** and click **Add**.
 
@@ -203,7 +203,7 @@ The custom API controller provides the most basic functionality to your Mobile A
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. Apply the **MobileAppControllerAttribute** to the API controller class definition, as in the following example:
+4. Apply the **[MobileAppController]** attribute to the API controller class definition, as in the following example:
 
 		[MobileAppController] 
 		public class CustomController : ApiController
@@ -302,7 +302,7 @@ Replace the string "CustomAuth" above with the name of the contoller hosting you
 When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This is useful for making authorization decisions for a given user in the backend, such as whether a specific user can access a table row or other resource. The following code shows how to obtain the 
 user ID for a logged-in user:
 
-    // Get the current user SID and create a tag for the current user.
+    // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 

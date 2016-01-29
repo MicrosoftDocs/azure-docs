@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="01/14/2016"
+ms.date="01/28/2016"
 ms.author="larryfr"/>
 
 #Use Azure Data Lake Store with Apache Storm with HDInsight
@@ -96,7 +96,7 @@ Since writing to Data Lake Store uses HdfsBolt, and is just a URL change, you sh
 
 ##Create an HDInsight cluster and Data Lake Store
 
-Create a new Storm on HDInsight cluster using the steps in the [Use HDInsight with Data Lake Store using Azure](data-lake-store-hdinsight-hadoop-use-portal.md) document. The steps in this document will walk you through creating a new HDInsight cluster and Azure Data Lake Store.
+Create a new Storm on HDInsight cluster using the steps in the [Use HDInsight with Data Lake Store using Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) document. The steps in this document will walk you through creating a new HDInsight cluster and Azure Data Lake Store.
 
 > [AZURE.IMPORTANT] When you create the HDInsight cluster, you must select __Storm__ as the cluster type. The OS can be either Windows or Linux.
 

@@ -198,7 +198,7 @@ Now that you have each VNet configured, you’ll configure your VNet gateways.
 
 ## Step 7 - Connect the VPN gateways
 
-When all of the previous steps have been completed, you’ll set the IPsec/IKE pre-shared keys to be the same. You can do this either using a REST API, or PowerShell cmdlet. If you use PowerShell, verify that you have the [latest version](http://azure.microsoft.com/downloads/) of the Microsoft Azure PowerShell cmdlets. The examples below use PowerShell cmdlets to set the key value to A1b2C3D4. Note that both use the same key value. Edit the examples below to reflect your own values.
+When all of the previous steps have been completed, you’ll set the IPsec/IKE pre-shared keys to be the same. You can do this either using a REST API, or PowerShell cmdlet. If you use PowerShell, verify that you have the [latest version](https://azure.microsoft.com/downloads/) of the Microsoft Azure PowerShell cmdlets. The examples below use PowerShell cmdlets to set the key value to A1b2C3D4. Note that both use the same key value. Edit the examples below to reflect your own values.
 
 For VNet1
 

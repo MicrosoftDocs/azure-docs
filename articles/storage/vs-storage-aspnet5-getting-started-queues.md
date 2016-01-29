@@ -30,7 +30,7 @@ To get started, you first need to create an Azure queue in your storage account.
 
 - See [How to use queue storage from .NET](storage-dotnet-how-to-use-queues.md) for more information on programmatically manipulating queues.
 - See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
-- See [Cloud Services documentation](http://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
+- See [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
 - See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
 
 

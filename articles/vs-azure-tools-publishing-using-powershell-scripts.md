@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Using Windows PowerShell Scripts to Publish to Dev and Test Environments | Microsoft Azure"
    description="Learn how to use Windows PowerShell scripts from Visual Studio to publish to development and test environments."
    services="visual-studio-online"

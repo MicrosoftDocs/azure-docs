@@ -27,7 +27,7 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 
 ## Before you begin
 
-1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](http://azure.microsoft.com/downloads/).
+1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
 2. Verify that you have a working virtual network with a valid subnet.
 3. Verify that you have back-end servers either in the virtual network or with a public IP/VIP assigned.
 
