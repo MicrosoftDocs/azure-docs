@@ -47,7 +47,6 @@ On your HDInsight clusters, this information will be stored by Azure Resource Ma
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
-We have added new APIs to the HDInsight .NET SDK to make it easy to retrieve this data programmatically. Note that the generic data can also be retrieved by running YARN command-line interface (CLI) commands directly on your cluster nodes (after connecting to the cluster by using RDP).
 
 ## YARN applications and logs
 
@@ -66,11 +65,10 @@ The aggregated logs are not directly readable, as they are written in a [TFile][
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-The next section talks about how you can access application-specific or container-specific logs programmatically, without having to use RDP to connect to your HDInsight clusters.
 
 ## YARN ResourceManager UI
 
-The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Ambari web UI; 
+The YARN ResourceManager UI runs on the cluster headnode, and can be accessed through the Azure portal dashboard: 
 
 1. Sign in to [Azure portal](https://portal.azure.com/). 
 2. On the left menu, click **Browse**, click **HDInsight Clusters**, click a Windows-based cluster that you want to access the YARN application logs.
