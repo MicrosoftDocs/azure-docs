@@ -25,7 +25,7 @@ Azure File storage is a service that offers file shares in the cloud using the s
 
 Since a File storage share is a standard SMB file share, applications running in Azure can access data in the share via file sytem I/O APIs. Developers can therefore leverage their existing code and skills to migrate existing applications. IT Pros can use PowerShell cmdlets to create, mount, and manage File storage shares as part of the administration of Azure applications.
 
-You can create Azure file shares using [Azure Portal](portal.azure.com), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because these file shares are SMB shares, you can access them via standard and familiar file system APIs. 
+You can create Azure file shares using [Azure Portal](https://portal.azure.com), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. Additionally, because these file shares are SMB shares, you can access them via standard and familiar file system APIs. 
 
 For information on using File storage with Linux, see [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md).
 
@@ -59,7 +59,7 @@ File storage is now supported for all storage accounts, so you can either use an
 
 ## Use the Azure Portal to manage a file share
 
-The [Azure Portal](portal.azure.com) provides a user interface for customers to manage file shares. From the portal, you can:
+The [Azure Portal](https://portal.azure.com) provides a user interface for customers to manage file shares. From the portal, you can:
 
 - Create your file share
 - Upload and download files to and from your file share
@@ -138,7 +138,7 @@ Open an Azure PowerShell window by clicking **Start** and typing **Azure PowerSh
 
 ### Create a context for your storage account and key
 
-Now, create the storage account context. The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure Portal](portal.azure.com), see [View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Now, create the storage account context. The context encapsulates the storage account name and account key. For instructions on copying your account key from the [Azure Portal](https://portal.azure.com), see [View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 Replace `storage-account-name` and `storage-account-key` with your storage account name and key in the following example.
 
@@ -527,7 +527,7 @@ You can copy a blob to a file in the same way. If the source object is a blob, t
 
 Azure Storage Analytics now supports metrics for File storage. With metrics data, you can trace requests and diagnose issues.
 
-You can enable metrics for File storage from the [Azure Portal](portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
+You can enable metrics for File storage from the [Azure Portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogues in the Storage Client Library.
 
 ## File storage FAQ
 
