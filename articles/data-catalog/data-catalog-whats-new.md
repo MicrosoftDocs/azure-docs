@@ -22,7 +22,7 @@ Updates to **Azure Data Catalog** are released on a regular basis. Not every rel
 
 ## What's new for the week of January 29, 2016 release
 
-As of the week of January 29, 2016, the following capabilities have been added to Azure Data Catalog:
+As of the week of January 29, 2016, the following capabilities have been added to **Azure Data Catalog**:
 
 - Support for manually registering additional data sources. Users can now use "Create Manual Entry" in the **Azure Data Catalog** portal, or use the **Azure Data Catalog** REST API to register the following data sources:
    + OData - Function, Entity Set, and Entity Container
@@ -39,13 +39,13 @@ As of the week of January 29, 2016, the following capabilities have been added t
 
 ## What's new for the week of January 22, 2016 release
 
-As of the week of January 22, 2016, the following capabilities have been added to Azure Data Catalog:
+As of the week of January 22, 2016, the following capabilities have been added to **Azure Data Catalog**:
 
 - Support for registering and discovering SAP HANA views and packages. Users can register SAP HANA data sources using the **Azure Data Catalog** data source registration tool, and can annotate and discover registered SAP HANA data sources using the **Azure Data Catalog** portal.
 
 ## What's new for the week of January 8, 2016 release
 
-As of the week of January 8, 2016, the following capabilities have been added to Azure Data Catalog:
+As of the week of January 8, 2016, the following capabilities have been added to **Azure Data Catalog**:
 
 - The ability to pin and unpin data assets in the **Azure Data Catalog** portal. Users can choose to pin data assets to make them easier to re-discover and re-use.
 - A newly redesigned home page in the **Azure Data Catalog** portal. The new home page includes insight into the current users activity - including recently published assets, pinned assets, and saved searches - as well as insight into the activity in the Catalog as a whole.
@@ -54,14 +54,14 @@ As of the week of January 8, 2016, the following capabilities have been added to
 
 ## What's new for the week of December 18, 2015 release
 
-As of the week of December 18, 2015, the following capabilities have been added to Azure Data Catalog:
+As of the week of December 18, 2015, the following capabilities have been added to **Azure Data Catalog**:
 
 - Support for data profiles for Azure SQL Data Warehouse data sources. When registering Azure SQL Data Warehouse tables and views, users can choose to include data profile metrics with the metadata extracted from the data source.
 - Support for registering and discovering MySQL objects and databases. Users can register MySQL data sources using the **Azure Data Catalog** data source registration tool, and can annotate and discover registered MySQL data sources using the **Azure Data Catalog** portal.
 
 ## What's new for the week of December 4, 2015 release
 
-As of the week of December 4, 2015, the following capabilities have been added to Azure Data Catalog:
+As of the week of December 4, 2015, the following capabilities have been added to **Azure Data Catalog**:
 
 - Support for SPNEGO and Windows authentication for Teradata data sources. When registering Teradata tables and views, users can choose to connect to Teradata using SPNEGO and Windows as well as LDAP and TD2 authentication.
 - Support for Azure Data Lake Store data sources. Users can now register and discover Azure Data Lake Store data sources using Azure Data Catalog.
