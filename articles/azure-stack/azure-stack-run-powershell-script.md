@@ -21,7 +21,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 1.  [Install](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 
-2.  [Download](https://azure.microsoft.com/en-us/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
+2.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
 
 3.  Run the **Microsoft Azure Stack POC.exe** file.
 
