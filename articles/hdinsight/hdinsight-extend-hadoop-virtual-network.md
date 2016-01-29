@@ -98,7 +98,7 @@ If you are unsure whether you have applied restrictions to the subnet that you w
 
 3. Select __Properties__.
 
-4. Select __Subnets__, and then select the specific subnet. On the blade for this subnet, the __Network security group__ and __Route table__ entries will be set to none if no restrictions have been applied.
+4. Select __Subnets__, and then select the specific subnet. On the blade for this subnet, the __Network security group__ and __Route table__ entries will be set to a value of __None__ if no restrictions have been applied.
 
     If restrictions have been applied, you can remove the restriction by selecting the __Network security group__ or __Route table__ entry, and then selecting __None__. Finally, select __Save__ from the Subnet blade to save the changes.
     
