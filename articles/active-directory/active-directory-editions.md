@@ -87,10 +87,10 @@ To sign up and start using Active Directory Premium today, see [Getting started 
 
 ##Azure AD preview features
 
-In addition to the generally available features of the Free, Basic, and Premium editions, Azure AD also provides you with 
+In addition to the generally available features of the Free, Basic, and Premium editions, Azure AD also provides you with a collection of preview features. You can use the preview features to get an impression of what is coming in the near future and to determine whether these features can help improving your environment. 
 
 
-Available preview features:
+**Available preview features:**
 
 - [B2B collaboration](https://azure.microsoft.com/en-us/documentation/articles/active-directory-b2b-collaboration-overview/)
 - PIM
