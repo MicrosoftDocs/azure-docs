@@ -24,7 +24,7 @@ Updates to **Azure Data Catalog** are released on a regular basis. Not every rel
 
 As of the week of January 29, 2016, the following capabilities have been added to Azure Data Catalog:
 
-- Support for manually registering additional data source. Users can now use "Create Manual Entry" in the **Azure Data Catalog** portal, or use the **Azure Data Catalog** REST API to register the following data sources:
+- Support for manually registering additional data sources. Users can now use "Create Manual Entry" in the **Azure Data Catalog** portal, or use the **Azure Data Catalog** REST API to register the following data sources:
    + OData - Function, Entity Set, and Entity Container
    + HTTP - File, Endpoint, Report, and Site
    + File System - File
