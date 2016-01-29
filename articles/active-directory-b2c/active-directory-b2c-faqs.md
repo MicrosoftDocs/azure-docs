@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: FAQs
@@ -80,6 +80,10 @@ Not currently. Integrating these systems is on our roadmap.
 ### Does Azure AD B2C work with SharePoint On-Premises 2016 or earlier?
 
 Not currently. Azure AD B2C doesn't have support for SAML 1.1 tokens that portals and e-commerce applications built on SharePoint On-Premises need. Note that Azure AD B2C is not meant for the SharePoint external partner-sharing scenario; see [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) instead.
+
+### Should I use Azure AD B2C or B2B to manage external identities?
+
+Read this article about [external identities](../active-directory/active-directory-b2b-compare-external-identities.md) to learn more about applying the appropriate features to your external identity scenarios.
 
 ### What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
 
