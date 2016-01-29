@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="02/03/2016"
+ ms.date="01/07/2016"
  ms.author="dobett"/>
 
 # Azure IoT Hub developer guide
@@ -44,11 +44,9 @@ The following is a description of the endpoints:
 
 * **Resource provider**: The IoT Hub resource provider exposes an [Azure Resource Manager][lnk-arm] interface that enables Azure subscription owners to create IoT hubs, update IoT hub properties, and delete IoT hubs. IoT Hub properties govern hub-level security policies as opposed to device-level access control (see [Access Control](#accesscontrol) below) and functional options for cloud-to-device and device-to-cloud messaging. The resource provider also enables you to [export device identities](#importexport).
 * **Device identity management**: Each IoT hub exposes a set of HTTP REST endpoints to manage device identities (create, retrieve, update, and delete). Device identities are used for device authentication and access control. See [Device identity registry](#device-identity-registry) for more information.
-* **Device endpoints**: For each device provisioned in the device identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages:
+* **Device endpoints**: For each device provisioned in the device identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages. These endpoints are currently exposed using both the HTTP and [AMQP][lnk-amqp] protocols:
     - *Send device-to-cloud messages*. Use this endpoint to send device-to-cloud messages. For more information, see [Device to cloud messaging](#d2c).
     - *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted cloud-to-device messages. For more information, see [Cloud to device messaging](#c2d).
-
-    These endpoints are exposed using HTTP, [MQTT][lnk-mqtt], and [AMQP][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
 * **Service endpoints**: Each IoT hub exposes a set of endpoints your application backend can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
     - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs] and a backend service can use it to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
     - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application backend to send reliable cloud-to-device messages, and to receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
@@ -56,11 +54,6 @@ The following is a description of the endpoints:
 The [IoT Hub APIs and SDKs][lnk-apis-sdks] article describes the various ways to access these endpoints.
 
 Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tls] protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
-
-### Notes on MQTT support
-Although the IoT Hub implementation is based on MQTT v3.1.1, it deviates from the specification as follows:
-  * **QoS 2 is not supported**: When a client publishes with QoS 2, IoT hub closes the network connection. When a client subscribes to a topic with QoS 2, IoT Hub grants maximum QoS level 1 in the SUBACK packet.
-  * **Retain**: If RETAIN flag is 1, IoT Hub will add ‘x-opt-retain’ property to the message. This means the IoT Hub doesn’t persist the retain message, but passes it instead to the backend application.
 
 ### How to read from Event Hubs-compatible endpoints <a id="eventhubcompatible"></a>
 
@@ -111,7 +104,7 @@ Device identities are represented as JSON documents with the following propertie
 | status | required | Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
 | statusReason | optional | A 128 char-long string storing the reason for the device identity status. All UTF-8 characters are allowed. |
 | statusUpdateTime | read-only | Date and time of the last status update. |
-| connectionState | read-only | **Connected** or **Disconnected**, represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using AMQP or MQTT. Also, it is based on protocol-level pings (i.e. MQTT pings, or AMQP pings) and it can have a delay of at most 5 minutes. For these reasons there can be false positives (i.e. devices reported as connected but actually disconnected). |
+| connectionState | read-only | **Connected** or **Disconnected**, represents the IoT Hub view of the device connection status. |
 | connectionStateUpdatedTime | read-only | Date and last time the connection state was updated. |
 | lastActivityTime  | read-only | Date and last time the device connected, received, or sent a message. |
 
@@ -137,8 +130,6 @@ An IoT Hub device identity registry:
 - Does not support expressive queries.
 
 An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
-
-> [AZURE.IMPORTANT] The device identity registry should be used only for device management and provisioning operations. Runtime high throughput operations should not depend on information in the device identity registry to be performed. For instance, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](#throttling) for the device identity registry.
 
 ### Disabling devices
 
@@ -222,7 +213,7 @@ You can grant permissions in the following ways:
 **Example**. In a typical IoT solution:
 - The device management component uses the *registryReadWrite* policy.
 - The event processor component uses the *service* policy.
-- The runtime device business logic component uses the *service* policy.
+- The runtime device business logic component uses the *service* policy. 
 - Individual devices connect using credentials stored in the IoT hub's identity registry.
 
 For guidance on IoT Hub security topics, see the security section in [Design your solution][lnk-guidance-security].
@@ -255,7 +246,7 @@ These are the expected values:
 
 #### Protocol specifics
 
-Each supported protocol, such as AMQP, MQTT, and HTTP, transports tokens in different ways.
+Each supported protocol, such as AMQP and HTTP, transports tokens in different ways.
 
 HTTP implements authentication by including a valid token in the **Authorization** request header. A query parameter called **Authorization** can also transport the token.
 
@@ -269,8 +260,6 @@ For SASL PLAIN, the **username** can be:
 * `{deviceId}` in the case of device-scoped tokens.
 
 In both cases, the password field contains the token, as described in the [Token format](#tokenformat) section.
-
-When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubname}/{deviceId} in the Username field and a SAS token in the Password field.
 
 > [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens when connecting to the service. In some cases, the SDKs do not support all the protocols or all the authentication methods.
 
@@ -325,17 +314,17 @@ This is the set of system properties in IoT Hub messages.
 
 ### Choosing your communication protocol <a id="amqpvshttp"></a>
 
-Iot Hub supports [AMQP][lnk-amqp], AMQP over WebSockets, MQTT, and HTTP/1 protocols for device-side communications. The following is a list of considerations regarding their uses.
+Iot Hub supports both the [AMQP][lnk-amqp] and HTTP/1 protocols for device-side communications. The following is a list of considerations regarding their uses.
 
-* **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This is very inefficient for both the device and IoT Hub. The current guidelines, when using HTTP/1 is to have each device poll every 25 minutes or more. On the other hand, AMQP and MQTT support server push when receiving cloud-to-device messages, and they enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP or MQTT is the best protocol to use. On the other hand, for scarcely connected devices, HTTP/1 works as well.
-* **Field gateways**. When using HTTP/1 and MQTT, it is not possible to connect multiple devices (each with its own per-device credentials) using the same TLS connection. It follows that these protocols are suboptimal when implementing [Field gateway scenarios][lnk-azure-gateway-guidance], as they require one TLS connection between the field gateway and IoT Hub for each device connected to the field gateway.
-* **Low resource devices**. MQTT and HTTP/1 libraries have a smaller footprint than AMQP ones. As such, if the device has few resources (for example, less than 1Mb RAM), these protocols might be the only protocol implementation available.
-* **Network traversal**. MQTT standard listens on port 8883. This could cause problems in networks that are closed to non-HTTP protocols. Both HTTP and AMQP (over WebSockets) are available to be used in this scenario.
-* **Payload size**. AMQP and MQTT are binary protocols, which are significantly more compact than HTTP/1.
+* **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This is very inefficient for both the device and IoT Hub. The current guidelines, when using HTTP/1 is to set a polling interval for each device of less than once per 25 minutes. On the other hand, AMQP supports server push when receiving cloud-to-device messages, and it enables immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP is the best protocol to use. On the other hand, for scarcely connected devices, HTTP/1 works as well.
+* **Field gateways**. Given the HTTP/1 limitations with respect to server push, it is not suitable to be used in [Field gateway scenarios][lnk-azure-gateway-guidance].
+* **Low resource devices**. HTTP/1 libraries are significantly smaller than AMQP ones. As such, if the device has few resources (for example, less than 1Mb RAM), HTTP/1 might be the only protocol implementation available.
+* **Network traversal**. AMQP standard listens on port 5672. This could cause problems in networks that are closed to non-HTTP protocols.
+* **Payload size**. AMQP is a binary protocol, which is significantly more compact than HTTP/1.
 
-At a high level, you should use AMQP (or AMQP over WebSockets) whenever possible, and only use MQTT when resource contraints prevent the use of AMQP. HTTP/1 should be used only if both network traversal and network configuration prevent the use of MQTT and AMQP. Moreover, when using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more. Clearly during development, it is acceptable to have more frequent polling frequencies.
+At a high level, you should use AMQP whenever possible, and only use HTTP/1 if device resources or network configuration does not allow AMQP. Moreover, when using HTTP/1, polling frequency should be set to less than once every 25 minutes for each device. Clearly during development, it is acceptable to have more frequent polling frequencies.
 
-As a final consideration, it is important to see the [Azure IoT Protocol Gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance custom MQTT gateway that interfaces directly with IoT Hub. The IoT Protocol Gateway allows the customization of the device protocol to accommodate brownfield MQTT deployments, and completely custom protocols. The main disadvantage of this approach is the requirement to self-host and manage a protocol gateway.
+As a final consideration, it is important to see the [Azure IoT Protocol Gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance MQTT gateway that interfaces directly with IoT Hub. The MQTT protocol supports server push (thus enabling immediate delivery of cloud-to-device messages to the device) and is available for very low resource devices. The main disadvantage of this approach is the requirement to self-host and manage a protocol gateway.
 
 ### Device to cloud <a id="d2c"></a>
 
@@ -365,7 +354,7 @@ For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SD
 
 #### Non-telemetry traffic
 
-In many cases, in addition to telemetry data points, devices also send messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the backend, or device responses to commands sent from the backend.
+In many cases, in addition to telemetry data points, devices also send *interactive* messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the backend, or device responses to commands sent from the backend.
 
 See [Device-to-cloud processing][lnk-guidance-d2c-processing] for more information about the best way to process these kind of messages.
 
@@ -497,9 +486,9 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 
 Each Azure subscription can have at most 10 IoT hubs.
 
-Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send.
+Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send, and the maximum number of device identities in the identity registry. The number of identities in the registry limits the number of simultaneously connected devices.
 
-The SKU also determines the throttling limits that IoT Hub enforces on all operations.
+The SKU also determines the throttling limits that IoT Hub enforces on operations.
 
 ### Operation throttles
 
@@ -509,15 +498,13 @@ The following is the list of enforced throttles. Values refer to an individual h
 
 | Throttle | Per-hub value |
 | -------- | ------------- |
-| Identity registry operations (create, retrieve, list, update, delete) | 100/min/unit, up to 5000/min |
+| Identity registry operations (create, retrieve, list, update, delete), individual or bulk import/export | 100/min/unit, up to 5000/min |
 | Device connections | 120/sec/unit (for S2), 12/sec/unit (for S1). Minimum of 100/sec. |
 | Device-to-cloud sends | 120/sec/unit (for S2), 12/sec/unit (for S1). Minimum of 100/sec. |
 | Cloud-to-device sends | 100/min/unit |
 | Cloud-to-device receives | 1000/min/unit |
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
-
-**Important**: Identity registry operations are intended for runtime use in device management and provisioning scenarios. Reading or updating large number of device identities is supported through [import/export jobs](#importexport).
 
 ## Next steps
 
@@ -552,8 +539,6 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 
 [lnk-amqp]: https://www.amqp.org/
-[lnk-mqtt]: http://mqtt.org/
-[lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../resource-group-overview.md
 [lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
