@@ -81,7 +81,7 @@ Make sure that you use the following PuTTY settings to connect to the Windows Po
 7. Click **Apply**.
 
 
-You can now use PuTTY to connect to the device serial console by doing the following steps:
+You can now use PuTTY to connect to the device serial console by doing the following steps.
 
 [AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
