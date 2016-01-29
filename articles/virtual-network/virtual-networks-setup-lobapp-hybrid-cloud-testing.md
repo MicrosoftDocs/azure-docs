@@ -180,6 +180,6 @@ This is your current configuration.
  
 This environment is now ready for you to deploy your web-based application on LOB1 and test functionality and performance from the Corpnet subnet.
 
-## Next Step
+## Next steps
 
 - Set up the [production environment](../virtual-machines/virtual-machines-workload-high-availability-LOB-application-overview.md).
