@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/08/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Service Bus samples
 
-The Service Bus samples demonstrate key features in Service Bus (cloud service) and Service Bus for Windows Server. This article categorizes and describes the samples available, with links to each.
+The Service Bus samples demonstrate key features in [Service Bus](https://azure.microsoft.com/services/service-bus/) (cloud service) and [Service Bus for Windows Server](https://msdn.microsoft.com/library/dn282144.aspx). This article categorizes and describes the samples available, with links to each.
 
->[AZURE.NOTE] Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com).
+>[AZURE.NOTE] Service Bus samples are not installed with the SDK. To obtain the samples, visit the [Azure SDK samples page](https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=5).
 
 ## Service Bus brokered messaging
 
@@ -126,7 +126,7 @@ The following samples demonstrate various other features of the service.
 
 ## Next steps
 
-See the following topics for more overviews of Service Bus.
+See the following topics for conceptual overviews of Service Bus.
 
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus architecture](service-bus-architecture.md)

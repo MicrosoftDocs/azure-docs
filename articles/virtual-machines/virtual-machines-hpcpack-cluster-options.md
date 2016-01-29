@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="10/08/2015"
+ ms.date="01/26/2016"
  ms.author="danlep"/>
 
 # Options to create and manage a high performance computing (HPC) cluster in Azure with Microsoft HPC Pack
@@ -69,7 +69,6 @@ Take advantage of Microsoft HPC Pack and Azure compute and infrastructure servic
 
 * [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-hpcpack-cluster-node-manage.md)
 
-* [Add Azure "burst" nodes to an HPC Pack head node in Azure](virtual-machines-hpcpack-cluster-node-burst.md)
 
 * [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
