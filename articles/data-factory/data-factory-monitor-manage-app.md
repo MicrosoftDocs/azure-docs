@@ -40,24 +40,12 @@ You see Resource Explorer **tree view** in the left pane, **Diagram View** at th
 You can see all resources (pipelines, datasets, linked services) in the data factory in a tree view. When you select an object in Resource Explorer, you will notice the following: 
 
 - associated Data Factory entity is highlighted in the Diagram View.
-- associated activity windows are highlighted in the Activity Windows list at the bottom.  
+- associated activity windows (click [here]([Scheduling & Execution with Data Factory](data-factory-scheduling-and-execution.md)) to learn about activity windows) are highlighted in the Activity Windows list at the bottom.  
 - properties of the selected object in the Properties window in the right pane. 
 
 ![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-### Activity Windows 
-With the **scheduler** section in the activity JSON, you can specify a recurring schedule for the activity. For example you can schedule an activity every hour as follows:
-
-	"scheduler": {
-	    "frequency": "Hour",
-	    "interval": 1
-	},  
-
-![Scheduler example](./media/data-factory-monitor-manage-app/scheduler-example.png)
-
-As shown above, specifying a schedule for the activity creates a series of tumbling windows. Tumbling windows are series of fixed-sized, non-overlapping and contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**.
-
-See [Scheduling & Execution with Data Factory](data-factory-scheduling-and-execution.md) article for detailed conceptual information about activity window. 
+See  article for detailed conceptual information about activity window. 
 
 ## Diagram View
 The Diagram View of a data factory provides a single pane of glass to monitor and manage the data factory and its assets. When you select a Data Factory entity (dataset/pipeline) in the diagram view, you will notice the following:
@@ -196,6 +184,8 @@ The activity windows can be in one of the following statuses:
 ### Rerun an activity window
 Select an activity window, click the down arrow for the first command bar button and select **Rerun** / **Rerun with upstream in pipeline**. When you select **Rerun with upstream in pipeline** option, it reruns all upstream activity windows as well. 
 	![Rerun a activity window](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+
+You can also select multiple activity windows in the list and rerun them at the same time. You may want to filter activity windows based on the status (for example: **Failed**) and then rerun the failed activity windows after correcting the issue that causes the activity windows to fail. See the following section for details about filtering activity windows in the list.  
 
 ### Sort or Filter activity windows
 In the Activity Windows list, click on the name of a column (for example: Status). 
