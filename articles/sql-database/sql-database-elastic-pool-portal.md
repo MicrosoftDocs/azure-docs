@@ -125,14 +125,17 @@ Browse to a SQL Database V12 server and you may see a message saying there are r
 
 ![recommended pool](./media/sql-database-elastic-pool-portal/recommended-pool.png)
 
-## Add and remove databases from the pool
-
-### Add an existing database to the pool
+## Add and remove databases to and from a pool
 
 After the pool is created, you can add or remove existing databases in and out of the pool by adding or removing databases on the **Elastic databases** page (browse to your pool and click the **Elastic databases** link in **Essentials**).
 
-After creating a pool you can also use Transact-SQL to create new elastic databases in the pool and move databases in and out of a pool. For details see, [Elastic database pool reference - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+- Click **Add databases** to open the list of databases you can add to the pool.
 
+    -or-
+
+- Select the databases you want to remove from the pool and click **Remove databases**.
+
+![recommended pool](./media/sql-database-elastic-pool-portal/add-remove-databases.png)
 
 ### Create a new database in a pool
 
