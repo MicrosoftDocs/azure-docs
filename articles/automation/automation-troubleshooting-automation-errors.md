@@ -33,11 +33,13 @@ In order to determine what is wrong, use the following steps:
     1. Make sure that you don’t have any special characters including the **@** character in the Automation credential asset name that you are using to connect to Azure.  
     2. Check that you can use the username and password that you have stored in the Azure Automation credential in your local PowerShell ISE editor, you can do this by running the following cmdlets in the PowerShell ISE:  
 
+        ```
         $Cred = Get-Credential  
-         #Using Azure Service Management   
+        #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
-         #Using Azure Resource Manager  
-        Login-AzureRmAccount – Credential $Cred  
+        #Using Azure Resource Manager  
+        Login-AzureRmAccount – Credential $Cred
+        ```
 
     3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly, refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Active Directory account set up correctly.    
 
