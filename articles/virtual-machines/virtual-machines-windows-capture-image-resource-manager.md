@@ -49,7 +49,7 @@ This section shows you how to generalize your Windows virtual machine. This remo
 
 	- Click **OK**.
 
-	![Run Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
+	![Run Sysprep](./media/virtual-machines-windows-capture-image-resource-manager/SysprepGeneral.png)
 
 5.	Sysprep shuts down the virtual machine. It's status changes to **Stopped** in the Azure portal.
 
@@ -129,7 +129,7 @@ You can use the ARM Explorer to capture the virtual machine, as an alternative t
 
 5. You will see a list of all the actions that you can perform on the virtual machine.
 
-	![ARM Explorer Action buttons](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_ActionItems.png)
+
 
 6. Deallocate the virtual machine by clicking the action button for **deallocate**. The status of your VM will change from **Stopped** to **Stopped (deallocated)**.
 
