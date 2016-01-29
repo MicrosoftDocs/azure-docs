@@ -51,10 +51,12 @@ If you receive the error "The subscription named ``<subscription name>`` cannot 
  
 **Troubleshooting tips:** 
 In order to determine if you have properly authenticated and have access to the subscription you are trying to select, use the following steps:  
-    1. Make sure that you run **Add-AzureAccount** before running **Select-AzureSubscription.**  
-    2. If you still see this error message, modify your code by adding **Get-AzureSubscription** cmdlet following the **Add-AzureAccount** cmdlet and execute the code.  Now verify if the output of Get-AzureSubscription contains your subscription details.  
-        * If you don't get any subscription details in the output, this means the subscription isn’t initialized yet.  
-        * If you see the subscription details in the output, confirm that you are using the proper subscription name or ID with the **Select-AzureSubscription** cmdlet.   
+
+1. Make sure that you run **Add-AzureAccount** before running **Select-AzureSubscription.**  
+
+2. If you still see this error message, modify your code by adding **Get-AzureSubscription** cmdlet following the **Add-AzureAccount** cmdlet and execute the code.  Now verify if the output of Get-AzureSubscription contains your subscription details.  
+    * If you don't get any subscription details in the output, this means the subscription isn’t initialized yet.  
+    * If you see the subscription details in the output, confirm that you are using the proper subscription name or ID with the **Select-AzureSubscription** cmdlet.   
 
 
 
@@ -82,10 +84,12 @@ If your runbook fails with the error "Cannot bind parameter ``<ParameterName>``.
 If your runbook is a PowerShell Workflow, it stores complex objects in a deserialized format in order to persist your runbook state if the workflow is suspended.  
 
 **Troubleshooting tips:**  
-Any of the following three solutions will fix this problem:  
-    1. If you are piping complex objects from one cmdlet to another, wrap these cmdlets in an InlineScript.  
-    2. Pass the name or value that you need from the complex object instead of passing the entire object.  
-    3. You can use a PowerShell runbook instead of a PowerShell Workflow runbook.  
+Any of the following three solutions will fix this problem:
+
+1. If you are piping complex objects from one cmdlet to another, wrap these cmdlets in an InlineScript.  
+2. Pass the name or value that you need from the complex object instead of passing the entire object.  
+
+3. You can use a PowerShell runbook instead of a PowerShell Workflow runbook.  
 
 
 **Scenario: Runbook job failed as allocated quota exceeded**
@@ -98,10 +102,11 @@ This occurs when the job execution exceeds the 500-minute free quota for your ac
 
 **Troubleshooting tips:** 
 If you want to use more than 500 minutes of processing per month you will need to change your subscription from the Free tier to the Basic tier. You can upgrade to the Basic tier using the following steps:  
-    1. Login to your Azure subscription  
-    2. Select the Automation account you wish to upgrade  
-    3. Click on Settings > Pricing tier and Usage > Pricing tier  
-    4. In Choose your pricing tier blade, select **Basic**    
+
+1. Login to your Azure subscription  
+2. Select the Automation account you wish to upgrade  
+3. Click on Settings > Pricing tier and Usage > Pricing tier  
+4. In Choose your pricing tier blade, select **Basic**    
 
 
 **Scenario: Cmdlet not recognized when executing a runbook**
@@ -128,10 +133,13 @@ My module fails to import or imports successfully, but no cmdlets are extracted.
 
 **Reason:** 
 Some common reasons that a module might not successfully import to Azure Automation are:  
-    - If the structure does not match the structure Automation needs it to be in.  
-    - If the module is dependent on another module that has not been deployed to your Automation account.  
-    - If the module is missing its dependencies in the folder.  
-    - You are using the **New-AzureRmAutomationModule** cmdlet to upload the module and have not given the full storage path or have not loaded the module using a publicly accessible URL.  
+- If the structure does not match the structure Automation needs it to be in.  
+
+- If the module is dependent on another module that has not been deployed to your Automation account.  
+
+- If the module is missing its dependencies in the folder.  
+
+- You are using the **New-AzureRmAutomationModule** cmdlet to upload the module and have not given the full storage path or have not loaded the module using a publicly accessible URL.  
 
 **Troubleshooting tips:**  
     - Make sure that the module follows the following format:  
