@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015"    
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 
@@ -302,7 +302,6 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 	          <MaxBitrate>4500</MaxBitrate>
 	        </H264Layer>
 	      </H264Layers>
-	      <Chapters />
 	    </H264Video>
 	    <AACAudio>
 	      <Profile>AACLC</Profile>
