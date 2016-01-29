@@ -27,7 +27,7 @@ A user in Azure Stack can be a reader, owner, or contributor for each instance o
 -   Owner: User can manage everything, including access to resources.
 
 
-## To set access permissions for a user
+## Set access permissions for a user
 
 1.  Sign in with an account that has owner permissions to the resource you want to manage.
 

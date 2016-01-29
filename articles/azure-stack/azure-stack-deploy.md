@@ -20,7 +20,9 @@
 
 Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.me)), make sure your computer meets the following requirements.
 
-The Azure Stack POC requires the host machine to be running [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed including KB 3124262. 
+Before you run the Azure Stack POC installer on a machine, that machine must  be running [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed, including KB 3124262.
+
+
 
 ## Operating system
 
