@@ -53,7 +53,7 @@ In addition to these templates, you can search through the [gallery templates](h
 
 Deploying a template by using the Azure portal is easy to do by just sending a URL to it. You need the name of the template file to deploy it. You can find the name by looking at the pages in the template gallery or by looking in the Github repository. Change {template name} in this URL to the name of the template that you want to deploy and then enter it into your browser:
 
-  https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
+    https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F{template name}%2Fazuredeploy.json
 
 You should see the custom deployment blade:
 
