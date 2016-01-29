@@ -80,7 +80,7 @@ The service evaluates resource needs and cost effectiveness of moving the single
 
 >[AZURE.NOTE] Web and Business databases are mapped to one of the new Basic, Standard, or Premium tiers based on their utilization history and database size. Mapping to the new tiers recommends Web and Business databases to the appropriate pool.
 
-## Configure the pool
+Configure the pool
 
 After setting the pricing tier, click **Configure pool** where you will add databases, set teh pool eDTUs and pool storage (Pool GBs), and where you set the min and max eDTUs for the elastic databases in the pool.
 
@@ -122,10 +122,8 @@ Browse to a SQL Database V12 server and you may see a message saying there are r
 
 1. Click the message to see a list of the recommended pools.
 1. Click a pool to see the detailed recommendation.
-2. Simply edit the pool name and click **OK** to create the pool.
 
-    ![recommended pool][11]
-
+![recommended pool](./media/sql-database-elastic-pool-portal/recommended-pool.png)
 
 ## Add and remove databases from the pool
 
@@ -156,29 +154,23 @@ After creating a pool, you can:
 - Select **Configure pool** to change the pool eDTU and eDTU per database settings.
 - Select **Create job** and manage the databases in the pool by creating elastic jobs. Elastic jobs let you run Transact-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
 - Select **Manage jobs** to administer existing elastic jobs.
-- Create a new database in the pool.
+- Click **Create database** to create a new database in the pool.
 - Click the pool settings link to adjust pool eDTUs and GB per pool
 - Click the databases link to add or remove databases to the pool.
 - Click the database settings link to adjust the min and max eDTUs for the elastic databases in the pool. 
 
-
-
 ![Monitor elastic pool](./media/sql-database-elastic-pool-portal/pool-tasks.png)
 
 
-![Monitor elastic pool][4]
-
 When you select an existing pool you can see resource utilization of the pool. Click the **Resource Utilization** chart to open the **Metric** blade where you can customize the chart and setup alerts.
 
-
+![Monitor elastic pool][4]
 ![resource utilization][6]
 
 Click **Edit chart** to add parameters so you can easily view telemetry data for the pool.
 
 
 ![edit chart][7]
-
-
 
 
 ## Next steps
@@ -199,5 +191,4 @@ After creating an elastic database pool, you can manage the databases in the poo
 [6]: ./media/sql-database-elastic-pool-portal/metric.png
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [10]: ./media/sql-database-elastic-pool-portal/star.png
-[11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 

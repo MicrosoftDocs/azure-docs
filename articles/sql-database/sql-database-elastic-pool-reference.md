@@ -22,8 +22,6 @@
 
 This reference provides links and details to elastic database pool articles and programmability information. For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases.
 
-## Overview
-
 An elastic database pool is a collection of elastic database throughput units (eDTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them. For assistance in determining if your databases would benefit in an elastic database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
 
@@ -33,7 +31,7 @@ An elastic database pool is a collection of elastic database throughput units (e
 
 - Elastic database pools are only available in Azure SQL Database V12 servers. To upgrade to V12 and migrate your databases directly into a pool, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-powershell.md).
 - Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), PowerShell, and a .NET Client Library (wrapper for REST APIs) for Azure Resource Manager only; the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
-- Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using Transact-SQL.
+- Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using [Transact-SQL](#transact-sql).
 
 
 
@@ -49,8 +47,6 @@ An elastic database pool is a collection of elastic database throughput units (e
     | Premium | 50 | 1500 |
 
     ****The current limits for the number of databases per pool and number of pool eDTUs is expected to increase.***
-
-
 
 
 ## List of articles
