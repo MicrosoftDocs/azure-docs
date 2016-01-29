@@ -16,7 +16,7 @@
 	ms.date="01/25/2016" 
 	ms.author="spelluru"/>
 
-# Monitor and manage Azure Data Factory pipelines using Monitoring and Management App
+# Monitor and manage Azure Data Factory pipelines using new Monitoring and Management App
 > [AZURE.SELECTOR]
 - [Using Azure Portal/Azure PowerShell](data-factory-monitor-manage-pipelines.md)
 - [Using Monitoring and Management App](data-factory-monitor-manage-app.md)
@@ -35,16 +35,29 @@ Now, you should see the app.
 Notice that there are three tabs (**Resource Explorer**, **Monitoring Views** and **Alerts**) on the left and the first tab (Resource Explorer) is selected by default. Let's focus on this tab for now and we will get to the other tabs later in this article.
 
 ## Resource Explorer
-You see Resource Explorer **tree view** in the left pane, **Diagram View** at the top and **Activity Windows** list at the bottom in the middle pane, and **Properties**/**Activity Window Explorer** tabs in the right pane. Activity window is an execution of an activity in a window of time (for example: 2 AM to 3 AM).  Data slice is an unit of data consumed and produced by an activity run. 
-
+You see Resource Explorer **tree view** in the left pane, **Diagram View** at the top and **Activity Windows** list at the bottom in the middle pane, and **Properties**/**Activity Window Explorer** tabs in the right pane. 
 
 You can see all resources (pipelines, datasets, linked services) in the data factory in a tree view. When you select an object in Resource Explorer, you will notice the following: 
 
 - associated Data Factory entity is highlighted in the Diagram View.
-- associated activity windows are highlighted in the Activity Windows list at the bottom.
+- associated activity windows are highlighted in the Activity Windows list at the bottom.  
 - properties of the selected object in the Properties window in the right pane. 
 
 ![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
+
+### Activity Windows 
+With the **scheduler** section in the activity JSON, you can specify a recurring schedule for the activity. For example you can schedule an activity every hour as follows:
+
+	"scheduler": {
+	    "frequency": "Hour",
+	    "interval": 1
+	},  
+
+![Scheduler example](./media/data-factory-monitor-manage-app/scheduler-example.png)
+
+As shown above, specifying a schedule for the activity creates a series of tumbling windows. Tumbling windows are series of fixed-sized, non-overlapping and contiguous time intervals. These logical tumbling windows for the activity are called **activity windows**.
+
+See [Scheduling & Execution with Data Factory](data-factory-scheduling-and-execution.md) article for detailed conceptual information about activity window. 
 
 ## Diagram View
 The Diagram View of a data factory provides a single pane of glass to monitor and manage the data factory and its assets. When you select a Data Factory entity (dataset/pipeline) in the diagram view, you will notice the following:
@@ -105,6 +118,8 @@ The Activity Windows list in the bottom of the middle pane displays all activity
 
 ![Activity Windows List](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
+This list does not refresh automatically, so use the refresh button on the toolbar to manually refresh it.  
+
 When you click an activity window in the list, you will see details about the activity window in the Activity Windows Explorer or Properties window on the right.
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
@@ -116,7 +131,7 @@ Change the start time and end time settings in the command bar to filter activit
 The Activity Windows list has command bar buttons to do the following:
 
 - **Rerun** an activity window. 
-- **Refresh** the activity window list
+- **Refresh** the activity window list. 
 - **Clear any filter** you have specified on a column. Let’s see how you can actually specify a filter on a column.
 
 The activity windows can be in one of the following statuses:
@@ -215,7 +230,9 @@ The Activity Window Explorer window is in the right-most pane of the Monitoring 
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-You can switch to different activity window by clicking on it in the calendar view at the top. You can also use the left arrow/right arrow buttons at the top to see activity windows from the previous/next week. 
+You can switch to different activity window by clicking on it in the calendar view at the top. You can also use the left arrow/right arrow buttons at the top to see activity windows from the previous/next week.
+
+In the Activity Window details pane (bottom pane), you see two buttons on the toolbar. The first one is to **rerun** an activity window and the second one is to **refresh** details in the window. The details are not automatically refreshed, so you use the refresh button to do so.  
 
 ## Monitoring Views
 The Monitoring and Management App includes pre-built system views (**Recent activity windows**, **Failed activity windows**, **In-Progress activity windows**) that allows you to view recent/failed/in-progress activity windows for your data factory. 
@@ -259,12 +276,12 @@ The following table provides the list of available events and statuses (and sub-
 
 Event name | Status | Sub status
 -------------- | ------ | ----------
-Run Started | Started | Starting
-Run Finished | Succeeded | Succeeded 
-Run Finished | Failed| Failed Resource Allocation<p>Failed Execution</p><p>Timed Out</p><p>Failed Validation</p><p>Abandoned</p>
-Cluster Create Started | Started | &nbsp; |
-Cluster Created Successfully | Succeeded | &nbsp; |
-Cluster Deleted | Succeeded | &nbsp; |
+Activity Run Started | Started | Starting
+Activity Run Finished | Succeeded | Succeeded 
+Activity Run Finished | Failed| Failed Resource Allocation<p>Failed Execution</p><p>Timed Out</p><p>Failed Validation</p><p>Abandoned</p>
+On-Demand HDI Cluster Create Started | Started | &nbsp; |
+On-Demand HDI Cluster Created Successfully | Succeeded | &nbsp; |
+On-Demand HDI Cluster Deleted | Succeeded | &nbsp; |
 ### To edit/delete/disable an alert
 
 
