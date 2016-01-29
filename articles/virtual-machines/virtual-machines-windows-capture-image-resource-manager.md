@@ -119,17 +119,17 @@ You can use the ARM Explorer to capture the virtual machine, as an alternative t
 
 2. On the top right side of the tool, select **Read/Write** to allow _PUT_ and _POST_ operations. It is set to **Read Only** by default, which means by default you can only do _GET_ operations.
 
-	![ARM Explorer Read/Write](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_ReadWrite.png)
+	![ARM Explorer Read/Write](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerReadWrite.png)
 
 3. Next find your Windows virtual machine. You can either type the name in the _Search box_ at the top of the tool, or you could navigate through the menu on the left as **subscriptions** > your Azure subscription > **resourceGroups** > your resource group > **providers** > **Microsoft.Compute** > **virtualMachines** > your Windows virtual machine. When you click on your virtual machine on the left navigation, you will see its template on the right side of the tool.
 
 4. On the top right side of the template page, you should see tabs for the various operations available for this virtual machine. Click the tab for **Actions (POST/DELETE)**.
 
-	![ARM Explorer Action menu](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_ActionMenu.png)
+	![ARM Explorer Action menu](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerActionMenu.png)
 
 5. You will see a list of all the actions that you can perform on the virtual machine.
 
-	![ARM Explorer Action items](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_ActionItems.png)
+	![ARM Explorer Action items](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerActionItems.png)
 
 6. Deallocate the virtual machine by clicking the action button for **deallocate**. The status of your VM will change from **Stopped** to **Stopped (deallocated)**.
 
@@ -137,7 +137,7 @@ You can use the ARM Explorer to capture the virtual machine, as an alternative t
 
 8. Under the **capture** action button, you can set the values for capturing your image. Your filled values could look like the following.
 
-	![ARM Explorer capture](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_CaptureAction.png)
+	![ARM Explorer capture](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerCaptureAction.png)
 
 	Click on the **capture** action button to capture your virtual machine's image. This creates a new VHD for the image as well as a JSON template file, which as of now are not accessible via either the ARM Explorer or the Azure portal.
 
@@ -147,13 +147,13 @@ You can use the ARM Explorer to capture the virtual machine, as an alternative t
 
 - On the left hand side, you should see the storage account of the virtual machine which we captured in the above steps. Double click on the **system** menu underneath it. You should see the contents of the **system** folder on the right side.
 
-	![Storage Explorer system](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer_1.png)
+	![Storage Explorer system](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer1.png)
 
 - Double click **Microsoft.Compute** and then **Images** which will show you all your image folders. Double click on the folder name that you entered for the **destinationContainerName** variable while capturing the image from ARM Explorer. It will show you both the VHD as well as the JSON template file.
 
 - From here, you can either find out the URL or download the VHD/template by right clicking on it.
 
-	![Storage Explorer template](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer_2.png)
+	![Storage Explorer template](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer2.png)
 
 
 ## Deploy a new VM from the captured image
