@@ -18,7 +18,6 @@
 
 # Tools and PaaS services for Azure Stack
 
-## Overview
 Azure Stack enables deploying Platform as a Service (PaaS) services from Microsoft and other 3rd party providers. You can also download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
 
 ## Additional PaaS Services
@@ -36,13 +35,20 @@ Explore the growing collection of [Azure Stack GitHub Templates](https://github.
 
 ## Developer Tools
 ### Visual Studio Cloud Tools
-Use the Visual Studio Cloud Tools to quickly build new applications or deploy existing applications to Azure Stack
-Download for [Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
+Use the Visual Studio Cloud Tools to quickly build new applications or deploy existing applications to Azure Stack.
+
+[Download the tools for Visual Studio 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)
 
 ### Azure PowerShell SDK
-Azure PowerShell is a module that provides cmdlets to manage Azure and Azure Stack with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure Stack platform
-[Download Azure PowerShell SDK](http://aka.ms/webpi-azps)
+Azure PowerShell is a module that provides cmdlets to manage Azure and Azure Stack with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure Stack platform.
+
+[Download the Azure PowerShell SDK](http://aka.ms/webpi-azps)
 
 ### Azure Cross Platform Command Line Interfaces
-Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack
-Download CLI for: [Windows](http://go.microsoft.com/?linkid=9828653&clcid=0x409) [Mac](http://go.microsoft.com/fwlink/?linkid=253471&clcid=0x409) [Linux](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409)
+Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.
+
+[Download the Windows CLI](http://go.microsoft.com/?linkid=9828653&clcid=0x409)
+
+ [Download the Mac CLI](http://go.microsoft.com/fwlink/?linkid=253471&clcid=0x409)
+
+ [Download the Linux CLI](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409)
