@@ -236,10 +236,10 @@ These are the expected values:
 
 | Value | Description |
 | ----- | ----------- |
-| {signature} | An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry` |
+| {signature} | An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation. |
 | {resourceURI} | URI prefix (by segment) of the endpoints that can be accessed with this token. For example, `/events` |
 | {expiry} | UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970. |
-| {URL-encoded-resourceURI} | URL-encoded resource URI (lower-case) |
+| {URL-encoded-resourceURI} | Lower case URL-encoding of the lower case resource URI |
 | {policyName} | The name of the shared access policy to which this token refers. Absent in the case of tokens referring to device-registry credentials. |
 
 **Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
@@ -350,6 +350,8 @@ Note that this does not mean that you can substitute IoT Hub for Event Hubs in a
 
 For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
 
+> [AZURE.NOTE] When using HTTP to send device-to-cloud messages, the following strings can contain only ASCII characters: system property values, and application property names and values.
+
 #### Non-telemetry traffic
 
 In many cases, in addition to telemetry data points, devices also send *interactive* messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the backend, or device responses to commands sent from the backend.
@@ -394,6 +396,8 @@ As detailed in the [Endpoints](#endpoints) section, you can send cloud-to-device
 Each cloud-to-device message is targeted at a single device, setting the **to** property to **/devices/{deviceId}/messages/devicebound**.
 
 **Important**: Each device queue can hold at most 50 cloud-to-device messages. Trying to send more messages to the same device will result in an error.
+
+> [AZURE.NOTE] When sending cloud-to-device messages, the following strings can contain only ASCII characters: system property values, and application property names and values.
 
 #### Message lifecycle <a id="message lifecycle"></a>
 
@@ -486,10 +490,6 @@ Each IoT hub is provisioned with a certain number of units in a specific SKU (fo
 
 The SKU also determines the throttling limits that IoT Hub enforces on operations.
 
-### Device identity registry quota
-
-IoT Hub allows at most 1100 device updates (create, update, delete) per unit (irrespective of SKU) per day.
-
 ### Operation throttles
 
 Operation throttles are rate limitations that are applied in the minute ranges, and are intended to avoid abuse. IoT Hub tries to avoid returning errors whenever possible, but it starts returning exceptions if the throttle is violated for too long.
@@ -499,9 +499,10 @@ The following is the list of enforced throttles. Values refer to an individual h
 | Throttle | Per-hub value |
 | -------- | ------------- |
 | Identity registry operations (create, retrieve, list, update, delete), individual or bulk import/export | 100/min/unit, up to 5000/min |
-| Device connections | 100/sec/unit |
+| Device connections | 120/sec/unit (for S2), 12/sec/unit (for S1). Minimum of 100/sec. |
 | Device-to-cloud sends | 120/sec/unit (for S2), 12/sec/unit (for S1). Minimum of 100/sec. |
-| Cloud-to-device operations (sends, receive, feedback) | 100/min/unit |
+| Cloud-to-device sends | 100/min/unit |
+| Cloud-to-device receives | 1000/min/unit |
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 

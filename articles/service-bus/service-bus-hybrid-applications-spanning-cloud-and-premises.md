@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="01/26/2016" 
 	ms.author="sethm"/>
 
 # Enable hybrid applications spanning cloud and premises

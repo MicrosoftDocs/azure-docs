@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/25/2015"
+   ms.date="01/25/2016"
    ms.author="telmos" />
 
 # IP addresses in Azure

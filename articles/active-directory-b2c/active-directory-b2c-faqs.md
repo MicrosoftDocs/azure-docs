@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/28/2015"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: FAQs
@@ -59,7 +59,7 @@ Each Azure AD B2C tenant has its own B2C features blade on the Azure Portal. Rea
 
 ### How do I customize Verification Emails (the content and the sender field, i.e., the "From:" field) sent by Azure AD B2C?
 
-Use the [company branding feature](./active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. The sender field can be changed via Support.
+Use the [company branding feature](../active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. The sender field can be changed via Support.
 
 ### How can I Migrate my existing Usernames, Passwords & Profiles from my Database to Azure AD B2C?
 
@@ -80,6 +80,10 @@ Not currently. Integrating these systems is on our roadmap.
 ### Does Azure AD B2C work with SharePoint On-Premises 2016 or older?
 
 Not currently. Azure AD B2C doesn't have support for SAML 1.1 tokens that portals / e-commerce applications built on SP on-premises needs. Note that Azure AD B2C is not meant for the Sharepoint external partner sharing scenario; see [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) instead.
+
+### Should I use Azure AD B2C or B2B to manage external identities?
+
+Read [this article](../active-directory/active-directory-b2b-compare-external-identities.md) to learn more about applying the appropriate features to your external identity scenarios.
 
 ### What Reporting and Auditing features does Azure AD B2C provide? Is it the same as Azure AD Premium's?
 

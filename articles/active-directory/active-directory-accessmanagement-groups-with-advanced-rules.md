@@ -39,7 +39,7 @@ The following are examples of a properly constructed advanced rule:
 
 For the complete list of supported parameters and expression rule operators, see sections below.
 
-The total length of the body of your advanced rule cannot exceed 255 characters.
+The total length of the body of your advanced rule cannot exceed 2048 characters.
 > [AZURE.NOTE]
 >String and regex operations are case insensitive. You can also perform Null checks, using $null as a constant, for example, user.department -eq $null.
 Strings containing quotes " should be escaped using 'character, for example, user.department -eq "Sa`"les".
@@ -173,9 +173,9 @@ To configure a group as a “Manager” group
 --------------------------------------------------------------------------------
 1. On the Administrator portal, click the **Configure** tab, and then select **ADVANCED RULE**.
 2. Type the rule with the following syntax:
-Direct Reports for *Direct Reports for {UserID_of_manager}*. an example of a valid rule for Direct Reports is 
+Direct Reports for *Direct Reports for {UserID_of_manager}*. An example of a valid rule for Direct Reports is 
 
-Direct Reports for 62e19b97-8b3d-4d4a-a106-4ce66896a863” 
+Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863” 
 
 where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the AAD Admin Portal on the profile tab of the user page of the user that is the manager. 
 
