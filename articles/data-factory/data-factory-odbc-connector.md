@@ -21,6 +21,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 Data factory currently supports only moving data from an on-premises ODBC data store to other data stores, but not for moving data from other data stores to an on-premises ODBC data store.
 
+
 ## Enabling connectivity
 Data Factory service supports connecting to on-premises ODBC sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. You need to leverage the gateway to connect to an ODBC data store even if it is hosted in an Azure IaaS VM. 
 
@@ -32,7 +33,9 @@ Apart from the Data Management Gateway, you also need to install the ODBC driver
 
 ## Sample: Copy data from ODBC data store to Azure Blob
 
-The sample below shows:
+This sample shows how to copy data from an ODBC data store to Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesOdbc](#odbc-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
