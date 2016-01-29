@@ -92,7 +92,7 @@ In addition to the generally available features of the Free, Basic, and Premium 
 
 **Available preview features:**
 
-- [B2B collaboration](https://azure.microsoft.com/en-us/documentation/articles/active-directory-b2b-collaboration-overview/)
+- [B2B collaboration](active-directory-b2b-collaboration-overview.md)
 - PIM
 - Conditional Access
 - Administrative Units
