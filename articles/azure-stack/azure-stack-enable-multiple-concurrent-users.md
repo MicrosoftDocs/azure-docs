@@ -18,11 +18,7 @@
 
 # Enable multiple concurrent user connections in Azure Stack
 
-<<<<<<< HEAD
 Now that you've [deployed](azure-stack-run-powershell-script.md) your Azure Stack POC, you'll probably want to share it with developers in your organization so they can begin testing and deploying templates.
-=======
-Now that you've set up your Azure Stack POC, you'll want to share it with developers in your organization so they can begin to test and deploy templates.
->>>>>>> 9f1a9b8e871c67ef7abe19c3f6340956f7c3a1fb
 
 You can configure external Windows or Mac machines to connect to the Azure Stack POC.
 
