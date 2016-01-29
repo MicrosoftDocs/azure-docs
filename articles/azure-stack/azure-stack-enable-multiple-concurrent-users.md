@@ -18,7 +18,9 @@
 
 # Enable multiple concurrent user connections in Azure Stack
 
-If you want to configure external Windows or Mac machines to connect to the Azure Stack POC, follow these steps.
+Now that you've set up your Azure Stack POC, you'll probably want to share it with developers in your organization so they can begin testing and deploying templates.
+
+You can configure external Windows or Mac machines to connect to the Azure Stack POC.
 
 1.  Connect to the NATVM (which was created by the deployment script).
 
@@ -72,11 +74,13 @@ This step explains how to configure a point to site VPN connection into the Azur
 
 	>[AZURE.NOTE] These commands produce some output including **The following helper DLL cannot be loaded: WCNNETSH.DLL.** You may ignore this.
 
-2.  For the VPN users, you must set up a local user account on the NATVM. Open **Control Panel**, click **User Accounts,** click **User Accounts,** click **User Accounts** again**,** click **Manage another account**, and then click **Add a user account.** Note: You may have to add additional accounts to increase the amount of concurrent users.
+2.  For the VPN users, you must set up a local user account on the NATVM. Open **Control Panel**, click **User Accounts,** click **User Accounts,** click **User Accounts** again**,** click **Manage another account**, and then click **Add a user account**.
+
+  **Important**: You may have to add additional accounts to increase the amount of concurrent users.
 
 	![](media/azure-stack-enable-multiple-concurrent-users/image1.png)
 
-	Before exiting the NATVM, take note of the VM external IP address outputted by the script. This is the address you will use to connect via VPN.
+  Before exiting the NATVM, take note of the VM external IP address outputted by the script. This is the address you will use to connect via VPN.
 
 ## Export the certificate
 
