@@ -18,7 +18,7 @@
 
 # Create an offer in Azure Stack
 
-Now that you [have a plan](azure-stack-create-plan), you can include it in an offer.
+Now that you [have a plan](azure-stack-create-plan.md), you can include it in an offer.
 
 1.  Log in to the portal as a service administrator.
 	![](media/azure-stack-create-offer/image1.png)
