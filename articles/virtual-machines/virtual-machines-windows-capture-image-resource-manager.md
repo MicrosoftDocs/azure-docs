@@ -129,7 +129,7 @@ You can use the ARM Explorer to capture the virtual machine, as an alternative t
 
 5. You will see a list of all the actions that you can perform on the virtual machine.
 
-
+	![ARM Explorer Action buttons](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_ActionItems.PNG)
 
 6. Deallocate the virtual machine by clicking the action button for **deallocate**. The status of your VM will change from **Stopped** to **Stopped (deallocated)**.
 
@@ -137,7 +137,7 @@ You can use the ARM Explorer to capture the virtual machine, as an alternative t
 
 8. Under the **capture** action button, you can set the values for capturing your image. Your filled values could look like the following.
 
-	![ARM Explorer set Read/Write](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_CaptureAction.png)
+	![ARM Explorer capture](./media/virtual-machines-windows-capture-image-resource-manager/ARMExplorer_CaptureAction.png)
 
 	Click on the **capture** action button to capture your virtual machine's image. This creates a new VHD for the image as well as a JSON template file, which as of now are not accessible via either the ARM Explorer or the Azure portal.
 
