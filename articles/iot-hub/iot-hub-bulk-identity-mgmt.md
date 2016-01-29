@@ -17,3 +17,5 @@
  ms.author="dobett"/>
 
  # Bulk management of IoT Hub device identities
+ 
+ text
