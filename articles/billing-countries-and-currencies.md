@@ -19,11 +19,11 @@
 
 # In which countries and regions is Microsoft Azure commercially available, and what currencies can be used to purchase Azure?
 
-You can purchase Microsoft Azure in more than 140 countries around the world, and many different currencies are supported. Here’s a list of countries where you can buy Azure and the currencies that you can use to pay your Azure bill. 
+You can purchase Microsoft Azure in more than 140 countries around the world, and many different currencies are supported. Here’s a list of countries where you can buy Azure and the currencies that you can use to pay your Azure bill.
 
 | Country                         | Currency Code |
 |---------------------------------|---------------|
-| Afghanistan                     | USD   <ul><li>item1</li><li>item2</li></ul>        |
+| Afghanistan                     | USD     |
 | Albania                         | USD           |
 | Angola                          | USD           |
 | Armenia                         | USD           |
