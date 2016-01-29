@@ -146,8 +146,8 @@ Some common reasons that a module might not successfully import to Azure Automat
 - You are using the **New-AzureRmAutomationModule** cmdlet to upload the module and have not given the full storage path or have not loaded the module using a publicly accessible URL.  
 
 **Troubleshooting tips:**  
-- Make sure that the module follows the following format:  
 
+- Make sure that the module follows the following format:  
 ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, ModuleName.psd1)
 
 - Open up the .psd1 file and check if the module has any dependencies.  If it does, upload these modules to the Automation account first.  
