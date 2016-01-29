@@ -39,4 +39,4 @@ A user in Azure Stack can be a reader, owner, or contributor for each instance o
 
 ## Next Steps
 
-[Publish a custom marketplace item](azure-stack-publish-custom-marketplace-item.md)
+[Create a custom marketplace item](azure-stack-create-marketplace-item.md)
