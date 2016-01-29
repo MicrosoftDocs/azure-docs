@@ -427,13 +427,13 @@ Before performing the steps in this section, you must have associated a custom d
 
 6.	Click **Custom domains and SSL**.
 
-	![The config tab][sslconfig]
+	![The config tab][configure]
 
 7.	In the **certificates** section, click **Upload**
 
 8.	Using the **Upload a certificate** dialog, select the .pfx certificate file created earlier using the IIS Manager or OpenSSL. Specify the password, if any, that was used to secure the .pfx file. Finally, click the **Save** to upload the certificate.
 
-	![ssl upload][ssluploadcert]
+	![ssl upload][uploadcert]
 
 9. In the **ssl bindings** section of the **SSL Settings** tab, use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use [Server Name Indication][sni] (SNI) or IP based SSL.
 
