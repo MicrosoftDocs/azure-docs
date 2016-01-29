@@ -19,6 +19,23 @@
 # Azure Data Factory - .NET SDK Change Log 
 This article provides information about changes to Azure Data Factory SDK in a specific version. You can find the latest Nuget package for Azure Data Factory [here](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories) 
 
+## Version 4.4.0
+Release date: 2016.01.28
+
+### Feature Additions
+
+- The following linked service type has been added as data sources and sinks for copy activities:
+	- [AzureStorageSasLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.azurestoragesaslinkedservice.aspx). See [Azure Storage SAS Linked Service](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) for conceptual information and examples. 
+
+## Version 4.3.0
+Release date: 2015.11.25
+
+### Feature Additions
+
+- The following linked service types haven been added as data sources for copy activities:
+	- [HdfsLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.hdfslinkedservice.aspx). See [Move data from HDFS using Data Factory](data-factory-hdfs-connector.md) for conceptual information and examples. 
+	- [OnPremisesOdbcLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisesodbclinkedservice.aspx). See [Move data From ODBC data stores using Azure Data Factory](data-factory-odbc-connector.md) for conceptual information and examples. 
+
 ## Version 4.2.0
 Release date: 2015-11-10
 
