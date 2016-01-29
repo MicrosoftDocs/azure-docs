@@ -21,7 +21,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 1.  [Install](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 
-2.  Download the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
+2.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
 
 3.  Run the **Microsoft Azure Stack POC.exe** file.
 
@@ -35,7 +35,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 	-   WindowsServer2012R2DatacenterEval.vhd
 
-	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD
+	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD (includes KB 3124262)
 
 	**Important**: You must have at least 128GB of free space on the physical boot volume.
 
@@ -62,7 +62,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 12. Verify network connectivity to Azure.com.
 
-Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
+**Important**: Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
 
 ## Run the PowerShell deployment script
 

@@ -20,7 +20,7 @@
 
 Now that you've created an offer, test that your tenants can  create a subscription.
 
-1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [a tenant](azure-stack-connect-azure-stack.md) and click **Get a Subscription**.
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [a tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) and click **Get a Subscription**.
 
     ![](media/azure-stack-subscribe-plan-provision-vm/image1.png)
 
