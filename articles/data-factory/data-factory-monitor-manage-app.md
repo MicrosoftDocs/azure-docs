@@ -40,7 +40,7 @@ You see Resource Explorer **tree view** in the left pane, **Diagram View** at th
 You can see all resources (pipelines, datasets, linked services) in the data factory in a tree view. When you select an object in Resource Explorer, you will notice the following: 
 
 - associated Data Factory entity is highlighted in the Diagram View.
-- associated activity windows (click [here]([Scheduling & Execution with Data Factory](data-factory-scheduling-and-execution.md)) to learn about activity windows) are highlighted in the Activity Windows list at the bottom.  
+- associated activity windows (click [here](data-factory-scheduling-and-execution.md)) to learn about activity windows) are highlighted in the Activity Windows list at the bottom.  
 - properties of the selected object in the Properties window in the right pane. 
 
 ![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
