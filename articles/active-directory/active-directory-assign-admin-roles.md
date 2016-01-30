@@ -82,6 +82,6 @@ The global administrator has access to all administrative features. By default, 
 
 ## What's next
 
-- [Manage users](../active-directory-manage-users.md)
+- [Manage users](../active-directory-create-users.md)
 - [Manage passwords](active-directory-manage-passwords.md)
 - [Manage groups](active-directory-manage-groups.md)

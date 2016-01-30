@@ -138,5 +138,5 @@ Now you might be ready to configure and use some Azure AD Premium features.
 - [Self-service group management](active-directory-accessmanagement-self-service-group-management.md)
 - [Azure AD Connect heath](active-directory-aadconnect-health.md)
 - [Group assignment to applications](active-directory-manage-groups.md)
-- [Azure Multi-Factor Authentication](multi-factor-authentication.md)
+- [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 - [Direct purchase of Azure AD Premium licenses](http://aka.ms/buyaadp)
