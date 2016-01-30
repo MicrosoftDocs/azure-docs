@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="01/29/2016"
 	ms.author="yuaxu"/>
 
 # Add Push Notifications to your Android App
@@ -79,3 +79,4 @@ You can test the app by directly attaching an Android phone with a USB cable, or
 
 <!-- URLs -->
 [Android quick start]: app-service-mobile-android-get-started.md
+[Set Up Google Play Services SDK]:https://developers.google.com/android/guides/setup
