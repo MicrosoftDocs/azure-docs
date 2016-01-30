@@ -49,7 +49,7 @@ In addition to creating and scaling a single database, you also have the option 
 
 Elastic database pools allow these databases to share and consume DTU resources without needing to assign a specific performance level to the databases in the pool. For example, a single database in a Standard pool can go from using 0 eDTUs to the maximum database eDTU (either 100 eDTUs defined by the service tier or a custom number that you configure). This allows multiple databases with varying workloads to efficiently use eDTU resources available to the entire pool.
 
-The following table describes the characteristics of the elastic database pool service tiers.
+The following table describes the characteristics of the elastic database pool service tiers. See [SQL Database elastic pool reference](sql-database-elastic-pool-reference.md) for definitions and further detail.
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
