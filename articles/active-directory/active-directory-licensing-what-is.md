@@ -44,7 +44,7 @@ In general, Azure AD subscription information is managed through the Azure class
 
 > [AZURE.IMPORTANT] Azure AD Premium and Basic, as well as Enterprise Mobility Suite subscriptions, are confined to their provisioned directory/tenant. Subscriptions cannot be split between directories or used to entitle users in other directories. Moving a subscription between directories is possible but requires submitting a support ticket or cancellation and re-purchase in the case of direct purchases.
 
-> [AZURE.IMPORTANT] When purchasing Azure AD or Enterprise Mobility Suite through Volume Licensing subscription activation will happen automatically when the agreement includes other Microsoft Online services, e.g. Office 365.
+> When purchasing Azure AD or Enterprise Mobility Suite through Volume Licensing subscription activation will happen automatically when the agreement includes other Microsoft Online services, e.g. Office 365.
 
 Paid Azure AD features span the breadth of the directory. Examples include:
 - Group-based assignment to applications, which is enabled under the specific application you are managing.
