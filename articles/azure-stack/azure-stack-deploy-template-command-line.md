@@ -74,4 +74,4 @@ On a Mac, you might need to disable certificate validation in the terminal using
 
 ## Next Steps
 
-[Manage permissions to resources per user](azure-stack-manage-permissions.md)
+[Manage user permissions](azure-stack-manage-permissions.md)
