@@ -36,7 +36,7 @@ In addition to specifying the reserved unit type, you can specify to provision y
 To change the reserved unit type and the number of encoding reserved units using .NET SDK, do the following:
 
 	IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-	encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; \\ Corresponds to S1
+	encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
 	encodingS1ReservedUnit.Update();
 	Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
 	
