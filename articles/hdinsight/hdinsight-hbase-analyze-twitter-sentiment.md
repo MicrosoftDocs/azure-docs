@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="12/02/2015" 
 	ms.author="jgao"/>
 
 # Analyze real-time Twitter sentiment with HBase in HDInsight

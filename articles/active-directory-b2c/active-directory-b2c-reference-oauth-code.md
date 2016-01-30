@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="01/28/2016"
 	ms.author="dastrock"/>
 
 # Azure AD B2C Preview: OAuth 2.0 Authorization Code Flow
@@ -29,7 +29,7 @@ The OAuth 2.0 authorization code flow is described in in [section 4.1 of the OAu
 on a particular flavor of the OAuth 2.0 authorization code flow - **public clients**.  A public client is any client application that cannot be trusted to securely maintain the integrity of a secret password.  This includes mobile apps, desktop apps, and pretty much any application that
 runs on a device and needs to get access_tokens.  If you want to add identity management to a web app using Azure AD B2C, you should use [OpenID Connect](active-directory-b2c-reference-oidc.md) rather than OAuth 2.0.
 
-Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization.  It introduces the [**policy parameter**](active-directory-b2c-reference-poliices.md), 
+Azure AD B2C extends the standard OAuth 2.0 flows to do more than simple authentication and authorization.  It introduces the [**policy parameter**](active-directory-b2c-reference-policies.md), 
 which enables you to use OAuth 2.0 to add user experiences to your app such as sign-up, sign-in, and profile management.  Here we'll show how to to use OAuth 2.0 and policies to implement each of these experiences 
 in your native applications and get access_tokens for accessing web APIs.
 

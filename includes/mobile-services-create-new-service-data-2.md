@@ -1,6 +1,6 @@
 To be able to store app data in the new mobile service, you must first create a new table in the associated SQL Database instance.
 
-1. In the Management Portal, click **Mobile Services**, and then click the mobile service that you just created.
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Mobile Services**, and then click the mobile service that you just created.
 
 2. Click the **Data** tab, then click **+Create**.
 

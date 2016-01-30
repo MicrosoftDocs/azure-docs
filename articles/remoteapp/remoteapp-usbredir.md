@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/23/2015" 
+    ms.date="11/04/2015" 
     ms.author="elizapo" />
 
 
@@ -66,8 +66,8 @@ The hardest part of this method is finding the USB device instance ID. You'll ne
 
 1. Enable the device redirection in Remote Desktop Session as described in [How can I use my devices and resources in a Remote Desktop session?](http://windows.microsoft.com/en-us/windows7/How-can-I-use-my-devices-and-resources-in-a-Remote-Desktop-session)
 2. Open a Remote Desktop Connection and click **Show Options**.
-3. Click **Save as** to save the current connection settings to an RDP file.
-![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
+3. Click **Save as** to save the current connection settings to an RDP file.  
+	![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
 4. Choose a file name and a location, for example “MyConnection.rdp” and “This PC\Documents”, and save the file.
 5. Open the MyConnection.rdp file using a text editor and find the instance ID of the device you want to redirect.
 

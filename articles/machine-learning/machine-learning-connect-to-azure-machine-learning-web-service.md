@@ -25,9 +25,9 @@ The Azure Machine Learning developer experience is a web service API to make pre
 To learn about how to create and deploy an Azure Machine Learning web service using Studio:
 
 - [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
-- [Getting Started with ML Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
+- [Getting Started with ML Studio](https://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Azure Machine Learning Preview](https://studio.azureml.net/)
-- [Machine Learning Documentation Center](http://azure.microsoft.com/documentation/services/machine-learning/)
+- [Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Azure Machine Learning web service ##
 
@@ -41,12 +41,12 @@ Azure Machine Learning has two types of services:
 For more information about Azure Machine Learning web services, see [Deploy a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Get an Azure Machine Learning authorization key ##
-You get a web service API key from an ML web service. You can get it from Microsoft Azure Machine Learning studio or the Azure Management Portal.
+You get a web service API key from an ML web service. You can get it from Microsoft Azure Machine Learning studio or the Azure Classic Portal.
 ### Microsoft Azure Machine Learning studio ###
 1. In Microsoft Azure Machine Learning studio, click **WEB SERVICES** on the left.
 2. Click a web service. The “API key” is on the **DASHBOARD** tab.
 
-### Azure Management Portal ###
+### Azure Classic Portal ###
 
 1. Click **MACHINE LEARNING** on the left.
 2. Click a workspace.

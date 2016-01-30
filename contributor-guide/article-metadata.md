@@ -21,7 +21,8 @@ The properties section uses the following syntax:
        authors="GitHub-alias-of-only-one-author"
        manager="manager-alias"
        editor=""
-       tags=""/>
+       tags="optional"
+       keywords="For use by SEO champs only. Separate terms with commas. Check with your SEO champ before you change content in this article containing these terms."/>
 
 The tags section uses the following syntax:
 
@@ -54,11 +55,13 @@ The tags section uses the following syntax:
 In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Additional values that you list will appear as tags in the published article. Values:
 
 - active-directory
+- active-directory-b2c
+- active-directory-ds
+- app-service-api
 - api-management
-- app-service\api
-- app-service\logic
-- app-service\mobile
-- app-service\web
+- app-service
+- app-service-mobile
+- app-service-web
 - application-gateway
 - application-insights
 - automation
@@ -66,6 +69,7 @@ In articles that specify both a services value and a documentationCenter value, 
 - azure-resource-manager
 - backup
 - batch
+- best-practice
 - billing
 - biztalk-services
 - cache
@@ -73,8 +77,11 @@ In articles that specify both a services value and a documentationCenter value, 
 - cloud-services
 - data-catalog
 - data-factory
-- documentdb
+- data-lake-analytics
+- data-lake-store
+- devtest-lab
 - dns
+- documentdb
 - expressroute
 - event-hubs
 - hdinsight
@@ -82,23 +89,28 @@ In articles that specify both a services value and a documentationCenter value, 
 - key-vault
 - load-balancer
 - machine-learning
+- marketplace
 - media-services
 - mobile-engagement
 - mobile-services
 - multi-factor-authentication
 - notification-hubs
 - operational-insights
+- operations-management-suite
+- powerapps
 - recovery-manager
 - redis-cache
 - remoteapp
 - rights-management
+- scheduler
 - search
+- security-center
 - service-bus
 - service-fabric
-- scheduler
 - site-recovery
 - sql-database
 - sql-data-warehouse
+- sql-reporting
 - storage
 - store
 - storsimple
@@ -138,6 +150,8 @@ In articles that specify both a services value and a documentationCenter value, 
   - billing
   - mysql
 
+![](./media/article-metadata/checkmark-small.png)**keywords**: Optional. For use by SEO champs only. Separate terms with commas. **Check with your SEO champ before you change or delete content in this article containing these terms.** This attribute records keywords the SEO champ has targeted and is tracking in order to improve search rank. The keywords do not render in the published HTML. Validation does not require this attribute.
+
 ## Attributes and values for the tags section
 
 ![](./media/article-metadata/checkmark-small.png)**ms.service**: Required. Specifies the Azure service, tool, or feature that the article applies to. One value per page.
@@ -176,6 +190,7 @@ In articles that specify both a services value and a documentationCenter value, 
  - **na**: The page does not apply to any services (rare)
  - **notification-hubs**
  - **operational-insights**
+ - **powerapps**
  - **recovery-manager**
  - **redis-cache**
  - **remoteapp**

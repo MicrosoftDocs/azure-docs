@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="11/12/2015" 
 	ms.author="spelluru"/>
 
 # Move data From MySQL using Azure Data Factory
@@ -29,9 +29,12 @@ Data factory currently supports only moving data from MySQL to other data stores
 ## Installation 
 For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net 6.6.5 for Microsoft Windows](http://go.microsoft.com/fwlink/?LinkId=278885) on the same system as the Data Management Gateway.
 
-## Sample: Copy data from MySQL to Azure Blob
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
-The sample below shows:
+## Sample: Copy data from MySQL to Azure Blob
+This sample shows how to copy data from an on-premises MySQL database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesMySql](data-factory-onprem-mysql-connector.md#mysql-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -238,7 +241,7 @@ The **typeProperties** section is different for each type of dataset and provide
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| tableName | Name of the table in the MySQL Database instance that linked service refers to. | Yes | 
+| tableName | Name of the table in the MySQL Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) | 
 
 ## MySQL Copy Activity type properties
 
@@ -250,7 +253,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | Yes | 
+| query | Use the custom query to read data. | SQL query string. For example: select * from MyTable. | No (if **tableName** of **dataset** is specified) | 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 

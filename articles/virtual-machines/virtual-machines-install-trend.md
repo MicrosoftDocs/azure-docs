@@ -31,9 +31,9 @@ If you have existing subscription from Trend Micro for an on-premises solution, 
 
 ## Install the Deep Security Agent on a new virtual machine
 
-The [Azure portal](http://manage.windowsazure.com) lets you install the VM Agent and the Trend Micro security extension when you use the **From Gallery** option to create the virtual machine. Using this approach is an easy way to add protection from Trend Micro if you're creating a single virtual machine.
+The [Azure classic portal](http://manage.windowsazure.com) lets you install the VM Agent and the Trend Micro security extension when you use the **From Gallery** option to create the virtual machine. Using this approach is an easy way to add protection from Trend Micro if you're creating a single virtual machine.
 
-This **From Gallery** option opens a wizard that helps you set up the virtual machine. You use the last page of the wizard to install the VM Agent and Trend Micro security extension. For general instructions, see [Create a virtual machine running Windows in the Azure portal](virtual-machines-windows-tutorial-classic-portal.md). When you get to the last page of the wizard, do the following:
+This **From Gallery** option opens a wizard that helps you set up the virtual machine. You use the last page of the wizard to install the VM Agent and Trend Micro security extension. For general instructions, see [Create a virtual machine running Windows in the Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md). When you get to the last page of the wizard, do the following:
 
 1.	Under **VM Agent**, check **Install VM Agent**.
 

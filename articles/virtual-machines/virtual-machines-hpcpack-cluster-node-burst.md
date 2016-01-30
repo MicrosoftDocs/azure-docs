@@ -1,19 +1,19 @@
 <properties
- pageTitle="Add "burst" nodes to an HPC Pack cluster | Microsoft Azure"
+ pageTitle="Add burst nodes to an HPC Pack cluster | Microsoft Azure"
  description="Learn how to add worker role instances running in a cloud service on-demand as compute resources to an HPC Pack head node in Azure."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="01/08/2016"
  ms.author="danlep"/>
 
 # Add on-demand "burst" nodes (worker role instances) as compute resources to an HPC Pack cluster in Azure
@@ -23,13 +23,13 @@ ms.service="virtual-machines"
 
 This article shows you how to add Azure "burst" nodes (worker role instances
 running in a cloud service) on-demand as compute resources to an
-existing HPC Pack head node in Azure. This lets you scale up the compute capacity of the HPC cluster in Azure, without maintaining a set of preconfigured compute node VMs.
+existing HPC Pack head node in Azure. This lets you scale up the compute capacity of the HPC cluster in Azure on-demand, without maintaining a set of preconfigured compute node VMs.
 
 ![Burst nodes][burst]
 
 >[AZURE.TIP] If you use the [HPC Pack IaaS deployment script](virtual-machines-hpcpack-cluster-powershell-script.md) to create the cluster in Azure,
 you can include Azure burst nodes in your automated
-deployment.
+deployment. See the examples in that article.
 
 The steps in this article will help you add Azure nodes quickly to a
 cloud-based HPC Pack head node VM for a test or proof of concept deployment. The procedure is essentially the
@@ -37,7 +37,7 @@ same as the one to “burst to Azure” to add cloud compute capacity to an
 on-premises HPC Pack cluster. For a tutorial, see [Set up a hybrid compute cluster with Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). For
 detailed guidance and considerations for production deployments, see
 [Burst to Azure with Microsoft HPC
-Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493).
+Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 If you want to use the A8 or A9 compute intensive instance size, see
 [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-a8-a9-a10-a11-specs.md).
@@ -52,11 +52,11 @@ steps to create a cluster head node in the classic (Service Management) deployme
 subscription used to deploy the head node VM, or a different
 subscription (or subscriptions).
 
-* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
+* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
 ## Step 1: Create a cloud service and a storage account to add Azure nodes
 
-Use the Azure Portal or equivalent tools to configure the following, which are needed to deploy
+Use the Azure classic portal or equivalent tools to configure the following, which are needed to deploy
 your Azure nodes:
 
 * A new Azure cloud service
@@ -100,7 +100,7 @@ Deployments](http://technet.microsoft.com/library/gg481759.aspx).
 The steps to add and start
 Azure nodes in this scenario are generally the same as those used with
 an on-premises head node. For more information, see the following
-sections in [Steps to Deploy Azure Nodes with Microsoft HPC Pack]((https://technet.microsoft.com/library/gg481758(v=ws.10).aspx):
+sections in [Steps to Deploy Azure Nodes with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx):
 
 * Create an Azure node template
 
@@ -118,7 +118,7 @@ Pack](http://technet.microsoft.com/library/jj159097(v=ws.10).aspx).
 
 * If you want a way to
 automatically grow or shrink the Azure computing resources according to
-the current workload of jobs and tasks on the cluster, see [Grow and shrink Azure compute resources in an HPC Pack cluste](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
+the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # How to protect a Web API backend with Azure Active Directory and API Management
@@ -30,7 +30,7 @@ The following video shows how to build a Web API backend and protect it using OA
 
 ## Create an Azure AD directory
 
-To secure your Web API backed using Azure Active Directory you must first have a an AAD tenant. In this video a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
+To secure your Web API backed using Azure Active Directory you must first have a an AAD tenant. In this video a tenant named **APIMDemo** is used. To create an AAD tenant, sign-in to the [Azure Classic Portal](https://manage.windowsazure.com) and click **New**->**App Services**->**Active Directory**->**Directory**->**Custom Create**. 
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
@@ -143,11 +143,11 @@ Replace the generated controller class with the following code. This code implem
         public HttpResponseMessage GetDiv([FromUri]int a, [FromUri]int b)
         {
             string xml = string.Format("<result><value>{0}</value><broughtToYouBy>Azure API Management - http://azure.microsoft.com/apim/ </broughtToYouBy></result>", a / b);
-            HttpResponseMessage response = Request.CreateResponse();
-            response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
-            return response;
-        }
-    }
+HttpResponseMessage response = Request.CreateResponse();
+response.Content = new StringContent(xml, System.Text.Encoding.UTF8, "application/xml");
+return response;
+}
+}
 
 
 Press **F6** to build and verify the solution.
@@ -178,7 +178,7 @@ Make a note of the **App Id URI** for use in a subsequent step when an Azure AD 
 
 ## Import the Web API into API Management
 
-APIs are configured from the API publisher portal, which is accessed through the Azure management portal. To reach the publisher portal, click **Manage** in the Azure Portal for your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Manage your first API][] tutorial.
+APIs are configured from the API publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Manage your first API][] tutorial.
 
 ![Publisher portal][api-management-management-console]
 
@@ -186,20 +186,20 @@ Operations can be [added to APIs manually](api-management-howto-add-operations.m
 
 Create a file named `calcapi.json` with following contents and save it to your computer. Ensure that the `host` attribute points to your Web API backend. In this example `"host": "apimaaddemo.azurewebsites.net"` is used.
 
-	{
-	  "swagger": "2.0",
-	  "info": {
-		"title": "Calculator",
-		"description": "Arithmetics over HTTP!",
-		"version": "1.0"
-	  },
-	  "host": "apimaaddemo.azurewebsites.net",
-	  "basePath": "/api",
-	  "schemes": [
-		"http"
-	  ],
-	  "paths": {
-		"/add?a={a}&b={b}": {
+{
+"swagger": "2.0",
+"info": {
+"title": "Calculator",
+"description": "Arithmetics over HTTP!",
+"version": "1.0"
+},
+"host": "apimaaddemo.azurewebsites.net",
+"basePath": "/api",
+"schemes": [
+"http"
+],
+"paths": {
+"/add?a={a}&b={b}": {
 		  "get": {
 			"description": "Responds with a sum of two numbers.",
 			"operationId": "Add two integers",

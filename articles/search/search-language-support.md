@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create an index definition for document in multiple languages in Azure Search | Microsoft Azure"
+   pageTitle="Create an index for documents in multiple languages in Azure Search | Microsoft Azure | Hosted cloud search service"
    description=" Azure Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft."
    services="search"
    documentationCenter=""
@@ -16,19 +16,19 @@
    ms.date="10/19/2015"
    ms.author="jlembicz"/>
 
-# Create an index definition for document in multiple languages in Azure Search
-
+# Create an index for documents in multiple languages in Azure Search
 > [AZURE.SELECTOR]
+- [Portal](search-language-support.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
 - [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
 
 Unleashing the power of language analyzers is as easy as setting one property on a searchable field in the index definition. Now you can do this step in the portal.
 
-Below are screenshots of the Azure portal blades for Azure Search that allow users to define an index schema. From this blade, users can create all of the fields and set the analyzer property for each of them.
+Below are screenshots of the Azure Classic Portal blades for Azure Search that allow users to define an index schema. From this blade, users can create all of the fields and set the analyzer property for each of them.
 
 > [AZURE.NOTE] You can only set a language analyzer during field definition, as in when creating a new index from the ground up, or when adding a new field to an existing index. Make sure you fully specify all attributes, including the analyzer, while creating the field. You won't be able to edit the attributes or change the analyzer type once the field is defined.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the service blade of your search service.
+1. Sign in to the [Azure Classic Portal](https://portal.azure.com) and open the service blade of your search service.
 2. Click **Add an Index** at the top of the service dashboard to start a new index, or open an existing index to set an analyzer on new fields you're adding to an existing index.
 3. The Fields blade appears, giving you options for defining the schema of the index, including the Analyzer tab used for choosing a language analyzer.
 4. In Fields, start a field definition by providing a name, choosing the data type, and setting  attributes to mark the field as full text searchable, retrievable in search results, usable in facet navigation structures, sortable, and so forth. 

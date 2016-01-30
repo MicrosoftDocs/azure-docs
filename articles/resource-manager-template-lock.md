@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for resource locks | Microsoft Azure"
-   description="Shows the resource manager schema for resource locks."
+   description="Shows the Resource Manager schema for deploying resource locks through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/21/2016"
    ms.author="tomfitz"/>
 
-# Resource locks - template schema
+# Resource locks template schema
 
 Creates a new lock on a resource and its child resources.
 
@@ -54,7 +54,7 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Type | Required | Permitted Values | Description |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| level   | enum | Yes | **CannotDelete** <br /> **ReadOnly**  | The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion, ReadOnly prevents modification or deletion. |
+| level   | enum | Yes | **CannotDelete**  | The type of lock to apply to the scope. CanNotDelete allows modification but prevents deletion. |
 | notes   | string | No | 512 characters | Description of the lock. |
 
 
@@ -63,16 +63,15 @@ The following tables describe the values you need to set in the schema.
 You add this resource to your template to prevent specified actions on a resource. The lock applies to all users and groups. Typically, you apply a lock for only a limited duration, such as, when a process is running and you want to make sure someone in your organization doesn't inadvertently modify or delete a resource.
 
 To create or delete management locks, you must have access to **Microsoft.Authorization/*** or **Microsoft.Authorization/locks/*** actions. Of the built-in roles, only **Owner** and **User Access Administrator** are 
-granted those actions. For information about role-based access control, see [Managing access to resources](./azure-portal/resource-group-rbac.md).
+granted those actions. For information about role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
 
-The lock is applied to the specified resource and any child resources. If you apply more than one lock to a resource, the most restrictive lock takes precedence. For example, if you apply ReadOnly at the 
-parent level (such as the resource group) and CanNotDelete on a resource within that group, the more restrictive lock (ReadOnly) from the parent takes precedence. 
+The lock is applied to the specified resource and any child resources.
 
 You can remove a lock with the PowerShell command **Remove-AzureRmResourceLock** or with the [delete operation](https://msdn.microsoft.com/library/azure/mt204562.aspx) of the REST API.
 
 ## Examples
 
-The following example applies a read-only lock to a web app.
+The following example applies a cannot-delete lock to a web app.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -102,7 +101,7 @@ The following example applies a read-only lock to a web app.
                 "dependsOn": [ "[variables('siteName')]" ],
                 "properties":
                 {
-                    "level": "ReadOnly",
+                    "level": "CannotDelete",
                     "notes": "my notes"
                 }
              }
@@ -110,7 +109,7 @@ The following example applies a read-only lock to a web app.
         "outputs": {}
     }
 
-The next example applies a read-only lock to the resource group.
+The next example applies a cannot-delete lock to the resource group.
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -124,7 +123,7 @@ The next example applies a read-only lock to the resource group.
                 "name": "MyGroupLock",
                 "properties":
                 {
-                    "level": "ReadOnly",
+                    "level": "CannotDelete",
                     "notes": "my notes"
                 }
             }

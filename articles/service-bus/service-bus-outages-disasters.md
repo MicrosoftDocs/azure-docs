@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
-# Best Practices for insulating applications against Service Bus outages and disasters
+# Best practices for insulating applications against Service Bus outages and disasters
 
 Mission-critical applications must operate continuously, even in the presence of unplanned outages or disasters. This topic describes techniques you can use to protect Service Bus applications against a potential service outage or disaster.
 
@@ -37,7 +37,7 @@ To protect against ACS outages, use Shared Access Signature (SAS) tokens. In thi
 
 ## Protecting queues and topics against messaging store failures
 
-A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue, on the other hand, consists of multiple fragments. Each fragment is stored in a different messaging store. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. If the corresponding messaging store is unavailable, Service Bus writes the message to a different fragment, if possible. For more information about partitioned entities, see [Partitioning Messaging Entities][].
+A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue, on the other hand, consists of multiple fragments. Each fragment is stored in a different messaging store. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. If the corresponding messaging store is unavailable, Service Bus writes the message to a different fragment, if possible. For more information about partitioned entities, see [Partitioned messaging entities][].
 
 ## Protecting against datacenter outages or disasters
 
@@ -99,12 +99,12 @@ To learn more about disaster recovery, see these articles:
 - [Azure Business Continuity Technical Guidance][]
 
   [Service Bus Authentication]: service-bus-authentication-and-authorization.md
-  [Partitioning Messaging Entities]: service-bus-partitioning.md
-  [Asynchronous Messaging Patterns and High Availability]: https://msdn.microsoft.com/library/azure/dn292562.aspx
+  [Partitioned messaging entities]: service-bus-partitioning.md
+  [Asynchronous Messaging Patterns and High Availability]: service-bus-async-messaging.md
   [Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
   [Durable Message Sender]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
-  [Azure SQL Database Business Continuity]: https://msdn.microsoft.com/library/azure/hh852669.aspx
+  [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
   [Azure Business Continuity Technical Guidance]: https://msdn.microsoft.com/library/azure/hh873027.aspx

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get Started with Event Hubs"
+	pageTitle="Get Started with Event Hubs with C and Apache Storm | Microsoft Azure"
 	description="Follow this tutorial to get started using Azure Event Hubs; sending events in C and receiving them in an Apache Storm cluster."
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="c"
 	ms.devlang="java"
 	ms.topic="article" 
-	ms.date="09/01/2015"
+	ms.date="12/09/2015"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -38,13 +38,13 @@ In order to complete this tutorial you will need the following:
 
 ## Create an Event Hub
 
-1. Log on to the [Azure portal], and click **NEW** at the bottom of the screen.
+1. Log on to the [Azure classic portal], and click **NEW** at the bottom of the screen.
 
 2. Click **App Services**, then **Service Bus**, then **Event Hub**, and then **Quick Create**.
 
 	![][1]
 
-3. Type a name for your Even Hub, select your desired region, and then click **Create a new Event Hub**.
+3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
 
 	![][2]
 
@@ -86,8 +86,8 @@ Now you are ready to run the applications.
 
 The following resources are available for developing applications integrating Event Hubs and Storm.
 
-- [Analyzing sensor data with Storm and HDInsight] is a full scenario tutorial using Event Hubs, Storm, and HBase to ingest sensor data in an Hadoop cluster.
-- [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] is a tutorial on how to write Storm pipelines using C#.
+- [Analyzing sensor data with Storm and HDInsight][] is a full scenario tutorial using Event Hubs, Storm, and HBase to ingest sensor data in an Hadoop cluster.
+- [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight][] is a tutorial on how to write Storm pipelines using C#.
 
 <!-- Images. -->
 [1]: ./media/event-hubs-c-storm-getstarted/create-event-hub1.png
@@ -101,7 +101,7 @@ The following resources are available for developing applications integrating Ev
 [23]: ./media/event-hubs-c-storm-getstarted/receive-storm3.png
 
 <!-- Links -->
-[Azure portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs overview]: event-hubs-overview.md
 

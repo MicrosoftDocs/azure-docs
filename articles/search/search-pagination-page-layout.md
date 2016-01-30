@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to page search results in Azure Search" 
-	description="Pagination in Azure Search" 
+	pageTitle="How to page search results in Azure Search | Microsoft Azure | Hosted cloud search service" 
+	description="Pagination in Azure Search, a hosted cloud search service on Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #How to page search results in Azure Search#

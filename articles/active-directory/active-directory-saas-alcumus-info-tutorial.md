@@ -3,7 +3,7 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and Alcumus Info Exchange."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
-	ms.author="markusvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Alcumus Info Exchange
@@ -31,7 +31,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with Alcumus Info Exchange, you need the following items:
 
-- An [Azure AD](http://azure.microsoft.com/) subscription
+- An [Azure AD](https://azure.microsoft.com/) subscription
 - An [Alcumus Info Exchange](http://www.alcumusgroup.com/) single-sign on enabled subscription
 
 

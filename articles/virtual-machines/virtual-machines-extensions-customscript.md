@@ -35,7 +35,7 @@ Custom Script extension for Windows allows you to run PowerShell scripts on a re
 ### Prerequistes for running Custom Script Extension
 
 1. Install Azure PowerShell cmdlets version 0.8.0 or later from <a href="http://azure.microsoft.com/downloads" target="_blank">here</a>.
-2. If the scripts are run on an existing VM, make sure VM Agent is enabled on the VM, if not follow this <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> to install one.
+2. If the scripts are run on an existing VM, make sure VM Agent is enabled on the VM, if not follow this <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> to install one. (If you are provisioning the VM from Azure gallery then VM agents are enabled by default , you don’t have to enable them)
 3. Upload the scripts that you want to run on the VM to Azure Storage. The scripts can come from a single container or multiple storage containers.
 4. The script should be authored in such a way that the entry script, which is started by the extension, starts other scripts.
 
@@ -73,9 +73,9 @@ This scenario shows how to use a non-default storage either within the same subs
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Add Custom Script extension from the portal
+### Add Custom Script extension from the Azure portal
 
-Browse to the VM in the <a href="https://portal.azure.com/ " target="_blank">Azure preview portal </a> and add the extension by specifying the script file to run.
+Browse to the VM in the <a href="https://portal.azure.com/ " target="_blank">Azure portal </a> and add the extension by specifying the script file to run.
 
   ![][5]
 
@@ -88,7 +88,7 @@ Custom Script Extension can be uninstalled from the VM using the following comma
 
 ### Using Custom Script extension with templates
 
-To learn about using Custom Script extension with templates, see the documentation [here](virtual-machines-extensions-customscript -with template.md).
+To learn about using Custom Script extension with Azure Resource Manager templates, see the documentation [here](virtual-machines-extensions-customscript%20-with%20template.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png

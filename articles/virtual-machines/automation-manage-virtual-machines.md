@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/21/2016"
 	ms.author="jolevy"/>
 
 
@@ -25,7 +25,7 @@ This guide introduces you to the Azure Automation service and how it can be used
 
 ## What is Azure Automation?
 
-[Azure Automation](http://azure.microsoft.com/services/automation/) is an Azure service for simplifying cloud management through process automation. By using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time-to-value for your organization.
+[Azure Automation](https://azure.microsoft.com/services/automation/) is an Azure service for simplifying cloud management through process automation. By using Azure Automation, long-running, manual, error-prone, and frequently repeated tasks can be automated to increase reliability, efficiency, and time-to-value for your organization.
 
 Azure Automation provides a highly reliable and highly available workflow execution engine that scales to meet your needs as your organization grows. In Azure Automation, processes can be kicked off manually, by third-party systems, or at scheduled intervals so that tasks happen exactly when needed.
 
@@ -41,4 +41,6 @@ Virtual machines can be managed in Azure Automation by using [Azure PowerShell](
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure virtual machines, learn more:
 
-[Get started with Azure Automation](../automation-create-runbook-from-samples.md)
+- [Azure Automation Overview](../automation/automation-intro.md)
+- [My first runbook](../automation/automation-first-runbook-graphical.md)
+- [Azure Automation learning map](https://azure.microsoft.com/documentation/learning-paths/automation/)

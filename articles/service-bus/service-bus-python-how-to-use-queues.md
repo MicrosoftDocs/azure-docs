@@ -44,7 +44,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-The values for the SAS key name and value can be found in the [Azure portal][] connection information, or in the Visual Studio **Properties** pane when selecting the Service Bus namespace in Server Explorer (as shown in the previous section).
+The values for the SAS key name and value can be found in the [Azure classic portal][] connection information, or in the Visual Studio **Properties** pane when selecting the Service Bus namespace in Server Explorer (as shown in the previous section).
 
 ```
 bus_service.create_queue('taskqueue')
@@ -109,7 +109,7 @@ Now that you have learned the basics of Service Bus queues, follow these links t
 
 -   See [Queues, topics, and subscriptions][].
 
-[Azure portal]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [Python Azure package]: https://pypi.python.org/pypi/azure  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Azure Queues and Service Bus queues]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas

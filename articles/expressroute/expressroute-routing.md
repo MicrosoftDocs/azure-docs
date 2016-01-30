@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="01/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -38,7 +38,7 @@ You can use either private IP addresses or public IP addresses to configure the 
  - If a /29 subnet is used, it will be split into two /30 subnets. 
 	 - The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
 	 - For each of the /30 subnets, you must the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	 - You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.  
+	 - You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
 
 #### Example for private peering
 
@@ -59,7 +59,7 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 - If a /29 subnet is used, it will be split into two /30 subnets. 
 	- The first /30 subnet will be used for the primary link and the second /30 subnet will be used for the secondary link.
 	- For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft will use the second IP address of the /30 subnet to setup a BGP session.
-	- You must setup both BGP sessions for our [availability SLA](http://azure.microsoft.com/support/legal/sla/) to be valid.
+	- You must setup both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 Make sure that your IP address and AS number are registered to you in one of the registries listed below.
 
@@ -70,7 +70,6 @@ Make sure that your IP address and AS number are registered to you in one of the
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Dynamic route exchange
@@ -120,26 +119,35 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 
 | **Geopolitical Region** | **Microsoft Azure region (Same applies to Office 365)** | **BGP community value** |
 |---|---|---|
-| **US** |	East US | 12076:3004 |
-|    | East US 2 | 12076:3005 |
-|    | West US | 12076:3006 |
-|    | Central US | 12076:3009 |
-|    | North Central US | 12076:3007 |
-|    | South Central US | 12076:3008 |
-| **South America** | Brazil South | 12076:3014 |
-| **Europe** | North Europe | 12076:3003 |
-|    | West Europe | 12076:3002 |
-| **Asia Pacific** | East Asia | 12076:3010 |
-|    | Southeast Asia | 12076:3011 |
-| **Japan** | Japan East | 12076:3012 |
-|    | Japan West | 12076:3013 |
-| **Australia** | Australia East | 12076:3015 |
-|    | Australia Southeast | 12076:3016 |
-| **India** | India South | 12076:3019 |
-|    | India West | 12076:3018 |
-|    | India Central | 12076:3017 |
+| **North America** |    |  |
+|    | East US | 12076:51004 |
+|    | East US 2 | 12076:51005 |
+|    | West US | 12076:51006 |
+|    | North Central US | 12076:51007 |
+|    | South Central US | 12076:51008 |
+|    | Central US | 12076:51009 |
+| **South America** |  |  |
+|    | Brazil South | 12076:51014 |
+| **Europe** |    |  |
+|    | North Europe | 12076:51003 |
+|    | West Europe | 12076:51002 |
+| **Asia Pacific** |    |   |
+|    | East Asia | 12076:51010 |
+|    | Southeast Asia | 12076:51011 |
+| **Japan** |     |   |
+|    | Japan East | 12076:51012 |
+|    | Japan West | 12076:51013 |
+| **Australia** |    |   | 
+|    | Australia East | 12076:51015 |
+|    | Australia Southeast | 12076:51016 |
+| **India** |    |   |
+|    | India South | 12076:51019 |
+|    | India West | 12076:51018 |
+|    | India Central | 12076:51017 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
+
+>[AZURE.IMPORTANT] Global prefixes will be tagged with an appropriate community value and will be advertised only when ExpressRoute premium add-on is enabled.
 
 
 In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value.
@@ -151,12 +159,11 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | **Skype For Business** | 12076:5030 |
 | **CRM Online** | 12076:5040 |
 | **Other Office 365 Services** | 12076:5100 |
-| **Global prefixes / Anycast** | 12076:5200 |
 
 
 ### Manipulating routing preferences
 
-Microsoft does not honor any BGP community values that you set. You are required to setup a pair of BGP sessions per peering to ensure that the requirements for the [availability SLA](http://azure.microsoft.com/support/legal/sla/) are met. You can can, however, configure your network to prefer one link over the other by relying on standard BGP route manipulation techniques. You can apply different BGP local preferences to each link to favor one path over the other from your network to Microsoft. You can prepend the AS-PATH on route advertisements to influence traffic flow from Microsoft into your network.
+Microsoft does not honor any BGP community values that you set. You are required to setup a pair of BGP sessions per peering to ensure that the requirements for the [availability SLA](https://azure.microsoft.com/support/legal/sla/) are met. You can can, however, configure your network to prefer one link over the other by relying on standard BGP route manipulation techniques. You can apply different BGP local preferences to each link to favor one path over the other from your network to Microsoft. You can prepend the AS-PATH on route advertisements to influence traffic flow from Microsoft into your network.
 
 ## Next steps
 

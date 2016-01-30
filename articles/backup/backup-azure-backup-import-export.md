@@ -3,8 +3,8 @@
    description="Learn how Azure Backup enables you to send data off the network using Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service"
    services="backup"
    documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
+   authors="Jim-Parker"
+   manager="jwhit"
    editor=""/>
 <tags
    ms.service="backup"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="08/28/2015"
-   ms.author="aashishr"; "jimpark"/>
+   ms.date="01/28/2016"
+   ms.author="jimpark;"/>
 
 # Offline Backup workflow in Azure Backup
 
@@ -25,7 +25,7 @@ With Azure Backup and Azure Import/Export, it is simple and straightforward to u
 
 ## Prerequisites
 
-1. It is important to familiarize yourself with the Azure Import export workflow which is listed [here](../storage-import-export-service.md).
+1. It is important to familiarize yourself with the Azure Import export workflow which is listed [here](../storage/storage-import-export-service.md).
 2. Before initiating the workflow, ensure that a Azure Backup vault has been created, vault credentials have been downloaded, Azure Backup agent has been installed on either your Windows Server/Windows Client or System Center Data Protection Manager (SCDPM) server and that the machine is registered with the Azure Backup vault.
 3. Download the Azure Publish file settings from [here](https://manage.windowsazure.com/publishsettings) on the machine from which you plan to backup our data.
 4. Prepare a *staging location* which could be a network share or additional drive on the machine. Ensure that the staging location has enough disk space to hold your initial copy. For example, if you are trying to backup a 500GB file server, ensure that the staging area is at least 500GB (though a lesser amount will be used). The staging area is 'transient storage' and is used temporarily during this workflow.
@@ -34,7 +34,7 @@ With Azure Backup and Azure Import/Export, it is simple and straightforward to u
 7. Download the Azure Import/Export tool from [here](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) to the machine to which the SATA drive writer is connected.
 
 ## Workflow
-The information provided in this section is for completing the **Offline Backup** workflow so your data can be delivered to an Azure data center and uploaded to Azure storage. If you have questions about the Import service or any aspect of the process, see the Import service overview referenced [above](../storage-import-export-service.md).
+The information provided in this section is for completing the **Offline Backup** workflow so your data can be delivered to an Azure data center and uploaded to Azure storage. If you have questions about the Import service or any aspect of the process, see the [Import service overview](../storage/storage-import-export-service.md) documentation referenced above.
 
 ### Initiate Offline Backup
 
@@ -113,5 +113,5 @@ The information provided in this section is for completing the **Offline Backup*
 Once the initial backup data is available in your storage account, the Azure Backup agent copies the contents of the data from this account to the multi-tenanted backup storage account. In the next schedule backup time, the Azure Backup agent performs the incremental backup over the initial backup copy.
 
 ## Next Steps
-- For any questions on the Azure Import/Export workflow, please refer to this [article](../storage-import-export-service.md).
+- For any questions on the Azure Import/Export workflow, please refer to this [article](../storage/storage-import-export-service.md).
 - Refer to the Offline Backup section of the Azure Backup [FAQ](backup-azure-backup-faq.md) for any questions about the workflow

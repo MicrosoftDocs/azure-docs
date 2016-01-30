@@ -1,19 +1,19 @@
 <properties
-   pageTitle="How to upgrade projects to the current version of the Azure tools"
+   pageTitle="How to upgrade projects to the current version of the Azure tools | Microsoft Azure"
    description="Learn how to upgrade an Azure project in Visual Studio to the current version of the Azure tools"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/28/2015"
-   ms.author="kempb" />
+   ms.date="01/05/2016"
+   ms.author="tarcher" />
 
 # How to upgrade projects to the current version of the Azure Tools for Visual Studio
 

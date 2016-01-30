@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Azure Backup - manage virtual machines | Microsoft Azure"
-	description="Learn how to manage an Azure virtual machine"
+	pageTitle="Manage and monitor Azure virtual machine backups | Microsoft Azure"
+	description="Learn how to manage and monitor an Azure virtual machine backups"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
-	ms.author="aashishr"; "jimpark"; "trinadhk"/>
+	ms.date="01/25/2016"
+	ms.author="trinadhk; jimpark; markgal;"/>
 
-# Manage and monitor backup of Azure virtual machines
+# Manage and monitor Azure virtual machine backups
 
 ## Manage protected virtual machines
 
@@ -72,7 +72,7 @@ You can choose to stop the future backups of a virtual machine with the followin
 - Retain backup data associated with virtual machine in Azure Backup vault
 - Delete backup data associated with virtual machine
 
-If you have selected to retain backup data associated with virtual machine, you can use the backup data to restore the virtual machine. For pricing details for such virtual machines, click [here](http://azure.microsoft.com/pricing/details/backup/).
+If you have selected to retain backup data associated with virtual machine, you can use the backup data to restore the virtual machine. For pricing details for such virtual machines, click [here](https://azure.microsoft.com/pricing/details/backup/).
 
 To Stop protection for a virtual machine:
 

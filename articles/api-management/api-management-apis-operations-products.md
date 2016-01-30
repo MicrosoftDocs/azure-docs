@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="sdanie"/>
 
 # How to create APIs, operations, and products in Azure API Management
@@ -22,7 +22,7 @@ In Azure API Management, APIs and their operations are added to products, where 
 
 ## <a name="create-apis"> </a>How to create APIs
 
-An API in API Management represents a set of operations that can be invoked by client applications. New APIs are created in the API Management portal.
+An API in API Management represents a set of operations that can be invoked by client applications. New APIs are created in the publisher portal.
 
 This guide shows how to create and configure a new API in API Management.
 

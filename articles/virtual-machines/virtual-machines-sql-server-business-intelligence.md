@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
+	ms.date="12/11/2015"
 	ms.author="jroth" />
 
 # SQL Server Business Intelligence in Azure Virtual Machines
@@ -27,11 +27,11 @@ The Microsoft Azure Virtual Machine gallery includes images that contain SQL Ser
 
 There are two ways to license SQL Server in Microsoft Azure Virtual Machines:
 
-1. License mobility benefits that are part of Software Assurance. For more information, see [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/).
+1. License mobility benefits that are part of Software Assurance. For more information, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
-1. Pay per hour rate of Azure Virtual Machines with SQL Server installed. See the “SQL Server” section in [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+1. Pay per hour rate of Azure Virtual Machines with SQL Server installed. See the “SQL Server” section in [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-For more information on licensing and current rates, see [Virtual Machines Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/%20).
+For more information on licensing and current rates, see [Virtual Machines Licensing FAQ](https://azure.microsoft.com/pricing/licensing-faq/%20/).
 
 ## SQL Server Images Available in Azure Virtual Machine Gallery
 
@@ -41,7 +41,7 @@ The Microsoft Azure Virtual Machine gallery includes several images that contain
 
 ![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) The following PowerShell script returns the list of Azure images that contain “SQL-Server” in the ImageName:
 
-	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Microsoft Azure Management Portal
+	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Azure classic portal.
 	
 	$subscriptionID = ""    # REQUIRED: Provide your subscription ID.
 	$subscriptionName = "" # REQUIRED: Provide your subscription name.
@@ -170,7 +170,7 @@ There are two common workflows for connecting to an Azure Virtual Machine:
 		
 		Myservice.cloudapp.net:63133
 		
-		For more information, see [What is a cloud service?](http://www.windowsazure.com/manage/services/cloud-services/what-is-a-cloud-service/).
+		For more information, see [What is a cloud service?](https://azure.microsoft.com/manage/services/cloud-services/what-is-a-cloud-service/).
 
 **Start Reporting Services Configuration Manager.**
 
@@ -412,7 +412,7 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 
 - [SQL Server on Azure Virtual Machines Overview](virtual-machines-sql-server-infrastructure-services.md)
 
-- [Virtual Machines](http://azure.microsoft.com/documentation/services/virtual-machines/)
+- [Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 
 - [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md)
 
@@ -424,7 +424,7 @@ The following diagram illustrates the ports to open in the VM firewall to allow 
 
 - [Multidimensional Modeling (Adventure Works Tutorial)](https://technet.microsoft.com/library/ms170208.aspx)
 
-- [Azure Documentation Center](http://azure.microsoft.com/documentation/)
+- [Azure Documentation Center](https://azure.microsoft.com/documentation/)
 
 - [Using Power BI in a Hybrid Environment](https://msdn.microsoft.com/library/dn798994.aspx)
 

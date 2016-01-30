@@ -1,5 +1,5 @@
 
-1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
+1. Log into the [Azure classic portal](https://manage.windowsazure.com/), click **Mobile Services**, and then click your app.
 
 	![](./media/mobile-services-create-new-push-table/mobile-services-selection.png)
 
@@ -17,5 +17,3 @@
 
 Next, you will modify the your app to enable push notifications.
 
-<!-- URLs -->
-[Azure Management Portal]: https://manage.windowsazure.com/

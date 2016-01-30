@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/26/2015"
+   ms.date="01/19/2016"
    ms.author="juliako"/>
 
 
@@ -26,7 +26,7 @@ This document contains the release notes for the Azure SDK for .NET 2.7 release.
 
 The document also contain the release notes for the Azure SDK for .NET 2.7.1 release.
 
-Azure SDK 2.7 is only supported in Visual Studio 2015 and Visual Studio 2013. [Azure SDK 2.6](http://azure.microsoft.com/downloads/) is the last supported SDK for Visual Studio 2012.
+Azure SDK 2.7 is only supported in Visual Studio 2015 and Visual Studio 2013. [Azure SDK 2.6](https://azure.microsoft.com/downloads/) is the last supported SDK for Visual Studio 2012.
 
 For detailed information about this release, see [Azure SDK 2.7 announcement post](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) and [Azure SDK 2.7.1 announcement post](http://go.microsoft.com/fwlink/?LinkId=623850).
 
@@ -87,7 +87,7 @@ Cloud explorer supports the following:
 - Integrated Properties panel which shows developer-focused properties commonly needed during dev/test 
 - Quick switching of the account to use when enumerating resources (use Settings command on toolbar) 
 - Filtering of subscriptions to use when enumerating resources (use Settings command on toolbar) 
-- Deep links to the Azure Preview Portal for management of resources and resource groups 
+- Deep links to the Azure Portal for management of resources and resource groups 
  
  
 ###Azure Resource Manager Tools 
@@ -131,7 +131,7 @@ For more detailed explanation about HDInsight tools updates, see [this blog](htt
 
 	Visualizing is very important when you want to see if your topology is working as expected. In this release we added visualization for Storm graphs. You can visualize the important metrics for your topology (for example, a color indicates weather a certain Bolt is “busy” or not). You can also double click the Bolt/Spout to view more details.
 
-- Support for HDInsight clusters that were created in new Azure Portal (a bug fix)
+- Support for HDInsight clusters that were created in the Azure Portal (a bug fix)
 
 	You can now use Visual Studio to view and submit jobs to all your HDInsight clusters no matter where the cluster were created.
 

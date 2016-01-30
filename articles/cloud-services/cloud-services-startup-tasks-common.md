@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="08/24/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Common Cloud Service startup tasks
@@ -201,9 +201,9 @@ This sample config **allows** all IPs to access the server except the two define
 ```xml
 <system.webServer>
     <security>
-    <!--Unlisted IP addresses are denied access-->
+    <!--Unlisted IP addresses are granted access-->
     <ipSecurity>
-        <!--The following IP addresses are granted access-->
+        <!--The following IP addresses are denied access-->
         <add allowed="false" ipAddress="192.168.100.1" subnetMask="255.255.0.0" />
         <add allowed="false" ipAddress="192.168.100.2" subnetMask="255.255.0.0" />
     </ipSecurity>
@@ -491,7 +491,7 @@ Learn more about how [Tasks](cloud-services-startup-tasks.md) work.
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
-[Runtime]: https://msdn.microsoft.com/en-us/library/azure/gg557552.aspx#Runtime
+[Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment

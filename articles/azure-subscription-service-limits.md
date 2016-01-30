@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2015"
+	ms.date="12/03/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -22,7 +22,7 @@
 
 This document specifies some of the most common Microsoft Azure limits. Note that this does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
 
-> [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
+> [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
 ## Limits and the Azure Resource Manager
 
@@ -51,6 +51,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Data Factory](#data-factory-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
+- [IoT Hub](#iot-hub-limits)
 - [Key Vault](#key-vault-limits)
 - [Media Services](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
@@ -118,19 +119,27 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 ### Storage Limits
 
-#### Standard Storage Limits
+For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md).
+
+#### Storage Service Limits
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-For additional details on storage account limits, see [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md).
+#### Virtual Machine Disk Limits 
 
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-#### Premium Storage Limits
+See [Virtual machine sizes](../articles/virtual-machines/virtual-machines-size-specs.md) for additional details.
 
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
+**Standard storage accounts**
 
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
-#### Storage Limits - Azure Resource Manager
+**Premium storage accounts**
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
+
+#### Storage Resource Provider Limits
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -171,9 +180,17 @@ The following table shows the limits for Azure Biztalk Services.
 
 ### Search Limits
 
-[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+The pricing tier determines the capacity and limits of your search service.
 
-For additional details on Azure Search limits, see [Limits and Constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+####Standard Tier
+
+[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+
+####Shared Tier (part of a multi-tenant service, free to Azure subscribers)
+
+[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
+
+To learn more about limits on keys, replica-partition combinations, requests, responses, and how to achieve high availability for different workloads, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services Limits
 
@@ -195,6 +212,10 @@ For additional details on Azure Search limits, see [Limits and Constraints](http
 ### Service Bus Limits
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+
+### IoT Hub Limits
+
+[AZURE.INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
 ### Data Factory Limits
 
@@ -256,6 +277,6 @@ For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-dat
 
 ## See Also
 
-[Understanding Azure Limits and Increases](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+[Understanding Azure Limits and Increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
