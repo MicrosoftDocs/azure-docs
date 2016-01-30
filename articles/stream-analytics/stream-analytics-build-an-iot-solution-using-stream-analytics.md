@@ -446,7 +446,7 @@ If a commercial vehicle is registered with the Toll Company, they can pass throu
     FROM EntryStream TIMESTAMP BY EntryTime
     JOIN Registration
     ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = `1`
+    WHERE Registration.Expired = '1'
 
 Note that testing a query with Reference Data requires that an input source for the Reference Data is defined, which we have done in Step 5.
 
