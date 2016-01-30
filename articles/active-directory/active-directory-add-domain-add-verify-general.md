@@ -89,11 +89,11 @@ Most custom domain names are second level domains “contoso.com”
 
 ## Verify a domain at any domain name registrar
 
-To verify your domain, you create a DNS record at the domain name registrar, or wherever your DNS is hosted, and then Azure AD uses that record to confirm that you own the domain. Before you can verify your domain, you must add a custom domain to Azure AD. If you already have a domain registered with a domain name registrar, the required DNS records already exist, and you can skip to [Verify your domain](#verify-your-domain).
+To verify your domain, you create a DNS record at the domain name registrar, or wherever your DNS is hosted, and then Azure AD uses that record to confirm that you own the domain. If you already have a domain registered with a domain name registrar, the required DNS records already exist, and you can skip to [Verify your domain](#verify-your-domain).
 
 When you've added a custom domain but the domain hasn't yet been verified, the status will show as **Unverified**.
 
-#### Verify your domain
+## Verify your domain
 
 After any records that you created for your domain have been added successfully through the DNS system at you domain registrar, do the following:
 
@@ -103,6 +103,16 @@ After any records that you created for your domain have been added successfully 
     - If domain verification succeeds, you will be notified that your domain has been added to your account.
     - If domain verification fails, then any changes that you made at the domain registrar might need more time to propagate. Cancel the verification, and try again later.
 
-If it has been more than 72 hours since you made the changes to your domain, sign in to the domain registrar's website and verify that you entered the alias information correctly. If you entered the information incorrectly, you must remove the incorrect DNS record and create a new one with the correct information by using the procedures in this topic.
+If it has been more than 72 hours since you made the changes to your domain, sign in to the domain registrar's website and verify that you entered the alias information correctly. If you entered the information incorrectly, you must remove the incorrect DNS record and create a new one with the correct information.
+
+### Third level domain names
+
+You can use third-level domains such as “europe.contoso.com” with your Azure AD. To add and use a third level domain:
+
+1.  Add and verify the second level domain “contoso.com”
+
+2.  Add any subdomains such as “europe.contoso.com” to Azure AD. When you add a subdomain of a verified second level domain, the third level domain is automatically verified by Azure AD. There's no need to add any more DNS entries.
+
+These steps can also be completed using PowerShell and Graph.
 
 After you've verified your domain, you can configure your domain to work with your accounts.
