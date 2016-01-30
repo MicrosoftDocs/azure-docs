@@ -18,9 +18,9 @@
 	ms.author="dkshir"/>
 
 
-# How to capture a Windows virtual machine created using Resource Manager deployment model
+# How to capture a Windows virtual machine in the Resource Manager deployment model
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-linux-capture-image.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-capture-image-windows-server.md).
 
 
 This article shows you how to use the Azure PowerShell to capture an Azure virtual machine running Windows so you can use it to create other virtual machines. This image includes the OS disk and data disks attached to the virtual machine. It doesn't include the virtual network resources you'll need to create a Windows VM, so you'll need to set those up before you create another virtual machine that uses the image. This image will also be prepared to be a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
@@ -104,33 +104,33 @@ This article assumes you have installed the Azure PowerShell version 1.0.x. We r
 	>[AZURE.NOTE] To find the location of your image, open the local JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. As of now, there is no easy way to check these images on the portal, since the _system_ container in the storage account is hidden. For this reason, although the `-Path` variable is optional, you definitely want to use it to save the template locally and to easily find out the image URL. Alternatively, you can find this out using a tool called the **Azure Storage Explorer** which is explained in the next section.
 
 
-### Using ARM Explorer
+### Using Azure Resource Explorer (Preview)
 
-[Azure Resource Manager or the ARM Explorer](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/) is a new tool developed for the Resource Manager deployment model. With this tool, you can easily
+The [Azure Resource Explorer (Preview)](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/) is a new tool developed to manage Azure resources created in the Resource Manager deployment model. With this tool, you can easily
 
 - discover the Azure Resource Management APIs,
 - get API documentation, and
-- make actual API calls directly in your Azure subscriptions.
+- make API calls directly in your Azure subscriptions.
 
-To know more about what all you can do with this powerful tool, view the video at [Azure Resource Manager Explorer with David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo).
+To know more about what all you can do with this powerful tool, view the video at [Azure Resource Manager Explorer with David Ebbo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Resource-Manager-Explorer-with-David-Ebbo). 
 
-You can use the ARM Explorer to capture the virtual machine, as an alternative to the PowerShell method.
+You can use the Resource Explorer to capture the virtual machine, as an alternative to the PowerShell method.
 
-1. Open the [ARM Explorer](https://resources.azure.com/) website and login to your Azure account.
+1. Open the [Resource Explorer website](https://resources.azure.com/) and login to your Azure account.
 
 2. On the top right side of the tool, select **Read/Write** to allow _PUT_ and _POST_ operations. It is set to **Read Only** by default, which means by default you can only do _GET_ operations.
 
-	![ARM Explorer Read/Write](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerReadWrite.png)
+	![Resource Explorer Read/Write](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerReadWrite.png)
 
 3. Next find your Windows virtual machine. You can either type the name in the _Search box_ at the top of the tool, or you could navigate through the menu on the left as **subscriptions** > your Azure subscription > **resourceGroups** > your resource group > **providers** > **Microsoft.Compute** > **virtualMachines** > your Windows virtual machine. When you click on your virtual machine on the left navigation, you will see its template on the right side of the tool.
 
 4. On the top right side of the template page, you should see tabs for the various operations available for this virtual machine. Click the tab for **Actions (POST/DELETE)**.
 
-	![ARM Explorer Action menu](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerActionMenu.png)
+	![Resource Explorer Action menu](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerActionMenu.png)
 
 5. You will see a list of all the actions that you can perform on the virtual machine.
 
-	![ARM Explorer Action items](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerActionItems.png)
+	![Resource Explorer Action items](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerActionItems.png)
 
 6. Deallocate the virtual machine by clicking the action button for **deallocate**. The status of your VM will change from **Stopped** to **Stopped (deallocated)**.
 
@@ -138,9 +138,9 @@ You can use the ARM Explorer to capture the virtual machine, as an alternative t
 
 8. Under the **capture** action button, you can set the values for capturing your image. Your filled values could look like the following.
 
-	![ARM Explorer capture](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerCaptureAction.png)
+	![Resource Explorer capture](./media/virtual-machines-windows-capture-image-resource-manager/ArmExplorerCaptureAction.png)
 
-	Click on the **capture** action button to capture your virtual machine's image. This creates a new VHD for the image as well as a JSON template file, which as of now are not accessible via either the ARM Explorer or the Azure portal.
+	Click on the **capture** action button to capture your virtual machine's image. This creates a new VHD for the image as well as a JSON template file, which as of now are not accessible via either the Resource Explorer or the [Azure portal](https://portal.azure.com).
 
 9. To access the new image VHD as well as the template, download and install the Azure tool for managing storage resources, the [Azure Storage Explorer](http://storageexplorer.com/). It will install the Azure Storage Explorer locally on your machine.
 
@@ -150,7 +150,7 @@ You can use the ARM Explorer to capture the virtual machine, as an alternative t
 
 		![Storage Explorer system](./media/virtual-machines-windows-capture-image-resource-manager/StorageExplorer1.png)
 
-	- Double click **Microsoft.Compute** and then **Images** which will show you all your image folders. Double click on the folder name that you entered for the **destinationContainerName** variable while capturing the image from ARM Explorer. It will show you both the VHD as well as the JSON template file.
+	- Double click **Microsoft.Compute** and then **Images** which will show you all your image folders. Double click on the folder name that you entered for the **destinationContainerName** variable while capturing the image from Resource Explorer. It will show you both the VHD as well as the JSON template file.
 
 	- From here, you can either find out the URL or download the VHD/template by right clicking on it.
 
