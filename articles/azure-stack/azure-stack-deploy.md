@@ -25,30 +25,30 @@ Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make
 | | **Requirements**  |
 |---|---|
 | **OS Version** | [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed, including [KB 3124262](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=3124262).|
-| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually the operating system, updates, and KB 3124262.|
+| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually install the operating system, updates, and KB 3124262.|
 | **Domain joined?** | No. |
 
 ## Network
 
 ### Switch
 
-One available port on a switch for the POC machine.  
+One available port on a switch for the POC machine.
 
 The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. For example:
 
-	DeployAzureStack.ps1 –verbose –PublicVLan 305
+	DeployAzureStack.ps1 –Verbose –PublicVLan 305
 
 ### Subnet
 
-Do not connect the POC machine to the subnets 192.168.200.0/24, 192.168.100.0/24, or 192.168.133.0/24. These are reserved for the internal networks within the Microsoft Azure Stack POC environment.
+Do not connect the POC machine to the subnets 192.168.200.0/24, 192.168.100.0/24, or 192.168.133.0/24. These are reserved for the internal networks within the Microsoft Azure Stack POC environment.
 
 ### IPv4/IPv6
 
-Only IPv4 is supported. You cannot create IPv6 networks.
+Only IPv4 is supported. You cannot create IPv6 networks.
 
 ### DHCP
 
-Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and password as a deployment parameter. For example:
+Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and a gateway as the deployment parameters. For example:
 
 	DeployAzureStack.ps1 -Verbose -NATVMStaticIP 10.10.10.10/24 -NATVMStaticGateway 10.10.10.1
 
@@ -62,11 +62,11 @@ If a proxy is required in your environment, specify the proxy server address and
 
 	DeployAzureStack.ps1 -Verbose -ProxyServer 172.11.1.1:8080
 
-Azure Stack POC does not support proxy authentication. 
+Azure Stack POC does not support proxy authentication.
 
 ### Telemetry
 
-Port 443 (HTTPS) must be open for your network. The client end-point is https://vortex-win.data.microsoft.com.
+Port 443 (HTTPS) must be open for your network. The client endpoint is https://vortex-win.data.microsoft.com.
 
 ## Microsoft Azure Active Directory accounts
 
