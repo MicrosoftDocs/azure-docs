@@ -140,6 +140,6 @@ Azure RBAC has three basic roles that apply to all resource types: Owner, Contri
 
 Microsoft Azure Stack collects and aggregates usage data across all resource providers to provide a concise report per user. Data can be as simple as consumed resource count, or as complex as individual performance and scale counters. The data is available via REST API. There is an Azure-consistent Tenant API as well as Provider and Delegated Provider APIs to get usage data across all tenant subscriptions. This data can be used to integrate with an external tool or service for billing or chargeback.
 
-## Next Steps
+## Next steps
 
 [Deploy Azure Stack Technical Preview 1 (POC)](azure-stack-deploy.md)

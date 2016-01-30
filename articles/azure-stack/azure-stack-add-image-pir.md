@@ -50,6 +50,6 @@ Before a virtual machine can be added to the Marketplace, its image must be adde
 
 >[AZURE.NOTE] The marketplace UI may error after you remove a previously added image from the PIR. To fix this, click **Settings** in the portal. Then, click **Discard modifications** under **Portal customization**.
 
-## Next Steps
+## Next steps
 
 [Add an image to the Platform Image Repository](azure-stack-add-image-pir.md)

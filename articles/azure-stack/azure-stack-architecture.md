@@ -47,6 +47,6 @@ Storage services in the operating system on the physical host include:
 **ReFS CSV** Resilient File System Cluster Shared Volume.
 **Virtual Disk**, **Storage Space**, and **Storage Spaces Direct** are the respective underlying storage technology in Windows Server to enable the Microsoft Azure Stack core storage resource provider.
 
-## Next Steps
+## Next steps
 
 [First scenarios to try](azure-stack-first-scenarios.md)

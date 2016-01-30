@@ -94,6 +94,6 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 
 4.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
 
-## Next Steps
+## Next steps
 
 [Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)

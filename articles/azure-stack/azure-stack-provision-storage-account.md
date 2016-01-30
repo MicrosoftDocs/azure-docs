@@ -32,7 +32,7 @@ Storage accounts include Blob and Table services, and the unique namespace for y
 
 6.  Click **Create**.
 
-## Next Steps
+## Next steps
 
 [Use Azure Resource Manager templates](azure-stack-arm-templates.md)
 

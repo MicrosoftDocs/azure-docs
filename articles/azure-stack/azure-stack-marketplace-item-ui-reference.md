@@ -26,3 +26,11 @@
 ## Marketplace item details blade
 
 ![](media/azure-stack-marketplace-item-ui-reference/image3.png)
+
+# Next steps
+
+[The Azure Stack Marketplace](azure-stack-marketplace.md)
+
+[Create a marketplace item](azure-stack-create-marketplace-item.md)
+
+[Publish a marketplace item](azure-stack-publish-marketplace-item.md)

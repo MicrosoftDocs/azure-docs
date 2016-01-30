@@ -128,6 +128,6 @@ These requirements apply to the Azure Stack POC only and might change for future
 
 Sample OEM configurations are available.
 
-## Next Steps
+## Next steps
 
 [Deploy Azure Stack POC](azure-stack-run-powershell-script.md)
