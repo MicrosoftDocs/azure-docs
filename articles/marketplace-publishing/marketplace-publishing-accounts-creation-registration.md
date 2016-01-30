@@ -145,7 +145,7 @@ The Azure publishing portal is used to publish and manage your offer(s). You wil
 
 3.	Sign in with your company registration Microsoft account (i.e., marketplace@example.com), and you can add co-admins as necessary.
 
-  > [AZURE.TIP] The participation policies are described on the [Azure website](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+  > [AZURE.TIP] The participation policies are described on the [Azure website](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
   > If you have issues with Developer Center registration, please log a support ticket as below:
   1. Contact [Support](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&supportregion=en-us&pesid=15635&ccsid=635847950577064286).

@@ -13,7 +13,7 @@
  	ms.tgt_pltfrm="na"
  	ms.devlang="na"
  	ms.topic="article"
- 	ms.date="10/16/2015"  
+ 	ms.date="01/28/2015"  
  	ms.author="stevenpo"/>
 
 # Sharing accounts with Azure AD

@@ -2,13 +2,14 @@
 	pageTitle="Microsoft Azure IoT Suite overview | Microsoft Azure"
 	description="This provides an overview of Azure IoT Suite including packaging and the preconfigured solutions."
 	services=""
+    suite="iot-suite"
 	documentationCenter=""
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
-     ms.service="na"
+     ms.service="iot-suite"
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"

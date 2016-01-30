@@ -41,6 +41,10 @@ To plan for capacity and understand the billing impact, we recommend these links
 
 When you are ready to sign up, see [Create a Search service in the portal](search-create-service-portal.md).
 
+##Search Analytics
+
+You can enable data collection over user search activity to understand how your search service is performing, what terms are being used, and whether those terms returned hits. The best way to analyze and visualize this data is through a Power BI content pack. The first step is to enable search traffic analytics. See [Analyzing your Azure Search traffic](https://azure.microsoft.com/blog/analyzing-your-azure-search-traffic/) to learn how.
+
 <a id="sub-2"></a>
 ## Administrative tasks
 
@@ -146,6 +150,9 @@ There is no detection method that tells you which index shards are stored on spe
 
 To help with future planning, you might want to check storage (using [Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)) to see how much you actually used. 
 
+### Best practices on scale and service deployment across multiple data centers (video)
+
+> [AZURE.VIDEO azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications]
 
 <a id="sub-7"></a>
 ## Start or Stop the Service

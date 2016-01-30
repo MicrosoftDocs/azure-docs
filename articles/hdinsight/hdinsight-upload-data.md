@@ -220,7 +220,7 @@ The Azure Data Factory service is a fully managed service for composing data sto
 
 Azure Data Factory can be used to move data into Azure Blob storage, or to create data pipelines that directly use HDInsight features such as Hive and Pig.
 
-For more information, see the [Azure Data Factory documentation](http://azure.microsoft.com/documentation/services/data-factory/).
+For more information, see the [Azure Data Factory documentation](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ###<a id="sqoop"></a>Apache Sqoop
 
@@ -239,7 +239,7 @@ Azure Blob storage can also be accessed using an Azure SDK from the following pr
 * Python
 * Ruby
 
-For more information on installing the Azure SDKs, see [Azure downloads](http://azure.microsoft.com/downloads/)
+For more information on installing the Azure SDKs, see [Azure downloads](https://azure.microsoft.com/downloads/)
 
 
 ## Next steps
