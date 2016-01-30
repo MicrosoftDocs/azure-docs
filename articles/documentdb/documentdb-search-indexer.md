@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="10/28/2015" 
+    ms.date="01/29/2016" 
     ms.author="anhoh"/>
 
 #Connecting DocumentDB with Azure Search using indexers
@@ -121,7 +121,7 @@ You will receive an HTTP 201 Created response if the data source was successfull
 
 ##<a id="CreateIndex"></a>Step 2: Create an index
 
-Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Classic Portal UI](../search/search-get-started.md#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](../search/search-get-started.md#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
