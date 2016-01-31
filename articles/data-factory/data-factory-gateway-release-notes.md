@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Data Management Gateway – Release Notes | Azure Data Factory" 
-	description="Data Factory release notes" 
+	pageTitle="Release notes for Data Management Gateway | Azure Data Factory" 
+	description="Data Management Gateway tory release notes" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,14 +16,14 @@
 	ms.date="01/26/2016" 
 	ms.author="spelluru"/>
 
-# Data Management Gateway – Release Notes
+# Release notes for Data Management Gateway
 
 One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
 Please refer to [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) for more information.
 
 
-## CURRENT VERSION (1.9.5863.1)
+## Current version (1.9.5865.2)
 
 - Zero touch auto update capability
 - New tray icon with gateway status indicators
@@ -34,7 +34,7 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 - Bug fixes
 
 
-## EARLIER VERSIONS
+## Earlier versions
 
 ## 1.8.5822.1
 
@@ -127,7 +127,7 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 
 - No changes that affect Azure Data Factory scenarios. 
 
-## Questions/Answers
+## Questions/answers
 
 ### Why is the Data Source Manager trying to connect to a gateway?
 This is a security design where you can only configure on-premises data sources for cloud access within your corporate network, and your credentials will not flow outside of your corporate firewall. Ensure your computer can reach the machine where the gateway is installed.

@@ -16,7 +16,7 @@
 	ms.date="01/21/2016" 
 	ms.author="spelluru"/>
 
-# Move Data Between On-premises Sources and Cloud with Data Management Gateway
+# Move data between on-premises sources and cloud with Data Management Gateway
 One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data factory makes this integration seamless with data management gateway. Data factory management gateway  is an agent you can install on-premises to enable hybrid pipelines.
 
 This article provides an overview of integrating on-premises data stores with cloud data stores and cloud processing using data factory. This article builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article and other data factory core concepts articles. The following overview assumes you are familiar with data factory concepts like pipelines, activities, datasets and the copy activity.
@@ -52,7 +52,7 @@ Due to the fact that copy activity runs happen on a specific frequency, the reso
 Data Management Gateway can be installed by downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717).  The MSI can also be used to upgrade existing Data Management Gateway to the latest version, with all settings preserved. You can find the link to the MSI package from Azure Portal by following the step by step walkthrough below.
 
 
-### Installation Best practices:
+### Installation best practices:
 1.	Configure power plan on the host machine for the gateway so that the machine does not hibernate. If the host machine hibernates, the gateway won’t be able to respond to data requests.
 2.	You should backup the certificate associated with the gateway.
 
@@ -72,7 +72,7 @@ You will see the status of update operation (manual or automatic) in the system 
 The Update tab of the Data Management Gateway Configuration Manager displays the update schedule as well as the last time the gateway was installed/updated. If the auto-update is disabled, it shows a message about, but you will not be able to enable the feature on the tab; You will have to use the cmdlet to enable the feature. 
   
 
-## System Tray Icons/Notifications
+## System tray icons/notifications
 The following image shows some of the tray icons that you will see. 
 
 ![system tray icons](./media/data-factory-move-data-between-onprem-and-cloud/gateway-tray-icons.png)
@@ -92,7 +92,7 @@ You can disable/enable the auto-update feature by doing the following:
 	
 		.\GatewayAutoUpdateToggle.ps1  -on  
 
-## Port and Security Considerations
+## Port and security considerations
 There are two firewalls you need to consider: **corporate firewall** running on the central router of the organization, and **Windows firewall** configured as a daemon on the local machine where the gateway is installed.  
 
 ![firewalls](./media/data-factory-move-data-between-onprem-and-cloud/firewalls.png)
@@ -160,7 +160,7 @@ If you encounter errors such as the following ones, it is likely because of the 
 1.	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
 2.	When you open Configuration Manager, you see status as “Disconnected” or “Connecting”. When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway” you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and will restart automatically. Component name: Gateway.”
 
-## Gateway Troubleshooting
+## Gateway troubleshooting
 
 
 - You can find detailed information in gateway logs in Windows event logs. You can find them by using Windows **Event Viewer** under **Application and Services Logs** > **Data Management Gateway** While troubleshooting gateway related issues look for error level events in the event viewer.
@@ -201,7 +201,7 @@ In this step, you use the Azure Portal to create an Azure Data Factory instance 
 
 	![Data Factory Home Page](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
-### Step 2: Create a data management gateway
+### Step 2: Create a Data Management Gateway
 5. In the **DATA FACTORY** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
 
 	![Author and Deploy Tile](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
@@ -585,7 +585,7 @@ This section provides steps for moving gateway client from one machine to anothe
 	You can export a certificate from the old gateway by doing the following: launch Data Management Gateway Configuration Manager on the old machine, switch to the **Certifcate** tab, click **Export** button and follow the instructions. 
 10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager. 
 
-## Set Credentials and Security
+## Set credentials and security
 
 You can also create a SQL Server linked service using the Linked Services blade instead of using the Data Factory Editor. 
  
