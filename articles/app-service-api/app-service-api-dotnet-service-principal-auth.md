@@ -18,6 +18,8 @@
 
 # Service principal authentication for API Apps in Azure App Service
 
+[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
+
 ## Overview
 
 In this article you'll learn:
