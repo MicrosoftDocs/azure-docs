@@ -16,7 +16,7 @@
 	ms.date="01/30/2016" 
 	ms.author="spelluru"/>
 
-# Azure Data Factory - .NET SDK Change Log 
+# Azure Data Factory - .NET API change log 
 This article provides information about changes to Azure Data Factory SDK in a specific version. You can find the latest Nuget package for Azure Data Factory [here](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories) 
 
 ## Version 4.4.0
