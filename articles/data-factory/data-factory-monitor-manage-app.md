@@ -26,10 +26,6 @@ This article describes how to monitor, manage and debug your pipelines using the
 ## Launching Monitoring and Management App 
 To launch the Monitor and Management App, click the URL for **Monitoring App** in the **DATA FACTORY** blade for your data factory. 
 
-![Launch Monitoring and Management App](./media/data-factory-monitor-manage-app/LaunchMMApp.png) 
-
-Now, you should see the app. 
-
 ![Monitoring and Management App](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 Notice that there are three tabs (**Resource Explorer**, **Monitoring Views** and **Alerts**) on the left and the first tab (Resource Explorer) is selected by default. Let's focus on this tab for now and we will get to the other tabs later in this article.
@@ -40,7 +36,7 @@ You see Resource Explorer **tree view** in the left pane, **Diagram View** at th
 You can see all resources (pipelines, datasets, linked services) in the data factory in a tree view. When you select an object in Resource Explorer, you will notice the following: 
 
 - associated Data Factory entity is highlighted in the Diagram View.
-- associated activity windows (click [here](data-factory-scheduling-and-execution.md)) to learn about activity windows) are highlighted in the Activity Windows list at the bottom.  
+- associated activity windows (click [here](data-factory-scheduling-and-execution.md) to learn about activity windows) are highlighted in the Activity Windows list at the bottom.  
 - properties of the selected object in the Properties window in the right pane. 
 
 ![Resource Explorer](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
@@ -101,8 +97,8 @@ At the bottom of the Diagram View, you will see buttons to Zoom In, Zoom Out, Zo
 ![Diagram View Zoom commands](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
 
-## Activity Windows list
-The Activity Windows list in the bottom of the middle pane displays all activity windows for the dataset you selected in the resource explorer or diagram view. By default, the list is in the descending order, which means that you see the latest activity window at the top. 
+## Activity windows list
+The Activity windows list in the bottom of the middle pane displays all activity windows for the dataset you selected in the resource explorer or diagram view. By default, the list is in the descending order, which means that you see the latest activity window at the top. 
 
 ![Activity Windows List](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
@@ -187,7 +183,7 @@ Select an activity window, click the down arrow for the first command bar button
 
 You can also select multiple activity windows in the list and rerun them at the same time. You may want to filter activity windows based on the status (for example: **Failed**) and then rerun the failed activity windows after correcting the issue that causes the activity windows to fail. See the following section for details about filtering activity windows in the list.  
 
-### Sort or Filter activity windows
+### Sort or filter activity windows
 In the Activity Windows list, click on the name of a column (for example: Status). 
 
 ![Activity Windows List column menu](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
@@ -261,7 +257,7 @@ The Alerts page lets you create a new alert, view/edit/delete existing alerts. Y
 
 In the Alerts list, use the buttons associated with the alert to edit/delete/disable/enable an alert. 
 
-## Event/Status/Substatus
+## Event/status/substatus
 The following table provides the list of available events and statuses (and sub-statuses).
 
 Event name | Status | Sub status
