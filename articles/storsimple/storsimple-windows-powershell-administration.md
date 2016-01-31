@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/28/2015"
+   ms.date="01/29/2016"
    ms.author="alkohli@microsoft.com" />
 
 # Use Windows PowerShell for StorSimple to administer your device
@@ -47,55 +47,15 @@ You can access the Windows PowerShell for StorSimple using one of the following 
 
 You can [download PuTTY](http://www.putty.org/) or similar terminal emulation software to connect to Windows PowerShell for StorSimple. You need to configure PuTTY specifically to access the Microsoft Azure StorSimple device. The following topics contain detailed steps about how to configure PuTTy and connect to the device. Various menu options in the serial console are also explained.
 
-### About the serial console
-
-When you access the Windows PowerShell interface of your StorSimple device through the serial console, a banner message is presented, followed by menu options. 
-
-The banner message contains basic StorSimple device information such as the model, name, installed software version, and status of the controller you are accessing. The following image shows an example of a banner message.
-
-![Serial banner message](./media/storsimple-windows-powershell-administration/IC741098.png)
-
-
-
->[AZURE.IMPORTANT] You can use the banner message to identify whether the controller you are connected to is Active or Passive.
-
-
-The following image shows the various runspace options that are available in the serial console menu.
-
-![Register your device 2](./media/storsimple-windows-powershell-administration/IC740906.png)
-
-You can choose from the following settings:
-
-1. **Log in with full access**
-This option allows you to connect (with the proper credentials) to the **SSAdminConsole** runspace on the local controller. (The local controller is the controller that you are currently accessing through the serial console of your StorSimple device.) 
-This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues. After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet. For details, refer to [Start a support session](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
-
-1. **Log in to peer controller with full access**
-This option is the same as option 1, except that you can connect (with the proper credentials) to the **SSAdminConsole** runspace on the peer controller. Because the StorSimple device is a high availability device with two controllers in an active-passive configuration, peer refers to the other controller in the device that you are accessing through the serial console).
-Similar to option 1, this option can also be used to allow Microsoft Support to access unrestricted runspace on a peer controller.
-
-1. **Connect with limited access**
-This option is used to access Windows PowerShell interface in limited mode. You are not prompted for access credentials. This option connects to a more restricted runspace compared to options 1 and 2.  Some of the tasks that are available through option 1 that cannot be performed in this runspace are:
-
-	- Reset to the factory settings
-	- Change the password
-	- Enable or disable support access
-	- Apply updates
-	- Install hotfixes 
-												
-
-	>[AZURE.NOTE] **This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.**
-
-1. **Change language**
-This option allows you to change the display language on the Windows PowerShell interface. The languages supported are English, Japanese, Russian, French, South Korean, Spanish, Italian, German, Chinese, and Brazilian Portuguese.
+### PuTTY settings
 
 Make sure that you use the following PuTTY settings to connect to the Windows PowerShell interface from the serial console.
 
 #### To configure PuTTY
 
-1. In the PuTTY Reconfiguration dialog box, in the **Category** pane, select **Keyboard**.
+1. In the PuTTY **Reconfiguration** dialog box, in the **Category** pane, select **Keyboard**.
 
-1. Make sure that the following options are selected (these are the default settings when you start a new session). 
+2. Make sure that the following options are selected (these are the default settings when you start a new session). 
 
  	|Keyboard item|Select|
  	|---|---|
@@ -108,31 +68,71 @@ Make sure that you use the following PuTTY settings to connect to the Windows Po
 
 	![Supported Putty Settings](./media/storsimple-windows-powershell-administration/IC740877.png)
 
-1. Click **Apply**.
+3. Click **Apply**.
 
-1. In the **Category** pane, select **Translation**.
+4. In the **Category** pane, select **Translation**.
 
-1. In the **Remote character set** list box, select **UTF-8**.
+5. In the **Remote character set** list box, select **UTF-8**.
 
-1. Under **Handling of line drawing characters**, select **Use Unicode line drawing code points**. The following illustration shows the correct PuTTY selections.
+6. Under **Handling of line drawing characters**, select **Use Unicode line drawing code points**. The following illustration shows the correct PuTTY selections.
 
 	![UTF Putty Settings](./media/storsimple-windows-powershell-administration/IC740878.png)
 
-1. Click **Apply**.
+7. Click **Apply**.
 
 
-You can now use PuTTY to connect to the device serial console by doing the following steps:
+You can now use PuTTY to connect to the device serial console by doing the following steps.
 
 [AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
 
+### About the serial console
+
+When you access the Windows PowerShell interface of your StorSimple device through the serial console, a banner message is presented, followed by menu options. 
+
+The banner message contains basic StorSimple device information such as the model, name, installed software version, and status of the controller you are accessing. The following image shows an example of a banner message.
+
+![Serial banner message](./media/storsimple-windows-powershell-administration/IC741098.png)
+
+>[AZURE.IMPORTANT] You can use the banner message to identify whether the controller you are connected to is Active or Passive.
+
+The following image shows the various runspace options that are available in the serial console menu.
+
+![Register your device 2](./media/storsimple-windows-powershell-administration/IC740906.png)
+
+You can choose from the following settings:
+
+1. **Log in with full access**
+This option allows you to connect (with the proper credentials) to the **SSAdminConsole** runspace on the local controller. (The local controller is the controller that you are currently accessing through the serial console of your StorSimple device.) 
+This option can also be used to allow Microsoft Support to access unrestricted runspace (a support session) to troubleshoot any possible device issues. After you use option 1 to log on, you can allow the Microsoft Support engineer to access unrestricted runspace by running a specific cmdlet. For details, refer to [Start a support session](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
+
+2. **Log in to peer controller with full access**
+This option is the same as option 1, except that you can connect (with the proper credentials) to the **SSAdminConsole** runspace on the peer controller. Because the StorSimple device is a high availability device with two controllers in an active-passive configuration, peer refers to the other controller in the device that you are accessing through the serial console).
+Similar to option 1, this option can also be used to allow Microsoft Support to access unrestricted runspace on a peer controller.
+
+3. **Connect with limited access**
+This option is used to access Windows PowerShell interface in limited mode. You are not prompted for access credentials. This option connects to a more restricted runspace compared to options 1 and 2.  Some of the tasks that are available through option 1 that cannot be performed in this runspace are:
+
+	- Reset to the factory settings
+	- Change the password
+	- Enable or disable support access
+	- Apply updates
+	- Install hotfixes 
+												
+
+	>[AZURE.NOTE] **This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.**
+
+4. **Change language**
+This option allows you to change the display language on the Windows PowerShell interface. The languages supported are English, Japanese, Russian, French, South Korean, Spanish, Italian, German, Chinese, and Brazilian Portuguese.
+
+
 ## Connect remotely to StorSimple using Windows PowerShell for StorSimple
-You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language. 
+
+You can use Windows PowerShell remoting to connect to your StorSimple device. When you connect this way, you will not see a menu. (You see a menu only if you use the serial console on the device to connect. Connecting remotely takes you directly to the equivalent of "option 1 – full access” on the serial console.) With Windows PowerShell remoting, you connect to a specific runspace. You can also specify the display language. 
 
 The display language is independent of the language that you set by using the **Change Language** option in the serial console menu. Remote PowerShell will automatically pick up the locale of the device you are connecting from if none is specified.
 
->[AZURE.NOTE] If you are working with Microsoft Azure virtual hosts and StorSimple virtual devices, you can use Windows PowerShell remoting and the virtual host to connect to the virtual device. If you have set up a share location on the host on which to save information from the Windows PowerShell session you should be aware that the Everyone principal includes only authenticated users. Therefore, if you have set the share up to allow access by Everyone and you connect without specifying credentials, the unauthenticated Anonymous principal will be used and you will see an error. To fix this issue, on the share host you must enable the Guest account and then give the Guest account full access to the share or you must specify valid credentials along with the Windows PowerShell cmdlet.
-
+>[AZURE.NOTE] If you are working with Microsoft Azure virtual hosts and StorSimple virtual devices, you can use Windows PowerShell remoting and the virtual host to connect to the virtual device. If you have set up a share location on the host on which to save information from the Windows PowerShell session, you should be aware that the Everyone principal includes only authenticated users. Therefore, if you have set up the share to allow access by Everyone and you connect without specifying credentials, the unauthenticated Anonymous principal will be used and you will see an error. To fix this issue, on the share host you must enable the Guest account and then give the Guest account full access to the share or you must specify valid credentials along with the Windows PowerShell cmdlet.
 
 You can use HTTP or HTTPS to connect via Windows PowerShell remoting. Use the instructions in the following tutorials:
 
@@ -143,15 +143,15 @@ You can use HTTP or HTTPS to connect via Windows PowerShell remoting. Use the in
 
 When you are deciding how to connect to Windows PowerShell for StorSimple, consider the following:
 
-- Connecting directly to the device serial console is secure but connecting to the serial console over network switches is not. Be cautious of the security risk when connecting to device serial over network switches.
+- Connecting directly to the device serial console is secure, but connecting to the serial console over network switches is not. Be cautious of the security risk when connecting to device serial over network switches.
 
 - Connecting through an HTTP session might offer more security than connecting through the serial console over network. Although this is not the most secure method, it is acceptable on trusted networks.
 
-- Connecting through an HTTPS session with a self-signed certificate is the most secure and the recommended option.
+- Connecting through an HTTPS session is the most secure and the recommended option.
 
 
 ## Administer your StorSimple device using Windows PowerShell for StorSimple
-The following table shows a summary of all the common management tasks and complex workflows that can be performed within the Windows PowerShell interface of your StorSimple device.For more information about each workflow, click the appropriate entry in the table.
+The following table shows a summary of all the common management tasks and complex workflows that can be performed within the Windows PowerShell interface of your StorSimple device. For more information about each workflow, click the appropriate entry in the table.
 
 #### Windows PowerShell for StorSimple workflows
 
