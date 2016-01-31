@@ -41,7 +41,7 @@ If you submit a pull request with new or significant changes to documentation an
 
 We need you to complete the online form before we can accept your pull request.
 
-Full details are available at [http://azure.github.io/guidelines.html#cla](http://azure.github.io/guidelines.html#cla).
+Full details are available at [http://azure.github.io/guidelines/#cla](http://azure.github.io/guidelines/#cla).
 
 ## Repository organization
 
