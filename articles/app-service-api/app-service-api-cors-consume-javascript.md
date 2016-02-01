@@ -18,8 +18,6 @@
 
 # Consume an API app from JavaScript using CORS
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
-
 ## Overview
 
 This article contains two sections:

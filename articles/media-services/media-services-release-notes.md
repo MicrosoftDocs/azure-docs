@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/09/2015"   
+	ms.date="01/29/2016"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [January 2016 Release](#jan_changes_16)
 - [December 2015 Release](#dec_changes_15)
 - [November 2015 Release](#nov_changes_15)
 - [October 2015 Release](#oct_changes_15)
@@ -76,6 +77,13 @@ Media Services objects in the SDK cannot be serialized and as a result do not wo
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+
+##<a id="jan_changes_16"></a>January 2016 Release
+
+Encoding Reserved Units renamed to reduce confusion with Encoder names.
+
+The Basic, Standard, and Premium encoding reserved units are renamed to S1, S2, and S3  reserved units, respectively.  Customers using Basic Encoding RUs today will see S1 as the label in Azure Portal (and in the bill), while Standard and Premium will see the labels S2 and S3 respectively. 
 
 ##<a id="dec_changes_15"></a>December 2015 Release
 

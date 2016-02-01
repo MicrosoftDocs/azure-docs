@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/22/2016"
+    ms.date="01/29/2016"
     ms.author="elizapo" />
 
 
@@ -38,11 +38,10 @@ The following applies to Azure RemoteApp a cloud or hybrid collection if you are
 By clients I mean the desktops, devices etc. that people use to connect to the apps deployed in the Azure RemoteApp collection.
 
 -  https://telemetry.remoteapp.windowsazure.com  
--  https://**.remoteapp.windowsazure.com ( the optional UDP ports are for this address ) 
+-  https://*.remoteapp.windowsazure.com (the optional UDP ports are for this address) 
 -  https://login.windows.net  
 -  https://login.microsoftonline.com  
 -  https://www.remoteapp.windowsazure.com 
--  https://**.remoteapp.windowsazure.com  
 -  https://*.core.windows.net  
 -  Outbound: TCP: 443  
 -  Optional - UDP: 3391 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="kgremban"/>
 
 # How to provide secure remote access to on-premises applications
@@ -60,5 +60,5 @@ There's a lot more you can do with Application Proxy:
 - [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Additional resources
-* [Sign up for Azure as an organization](../sign-up-organization.md)
-* [Azure Identity](../fundamentals-identity.md)
+* [Sign up for Azure as an organization](sign-up-organization.md)
+* [Azure Identity](fundamentals-identity.md)

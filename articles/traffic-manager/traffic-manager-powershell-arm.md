@@ -43,9 +43,9 @@ There are currently a small number of limitations in the ARM support for Azure T
 
 - Traffic Manager profiles created using the existing (non-ARM) Azure Service Management (ASM) API, tools and 'classic' portal are not available via ARM, and vice versa. Migration of profiles from ASM to ARM APIs is not currently supported, other than by deleting and re-creating the profile.
 
-
 - 'Nested' Traffic Manager endpoints are supported via the ARM API, ARM PowerShell and ARM-mode Azure CLI.  They are not currently supported in the Azure portal (which also uses the ARM API).
 
+- Traffic Manager endpoints of type 'AzureEndpoints', when referencing a Web App, can only reference the default (production) [Web App slot](../app-service-web/web-sites-staged-publishing.md).  Custom slots are not yet supported.  As a workaround, custom slots can be configured using the 'ExternalEndpoints' type. 
 
 ## Setting up Azure PowerShell
 
