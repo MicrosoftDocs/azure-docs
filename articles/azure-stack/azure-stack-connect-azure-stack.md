@@ -46,9 +46,6 @@ If you don’t already have one, [Create a tenant account](azure-stack-add-new-u
 
 RDP may restrict how many users can access the physical Microsoft Azure POC host. To enable multiple users, see [Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md).
 
-
-
-
-## Next Steps
+## Next steps
 
 [Architecture and default state of Microsoft Azure Stack POC](azure-stack-architecture.md)

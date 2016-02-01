@@ -18,9 +18,9 @@
 
 # Azure Stack POC first tasks
 
-The primary objects in Azure Stack – [plans, offers, and subscriptions](azure-stack-key-features) – provide IaaS services to tenants like  virtual machines and web sites. It's these services that provide value to your tenants.
+The primary objects in Azure Stack – [plans, offers, and subscriptions](azure-stack-key-features.md) – provide IaaS services to tenants like  virtual machines and web sites. It's these services that provide value to your tenants.
 
-Now that you've [deployed](azure-stack-deploy) and [logged in](azure-stack-connect-azure-stack) to Azure Stack POC, here are the next steps.
+Now that you've [deployed](azure-stack-deploy.md) and [logged in](azure-stack-connect-azure-stack.md) to Azure Stack POC, here are the next steps.
 
 First, sign in as a service administrator and:
 1.  [Create a plan](azure-stack-create-plan.md) to provide compute, network, and storage services.
@@ -33,6 +33,6 @@ Then, sign in as a tenant and:
 
 2.  [Use the services](azure-stack-subscribe-plan-provision-vm.md#provision-a-virtual-machine) provided by the offer’s plan to create a virtual machine.
 
-## Next Steps
+## Next steps
 
 [Create a plan](azure-stack-create-plan.md)

@@ -24,7 +24,7 @@ Before a virtual machine can be added to the Marketplace, its image must be adde
 
 1. Prepare a Windows or Linux operation system virtual hard disk image in VHD format (not VHDX):
   - Follow Step 1 from the [Create and upload a Windows Server VHD to Azure](../virtual-machines/virtual-machines-create-upload-vhd-windows-server.md) article.
-  - Follow Step 1 from the [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/virtual-machines-linux-create-upload-vhd/) article.
+  - Follow Step 1 from the [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](../virtual-machines/virtual-machines-linux-create-upload-vhd.md/) article.
 
 2.  Get the drive letter of the DATAIMAGE disk from **This PC**.
 
@@ -50,6 +50,6 @@ Before a virtual machine can be added to the Marketplace, its image must be adde
 
 >[AZURE.NOTE] The marketplace UI may error after you remove a previously added image from the PIR. To fix this, click **Settings** in the portal. Then, click **Discard modifications** under **Portal customization**.
 
-## Next Steps
+## Next steps
 
 [Add an image to the Platform Image Repository](azure-stack-add-image-pir.md)
