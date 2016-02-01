@@ -65,7 +65,7 @@ A field gateway can be *transparent* or *opaque*:
 | IoT Hub can provide [device identity anti-spoofing][lnk-devguide-antispoofing] | Yes | No |
 | [Throttles and quotas][lnk-throttles-quotas] | Apply to each device | Apply to the field gateway |
 
-**Important**: When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
+> [AZURE.IMPORTANT]  When using an opaque gateway pattern, all devices connecting through that gateway share the same cloud-to-device queue, which can contain at most 50 messages. It follows that the opaque gateway pattern should be used only when very few devices are connecting through each field gateway, and their cloud-to-device traffic is low.
 
 ### Other considerations
 
