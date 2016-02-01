@@ -61,8 +61,6 @@ App Service can prevent anonymous HTTP requests from reaching your API app, it c
 
 	This option gives you more flexibility in handling anonymous requests, but you have to write code if you want to prevent anonymous users from using your API. Since the most popular claims are passed in the headers of HTTP requests, authorization code is relatively simple.
 	
-	You can use this option if you want to configure multiple authentication providers and give users the ability to choose betwen them. You would write code to redirect anonymous traffic to a login selector page that contains hyperlinks to the different providers you have configured (`/.auth/login/facebook`, `/.auth/login/twitter`, etc.). Since App Service is allowing all requests to reach your API app, you also have to code your own access checks to the protected areas of your site.
-
 3. Allow all requests to reach your API, take no action on authentication information in the requests.
 
 	This option leaves the tasks of authentication and authorization entirely up to your application code.
