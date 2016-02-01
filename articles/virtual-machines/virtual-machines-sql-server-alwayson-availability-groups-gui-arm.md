@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Configure AlwaysOn Availability Groups ARM (GUI)  | Microsoft Azure"
-	description="Create an AlwaysOn Availability Group with Azure Virtual Machines in Azure Resource Manager mode. This tutorial primarily uses the user interface to script the entire solution."
+	pageTitle="Configure AlwaysOn Availability Groups Azure Resource Manager | Microsoft Azure"
+	description="Create an AlwaysOn Availability Group with Azure Virtual Machines in Azure Resource Manager mode. This tutorial primarily uses the user interface to automatically create the entire solution."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
 	manager="jeffreyg"
 	editor="monicar"
-	tags="azure-service-management" />
+	tags="azure-resource-manager" />
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -74,10 +74,12 @@ In this tutorial you will use the Azure portal to:
 Azure provides a gallery image for the entire solution. In order to locate the template: 
 
 1. 	Log in to the Azure portal using your account.
-2.	On the Azure portal click **+New.** The portal will open the New blade. 
-3.	On the New blade search for *AlwaysOn*. 
-4.	In the search results locate *SQL Server AlwaysOn Cluster*. 
-5.	On **Select a deployment model** choose **Resource Manager** 
+1.	On the Azure portal click **+New.** The portal will open the New blade. 
+1.	On the New blade search for **AlwaysOn**. 
+![Find AlwaysOn Template](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/16-findalwayson.png)
+1.	In the search results locate **SQL Server AlwaysOn Cluster**. 
+![AlwaysOn Template](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/17-alwaysontemplate.png)
+1.	On **Select a deployment model** choose **Resource Manager**.
 
 ### Basics
 
