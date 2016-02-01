@@ -3,7 +3,7 @@
 	description="Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire."
 	services="active-directory"
 	documentationCenter=""
-	authors="liviodlc"
+	authors="MarkusVi"
 	manager="terrylan"
 	editor=""/>
 
@@ -14,9 +14,9 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/27/2015"
-	ms.author="liviodlc"/>
+	ms.author="markvi;liviodlc"/>
 
-#Every Article on Application Management in Azure Active Directory
+#Article Index for Application Management in Azure Active Directory
 
 This page provides a comprehensive list of every document written about the various application-related features in Azure Active Directory (Azure AD).
 
