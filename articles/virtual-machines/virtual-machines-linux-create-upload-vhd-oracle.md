@@ -17,11 +17,11 @@
 	ms.date="01/22/2016"
 	ms.author="szark"/>
 
-# Prepare an Oracle Linux Virtual Machine for Azure
+# Prepare an Oracle Linux virtual machine for Azure
 
 
-- [Prepare an Oracle Linux 6.4+ Virtual Machine for Azure](#oracle6)
-- [Prepare an Oracle Linux 7.0+ Virtual Machine for Azure](#oracle7)
+- [Prepare an Oracle Linux 6.4+ virtual machine for Azure](#oracle6)
+- [Prepare an Oracle Linux 7.0+ virtual machine for Azure](#oracle7)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
