@@ -64,6 +64,6 @@ Now that you've created a subscription, test that your tenants can provision a v
 
 
 
-## Next Steps
+## Next steps
 
 [Storage accounts](azure-stack-provision-storage-account.md)

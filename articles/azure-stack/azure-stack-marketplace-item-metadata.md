@@ -78,4 +78,10 @@ For any field that allows HTML, the following elements and attributes are allowe
 
 ## Next steps
 
+[The Azure Stack Marketplace](azure-stack-marketplace.md)
+
+[Create a marketplace item](azure-stack-create-marketplace-item.md)
+
+[Publish a marketplace item](azure-stack-publish-marketplace-item.md)
+
 [Marketplace Item UI References](azure-stack-marketplace-item-ui-reference.md)
