@@ -116,3 +116,64 @@ The **Domain and network settings** should look like this:
 If necessary, you may change these values. For this tutorial we use the preset values. 
  
 - Review the settings and click **OK**. 
+
+###Availability group settings
+
+On **Availability group settings** review the preset values for teh availability group and the listener.
+
+- **Availablity group name** is the clustered resource name for the availability group. For this tutorial use **Contoso-ag**. 
+
+- **Availability group listener name** is used by the cluster and the internal load balancer. Clients connecting to SQL Server can use this name to connect to the appropriate replica of the database. For this tutorial use **Contoso-listener**. 
+-  **Availability group listener port** specifies the TCP port the SQL Server listener will use. For this tutorial use the default port, **1433**.
+
+If necessary, you may change these values. For this tutorial use the preset values.  
+
+![Availability group settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/3-availabilitygroup.png)
+
+- Click **OK**. 
+
+###VM size, storage settings
+
+- On **VM size, storage settings** choose a SQL Server virtual machine size and review the other settings. 
+
+- **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. It is not populated automatically. Click **Configure required settings** to choose a virtual machine size.  Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see Sizes for virtual machines (https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/)
+
+- **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
+
+- **File Share Witness virtual machine size** is the virtual machine size for the file share witness. For this tutorial use **A1**.
+
+- **SQL Storage account** is the name of the storage account to hold the SQL Server data and operating system disks. For this tutorial use **alwaysonsql01**.
+
+- **DC Storage account** is the name of the storage account for the domain controllers. For this tutorial use **alwaysondc01**.
+
+- **SQL Server data disk size** in TB is the size of the SQL Server data disk in TB. Specify a number from 1 through 4. This is the size of the data disk that will be attached to each SQL Server. For this tutorial use **1**. 
+
+- Storage optimization. This setting sets specific storage configuration settings based on the workload type. The choices for this setting are:
+
+- General workload sets no specific configuration settings. 
+
+- Transactional processing sets trace flag 1117 and 1118.
+
+- Data warehousing sets trace flag 1117 and 610.
+
+>[AZURE.NOTE] Note Additional optimizations depend on the size of the SQL Server data disk. For each TB of SQL Server data disk space, Azure adds an additional 1 TB premium storage disk. Azure creates a storage pool on each VM for these disks. Azure sets the following settings on each storage pool: 
+
+- Stripe Size
+
+- Transaction Processing: 64 KB
+
+- Data Warehousing: 256 KB
+
+- Cache: Read
+
+- Simple recovery (no resiliency)
+
+- Number of columns = number of disks
+
+- Place tempDB on data disks.
+
+For this tutorial use General workload.
+
+![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
+
+- Review the settings and click **OK**. 
