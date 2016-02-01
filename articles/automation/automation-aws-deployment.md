@@ -3,31 +3,29 @@
    description="Azure Automation & Hybrid Cloud Management: Automating deployment of a VM in Amazon Web Services"
    services="automation"
    documentationCenter=""
-   authors="SnehaGunda"
+   authors="tiander"
    manager="stevenka"
-   editor="tysonn" />
+   editor="" />
 <tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
-   ms.author="bwren;sngun" />
+   ms.workload=""
+   ms.date="02/01/2016"
+   ms.author="tiandert; bwren" />
 
-# Azure Automation & Hybrid Cloud Management: Automating deployment of a VM in Amazon Web Services
+# Azure Automation and hybrid cloud management: automating deployment of a VM in Amazon Web Services
 
-[Tiander Turpijn](https://azure.microsoft.com/blog/author/tiandert/) Sr. Program Manager, Cloud + Enterprise
-
-During our [Cloud Roadshow](https://microsoftcloudroadshow.com/cities) events where I presented on Azure Automation there were a number of questions around whether Azure Automation was intended only for Azure. Fortunately, I had a demo lined up which I’m going to talk about in this blog post, but the key answer is **that Azure Automation is not only for Azure, it’s for on-premises resources *AND* for managing hybrid cloud environments as well!** So, for example, if you are an Amazon Web Services (AWS) customer then Azure Automation is for you too!
+During our [Cloud Roadshow](https://microsoftcloudroadshow.com/cities) events where I presented on Azure Automation there were a number of questions around whether Azure Automation was intended only for Azure. Fortunately, I had a demo lined up which I’m going to talk about in this blog article, but the key answer is **that Azure Automation is not only for Azure, it’s for on-premises resources *AND* for managing hybrid cloud environments as well!** So, for example, if you are an Amazon Web Services (AWS) customer then Azure Automation is for you too!
 
 ## Objectives
 
-In this post I’ll talk about how you can leverage Azure Automation to provision a VM in AWS and give that VM a specific name – which in the AWS world is referred to as “tagging” the VM.
+In this article, I’ll talk about how you can leverage Azure Automation to provision a VM in AWS and give that VM a specific name – which in the AWS world is referred to as “tagging” the VM.
 
 ## Assumptions
 
-For the purposes of this post I’m assuming you have an Azure Automation account already set up and that you have an AWS subscription as well.
+For the purposes of this article, I’m assuming you have an Azure Automation account already set up and that you have an AWS subscription as well.
 
 For more information on setting up an Azure Automation account, check out our [documentation page](automation-configuring.md).
 
@@ -159,7 +157,7 @@ Let’s check in AWS:
 
 Nice!
 
-With this blog post I have provided an example of how Azure Automation can be used to manage hybrid clouds, such as by creating a VM in Amazon Web Services and applying a custom tag to give it a name.
+With this article, I have provided an example of how Azure Automation can be used to manage hybrid clouds, such as by creating a VM in Amazon Web Services and applying a custom tag to give it a name.
 
 Happy automating and until next time!
 
