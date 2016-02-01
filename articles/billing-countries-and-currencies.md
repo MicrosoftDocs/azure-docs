@@ -1,6 +1,6 @@
 <properties
-	pageTitle="In which countries and regions are Microsoft Azure commercially available, and what currencies can be used to purchase Azure? | Microsoft Azure"
-	description="Lists the countries in which Azure is commercially available, along with the supported currencies."
+	pageTitle="Lists the countries in which Azure is commercially available, along with the supported currencies | Microsoft Azure"
+	description="The countries and regions in which Microsoft Azure is commercially available, and the corresponding currencies which can be used to purchase Azure."
 	services="billing"
 	documentationCenter=""
 	authors="genlin"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2016"
+	ms.date="02/01/2016"
 	ms.author="genli"/>
 
 # In which countries and regions is Microsoft Azure commercially available, and what currencies can be used to purchase Azure?
@@ -41,9 +41,9 @@ You can purchase Microsoft Azure in more than 140 countries around the world, an
 | Cape Verde                      | USD           |
 | Cayman Islands                  | USD           |
 | Congo                           | USD           |
-| C?te D'ivoire                   | USD           |
+| Côte D'ivoire                 | USD           |
 | Croatia                         | EUR           |
-| Cura?ao                         | USD           |
+| Curaçao                        | USD           |
 | Ethiopia                        | USD           |
 | Faroe Islands                   | EUR           |
 | Fiji                            | USD           |
