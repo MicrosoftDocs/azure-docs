@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/28/2015"
+	ms.date="02/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -32,17 +32,6 @@ An elastic database pool is a collection of elastic database throughput units (e
 - Elastic database pools are only available in Azure SQL Database V12 servers. To upgrade to V12 and migrate your databases directly into a pool, see [Upgrade to Azure SQL Database V12](sql-database-upgrade-server-powershell.md).
 - Creating and managing elastic database pools is supported using the [Azure portal](https://portal.azure.com), [PowerShell](sql-database-elastic-pool-powershell.md), and a .NET Client Library (Azure Resource Manager only); the [classic portal](https://manage.windowsazure.com/) and service management commands are not supported.
 - Additionally, creating new elastic databases, and moving existing databases in and out of elastic database pools is supported using [Transact-SQL](#transact-sql).
-
-
-- Each pool has a maximum number of databases and pool eDTUs:
-
-    | Service tier | Max databases per pool | Max eDTUs per pool |
-    | :-- | :-- | :-- |
-    | Basic | 400 | 1200 |
-    | Standard | 400 | 1200 |
-    | Premium | 50 | 1500 |
-
-
 
 
 ## List of articles
@@ -89,36 +78,9 @@ An elastic database pool is an Azure Resource Manager resource of type “Elasti
 
 ## eDTU and storage limits for elastic pools and elastic databases
 
-The storage limit of the pool is determined by the amount of eDTUs of the pool.
 
-| property | Basic | Standard | Premium |
-| :-- | :-- | :-- | :-- |
-| dtu | **100**, 200, 400, 800, 1200 | **100**, 200, 400, 800, 1200 | **125**, 250, 500, 1000, 1500 |
-| databaseDtuMax | **5** | 10, 20, 50, **100** | **125**, 250, 500, 1000 |
-| databaseDtuMin | **0**, 5 | **0**, 10, 20, 50, 100 | **0**, 125, 250, 500, 1000 |
-| storageMB* | **10000 MB**, 20000 MB, 40000 MB, 80000 MB, 120000 MB | **100 GB**, 200 GB, 400 GB, 800 GB, 1200 GB | **250 GB**, 500 GB, 750 GB, 750 GB, 750 GB |
-| storage per DTU | 100 MB | 1 GB | .5 to 2 GB |
-| max databases per pool | 400 | 400 | 50 |
+[AZURE.INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Default values are **bold**.
-
-*units in API are MB, not GB.
-
-
-
-
-
-## Worker and session limits
-
-The maximum number of concurrent workers and concurrent sessions supported for all databases in an elastic pool depends on the eDTU setting for the pool:
-
-| eDTUs | Max concurrent workers | Max concurrent sessions |
-| :-- | :-- | :-- |
-| 100 (Basic/Standard), 125 (Premium) | 200 | 2,400 |
-| 200 (Basic/Standard), 250 (Premium) | 400 | 4,800 |
-| 400 (Basic/Standard), 500 (Premium) | 800 | 9,600 |
-| 800 (Basic/Standard), 1,000 (Premium) | 1,600 | 19,200 |
-| 1,200 (Basic/Standard), 1,500 (Premium) | 2,400 | 28,800 |
 
 
 ## Azure Resource Manager limitations

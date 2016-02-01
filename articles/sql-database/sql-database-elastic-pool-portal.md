@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="01/28/2015"
+	ms.date="02/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -40,7 +40,7 @@ Create an elastic database pool by adding a new pool to a server. You can add mu
 
 1. In the [Azure portal](http://portal.azure.com/) click **SQL servers**.
 2. Select the server that contains the databases you want to add to the pool.
-3. Click **New pool** (or if you see a message saying there is a recommended pool, click it to easily review and create a pool optimized for your server's databases. For details, see [Recommended elastic database pools](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)).
+3. Click **New pool** (or if you see a message saying there is a recommended pool, click it to easily review and create a pool optimized for your server's databases. More details on recommendations are available below.
 
 
     ![Add pool to a server](./media/sql-database-elastic-pool-portal/new-pool.png)
@@ -50,6 +50,38 @@ Create an elastic database pool by adding a new pool to a server. You can add mu
 
     ![Configure elastic pool](./media/sql-database-elastic-pool-portal/configure-elastic-pool.png)
 
+
+### Recommended elastic database pools
+
+Browse to a SQL Database server and you may see a message saying there are recommended elastic database pools for the server (V12 only).
+
+### Why am I getting a recommendation?
+
+The SQL Database service evaluates usage history and recommends one or more elastic database pools when it is more cost effective than using single databases.
+
+![recommended pool](./media/sql-database-elastic-pool-portal/recommended-pool.png)
+
+Each recommendation is configured with a unique subset of the server's databases that best fit into the pool.
+
+Each pool recommendation contains the following:
+
+- Pricing tier for the pool (Basic, Standard, or Premium).
+- Appropriate amount of pool eDTUs.
+- The elastic database min/max eDTU settings.
+- List of recommended databases.
+
+The service takes the last 30 days of telemetry into account when recommending elastic database pools. For a database to be considered as a candidate for an elastic database pool it must exist for at least 7 days. Databases that are already in an elastic database pool are not considered as candidates for elastic database pool recommendations.
+
+The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into elastic database pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
+
+
+### Create a recommended pool
+
+1. Click the message to see a list of the recommended pools.
+1. Click a pool to see the detailed recommendation.
+2. Review all settings in the recommendation and accept it as is, or edit the recommendation to suit your specific business needs.
+
+
 ## Step 2: choose a pricing tier
 
 The pool's pricing tier determines the features available to the elastic databases in the pool, and the maximum number of eDTUs (eDTU MAX), and storage (GBs) available to each database. For details, see [Service Tiers](sql-database-service-tiers.md#Service-tiers-for-elastic-database-pools).
@@ -58,31 +90,9 @@ The pool's pricing tier determines the features available to the elastic databas
 
    ![Choose a pricing tier](./media/sql-database-elastic-pool-portal/pricing-tier.png)
 
+### Configure the pool
 
-### Pricing tier recommendations
-
-The SQL Database service evaluates utilization history and recommends one or more elastic database pools when it is more cost effective than using single databases.
-
-Pricing tiers with a star (![star][10]) are recommended based on your databases workloads.
-
-If more than one pricing tier is recommended it indicates that multiple elastic database pools should be created. Each recommendation is configured with a unique subset of the server's databases that best fit into the pool.
-
-In addition to simply suggesting an elastic database pool pricing tier, each pool recommendation contains the following:
-
-- Pricing tier for the pool (Basic, Standard, or Premium).
-- Appropriate amount of pool eDTUs.
-- The elastic database min/max eDTU settings.  
-- List of recommended databases.
-
-The service takes the last 30 days of telemetry into account when recommending elastic database pools. For a database to be considered as a candidate for an elastic database pool it must exist for at least 7 days. Databases that are already in an elastic database pool are not considered as candidates for elastic database pool recommendations.
-
-The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into elastic database pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
-
->[AZURE.NOTE] Web and Business databases are mapped to one of the new Basic, Standard, or Premium tiers based on their utilization history and database size. Mapping to the new tiers recommends Web and Business databases to the appropriate pool.
-
-Configure the pool
-
-After setting the pricing tier, click **Configure pool** where you will add databases, set teh pool eDTUs and pool storage (Pool GBs), and where you set the min and max eDTUs for the elastic databases in the pool.
+After setting the pricing tier, click Configure pool where you add databases, set pool eDTUs and storage (pool GBs), and where you set the min and max eDTUs for the elastic databases in the pool.
 
 ## Step 3: add databases to the pool
 
@@ -98,6 +108,9 @@ You can add or remove databases to a pool at any time.
     - The pool must have room for the database (cannot already contain the maximum number of databases). More specifically, the pool must have enough available eDTUs to cover the eDTU guarantee per database (for example, if the eDTU guarantee for the group is 400, and the eDTU guarantee for each database is 10, then the maximum number of databases that are allowed in the pool is 40 (400 eDTUs/10 eDTUs guaranteed per DB = 40 Max databases).
     - The current features used by the database must be available in the pool.
 
+### Dynamic recommendations
+
+After adding databases to the pool, recommendations will be dynamically generated based on the historical usage of the databases you have selected. These recommendations will be shown in the eDTU and GB usage chart as well as in a recommendation banner at the top of the **Configure pool** blade. These recommendations are intended to assist you in creating a pool optimized for your specific databases.
 
 ## Step 4: setting performance characteristics of the pool
 
@@ -113,17 +126,6 @@ There are three parameters you can set that define the performance for the pool:
 | **eDTU MIN** - eDTU guarantee for each database | The eDTU guarantee per database is the number of eDTUs that a single database in the pool is guaranteed. <br> **What should I set the eDTU guarantee per database?** <br> Typically, the eDTU guarantee per database (eDTU MIN) is set to anywhere between 0 and the ([average utilization per database]). The eDTU guarantee per database is a global setting that sets the eDTU guarantee for all databases in the pool. |
 | **eDTU MAX** - eDTU cap per database | The eDTU MAX per database is the maximum number of eDTUs that a single database in the pool may use. Set the eDTU cap per database high enough to handle max bursts or spikes that your databases may experience. You can set this cap up to the system limit, which depends on the pricing tier of the pool (1000 eDTUs for Premium). The specific size of this cap should accommodate peak utilization patterns of databases within the group.  Some degree of overcommitting the group is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking.<br> **What should I set the eDTU cap per database to?** <br> Set the eDTU MAX or eDTU cap per database, to ([database peak utilization]). For example, suppose the peak utilization per database is 50 DTUs and only 20% of the 100 databases in the group simultaneously spike to the peak.  If the eDTU cap per database is set to 50 eDTUs, then it is reasonable to overcommit the pool by 5x and set the eDTU guarantee for the group (POOL eDTU) to 1,000 eDTUs. Also worth noting, is that the eDTU cap is not a resource guarantee for a database, it is a eDTU ceiling that can be hit if available. |
 
-## Recommended elastic database pools
-
-Browse to a SQL Database V12 server and you may see a message saying there are recommended elastic database pools for the server.
-
-
-### Create a recommended pool
-
-1. Click the message to see a list of the recommended pools.
-1. Click a pool to see the detailed recommendation.
-
-![recommended pool](./media/sql-database-elastic-pool-portal/recommended-pool.png)
 
 ## Add and remove databases to and from a pool
 
@@ -137,7 +139,7 @@ After the pool is created, you can add or remove existing databases in and out o
 
 ![recommended pool](./media/sql-database-elastic-pool-portal/add-remove-databases.png)
 
-### Create a new database in a pool
+## Create a new database in a pool
 
 Create a new database in a pool by browsing to the desired pool and clicking **Create database**.
 
