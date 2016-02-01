@@ -60,6 +60,6 @@
 
     	AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
 
-## Next Steps
+## Next steps
 
 [Publish a marketplace item](azure-stack-publish-marketplace-item.md)
