@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="01/26/2016" 
 	ms.author="ddove"/>
 
 # Using the RecoveryManager class to fix shard map problems
 
 The [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) class provides ADO.Net applications the ability to easily  detect and correct any inconsistencies between the global shard map (GSM) and the local shard map (LSM) in a sharded database enviroment. 
 
-The GSM and LSM track the mapping of each database in a sharded environment. Occasionally, a break occurs between the GSM and the LSM. in that case, use the RecoveryManager class to detect and repair the break.
+The GSM and LSM track the mapping of each database in a sharded environment. Occasionally, a break occurs between the GSM and the LSM. In that case, use the RecoveryManager class to detect and repair the break.
 
 The RecoveryManager class is part of the [Elastic Database client library](sql-database-elastic-database-client-library.md). 
 
@@ -32,15 +32,13 @@ For term definitions, see [Elastic Database tools glossary](sql-database-elastic
 
 ## Why use the recovery manager?
 
-In a sharded database environment, there are a number of database servers. Each server contains a number of databases--one per user in a multitenant solution. Each database must be mapped, so that calls can be accurately routed to the correct server and database. Databases are tracked according to a sharding key, and each server is assigned a range of key values. For example, a sharding key may represent the customer names from "D" to "F." The mapping of all servers and their key ranges are contained in the global shard map. Each server also contains a map of the databases contained on the shard--this is known as the local shard map. The LSM is used to validate cached data. (When an app connects to a shard, the mapping is cached with the app for quick retrieval. The LSM validates the mapping.) 
+In a sharded database environment, there are a number of databases and potentially a number of databases across many logical servers. Each server contains a number of databases--one database per tenant in a single-tenant solution. Each database is be mapped in the shard map, so that calls can be accurately routed to the correct server and database. Databases are tracked according to a sharding key, and each shard is assigned a range of key values. For example, a sharding key may represent the customer names from "D" to "F." The mapping of all shards (aka databases) and their mapping ranges are contained in the global shard map. Each database also contains a map of the ranges contained on the shard--this is known as the local shard map. The LSM is used to validate cached data. (When an app connects to a shard, the mapping is cached with the app for quick retrieval. The LSM validates the mapping.) 
 
-You can move data from one shard to another using a tool such as the Elastic Database client tools library. If a break occurs during the move, the GSM and LSM may become out of sync. Other reasons include:
+The GSM and LSM may become out of sync for the following reasons:
 
-1. An inconsistency caused by the deletion of a shard whose range is believed to no longer be in use, or by the renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. A renamed database can similarly cause an orphaned shard mapping. In that case, the shard location simply needs to be updated. 
-2. A geo-failover event occurs. To continue, one must update the server name, database name and/or shard mapping details for any and all shards in a shard map. In case of a geo-failover, such recovery logic should be automated within the failover workflow. 
-3. Either a shard or the ShardMapManager database is restored to an earlier point-in time. 
- 
-Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions. It also helps with recovery scenarios where data is accidentally deleted. 
+1. An inconsistency caused by the deletion of a shard whose range is believed to no longer be in use, or by the renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. A renamed database can similarly cause an orphaned shard mapping. Depending on the intent, the shard may need to be removed or the shard location simply needs to be updated. 
+2. A geo-failover event occurs. To continue, one must update the server name, database name and/or shard mapping details for any and all shards in a shard map. In case of a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions.
+3. Either a shard or the ShardMapManager database is restored to an earlier point-in time.
 
 For more information about Azure SQL Database Elastic Database tools, Geo-Replication and Restore, please see the following: 
 

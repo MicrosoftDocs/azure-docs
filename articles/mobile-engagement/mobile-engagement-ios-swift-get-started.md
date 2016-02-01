@@ -67,7 +67,7 @@ We will create a basic app with XCode to demonstrate the integration:
 
 	![][2]
 
-5. Open the `Build Phases` tab and in the `Link Binary With Libraries` menu add the frameworks as shown below:
+5. Open the `Build Phases` tab and in the `Link Binary With Libraries` menu add the frameworks as shown below. **NOTE** You must include `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration` :
 
 	![][3]
 

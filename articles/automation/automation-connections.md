@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="01/27/2016"
    ms.author="bwren" />
 
 # Connection assets in Azure Automation
@@ -67,7 +67,7 @@ The activities in the following table are used to access connections in a runboo
 
 ### To create a new connection with Windows PowerShell
 
-Create a new connection with Windows PowerShell using the [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx) cmdlet. This cmdlet has a parameter named **ConnectionFieldValues** that expects a [hash table](http://technet.microsoft.com/en-us/library/hh847780.aspx) defining values for each of the properties defined by the connection type.
+Create a new connection with Windows PowerShell using the [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx) cmdlet. This cmdlet has a parameter named **ConnectionFieldValues** that expects a [hash table](http://technet.microsoft.com/library/hh847780.aspx) defining values for each of the properties defined by the connection type.
 
 
 The following sample commands create a new connection for [Twilio](http://www.twilio.com) which is a telephony service that allows you to send and receive text messages.  A sample integration module that includes a Twilio connection type is available in [Script Center](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8).  This connection type defines properties for Account SID and Authorization Token, which are required to validate your account when connecting to Twilio.  You must [download this module](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) and install it in your automation account for this sample code to work.

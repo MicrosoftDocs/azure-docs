@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="12/17/2015" 
+	ms.date="01/26/2016" 
 	ms.author="betorres"
 />
 
@@ -136,26 +136,32 @@ Available metrics:
 
 The data is in your own storage account and we encourage you to explore this data in the manner that works best for your case.
 
-As a starting point, we recommend using [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop) to explore and visualize your data. You can easily connect to your Azure Storage Account and quickly start analyzing your data.
+As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com) to explore and visualize your data. You can easily connect to your Azure Storage Account and quickly start analyzing your data. 
 
-Check out the following sample query that will let you create your own reports in Power BI Desktop.
+#### Power BI Online
 
-### Instructions
+[Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search): Create a Power BI dashboard and a set of Power BI reports that automatically show your data and provide visual insights about your search service. See the [content pack help page](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-search/).
+
+![][3]
+
+#### Power BI Desktop
+
+[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop): Explore your data and create your own visualizations for your data. We provide a starter query below to help you.
 
 1. Open a new PowerBI Desktop report
 2. Select Get Data -> More...
 
-	![][3]
+	![][4]
 
 3. Select Microsoft Azure Blob Storage and Connect
 
-	![][4]
+	![][5]
 
 4. Enter the Name and Account Key of your storage account
 5. Select "insight-logs-operationlogs" and "insights-metrics-pt1m", then click on Edit
 6. The Query Editor will open, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor
 
-	![][5]
+	![][6]
 
 7. Keep the first 2 lines and replace the rest with the following query:
 
@@ -222,7 +228,8 @@ Learn more about creating amazing reports. See [Getting started with Power BI De
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/GetData.png
-[4]: ./media/search-traffic-analytics/BlobStorage.png
-[5]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/Dashboard.png
+[4]: ./media/search-traffic-analytics/GetData.png
+[5]: ./media/search-traffic-analytics/BlobStorage.png
+[6]: ./media/search-traffic-analytics/QueryEditor.png
 

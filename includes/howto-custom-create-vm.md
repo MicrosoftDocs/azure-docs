@@ -34,7 +34,7 @@ A *custom* virtual machine refers to a virtual machine you create using the **Fr
 	- If this is the first or only virtual machine in the cloud service, select **Create a New Cloud Service**. Then, in **Cloud Service DNS Name**, type a name that uses between 3 and 24 lowercase letters and numbers. This name becomes part of the URI that is used to contact the virtual machine through the cloud service.
 	- If this virtual machine is being added to a cloud service, select it in the list.
 
-	> [AZURE.NOTE] For more information about placing virtual machines in the same cloud service, see [How to connect virtual machines in a cloud service](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
+	> [AZURE.NOTE] For more information about placing virtual machines in the same cloud service, see [How to connect virtual machines in a cloud service](https://azure.microsoft.com/manage/windows/how-to-guides/connect-to-a-cloud-service/).
 
 12. In **Region/Affinity Group/Virtual Network**, select region, affinity group, or virtual network that you want to use for the virtual machine. For more information about affinity groups, see [About Affinity Groups for Virtual Network](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
