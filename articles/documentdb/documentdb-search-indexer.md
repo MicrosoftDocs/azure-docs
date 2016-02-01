@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="01/29/2016" 
+    ms.date="02/01/2016" 
     ms.author="anhoh"/>
 
 #Connecting DocumentDB with Azure Search using indexers
@@ -267,5 +267,5 @@ Congratulations! You have just learned how to integrate Azure DocumentDB with Az
 
  - To learn how more about Azure DocumentDB, see the [DocumentDB service page](https://azure.microsoft.com/services/documentdb/).
 
- - To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/en-us/services/search/).
+ - To learn how more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
  
