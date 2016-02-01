@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2016" 
+	ms.date="02/01/2016" 
 	ms.author="sdanie"/>
 
 # Manage Azure Redis Cache with Azure PowerShell
@@ -66,7 +66,7 @@ By default the Azure environment is `AzureCloud` which represents the public Azu
 
 To see the list of available environments, run the `Get-AzureRmEnvironment` cmdlet.
 
-### To connect to the AzureGovernment Cloud
+### To connect to the Azure Government Cloud
 
 To connect to the Azure Government Cloud, use one of the following commands.
 
