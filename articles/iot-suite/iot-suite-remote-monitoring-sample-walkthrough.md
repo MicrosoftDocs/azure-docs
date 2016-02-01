@@ -2,13 +2,14 @@
  pageTitle="Remote Monitoring preconfigured solution walkthrough | Microsoft Azure"
  description="A description of the Azure IoT preconfigured solution remote monitoring and its architecture."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="stevehob"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"

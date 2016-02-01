@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="01/21/2016"
+   ms.date="02/01/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL differences
@@ -94,6 +94,7 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - Transact-SQL debugging
 - Triggers: Server-scoped or logon triggers
 - USE statement
+
 
 ## Full Transact-SQL reference
 
