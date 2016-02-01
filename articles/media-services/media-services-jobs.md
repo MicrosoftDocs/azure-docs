@@ -45,7 +45,7 @@ A job is an entity that contains metadata about a set of tasks (for example, enc
 
 ##Encoding
 
-Encode with **Azure Media Encoder** using **Azure Classic Portal**, **.NET**, or **REST API**.
+Encode with **Media Encoder Standard** using **Azure Classic Portal**, **.NET**, or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 

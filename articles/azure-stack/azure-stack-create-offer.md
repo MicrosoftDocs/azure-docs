@@ -18,7 +18,7 @@
 
 # Create an offer in Azure Stack
 
-Now that you [have a plan](azure-stack-create-plan), you can include it in an offer.
+Now that you [have a plan](azure-stack-create-plan.md), you can include it in an offer.
 
 1.  Log in to the portal as a service administrator.
 	![](media/azure-stack-create-offer/image1.png)
@@ -55,6 +55,6 @@ Changes to the plan or offer are not immediately visible to the tenant. To see t
 
 Even after an additional subscription has been created and is InSync, you might have to logout/login to see the new subscription in the “Subscription picker” when creating new resources/resource groups.
 
-## Next Steps
+## Next steps
 
 [Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)

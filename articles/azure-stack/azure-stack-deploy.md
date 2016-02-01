@@ -18,16 +18,14 @@
 
 # Before you deploy Azure Stack POC
 
-Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.me)), make sure your computer meets the following requirements.
-
-The Azure Stack POC requires the host machine to be running [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed including KB 3124262. 
+Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
 
 ## Operating system
 
 | | **Requirements**  |
 |---|---|
-| **OS Version** | Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition). |
-| **Install Method** | Clean install. |
+| **OS Version** | [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed, including [KB 3124262](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=3124262).|
+| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually install the operating system, updates, and KB 3124262.|
 | **Domain joined?** | No. |
 
 ## Network
@@ -76,7 +74,7 @@ To deploy Azure Stack POC, you must have a valid Microsoft Azure AD account that
 
 This Azure AD account is used as the service administrator account for the environment. The service administrator can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
 
-Save these credentials for use in step 7 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section below. This will be the day 0 administrator.
+Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This will be the day 0 administrator.
 
 You should also create at least one account so you can sign in to the Azure Stack POC as a tenant. Or add users from other AD accounts into your tenant accounts. See Appendix A for instructions on how to add a user in Azure Active Directory.
 
@@ -130,6 +128,6 @@ These requirements apply to the Azure Stack POC only and might change for future
 
 Sample OEM configurations are available.
 
-## Next Steps
+## Next steps
 
 [Deploy Azure Stack POC](azure-stack-run-powershell-script.md)

@@ -71,6 +71,6 @@ You must have an Azure subscription to use the Azure portal.
 
 16. Log in to `https://portal.azurestack.local` with the new account to see the tenant portal.
 
-## Next Steps
+## Next steps
 
 [Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md)

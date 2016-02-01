@@ -40,13 +40,13 @@ The following topics are covered in this article:
 	- [What about Live Streaming?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
 	- [What about license servers outside of Azure Media Services?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
 	- [What if I want to use a custom STS?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-	- [Tech note](media-services-cenc-with-multidrm-access-control.md#tech-note)
 - [The completed system and test](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
 	- [User login](media-services-cenc-with-multidrm-access-control.md#user-login)
 	- [Using Encrypted Media Extensions for PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
 	- [Using EME for Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
 	- [Not entitled users](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
 	- [Running custom Secure Token Service](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
+- [Summary](media-services-cenc-with-multidrm-access-control.md#summary)
 
 ##Introduction
 
@@ -407,7 +407,7 @@ There are two types of security keys:
 1.	Symmetric key: the same key is used for both generating and verifying a JWT token;
 2.	Asymmetric key: a public-private key pair in an X509 certificate is used with private key for encrypting/generating a JWT token and the public key for verifying the token.
 
-###Tech note
+####Tech note
 
 If you use .NET Framework/C# as your development platform, the X509 certificate used for asymmetric security key must have key length at least 2048. This is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception will be thrown:
 
@@ -521,4 +521,4 @@ In this document, we discussed CENC with multi-native-DRM and access control via
 
 ###Acknowledgments 
 
-William Zhang, Mingfei Yan, Kilroy Hughes, Roland Le Franc, Julia Kornich
+William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
