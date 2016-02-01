@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/06/2016"
+   ms.date="02/01/2016"
    ms.author="jonor;sivae"/>
 
 # Microsoft Cloud Services and Network Security
@@ -342,7 +342,7 @@ On the firewall, forwarding rules will need to be created. Since the firewall is
  
 ![Logical View of the Firewall Rules][10]
 
->[AZURE.NOTE] Based on the Network Virtual Appliance used, the management ports will vary. In this example a Barracuda NG Firewall is referenced which uses ports 22, 801, and 807. Please consult the appliance vendor documentation to find the exact ports used for management of the device being used.
+>[AZURE.NOTE] Based on the Network Virtual Appliance used, the management ports will vary. In this example a Barracuda NextGen Firewall is referenced which uses ports 22, 801, and 807. Please consult the appliance vendor documentation to find the exact ports used for management of the device being used.
 
 #### Firewall Rules Description
 In the logical diagram above, the security subnet is not shown since the firewall is the only resource on that subnet, and this diagram is showing the firewall rules and how they logically allow or deny traffic flows and not the actual routed path. Also, the external ports selected for the RDP traffic are higher ranged ports (8014 – 8026) and were selected to somewhat align with the last two octets of the local IP address for easier readability (e.g. local server address 10.0.1.4 is associated with external port 8014), however any higher non-conflicting ports could be used.

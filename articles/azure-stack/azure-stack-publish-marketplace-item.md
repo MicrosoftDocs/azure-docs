@@ -45,6 +45,6 @@
 
 >[AZURE.NOTE] The marketplace UI may error after you remove an item. To fix this, click **Settings** in the portal. Then, select **Discard modifications** under Portal customization.
 
-## Next Steps
+## Next steps
 
 [Marketplace Item Metadata](azure-stack-marketplace-item-metadata.md)

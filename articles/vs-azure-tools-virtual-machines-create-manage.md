@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/05/2016"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
-# Create and Manage Azure Virtual Machines in Visual Studio
+# Create and manage Azure virtual machines in Visual Studio
 
 You can create virtual machines in Azure by using Server Explorer in Visual Studio.
 
@@ -175,4 +175,4 @@ As you configure your virtual machine and install software on it, it's a good id
 
 ## Next steps
 
-To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](virtual-machines-linux-tutorial.md) and [Create a virtual machine running Windows in the Azure preview portal](virtual-machines-windows-tutorial.md).
+To learn more about creating virtual machines, see [Create a Virtual Machine Running Linux](/virtual-machines/virtual-machines-linux-tutorial.md) and [Create a virtual machine running Windows in the Azure preview portal](/virtual-machines/virtual-machines-windows-tutorial.md).
