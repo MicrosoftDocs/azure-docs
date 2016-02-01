@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/20/2016"
+   ms.date="02/01/2016"
    ms.author="chackdan"/>
 
 # Secure a Service Fabric cluster
@@ -52,10 +52,8 @@ There are three distinct steps:
 ### Step 1: Acquire the X.509 certificate(s)
 
 1. For clusters running production workloads, you must use a [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority) signed x509 certificate to secure the cluster. For details on obtaining these certificates go to [http://msdn.microsoft.com/library/aa702761.aspx](http://msdn.microsoft.com/library/aa702761.aspx).
-2. For clusters that you use for test purposes only, you can choose to use a self signed certificate. Step 2.5 will go through the steps on how to create and deploy the self-signed certificate to keyvault.
+2. For clusters that you use for test purposes only, you can choose to use a self signed certificate. 
 
-
-2. For clusters that you use for test purposes only, you can use a self-signed certificate. Step 2.5 below explains how to do that.
 
 ### Step 2 : Upload the X.509 certificate to the Key Vault
 
@@ -77,7 +75,7 @@ Copy the following example and change the path to the .psm1 to match the path on
 Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
 
-**Step 2.4**: If you are using a certificate that you have already acquired, follow these steps. Otherwise, skip to Step 2.5.
+**Step 2.4**: If you are using a certificate that you have already acquired, follow these steps. Otherwise, skip to Step 2.5. Step 2.5 will go through the steps on how to create and deploy the self-signed certificate to keyvault.
 
 Sign in to your Azure Account. If this powershell fails for some reason, then you should check if you have the azure PS installed correctly. 
 
