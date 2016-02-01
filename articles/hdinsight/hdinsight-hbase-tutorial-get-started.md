@@ -66,7 +66,8 @@ Before you begin this HBase tutorial, you must have the following:
 
 >[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default storage account and the default blob container. The new cluster will pick up the HBase tables you created in the original cluster.
 
-## Use the HBase shell
+## Create tables and insert data
+
 Currently, there are two way to access HBase. This section covers using the HBase shell. The next section covers using the .NET SDK.
 
 For most people, data appears in the tabular format:

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/29/2015"
+	ms.date="02/01/2016"
 	ms.author="jgao"/>
 
 
@@ -37,13 +37,13 @@ Before you begin this HBase tutorial, you must have the following:
 
 ## Create HBase cluster
 
-The following procedure use an Azure ARM template to create a HBase cluster. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+The following procedure use an Azure ARM template to create an HBase cluster. To understand the parameters used in the procedure and other cluster creation methods, see [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Click the following image to open an ARM template in the Azure Portal. The ARM template is located in a public blob container. 
 
     [![Deploy to Azure](./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2FHbase.json)
 
-2. From the **Parameters** blade, enter the following
+2. From the **Parameters** blade, enter the following:
 
     - **ClusterName**: Enter a name for the HBase cluster that you will create.
     - **ClusterStorageAccountName**: Each cluster has an Azure Blob storage account dependency. After you delete a cluster, the data retains in the storage account.
@@ -51,7 +51,6 @@ The following procedure use an Azure ARM template to create a HBase cluster. To 
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
     
     Other parameters are optional.  
- 
  3. Click **OK** to save the parameters.
  4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
  5. Click **Legal terms**, and then click **Create**.
