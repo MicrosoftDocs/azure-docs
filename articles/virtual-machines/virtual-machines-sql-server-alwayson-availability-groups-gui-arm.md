@@ -109,7 +109,7 @@ On **Domain and network settings** blade review the preset values for the domain
 
 To learn more about virtual networks in [Azure see Virtual Network Overview](virtual-networks-overview.md).  
 
-The **Domain and network settings should look like this:
+The **Domain and network settings** should look like this:
 
 ![Domain and network settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/2-domain.png)
  
