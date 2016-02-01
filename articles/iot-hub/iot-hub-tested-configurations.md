@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="01/29/2016"
+     ms.date="02/01/2016"
      ms.author="hegate"/>
 
 # OS Platforms and hardware compatibility with device SDKs
@@ -117,7 +117,7 @@ Each device has been certified to work with our SDK in the OS and language chose
 |Device| Tested OS |Language|
 |:---------|:----------|:----------|
 |[AAEON PICO-BT01](http://www.aaeon.com/en/p/pico-itx-boards-pico-bt01) |Windows 10 | C#|
-|[AAEON UP](http://www.aaeon.com/) |Windows 10 | C#|
+|[AAEON UP](http://www.up-board.org/) |Windows 10 | C#|
 |[Acme Systems Arietta G25](http://www.acmesystems.it/arietta) |Debian | C|
 |[ADLINK MXE-202i](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1589) |Wind River | Javascript|
 |[ADLINK MXE-5400](http://www.adlinktech.com/PD/web/PD_detail.php?pid=1318) |Windows 10 | C#|
