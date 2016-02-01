@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="01/29/2016" 
 	ms.author="adhurwit"/>
 
 # Use Azure Key Vault from a Web Application #
