@@ -19,7 +19,7 @@
 
 
 
-# Prepare Debian VHD for Azure
+# Prepare a Debian VHD for Azure
 
 ## Prerequisites
 This section assumes that you have already installed a Debian Linux operating system from an .iso file downloaded from the [Debian website](https://www.debian.org/distrib/) to a virtual hard disk. Multiple tools exist to create .vhd files; Hyper-V is only one example. For instructions using Hyper-V, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/library/hh846766.aspx).
