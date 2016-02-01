@@ -50,10 +50,10 @@ The following procedure use an Azure ARM template to create an HBase cluster. To
     - **Cluster login name and password**: The default login name is **admin**.
     - **SSH username and password**: The default username is **sshuser**.  You can rename it. 
     Other parameters are optional.  
- 3. Click **OK** to save the parameters.
- 4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
- 5. Click **Legal terms**, and then click **Create**.
- 5. Click **Create**. It takes about around 20 minutes to create a cluster.
+3. Click **OK** to save the parameters.
+4. From the **Custom deployment** blade, click **Resource group** dropdown box, and then click **New** to create a new resource group.  The resource group is a container that groups the cluster, the dependent storage account and other linked resource.
+5. Click **Legal terms**, and then click **Create**.
+6. Click **Create**. It takes about around 20 minutes to create a cluster.
 
 
 >[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob container. The new cluster will pick up the HBase tables you created in the original cluster.
