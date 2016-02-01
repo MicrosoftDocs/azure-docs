@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="11/16/2015"
+   ms.date="01/22/2016"
    ms.author="larryfr"/>
 
 #Use SSH with Linux-based Hadoop on HDInsight from Windows

@@ -29,7 +29,7 @@ Learn how to create HDInsight clusters using .NET SDK. For other cluster creatio
 
 Before you begin the instructions in this article, you must have the following:
 
-- An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Visual Studio 2013 or 2015.
 
 ## Create clusters

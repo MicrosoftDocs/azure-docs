@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="What is Azure Automation | Microsoft Azure"
 	description="Learn what value Azure Automation provides and get answers to common questions so that you can get started in creating, using runbooks and Azure Automation DSC."
 	services="automation"

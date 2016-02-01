@@ -18,7 +18,7 @@
 
 # Authentication and authorization for API Apps in Azure App Service
 
-[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
 
 ## Overview 
 
