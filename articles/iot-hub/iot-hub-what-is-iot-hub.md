@@ -49,7 +49,7 @@ Azure IoT Hub addresses the device-connectivity challenges in the following ways
 
 -   **Per-device authentication and secure connectivity**. You can provision each device with its own security key to enable it to connect to IoT Hub. The [IoT Hub identity registry][lnk-devguide-identityregistry] stores device identities and keys in a solution. A solution back end can whitelist and blacklist individual devices, which enables complete control over device access.
 
--   **Monitoring of device connectivity operations**. You can receive detailed operation logs about device identity management operations, and device connectivity events. This allows your IoT solution to easily derive connectivity insights, such as which devices try to connect with wrong credentials, or send messages too frequently, or reject all cloud-to-device messages.
+-   **Monitoring of device connectivity operations**. You can receive detailed operation logs about device identity management operations and device connectivity events. This enables your IoT solution to easily identify connectivity issues, such as devices that try to connect with wrong credentials, send messages too frequently, or reject all cloud-to-device messages.
 
 -   **An extensive set of device libraries**. Azure IoT device SDKs are available and supported for a variety of languages and platforms--C for many Linux distributions, Windows, and real-time operating systems. Azure IoT device SDKs also support managed languages, such as C#, Java, and JavaScript.
 

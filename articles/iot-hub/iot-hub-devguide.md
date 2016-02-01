@@ -18,7 +18,7 @@
 
 # Azure IoT Hub developer guide
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application backend.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end.
 
 Azure IoT Hub enables:
 
@@ -49,9 +49,9 @@ The following is a description of the endpoints:
     - *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted cloud-to-device messages. For more information, see [Cloud to device messaging](#c2d).
 
     These endpoints are exposed using HTTP, [MQTT][lnk-mqtt], and [AMQP][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
-* **Service endpoints**: Each IoT hub exposes a set of endpoints your application backend can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
-    - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs] and a backend service can use it to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
-    - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application backend to send reliable cloud-to-device messages, and to receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
+* **Service endpoints**: Each IoT hub exposes a set of endpoints your application back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
+    - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs] and a back-end service can use it to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
+    - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back end to send reliable cloud-to-device messages, and to receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
 
 The [IoT Hub APIs and SDKs][lnk-apis-sdks] article describes the various ways to access these endpoints.
 
@@ -60,7 +60,7 @@ Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tl
 ### Notes on MQTT support
 Although the IoT Hub implementation is based on MQTT v3.1.1, it deviates from the specification as follows:
   * **QoS 2 is not supported**: When a client publishes with QoS 2, IoT hub closes the network connection. When a client subscribes to a topic with QoS 2, IoT Hub grants maximum QoS level 1 in the SUBACK packet.
-  * **Retain**: If RETAIN flag is 1, IoT Hub will add ‘x-opt-retain’ property to the message. This means the IoT Hub doesn’t persist the retain message, but passes it instead to the backend application.
+  * **Retain**: If RETAIN flag is 1, IoT Hub will add ‘x-opt-retain’ property to the message. This means the IoT Hub doesn’t persist the retain message, but passes it instead to the back-end application.
 
 ### How to read from Event Hubs-compatible endpoints <a id="eventhubcompatible"></a>
 
@@ -111,7 +111,7 @@ Device identities are represented as JSON documents with the following propertie
 | status | required | Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
 | statusReason | optional | A 128 char-long string storing the reason for the device identity status. All UTF-8 characters are allowed. |
 | statusUpdateTime | read-only | Date and time of the last status update. |
-| connectionState | read-only | **Connected** or **Disconnected**, represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using AMQP or MQTT. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings) and it can have a delay of at most 5 minutes. For these reasons there can be false positives (such as devices reported as connected but actually disconnected). |
+| connectionState | read-only | **Connected** or **Disconnected**, represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using AMQP or MQTT. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings) and it can have a delay of at most 5 minutes. For these reasons there can be false positives such as devices reported as connected but actually disconnected. |
 | connectionStateUpdatedTime | read-only | Date and last time the connection state was updated. |
 | lastActivityTime  | read-only | Date and last time the device connected, received, or sent a message. |
 
@@ -141,7 +141,7 @@ An IoT Hub device identity registry:
 
 An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
 
-> [AZURE.IMPORTANT] The device identity registry should be used only for device management and provisioning operations. Runtime high throughput operations should not depend on information in the device identity registry to be performed. For instance, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](#throttling) for the device identity registry.
+> [AZURE.IMPORTANT] You should only use the device identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the device identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](#throttling) for the device identity registry.
 
 ### Disabling devices
 
@@ -262,7 +262,7 @@ IoT Hub uses the following set of *permissions* to grant access to each IoT hub'
 
 * **RegistryRead**. Grants read access to the device identity registry. For more information, see [Device identity registry](#device-identity-registry).
 * **RegistryReadWrite**. Grants read and write access to the device identity registry. For more information, see [Device identity registry](#device-identity-registry).
-* **ServiceConnect**. Grants access to cloud service-facing communication and monitoring endpoints. For example, it grants permission to backend cloud services to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments.
+* **ServiceConnect**. Grants access to cloud service-facing communication and monitoring endpoints. For example, it grants permission to back-end cloud services to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments.
 * **DeviceConnect**. Grants access to device-facing communication endpoints. For example, it grants permission to send device-to-cloud messages and receive cloud-to-device messages. This permission is used by devices.
 
 You can grant permissions in the following ways:
@@ -334,7 +334,7 @@ When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubnam
 
 #### SASL PLAIN compared to CBS
 
-When using SASL PLAIN, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection disconnects from the service and triggers a reconnect. This behavior, while not problematic for an application backend component, is very damaging for a device-side application for the following reasons:
+When using SASL PLAIN, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection disconnects from the service and triggers a reconnect. This behavior, while not problematic for an application back-end component, is very damaging for a device-side application for the following reasons:
 
 *  Gateways usually connect on behalf of many devices. When using SASL PLAIN, they have to create a distinct TCP connection for each device connecting to an IoT hub. This considerably increases the consumption of power and networking resources and increases the latency of each device connection.
 * Resource-constrained devices will be adversely affected by the increased use of resources to reconnect after each token expiration.
@@ -348,8 +348,8 @@ This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-pu
 ## Messaging
 
 IoT Hub provides messaging primitives to communicate:
-- [Cloud-to-device](#c2d): From an application backend (*service* or *cloud*).
-- [Device-to-cloud](#d2c): From a device to an application backend.
+- [Cloud-to-device](#c2d): From an application back end (*service* or *cloud*).
+- [Device-to-cloud](#d2c): From a device to an application back end.
 
 Core properties of IoT Hub messaging functionality are the reliability and durability of messages. This enables resilience to intermittent connectivity on the device side, and to load spikes in event processing on the cloud side. IoT Hub implements *at least once* delivery guarantees for both device-to-cloud and cloud-to-device messaging.
 
@@ -386,14 +386,16 @@ This is the set of system properties in IoT Hub messages.
 Iot Hub supports [AMQP][lnk-amqp], AMQP over WebSockets, MQTT, and HTTP/1 protocols for device-side communications. The following is a list of considerations regarding their uses.
 
 * **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This is very inefficient for both the device and IoT Hub. The current guidelines, when using HTTP/1 is to have each device poll every 25 minutes or more. On the other hand, AMQP and MQTT support server push when receiving cloud-to-device messages, and they enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP or MQTT is the best protocol to use. On the other hand, for scarcely connected devices, HTTP/1 works as well.
-* **Field gateways**. When using HTTP/1 and MQTT, it is not possible to connect multiple devices (each with its own per-device credentials) using the same TLS connection. It follows that these protocols are suboptimal when implementing [Field gateway scenarios][lnk-azure-gateway-guidance], as they require one TLS connection between the field gateway and IoT Hub for each device connected to the field gateway.
-* **Low resource devices**. MQTT and HTTP/1 libraries have a smaller footprint than AMQP ones. As such, if the device has few resources (for example, less than 1Mb RAM), these protocols might be the only protocol implementation available.
+* **Field gateways**. When using HTTP/1 and MQTT, you cannot connect multiple devices (each with its own per-device credentials) using the same TLS connection. It follows that these protocols are suboptimal when implementing [Field gateway scenarios][lnk-azure-gateway-guidance], as they require one TLS connection between the field gateway and IoT Hub for each device connected to the field gateway.
+* **Low resource devices**. MQTT and HTTP/1 libraries have a smaller footprint than the AMQP libraries. As such, if the device has few resources (for example, less than 1Mb RAM), these protocols might be the only protocol implementation available.
 * **Network traversal**. MQTT standard listens on port 8883. This could cause problems in networks that are closed to non-HTTP protocols. Both HTTP and AMQP (over WebSockets) are available to be used in this scenario.
 * **Payload size**. AMQP and MQTT are binary protocols, which are significantly more compact than HTTP/1.
 
-At a high level, you should use AMQP (or AMQP over WebSockets) whenever possible, and only use MQTT when resource contraints prevent the use of AMQP. HTTP/1 should be used only if both network traversal and network configuration prevent the use of MQTT and AMQP. Moreover, when using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more. Clearly during development, it is acceptable to have more frequent polling frequencies.
+At a high level, you should use AMQP (or AMQP over WebSockets) whenever possible, and only use MQTT when resource contraints prevent the use of AMQP. HTTP/1 should be used only if both network traversal and network configuration prevent the use of MQTT and AMQP. Moreover, when using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more. 
 
-As a final consideration, it is important to see the [Azure IoT Protocol Gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance custom MQTT gateway that interfaces directly with IoT Hub. The IoT Protocol Gateway allows the customization of the device protocol to accommodate brownfield MQTT deployments, and completely custom protocols. The main disadvantage of this approach is the requirement to self-host and manage a protocol gateway.
+> [AZURE.NOTE] Clearly during development, it is acceptable to poll more frequently than every 25 minutes.
+
+As a final consideration, you should review the [Azure IoT Protocol Gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance custom MQTT gateway that interfaces directly with IoT Hub. The IoT Protocol Gateway enables the customization of the device protocol to accommodate brownfield MQTT deployments and completely custom protocols. The main disadvantage of this approach is the requirement to self-host and manage a protocol gateway.
 
 ### Device to cloud <a id="d2c"></a>
 
@@ -423,7 +425,7 @@ For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SD
 
 #### Non-telemetry traffic
 
-In many cases, in addition to telemetry data points, devices also send messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the backend, or device responses to commands sent from the backend.
+In many cases, in addition to telemetry data points, devices also send messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the back end, or device responses to commands sent from the back end.
 
 See [Device-to-cloud processing][lnk-guidance-d2c-processing] for more information about the best way to process these kind of messages.
 
@@ -486,7 +488,7 @@ A thread could fail to process a message without notifying IoT Hub. In this case
 
 For a tutorial on cloud-to-device messages, see [Get started with Azure IoT Hub cloud-to-device messages][lnk-getstarted-c2d-tutorial]. For reference topics on how different APIs and SDKs expose the cloud-to-device functionality, see [IoT Hub APIs and SDKs][lnk-apis-sdks].
 
-> [AZURE.NOTE] Typically, cloud-to-device messages complete whenever the loss of the message would not affect the application logic. This could happen in many different scenarios. For example, the message content has been successfully persisted in local storage, or an operation has been successfully executed, or the message is carrying transient information whose loss would not impact the functionality of the application. Sometimes, for long running tasks, you can complete the cloud-to-device message after persisting the task description in local storage, and then notify the application backend with one or more device-to-cloud message at various stages of progress of the task.
+> [AZURE.NOTE] Typically, cloud-to-device messages complete whenever the loss of the message would not affect the application logic. This could happen in many different scenarios. For example, the message content has been successfully persisted in local storage, or an operation has been successfully executed, or the message is carrying transient information whose loss would not impact the functionality of the application. Sometimes, for long running tasks, you can complete the cloud-to-device message after persisting the task description in local storage, and then notify the application back end with one or more device-to-cloud message at various stages of progress of the task.
 
 #### Time to live <a id="ttl"></a>
 
@@ -575,7 +577,7 @@ The following is the list of enforced throttles. Values refer to an individual h
 
 **Note**. At any given time, it is possible to increase quotas or throttle limits by increasing the number of provisioned units in an IoT hub.
 
-**Important**: Identity registry operations are intended for runtime use in device management and provisioning scenarios. Reading or updating large number of device identities is supported through [import/export jobs](#importexport).
+**Important**: Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating large number of device identities is supported through [import/export jobs](#importexport).
 
 ## Next steps
 
