@@ -62,7 +62,7 @@ For example, to get help for the `New-AzureRmRedisCache` cmdlet, type:
 
 ## How to connect to Azure Government Cloud or Azure China Cloud
 
-By default the Azure environment is `AzureCloud` which represents the public Azure cloud instance. To connect to a different instance, use the `Add-AzureRmAccount` command with the `-Environment` command line switch with the desired environment name.
+By default the Azure environment is `AzureCloud` which represents the public Azure cloud instance. To connect to a different instance, use the `Add-AzureRmAccount` command with the `-Environment` or -`EnvironmentName` command line switch with the desired environment or environment name.
 
 To see the list of available environments, run the `Get-AzureRmEnvironment` cmdlet.
 
@@ -76,6 +76,13 @@ or
 
 	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureUSGovernment)
 
+To create a cache in the Azure Government Cloud, use one of the following locations.
+
+-	USGov Virginia
+-	USGov Iowa
+
+For more information about the Azure Government Cloud, see [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) and [Microsoft Azure Government Developer Guide](azure-government-developer-guide.md).
+
 ### To connect to the Azure China Cloud
 
 To connect to the Azure China Cloud, use one of the following commands.
@@ -85,6 +92,13 @@ To connect to the Azure China Cloud, use one of the following commands.
 or
 
 	Add-AzureRmAccount -Environment (Get-AzureRmEnvironment -Name AzureChinaCloud)
+
+To create a cache in the Azure China Cloud, use one of the following locations.
+
+-	China East
+-	China North
+
+For more information about the Azure China Cloud, see [AzureChinaCloud for Azure operated by 21Vianet in China](http://www.windowsazure.cn/).
 
 ## Properties used for Azure Redis Cache PowerShell
 
