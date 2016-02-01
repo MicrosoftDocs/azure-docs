@@ -63,6 +63,12 @@ This tutorial assumes the following:
 
 >[AZURE.NOTE] If you are interested in using AlwaysOn Availability Groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
+In this tutorial you will use the Azure portal to:
+- Select the the new AlwaysOn Availabiltiy group template from the portal
+- Review the template settings and update a few configuration settings for your environment
+- Monitor Azure as it creates the entire environment
+- Connect to one of the domain controllers and then to one of the SQL Servers
+
 ## Provision an AlwaysOn Availability Group from the gallery with the resource manager deployment model
 
 Azure provides a gallery image for the entire solution. In order to locate the template: 
@@ -206,7 +212,7 @@ This final blade contains **Terms of use**, and **privacy policy**. Review this 
  
 The Azure portal will create the resource group and all of the resources. 
 
- ##Monitor Deployment
+##Monitor Deployment
 
 Monitor the deployment progress from the Azure portal. An icon representing the deployment is automatically pinned to the Azure portal dashboard.
 
