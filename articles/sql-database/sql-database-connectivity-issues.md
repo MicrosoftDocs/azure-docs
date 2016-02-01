@@ -34,8 +34,10 @@ If your client program is using ADO.NET, your program is told about the transien
 ### Connection versus command
 
 You'll retry the SQL connection or establish it again, depending on the following:
+
 * **A transient error occurs during a connection try**: The connection should be retried after delaying for several seconds.
-* **A transient error occurs during an SQL query command**:The command should not be immediately retried. Instead, after a delay, the connection should be freshly established. Then the command can be retried.
+
+* **A transient error occurs during an SQL query command**: The command should not be immediately retried. Instead, after a delay, the connection should be freshly established. Then the command can be retried.
 
 
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
