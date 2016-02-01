@@ -17,15 +17,15 @@
 	ms.date="10/22/2015"
 	ms.author="szarkos"/>
 
-# Prepare a CentOS-Based Virtual Machine for Azure
+# Prepare a CentOS-based virtual machine for Azure
 
 
-- [Prepare a CentOS 6.x Virtual Machine for Azure](#centos6)
-- [Prepare a CentOS 7.0+ Virtual Machine for Azure](#centos7)
+- [Prepare a CentOS 6.x virtual machine for Azure](#centos6)
+- [Prepare a CentOS 7.0+ virtual machine for Azure](#centos7)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-##Prerequisites##
+## Prerequisites ##
 
 This article assumes that you have already installed a CentOS (or similar derivative) Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
