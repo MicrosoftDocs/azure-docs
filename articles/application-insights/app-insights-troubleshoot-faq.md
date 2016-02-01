@@ -138,7 +138,7 @@ If your web service is running in an Azure VM, you can also [get diagnostics][az
 
 You can [write PowerShell scripts](app-insights-powershell.md) to create and update Application Insights resources.
 
-# More answers
+## More answers
 
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
 
