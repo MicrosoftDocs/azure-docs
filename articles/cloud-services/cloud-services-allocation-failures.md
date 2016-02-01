@@ -24,7 +24,7 @@
 ## Summary
 When you deploy instances to a Cloud Service or add new web or worker role instances, Microsoft Azure allocates compute resources. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
 ### Background – How allocation works
 The servers in Azure datacenters are partitioned into clusters. A new cloud service allocation request is attempted in multiple clusters. When the first instance is deployed to a cloud service(in either staging or production), that cloud service gets pinned to a cluster. Any further deployments for the cloud service will happen in the same cluster. In this article, we'll refer to this as "pinned to a cluster". Diagram 1 below illustrates the case of a normal allocation which is attempted in multiple clusters; Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 is hosted.
@@ -86,5 +86,5 @@ Here are the common allocation scenarios that cause an allocation request to be 
 ## Additional resources
 ### Contact Azure Customer Support
 
-If this article didn’t help to solve your Azure issue, browse the Azure forums on [MSDN and Stack Overflow](http://azure.microsoft.com/support/forums/).
-You can also file an Azure support incident about your issue. Go to the [Azure Support](http://azure.microsoft.com/support/options/) site and click Get Support. For information about using Azure Support, read the[ Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+If this article didn’t help to solve your Azure issue, browse the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/).
+You can also file an Azure support incident about your issue. Go to the [Azure Support](https://azure.microsoft.com/support/options/) site and click Get Support. For information about using Azure Support, read the[ Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).

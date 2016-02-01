@@ -43,7 +43,7 @@ Customer scenarios for elastic query are characterized by the following topologi
 * **Vertical partitioning – Cross-database queries** (Topology 1): The data is partitioned vertically between a number of databases in a data tier. Typically, different sets of tables reside on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database. Common use cases with this topology require one to query across or to compile reports across tables in several databases.
 * **Horizontal Partitioning – Sharding** (Topology 2): Data is partitioned horizontally to distribute rows across a scaled out data tier. With this approach, the schema is identical on all participating databases. This approach is also called “sharding”. Sharding can be performed and managed using (1) the elastic database tools libraries or (2) self-sharding. An elastic query is used to query or compile reports across many shards.
 
-> [AZURE.NOTE] Elastic database query works best for occasional reporting scenarios where most of the processing can be performed on the data tier. For heavy reporting workloads or data warehousing scenarios with more complex queries, also consider using [Azure SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+> [AZURE.NOTE] Elastic database query works best for occasional reporting scenarios where most of the processing can be performed on the data tier. For heavy reporting workloads or data warehousing scenarios with more complex queries, also consider using [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 
 
 ## Elastic Database query topologies

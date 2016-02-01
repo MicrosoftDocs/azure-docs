@@ -45,7 +45,7 @@ Based on customer feedback, Azure SQL Database is introducing new service tiers 
 
 ## Where can I learn more about the new service tiers?
 
-For detailed information about the new service tiers and performance model, see [Service tiers](sql-database-service-tiers.md). For detailed pricing information for the new service tiers, see [SQL Database pricing](http://azure.microsoft.com/pricing/details/sql-database/).
+For detailed information about the new service tiers and performance model, see [Service tiers](sql-database-service-tiers.md). For detailed pricing information for the new service tiers, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## What features or functionality will not be available in Basic, Standard, and Premium?
 
@@ -55,7 +55,7 @@ Microsoft is also changing the database copy experience with Premium databases. 
 
 ## How does Basic, Standard, and Premium improve my billing experience?
 
-Basic, Standard, and Premium Azure SQL Databases are billed by the hour, and you have the ability to scale each database up or down 4 times within a 24 hour period. You are billed at a fixed rate based on the highest service tier and performance level you choose for each hour. Additionally, performance levels (example: Basic, S1, and P2) are broken out in the bill to make it easier to see the number of database days/hours you incurred in a single month for each performance level. Web and Business databases continue to be billed using Database Units based on the database size. Please visit the [SQL Database pricing page](http://azure.microsoft.com/pricing/details/sql-database/) to learn more about the pricing and differences between the new service tiers.
+Basic, Standard, and Premium Azure SQL Databases are billed by the hour, and you have the ability to scale each database up or down 4 times within a 24 hour period. You are billed at a fixed rate based on the highest service tier and performance level you choose for each hour. Additionally, performance levels (example: Basic, S1, and P2) are broken out in the bill to make it easier to see the number of database days/hours you incurred in a single month for each performance level. Web and Business databases continue to be billed using Database Units based on the database size. Please visit the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) to learn more about the pricing and differences between the new service tiers.
 
 
 ## See also

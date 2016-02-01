@@ -25,7 +25,7 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-The [Azure portal](http://portal.azure.com/) allows you to create, monitor and manage Azure SQL databases and logical servers. This article highlights some of the more common tasks.
+The [Azure portal](https://portal.azure.com/) allows you to create, monitor and manage Azure SQL databases and logical servers. This article highlights some of the more common tasks.
 
 ![Database Overview](./media/sql-database-manage-portal/sqldatabase_annotated.png)
 

@@ -25,7 +25,7 @@ In this document, you will learn how to use Power BI to create a report and dash
 
 ## Prerequisites
 
-- An Azure subscription. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * An Azure Active Directory user with [Power BI](https://powerbi.com) access
 

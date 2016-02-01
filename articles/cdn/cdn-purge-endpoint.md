@@ -28,7 +28,7 @@ This tutorial walks you through purging assets from all edge nodes of an endpoin
 
 ## Walkthrough
 
-1. In the [Azure Portal](http://portal.azure.com), browse to the CDN profile containing the endpoint you wish to purge.
+1. In the [Azure Portal](https://portal.azure.com), browse to the CDN profile containing the endpoint you wish to purge.
 
 2. From the CDN profile blade, click the purge button.
 	

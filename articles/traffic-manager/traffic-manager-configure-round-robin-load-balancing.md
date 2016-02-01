@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Configure Traffic Manager round robin traffic routing method | Microsoft Azure"
    description="This article will help you configure round robin load balancing for your Traffic Manager endpoints."
    services="traffic-manager"

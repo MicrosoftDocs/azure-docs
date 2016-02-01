@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/13/2016"
+	ms.date="01/24/2016"
 	ms.author="dineshm"/>
 
 
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [storage-selector-client-side-encryption-include](../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## Overview  
-The [Azure Storage Client Library for Java](https://www.nuget.org/packages/WindowsAzure.Storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](http://azure.microsoft.com/services/key-vault/) for storage account key management.
+The [Azure Storage Client Library for Java](https://www.nuget.org/packages/WindowsAzure.Storage) supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) for storage account key management.
 
 ## Encryption and decryption via the envelope technique    
 The processes of encryption and decryption follow the envelope technique.  
@@ -58,8 +58,7 @@ The client library currently supports encryption of whole blobs only. Specifical
 
 During encryption, the client library will generate a random Initialization Vector (IV) of 16 bytes, together with a random content encryption key (CEK) of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob on the service.
 
->**Warning:**  
->If you are editing or uploading your own metadata for the blob, you need to ensure that this metadata is preserved. If you upload new metadata without this metadata, the wrapped CEK, IV and other metadata will be lost and the blob content will never be retrievable again.
+>[AZURE.WARNING] If you are editing or uploading your own metadata for the blob, you need to ensure that this metadata is preserved. If you upload new metadata without this metadata, the wrapped CEK, IV and other metadata will be lost and the blob content will never be retrievable again.
 
 Downloading an encrypted blob involves retrieving the content of the entire blob using the **download*/openInputStream** convenience methods. The wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
 
@@ -79,8 +78,7 @@ During decryption, the wrapped key is extracted from the queue message and unwra
 ### Tables  
 The client library supports encryption of entity properties for insert and replace operations.
 
->**Note:**  
->Merge is not currently supported. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.
+>[AZURE.NOTE] Merge is not currently supported. Since a subset of properties may have been encrypted previously using a different key, simply merging the new properties and updating the metadata will result in data loss. Merging either requires making extra service calls to read the pre-existing entity from the service, or using a new key per property, both of which are not suitable for performance reasons.
 
 Table data encryption works as follows:  
 
@@ -109,10 +107,9 @@ The storage client library uses the Key Vault core library in order to provide a
 
 ### Interface and dependencies  
 There are three Key Vault packages:  
-- azure-keyvault-core contains the IKey and IKeyResolver. It is a small package with no dependencies. The storage client library for Java defines it as a dependency.  
 
+- azure-keyvault-core contains the IKey and IKeyResolver. It is a small package with no dependencies. The storage client library for Java defines it as a dependency.
 - azure-keyvault contains the Key Vault REST client.  
-
 - azure-keyvault-extensions contains extension code that includes implementations of cryptographic algorithms and an RSAKey and a SymmetricKey. It depends on the Core and KeyVault namespaces and provides functionality to define an aggregate resolver (when users want to use multiple key providers) and a caching key resolver. Although the storage client library does not directly depend on this package, if users wish to use Azure Key Vault to store their keys or to use the Key Vault extensions to consume the local and cloud cryptographic providers, they will need this package.  
 
   Key Vault is designed for high-value master keys, and throttling limits per Key Vault are designed with this in mind. When performing client-side encryption with Key Vault, the preferred model is to use symmetric master keys stored as secrets in Key Vault and cached locally. Users must do the following:  
@@ -127,10 +124,9 @@ More information regarding Key Vault usage can be found in the encryption code s
 ## Best practices  
 Encryption support is available only in the storage client library for Java.
 
->**Important:**  
->Be aware of these important points when using client-side encryption:
+>[AZURE.IMPORTANT] Be aware of these important points when using client-side encryption:
 >  
->- When reading from or writing to an encrypted blob, use whole blob upload commands and range/whole blob download commands. Avoid writing to an encrypted blob using protocol operations such as Put Block, Put Block List, Write Pages, Clear Pages, or Append Block; otherwise you may corrupt the encrypted blob and make it unreadable.  
+>- When reading from or writing to an encrypted blob, use whole blob upload commands and range/whole blob download commands. Avoid writing to an encrypted blob using protocol operations such as Put Block, Put Block List, Write Pages, Clear Pages, or Append Block; otherwise you may corrupt the encrypted blob and make it unreadable.
 >
 >- For tables, a similar constraint exists. Be careful to not update encrypted properties without updating the encryption metadata.  
 >
@@ -139,7 +135,8 @@ Encryption support is available only in the storage client library for Java.
 >- Enable the **requireEncryption** flag in the default request options for users that should work only with encrypted data. See below for more info.  
 
 ## Client API / Interface  
-While creating an EncryptionPolicy object, users can provide only a Key (implementing IKey), only a resolver (implementing IKeyResolver), or both. IKey is the basic key type that is identified using a key identifier and that provides the logic for wrapping/unwrapping. IKeyResolver is used to resolve a key during the decryption process. It defines a ResolveKey method that returns an IKey given a key identifier. This provides users the ability to choose between multiple keys that are managed in multiple locations.  
+While creating an EncryptionPolicy object, users can provide only a Key (implementing IKey), only a resolver (implementing IKeyResolver), or both. IKey is the basic key type that is identified using a key identifier and that provides the logic for wrapping/unwrapping. IKeyResolver is used to resolve a key during the decryption process. It defines a ResolveKey method that returns an IKey given a key identifier. This provides users the ability to choose between multiple keys that are managed in multiple locations.
+
 - For encryption, the key is used always and the absence of a key will result in an error.  
 - For decryption:  
 	- The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.  

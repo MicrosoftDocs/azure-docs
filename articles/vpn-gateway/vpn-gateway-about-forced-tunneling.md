@@ -106,7 +106,7 @@ In the example, the virtual network "MultiTier-VNet" has 3 subnets: *Frontend*, 
 
 - A configured virtual network. 
 
-- The latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](http://azure.microsoft.com/downloads/).
+- The latest version of the Azure PowerShell cmdlets using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Download page](https://azure.microsoft.com/downloads/).
 
 ## Configure forced tunneling
 

@@ -36,7 +36,7 @@ The benefits of CENC with multi-DRM are as follows:
 1. Reduces the cost of managing encrypted assets since only a single copy of encrypted assets is needed;
 1. Eliminates DRM client licensing cost since the native DRM client is usually free on its native platform.
 
-Microsoft has been an active promoter of DASH and CENC together with some major industry players. Microsoft Azure Media Services has been providing support of DASH and CENC. For recent announcements, please see Mingfei’s blogs: [Announcing Google Widevine license delivery services public preview in Azure Media Services](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/), and [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).  
+Microsoft has been an active promoter of DASH and CENC together with some major industry players. Microsoft Azure Media Services has been providing support of DASH and CENC. For recent announcements, please see Mingfei’s blogs: [Announcing Google Widevine license delivery services public preview in Azure Media Services](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/), and [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).  
 
 ###Overview of this article
 
@@ -133,7 +133,7 @@ The following table shows the mapping:
 
 **Building Block**|**Technology**
 ------|-------
-**Player**|[Azure Media Player](http://azure.microsoft.com/services/media-services/media-player/)
+**Player**|[Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/)
 **Identity Provider (IDP)**|Azure Active Directory
 **Secure Token Service (STS)**|Azure Active Directory
 **DRM Protection Workflow**|Azure Media Services Dynamic Protection

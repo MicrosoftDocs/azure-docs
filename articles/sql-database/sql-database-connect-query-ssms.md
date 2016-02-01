@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Connect to SQL database by using SSMS | Microsoft Azure"
-	description="Learn how to connect to an Azure SQL database by using SQL Server Management Studio (SSMS). Then, run a sample query using Transact-SQL (T-SQL)."
+	pageTitle="Connect to SQL Database - SQL Server Management Studio | Microsoft Azure"
+	description="Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then, run a sample query using Transact-SQL (T-SQL)."
 	metaCanonical=""
 	keywords="connect to sql database,sql server management studio"
 	services="sql-database"
@@ -40,7 +40,7 @@ When working with SQL Database, you should use the most recent version of SSMS. 
 3. Choose **SQL Server Authentication** from the **Authentication** list.
 4. Type the **Login** and **Password** you set up when you created the server, and then click **Connect** to connect to SQL Database.
 
-	![SQL Server Management Studio: Connect to a SQL Database server](./media/sql-database-connect-query-ssms/1-connect.png)
+	![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-connect-query-ssms/1-connect.png)
 
 ### If the connection fails
 
@@ -53,7 +53,7 @@ After you connect to your logical server, you can connect to a database and run 
 1. In **Object Explorer**, navigate to the **AdventureWorks** database.
 2. Right-click the database and then select **New Query**.
 
-	![New query](./media/sql-database-connect-query-ssms/4-run-query.png)
+	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
 
 3. In the query window, copy and paste the following code.
 
@@ -67,7 +67,7 @@ After you connect to your logical server, you can connect to a database and run 
 
 4. Click the **Execute** button.  The following screen shot shows a successful query.
 
-	![Sucess](./media/sql-database-connect-query-ssms/5-success.png)
+	![Sucess. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
 ## Next steps
 

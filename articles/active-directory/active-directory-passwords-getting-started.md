@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Getting Started: Azure AD Password Management | Microsoft Azure" 
-	description="Enable users to reset their own passwords, discover pre-requisites for password reset, and enable Password Writeback to manage on-premises passwords in Active Directory." 
-	services="active-directory" 
+	description="Password management enabling users to reset their own passwords, discover pre-requisites for password reset, and enable Password Writeback to manage on-premises passwords in Active Directory." 
+	services="active-directory"
+	keywords="Active directory password management, password management, reset Azure AD password" 
 	documentationCenter="" 
 	authors="asteen" 
 	manager="kbrint" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="01/25/2016" 
 	ms.author="asteen"/>
 
 # Getting started with Password Management
@@ -60,7 +61,7 @@ To configure user password reset policy, complete the following steps:
 1.	Open a browser of your choice and go to the [Azure Management Portal](https://manage.windowsazure.com).
 2.	In the [Azure Management Portal](https://manage.windowsazure.com), find the **Active Directory extension** on the navigation bar on the left hand side.
 
-    ![][001]
+    ![Password Managment in Azure AD][001]
 
 3. Under the **Directory** tab, click the directory in which you want to configure the user password reset policy, for example, Wingtip Toys.
 

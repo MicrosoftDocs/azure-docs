@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="11/06/2015"
+	ms.date="01/26/2016"
 	ms.author="tomfitz"/>
 
 #Enterprise-class WordPress on Azure App Service
@@ -53,7 +53,7 @@ Replication and routing to multiple MySQL Databases can be done using ClearDB's 
 
 ###Multi-region deployment with media storage and caching
 
-If the site will accept uploads, or host media files, use Azure Blob storage. If you need caching, consider [Redis cache][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), or one of the other caching offerings in the [Azure Store](http://azure.microsoft.com/gallery/store/).
+If the site will accept uploads, or host media files, use Azure Blob storage. If you need caching, consider [Redis cache][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/), or one of the other caching offerings in the [Azure Store](https://azure.microsoft.com/gallery/store/).
 
 ![an Azure web app, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN][performance-diagram]
 

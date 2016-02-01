@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/24/2015"
+   ms.date="01/21/2016"
    ms.author="joaoma"/>
 
 
@@ -28,7 +28,7 @@ This article will walk you through the steps to configure an application gateway
 
 ## Before you begin
 
-1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](http://azure.microsoft.com/downloads/).
+1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
 2. You will create a virtual network and a subnet for Application Gateway. Make sure that no virtual machines or cloud deployments are using the subnet. Application Gateway must be by itself in a virtual network subnet.
 3. The servers that you will configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
@@ -167,6 +167,9 @@ This configures the instance size of the application gateway.
 >[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium, and Standard_Large.
 
 ## Create an application gateway by using New-AzureApplicationGateway
+
+Creates an application gateway with all configuration items from the steps above. In this example, the application gateway is called "appgwtest".
+
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
