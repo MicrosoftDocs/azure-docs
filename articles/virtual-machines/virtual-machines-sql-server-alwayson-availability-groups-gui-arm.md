@@ -148,21 +148,17 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 - **SQL Server data disk size** in TB is the size of the SQL Server data disk in TB. Specify a number from 1 through 4. This is the size of the data disk that will be attached to each SQL Server. For this tutorial use **1**. 
 
-- Storage optimization. This setting sets specific storage configuration settings based on the workload type. The choices for this setting are:
+- **Storage optimization** sets specific storage configuration settings based on the workload type. The choices for this setting are:
 
-- General workload sets no specific configuration settings. 
+- **General workload** sets no specific configuration settings. 
 
-- Transactional processing sets trace flag 1117 and 1118.
+- **Transactional processing** sets trace flag 1117 and 1118.
 
-- Data warehousing sets trace flag 1117 and 610.
+- **Data warehousing** sets trace flag 1117 and 610.
 
->[AZURE.NOTE] Note Additional optimizations depend on the size of the SQL Server data disk. For each TB of SQL Server data disk space, Azure adds an additional 1 TB premium storage disk. Azure creates a storage pool on each VM for these disks. Azure sets the following settings on each storage pool: 
+>[AZURE.NOTE]Additional optimizations depend on the size of the SQL Server data disk. For each 1 TB of SQL Server data disk space, Azure adds an additional 1 TB premium storage disk. Azure creates a storage pool on each VM for these disks. Azure sets the following settings on each storage pool: 
 
-- Stripe Size
-
-- Transaction Processing: 64 KB
-
-- Data Warehousing: 256 KB
+- Stripe Size for trasactional processing workloads is set to **64 KB** for data warehousing workloads **256 KB**.
 
 - Cache: Read
 
@@ -172,8 +168,30 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 - Place tempDB on data disks.
 
-For this tutorial use General workload.
+For this tutorial use **General workload**.
 
 ![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
 
 - Review the settings and click **OK**. 
+
+###SQL Server settings
+
+On **SQL Server settings** review and modify the SQL Server VM name prefix, SQL Server version, SQL Server service account and password, and the SQL auto patching maintenance schedule. 
+
+- **SQL Server Name Prefix** is used to create a name for each SQL Server. For this tutorial use **Contoso-ag**. The SQL Server names will be *Contoso-ag-0* and *Contoso-ag-1*. 
+
+- **SQL Server version** is the version of SQL Server . For this tutorial use **SQL Server 2014**. You can also choose **SQL Server 2012** or **SQL Server 2016**.
+
+- **SQL Server service account user name** is the domain account name for the SQL Server service. For this tutorial use **sqlservice**.
+
+- **Password** is the password for the SQL Server service account.  Use a complex password. Confirm the password.
+
+- **SQL Auto Patching maintenance schedule** identifies the weekday that Azure will automatically patch the SQL Servers. For this tutorial type **Sunday**. 
+
+- **SQL Auto Patching maintenance start hour** is the time of day for the Azure region when automatic patching will begin. 
+
+>[AZURE.NOTE]The patching window for each VM is staggered by one hour. Only one virtual machine is patched at a time in order to prevent disruption of services. 
+
+![SQL Server settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/5-sql.png)
+
+Review the settings and click **OK**. 
