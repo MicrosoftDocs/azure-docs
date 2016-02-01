@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="01/05/2016"
+	ms.date="02/01/2016"
 	ms.author="curtand"/>
 
 # Azure AD service limits and restrictions
@@ -25,4 +25,3 @@ If you’re looking for the full set of Microsoft Azure service limits, see [Azu
 ## What's next
 - [Sign up for Azure as an organization](sign-up-organization.md)
 - [How Azure subscriptions are associated with Azure AD](active-directory-how-subscriptions-associated-directory.md)
-- [Azure AD terminology](active-directory-terminology.md)
