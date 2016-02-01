@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/01/2016" 
+	ms.author="ddove;sidneyh" />
 
 # Create and manage a SQL Database elastic database jobs using PowerShell (preview)
 
