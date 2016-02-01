@@ -121,7 +121,7 @@ You're now ready to use your Ubuntu Linux virtual hard disk to create new virtua
 
 ## References ##
 
-Ubuntu Hardware Enablement (HWE) kernel
+Ubuntu Hardware Enablement (HWE) kernel:
 
 - [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
 - [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
