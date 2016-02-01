@@ -62,7 +62,7 @@ For example, to get help for the `New-AzureRmRedisCache` cmdlet, type:
 
 ## How to connect to Azure Government Cloud or Azure China Cloud
 
-By default the Azure environment is `AzureCloud` which represents the public Azure cloud instance. To connect to a different instance, use the `Add-AzureRmAccount` command with the `-Environment` or -`EnvironmentName` command line switch with the desired environment or environment name.
+By default the Azure environment is `AzureCloud` which represents the global Azure cloud instance. To connect to a different instance, use the `Add-AzureRmAccount` command with the `-Environment` or -`EnvironmentName` command line switch with the desired environment or environment name.
 
 To see the list of available environments, run the `Get-AzureRmEnvironment` cmdlet.
 
