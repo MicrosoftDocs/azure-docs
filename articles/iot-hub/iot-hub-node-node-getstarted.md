@@ -22,7 +22,7 @@
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and a solution backend. One of the biggest challenges IoT projects face is how to reliably and securely connect devices to the solution backend. To address this challenge, IoT Hub:
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and a solution back end. One of the biggest challenges IoT projects face is how to reliably and securely connect devices to the solution back end. To address this challenge, IoT Hub:
 
 - Offers reliable device-to-cloud and cloud-to-device hyper-scale messaging.
 - Enables secure communications using per-device security credentials and access control.
@@ -32,7 +32,7 @@ This tutorial shows you how to:
 
 - Use the Azure portal to create an IoT hub.
 - Create a device identity in your IoT hub.
-- Create a simulated device that sends telemetry to your cloud backend.
+- Create a simulated device that sends telemetry to your cloud back end.
 
 At the end of this tutorial you will have three Node.js console applications:
 
@@ -40,7 +40,7 @@ At the end of this tutorial you will have three Node.js console applications:
 * **ReadDEviceToCloudMessages.js**, which displays the telemetry sent by your simulated device.
 * **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second.
 
-> [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution backend.
+> [AZURE.NOTE] The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
 
 To complete this tutorial you'll need the following:
 

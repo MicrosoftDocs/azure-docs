@@ -48,7 +48,7 @@ See [Prepare your development environment][devbox-setup] for information about p
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-client</artifactId>
-      <version>1.0.0-preview.4</version>
+      <version>1.0.0</version>
     </dependency>
     ```
 

@@ -36,7 +36,7 @@ In addition to intra-region HA, IoT Hub implements failover mechanisms for disas
 
 A complete treatment of deployment topologies in IoT solutions is outside the scope of this article, but for the purpose of high availability and disaster recovery we will consider the *regional failover* deployment model.
 
-In a regional failover model, the solution backend is running primarily in one datacenter location, but an additional IoT hub and backend are deployed in another datacenter location for failover purposes, in case the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is somehow interrupted. Devices use a secondary service endpoint whenever the primary gateway cannot be reached. With a cross-region failover capability, the solution availability can be improved beyond the high availability of a single region.
+In a regional failover model, the solution back end is running primarily in one datacenter location, but an additional IoT hub and back end are deployed in another datacenter location for failover purposes, in case the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is somehow interrupted. Devices use a secondary service endpoint whenever the primary gateway cannot be reached. With a cross-region failover capability, the solution availability can be improved beyond the high availability of a single region.
 
 At a high level, to implement a regional failover model with IoT Hub, you will need the following.
 
