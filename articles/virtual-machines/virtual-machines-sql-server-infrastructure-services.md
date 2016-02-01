@@ -20,11 +20,11 @@
 # SQL Server on Azure Virtual Machines overview
 
 ## Getting started
-You can host [SQL Server on Azure Virtual Machines](http://azure.microsoft.com/services/virtual-machines/sql-server/) in a variety of configurations, ranging from a single database server to a multi-machine configuration using AlwaysOn Availability Groups and an Azure Virtual Network.
+You can host [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) in a variety of configurations, ranging from a single database server to a multi-machine configuration using AlwaysOn Availability Groups and an Azure Virtual Network.
 
 >[AZURE.NOTE] Running SQL Server on an Azure VM is one option for storing relational data in Azure. You can also use the Azure SQL Database service. For more information, see [Understanding Azure SQL Database and SQL Server in Azure VMs](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
 
-To create a SQL Server virtual machine in Azure, you must first obtain an Azure Platform subscription. You can purchase an Azure subscription at [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/). To try it free, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
+To create a SQL Server virtual machine in Azure, you must first obtain an Azure Platform subscription. You can purchase an Azure subscription at [Purchase Options](https://azure.microsoft.com/pricing/purchase-options/). To try it free, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/). 
 
 ### Deploy a SQL Server instance on a single VM
 
@@ -46,7 +46,7 @@ The following table provides a matrix of available SQL Server images in the virt
 
 >[AZURE.NOTE] The virtual machines gallery images for data warehousing and transactional workloads (not shown above) are deprecated and will be removed from the gallery soon. Please use the standard images in the previous table and optimize performance for your specific workload.
 
-In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](http://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](http://azure.microsoft.com/pricing/details/virtual-machines) associated with the virtual machine.
+In addition to these preconfigured images, you can also [create an Azure virtual machine](virtual-machines-windows-tutorial.md) without SQL Server pre-installed. You can install any instance of SQL Server for which you have a license. You migrate your license to Azure for running SQL Server in an Azure Virtual Machine using [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). In this scenario, you only pay for Azure compute and storage [costs](https://azure.microsoft.com/pricing/details/virtual-machines/) associated with the virtual machine.
 
 In order to determine the best virtual machine configuration settings for your SQL Server image, review the [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md). For production workloads, **DS3** is the minimum recommended virtual machine size for SQL Server Enterprise edition, and **DS2** is the minimum recommended virtual machine size for Standard edition.
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Extensible Policy Framework
@@ -73,10 +73,6 @@ To enable sign up on your application, you will need to create a Sign-up policy.
 3. Click **+Add** at the top of the blade.
 4. The **Name** determines the sign-up policy name used by your application. For example, enter "SiUp".
 5. Click **Identity providers** and select "Email address". Optionally, you can also select social identity providers, if already configured. Click **OK**.
-
-    > [AZURE.NOTE]
-    For local accounts, Azure AD B2C's sign-up policies use "Strong" passwords (they are set to "never expire"). See [Azure AD password policy](https://msdn.microsoft.com/library/azure/jj943764.aspx) for other settings (currently unused by Azure AD B2C).
-
 6. Click **Sign-up attributes**. Here you choose attributes that you want to collect from the consumer during sign up. For example, select "Country/Region", "Display Name" and "Postal Code". Click **OK**.
 7. Click **Application claims**. Here you choose claims that you want returned in the tokens sent back to your application after a successful sign up experience. For example, select "Display Name", "Identity Provider", "Postal Code", "User is new" and "User's Object ID".
 8. Click **Create**. Note that the policy just created appears as "**B2C_1_SiUp**" (the **B2C\_1\_** fragment is automatically pre-pending) in the **Sign-up policies** blade.

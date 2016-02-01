@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: PowerShell Connector"
+   pageTitle="Azure AD Connect sync: PowerShell Connector | Microsoft Azure"
    description="This article describes how to configure Microsoft's Windows PowerShell Connector."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/16/2015"
+   ms.date="01/21/2016"
    ms.author="andkjell"/>
 
 # WIndows PowerShell Connector technical reference

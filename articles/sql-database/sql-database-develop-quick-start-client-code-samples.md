@@ -86,7 +86,7 @@ This section provides links to code sample topics for client programs that run o
 ## See also
 
 
-- [Downloads for SDKs and tools, for numerous languages and platforms](http://azure.microsoft.com/downloads/#cmd-line-tools)
+- [Downloads for SDKs and tools, for numerous languages and platforms](https://azure.microsoft.com/downloads/#cmd-line-tools)
 - [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
 - [List of numeric codes for transient errors](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)

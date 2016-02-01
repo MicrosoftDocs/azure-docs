@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/18/2015" 
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 #Filters and Dynamic Manifests
@@ -120,7 +120,7 @@ With Dynamic Manifest, you can create device profiles such as mobile, console, H
  
 ![Rendition filtering example][renditions2]
 
-In the following example, Azure Media Encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, Smooth, MPEG DASH, and HDS.  At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).  In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown. The "ott" filter specifies to remove all bitrates below 1Mbps, which resulted in the bottom two quality levels being stripped off in the response.  In the bottom right,   the HLS manifest to which a filter named "mobile" was applied is shown. The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.
+In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, Smooth, MPEG DASH, and HDS.  At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).  In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown. The "ott" filter specifies to remove all bitrates below 1Mbps, which resulted in the bottom two quality levels being stripped off in the response.  In the bottom right,   the HLS manifest to which a filter named "mobile" was applied is shown. The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.
 
 ![Rendition filtering][renditions1]
 
@@ -192,7 +192,7 @@ To combine filters, you need to set the filter names to the manifest/playlist UR
 
 You can combine up to 3 filters. 
 
-For more information see [this](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) blog.
+For more information see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 
 ##Know issues and limitations

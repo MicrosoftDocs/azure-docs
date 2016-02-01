@@ -40,10 +40,10 @@ instances with Microsoft HPC Pack.
 * **Review [background information and considerations](virtual-machines-a8-a9-a10-a11-specs.md)** about the compute-intensive instances
 
 
-* **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 
-* **Cores quota** - You might need to increase the quota of cores to deploy a cluster of A8 or A9 VMs. For example, you will need at least 128 cores if you want to deploy 8 A9 instances with HPC Pack. To increase a quota, open an [online customer support request](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
+* **Cores quota** - You might need to increase the quota of cores to deploy a cluster of A8 or A9 VMs. For example, you will need at least 128 cores if you want to deploy 8 A9 instances with HPC Pack. To increase a quota, open an [online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
 ## Scenario 1. Deploy compute intensive worker role instances (PaaS)
 
@@ -170,7 +170,7 @@ MPI job (in this case, **mpipingpong**) by using the cluster **mpiexec**
 command.
 
 This example assumes you added Azure nodes in a “burst to Azure”
-configuration ([Scenario 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-(PaaS)) in this articles). If you deployed HPC Pack on a cluster of Azure VMs,
+configuration ([Scenario 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-(PaaS) in this article). If you deployed HPC Pack on a cluster of Azure VMs,
 you’ll need to modify the command syntax to specify a different node
 group and set additional environment variables to direct network traffic
 to the RDMA network.
@@ -179,7 +179,7 @@ to the RDMA network.
 To run mpipingpong on the cluster:
 
 
-1. On the head node or on a properly configured client computer, open a Command windows.
+1. On the head node or on a properly configured client computer, open a Command Prompt.
 
 2. To estimate latency between pairs of nodes in an Azure burst deployment of 4 nodes, type the following command to submit a job to run mpipingpong with a small packet size and a large number of iterations:
 
@@ -191,9 +191,9 @@ To run mpipingpong on the cluster:
 
     If you deployed the HPC Pack cluster deployed on Azure VMs, specify a node group that contains compute node VMs deployed in a single cloud service, and modify the **mpiexec** command as follows:
 
-  ```
-  job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI\_DISABLE\_SOCK 1 -env MSMPI\_PRECONNECT all -env MPICH\_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
-  ```
+    ```
+    job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI\_DISABLE\_SOCK 1 -env MSMPI\_PRECONNECT all -env MPICH\_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
+    ```
 
 3. When the job completes, to view the output (in this case, the output of task 1 of the job), type the following
 

@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="01/19/2016" 
 	ms.author="spelluru"/>
 
 # Move data From on-premises HDFS using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from an on-premises HDFS to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data from an on-premises HDFS to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory currently supports only moving data from an on-premises HDFS to other data stores, but not for moving data from other data stores to an on-premises HDFS.
+
 
 ## Enabling connectivity
 Data Factory service supports connecting to on-premises HDFS using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. You need to leverage the gateway to connect to HDFS even if it is hosted in an Azure IaaS VM. 
@@ -28,7 +29,9 @@ While you can install the gateway on the same on-premises machine or the Azure V
 
 ## Sample: Copy data from on-premises HDFS to Azure Blob
 
-The sample below shows:
+This sample shows how to copy data from an on-premises HDFS to Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesHdfs](#hdfs-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -306,8 +309,8 @@ If the format is set to **TextFormat**, you can specify the following **optional
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| columnDelimiter | The character(s) used as a column separator in a file.This tag is optional. The default value is comma (,). | No |
-| rowDelimiter | The character(s) used as a raw separator in file. This tag is optional. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
+| columnDelimiter | The character used as a column separator in a file. Only one character is allowed at this time. This tag is optional. The default value is comma (,). | No |
+| rowDelimiter | The character used as a raw separator in file. Only one character is allowed at this time. This tag is optional. The default value is any of the following: [“\r\n”, “\r”,” \n”]. | No |
 | escapeChar | <p>The special character used to escape column delimiter shown in content. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: “Hello, world”), you can define ‘$’ as the escape character and use string “Hello$, world” in the source.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> | No | 
 | quoteChar | <p>The special character is used to quote the string value. The column and row delimiters inside of the quote characters would be treated as part of the string value. This tag is optional. No default value. You must specify no more than one character for this property.</p><p>For example, if you have comma (,) as the column delimiter but you want have comma character in the text (example: <Hello, world>), you can define ‘"’ as the quote character and use string <"Hello, world"> in the source. This property is applicable to both input and output tables.</p><p>Note that you cannot specify both escapeChar and quoteChar for a table.</p> | No |
 | nullValue | <p>The character(s) used to represent null value in blob file content. This tag is optional. The default value is “\N”.</p><p>For example, based on above sample, “NaN” in blob will be translated as null value while copied into e.g. SQL Server.</p> | No |

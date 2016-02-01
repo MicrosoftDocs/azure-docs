@@ -3,7 +3,7 @@
    description="Describes the StorSimple Virtual Array, an integrated storage solution that manages storage tasks between an on-premises virtual device and Microsoft Azure cloud storage."
    services="storsimple"
    documentationCenter="NA"
-   authors="alkohli"
+   authors="SharS"
    manager="carolz"
    editor="" />
 <tags 

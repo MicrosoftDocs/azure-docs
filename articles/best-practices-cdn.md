@@ -281,8 +281,8 @@ Note that using URL rewriting requires you to make some changes to the bundling 
 ## More information
 
 
-+ [Azure CDN](http://azure.microsoft.com/services/cdn/)
++ [Azure CDN](https://azure.microsoft.com/services/cdn/)
 + [Azure Content Delievery Network (CDN) Documentation](https://azure.microsoft.com/documentation/services/cdn/)
 + [Serve Content from Azure CDN in Your Web Application](cdn/cdn-serve-content-from-cdn-in-your-web-application/)
 + [Integrate a cloud service with Azure CDN](cdn/cdn-cloud-service-with-cdn.md/)
-+ [Best Practices for the Microsoft Azure Content Delivery Network](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
++ [Best Practices for the Microsoft Azure Content Delivery Network](https://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="01/19/2016"
 	ms.author="spelluru"/>
 
 # Compute Linked Services
@@ -27,8 +27,7 @@ In this type of configuration, the computing environment is fully managed by the
 > [AZURE.NOTE] The on-demand configuration is currently supported only for Azure HDInsight clusters.
 
 ## Azure HDInsight On-Demand Linked Service
-
-The on-demand HDInsight cluster is automatically created by the Azure Data Factory service to process data. The cluster is created in the region that is same as that of the storage account (linkedServiceName property in the JSON) associated with the cluster.
+The Azure Data Factory service can automatically create a Windows/Linux-based on-demand HDInsight cluster to process data. The cluster is created in the region that is same as that of the storage account (linkedServiceName property in the JSON) associated with the cluster.
 
 Note the following **important** points about on-demand HDInsight linked service:
 
@@ -39,25 +38,46 @@ Note the following **important** points about on-demand HDInsight linked service
 > [AZURE.IMPORTANT] It typically takes more than **15 minutes** to provision an Azure HDInsight cluster on demand.
 
 ### Example
+The following JSON defines an on-demand HDInsight linked service. The Data Factory automatically creates a **Windows-based** HDInsight cluster when processing a data slice. Note the **osType** is not specified in this sample JSON and the default value for this property is **Windows**.  
 
 	{
 	  "name": "HDInsightOnDemandLinkedService",
 	  "properties": {
 	    "type": "HDInsightOnDemand",
 	    "typeProperties": {
-	      "clusterSize": 4,
-	      "timeToLive": "00:05:00",
 	      "version": "3.2",
-		  "osType": "linux",
-	      "linkedServiceName": "MyBlobStore",
-		  "hcatalogLinkedServiceName": "AzureSqlLinkedService",
-	      "additionalLinkedServiceNames": [
-	        "otherLinkedServiceName1",
-	        "otherLinkedServiceName2"
-	      ]
+	      "clusterSize": 1,
+	      "timeToLive": "00:30:00",
+	      "linkedServiceName": "StorageLinkedService"
 	    }
 	  }
 	}
+
+
+The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice. You must specify values for **sshUserName** and **sshPassword**.   
+
+
+	{
+	    "name": "HDInsightOnDemandLinkedService",
+	    "properties": {
+	        "hubName": "getstarteddf0121_hub",
+	        "type": "HDInsightOnDemand",
+	        "typeProperties": {
+	            "version": "3.2",
+	            "clusterSize": 4,
+	            "timeToLive": "00:05:00",
+	            "osType": "linux",
+	            "sshPassword": "MyPassword!",
+	            "sshUserName": "myuser",
+	            "linkedServiceName": "StorageLinkedService",
+	        }
+	    }
+	}
+
+> [AZURE.IMPORTANT] 
+> The HDInsight cluster creates a **default container** in the blob storage you specified in the JSON (**linkedServiceName**). HDInsight does not delete this container when the cluster is deleted. This is by design. With on-demand HDInsight linked service, a HDInsight cluster is created every time a slice needs to be processed unless there is an existing live cluster (**timeToLive**) and is deleted when the processing is done. 
+> 
+> As more and more slices are processed, you will see a lot of containers in your Azure blob storage. If you do not need them for troubleshooting of the jobs, you may want to delete them to reduce the storage cost. The name of these containers follow a pattern: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Use tools such as [Microsoft Storage Explorer](http://storageexplorer.com/) to delete containers in your Azure blob storage.
 
 ### Properties
 
@@ -71,7 +91,17 @@ linkedServiceName | The blob store to be used by the on-demand cluster for stori
 additionalLinkedServiceNames | Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. | No
 osType | Type of operating system. Allowed values are: Windows (default) and Linux | No
 hcatalogLinkedServiceName | The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster will be created by using the Azure SQL database as the metastore. | No
+sshUser | SSH user for the Linux-based HDInsight cluster | Yes (only for Linux)
+sshPassword | SSH password for the Linux-based HDInsight cluster | Yes (only for Linux)
 
+
+#### additionalLinkedServiceNames JSON example
+
+    "additionalLinkedServiceNames": [
+        "otherLinkedServiceName1",
+		"otherLinkedServiceName2"
+  	]
+ 
 ### Advanced Properties
 
 You can also specify the following properties for the granular configuration of the on-demand HDInsight cluster.
@@ -290,6 +320,45 @@ subscriptionId | Azure subscription id | No (If not specified, subscription of t
 resourceGroupName | Azure resource group name |  No (If not specified, resource group of the data factory is used).
 sessionId | session id from the OAuth authorization session. Each session id is unique and may only be used once. This is auto-generated in the Data Factory Editor. | Yes
 
+The authorization code you generated by using the **Authorize** button expires after sometime. See the following table for the expiration times for different types of user accounts. You may see the following error message when the authentication **token expires**: Credential operation error: invalid_grant - AADSTS70002: Error validating credentials. AADSTS70008: The provided access grant is expired or revoked. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
+
+ 
+| User type | Expires after |
+| :-------- | :----------- | 
+| Non-AAD user (@hotmail.com, @live.com, etc.) | 12 hours |
+| AAD user and the OAuth-based source is in a different [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) from the tenant of data factory. | 12 hours |
+| AAD user and the OAuth-based source is in the same tenant as the tenant of data factory. | 14 days |
+
+To avoid/resolve this error, you will need to reauthorize using the **Authorize** button when the **token expires** and redeploy the linked service. You can also generate values for sessionId and authorization properties programmatically using code in the following section. 
+
+### To programmatically generate sessionId and authorization values 
+The following code generates **sessionId** and **authorization** values.  
+
+    if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
+        linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
+    {
+        AuthorizationSessionGetResponse authorizationSession = this.Client.OAuth.Get(this.ResourceGroupName, this.DataFactoryName, linkedService.Properties.Type);
+
+        WindowsFormsWebAuthenticationDialog authenticationDialog = new WindowsFormsWebAuthenticationDialog(null);
+        string authorization = authenticationDialog.AuthenticateAAD(authorizationSession.AuthorizationSession.Endpoint, new Uri("urn:ietf:wg:oauth:2.0:oob"));
+
+        AzureDataLakeStoreLinkedService azureDataLakeStoreProperties = linkedService.Properties.TypeProperties as AzureDataLakeStoreLinkedService;
+        if (azureDataLakeStoreProperties != null)
+        {
+            azureDataLakeStoreProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeStoreProperties.Authorization = authorization;
+        }
+
+        AzureDataLakeAnalyticsLinkedService azureDataLakeAnalyticsProperties = linkedService.Properties.TypeProperties as AzureDataLakeAnalyticsLinkedService;
+        if (azureDataLakeAnalyticsProperties != null)
+        {
+            azureDataLakeAnalyticsProperties.SessionId = authorizationSession.AuthorizationSession.SessionId;
+            azureDataLakeAnalyticsProperties.Authorization = authorization;
+        }
+    }
+
+See [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx), and [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) topics for details about the Data Factory classes used in the code. You need to add a reference to: Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll for the WindowsFormsWebAuthenticationDialog class. 
+ 
 
 ## Azure SQL Linked Service
 

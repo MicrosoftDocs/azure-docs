@@ -26,10 +26,12 @@ For the Azure Data Factory service to be able to connect to your on-premises Ora
 - Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway. 
 - [Oracle Data Access Components (ODAC) for Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/index.html). It must be installed on the host machine where the gateway is installed.
 
+> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
 ## Sample: Copy data from Oracle to Azure Blob
-
-The sample below shows:
+This sample shows how to copy data from an on-premises Oracle database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
