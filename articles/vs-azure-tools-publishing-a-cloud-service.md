@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="12/19/2015"
+   ms.date="01/30/2016"
    ms.author="tarcher" />
 
 # Publishing a Cloud Service using the Azure Tools
@@ -21,7 +21,7 @@ By using the Azure Tools for Microsoft Visual Studio, you can publish your Azure
 
 Before you can publish an Azure application, you must have an Azure subscription. You must also set up a cloud service and storage account to be used by your application. You can set these up at the [Azure Management Portal](http://go.microsoft.com/fwlink/?LinkID=213885).
 
->[AZURE.IMPORTANT] When you publish, you can select the deployment environment for your cloud service. You must also select a storage account that is used to store the application package for deployment. After deployment, the application package is removed from the storage account. For more information about how to set up these services, see [Setting Up Services Required to Publish a Cloud Service](vs-azure-tools-setting-up-services-required-to-publish-a-cloud-service-from-visual-studio.md) from Visual Studio.
+>[AZURE.IMPORTANT] When you publish, you can select the deployment environment for your cloud service. You must also select a storage account that is used to store the application package for deployment. After deployment, the application package is removed from the storage account.
 
 When you are developing and testing an Azure application, you can use Web Deploy to publish changes incrementally for your web roles. After you publish your application to a deployment environment, Web Deploy lets you deploy changes directly to the virtual machine that is running the web role. You do not have to package and publish your entire Azure application each time you want to update your web role to test out the changes. With this approach you can have your web role changes available in the cloud for testing without waiting to have your application published to a deployment environment.
 
