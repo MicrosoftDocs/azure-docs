@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="01/29/2016" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
@@ -79,8 +79,6 @@ When you provision an HDInsight cluster, you specify an Azure Storage account. A
 **To create an Azure Storage account**
 
 1. Sign into the [Azure Classic Portal][azure-classic-portal].
-	
-	> [AZURE.NOTE] Azure HDInsight is currently supported in the Azure Classic Portal, while Azure DocumentDB only exists in the Microsoft Azure  portal.
 
 2. Click **+ NEW** on the lower left corner, point to **DATA SERVICES**, point to **STORAGE**, and then click **QUICK CREATE**.
 	![Azure Classic Portal where you can use Quick Create to set up a new storage account.][image-storageaccount-quickcreate]
@@ -89,7 +87,7 @@ When you provision an HDInsight cluster, you specify an Azure Storage account. A
 	
 	You will see the new storage account in the storage list.
 
-	> [AZURE.IMPORTANT] For best performance, make sure your storage account, HDInsight cluster, and DocumentDB account are located in the same Azure region. Azure regions that support all three services are:  **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, and **West US**.
+	> [AZURE.IMPORTANT] For best performance, make sure your storage account, HDInsight cluster, and DocumentDB account are located in the same Azure region.
 
 4. Wait until the **STATUS** of the new storage account is changed to **Online**.
 
