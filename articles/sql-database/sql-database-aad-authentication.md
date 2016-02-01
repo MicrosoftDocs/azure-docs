@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="1/29/2016"
+   ms.date="2/1/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database By Using Azure Active Directory Authentication
@@ -322,6 +322,7 @@ For specific code examples related to Azure AD authentication see the [SQL Serve
 [Contained Database Users](https://msdn.microsoft.com/library/ff929071.aspx)
 
 [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
+
 
 <!--Image references-->
 
