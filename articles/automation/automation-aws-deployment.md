@@ -11,7 +11,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload=""
+   ms.workload="infrastructure"
    ms.date="02/01/2016"
    ms.author="tiandert; bwren" />
 
