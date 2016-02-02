@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Windows settings sync for enterprises | Microsoft Azure"
-	description="Provides information about Enterprise Sync Settings in Windows devices. Enterprise Sync provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
+	pageTitle="Enable Enterprise State Roaming in Azure Active Directory | Microsoft Azure"
+	description="Frequently asked questions about Enterprise State Roaming Settings in Windows devices. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
 	services="active-directory"
     keywords="enterprise settings sync, windows cloud"
 	documentationCenter=""
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="femila"/>
 
 # Enable Enterprise State Roaming in Azure Active Directory
 
-Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more details on how to get an Azure AD subscription, see the [Azure AD product page](https://azure.microsoft.com/en-us/services/active-directory).
+Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more details on how to get an Azure AD subscription, see the [Azure AD product page](https://azure.microsoft.com/services/active-directory).
 
 When you enable Enterprise State Roaming, your organization will be automatically granted licenses for a free subscription to Azure Rights Management Service. This free subscription is limited to encrypting and decrypting enterprise settings data only; you must have a paid subscription to use the full capabilities of Azure Rights Management. 
 
@@ -35,9 +35,9 @@ After obtaining an Azure AD subscription, follow these steps to enable Enterpris
 For a Windows 10 device to roam settings with the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary login is the Azure AD identity, so no extra configuration is required. For devices that use a traditional on-premises Active Directory, the IT admin must connect the on-premises Active Directory to Azure AD using [Azure AD Connect](active-directory-aadconnect.md) and then must configure Group Policy to force client devices to automatically sync user data with Azure.
 
 ## Sync data storage
-Enterprise State Roaming data is hosted in one or more [Azure regions](https://azure.microsoft.com/en-us/regions/) that best aligns with the country value set in the Azure AD instance. For example, customers who have their country value set to “France” will be hosted in one or more of the Azure regions within Europe, while customers who set their country value in Azure AD to “US” will have their data hosted in one or more of the Azure regions within the US. The country value is set as part of the Azure AD domain creation process and cannot be subsequently modified. 
+Enterprise State Roaming data is hosted in one or more [Azure regions](https://azure.microsoft.com/regions/) that best aligns with the country value set in the Azure AD instance. For example, customers who have their country value set to “France” will be hosted in one or more of the Azure regions within Europe, while customers who set their country value in Azure AD to “US” will have their data hosted in one or more of the Azure regions within the US. The country value is set as part of the Azure AD domain creation process and cannot be subsequently modified. 
 
-If you need more details on data storage location, please file a ticket with [Azure support](https://azure.microsoft.com/en-us/support/options/).
+If you need more details on data storage location, please file a ticket with [Azure support](https://azure.microsoft.com/support/options/).
 
 ## Manage Enterprise State Roaming
 Azure AD tenant administrators can enable and disable Enterprise State Roaming in the Azure classic portal.
@@ -60,3 +60,9 @@ Data synced to Azure via Enterprise State Roaming will be retained indefinitely 
 
 - **Recovering deleted data**: 
 The data retention policy is not configurable. Once the data has been permanently deleted, it will not be recoverable. However, it’s important to note that the settings data will only be deleted from Azure, not the end-user device. If any device later reconnects to the Enterprise State Roaming service, the settings will again be synced and stored in Azure.
+
+## Related topics
+- [Enterprise State Roaming Overview](active-directory-windows-enterprise-sync-overview.md)
+- [Settings and data roaming FAQ](active-directory-windows-enterprise-sync-faqs.md)
+- [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-sync-overview.md)
+- [Windows 10 roaming settings reference](active-directory-windows-enterprise-sync-windows-settings-reference.md)

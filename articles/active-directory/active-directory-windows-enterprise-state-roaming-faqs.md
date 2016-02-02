@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Windows settings sync for enterprises | Microsoft Azure"
+	pageTitle="Settings and data roaming FAQ | Microsoft Azure"
 	description="Provides information about Enterprise Sync Settings in Windows devices. Enterprise Sync provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
 	services="active-directory"
     keywords="enterprise settings sync, windows cloud"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="femila"/>
 
 # Settings and data roaming FAQ
@@ -86,7 +86,7 @@ Enterprise Sync is designed to store settings data in the Azure cloud. UE-V offe
 ## Who manages the data that’s being roamed?
 The tenant administrator will manage the data, and it will be stored in an Azure datacenter. All user data is encrypted both in transit and at rest in the cloud using Azure Rights Management (Azure RMS). This is an improvement compared to Microsoft account-based settings sync, where only certain sensitive data such as user credentials are encrypted before leaving the device. 
 
-Microsoft is committed to safeguarding customer data. An enterprise user’s settings data is automatically encrypted by Azure RMS whenever it leaves a Windows 10 device, so that another user cannot read this data. If your organization has a paid subscription for Azure RMS, you can use other Azure RMS features, such as track and revoke documents, automatically protect emails that contain sensitive information, and manage your own keys (the "bring your own key" solution, also known as BYOK). For more information about these features and how Azure RMS works, see [What is Azure Rights Management](https://technet.microsoft.com/en-us/jj585026.aspx)?
+Microsoft is committed to safeguarding customer data. An enterprise user’s settings data is automatically encrypted by Azure RMS whenever it leaves a Windows 10 device, so that another user cannot read this data. If your organization has a paid subscription for Azure RMS, you can use other Azure RMS features, such as track and revoke documents, automatically protect emails that contain sensitive information, and manage your own keys (the "bring your own key" solution, also known as BYOK). For more information about these features and how Azure RMS works, see [What is Azure Rights Management](https://technet.microsoft.com/jj585026.aspx)?
 
 ## Can I manage sync for a specific app or setting?
 In Windows 10, there is no MDM or Group Policy setting to disable roaming for an individual app. Tenant administrators can disable appdata sync for all apps on a managed device, but there is no finer control at a per app or within-app level. 
@@ -102,3 +102,10 @@ Microsoft has a few different settings roaming solutions available, including Ro
 If your organization is already using roaming in Windows 10 with the Azure RMS free subscription, purchasing a paid Azure RMS subscription will not have any impact on the functionality of the roaming feature and no configuration changes will be required by your IT administrator. 
 ## Known Issues
 Smartcard or Virtual Smartcard login to Windows causes settings sync to stop working. If you attempt to log into your device using a Smartcard or Virtual Smartcard, sync will stop working. Future updates to Windows 10 may resolve this issue.
+
+
+## Related topics
+- [Enterprise State Roaming Overview](active-directory-windows-enterprise-sync-overview.md)
+- [Enable Enterprise State Roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
+- [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-sync-overview.md)
+- [Windows 10 roaming settings reference](active-directory-windows-enterprise-sync-windows-settings-reference.md)

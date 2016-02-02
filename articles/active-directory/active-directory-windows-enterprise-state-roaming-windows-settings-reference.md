@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Windows settings sync for enterprises | Microsoft Azure"
-	description="Provides information about Enterprise Sync Settings in Windows devices. Enterprise Sync provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
+	pageTitle="Windows 10 roaming settings reference | Microsoft Azure"
+	description="A complete list of all the settings that will be roamed and/or backed-up in Windows 10."
 	services="active-directory"
     keywords="enterprise settings sync, windows cloud"
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/25/2016"
+	ms.date="02/02/2016"
 	ms.author="femila"/>
 
-#Windows 10 roaming settings reference
+# Windows 10 roaming settings reference
 
 The following is a complete list of all the settings that will be roamed and/or backed-up in Windows 10. 
 
@@ -161,6 +161,12 @@ Settings that don't roam or sync will not belong to a group.
 |Typing: personalization data for touch keyboard|sync     |backup    |Language|
 |Wi-Fi: Wi-Fi profiles (only WPA)|sync     |sync     |Passwords|
 
+
+## Related topics
+- [Enterprise State Roaming Overview](active-directory-windows-enterprise-sync-overview.md)
+- [Enable Enterprise State Roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
+- [Settings and data roaming FAQ](active-directory-windows-enterprise-sync-faqs.md)
+- [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-sync-overview.md)
 
 
 
