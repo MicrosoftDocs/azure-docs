@@ -37,7 +37,7 @@ The following is a list of important things to consider before or when using Pre
 
 - To use Premium Storage, you need to have a Premium Storage account. To learn how to create a Premium Storage account, see [Creating and using Premium Storage Account for Disks](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
-- Premium Storage is available in the [Azure Portal](https://portal.azure.com) and accessible via the following SDK libraries: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later; and [Azure PowerShell](../install-configure-powershell.md) version 0.8.10 or later.
+- Premium Storage is available in the [Azure Portal](https://portal.azure.com) and accessible via the following SDK libraries: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later (Classic deployments); [Storage Resource Provider API](http://msdn.microsoft.com/en-us/library/azure/mt163683.aspx) (ARM deployments); and [Azure PowerShell](../install-configure-powershell.md) version 0.8.10 or later.
 
 - For a list of regions that currently support Premium Storage, see [Azure Services by Region](https://azure.microsoft.com/regions/#services).
 
@@ -63,7 +63,7 @@ Azure uses the storage account as a container for your operating system (OS) and
 
 For information on migrating your existing virtual machines to Premium Storage, see [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md).
 
-To leverage the benefits of Premium Storage, create a Premium Storage account using an account type of *Premium_LRS* first. To do this, you can use the [Azure Portal](https://portal.azure.com), [Azure PowerShell](../install-configure-powershell.md), or the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx). For step-by-step instructions, see [Creating and using Premium Storage Account for Disks](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+To leverage the benefits of Premium Storage, create a Premium Storage account using an account type of *Premium_LRS* first. To do this, you can use the [Azure Portal](https://portal.azure.com), [Azure PowerShell](../install-configure-powershell.md), the [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) (Classic deployments), or the [Storage Resource Provider REST API](http://msdn.microsoft.com/en-us/library/azure/mt163683.aspx) (ARM deployments). For step-by-step instructions, see [Creating and using Premium Storage Account for Disks](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 ### Important notes:
 
@@ -393,4 +393,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Sizes for Virtual Machines](../virtual-machines/virtual-machines-size-specs.md)
 - [Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 
-[Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
+[Image1]: ./media/storage-premium-storage/Azure_pricing_tier.png
