@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/04/2016"
+   ms.date="01/27/2016"
    ms.author="v-sharos" />
 
 # StorSimple 8000 Series Update 2 release notes  
@@ -21,7 +21,7 @@
 
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2. They also contain a list of the StorSimple software, driver, and disk firmware updates included in this release. 
 
-Update 2 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 1.2. 
+Update 2 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 1.2. The device version associated with Update 2 is 6.3.9600.17673.
 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
@@ -77,7 +77,7 @@ The following tables provides a summary of issues that were fixed in Updates 2.
 
 The following table provides a summary of known issues in this release.
 
-| No. | Feature | Issue | Comments/workaround | Applies to physical device | Applies to virtual device |
+| No. | Feature | Issue | Comments / workaround | Applies to physical device | Applies to virtual device |
 |-----|---------|-------|----------------------------|----------------------------|---------------------------|
 | 1 | Disk quorum | In rare instances, if the majority of disks in the EBOD enclosure of an 8600 device are disconnected resulting in no disk quorum, then the storage pool will go offline. It will stay offline even if the disks are reconnected. | You will need to reboot the device. If the issue persists, please contact Microsoft Support for next steps. | Yes | No |
 | 2 | Incorrect controller ID | When a controller replacement is performed, controller 0 may show up as controller 1. During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID. In rare instances, this behavior may also be seen after a system reboot. | No user action is required. This situation will resolve itself after the controller replacement is complete. | Yes | No |

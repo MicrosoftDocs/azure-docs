@@ -48,7 +48,7 @@ The following are high level steps to create an Azure VM for the HPC
 Pack head node. You can use a variety of Azure tools to do these steps in the Azure classic (Service Management) deployment model.
 
 
-1. If you plan to create a VNet for the head node VM, see [Create a virtual nework (classic) by using the Azure portal](../virtual-networks/virtual-networks-create-vnet-classic-pportal.md).
+1. If you plan to create a VNet for the head node VM, see [Create a virtual nework (classic) by using the Azure portal](../virtual-networks/virtual-networks-create-vnet-classic-portal.md).
 
     **Considerations**
 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Media Encoder Standard formats and codecs" 
-	description="This topic gives an overview of Azure Media Encoder Standard formats and codecs." 
+	description="This topic gives an overview of Media Encoder Standard formats and codecs." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako,anilmur" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/28/2016"  
 	ms.author="juliako"/>
 
 #Media Encoder Standard Formats and Codecs

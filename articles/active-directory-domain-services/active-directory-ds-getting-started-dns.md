@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/26/2016"
-	ms.author="mahesh-unnikrishnan"/>
+	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Getting started
 

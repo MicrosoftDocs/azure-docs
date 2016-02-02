@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: how to create an Azure AD B2C Tenant
@@ -24,7 +24,7 @@ To start using Azure Active Directory (AD) B2C, follow the 3 steps outlined belo
 
 ## Step 1: Sign up for an Azure Subscription
 
-If you already have an Azure subscription move on to the next step. If not, sign up for [an Azure subscription](sign-up-organization.md) and get access to Azure AD B2C.
+If you already have an Azure subscription move on to the next step. If not, sign up for [an Azure subscription](../active-directory/sign-up-organization.md) and get access to Azure AD B2C.
 
 > [AZURE.NOTE]
 Azure AD B2C preview is currently free for use but limited (up to 50,000 users per tenant). An Azure subscription is needed to access the [Azure Classic Portal](http://manage.windowsazure.com/).

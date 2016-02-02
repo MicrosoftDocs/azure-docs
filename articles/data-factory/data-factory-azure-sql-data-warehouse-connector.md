@@ -20,6 +20,9 @@
 
 This article outlines how you can use data factory copy activity to move data to Azure SQL Data Warehouse from another data store and move data from another data store to Azure SQL. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
+The following sample(s) show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+
+
 ## Sample: Copy data from Azure SQL Data Warehouse to Azure Blob
 
 The sample below shows:

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/18/2015"
+	ms.date="02/01/2016"
 	ms.author="jeedes"/>
 
 
@@ -102,9 +102,9 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 3. On the **Configure App Settings** dialog page, perform the following steps: <br><br>![Configure App Settings][10]
  
-     3.1 in the **Sign On URL** textbox, type your URL used by your users to sign on to your Halogen Software application using the following pattern: *https://global.hgncloud.com/fabrikam/welcome.jsp*
+     a. in the **Sign On URL** textbox, type your URL used by your users to sign on to your Halogen Software application using the following pattern: *https://global.hgncloud.com/fabrikam/welcome.jsp*
 
-     3.2. Click **Next**.
+     b. Click **Next**.
  
 4. On the **Configure single sign-on at Halogen Software** page, click **Download metadata**, and then save the metadata file locally on your computer.<br><br>![What is Azure AD Connect][11]
 
@@ -113,17 +113,19 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 7. In the left navigation pane, click **SAML Configuration**. <br><br>![What is Azure AD Connect][13]
 8. On the **SAML Configuration** page, perform the following steps: <br><br>![What is Azure AD Connect][14]
 
-     8.1. As **Unique Identifier**, select **NameID**.
+    a. As **Unique Identifier**, select **NameID**.
 
-     8.2. As **Unique Identifier Maps To**, select **Username**.
+    b. As **Unique Identifier Maps To**, select **Username**.
 
-     8.3. To upload your downloaded metadata file, click **Browse** to select the file, and then **Upload File**.
+    c. To upload your downloaded metadata file, click **Browse** to select the file, and then **Upload File**.
 
-     8.4. To test the configuration, click **Run Test**. > [AZURE.NOTE] You need to wait for the message "*The SAML test is complete. Please close this window*". Then, close the opened browser window. <br> The **Enable SAML** checkbox is only enabled if the test has been completed.
+    d. To test the configuration, click **Run Test**. 
 
-     8.5. Select **Enable SAML**.
+    > [AZURE.NOTE] You need to wait for the message "*The SAML test is complete. Please close this window*". Then, close the opened browser window. <br> The **Enable SAML** checkbox is only enabled if the test has been completed.
+
+    e. Select **Enable SAML**.
     
-     8.6. Click **Save Changes**. 
+    f. Click **Save Changes**. 
 
 
 9. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog. <br><br>![What is Azure AD Connect][15]
@@ -146,22 +148,31 @@ The objective of this section is to create a test user in the Azure portal calle
 <br><br>![What is Azure AD Connect][102] 
 5. On the **Tell us about this user** dialog page, perform the following steps:
 <br><br>![What is Azure AD Connect][103] 
-  1. As **Type Of User**, select **New user in your organization**.
-  2. In the User Name **textbox**, type **BrittaSimon**.
-  3. Click Next.
+ 
+    a. As **Type Of User**, select **New user in your organization**.
+
+    b. In the User Name **textbox**, type **BrittaSimon**.
+
+    c. Click Next.
 6.  On the **User Profile** dialog page, perform the following steps: 
 <br><br>![What is Azure AD Connect][104] 
-  1. In the **First Name** textbox, type **Britta**.  
-  2. In the **Last Name** txtbox, type, **Simon**.
-  3. In the **Display Name** textbox, type **Britta Simon**.
-  4. In the **Role** list, select **User**.
-  5. Click **Next**.
+
+    a. In the **First Name** textbox, type **Britta**.  
+
+    b. In the **Last Name** txtbox, type, **Simon**.
+
+    c. In the **Display Name** textbox, type **Britta Simon**.
+
+    d. In the **Role** list, select **User**.
+
+    e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
 <br><br>![What is Azure AD Connect][105]  
 8. On the **Get temporary password** dialog page, perform the following steps:
 <br><br>![What is Azure AD Connect][106]   
-  1. Write down the value of the **New Password**.
-  2. Click **Complete**.   
+
+    a. Write down the value of the **New Password**.
+    b. Click **Complete**.   
   
  
 ### Creating a Halogen Software test user
@@ -175,11 +186,11 @@ The objective of this section is to create a user called Britta Simon in Halogen
 <br><br>![What is Azure AD Connect][300]  
 3. On the **New User** dialog page, perform the following steps:
 <br><br>![What is Azure AD Connect][301]
-  1. In the **First Name** textbox, type **Britta**. 
-  2. In the **Last Name** textbox, type **Simon**.
-  3. In the **Username** textbox, type **Brita Simon's user name in the Azure AD portal**.
-  4. In the **Password** textbox, type a password for Britta.
-  5. Click **Save**.
+  a. In the **First Name** textbox, type **Britta**. 
+  b. In the **Last Name** textbox, type **Simon**.
+  c. In the **Username** textbox, type **Brita Simon's user name in the Azure AD portal**.
+  d. In the **Password** textbox, type a password for Britta.
+  e. Click **Save**.
 
 
 ### Assigning the Azure AD test user
