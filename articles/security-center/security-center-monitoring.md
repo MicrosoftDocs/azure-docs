@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/22/2016"
+   ms.date="01/29/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -41,7 +41,7 @@ The security policies that are enabled will impact the types of controls being m
 ###Virtual machine
 When you click on **Virtual Machines** in the **Resources health** tile, the **Virtual Machines** blade will open with more details about the onboarding and prevention steps as well as a list of all VMs monitored by Azure Security Center as shown below:
 
-![Missing system update by VM](./media/security-center-monitoring/security-center-monitoring-fig2-new.png)
+![Missing system update by VM](./media/security-center-monitoring/security-center-monitoring-fig2-2-new.png)
 
 Once you open this blade you will see three sections:
 
@@ -60,7 +60,7 @@ This section shows the total amount of VMs that were initialized for data collec
 ####Virtual machine recommendations
 This section has a set of recommendations for each VM monitored by Azure Security Center. The first column has the recommendation’s description, the second column the total amount of VMs that are affected by that recommendations and in the third column you have the severity as shown below:
 
-![VM Recommendations](./media/security-center-monitoring/security-center-monitoring-fig4-new.png)
+![VM Recommendations](./media/security-center-monitoring/security-center-monitoring-fig4-2-new.png)
 
 Each recommendation has a set of actions that can be performed once you click on it. For example, if you click **Missing system updates**, the **Missing system updates** blade will open with the list of VMs that are missing patches and the severity level for each one as shown below:
 
