@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Azure Active Directory integration with Novatus | Microsoft Azure"
+	pageTitle="Tutorial: Azure Active Directory integration with Certify | Microsoft Azure"
 	description="Learn how to configure single sign-on between Azure Active Directory and Certify."
 	services="active-directory"
 	documentationCenter=""
