@@ -88,11 +88,12 @@ Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and co
 
 3.	Take the certificate.pfx file you have created (Detailed steps are above) and place the certificate under d:\SQLRP\ AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment\Certificate Folder
 
-4.	Go to D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment
+4.	Go to D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.57.0\Contents\
 
 5.	Change the parameters in InstallSqlRpComplete-Parameters.json.
 
     - Change cseBlobNamePackage to: AzureStack.SqlRP.Setup.5.11.57.0.nupkg
+    >this is case sensitive
 
     - Specify an admin user\password to use as credentials for the RP VM.
 
@@ -103,6 +104,7 @@ Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and co
     - When asked for AAD tenantID parameter – input your AAD tenant ID
 
     - When asked for package name, provide: AzureStack.SqlRP.Setup.5.11.57.0.nupkg
+    >this is case sensitive
 
 7.	Wait for the deployment to succeed. This might take 90 minutes.
 
