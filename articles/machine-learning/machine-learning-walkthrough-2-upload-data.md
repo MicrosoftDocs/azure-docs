@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="02/01/2016" 
 	ms.author="garye"/>
 
 
@@ -74,7 +74,7 @@ Once the data has been converted to CSV format, we need to upload it into Machin
 
 This uploads the data into a dataset module that we can use in an experiment.
 
-For more information about importing various types of data into an experiment, see [Import your training data into Azure Machine Learning Studio](machine-learning-import-data.md).
+For more information about importing various types of data into an experiment, see [Import your training data into Azure Machine Learning Studio](machine-learning-data-science-import-data.md).
 
 **Next: [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)**
 
