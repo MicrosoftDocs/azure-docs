@@ -27,7 +27,6 @@
 
 [AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-scenario-include.md](../../includes/traffic-manager-get-started-create-endpoint-scenario-include.md)]
 
-ENTER YOUR CONTENT HERE
 
 ## Deploy the template by using click to deploy
 
@@ -43,12 +42,9 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
  Run the **New-AzureRmResourceGroup** cmdlet to create a resource group using the template.
 
 		New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
-		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'	
+		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-traffic-manager-vm/azuredeploy.json' `
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-traffic-manager-vm/azuredeploy.parameters.json'	
 
-	Expected output:
-
-		ENTER POWERSHELL OUTPUT HERE
 
 ## Deploy the template by using the Azure CLI
 
@@ -67,9 +63,9 @@ To deploy the template by using the Azure CLI, follow the steps below.
 
 4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
-		azure group create -n TestRG -l westus --template-uri https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json -e parameters.json
-
-	Expected output:
+		azure group create -n TestRG -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-traffic-manager-vm/azuredeploy.json -e parameters.json
 
 
-		ENTER CLI OUTPUT HERE
+## Next steps
+
+You need to [add endpoints](traffic-manager-get-started-create-endpoints-classic-cli.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).
