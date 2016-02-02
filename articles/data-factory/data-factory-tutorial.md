@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="01/31/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Measuring effectiveness of a marketing campaign  
