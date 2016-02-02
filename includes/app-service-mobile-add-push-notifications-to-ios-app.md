@@ -94,7 +94,7 @@
 3. In **AppDelegate.swift**, replace the body of `func application` as follows:
 
         func application(application: UIApplication,
-           didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+           didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
            application.registerUserNotificationSettings(
                UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound],
                    categories: nil))
@@ -119,7 +119,7 @@
         }
 
         func application(application: UIApplication,
-        didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        didReceiveRemoteNotification userInfo: [NSObject: AnyObject]) {
             
             NSLog("%@", userInfo)
             
@@ -127,7 +127,7 @@
             let apsString       = apsNotification["alert"] as! String
             
             
-            let alert = UIAlertController(title: "Alert", message:apsString, preferredStyle: .Alert)
+            let alert = UIAlertController(title: "Alert", message: apsString, preferredStyle: .Alert)
             let okAction = UIAlertAction(title: "OK", style: .Default) { _ in
                 NSLog("OK")
             }
@@ -143,7 +143,7 @@
                 currentViewController = currentViewController?.presentedViewController
             }
             
-            currentViewController?.presentViewController(alert, animated: true){}
+            currentViewController?.presentViewController(alert, animated: true) {}
             
         }
     
