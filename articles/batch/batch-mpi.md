@@ -13,26 +13,74 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="01/22/2016"
+	ms.date="02/05/2016"
 	ms.author="marsma" />
 
 # Execute Message Passing Interface (MPI) applications in Azure Batch with multi-instance tasks
 
-A multi-instance task in Azure Batch is a [task][net_task] that is configured to run on more than one compute node. Multi-instance tasks enable high performance computing scenarios like Message Passing Interface (MPI) programs that require a group of compute nodes that are allocated together to process a workload.
-
-In this article, you will learn how to execute an MPI application built with Microsoft's MPI implementation for Windows, [MS-MPI][msmpi_msdn], and the [Batch .NET][api_net] library.
+With multi-instance tasks, you can simultaneously run an Azure Batch task on multiple compute nodes to enable high performance computing scenarios like Message Passing Interface (MPI) applications. In this article, you will learn how to execute multi-instance tasks with the [Batch .NET][api_net] library and [Batch REST][api_rest] API.
 
 ## Multi-instance task overview
 
-Normally, each task runs on a single compute node, but with multi-instance tasks, you can run a task on multiple compute nodes simultaneously.
+In Batch, each task is normally executed on a single compute node--you submit a task to a job, and the Batch service schedules it for execution on a node. However, you can instruct Batch to execute a task as one primary and many subtasks, the primary task communicating with the subtasks to perform some computational workload. You do this by configuring a standard Batch task with **multi-instance settings**, then submitting that task to a job.
 
-You create a multi-instance task in Batch by specifying multi-instance settings for a normal [CloudTask][net_task]. These settings include the number of compute nodes to execute the task, a command line for the main task (the "application command"), a coordination command, and a list of common resource files for each task.
+![Multi-instance task overview][1]
 
-When you submit a task with multi-instance settings to a job, the Batch service performs the following:
+A "multi-instance task", then, is really just a standard Batch task that you've configured to run on multiple node instances by using its multi-instance settings. These multi-instance settings include the number of compute nodes that are to execute the task, a command line for the primary task (the "application command"), a coordination command to be executed by the primary and all subtasks, and a list of common resource files for each.
 
-1. Automatically creates one primary task and enough subtasks that together will execute on the total number of nodes you specified. Batch then schedules these tasks for execution on the nodes, which first download the common resource files you specified.
-2. After the common resource files have been downloaded, the coordination command is executed by the primary and subtasks. This coordination command typically launches a background service (such as [MS-MPI][msmpi_msdn]'s `smpd.exe`) and verifies that the nodes are ready to process inter-node messages.
-3. When the coordination command has been successfully completed by the primary and all subtasks, the task's command line (the "application command") is executed only by the primary task, which typically initiates a custom MPI-enabled application that processes your workload on the nodes. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi_msdn]'s `mpiexec.exe` using the application command.
+When you submit a task with multi-instance settings to a job, the following happens:
+
+1. The Batch service automatically creates one **primary task** and enough **subtasks** that together will execute on the total number of compute nodes you specified. Batch then schedules all tasks for execution on the nodes.
+2. These tasks, both the primary and each subtask, download the **common resource files** you specified in the multi-instance settings.
+3. After the common resource files have been downloaded, the **coordination command** is executed by the primary and subtasks. This coordination command typically launches a background service--such as [MS-MPI][msmpi_msdn]'s `smpd.exe`--and may also verify that the nodes are ready to process inter-node messages.
+4. When the coordination command has been successfully completed by the primary and all subtasks, the task's **command line** (the "application command") is executed *only* by the **primary task**. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi_msdn]'s `mpiexec.exe` using the application command.
+
+## Requirements for multi-instance tasks
+
+TODO: Pull stuff from [Multi-instance Tasks](https://msdn.microsoft.com/library/azure/mt637905.aspx) REST API page.
+
+## Multi-instance tasks with Batch .NET
+
+This code snippet shows the creation of a [CloudTask][net_task] with multi-instance settings using the [CloudTask.MultiInstanceSettings][net_multiinstance_prop] property in Batch .NET:
+
+```
+CloudTask multiInstanceTask = new CloudTask(id: "MyMultiInstanceTask",
+	commandline: "cmd /c mpiexec.exe -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe");
+multiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numNodes);
+multiInstanceTask.MultiInstanceSettings.CoordinationCommandLine = "cmd /c start smpd.exe -d";
+multiInstanceTask.MultiInstanceSettings.CommonResourceFiles = new List<ResourceFile>();
+multiInstanceTask.MultiInstanceSettings.CommonResourceFiles.Add(
+	new ResourceFile("https://mystorageaccount.blob.core.windows.net/mpi/MyMPIApplication.exe", "MyMPIApplication.exe"));
+await batchClient.JobOperations.AddTaskAsync(jobId, multiInstanceTask);
+```
+
+To obtain information on the subtasks, you use...
+
+```
+// code snippet showing obtaining the subtasks
+```
+
+## Multi-instance tasks with Batch REST API
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+```
+// code snippet here
+```
+
+To obtain information on the subtasks, you use...
+
+```
+// code snippet showing obtaining the subtasks
+```
+
+## Using MS-MPI with multi-instance tasks
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+```
+// code snippet here
+```
 
 ## Next steps
 
@@ -60,3 +108,5 @@ When you submit a task with multi-instance settings to a job, the Batch service 
 [net_resourcefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.aspx
 
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
+
+[1]: ./media/batch-mpi/batch_mpi_01.png "Multi-instance overview"
