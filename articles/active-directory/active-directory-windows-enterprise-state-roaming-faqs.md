@@ -100,12 +100,15 @@ Microsoft has a few different settings roaming solutions available, including Ro
 •	UE-V roaming for Windows settings and modern UWP app data should be disabled because these are already covered via Enterprise Sync. 
 ## What happens when my organization purchases Azure RMS after using roaming for a while? 
 If your organization is already using roaming in Windows 10 with the Azure RMS free subscription, purchasing a paid Azure RMS subscription will not have any impact on the functionality of the roaming feature and no configuration changes will be required by your IT administrator. 
+
 ## Known Issues
-Smartcard or Virtual Smartcard login to Windows causes settings sync to stop working. If you attempt to log into your device using a Smartcard or Virtual Smartcard, sync will stop working. Future updates to Windows 10 may resolve this issue.
+
+- Smartcard or Virtual Smartcard login to Windows causes settings sync to stop working. If you attempt to log into your device using a Smartcard or Virtual Smartcard, sync will stop working. Future updates to Windows 10 may resolve this issue.
+- There is a problem with syncing Favorites in Internet Explorer. IE Favorites sync is temporarily disabled to prevent further issues from arising. Future updates to Windows 10 will resolve this issue.
 
 
 ## Related topics
-- [Enterprise State Roaming Overview](active-directory-windows-enterprise-state-roaming-overview.md)
-- [Enable Enterprise State Roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
-- [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-sync-overview.md)
+- [Enterprise state roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
+- [Group policy and MDM settings for settings sync](active-directory-windows-enterprise-sync-overview.md)
 - [Windows 10 roaming settings reference](active-directory-windows-enterprise-sync-windows-settings-reference.md)

@@ -63,6 +63,6 @@ The data retention policy is not configurable. Once the data has been permanentl
 
 ## Related topics
 - [Enterprise State Roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
-- [Settings and data roaming FAQ](active-directory-windows-enterprise-sync-faqs.md)
-- [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-sync-overview.md)
-- [Windows 10 roaming settings reference](active-directory-windows-enterprise-sync-windows-settings-reference.md)
+- [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
+- [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
+- [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
