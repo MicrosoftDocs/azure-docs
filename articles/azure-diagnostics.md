@@ -56,6 +56,7 @@ Pick which service you are trying to collect diagnostics on.
 - [How Azure Diagnostics data is stored in Azure Storage](./cloud-services-dotnet-diagnostics-storage) - Know the names of the tables and blobs where the diagnostic data is written.
 - Learn to [use Performance Counters in Azure Diagnostics](./cloud-services-dotnet-diagnostics-performance-counters).
 - [Route diagnostics information to other Application Insights](./cloud-services/azure-diagnostics-configure-applicationinsights.md)
+- [Toubleshooting Azure Diagnostics](./azure-diagnostics-troubleshooting.md)
 
 ### Cloud Services using Azure Diagnostics
 - [How to monitor Cloud services using Azure Diagnostics](./cloud-services/cloud-services-how-to-monitor.md)
