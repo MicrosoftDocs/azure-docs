@@ -23,12 +23,12 @@
 Use the contents of this Deployment folder to prepare and deploy Microsoft.Sql resource provider in a local Azure Stack environment.
 
 ## Pre-Requisites
-You will need Windows server 2012 R2 datacenter VHD with .Net 3.5 as the default image in the Platform Image repository (Refer to this docuement [this link](https://fakeurl.com))
+You will need Windows server 2012 R2 datacenter VHD with .Net 3.5 as the default image in the Platform Image repository (Refer to this document [this link](https://fakeurl.com))
 
 
 ## Certificate Creation
 
-You will need a wildcard certificate to secure communications betweent the resource provider and Azure Resource Manager:
+You will need a wildcard certificate to secure communications between the resource provider and Azure Resource Manager:
 
 1.	On PortalVM in inetmgr , select Feature: Server Certificates, Action: Create Domain     Certificate
 
@@ -55,7 +55,7 @@ Caution: When deploying in multiple POC environment caution must be taken not to
 
 ## Prepare and perform deployment
 
-Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and copy the downloaded ZIP file to the ClientVM's desktop in your POC envirounment.
+Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and copy the downloaded ZIP file to the ClientVM's desktop in your POC environment.
 
 1.	Change the deployment (AzureStack.SqlRP.Deployment.*.nupkg) nuget package extension to .zip and extract the contents to D:\SQLRP\
 
@@ -65,7 +65,7 @@ Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and co
 
 4.	cd to D:\SQLRP\ AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deploymen
 
-5.	Change the paramters in InstallSqlRpComplete-Parameters.json.
+5.	Change the parameters in InstallSqlRpComplete-Parameters.json.
 
     - change cseBlobNamePackage to: AzureStack.SqlRP.Setup.5.11.57.0.nupkg
 
