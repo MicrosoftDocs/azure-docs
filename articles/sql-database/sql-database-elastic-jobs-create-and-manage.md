@@ -27,7 +27,7 @@
 
 ## Prerequisites
 
-* An Azure subscription. For a free trial, see [Free one-month trial](http://azure.microsoft.com/pricing/free-trial/).
+* An Azure subscription. For a free trial, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 * An elastic database pool. See [About Elastic database pools](sql-database-elastic-pool.md)
 * Installation of elastic database job service components. See [Installing the elastic database job service](sql-database-elastic-jobs-service-installation.md).
 

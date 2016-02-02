@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Cortana Analytics Solution Template Playbook for predictive maintenance in aerospace and other businesses | Microsoft Azure"
 	description="A Solution Template with Microsoft Cortana Analytics for predictive maintenance in aerospace, utilities, and transportation."
 	services="cortana-analytics"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/15/2016"
-	ms.author="garye" />
+	ms.author="fboylu" />
 
 # Cortana Analytics Solution Template Playbook for predictive maintenance in aerospace and other businesses
 
@@ -40,7 +40,7 @@ Cortana Analytics Suite and Azure Machine Learning can be found in
 [Cortana
 Analytics](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx)
 and [Azure Machine
-Learning](http://azure.microsoft.com/services/machine-learning/)
+Learning](https://azure.microsoft.com/services/machine-learning/)
 pages.
 
 >[AZURE.TIP]

@@ -1,4 +1,4 @@
- Limits depend on the [pricing tier](http://azure.microsoft.com/pricing/details/application-insights/) that you choose.
+ Limits depend on the [pricing tier](https://azure.microsoft.com/pricing/details/application-insights/) that you choose.
 
 **Resource** | **Default Limit** | **Maximum Limit**
 -------- | ------------- | -------------

@@ -33,7 +33,7 @@ The steps in this document walk through the process of creating a new HDInsight 
 
 ##Prerequisites
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure CLI__. For information on installing the CLI, see [Install the Azure CLI](../xplat-cli-install.md).
 

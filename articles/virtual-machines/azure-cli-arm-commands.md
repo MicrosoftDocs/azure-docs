@@ -19,7 +19,7 @@
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines/virtual-machines-command-line-tools.md).
 
 This article describes how to use the Azure Command-Line Interface (Azure CLI) in the Azure Resource Manager mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform many of the same tasks using the various libraries of the Azure SDKs, with Azure PowerShell, and using the Azure portal.
 
@@ -43,7 +43,7 @@ However, using resource group _templates_ that describe a resource group is a de
 
 The set-up requirements to use the Resource Manager mode with the Azure CLI are:
 
-- an Azure account ([get a free trial here](http://azure.microsoft.com/pricing/free-trial/))
+- an Azure account ([get a free trial here](https://azure.microsoft.com/pricing/free-trial/))
 - [installing the Azure CLI](../xplat-cli-install.md)
 
 

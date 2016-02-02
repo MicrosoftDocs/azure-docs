@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Deploy and manage backup for Azure VMs using PowerShell | Microsoft Azure"
 	description="Learn how to deploy and manage Azure Backup using PowerShell"
 	services="backup"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/06/2016"
+	ms.date="01/28/2016"
 	ms.author="aashishr";"trinadhk" />
 
 
@@ -21,6 +21,9 @@
 This article shows you how to use Azure PowerShell for backup and recovery of Azure IaaS VMs.
 
 ## Concepts
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
 Get [introduced to Azure IaaS VM backup](backup-azure-vms-introduction.md) in the Azure Backup documentation.
 
 > [AZURE.WARNING] Before you start, ensure that you cover the essentials about the [prerequisites](backup-azure-vms-prepare.md) needed to work with Azure Backup, and the [limitations](backup-azure-vms-prepare.md#limitations) of the current VM backup solution.

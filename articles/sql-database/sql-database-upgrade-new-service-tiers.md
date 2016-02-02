@@ -91,7 +91,7 @@ The new service tier's features and performance levels are summarized and compar
 |:--|:--|
 |[Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md)| Overview, metrics, and capabilities for each service tier (and how to monitor database utilization in the Classic Portal and by using DMVs). |
 |[Azure SQL Database Business Continuity](sql-database-business-continuity.md)|Details of the business continuity and disaster recovery features (point-in-time restore, geo-restore, geo-replication) available for the different service tiers.|
-|[SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/)|Detailed pricing information for the different service tiers and performance levels.|
+|[SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database/)|Detailed pricing information for the different service tiers and performance levels.|
 
 <br>
 

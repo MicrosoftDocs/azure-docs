@@ -27,7 +27,7 @@ Learn how to create HDInsight clusters using Azure Resource Manager(ARM) templat
 
 Before you begin the instructions in this article, you must have the following:
 
-- [Azure subscription](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) and/or [Azure CLI](xplat-cli-install.md). 
 
 ## ARM templates

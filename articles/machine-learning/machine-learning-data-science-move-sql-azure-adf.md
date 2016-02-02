@@ -29,7 +29,7 @@ Azure Data Factory is a fully managed cloud-based data integration service that 
 
 With ADF, existing data processing services can be composed into data pipelines that are highly available and managed in the cloud. These data pipelines can be scheduled to ingest, prepare, transform, analyze, and publish data, and ADF will manage and orchestrate all of the complex data and processing dependencies. Solutions can be quickly built and deployed in the cloud, connecting a growing number of on-premises and cloud data sources.
 
-Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations. For more information on ADF, see the documentation at [Azure Data Factory (ADF)](http://azure.microsoft.com/services/data-factory/).
+Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations. For more information on ADF, see the documentation at [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>The Scenario
 
@@ -299,4 +299,4 @@ The *startdate* and *enddate* parameter values need to be replaced with the actu
 
 Once the pipeline executes, you should be able to see the data show up in the container selected for the blob, one file per day.
 
-Note that we have not leveraged the functionality provided by ADF to pipe data incrementally. For more details on how to do this and other capabilities provided by ADF, see the [ADF documentation](http://azure.microsoft.com/services/data-factory/).
+Note that we have not leveraged the functionality provided by ADF to pipe data incrementally. For more details on how to do this and other capabilities provided by ADF, see the [ADF documentation](https://azure.microsoft.com/services/data-factory/).
