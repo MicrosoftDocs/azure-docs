@@ -105,7 +105,7 @@ Smartcard or Virtual Smartcard login to Windows causes settings sync to stop wor
 
 
 ## Related topics
-- [Enterprise State Roaming Overview](active-directory-windows-enterprise-sync-overview.md)
+- [Enterprise State Roaming Overview](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Enable Enterprise State Roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 - [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-sync-overview.md)
 - [Windows 10 roaming settings reference](active-directory-windows-enterprise-sync-windows-settings-reference.md)

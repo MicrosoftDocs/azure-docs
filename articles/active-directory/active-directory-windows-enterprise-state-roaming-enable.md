@@ -62,7 +62,7 @@ Data synced to Azure via Enterprise State Roaming will be retained indefinitely 
 The data retention policy is not configurable. Once the data has been permanently deleted, it will not be recoverable. However, it’s important to note that the settings data will only be deleted from Azure, not the end-user device. If any device later reconnects to the Enterprise State Roaming service, the settings will again be synced and stored in Azure.
 
 ## Related topics
-- [Enterprise State Roaming Overview](active-directory-windows-enterprise-sync-overview.md)
+- [Enterprise State Roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Settings and data roaming FAQ](active-directory-windows-enterprise-sync-faqs.md)
 - [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-sync-overview.md)
 - [Windows 10 roaming settings reference](active-directory-windows-enterprise-sync-windows-settings-reference.md)

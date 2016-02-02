@@ -163,7 +163,7 @@ Settings that don't roam or sync will not belong to a group.
 
 
 ## Related topics
-- [Enterprise State Roaming Overview](active-directory-windows-enterprise-sync-overview.md)
+- [Enterprise State Roaming Overview](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Enable Enterprise State Roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 - [Settings and data roaming FAQ](active-directory-windows-enterprise-sync-faqs.md)
 - [Group Policy and MDM settings for settings sync](active-directory-windows-enterprise-sync-overview.md)
