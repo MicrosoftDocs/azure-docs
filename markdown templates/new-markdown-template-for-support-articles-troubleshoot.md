@@ -17,7 +17,7 @@
    ms.date="mm/dd/yyyy"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
-# Title (This is displayed on the article itself with a maximum 120 characters. Should be keyword rich to match what users use to describe the problem.)
+# Title (Maximum 120 characters, be keyword rich to match what users use to describe the problem)
 
 Briefly describe the specific issue this article can help troubleshoot, and the common root causes
 
@@ -40,29 +40,20 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 Background information that needs to be understood before continuing
 
 ## General troubleshooting steps
-- Compared to the detailed troubleshooting steps, this section gives an instant answer for recovery
+- The heading can be changed to be more descriptive like "General troubleshooting steps: Troubleshoot common RDP errors"
 
-## Detailed troubleshoot steps
-- For example, the heading can be Troubleshoot common RDP errors
-- Add a list of the troubleshooting steps/scenarios as bookmark links serving as a mini TOC if there are more than two steps/scenarios
+###Steps for the classic deployment model
 
-Bookmark link: Troubleshooting step 1/scenario 1
+###Steps for the Azure Resource Manager deployment model
 
-Bookmark link: Troubleshooting step 2/scenario 2
+## Detailed troubleshooting steps
+- The heading can be changed to be more descriptive like "Detailed troubleshooting steps: Troubleshoot common RDP errors"
 
-Bookmark link: Troubleshooting step 3/scenario 3
+###Steps for the classic deployment model
 
-### Troubleshooting step 1/scenario 1
--	Describe the symptom, possible cause and resolution
--	Include screenshot if possible
-
-### Troubleshooting step 2/scenario 2
--	Describe the symptom, possible cause and resolution
--	Include screenshot if possible
-
-### Troubleshooting step 3/scenario 3
--	Describe the symptom, possible cause and resolution
--	Include screenshot if possible
+###Steps for the Azure Resource Manager deployment model
 
 ## Next steps
 - Put additional information and reference links here
+
+## More information
