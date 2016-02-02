@@ -41,9 +41,9 @@ Before you import a DNS zone file into Azure DNS, you will need to obtain a copy
 
 ## Import a DNS zone file into Azure DNS
 
-The format of the Azure CLI command to import a DNS zone is
+The format of the Azure CLI command to import a DNS zone is:
 
-	`azure network dns zone import [options] <resource group> <zone name> <zone file name>`
+	azure network dns zone import [options] <resource group> <zone name> <zone file name>
 
 Where:
 
@@ -148,7 +148,7 @@ The following notes provide additional technical details about the zone import p
 
 The format of the Azure CLI command to import a DNS zone is
 
-	`azure network dns zone export [options] <resource group> <zone name> <zone file name>`
+	azure network dns zone export [options] <resource group> <zone name> <zone file name>
 
 Where:
 
