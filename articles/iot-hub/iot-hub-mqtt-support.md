@@ -1,5 +1,5 @@
 <properties
- pageTitle="IoT Hub native MQTT support | Microsoft Azure"
+ pageTitle="IoT Hub MQTT support | Microsoft Azure"
  description="Description of MQTT support in IoT hub-level"
  services="iot-hub"
  documentationCenter=".net"
@@ -16,7 +16,7 @@
  ms.date="02/03/2016"
  ms.author="dobett"/>
 
-# IoT Hub native MQTT support
+# IoT Hub MQTT support
 
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol. 
 
@@ -26,7 +26,7 @@ A device can connect to an IoT hub using the MQTT protocol either by using the l
 
 ## Using the device client SDKS
 
-[Device client SDKs][lnk-mqtt-org] that support the MQTT protocol are available for Java, Node.js, C and C#. The device client SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. By default, they connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
+[Device client SDKs][lnk-mqtt-org] that support the MQTT protocol are available for Java, Node.js, C and C#. The device client SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device client SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
 
 When a device is connected to an IoT hub, the device client SDKs provide methods that enable the device to send messages to and receive messages from an IoT hub.
 
@@ -50,7 +50,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
  
 > [AZURE.NOTE] This is the same encoding as that used for query strings in the HTTP protocol.
 
-The client application can also use `devices/{did}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message, or alternatively `devices/{did}/messages/servicebound/feedback` for emitting the Will message on the **Operations Monitoring** channel.
+The device client application can also use `devices/{did}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message, or alternatively `devices/{did}/messages/servicebound/feedback` for emitting the Will message on the **Operations Monitoring** channel.
 
 ### Receiving Messages
 
