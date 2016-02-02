@@ -44,7 +44,7 @@ There are two ways to create a custom Resource Manager template:
 
 2. You can sign in to the Azure portal and use the Service Fabric portal pages to generate the template for you to customize. To do that, follow these steps:
 
-    a. Sign in to the [Azure portal](http://aka.ms/servicefabricportal).
+    a. Sign in to the [Azure portal](https://portal.azure.com/).
 
     b. Go through the process of creating the cluster as described in [Create an Azure Service Fabric cluster via portal](service-fabric-cluster-creation-via-portal.md), but do not click on **Create**. Instead, go to **Summary** and download the template, as shown in the following screen shot.
 
