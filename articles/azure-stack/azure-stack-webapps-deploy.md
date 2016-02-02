@@ -65,7 +65,7 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 1 Log in to the POC host:
 
 - check the following path and ensure
-\\\\sofs\Share\CRP\GuestArtifactRepository and ensure Microsoft.Powershell.DSC_2.13.2.0.zip exists in the path
+\\\\sofs\Share\CRP\GuestArtifactRepository and make sure Microsoft.Powershell.DSC_2.13.2.0.zip exists in the path
 - Make sure a vhd image in the path \\\\sofs\Share\CRP\PlatformImages\ meets the requirements for this deployment (.NET 3.5 is preinstalled)
 
 2 Login to the Client VM
@@ -73,10 +73,10 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 - Provision a new VM and install SQL server
 - Download and expand the [WebAppsDeployment.zip][WebAppsDeployment] to the client machine
 - Run “Deploy-SqlServerDSC.ps1” script to provision a new VM and install SQL server:
-**NOTE** the resource group used in the script to provision the sql vm . The same resource group should be used for during WebApps deployment in the next step.
+**NOTE** The resource group used in the script to provision the SQL vm should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQl
 
-Once the deployment completes, login to the new VM and obtain the IP address using ipconfig.  This address will be needed during Web App installation.
-The password for the SA account is the same password used for the VM.
+Once the deployment completes, login to the new SQL VM and obtain the IP address using ipconfig.  This address will be needed during WebApp installation.
+**NOTE** The password for the SA account is the same password used for the VM.
 
 
 ### Azure Web Apps Installation steps ###
