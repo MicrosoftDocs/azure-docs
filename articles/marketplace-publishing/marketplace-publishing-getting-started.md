@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/07/2016"
+   ms.date="01/25/2016"
    ms.author="hascipio" />
 
 # How to publish an offer to the Azure Marketplace
@@ -35,7 +35,7 @@ Some steps are shared between the different types of solutions. This article pro
 ||Virtual machine image |Developer service | Data service | Solution template |
 |----|----|----|----|----|
 | **Get pre-approval** | [Microsoft Azure Certified][link-certification] | [Microsoft Azure Certified][link-certification] | n/a | [Microsoft Azure Certified][link-certification] |
-| **Step 1: Register your develo9per account** | [Microsoft Developer account: creation and registration][link-accts] | [Microsoft Developer account: creation and registration][link-accts] | [Microsoft Developer account: creation and registration][link-accts] | [Microsoft Developer account: creation and registration][link-accts] |
+| **Step 1: Register your developer account** | [Microsoft Developer account: creation and registration][link-accts] | [Microsoft Developer account: creation and registration][link-accts] | [Microsoft Developer account: creation and registration][link-accts] | [Microsoft Developer account: creation and registration][link-accts] |
 |**Step 2: Create your offer**| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)| [General non-technical prerequisites](marketplace-publishing-pre-requisites.md)|
 || [VM technical prerequisites][link-single-vm-prereq] | Developer service technical prerequisites | [Data service technical prerequisites](marketplace-publishing-data-service-creation-prerequisites.md) | [Solution template technical prerequisites](marketplace-publishing-solution-template-creation-prerequisites.md) |
 ||[VM image publishing guide][link-single-vm] | Developer service publishing guide | [Data service publishing guide](marketplace-publishing-data-service-creation.md) | [Solution template publishing guide](marketplace-publishing-solution-template-creation.md) |
