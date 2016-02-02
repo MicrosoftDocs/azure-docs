@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/12/2016"
+	ms.date="02/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -57,7 +57,7 @@ To configure the integration of Lesson.ly into Azure AD, you need to add Lesson.
 
 **To add Lesson.ly from the gallery, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -72,7 +72,7 @@ To configure the integration of Lesson.ly into Azure AD, you need to add Lesson.
 ![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_01.png)<br>
 7. In the results pane, select **Lesson.ly**, and then click **Complete** to add the application.
 <br><br>
-
+![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_02.png)<br>
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Lesson.ly based on a test user called "Britta Simon".
 
@@ -83,32 +83,48 @@ To configure and test Azure AD single sign-on with Lesson.ly, you need to comple
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Lesson.ly test user](#creating-a-Lesson.ly-test-user)** - to have a counterpart of Britta Simon in Lesson.ly that is linked to the Azure AD representation of her.
+4. **[Creating a Lesson.ly test user](#creating-a-Lessonly-test-user)** - to have a counterpart of Britta Simon in Lesson.ly that is linked to the Azure AD representation of her.
 5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Lesson.ly application.
+The objective of this section is to outline how to enable users to authenticate to Lesson.ly with their account in Azure AD using federation based on the SAML protocol.
 
-
+Your Lesson.ly application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration.
+The following screenshot shows an example for this.
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_06.png) <br>
 
 **To configure Azure AD single sign-on with Lesson.ly, perform the following steps:**
 
-1. In the Azure classic portal, on the **Lesson.ly** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure AD portal, on the Lesson.ly application integration page, in the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog.
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_07.png) <br>
+
+2. To add the required attribute mappings, perform the following steps:
+<br><br> ![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_08.png) <br>
+a. For each data row in the table above, click **add user attribute**.<br>
+b. In the **Attribute Name** textbox, type the attribute name shown for that row.<br>
+c. From the **Attribute Value** list, select the attribute value shown for that row.<br>
+d. Click **Complete**
+
+3. Click **Apply Changes**.
+
+4. In your browser, click **Back** to open the Quick Start dialog again
+
+5. Click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][6] <br>
 
-2. On the **How would you like users to sign on to Lesson.ly** page, select **Azure AD Single Sign-On**, and then click **Next**.
+6. On the **How would you like users to sign on to Lesson.ly** page, select **Azure AD Single Sign-On**, and then click **Next**.
 <br><br> ![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_03.png) <br>
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+7. On the **Configure App Settings** dialog page, perform the following steps:.
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) <br>
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Lesson.ly application using the following pattern: **“https://\<company name\>.Lesson.ly/signin”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Lesson.ly application using the following pattern: **“https://companyname.Lesson.ly/signin”**. When referencing a generic name that **companyname** needs to be replaced by an actual name.
 
 
-4. On the **Configure single sign-on at Lesson.ly** page, perform the following steps:
+8. On the **Configure single sign-on at Lesson.ly** page, perform the following steps:
 <br><br>![Configure Single Sign-On](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_05.png) <br>
 
     a. Click **Download certificate**, and then save the file on your computer.
@@ -116,13 +132,13 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Lesson.ly support team via dev@lesson.ly. Attach the downloaded certificate file to your mail and share the metadata urls (Entity ID, SSO Sign in URL and Sign Out URL) with Lesson.ly team to set up SSO on their side.
+9. To get SSO configured for your application, contact your Lesson.ly support team via dev@lesson.ly. Attach the downloaded certificate file to your mail and share the metadata urls (Entity ID, SSO Sign in URL and Sign Out URL) with Lesson.ly team to set up SSO on their side.
 
 
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+10. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+11. On the **Single sign-on confirmation** page, click **Complete**.  
   <br><br>![Azure AD Single Sign-On][11]
 
 
@@ -134,7 +150,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
 <br><br>![Creating an Azure AD test user](./media/active-directory-saas-lessonly-tutorial/create_aaduser_09.png) <br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -183,7 +199,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 The objective of this section is to create a user called Britta Simon in Lesson.ly. Lesson.ly supports just-in-time provisioning, which is by default enabled.
 
-There is no action item for you in this section. A new user will be created during an attempt to access Lesson.ly if it doesn't exist yet. 
+There is no action item for you in this section. A new user will be created during an attempt to access Lesson.ly if it doesn't exist yet. [Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on).
 
 > [AZURE.NOTE] If you need to create an user manually, you need to contact the Lesson.ly support team.
 
