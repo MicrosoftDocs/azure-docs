@@ -109,11 +109,9 @@ On **Domain and network settings** blade review the preset values for the domain
 
 - **Virtual Network name** is the network name for the Azure virtual network. For this tutorial use **autohaVNET**.
 
-- **Virtual Network address range** is the virtual network address range in CIDR format. For this tutorial use **10.0.0.0/16**.
-- **Domain Controller subnet**. This is the name of a portion of the virtual network that hosts the domain controller. For this tutorial use **subnet-1**.
-- **Domain Controller subnet address prefix** is the subnet address prefix in CIDR format for subnet-1. For this tutorial use **10.0.0.0/24**. 
-- **SQL Server subnet** is the name of a portion of the virtual network that hosts the SQL Servers and the file share witness. For this tutorial use **subnet-2**
-- **SQL Server subnet address space** is the subnet address prefix in CIDR format for subnet-2. For this tutorial use **10.0.1.0/26**. 
+- **Domain Controller subnet name** is the name of a portion of the virtual network that hosts the domain controller. For this tutorial use **subnet-1**. This subnet will use address prefix **10.0.0.0/24**. 
+
+- **SQL Server subnet name** is the name of a portion of the virtual network that hosts the SQL Servers and the file share witness. For this tutorial use **subnet-2**. This subnet will use address prefix **10.0.1.0/26**. 
 
 To learn more about virtual networks in [Azure see Virtual Network Overview](virtual-networks-overview.md).  
 
@@ -144,7 +142,7 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 - On **VM size, storage settings** choose a SQL Server virtual machine size and review the other settings. 
 
-- **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. It is not populated automatically. Click **Configure required settings** to choose a virtual machine size.  Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see Sizes for virtual machines (https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/)
+- **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. It is not populated automatically. Click **Configure required settings** to choose a virtual machine size.  Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see [Sizes for virtual machines] (https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/)
 
 - **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
 
@@ -156,7 +154,7 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 - **SQL Server data disk size** in TB is the size of the SQL Server data disk in TB. Specify a number from 1 through 4. This is the size of the data disk that will be attached to each SQL Server. For this tutorial use **1**. 
 
-- **Storage optimization** sets specific storage configuration settings based on the workload type. The choices for this setting are:
+- **Storage optimization** sets specific storage configuration settings for the SQL Server virtual machines based on the workload type. All SQL Servers in this scenario use Premium Storage. In addition, the choices for this setting are:
 
 - **General workload** sets no specific configuration settings. 
 
@@ -179,6 +177,9 @@ If necessary, you may change these values. For this tutorial use the preset valu
 For this tutorial use **General workload**.
 
 ![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
+
+For more information about SQL Server configuration best practices, see
+[Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md)
 
 - Review the settings and click **OK**. 
 
