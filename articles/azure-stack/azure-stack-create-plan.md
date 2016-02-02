@@ -68,6 +68,6 @@ Sign in as a service administrator and create a plan that includes the compute, 
 
     ![](media/azure-stack-create-plan/image10.png)
 
-## Next Steps
+## Next steps
 
 [Create an offer](azure-stack-create-offer.md)

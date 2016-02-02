@@ -59,7 +59,7 @@ ARM templates deploy and provision all of the resources for your application in 
 
 In this example, you'll run the following script to deploy a virtual machine to Azure Stack POC using an ARM template.
 
-The VHD used in this example template is a default marketplace image (WindowsServer-2012-R2-Datacenter). If you want to target another VHD, you must first add an image to the Platform Image Repository as described in [Appendix C](#_Appendix_C:_Add).
+The VHD used in this example template is a default marketplace image (WindowsServer-2012-R2-Datacenter). If you want to target another VHD, you must first add an image to the Platform Image Repository as described in [Add an image to the Platform Image Repository](azure-stack-add-image-pir.md).
 
 1.  Go to <http://aka.ms/AzureStackGitHub>, search for the **101-simple-windows-vm** template, and save it to the following location: c:\\templates\\azuredeploy.json.
 
@@ -94,6 +94,6 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 
 4.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
 
-## Next Steps
+## Next steps
 
 [Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)

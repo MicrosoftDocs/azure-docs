@@ -55,6 +55,6 @@ Changes to the plan or offer are not immediately visible to the tenant. To see t
 
 Even after an additional subscription has been created and is InSync, you might have to logout/login to see the new subscription in the “Subscription picker” when creating new resources/resource groups.
 
-## Next Steps
+## Next steps
 
 [Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)

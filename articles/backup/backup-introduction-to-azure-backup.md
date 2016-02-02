@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/22/2016"
+	ms.date="01/29/2016"
 	ms.author="trinadhk;jimpark"/>
 
 # What is Azure Backup?
@@ -79,6 +79,8 @@ These five tables summarize how Backup functionality is handled in each componen
 | Incremental backup | ![Yes][green] | ![Yes][green] | ![Yes][green] | ![Yes][green] |
 | Disk deduplication | | ![Partially][yellow] | ![Partially][yellow]| | |
 
+**Key** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Yes][green]= Supported &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Partially][yellow]= Partially Supported &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Not Supported
+
 The Backup vault is the preferred storage target across all components. System Center DPM and Backup Server also provide the option to have a local disk copy, but only System Center DPM provides the option to write data to a tape storage device.
 
 #### Incremental backup
@@ -97,6 +99,8 @@ Deduplication is supported for System Center DPM and Backup Server when it is [d
 | ------- | --- | --- | --- | ---- |
 | Network security (to Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
 | Data security (in Azure) | ![Yes][green] |![Yes][green] | ![Yes][green] | ![Partially][yellow]|
+
+**Key** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Yes][green]= Supported &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![Partially][yellow]= Partially Supported &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Not Supported
 
 All backup traffic from your servers to the Backup vault is encrypted by using Advanced Encryption Standard 256. The data is sent over a secure HTTPS link. The backup data is also stored in the Backup vault in encrypted form. Only the customer holds the passphrase to unlock this data. Microsoft cannot decrypt the backup data at any point.
 
@@ -118,6 +122,8 @@ For backup of Azure VMs, you must explicitly set up encryption *within* the virt
 | Azure virtual machine (Windows) | | | | ![Yes][green] |
 | Azure virtual machine (Linux) | | | | ![Yes][green] |
 
+**Key** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Yes][green]= Supported &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Not Supported
+
 ### Network
 
 | Feature | Azure Backup agent | System Center DPM | Azure Backup Server | Azure Backup (VM extension) |
@@ -126,6 +132,8 @@ For backup of Azure VMs, you must explicitly set up encryption *within* the virt
 | Network compression (to Backup vault) | ![Yes][green] | ![Yes][green] | ![Yes][green] | |
 | Network protocol (to Backup Server) | | TCP | TCP | |
 | Network protocol (to Backup vault) | HTTPS | HTTPS | HTTPS | HTTPS |
+
+**Key** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Yes][green]= Supported &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&lt;blank&gt;* = Not Supported
 
 Because the VM extension reads the data directly from the Azure storage account over the storage network, it is not necessary to optimize this traffic. The traffic is over the local storage network in the Azure datacenter, so there is little need for compression because of bandwidth considerations.
 
