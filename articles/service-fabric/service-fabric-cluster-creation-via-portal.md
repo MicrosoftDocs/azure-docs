@@ -53,13 +53,13 @@ This page helps you set up an Azure Service Fabric cluster. Your subscription mu
 
 	b. Choose the number of VMs. You can scale up or down the number of VMs in a node type later on, but the first node type must have at least five VMs.
 
-	c. Choose a name for your node type (1 to 12  characters containing only letters and numbers).
+	c. Choose a name for your node type (1 to 12 characters containing only letters and numbers).
 
 	d. Choose the **User Name** and **Password** for the VM remote desktop.
 
 	e. If you need multiple node types in your cluster, consider the following issues. (If you are planning to deploy a cluster with a single node type, skip to step 9.)
 
-	* Suppose you want to deploy an application that contains a front-end service and a back-end service. You want to put  the front-end service on smaller VMs (VM sizes like A2, D2, and so on) that have ports open to the Internet. But you want to put the back-end service, which is computation intensive, on larger VMs (with VM sizes like D4, D6, D12, and so on) that are not Internet facing.
+	* Suppose you want to deploy an application that contains a front-end service and a back-end service. You want to put the front-end service on smaller VMs (VM sizes like A2, D2, and so on) that have ports open to the Internet. But you want to put the back-end service, which is computation intensive, on larger VMs (with VM sizes like D4, D6, D12, and so on) that are not Internet facing.
 
 	* Although you can put both the services on one node type, we recommended that you place them in a cluster with two node types. Each node type can have distinct properties like Internet connectivity, VM size, and the number of VMs that can be scaled independently.
 
@@ -112,7 +112,7 @@ You can see the creation progress in the notifications. (Click the "Bell" icon n
 
 Once your deployment is complete, you can inspect your cluster in the portal:
 
-1. Go to **Browse** and click **Service  Fabric Clusters**.
+1. Go to **Browse** and click **Service Fabric Clusters**.
 
 2. Locate your cluster and click it.
   ![Screen shot of finding your cluster in the portal.][BrowseCluster]
