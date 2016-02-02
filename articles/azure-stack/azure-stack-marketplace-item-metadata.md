@@ -18,7 +18,7 @@
 
 # Marketplace item metadata for Azure Stack
 
-Additional details for the text and icons included in a marketplace item are listed below.
+Additional details for marketplace item text and icons are listed below.
 
 
 ## Identity information
