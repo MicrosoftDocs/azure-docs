@@ -18,7 +18,7 @@
 
 # Supporting additional protocols for IoT Hub
 
-Azure IoT Hub natively supports communication over the AMQP, MQTT, and HTTP/1 protocols. In some cases, devices or field gateways might not be able to use one of these standard protocols and will require protocol adaptation. In such cases, you can use a custom gateway. A custom gateway can enable protocol adaptation for IoT Hub endpoints by bridging the traffic to and from IoT Hub. An Azure Internet of Things (IoT) protocol gateway enables protocol adaptation for IoT Hub. It also implements a customizable MQTT protocol adapter to enable communication between an IoT device and IoT Hub over the MQTT protocol.
+Azure IoT Hub natively supports communication over the AMQP, MQTT, and HTTP/1 protocols. In some cases, devices or field gateways might not be able to use one of these standard protocols and will require protocol adaptation. In such cases, you can use a custom gateway. A custom gateway can enable protocol adaptation for IoT Hub endpoints by bridging the traffic to and from IoT Hub. Azure Internet of Things (IoT) protocol gateway can be used as custom gateway to enable protocol adaptation for IoT Hub.
 
 ## Azure IoT protocol gateway
 
@@ -26,9 +26,10 @@ The Azure IoT protocol gateway is a framework for protocol adaptation that is de
 
 You can deploy the protocol gateway in Azure in a highly scalable way by using Azure Cloud Services worker roles. In addition, the protocol gateway can be deployed in on-premises environments, such as field gateways.
 
-The Azure IoT protocol gateway includes an MQTT adapter to facilitate communication with devices over the MQTT v3.1.1 protocol. The protocol gateway and MQTT implementation are provided as an open-source software project for flexibility. This allows you to customize the implementation as needed.
-
+The Azure IoT protocol gateway includes an MQTT protocol adapter to enable customizatoins of the MQTT protocol behavior if required. Since IoT Hub provides a native support for the MQTT v3.1.1 protocol, the MQTT protocol adapter should be considered only if there is a need for protocol customizatoins or specific requirements for additonal functionality.
 The MQTT adapter also demonstrates the programming model for building protocol adapters for other protocols. In addition, the IoT protocol gateway programming model allows you to plug in custom components for specialized processing--such as custom authentication, message transformations, compression/decompression, or encryption/decryption of traffic between the devices and IoT Hub.
+
+The protocol gateway and MQTT implementation are provided as an open-source software project for flexibility. This allows you to customize the implementation as needed.
 
 ## Next steps
 
