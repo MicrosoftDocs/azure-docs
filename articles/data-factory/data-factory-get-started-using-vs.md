@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015" 
+	ms.topic="article" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create and monitor a data factory using Visual Studio
@@ -37,7 +37,7 @@ In This tutorial you will do the following using Visual Studio 2013:
 ### Pre-requisites
 You must have the following installed on your computer: 
 - Visual Studio 2013
-- Download Azure SDK for Visual Studio 2013. Navigate to [Azure Download Page](http://azure.microsoft.com/downloads/) and click **VS 2013 install** in the **.NET** section.
+- Download Azure SDK for Visual Studio 2013. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013 install** in the **.NET** section.
 
 ### Walkthrough
 

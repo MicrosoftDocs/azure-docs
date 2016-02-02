@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jesseb"/>
 
 
 # How data serialization affects an application upgrade
 
-In a [rolling application upgrade](service-fabric-application-upgrade.md), the upgrade is applied to a subset of nodes, one upgrade domain at a time. During this process, some upgrade domains will be on the newer version of your application, and some upgrade domains will be on the older version of your application. At this time, the new version of your application must be able to read the old version of your data, and the old version of your application must be able to read the new version of your data. If the data format is not forward and backward compatible, the upgrade may fail or data may be lost. This article discusses what constitutes your data format and offers best practices for ensuring that your data is forward and backward compatible.
+In a [rolling application upgrade](service-fabric-application-upgrade.md), the upgrade is applied to a subset of nodes, one upgrade domain at a time. During this process, some upgrade domains will be on the newer version of your application, and some upgrade domains will be on the older version of your application. During the rollout, the new version of your application must be able to read the old version of your data, and the old version of your application must be able to read the new version of your data. If the data format is not forward and backward compatible, the upgrade may fail, or worse, data may be lost or corrupted. This article discusses what constitutes your data format and offers best practices for ensuring that your data is forward and backward compatible.
 
 
 ## What makes up your data format?

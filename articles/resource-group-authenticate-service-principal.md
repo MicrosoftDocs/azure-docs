@@ -18,7 +18,7 @@
 
 # Authenticating a service principal with Azure Resource Manager
 
-This topic shows you how to permit a service principal (such as an automated process, application, or service) to access other resources in your subscription. With Azure Resource Manager, you can use role-based access control to grant permitted actions to a service principal, and authenticate that service principal. This topic shows you how to use PowerShell and Azure CLI to assign a role to service prinicpal and authenticate the serivce principal.
+This topic shows you how to permit a service principal (such as an automated process, application, or service) to access other resources in your subscription. With Azure Resource Manager, you can use role-based access control to grant permitted actions to a service principal, and authenticate that service principal. This topic shows you how to use PowerShell and Azure CLI to assign a role to service principal and authenticate the service principal.
 
 It shows how to authenticate with either a user name and password or a certificate.
 

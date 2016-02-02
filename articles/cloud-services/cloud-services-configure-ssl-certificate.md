@@ -65,12 +65,20 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA" />
+                    		 storeName="CA"
+                             permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
         </WebRole>
 
     The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located.
+    
+    Permissions (`permisionLevel` attribute) can be set to one of the following:
+
+    | Permission Value  | Description |
+    | ----------------  | ----------- |
+    | limitedOrElevated | **(Default)** All role processes can access the private key. |
+    | elevated          | Only elevated processes can access the private key.|
 
 2.  In your service definition file, add an **InputEndpoint** element
     within the **Endpoints** section to enable HTTPS:

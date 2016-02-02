@@ -22,7 +22,7 @@
 
 ## Overview
 
-[Azure Premium Storage](../storage-premium-storage-preview-portal.md) is the next generation of storage that provides low latency and high throughput IO. It works best for key IO intensive workloads, such as SQL Server on IaaS [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/).
+[Azure Premium Storage](../storage-premium-storage-preview-portal.md) is the next generation of storage that provides low latency and high throughput IO. It works best for key IO intensive workloads, such as SQL Server on IaaS [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
@@ -1130,7 +1130,7 @@ To add in IP Address, see the [Appendix](#appendix-migrating-a-multisite-alwayso
 
 ## Additional resources
 - [Azure Premium Storage](../storage-premium-storage-preview-portal.md)
-- [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/)
+- [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md)
 
 <!-- IMAGES -->
