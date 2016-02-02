@@ -24,7 +24,7 @@ This page helps you set up an Azure Service Fabric cluster by using an Azure Res
 ## Prerequisites
 
 - To set up a secure cluster, you must first upload an X.509 certificate to your key vault. You will need the source vault URL, the certificate URL, and the certificate thumbprint.
--  Refer to [Service Fabric cluster security](service-fabric-cluster-security.md) for more details on how to set up a secure cluster.
+- Refer to [Service Fabric cluster security](service-fabric-cluster-security.md) for more details on how to set up a secure cluster.
 
 ## Get a sample Resource Manager template
 
