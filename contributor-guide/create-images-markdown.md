@@ -78,7 +78,8 @@ Use the following guidelines when creating and including art files:
 - Use caution with what information is revealed in screenshots.  Do not reveal internal company information or personal information.
 
 - In conceptual art or diagrams, use the official icons in the Cloud and Enterprise symbol and icon set. A public set is available at http://aka.ms/CnESymbols.
-- Replace personal information in screeshots with placeholder text enclosed in angle brackets. This includes user names, subscription ids, and other related info. Personal names can be replaced with an [LCA approved fictious name](https://microsoft.sharepoint.com/sites/LCAWeb/Home/Copyrights-Trademarks-and-Patents/Trademarks/Fictitious-Names). No crayon scribbling.
+
+- Replace personal or private information in screenshots with placeholder text enclosed in angle brackets. This includes user names, subscription IDs, and other related info. Personal names can be replaced with an [approved fictious name](https://aka.ms/ficticiousnames)(Employee-only link). Do not use the crayon or marker tip in Paint to obscure or blur personal or private information.
 
 ###Contributors' Guide Links
 
