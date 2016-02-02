@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/15/2016"
-	ms.author="garye" />
+	ms.author="fboylu" />
 
 # Cortana Analytics Solution Template Playbook for predictive maintenance in aerospace and other businesses
 
