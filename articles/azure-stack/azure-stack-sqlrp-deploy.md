@@ -31,7 +31,34 @@ You will need a wildcard certificate to secure communications between the resour
 1.	On PortalVM in inetmgr, select Feature: Server Certificates, Action: Create Domain Certificate
 
 2.	Fill out the Prompt wizard
-         Common name: \*.azurestack.local
+
+	- Common name: *.azurestack.local
+	
+	- You can fill whatever details you would like in the other fields, click next
+	
+	- Click select and select AzureStackCertificationAuthority
+	
+	- Friendly name: *.azureStack.Local    
+	
+3.	Export wildcard certificate
+
+	- Open MMC
+	
+	- Ctrl+M, add certifcates pane for the local computer acoount
+	 
+	- Go to Certificates, Personal and find *.azureStack.local
+	
+	- Right-click, all tasks, export
+	
+	- Slect Yes, export private key
+	
+	- Check Export all extended properties.
+	
+	- Check Password and Specify suitable password. 
+	
+	- Export to file certificate.pfx in a folder of your choice.
+	
+	- Remote desktop from portalVM to ClientVM and copy certificate.pfx to its desktop
 
 3.	Export the wildcard certificate.
 
@@ -75,7 +102,7 @@ Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and co
 
     - When asked for AAD tenantID parameter – input your AAD tenant ID
 
-    - When asked for package name, provide: AzureStack.SqlRP.Deployment.5.11.57.0.nupkg
+    - When asked for package name, provide: AzureStack.SqlRP.Setup.5.11.57.0.nupkg
 
 7.	Wait for the deployment to succeed. This might take 90 minutes.
 
