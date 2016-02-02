@@ -23,7 +23,7 @@ Opening paragraph
 - Set the expectation: What users can achieve when they finish the article.
 - Don’t have more than one Note element at the top.
 - The opening paragraph is a good place to place keywords. But avoid stuffing keywords but let the content flow in a natural way.
-- Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, you describe that the scenario of Linux/OSS aren't covered.
+- Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, you describe that the  Linux/OSS scenarios aren't covered.
 
 **How to use this article (optional)**
 - Used when the article is long to describe what all is there and how its organized. Intent to help customer as a guiding para to decide where to jump to or start within the doc. 
