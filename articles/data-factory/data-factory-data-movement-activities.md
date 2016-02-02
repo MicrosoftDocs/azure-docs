@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Data movement activities
@@ -95,7 +95,7 @@ If you are copying from a **cloud source a cloud destination** (for example: Azu
 | Southeast Asia | South East Asia |
 | East Asia | South East Asia |
 | Japan East | Japan East |
-| Japan West | Japan East }|
+| Japan West | Japan East |
 | Brazil South | Brazil South |
 
 > [AZURE.NOTE] If the region of the destination data store is not in the list above, the Copy Activity will fail instead of going through an alternative region.
