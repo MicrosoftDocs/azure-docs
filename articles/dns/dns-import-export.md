@@ -146,7 +146,7 @@ The following notes provide additional technical details about the zone import p
 
 ## Export a DNS zone file from Azure DNS
 
-The format of the Azure CLI command to import a DNS zone is
+The format of the Azure CLI command to import a DNS zone is:
 
 	azure network dns zone export [options] <resource group> <zone name> <zone file name>
 
