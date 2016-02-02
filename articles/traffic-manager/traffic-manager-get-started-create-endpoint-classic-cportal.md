@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-scenario-include.md](../../includes/traffic-manager-get-started-create-endpoint-scenario-include.md)]
 
-# To add endpoints using the azure classic portal
+## To add endpoints using the azure classic portal
 
 1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify, and then click the arrow to the right of the profile name. This will open the settings page for the profile.
 2. At the top of the page, click **Endpoints** to view the endpoints that are already part of your configuration.
