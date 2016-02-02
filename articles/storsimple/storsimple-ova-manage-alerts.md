@@ -29,7 +29,7 @@ This tutorial describes common alert conditions, alert severity levels, and how 
 
 Your StorSimple Virtual Array (also known as the StorSimple on-premises virtual device) generates alerts in response to a variety of conditions. The following are the most common types of alert conditions:
 
-- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the virtual devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md/#troubleshoot-with-the-test-hcsmconnection-cmdlet).
+- **Connectivity issues** – These alerts occur when there is difficulty in transferring data. Communication issues can occur during transfer of data to and from the Azure storage account or due to lack of connectivity between the virtual devices and the StorSimple Manager service. Communication issues are some of the hardest to fix because there are so many points of failure. You should always first verify that network connectivity and Internet access are available before continuing on to more advanced troubleshooting. For help with troubleshooting, go to [Troubleshoot with the Test-Connection cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).
 
 - **Performance issues** – These alerts are caused when your system isn’t performing optimally, such as when it is under a heavy load.
 
@@ -180,8 +180,8 @@ If cloud connectivity fails on your StorSimple production device, then depending
 |Alert text|Event|More information / recommended actions|
 |:---|:---|:---|
 |New updates are available for your device.|Updates to the StorSimple Virtual Array are available.|You can install new updates from the **Maintenance** page.|
-|Could not scan for new updates on <*device name*>.|Update failure. |An error occurred while installing new updates. You can manually install the updates. If the problem persists, contact [Microsoft Support](storsimple-contact-microsoft-support.md).
-|
+|Could not scan for new updates on <*device name*>.|Update failure. |An error occurred while installing new updates. You can manually install the updates. If the problem persists, contact [Microsoft Support](storsimple-contact-microsoft-support.md).|
+
 ## Next steps
 
 - Learn more about [using the web UI to manage your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)
