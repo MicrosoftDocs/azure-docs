@@ -29,7 +29,7 @@ You can scale Azure Service Fabric clusters up or down to match demand by adding
 
 If your cluster has multiple node types, you will have to add or remove VMs from specific node types. Here's how:
 
-1. Sign in to the [Azure portal](http://aka.ms/servicefabricportal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Navigate to **Service Fabric Clusters**.
  ![Service Fabric Clusters page in the Azure portal.][BrowseServiceFabricClusterResource]
