@@ -27,7 +27,6 @@
 
 [AZURE.INCLUDE [traffic-manager-get-started-create-profile-scenario-include.md](../../includes/traffic-manager-get-started-create-profile-scenario-include.md)]
 
-ENTER YOUR CONTENT HERE
 
 ## Deploy the template by using click to deploy
 
@@ -41,7 +40,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 2. 
 3. Run the **New-AzureRmResourceGroup** cmdlet to create a resource group using the template.
 
-		New-AzureResourceGroup -Name TestRG -Location westus `
+		New-AzureRmResourceGroup -Name TestRG -Location westus `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-traffic-manager-webapp/azuredeploy.json' `
 		    -TemplateParameterFile 'https://github.com/Azure/azure-quickstart-templates/blob/master/201-traffic-manager-webapp/azuredeploy.parameters.json'	
 

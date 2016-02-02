@@ -60,3 +60,6 @@ Round-robin routing method:
 - **MonitorRelativePath**: Specifies the path relative to the endpoint domain name used to probe for endpoint health.<BR>
 - **TTL**: Specifies the DNS Time-to-Live (TTL), in seconds.  This informs the Local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.<BR>
 
+## Next steps
+
+You need to [add endpoints](traffic-manager-get-started-create-endpoints-classic-cli.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).
