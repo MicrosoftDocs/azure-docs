@@ -18,21 +18,18 @@
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
 # Title (Maximum 120 characters, be keyword rich to match what users use to describe the problem)
+Opening paragraph
+- Briefly describe the specific issue this article can help troubleshoot, and the common root causes.
+- Set the expectation: What users can achieve when they finish the article.
+- Don’t have more than one Note element at the top.
+- The opening paragraph is a good place to place keywords. But avoid stuffing keywords but let the content flow in a natural way.
+- Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, Linux/OSS that aren't covered
 
-Briefly describe the specific issue this article can help troubleshoot, and the common root causes
-
-Set the expectation: What users can achieve when they finish the article
-
-Don’t have more than one Note element at the top
-
-The first paragraph is a good place to place keywords. But avoid stuffing keywords but let the content flow in a natural way.
-
-Exceptions (optional) - relevant scenarios that are not covered in this article. For example, Linux/OSS that aren't covered
-
-How to use this article (optional) - Used when the article is long to describe what all is there and how its organized. Intent to help customer as a guiding para to decide where to jump to or start within the doc. 
+How to use this article (optional)
+- Used when the article is long to describe what all is there and how its organized. Intent to help customer as a guiding para to decide where to jump to or start within the doc. 
 
 ```
-If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](http://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](http://azure.microsoft.com/support/options/) site.
+If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
 ```
 
 ** Background (Optional) - Description**
