@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/17/2015"
+	ms.date="2/2/2016"
 	ms.author="cjiang"/>
 
 
@@ -23,15 +23,9 @@
 
 When you create a VM, restart stopped (deallocated) VMs, or resize a VM, Microsoft Azure allocates compute resources to your subscription. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
-<<<<<<< HEAD
 The "General troubleshooting steps" section lists steps to address common issues. The "Detailed troubleshooting steps" section provides resolution steps by specific error message. Before you get started, here are some background information to understand how allocation works and why allocation failure happens.
 
-If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to [@AzureSupport on Twitter](https://twitter.com/AzureSupport/). Also, you can file an Azure support request by selecting **Get Support** on the [Azure Support](http://azure.microsoft.com/support/options/) site.
-=======
 If your Azure issue is not addressed in this article, visit the [Azure forums on MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
-
-In this article, the "Troubleshoot common allocation failures" sections list steps to address common issues. The "Troubleshoot specific allocation failure scenarios" sections provide resolution steps for specific error messages. Before you get started, here is some background information to understand how allocation works and why allocation failures happen.
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 ## Background information
 ### How allocation works
@@ -90,11 +84,7 @@ Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
 
 Upgrade_VMSizeNotSupported or GeneralError
 
-<<<<<<< HEAD
-**Cause**
-=======
 **Cause of cluster pinning**
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 A request to resize a VM or add a VM or a role instance to an existing cloud service has to be attempted at the original cluster that hosts the existing cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
 
@@ -110,37 +100,22 @@ If the error is GeneralError*, it's likely that the type of resource (such as a 
 
 GeneralError*
 
-<<<<<<< HEAD
-**Cause**
-=======
 **Cause of cluster pinning**
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in a cloud service. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated cloud service is equivalent to adding VMs to an existing cloud service. The allocation request has to be attempted at the original cluster that hosts the existing cloud service. Creating a different cloud service allows the Azure platform to find another cluster that has free resource or supports the VM size that you requested.
 
 **Workaround**
 
-<<<<<<< HEAD
-If it's acceptable to use a different VIP, delete the stopped (de-allocated) VMs (but keep the associated disks) and add the VMs back through a different Cloud Service. Use Regional Virtual Network to connect your Cloud Services:
-
-1. If your existing Cloud Service uses Regional Virtual Network, simply add the new Cloud Service to the same Virtual Network.
-2. If your existing Cloud Service does not use Regional Virtual Network, create a new Virtual Network for the new Cloud Service, and then [connect your existing VNet to the new VNet](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-=======
 If it's acceptable to use a different VIP, delete the stopped (deallocated) VMs (but keep the associated disks) and add the VMs back through a different cloud service. Use a regional virtual network to connect your cloud services:
 - If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
 - If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 #### Allocation scenario: Restart fully stopped (deallocated) VMs
 **Error**
 
 GeneralError*
 
-<<<<<<< HEAD
-**Cause**
-=======
 **Cause of cluster pinning**
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 Full deallocation means that you stopped (deallocated) all VMs from a cloud service. The allocation requests to restart these VMs have to be attempted at the original cluster that hosts the cloud service. Creating a new cloud service allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
 
@@ -151,13 +126,9 @@ If it's acceptable to use a different VIP, delete the original stopped (dealloca
 #### Allocation scenario: Staging/production deployments (platform as a service only)
 **Error**
 
-New_General or New_VMSizeNotSupported
+New_General* or New_VMSizeNotSupported*
 
-<<<<<<< HEAD
-**Cause**
-=======
 **Cause of cluster pinning**
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 The staging deployment and the production deployment of a cloud service are hosted in the same cluster. When you add the second deployment, the corresponding allocation request will be attempted in the same cluster that hosts the first deployment.
 
@@ -168,13 +139,9 @@ Delete the first deployment and the original cloud service and redeploy the clou
 #### Allocation scenario: Affinity group (VM/service proximity)
 **Error**
 
-New_General or New_VMSizeNotSupported
+New_General* or New_VMSizeNotSupported*
 
-<<<<<<< HEAD
-**Cause**
-=======
 **Cause of cluster pinning**
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 Any compute resource assigned to an affinity group is tied to one cluster. New compute resource requests in that affinity group are attempted in the same cluster where the existing resources are hosted. This is true whether the new resources are created through a new cloud service or through an existing cloud service.
 
@@ -185,23 +152,15 @@ If an affinity group is not necessary, do not use an affinity group, or group yo
 #### Allocation scenario: Affinity-group-based virtual network
 **Error**
 
-New_General or New_VMSizeNotSupported
+New_General* or New_VMSizeNotSupported*
 
-<<<<<<< HEAD
-**Cause**
-=======
-**Cause of cluster pinning**
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
+<**Cause of cluster pinning**
 
 Before regional virtual networks were introduced, you were required to associate a virtual network with an affinity group. As a result, compute resources placed into an affinity group are bound by the same constraints as described in the "Allocation scenario: Affinity group (VM/service proximity)" section above. The compute resources are tied to one cluster.
 
 **Workaround**
 
-<<<<<<< HEAD
-If you do not need the Affinity Group, create a new Virtual Network for the new resources you're adding, and then [connect your existing VNet to the new VNet](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [Regional Virtual Network](http://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
-=======
 If you do not need an affinity group, create a new regional virtual network for the new resources you're adding, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 Alternatively, you can [migrate your affinity-group-based virtual network to a regional virtual network](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/), and then add the desired resources again.
 
@@ -219,13 +178,9 @@ In general, as long as the error does not indicate "the requested VM size is not
 #### Allocation scenario: Resize a VM or add VMs to an existing availability set
 **Error**
 
-Upgrade_VMSizeNotSupported or GeneralError
+Upgrade_VMSizeNotSupported* or GeneralError*
 
-<<<<<<< HEAD
-**Cause**
-=======
 **Cause of cluster pinning**
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 A request to resize a VM or add a VM to an existing availability set has to be attempted at the original cluster that hosts the existing availability set. Creating a new availability set allows the Azure platform to find another cluster that has free resources or supports the VM size that you requested.
 
@@ -240,11 +195,7 @@ If the error is GeneralError*, it's likely that the type of resource (such as a 
 
 GeneralError*
 
-<<<<<<< HEAD
-**Cause**
-=======
 **Cause of cluster pinning**
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 Partial deallocation means that you stopped (deallocated) one or more, but not all, VMs in an availability set. When you stop (deallocate) a VM, the associated resources are released. Restarting that stopped (deallocated) VM is therefore a new allocation request. Restarting VMs in a partially deallocated availability set is equivalent to adding VMs to an existing availability set. The allocation request has to be attempted at the original cluster that hosts the existing availability set.
 
@@ -257,33 +208,18 @@ Stop all VMs in the availability set before restarting the first one. This will 
 
 GeneralError*
 
-<<<<<<< HEAD
-**Cause**
-
-**Full** de-allocation means you stopped (de-allocated) **all** VMs in an Availability Set. The allocation request for restarting these VMs will target all clusters that support the desired size.
-=======
 **Cause of cluster pinning**
 
 Full deallocation means that you stopped (deallocated) all VMs in an availability set. The allocation request to restart these VMs will target all clusters that support the desired size.
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 **Workaround**
 
 Select a new VM size to allocate. If this does not work, please try again later.
 
-<<<<<<< HEAD
 ## Error string lookup
-The error listed in each allocation scenario above is a short form. This section lists the detailed error strings.
-**New_VMSizeNotSupported***
-
-The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try reducing constrains. For example, you can remove some virtual network bindings. You may also consider deploying VMs to a hosted service that doesn’t have any other deployment in it. Meanwhile, make sure the hosted service is bound to a different affinity group or to no affinity group. Alternatively, try deploying VMs to a different region.
-=======
-## Appendix
-### Error string lookup
 **New_VMSizeNotSupported***
 
 "The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints. If possible, try relaxing constraints such as virtual network bindings, deploying to a hosted service with no other deployment in it and to a different affinity group or with no affinity group, or try deploying to a different region."
->>>>>>> b60c2ee47f05f8402984f7d59817eb0792a8a877
 
 **New_General***
 
