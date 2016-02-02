@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="02/01/2015"
+	ms.date="02/02/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -111,6 +111,10 @@ You can add or remove databases to a pool at any time.
 ### Dynamic recommendations
 
 After adding databases to the pool, recommendations will be dynamically generated based on the historical usage of the databases you have selected. These recommendations will be shown in the eDTU and GB usage chart as well as in a recommendation banner at the top of the **Configure pool** blade. These recommendations are intended to assist you in creating a pool optimized for your specific databases.
+
+
+ ![dynamic recommendations](./media/sql-database-elastic-pool-portal/dynamic-recommendation.png)
+
 
 ## Step 4: setting performance characteristics of the pool
 
