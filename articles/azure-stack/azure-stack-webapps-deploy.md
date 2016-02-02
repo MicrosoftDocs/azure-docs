@@ -225,20 +225,20 @@ Browse to the portal https://portal.azurestack.local and register the WebApps  m
 
 
 <!--Image references-->
-[1]: ./media/azurestack-app-service-installation/appsvcinstall-1.png
-[2]: ./media/azurestack-app-service-installation/appsvcinstall-2.png
-[3]: ./media/azurestack-app-service-installation/appsvcinstall-3.png
-[4]: ./media/azurestack-app-service-installation/appsvcinstall-4.png
-[5]: ./media/azurestack-app-service-installation/appsvcinstall-5.png
-[6]: ./media/azurestack-app-service-installation/appsvcinstall-6.png
-[7]: ./media/azurestack-app-service-installation/appsvcinstall-7.png
-[8]: ./media/azurestack-app-service-installation/appsvcinstall-8.png
-[9]: ./media/azurestack-app-service-installation/appsvcinstall-9.png
-[10]: ./media/azurestack-app-service-installation/appsvcinstall-10.png
-[11]: ./media/azurestack-app-service-installation/appsvcinstall-11.png
-[12]: ./media/azurestack-app-service-installation/appsvcinstall-12.png
-[13]: ./media/azurestack-app-service-installation/appsvcinstall-13.png
-[14]: ./media/azurestack-app-service-installation/appsvcinstall-14.png
+[1]: ./media/azure-stack-webapps-deploy/appsvcinstall-1.png
+[2]: ./media/azure-stack-webapps-deploy/appsvcinstall-2.png
+[3]: ./media/azure-stack-webapps-deploy/appsvcinstall-3.png
+[4]: ./media/azure-stack-webapps-deploy/appsvcinstall-4.png
+[5]: ./media/azure-stack-webapps-deploy/appsvcinstall-5.png
+[6]: ./media/azure-stack-webapps-deploy/appsvcinstall-6.png
+[7]: ./media/azure-stack-webapps-deploy/appsvcinstall-7.png
+[8]: ./media/azure-stack-webapps-deploy/appsvcinstall-8.png
+[9]: ./media/azure-stack-webapps-deploy/appsvcinstall-9.png
+[10]: ./media/azure-stack-webapps-deploy/appsvcinstall-10.png
+[11]: ./media/azure-stack-webapps-deploy/appsvcinstall-11.png
+[12]: ./media/azure-stack-webapps-deploy/appsvcinstall-12.png
+[13]: ./media/azure-stack-webapps-deploy/appsvcinstall-13.png
+[14]: ./media/azure-stack-webapps-deploy/appsvcinstall-14.png
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
