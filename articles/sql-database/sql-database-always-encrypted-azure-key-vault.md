@@ -20,6 +20,10 @@
 
 # SQL Database tutorial: Protect sensitive data with Always Encrypted (Azure Key Vault)
 
+> [AZURE.SELECTOR]
+- [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)
+- [Windows certificate store](sql-database-always-encrypted.md)
+
 
 Always Encrypted is a new encryption technology in Azure SQL Database and SQL Server that protects sensitive data at rest on the server, during movement between client and server, as well as while the data is in-use, ensuring that sensitive data never appears as plaintext inside the database system. Only client applications or app servers, that have access to the keys, can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -87,7 +91,7 @@ To quickly create an Azure Key Vault you can run the script below. For a detaile
     $location = 'East US'
     $vaultName = 'AeKeyVault'
     $userPrincipalName = '<sstein@microsoft.com>'
-    $clientId = '<client ID that you copied in step 9 above>'
+    $clientId = '<client ID that you copied in step 10 above>'
     
     
     
@@ -295,8 +299,8 @@ Now run the app to see Always Encrypted in action.
     {
         // Update this line with your Clinic database connection string from the Azure Portal.
         static string connectionString = @"<connection string from the portal>";
-        static string clientId = @"<client id from step 9 above>";
-        static string clientSecret = "<key from step 15 above>";
+        static string clientId = @"<client id from step 10 above>";
+        static string clientSecret = "<key from step 16 above>";
 
 
         static void Main(string[] args)
