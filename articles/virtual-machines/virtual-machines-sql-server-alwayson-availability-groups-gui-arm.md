@@ -64,9 +64,13 @@ This tutorial assumes the following:
 >[AZURE.NOTE] If you are interested in using AlwaysOn Availability Groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
 In this tutorial you will use the Azure portal to:
+
 - Select the the new AlwaysOn Availabiltiy group template from the portal
+
 - Review the template settings and update a few configuration settings for your environment
+
 - Monitor Azure as it creates the entire environment
+
 - Connect to one of the domain controllers and then to one of the SQL Servers
 
 ## Provision an AlwaysOn Availability Group from the gallery with the resource manager deployment model
@@ -102,6 +106,8 @@ Below is what the **Basics** blade will look like:
 - Click **OK**. 
 
 ### Domain and network settings
+
+This Azure gallery template creates a new domain with new domain controllers. It also creates a new network and subnets. The template does not enable creating the servers in an existing domain or virtual network. The next step is to configure the domain and network settings. 
 
 On **Domain and network settings** blade review the preset values for the domain and network settings:
 
@@ -146,7 +152,7 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 - **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
 
->[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [Virtual Machines Pricing]http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)
+[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [Virtual Machines Pricing]http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)
 
 - **File Share Witness virtual machine size** is the virtual machine size for the file share witness. For this tutorial use **A1**.
 
@@ -156,27 +162,28 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 - **SQL Server data disk size** in TB is the size of the SQL Server data disk in TB. Specify a number from 1 through 4. This is the size of the data disk that will be attached to each SQL Server. For this tutorial use **1**. 
 
-- **Storage optimization** sets specific storage configuration settings for the SQL Server virtual machines based on the workload type. All SQL Servers in this scenario use Premium Storage. In addition, the choices for this setting are:
+- **Storage optimization** sets specific storage configuration settings for the SQL Server virtual machines based on the workload type. All SQL Servers in this scenario use Premium Storage with Azure disk host cache set to read only. In addition, you can optimize SQL Server settings for the workload by choosing one of these three settings:
 
-    - **General workload** sets no specific configuration settings. 
+    - **General workload** sets no specific configuration settings 
 
-    - **Transactional processing** sets trace flag 1117 and 1118.
+    - **Transactional processing** sets trace flag 1117 and 1118
 
-    - **Data warehousing** sets trace flag 1117 and 610.
-
-    >[AZURE.NOTE]Additional optimizations depend on the size of the SQL Server data disk. For each 1 TB of SQL Server data disk space, Azure adds an additional 1 TB premium storage disk. Azure creates a storage pool on each VM for these disks. Azure sets the following settings on each storage pool: 
-
-        - Stripe Size for trasactional processing workloads is set to **64 KB** for data warehousing workloads **256 KB**.
-
-        - Cache: Read 
-
-        - Simple recovery (no resiliency)
-
-        - Number of columns = number of disks
-
-        - Place tempDB on data disks.
+    - **Data warehousing** sets trace flag 1117 and 610
 
 For this tutorial use **General workload**.
+
+Additional optimizations depend on the size of the SQL Server data disks. For each terabyte of data disk, Azure adds an additional 1 TB premium storage (SSD). When a server requires 2 TB or more, the template creates a storage pool. A storage pool is a form of storage virtualization where multiple discs are configured to provide higher capacity, resiliency, and performance.  The template then creates a storage space on the storage pool and presents this as a single data disk to the operating system. The template tunes the storage pool for SQL Server with the following settings:
+
+- Stripe size is the interleave setting for the virtual disk. For transactional workloads this is set to 64 KB. For data warehousing workloads the setting is 256 KB. 
+- Resilient type is simple (no resiliency).
+>[AZURE.NOTE] Azure premium storage is locally redundant and keeps three copies of the data within a single region, so additional resiliency at the storage pool is not required. 
+
+- Column count equals the number of disks in the storage pool
+
+For additional information, see [Storage Spaces Overview](https://technet.microsoft.com/
+library/hh831739.aspx). 
+
+For more information about storage pools see [Windows Server Backup and Storage Pools](https://technet.microsoft.com/library/dn390929.aspx#BKMK_spd)
 
 ![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
 
