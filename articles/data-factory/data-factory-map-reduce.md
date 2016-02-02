@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Invoke MapReduce Programs from Data Factory
@@ -103,7 +103,7 @@ The pipeline in this example runs the Word Count Map/Reduce program on your Azur
 ### Linked Services
 First, you create a linked service to link the Azure Storage that is used by the Azure HDInsight cluster to the Azure data factory. If you copy/paste the following code, do not forget to replace **account name** and **account key** with the name and key of your Azure Storage. 
 
-#### Storage Linked Service
+#### Azure Storage linked service
 
 	{
 	    "name": "StorageLinkedService",
@@ -115,7 +115,7 @@ First, you create a linked service to link the Azure Storage that is used by the
 	    }
 	}
 
-#### Azure HDInsight Linked Service
+#### Azure HDInsight linked service
 Next, you create a linked service to link your Azure HDInsight cluster to the Azure data factory. If you copy/paste the following code, replace **HDInsight cluster name** with the name of your HDInsight cluster, and change user name and password values.   
 
 	{
