@@ -25,8 +25,7 @@
 
 1. On your Mac, open _ToDoTableViewController.swift_ in Xcode and add the following method. Change _google_ to _microsoftaccount_, _twitter_, _facebook_, or _windowsazureactivedirectory_ if you're not using Google as your identity provider. If you use Facebook, [you will need to whitelist Facebook domains in your app](https://developers.facebook.com/docs/ios/ios9#whitelist).
         
-            func loginAndGetData()
-            {
+            func loginAndGetData() {
                 let client = self.table!.client
                 if client.currentUser != nil {
                     return
