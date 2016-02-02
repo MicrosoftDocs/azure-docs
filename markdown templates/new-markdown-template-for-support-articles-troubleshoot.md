@@ -33,7 +33,7 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 ```
 
 **Background information (Optional)**
-- Background information that needs to be understood before continuing
+- Background information that needs to be understood before continuing.
 
 ## General troubleshooting steps
 
