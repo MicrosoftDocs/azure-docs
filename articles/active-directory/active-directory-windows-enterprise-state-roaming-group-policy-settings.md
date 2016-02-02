@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Windows settings sync for enterprises | Microsoft Azure"
-	description="Provides information about Enterprise Sync Settings in Windows devices. Enterprise Sync provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
+	description="Provides information about group policy and MDM settings that should be used on corporate-owned devices. These policies are applied to the user’s entire device."
 	services="active-directory"
     keywords="enterprise settings sync, windows cloud"
 	documentationCenter=""
