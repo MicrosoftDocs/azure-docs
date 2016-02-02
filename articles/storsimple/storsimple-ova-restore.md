@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/14/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli"/>
 
 # Restore from a backup of your StorSimple Virtual Array (Preview)
@@ -76,8 +76,6 @@ To restore from a backup, in the Azure classic portal, perform the following ste
 2.  In the list of backup sets displayed, click and select a specific backup. Expand the backup to see the various volumes under it. You must take these volumes offline on the host and device before you can restore them. Access the volumes on the **Volumes** page, and take them offline.
 
 3.  Navigate back to the **Backup Catalog** tab and select a backup set.
-
-4.  Click **Restore as new** at the bottom of the page.
 
 5.  At the bottom of the page, click **Restore as new**. The **Restore as new volume** wizard will start.
 

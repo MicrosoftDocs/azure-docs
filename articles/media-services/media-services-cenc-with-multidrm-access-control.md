@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/25/2016"  
+	ms.date="01/27/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services
@@ -40,13 +40,13 @@ The following topics are covered in this article:
 	- [What about Live Streaming?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
 	- [What about license servers outside of Azure Media Services?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
 	- [What if I want to use a custom STS?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-	- [Tech note](media-services-cenc-with-multidrm-access-control.md#tech-note)
 - [The completed system and test](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
 	- [User login](media-services-cenc-with-multidrm-access-control.md#user-login)
 	- [Using Encrypted Media Extensions for PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensipons-for-playready)
 	- [Using EME for Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
 	- [Not entitled users](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
 	- [Running custom Secure Token Service](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
+- [Summary](media-services-cenc-with-multidrm-access-control.md#summary)
 
 ##Introduction
 
@@ -83,7 +83,7 @@ The following table summarizes the native platform/native app, and browsers supp
 **Client Platform**|**Native DRM Support**|**Browser/App**|**Streaming Formats**
 ----|------|----|----
 **Smart TVs, operator STBs, OTT STBs**|PlayReady primarily, and/or Widevine, and/or other|Linux, Opera, WebKit, Other|Various formats
-**Windows 10 devices (Windows PC, Windows Tablets, Windows Phone, Xbox)**|PlayReady|MS Edge/IE11 /EME<br/><br/>UWP|DASH (For HLS, PlayReady is not supported)<br/><br/>DASH, Smooth Streaming (For HLS, PlayReady is not supported) 
+**Windows 10 devices (Windows PC, Windows Tablets, Windows Phone, Xbox)**|PlayReady|MS Edge/IE11/EME<br/><br/><br/>UWP|DASH (For HLS, PlayReady is not supported)<br/><br/>DASH, Smooth Streaming (For HLS, PlayReady is not supported) 
 **Android devices (Phone, Tablet, TV)**|Widevine|Chrome/EME|DASH
 **iOS (iPhone, iPad), OS X clients and Apple TV**|FairPlay|Safari 8+/EME|HLS
 **Plugin: Adobe Primetime**|Primetime Access|Browser plugin|HDS, HLS
@@ -407,7 +407,7 @@ There are two types of security keys:
 1.	Symmetric key: the same key is used for both generating and verifying a JWT token;
 2.	Asymmetric key: a public-private key pair in an X509 certificate is used with private key for encrypting/generating a JWT token and the public key for verifying the token.
 
-###Tech note
+####Tech note
 
 If you use .NET Framework/C# as your development platform, the X509 certificate used for asymmetric security key must have key length at least 2048. This is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception will be thrown:
 
@@ -521,4 +521,4 @@ In this document, we discussed CENC with multi-native-DRM and access control via
 
 ###Acknowledgments 
 
-William Zhang, Mingfei Yan, Kilroy Hughes, Roland Le Franc, Julia Kornich
+William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich

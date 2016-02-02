@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="02/01/2016"
 	ms.author="garye"/>
 
 # Deploy an Azure Machine Learning web service
@@ -50,7 +50,7 @@ The process of creating and managing training experiments is covered more thorou
 
 - [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md)
 - [Develop a predictive solution with Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
-- [Import your training data into Azure Machine Learning Studio](machine-learning-import-data.md)
+- [Import your training data into Azure Machine Learning Studio](machine-learning-data-science-import-data.md)
 - [Manage experiment iterations in Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md)
 
 ## Convert the training experiment to a predictive experiment

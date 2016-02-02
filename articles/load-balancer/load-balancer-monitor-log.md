@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/26/2016"
+   ms.date="01/27/2016"
    ms.author="joaoma" />
 
-# Log analytics for Azure Load Balancer 
+# Log analytics for Azure Load Balancer (Preview)
 You can use different types of logs in Azure to manage and troubleshoot load balancers. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as Excel and PowerBI. You can learn more about the different types of logs from the list below.
 
 
@@ -60,12 +60,12 @@ This log is only generated if you've enabled it on a per load balancer basis as 
 
 	
 	{
-    "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+    "time": "2016-01-26T10:37:46.6024215Z",
+	"systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
     "category": "LoadBalancerAlertEvent",
     "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
     "operationName": "LoadBalancerProbeHealthStatus",
     "properties": {
-        "eventTimeStampUtc": "1/23/2016 2:27:07 AM",
         "eventName": "Resource Limits Hit",
         "eventDescription": "Ports exhausted",
         "eventProperties": {
@@ -83,12 +83,12 @@ This log is only generated if you've enabled it on a per load balancer basis as 
 	    "records":
 
 	    {
+	   		"time": "2016-01-26T10:37:46.6024215Z",
 	        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
 	        "category": "LoadBalancerProbeHealthStatus",
 	        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
 	        "operationName": "LoadBalancerProbeHealthStatus",
 	        "properties": {
-	            "eventTimeStampUtc": "1/23/2016 2:18:58 AM",
 	            "publicIpAddress": "40.83.190.158",
 	            "port": "81",
 	            "totalDipCount": 2,
@@ -97,12 +97,12 @@ This log is only generated if you've enabled it on a per load balancer basis as 
 	        }
 	    },
 	    {
-	        "systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
+	        "time": "2016-01-26T10:37:46.6024215Z",
+			"systemId": "32077926-b9c4-42fb-94c1-762e528b5b27",
 	        "category": "LoadBalancerProbeHealthStatus",
 	        "resourceId": "/SUBSCRIPTIONS/XXXXXXXXXXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXX/RESOURCEGROUPS/RG7/PROVIDERS/MICROSOFT.NETWORK/LOADBALANCERS/WWEBLB",
 	        "operationName": "LoadBalancerProbeHealthStatus",
 	        "properties": {
-	            "eventTimeStampUtc": "1/23/2016 2:20:31 AM",
 	            "publicIpAddress": "40.83.190.158",
 	            "port": "81",
 	            "totalDipCount": 2,
