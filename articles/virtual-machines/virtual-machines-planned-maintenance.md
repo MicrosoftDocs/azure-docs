@@ -96,7 +96,7 @@ For single-instance and multi-instance virtual machine configurations only, Azur
 
 ## Region pairs
 
-When executing maintenance, Azure will only update the Virtual Machine instances in a single region of its pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. This will be scheduled at a seaparate time, enabling failover or load balancing between regions. However, other regions such as North Europe can be under maintenance at the same time as East US.
+When executing maintenance, Azure will only update the Virtual Machine instances in a single region of its pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. This will be scheduled at a separate time, enabling failover or load balancing between regions. However, other regions such as North Europe can be under maintenance at the same time as East US.
 
 Please refer to the following table for information regarding current region pairs:
 
