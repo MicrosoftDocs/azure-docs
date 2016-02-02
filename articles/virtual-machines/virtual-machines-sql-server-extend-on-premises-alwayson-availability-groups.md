@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Extend on-premises AlwaysOn Availability Groups to Azure | Microsoft Azure"
 	description="This tutorial uses resources created with the classic deployment model, and describes how to use the Add Replica wizard in SQL Server Management Studio (SSMS) to add an AlwaysOn Availability Group replica in Azure."
 	services="virtual-machines"
@@ -8,13 +8,13 @@
 	editor="monicar"
 	tags="azure-service-management"/>
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="2/2/2016"
 	ms.author="jroth" />
 
 # Extend on-premises AlwaysOn Availability Groups to Azure
@@ -65,7 +65,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 |**VM Username**|Specify a user name that will become the administrator account on the VM|
 |**VM Administrator Password**|Specify a password for the new account|
 |**Confirm Password**|Confirm the password of the new account|
-|**Virtual Network**|Specify the Azure virtual network that the new VM should use. For more information on virtual networks, see [Virtual Network Overview](..\virtual-network\virtual-networks-overview.md).|
+|**Virtual Network**|Specify the Azure virtual network that the new VM should use. For more information on virtual networks, see [Virtual Network Overview](../virtual-network/virtual-networks-overview.md).|
 |**Virtual Network Subnet**|Specify the virtual network subnet that the new VM should use|
 |**Domain**|Confirm the pre-populated value for the domain is correct|
 |**Domain User Name**|Specify an account that is in the local administrators group on the local cluster nodes|
@@ -91,7 +91,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 
 1. The provisioning process begins. When the wizard completes successfully, click **Close** to exit out of the wizard.
 
->[AZURE.NOTE] The Add Azure Replica Wizard creates a log file in <Users>\<user name>\AppData\Local\SQL Server\AddReplicaWizard. This log file can be used to troubleshoot failed Azure replica deployments. If the Wizard fails executing any action, all previous operations are rolled back, including deleting the provisioned VM.
+>[AZURE.NOTE] The Add Azure Replica Wizard creates a log file in [Users]\[User Name]\AppData\Local\SQL Server\AddReplicaWizard. This log file can be used to troubleshoot failed Azure replica deployments. If the Wizard fails executing any action, all previous operations are rolled back, including deleting the provisioned VM.
 
 ## Create an Availability Group Listener
 
