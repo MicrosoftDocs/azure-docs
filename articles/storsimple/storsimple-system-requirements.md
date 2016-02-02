@@ -77,7 +77,7 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 
 A routing metric is associated with the interfaces and the gateway that route the data to the specified networks. Routing metric is used by the routing protocol to calculate the best path to a given destination, if it learns multiple paths exist to the same destination. The lower the routing metric, the higher the preference.
 
-In the context of StorSimple, if multiple network interfaces and gateways are configured to channel traffic, the routing metrics will come into play to determine the relative order in which the interfaces will get used. The routing metrics cannot be changed by the user. You can however use the `Get-HcsRoutingTable` cmdlet to print out the routing table (and metrics) on your StorSimple device. More information on [Get-HcsRoutingTable cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet)
+In the context of StorSimple, if multiple network interfaces and gateways are configured to channel traffic, the routing metrics will come into play to determine the relative order in which the interfaces will get used. The routing metrics cannot be changed by the user. You can however use the `Get-HcsRoutingTable` cmdlet to print out the routing table (and metrics) on your StorSimple device. More information on [Get-HcsRoutingTable cmdlet](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-hcsroutingtable-cmdlet).
 
 The routing metric algorithms are different depending on the software version running on your StorSimple device.
 
