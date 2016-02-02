@@ -48,7 +48,7 @@ Tenant administrators can also view a per-user sync status report, and they can 
 ##Data retention
 Data synced to Azure via Enterprise State Roaming will be retained indefinitely unless a manual delete operation is performed or the data in question is determined to be stale.
  
-- **Manually deleting data**: If the Azure AD admin wants to manually delete settings data, the admin can file a ticket with [Azure support](https://azure.microsoft.com/en-us/support/options/).
+- **Manually deleting data**: If the Azure AD admin wants to manually delete settings data, the admin can file a ticket with [Azure support](https://azure.microsoft.com/support/options/).
  
  - **User deletion** : When a user is deleted in Azure AD, the user account will be put into a disabled state for 30 days. After 30 days, the account will be deleted, and the associated Settings data is subject to deletion. 
  - **Tenant (directory) deletion**: Deleting an entire directory in Azure AD is an immediate operation. All the settings data associated with that directory will then be subject to deletion. 
