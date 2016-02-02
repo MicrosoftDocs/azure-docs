@@ -24,7 +24,7 @@ This page helps you set up an Azure Service Fabric cluster. Your subscription mu
 
 ## Create the cluster
 
-1. Sign in to the [Azure portal](http://aka.ms/servicefabricportal).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Click **+ New** to add a new resource template. Search for your template in the **Marketplace** under **Everything**--it is called **Service Fabric Cluster**.
 
