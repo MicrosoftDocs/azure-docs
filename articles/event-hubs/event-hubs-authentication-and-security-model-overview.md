@@ -25,7 +25,7 @@ The Event Hubs security model meets the following requirements:
 
 ## Device authentication
 
-The Event Hubs security model is based on a combination of [Shared Access Signature (SAS)](service-bus-shared-access-signature-authentication.md) tokens and event publishers. An event publisher defines a virtual endpoint for an Event Hub. The publisher can only be used to send messages to an Event hub. It is not possible to receive messages from a publisher.
+The Event Hubs security model is based on a combination of [Shared Access Signature (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) tokens and event publishers. An event publisher defines a virtual endpoint for an Event Hub. The publisher can only be used to send messages to an Event hub. It is not possible to receive messages from a publisher.
 
 Typically, an Event hub employs one publisher per device. All messages that are sent to any of the publishers of an Event hub are enqueued within that Event hub. Publishers allow fine-grained access control and throttling.
 

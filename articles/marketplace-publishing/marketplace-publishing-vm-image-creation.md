@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="Azure"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="01/25/2016"
    ms.author="hascipio; v-divte"/>
 
 # Guide to create a virtual machine image for the Azure Marketplace
@@ -638,7 +638,7 @@ After you submit your virtual machine image SKUs for certification, you can move
 
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
-[link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
+[link-azure-codeplex]:http://storageexplorer.com/
 [link-azure-2]:../storage/storage-dotnet-shared-access-signature-part-2/
 [link-azure-1]:../storage/storage-dotnet-shared-access-signature-part-1/
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/04/2016"
+   ms.date="02/01/2016"
    ms.author="v-darmi"/>
 
 
@@ -21,7 +21,7 @@
 
 The policies available in Azure API Management service can do a wide range of useful work based purely on the incoming request, the outgoing response and basic configuration information. However, being able to interact with external services from API Management policies opens up many more opportunities.
 
-We have previously seen how we can interact with the [Azure Event Hub service for logging, monitoring and analytics](api-management-sample-logtoeventhub.md). In this article we will demonstrate policies that allow you to interact with any external HTTP based service. These policies can be used for triggering remote events or for retrieving information that will be used to manipulate the original request and response in some way.
+We have previously seen how we can interact with the [Azure Event Hub service for logging, monitoring and analytics](api-management-log-to-eventhub-sample.md). In this article we will demonstrate policies that allow you to interact with any external HTTP based service. These policies can be used for triggering remote events or for retrieving information that will be used to manipulate the original request and response in some way.
 
 ## Send-One-Way-Request
 Possibly the simplest external interaction is the fire-and-forget style of request that allows an external service to be notified of some kind of important event. We can use the control flow policy `choose` to detect any kind of condition that we are interested in and then, if the condition is satisfied, we can make an external HTTP request using the [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) policy. This could be a request to a messaging system like Hipchat or Slack, or a mail API like SendGrid or MailChimp, or for critical support incidents something like PagerDuty. All of these messaging systems have simple HTTP APIs that we can easily invoke.
