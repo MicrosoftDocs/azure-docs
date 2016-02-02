@@ -57,11 +57,6 @@ The [IoT Hub APIs and SDKs][lnk-apis-sdks] article describes the various ways to
 
 Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tls] protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
 
-### Notes on MQTT support
-Although the IoT Hub implementation is based on MQTT v3.1.1, it deviates from the specification as follows:
-  * **QoS 2 is not supported**: When a client publishes with QoS 2, IoT hub closes the network connection. When a client subscribes to a topic with QoS 2, IoT Hub grants maximum QoS level 1 in the SUBACK packet.
-  * **Retain**: If RETAIN flag is 1, IoT Hub will add ‘x-opt-retain’ property to the message. This means the IoT Hub doesn’t persist the retain message, but passes it instead to the back-end application.
-
 ### How to read from Event Hubs-compatible endpoints <a id="eventhubcompatible"></a>
 
 When you use the [Azure Service Bus SDK for .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) or the [Event Hubs - Event Processor Host][], you can use any IoT Hub connection strings with the correct permissions, and then use **messages/events** as the Event Hub name.
@@ -400,7 +395,12 @@ At a high level, you should use AMQP (or AMQP over WebSockets) whenever possible
 
 > [AZURE.NOTE] Clearly during development, it is acceptable to poll more frequently than every 25 minutes.
 
-As a final consideration, you should review the [Azure IoT Protocol Gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance custom MQTT gateway that interfaces directly with IoT Hub. The IoT Protocol Gateway enables the customization of the device protocol to accommodate brownfield MQTT deployments and completely custom protocols. The main disadvantage of this approach is the requirement to self-host and manage a protocol gateway.
+#### Notes on MQTT support
+The IoT Hub implements MQTT v3.1.1 wiht the following specific limitations and behavior:
+  * **QoS 2 is not supported**: When a device client publishes a message with QoS 2, IoT Hub will close the network connection. When a device client subscribes to a topic with QoS 2, IoT Hub will grant maximum QoS level 1 in the SUBACK packet.
+  * **Retain**: If a device client publishes a message with the RETAIN flag set to 1, IoT Hub will add ‘x-opt-retain’ application property to the message. This means that IoT Hub doesn’t persist the retain message, but passes it instead to the back-end application.
+
+As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables the customization of the device protocol to accommodate brownfield MQTT deployments or other custom protocols. The main disadvantage of this approach is the requirement to self-host and manage a protocol gateway.
 
 ### Device to cloud <a id="d2c"></a>
 
