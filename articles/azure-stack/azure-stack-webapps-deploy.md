@@ -65,8 +65,8 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 1 Log in to the POC host:
 
 - check the following path and ensure
-\\\\sofs\Share\CRP\GuestArtifactRepository and ensure Microsoft.Powershell.DSC.2.11.0.0.zip exists in the path
-- Ensure the vhd in the path \\\\sofs\Share\CRP\PlatformImages  (has .net 3.5)
+\\\\sofs\Share\CRP\GuestArtifactRepository and ensure Microsoft.Powershell.DSC_2.13.2.0.zip exists in the path
+- Make sure a vhd image in the path \\\\sofs\Share\CRP\PlatformImages\ meets the requirements for this deployment (.NET 3.5 is preinstalled)
 
 2 Login to the Client VM
 
