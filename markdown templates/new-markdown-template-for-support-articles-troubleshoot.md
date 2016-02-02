@@ -38,29 +38,29 @@ If your Azure issue is not addressed in this article, visit the Azure forums on 
 ## General troubleshooting steps
 
 ### Steps for the classic deployment model
-1. step 1
-2. step 2
-3. step 3
+1. step 1.
+2. step 2.
+3. step 3.
 
 ### Steps for the Azure Resource Manager deployment model
-1. step 1
-2. step 2
-3. step 3
+1. step 1.
+2. step 2.
+3. step 3.
 
 ## Detailed troubleshooting steps
 
 ### Steps for the classic deployment model
-1. step 1
-2. step 2
-3. step 3
+1. step 1.
+2. step 2.
+3. step 3.
 
 ### Steps for the Azure Resource Manager deployment model
-1. step 1
-2. step 2
-3. step 3
+1. step 1.
+2. step 2.
+3. step 3.
 
 ## Learn more (Optional)
-- Reference links to other related topics
+- Reference links to other related topics.
 
 ## More information (Optional)
 - Information included in this section, if removed, won't impact the use of the article.
