@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/04/2015"
+	ms.date="02/02/2016"
 	ms.author="jeffreyg"/>
 
 # Choose a cloud SQL Server option: Azure SQL (PaaS) Database  or SQL Server on Azure VMs (IaaS)
@@ -129,9 +129,9 @@ Whether you’re a startup that is strapped for cash, or a team in an establishe
 
 **SQL Database** is sold to customers as a service, not with a license, whereas SQL Server on Azure VMs requires traditional SQL Server licensing.
 
-Currently, **SQL Database** is available in several service tiers, all of which are billed hourly at a fixed rate based on the service tier and performance level you choose. The Basic, Standard, and Premium service tiers are designed to deliver predictable performance with multiple performance levels to match your application’s peak requirements. You can change between service tiers and performance levels to match your application’s varied throughput needs. For the latest information on the current supported service tiers, see [Azure SQL Database Service Tiers](sql-database-service-tiers.md).
+Currently, **SQL Database** is available in several service tiers, all of which are billed hourly at a fixed rate based on the service tier and performance level you choose. In addition, you are billed for outgoing Internet traffic. The Basic, Standard, and Premium service tiers are designed to deliver predictable performance with multiple performance levels to match your application’s peak requirements. You can change between service tiers and performance levels to match your application’s varied throughput needs. If your database has high transactional volume and needs to support many concurrent users, we recommend the Premium service tier. For the latest information on the current supported service tiers, see [Azure SQL Database Service Tiers](sql-database-service-tiers.md).
 
-With **SQL Database**, the database software is automatically configured, patched, and upgraded by Microsoft, which reduces your administration costs. In addition, its [built-in backup](sql-database-business-continuity.md) capabilities help you achieve significant cost savings, especially when you have a large number of databases. When using SQL Database, you are not billed for individual queries running against SQL Database or incoming Internet traffic, you are billed for [outgoing Internet traffic](https://azure.microsoft.com/pricing/details/data-transfers/). If your database has high transactional volume and needs to support many concurrent users, we recommend the Premium service tier.
+With **SQL Database**, the database software is automatically configured, patched, and upgraded by Microsoft, which reduces your administration costs. In addition, its [built-in backup](sql-database-business-continuity.md) capabilities help you achieve significant cost savings, especially when you have a large number of databases.
 
 With **SQL Server on Azure VMs**, you utilize traditional SQL Server licensing. You can either use the platform-provided SQL Server image (which includes a license) or bring your SQL Server license. When using the Azure provided images, the operational cost depends on the VM size as well as the edition of SQL Server you choose. Regardless of VM size or SQL Server edition, you pay per-minute licensing cost of SQL Server and  Windows Server, along with the Azure Storage cost for the VM disks. The per-minute billing option allows you to use SQL Server for as long as you need without buying addition SQL Server licenses. If you bring your own SQL Server license to Azure, you are charged for Windows Server and storage costs only. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
