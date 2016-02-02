@@ -35,25 +35,20 @@ How to use this article (optional) - Used when the article is long to describe w
 If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](http://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](http://azure.microsoft.com/support/options/) site.
 ```
 
-**Background (Optional) - Description**
-
-Background information that needs to be understood before continuing
+** Background (Optional) - Description**
+- Background information that needs to be understood before continuing
 
 ## General troubleshooting steps
-- The heading can be changed to be more descriptive like "General troubleshooting steps: Troubleshoot common RDP errors"
 
-###Steps for the classic deployment model
+### Steps for the classic deployment model
 
-###Steps for the Azure Resource Manager deployment model
+### Steps for the Azure Resource Manager deployment model
 
 ## Detailed troubleshooting steps
-- The heading can be changed to be more descriptive like "Detailed troubleshooting steps: Troubleshoot common RDP errors"
 
-###Steps for the classic deployment model
+### Steps for the classic deployment model
 
-###Steps for the Azure Resource Manager deployment model
+### Steps for the Azure Resource Manager deployment model
 
-## Next steps
-- Put additional information and reference links here
-
-## More information
+## Additional resources (Optional)
+- Put related topics as reference links that users might find useful for extended reading.
