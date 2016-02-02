@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date=02/01/2016"
+    ms.date="02/01/2016"
     ms.author="chhavib;olgali"/>
 
 # Use sample experiments to create new experiments
