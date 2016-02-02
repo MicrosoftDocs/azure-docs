@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/16/2015"
+	ms.date="01/30/2016"
 	ms.author="tarcher"/>
 
 # Getting Started with Azure Storage (Azure WebJob Projects)
 
 ## Overview
 
-This article provides C# code samples that show show how to use the Azure WebJobs SDK version 1.x with the Azure table storage service. The code samples use the [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
+This article provides C# code samples that show show how to use the Azure WebJobs SDK version 1.x with the Azure table storage service. The code samples use the [WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk.md) version 1.x.
 
 The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md/#create-a-table "How to use Table Storage from .NET") for more information.
 
@@ -142,7 +142,7 @@ The following code sample uses a **CloudTable** object to add a single entity to
 		    tableBinding.Execute(insertOperation);
 		}
 
-For more information about how to use the **CloudTable** object, see [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables.md).
+For more information about how to use the **CloudTable** object, see [How to use Table Storage from .NET](./storage-dotnet-how-to-use-tables.md).
 
 ## Related topics covered by the queues how-to article
 

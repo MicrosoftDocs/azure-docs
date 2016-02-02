@@ -1,4 +1,4 @@
-1. Sign in to the [classic portal](http://manage.windowsazure.com). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you don't have a subscription yet.
+1. Sign in to the [classic portal](http://manage.windowsazure.com). Check out the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) offer if you don't have a subscription yet.
 
 2. On the command bar at the bottom of the window, click **New**.
 

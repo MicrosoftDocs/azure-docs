@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Some Azure Service Fabric Actors antipatterns | Microsoft Azure"
    description="Some potential pitfalls for customers who are learning Azure Service Fabric Actors"
    services="service-fabric"

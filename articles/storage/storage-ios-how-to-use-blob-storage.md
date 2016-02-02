@@ -76,7 +76,7 @@ When using Shared Key authentication, you will create a connection string. The c
 
 - The **DefaultEndpointsProtocol** - you can choose HTTP or HTTPS. However, using HTTPS is highly recommended.
 - The **Account Name** - the name of your storage account
-- The **Account Key** - If you're using the [Azure Portal](portal.azure.com), navigate to your storage account and click the **Keys** icon to find this information. If using the [Azure Classic Portal](manage.windowsazure.com), navigate to your storage account in the portal and click **Manage Access Keys**. 
+- The **Account Key** - If you're using the [Azure Portal](https://portal.azure.com), navigate to your storage account and click the **Keys** icon to find this information. If using the [Azure Classic Portal](https://manage.windowsazure.com), navigate to your storage account in the portal and click **Manage Access Keys**. 
 
 Here is how it will look in your application:
 
@@ -139,7 +139,7 @@ Every blob in Azure Storage must reside in a container. The following example sh
         }];
     }
 
-You can confirm that this works by looking at the [Azure Portal](portal.azure.com) or any [Storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) and verifying that *newcontainer* is in the list of containers for your Storage account.
+You can confirm that this works by looking at the [Azure Portal](https://portal.azure.com) or any [Storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) and verifying that *newcontainer* is in the list of containers for your Storage account.
 
 ## Set Container Permissions
 A container's permissions are configured for **Private** access by default. However, containers provide a few different options for container access:
@@ -204,7 +204,7 @@ The following example shows how to upload a block blob from an NSString. If a bl
          }];
      }
 
-You can confirm that this works by looking at the [Azure Portal](portal.azure.com) or any [Storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) and verifying that the container, *containerpublic*, contains the blob, *sampleblob*. In this sample, we used a public container so you can also verify that this worked by going to the blobs URI:
+You can confirm that this works by looking at the [Azure Portal](https://portal.azure.com) or any [Storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) and verifying that the container, *containerpublic*, contains the blob, *sampleblob*. In this sample, we used a public container so you can also verify that this worked by going to the blobs URI:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -356,7 +356,7 @@ Now that you've learned the basics of Blob storage, follow these links to learn 
 - [Azure Storage Team Blog]
 
 If you have questions regarding this library feel free to post to our [MSDN Azure forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
-If you have feature suggestions for Azure Storage please post to [Azure Storage Feedback](http://feedback.azure.com/forums/217298-storage).
+If you have feature suggestions for Azure Storage please post to [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).
 
 [Azure Storage iOS Library]: https://github.com/azure/azure-storage-ios
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
