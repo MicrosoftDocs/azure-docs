@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
-	ms.author="ddove; sidneyh" />
+	ms.date="02/01/2016" 
+	ms.author="ddove;sidneyh" />
 
 # Elastic Database jobs overview
 
