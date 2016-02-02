@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/28/2016"
+   ms.date="02/02/2016"
    ms.author="jesseb"/>
 
 
@@ -58,7 +58,7 @@ Data Contract is the recommended solution for ensuring that your data is compati
 
 [Service Fabric application upgrade using Visual Studio](service-fabric-application-upgrade.md)
 
-[Service Fabric application upgrade using PowerShell](service-fabric-application-upgrade-powershell.md)
+[Service Fabric application upgrade using PowerShell](service-fabric-automate-powershell.md)
 
 [Upgrade parameters](service-fabric-application-upgrade-parameters.md)
 
