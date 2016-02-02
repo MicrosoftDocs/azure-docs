@@ -36,7 +36,7 @@ Data Factory is a cloud-based information management service that automates the 
 
 [Airline Uses Tablets, Cloud Services to Offer More Engaging In-Flight Entertainment](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
-## Tacoma Public Schools
+## Tacoma public schools
 
 [Predicting student dropout risks, increasing graduation rates with cloud analytics](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 
