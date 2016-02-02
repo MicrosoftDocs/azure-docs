@@ -23,7 +23,7 @@ Opening paragraph
 - Set the expectation: What users can achieve when they finish the article.
 - Don’t have more than one Note element at the top.
 - The opening paragraph is a good place to place keywords. But avoid stuffing keywords but let the content flow in a natural way.
-- Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, Linux/OSS that aren't covered
+- Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, Linux/OSS that aren't covered.
 
 **How to use this article (optional)**
 - Used when the article is long to describe what all is there and how its organized. Intent to help customer as a guiding para to decide where to jump to or start within the doc. 
@@ -32,7 +32,7 @@ Opening paragraph
 If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
 ```
 
-** Background information (Optional)**
+**Background information (Optional)**
 - Background information that needs to be understood before continuing
 
 ## General troubleshooting steps
