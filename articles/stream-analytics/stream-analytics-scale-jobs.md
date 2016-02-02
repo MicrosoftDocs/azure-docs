@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/01/2016"
+	ms.date="02/02/2016"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs to increase stream data processing throughput #
@@ -41,7 +41,7 @@ This article will show you how to calculate and tune the query to increase throu
 The embarrassingly parallel job is the most scalable scenario we have in ASA. It connects one partition of the input to one instance of the query to one partition of the output. Achieving this parallelism requires a few things:
 
 1.  If your query logic is dependent on the same key being processed by the same query instance, then you must ensure that the events go to the same partition of your input. In the case of Event Hubs, this means that the EventData needs to have PartitionKey set or you can use partitioned senders. For Blob, this means that the events are sent to the same partition folder. If your query logic does not require the same key be processed by the same query instance, then you can ignore this requirement. An example of this would be a simple select/project/filter query.  
-2.	Once the data is laid out like it needs to be on the input side, we need to ensure that your query partitioned. This requires you to use **Partition By** in all of the steps. Multiple steps are allowed but they all must be partitioned by the same key. Another thing to note is that, currently, the partitioning key needs to be set to **PartitionId** to have a fully parallel job.  
+2.	Once the data is laid out like it needs to be on the input side, we need to ensure that your query is partitioned. This requires you to use **Partition By** in all of the steps. Multiple steps are allowed but they all must be partitioned by the same key. Another thing to note is that, currently, the partitioning key needs to be set to **PartitionId** to have a fully parallel job.  
 3.	Currently only Event Hubs and Blob support partitioned output. For Event Hubs output, you need to configure the **PartitionKey** field to be **PartitionId**. For Blob, you don’t have to do anything.  
 4.	Another thing to note, the number of input partitions must equal the number of output partitions. Blob output doesn’t currently support partitions, but this is okay because it will inherit the partitioning scheme of the upstream query.	Examples of partition values that would allow a fully parallel job:  
 	1.	8 Event Hubs input partitions and 8 Event Hubs output part  itions
@@ -89,7 +89,7 @@ Output – Event Hub with 8 partitions
     
     SELECT SUM(Count) AS Count, TollBoothId
     FROM Step1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId
+    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
 This query has a grouping key and as such, the same key needs to be processed by the same query instance. We can use the same strategy as the previous query. The query has multiple steps. Does each step have Partition By PartitionId? Yes, so we are good. For the output, we need to set the PartitionKey to PartitionId like discussed above and we can also see it has the same number of partitions as the input. This topology is embarrassingly parallel.
 
