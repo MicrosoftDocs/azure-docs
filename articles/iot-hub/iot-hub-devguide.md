@@ -396,11 +396,11 @@ At a high level, you should use AMQP (or AMQP over WebSockets) whenever possible
 > [AZURE.NOTE] Clearly during development, it is acceptable to poll more frequently than every 25 minutes.
 
 #### Notes on MQTT support
-The IoT Hub implements MQTT v3.1.1 wiht the following specific limitations and behavior:
+IoT Hub implements MQTT v3.1.1 wiht the following limitations and specific behavior:
   * **QoS 2 is not supported**: When a device client publishes a message with QoS 2, IoT Hub will close the network connection. When a device client subscribes to a topic with QoS 2, IoT Hub will grant maximum QoS level 1 in the SUBACK packet.
   * **Retain**: If a device client publishes a message with the RETAIN flag set to 1, IoT Hub will add ‘x-opt-retain’ application property to the message. This means that IoT Hub doesn’t persist the retain message, but passes it instead to the back-end application.
 
-As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables the customization of the device protocol to accommodate brownfield MQTT deployments or other custom protocols. The main disadvantage of this approach is the requirement to self-host and manage a protocol gateway.
+As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway], which enables you to deploy a high performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables the customization of the device protocol to accommodate brownfield MQTT deployments or other custom protocols. The tradeoff with this approach is the requirement to self-host and operate a custom protocol gateway.
 
 ### Device to cloud <a id="d2c"></a>
 
