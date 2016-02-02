@@ -55,43 +55,35 @@ If a zone with this name does not exist in the resource group, it will be create
 
 To verify the format of a zone file without actually importing it, use the `--parse-only` option.
 
-### Import a zone file to Azure DNS, step by step
+Let’s look at a step-by-step example. Suppose you want to import a zone file for the zone **contoso.com**.
 
-Let’s look at an example. Suppose you want to import a zone file for the zone **contoso.com**.
+1. Sign in to your Azure subscription by using the Azure CLI.
 
-#### Step 1
-Sign in to your Azure subscription by using the Azure CLI.
+	`azure login`
 
-	azure login
+2. Select the subscription where you want to create your new DNS zone.
 
-#### Step 2
-Select the subscription where you want to create your new DNS zone.
+	`azure account set <subscription name>`
 
-	azure account set <subscription name>
+3. Azure DNS is an Azure Resource Manager-only service, so the Azure CLI must be switched to Resource Manager mode.
 
-#### Step 3
-Azure DNS is an Azure Resource Manager-only service, so the Azure CLI must be switched to Resource Manager mode.
+	`azure config mode arm`
 
-	azure config mode arm
+4. Before you use the Azure DNS service, you must register your subscription to use the Microsoft.Network resource provider. (This is a one-time operation for each subscription.)
 
-#### Step 4
-Before you use the Azure DNS service, you must register your subscription to use the Microsoft.Network resource provider. (This is a one-time operation for each subscription.)
+	`azure provider register Microsoft.Network`
 
-	azure provider register Microsoft.Network
+5. If you don’t have one already, you also need to create a Resource Manager resource group.
 
-#### Step 5
-If you don’t have one already, you also need to create a Resource Manager resource group.
+	`azure group create myresourcegroup westeurope`
 
-	azure group create myresourcegroup westeurope
+6. To import the zone **contoso.com** from the file **contoso.com.txt** into a new DNS zone in the resource group **myresourcegroup**, run the command `azure network dns zone import`.
 
-#### Step 6
-To import the zone **contoso.com** from the file **contoso.com.txt** into a new DNS zone in the resource group **myresourcegroup**, run the command `azure network dns zone import`.
+	`azure network dns zone import myresourcegroup contoso.com contoso.com.txt`
 
-	azure network dns zone import myresourcegroup contoso.com contoso.com.txt
+    This command will load the zone file and parse it. The command will execute a series of commands on the Azure DNS service to create the zone and all of the record sets in the zone.
 
-This command will load the zone file and parse it. The command will execute a series of commands on the Azure DNS service to create the zone and all of the record sets in the zone.
-
-The command will also report progress in the console window, along with any errors or warnings.  Because record sets are created in series, it may take a few minutes to import a large zone file.
+    The command will also report progress in the console window, along with any errors or warnings.  Because record sets are created in series, it may take a few minutes to import a large zone file.
 
 ## Verify the DNS zone after you import the file
 
@@ -141,8 +133,8 @@ Importing a zone file will create a new zone in Azure DNS if one does not alread
 - An imported CNAME record will not replace an existing CNAME record with the same name unless the `--force` parameter is specified.
 - When a conflict arises between a CNAME record and another record of the same name but different type (regardless of which is existing or new), the existing record is retained. This is independent of the use of `--force`.
 
-### Additional technical details
-The follow notes provide additional technical details about the zone import process.
+## Additional technical details
+The following notes provide additional technical details about the zone import process.
 
 - The `$TTL` directive is optional, and it is supported. When no `$TTL` directive is given, records without an explicit TTL will be imported set to a default TTL of 3600 seconds.  When two records in the same record set specify different TTLs, the lower value is used.
 - The `$ORIGIN` directive is optional, and it is supported. When no `$ORIGIN` is set, the default value used is the zone name as specified on the command line (plus the terminating ".").
@@ -164,28 +156,22 @@ Where:
 - `<zone name>` is the name of the zone.
 - `<zone file name>` is the path/name of the zone file to be exported.
 
-### Export an Azure DNS file, step by step
+As with the zone import, you first need to sign in, choose your subscription, and configure the Azure CLI to use Resource Manager mode. Let’s look at a step-by-step example.
 
-As with the zone import, you first need to sign in, choose your subscription, and configure the Azure CLI to use Resource Manager mode.
+1. Sign in to your Azure subscription by using the Azure CLI.
 
-#### Step 1
-Sign in to your Azure subscription by using the Azure CLI.
+	`azure login`
 
-	azure login
+2. Select the subscription where you want to create your new DNS zone.
 
-#### Step 2
-Select the subscription where you want to create your new DNS zone.
+	`azure account set <subscription name>`
 
-	azure account set <subscription name>
+3. Azure DNS is an Azure Resource Manager-only service. The Azure CLI must be switched to Resource Manager mode.
 
-#### Step 3
-Azure DNS is an Azure Resource Manager-only service. The Azure CLI must be switched to Resource Manager mode.
+	`azure config mode arm`
 
-	azure config mode arm
+4. To export the existing Azure DNS zone **contoso.com** in resource group **myresourcegroup** to the file **contoso.com.txt** (in the current folder), run `azure network dns zone export`.
 
-#### Step 4
-To export the existing Azure DNS zone **contoso.com** in resource group **myresourcegroup** to the file **contoso.com.txt** (in the current folder), run `azure network dns zone export`.
-
-	azure network dns zone export myresourcegroup contoso.com contoso.com.txt
+	`azure network dns zone export myresourcegroup contoso.com contoso.com.txt`
 
 This command will call the Azure DNS service to enumerate record sets in the zone and export the results to a BIND-compatible zone file.
