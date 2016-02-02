@@ -26,7 +26,7 @@ Opening paragraph
 - Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, you describe that the  Linux/OSS scenarios aren't covered.
 
 **How to use this article (optional)**
-- Used when the article is long to describe what all is there and how its organized. Intent to help customer as a guiding para to decide where to jump to or start within the doc. 
+- Used when the article is long to help describe what all is there and how it's organized. Intent to help customer as a guiding para to decide where to jump to or start within the doc. 
 
 ```
 If your Azure issue is not addressed in this article, visit the Azure forums on [MSDN and the Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue on these forums or to @AzureSupport on Twitter. Also, you can file an Azure support request by selecting **Get support** on the [Azure support](https://azure.microsoft.com/support/options/) site.
