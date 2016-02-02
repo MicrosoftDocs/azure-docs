@@ -191,6 +191,5 @@ If you want to switch off the standard dependency tracking module, remove the re
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-asp-net-dependencies.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-overview.md
 
  
