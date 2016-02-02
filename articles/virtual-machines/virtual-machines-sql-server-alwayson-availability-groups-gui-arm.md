@@ -146,6 +146,8 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 - **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
 
+>[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)
+
 - **File Share Witness virtual machine size** is the virtual machine size for the file share witness. For this tutorial use **A1**.
 
 - **SQL Storage account** is the name of the storage account to hold the SQL Server data and operating system disks. For this tutorial use **alwaysonsql01**.
