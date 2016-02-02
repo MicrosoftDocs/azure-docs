@@ -168,7 +168,7 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
         - Stripe Size for trasactional processing workloads is set to **64 KB** for data warehousing workloads **256 KB**.
 
-        - Cache: Read
+        - Cache: Read 
 
         - Simple recovery (no resiliency)
 
