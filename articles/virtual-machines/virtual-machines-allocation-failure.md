@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/2/2016"
+	ms.date="02/02/2016"
 	ms.author="cjiang"/>
 
 
