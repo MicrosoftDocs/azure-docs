@@ -142,7 +142,7 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 - On **VM size, storage settings** choose a SQL Server virtual machine size and review the other settings. 
 
-- **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. It is not populated automatically. Click **Configure required settings** to choose a virtual machine size.  Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see [Sizes for virtual machines] (virtual-machines-size-specs.md)
+- **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. It is not populated automatically. Click **Configure required settings** to choose a virtual machine size.  Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see [Sizes for virtual machines] (http://azure.microsoft.com/documentation/articles/virtual-machines-size-specs.md)
 
 - **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
 
@@ -158,23 +158,23 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 - **Storage optimization** sets specific storage configuration settings for the SQL Server virtual machines based on the workload type. All SQL Servers in this scenario use Premium Storage. In addition, the choices for this setting are:
 
-- **General workload** sets no specific configuration settings. 
+    - **General workload** sets no specific configuration settings. 
 
-- **Transactional processing** sets trace flag 1117 and 1118.
+    - **Transactional processing** sets trace flag 1117 and 1118.
 
-- **Data warehousing** sets trace flag 1117 and 610.
+    - **Data warehousing** sets trace flag 1117 and 610.
 
->[AZURE.NOTE]Additional optimizations depend on the size of the SQL Server data disk. For each 1 TB of SQL Server data disk space, Azure adds an additional 1 TB premium storage disk. Azure creates a storage pool on each VM for these disks. Azure sets the following settings on each storage pool: 
+    >[AZURE.NOTE]Additional optimizations depend on the size of the SQL Server data disk. For each 1 TB of SQL Server data disk space, Azure adds an additional 1 TB premium storage disk. Azure creates a storage pool on each VM for these disks. Azure sets the following settings on each storage pool: 
 
-- Stripe Size for trasactional processing workloads is set to **64 KB** for data warehousing workloads **256 KB**.
+        - Stripe Size for trasactional processing workloads is set to **64 KB** for data warehousing workloads **256 KB**.
 
-- Cache: Read
+        - Cache: Read
 
-- Simple recovery (no resiliency)
+        - Simple recovery (no resiliency)
 
-- Number of columns = number of disks
+        - Number of columns = number of disks
 
-- Place tempDB on data disks.
+        - Place tempDB on data disks.
 
 For this tutorial use **General workload**.
 
