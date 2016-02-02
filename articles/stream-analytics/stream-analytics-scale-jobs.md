@@ -63,7 +63,7 @@ Output – Event Hub with 8 partitions
 
 This query is a simple filter and as such, we do not need to worry about partitioning the input we send to Event Hubs. You will notice that the query has Partition By PartitionId, so we fulfill requirement 2 from above. For the output, we need to configure the Event Hubs output in the job to have the PartitionKey field set to PartitionId. One last check, input partitions == output partitions. This topology is embarrassingly parallel.
 
-### Query with Grouping Key ###
+### Query with grouping key
 Input – Event Hubs with 8 partitions
 Output – Blob
 
