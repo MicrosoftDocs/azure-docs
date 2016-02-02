@@ -1,0 +1,76 @@
+<properties
+	pageTitle="Prepare the physical machine"
+	description="Prepare the physical machine"
+	services="azure-stack"
+	documentationCenter=""
+	authors="ErikjeMS"
+	manager="v-kiwhit"
+	editor=""/>
+
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/04/2016"
+	ms.author="v-anpasi"/>
+
+# Installing SQL Server Resource Provider adaptor for Azure Stack
+
+## Overview
+
+Use the contents of this Deployment folder to prepare and deploy Microsoft.Sql resource provider in a local Azure Stack environment.
+
+## Pre-Requisites
+You will need Windows server 2012 R2 datacenter VHD with .Net 3.5 as the default image in the Platform Image repository (Refer to this docuement [this link](https://fakeurl.com))
+
+
+## Certificate Creation
+
+You will need a wildcard certificate to secure communications betweent the resource provider and Azure Resource Manager:
+1.	On PortalVM in inetmgr , select Feature: Server Certificates, Action: Create Domain     Certificate
+2.	Fill out the Prompt wizard
+         Common name: \*.azurestack.local
+3.	Export wildcard certificate.
+•	Open MMC Certificates and find *.azureStack.local.
+•	Right-click, all tasks, export
+•	Select Yes, export private key
+•	Check Export all extended properties.
+•	Specify suitable password.
+•	Export to file certificate.pfx
+The certificates are only valid in the environment in which they were generated.
+Caution: When deploying in multiple POC environment caution must be taken not to use a certificate from a different environment. If certificate generation is used, then make sure to remove any certificates which were not generated for this environment.
+
+## Prepare and perform deployment
+
+Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and copy the downloaded ZIP file to the ClientVM's desktop in your POC envirounment.
+
+1.	Change the deployment (AzureStack.SqlRP.Deployment.*.nupkg) nuget package extension to .zip and extract the contents to D:\SQLRP\
+2.	Place the setup nuget package (AzureStack.SqlRP.Setup.*.nupkg) inside the extracted Deployment at d:\SQLRP\ AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment\
+3.	take the certificate.pfx file you have created (Detailed steps are above) and place the certificate under d:\SQLRP\ AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment\Certificate Folder
+4.	cd to D:\SQLRP\ AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deploymen
+5.	Change the paramters in InstallSqlRpComplete-Parameters.json.
+    - change cseBlobNamePackage to: AzureStack.SqlRP.Setup.5.11.57.0.nupkg
+    - specify an admin user\password to use as credentials for the RP VM.
+    - Input the certificate password you chose to create the certificate in the steps above.
+6. Invoke SqlRPTemplateDeployment.ps1 as admin (right click, “Run as Administrator”)
+    - When asked for AAD tenantID parameter – input your AAD tenant ID
+    - When asked for package name, provide: AzureStack.SqlRP.Deployment.5.11.57.0.nupkg
+7.	Wait for the deployment to succeed. This might take 90 mins
+
+## Add DNS record
+
+1.	From the Azure Stack admin portal, lookup the NIC resource for your newly deployed VM and write down its public IP (192.168.X.X)
+2.	Log in to your POC env and from there log in to ADVM (remote desktopadvm.AzureStackLocal.com)
+3.	Run DNS manager from run box dnsmgmt.msc
+4.	Create an A Record in the ADVM for ‘sqlrp.azurestack.local’ by right clicking and selecting "new Host Record"
+- Enter the Name for the new host “sqlrp” (this will make it sqlrp.azurestack.local)
+- Enter the IP address you wrote down in step #1 in “IP Address” field
+- Click add host
+
+## Register the SQL Resource Provider
+
+1.	Invoke Register-SqlRP.ps1 with the needed parameters. Lookup the The SqlRP endpoint user name and password are hard coded in the ConfigureAzureStackSqlServer.ps1 script. ##TODO write the actual password, it doesn’t matter for TP1
+2. Open the Azure Stack Admin Portal, navigate to Browse --> Resource Provider and verify you have SQL RP registered.
+3. Create your SQL resource by clicking "+" and selecting "Data" --> "SQL"
