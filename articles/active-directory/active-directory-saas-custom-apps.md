@@ -22,7 +22,7 @@ The Azure Active Directory application gallery provides a listing of application
 Customers with [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx) licenses also get these additional capabilities:
 
 * Self-service integration of any application that supports SAML 2.0 identity providers
-* Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO[(active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
+* Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](active-directory-appssoaccess-whatis.md/#password-based-single-sign-on)
 * Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](active-directory-scim-provisioning))
 * Ability to add links to any application in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/#deploying-azure-ad-integrated-applications-to-users)
 
