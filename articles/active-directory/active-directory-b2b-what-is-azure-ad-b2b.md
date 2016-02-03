@@ -28,6 +28,8 @@ As companies focus more on their core business, the need to partner with other b
 
 Check out [the blog post announcing public preview](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) and [this deep dive video](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-B2B-collaboration-demo) walking through Azure AD B2B collaboration.
 
+For a comparison of the use cases for Azure AD B2B collaboration, Azure AD B2C, and the Azure AD Multi-tenant App, check out [Comparing capabilities for managing external identities using Azure AD](active-directory-b2b-compare-external-identities.md).
+
 ## Related articles
 Browse our other articles on Azure B2B collaboration:
 
