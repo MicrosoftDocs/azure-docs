@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create or edit users in Azure AD"
-	description="A topic that explains how to create or edit user accounts in Azure AD."
+	pageTitle="Create or edit users in Azure Active Directory | Mictosoft Azure"
+	description="A topic that explains how to create or edit user accounts in Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
