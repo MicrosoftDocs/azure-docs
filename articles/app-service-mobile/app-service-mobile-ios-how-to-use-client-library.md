@@ -88,15 +88,15 @@ To create a database query, query the `MSTable` object. The following query gets
 **Swift**:
 
 ```
-table.readWithCompletion({(result, error) -> Void in
-    if error != nil { // error is nil if no error occured
-        NSLog("ERROR %@", error!)
+table.readWithCompletion() {(result, error) in
+    if let err = error {
+        print("ERROR ", err)
     } else {
         for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+            print("Todo Item: ", item["text"] as? String)
         }
     }
-})
+}
 ```
 
 ##<a name="filtering"></a>How to: Filter Returned Data
