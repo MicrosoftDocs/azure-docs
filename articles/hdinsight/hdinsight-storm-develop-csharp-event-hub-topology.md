@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/04/2015"
+   ms.date="01/28/2016"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -30,11 +30,11 @@ In this tutorial, you will learn how to use the HDInsight Tools for Visual Studi
 
 ## Prerequisites
 
-* An [Apache Storm on HDInsight cluster](hdinsight-storm-getting-started.md)
+* An [Apache Storm on HDInsight cluster](hdinsight-apache-storm-tutorial-get-started.md)
 
-* An [Azure Event Hub](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md)
+* An [Azure Event Hub](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-* The [Azure .NET SDK](https://azure.microsoft.com/downloads/)
+* The [Azure .NET SDK](http://azure.microsoft.com/downloads/)
 
 * The [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 

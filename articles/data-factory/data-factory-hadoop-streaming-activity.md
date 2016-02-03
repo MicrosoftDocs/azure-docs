@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Hadoop Streaming Activity
@@ -21,7 +21,7 @@ You can use the HDInsightStreamingActivity Activity invoke a Hadoop Streaming jo
 
 The HDInsight Streaming Activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Hadoop Streaming programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
 
-## JSON Sample
+## JSON sample
 The HDInsight cluster is automatically populated with example programs (wc.exe and cat.exe) and data (davinci.txt). By default, name of the container that is used by the HDInsight cluster is the name of the cluster itself. For example, if your cluster name is myhdicluster, name of the blob container associated would be myhdicluster. 
 
 	{
@@ -89,7 +89,7 @@ The pipeline in this walkthrough runs the Word Count streaming Map/Reduce progra
 
 ### Linked services
 
-#### Storage Linked Service
+#### Azure Storage linked service
 First, you create a linked service to link the Azure Storage that is used by the Azure HDInsight cluster to the Azure data factory. If you copy/paste the following code, do not forget to replace account name and account key with the name and key of your Azure Storage. 
 
 	{
@@ -102,7 +102,7 @@ First, you create a linked service to link the Azure Storage that is used by the
 	    }
 	}
 
-#### Azure HDInsight Linked Service
+#### Azure HDInsight linked service
 Next, you create a linked service to link your Azure HDInsight cluster to the Azure data factory. If you copy/paste the following code, replace HDInsight cluster name with the name of your HDInsight cluster, and change user name and password values. 
 	
 	{

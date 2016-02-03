@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="01/26/2016"
    ms.author="sethm" />
 
 # Using Service Bus from PHP with AMQP 1.0
@@ -82,7 +82,7 @@ $message->properties["TestString"] = "Service Bus";
 $message->properties["TestObject"] = new UUID("1234123412341234");   
 ```
 
-In the Service Bus .NET API, message application properties are carried in the **Properties** collection of [BrokeredMessage][]. The following code shows how to read the application properties of a message received from a PHP client.
+In the Service Bus .NET APIs, message application properties are carried in the **Properties** collection of [BrokeredMessage][]. The following code shows how to read the application properties of a message received from a PHP client.
 
 ```
 if (message.Properties.Keys.Count > 0)
@@ -172,9 +172,9 @@ The following table maps the .NET property types to the PHP property types.
 | Guid               | UUID              | Proton-PHP class                                                                                                                                                    |
 | string             | string            | -                                                                                                                                                                     |
 | DateTime           | integer           | -                                                                                                                                                                     |
-| DateTimeOffset     | DescribedType     | DateTimeOffset.UtcTicks mapped to AMQP type:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> |
-| TimeSpan           | DescribedType     | Timespan.Ticks mapped to AMQP type:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type>                        |
-| Uri                | DescribedType     | Uri.AbsoluteUri mapped to AMQP type:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>                               |
+| DateTimeOffset     | DescribedType     | DateTimeOffset.UtcTicks mapped to AMQP type:<type name="datetime-offset" class=restricted source="long"> <descriptor name="com.microsoft:datetime-offset" /></type> |
+| TimeSpan           | DescribedType     | Timespan.Ticks mapped to AMQP type:<type name="timespan" class=restricted source="long"> <descriptor name="com.microsoft:timespan" /></type>                        |
+| Uri                | DescribedType     | Uri.AbsoluteUri mapped to AMQP type:<type name="uri" class=restricted source="string"> <descriptor name="com.microsoft:uri" /></type>                               |
 
 ### Standard properties
 
@@ -213,7 +213,7 @@ The following tables show the mapping between the Proton-PHP standard message pr
 | MessageId               | Message-\>id                                           | -                                                        |
 | ReplyTo                 | Message-\>reply\_to                                    | -                                                        |
 | ReplyToSessionId        | Message-\>reply\_to\_group\_id                         | -                                                        |
-| ScheduledEnqueueTimeUtc | Message-\>annotations [“x-opt-scheduled-enqueue-time”] | -                                                        |
+| ScheduledEnqueueTimeUtc | Message-\>annotations ["x-opt-scheduled-enqueue-time"] | -                                                        |
 | SessionId               | Message-\>group\_id                                    | -                                                        |
 | TimeToLive              | Message-\>ttl                                          | Conversion, Proton-PHP TTL is defined in milliseconds. |
 | To                      | Message-\>address                                      | -                                                        |
@@ -227,7 +227,5 @@ Ready to learn more? Visit the following links:
 
 
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-
 [AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
-
 [Service Bus AMQP overview]: service-bus-amqp-overview.md

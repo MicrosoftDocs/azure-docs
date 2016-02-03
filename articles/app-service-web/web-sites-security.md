@@ -30,7 +30,7 @@ Security in Azure App Service has two levels:
 Because App Service maintains the Azure VMs, storage, network connections, web frameworks, management and integration features and much more, it is actively secured and hardened and goes 
 through vigorous compliance and checks on a continuous basis to make sure that:
 
-- Your App Service apps are isolated from both the Internet from other customers' Azure resources.
+- Your App Service apps are isolated from both the Internet and from the other customers' Azure resources.
 - Communication of secrets (e.g. connection strings) between your App Service app and other Azure resources (e.g. SQL Database) in a resource group stays within Azure and doesn't cross any network boundaries. Secrets are 
 always encrypted.
 - All communication between your App Service app and external resources, such as PowerShell management, command-line interface, Azure SDKs, REST APIs, and hybrid connections, are properly encrypted.
