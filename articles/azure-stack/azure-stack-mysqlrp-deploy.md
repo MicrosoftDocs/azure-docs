@@ -24,7 +24,7 @@ MySQL databases support common website platforms as is a common technology used 
 
 Before deploying MySQL resource providers, prepare the Azure Stack POC environment with the necessary certifications, marketplace items, and binaries.
 
-1.	On the Azure Stack POC machine, download the [AzureStackMySQLforWebApps.zip](http:\\tbd) file and extract the contents to D:\MySql.
+1.	On the Azure Stack POC machine, download the [AzureStackMySQLforWebApps.zip](http://aka.ms/MASMySQLRP) file and extract the contents to D:\MySql.
 
 2.	Run the **D:\Mysql\Bootstrap.cmd** file as an administrator (use the portal service admin account). This opens the Bootstrap.ps1 file in PowerShell ISE.
 
