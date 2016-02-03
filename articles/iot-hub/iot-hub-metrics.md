@@ -22,7 +22,7 @@ Diagnostic metrics are part of an Azure-wide metrics push to provide you better 
 
 You can enable diagnostic metrics from the Azure portal.
 
-# How to enable diagnostic metrics
+## How to enable diagnostic metrics
 
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
 
@@ -38,7 +38,7 @@ You can enable diagnostic metrics from the Azure portal.
 
   ![][3]
 
-# Metrics and how to use them
+## Metrics and how to use them
 
 IoT Hub provides several metrics to give you an overview of the health of your hub and the total number of devices connected to it. You can combine information from multiple metrics to paint a bigger picture of the state of the IoT hub. The following table describes the metrics each IoT hub tracks, and how each metric relates to the overall status of the IoT hub.
 
@@ -52,7 +52,7 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 | devices.totalDevices | The average, min, and max of the number of devices registered to the IoT hub | The number of devices registered to the hub |
 | devices.connectedDevices.allProtocol | The average, min, and max of the number of simultaneous connected devices | Overview of the number of devices connected to the hub |
 
-# Next steps
+## Next steps
 
 Now that you’ve seen an overview of diagnostic metrics, follow these links to learn more:
 

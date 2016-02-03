@@ -27,7 +27,7 @@ IoT Hub monitors four categories of events:
 - Cloud-to-device commands
 - Connections
 
-# How to enable operations monitoring
+## How to enable operations monitoring
 
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
 
@@ -39,11 +39,11 @@ IoT Hub monitors four categories of events:
 
   ![][2]
 
-# Event categories and how to use them
+## Event categories and how to use them
 
 Each operations monitoring category tracks a different type of interaction with IoT Hub, and each monitoring category has a schema which defines how events in that category are structured.
 
-## Device identity operations
+### Device identity operations
 
 The device identity operations category tracks errors which occur when the user attempts to create, update, or delete an entry in their IoT hub’s identity registry. Tracking this category is useful for provisioning scenarios.
 
@@ -60,7 +60,7 @@ The device identity operations category tracks errors which occur when the user 
          "sharedAccessPolicy": "accessPolicy"
     }
 
-## Device telemetry
+### Device telemetry
 
 The device telemetry category tracks errors which occur at the IoT hub and are related to the telemetry pipeline. This includes errors which occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). Note that this category cannot catch errors caused by code running on the device itself.
 
@@ -82,7 +82,7 @@ The device telemetry category tracks errors which occur at the IoT hub and are r
          "EventEnqueuedUtcTime": "UTC timestamp"
     }
 
-## Cloud-to-device commands
+### Cloud-to-device commands
 
 The cloud-to-device commands category tracks errors which occur at the IoT hub and are related to the device command pipeline. This includes errors which occur when sending commands (such as unauthorized sender), receiving commands (such as delivery count exceeded), and receiving command feedback (such as feedback expired). This category does not catch errors from a device that improperly handles a command if the command was delivered successfully.
 
@@ -104,7 +104,7 @@ The cloud-to-device commands category tracks errors which occur at the IoT hub a
          "EventEnqueuedUtcTime": “UTC timestamp"
     }
 
-## Connections
+### Connections
 
 The connections category tracks events caused by devices connecting or disconnecting from an IoT hub. Tracking this category is useful for identifying unauthorized connection attempts and for tracking when a connection is lost for devices in areas of poor connectivity.
 
@@ -122,7 +122,7 @@ The connections category tracks events caused by devices connecting or disconnec
          "deviceId": "device-ID"
     }
 
-# Next steps
+## Next steps
 
 Now that you’ve seen an overview of operations monitoring, follow these links to learn more:
 
