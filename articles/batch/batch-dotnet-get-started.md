@@ -290,8 +290,8 @@ private static async Task CreatePoolAsync(BatchClient batchClient, string poolId
     pool.StartTask = new StartTask
     {
         // Specify a command line for the StartTask that copies the task application files to the
-        // node's shared directory. Every compute node in a Batch pool is configured with a number
-        // of pre-defined environment variables that can be referenced by commands or applications
+        // node's shared directory. Every compute node in a Batch pool is configured with several
+        // pre-defined environment variables that you can reference by using commands or applications
         // run by tasks.
 
         // Since a successful execution of robocopy can return a non-zero exit code (e.g. 1 when one or
