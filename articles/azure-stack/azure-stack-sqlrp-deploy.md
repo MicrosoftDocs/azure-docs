@@ -88,7 +88,7 @@ Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and co
 
 3.	Take the certificate.pfx file you have created (Detailed steps are above) and place the certificate under d:\SQLRP\ AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment\Certificate Folder
 
-4.	Go to D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.57.0\Contents\
+4.	Go to D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment\Templates
 
 5.	Change the parameters in InstallSqlRpComplete-Parameters.json.
 
@@ -101,7 +101,7 @@ Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and co
 
 6. Invoke SqlRPTemplateDeployment.ps1 as admin (right click, “Run as Administrator”)
 
-    - When asked for AAD tenantID parameter – input your AAD tenant ID
+    - When asked for AAD tenantID parameter – input your AAD tenant name, e.g. microsoftazurestack.onmicrosoft.com
 
     - When asked for package name, provide: AzureStack.SqlRP.Setup.5.11.57.0.nupkg
     >this is case sensitive
