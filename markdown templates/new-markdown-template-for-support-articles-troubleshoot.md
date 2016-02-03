@@ -59,8 +59,3 @@ Opening paragraph
 
 ## Learn more (Optional)
 - Reference links to other related topics.
-
-## More information (Optional)
-- Information included in this section, if removed, won't impact the use of the article.
-- If only one topic is discussed, use a descriptive header for the topic to replace the "More information" heading.
-- If more than one topics are discussed, use description headers for each topic while keeping the "More information" heading.
