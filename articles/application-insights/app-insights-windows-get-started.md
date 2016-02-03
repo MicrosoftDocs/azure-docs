@@ -33,8 +33,6 @@ If your app has a server side, use [Application Insights](app-insights-overview.
 
 Although we recommend HockeyApp, there's also an older version of the Application Insights SDK that you can use to monitor [crashes][windowsCrash] and [usage][windowsUsage] on your Windows device apps. 
 
-This is useful if you want to integrate the client and server telemetry from your app. Send the client and server metrics to the same Application Insights resource.
-
 Please note that support for the older device SDK will be phased out.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
@@ -48,12 +46,11 @@ To install the older SDK, you'll need:
 
 ### 1. Get an Application Insights resource 
 
-In the [Azure portal][portal], choose or create your Application Insights resource. 
+In the [Azure portal][portal], create an Application Insights resource. 
 
-* If you are already monitoring the server side of your app, use that.
-* Or, to create a new resource:
+Create a new resource:
 
-    ![Choose New, Developer Services, Application Insights](./media/app-insights-windows-get-started/01-new.png)
+![Choose New, Developer Services, Application Insights](./media/app-insights-windows-get-started/01-new.png)
 
 A [resource][roles] in Azure is an instance of a service. This resource is where telemetry from your app will be analyzed and presented to you.
 
