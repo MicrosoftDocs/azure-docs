@@ -23,7 +23,7 @@ Applications hosted in Azure RemoteApp can fail to launch for a few different re
 
 Read on for information about common error messages due to app launch and connection failures.
 
-##We are getting you set up... Try again in 10 minutes.
+##We're getting you set up... Try again in 10 minutes.
 
 This error means Azure RemoteApp is scaling up to meet the capacity need of your users. In the background more Azure RemoteApp VM instances are being created to handle the capacity needs of your users. Typically this takes around five minutes but can take up to 10 minutes. Sometimes, this doesn't happen fast enough and resources are needed immediately. For example a 9 AM scenario where many users need to use your app in Azure RemoteAppn at the same time. If this happens to you we can enable **capacity mode** on the back end. To do this open an Azure Support ticket and or email us at [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com). Be certain to include your subscription ID in the request.  
 
@@ -45,7 +45,7 @@ This error message means the Azure RemoteApp client is having an issue and needs
 
 ![Azure RemoteApp has stopped working](./media/remoteapp-apptrouble/ra-apptrouble3.png)  
 
-## An error occurred while Remote Desktop Connection was accessing this resource, Retry the connection or contact your system administrator
+## An error occurred while Remote Desktop Connection was accessing this resource. Retry the connection or contact your system administrator
 
 This is a generic error message - contact Azure support and or email us at [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com) so we can investigate. 
 
