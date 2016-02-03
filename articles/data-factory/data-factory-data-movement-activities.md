@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Data movement activities
@@ -22,7 +22,7 @@ The [Copy Activity](#copyactivity) performs the data movement in Azure Data Fact
 Let’s understand how this data movement occurs in different scenarios.
 
 ## Copying data between two cloud data stores
-When both the source and sink (destination) data stores reside in the cloud, the copy Activity goes through the following stages to copy/move data from the source to the sink. The data movement service
+When both the source and sink (destination) data stores reside in the cloud, the copy Activity goes through the following stages to copy/move data from the source to the sink. The Data Movement Service performs the following: 
 
 1. Reads data from source data store
 2.	Performs serialization/deserialization, compression/decompression, column mapping, and type conversion based on the configurations of input dataset, output dataset and the Copy Activity 
@@ -32,7 +32,7 @@ When both the source and sink (destination) data stores reside in the cloud, the
 
 
 ## Copying data between an on-premises data store and a cloud data store
-To [securely move data between on-premises data stores behind your corporate firewall and a cloud data store](#moveonpremtocloud), you will need to install the Data Management Gateway, which is an agent that enables hybrid data movement and processing, on your on-premises machine. The Data Management Gateway can be installed on the same machine as the data store itself or on a separate machine that has access to reach the data store. In this scenario, the serialization/deserialization, compression/decompression, column mapping, and type conversion are performed by the Data Management Gateway. The Data Movement Service is not involved in this scenario. 
+To [securely move data between on-premises data stores behind your corporate firewall and a cloud data store](#moveonpremtocloud), you will need to install the Data Management Gateway, which is an agent that enables hybrid data movement and processing, on your on-premises machine. The Data Management Gateway can be installed on the same machine as the data store itself or on a separate machine that has access to reach the data store. In this scenario, the serialization/deserialization, compression/decompression, column mapping, and type conversion are performed by the Data Management Gateway. The Data Factory service is not involved in this scenario. 
 
 ![onprem-to-cloud copy](.\media\data-factory-data-movement-activities\onprem-to-cloud.png)
 
@@ -58,7 +58,7 @@ Copy Activity takes one input dataset (**source**) and one output dataset (**sin
 Copy Activity provides the following capabilities:
 
 ### <a name="global"></a>Globally available data movement
-Even though the Azure Data Factory itself is available only in the West US and North Europe regions, the data movement service powering the Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
+Even though the Azure Data Factory itself is available only in the West US and North Europe regions, the Data Movement Service powering the Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
 
 | Region | Geography |
 | ------ | --------- | 
@@ -76,8 +76,33 @@ Even though the Azure Data Factory itself is available only in the West US and N
 
 Note the following: 
 
-- If you are copying data from an **on-premises data source** to **cloud** or vice-versa (for example: on-premises SQL Server -> Azure Blob), the data movement is actually done by the **Data Management Gateway** in your on-premises environment with no involvement from the Data Movement Service.
-- If you are copying from a **cloud source** to a **cloud destination** (for example: Azure Blob -> Azure SQL), the **Data Movement Service** picks the deployment that is **closest to the sink location in the same geography** to do the transfer. For example, if you are copying from South East Asia to Japan West, the Data Movement Service deployment in Japan East is used to perform the copy. When source and destination are both in the same geography, and there is no Data Movement service available in that geography (for example Australia currently), the Copy Activity will fail instead of going through an alternative geography. Note: the data movement service would be extended to Australia too. 
+If you are copying data from **an on-premises data store to a cloud data store** or vice-versa (for example: on-premises SQL Server -> Azure Blob), the data movement is done by the **Data Management Gateway** in your on-premises environment with no involvement from the Data Movement Service. The data does not flow through the Data Movement Service in the cloud. 
+
+If a **data store is hosted on an Azure IaaS VM**, you need to use Data Management Gateway to move data to/from that data store. For example, if you need to copy data from an Oracle database hosted on an Azure VM to an Azure blob, you need to have the gateway installed on the same VM as the Oracle database or on another VM that is reachable to the database VM. In this scenario, the data transfer is done by the Data Management Gateway with no involvement from the Data Movement service. The data does not flow the Data Movement Service. 
+
+If you are copying from a **cloud source a cloud destination** (for example: Azure Blob -> Azure SQL), the **Data Movement Service** picks the region that is closest to the sink location in the same geography to do the transfer. Refer to below table for mapping.
+
+| Region of the destination data store | Region used for data movement |
+| ------------------------------------ | ----------------------------- |
+| East US | East US |
+| East US 2 | East US 2 |
+| Central US | Central US |
+| West US | West US |
+| North Central US | North Central US | 
+| South Central US | South Central US |
+| North Europe | North Europe | 
+| West Europe | West Europe |
+| Southeast Asia | South East Asia |
+| East Asia | South East Asia |
+| Japan East | Japan East |
+| Japan West | Japan East |
+| Brazil South | Brazil South |
+
+> [AZURE.NOTE] If the region of the destination data store is not in the list above, the Copy Activity will fail instead of going through an alternative region.
+> 
+> We will be extending to Australia East and Australia Southeast shortly.
+
+
 
 ### <a name="moveonpremtocloud"></a>Securely move data between on-premises location and cloud
 One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data management gateway is an agent you can install on-premises to enable hybrid data pipelines. 
