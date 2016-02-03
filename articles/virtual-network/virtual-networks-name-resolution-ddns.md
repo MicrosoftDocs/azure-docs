@@ -18,7 +18,7 @@
 # Using dynamic DNS to register hostnames
 [Azure provides name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) for virtual machines (VMs) and role instances. When your name resolution needs go beyond those provided by Azure, you are able to provide your own DNS servers. This gives you the power to tailor your DNS solution to suit your own specific needs. For example, accessing your on-premises Active Directory domain controller.
 
-Azure doesn't have the ability (i.e. credentials) to directly register records on your DNS servers, so alternative arrangements are often needed. High-level details of some of the more common scenarios are provided below.
+Azure doesn't have the ability (e.g. credentials) to directly register records on your DNS servers, so alternative arrangements are often needed. High-level details of some of the more common scenarios are provided below.
 
 ## Windows clients ##
 Non-domain-joined Windows clients attempt unsecured DDNS updates when they boot or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but this can be overridden in the VM, via the [UI](https://technet.microsoft.com/library/cc794784.aspx) or [by using automation](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).  
