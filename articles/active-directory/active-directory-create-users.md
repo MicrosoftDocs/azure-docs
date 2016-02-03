@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create or edit users in Azure Active Directory | Mictosoft Azure"
+	pageTitle="Create or edit users in Azure Active Directory | Microsoft Azure"
 	description="A topic that explains how to create or edit user accounts in Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
