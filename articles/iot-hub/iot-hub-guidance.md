@@ -96,6 +96,15 @@ For a device to connect to your hub, you must still add it to the IoT Hub device
 
 The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. It is recommended because IoT Hub continues to handle most of the solution traffic. However, there are cases where the custom authentication scheme is so intertwined with the protocol that a service processing all the traffic (*custom gateway*) is required. An example of this is [Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-gateway] topic.
 
+## Device heartbeat <a id="heartbeat"></a>
+
+The [IoT Hub identity registry][lnk-devguide-identityregistry] contains a field called *connectionState*. This field is intended for development and debugging scenarios and not to be queried by IoT solutions at runtime (e.g. checking if a device is connected in order to decide whether to send a c2d message or an SMS).
+In case an IoT solution needs to know if a device is connected (either at runtime, or with more accuracy than what *connectionState* provides), the solution has to implement the heartbeat pattern.
+
+The heartbeat pattern has the device send device-to-cloud messages at least once every fixed amount of time (e.g. 1 hour). This means that even if a device does not have any data to send, it will send an empty device-to-cloud message (usually with a property that identifies it as a heartbeat). On the service side, the solution will then maintain a map with the last heartbeat received, and assume problematic
+
+A more complex implementation could include the information from [operations monitoring][lnk-devguide-opmon] to identify devices that are trying to connect or communicate but failing. When implementing the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles][].
+
 ## Next steps
 
 Follow these links to learn more about Azure IoT Hub:
@@ -107,6 +116,7 @@ Follow these links to learn more about Azure IoT Hub:
 
 [lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
 [lnk-device-management]: iot-hub-device-management.md
+[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
 
 [lnk-device-sdks]: iot-hub-sdks-summary.md
 [lnk-devguide-security]: iot-hub-devguide.md#security
@@ -121,3 +131,4 @@ Follow these links to learn more about Azure IoT Hub:
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
+[IoT Hub Quotas and Throttles]: iot-hub-devguide.md#throttling

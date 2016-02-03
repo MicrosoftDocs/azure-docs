@@ -141,7 +141,7 @@ An IoT Hub device identity registry:
 
 An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
 
-> [AZURE.IMPORTANT] You should only use the device identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the device identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](#throttling) for the device identity registry.
+> [AZURE.IMPORTANT] You should only use the device identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the device identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](#throttling) for the device identity registry, and the [device heartbeat][lnk-guidance-heartbeat] pattern.
 
 ### Disabling devices
 
@@ -311,6 +311,11 @@ These are the expected values:
 
 **Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
 
+You can find the implementation of the signature algorithm in the OSS IoT Hub SDKs:
+
+* Java SDK, [service][https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth], [device][https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth],
+* [Node SDK][https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js]
+
 #### Protocol specifics
 
 Each supported protocol, such as AMQP, MQTT, and HTTP, transports tokens in different ways.
@@ -323,7 +328,7 @@ In the case of AMQP claims-based-security, the standard specifies how to transmi
 
 For SASL PLAIN, the **username** can be:
 
-* `{policyName}&commat;sas.root.{iothubName}` in the case of hub-level tokens.
+* `{policyName}@sas.root.{iothubName}` in the case of hub-level tokens.
 * `{deviceId}` in the case of device-scoped tokens.
 
 In both cases, the password field contains the token, as described in the [Token format](#tokenformat) section.
@@ -391,7 +396,7 @@ Iot Hub supports [AMQP][lnk-amqp], AMQP over WebSockets, MQTT, and HTTP/1 protoc
 * **Network traversal**. MQTT standard listens on port 8883. This could cause problems in networks that are closed to non-HTTP protocols. Both HTTP and AMQP (over WebSockets) are available to be used in this scenario.
 * **Payload size**. AMQP and MQTT are binary protocols, which are significantly more compact than HTTP/1.
 
-At a high level, you should use AMQP (or AMQP over WebSockets) whenever possible, and only use MQTT when resource contraints prevent the use of AMQP. HTTP/1 should be used only if both network traversal and network configuration prevent the use of MQTT and AMQP. Moreover, when using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more. 
+At a high level, you should use AMQP (or AMQP over WebSockets) whenever possible, and only use MQTT when resource contraints prevent the use of AMQP. HTTP/1 should be used only if both network traversal and network configuration prevent the use of MQTT and AMQP. Moreover, when using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more.
 
 > [AZURE.NOTE] Clearly during development, it is acceptable to poll more frequently than every 25 minutes.
 
@@ -605,6 +610,7 @@ Now that you've seen an overview of developing for IoT Hub, follow these links t
 [lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
 [lnk-guidance-scale]: iot-hub-scaling.md
 [lnk-guidance-security]: iot-hub-guidance.md#customauth
+[lnk-guidance-heartbeat]: iot-hub-guidance.md#heartbeat
 
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
