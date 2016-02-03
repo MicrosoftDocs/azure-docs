@@ -101,7 +101,7 @@ These instructions refer to line numbers. To enable line numbering in Visual Stu
 		@OptionalParameters `
 		-ErrorAction Stop 	
 
-	New-AzureRMResourceGroupDeployment
+	New-AzureRMResourceGroupDeployment `
 		-Name ((Get-ChildItem $TemplateFile).BaseName + '-' + ((Get-Date).ToUniversalTime()).ToString('MMdd-HHmm')) `
 	    -ResourceGroupName $ResourceGroupName `
 	    -TemplateFile $TemplateFile `
