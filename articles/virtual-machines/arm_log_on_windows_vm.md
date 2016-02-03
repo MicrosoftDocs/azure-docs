@@ -47,6 +47,7 @@ In the Azure portal, you use the **Connect** button to start a Remote Desktop se
 
 	![Continue with connecting](./media/arm_log_on_windows_vm/rm_connect_unknown.png)
 
+	
 6. In the Windows Security window, type the credentials for an account on the virtual machine and then click **OK**.
 
  	In most cases, the credentials are the local account user name and password that you specified when you created the virtual machine. In this case, the domain is the name of the virtual machine and it is entered as *vmname*&#92;*username*.  
