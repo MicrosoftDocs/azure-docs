@@ -25,6 +25,7 @@ This article provides you an overview of how to understand charges related to yo
 Once you log in the [Azure Accounts Portal](https://account.windowsazure.com/subscriptions/) you can review and download current and past bills.
 
 To view or download your bill:
+
 1. Sign in to the Azure Accounts Portal using your Org ID.
 2. Click on Marketplace.
 The list being displayed is a complete list of all Marketplace orders that have been placed by your Azure account. You’ll notice that the orders are grouped by the parent Azure subscription name and ID.
@@ -56,6 +57,7 @@ To update your payment method click on the **Change payment method** link on the
 This link will bring you to a different portal where you will be able to make changes to your preferred payment method.
 
 To change your payment method, follow these steps:
+
 1. Click on **Change how you pay**.
 
 ![Subscriptions](./media/billing-understand-your-azure-marketplace-charges/subscriptions.jpg)
@@ -84,6 +86,7 @@ If you are interested in viewing your actual charges click **View Charges**. You
 ![Billing history](./media/billing-understand-your-azure-marketplace-charges/billing-history.png)
 
 To view actual charges, follow these steps:
+
 1. Click **View Charges** on the **BILLING HISTORY** page.
 A new tab will open showing the [order history](https://account.microsoft.com/billing/orders#/).
 > [AZURE.NOTE] If you are trying to access pull your raw usage in the Billing and Account Management Portal you’ll need to call support by clicking on the support link at the bottom of the page.)
