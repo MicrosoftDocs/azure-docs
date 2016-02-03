@@ -143,10 +143,6 @@ DocumentDB supports client-side partitioning for a couple of reasons:
 - It is really difficult to abstract away the concept of a collection from developers without compromising one of the three among consistent indexing/querying, high availability and ACID transaction guarantees. 
 - Document databases often require flexibility in terms of defining partitioning strategies, which a server-side approach might not be able to accommodate. 
 
-**Why is partitioning not supported in other platforms (Node.js, Java, or Python)?**
-
-We will gradually rollout partitioning support to other platforms based on feedback from the .NET SDK customers.
-
 **How do I add or remove a collection to my partitioning scheme?**
 
 Take a look at the implementation of DocumentClientHashPartitioningManager in the samples project for an example of how you can implement repartitioning.
