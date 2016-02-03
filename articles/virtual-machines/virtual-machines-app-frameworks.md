@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Deploy popular applications using templates | Microsoft Azure"
-   description="Create popular workloads by using Azure Resource Manager templates to install applications such as Active Directory, Docker, and many more."
+   pageTitle="Deploy popular application frameworks using templates | Microsoft Azure"
+   description="Create popular application frameworks by using Azure Resource Manager templates to install Active Directory, Docker, and many more."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="10/21/2015"
+   ms.date="02/03/2016"
    ms.author="rasquill"/>
 
-# Deploy popular applications by using templates
+# Deploy popular application frameworks by using Azure Resource Manager templates
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
