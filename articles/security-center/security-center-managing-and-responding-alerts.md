@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/16/2015"
+   ms.date="02/02/2016"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
@@ -27,7 +27,7 @@ This document helps you use Azure Security Center capabilities to manage and res
 ## What are security alerts?
  Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and partner solutions like antimalware programs and firewalls to detect real threats and reduce false positives. A list of prioritized alerts is surfaced as security alerts.  
 
-You can review your current alerts by looking at the **Security alerts tile**. Follow the steps below to see more details about each alert:
+You can review your current alerts by looking at the **Security alerts** tile. Follow the steps below to see more details about each alert:
 
 1. On the Security Center dashboard, you will see the **Security alerts** tile.
 
@@ -49,7 +49,6 @@ In the bottom part of this blade are the details for each alert. To sort, click 
 
 - **Severity**: The severity level, which can be high, medium or low.
 
-
 ### Respond to security alerts
 Many activities can indicate a possible attack on your organization. For example, a network administrator performing a legitimate network capture might appear similar to someone launching some form of attack. In other cases, a badly configured system might lead to a number of false positives in an intrusion detection system, which can make it more difficult to spot genuine incidents. After you review the security alerts by using
  Security Center, you can start to take actions based on an alert’s severity.
@@ -66,7 +65,7 @@ In this case, the alerts that were triggered refer to suspicious Remote Desktop 
  Security Center will vary according to the security alert. In some cases, you may have to use other Azure capabilities to implement the recommended remediation. For example, the remediation for this attack is to blacklist the IP address that is generating this attack by using a [network ACL](virtual-networks-acl.md) or a [network security group](virtual-networks-nsg.md) rule.
 
 ### Manage security alerts
-You can filter alerts based on date, state, and severity. Under the **Security alerts** blade, click **Filter**, and then enable the options that you want as shown below.
+You can filter alerts based on date, state, and severity. On the **Security alerts** blade, click **Filter**, and then enable the options that you want as shown below.
 
 ![Filter alerts in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5.png)
 
