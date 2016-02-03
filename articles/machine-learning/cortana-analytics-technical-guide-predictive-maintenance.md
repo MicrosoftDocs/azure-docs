@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/29/2016"
-	ms.author="garye;fboylu" />
+	ms.author="zhangya;gshaheen;grecoe;fboylu" />
 
 # Technical guide to the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses
 
@@ -476,7 +476,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
     -   On the left panel Datasets section in My Workspace, the
     ***DATASET*** names **aircraftmonitor**, **aircraftalert**, and
     **flightsbyhour** previously defined in the Power BI output settings
-    in the ASA job should appear.HD
+    in the ASA job should appear.The dataset **flightsbyhour** may not show up at the same time as the other two datasets due to the nature of the SQL query behind it. However, it should show up after an hour.
     -   Make sure the ***Visualizations*** pane is open and is shown on the
     right side of the screen.
 
