@@ -22,7 +22,7 @@
 
 Azure Load Balancer offers the capability to monitor the health of the server instances using probes. When a probe fails to respond, Azure Load Balancer stops sending new connections to the unhealthy instance. 
 
-A TCP or HTTP custom probe must be configured when you use virtual machines behind a load balancer. PaaS roles (worker roles and web roles) are the only server instances with guest agent probe monitoring.
+A TCP or HTTP custom probes must be configured when you use virtual machines behind a load balancer. PaaS roles (worker roles and web roles) are the only server instances with guest agent probe monitoring.
  
 ## Understanding probe count and timeout
 
@@ -46,7 +46,7 @@ Check out [configuring the service definition file (csdef) for health probes](ht
 
 If the Guest Agent fails to respond with HTTP 200 OK, the Azure Load Balancer marks the instance as unresponsive and stops sending traffic to that instance. The Azure Load Balancer will continue to ping the instance, and if the Guest Agent responds with an HTTP 200, the Azure Load Balancer will send traffic to that instance again.
 
-When using a web role your website code typically runs in w3wp.exe, which is not monitored by the Azure fabric or guest agent,  so failures in w3wp.exe (eg. HTTP 500 responses) will not be reported to the guest agent, and the load balancer will not know to take that instance out of rotation.
+When you use a web role, the web site code typically runs in w3wp.exe, which is not monitored by the Azure fabric or guest agent,  so failures in w3wp.exe (eg. HTTP 500 responses) will not be reported to the guest agent, and the load balancer will not know to take that instance out of rotation.
 
 
 ### HTTP custom probe
@@ -60,7 +60,7 @@ The custom HTTP load balancer probe overrides the default guest agent probe and 
 
 - The HTTP application returns an HTTP response code other than 200 (i.e. 403, 404, 500, etc.). This is a positive acknowledgment that the application instance wants to be taken out of service right away.
 
--  In the event the HTTP server does not respond at all after the timeout period. Note that depending on timeout value set, this might mean multiple probe requests go unanswered before marking probe as down (i.e. SuccessFailCount probes are sent)
+-  In the event the HTTP server does not respond at all after the timeout period. Note that depending on timeout value set, this might mean multiple probe requests go unanswered before marking probe as down (i.e. SuccessFailCount probes are sent).
 - 	When the server closes the connection via a TCP reset.
 
 ### TCP custom probe
