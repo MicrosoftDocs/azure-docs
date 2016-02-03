@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="2/2/2016"
+	ms.date="02/03/2016"
 	ms.author="jroth" />
 
 # Backup and Restore for SQL Server in Azure Virtual Machines
