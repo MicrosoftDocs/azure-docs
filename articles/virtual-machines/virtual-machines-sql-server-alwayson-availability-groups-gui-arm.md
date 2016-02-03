@@ -19,9 +19,9 @@
 # Configure AlwaysOn Availability Groups in Azure VM (GUI)
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
-- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
-- [ARM portal](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
+- [Portal - Classic](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell - Classic](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
 
@@ -162,7 +162,7 @@ On **VM size, storage settings** choose a SQL Server virtual machine size and re
 
 - **SQL Server data disk size** in TB is the size of the SQL Server data disk in TB. Specify a number from 1 through 4. This is the size of the data disk that will be attached to each SQL Server. For this tutorial use **1**. 
 
-- **Storage optimization** sets specific storage configuration settings for the SQL Server virtual machines based on the workload type. All SQL Servers in this scenario use Premium Storage with Azure disk host cache set to read only. In addition, you can optimize SQL Server settings for the workload by choosing one of these three settings:
+- **Storage optimization** sets specific storage configuration settings for the SQL Server virtual machines based on the workload type. All SQL Servers in this scenario use premium storage with Azure disk host cache set to read only. In addition, you can optimize SQL Server settings for the workload by choosing one of these three settings:
 
     - **General workload** sets no specific configuration settings 
 
@@ -172,24 +172,29 @@ On **VM size, storage settings** choose a SQL Server virtual machine size and re
 
 For this tutorial use **General workload**.
 
-Additional optimizations depend on the size of the SQL Server data disks. For each terabyte of data disk, Azure adds an additional 1 TB premium storage (SSD). When a server requires 2 TB or more, the template creates a storage pool. A storage pool is a form of storage virtualization where multiple discs are configured to provide higher capacity, resiliency, and performance.  The template then creates a storage space on the storage pool and presents this as a single data disk to the operating system. The template tunes the storage pool for SQL Server with the following settings:
+Additional optimizations depend on the size of the SQL Server data disks. For each terabyte of data disk, Azure adds an additional 1 TB premium storage (SSD). When a server requires 2 TB or more, the template creates a storage pool on each SQL Server. A storage pool is a form of storage virtualization where multiple discs are configured to provide higher capacity, resiliency, and performance.  The template then creates a storage space on the storage pool and presents this as a single data to the operating system. The template designates this disk as the data disk for SQL Server. The template tunes the storage pool for SQL Server with the following settings:
 
 - Stripe size is the interleave setting for the virtual disk. For transactional workloads this is set to 64 KB. For data warehousing workloads the setting is 256 KB. 
-- Resilient type is simple (no resiliency).
+
+- Resiliency is simple (no resiliency).
+
 >[AZURE.NOTE] Azure premium storage is locally redundant and keeps three copies of the data within a single region, so additional resiliency at the storage pool is not required. 
 
-- Column count equals the number of disks in the storage pool
+- Column count equals the number of disks in the storage pool. 
 
-For additional information, see [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx). 
+For additional information about storage space and storage pools see:
 
- [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
+- [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx). 
+
+- [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
 
 ![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
+
+- Review the settings and click **OK**. 
 
 For more information about SQL Server configuration best practices, see
 [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md)
 
-- Review the settings and click **OK**. 
 
 ###SQL Server settings
 
@@ -258,3 +263,4 @@ You are now connected to the primary domain controller. To RDP to the SQL Server
 1.	Use the same user account and password that you used to RDP to the domain controller. 
 
 You are now connected with RDP to the SQL Server. You can open SQL Server management studio, connect to the default instance of SQL Server and verify the AlwaysOn availabilty group is configured. 
+
