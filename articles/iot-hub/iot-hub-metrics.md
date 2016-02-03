@@ -28,15 +28,15 @@ You can enable diagnostic metrics from the Azure portal.
 
 2. Open the blade of your IoT hub. From there, click on **All settings**, and then click **Diagnostics**.
 
-  ![][1]
+    ![][1]
 
 3. Configure your diagnostics by setting the status to **On** and selecting a storage account to store the diagnostics data. Check the metrics checkbox, and then press **Save**. Please note that the storage account must be created ahead of time and you will be charged separately for storage.
 
-  ![][2]
+    ![][2]
 
 4. After you have set up the diagnostics, return to the main IoT hub blade. Metrics information is populated in the **Monitoring** section of the blade. Clicking on the chart opens the metrics pane where you can view a summary of the metrics information for your IoT hub and edit the selection of metrics shown in the chart. You can also configure alerts based on metric values.
 
-  ![][3]
+    ![][3]
 
 ## Metrics and how to use them
 

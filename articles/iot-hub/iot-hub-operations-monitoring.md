@@ -33,11 +33,11 @@ IoT Hub monitors four categories of events:
 
 2. Open the blade of your IoT hub. From there, click on **All settings**, and then click **Operations monitoring**.
 
-  ![][1]
+    ![][1]
 
 3. Select the monitoring categories you wish you monitor, and then click **Save**. The events are available for reading from the Event Hub-compatible endpoint listed in **Monitoring settings**.
 
-  ![][2]
+    ![][2]
 
 ## Event categories and how to use them
 
