@@ -69,3 +69,7 @@ application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app
 
 There is much more detail on all of these issues in the Azure.com library,
 beginning with [What is application access and single sign-on with Azure Active Directory.](active-directory-appssoaccess-whatis.md).
+
+## See also
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

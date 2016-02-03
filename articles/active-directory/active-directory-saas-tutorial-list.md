@@ -172,6 +172,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 
 
+##Related Articles
 
-
-[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
