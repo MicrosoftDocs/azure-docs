@@ -25,12 +25,12 @@
 
 <br/>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Classic model.
 
 
-This end-to-end tutorial shows you how to create a SQL Server Availability Group on new Azure Resource Manager model virtual machines.
+This end-to-end tutorial shows you how to create a SQL Server Availability Group with Azure Resource Manager model virtual machines. The tutorial uses Azure blades to configure a template. You will review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial. 
 
->[AZURE.NOTE] In the Azure Management Portal, there is a new gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). To use PowerShell, see the tutorial of the same scenario at [Configure AlwaysOn Availability Groups in Azure with PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md).
+>[AZURE.NOTE] In the Azure Management Portal, there is a new gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). 
 
 At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:
 
@@ -48,10 +48,7 @@ The figure below is a graphical representation of the solution.
 
 ![Test Lab Architecture for AG in Azure](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/0-EndstateSample.png)
 
-
-
 All of the resources in this solution belong to a single resource group.
-
 
 This tutorial assumes the following:
 
@@ -107,7 +104,7 @@ Below is what the **Basics** blade will look like:
 
 ### Domain and network settings
 
-This Azure gallery template creates a new domain with new domain controllers. It also creates a new network and subnets. The template does not enable creating the servers in an existing domain or virtual network. The next step is to configure the domain and network settings. 
+This Azure gallery template creates a new domain with new domain controllers. It also creates a new network and two subnets. The template does not enable creating the servers in an existing domain or virtual network. The next step is to configure the domain and network settings. 
 
 On **Domain and network settings** blade review the preset values for the domain and network settings:
 
@@ -136,6 +133,7 @@ On **Availability group settings** review the preset values for teh availability
 - **Availablity group name** is the clustered resource name for the availability group. For this tutorial use **Contoso-ag**. 
 
 - **Availability group listener name** is used by the cluster and the internal load balancer. Clients connecting to SQL Server can use this name to connect to the appropriate replica of the database. For this tutorial use **Contoso-listener**. 
+
 -  **Availability group listener port** specifies the TCP port the SQL Server listener will use. For this tutorial use the default port, **1433**.
 
 If necessary, you may change these values. For this tutorial use the preset values.  
@@ -150,9 +148,9 @@ On **VM size, storage settings** choose a SQL Server virtual machine size and re
 
 - **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
-- **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
-
 >[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+
+- **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
 
 - **File Share Witness virtual machine size** is the virtual machine size for the file share witness. For this tutorial use **A1**.
 
@@ -172,6 +170,12 @@ On **VM size, storage settings** choose a SQL Server virtual machine size and re
 
 For this tutorial use **General workload**.
 
+![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
+
+- Review the settings and click **OK**. 
+
+####A note about storage
+
 Additional optimizations depend on the size of the SQL Server data disks. For each terabyte of data disk, Azure adds an additional 1 TB premium storage (SSD). When a server requires 2 TB or more, the template creates a storage pool on each SQL Server. A storage pool is a form of storage virtualization where multiple discs are configured to provide higher capacity, resiliency, and performance.  The template then creates a storage space on the storage pool and presents this as a single data to the operating system. The template designates this disk as the data disk for SQL Server. The template tunes the storage pool for SQL Server with the following settings:
 
 - Stripe size is the interleave setting for the virtual disk. For transactional workloads this is set to 64 KB. For data warehousing workloads the setting is 256 KB. 
@@ -187,10 +191,6 @@ For additional information about storage space and storage pools see:
 - [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx). 
 
 - [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
-
-![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
-
-- Review the settings and click **OK**. 
 
 For more information about SQL Server configuration best practices, see
 [Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md)
