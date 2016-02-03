@@ -88,7 +88,7 @@ To create a database query, query the `MSTable` object. The following query gets
 **Swift**:
 
 ```
-table.readWithCompletion() {(result, error) in
+table.readWithCompletion {(result, error) in
     if let err = error {
         print("ERROR ", err)
     } else {
