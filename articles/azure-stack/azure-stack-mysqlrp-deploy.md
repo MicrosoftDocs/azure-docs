@@ -18,7 +18,7 @@
 
 # MySQL resource providers
 
-You can deploy MySQL resource providers in your Azure Stack POC environment.
+MySQL databases support common website platforms as is a common technology used on the websites scene. You can deploy the MySQL Resource Provider to work with servers and databases through Azure Resource Manager deployment templates, as well as deploy WordPress websites from the Azure Web Apps add on for Azure Stack
 
 ## Prepare the Azure Stack POC machine
 
