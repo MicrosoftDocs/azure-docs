@@ -45,7 +45,7 @@ In the Azure portal, you use the **Connect** button to start a Remote Desktop se
 	
 5. In the Remote Desktop window, click **Connect** to continue.
 
-	![Continue with connecting](./media/arm_log_on_windows_vm/rm_conect_unknown.png)
+	![Continue with connecting](./media/arm_log_on_windows_vm/rm_connect_unknown.png)
 
 6. In the Windows Security window, type the credentials for an account on the virtual machine and then click **OK**.
 
