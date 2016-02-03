@@ -45,16 +45,16 @@ If your organization uses more than one domain, you should know about the follow
 
 To edit a user in the Azure classic portal:
 
-1. Click **Active Directory**, and then click on the name of your organization’s directory.
-2. On the **Users** page, click on the display name of the user you want to edit.
+1. Click **Active Directory**, and then click the name of your organization’s directory.
+2. On the **Users** page, click the display name of the user you want to edit.
 3. Complete your changes, and then click **Save**.
 
 If the user that you are trying to edit is synchronized with your on-premises Active Directory service, an error message appears, and you will be unable to edit the user using this procedure. To edit the user, use your local Active Directory management tools.
 
 ## Reset a user's password
 
-1. Click **Active Directory**, and then click on the name of your organization’s directory.
-2. On the **Users** page, click on the display name of the user you want to edit.
+1. Click **Active Directory**, and then click the name of your organization’s directory.
+2. On the **Users** page, click the display name of the user you want to edit.
 3. At the bottom of the portal, click **Reset Password**.
 4. In the reset password dialog, click **reset**.
 5. Click the check mark to confirm that the password was reset.
@@ -78,7 +78,7 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 
 Here are services that currently support access by Azure AD external users:
 
-- Azure management portal: allows an external user who is an administrator of multiple directories to manage each of those directories
+- Azure classic portal: allows an external user who is an administrator of multiple directories to manage each of those directories
 - SharePoint Online: allows an external user to access SharePoint Online authorized resources if external sharing is enabled
 - Dynamics CRM: allows an external user to access authorized resources in Dynamics CRM if the user is licensed via PowerShell
 
@@ -105,8 +105,8 @@ Guests have a limited set of rights in the directory. These rights limit the abi
 
 ## Configure user access policies
 
-The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator.
-To open the **Configure** tab in the Azure portal, click **Active Directory**, and then click the name of the directory.
+The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the Azure classic portal by a directory global administrator.
+To open the **Configure** tab in the Azure classic portal, click **Active Directory**, and then click the name of the directory.
 
 ![][1]
 
