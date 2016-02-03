@@ -81,9 +81,7 @@ To view actual charges, follow these steps:
 1. Click **View Charges** on the **BILLING HISTORY** page.
 A new tab will open showing the [order history](https://account.microsoft.com/billing/orders#/).
 
-> [AZURE.NOTE] If you are trying to access pull your raw usage in the Billing and Account Management Portal you’ll need to call support by clicking on the support link at the bottom of the page.)
-
+Please note that if you are trying to access pull your raw usage in the Billing and Account Management Portal you’ll need to call support by clicking on the support link at the bottom of the page.)
 ![Order history](./media/billing-understand-your-azure-marketplace-charges/order-history.jpg)
-
 2. Identify the order you would like to review and click **Details** to view a breakdown of your charges which will include subtotal, tax and total charges.
 ![Order details](./media/billing-understand-your-azure-marketplace-charges/order-details.jpg)
