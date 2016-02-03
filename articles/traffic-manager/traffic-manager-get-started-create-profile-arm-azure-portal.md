@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [traffic-manager-get-started-create-profile-arm-selectors-include.md](../../includes/traffic-manager-get-started-create-profile-arm-selectors-include.md)]
 <BR>
-[AZURE.INCLUDE [traffic-manager-get-started-create-profile-intro-include.md](../../includes/traffic-manager-get-started-create-profile-intro-include.md)]
+[AZURE.INCLUDE [traffic-manager-get-started-create-profile-intro-arm-include.md](../../includes/traffic-manager-get-started-create-profile-intro-arm-include.md)]
 <BR>
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](traffic-manager-get-started-create-profile-classic-azure-portal.md).
 <BR>

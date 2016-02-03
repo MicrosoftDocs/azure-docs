@@ -1,10 +1,10 @@
 A traffic manager profile will dictate the routing behavior for Internet client requests to the defined endpoints. There are 3 types of routing methods used by traffic manager:
 
-- Failover 
-- Round-robin
+- Priority  
+- Weighted 
 - Performance
 
-The chosen routing method will define to which endpoint will respond to the client request, either random (Round-robin), lesser latency between Internet client and endpoint (Performance) or to an online endpoint (Failover).
+The chosen routing method will define to which endpoint will respond to the client request, either random (Weighted), lesser latency between Internet client and endpoint (Performance) or to an online endpoint (Priority).
 
 Check out [Traffic Manager traffic routing Methods](traffic-manager-load-balancing-methods.md) for more information.
 

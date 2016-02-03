@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-arm-selectors-include.md](../../includes/traffic-manager-get-started-create-endpoint-arm-selectors-include.md)]
 
-[AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-intro-include.md](../../includes/traffic-manager-get-started-create-endpoint-intro-include.md)]
+[AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-intro-arm-include.md](../../includes/traffic-manager-get-started-create-endpoint-intro-include.md)]
 
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](traffic-manager-get-started-create-endpoint-classic-ps.md).
 
