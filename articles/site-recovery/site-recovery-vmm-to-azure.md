@@ -143,7 +143,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net
 		- *.store.core.windows.net
-	- Allow the IP addresses described in [Azure Datacenter IP Ranges](http://go.microsoft.com/fwlink/?LinkId=511094) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
+	- Allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
 
 	- If you use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully. The VMM RunAs account settings can be modified in the VMM console. To do this, open the Settings workspace, expand Security, click Run As Accounts, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
 
