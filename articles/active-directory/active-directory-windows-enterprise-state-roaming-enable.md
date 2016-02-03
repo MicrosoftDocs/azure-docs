@@ -1,27 +1,27 @@
 <properties
 	pageTitle="Enable Enterprise State Roaming in Azure Active Directory | Microsoft Azure"
-	description="Frequently asked questions about Enterprise State Roaming Settings in Windows devices. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
+	description="Frequently asked questions about Enterprise State Roaming settings in Windows devices. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
 	services="active-directory"
-    keywords="enterprise settings sync, windows cloud"
-	documentationCenter=""
-	authors="femila"
-	manager="stevenpo"
-	editor="curtand"/>
-
-<tags
 	ms.service="active-directory"  
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/03/2016"
 	ms.author="femila"/>
 
 # Enable Enterprise State Roaming in Azure Active Directory
 
-Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more details on how to get an Azure AD subscription, see the [Azure AD product page](https://azure.microsoft.com/services/active-directory).
+Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more details on how to get an Azure AD subscription, see the [Azure
+    keywords="enterprise state roaming, windows cloud, how to enable enterprise state roaming"
+	documentationCenter=""
+	authors="femila"
+	manager="stevenpo"
+	editor="curtand"/>
 
-When you enable Enterprise State Roaming, your organization will be automatically granted licenses for a free subscription to Azure Rights Management Service. This free subscription is limited to encrypting and decrypting enterprise settings data only; you must have a paid subscription to use the full capabilities of Azure Rights Management. 
+<tags AD product page](https://azure.microsoft.com/services/active-directory).
+
+When you enable Enterprise State Roaming, your organization will be automatically granted licenses for a free subscription to Azure Rights Management. This free subscription is limited to encrypting and decrypting enterprise settings data only; you must have a paid subscription to use the full capabilities of Azure Rights Management. 
 
 After obtaining an Azure AD subscription, follow these steps to enable Enterprise State Roaming:
  
@@ -31,7 +31,8 @@ After obtaining an Azure AD subscription, follow these steps to enable Enterpris
 3. Go to the **Configure** tab on the top.
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-configure.png)
 4.	Scroll down the page and select **Users may Sync settings and enterprise app data**, and then click **Save**.
- 
+![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-select-all-sync-settings.png)
+
 For a Windows 10 device to roam settings with the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary login is the Azure AD identity, so no extra configuration is required. For devices that use a traditional on-premises Active Directory, the IT admin must connect the on-premises Active Directory to Azure AD using [Azure AD Connect](active-directory-aadconnect.md) and then must configure Group Policy to force client devices to automatically sync user data with Azure.
 
 ## Sync data storage
@@ -50,10 +51,10 @@ Data synced to Azure via Enterprise State Roaming will be retained indefinitely 
  
 - **Manually deleting data**: If the Azure AD admin wants to manually delete settings data, the admin can file a ticket with [Azure support](https://azure.microsoft.com/support/options/).
  
- - **User deletion** : When a user is deleted in Azure AD, the user account will be put into a disabled state for 30 days. After 30 days, the account will be deleted, and the associated Settings data is subject to deletion. 
+ - **User deletion**: When a user is deleted in Azure AD, the user account will be put into a disabled state for 30 days. After 30 days, the account will be deleted, and the associated settings data is subject to deletion. 
  - **Tenant (directory) deletion**: Deleting an entire directory in Azure AD is an immediate operation. All the settings data associated with that directory will then be subject to deletion. 
  - **Settings deletion**: If the Azure AD admin wants to immediately delete a specific user’s settings data, the admin can file a ticket with Azure support. 
-- **Stale data** - Data that has not been accessed for one year (“the retention period”) will be treated as stale and may be deleted from Azure. The stale data may be a specific set of Windows/application settings or all settings for a user. For example: 
+- **Stale data**: Data that has not been accessed for one year (“the retention period”) will be treated as stale and may be deleted from Azure. The stale data may be a specific set of Windows/application settings or all settings for a user. For example: 
  - If no devices access a particular settings collection (e.g., an application is removed from the device, or a settings group such as “Theme” is disabled for all of a user’s devices), then that collection will become stale after the retention period and may be deleted. 
  - If a user has turned off settings sync on all his/her devices, then none of the settings data will be accessed, and all the settings data for that user will become stale and may be deleted after the retention period. 
  - If the Azure AD directory admin turns off Enterprise State Roaming for the entire directory, then all users in that directory will stop syncing settings, and all settings data for all users will become stale and may be deleted after the retention period. 

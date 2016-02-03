@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Enterprise State Roaming Overview | Microsoft Azure"
-	description="Provides information about Enterprise State Roaming Settings in Windows devices. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
+	pageTitle="Enterprise state roaming overview | Microsoft Azure"
+	description="Provides information about Enterprise State Roaming settings in Windows devices. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
 	services="active-directory"
     keywords="enterprise settings sync, windows cloud"
 	documentationCenter=""
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/02/2016"
+	ms.date="02/03/2016"
 	ms.author="femila"/>
 
 # Enterprise state roaming overview
 
-With Windows 10, Azure Active Directory (Azure AD) users gain the ability to securely synchronize their user settings and application settings data to the cloud. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device. Enterprise State Roaming operates similar to the standard consumer settings sync that was first introduced in Windows 8. Additionally, Enterprise State Roaming offers:
+With Windows 10, [Azure Active Directory (Azure AD)](active-directory-whatis.md) users gain the ability to securely synchronize their user settings and application settings data to the cloud. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device. Enterprise State Roaming operates similar to the standard [consumer settings sync](http://windows.microsoft.com/windows-8/sync-settings-pcs) that was first introduced in Windows 8. Additionally, Enterprise State Roaming offers:
 
 - **Separation of corporate and consumer data** – Organizations are in control of their data, and there is no mixing of corporate data in a consumer cloud account or consumer data in an enterprise cloud account. 
 - **Enhanced security** – Data is automatically encrypted before leaving the user’s Windows 10 device by using Azure Rights Management (Azure RMS), and data stays encrypted at rest in the cloud. All content stays encrypted at rest in the cloud, except for the namespaces, like settings names and Windows app names.  
@@ -28,7 +28,7 @@ With Windows 10, Azure Active Directory (Azure AD) users gain the ability to sec
 
 
 
-| Topic                                            | Description                                                                                                                                                                                             |
+| Article                                         | Description                                                                                                                                                                                             |
 |--------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md) | Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more details on how to get an Azure AD subscription, see the Azure AD product page. |
 | [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)                    | This topic answers some questions IT administrators might have about settings and app data sync.                                                                                                        |
