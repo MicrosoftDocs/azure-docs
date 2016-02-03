@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/28/2015"
+    ms.date="02/01/2016"
     ms.author="chhavib;olgali"/>
 
 # Use sample experiments to create new experiments
@@ -36,7 +36,7 @@ When you want to create an experiment, look for examples in Machine Learning tea
 2. Browse through the Sample content, and pick one to use as a template.
 
 ## Next steps
-- [Prepare your data](machine-learning-import-data.md)
+- [Prepare your data](machine-learning-data-science-import-data.md)
 - [Try using R in your experiment](machine-learning-r-quickstart.md)
 - [Review sample R experiments](machine-learning-r-csharp-web-service-examples.md)
 - [Create an web service API](machine-learning-publish-a-machine-learning-web-service.md)
