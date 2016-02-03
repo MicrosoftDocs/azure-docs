@@ -115,5 +115,5 @@ Task | API reference
 --- | ---
 [Use a HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) | [HashPartitionResolver](http://documentdb.com)
 
-For more information about partitioning data in DocumentDB, see [Partition and scale data in DocumentDB](documentdb-partition-data).
+For more information about partitioning data in DocumentDB, see [Partition and scale data in DocumentDB](documentdb-partition-data.md).
 
