@@ -17,12 +17,12 @@
 	ms.author="spelluru"/>
 
 # Data movement activities
-The [Copy Activity](#copyactivity) performs the data movement in Azure Data Factory and the activity is powered by a [globally available Data Movement Service](#global) that can copy data between various data stores in a secure, reliable, and scalable way. The service automatically chooses the most optimal region to perform the data movement operation based on the location of the source and sink data stores. Currently the region closest to the sink data store is used.
+The [Copy Activity](#copyactivity) performs the data movement in Azure Data Factory and the activity is powered by a [globally available service](#global) that can copy data between various data stores in a secure, reliable, and scalable way. The service automatically chooses the most optimal region to perform the data movement operation based on the location of the source and sink data stores. Currently the region closest to the sink data store is used.
  
 Let’s understand how this data movement occurs in different scenarios.
 
 ## Copying data between two cloud data stores
-When both the source and sink (destination) data stores reside in the cloud, the copy Activity goes through the following stages to copy/move data from the source to the sink. The Data Movement Service performs the following: 
+When both the source and sink (destination) data stores reside in the cloud, the copy Activity goes through the following stages to copy/move data from the source to the sink. The service that powers the Copy Activity performs the following: 
 
 1. Reads data from source data store
 2.	Performs serialization/deserialization, compression/decompression, column mapping, and type conversion based on the configurations of input dataset, output dataset and the Copy Activity 
@@ -58,29 +58,17 @@ Copy Activity takes one input dataset (**source**) and one output dataset (**sin
 Copy Activity provides the following capabilities:
 
 ### <a name="global"></a>Globally available data movement
-Even though the Azure Data Factory itself is available only in the West US and North Europe regions, the Data Movement Service powering the Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
-
-| Region | Geography |
-| ------ | --------- | 
-| Central US | US |
-| East US | US |
-| East US2 | US |
-| North Central US | US |
-| South Central US | US |
-| West US | US |
-| Brazil South | LATAM |
-| North Europe | EMEA |
-| West Europe | EMEA |
-| Southeast Asia | APAC |
-| Japan East | APAC |
+Even though the Azure Data Factory itself is available only in the West US and North Europe regions, the service powering the Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement avoiding cross-region hops in most cases.
 
 Note the following: 
 
-If you are copying data from **an on-premises data store to a cloud data store** or vice-versa (for example: on-premises SQL Server -> Azure Blob), the data movement is done by the **Data Management Gateway** in your on-premises environment with no involvement from the Data Movement Service. The data does not flow through the Data Movement Service in the cloud. 
+If you are copying data from an **on-premises** data store to a **cloud** data store (for example: on-premises SQL Server -> Azure Blob) or vice-versa, the data movement is performed by the **Data Management Gateway** in your on-premises environment with no involvement from the Azure Data Factory service. The data does not flow through the service in the cloud. 
 
-If a **data store is hosted on an Azure IaaS VM**, you need to use Data Management Gateway to move data to/from that data store. For example, if you need to copy data from an Oracle database hosted on an Azure VM to an Azure blob, you need to have the gateway installed on the same VM as the Oracle database or on another VM that is reachable to the database VM. In this scenario, the data transfer is done by the Data Management Gateway with no involvement from the Data Movement service. The data does not flow the Data Movement Service. 
+If you are copying data from a data store hosted on an **Azure IaaS VM** to a **cloud** data store (for example: Oracle database on an Azure VM to an Azure blob) or vice-versa, the data transfer is performed by the **Data Management Gateway** with no involvement from the Azure Data Factory service. The data does not flow the service in the cloud.  You need to have the gateway installed on the same VM as the data store or on another VM as long as the gateway can connect to the data store. 
 
-If you are copying from a **cloud source a cloud destination** (for example: Azure Blob -> Azure SQL), the **Data Movement Service** picks the region that is closest to the sink location in the same geography to do the transfer. Refer to below table for mapping.
+If you are copying data from a data store that is either **on-premises/on an Azure VM** to another data store that is either **on-premises/on an Azure VM**, the **Data Management Gateway associated with the source** will perform the data movement. Therefore, you need to make sure that the gateway on the source machine/VM can connect to both source and destination stores.  
+
+If you are copying **from a cloud source to a cloud destination** (for example: Azure Blob -> Azure SQL) or vice-versa, the **Azure Data Factory service** picks the region that is closest to the sink location in the same geography to do the transfer. Refer to below table for mapping.
 
 | Region of the destination data store | Region used for data movement |
 | ------------------------------------ | ----------------------------- |
@@ -93,10 +81,12 @@ If you are copying from a **cloud source a cloud destination** (for example: Azu
 | North Europe | North Europe | 
 | West Europe | West Europe |
 | Southeast Asia | South East Asia |
-| East Asia | South East Asia |
+| **East Asia** | South East Asia |
 | Japan East | Japan East |
-| Japan West | Japan East |
+| **Japan West** | Japan East |
 | Brazil South | Brazil South |
+
+The **highlighted** regions in the table are routed to nearest regions (Example: Japan West -> Japan East).  
 
 > [AZURE.NOTE] If the region of the destination data store is not in the list above, the Copy Activity will fail instead of going through an alternative region.
 > 
