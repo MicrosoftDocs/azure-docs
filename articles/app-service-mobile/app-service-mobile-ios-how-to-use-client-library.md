@@ -88,7 +88,7 @@ To create a database query, query the `MSTable` object. The following query gets
 **Swift**:
 
 ```
-table.readWithCompletion {(result, error) in
+table.readWithCompletion { (result, error) in
     if let err = error {
         print("ERROR ", err)
     } else if let items = result?.items {
@@ -128,7 +128,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 // Create a predicate that finds items where complete is false
 let predicate =  NSPredicate(format: "complete == NO")
 // Query the TodoItem table
-table.readWithPredicate(predicate) {(result, error) in
+table.readWithPredicate(predicate) { (result, error) in
     if let err = error {
         print("ERROR ", err)
     } else if let items = result?.items {
@@ -191,12 +191,12 @@ To sort results, let's look at an example. To first ascendingly by field `text` 
 ```        
 query.orderByAscending("text")
 query.orderByDescending("complete")
-query.readWithCompletion { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        for item in (result?.items)! {
-            NSLog("Todo Item: %@", item["text"] as! String)
+query.readWithCompletion { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let items = result?.items {
+        for item in items {
+            print("Todo Item: ", item["text"])
         }
     }
 }
