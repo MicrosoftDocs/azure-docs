@@ -116,7 +116,7 @@ These messages usually appear when Query Store is not able to collect new data. 
 -	Increase size of Query Store 
 -	Clear Query Store
 
-### Recommended retention and capture policy. 
+### Recommended retention and capture policy
 
 There are two types of retention policies:
 
