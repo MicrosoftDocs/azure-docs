@@ -22,7 +22,7 @@ Automated Backup automatically configures [Managed Backup to Microsoft Azure](ht
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
 
-## Automated Backup Settings
+## Automated Backup settings
 
 The following table describes the options that can be configured for Automated Backup. The actual configuration steps vary depending on whether you use the Azure portal or Azure Windows PowerShell commands.
 
@@ -76,7 +76,7 @@ To enable encryption, modify the previous script to pass the EnableEncryption pa
 
 To disable automatic backup, run the same script without the **-Enable** parameter to the **New-AzureVMSqlServerAutoBackupConfig**. As with installation, it can take several minutes to disable Automated Backup.
 
-## Disabling and Uninstalling the SQL Server IaaS Agent
+## Disabling and uninstalling the SQL Server IaaS Agent
 
 If you want to disable the SQL Server IaaS Agent for Automated Backup and Patching, use the following command:
 
@@ -104,7 +104,7 @@ The following products are compatible with the SQL Server IaaS Agent features 
 
 - SQL Server 2014 Enterprise
 
-## Next Steps
+## Next steps
 
 Automated Backup configures Managed Backup on Azure VMs. So it is important to [review the documentation for Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) to understand the behavior and implications.
 

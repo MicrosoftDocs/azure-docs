@@ -33,7 +33,7 @@ Beginning with SQL Server 2014, you can backup and restore to Microsoft Azure Bl
 
 The sections below include information specific to the different versions of SQL Server supported in an Azure virtual machine.
 
-## Backup Considerations When Database Files are Stored in the Microsoft Azure Blob service
+## Backup considerations when database files are stored in the Microsoft Azure Blob service
 
 The reasons for the performing database backups and the underlying backup technology itself changes when your database files are stored in Microsoft Azure Blob storage. For more information on storing database files in Azure blob storage, see [SQL Server Data Files in Azure](https://msdn.microsoft.com/library/jj919148.aspx).
 
@@ -43,7 +43,7 @@ The reasons for the performing database backups and the underlying backup techno
 
 - You can perform nearly instantaneous backups and rapid restores using the SQL Server File-Snapshot Backup feature in Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3). For more information, see [File-Snapshot Backups for Database Files in Azure](https://msdn.microsoft.com/library/mt169363.aspx).
 
-## Backup and Restore in Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3)
+## Backup and restore in Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3)
 
 Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3) supports the [backup and restore with Azure blobs](https://msdn.microsoft.com/library/jj919148.aspx) features found in SQL Server 2014 and described below. But it also includes the following enhancements:
 
@@ -55,7 +55,7 @@ Microsoft SQL Server 2016 Community Technology Preview 3 (CTP3) supports the [ba
 
 >[AZURE.NOTE] For a tutorial of the capabilities of SQL Server 2016 when using Azure Blob storage, see [Tutorial: Using the Microsoft Azure Blob storage service with SQL Server 2016 databases](https://msdn.microsoft.com/library/dn466438.aspx).
 
-## Backup and Restore in SQL Server 2014
+## Backup and restore in SQL Server 2014
 
 SQL Server 2014 includes the following enhancement:
 
@@ -68,7 +68,7 @@ SQL Server 2014 includes the following enhancement:
 
 1. **Encryption**: SQL Server 2014 supports encrypting data when creating a backup. It supports several encryption algorithms and the use osf a certificate or asymmetric key. For more information, see [Backup Encryption](https://msdn.microsoft.com/library/dn449489%28v=sql.120%29.aspx).
 
-## Backup and Restore in SQL Server 2012
+## Backup and restore in SQL Server 2012
 
 For detailed information on SQL Server Backup and Restore in SQL Server 2012, see [Backup and Restore of SQL Server Databases (SQL Server 2012)](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx).
 
@@ -78,13 +78,13 @@ Some of the benefits of using the Azure Blob storage service include the ability
 
 For Best Practice recommendations and troubleshooting information, see [Backup and Restore Best Practices (Azure Blob Storage Service)](https://msdn.microsoft.com/library/jj919149%28v=sql.110%29.aspx).
 
-## Backup and Restore in other versions of SQL Server supported in an Azure Virtual Machine
+## Backup and restore in other versions of SQL Server supported in an Azure Virtual Machine
 
 For SQL Server Backup and Restore in SQL Server 2008 R2, see [Backing up and Restoring Databases in SQL Server (SQL Server 2008 R2)](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx).
 
 For SQL Server Backup and Restore in SQL Server 2008, see [Backing up and Restoring Databases in SQL Server (SQL Server 2008)](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx).
 
-## Next Steps
+## Next steps
 
 If you are still planning your deployment of SQL Server in an Azure VM, you can find provisioning guidance in the following tutorial: [Provisioning a SQL Server Virtual Machine on Azure with Azure Resource Manager](virtual-machines-sql-server-provision-resource-manager.md).
 

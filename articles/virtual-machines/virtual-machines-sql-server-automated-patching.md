@@ -61,7 +61,7 @@ It could take several minutes to install and configure the SQL Server IaaS Agent
 
 To disable Automated Patching, run the same script without the -Enable parameter to the New-AzureVMSqlServerAutoPatchingConfig. As with installation, it can take several minutes to disable Automated Patching.
 
-## Disabling and Uninstalling the SQL Server IaaS Agent
+## Disabling and uninstalling the SQL Server IaaS Agent
 
 If you want to disable the SQL Server IaaS Agent for Automated Backup and Patching, use the following command:
 
@@ -87,7 +87,7 @@ The following products are compatible with the SQL Server IaaS Agent features 
 
 - SQL Server 2014
 
-## Next Steps
+## Next steps
 
 A related feature for SQL Server VMs in Azure is [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
 

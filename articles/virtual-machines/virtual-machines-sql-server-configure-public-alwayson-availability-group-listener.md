@@ -43,7 +43,7 @@ Note the following guidelines about the availability group listener in Azure whe
 
 - It is not supported to create an external listener in the same cloud service where you also have an internal listener using the Internal Load Balancer (ILB).
 
-## Determine the accessibility of the Listener
+## Determine the accessibility of the listener
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
@@ -126,6 +126,6 @@ Unlike the previous example, SQL authentication must be used, because the caller
 
 If the AlwaysOn replicas are in different subnets, clients must specify **MultisubnetFailover=True** in the connection string. This results in parallel connection attempts to replicas in the different subnets. Note that this scenario includes a cross-region AlwaysOn Availability Group deployment.
 
-## Next Steps
+## Next steps
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
