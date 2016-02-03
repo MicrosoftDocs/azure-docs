@@ -329,7 +329,7 @@ For SASL PLAIN, the **username** can be:
 
 In both cases, the password field contains the token, as described in the [Token format](#tokenformat) section.
 
-When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubhostname}/{deviceId} in the Username field and a SAS token in the Password field. {iothubhostname} should include the full CName of the IoT hub (e.g. contoso.azure-devices.net).
+When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubhostname}/{deviceId} in the Username field and a SAS token in the Password field. {iothubhostname} should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
 
 > [AZURE.NOTE] The [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens when connecting to the service. In some cases, the SDKs do not support all the protocols or all the authentication methods.
 

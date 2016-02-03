@@ -44,7 +44,7 @@ The following table contains links to code samples for each supported language a
 If a device cannot use the device client SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
 
 - The **deviceId** as the **ClientId**
-- `{iothubhostname}/{device_id}` in the **Username** field, where {iothubhostname} includes the full CName of the IoT hub (e.g. contoso.azure-devices.net).
+- `{iothubhostname}/{device_id}` in the **Username** field, where {iothubhostname} is the full CName of the IoT hub (for example, contoso.azure-devices.net).
 - A SAS token in the **Password** field. The [format of the SAS token][lnk-iothub-security] is the same as described for the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`.
 
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel.
