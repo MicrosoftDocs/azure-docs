@@ -13,18 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Grant user permissions to specific DevTest Lab policies
 
 ## Overview
 
+This article illustrates how to use PowerShell to grant users permissions to a particular Azure DevTest Lab policy. That way, permissions can be applied based on each user's needs. For example, you might want to grant a particular user the ability to change the VM policy settings, but not the cost policies.
+
+## Policies as resources
+
 As discussed in the [AzureRole-based Access Control](role-based-access-control-configure) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. 
 
-In this article, we’ll illustrate how to use Windows PowerShell to grant users permissions to a particular Lab policy. That way, permissions can be applied based on each user's needs. For example, you might want to grant a particular user the ability to change the VM policy settings, but not the cost policies.
+In DevTest Lab, a policy is a resource type that enables the RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each DevTest Lab policy is a resource in the Policy resource type, and can be assigned as a scope to an RBAC role. For example, in order to grant users read/write permission to the **Allowed VM Sizes** policy, you would create a custom role that works with the **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** action, and then assign the appropriate users to this custom role.
 
-##Creating a DevTest Lab custom role using Windows PowerShell
+To learn more about custom roles in RBAC, see the [Custom Roles in Azure RBAC](/role-based-access-control-configure.md#custom-roles-in-azure-rbac) section of the [Azure Role-Based Access Control](/role-based-access-control-configure.md) article.
+
+##Creating a DevTest Lab custom role using PowerShell
 In order to get started, you’ll need to read the following article, which will explain how to install and configure the Azure PowerShell cmdlets: [https://azure.microsoft.com/blog/azps-1-0-pre](https://azure.microsoft.com/blog/azps-1-0-pre).
 
 Once you’ve set up the Azure PowerShell cmdlets, you can perform the following tasks:
@@ -33,7 +39,7 @@ Once you’ve set up the Azure PowerShell cmdlets, you can perform the following
 - List actions in a particular role:
 - Create a custom role
 
-The following Windows PowerShell script illustrates examples of how to perform these tasks:
+The following PowerShell script illustrates examples of how to perform these tasks:
 
     ‘List all the operations/actions for a resource provider.
     Get-AzureRmProviderOperation -OperationSearchString "Microsoft.DevTestLab/*"
@@ -48,7 +54,7 @@ The following Windows PowerShell script illustrates examples of how to perform t
     $policyRoleDef.IsCustom = $true
     $policyRoleDef.AssignableScopes.Clear()
     $policyRoleDef.AssignableScopes.Add("/subscriptions/<SubscriptionID> ")
-    $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policies/*")
+    $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/policySets/policies/*")
     $policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)
 
 ##Assigning permissions to a user for a specific policy using custom roles
@@ -64,8 +70,7 @@ In the following example, the **ObjectId** of the *SomeUser* user is 05DEFF7B-0A
 
 Once you have the **ObjectId** for the user and a custom role name, you can assign that role to the user with the **New-AzureRmRoleAssignment** cmdlet:
 
-    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/xiaoyi
-    ng-rm/providers/Microsoft.DevTestLab/labs/xiaoying-lab2/policies/AllowedVmSizesInLab
+    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/policies/AllowedVmSizesInLab
 
 In the previous example, the **AllowedVmSizesInLab** policy is used. You can use any of the following polices:
 
