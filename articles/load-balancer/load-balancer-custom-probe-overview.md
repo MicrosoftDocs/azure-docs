@@ -20,9 +20,9 @@
 
 # Load balancer probes 
 
-Azure Load Balancer offers the capability to probe for health of the various server instances. When a probe fails to respond, Azure Load Balancer stops sending new connection to the unhealthy instances. Existing connections are not impacted. 
+Azure Load Balancer offers the capability to monitor the health of the server instances using probes. When a probe fails to respond, Azure Load Balancer stops sending new connections to the unhealthy instance. 
 
-You must define probes when you are deploying virtual machines behind a load balancer. Virtual machines don't have guest agents like PaaS roles (web role and worker role).
+A TCP or HTTP custom probe must be configured when you use virtual machines behind a load balancer. PaaS roles (worker roles and web roles) are the only server instances with guest agent probe monitoring.
  
 ## Understanding probe count and timeout
 
