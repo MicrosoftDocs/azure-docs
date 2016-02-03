@@ -26,7 +26,7 @@ This topic answers some questions IT administrators might have about settings an
 
 - **Theme**: desktop theme, taskbar settings, etc. 
 - **Internet Explorer settings**: recently opened tabs, favorites, etc.
-- **Edge browsers settings**: favorites, reading list
+- **Edge browser settings**: favorites, reading list
 - **Passwords**: Internet passwords, Wi-Fi profiles, etc. 
 - **Language preferences**: keyboard layouts, system language, dateand time, etc. 
 - **Ease of access**: high contrast theme, Narrator, Magnifier, etc. 

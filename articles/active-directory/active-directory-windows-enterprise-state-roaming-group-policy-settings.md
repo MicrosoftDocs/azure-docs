@@ -34,6 +34,7 @@ The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.
  
 ## Group Policy settings
 The Group Policy settings apply to Windows 10 devices that are joined to an Active Directory domain. The table includes legacy settings that would appear to manage sync settings, but that do not work for Enterprise State Roaming for Windows 10.
+
 | Name                                | Description |
 |-------------------------------------|-------------|
 | Accounts: Block Microsoft Accounts  |This policy setting prevents users from adding new Microsoft accounts on this computer|
