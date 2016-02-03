@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure Backup FAQ | Microsoft Azure"
-   description="Frequently asked questions about the Azure Backup solution – backup agent, backup and retention, recovery, security and other common questions about the Azure Backup service."
+   description="Answers to frequently asked questions about the backup agent, backup and retention, recovery, security and other common questions about the Azure Backup solution."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
-   manager="shreeshd"
+   manager="jwhit"
    editor=""
    keywords="backup solution; backup service"/>
 
@@ -14,8 +14,8 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="11/17/2015"
-	 ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+	 ms.date="01/28/2016"
+	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup service- FAQ
 The following is a list of commonly asked questions about Azure Backup. If you have any additional questions about the Azure Backup solution, please go to the the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) and post your questions. Someone from our community will help you get your answers. If a question is commonly asked, we will add it to this article so that it can be found quickly and easily.

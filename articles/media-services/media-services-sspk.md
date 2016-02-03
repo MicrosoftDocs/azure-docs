@@ -103,6 +103,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Liberty Global Services BV
 - MediaTek Inc.
 - MStar Co, Ltd
+- Nintendo Co., Ltd.
 - OpenTV, Inc.
 - Research In Motion Limited
 - Saffron Digital Limited

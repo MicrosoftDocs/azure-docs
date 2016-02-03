@@ -2,13 +2,14 @@
   pageTitle="Azure IoT Suite and Azure Active Directory | Microsoft Azure"
   description="Describes how Azure IoT Suite uses Azure Active Directory to manage permissions."
   services=""
+  suite="iot-suite"
   documentationCenter=""
   authors="aguilaaj"
   manager="timlt"
   editor=""/>
 
 <tags
-  ms.service="na"
+  ms.service="iot-suite"
   ms.devlang="na"
   ms.topic="hero-article"
   ms.tgt_pltfrm="na"

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Get started with Azure Batch PowerShell | Microsoft Azure"
    description="Get a quick introduction to the Azure PowerShell cmdlets you can use to manage the Azure Batch service"
    services="batch"
@@ -13,19 +13,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="10/13/2015"
+   ms.date="01/21/2016"
    ms.author="danlep"/>
 
 # Get started with Azure Batch PowerShell cmdlets
-This article is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and get information about your Batch jobs, tasks, and other details.
+This is a quick introduction to the Azure PowerShell cmdlets you can use to manage your Batch accounts and work with your Batch resources such as pools, jobs, and tasks. You can perform many of the same tasks with Batch cmdlets that you carry out with the Batch APIs and the Azure portal. This article is based on cmdlets in Azure PowerShell version 1.0 or later.
 
-For detailed cmdlet syntax, type `get-help <Cmdlet_name>` or see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+For a complete list of Batch cmdlets and detailed cmdlet syntax, see the [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx). 
 
-[AZURE.INCLUDE [powershell-preview-include](../../includes/powershell-preview-include.md)]
 
 ## Prerequisites
 
-* **Azure PowerShell** - The Batch cmdlets ship in the Azure Resource Manager module. See [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/azure/mt125356.aspx) for prerequisites, installation instructions, and basic usage.
+* **Azure PowerShell** - See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for instructions to download and install Azure PowerShell. Because the Azure Batch cmdlets ship in the Azure Resource Manager module, you'll need to run the **Login-AzureRmAccount** cmdlet to connect to your subscription. More details are in [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 
 
@@ -36,7 +35,6 @@ For detailed cmdlet syntax, type `get-help <Cmdlet_name>` or see the [Azure Batc
     ```
 
 ## Manage Batch accounts and keys
-
 
 ### Create a Batch account
 
@@ -58,7 +56,7 @@ New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" �
 **Get-AzureRmBatchAccountKeys** shows the access keys associated with an Azure Batch account. For example, run the following to get the primary and secondary keys of the account you created.
 
 ```
-$Account = Get-AzureBatchAccountKeys –AccountName <accountname>
+$Account = Get-AzureRmBatchAccountKeys –AccountName <accountname>
 
 $Account.PrimaryAccountKey
 
@@ -83,11 +81,9 @@ Remove-AzureRmBatchAccount -AccountName <account_name>
 
 When prompted, confirm you want to remove the account. Account removal can take some time to complete.
 
-## Query for jobs, tasks, and other details
+## Create a BatchAccountContext object
 
-Use cmdlets such as **Get-AzureBatchJob**, **Get-AzureBatchTask**, and **Get-AzureBatchPool** to query for entities created under a Batch account.
-
-To use these cmdlets, you first need to create an AzureBatchContext object to store your account name and keys:
+To create and manage pools, jobs, tasks, and other resources in a Batch account, you first need to create a BatchAccountContext object to store your account name and keys:
 
 ```
 $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
@@ -96,6 +92,22 @@ $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
 You pass this context into cmdlets that interact with the Batch service by using the **BatchContext** parameter.
 
 > [AZURE.NOTE] By default, the account's primary key is used for authentication, but you can explicitly select the key to use by changing your BatchAccountContext object’s **KeyInUse** property: `$context.KeyInUse = "Secondary"`.
+
+
+
+## Create and modify Batch resources
+Use cmdlets such as **New-AzureBatchPool**, **New-AzureBatchJob**, and **New-AzureBatchTask** to create  resources under a Batch account. There are corresponding **Get-** and **Set-** cmdlets to update the properties of existing resources, and  **Remove-** cmdlets to remove resources under a Batch account. 
+
+For example, the following cmdlet creates a new Batch pool configured to use size Small virtual machines imaged with the latest operating system version of family 3 (Windows Server 2012), with the target number of compute nodes determined by an autoscaling formula. In this case, the  formula is simply $TargetDedicated=3, indicating the number of compute nodes in the pool is 3 at most. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
+
+```
+New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+```
+
+
+## Query for pool, jobs, tasks, and other details
+
+Use cmdlets such as **Get-AzureBatchPool** ,  **Get-AzureBatchJob**, and **Get-AzureBatchTask** to query for entities created under a Batch account.
 
 
 ### Query for data
@@ -127,13 +139,7 @@ Get-AzureBatchPool -Id "myPool" -BatchContext $context
 ```
 The **Id** parameter supports only full-id search, not wildcards or OData-style filters.
 
-### Use the pipeline
 
-Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter but makes listing multiple entities easier. For example, the following finds all tasks under your account:
-
-```
-Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
-```
 
 ### Use the MaxCount parameter
 
@@ -145,6 +151,14 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 ```
 
 To remove the upper bound, set **MaxCount** to 0 or less.
+
+### Use the pipeline
+
+Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter but makes listing multiple entities easier. For example, the following finds all tasks under your account:
+
+```
+Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
+```
 
 ## Related topics
 * [Download Azure PowerShell](http://go.microsoft.com/?linkid=9811175)

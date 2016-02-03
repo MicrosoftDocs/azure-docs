@@ -33,8 +33,9 @@ For Data Management Gateway to connect to the Sybase Database, you need to insta
 > [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
 ## Sample: Copy data from Sybase to Azure Blob
-
-The sample below shows:
+This sample shows how to copy data from a Sybase database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesSybase](data-factory-onprem-sybase-connector.md#sybase-linked-service-properties).
 2.	A liked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
