@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="11/02/2015"
+	ms.topic="article" 
+	ms.date="02/01/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Copy data from an Azure blob to Azure SQL
