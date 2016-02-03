@@ -20,12 +20,12 @@
 
 Azure doesn't have the ability (i.e. credentials) to directly register records on your DNS servers, so alternative arrangements are often needed. High-level details of some of the more common scenarios are provided below.
 
-## Windows clients ##
+## Windows clients
 Non-domain-joined Windows clients attempt unsecured DDNS updates when they boot or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but this can be overridden in the VM, via the [UI](https://technet.microsoft.com/library/cc794784.aspx) or [by using automation](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).  
 
 Domain-joined Windows clients register their IP addresses with the domain controller by using Secure DDNS. The domain-join process sets the primary DNS suffix on the client and manages the trust relationship.
 
-## Linux clients ##
+## Linux clients
 Linux clients generally do not register themselves with the DNS server on startup. They assume the DHCP server does it. The Bind package comes with a tool called *nsupdate*, which can be used to send DDNS updates.  As the DDNS protocol is standardized, *nsupdate* can be used even when not using Bind on the DNS server.  
 
 The Linux DHCP client provides hooks that allow you to run scripts when an IP address is assigned or changed--for example, in */etc/dhcp/dhclient-exit-hooks.d/*. This can be used to register the hostname in DNS. For example:
