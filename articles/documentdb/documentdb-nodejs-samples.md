@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2016" 
+	ms.date="02/02/2016" 
 	ms.author="mimig"/>
 
 
@@ -107,5 +107,13 @@ Task | API reference
 
 For more information about server-side programming, see [DocumentDB server-side programming: Stored procedures, database triggers, and UDFs](documentdb-programming.md).
 
+## Partitioning examples
 
+The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) file of the [Partitioning Samples](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.Partitioning) project shows how to perform the following tasks.
+
+Task | API reference
+--- | ---
+[Use a HashPartitionResolver](https://github.com/Azure/azure-documentdb-node/blob/ce0fc3c4e70b0279091a1e03620a668d93a14fc2/samples/Partitioning/app.js#L53-L103) | [HashPartitionResolver](http://documentdb.com)
+
+For more information about partitioning data in DocumentDB, see [Partition and scale data in DocumentDB](documentdb-partition-data).
 
