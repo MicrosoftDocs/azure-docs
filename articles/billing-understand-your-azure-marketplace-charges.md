@@ -30,7 +30,7 @@ To view or download your bill:
 2. Click **Marketplace**.
 The list being displayed is a complete list of all Marketplace orders that have been placed by your Azure account. You’ll notice that the orders are grouped by the parent Azure subscription name and ID.
 ![Marketplace orders](./media/billing-understand-your-azure-marketplace-charges/marketplace-orders.png)
-3. Clicking any of the displayed orders will take you to the summary overview of that order for the current billing cycle. An explanation of the different pricing models can be found on [Marketplace FAQ](https://azure.microsoft.com/en-us/marketplace/faq/).
+3. Clicking any of the displayed orders will take you to the summary overview of that order for the current billing cycle. An explanation of the different pricing models can be found on [Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/).
 ![Order summary](./media/billing-understand-your-azure-marketplace-charges/order-summary.png)
 
 The summary view contains the following information for each order:
@@ -42,7 +42,7 @@ The summary view contains the following information for each order:
 
 Pleaes note that We made a few changes to how this information is displayed. Previously we displayed the cost of the order which included tax. This has been updated to show the price which may be tax exclusive or inclusive, depending on which country you are in. The location of the price has moved from the right hand navigation to the center as well. To help track which Azure subscription these charges are associated to we also added the Azure subscription name and ID to the right hand navigation as well as the **Change payment method** option.
 
-#  Update Payment Method and Order Management
+## Update Payment Method and Order Management
 The summary page has user actions, allowing you to update the payment model and order management functions:
 
 > [AZURE.NOTE] If you are using your organization ID to change personal information you will need to log a ticket with support.
@@ -59,7 +59,7 @@ To change your payment method, follow these steps:
 2. Select the payment method you want to change to. The **Pay with** option allows you to select your credit card. The **Add a new way to pay** option allows you add a new credit card.
 ![Change payment method](./media/billing-understand-your-azure-marketplace-charges/change-payment-method.jpg)
 
-# Order management
+## Order management
 From the summary overview page you’ll see an **Manage Order** link. This link will bring you to your portal where you can see all your Marketplace orders, view service health and request support.
 ![Portal](./media/billing-understand-your-azure-marketplace-charges/portal.jpg)
 
@@ -70,7 +70,7 @@ To request support, click on the **Help + support** tile. This will bring up the
 
 ![Request support](./media/billing-understand-your-azure-marketplace-charges/request-support.jpg)
 
-# Billing History
+## Billing History
 A new feature on the summary page is the ability to view usage based offers like virtual machines. You are now able to download usage based on billing cycle for both current and closed periods. To view usage, click on the **Download Usage** link per the period you would like to view.
 
 If you are interested in viewing your actual charges click **View Charges**. You will be redirected to a different portal where you’ll be able to view all charges including taxes. If you are using an organization ID, the **View Charges** button will not be enabled and you will need to submit a support ticket to request a summary of your charges.
