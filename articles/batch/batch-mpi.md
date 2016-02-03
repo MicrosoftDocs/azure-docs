@@ -22,22 +22,60 @@ With multi-instance tasks, you can simultaneously run an Azure Batch task on mul
 
 ## Multi-instance task overview
 
-In Batch, each task is normally executed on a single compute node--you submit a task to a job, and the Batch service schedules it for execution on a node. However, you can instruct Batch to execute a task as one primary and many subtasks, the primary task communicating with the subtasks to perform some computational workload. You do this by configuring a standard Batch task with **multi-instance settings**, then submitting that task to a job.
+In Batch, each task is normally executed on a single compute node--you submit a task to a job, and the Batch service schedules it for execution on a node. However, you can instruct Batch to execute a task as one primary and many subtasks, the primary task communicating with the subtasks to perform some computational workload. You do this by configuring a standard Batch task with **multi-instance settings**, then submitting the task to a job.
 
 ![Multi-instance task overview][1]
 
-A "multi-instance task", then, is really just a standard Batch task that you've configured to run on multiple node instances by using its multi-instance settings. These multi-instance settings include the number of compute nodes that are to execute the task, a command line for the primary task (the "application command"), a coordination command to be executed by the primary and all subtasks, and a list of common resource files for each.
+When you submit a task with multi-instance settings to a job, Batch performs a number of steps unique to multi-instance tasks:
 
-When you submit a task with multi-instance settings to a job, the following happens:
-
-1. The Batch service automatically creates one **primary task** and enough **subtasks** that together will execute on the total number of compute nodes you specified. Batch then schedules all tasks for execution on the nodes.
-2. These tasks, both the primary and each subtask, download the **common resource files** you specified in the multi-instance settings.
+1. The Batch service automatically creates one **primary task** and enough **subtasks** that together will execute on the total number of compute nodes you specify in the multi-instance settings. Batch then schedules all tasks for execution on the nodes.
+2. These tasks, both the primary and each subtask, download any **common resource files** you specify in the multi-instance settings.
 3. After the common resource files have been downloaded, the **coordination command** is executed by the primary and subtasks. This coordination command typically launches a background service--such as [MS-MPI][msmpi_msdn]'s `smpd.exe`--and may also verify that the nodes are ready to process inter-node messages.
 4. When the coordination command has been successfully completed by the primary and all subtasks, the task's **command line** (the "application command") is executed *only* by the **primary task**. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi_msdn]'s `mpiexec.exe` using the application command.
 
-## Requirements for multi-instance tasks
+> [AZURE.IMPORTANT] Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. If you try to run a multi-instance task in a pool with internode communication disabled, or with a *maxTasksPerNode* value greater than 1, the task will never be scheduled--it will remain indefinitely in the "active" state. Additionally, multi-instance tasks will execute *only* on nodes in **pools created after 12/14/2015**.
 
-TODO: Pull stuff from [Multi-instance Tasks](https://msdn.microsoft.com/library/azure/mt637905.aspx) REST API page.
+### Main task, primary task, and subtasks
+
+**TODO: Define these more clearly. Also, consistency.**
+
+The number of instances (BLAH in Batch .NET, BLAH in the REST API) specifies how many compute nodes are to be used, one of which will execute the primary task, and the others will execute the subtasks.
+
+The the primary and subtasks are distinguished by an integer id in the range from `0` to `numberOfInstances - 1`. Subtask id `0` is the primary task, and all other ids are subtasks.
+
+### Coordination and application commands
+
+The coordination command (BLAH in Batch .NET, BLAH in the REST API) runs on the primary task and all subtasks. Once the primary task and all subtasks have finished executing the coordination command, the main task command line is executed by on the primary task only. The main task command line in a multi-instance task is commonly referred as the "application command," to distinguish it from the coordination command.
+
+The invocation of the coordination command is blocking--Batch does not run the main task command line until the coordination command has returned successfully in all subtasks. Therefore, the coordination command should set up any required background services, verify that they are ready for use, and then return. For example, the coordination command for MS-MPI version 7 is `cmd /c start cmd /c "%MSMPI_BIN%\smpd.exe" –d`. Note that the coordination command must include `start` because `smpd.exe` does not return immediately, and would therefore block the application command from running.
+
+The application command line is executed only on the primary. For Windows MPI applications, this should be the `mpiexec.exe` command line. For example, an MS-MPI version 7 command line might be `"%MSMPI_BIN%\mpiexec.exe" -wdir %AZ_BATCH_TASK_SHARED_DIR% -c num-mpi-processes-per-node MyMPIApplication.exe`.
+
+> [AZURE.TIP] You can examine the `stderr.txt` to determine if a failure exit code came from the coordination command or the application command.
+
+### Resource files
+
+The Batch service creates an environment variable `AZ_BATCH_TASK_SHARED_DIR` which is the same for all subtasks including the primary. An example shared directory is `tasks/myjob/job-1/mytask1/`. Each subtask (including primary) has its own working directory, specified in the environment variable `AZ_BATCH_TASK_WORKING_DIR`. Always use the environment variables `AZ_BATCH_TASK_SHARED_DIR` or `AZ_BATCH_TASK_WORKING_DIR` to refer to the task shared directory and subtask working directories; do not attempt to construct the paths manually.
+
+Resource files specified for the task are downloaded to the task's working directory (`AZ_BATCH_TASK_WORKING_DIR`) on the *primary only*. Common resource files, however, are downloaded into the task shared directory (`AZ_BATCH_TASK_SHARED_DIR`) by *all tasks*, both primary and all subtasks.
+
+### Task lifetime
+
+The lifetime of the primary task controls the lifetime of the multi-instance task. When the primary exits, all other subtasks are terminated. The exit code of the primary is the exit code of the task, and is therefore used to determine the success or failure of the task for retry purposes.
+
+Once the multi-instance task starts running, if any subtask (including the primary) fails, for example exits with a nonzero exit code, the entire multi-instance task fails. It is terminated, and the complete multi-instance task is retried up to its retry limit.
+
+Deleting a multi-instance task also deletes its primary task and all subtasks. All subtask root directories and files are deleted from their compute nodes, just as for a normal task.
+
+The multi-instance task's `maxWallClockTime`, `maxRetryCount` and `retentionTime` settings are honored in the same way as a single-instance task, and apply to the primary and all subtasks. However, if you change the `retentionTime` setting after adding the task, the change is applied only to the primary task; subtasks continue to use their original `retentionTime`.
+
+A compute node's recent task list reflects subtaskId if the recent task was part of a multi-instance task.
+
+### Obtain information about subtasks
+
+To obtain information on the subtasks using the REST API, the **List the subtasks of a task** API can be used to obtain information on all subtasks except the primary. This API returns information such as the compute node on which the subtask is running, the subtask's working directory, and so on. You can use this information with the **List the files on a node** API to fetch subtask files. For a single-instance task, the **Get Subtasks** API will return an empty collection.
+
+Unless stated otherwise, REST APIs that operate on tasks apply only to the primary subtask. For example, **Get Task Files** for any multi-instance task will fetch only task files from primary.
 
 ## Multi-instance tasks with Batch .NET
 
@@ -54,24 +92,12 @@ multiInstanceTask.MultiInstanceSettings.CommonResourceFiles.Add(
 await batchClient.JobOperations.AddTaskAsync(jobId, multiInstanceTask);
 ```
 
-To obtain information on the subtasks, you use...
-
-```
-// code snippet showing obtaining the subtasks
-```
-
 ## Multi-instance tasks with Batch REST API
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 ```
 // code snippet here
-```
-
-To obtain information on the subtasks, you use...
-
-```
-// code snippet showing obtaining the subtasks
 ```
 
 ## Using MS-MPI with multi-instance tasks
