@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/20/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher" />
 
 # Update the Azure Resource Group project PowerShell script
