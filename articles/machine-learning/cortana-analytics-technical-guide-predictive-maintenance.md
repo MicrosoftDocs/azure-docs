@@ -3,7 +3,7 @@
 	description="A technical guide to the Solution Template with Microsoft Cortana Analytics for predictive maintenance in aerospace, utilities, and transportation."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="zhangya;gshaheen;grecoe"
+	authors="garyericson"
 	manager="paulettm"
 	editor="cgronlun"/>
 
