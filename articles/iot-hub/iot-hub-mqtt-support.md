@@ -59,7 +59,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
  
 > [AZURE.NOTE] This is the same encoding as that used for query strings in the HTTP protocol.
 
-The device client application can also use `devices/{did}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message, or alternatively `devices/{did}/messages/servicebound/feedback` for emitting the Will message on the **Operations Monitoring** channel.
+The device client application can also use `devices/{did}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
 
 ### Receiving Messages
 
