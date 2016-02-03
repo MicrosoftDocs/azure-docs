@@ -41,7 +41,7 @@ Sample solutions that perform CRUD operations and other common operations on Doc
 
 ## Database examples
 
-The [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.CollectionManagement/app.js) file of the [DocumentDB.Samples.CollectionManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.CollectionManagement) project shows how to perform the following tasks.
+The [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DatabaseManagement/app.js) file of the [DatabaseManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DatabaseManagement) project shows how to perform the following tasks.
 
 Task | API reference
 --- | ---
@@ -53,7 +53,7 @@ Task | API reference
 
 ## Collection examples 
 
-The [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.CollectionManagement/app.js) file of the [DocumentDB.Samples.CollectionManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.CollectionManagement) project shows how to perform the following tasks.
+The [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/CollectionManagement/app.js) file of the [CollectionManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/CollectionManagement) project shows how to perform the following tasks.
 
 Task | API reference
 --- | ---
@@ -67,7 +67,7 @@ Task | API reference
 
 ## Document examples
 
-The [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.DocumentManagement/app.js) file of the [DocumentDB.Samples.DocumentManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.DocumentManagement) project shows how to perform the following tasks.
+The [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentManagement/app.js) file of the [DocumentManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentManagement) project shows how to perform the following tasks.
 
 Task | API reference
 --- | ---
@@ -80,7 +80,7 @@ Task | API reference
 
 ## Indexing examples
 
-The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.IndexManagement/app.js) file of the [DocumentDB.Samples.IndexManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.IndexManagement) project shows how to perform the following tasks.
+The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/IndexManagement/app.js) file of the [IndexManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/IndexManagement) project shows how to perform the following tasks.
 
 Task | API reference
 --- | ---
@@ -98,7 +98,7 @@ For more information about indexing, see [DocumentDB indexing policies](document
 
 ## Server-side programming examples
 
-The [app.js](https://github.com/mimig1/azure-documentdb-node/blob/master/samples/DocumentDB.Samples.ServerSideScripts/app.js) file of the [DocumentDB.Samples.IndexManagement](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.ServerSideScripts) project shows how to perform the following tasks.
+The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/ServerSideScripts/app.js) file of the [ServerSideScripts](https://github.com/Azure/azure-documentdb-node/tree/master/samples/ServerSideScripts) project shows how to perform the following tasks.
 
 Task | API reference
 --- | ---
@@ -109,7 +109,7 @@ For more information about server-side programming, see [DocumentDB server-side 
 
 ## Partitioning examples
 
-The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) file of the [Partitioning Samples](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/DocumentDB.Samples.Partitioning) project shows how to perform the following tasks.
+The [app.js](https://github.com/Azure/azure-documentdb-node/blob/master/samples/Partitioning/app.js) file of the [Partitioning](https://github.com/mimig1/azure-documentdb-node/tree/master/samples/Partitioning) project shows how to perform the following tasks.
 
 Task | API reference
 --- | ---
