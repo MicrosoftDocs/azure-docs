@@ -30,6 +30,15 @@ A device can connect to an IoT hub using the MQTT protocol either by using the l
 
 When a device is connected to an IoT hub, the device client SDKs provide methods that enable the device to send messages to and receive messages from an IoT hub.
 
+The following table contains links to code samples for each supported language and specifies the parameter to use to establish a connection to IoT Hub using the MQTT protocol.
+
+| Language                   | Protocol parameter        |
+| -------------------------- | ------------------------- |
+| [Node.js][lnk-sample-node] | azure-iot-device-mqtt     |
+| [Java][lnk-sample-java]    | IotHubClientProtocol.MQTT |
+| [C][lnk-sample-c]          | MQTT_Protocol             |
+| [C#][lnk-sample-csharp]    | TransportType.Mqtt        |
+
 ## Using the MQTT protocol directly
 
 If a device cannot use the device client SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
@@ -67,3 +76,7 @@ To learn more about the MQTT protocol, see the [MQTT documentation][lnk-mqtt-doc
 [lnk-iot-get-stated]: iot-hub-csharp-csharp-getstarted.md
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-iothub-security]: iot-hub-devguide.md#security
+[lnk-sample-node]: https://github.com/Azure/azure-iot-sdks/blob/develop/node/device/samples/simple_sample_device.js
+[lnk-sample-java]: https://github.com/Azure/azure-iot-sdks/blob/develop/java/device/samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/iothub/SendReceive.java
+[lnk-sample-c]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt
+[lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdks/tree/master/csharp/device/samples
