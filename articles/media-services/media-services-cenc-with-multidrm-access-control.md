@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2016"  
+	ms.date="02/02/2016"  
 	ms.author="willzhan;kilroyh;yanmf;juliako"/>
 
 #CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services
@@ -62,7 +62,7 @@ The benefits of CENC with multi-DRM are as follows:
 1. Reduces the cost of managing encrypted assets since only a single copy of encrypted assets is needed;
 1. Eliminates DRM client licensing cost since the native DRM client is usually free on its native platform.
 
-Microsoft has been an active promoter of DASH and CENC together with some major industry players. Microsoft Azure Media Services has been providing support of DASH and CENC. For recent announcements, please see Mingfei’s blogs: [Announcing Google Widevine license delivery services public preview in Azure Media Services](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/), and [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).  
+Microsoft has been an active promoter of DASH and CENC together with some major industry players. Microsoft Azure Media Services has been providing support of DASH and CENC. For recent announcements, please see Mingfei’s blogs: [Announcing Google Widevine license delivery services in Azure Media Services](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/), and [Azure Media Services adds Google Widevine packaging for delivering multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).  
 
 ### Overview of this article
 
