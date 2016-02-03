@@ -306,10 +306,11 @@ These are the expected values:
 
 **Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
 
-You can find the implementation of the signature algorithm in the OSS IoT Hub SDKs:
+You can find implementations of the signature algorithm in the IoT device and service SDKs:
 
-* Java SDK, [service][https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth], [device][https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth],
-* [Node SDK][https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js]
+* [IoT service SDK for Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/service/iothub-service-sdk/src/main/java/com/microsoft/azure/iot/service/auth)
+* [IoT device SDK for Java](https://github.com/Azure/azure-iot-sdks/tree/master/java/device/iothub-java-client/src/main/java/com/microsoft/azure/iothub/auth)
+* [IoT device and service SDKs for Node.js](https://github.com/Azure/azure-iot-sdks/blob/master/node/common/core/lib/shared_access_signature.js)
 
 #### Protocol specifics
 

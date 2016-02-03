@@ -98,12 +98,12 @@ The token service pattern is the recommended way to implement a custom identity 
 
 ## Device heartbeat <a id="heartbeat"></a>
 
-The [IoT Hub identity registry][lnk-devguide-identityregistry] contains a field called *connectionState*. This field is intended for development and debugging scenarios and not to be queried by IoT solutions at runtime (e.g. checking if a device is connected in order to decide whether to send a c2d message or an SMS).
-In case an IoT solution needs to know if a device is connected (either at runtime, or with more accuracy than what *connectionState* provides), the solution has to implement the heartbeat pattern.
+The [IoT Hub identity registry][lnk-devguide-identityregistry] contains a field called **connectionState**. You should only use the **connectionState** field during development and debugging, IoT solutions should not query the field at run time (for example, to check if a device is connected in order to decide whether to send a cloud-to-device message or an SMS).
+If your IoT solution needs to know if a device is connected (either at run time, or with more accuracy than the **connectionState** property provides), your solution should implement the *heartbeat pattern*.
 
-The heartbeat pattern has the device send device-to-cloud messages at least once every fixed amount of time (e.g. 1 hour). This means that even if a device does not have any data to send, it will send an empty device-to-cloud message (usually with a property that identifies it as a heartbeat). On the service side, the solution will then maintain a map with the last heartbeat received, and assume problematic
+In the heartbeat pattern, the device sends device-to-cloud messages at least once every fixed amount of time (for example, at least once every hour). This means that even if a device does not have any data to send, it still sends an empty device-to-cloud message (usually with a property that identifies it as a heartbeat). On the service side, the solution maintains a map with the last heartbeat received for each device, and assumes that there is a problem with a device if it does not receive a heartbeat message within the expected time.
 
-A more complex implementation could include the information from [operations monitoring][lnk-devguide-opmon] to identify devices that are trying to connect or communicate but failing. When implementing the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles][].
+A more complex implementation could include the information from [operations monitoring][lnk-devguide-opmon] to identify devices that are trying to connect or communicate but failing. When you implement the heartbeat pattern, make sure to check [IoT Hub Quotas and Throttles][].
 
 ## Next steps
 
