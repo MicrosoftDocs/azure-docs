@@ -180,8 +180,7 @@ Additional optimizations depend on the size of the SQL Server data disks. For ea
 
 - Column count equals the number of disks in the storage pool
 
-For additional information, see [Storage Spaces Overview](http://technet.microsoft.com/
-library/hh831739.aspx). 
+For additional information, see [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx). 
 
 For more information about storage pools see [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
 
