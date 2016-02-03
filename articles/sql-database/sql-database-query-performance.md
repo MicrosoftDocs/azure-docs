@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="02/01/2015"
+   ms.date="02/03/2015"
    ms.author="sstein"/>
 
 # Azure SQL Database Query Performance Insight
@@ -73,11 +73,11 @@ In the [portal](http://portal.azure.com) do the following:
     The bottom grid represents aggregated information for the visible queries.
 
     -	Average CPU per query during observable interval. 
-    -	Total duration per query
-    -	Total number of executions of particular query.
+    -	Total duration per query.
+    -	Total number of executions for a particular query.
 
 
-	Select or clear individual queries to include or exclude them from the chart using checkbox. 
+	Select or clear individual queries to include or exclude them from the chart. 
 
 
 1. If your data becomes stale, click the **Refresh** button.
@@ -152,7 +152,7 @@ Clear Query Store. Be aware that this will delete all current information in the
 
 ## Summary
 
-Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem. Click the **Query Performance Insight** tile on a database blade to see the top resource (CPU) consuming queries. 
+Query Performance Insight helps you understand the impact of your query workload and how it relates to database resource consumption. With this feature, you will learn about the top consuming queries, and easily identify the ones to fix before they become a problem. Click **Query Performance Insight** on a database to see the top resource (CPU) consuming queries. 
 
 
 
