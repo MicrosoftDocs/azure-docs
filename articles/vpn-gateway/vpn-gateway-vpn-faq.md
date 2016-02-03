@@ -242,7 +242,7 @@ For traffic between different Azure virtual networks, Azure charges only for tra
 
 ### Can I connect a virtual network with IPsec VPNs to my ExpressRoute circuit?
 
-Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-coexist.md).
+Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
 
 ## Cross-Premises connectivity and VMs
 
