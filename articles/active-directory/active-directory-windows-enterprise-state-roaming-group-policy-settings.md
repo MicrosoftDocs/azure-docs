@@ -50,7 +50,7 @@ The Group Policy settings apply to Windows 10 devices that are joined to an Acti
 
 
 ## Related topics
-- [Enterprise state roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
+- [Enterprise State Roaming overview](active-directory-windows-enterprise-state-roaming-overview.md)
 - [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 - [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)
 - [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
