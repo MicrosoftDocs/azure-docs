@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="2/3/2016"
+   ms.date="02/03/2016"
    ms.author="terrylan"/>
 
 # Apply disk encryption
@@ -30,10 +30,10 @@ Disk encryption leverages the industry standard [BitLocker](https://technet.micr
 To learn about enabling disk encryption on Windows and Linux VMs, see:
 
 - [Prerequisites to enable disk encryption](azure-security-disk-encryption.md#Prerequisites) on Azure IaaS VMs
-- [High level steps required to enable disk encryption](azure-security-disk-encryption.md#Encryption Workflow) for Windows and Linux VMs
-- [Enable encryption on existing/running IaaS Windows VM](azure-security-disk-encryption.md#Enable encryption on existing/running IaaS Windows VM in Azure) in Azure
-- [Enable encryption on existing/running IaaS Linux VM](azure-security-disk-encryption.md#Enable encryption on existing/running IaaS Linux VM in Azure) in Azure
-- [Set and configure Azure Key Vault](azure-security-disk-encryption.md#Setting and Configuring Azure Key Vault for Azure disk encryption usage) for disk encryption usage
+- [High level steps required to enable disk encryption](azure-security-disk-encryption.md#Encryption-Workflow) for Windows and Linux VMs
+- [Enable encryption on existing/running IaaS Windows VM](azure-security-disk-encryption.md#Enable-encryption-on-existing/running-IaaS-Windows-VM-in-Azure) in Azure
+- [Enable encryption on existing/running IaaS Linux VM](azure-security-disk-encryption.md#Enable-encryption-on-existing/running-IaaS-Linux-VM-in-Azure) in Azure
+- [Set and configure Azure Key Vault](azure-security-disk-encryption.md#Setting-and-Configuring-Azure-Key-Vault-for-Azure-disk-encryption-usage) for disk encryption usage
 
 ## Implement the recommendation
 
