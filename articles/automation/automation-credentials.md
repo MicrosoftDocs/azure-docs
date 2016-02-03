@@ -45,7 +45,7 @@ The activities in the following table are used to access credentials in a runboo
 ## Creating a new credential
 
 
-### To create a new variable with the Azure portal
+### To create a new variable with the Azure classic portal
 
 1. From your automation account, click **Assets** at the top of the window.
 1. At the bottom of the window, click **Add Setting**.
@@ -54,7 +54,7 @@ The activities in the following table are used to access credentials in a runboo
 1. Complete the wizard and click the checkbox to save the new credential.
 
 
-### To create a new credential with the Azure preview portal
+### To create a new credential with the Azure portal
 
 1. From your automation account, click the **Assets** part to open the **Assets** blade.
 1. Click the **Credentials** part to open the **Credentials** blade.
@@ -97,7 +97,7 @@ The following image shows an example of using a credential in a graphical runboo
 ![Add credential to canvas](media/automation-credentials/get-credential.png)
 
 ## Using a PowerShell credential in DSC
-While DSC Configurations in Azure Automation can reference credential assets using **Get-AutomationPSCredential**, credential assets can also be passed in via parameters, if desired. For more information, see [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md#credential-assets).
+While DSC configurations in Azure Automation can reference credential assets using **Get-AutomationPSCredential**, credential assets can also be passed in via parameters, if desired. For more information, see [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md#credential-assets).
 
 ## Related articles
 
