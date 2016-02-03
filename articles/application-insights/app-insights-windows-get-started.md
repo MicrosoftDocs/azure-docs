@@ -17,37 +17,39 @@
 
 # Analytics for Windows Phone and Store apps
 
-Microsoft's provides two solutions for device devOps: [HockeyApp](http://hockeyapp.net/) for devOps workflow and crash analysis; and [Application Insights](app-insights-overview.md) for usage and crash analytics.
+Microsoft provides two solutions for device devOps: [HockeyApp](http://hockeyapp.net/) for client side analytics; and [Application Insights](app-insights-overview.md) for the server side.
 
-[HockeyApp](http://hockeyapp.net/) is our Mobile DevOps solution for iOS, OS X, Android or Windows device apps, as well as cross platform apps based on Xamarin, Cordova, and Unity. With it, you can distribute builds to beta testers, collect crash data, and get user feedback. It’s integrated with Visual Studio Team Services enabling easy build deployments and work item integration. You can learn more from the [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb) and keep up to date on the [HockeyApp Blog](http://hockeyapp.net/blog/).
+[HockeyApp](http://hockeyapp.net/) is our Mobile DevOps solution for iOS, OS X, Android or Windows device apps, as well as cross platform apps based on Xamarin, Cordova, and Unity. With it, you can distribute builds to beta testers, collect crash data, and get user metrics and feedback. It’s integrated with Visual Studio Team Services enabling easy build deployments and work item integration. 
 
-If your app has a server side, use [Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md). Send the telemetry to the same Application Insights resource to be able to correlate events in the two sides.
+Learn more from the [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb), keep up to date on the [HockeyApp Blog](http://hockeyapp.net/blog/) and join [Hockeyapp Preseason](http://hockeyapp.net/preseason/).
 
-There's also an [Application Insights SDK for C++ Universal apps](https://github.com/Microsoft/ApplicationInsights-CPP) which sends telemetry to the Application Insights portal.
+If your app has a server side, use [Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md). 
 
-Visual Studio Application Insights lets you monitor your published application for:
+## Application Insights SDK for your Windows devices
 
-* [**Usage**][windowsUsage] - Learn how many users you have and what they are doing with your app.
-* [**Crashes**][windowsCrash] - Get alerts and diagnostic reports of crashes and understand their impact on users.
+Although we recommend HockeyApp, there's also a version of the Application Insights SDK that you can use to monitor [crashes][windowsCrash] and [usage][windowsUsage] on your Windows device apps. 
+
+This is useful if you need to integrate the client and server metrics from your app. Send the client and server metrics to the same Application Insights resource.
+
+Please note that support for the older device SDK will be phased out.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
-## Adding Application Insights to your Windows app
 
-Use Application Insights for usage and crash alerts for your phone or Windows Store app. 
-
-You'll need:
+To install the older SDK, you'll need:
 
 * A subscription to [Microsoft Azure][azure].
 * Visual Studio 2013 or later.
 
-(You might be aware that Visual Studio can automatically add Application Insights to web projects. This feature is not available for Windows Phone and Store apps. But you can add the Application Insights SDK to your app manually.)
 
-## 1. Create an Application Insights resource 
+### 1. Get an Application Insights resource 
 
-In the [Azure portal][portal], create a new Application Insights resource.
+In the [Azure portal][portal], choose or create your Application Insights resource. 
 
-![Choose New, Developer Services, Application Insights](./media/app-insights-windows-get-started/01-new.png)
+* If you are already monitoring the server side of your app, use that.
+* Or, to create a new resource:
+
+    ![Choose New, Developer Services, Application Insights](./media/app-insights-windows-get-started/01-new.png)
 
 A [resource][roles] in Azure is an instance of a service. This resource is where telemetry from your app will be analyzed and presented to you.
 
@@ -58,11 +60,14 @@ The key identifies the resource. You'll need it soon, to configure the SDK to se
 ![Open the Essentials drop-down drawer and select the instrumentation key](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2. Add the Application Insights SDK to your apps
+### 2. Add the Application Insights SDK to your apps
 
 In Visual Studio, add the appropriate SDK to your project.
 
-If it's a Windows Universal app, repeat the steps for both the Windows Phone project and the Windows project.
+
+* If it's a C++ app, use the [C++ SDK](https://github.com/Microsoft/ApplicationInsights-CPP) instead of the NuGet package illustrated below.
+
+If it's a Windows Universal app, repeat the steps below for both the Windows Phone project and the Windows project.
 
 1. Right-click the project in Solution Explorer and choose **Manage NuGet Packages**.
 
@@ -102,11 +107,11 @@ If it's a Windows Universal app, repeat the steps for both the Windows Phone pro
 
 **Windows Universal apps**: Repeat the steps for both the Phone and the Store project. [Example of a Windows 8.1 Universal app](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
-## <a name="network"></a>3. Enable network access for your app
+### <a name="network"></a>3. Enable network access for your app
 
 If your app doesn't already [request outgoing network access](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), you'll have to add that to its manifest as a [required capability](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
-## <a name="run"></a>4. Run your project
+### <a name="run"></a>4. Run your project
 
 [Run your application with F5](http://msdn.microsoft.com/library/windows/apps/bg161304.aspx) and use it, so as to generate some telemetry. 
 
@@ -117,7 +122,7 @@ In Visual Studio, you'll see a count of the events that have been received.
 In debug mode, telemetry is sent as soon as it's generated. In release mode, telemetry is stored on the device and sent only when the app resumes.
 
 
-## <a name="monitor"></a>5. See monitor data
+### <a name="monitor"></a>5. See monitor data
 
 Open Application Insights from your project.
 
@@ -133,11 +138,11 @@ Click Refresh after a few seconds if you're expecting more data.
 Click any chart to see more detail. 
 
 
-## <a name="deploy"></a>5. Publish your application to Store
+### <a name="deploy"></a>5. Publish your application to Store
 
 [Publish your application](http://dev.windows.com/publish) and watch the data accumulate as users download and use it.
 
-## Customize your telemetry
+### Customize your telemetry
 
 #### Choosing the collectors
 
