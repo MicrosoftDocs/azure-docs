@@ -20,11 +20,11 @@
 # Create an endpoint for Traffic Manager (classic) using the Azure classic portal
 
 [AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-classic-selectors-include.md](../../includes/traffic-manager-get-started-create-endpoint-classic-selectors-include.md)]
-
+<BR>
 [AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-intro-include.md](../../includes/traffic-manager-get-started-create-endpoint-intro-include.md)]
-
+<BR>
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](traffic-manager-get-started-create-endpoint-portal.md).
-
+<BR>
 [AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-scenario-include.md](../../includes/traffic-manager-get-started-create-endpoint-scenario-include.md)]
 
 ## To add endpoints using the azure classic portal

@@ -20,11 +20,11 @@
 # Create an endpoint for Traffic Manager (classic) using PowerShell
 
 [AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-classic-selectors-include.md](../../includes/traffic-manager-get-started-create-endpoint-classic-selectors-include.md)]
-
+<BR>
 [AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-intro-include.md](../../includes/traffic-manager-get-started-create-endpoint-intro-include.md)]
-
+<BR>
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](traffic-manager-get-started-create-endpoint-ps.md).
-
+<BR>
 [AZURE.INCLUDE [traffic-manager-get-started-create-endpoint-scenario-include.md](../../includes/traffic-manager-get-started-create-endpoint-scenario-include.md)]
 
 ## Adding Azure endpoints 
