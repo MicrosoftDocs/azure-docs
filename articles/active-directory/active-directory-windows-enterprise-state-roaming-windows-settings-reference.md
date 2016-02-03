@@ -82,16 +82,16 @@ Settings that don't roam or sync will not belong to a group.
 |**Date, Time, and Region**: long date |sync     |X     |language|
 |**Date, Time, and Region**: short time |sync     |X     |language|
 |**Date, Time, and Region**: long time |sync     |X     |language|
-|**Desktop personalization**: desktop theme (background, system color, default system sounds, screen saver) |sync     |X     |theme|
+|**Desktop personalization**: desktop Theme (background, system color, default system sounds, screen saver) |sync     |X     |Theme|
 |**Desktop personalization**: slideshow wallpaper |sync     |X     |Theme|
-|**Desktop personalization**: taskbar settings (position, auto-hide, etc.) |sync     |X     |theme|
+|**Desktop personalization**: taskbar settings (position, auto-hide, etc.) |sync     |X     |Theme|
 |**Desktop personalization**: start screen layout |sync     |backup     ||
 |**Devices**: shared printers you've connected to |sync         | X    |other |
 |**Edge browser**: reading list        |sync     |sync     |internal|
 |**Edge browser**: favorites           |sync     |sync     |internal|
 |**Edge browser**: all other Edge settings|X     |X    ||
 |**High Contrast**: On or Off                |sync     |sync     |ease of access|
-|**High contrast**: theme settings|sync     |X    ||ease of access|
+|**High contrast**: Theme settings|sync     |X    ||ease of access|
 |**Internet Explorer**: open tabs (URL and title)|sync     |sync  |Internet Explorer|
 |**Internet Explorer**: reading list|sync     |sync  |Internet Explorer|
 |**Internet Explorer**: typed URLs|sync     |sync  |Internet Explorer|

@@ -49,7 +49,7 @@ Data is never mixed between the different user accounts on the device. There are
 If an app’s owner cannot be identified, it will roam with the primary account. If a device is upgraded from Windows 8 or Windows 8.1 to Windows 10, all the apps will be tagged as acquired by the Microsoft account because, in general, most apps were acquired via the Windows Store, and there was no Windows Store support for Azure AD accounts prior to Windows 10. If an app is installed via an offline license, the app will be tagged using the primary account on the device.
 
 >[AZURE.NOTE]  
->The ability to connect a Microsoft Account to a domain account and have all the user's data sync to the Microsoft account (i.e. Microsoft Account roaming via the “connected Microsoft Account and Active Directory” functionality) is removed from Windows 10 devices that are joined to a connected Active Directory/Azure AD environment.
+>The ability to connect a Microsoft Account to a domain account and have all the user's data sync to the Microsoft Account (i.e. Microsoft Account roaming via the “connected Microsoft Account and Active Directory” functionality) is removed from Windows 10 devices that are joined to a connected Active Directory/Azure AD environment.
  
 ## How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?
 A user joined to the Active Directory domain running Windows 8 or Windows 8.1 with a connected Microsoft account will sync settings through the user’s Microsoft account. After upgrading to Windows 10, domain-joined users will continue to sync user settings via Microsoft account as long as the Active Directory domain does not connect with Azure AD. 
