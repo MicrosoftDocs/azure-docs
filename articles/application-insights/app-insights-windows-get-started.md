@@ -21,13 +21,17 @@ Microsoft provides two solutions for device devOps: [HockeyApp](http://hockeyapp
 
 [HockeyApp](http://hockeyapp.net/) is our Mobile DevOps solution for iOS, OS X, Android or Windows device apps, as well as cross platform apps based on Xamarin, Cordova, and Unity. With it, you can distribute builds to beta testers, collect crash data, and get user metrics and feedback. It’s integrated with Visual Studio Team Services enabling easy build deployments and work item integration. 
 
-Learn more from the [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb), keep up to date on the [HockeyApp Blog](http://hockeyapp.net/blog/) and join [Hockeyapp Preseason](http://hockeyapp.net/preseason/).
+Go to:
+
+* [HockeyApp](http://support.hockeyapp.net/kb)
+* [HockeyApp Blog](http://hockeyapp.net/blog/)
+* Join [Hockeyapp Preseason](http://hockeyapp.net/preseason/) to get early releases.
 
 If your app has a server side, use [Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md). 
 
 ## Application Insights SDK for your Windows devices
 
-Although we recommend HockeyApp, there's also a version of the Application Insights SDK that you can use to monitor [crashes][windowsCrash] and [usage][windowsUsage] on your Windows device apps. 
+Although we recommend HockeyApp, there's also an older version of the Application Insights SDK that you can use to monitor [crashes][windowsCrash] and [usage][windowsUsage] on your Windows device apps. 
 
 This is useful if you need to integrate the client and server metrics from your app. Send the client and server metrics to the same Application Insights resource.
 
