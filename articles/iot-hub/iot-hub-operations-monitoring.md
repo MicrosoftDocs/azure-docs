@@ -4,7 +4,7 @@
  services="iot-hub"
  documentationCenter=""
  authors="nberdy"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="02/03/2016"
- ms.author="dobett"/>
+ ms.author="nberdy"/>
 
 # Introduction to operations monitoring
 
@@ -135,6 +135,6 @@ Now that you’ve seen an overview of operations monitoring, follow these links 
 [2]: media/iot-hub-operations-monitoring/enable-OM-2.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-diagnostic-metrics]: iot-hub-diagnostic-metrics.md
+[lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-dr]: iot-hub-ha-dr.md
