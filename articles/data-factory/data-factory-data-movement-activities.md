@@ -78,23 +78,22 @@ In both the scenarios described above, the data does not flow through the servic
 
 If you are copying from a **cloud** source to a **cloud** destination (for example: Azure Blob -> Azure SQL) or vice-versa, the **Azure Data Factory service** picks the region that is closest to the sink location in the same geography to do the transfer. Refer to below table for mapping.          
     
-| Region of the destination data store | Region used for data movement |    
-| ------------------------------------ | ----------------------------- |    
-| East US | East US |    
-| East US 2 | East US 2 |    
-| Central US | Central US |    
-| West US | West US |    
-| North Central US | North Central US |     
-| South Central US | South Central US |    
-| North Europe | North Europe |     
-| West Europe | West Europe |    
-| Southeast Asia | South East Asia |    
-| East Asia | South East Asia |    
-| Japan East | Japan East |    
-| Japan West | Japan East |    
-| Brazil South | Brazil South |  
+Region of the destination data store | Region used for data movement     
+------------------------------------ | ----------------------------    
+East US | East US    
+East US 2 | East US 2    
+Central US | Central US    
+West US | West US    
+North Central US | North Central US     
+South Central US | South Central US    
+North Europe | North Europe     
+West Europe | West Europe    
+Southeast Asia | South East Asia    
+East Asia | South East Asia    
+Japan East | Japan East    
+Japan West | Japan East    
+Brazil South | Brazil South
   
-
 > [AZURE.NOTE] If the region of the destination data store is not in the list above, the Copy Activity will fail instead of going through an alternative region. We will be extending to Australia East and Australia Southeast shortly.
 
 
