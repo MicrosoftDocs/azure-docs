@@ -22,7 +22,7 @@ You have to create an account for every user who will access a Microsoft cloud s
 
 ## Create a user
 
-1. Click **Active Directory**, and then click on the name of your organization’s directory.
+1. Click **Active Directory**, and then select the name of your organization’s directory.
 2. On the **Users** page, click **Add User**.
 3. On the **Tell us about this user** page, for **Type of User**, select either:
 	
@@ -43,7 +43,7 @@ If your organization uses more than one domain, you should know about the follow
 
 ## Edit a user
 
-To edit a user in the Azure Management Portal:
+To edit a user in the Azure classic portal:
 
 1. Click **Active Directory**, and then click on the name of your organization’s directory.
 2. On the **Users** page, click on the display name of the user you want to edit.
