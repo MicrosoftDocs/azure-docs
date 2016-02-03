@@ -146,13 +146,13 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 ###VM size, storage settings
 
-- On **VM size, storage settings** choose a SQL Server virtual machine size and review the other settings. 
+On **VM size, storage settings** choose a SQL Server virtual machine size and review the other settings. 
 
-- **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see [Sizes for virtual machines](virtual-machines-size-specs.md)
+- **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
 - **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
 
-[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)
+>[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
 - **File Share Witness virtual machine size** is the virtual machine size for the file share witness. For this tutorial use **A1**.
 
@@ -182,7 +182,7 @@ Additional optimizations depend on the size of the SQL Server data disks. For ea
 
 For additional information, see [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx). 
 
-For more information about storage pools see [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
+ [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
 
 ![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
 
