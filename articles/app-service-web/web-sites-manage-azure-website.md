@@ -66,7 +66,7 @@ While your web app is running, you want to make sure it is available, and that i
 ### Backups
 
 - Set [automatic backups](web-sites-backup.md) of your web app. Learn more about backups in [this video](https://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Learn about the options for [database recovery](../sql-database-business-continuity.md) in Azure SQL Database.
+- Learn about the options for [database recovery](https://azure.microsoft.com/en-us/documentation/articles/sql-database-business-continuity/) in Azure SQL Database.
 
 ### Troubleshooting
 
@@ -87,8 +87,8 @@ Consider using [staged deployment](web-sites-staged-publishing.md). This option 
 
 If you use Visual Studio Team Services, you can set up continuous deployment from source control:
 
-- [Using Team Foundation Version Control (TFVC)](../cloud-services-continuous-delivery-use-vso.md) 
-- [Using Git](../cloud-services-continuous-delivery-use-vso-git.md)
+- [Using Team Foundation Version Control (TFVC)](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/) 
+- [Using Git](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso-git/)
  
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
