@@ -91,7 +91,7 @@ This section shows you how to use the **Add Azure Replica Wizard** to extend you
 
 1. The provisioning process begins. When the wizard completes successfully, click **Close** to exit out of the wizard.
 
->[AZURE.NOTE] The Add Azure Replica Wizard creates a log file in [Users]\[User Name]\AppData\Local\SQL Server\AddReplicaWizard. This log file can be used to troubleshoot failed Azure replica deployments. If the Wizard fails executing any action, all previous operations are rolled back, including deleting the provisioned VM.
+>[AZURE.NOTE] The Add Azure Replica Wizard creates a log file in Users\User Name\AppData\Local\SQL Server\AddReplicaWizard. This log file can be used to troubleshoot failed Azure replica deployments. If the Wizard fails executing any action, all previous operations are rolled back, including deleting the provisioned VM.
 
 ## Create an Availability Group Listener
 
