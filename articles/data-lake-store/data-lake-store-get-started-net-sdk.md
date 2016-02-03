@@ -123,7 +123,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 		
 		            // Create a directory called MYTEMPDIR in the store
 		            Console.WriteLine("Creating a directory under the Azure Data Lake Store account");
-		            CreateDir(_dataLakeStoreFileSystemClient, "/mytempdir", dataLakeAccountName, "777");
+		            CreateDir(_dataLakeStoreFileSystemClient, dataLakeAccountName, "/mytempdir", "777");
 		            Console.WriteLine("Directory created. Press ENTER to continue...");
 		            Console.ReadLine();
 		
@@ -197,7 +197,7 @@ Learn how to use the Azure Data Lake Store .NET SDK to create an Azure Data Lake
 		        {
 		            var stream = new MemoryStream(Encoding.UTF8.GetBytes(content));
 		            
-		            dataLakeStoreFileSystemClient.FileSystem.DirectAppend(filePath, accountName, stream);
+		            dataLakeStoreFileSystemClient.FileSystem.DirectAppend(path, dlAccountName, stream);
 		            return true;
 		        }
 		
