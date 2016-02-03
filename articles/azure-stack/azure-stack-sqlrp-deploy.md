@@ -17,8 +17,8 @@
 	ms.author="v-anpasi"/>
 
 # Installing SQL Server Resource Provider adaptor for Azure Stack
-
-You can deploy SQL Server resource providers in your Azure Stack POC environment.
+The SQL Server Resource Provider adaptor lets you consume any SQL Server-based workload through your Azure stack, allowing SQL server databases to be consumed when deploying cloud native apps as well as SQL-based websites on Azure Stack.
+You can deploy SQL Server resource provider in your Azure Stack POC environment by following the steps below:
 
 ## Pre-Requisites
 You will need Windows Server 2012 R2 Datacenter VHD with .Net 3.5 as the default image in the Platform Image repository (Refer to this document [this link](https://fakeurl.com))
