@@ -46,7 +46,7 @@ Azure CLI must be switched to ARM mode.
 
 ### Step 4 
 
-Assuming you already created a profile following the steps [in this article](traffic-manager-get-started-create-profile-arm-cli.md), the next steps are: to list the traffic manager profile and add endpoints. You can gather the traffic manager resources list using `azure network traffic-manager profile list` command. 
+Assuming you already created a profile following the steps [in the article: get started creating a traffic manager profile](traffic-manager-get-started-create-profile-arm-cli.md), the next steps are: to list the traffic manager profile and add endpoints. You can gather the traffic manager resources list using `azure network traffic-manager profile list` command. 
 
 	C:\>azure network traffic-manager profile list
 	info:    Executing command network traffic-manager profile list
@@ -60,7 +60,7 @@ Assuming you already created a profile following the steps [in this article](tra
 
 After confirming the traffic manager profile you want to use, you can add an endpoint using the command `azure network profile endpoint create`.
 
-	C:\>azure network traffic-manager profile endpoint create --profile-name contoso --name contoso.cloudapp.net --type CloudService  --endpoint-status enabled --weight 10 
+	C:\>azure network traffic-manager profile endpoint create --profile-name contoso --name westus.cloudapp.net --type CloudService  --endpoint-status enabled --weight 10 
 
 Parameters used:
 

@@ -22,11 +22,11 @@
 [AZURE.INCLUDE [traffic-manager-get-started-create-profile-classic-selectors-include.md](../../includes/traffic-manager-get-started-create-profile-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [traffic-manager-get-started-create-profile-intro-include.md](../../includes/traffic-manager-get-started-create-profile-intro-include.md)]
-
+<BR>
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](traffic-manager-get-started-create-profile-arm-cli.md).
-
+<BR>
 [AZURE.INCLUDE [traffic-manager-get-started-create-profile-scenario-include.md](../../includes/traffic-manager-get-started-create-profile-scenario-include.md)]
-
+<BR>
 ## Create a new traffic manager profile using azure network traffic-manager profile create
 
 [AZURE.INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
@@ -34,15 +34,15 @@
 
 Failover routing method:
 
-	azure network traffic-manager profile create --name trafficmanager-failover --domain-name trafficmanager-failover.trafficmanager.net --load-balancing-method Failover --monitor-port 80 --monitor-protocol http --monitor-relative-path / --ttl 60
+	azure network traffic-manager profile create --name trafficmanager-failover --domain-name contoso-failover.trafficmanager.net --load-balancing-method Failover --monitor-port 80 --monitor-protocol http --monitor-relative-path / --ttl 60
 
 Performance routing method:
 
-	azure network traffic-manager profile create --name trafficmanager-performance --domain-name trafficmanager-performance.trafficmanager.net --load-balancing-method Performance --monitor-port 80 --monitor-protocol http --monitor-relative-path / --ttl 60
+	azure network traffic-manager profile create --name trafficmanager-performance --domain-name contoso-performance.trafficmanager.net --load-balancing-method Performance --monitor-port 80 --monitor-protocol http --monitor-relative-path / --ttl 60
 
 Round-robin routing method:
 
-	azure network traffic-manager profile create --name trafficmanager-roundrobin --domain-name trafficmanager-roundrobin.trafficmanager.net --load-balancing-method RoundRobin --monitor-port 80 --monitor-protocol http --monitor-relative-path / --ttl 60
+	azure network traffic-manager profile create --name trafficmanager-roundrobin --domain-name contoso-roundrobin.trafficmanager.net --load-balancing-method RoundRobin --monitor-port 80 --monitor-protocol http --monitor-relative-path / --ttl 60
 
 >[AZURE.NOTE] Health monitoring is also configured for the endpoints when creating a traffic manager profile. A monitoring port, protocol and path for the endpoints is configured to make sure the endpoint is online and able to receive traffic from Internet clients.
 
@@ -59,4 +59,4 @@ Round-robin routing method:
 
 ## Next steps
 
-You need to [add endpoints](traffic-manager-get-started-create-endpoints-classic-cli.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).
+You need to [add endpoints](traffic-manager-get-started-create-endpoint-classic-cli.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).

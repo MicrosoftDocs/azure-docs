@@ -36,16 +36,16 @@ The following example configures a new traffic manager profile using each of the
 
 Weighted routing method:
 
-	azure network traffic-manager profile create --name trafficmanager-weighted --resource-group nrp-rg --profile-status enabled --relative-dns-name trafficmanager-weighted.trafficmanager.net --traffic-routing-method Weighted --monitor-port 80 --monitor-protocol http --monitor-path / --ttl 60
+	azure network traffic-manager profile create --name trafficmanager-weighted --resource-group nrp-rg --profile-status enabled --relative-dns-name contoso-weighted.trafficmanager.net --traffic-routing-method Weighted --monitor-port 80 --monitor-protocol http --monitor-path / --ttl 60
 
 Performance routing method:
 
-	azure network traffic-manager profile create --name trafficmanager-Performance --resource-group nrp-rg --profile-status enabled --relative-dns-name trafficmanager-performance.trafficmanager.net --traffic-routing-method Performance --monitor-port 80 --monitor-protocol http --monitor-path / --ttl 60
+	azure network traffic-manager profile create --name trafficmanager-Performance --resource-group nrp-rg --profile-status enabled --relative-dns-name contoso-performance.trafficmanager.net --traffic-routing-method Performance --monitor-port 80 --monitor-protocol http --monitor-path / --ttl 60
 
 
 Priority routing method:
 
-	azure network traffic-manager profile create --name trafficmanager-priority --resource-group nrp-rg --profile-status enabled --relative-dns-name trafficmanager-priority.trafficmanager.net --traffic-routing-method Priority --monitor-port 80 --monitor-protocol http --monitor-path / --ttl 60
+	azure network traffic-manager profile create --name trafficmanager-priority --resource-group nrp-rg --profile-status enabled --relative-dns-name contoso-priority.trafficmanager.net --traffic-routing-method Priority --monitor-port 80 --monitor-protocol http --monitor-path / --ttl 60
 
 
 >[AZURE.NOTE]Health monitoring is also configured for the endpoints when creating a traffic manager profile. A monitoring port, protocol and path for the endpoints was configured to make sure the endpoint is online and able to receive traffic from Internet clients.
@@ -72,4 +72,4 @@ Priority routing method:
 
 ## Next steps
 
-You need to [add endpoints](traffic-manager-get-started-create-endpoints-arm-cli.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).
+You need to [add endpoints](traffic-manager-get-started-create-endpoint-arm-cli.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).

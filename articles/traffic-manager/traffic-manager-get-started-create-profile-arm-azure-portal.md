@@ -47,4 +47,4 @@ Select the subscription. Select the appropriate Azure subscription. Each profile
 
 ## Next steps
  
-You need to [add endpoints](traffic-manager-get-started-create-endpoints-arm-portal.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).
+You need to [add endpoints](traffic-manager-get-started-create-endpoint-arm-portal.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).

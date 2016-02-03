@@ -38,15 +38,15 @@ The following example configures a new traffic manager profile using each of the
 
 Failover routing method:
 
-	New-AzureTrafficManagerProfile -Name trafficmanager-failover -Domainname trafficmanager-failover.trafficmanager.net -LoadbalancingMethod Failover -MonitorPort 80 -MonitorProtocol Http -MonitorRelativePath '/' -Ttl 60 
+	New-AzureTrafficManagerProfile -Name trafficmanager-failover -Domainname contoso-failover.trafficmanager.net -LoadbalancingMethod Failover -MonitorPort 80 -MonitorProtocol Http -MonitorRelativePath '/' -Ttl 60 
 
 Performance routing method:
 
-	New-AzureTrafficManagerProfile -Name trafficmanager-performance -Domainname trafficmanager-performance.trafficmanager.net -LoadbalancingMethod Performance -MonitorPort 80 -MonitorProtocol Http -MonitorRelativePath '/' -Ttl 60
+	New-AzureTrafficManagerProfile -Name trafficmanager-performance -Domainname contoso-performance.trafficmanager.net -LoadbalancingMethod Performance -MonitorPort 80 -MonitorProtocol Http -MonitorRelativePath '/' -Ttl 60
 
 Round-robin routing method:
 
-	New-AzureTrafficManagerProfile -Name trafficmanager-roundrobin -Domainname trafficmanager-roundrobin.trafficmanager.net -LoadbalancingMethod RoundRobin -MonitorPort 80 -MonitorProtocol Http -MonitorRelativePath '/' -Ttl 60
+	New-AzureTrafficManagerProfile -Name trafficmanager-roundrobin -Domainname contoso-roundrobin.trafficmanager.net -LoadbalancingMethod RoundRobin -MonitorPort 80 -MonitorProtocol Http -MonitorRelativePath '/' -Ttl 60
 
 >[AZURE.NOTE] Health monitoring is also configured for the endpoints when creating a traffic manager profile. A monitoring port, protocol and path for the endpoints is configured to make sure the endpoint is online and able to receive traffic from Internet clients.
 
@@ -62,4 +62,4 @@ Round-robin routing method:
 
 ## Next steps
 
-You need to [add endpoints](traffic-manager-get-started-create-endpoints-classic-cli.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).
+You need to [add endpoints](traffic-manager-get-started-create-endpoint-classic-cli.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).

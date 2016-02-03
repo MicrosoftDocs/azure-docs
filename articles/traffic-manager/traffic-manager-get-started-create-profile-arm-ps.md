@@ -37,16 +37,16 @@ The following example configures a new traffic manager profile using each of the
 
 Weighted routing method:
 
-	New-AzureRmTrafficManagerProfile -Name trafficmanager-rm-weighted -ResourceGroupName nrp-rg -RelativeDnsName trafficmanager-rm-weighted.trafficmanager.net -TrafficRoutingMethod Weighted -Ttl 60 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath / 
+	New-AzureRmTrafficManagerProfile -Name trafficmanager-rm-weighted -ResourceGroupName nrp-rg -RelativeDnsName contoso-weighted.trafficmanager.net -TrafficRoutingMethod Weighted -Ttl 60 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath / 
 
 Performance routing method:
 
-	New-AzureRmTrafficManagerProfile -Name trafficmanager-rm-performance -ResourceGroupName nrp-rg -RelativeDnsName trafficmanager-rm-performance.trafficmanager.net -TrafficRoutingMethod Performance -Ttl 60 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath /  
+	New-AzureRmTrafficManagerProfile -Name trafficmanager-rm-performance -ResourceGroupName nrp-rg -RelativeDnsName contoso-performance.trafficmanager.net -TrafficRoutingMethod Performance -Ttl 60 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath /  
 
 
 Priority routing method:
 
-	New-AzureRmTrafficManagerProfile -Name trafficmanager-rm-priority -ResourceGroupName nrp-rg -RelativeDnsName trfficmanager-rm-priority.trafficmanager.net -TrafficRoutingMethod Priority -Ttl 60 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath / -Verbose
+	New-AzureRmTrafficManagerProfile -Name trafficmanager-rm-priority -ResourceGroupName nrp-rg -RelativeDnsName contoso-priority.trafficmanager.net -TrafficRoutingMethod Priority -Ttl 60 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath / -Verbose
 
 
 >[AZURE.NOTE]Health monitoring is also configured for the endpoints when creating a traffic manager profile. A monitoring port, protocol and path for the endpoints was configured to make sure the endpoint is online and able to receive traffic from Internet clients.
@@ -71,4 +71,4 @@ Priority routing method:
  
 ## Next steps
 
-You need to [add endpoints](traffic-manager-get-started-create-endpoints-arm-ps.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).
+You need to [add endpoints](traffic-manager-get-started-create-endpoint-arm-ps.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).

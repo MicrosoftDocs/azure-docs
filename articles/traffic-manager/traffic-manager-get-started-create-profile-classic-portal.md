@@ -41,4 +41,4 @@
 
 ## Next steps
 
-You need to [add endpoints](traffic-manager-get-started-create-endpoints-classic-portal.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).
+You need to [add endpoints](traffic-manager-get-started-create-endpoint-classic-portal.md) for the traffic manager profile. You can also [associate your company domain to a traffic manager profile](traffic-manager-point-internet-domain.md).
