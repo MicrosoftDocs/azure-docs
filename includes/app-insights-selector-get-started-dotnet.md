@@ -9,7 +9,7 @@ Install the SDK and then add monitoring for other data:
 
 > [AZURE.SELECTOR]
 - [Install the SDK](app-insights-asp-net.md#selector1)
-- [User & page data](../article/application-insights/app-insights-javascript.md#selector1)
+- [User & page data](app-insights-javascript.md#selector1)
 - [Exceptions](app-insights-asp-net-exceptions.md#selector1)
 - [Dependencies](app-insights-asp-net-dependencies.md#selector1)
 - [Availability](app-insights-monitor-web-app-availability.md#selector1)
