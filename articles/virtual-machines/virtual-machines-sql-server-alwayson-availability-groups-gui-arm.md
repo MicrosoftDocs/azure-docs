@@ -55,13 +55,13 @@ All of the resources in this solution belong to a single resource group.
 
 This tutorial assumes the following:
 
-- You already have an Azure account. If you don't have one, [sign up for a trial account](https://azure.microsoft.com/pricing/free-trial/).
+- You already have an Azure account. If you don't have one, [sign up for a trial account](http://azure.microsoft.com/pricing/free-trial/).
 
 - You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md)
 
-- You already have a solid understanding of AlwaysOn Availability Groups. For more information, see [AlwaysOn Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+- You already have a solid understanding of AlwaysOn Availability Groups. For more information, see [AlwaysOn Availability Groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] If you are interested in using AlwaysOn Availability Groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] If you are interested in using AlwaysOn Availability Groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
 
 In this tutorial you will use the Azure portal to:
 
@@ -152,7 +152,7 @@ If necessary, you may change these values. For this tutorial use the preset valu
 
 - **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
 
-[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [Virtual Machines Pricing]http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)
+[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)
 
 - **File Share Witness virtual machine size** is the virtual machine size for the file share witness. For this tutorial use **A1**.
 
@@ -180,10 +180,10 @@ Additional optimizations depend on the size of the SQL Server data disks. For ea
 
 - Column count equals the number of disks in the storage pool
 
-For additional information, see [Storage Spaces Overview](https://technet.microsoft.com/
+For additional information, see [Storage Spaces Overview](http://technet.microsoft.com/
 library/hh831739.aspx). 
 
-For more information about storage pools see [Windows Server Backup and Storage Pools](https://technet.microsoft.com/library/dn390929.aspx#BKMK_spd)
+For more information about storage pools see [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
 
 ![VM size storage settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/4-vm.png)
 
