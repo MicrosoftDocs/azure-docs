@@ -6,7 +6,7 @@
 	authors="fashah" 
 	manager="jacob.spoelstra" 
 	editor="" 
-	videoId="" [hee
+	videoId=""
 	scriptId="" />
 
 <tags 
