@@ -170,7 +170,8 @@ To make sure the deployment was successful, in the Azure Stack portal, click **R
  
 
 ### Pre-registration Azure Stack Web Apps configuration steps
-After deployment is completed there are a few manual steps required before registering the newly deployed web app resource provider.
+
+Before registering the newly deployed web app resource provider, you'll need to get the load balancer IP addresses, add DNS records, and set up wildcard certificates.
 
 **Get load balancer IP addresses**
 
@@ -178,7 +179,7 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
 
 1. Open the Azure Stack portal and sign in as an administrator.
 
-2. Click **Browse**, click **Resource Groups**, click **WebSitesSQL**, click **Resources**, and then click **FrontEndServersLoadBalancer**.
+2. Click **Browse**, click **Resource Groups**, click **WebSitesSQL**, click **...** at the bottom of the **Resources** box, and then click **FrontEndServersLoadBalancer**.
 
 3. In the **FrontEndServersLoadBalancer** blade, make note of the **IP address**.
 ![][11]
@@ -191,42 +192,39 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
 
  Now that you have the IP addresses, you can add the DNS records.
  
-1. Open Hyper-V Manager, navigate to the ADVM, and sign in as an administrator.
+1. Minimize the client virtual machine.
+
+2. Open Hyper-V Manager, double-click the **ADVM** vitual machine, and sign in as an administrator.
  
-2. Open DNS Manager, click **Forward Lookup Zones**, right-click **AzureStack.Local**, and then click **New Host**.
+3. Open DNS Manager, expand the **ADVM** node, expand **Forward Lookup Zones**, right-click **AzureStack.Local**, and then click **New Host (A or AAAA)**.
 
 ![][13]
 
-3. In the **Name** box, type *management*. This management server DNS name will be used when registering the Web Apps resource provider later.  This is the endpoint that Azure Stack communicates with.
+4. In the **Name** box, type *management*. This management server DNS name will be used when registering the Web Apps resource provider later.  This is the endpoint that Azure Stack communicates with.
  
-4. In the **IP address** box, type the IP address for the **ManagementLoadBalancer** that you noted above. You'll also need this IP address when importing the wildcard certificate.
+5. In the **IP address** box, type the IP address for the **ManagementLoadBalancer** that you noted above. You'll also need this IP address when importing the wildcard certificate.
 
 ![][9]
 
-5. Click **Add host**.
+6. Click **Add host**.
 
-6. In the **Name** box, type *\*.webapps*. {find where this is mentioned earlier in the doc} This DNS name should match the name you used when populating the ARM template for the Web App resource provider. In this case we had webapps.azurestack.local so the DNS name should be *\*.webapps*.
+7. In the **Name** box, type *\*.webapps*. {find where this is mentioned earlier in the doc} This DNS name should match the name you used when populating the ARM template for the Web App resource provider. In this case we had webapps.azurestack.local so the DNS name should be *\*.webapps*.
 
-7. In the **IP address** box, type the IP address for the **FrontEndServersLoadBalancer** that you noted above.
+8. In the **IP address** box, type the IP address for the **FrontEndServersLoadBalancer** that you noted above.
 
-8. Click **Add host** and then click **OK**. This creates a **webapps** folder under **AzureStack.local**.
+9. Click **Add host**, click **OK**, and then click **Done**. This creates a **webapps** folder under **AzureStack.local** in DNS Manager.
 
-9. Close the ADVM.
+10. Close the ADVM virtual machine.
 
- 
-
-
-
-**Setting up the wildcard certificates**
+**Set up the wildcard certificates**
 
 To configure your Azure Stack Web Apps deployment with wildcard certificates you need to first get the wildcard certificate to configure the system with.  To do this: 
 
-1 Login to the PortalVM
+1. Open Remote Desktop Connection and sign in to the PortalVM as the domain administrator.
 
-2 Request wildcard certificate from POC CA
+2. Open IIS, click **PortalVM**, click **Server Certificates**, and then click **Create Domain Certificate**.
 
-- On PortalVM in inetmgr Feature: Server Certificates Action: Create Domain  Certificate
-- Fill out the Prompt wizard 
+3. Fill out the wizard as follows:
 - Common name: *.azurestack.local
 - Organization: Microsoft        
 - Organizational unit: AzureStack
@@ -234,9 +232,17 @@ To configure your Azure Stack Web Apps deployment with wildcard certificates you
 - State/province: WA 
 - Country/region: US
 
+4. Click **Next**.
+
+5. In the **Select Certification Authority** dialog box, select **AzureStackCertificiationAuthority**, and then click **OK**.
+
+6. Type a **Friendly name**, like *_azurestack.local*, and then click **Finish**.
+
+
+
 3 Export wildcard certificate
 
-- Open MMC Certificates and find *.azureStack.local.
+1. Open MMC Certificates and find *.azureStack.local.
 - Right-click, all tasks, export
 - Select Yes, export private key
 - Check Export all extended properties.
