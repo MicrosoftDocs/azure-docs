@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="01/24/2016"
+   ms.date="02/03/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B collaboration preview: Current preview limitations
