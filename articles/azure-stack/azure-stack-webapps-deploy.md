@@ -162,20 +162,51 @@ New-AzureRmResourceGroupDeployment -Name "WebAppsDeploy01" -ResourceGroupName "W
 -sqlservername 10.0.2.4 -sqlsysadmin sa -sqlsysadminpwd "myPassword1!"   
 ```
 
+In the **Microsoft Azure STack App Service TP1** dialog box, click **Exit**.
+
+To make sure the deployment was successful, in the Azure Stack portal, click **Resource Groups** and then click the **WebSitesSQL** resource group. A green check mark next to the resource provider name indicates that it deployed successfully.
+
 ![][12]  
  
 
 ### Pre-registration Azure Stack Web Apps configuration steps
 After deployment is completed there are a few manual steps required before registering the newly deployed web app resource provider.
 
+**Get load balancer IP addresses**
+
+DNS entries need to be made for the Front End and Management Server VIPs.  To do this you need to first obtain the IP addresses for each of those load balancers.
+
+1. Open the Azure Stack portal and sign in as an administrator.
+
+2. Click **Browse**, click **Resource Groups**, click **WebSitesSQL**, and then click **Resources**.
+
+3. In the **WebSitesSQL** blade, make note of the IP address for the **FrontEndServersLoadBalancer**.
+
+4. In the **WebSitesSQL** blade, make note of the IP address for the **ManagementLoadBalancer**.
+  
 **Add DNS records**
 
-DNS entries need to be made for the Front End and Management Server VIPs.  To do this you need to first obtain the IP addresses for each of those load balancers.  
+ Now that you have the IP addresses, you can add the DNS records.
+ 
+1. Open Hyper-V Manager, navigate to the ADVM, and sign in as an administrator.
+ 
+2. Open DNS Manager, click **Forward Lookup Zones**, right-click **AzureStack.Local**, and then click **New Host**.
 
-To do this go into the Azure Stack portal > Resource Groups >  Resource Group you used when creating your Web Apps resource provider > Resources.  
+3. In the **Name** box, type *management*.
+ 
+4. In the **IP address** box, type the IP address for the **ManagementLoadBalancer** that you noted above.
 
-Both the FrontEndServersLoadBalancer and the ManagementServersLoadBalancer will be listed there.  Click on each and copy down the IP address that is shown for them.  
+5. Click **Add host**.
 
+6. In the **Name** box, type *\*.webapps* {find where this is mentioned earlier in the doc}
+
+7. In the **IP address** box, type the IP address for the **FrontEndServersLoadBalancer** that you noted above.
+
+8. Click **Add host** and then click **OK**. This creates a **webapps** folder under **AzureSTack.local**.
+
+9. Close the ADVM.
+
+ 
 ![][10]
 
 ![][11]
