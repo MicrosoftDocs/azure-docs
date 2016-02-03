@@ -66,7 +66,34 @@ Source data store location | Destination data store location | Data movement is 
 -------------------------- | ------------------------------- | ----------------------------- 
 on-premises/Azure VM (IaaS) | cloud |  **Data Management Gateway** on an on-premises computer/Azure VM. The data does not flow through the service in the cloud. <p> Note: The Data Management Gateway can be on the same on-premises computer/Azure VM as the data store or on a different on-premises computer/Azure VM as long as it can connect to both data stores.</p> 
 on-premises/Azure VM (IaaS) | on-premises/Azure VM | **Data Management Gateway associated with the source**. The data does not flow through the service in the cloud. See the note above.   
-cloud | cloud | <p>**Azure Data Factory**. The service picks the region that is closest to the sink location in the same geography. Refer to the following table for mapping: </p><table><tr><th>Region of the destination data store</th> <th>Region used for data movement</th></tr><tr><td>East US</td><td>East US</td></tr><tr><td>East US 2</td><td>East US 2</td><tr/><tr><td>Central US</td><td>Central US</td><tr/><tr><td>West US</td><td>West US</td></tr><tr><td>North Central US</td><td>North Central US</td></tr><tr><td>South Central US</td><td>South Central US</td></tr><tr><td>North Europe</td><td>North Europe</td></tr><tr><td>West Europe</td><td>West Europe</td></tr><tr><td>Southeast Asia</td><td>South East Asia</td></tr><tr><td>East Asia</td><td>South East Asia</td></tr><tr><td>Japan East</td><td>Japan East</td></tr><tr><td>Japan West</td><td>Japan East</td></tr><tr><td>Brazil South</td><td>Brazil South</td></tr></table>  
+cloud | cloud | <p>**Azure Data Factory**. The service picks the region that is closest to the sink location in the same geography. Refer to the following table for mapping: </p><table><tr><th>Region of the destination data store</th> <th>Region used for data movement</th></tr><tr><td>East US</td><td>East US</td></tr><tr><td>East US 2</td><td>East US 2</td><tr/><tr><td>Central US</td><td>Central US</td><tr/><tr><td>West US</td><td>West US</td></tr><tr><td>North Central US</td><td>North Central US</td></tr><tr><td>South Central US</td><td>South Central US</td></tr><tr><td>North Europe</td><td>North Europe</td></tr><tr><td>West Europe</td><td>West Europe</td></tr><tr><td>Southeast Asia</td><td>South East Asia</td></tr><tr><td>East Asia</td><td>South East Asia</td></tr><tr><td>Japan East</td><td>Japan East</td></tr><tr><td>Japan West</td><td>Japan East</td></tr><tr><td>Brazil South</td><td>Brazil South</td></tr></table>
+
+Note the following:     
+    
+If you are copying data from a data store on an **on-premises machine/Azure IaaS VM** to a **cloud** data store (for example: on-premises SQL Server to Azure Blob) or vice-versa, the data movement is performed by the **Data Management Gateway** in your on-premises environment. 
+
+If you are copying data from a data store on an **on-premises machine/Azure IaaS VM** to another data store that is on an **on-premises machine/Azure IaaS VM**, the **Data Management Gateway associated with the source** will perform the data movement. 
+
+In both the scenarios described above, the data does not flow through the service in the cloud. You can have the gateway installed on the same on-premises machine/Azure VM as the data store or on another on-premises machine/Azure VM as long as the gateway can connect to both data stores.
+
+If you are copying from a **cloud** source to a **cloud** destination (for example: Azure Blob -> Azure SQL) or vice-versa, the **Azure Data Factory service** picks the region that is closest to the sink location in the same geography to do the transfer. Refer to below table for mapping.          
+    
+| Region of the destination data store | Region used for data movement |    
+| ------------------------------------ | ----------------------------- |    
+| East US | East US |    
+| East US 2 | East US 2 |    
+| Central US | Central US |    
+| West US | West US |    
+| North Central US | North Central US |     
+| South Central US | South Central US |    
+| North Europe | North Europe |     
+| West Europe | West Europe |    
+| Southeast Asia | South East Asia |    
+| East Asia | South East Asia |    
+| Japan East | Japan East |    
+| Japan West | Japan East |    
+| Brazil South | Brazil South |  
+  
 
 > [AZURE.NOTE] If the region of the destination data store is not in the list above, the Copy Activity will fail instead of going through an alternative region. We will be extending to Australia East and Australia Southeast shortly.
 
