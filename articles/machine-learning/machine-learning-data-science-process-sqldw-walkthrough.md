@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/11/2016" 
-	ms.author="bradsev"/>
+	ms.date="02/03/2016" 
+	ms.author="bradsev;hangzh;wguo123"/>
 
 
 # The Cortana Analytics Process in action: using SQL Data Warehouse
