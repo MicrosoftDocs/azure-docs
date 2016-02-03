@@ -29,11 +29,11 @@ Disk encryption leverages the industry standard [BitLocker](https://technet.micr
 
 To learn about enabling disk encryption on Windows and Linux VMs, see:
 
-- [Prerequisites to enable disk encryption](azure-security-disk-encryption.md#Prerequisites) on Azure IaaS VMs
-- [High level steps required to enable disk encryption](azure-security-disk-encryption.md#Encryption-Workflow) for Windows and Linux VMs
-- [Enable encryption on existing/running IaaS Windows VM](azure-security-disk-encryption.md#Enable-encryption-on-existing/running-IaaS-Windows-VM-in-Azure) in Azure
-- [Enable encryption on existing/running IaaS Linux VM](azure-security-disk-encryption.md#Enable-encryption-on-existing/running-IaaS-Linux-VM-in-Azure) in Azure
-- [Set and configure Azure Key Vault](azure-security-disk-encryption.md#Setting-and-Configuring-Azure-Key-Vault-for-Azure-disk-encryption-usage) for disk encryption usage
+- [Prerequisites to enable disk encryption](../azure-security-disk-encryption.md#Prerequisites) on Azure IaaS VMs
+- [High level steps required to enable disk encryption](../azure-security-disk-encryption.md#Encryption-Workflow) for Windows and Linux VMs
+- [Enable encryption on existing/running IaaS Windows VM](../azure-security-disk-encryption.md#Enable-encryption-on-existing/running-IaaS-Windows-VM-in-Azure) in Azure
+- [Enable encryption on existing/running IaaS Linux VM](../azure-security-disk-encryption.md#Enable-encryption-on-existing/running-IaaS-Linux-VM-in-Azure) in Azure
+- [Set and configure Azure Key Vault](../azure-security-disk-encryption.md#Setting-and-Configuring-Azure-Key-Vault-for-Azure-disk-encryption-usage) for disk encryption usage
 
 ## Implement the recommendation
 
@@ -47,7 +47,11 @@ To learn about enabling disk encryption on Windows and Linux VMs, see:
 This document showed you how to implement the Security Center recommendation "Apply disk encryption." To learn more about disk encryption, see the following:
 
 - [Encryption and key management with Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 min 39 sec) -- Learn how to use disk encryption management for IaaS VMs and Azure Key Vault to help protect and safeguard your data
-- [Azure disk encryption](azure-security-disk-encryption.md) (document) -- Learn how to enable disk encryption for Windows and Linux VMs
+- [Azure disk encryption](../azure-security-disk-encryption.md) (document) -- Learn how to enable disk encryption for Windows and Linux VMs
+
+To learn more about Security Center recommendations, see the following:
+
+- [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources
 
 <!--Image references-->
 [1]: ./media/security-center-apply-disk-encryption/apply-disk-encryption.png
