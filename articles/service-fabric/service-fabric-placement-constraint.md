@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
-   ms.author="abhic"/>
+   ms.date="02/03/2016"
+   ms.author="masnider"/>
 
 # Overview of placement constraints
 
@@ -26,7 +26,7 @@ By using placement constraints, you can:
 
 - Confine different types of services on different types of nodes via defining NodeProperties on the nodes.
 
-- Apply certain constraints to primary replicas but not secondary replicas.
+- Target constraints to apply to a service's both primary and secondary replicas, or to apply only to the primary replicas.
 
 
 ## Key concepts
