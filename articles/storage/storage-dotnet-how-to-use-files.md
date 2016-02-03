@@ -29,7 +29,7 @@ You can create Azure file shares using [Azure Portal](https://portal.azure.com),
 
 For information on using File storage with Linux, see [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md).
 
-For information on scalability and performance targets of File storage, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts).
+For information on scalability and performance targets of File storage, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -590,7 +590,6 @@ See these links for more information about Azure File storage.
 - [Azure Files Storage: a frictionless cloud SMB file system for Windows and Linux
 - https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [How to use Azure File Storage with Linux](storage-how-to-use-files-linux.md)
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 
 ### Tooling support for File storage
 
