@@ -10,16 +10,18 @@
 	ms.date="02/03/2016"
 	ms.author="femila"/>
 
-# Enable Enterprise State Roaming in Azure Active Directory
-
-Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more details on how to get an Azure AD subscription, see the [Azure
+<tags
     keywords="enterprise state roaming, windows cloud, how to enable enterprise state roaming"
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags AD product page](https://azure.microsoft.com/services/active-directory).
+ 
+
+# Enable Enterprise State Roaming in Azure Active Directory
+
+Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more details on how to get an Azure AD subscription, see the [Azure AD product page](https://azure.microsoft.com/services/active-directory).
 
 When you enable Enterprise State Roaming, your organization will be automatically granted licenses for a free subscription to Azure Rights Management. This free subscription is limited to encrypting and decrypting enterprise settings data only; you must have a paid subscription to use the full capabilities of Azure Rights Management. 
 
