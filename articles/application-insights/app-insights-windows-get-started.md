@@ -33,7 +33,7 @@ If your app has a server side, use [Application Insights](app-insights-overview.
 
 Although we recommend HockeyApp, there's also an older version of the Application Insights SDK that you can use to monitor [crashes][windowsCrash] and [usage][windowsUsage] on your Windows device apps. 
 
-This is useful if you need to integrate the client and server metrics from your app. Send the client and server metrics to the same Application Insights resource.
+This is useful if you want to integrate the client and server telemetry from your app. Send the client and server metrics to the same Application Insights resource.
 
 Please note that support for the older device SDK will be phased out.
 
