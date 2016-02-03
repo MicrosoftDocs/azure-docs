@@ -1,21 +1,21 @@
 <properties
-	pageTitle="Enable Enterprise State Roaming in Azure Active Directory | Microsoft Azure"
-	description="Frequently asked questions about Enterprise State Roaming settings in Windows devices. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
-	services="active-directory"
-	ms.service="active-directory"  
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/03/2016"
-	ms.author="femila"/>
-
-<tags
+    pageTitle="Enable Enterprise State Roaming in Azure Active Directory | Microsoft Azure"
+    description="Frequently asked questions about Enterprise State Roaming settings in Windows devices. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device."
+    services="active-directory"
     keywords="enterprise state roaming, windows cloud, how to enable enterprise state roaming"
 	documentationCenter=""
 	authors="femila"
 	manager="stevenpo"
 	editor="curtand"/>
+
+<tags
+    ms.service="active-directory"  
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/04/2016"
+	ms.author="femila"/>
 
  
 
