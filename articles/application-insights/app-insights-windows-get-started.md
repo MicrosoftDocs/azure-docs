@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/21/2015"
+	ms.date="02/03/2016"
 	ms.author="awills"/>
 
 # Analytics for Windows Phone and Store apps
 
-Microsoft provides two solutions for device devOps: [HockeyApp](http://hockeyapp.net/) for devOps workflow and crash analysis; and [Application Insights](app-insights-overview.md) for usage and crash analytics.
+Microsoft's provides two solutions for device devOps: [HockeyApp](http://hockeyapp.net/) for devOps workflow and crash analysis; and [Application Insights](app-insights-overview.md) for usage and crash analytics.
 
 [HockeyApp](http://hockeyapp.net/) is our Mobile DevOps solution for iOS, OS X, Android or Windows device apps, as well as cross platform apps based on Xamarin, Cordova, and Unity. With it, you can distribute builds to beta testers, collect crash data, and get user feedback. It’s integrated with Visual Studio Team Services enabling easy build deployments and work item integration. You can learn more from the [HockeyApp Knowledge Base](http://support.hockeyapp.net/kb) and keep up to date on the [HockeyApp Blog](http://hockeyapp.net/blog/).
 
@@ -28,16 +28,20 @@ There's also an [Application Insights SDK for C++ Universal apps](https://github
 Visual Studio Application Insights lets you monitor your published application for:
 
 * [**Usage**][windowsUsage] - Learn how many users you have and what they are doing with your app.
-* [**Crashes**][windowsCrash] - Get diagnostic reports of crashes and understand their impact on users.
+* [**Crashes**][windowsCrash] - Get alerts and diagnostic reports of crashes and understand their impact on users.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
-For many application types, [Visual Studio can add Application Insights to your app](#ide) almost without you noticing. But since you're reading this to get a better understanding of what's going on, we'll take you through the steps manually.
+## Adding Application Insights to your Windows app
+
+Use Application Insights for usage and crash alerts for your phone or Windows Store app. 
 
 You'll need:
 
 * A subscription to [Microsoft Azure][azure].
 * Visual Studio 2013 or later.
+
+(You might be aware that Visual Studio can automatically add Application Insights to web projects. This feature is not available for Windows Phone and Store apps. But you can add the Application Insights SDK to your app manually.)
 
 ## 1. Create an Application Insights resource 
 
@@ -176,48 +180,12 @@ For more detail, see [Custom Events and Metrics][api].
 * [Detect and diagnose crashes in your app][windowsCrash]
 * [Learn about metrics][metrics]
 * [Learn about diagnostic search][diagnostic]
+* [Track usage of your app][windowsUsage]
+* [Use the API to send custom telemetry][api]
+* [Troubleshooting][qna]
 
+* [Use HockeyApp for crash analytics, beta distribution and feedback on your app](http://hockeyapp.net/)
 
-## <a name="ide"></a>Automated setup
-
-If you prefer to let Visual Studio perform the setup steps, you can do that with Windows Phone, Windows Store, and many other types of apps.
-
-###<a name="new"></a> If you're creating a new Windows app project ...
-
-Select Application Insights in the New Project dialog. 
-
-If you're asked to sign in, use the credentials for your Azure account (which is separate from your Visual Studio Team Services account).
-
-![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
-
-
-###<a name="existing"></a> Or if it's an existing project ...
-
-Add Application Insights from Solution Explorer.
-
-
-![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
-
-## To upgrade to a new release of the SDK
-
-When a [new SDK version is released](app-insights-release-notes-windows.md):
-* Right-click your project and choose Manage NuGet Packages. 
-* Select the installed Application Insights packages and choose Action: Upgrade.
-
-
-## <a name="usage"></a>Next Steps
-
-
-[Detect and diagnose crashes in your app][windowsCrash]
-
-[Capture and search diagnostic logs][diagnostic]
-
-
-[Track usage of your app][windowsUsage]
-
-[Use the API to send custom telemetry][api]
-
-[Troubleshooting][qna]
 
 
 
