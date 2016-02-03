@@ -57,7 +57,7 @@ Open the SQL Database blade for the database you want to scale up or down:
 2.	Click the database you want to change.
 3.	On the SQL Database blade click **All settings**, then click **Pricing tier (scale DTUs)**:
 
-    ![pricing tier]( ./media/sql-database-scale-up/pricing-tile.png)
+    ![pricing tier][1]
 
 
 1.  Select a new tier and click **Select**:
