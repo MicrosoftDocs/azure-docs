@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="02/03/2016"
    ms.author="kdotchko"/>
 
 # Supporting additional protocols for IoT Hub
