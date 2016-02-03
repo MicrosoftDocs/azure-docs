@@ -3,7 +3,7 @@
 	description="A technical guide to the Solution Template with Microsoft Cortana Analytics for predictive maintenance in aerospace, utilities, and transportation."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="garyericson"
+	authors="fboylu"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -17,6 +17,9 @@
 	ms.author="fboylu" />
 
 # Technical guide to the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses
+
+## **Acknowledgements**
+This article is authored by data scientists Yan Zhang, Gauher Shaheen, Fidan Boylu Uz and software engineer Dan Grecoe at Microsoft.
 
 ## **Overview**
 
@@ -503,6 +506,9 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
     icon on the top right corner to change its title to "Fleet View of
     Sensor 11 vs. Threshold 48.26" and subtitle to "Average across fleet
     over time".
+
+## **How to delete your solution**
+Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution will delete all the components provisioned in your subscription when you deployed the solution. To delete the solution right click on your solution name in the left panel of the solution template and click on delete.
 
 ## **Cost estimation tools**
 
