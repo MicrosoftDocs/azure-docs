@@ -178,11 +178,14 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
 
 1. Open the Azure Stack portal and sign in as an administrator.
 
-2. Click **Browse**, click **Resource Groups**, click **WebSitesSQL**, and then click **Resources**.
+2. Click **Browse**, click **Resource Groups**, click **WebSitesSQL**, click **Resources**, and then click **FrontEndServersLoadBalancer**.
 
-3. In the **WebSitesSQL** blade, make note of the IP address for the **FrontEndServersLoadBalancer**.
+3. In the **FrontEndServersLoadBalancer** blade, make note of the **IP address**.
+![][11]
 
-4. In the **WebSitesSQL** blade, make note of the IP address for the **ManagementLoadBalancer**.
+4. In the **Resources** blade, click **ManagementServersLoadBalancer**, and then make note of the **IP address** in the **ManagementServersLoadBalancer** blade.
+
+![][10]
   
 **Add DNS records**
 
@@ -192,40 +195,26 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
  
 2. Open DNS Manager, click **Forward Lookup Zones**, right-click **AzureStack.Local**, and then click **New Host**.
 
-3. In the **Name** box, type *management*.
+![][13]
+
+3. In the **Name** box, type *management*. This management server DNS name will be used when registering the Web Apps resource provider later.  This is the endpoint that Azure Stack communicates with.
  
-4. In the **IP address** box, type the IP address for the **ManagementLoadBalancer** that you noted above.
+4. In the **IP address** box, type the IP address for the **ManagementLoadBalancer** that you noted above. You'll also need this IP address when importing the wildcard certificate.
+
+![][9]
 
 5. Click **Add host**.
 
-6. In the **Name** box, type *\*.webapps* {find where this is mentioned earlier in the doc}
+6. In the **Name** box, type *\*.webapps*. {find where this is mentioned earlier in the doc} This DNS name should match the name you used when populating the ARM template for the Web App resource provider. In this case we had webapps.azurestack.local so the DNS name should be *\*.webapps*.
 
 7. In the **IP address** box, type the IP address for the **FrontEndServersLoadBalancer** that you noted above.
 
-8. Click **Add host** and then click **OK**. This creates a **webapps** folder under **AzureSTack.local**.
+8. Click **Add host** and then click **OK**. This creates a **webapps** folder under **AzureStack.local**.
 
 9. Close the ADVM.
 
  
-![][10]
 
-![][11]
-
-1 Log in to your POC env and from there log in to ADVM
-
-2 Run DNS manager from run box dnsmgmt.msc.
-
-3 Create an A Record in the ADVM for ***.webapps** by right clicking and selecting "new Host Record".  
-
-![][13]
-
-Use the IP address for the FrontEndServersLoadBalancer  The DNS name created here should match what you used when populating the ARM template for the Web App resource provider. In this case we had **webapps.azurestack.local** so the A record created for it would look like this
-
-![][9]
-
-4 Create an A Record in the ADVM for **management** by right clicking and selecting "new Host Record".  Use the IP address for the ManagementServersLoadBalancer
-
-The Management Server DNS name that you create will be used when registering the Web Apps resource provider later.  This is the endpoint which Azure Stack will communicate with.  Don't lose the Management Server IP Address as it is needed a little later when importing the wildcard certificate.
 
 
 **Setting up the wildcard certificates**
