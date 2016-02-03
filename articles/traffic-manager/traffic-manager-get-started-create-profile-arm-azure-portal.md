@@ -17,7 +17,7 @@
    ms.date="12/14/2015"
    ms.author="joaoma" />
 
-# Create a Traffic Manager profile using the preview portal
+# Create a Traffic Manager profile using the Azure portal
 
 [AZURE.INCLUDE [traffic-manager-get-started-create-profile-arm-selectors-include.md](../../includes/traffic-manager-get-started-create-profile-arm-selectors-include.md)]
 <BR>

@@ -9,5 +9,5 @@ The chosen routing method will define to which endpoint will respond to the clie
 Check out [Traffic Manager traffic routing Methods](traffic-manager-load-balancing-methods.md) for more information.
 
 
->[AZURE.NOTE] Keep in mind that all routing methods will do failover automatically if an endpoint is offline >(degraded). This will cause the endpoint from traffic manager to be removed from the possible endpoint list  until it comes back online.
+Keep in mind that all routing methods will do failover automatically if an endpoint is offline >(degraded). This will cause the endpoint from traffic manager to be removed from the possible endpoint list  until it comes back online.
 

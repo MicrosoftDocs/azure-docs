@@ -20,11 +20,11 @@
 # Create a Traffic Manager profile using PowerShell
 
 [AZURE.INCLUDE [traffic-manager-get-started-create-profile-arm-selectors-include.md](../../includes/traffic-manager-get-started-create-profile-arm-selectors-include.md)]
-
+<BR>
 [AZURE.INCLUDE [traffic-manager-get-started-create-profile-intro-arm-include.md](../../includes/traffic-manager-get-started-create-profile-intro-arm-include.md)]
-
+<BR>
 [AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](traffic-manager-get-started-create-profile-classic-ps.md).
-
+<BR>
 [AZURE.INCLUDE [traffic-manager-get-started-create-profile-scenario-include.md](../../includes/traffic-manager-get-started-create-profile-scenario-include.md)]
 
 ENTER YOUR CONTENT HERE
