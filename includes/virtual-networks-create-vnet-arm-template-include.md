@@ -2,7 +2,7 @@
 
 You can download the existing ARM template for creating a VNet and two subnets from github, make any changes you might want, and reuse it. To do so, follow the steps below.
 
-1. Navigate to https://github.com/Azure/azure-quickstart-templates/tree/master/101-two-subnets.
+1. Navigate to [the sample template page](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 2. Click **azuredeploy.json**, and then click **RAW**.
 3. Save the file to a a local folder on your computer.
 4. If you are familiar with ARM templates, skip to step 7.
@@ -26,7 +26,7 @@ You can download the existing ARM template for creating a VNet and two subnets f
 	- **name**. Name for the resource. Notice the use of **[parameters('vnetName')]**, which means the name will provided as input by the user or a parameter file during deployment.
 	- **properties**. List of properties for the resource. This template uses the address space and subnet properties during VNet creation.
 
-7. Navigate back to https://github.com/Azure/azure-quickstart-templates/tree/master/101-two-subnets.
+7. Navigate back to [the sample template page](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets).
 8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
 9. Save the file to a a local folder on your computer.
 10. Open the file you just saved and edit the values for the parameters. Use the values below to deploy the VNet described in our scenario.
