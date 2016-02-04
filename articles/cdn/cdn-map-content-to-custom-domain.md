@@ -25,8 +25,8 @@ There are two ways to map your custom domain to a CDN endpoint:
 	A CNAME record is a DNS feature that maps a source domain to a destination domain. In this case, the source domain is your custom domain and subdomain (subdomain is always required). The destination domain is your CDN endpoint.  
 
 	The process of mapping your custom domain to your CDN endpoint can, however, result in a brief period of downtime for the domain while you are registering the domain in the Azure  Portal.
-     
-2. [Add an intermediate registration step with **cdnverify**]((#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
+	 
+2. [Add an intermediate registration step with **cdnverify**](#register-a-custom-domain-for-an-azure-cdn-endpoint-using-the-intermediary-cdnverify-subdomain)
 
 	If your custom domain is currently supporting an application with a service-level agreement (SLA) that requires that there be no downtime, then you can use the Azure **cdnverify** subdomain to provide an intermediate registration step so that users will be able to access your domain while the DNS mapping takes place.  
 
@@ -75,7 +75,7 @@ After you register your custom domain using one of the above procedures, you wil
 - After you have completed the registration of your custom domain, you can access content that is cached at your CDN endpoint using the custom domain.
 First, ensure that you have public content that is cached at the endpoint. For example, if your CDN endpoint is associated with a storage account, the CDN caches content in public blob containers. To test the custom domain, ensure that your container is set to allow public access and that it contains at least one blob.
 - In your browser, navigate to the address of the blob using the custom domain. For example, if your custom domain is **cdn.mydomain.com**, the URL to a cached blob will be similar to the following URL:
-        http://cdn.mydomain.com/mypubliccontainer/acachedblob.jpg
+		http://cdn.mydomain.com/mypubliccontainer/acachedblob.jpg
 
 - If your CDN endpoint is associated with a cloud service, then the address of your cached content will be similar to the following URL:
 		http://cdn.mydomain.com/mycloudservice

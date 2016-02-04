@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="02/01/2016"
    ms.author="hascipio" />
 
 # Test your VM offer for the Azure Marketplace in staging
@@ -30,11 +30,13 @@ Staging means deploying your SKU in a private “sandbox” where you can test a
 3.	In the **Who can access your staged offer?** dialog box, enter the list of Azure subscriptions that you will use to preview your offer in the [Azure preview portal](https://portal.azure.com).
 4. Sign in to the [Azure preview portal](https://portal.azure.com) by using one of the Azure subscriptions listed in the previous step.
 5. Find your offer and validate your VM image points:
-  1. Make sure that marketing content shows up correctly in the Marketplace.
-
+  - Make sure that marketing content shows up correctly in the Marketplace.
+  - End-to-end deployment of the VM image.
+  
       ![img-map-portal](media/marketplace-publishing-push-to-staging/pubportal-mapping-azure-portal.jpg)
 
-  2. End-to-end deployment of the VM image.
+
+
 
 > [AZURE.IMPORTANT] Your offer will remain in staging until you notify Microsoft via the Publishing Portal [**Publish** > **"Request Approval to Push to Production"**] that you are ready to push to production. This is an ideal time to have all members of your team check over everything in preparation for your offer going live.
 
