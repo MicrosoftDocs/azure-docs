@@ -467,12 +467,12 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 
 1. Configure your mobile app backend for AAD sign-in by followin the [How to configure App Service for Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md) tutorial. Make sure to complete the optional step of registering a native client application. For iOS, it is recommended (but not required) that the redirect URI is of the form `<app-scheme>://<bundle-id>`. Please see the [ADAL iOS quickstart](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem) for more details.
 
-2. Install ADAL using Cocoapods. Edit your podfile to include the following, replacing **YOUR-PROJECT** with the name of your Xcode project:
+2. Install ADAL using Cocoapods. Edit your Podfile to include the following, replacing **YOUR-PROJECT** with the name of your Xcode project:
 
 		source 'https://github.com/CocoaPods/Specs.git'
 		link_with ['YOUR-PROJECT']
 		xcodeproj 'YOUR-PROJECT'
-  ~
+and the Pod:
 
 		pod 'ADALiOS'
 
