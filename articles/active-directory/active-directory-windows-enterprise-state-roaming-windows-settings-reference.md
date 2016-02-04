@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Windows 10 roaming settings reference | Microsoft Azure"
-	description="A complete list of all the settings that will be roamed or backed-up in Windows 10."
+	description="A complete list of all the settings that will be roamed or backed up in Windows 10."
 	services="active-directory"
     keywords="enterprise state roaming, windows cloud"
 	documentationCenter=""
