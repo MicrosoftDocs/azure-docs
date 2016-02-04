@@ -58,12 +58,12 @@ A SSL certificate is required to encrypt the communication and authenticate the 
 4.    [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
 5.    [Import SSL Certification Authority](#Import-SSL-Certification-Authority)
 
-## To Use an existing certificate from the certificate store
+### To Use an existing certificate from the certificate store
 1. [Export SSL Certificate From Certificate Store](#Export-SSL-Certificate-From-Certificate-Store)
 2. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
 3. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
 
-## To Use an existing certificate in a PFX file
+### To Use an existing certificate in a PFX file
 
 1. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
 2. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
@@ -489,4 +489,4 @@ The SSL settings described in this document encrypt communication between the se
 
 Credentials stored in this database are encrypted. However, as a best practice, ensure that both web and worker roles of your service deployments are kept up to date and secure as they both have access to the metadata database and the certificate used for encryption and decryption of stored credentials. 
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[AZURE.INCLUDE [elastic-scale-include](../ includes/elastic-scale-include.md)]
