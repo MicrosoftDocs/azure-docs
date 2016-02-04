@@ -214,40 +214,55 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
 
 9. Click **Add host**, click **OK**, and then click **Done**. This creates a **webapps** folder under **AzureStack.local** in DNS Manager.
 
-10. Close the ADVM virtual machine.
+10. Sign out of the ADVM virtual machine.
 
 **Set up the wildcard certificates**
 
 To configure your Azure Stack Web Apps deployment with wildcard certificates you need to first get the wildcard certificate to configure the system with.  To do this: 
 
-1. Open Remote Desktop Connection and sign in to the PortalVM as the domain administrator.
+1. On the Azure Stack POC machine, open Remote Desktop Connection, and sign in to the **portalvm** as the domain administrator.
 
-2. Open IIS, click **PortalVM**, click **Server Certificates**, and then click **Create Domain Certificate**.
+2. Open Internet Information Services (IIS) Manager, click **PORTALVM**, double-click **Server Certificates**, and then, in the **Actions** pane on the right, click **Create Domain Certificate**.
 
-3. Fill out the wizard as follows:
-- Common name: *.azurestack.local
-- Organization: Microsoft        
-- Organizational unit: AzureStack
-- City/locality: Redmond
-- State/province: WA 
-- Country/region: US
+3. In the **Create Certificate** dialog box, type the values as follows:
+- For **Common name**, type *\*.azurestack.local*.
+- For **Organization**, type the name of your organization.       
+- For **Organizational unit**, type *AzureStack*.
+- Type appropriate values for the remaining fields.
 
 4. Click **Next**.
 
-5. In the **Select Certification Authority** dialog box, select **AzureStackCertificiationAuthority**, and then click **OK**.
+5. Click **Select**, click **AzureStackCertificiationAuthority**, and then click **OK**.
 
-6. Type a **Friendly name**, like *_azurestack.local*, and then click **Finish**.
+6. Type a **Friendly name**, like *_azurestack.local*, and then click **Finish**. The new certificate now appears in the **Server Certificates** pane in alphabetical order by the friendly name.
 
 
 
 3 Export wildcard certificate
 
-1. Open MMC Certificates and find *.azureStack.local.
-- Right-click, all tasks, export
-- Select Yes, export private key
-- Check Export all extended properties.
-- Specify suitable password. 
-- Export to file _.azurestack.local.pfx
+1. Open Microsoft Management Console (MMC), click **File**, and then click **Add/Remove Snap-in**.
+
+2. In the **Add or Remove Snapins** dialog box, click **Certificates**, and then click **Add**.
+
+3. Choose **Computer account**, click **Next**, choose **Local computer**, click **Finish**, and then click **OK**.
+
+4. In the **Console Root** pane, expand **Certificates (Local Computer)**, expand **Personal**, and then click **Certificates**.
+
+5. Right-click the certificate you created earlier (**\*.azurestack.local**), click **All Tasks**, and then click **Export**.
+
+6. In the **Certificate Export Wizard**, click **Next**.
+
+7. Choose **Yes, export the private key** and then click **Next**.
+
+8. Choose **Perosnal Information Exchange - PKCS #12 (.PFX)**, choose **Include all certificates in the certification path if possible**, choose **Export all extended properties**, leave the other boxes unchecked, and then click **Next**.
+
+9. Check **Password**, type and confirm a password (take note of the password for later use), and then click **Next**. 
+
+10. Under **File to Export**, click **Browse**, and then click **Desktop**.
+
+11. In the **File name** box, type *_.azurestack.local*, click **Save**, click **Next**, click **Finish**, and then click **OK**.
+
+
 
 4 Import certificates to provider VM
 
