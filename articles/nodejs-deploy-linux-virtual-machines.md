@@ -37,7 +37,7 @@ You'll learn how to:
 
 ## Forking and Cloning the TODO Application
 
-The TODO application used by this tutorial implements a simple web frontend over a MongoDB instance that keeps track of a TODO list. After signing in to GitHub, go [here](https://github.com/scotch-io/node-todo) to find the application and fork it using the link in the top right. This should create a repository in your account named *accountname*/node-todo.
+The TODO application used by this tutorial implements a simple web frontend over a MongoDB instance that keeps track of a TODO list. After signing in to GitHub, go [here](https://github.com/stepro/node-todo) to find the application and fork it using the link in the top right. This should create a repository in your account named *accountname*/node-todo.
 
 Now on your development machine, clone this repository:
 
