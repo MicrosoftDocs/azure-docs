@@ -37,7 +37,7 @@ You can review your current alerts by looking at the **Security alerts** tile. F
 
     ![The Security alerts blade in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2.png)
 
-In the bottom part of this blade are the details for each alert. To sort, click on the column that you want to sort by. The definition for each column is given below:
+In the bottom part of this blade are the details for each alert. To sort, click the column that you want to sort by. The definition for each column is given below:
 
 - **Alert**: A brief explanation of the alert.
 - **Count**: A list of all alerts of this specific type that were detected on a specific day.
@@ -73,7 +73,7 @@ Filtering alerts can be useful for scenarios where you need to narrow the scope 
 
 In most cases, you should apply the recommendations in the security alerts. In some circumstances, however, you may need to ignore an alert because it's a false positive for your environment or indicates an expected behavior for a particular resource. Whatever the case may be, you can hide recommendations for a particular resource by using the **Dismiss** option.  
 
-To dismiss a task, click right-click on it, and you'll see the **Dismiss** option, which is similar to the image below.
+To dismiss a task, right-click it, and you'll see the **Dismiss** option, which is similar to the image below.
 
 ![The Dismiss option in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6.png)
 
