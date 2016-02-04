@@ -16,6 +16,7 @@
 	ms.date="01/28/2016"
 	ms.author="swkrish"/>
 
+
 # Azure Active Directory B2C preview: Set up self-service password reset for your consumers
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
