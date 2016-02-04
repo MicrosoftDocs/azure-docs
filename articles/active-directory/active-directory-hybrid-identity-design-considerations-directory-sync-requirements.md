@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="02/02/2016"
 	ms.author="billmath"/>
 
 # Determine directory synchronization requirements
@@ -64,4 +64,4 @@ Make sure to take notes of each answer and understand the rationale behind the a
 [Determine multi-factor authentication requirements](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## See also
-[Design considerations overview](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Design considerations overview](active-directory-hybrid-identity-design-considerations-overview.md)
