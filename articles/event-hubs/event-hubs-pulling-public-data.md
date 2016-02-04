@@ -70,7 +70,7 @@ again. Specifically:
   * The receiving and sending data is implemented as a loop in the Process() method in Program.cs. 
   After receiving output results from GetData(), the method enqueues separated values to the Event Hub.
 
-# Disclaimer
+## Disclaimer
 
 The code in this sample only shows how to pull data from typical web feeds, and how to write to an Azure Event Hub. 
 This is NOT intended to be a production-ready application, and no attempts have been made to make it suitable for use
@@ -79,7 +79,7 @@ this sample is NOT tantamount to a recommendation that you should **pull** data 
 You need to review all sorts of security, performance, functionality, and cost factors before settling on 
 an end-to-end architecture.
 
-# Next Steps
+## Next Steps
 
 To deploy the solution, clone or download the [GenericWebToEH](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) 
 application, edit the App.config file, build it, and finally publish it. Once you have published the application, 
