@@ -174,7 +174,7 @@ If none of these errors occurred and you still could not connect to the VM via R
 
 [How to reset a password or the Remote Desktop service for Windows virtual machines](virtual-machines-windows-reset-password.md)
 
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)
+[How to install and configure Azure PowerShell](../powershell-install-configure.md)
 
 [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](virtual-machines-troubleshoot-ssh-connections.md)
 
