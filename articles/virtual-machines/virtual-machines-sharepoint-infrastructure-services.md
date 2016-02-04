@@ -31,7 +31,7 @@ This automatically-created environment consists of three servers in a cloud-only
 
 See the [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) item in the Azure Marketplace of the Azure portal. This creates a basic dev/test farm for an Internet-facing SharePoint website. See [Create SharePoint server farms](virtual-machines-sharepoint-farm-azure-preview.md) for additional details.
 
-You can also use an Azure Resource Manager template. See [Deploy a three-server SharePoint farm](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+You can also use an Azure Resource Manager template. See [SharePoint](virtual-machines-app-frameworks.md).
 
 > [AZURE.NOTE] The **SharePoint Server Farm** item in the Azure Marketplace of the Azure portal has been removed.
 
