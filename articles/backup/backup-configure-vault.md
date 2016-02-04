@@ -66,30 +66,68 @@ To learn more about [using vault credentials to authenticate with the Azure Back
 
 **To download the vault credential file to a local machine:**
 
-| Step | Details |
-| :------: | ---- |
-| 1 | Sign in to the [Management Portal](https://manage.windowsazure.com/) |
-| 2 | Click **Recovery Services** in the left navigation pane and select the backup vault that you created.  |
-| 3 |  Click the cloud icon to get to the *Quick Start* view of the backup vault.<br><br>![Quick view](./media/backup-configure-vault/quickview.png) |
-| 4 | On the **Quick Start** page, click **Download vault credentials**.<br><br>![Download](./media/backup-configure-vault/downloadvc.png)<br><br>The portal will generate a vault credential using a combination of the vault name and the current date. The vault credentials file is used only during the registration workflow and expires after 48hrs.<br><br>The vault credentials file can be downloaded from the portal. |
-| 5 | Click **Save** to download the vault credentials to the local account's downloads folder, or select **Save As** from the *Save* menu to specify a location for the vault credentials.<br><br>You don't need to open the vault credentials at this time.<br><br>Ensure that the vault credentials are saved in a location that can be accessed from your machine. If it is stored in a file share/SMB, check for the access permissions.<br>  |
+1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
+2. Click **Recovery Services** in the left navigation pane and select the backup vault that you created.
+3.  Click the cloud icon to get to the *Quick Start* view of the backup vault.
+
+    ![Quick view](./media/backup-configure-vault/quickview.png)
+
+4. On the **Quick Start** page, click **Download vault credentials**.
+
+    ![Download](./media/backup-configure-vault/downloadvc.png)
+
+    The portal will generate a vault credential using a combination of the vault name and the current date. The vault credentials file is used only during the registration workflow and expires after 48hrs.
+
+    The vault credentials file can be downloaded from the portal.
+
+5. Click **Save** to download the vault credentials to the local account's downloads folder, or select **Save As** from the *Save* menu to specify a location for the vault credentials.
+
+    You don't need to open the vault credentials at this time.<br><br>Ensure that the vault credentials are saved in a location that can be accessed from your machine. If it is stored in a file share/SMB, check for the access permissions.<br>
 
 ## 3. Download, install, and register the Azure Backup agent
 After creating the Azure Backup vault, an agent should be installed on each of your Windows machines (Windows Server, Windows client, System Center Data Protection Manager server, or Azure Backup Server machine) that enables back up of data and applications to Azure.
 
 **To download, install, and register the agent:**
 
-| Step | Details |
-| :------: | ---- |
-| 1 | Sign in to the [Management Portal](https://manage.windowsazure.com/) |
-| 2 | Click **Recovery Services**, then select the backup vault that you want to register with a server. |
-| 3 | On the Quick Start page, click **Agent for Windows Server or System Center Data Protection Manager or Windows Client > Save**.<br><br>![Save agent](./media/backup-configure-vault/agent.png) |
-| 4 | After the *MARSagentinstaller.exe* download is completed, click **Run** (or double click **MARSAgentInstaller.exe** from the saved location). Choose the *installation folder* and *cache folder* required for the agent and click **Next**.<br><br>The cache location you specify must have free space equal to at least 5% of the backup data.<br><br>![Scratch and Cache](./media/backup-configure-vault/recovery-services-agent-setup-wizard-1.png) |
-| 5 | If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details and click **Next**.<br><br>The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already installed) to complete the installation. |
-| 6 | Once the agent is installed, click **Proceed to Registration** to continue with the workflow.<br><br>![Register](./media/backup-configure-vault/register.png) |
-| 7 | In the **Vault Identification** screen, browse to and select the *vault credentials file* you previously downloaded.<br><br>![Vault credentials](./media/backup-configure-vault/vc.png)<br><br>The vault credentials file is only valid for 48 hours (after it’s downloaded from the portal). If you encounter any error in this screen (e.g. “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.<br><br>Ensure that the vault credentials file is available in a location that can be accessed by the setup application. If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.<br><br>If you encounter an invalid vault credential error (e.g. “Invalid vault credentials provided") the file is either corrupted or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error is typically seen if the user clicks the *Download vault credential* option in quick succession. In this case, only the last vault credential file is valid. |
-| 8 | In the **Encryption setting** screen, you can either *generate* a passphrase or *provide* a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.<br><br>![Encryption](./media/backup-configure-vault/encryption.png)<br><br> > [AZURE.WARNING] If the passphrase is lost or forgotten Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation. |
-| 9 | Click **Finish**. <br><br>The machine is now registered successfully to the vault and you are ready to start backing up to Microsoft Azure. |
+1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
+2. Click **Recovery Services**, then select the backup vault that you want to register with a server.
+3. On the Quick Start page, click **Agent for Windows Server or System Center Data Protection Manager or Windows Client > Save**.
+
+    ![Save agent](./media/backup-configure-vault/agent.png)
+
+4. After the *MARSagentinstaller.exe* download is completed, click **Run** (or double click **MARSAgentInstaller.exe** from the saved location). Choose the *installation folder* and *cache folder* required for the agent and click **Next**.
+
+    The cache location you specify must have free space equal to at least 5% of the backup data.
+
+    ![Scratch and Cache](./media/backup-configure-vault/recovery-services-agent-setup-wizard-1.png)
+
+5. If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details and click **Next**.
+
+    The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already installed) to complete the installation.
+
+6. Once the agent is installed, click **Proceed to Registration** to continue with the workflow.
+
+    ![Register](./media/backup-configure-vault/register.png)
+
+7. In the **Vault Identification** screen, browse to and select the *vault credentials file* you previously downloaded.
+
+    ![Vault credentials](./media/backup-configure-vault/vc.png)
+
+    The vault credentials file is only valid for 48 hours (after it’s downloaded from the portal). If you encounter any error in this screen (e.g. “Vault credentials file provided has expired”), login to the Azure portal and download the vault credentials file again.
+
+    Ensure that the vault credentials file is available in a location that can be accessed by the setup application. If you encounter access related errors, copy the vault credentials file to a temporary location in this machine and retry the operation.
+
+    If you encounter an invalid vault credential error (e.g. “Invalid vault credentials provided") the file is either corrupted or does not have the latest credentials associated with the recovery service. Retry the operation after downloading a new vault credential file from the portal. This error is typically seen if the user clicks the *Download vault credential* option in quick succession. In this case, only the last vault credential file is valid.
+
+8. In the **Encryption setting** screen, you can either *generate* a passphrase or *provide* a passphrase (minimum of 16 characters). Remember to save the passphrase in a secure location.
+
+    ![Encryption](./media/backup-configure-vault/encryption.png)
+
+    > [AZURE.WARNING] If the passphrase is lost or forgotten Microsoft cannot help in recovering the backup data. The end user owns the encryption passphrase and Microsoft does not have visibility into the passphrase used by the end user. Please save the file in a secure location as it is required during a recovery operation.
+
+9. Click **Finish**.
+
+    The machine is now registered successfully to the vault and you are ready to start backing up to Microsoft Azure.
 
 
 ## Next steps
