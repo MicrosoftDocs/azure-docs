@@ -308,6 +308,8 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 
 3. In the **CN0-NIC** blade, copy the **Private IP address**. This is the IP address for the Web Apps controller virtual machine.
 
+![][14]
+
 4. In the **management** virtual machine desktop, open Remote Desktop Connection, paste the controller virtual machine's IP address into the **Computer** box, click **Connect**, and sign in as an admin. This is the controller virtual machine.
 
 5. Copy the **_.azurestack.local.pfx** certificate from the **management** virtual machine desktop to the controller virtual machine C:\ drive.
@@ -369,35 +371,6 @@ Now that you have deployed and registered the Web Apps resource provider, you ca
 
 8. In the web app blade, click **Browse** to view the default website for this app.
 
-
-Locate the private IP address for the Web Apps controller VM and RDP to that address.  To get the IP address, Browse > All resources > CN0-NIC
-
-![][14]
-
-Once in the Controller VM the following actions will need to be performed
-
-- Configure the certificate for the Management Server role
-- Configure the ARM endpoint.  This is needed by the Web App portal extensions
-- Configure the Web App extension endpoint names
-- Configure the Web App portal extension endpoint names for the manifest
-- Repair the Management Server to propagate the changes
-- Repair the Front-ends and Worker machines
-
-To perform those actions, execute the following powershell commands
-
-    Import-Module Websites
-    Set-WebSitesConfig -Type Global -ManagementServerCertificateFileName "C:\ _.azurestack.local.pfx " -ManagementServerCertificatePassword $password
-    Set-WebSitesConfig -Type Global -ArmEndpoint "https://api.azurestack.local" 
-    Set-WebsitesConfig -Type Global -ArmResourceProviderUri 'https://<load-balanced-endpoint-name>/' 
-Where:  *<load-balanced-endpoint-name>* is the DNS entry that maps to the VIP of the WebApps management VM
-example:   *Set-WebsitesConfig -Type Global -ArmResourceProviderUri 'https://management.azurestack.local/'* 
-**NOTE:** This is only needed when using a load balancer for several MN (management) servers.use the load-balanced-endpoint-name for the management DNS name
-
-    Get-WebSitesServer -ServerType ManagementServer | Repair-WebSitesServer
-    Get-WebSitesServer -ServerType LoadBalancer | Repair-WebSitesServer
-    Get-WebSitesServer -ServerType WebWorker | Repair-WebSitesServer
-
-Browse to the portal https://portal.azurestack.local and register the WebApps  manifest endpoint  (https://management.azurestack.local)
 
 
 <!--Image references-->
