@@ -38,7 +38,7 @@ The probe configuration of all load balanced instances for an endpoint (load bal
 
 ### Guest Agent probe
 
-(on PaaS VMs only). Azure Load Balancer utilizes the Guest Agent inside the virtual machine, listens and responds with an HTTP 200 OK response only when the instance is in the Ready state (ie. The instance is not in the Busy, Recycling, Stopping, etc states). 
+For cloud services only. Azure Load Balancer utilizes the Guest Agent inside the virtual machine, listens and responds with an HTTP 200 OK response only when the instance is in the Ready state (ie. The instance is not in the Busy, Recycling, Stopping, etc states). 
 
 Check out [configuring the service definition file (csdef) for health probes](https://msdn.microsoft.com/library/azure/jj151530.asp) or check [get started creating an internet facing load balancer for cloud services](load-balancer-get-started-internet-classic-cloud/#check-load-balancer-health-status-for-cloud-services) for more information. 
  
@@ -53,7 +53,7 @@ When you use a web role, the web site code typically runs in w3wp.exe, which is 
 
 The custom HTTP load balancer probe overrides the default guest agent probe and allows you to create your own custom logic to determine the health of the role instance. The load balancer probes your endpoint (every 15 seconds, by default) and the instance is considered in the load balancer rotation if it responds with a HTTP 200 within the timeout period (default of 31 seconds). This can be useful to implement your own logic to remove instances from load balancer rotation, for example, returning a non-200 status if the instance is above 90% CPU. For web roles using w3wp.exe, this also means you get automatic monitoring of your website since failures in your website code will return a non-200 status to the load balancer probe. 
 
->[AZURE.NOTE] HTTP custom probe supports relative paths only
+>[AZURE.NOTE] HTTP custom probe supports relative paths and HTTP protocol only. HTTPS is not supported.
 
 
 ### What would make an HTTP custom probe mark an instance as unhealthy? 
@@ -70,7 +70,7 @@ TCP probes are initiating a connection by performing a three-way  handshake to t
 ### What would make a TCP custom probe mark an instance as unhealthy?
 
 - In the event the TCP server does not respond at all after the timeout period. It will depend on the number of failed probe requests, which were configured to go unanswered before marking probe as down.
-- 	it receives a TCP reset from the role instance.
+- 	It receives a TCP reset from the role instance.
 
 Check out [get started creating an Internet facing load balancer for resource manager](load-balancer-get-started-internet-arm-ps/#create-lb-rules-nat-rules-a-probe-and-a-load-balancer) to understand how to configure an HTTP health probe or TCP probe.
 
