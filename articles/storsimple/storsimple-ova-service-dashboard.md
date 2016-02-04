@@ -60,4 +60,4 @@ You can view the operation logs by clicking the operation logs link available in
 
 ## Next steps
 
-Learn more about how to [use the StorSimple Manager service to administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md).
+Learn how to [use the local web UI to administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
