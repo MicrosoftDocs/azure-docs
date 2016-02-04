@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="02/01/2016"
    ms.author="chackdan"/>
 
 # Secure a Service Fabric cluster
@@ -38,11 +38,10 @@ Service Fabric provides security for the following scenarios:
 
 3. **Role Based Access Control (RBAC):** This restricts admin operations on the cluster to a particular set of certificates.
 
-4. **Service accounts and RunAs:** Service Fabric itself runs as a Windows Service process (Fabric.exe), and the security account under which the Fabric.exe process runs is configurable. You can secure the process accounts that Fabric.exe runs under on each node in the cluster, and you can also secure the service host processes that are activated for each service. Refer to [Application Security and RunAs](service-fabric-application-runas-security.md) for more details.
 
 ## Secure a Service Fabric cluster by using certificates.
 
-To set up a secure Service Fabric cluster, you need at least one server X.509 certificate, which you upload to Azure Key Vault and use in the cluster creation process.
+In order to set up a secure service fabric cluster, you will need at least one server x509 certificate. That you then upload to the azure Key Vault and use it in the cluster creation process 
 
 There are three distinct steps:
 
@@ -52,9 +51,9 @@ There are three distinct steps:
 
 ### Step 1: Acquire the X.509 certificate(s)
 
-1. For clusters running production workloads, you must use a [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority) signed X.509 certificate to secure the cluster. For details on obtaining these certificates go to [http://msdn.microsoft.com/library/aa702761.aspx](http://msdn.microsoft.com/library/aa702761.aspx).
+1. For clusters running production workloads, you must use a [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority) signed x509 certificate to secure the cluster. For details on obtaining these certificates go to [http://msdn.microsoft.com/library/aa702761.aspx](http://msdn.microsoft.com/library/aa702761.aspx).
+2. For clusters that you use for test purposes only, you can choose to use a self signed certificate. 
 
-2. For clusters that you use for test purposes only, you can use a self-signed certificate. Step 2.5 below explains how to do that.
 
 ### Step 2 : Upload the X.509 certificate to the Key Vault
 
@@ -62,9 +61,9 @@ This is an involved process, so we have a PowerShell module uploaded to a Git re
 
 **Step 2.1**: Copy this folder to your machine from this [Git repository](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
-**Step 2.2**: Make sure  Azure SDK 1.0+ is installed on your machine.
+**Step 2.2**: Make sure  Azure PS 1.0+ installed on your machine. If you have not done this before, I strongly suggest you follow steps outlined in [How to install and Configure Azure PowerShell.](../powershell-install-configure.md)
 
-**Step 2.3**: Open a PowerShell window and import the ServiceFabricRPHelpers.psm.
+**Step 2.3**: Once you have done that, Open a Powershell window and import the ServiceFabricRPHelpers.psm (this is the module that you downloaded in Step 2.1
 
 ```
 Remove-Module ServiceFabricRPHelpers
@@ -76,15 +75,15 @@ Copy the following example and change the path to the .psm1 to match the path on
 Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
 
-**Step 2.4**: If you are using a certificate that you have already  acquired, follow these steps. Otherwise, skip to Step 2.5.
+**Step 2.4**: If you are using a certificate that you have already acquired, follow these steps. Otherwise, skip to Step 2.5. Step 2.5 will go through the steps on how to create and deploy the self-signed certificate to keyvault.
 
-Sign in to your Azure Account.
+Sign in to your Azure Account. If this powershell fails for some reason, then you should check if you have the azure PS installed correctly. 
 
 ```
 Login-AzureRmAccount
 ```
 
-The following script will create a new resource group and/or a Key Vault if they are not already present.
+The following script will create a new resource group and/or a vault if they are not already present.
 
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <your subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file>
@@ -95,17 +94,17 @@ Here is a filled out script as an example.
 Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password abcd123 -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx
 ```
 
-On successful completion of the script, you will get an output like the one below, which you will need for Step 3.
+On successful completion of the script,you will now get an output like the one below. Take a note of this, you need these for step #3 (Setting up a secure Cluster).
 
 1. **Certificate Thumbprint** : 2118C3BCE6541A54A0236E14ED2CCDD77EA4567A
 2. **SourceVault** /Resource ID of the KeyVault :  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
-3. **Certificate URL** /URL to the Certificate location in the Key Vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea
+3. **Certificate URL** /URL to the Certificate location in the key Vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/ebc8df6300834326a95d05d90e0701ea 
 
-You now have the information you need to set up a secure cluster. Go to Step 3.
+You now have the information you need to set up a secure cluster. Go to Step #3.
 
-**Step 2.5**: To create a new self-signed certificate and upload it to the Key Vault, do the following:
+**Step 2.5**: If you *do not* have a certificate and want to create a new Self Signed Certificate and upload it to the Key Vault. then follow these steps. 
 
-Sign in to your Azure account.
+Log in to your Azure Account. If this powershell fails for some reason, then you should check if you have the azure PS installed correctly. 
 
 ```
 Login-AzureRmAccount
@@ -116,37 +115,43 @@ The following script will create a new resource group and/or a Key Vault if they
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -CreateSelfSignedCertificate -DnsName <string- see note below.> -OutputPath <Full path to the .pfx file>
 ```
-The OutputPath that you gave to the script will contain the new self-signed certificate that was uploaded to the Key Vault.
+
+The OutputPath you gave to the script will contain the new self-signed certificate that the script uploaded to the keyvault.
 
 >[AZURE.NOTE] The DnsName string specifies one or more DNS names to put into the subject-alternative-name extension of the certificate when a certificate to be copied is not specified in the CloneCert parameter. The first DNS name is also saved as the Subject Name. If no signing certificate is specified, the first DNS name is also saved as the Issuer Name.
 
 You can read more about creating a self-signed certificate at [https://technet.microsoft.com/library/hh848633.aspx](https://technet.microsoft.com/library/hh848633.aspx).
 
 Here is a filled out script as an example.
+
 ```
 Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate3 -Password abcd123 -CreateSelfSignedCertificate -DnsName www.chackdan.westus.azure.com -OutputPath C:\MyCertificates
 ```
 
-Since it is a self-signed certificate, you will need to import it into your machine's "trusted people" store, before you can use this certificate to connect to a secure cluster.
+Since it is a self-signed certificate, you will need to import it to your machines "trusted people" store, before you can use this certificate to connect to a secure cluster.
 
 ```
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople -FilePath C:C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
 ```
+
 ```
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My -FilePath C:C:\MyCertificates\ChackdanTestCertificate.pfx -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ")
 ```
 
-On successful completion of the script, you will get an output like the one below. You need these for Step 3.
+On successful completion of the script, you will get an output like the one below. You need these for Step 3. 
 
-1. **Certificate Thumbprint** : 64881409F4D86498C88EEC3697310C15F8F1540F
-2. **SourceVault** /Resource ID of the Key Vault :  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
-3. **Certificate URL** /URL to the certificate location in the Key Vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
+**Certificate Thumbprint** : 64881409F4D86498C88EEC3697310C15F8F1540F
+**SourceVault** /Resource ID of the Key Vault :  /subscriptions/35389201-c0b3-405e-8a23-9f1450994307/resourceGroups/chackdankeyvault4doc/providers/Microsoft.KeyVault/vaults/chackdankeyvault4doc
+**Certificate URL** /URL to the certificate location in the Key Vault : https://chackdankeyvalut4doc.vault.azure.net:443/secrets/chackdantestcertificate3/fvc8df6300834326a95d05d90e0720ea
 
 ### Step 3: Set up a secure cluster
 
 Follow the steps described in [Service Fabric cluster creation process](service-fabric-cluster-creation-via-portal.md), until you get to the Security configurations section. Then skip to the instructions shown here to set up your security configurations:
 
-The certificates that you need to use are specified at the node-type level under Security Configurations. You have to specify this for every node type that you have in your cluster. Although this document walks though how to do this by using the portal, you can do the same by using an Azure Resource Manager template.
+>[AZURE.NOTE] 
+1. The certificates that need to be used are specified at the NodeType level under Security Configurations.
+2. You have to specify this for every NodeType you have in your cluster.
+3. Although this document walks though how to do this using the portal, you can do the same using a ARM template.
 
 ![Screen shot of Security Configurations in the Azure portal][SecurityConfigurations_01]
 
@@ -164,6 +169,8 @@ Mandatory parameters:
 
     ```
     https://<name of the vault>.vault.azure.net:443/secrets/<exact location>
+```
+```
     https://chackdan-kmstest-eastus.vault.azure.net:443/secrets/MyCert/6b5cc15a753644e6835cb3g3486b3812
     ```
 
@@ -179,6 +186,8 @@ Admin Client: This information is used to validate that the client that is conne
 - **Subject name.** This is needed only if you have specified that the authorization is by subject name.
 - **Issuer Thumbprint** This provides an additional level of check that the server can perform when a client presents its credential to the server.
 
+
+
 Read Only Client: This information is used to validate that the client that is connecting to the cluster management endpoint is presenting the right credential to perform read-only actions on the cluster. You can specify more than one certificate that you want to  authorize for read-only operations.
 
 - **Authorize By.** This indicates to Service Fabric whether it should look up this certificate by using the subject name or the thumbprint. The use of the subject name to authorize is not a good security practice, but it adds flexibility.
@@ -187,21 +196,23 @@ Read Only Client: This information is used to validate that the client that is c
 
 ## Update the certificates in the cluster
 
-You can specify two certificates, a primary and a secondary. By default, the one that you specify at creation time is the primary certificate. To add another certificate, you must deploy that certificate to the VMs in the cluster. Step 2 above outlines how to upload a new certificate to the Key Vault. You can use the same Key Vault for this, as you did with the first certificate. For more information, see [Deploy certificates to VMs from a customer-managed Key Vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+Service fabric allows you to specify two certificates a primary and a secondary. The one that you specified at creation time is defaulted to primary.
+In order to add another certificate, you need deploy that certificate to the VMs in the cluster. Step #2 (above) of this document outlines how you can upload a new cert to the the keyvault. you can use the same keyvault for this, as you did with the first certificate. For more information, see [Deploy certificates to VMs from a customer-managed Key Vault](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 Once that operation is completed, use the portal or Resource Manager to indicate to Service Fabric that you have a secondary certificate that can be used as well. All you need is a thumbprint.
 
-Here is the process for adding a secondary certificate:
-
-1. On the portal, browse to the cluster resource that you want to add this certificate to.
-2. Under **Settings**, click **Certificates** and enter the secondary certificate thumbprint.
-3. Click **Save**. A deployment will be started, and after completion of that deployment, you can use either the primary or the secondary certificate to perform management operations on the cluster.
+**Here is the process to add new certificate** for the cluster to use, go to the portal, browse to the cluster resource you want add this certificate to, click on the certificate setting and enter the secondary certificate thumbprint and press Save. A deployment will get kicked off and on successful completion of that deployment, you can now use both the primary or the secondary certificate to perform management operations on the cluster.
 
 ![Screen shot of certificate thumbprints in the portal][SecurityConfigurations_02]
 
-If later you want to remove one of the certificates, you can do so. Be sure to click **Save** after you remove it, so that a new deployment is started. After that new deployment is complete, the certificate that you removed can no longer be used to connect to the cluster. For a secure cluster, you will always need to have at least one valid (not revoked and not expired) certificate deployed or you will not be able to access the cluster.
+**Here is the process to remove old certificates** so that the cluster does not use it
+go to the portal, navigate to you clusters security settings, remove one of the certificates. Make sure to press save after you remove it, so that a new deployment is kicked off. once that deployment is complete, the certificate you removed can no longer be used to connect to the cluster. 
 
-There is a diagnostic event that lets you know if any of the certificates are near expiration.
+Note - For a secure cluster, you will always need atleast one valid (non revoked or expired) certificate (primary or secondary) deployed, else you will not be able to access the cluster. 
+
+
+## 
+Details on the kinds of certificates that are used by service Fabric. 
 
 ## X.509 certificates
 
@@ -229,13 +240,14 @@ The value of the Intended Purposes field of the certificate should include an ap
 
 Client certificates are not typically issued by a third-party certificate authority. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority, with an intended purpose of "Client Authentication". The client can use such a certificate when mutual authentication is required.
 
-All management operations on a Service Fabric cluster require server certificates. Client certificates cannot be used for management.
+>[AZURE.NOTE] All management operations on a Service Fabric cluster require server certificates. Client certificates cannot be used for management.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 - [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Service Fabric health model introduction](service-fabric-health-introduction.md)
+- [Service Fabric Health model introduction](service-fabric-health-introduction.md)
+- [Application Security and Runas](service-fabric-application-runas-security.md)
 
 <!--Image references-->
 [SecurityConfigurations_01]: ./media/service-fabric-cluster-security/SecurityConfigurations_01.png

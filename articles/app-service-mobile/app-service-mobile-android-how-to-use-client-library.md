@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="01/05/2016" 
+	ms.date="02/03/2016" 
 	ms.author="ricksal"/>
 
 
@@ -21,8 +21,6 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 &nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as querying for data (inserting, updating, and deleting), authenticating users, handling errors, and customizing the client. It also does a deep-dive into common client code used in most mobile apps.
 
@@ -572,7 +570,7 @@ The **invokeApi** method is called on the client, which sends a POST request to 
 
 Tutorials already describe in detail how to add these features.
 
-App Service supports [authenticating app users](mobile-services-android-get-started-users.md) using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend. 
+App Service supports [authenticating app users](app-service-mobile-android-get-started-users.md) using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend. 
 
 Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs, and requires you to code this.
 

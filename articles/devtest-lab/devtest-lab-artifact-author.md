@@ -1,4 +1,4 @@
-    <properties 
+<properties 
 	pageTitle="Create custom artifacts for your DevTest Lab VM | Microsoft Azure"
 	description="Learn how to author your own artifacts for use with DevTest Labs"
 	services="devtest-lab,virtual-machines"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 #Create custom artifacts for your DevTest Lab VM

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/16/2015"
+   ms.date="02/02/2016"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
@@ -26,6 +26,15 @@ Azure Security Center helps you prevent, detect, and respond to threats with inc
 
 ## What are security alerts?
 Azure Security Center automatically collects, analyzes and integrates log data from your Azure resources, the network, and partner solutions like antimalware and firewalls to detect real threats and reduce false positives. A list of prioritized alerts is surfaced as Security Alerts.  
+
+In a collection of alerts, each one will have very specific description and remediation. The alerts you see in Azure Security Center are based on the attack scenario. The attack scenarios that follow are triggered by the Microsoft engine: 
+
+- **Brute Force Detection over Network Data**: These detections are based on machine learning models that learn from network traffic data. 
+- **Brute Force Detection over Endpoint Data**: These detections are based on Azure Security Center queries of machine logs; this enables differentiation between failed and a successful attempts. 
+- **VMs Communicating with Malicious IPs**: These detections are based on Azure Security Center discovering machines that are compromised with bots and communicating with their Command and Control (C&C) Servers (and vice versa). 
+
+
+### Responding to security alerts
 
 You can review the current alerts by looking at the Security Alerts tile. Follow the steps below to see more details about each alert:
 
@@ -49,8 +58,6 @@ In the bottom part of this blade you have the details for each alert. You can so
 
 - **Severity**: shows the severity level, which can be high, medium or low.
   
-
-### Responding to security alerts
 Many activities could indicate a possible attack on your organization. For example, a network administrator performing a legitimate network capture might appear similar to someone launching some form of attack. In other cases, a badly configured system might lead to a number of false positives in an intrusion detection system, which could make it more difficult to spot genuine incidents. After you review the security alerts using Azure Security Center, you can start to take actions based on the alert’s severity.
 
 To take an action, select the alert that you want to respond and a new blade will open on the right with more details as shown below: 
@@ -74,12 +81,6 @@ While the majority of the security alerts will have recommendations that should 
 To dismiss a task, click on the resource to apply the view additional information or apply the recommended configuration. Right click on the task to dismiss it and you see the **Dismiss** option similar to the image below:
 
 ![Enabling data collection](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6.png)
-
-In a collection of alerts, each one will have very specific description and remediation. The alerts you see in Azure Security Center are based on the attack scenario. The attack scenarios that follow are triggered by the Microsoft engine: 
-
-- **Brute Force Detection over Network Data**: These detections are based on machine learning models that learn from network traffic data. 
-- **Brute Force Detection over Endpoint Data**: These detections are based on Azure Security Center queries of machine logs; this enables differentiation between failed and a successful attempts. 
-- **VMs Communicating with Malicious IPs**: These detections are based on Azure Security Center discovering machines that are compromised with bots and communicating with their Command and Control (C&C) Servers (and vice versa). 
 
 ## Next steps
 In this document, you learned how to configure security policies in Azure Security Center. To learn more about Azure Security Center, see the following:
