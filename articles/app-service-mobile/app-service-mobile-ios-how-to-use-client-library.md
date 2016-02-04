@@ -472,9 +472,7 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 		source 'https://github.com/CocoaPods/Specs.git'
 		link_with ['YOUR-PROJECT']
 		xcodeproj 'YOUR-PROJECT'
-
-
-
+  ~
 		pod 'ADALiOS'
 
 3. Using the Terminal, run `pod install` from the directory containing your project, and then open the generated Xcode workspace (not the project).
