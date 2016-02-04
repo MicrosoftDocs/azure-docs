@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Create a VM with multiple NICs
@@ -97,7 +97,7 @@ If a subnet is associated with an NSG, and a NIC within that subnet is individua
 - **Incoming traffic **whose destination is the NIC in question flows first through the subnet, triggering the subnet’s NSG rules, before passing into the NIC, then triggering the NIC’s NSG rules. 
 - **Outgoing traffic** whose source is the NIC in question flows first out from the NIC, triggering the NIC’s NSG rules, before passing through the subnet, then triggering the subnet’s NSG rules. 
 
-Learn more about [Network Security Groups](virtual-networks-nsg) and how they are applied based on associations to subnets, VMs, and NICs..
+Learn more about [Network Security Groups](virtual-networks-nsg.md) and how they are applied based on associations to subnets, VMs, and NICs..
 
 ## How to Configure a multi NIC VM in a classic deployment
 
