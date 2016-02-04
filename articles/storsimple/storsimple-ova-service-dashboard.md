@@ -15,7 +15,7 @@
    ms.date="02/04/2016"
    ms.author="v-sharos" />
 
-# Use the StorSimple Manager service dashboard for the StorSimple Virtual Array (preview)
+# Use the StorSimple Manager service dashboard for the StorSimple Virtual Array (Preview)
 
 ## Overview
 
