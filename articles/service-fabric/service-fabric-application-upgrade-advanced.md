@@ -49,7 +49,6 @@ Occasions when using a diff package would be a good choice:
 
 ## Next steps
 
-<<<<<<< HEAD
 [Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
 [Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
@@ -60,12 +59,3 @@ Make your application upgrades compatible by learning how to use [Data Serializa
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
  
-=======
-[Upgrade tutorial](service-fabric-application-upgrade-tutorial.md)
-
-[Upgrade parameters](service-fabric-application-upgrade-parameters.md)
-
-[Data serialization](service-fabric-application-upgrade-data-serialization.md)
-
-[Troubleshooting application upgrades](service-fabric-application-upgrade-troubleshooting.md)
->>>>>>> 7d83640a1bb93c86ef5056f45b84cc6e9aadea57

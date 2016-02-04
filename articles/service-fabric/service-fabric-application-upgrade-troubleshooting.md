@@ -220,7 +220,6 @@ The upgrade time for an upgrade domain is limited by *UpgradeDomainTimeout*.  If
 
 ## Next steps
 
-<<<<<<< HEAD
 [Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
 [Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
@@ -233,12 +232,3 @@ Learn how to use advanced functionality while upgrading your application by refe
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
  
-=======
-[Service Fabric application upgrade using Visual Studio](service-fabric-application-upgrade.md)
-
-[Upgrade parameters](service-fabric-application-upgrade-parameters.md)
-
-[Manual upgrade and upgrading with a diff package](service-fabric-application-upgrade-advanced.md)
-
-[Data serialization](service-fabric-application-upgrade-data-serialization.md)
->>>>>>> 7d83640a1bb93c86ef5056f45b84cc6e9aadea57
