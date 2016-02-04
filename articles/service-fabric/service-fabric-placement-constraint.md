@@ -24,9 +24,9 @@ Azure Service Fabric allows developers to constrain the placement of service rep
 ## Capabilities
 By using placement constraints, you can:
 
-- Confine different types of services on different types of nodes via defining NodeProperties on the nodes.
+- Confine different types of services on different types of nodes by defining NodeProperties on the nodes.
 
-- Target constraints to apply to a service's both primary and secondary replicas, or to apply only to the primary replicas.
+- Target the constraints to apply both to a service's primary and secondary replicas, or target the constraints to apply only to the primary replicas.
 
 
 ## Key concepts
