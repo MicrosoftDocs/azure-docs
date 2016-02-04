@@ -486,7 +486,7 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 
 Each Azure subscription can have at most 10 IoT hubs.
 
-Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send, and the maximum number of device identities in the identity registry. The number of identities in the registry limits the number of simultaneously connected devices.
+Each IoT hub is provisioned with a certain number of units in a specific SKU (for more information, see [Azure IoT Hub Pricing][lnk-pricing]). The SKU and number of units determine the maximum daily quota of messages that you can send.
 
 The SKU also determines the throttling limits that IoT Hub enforces on operations.
 
