@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
-	manager="msmets"
+	manager="felixwu"
 	editor=""/>
 
 <tags
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
+	ms.date="02/05/2015"
 	ms.author="daleche"/>
 
 # Troubleshoot "Database on server is not currently available. Please retry the connection later." and other connection errors
-“Database <dbname> on server <servername> is not currently available...” is the most common transient connection error for Azure SQL Database. Transient connection errors are usually caused by a platform reconfiguration, such as failover to a new server or a temporary system outage, and are short-lived. If you are getting a different error, evaluate the [error message](sql-database-develop-error-messages.md) for clues about the cause, determine if the issue is transient or persistent, and use the guidance in this topic.
+“Database <dbname> on server <servername> is not currently available...” is the most common transient connection error for Azure SQL Database. Transient connection errors are usually caused by a platform reconfiguration, because of planned (i.e. software upgrade) or unplanned (i.e. process crash) events, and are short-lived, from few seconds to at most one minute. If you are getting a different error, evaluate the [error message](sql-database-develop-error-messages.md) for clues about the cause, determine if the issue is transient or persistent, and use the guidance in this topic.
 
 ## Steps to resolve transient connectivity issues
 1.	Make sure your app uses retry logic. See the [connectivity issues](sql-database-connectivity-issues.md) and the [best practices and design guidelines](sql-database-connect-central-recommendations.md) for general retry strategies. Then see [code samples](sql-database-develop-quick-start-client-code-samples.md) for specifics.
 2.	As a database approaches its resource limits, it can look like a transient connectivity issue. See [Troubleshooting Performance Issues](sql-database-troubleshoot-performance.md).
-3.	If connectivity problems continue, contact support to open a support case.
+3.	If connectivity problems continue, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/en-us/support/options) site.
 
 ## Steps to resolve persistent connectivity issues
 If the app can’t connect at all, it’s usually the IP and firewall configuration. This can include network reconfiguration on the client side (for example, a new IP address or proxy). Mistyped connection parameters, such as the connection string, are also common.
