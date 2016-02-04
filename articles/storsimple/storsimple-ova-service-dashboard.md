@@ -50,7 +50,7 @@ Clicking **Registration Key** (at the bottom of the page) opens the **Service Re
 
 Regenerating the key does not affect previously registered virtual devices: it affects only the virtual devices that are registered with the service after the key is regenerated.
 
-For more information about viewing and generating the service registration key, go to [Get the service registration key](storsimple-ova-manage-service.md#get-the-service-registration-key).
+For more information about getting the service registration key, go to [Get the service registration key](storsimple-ova-manage-service.md#get-the-service-registration-key).
 
 ## View the operations logs
 
