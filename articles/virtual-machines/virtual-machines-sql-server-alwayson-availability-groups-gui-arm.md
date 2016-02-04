@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="12/04/2015"
+	ms.date="02/04/2016"
 	ms.author="MikeRayMSFT" />
 
-# Configure AlwaysOn Availability Groups in Azure VM (GUI)
+# Configure AlwaysOn Availability Group in Azure Resource Manager virtual machines (GUI)
 
 > [AZURE.SELECTOR]
 - [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
@@ -28,7 +28,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Classic model.
 
 
-This end-to-end tutorial shows you how to create a SQL Server Availability Group with Azure Resource Manager model virtual machines. The tutorial uses Azure blades to configure a template. You will review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial. 
+This end-to-end tutorial shows you how to create a SQL Server Availability Group with Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You will review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial. 
 
 >[AZURE.NOTE] In the Azure Management Portal, there is a new gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). 
 
@@ -228,7 +228,7 @@ This final blade contains **Terms of use**, and **privacy policy**. Review this 
  
 The Azure portal will create the resource group and all of the resources. 
 
-##Monitor Deployment
+##Monitor deployment
 
 Monitor the deployment progress from the Azure portal. An icon representing the deployment is automatically pinned to the Azure portal dashboard.
 
