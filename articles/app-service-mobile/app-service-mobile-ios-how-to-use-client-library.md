@@ -349,7 +349,7 @@ To delete an item, invoke `delete` with the item:
 **Swift**:
 
 ```
-table.delete(newItem as [NSObject : AnyObject]) { (itemId, error) -> Void in
+table.delete(newItem as [NSObject : AnyObject]) { (itemId, error) in
     if let err = error {
         print("ERROR ", err)
     } else {
@@ -375,12 +375,12 @@ Alternatively, delete by providing a row ID:
 **Swift**:
 
 ```
-table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) -> Void in
-        if error != nil {
-        	NSLog("ERROR %@", error!)
-        } else {
-        	NSLog("Todo Item ID: %@", itemId! as! String)
-        }
+table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else {
+        print("Todo Item ID: ", itemId)
+    }
 }
 ```
 
