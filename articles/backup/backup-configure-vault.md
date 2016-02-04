@@ -32,7 +32,7 @@ If you've already done all of the high-level steps above, you can start [backing
 ## Before you start
 To prepare your environment for backing up Windows machines, you need an Azure account. If you don't have one, you can create a [free trial account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-## 1. Create a Backup Vault
+## Create a Backup Vault
 To back up files and data from a Windows machine or Data Protection Manager (DPM) to Azure or when backing up IaaS VMs to Azure, you need to create a backup vault in the geographic region where you want to store the data.
 
 **To create a Backup vault:**
@@ -55,9 +55,9 @@ To back up files and data from a Windows machine or Data Protection Manager (DPM
 
 > [AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 >
-> **Learn more about storage redundancy options in this [overview](backup-introduction-to-azure-backup.md#how-should-i-determine-my-storage-redundancy-options).**
+> **Learn more about choosing storage redundancy options in this [overview](backup-introduction-to-azure-backup.md#how-should-i-determine-my-storage-redundancy-options).**
 
-## 2. Download the vault credential file
+## Download the vault credential file
 An on-premises server must be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved using “vault credentials”. The vault credential file is downloaded through a secure channel from the Azure portal and the Azure Backup service is unaware of the private key of the certificate, which does not persist in the portal or the service.
 
 The on-premises server (Windows client or Windows Server or Data Protection Manager server) needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved using “vault credentials”. The concept of vault credentials is similar to the concept of a “publish settings” file which is used in Azure PowerShell.
@@ -84,7 +84,7 @@ To learn more about [using vault credentials to authenticate with the Azure Back
 
     You don't need to open the vault credentials at this time.<br><br>Ensure that the vault credentials are saved in a location that can be accessed from your machine. If it is stored in a file share/SMB, check for the access permissions.<br>
 
-## 3. Download, install, and register the Azure Backup agent
+## Download, install, and register the Azure Backup agent
 After creating the Azure Backup vault, an agent should be installed on each of your Windows machines (Windows Server, Windows client, System Center Data Protection Manager server, or Azure Backup Server machine) that enables back up of data and applications to Azure.
 
 **To download, install, and register the agent:**
@@ -128,7 +128,6 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 9. Click **Finish**.
 
     The machine is now registered successfully to the vault and you are ready to start backing up to Microsoft Azure.
-
 
 ## Next steps
 - Sign up for a [free Azure trial account](https://azure.microsoft.com/pricing/free-trial/)
