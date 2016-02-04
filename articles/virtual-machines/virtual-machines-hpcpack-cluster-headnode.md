@@ -63,7 +63,7 @@ Pack head node by using the Resource Manager deployment model in the Azure porta
 
 5. Join the VM to an existing domain forest, or create a new domain forest on the VM itself.
 
-    **Active Directory domain onsiderations**
+    **Active Directory domain considerations**
 
     * If you created the VM in an Azure VNet with an existing domain forest, use standard Server Manager or Windows PowerShell tools to join it to the domain forest. Then restart.
 
@@ -87,9 +87,7 @@ Pack head node by using the Resource Manager deployment model in the Azure porta
 ## Next steps
 
 * You can now work with the head node of your HPC Pack cluster. For
-example, start HPC Cluster Manager, or start working with the
-HPC PowerShell cmdlets.
-
+example, start HPC Cluster Manager, and complete the [Deployment To-do List](https://technet.microsoft.com/library/jj884141.aspx).
 * [Add compute node VMs](virtual-machines-hpcpack-cluster-node-manage.md) to your cluster, or add [Azure burst nodes](virtual-machines-hpcpack-cluster-node-burst.md) in a cloud service. See [additional guidance for HPC Pack in Azure](virtual-machines-hpcpack-cluster-options.md).
 
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
