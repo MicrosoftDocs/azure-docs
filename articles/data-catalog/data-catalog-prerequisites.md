@@ -36,7 +36,7 @@ The Global Authentication Policy allows authentication methods to be enabled sep
 
  ![Active Directory Global Authentication Policy](./media/data-catalog-prerequisites/global-auth-policy.png)
 
-For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/en-us/library/dn486781.aspx).
+For more information, see [Configuring Authentication Policies](https://technet.microsoft.com/library/dn486781.aspx).
 
 
 ## Azure Subscription
