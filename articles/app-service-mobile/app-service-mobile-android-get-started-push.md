@@ -78,3 +78,6 @@ You can test the app by directly attaching an Android phone with a USB cable, or
 
 <!-- URLs -->
 [Android quick start]: app-service-mobile-android-get-started.md
+
+[Set Up Google Play Services SDK]:https://developers.google.com/android/guides/setup
+

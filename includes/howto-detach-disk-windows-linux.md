@@ -12,7 +12,7 @@ If you want to use the existing data on the disk again, you can reattach it to t
 If you don't know the name of the disk or want to verify it before you detach it, follow these steps.
 
 
-1. If you haven't already done so, sign in to the [Azure Portal](http://manage.windowsazure.com).
+1. Sign in to the [Azure classic portal](http://manage.windowsazure.com).
 
 2. Click **Virtual Machines**, click the name of virtual machine, and then click **Dashboard**.
 
