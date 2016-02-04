@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/30/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Continuous delivery to Azure using Visual Studio Team Services
