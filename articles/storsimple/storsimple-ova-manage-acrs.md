@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/27/2016"
+   ms.date="02/03/2016"
    ms.author="v-sharos" />
 
 # Use the StorSimple Manager service to manage access control records for the StorSimple Virtual Array
@@ -24,8 +24,9 @@ Access control records (ACRs) allow you to specify which hosts can connect to a 
 This tutorial explains the following common ACR-related tasks:
 
 - Get the IQN
-- Add or modify an ACR 
-- Delete an ACR
+- Add an access control record 
+- Edit an access control record 
+- Delete an access control record 
 
 > [AZURE.IMPORTANT] 
 > 
@@ -36,99 +37,82 @@ This tutorial explains the following common ACR-related tasks:
 
 Perform the following steps to get the IQN of a Windows host that is running Windows Server 2012.
 
-#### To get the IQN of a Windows host
+[AZURE.INCLUDE [storsimple-get-iqn](../../includes/storsimple-get-iqn.md)]
 
-1. Start the Microsoft iSCSI initiator on your Windows host. Click **Start** > **Administrative Tools** > **iSCSI initiator**.
+## Add an ACR
 
-2. In the **iSCSI Initiator Properties** window, on the **Configure** tab, select and copy the string from the **Initiator Name** field.
+You use the StorSimple Manager service **Configuration** page to add ACRs. Typically, you will associate one ACR with one volume.
 
-    ![iSCSI initiator properties](./media/storsimple-ova-manage-acrs/image34.png)
+For information about associating an ACR with a volume, go to [Use the StorSimple Manager service to manage volumes on a StorSimple Virtual Array](storsimple-ova-manage-volumes).
 
-3. Save this string.
+>[AZURE.IMPORTANT] 
+> 
+>When assigning an ACR to a volume, take care that the volume is not concurrently accessed by more than one non-clustered host because this could corrupt the volume.
+ 
+Perform the following steps to add an ACR.
 
-## Add or modify the ACR for a volume
+#### To add an ACR
 
-Typically, you add an ACR when you add a volume; however, you can add or modify the ACR at a later time if you prefer. Perform the following steps to add or modify the ACR for a volume. You need to configure an ACR and IQN for each volume because each volume is a target.
+1. On the service landing page, select your service, double-click the service name, and then click the **Configuration** tab.
+
+    ![configuration tab](./media/storsimple-ova-manage-acrs/acr1.png)
+
+2. In the tabular listing under **Access control records**, supply a **Name** for your ACR.
+
+3. Under **iSCSI Initiator Name**, provide the IQN name of your Windows host. 
+
+4. Click **Save** at the bottom of the page to save the newly created ACR. You will see the following confirmation message.
+
+    ![confirmation message](./media/storsimple-ova-manage-acrs/acr2.png)
+
+5. Click the check icon ![check icon](./media/storsimple-ova-manage-acrs/check-icon.png). The tabular listing will be updated to reflect this addition.
+
+## Edit an ACR
+
+You use the **Configuration** page in the Azure classic portal to edit ACRs. 
 
 > [AZURE.NOTE] You can modify only those ACRs that are currently not in use. To edit an ACR associated with a volume that is currently in use, you must first take the volume offline.
 
-#### To add or modify an ACR
+Perform the following steps to edit an ACR.
 
-1. Take the volume offline: 
+#### To edit an ACR
 
-    1. select the device and then click the **Volumes** tab. 
-    2. At the bottom of the page, click **Take offline** to take the volume offline. You will see the following confirmation message.
-    ![take offline](./media/storsimple-ova-manage-acrs/offline-prompt.png)
-    3. Click the check icon ![](./media/storsimple-ova-manage-acrs/check-icon.png).
+1. On the service landing page, select your service, double-click the service name, and then click the **Configuration** tab.
 
-2. Select the volume, and at the bottom of the page, click **Modify**. The Modify a volume wizard starts.
+2. In the tabular listing of the access control records, hover over the ACR that you wish to modify.
 
-    ![basic settings](./media/storsimple-ova-manage-acrs/modify-volume1.png)
+3. Supply a new name and/or IQN for the ACR.
 
-3. Click the arrow icon ![](./media/storsimple-ova-manage-acrs/arrow-icon.png) to go to the **Additional Settings** page.
+4. Click **Save** at the bottom of the page to save the modified ACR. You will see a confirmation message. 
 
-4. On the **Additional Settings** page, configure the access control record (ACR):
+5. Click the check icon ![check icon](./media/storsimple-ova-manage-acrs/check-icon.png). The tabular listing will be updated to reflect this change.
 
-    1. If you have not already done so, supply a **Name** for the ACR.
+## Delete an access control record
 
-    2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host.
-  
-         ![additional settings](./media/storsimple-ova-manage-acrs/modify-volume2.png)
+You use the **Configuration** page in the Azure classic portal to delete ACRs. 
 
-    3. Click the check icon ![check icon](./media/storsimple-ova-manage-acrs/check-icon.png). This starts the volume modification job. You will see a progress message similar to the following.
-
-        ![progress message](./media/storsimple-ova-manage-acrs/image20.png)
-
-        Your volume will be updated with the specified settings. By default, monitoring and backup will be enabled for the volume.
-
-        >[AZURE.NOTE] If you did not take the volume offline as instructed in step 1, you will see the following warning message. 
-        >
-        >![warning](./media/storsimple-ova-manage-acrs/acr-warning.png)
-        >
-        >Return to step 1, take the volume offline, and then continue adding or modifying the ACR.
-
-5. At the bottom of the page, click **Bring online** to bring the volume online.
-
-## Delete an ACR
-
-You use the **Configure** page in the Azure classic portal to delete ACRs. 
-
-> [AZURE.NOTE] You can delete only those ACRs that are currently not in use. To delete an ACR associated with a volume that is currently in use, you must first take the volume offline.
+> [AZURE.NOTE] 
+> 
+> - You can delete only those ACRs that are currently not in use. To delete an ACR associated with a volume that is currently in use, you must first take the volume offline.
+> - When deleting an ACR from a volume, make sure that the corresponding host is not accessing the volume because the deletion could result in a read-write disruption.
 
 Perform the following steps to delete an access control record.
 
-#### To delete an ACR
+#### To delete an access control record
 
-1. select the device and then click the **Volumes** tab. 
+1. On the service landing page, select your service, double-click the service name, and then click the **Configuration** tab.
 
-2. Select the volume.
+2. In the tabular listing of the access control records (ACRs), hover over the ACR that you wish to delete.
 
-3. At the bottom of the page, click **Take offline** to take the volume offline. You will see the following confirmation message.
+3. A delete icon (**x**) will appear in the extreme right column for the ACR that you select. Click the **x** icon to delete the ACR. You will see the following confirmation message.
 
-    ![take offline](./media/storsimple-ova-manage-acrs/offline-prompt.png)
+    ![confirmation message](./media/storsimple-ova-manage-acrs/acr3.png)
 
-4. Click the check icon ![](./media/storsimple-ova-manage-acrs/check-icon.png).
-
-5. Select the volume, and at the bottom of the page, click **Modify**.
-
-6. Click the arrow icon ![](./media/storsimple-ova-manage-acrs/arrow-icon.png) to go to the **Additional Settings** page.
-
-     ![basic settings](./media/storsimple-ova-manage-acrs/modify-volume1.png)
-
-7. On the **Additional Settings** page, hover over the ACR in the table. An X will appear. Click the X to delete the ACR and IQN.
-
-    >[AZURE.NOTE] If you did not take the volume offline as instructed in step 3, you will see the following warning message. 
-    >
-    >![warning](./media/storsimple-ova-manage-acrs/acr-warning.png)
-    >
-    >Return to step 3, take the volume offline, and then continue with the deletion.
-
-8. Click the check mark to confirm your changes. The tabular listing will be updated to reflect the deletion.
-
-9. At the bottom of the page, click **Bring online** to bring the volume online.
+5. Click the check icon ![check icon](./media/storsimple-ova-manage-acrs/check-icon.png). The tabular listing will be updated to reflect the deletion.
 
 ## Next steps
 
-Learn more about [using the StorSimple Manager service to manage your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md).
+- Learn more about [managing StorSimple volumes](storsimple-ova-manage-volumes.md).
 
-
+- Learn more about [using the StorSimple Manager service to administer your StorSimple Virtual Array](storsimple-manager-ova-service-administration.md).
+ 
