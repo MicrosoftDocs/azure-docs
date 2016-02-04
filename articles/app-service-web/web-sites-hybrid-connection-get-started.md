@@ -22,10 +22,12 @@ You can connect an Azure App Service app to any on-premises resource that uses a
 
 > [AZURE.NOTE] The Web Apps portion of the Hybrid Connections feature is available only in the [Azure Portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274). 
 > 
-> This content also applies to Mobile Apps in App Service. 
+> This content also applies to Mobile Apps in Azure App Service. 
 
 ## Prerequisites
-- An Azure subscription. For a free subscription, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+- An Azure subscription. For a free subscription, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
+ 
+	If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 - To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Using a default instance on SQL Server is recommended because it uses static port 1433. For information on installing and configuring SQL Server Express for use with hybrid connections, see [Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections](http://go.microsoft.com/fwlink/?LinkID=397979).
 
@@ -158,9 +160,9 @@ At this point, you have completed an important part of the cloud hybrid connecti
 
 Now that the hybrid connection infrastructure is complete, you can create a hybrid application that uses it. 
 
->[AZURE.NOTE]The following sections apply to hybrid connections used by Mobile Apps.
+>[AZURE.NOTE]The following sections show you how to use a hybrid connection with a Mobile Apps .NET backend project.
 
-## Configure the Mobile App backend project to connect to the SQL Server database
+## Configure the Mobile App .NET backend project to connect to the SQL Server database
 
 In App Service, a Mobile Apps .NET backend project is just an ASP.NET web app with an additional Mobile Apps SDK installed and initialized. To use your web app as a Mobile Apps backend, you must [download and initialize the Mobile Apps .NET backend SDK](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#install-sdk).  
 
@@ -196,7 +198,7 @@ For Mobile Apps, you also need to define a connection string for the on-premises
 
 	The service will now use the new connection to the SQL Server database.
 
-## Update Azure to use the on-premises connection string
+## Update the Mobile App backend to use the on-premises connection string
 
 Next, you need to add an app setting for this new connection string so that it can be used from Azure.  
 
