@@ -39,7 +39,7 @@ These are the components involved in an RDP connection:
 Before proceeding, it might help to mentally review what has changed since the last successful Remote Desktop connection to the VM. For example:
 
 - If the public IP address of the VM or the cloud service containing the VM (also called the virtual IP address [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)) has changed, then the RDP failure could be because your DNS client cache still has the *old IP address* registered for the DNS name. Flush your DNS client cache and try connecting the VM again. Or try connecting directly with the new VIP.
-- If you are using a third party application to manage your Remote Desktop connections instead of using any of the Azure portals, verify that the application configuration includes the correct TCP port for the Remote Desktop traffic. You can check this port for a classic virtual machine in the [Azure portal](portal.azure.com), by clicking the VM's Settings > Endpoints.
+- If you are using a third party application to manage your Remote Desktop connections instead of using any of the Azure portals, verify that the application configuration includes the correct TCP port for the Remote Desktop traffic. You can check this port for a classic virtual machine in the [Azure portal](https://portal.azure.com), by clicking the VM's Settings > Endpoints.
 
 
 ## Preliminary steps
