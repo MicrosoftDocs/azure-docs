@@ -719,5 +719,5 @@ This article described how to use the new file support in the Azure Mobile clien
 [Microsoft.Azure.Mobile.Client.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.Files/
 [Microsoft.Azure.Mobile.Client.SQLiteStore]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [Microsoft.Azure.Mobile.Server.Files]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Files/
-[Understanding Shared Access Signatures]: ../storage/storage-dotnet-shared-access-signature-part-1
-[Create an Azure Storage Account]:  ../storage/storage-create-storage-account#create-a-storage-account
+[Understanding Shared Access Signatures]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[Create an Azure Storage Account]:  ../storage/storage-create-storage-account.md#create-a-storage-account
