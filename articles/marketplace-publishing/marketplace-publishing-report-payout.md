@@ -36,7 +36,7 @@ Reports are available 45 days after the close of the quarter and are calculated 
 
 1. Navigate to Dev Center at https://dev.windows.com/en-us.
 2. Click **Dashboard**.
-    ![LandingPageDashboardHighlight][1]
+  ![LandingPageDashboardHighlight][1]
 
 3. Click **Payout Summary**.
   ![DashboardPayoutSummary][2]
@@ -102,7 +102,7 @@ If you have a question related to your payouts, contact our support team.
 
 ## Next steps
 
-For other support queries, please log an issue at https://portal.azure.com.
+For other support queries, please log an issue at <https://portal.azure.com>.
 
 [1]: ./media/marketplace-publishing-report-payout/LandingPage-DashboardHighlight.png
 [2]: ./media/marketplace-publishing-report-payout/Dashboard-PayoutSummary.png
