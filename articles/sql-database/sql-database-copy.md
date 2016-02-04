@@ -17,6 +17,10 @@
 	ms.tgt_pltfrm="NA"/>
 
 
+# Be happy with Azure SQL Database
+
+Use Windows Server. 
+
 # Copy an Azure SQL Database
 
 **Single database**
