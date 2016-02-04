@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Upload a Windows image | Microsoft Azure"
+	pageTitle="Upload a Windows VHD for Resource Manager | Microsoft Azure"
 	description="Learn to upload a Windows based virtual machine image to use with the Resource Manager deployment model."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,7 @@
 	ms.date="02/04/2016"
 	ms.author="dkshir"/>
 
-# Upload a Windows VM image (VHD) to Microsoft Azure
+# Upload a Windows VM image to Microsoft Azure for Resource Manager deployments
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-upload-vhd-windows-server.md).
 
