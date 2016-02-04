@@ -470,7 +470,9 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 2. Install ADAL using Cocoapods. Edit your podfile to include the following, replacing **YOUR-PROJECT** with the name of your Xcode project:
 
 	source 'https://github.com/CocoaPods/Specs.git'
+	
 	link_with ['YOUR-PROJECT']
+	
 	xcodeproj 'YOUR-PROJECT'
 	
 	pod 'ADALiOS'
@@ -536,7 +538,7 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 		var error: AutoreleasingUnsafeMutablePointer<ADAuthenticationError?> = nil
 		let authContext = ADAuthenticationContext(authority: authority, error: error)
 		authContext.parentController = parent
-		ADAuthenticationSettings.sharedInstance().enableFullScreen = true;
+		ADAuthenticationSettings.sharedInstance().enableFullScreen = true
 		authContext.acquireTokenWithResource(resourceId, clientId: clientId, redirectUri: redirectUri, completionBlock: { (result) -> Void in
 			if result.status != AD_SUCCEEDED {
 				completion(nil, result.error)
