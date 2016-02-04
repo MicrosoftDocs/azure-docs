@@ -47,7 +47,7 @@ A basic SSH setup for Azure includes an **ssh-rsa** public and private key pair 
 
 Here are the deployment scenarios, and the types of files you use in each:
 
-1. **ssh-rsa** keys are required for any deployment using the [preview portal](https://portal.azure.com), regardless of the deployment model.
+1. **ssh-rsa** keys are required for any deployment using the [Azure portal](https://portal.azure.com), regardless of the deployment model.
 2. .pem file are required to create VMs using the [classic portal](https://manage.windowsazure.com). .pem files are also supported in classic deployments that use the [Azure CLI](../xplat-cli-install.md).
 
 > [AZURE.NOTE] If you plan to manage service deployed with the classic deployment model, you may also want to create a **.cer** format file to upload to the portal -- although this doesn't involve **ssh** or connecting to Linux VMS, which is the subject of this article. To create those files on Linux or Mac, type  

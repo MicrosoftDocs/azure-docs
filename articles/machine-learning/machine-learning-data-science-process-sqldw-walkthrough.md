@@ -81,14 +81,24 @@ Create your own **Azure blob storage account**. The NYC Taxi data used in this w
 
 Provision your Azure SQL DW instance. Follow the documentation at [Create a SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) to provision a SQL Data Warehouse instance. Make sure that you make notations on the following SQL Data Warehouse credentials which will be used in later steps.
  
-  - **Server Name**
-  - **SQLDW (Database) Name**
-  - **User Name**
+  - **Server Name**: <server Name>.database.windows.net
+  - **SQLDW (Database) Name** 
+  - **Username**
   - **Password**
 
 Install Visual Studio 2015 and SQL Server Data Tools. For instructions, see [Install Visual Studio 2015 and/or SSDT (SQL Server Data Tools) for SQL Data Warehouse](sql-data-warehouse-install-visual-studio.md). 
 
-Make sure you can connect to your Azure SQL DW with Visual Studio. For instructions, see [Connect to Azure SQL Data Warehouse with Visual Studio](sql-data-warehouse-get-started-connect.md). 
+Make sure you can connect to your Azure SQL DW with Visual Studio. For instructions, see steps 1 & 2 in [Connect to Azure SQL Data Warehouse with Visual Studio](sql-data-warehouse-get-started-connect.md). 
+
+>[AZURE.NOTE] Run the following SQL query on the database you created in your SQL Data Warehouse (instead of the query provided in step 3 of the topic,) to create a master key.
+
+	BEGIN TRY
+	       --Try to create the master key
+	    CREATE MASTER KEY
+	END TRY
+	BEGIN CATCH
+	       --If the master key exists, do nothing
+	END CATCH;
 
 Create an Azure Machine Learning workspace under your Azure subscription. For instructions, see [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md).
 
@@ -96,7 +106,7 @@ Create an Azure Machine Learning workspace under your Azure subscription. For in
 
 Open a Windows PowerShell command console. Run the following PowerShell commands to download the example SQL script files that we share with you on Github to a local directory that you specify with the parameter *-DestDir*. You can change the value of parameter *-DestDir* to any local directory. If *-DestDir* does not exist, it will be created by the PowerShell script. 
 
->[AZURE.NOTE] You might need to **Run as Administrator** when executing the following PowerShell script if your *DestDir* needs Administrator privilege to create or to write to. 
+>[AZURE.NOTE] You might need to **Run as Administrator** when executing the following PowerShell script if your *DestDir* directory needs Administrator privilege to create or to write to it. 
 
 	$source = "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/Download_Scripts_SQLDW_Walkthrough.ps1"
 	$ps1_dest = "$pwd\Download_Scripts_SQLDW_Walkthrough.ps1"
@@ -114,13 +124,47 @@ In your *-DestDir*, execute the following PowerShell script in administrator mod
 
 This PowerShell script file completes the following tasks:
 
-- Download and install AzCopy, if AzCopy is not already installed
-- Copy data from the public blob to your private blob storage account with AzCopy
-- Load data from your private blob storage account to your Azure SQL DW
+- **Downloads and installs AzCopy**, if AzCopy is not already installed
+
+		$AzCopy_path = SearchAzCopy
+    	if ($AzCopy_path -eq $null){
+       		Write-Host "AzCopy.exe is not found in C:\Program Files*. Now, start installing AzCopy..." -ForegroundColor "Yellow"
+        	InstallAzCopy
+        	$AzCopy_path = SearchAzCopy
+    	}
+			$env_path = $env:Path
+			for ($i=0; $i -lt $AzCopy_path.count; $i++){
+				if ($AzCopy_path.count -eq 1){
+					$AzCopy_path_i = $AzCopy_path
+				} else {
+					$AzCopy_path_i = $AzCopy_path[$i]
+				}
+				if ($env_path -notlike '*' +$AzCopy_path_i+'*'){
+					Write-Host $AzCopy_path_i 'not in system path, add it...'
+					[Environment]::SetEnvironmentVariable("Path", "$AzCopy_path_i;$env_path", "Machine")
+					$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") 
+					$env_path = $env:Path
+				}	
+
+- **Copies data to your private blob storage account** from the public blob with AzCopy
+
+		Write-Host "AzCopy is copying data from public blob to yo storage account. It may take a while..." -ForegroundColor "Yellow"	
+		$start_time = Get-Date
+		AzCopy.exe /Source:$Source /Dest:$DestURL /DestKey:$StorageAccountKey /S
+		$end_time = Get-Date
+    	$time_span = $end_time - $start_time
+    	$total_seconds = [math]::Round($time_span.TotalSeconds,2)
+    	Write-Host "AzCopy finished copying data. Please check your storage account to verify." -ForegroundColor "Yellow"
+    	Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
+
+
+- **Loads data using Polybase (by executing LoadDataToSQLDW.sql) to your Azure SQL DW** from your private blob storage account
 	- Create external tables for NYC taxi dataset on the blob storage account
 	- Create tables (trip and fare tables) on SQL DW to store NYC taxi dataset
 	- Import the NYC taxi dataset from external tables into SQL DW tables
 	- Create a sample data table (NYCTaxi_Sample) and insert data to it from selecting SQL queries on the trip and fare tables. Some steps of this walkthrough needs to use this sample table. 
+
+
 
 When the PowerShell script runs for the first time, you will be asked to input the information from your Azure SQL DW and your Azure blob storage account. When this PowerShell script completes running for the first time, the credentials you input will have been written to a configuration file SQLDW.conf in the present working directory. The future run of this PowerShell script file has the option to read all needed parameters from this configuration file. If you need to change some parameters, you can choose to input the parameters on the screen upon prompt by deleting this configuration file and inputting the parameters values as prompted or to change the parameter values by editing the configuration file. 
 
