@@ -40,9 +40,9 @@ This article assumes you have:
 
 - The Hyper-V Manager will typically save your VM image in a VHDX format, which is not supported in Microsoft Azure. You can convert it to VHD format using either Hyper-V or the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx).
   	- For steps using PowerShell, read [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/).
-  	- Or in Hyper-V, select your VM, then in **Actions** on the right, click **Edit Disk...** > **Next** > Your VHDX path > **Next** > **Convert** > **Next** > **VHD** > **Next** > Choose any VHD type > **Next** > Enter path for the VHD file > **Next** > **Finish**.
+  	- Or in Hyper-V, select your local computer on the left and then in the menu above it, click **Actions** > **Edit Disk...** > **Next** > Your VHDX path > **Next** > **Convert** > **Next** > **VHD** > **Next** > Choose any VHD type > **Next** > Enter path for the VHD file > **Next** > **Finish**.
 
-- If you have a Windows VM image in [the VMDK file format](https://en.wikipedia.org/wiki/VMDK), you can covert it to a VHD format using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
+- If you have a Windows VM image in [the VMDK file format](https://en.wikipedia.org/wiki/VMDK), you can convert it to a VHD format using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
 
 
 ## Prepare the VHD for upload
