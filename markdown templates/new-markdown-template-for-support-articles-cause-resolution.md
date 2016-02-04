@@ -23,6 +23,15 @@
 - Briefly describe the problem.
 -	Set the expectation.
 
+[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+
+- Select one of the following disclaimers depending on your scenario.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../learn-about-deployment-models-both-include.md)]
+
+
 ## Symptom
 -	What actions would the user be trying to complete? 
 -	What failed? 
@@ -38,9 +47,15 @@
 -	Add screenshots if possible.
 -	If there are multiple resolutions, put them in the order of complexity and provide instructions on how to choose from among them.
 
-**Contact Azure Customer Support**
+### Steps for the classic deployment model
+1. step 1.
+2. step 2.
+3. step 3.
 
-If your Azure issue is not addressed in this article, browse the Azure forums on [MSDN and Stack Overflow](http://azure.microsoft.com/support/forums/). To file an Azure support request, visit the [Azure Support site](http://azure.microsoft.com/support/options/) and select **Get Support**. For an overview about Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+### Steps for the Azure Resource Manager deployment model
+1. step 1.
+2. step 2.
+3. step 3.
 
-## Next steps
-- Put additional information and reference links here.
+## Learn more (Optional)
+- Reference links to other related topics.
