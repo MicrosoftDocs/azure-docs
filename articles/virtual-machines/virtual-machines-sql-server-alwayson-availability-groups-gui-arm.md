@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configure AlwaysOn Availability Groups Azure Resource Manager | Microsoft Azure"
-	description="Create an AlwaysOn Availability Group with Azure Virtual Machines in Azure Resource Manager mode. This tutorial primarily uses the user interface to automatically create the entire solution."
+	pageTitle="Configure AlwaysOn availability groups Azure Resource Manager | Microsoft Azure"
+	description="Create an AlwaysOn availability group with Azure virtual machines in Azure Resource Manager mode. This tutorial primarily uses the user interface to automatically create the entire solution."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
@@ -16,7 +16,7 @@
 	ms.date="02/04/2016"
 	ms.author="MikeRayMSFT" />
 
-# Configure AlwaysOn Availability Group in Azure Resource Manager virtual machines (GUI)
+# Configure an AlwaysOn availability group in Azure Resource Manager virtual machines (GUI)
 
 > [AZURE.SELECTOR]
 - [Portal - Resource Manager](virtual-machines-sql-server-alwayson-availability-groups-gui-arm.md)
@@ -28,9 +28,9 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] Classic model.
 
 
-This end-to-end tutorial shows you how to create a SQL Server Availability Group with Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You will review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial. 
+This end-to-end tutorial shows you how to create a SQL Server availability group with Azure Resource Manager virtual machines. The tutorial uses Azure blades to configure a template. You will review the default settings, type required settings, and update the blades in the portal as you walk through this tutorial. 
 
->[AZURE.NOTE] In the Azure Management Portal, there is a new gallery setup for AlwaysOn Availability Groups with a Listener. This configures everything you need for AlwaysOn Availability Groups automatically. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). 
+>[AZURE.NOTE] In the Azure Management Portal, there is a new gallery setup for AlwaysOn availability groups with a Listener. This configures everything you need for AlwaysOn availability groups automatically. For more information, see [SQL Server AlwaysOn Offering in Microsoft Azure classic portal Gallery](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). 
 
 At the end of the tutorial, your SQL Server AlwaysOn solution in Azure will consist of the following elements:
 
@@ -54,11 +54,11 @@ This tutorial assumes the following:
 
 - You already have an Azure account. If you don't have one, [sign up for a trial account](http://azure.microsoft.com/pricing/free-trial/).
 
-- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md)
+- You already know how to provision a SQL Server VM from the virtual machine gallery using the GUI. For more information, see [Provisioning a SQL Server virtual machine on Azure](virtual-machines-provision-sql-server.md)
 
-- You already have a solid understanding of AlwaysOn Availability Groups. For more information, see [AlwaysOn Availability Groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
+- You already have a solid understanding of AlwaysOn availability groups. For more information, see [AlwaysOn availability groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx).
 
->[AZURE.NOTE] If you are interested in using AlwaysOn Availability Groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
+>[AZURE.NOTE] If you are interested in using AlwaysOn availability groups with SharePoint, also see [Configure SQL Server 2012 AlwaysOn availability groups for SharePoint 2013](http://technet.microsoft.com/library/jj715261.aspx).
 
 In this tutorial you will use the Azure portal to:
 
@@ -70,7 +70,7 @@ In this tutorial you will use the Azure portal to:
 
 - Connect to one of the domain controllers and then to one of the SQL Servers
 
-## Provision an AlwaysOn Availability Group from the gallery with the resource manager deployment model
+## Provision an AlwaysOn availability group from the gallery with the resource manager deployment model
 
 Azure provides a gallery image for the entire solution. In order to locate the template: 
 
@@ -126,19 +126,19 @@ If necessary, you may change these values. For this tutorial we use the preset v
  
 - Review the settings and click **OK**. 
 
-###Availability group settings
+###availability group settings
 
-On **Availability group settings** review the preset values for teh availability group and the listener.
+On **availability group settings** review the preset values for teh availability group and the listener.
 
 - **Availablity group name** is the clustered resource name for the availability group. For this tutorial use **Contoso-ag**. 
 
-- **Availability group listener name** is used by the cluster and the internal load balancer. Clients connecting to SQL Server can use this name to connect to the appropriate replica of the database. For this tutorial use **Contoso-listener**. 
+- **availability group listener name** is used by the cluster and the internal load balancer. Clients connecting to SQL Server can use this name to connect to the appropriate replica of the database. For this tutorial use **Contoso-listener**. 
 
--  **Availability group listener port** specifies the TCP port the SQL Server listener will use. For this tutorial use the default port, **1433**.
+-  **availability group listener port** specifies the TCP port the SQL Server listener will use. For this tutorial use the default port, **1433**.
 
 If necessary, you may change these values. For this tutorial use the preset values.  
 
-![Availability group settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/3-availabilitygroup.png)
+![availability group settings](./media/virtual-machines-sql-server-alwayson-availability-groups-gui-arm/3-availabilitygroup.png)
 
 - Click **OK**. 
 
@@ -148,7 +148,7 @@ On **VM size, storage settings** choose a SQL Server virtual machine size and re
 
 - **SQL Server virtual machine size** is the Azure virtual machine size for both SQL Servers. Choose a virtual machine size appropriate for your workload. If you are building this environment for the tutorial use **DS2**. For production workloads choose a virtual machine size that can support the workload. Many production workloads will require **DS4** or larger. The template will build two virtual machines of this size and install SQL Server on each one. For more information, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
->[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+>[AZURE.NOTE]Azure will install Enterprise Edition of SQL Server. The cost depends on the edition and the virtual machine size. For detailed information about current costs, see [virtual machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
 - **Domain controller virtual machine size** is the virtual machine size for the domain controllers. For this tutorial use **D2**.
 
@@ -193,7 +193,7 @@ For additional information about storage space and storage pools see:
 - [Windows Server Backup and Storage Pools](http://technet.microsoft.com/library/dn390929.aspx)
 
 For more information about SQL Server configuration best practices, see
-[Performance best practices for SQL Server in Azure Virtual Machines](virtual-machines-sql-server-performance-best-practices.md)
+[Performance best practices for SQL Server in Azure virtual machines](virtual-machines-sql-server-performance-best-practices.md)
 
 
 ###SQL Server settings
