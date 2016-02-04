@@ -17,11 +17,15 @@
    ms.date="mm/dd/yyyy"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
    
-# Title (maximum 120 characters, should be what users use to describe the problem)
+# Title (Maximum 120 characters, be keyword rich to match what users use to describe the problem)
 
 ## Summary (Optional when the article is short)
 - Briefly describe the problem.
--	Set the expectation.
+- Set the expectation: What users can achieve when they finish the article.
+- Don’t have more than one Note element at the top.
+- The Summary section is a good place to place keywords. But avoid stuffing keywords but let the content flow in a natural way.
+- Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, you describe that the Linux/OSS scenarios aren't covered.
+
 
 [AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
