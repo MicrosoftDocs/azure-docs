@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/20/2015"
+   ms.date="02/04/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog release notes
@@ -36,14 +36,6 @@ For each situation, the problem can be resolved by downloading and installing th
 When connecting to Teradata data sources users must have installed the correct Teradata ODBC driver that match the bitness (32-bit or 64-bit) of the software being used.
 
 As of this ADC release date, the most recent [Teradata ODBC driver for windows ( version 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) is compatible with Office 2013, but not with Office 2016.
-
-## Notes for the November 6, 2015 release of Azure Data Catalog
-
-### Users may encounter errors when launching the data source registration tool
-
-When launching the **Azure Data Catalog** data source registration tool from the **Azure Data Catalog** portal, users who have previously installed an older version of the tool may receive this message: "Application cannot be started. Contact the application vendor."
-
-Users who receive this message should use Windows control panel to remove the existing "Azure Data Catalog" application, and then re-launch the tool from the **Azure Data Catalog** portal.
 
 ## Notes for the July 13, 2015 release of Azure Data Catalog
 
