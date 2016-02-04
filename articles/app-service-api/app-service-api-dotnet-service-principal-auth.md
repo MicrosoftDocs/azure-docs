@@ -22,20 +22,20 @@
 
 ## Overview
 
-In this article you'll learn:
+This article explains how to use App Service authentication for [internal](app-service-api-authentication.md#internal) access to API apps. An internal scenario is where you have an API app that you want to be consumable only by your own application code. The easiest way to implement this scenario in App Service is to use Azure AD to protect the called API app. You call the protected API app with a bearer token that you get from Azure AD by providing application identity (service principal) credentials.
+
+In this article, you'll learn:
 
 * How to use Azure Active Directory (Azure AD) to protect an API app from unauthenticated access.
-* How to consume a protected API app by using service principal (app identity) credentials.
+* How to consume a protected API app from an API app, web app, or mobile app by using Azure AD service principal (app identity) credentials. For information about how to consume from a logic app, see [Using your custom API hosted on App Service with Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md).
 * How to make sure that the protected API app can't be called from a browser by logged on users.
 * How to make sure that the protected API app can only be called by a specific Azure AD service principal.
-
-This method of securing an API app is commonly used for [internal scenarios](app-service-api-authentication.md#internal), such as for calling from one API app to another API app.
 
 The article contains two sections:
 
 * The [How to configure service principal authentication in Azure App Service](#authconfig) section explains in general how to configure authentication for any API app, and how to consume the protected API app. This section applies equally to all frameworks supported by App Service, including .NET, Node.js, and Java.
 
-* The [remainder of the article](#tutorialstart) guides you through configuring an "internal access" scenario for a .NET sample application running in App Service. 
+* Starting with the [Continuing the .NET getting-started tutorials](#tutorialstart) section, the tutorial guides you through configuring an "internal access" scenario for a .NET sample application running in App Service. 
 
 ## <a id="authconfig"></a> How to configure service principal authentication in Azure App Service
 
@@ -301,7 +301,7 @@ Right now, any caller that can get a token for a user or service principal in yo
 
 You can add these restrictions by adding code to validate the `appid` and `objectidentifier` claims on incoming calls.
 
-For this tutorial you put the code that validates app ID and service principal ID directly in your controller actions.  Alternatives are to use a custom `Authorize` attribute or to do this validation in your startup sequences (e.g. OWIN middleware). 
+For this tutorial you put the code that validates app ID and service principal ID directly in your controller actions.  Alternatives are to use a custom `Authorize` attribute or to do this validation in your startup sequences (e.g. OWIN middleware). For an example of the latter, see [this sample application](https://github.com/mohitsriv/EasyAuthMultiTierSample/blob/master/MyDashDataAPI/Startup.cs). 
 
 Make the following changes to the TodoListDataAPI project.
 
