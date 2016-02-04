@@ -3,7 +3,7 @@
 	description="This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure." 
 	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="Erikre" 
+	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
