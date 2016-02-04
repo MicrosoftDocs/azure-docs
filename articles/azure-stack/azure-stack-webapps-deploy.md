@@ -238,7 +238,7 @@ To configure your Azure Stack Web Apps deployment with wildcard certificates you
 
 
 
-3 Export wildcard certificate
+**Export wildcard certificate**
 
 1. Open Microsoft Management Console (MMC), click **File**, and then click **Add/Remove Snap-in**.
 
@@ -298,6 +298,22 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 15. To verify that the new certificte has been imported successfully, confirm that the **AzureStackCertificatinAuthority** icon is connected to the **\*.azurestack.local** icon.
 
 16. Click **OK** and minimize the **management** and **portalvm** RDC windows.
+
+
+**Locate the private IP address**
+
+1. Open the ClientVM.AzureStack.local virtual machine.
+
+2. Open the portal, click **Browse**, click **Resource Groups**, click **WebsitesSQL**, click **...** at the bottom of the **Resources** box, and then click **CN0-NIC** in the **Resources** blade.
+
+3. In the **CN0-NIC** blade, copy the **Private IP address**. This is the IP address for the Web Apps controller virtual machine.
+
+4. In the **management** virtual machine desktop, open Remote Desktop Connection, paste the controller's IP address into the **Computer** box, click **Connect**, and sign in as an admin. This is the controller virtual machine.
+
+5. Copy the **_.azurestack.local.pfx** certificate from the **management** virtual machine desktop to the controller virtual machine C:\ drive.
+
+To be continued...
+Stopped at video time stamp 28:41:24...
 
 
 
