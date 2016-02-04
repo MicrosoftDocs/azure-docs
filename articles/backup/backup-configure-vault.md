@@ -37,15 +37,25 @@ To back up files and data from a Windows machine or Data Protection Manager (DPM
 
 **To create a Backup vault:**
 
-| Step | Details |
-| :------: | ---- |
-| 1 | Sign in to the [Management Portal](https://manage.windowsazure.com/) |
-| 2 | Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** and choose **Quick Create**.<br> ![Create vault](./media/backup-configure-vault/createvault1.png) |
-| 3 | For the **Name** parameter, enter a friendly name to identify the backup vault. This needs to be unique for each subscription. |
-| 4 | For the **Region** parameter, select the geographic region for the backup vault. The choice determines the geographic region where your backup data is sent. By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure. |
-| 5 | Click **Create Vault** to complete the workflow.<br><br>It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal.<br> ![Creating Vault](./media/backup-configure-vault/creatingvault1.png)<br><br>After the backup vault has been created, you'll see a message saying the vault has been successfully created. The vault is also listed in the resources for Recovery Services as **Active**.<br><br>![Creating Vault status](./media/backup-configure-vault/backupvaultstatus1.png) |
+1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
+2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** and choose **Quick Create**.
 
-> [AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.<br><br>**Learn more about storage redundancy options in this [overview](backup-introduction-to-azure-backup.md#how-should-i-determine-my-storage-redundancy-options).**
+    ![Create vault](./media/backup-configure-vault/createvault1.png)
+
+3. For the **Name** parameter, enter a friendly name to identify the backup vault. This needs to be unique for each subscription.
+4. For the **Region** parameter, select the geographic region for the backup vault. The choice determines the geographic region where your backup data is sent. By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure.
+5. Click **Create Vault** to complete the workflow.
+
+    It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal.
+
+    ![Creating Vault](./media/backup-configure-vault/creatingvault1.png)
+
+    After the backup vault has been created, you'll see a message saying the vault has been successfully created. The vault is also listed in the resources for Recovery Services as **Active**.
+    ![Creating Vault status](./media/backup-configure-vault/backupvaultstatus1.png)
+
+> [AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
+>
+> **Learn more about storage redundancy options in this [overview](backup-introduction-to-azure-backup.md#how-should-i-determine-my-storage-redundancy-options).**
 
 ## 2. Download the vault credential file
 An on-premises server must be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved using “vault credentials”. The vault credential file is downloaded through a secure channel from the Azure portal and the Azure Backup service is unaware of the private key of the certificate, which does not persist in the portal or the service.
