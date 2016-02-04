@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/19/2016" 
+	ms.date="02/04/2016" 
 	ms.author="sdanie"/>
 
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
@@ -39,29 +39,25 @@ Azure Redis Cache VNET integration is configured in the **Virtual Network** blad
 
 >[AZURE.NOTE] Azure Redis Cache works with classic VNETs. For information on creating a classic VNET, see [Create a virtual network (classic) by using the Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). For information on connecting classic VNETs to ARM VNETS, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
+Click **Virtual Network (classic)** on the **Virtual Network** blade, and select the desired VNET from the drop-down list to select and configure your VNET.
+
 ![Virtual network][redis-cache-vnet]
 
-Click **Virtual Network** on the **Virtual Network** blade to select and configure your VNET.
-
-![Virtual network][redis-cache-vnet-select]
-
-Click the desired VNET to select it.
-
-![Virtual network][redis-cache-vnet-subnet]
-
-Click Subnet to select the desired subnet.
+Select the desired subnet from the **Subnet** drop-down list.
 
 ![Virtual network][redis-cache-vnet-ip]
 
-The **Static IP address** field is optional. If none is specified here, one will be chosen from the selected subnet. If a specific statis IP is desired, type the desired **Static IP address** and click **OK** to save the VNET configuration. If the selected static IP is already use, an error message is displayed.
+The **Static IP address** field is optional. If none is specified here, one will be chosen from the selected subnet. If a specific static IP is desired, type the desired **Static IP address** and click **OK** to save the VNET configuration. If the selected static IP is already use, an error message is displayed.
 
-Once the cache is created, it can be accessed only by clients within the same VNET.
+Once the cache is created, you can view the IP address and other information about the VNET by clicking **Virtual Network** from the **Settings** blade.
 
->[AZURE.IMPORTANT] To access your Azure Redis cache instance when using a VNET, pass the static IP address of the cache in the VNET as the first parameter, and pass in an `sslhost` parameter with the endpoint of your cache. In the following example the static IP address is `10.10.1.5` and the cache endpoint is `contoso5.redis.cache.windows.net`.
+![Virtual network][redis-cache-vnet-info]
+
+>[AZURE.IMPORTANT] To access your Azure Redis cache instance when using a VNET, pass the static IP address of the cache in the VNET as the first parameter, and pass in an `sslhost` parameter with the endpoint of your cache. In the following example the static IP address is `172.160.0.99` and the cache endpoint is `contoso5.redis.cache.windows.net`.
 
 	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 	{
-	    return ConnectionMultiplexer.Connect("10.10.1.5,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
+	    return ConnectionMultiplexer.Connect("172.160.0.99,sslhost=contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=password");
 	});
 	
 	public static ConnectionMultiplexer Connection
@@ -119,9 +115,7 @@ Learn how to use more premium cache features.
 
 [redis-cache-vnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet.png
 
-[redis-cache-vnet-select]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-select.png
-
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
-[redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
+[redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
 
