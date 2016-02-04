@@ -31,4 +31,4 @@ If the app can’t connect at all, it’s usually the IP and firewall configurat
 2.	On all firewalls between the client and the Internet, make sure that port 1433 is open for outbound connections.
 3.	Verify your connection string and other connection settings. See the Connection String section in the [connectivity issues topic](sql-database-connectivity-issues.md).
 4.	Check service health in the dashboard. If you think there’s a regional outage, see [Recover from an outage](sql-database-disaster-recovery.md) for steps to recover to a new region.
-5.	If connectivity problems continue, contact support to open a support case.
+5.	If connectivity problems continue, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/support/options) site.
