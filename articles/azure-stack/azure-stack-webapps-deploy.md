@@ -308,12 +308,59 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 
 3. In the **CN0-NIC** blade, copy the **Private IP address**. This is the IP address for the Web Apps controller virtual machine.
 
-4. In the **management** virtual machine desktop, open Remote Desktop Connection, paste the controller's IP address into the **Computer** box, click **Connect**, and sign in as an admin. This is the controller virtual machine.
+4. In the **management** virtual machine desktop, open Remote Desktop Connection, paste the controller virtual machine's IP address into the **Computer** box, click **Connect**, and sign in as an admin. This is the controller virtual machine.
 
 5. Copy the **_.azurestack.local.pfx** certificate from the **management** virtual machine desktop to the controller virtual machine C:\ drive.
 
-To be continued...
-Stopped at video time stamp 28:41:24...
+6. On the controller virtual machine, open PowerShell and run the following cmdlets in order. Replace **YOURPASSWORD** with your pasword. Replace **DNSNAME** with the DNS entry for the management virtual machine, like *management.azurestack.local*.
+
+```
+    Import-Module Websites
+    $password="YOURPASSWORD"
+    Set-WebSitesConfig -Type Global -ManagementServerCertificateFileName "C:\_.azurestack.local.pfx" -ManagementServerCertificatePassword $password
+    Set-WebSitesConfig -Type Global -ArmEndpoint "https://api.azurestack.local" 
+    Set-WebsitesConfig -Type Global -ArmResourceProviderUri 'https://DNSNAME/' 
+```    
+
+7. Run the following cmdlets in order:
+```
+    Get-WebSitesServer -ServerType ManagementServer | Repair-WebSitesServer
+    Get-WebSitesServer -ServerType LoadBalancer | Repair-WebSitesServer
+    Get-WebSitesServer -ServerType WebWorker | Repair-WebSitesServer
+```
+
+8. Sign out of the controller, **management**, and **portalvm** virtual machines and close the RDC windows.
+
+9. On the **ClientVM.AzureStack.local** virtual machine, sign in to the Azure Stack portal as an admin, click **Browse**, and then click **Resource Providers**.
+
+10. In the **Resource Providers** blade and click **Add**.
+
+11. In the **Register resource provider** blade, type a **Display Name**, like *WebApps*.
+
+12. In the **Manifest endpoint** box, type the location of the manifest file, like *htts://management.azurestack.local/*.
+
+13. Type the admin credentials for **Username** and **Password**.
+
+14. Click **Location**, click **Create new location**, and then choose **Local**.
+
+15. In the **Enter a resource group name** box, type a resource group name, like *WebAppsRG*.
+
+16. Click **Create**. In about five minutes, close and reopen the browser, and then sign in to the Azure Stack portal as an admin.
+
+17. On the **Dashboard**, click the **webapps** tile to explore the new resource provider settings. 
+
+**Deploy a new Webb App**
+
+Now that you have deployed and registered the Web Apps resource provider, you can test it to make sure that tenants can deploy web apps.
+
+1. In the Azure Stack portal, click **New**, click **Web + Mobile**, and click **Web App**.
+
+2. In the **Web App** blade, type a name in the **Web app** box.
+
+3. Under **Resource Group**, click **New**, and then type a name in the **Resource Group** box. 
+
+4. Click **App Service plan/Location**, click **Create New**, 
+
 
 
 
