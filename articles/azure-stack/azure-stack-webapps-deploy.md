@@ -262,15 +262,32 @@ To configure your Azure Stack Web Apps deployment with wildcard certificates you
 
 11. In the **File name** box, type *_.azurestack.local*, click **Save**, click **Next**, click **Finish**, and then click **OK**.
 
+The new certificate is now saved to the desktop on the **portalvm** virtual machine.
 
 
-4 Import certificates to provider VM
+**Import certificates to management virtual machine**
 
-- Copy _.azurestack.local.pfx to the Management VM. To do this RDP to the WebAps Management VM IP Address that was used when configuring the DNS name for the management load balancer.
-- Double-click to import to Local Machine.
-- Specify same password used to export.
-- Check Mark this key as exportable.
-- Automatically select the certificate store based on the type of certificate.
+1. On the **portalvm** virtual machine desktop, copy **_.azurestack.local.pfx**.
+
+2. On the Azure Stack POC machine, open Remote Desktop Connection and sign in to the **management** virtual machine as an administrator.
+
+3. Paste the **_.azurestack.local.pfx** file onto the **management** virtual machine desktop.
+
+4. Double-click the **_.azurestack.local.pfx** file.
+
+5. In the **Certificate Import Wizard**, choose **Local Machine**, and then click **Next**.
+
+6. Confirm the **File name** is **C:\Users\admin\Desktop\_.azurestack.local.pfx** and then click **Next**.
+
+7. In the **Password** box, type the password you created during the export certificate process above.
+
+8. Check the **Mark this key as exportable.** and **Include all extended properties.** boxes, and then click **Next**.
+
+9. Choose **Automatically select the certificate store based on the type of certificate**, click **Next**, click **Finish**, and then click **OK**.
+
+10. 
+
+
 
 Locate the private IP address for the Web Apps controller VM and RDP to that address.  To get the IP address, Browse > All resources > CN0-NIC
 
