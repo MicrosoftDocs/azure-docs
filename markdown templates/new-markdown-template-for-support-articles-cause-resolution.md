@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
 
-- Select one of the following disclaimers depending on your scenario.
+Select one of the following disclaimers depending on your scenario.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
