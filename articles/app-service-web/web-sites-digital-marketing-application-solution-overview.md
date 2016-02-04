@@ -89,7 +89,7 @@ In the **Standard** tier, monitor app responsiveness receive email notifications
 ## More Resources
 
 - [App Service Web Apps Documentation](/services/app-service/web/)
-- [Learning Map for Azure App Service Web Apps](websites-learning-map.md)
+- [Learning Map for Azure App Service Web Apps](/documentation/learning-paths/appservice-webapps/)
 - [Azure Web Blog](/blog/topics/web/)
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]

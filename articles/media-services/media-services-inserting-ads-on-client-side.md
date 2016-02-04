@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/15/2015" 
+	ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,8 @@ This topic contains information on how to insert various types of ads on the cli
 
 For information about closed captioning and ad support in Live streaming videos, see [Supported Closed Captioning and Ad Insertion Standards](media-services-manage-channels-overview.md#cc_and_ads).
 
- 
+>[AZURE.NOTE] Azure Media Player does not currently support Ads. 
+
 ##<a id="insert_ads_into_media"></a>Inserting Ads into your Media
 
 Azure Media Services provides support for ad insertion through the Windows Media Platform: Player Frameworks. Player frameworks with ad support are available for Windows 8, Silverlight, Windows Phone 8, and iOS devices. Each player framework contains sample code that shows you how to implement a player application.There are three different kinds of ads you can insert into your media:list.

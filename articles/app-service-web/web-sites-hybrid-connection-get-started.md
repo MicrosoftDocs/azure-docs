@@ -217,7 +217,6 @@ At this point you can republish the server project and test the new connection w
 
 - For information on creating an ASP.NET web application that uses a hybrid connection, see [Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections](http://go.microsoft.com/fwlink/?LinkID=397979). 
 
-
 ### Additional Resources
 
 [Hybrid Connections overview](http://go.microsoft.com/fwlink/p/?LinkID=397274)

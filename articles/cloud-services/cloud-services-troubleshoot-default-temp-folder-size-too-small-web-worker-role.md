@@ -16,26 +16,27 @@
    ms.date="01/20/2016"
    ms.author="daleche" />
 
-# Default TEMP folder size is too small on a Cloud Service Web/Worker role
+# Default TEMP folder size is too small on a cloud service web/worker role
 
 The default temporary directory of a cloud service worker or web role has a maximum size of 100 MB, which may become full at some point. This article describes how to avoid running out of space for the temporary directory.
 
->[AZURE.NOTE] This only applies to Azure SDK 1.0 through SDK 1.4 using Web and Worker Roles.
+>[AZURE.NOTE] This applies only to using web and worker roles in Azure SDK 1.0 through 1.4.
 
 ## Contact Azure Customer Support
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/).
 
-Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
-
+Alternatively, you can file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
 
 ## Why do I run out of space?
-The standard Windows environment variables TEMP and TMP are available to code running in your application. Both TEMP and TMP point to a single directory that has a maximum size of 100 MB. Any data stored in this directory is not persisted across the lifecycle of the hosted service; if the role instances in a hosted service are recycled, the directory is cleaned.
+
+The standard Windows environment variables TEMP and TMP are available to code that is running in your application. Both TEMP and TMP point to a single directory that has a maximum size of 100 MB. Any data that is stored in this directory is not persisted across the lifecycle of the cloud service; if the role instances in a cloud service are recycled, the directory is cleaned.
 
 ## Suggestion to fix the problem
+
 Implement one of the following alternatives:
 
-- Configure a local storage resource, and access it directly instead of using **TEMP** or **TMP**. To access a local storage resource from code running within your application, call the [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) method. For more information about setting up local storage resources, see [Configure Local Storage Resources](cloud-services-configure-local-storage-resources.md).
+- Configure a local storage resource, and access it directly instead of using TEMP or TMP. To access a local storage resource from code that is running within your application, call the [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) method. For more information about setting up local storage resources, see [Configure Local Storage Resources](cloud-services-configure-local-storage-resources.md).
 
 - Configure a local storage resource, and point the TEMP and TMP directories to point to the path of the local storage resource. This modification should be performed within the [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) method.
 
@@ -76,8 +77,8 @@ namespace WorkerRole1
 
 ## Next steps
 
-See another blog describes [How to increase the size of the Azure Web Role ASP.NET Temporary Folder](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
+Read a blog that describes [How to increase the size of the Azure Web Role ASP.NET Temporary Folder](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
 View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
 
-To learn how to troubleshoot Cloud Service roles' issue by using Azure PaaS computer diagnostics data, view [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, view [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
