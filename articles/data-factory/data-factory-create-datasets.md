@@ -131,7 +131,7 @@ Daily slices that starts at 6 AM instead of the default midnight.
 
 	"availability":
 	{
-		"frequency": "Daily",
+		"frequency": "Day",
 		"interval": "1",
 		"offset": "06:00:00"
 	}

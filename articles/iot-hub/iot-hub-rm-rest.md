@@ -40,7 +40,7 @@ In order to complete this tutorial you'll need the following:
 
 2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
 
-3. In NuGet Package Manager, check **Include prerelease** and search for **Microsoft.Azure.Management.Resources**. Select version **2.18.11-preview**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
+3. In NuGet Package Manager, search for **Microsoft.Azure.Management.Resources**. Select version **2.18.11-preview**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
 
 4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**. Select version **2.19.208020213**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
 
