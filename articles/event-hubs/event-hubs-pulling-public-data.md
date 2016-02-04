@@ -87,9 +87,10 @@ you can see it running in the Azure classic portal under Cloud Services, and you
 settings (such as the Event Hub target and the sleep interval) in the **Configure** tab.
 
 For more information about Azure Event Hubs and Iot Hubs, see the following articles:
-  * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-  * [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-  * Get started with an [Event Hubs tutorial](event-hubs-csharp-ephcs-getstarted.md).
-  * Try a complete [sample application that uses Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097).
-  * Deploy a [queued messaging solution](../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md) using Service Bus queues.
-  * Notify users of alerts from your Event Hubs based upon [AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications)
+
+- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
+- Get started with an [Event Hubs tutorial](event-hubs-csharp-ephcs-getstarted.md).
+- Try a complete [sample application that uses Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097).
+- Deploy a [queued messaging solution](../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md) using Service Bus queues.
+- Notify users of alerts from your Event Hubs based upon [AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications)
