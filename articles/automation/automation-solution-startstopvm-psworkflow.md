@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="09/25/2015"
+	ms.date="01/27/2016"
 	ms.author="bwren" />
 
 # Azure Automation solution - starting and stopping virtual machines
@@ -28,11 +28,11 @@ This Azure Automation solution includes runbooks to start and stop classic virtu
 - [Graphical](automation-solution-startstopvm-graphical.md)
 - [PowerShell Workflow](automation-solution-startstopvm-psworkflow.md)
 
-This is the PowerShell Workflow runbook version of this solution. It is also available using [graphical runbooks](automation-solutions-startstopvm-graphical.md).
+This is the PowerShell Workflow runbook version of this solution. It is also available using [graphical runbooks](automation-solution-startstopvm-graphical.md).
 
 ## Getting the solution
 
-This solution consists of two PowerShell Workflow runbooks that you can download from the following links.  See the [graphical version](automation-solutions-startstopvm-graphical.md) of this solution for links to the graphical runbooks.
+This solution consists of two PowerShell Workflow runbooks that you can download from the following links.  See the [graphical version](automation-solution-startstopvm-graphical.md) of this solution for links to the graphical runbooks.
 
 | Runbook | Link | Type | Description |
 |:---|:---|:---|:---|
