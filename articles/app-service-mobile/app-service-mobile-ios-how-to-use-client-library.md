@@ -529,7 +529,7 @@ and the Pod:
 	//     #import <ADALiOS/ADAuthenticationContext.h>
 	//     #import <ADALiOS/ADAuthenticationSettings.h>
 	
-	func authenticate(parent:UIViewController, completion: (MSUser?, NSError?) -> Void) {
+	func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> Void) {
 		let authority = "INSERT-AUTHORITY-HERE"
 		let resourceId = "INSERT-RESOURCE-ID-HERE"
 		let clientId = "INSERT-CLIENT-ID-HERE"
@@ -543,7 +543,7 @@ and the Pod:
 				completion(nil, result.error)
 			}
 			else {
-				let payload:[String:String] = ["access_token":result.tokenCacheStoreItem.accessToken]
+				let payload: [String: String] = ["access_token": result.tokenCacheStoreItem.accessToken]
 				client.loginWithProvider("aad", token: payload, completion: completion)
 			}
 		})
