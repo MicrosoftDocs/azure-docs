@@ -59,8 +59,8 @@ In the Azure portal, you use the **Connect** button to start a Remote Desktop se
 
 	![Verify the identity of the machine](./media/arm_log_on_windows_vm/rm_connect_cert.png)
 
-## Resources
+## Next steps
 
-[Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md)
+If you run into trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
 
