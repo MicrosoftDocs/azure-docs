@@ -285,7 +285,19 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 
 9. Choose **Automatically select the certificate store based on the type of certificate**, click **Next**, click **Finish**, and then click **OK**.
 
-10. 
+10. Open Microsoft Management Console (MMC), click **File**, and then click **Add/Remove Snap-in**.
+
+11. In the **Add or Remove Snapins** dialog box, click **Certificates**, and then click **Add**.
+
+12. Choose **Computer account**, click **Next**, choose **Local computer**, click **Finish**, and then click **OK**.
+
+13. In the **Console Root** pane, expand **Certificates (Local Computer)**, expand **Personal**, and then click **Certificates**.
+
+14. Double-click **\*.azurestack.local** and click **Certification Path**.
+
+15. To verify that the new certificte has been imported successfully, confirm that the **AzureStackCertificatinAuthority** icon is connected to the **\*.azurestack.local** icon.
+
+16. Click **OK** and minimize the **management** and **portalvm** RDC windows.
 
 
 
