@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/05/2016"
    ms.author="mabsimms"/>
 
 # Maximizing Data Ingestion Performance with Elasticsearch on Azure
 
-[AZURE.INCLUDE [guidance-elasticsearch-selector](../../includes/guidance-elasticsearch-selector.md)]
+This article is [part of a series](guidance-elasticsearch-introduction.md). 
 
 ## Overview
 
@@ -49,8 +49,6 @@ The purpose of the benchmarks was not to generate absolute performance figures f
 
 * Measure the transfer rates for your workloads and consider how close you are likely to get to the total I/O rate transfer limit for any given storage account in which you have created virtual disks.
 
----
-
 The latter part of this document describes these issues in more detail.
 
 ## Node and Index Design Considerations
@@ -69,15 +67,13 @@ In a system that must support large-scale data ingestion, you ask the following 
 
 * **Is data long or short-lived?** If you are using a set of Azure VMs to implement an Elasticsearch cluster, you can store ephemeral data on a local resource system disk rather than an attached drive. Using a VM SKU that utilizes an SSD for the resource disk can improve I/O performance. However, any information held on the resource disk is temporary and may be lost if the VM restarts (see the section When Will the Data on a Temporary Drive Be Lost in the document [Understanding the temporary drive on Microsoft Azure Virtual Machines](http://blogs.msdn.com/b/mast/archive/2013/12/07/understanding-the-temporary-drive-on-windows-azure-virtual-machines.aspx) for more details). If you need to retain data between restarts, create persistent virtual hard drives (VHDs) to hold this information and attach them to the VM.
 
-* **How active is the data?** Azure VHDs are subject to throttling if the amount of read/write activity exceeds specified parameters (currently 500 IOPS for a disk attached to a Standard Tier VM, and 5000 IOPs for a Premium Storage disk). To reduce the chances of throttling and increase I/O performance, consider creating multiple data VHDs for each VM and configure Elasticsearch to stripe data across these VHDs as described in the Disk and [File System Requirements](https://github.com/mspnp/azure-guidance/blob/master/Elasticsearch-general.md#disk-and-file-system-requirements) section of the document Implementing Elasticsearch on Azure.
+* **How active is the data?** Azure VHDs are subject to throttling if the amount of read/write activity exceeds specified parameters (currently 500 IOPS for a disk attached to a Standard Tier VM, and 5000 IOPs for a Premium Storage disk). To reduce the chances of throttling and increase I/O performance, consider creating multiple data VHDs for each VM and configure Elasticsearch to stripe data across these VHDs as described in the Disk and [File System Requirements](#disk-and-file-system-requirements) section of the document Implementing Elasticsearch on Azure.
 
-    > [AZURE.NOTE] You should select a hardware configuration that helps to minimize the number of disk I/O read operations by ensuring that sufficient memory is available to cache frequently accessed data. This is described in [Memory Requirements](https://github.com/mspnp/azure-guidance/blob/master/Elasticsearch-general.md#memory-requirements) section of the document Implementing Elasticsearch on Azure.
+    > [AZURE.NOTE] You should select a hardware configuration that helps to minimize the number of disk I/O read operations by ensuring that sufficient memory is available to cache frequently accessed data. This is described in [Memory Requirements](#memory-requirements) section of the document Implementing Elasticsearch on Azure.
 
-* **What type of workload will each node need to support?** Elasticsearch benefits from having memory available in which to cache data (in the form of the file system cache) and for the JVM heap as described in the [Memory Requirements](https://github.com/mspnp/azure-guidance/blob/master/Elasticsearch-general.md#memory-requirements) section of the document Implementing Elasticsearch on Azure. Additionally, the threading model implemented by Elasticsearch makes it more efficient to use multicore CPUs over more powerful CPUs with fewer cores.
+* **What type of workload will each node need to support?** Elasticsearch benefits from having memory available in which to cache data (in the form of the file system cache) and for the JVM heap as described in the [Memory Requirements](#memory-requirements) section of the document Implementing Elasticsearch on Azure. Additionally, the threading model implemented by Elasticsearch makes it more efficient to use multicore CPUs over more powerful CPUs with fewer cores.
 
     > [AZURE.NOTE] The amount of memory, number of CPU cores, and quantity of available disks are limited by the SKU of the virtual machine. For more information, see the [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) page on the Azure website.
-
----  
 
 ### Virtual Machine Options
 
@@ -95,11 +91,9 @@ For a data node:
 
 * Use fast disks, ideally SSDs with low latency, for storing Elasticsearch data. This is discussed in more detail in the [Storage Options](#storage-options) section.
 
-* Use multiple disks (of the same size) and stripe data across these disks. The SKU of your VMs will dictate the maximum number of data disks that you can attach. For more information, see [Disk and File System Requirements](https://github.com/mspnp/azure-guidance/blob/master/Elasticsearch-general.md#disk-and-file-system-requirements).
+* Use multiple disks (of the same size) and stripe data across these disks. The SKU of your VMs will dictate the maximum number of data disks that you can attach. For more information, see [Disk and File System Requirements](#disk-and-file-system-requirements).
 
 * Use a multi-core CPU; at least 2 cores, preferably 4 or more. Select CPUs based on the number of cores rather than raw power. The threading model used by Elasticsearch to handle concurrent requests is more efficient when used with multiple cores rather than high-powered CPUs with fewer cores.
-
----
 
 For a client node:
 
@@ -107,9 +101,7 @@ For a client node:
 
 * Ensure that adequate memory is available to handle workloads. Bulk insert requests are read into memory prior to the data being sent to the various data nodes, and the results of aggregations and queries are accumulated in memory before being returned to the client application. Benchmark your own workloads and monitor memory use by using a tool such as Marvel or the [JVM information](https://www.elastic.co/guide/en/elasticsearch/guide/current/_monitoring_individual_nodes.html#_jvm_section) returned by using the *node/stats* API to assess the optimal requirements:
 
-    ###### HTTP
-    ---
-    ```
+    ```http
     GET _nodes/stats
     ```
 
@@ -121,8 +113,6 @@ For a client node:
 
     > Client nodes are primarily useful for applications that use the Transport Client API to connect to the cluster. You can also use the Node Client API, which dynamically creates a dedicated client for the application, using the resources of the application host environment. If your applications use the Node Client API, then it may not be necessary for your cluster to contain preconfigured dedicated client nodes. However, be aware that a node created using the Client Node API is a first-class member of the cluster and as such participates in the network chatter with other nodes; frequently starting and stopping client nodes can create unnecessary noise across the entire cluster.
 
----
-
 For a master node:
 
 * Do not allocate disk storage for Elasticsearch data; dedicated master nodes do not store data on disk.
@@ -132,8 +122,6 @@ For a master node:
 * Memory requirements depend on the size of the cluster. Information about the state of the cluster is retained in memory. For small clusters the amount of memory required is minimal, but for a large, highly active cluster where indexes are being created frequently and shards moving around, the amount of state information can grow appreciably. Monitor the JVM heap size to determine whether you need to add more memory.
 
     > [AZURE.NOTE]  For cluster reliability, always create multiple master nodes to and configure the remaining nodes to avoid the possibility of a split brain from occurring. Ideally, there should be an odd number of master nodes. This topic is described in more detail in the document Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery.
-
----
 
 ### Storage Options
 
@@ -147,17 +135,17 @@ Disks based on standard storage support a maximum request rate of 500 IOPS where
 
 > [AZURE.NOTE] Depending on the amount of data returned by requests, you might not achieve the maximum IOPS advertised for a disk as each VM is also throttled to a maximum disk bandwidth, depending on the size of the VM. For example, a data disk on a Standard\_GS5 VM can operate at up to 5,000 IOPS per disk but only if the total data transfer bandwidth does not exceed 2000 MB/s across all disks attached to the VM.
 
-#### Persistent Data Disks
+**Persistent Data Disks**
 
 Persistent data disks are VHDs that are backed by Azure Storage. If the VM needs to be recreated after a major failure, existing VHDs can be easily attached to the new VM. VHDs can be created based on standard storage (spinning media) or premium storage (SSDs). If you wish to use SSDs you must create VMs using the DS series or better. DS machines cost the same as the equivalent D-series VMs, but you are charged extra for using premium storage.
 
-In cases where the maximum transfer rate per disk is insufficient to support the expected workload, consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](https://github.com/mspnp/azure-guidance/blob/master/Elasticsearch-general.md#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](virtual-machines-linux-configure-raid/).
+In cases where the maximum transfer rate per disk is insufficient to support the expected workload, consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](virtual-machines-linux-configure-raid/).
 
 > [AZURE.NOTE] Experience within Microsoft has shown that using RAID 0 is particularly beneficial for smoothing out the I/O effects of *spiky* workloads that generate frequent bursts of activity.
 
 Use locally redundant (or premium locally redundant) replicas for the storage account holding the disks; replicating across geographies and zones is not required for Elasticsearch HA.
 
-#### Ephemeral Disks
+**Ephemeral Disks**
 
 Using persistent disks based on SSDs requires creating VMs that support premium storage. This has a price implication. Using the local ephemeral disk to hold Elasticsearch data can be a cost effective solution for moderately sized nodes requiring up to approximately 800GB of storage. On the Standard-D series of VMs, ephemeral disks are implemented using SSDs which provide far greater performance and much lower latency than ordinary disks; when using Elasticsearch, the performance can be equivalent to using premium storage without incurring the cost – see the section [Addressing Disk Latency Issues](#addressing-disk-latency-issues) for more information.
 
@@ -169,13 +157,13 @@ You must balance the increased throughput available with ephemeral storage again
 
 > [AZURE.NOTE] Do not consider using a **single** VM to hold critical production data. If the node fails, all of the data is unavailable. For critical information, ensure that data is replicated on at least one other node.
 
-#### Azure Files
+**Azure Files**
 
 The [Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx) provides shared file access using Azure Storage. You can create file shares which you can then mount on Azure VMs. Multiple VMs can mount the same file share, enabling them to access the same data.
 
 For performance reasons, it is not recommended that you use file shares for holding Elasticsearch data that does not need to be shared across nodes; regular data disks are more suited to this purpose. File shares can be used for creating Elasticsearch [shadow replica indexes](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-shadow-replicas.html). However, this feature is currently experimental and should not be implemented in a production environment at this time. For this reason, shadow indexes are not considered further in this guidance.
 
-### Network Options
+**Network Options**
 
 Azure implements a shared networking scheme. VMs utilizing the same hardware racks compete for network resources. Therefore available network bandwidth can vary according to the time of day and the daily cycle of work running on VMs sharing the same physical network infrastructure. You have little control over these factors. It is important to understand that network performance is likely to fluctuate over time, so set user expectations accordingly.
 
@@ -403,8 +391,6 @@ These results appear to indicate the following trends:
 
 * An odd number of shards gives better performance than an even number. The reasons for this are less clear, but it *may* be that the routing algorithm that Elasticsearch uses is better able to distribute the data across shards in this case, leading to a more even load per node.
 
----
-
 To test these hypotheses, several further tests were performed with larger numbers of shards. On verbal advice from Elasticsearch, it was decided to use a prime number of shards for each test as these give a reasonable distribution of odd numbers for the range in question.
 
 | Configuration | \# Documents | Throughput (Operations/sec) | Shard Layout      |
@@ -444,8 +430,6 @@ Using a crude extrapolation, the results of the 6-node and 9-node tests indicate
 
 * As each primary shard is written, another request is sent to each replica for that shard. The primary shard waits for the request sent to the replica to complete before finishing.
 
----  
-
 By default, Elasticsearch creates one bulk insert thread for each available CPU core in a VM. In the case of the D4 VMs used by this test, each CPU contained 8 cores, so 8 bulk insert threads were created. The index used spanned 4 (in one case 5) primary shards on each node, but there were also 4 (5) replicas on each node. Inserting data into these shards and replicas could consume up to 8 threads on each node per request, matching the number available. Increasing or reducing the number of shards might cause threading inefficiencies as threads are possibly left unoccupied or requests are queued. However, without further experimentation this is just a theory and it is not possible to be definitive.
 
 The tests also illustrated one other important point. In this scenario, increasing the number of nodes can improve data ingestion throughput, but the results do not necessarily scale linearly. Conducting further tests with 12 and 15 node clusters could show the point at which scale-out brings little additional benefit. If this number of nodes provides insufficient storage space, it may be necessary to return to the scale-up strategy and start using more or bigger disks based on premium storage.
@@ -467,9 +451,7 @@ The following list describes some points you should consider when tuning an Elas
 
 *  New documents added to an index only become visible to searches when the index is refreshed. Refreshing an index is an expensive operation, so it is only performed periodically rather than as each document is created. The default refresh interval is 1 second. If you are performing bulk operations, you should consider temporarily disabling index refreshes; set the index *refresh\_interval* to -1.
 
-	###### HTTP
-	---
-	```
+	```http
 	PUT /my_busy_index
 	{
 		"settings" : {
@@ -482,9 +464,7 @@ The following list describes some points you should consider when tuning an Elas
 
 * If an index is replicated, each indexing operation (document create, update, or delete) is repeated on the replica shards as they occur in the primary shard. Consider disabling replication during bulk import operations and then re-enable it when the import is complete:
 
-  ###### HTTP
-  ---
-  ```
+    ```http
 	PUT /my_busy_index
 	{
 		"settings" : {
@@ -497,9 +477,7 @@ The following list describes some points you should consider when tuning an Elas
 
 * Elasticsearch attempts to balance the resources available between those required for querying and those required for ingesting data. As a result, it may throttle data ingestion performance (throttling events are recorded in the Elasticsearch log). This restriction is intended to prevent a large number of index segments from being created concurrently that require merging and saving to disk; a process that can monopolize resources. If your system is not currently performing queries, you can disable data ingestion throttling. This should allow indexing to maximize performance. You can disable throttling for an entire cluster as follows:
 
-	###### HTTP
-	---
-	```
+	```http
 	PUT /_cluster/settings
 	{
 		"transient" : {
@@ -516,9 +494,7 @@ The following list describes some points you should consider when tuning an Elas
 
 * Elasticsearch restricts the number of threads (the default value is 8) that can concurrently perform indexing operations in a shard. If a node only contains a small number of shards, then consider increasing the *index\_concurrency* setting for an index that is subject to a large volume of indexing operations, or is the target of a bulk insert, as follows:
 
-	###### HTTP
-	---
-	```
+	```http
 	PUT /my_busy_index
 	{
 		"settings" : {
@@ -528,8 +504,6 @@ The following list describes some points you should consider when tuning an Elas
 	```
 
 * If you are performing a large number of indexing and bulk operations for a short period of time, you can increase the number of *index* and *bulk* threads available in the thread pool and extend the size of the *bulk insert* queue for each data node. This will allow more requests to be queued rather than being discarded. For more information, see [Thread Pool](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-threadpool.html). If you are performing sustained high-levels if data ingestion, then increasing the number of bulk threads is not recommended; instead create additional nodes and use sharding to distribute the indexing load across these nodes. Alternatively, consider sending bulk insert batches serially rather than in parallel as this will act as a natural throttling mechanism that can reduce the chances of the errors due to a bulk insert queue overflowing.
-
----
 
 ### The Impact of Changing the Index Refresh Interval on Data Ingestion Performance
 
@@ -565,8 +539,6 @@ Data ingestion performance tests were repeated using three configurations:
 * Using a cluster with 1 replica, and
 
 * Using a cluster with 2 replicas.
-
----
 
 In all cases, the cluster comprised 7 shards spread across 3 nodes and ran on VMs configured as described in the previous set of tests. The test index used a refresh interval of 30 seconds.
 
@@ -617,9 +589,7 @@ Many aspects of performance are concerned not only internally within the system 
 
 * Disable text analysis for index fields that do not need to be analyzed. Analysis involves tokenizing text to enable queries that can search for specific terms. However, it can be a CPU-intensive task, so be selective. If you are using Elasticsearch to store log data it, might be useful to tokenize the detailed log messages to allow complex searches. Other fields, such as those containing error codes or identifiers should probably not be tokenized (how frequently are you likely to request the details of all messages whose error code contains a "3", for example?) The following code disable analysis for the *name* and *hostip* fields in the *logs* type of the *systembase* index:
 
-	###### HTTP
-	---
-	```
+	```http
 	PUT /systembase
 	{
 		"settings" : {
@@ -642,9 +612,7 @@ Many aspects of performance are concerned not only internally within the system 
 
 * Disable the *_all* field of an index if it is not required. The *\_all* field concatenates the values of the other fields in the document for analysis and indexing. It is useful for performing queries that can match against any field in a document. If clients are expected to match against named fields, then enabling *\_all* simply incurs CPU and storage overhead. The following example shows how to disable the *\_all* field for the *logs* type in the *systembase* index.
 
-	###### HTTP
-	---
-	```
+	```http
 	PUT /systembase
 	{
 		"settings" : {
@@ -674,9 +642,7 @@ Many aspects of performance are concerned not only internally within the system 
 
 * Elasticsearch uses a quorum consisting of a majority of the primary and replica nodes when writing data. A write operation is not completed until the quorum reports success. This approach helps to ensure that data is not written if a majority of the nodes are unavailable due to a network partition (failure) event. Using a quorum can slow the performance of write operations. You can disable quorum-based writing by setting the *consistency* parameter to *one* when writing data. The following example adds a new document but completes as soon as the write to the primary shard has completed.
 
-	###### HTTP
-	---
-	```
+	```http
 	PUT /my_index/my_data/104?consistency=one
 	{
 		"name": "Bert",
@@ -688,9 +654,7 @@ Many aspects of performance are concerned not only internally within the system 
 
 * When using quorums, Elasticsearch will wait if insufficient nodes are available before determining that a write operation should be aborted because a quorum cannot be reached. This wait period is determined by the timeout query parameter (the default is 1 minute). You can modify this setting by using the timeout query parameter. The example below creates a new document and waits for a maximum of 5 seconds for the quorum to respond before aborting:
 
-	###### HTTP
-	---
-	```
+	```http
 	PUT /my_index/my_data/104?timeout=5s
 	{
 		"name": "Sid",
@@ -699,7 +663,6 @@ Many aspects of performance are concerned not only internally within the system 
 	```
 
 	Elasticsearch also lets you use your own version numbers [generated externally](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html#_version_types).
-
 
 * Consider disabling the *\_source* field of an index. This field contains a copy of the original JSON document that was used when a document is stored. Saving this field incurs additional storage costs and disk I/O. However, these costs may be marginal depending on the document structure, and you should also be aware that disabling the *\_source* field prevents a client from being able to perform the following operations:
 
@@ -710,9 +673,7 @@ Many aspects of performance are concerned not only internally within the system 
 
 	The following example disables the *\_source* field for the *logs* type in the *systembase* index.
 
-  ###### HTTP
-  ---
-  ```
+  ```http
   PUT /systembase
   {
 		"settings" : {
@@ -725,9 +686,8 @@ Many aspects of performance are concerned not only internally within the system 
 			...,
 		...
 		}
-	}
-	```
----
+  }
+  ```
 
 ## General Guidelines for Conducting Data Ingestion Performance Testing with Elasticsearch
 
@@ -760,8 +720,6 @@ The following points highlight some of the items you should consider when runnin
 * Run performance tests for at least two hours (not a few minutes). Indexing can affect performance in ways which may not be visible immediately. For example, JVM garbage collection statistics and indexing merges can change the performance profile over time.
 
 * Consider how index refreshes might big impact data ingestion throughput and throttling with a cluster.
-
----
 
 ## Summary
 
@@ -798,10 +756,9 @@ The data ingestion workload performed a large-scale upload of documents by using
 
 You can use the following request to create the index. The *number\_of\_replicas*, *refresh\_interval*, and *number\_of\_shards* settings varied from the values shown below in many of the tests.
 
-> **Important**. The index was dropped and recreated prior to each test run.
+> [AZURE.IMPORTANT] The index was dropped and recreated prior to each test run.
 
-###### HTTP
-```
+```http
 PUT /systembase
 {
 	"settings" : {
@@ -896,8 +853,8 @@ The data was generated dynamically by using a custom JUnit Request sampler that 
 
 The following snippet shows the Java code for testing Elasticsearch 1.7.3. Note that the JUnit test class in this example is named *ElasticSearchLoadTest2*:
 
-###### Java
-```
+```java
+/* Java */
 package elasticsearchtest2;
 
 	import static org.junit.Assert.*;
@@ -1078,8 +1035,6 @@ The constructor that takes the *String* parameter is invoked from JMeter, and th
 * **Clustername**. This is the name of the Elasticsearch cluster containing the index.
 
 * **ItemsPerInsert**. This is a numeric parameter indicating the number of documents to add in each bulk insert batch. The default batch size is 1000.
-
----
 
 You specify the data for the constructor string in the JUnit Request page used to configure the JUnit sampler in JMeter. The following image shows an example:
 

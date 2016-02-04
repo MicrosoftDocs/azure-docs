@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/05/2016"
    ms.author="mabsimms"/>
    
 # Create and Deploy a JMeter JUnit Sampler for Testing Elasticsearch Performance
 
-[AZURE.INCLUDE [guidance-elasticsearch-selector](../../includes/guidance-elasticsearch-selector.md)]
+This article is [part of a series](guidance-elasticsearch-introduction.md). 
 
 This document describes how to create and use a JUnit sampler that can generate and upload data to an Elasticsearch cluster as part of a JMeter test plan. This approach provides a highly flexible approach to load testing that can generate large quantities of test data without depending on external data files.
 
@@ -29,40 +29,12 @@ For testing data ingestion performance, the JUnit code was developing using Ecli
 
 > [AZURE.NOTE] For detailed information on the structure and configuration of the test environment, see the document How-To: Create a Performance Testing Environment for Elasticsearch.
 
-## Downloading and Installing Eclipse
+## Installing Prerequisites
 
-> [AZURE.NOTE]  This procedure assumes that you have already installed Java on your development machine. If not, then visit the [Download Java for Windows](http://www.java.com/en/download/ie_manual.jsp) page. Follow the instructions to download and run the Java installer.
+You will need the [Java Runtime Environment](http://www.java.com/en/download/ie_manual.jsp) on your development machine.
+You will also need to install the [Eclipse IDE for Java Developers](https://www.eclipse.org/downloads/index.php?show_instructions=TRUE).
 
-1.  Using a web browser, move to the [Eclipse Installer](http://wiki.eclipse.org/Eclipse_Installer) web site.
-
-2.  Scroll down to download and run the appropriate installer package for your development machine (the remaining steps in this procedure assume you are using Windows).
-
-Note: If you are using the JMeter Master VM described in the section [Configuring the Performance Testing Environment](#overview) as your development environment, then download the Windows 32 Bit version of the Eclipse Installer.
-
-![](./media/guidance-elasticsearch-jmeter-deploy1.png)
-
-3.  In the Eclipse Installer, click *Eclipse IDE for Java Developers*.
-
-![](./media/guidance-elasticsearch-jmeter-deploy2.png)
-
-4.  On the *Eclipse IDE for Java Developers* page, in the *Product Version* drop-down list box, select *Mars* (the latest release at the time of writing), verify that the Java VM installed on your development computer is version 1.7 or later, select an installation folder for the software, and then click *Install*.
-
-![](./media/guidance-elasticsearch-jmeter-deploy3.png)
-
-5.  Read the *Eclipse Foundation Software User Agreement*, and if you are willing to accept it click *Accept Now*.
-
-6.  When the Eclipse IDE has been installed, in the Eclipse Installer, click *Launch*.
-
-![](./media/guidance-elasticsearch-jmeter-deploy4.png)
-
-7.  In the *Workspace Launcher* window, select a folder in which Eclipse should create projects, and then click *OK*.
-
-![](./media/guidance-elasticsearch-jmeter-deploy5.png)
-
-8.  Verify that the *Welcome* page is displayed.
-
-![](./media/guidance-elasticsearch-jmeter-deploy6.png)
-
+> [AZURE.NOTE] If you are using the JMeter Master VM described in the section [Configuring the Performance Testing Environment](#overview) as your development environment, then download the Windows 32 Bit version of the Eclipse Installer.
 
 ## Creating a JUnit Test Project for Load Testing Elasticsearch
 

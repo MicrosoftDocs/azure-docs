@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/29/2016"
+   ms.date="02/05/2016"
    ms.author="mabsimms"/>
    
 # Considerations for Implementing a JMeter Test Plan for Elasticsearch
 
-[AZURE.INCLUDE [guidance-elasticsearch-selector](../../includes/guidance-elasticsearch-selector.md)]
+This article is [part of a series](guidance-elasticsearch-introduction.md). 
 
 The performance tests conducted against Elasticsearch were implemented by using JMeter test plans together with Java code incorporated as a JUnit test for performing tasks such as uploading data into the cluster. The test plans and JUnit code are described in the documents Maximizing Data Ingestion Performance with Elasticsearch on Azure, and Maximizing Data Aggregation and Query Performance with Elasticsearch on Azure.
 
