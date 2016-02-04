@@ -62,7 +62,7 @@ As part of Azure Site Recovery deployment you’ll install the Azure Site Recove
 	- *.blob.core.windows.net
 	- *.store.core.windows.net
 	
-- In addition allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
+- In addition allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
 
 
 This graphic shows the different communication channels and ports used by Site Recovery for orchestration and replication

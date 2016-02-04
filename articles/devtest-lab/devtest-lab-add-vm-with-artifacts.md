@@ -1,4 +1,4 @@
-    <properties
+<properties
 	pageTitle="Add a VM with artifacts to a DevTest Lab | Microsoft Azure"
 	description="Create a new virtual machine with Artifacts in DevTest Lab."
 	services="devtest-lab,virtual-machines"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/01/2015"
+	ms.date="02/03/2016"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to an Azure DevTest Lab
