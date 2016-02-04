@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="02/02/2016"
    ms.author="telmos" />
 
 # Deploy multi NIC VMs using a template
@@ -43,7 +43,7 @@ Before you can deploy the back end servers, you need to deploy the main resource
 
 Before you deploy the template provided with this documentation, make sure you understand what it does. The steps below provide a good overview of the template in question.
 
-1. Navigate to [the template page](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC).
+1. Navigate to [the template page](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
 2. Click **azuredeploy.json** to open the template file.
 3. Notice the *osType* parameter listed below. This parameter is used to select what VM image to use for the database server, along with multiple operating system related settings.
 
@@ -59,11 +59,11 @@ Before you deploy the template provided with this documentation, make sure you u
 	      }
 	    },
 
-4. Scroll down to the list of variables, and check the definition for the *dbVMSetting* variables, listed below. It receives one of the array elements contained in the *dbVMSettings* variable. If you are familiar with software development terminology, you can view the *dbVMSettings* variable as a hashtable, or a dictionay.
+4. Scroll down to the list of variables, and check the definition for the **dbVMSetting** variables, listed below. It receives one of the array elements contained in the **dbVMSettings** variable. If you are familiar with software development terminology, you can view the **dbVMSettings** variable as a hashtable, or a dictionay.
 
 		"dbVMSetting": "[variables('dbVMSettings')[parameters('osType')]]"
 
-5. Suppose you decide to deploy Windows VMs running SQL in the back end. Then the value for *osType* would be *Windows*, and the *dbVMSetting* variable would contain the element listed below, which represents the first value in the *dbVMSettings* variable.
+5. Suppose you decide to deploy Windows VMs running SQL in the back end. Then the value for **osType** would be *Windows*, and the **dbVMSetting** variable would contain the element listed below, which represents the first value in the **dbVMSettings** variable.
 
 	      "Windows": {
 	        "vmSize": "Standard_DS3",
@@ -82,7 +82,7 @@ Before you deploy the template provided with this documentation, make sure you u
 	        "dbPort": 1433
 	      },
 
-6. Notice the *vmSize* contains the value *Standard_DS3*. Only certain VM sizes allow for the use of multiple NICs. You can verify which VM sizes are multi NIC enabled by visiting the [multi NIC overview](virtual-networks-multiple-nics.md).
+6. Notice the **vmSize** contains the value *Standard_DS3*. Only certain VM sizes allow for the use of multiple NICs. You can verify which VM sizes are multi NIC enabled by visiting the [multi NIC overview](virtual-networks-multiple-nics.md).
 7. Scroll down to **resources** and notice the first element. It describes a storage account. This storage account will be used to maintain the data disks used by each database VM. In this scenario, each database VM has an OS disk stored in regular storage, and two data disks stored in SSD (premium) storage.
 
 	    {
@@ -98,7 +98,7 @@ Before you deploy the template provided with this documentation, make sure you u
 	      }
 	    },
 
-8. Scroll down to the next resource, as listed below. This resource represents the NIC used for database access in each database VM. Notice the use of the **copy** function in this resource. The template allows you to deploy as many VMs as you want, based on the *dbCount* parameter. Therefore you need to create the same amount of NICs for database access, one for each VM.
+8. Scroll down to the next resource, as listed below. This resource represents the NIC used for database access in each database VM. Notice the use of the **copy** function in this resource. The template allows you to deploy as many VMs as you want, based on the **dbCount** parameter. Therefore you need to create the same amount of NICs for database access, one for each VM.
 
 	    {
 	      "apiVersion": "2015-06-15",
@@ -128,7 +128,7 @@ Before you deploy the template provided with this documentation, make sure you u
 	      }
 	    },
 
-9. Scroll down to the next resource, as listed below. This resource represents the NIC used for management in each database VM. Once again, you need one of these NICs for each database VM. Notice the *networkSecurityGroup* element, linking an NSG that allows access to RDP/SSH to this NIC only.
+9. Scroll down to the next resource, as listed below. This resource represents the NIC used for management in each database VM. Once again, you need one of these NICs for each database VM. Notice the **networkSecurityGroup** element, linking an NSG that allows access to RDP/SSH to this NIC only.
 
 	    {
 	      "apiVersion": "2015-06-15",
@@ -173,7 +173,7 @@ Before you deploy the template provided with this documentation, make sure you u
 	      }
 	    },
 
-11. Scroll down to the next resource. This resource represents the database VMs, as seen in the first few lines listed below. Notice the use of the **copy** function again, ensuring that multiple VMs are created based on the *dbCount* parameter. Also notice the *dependsOn* collection. It lists two NICs being necessary to be created before the VM is deployed, along with the availability set, and the storage account.
+11. Scroll down to the next resource. This resource represents the database VMs, as seen in the first few lines listed below. Notice the use of the **copy** function again, ensuring that multiple VMs are created based on the **dbCount** parameter. Also notice the **dependsOn** collection. It lists two NICs being necessary to be created before the VM is deployed, along with the availability set, and the storage account.
 
 		  "apiVersion": "2015-06-15",
 		  "type": "Microsoft.Compute/virtualMachines",
@@ -193,7 +193,7 @@ Before you deploy the template provided with this documentation, make sure you u
 		    "count": "[parameters('dbCount')]"
 		  },
 
-12. Scroll down in the VM resource to the **networkProfile** element, as listed below. Notice that there are two NICs being reference for each VM. When you create multiple NICs for a VM, you must set the *primary* property of one of the NICs to *true*, and the rest to *false*.
+12. Scroll down in the VM resource to the **networkProfile** element, as listed below. Notice that there are two NICs being reference for each VM. When you create multiple NICs for a VM, you must set the **primary** property of one of the NICs to *true*, and the rest to *false*.
 
         "networkProfile": {
           "networkInterfaces": [
@@ -213,7 +213,7 @@ Before you deploy the template provided with this documentation, make sure you u
 
 > [AZURE.IMPORTANT] Make sure you follow the [pre-requisites](#Pre-requisites) steps before following the instructions below.
 
-The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC), to the right of **Backend resource group (see documentation)** click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
+The sample template available in the public repository uses a parameter file containing the default values used to generate the scenario described above. To deploy this template using click to deploy, follow [this link](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC), to the right of **Backend resource group (see documentation)** click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
 The figure below shows the contents of the new resource group, after deployment.
 
@@ -225,7 +225,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-3. Run the **New-AzureRmResourceGroup** cmdlet to create a resource group using the template.
+3. Run the **`New-AzureRmResourceGroup`** cmdlet to create a resource group using the template.
 
 		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
@@ -261,7 +261,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 To deploy the template by using the Azure CLI, follow the steps below.
 
 1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
 
 		azure config mode arm
 
@@ -271,7 +271,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 
 3. Open the [parameter file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json), select its contents, and save it to a file in your computer. For this example, we saved the parameters file to *parameters.json*.
 
-4. Run the **azure group deployment create** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+4. Run the **`azure group deployment create`** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
 		azure group create -n IaaSStory-Backend -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json -e parameters.json
 

@@ -18,18 +18,21 @@
 
 # Troubleshooting tips for common errors in Azure Automation
 
-When you encounter a problem while working with Automation resources such as runbooks, modules, and Automation assets, you need to discover what went wrong. This article explains some of the common errors you might experience when working with Azure Automation and suggests possible remediation steps.
+This article explains some of the common errors you might experience when working with Azure Automation and suggests possible remediation steps.
 
 ## Troubleshoot authentication errors when working with Azure Automation runbooks  
 
 
-**Scenario: Sign in to Azure Account failed**
+### Scenario: Sign in to Azure Account failed
 
 **Error:** 
 You receive the error "Unknown_user_type: Unknown User Type" when working with the Add-AzureAccount or Login-AzureRmAccount cmdlets.
 
+**Reason for the error:**
+This error occurs if the credential asset name is not valid or if the username and password that you used to setup the Automation credential asset are not valid.
+
 **Troubleshooting tips:** 
-In order to determine what's wrong, use the following steps:  
+In order to determine what's wrong, take the following steps:  
 
 1. Make sure that you don’t have any special characters, including the **@** character in the Automation credential asset name that you are using to connect to Azure.  
 
@@ -44,11 +47,14 @@ In order to determine what's wrong, use the following steps:
 3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Active Directory account set up correctly.    
 
 
-**Scenario: Unable to find the Azure subscription**
+### Scenario: Unable to find the Azure subscription
 
 **Error:**
 You receive the error "The subscription named ``<subscription name>`` cannot be found" when working with the Select-AzureSubscription or Select-AzureRmSubscription cmdlets.
- 
+
+**Reason for the error:** 
+This error occurs if the subscription name is not valid or if the active directory user who is trying get the subscription details is not configured as an admin of the subscription.
+
 **Troubleshooting tips:** 
 In order to determine if you have properly authenticated to Azure and have access to the subscription you are trying to select, take the following steps:  
 
@@ -60,7 +66,7 @@ In order to determine if you have properly authenticated to Azure and have acces
 
 
 
-**Scenario: Authentication to Azure failed because multi-factor authentication is enabled**
+### Scenario: Authentication to Azure failed because multi-factor authentication is enabled
 
 **Error:** 
 You receive the error “Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required” when authenticating to Azure with your Azure username and password.
@@ -75,7 +81,7 @@ To use a certificate with the Azure Service Management cmdlets, refer to [creati
 
 ## Troubleshoot common errors when working with runbooks 
 
-**Scenario: Cannot bind parameters when executing a runbook**
+### Scenario: Cannot bind parameters when executing a runbook
 
 **Error:** 
 Your runbook fails with the error "Cannot bind parameter ``<ParameterName>``. Cannot convert the ``<ParameterType>`` value of type Deserialized ``<ParameterType>`` to type ``<ParameterType>``". 
@@ -92,7 +98,7 @@ Any of the following three solutions will fix this problem:
 3. Use a PowerShell runbook instead of a PowerShell Workflow runbook.  
 
 
-**Scenario: Runbook job failed because the allocated quota exceeded**
+### Scenario: Runbook job failed because the allocated quota exceeded
 
 **Error:** 
 Your runbook job fails with the error "The quota for the monthly total job run time has been reached for this subscription". 
@@ -109,7 +115,7 @@ If you want to use more than 500 minutes of processing per month you will need t
 4. On the **Choose your pricing tier** blade, select **Basic**    
 
 
-**Scenario: Cmdlet not recognized when executing a runbook**
+### Scenario: Cmdlet not recognized when executing a runbook
 
 **Error:** 
 Your runbook job fails with the error "``<cmdlet name>``: The term ``<cmdlet name>`` is not recognized as the name of a cmdlet, function, script file, or operable program."
@@ -129,7 +135,7 @@ Any of the following solutions will fix the problem:
 
 ## Troubleshoot common errors when importing modules 
 
-**Scenario: Module fails to import or cmdlets can't be executed after importing**
+### Scenario: Module fails to import or cmdlets can't be executed after importing
 
 **Error:** 
 A module fails to import or imports successfully, but no cmdlets are extracted.
