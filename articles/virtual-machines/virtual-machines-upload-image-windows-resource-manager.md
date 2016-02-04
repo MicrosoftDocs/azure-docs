@@ -17,7 +17,7 @@
 	ms.date="02/04/2016"
 	ms.author="dkshir"/>
 
-# Create and upload a Windows Server VHD to Azure
+# Upload a Windows image (VHD) to Microsoft Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-upload-vhd-windows-server.md).
 
