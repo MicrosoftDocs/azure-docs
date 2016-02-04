@@ -292,12 +292,10 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 
 ```
 let newItem = oldItem.mutableCopy() as! NSMutableDictionary // oldItem is NSDictionary
-newerItem["text"] = "Updated text"
-table.update(newerItem  as [NSObject : AnyObject]) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
+newItem["text"] = "Updated text"
+table.update(newItem as [NSObject : AnyObject]) { (error) in
+    if let err = error {
+        print("ERROR ", err)
     }
 }
 ```
@@ -319,13 +317,10 @@ Alternatively, supply the row ID and the updated field:
 **Swift**:
 
 ```
-table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) -> Void in
-    if error != nil {
-        NSLog("ERROR %@", error!)
-    } else {
-        NSLog("Todo Item: %@", result!["text"] as! String)
+table.update(["id": "custom-id", "text": "my EDITED item"]) { (error) in
+    if let err = error {
+        print("ERROR ", err)
     }
-    
 }
 ```
 
