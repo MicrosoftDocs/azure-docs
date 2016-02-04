@@ -21,7 +21,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 1.  [Install](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) Windows Server 2016 Datacenter Edition Technical Preview 4 EN-US (Full Edition).
 
-2.  Download the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
+2.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
 
 3.  Run the **Microsoft Azure Stack POC.exe** file.
 
@@ -35,7 +35,7 @@ Before you deploy, prepare the Azure Stack POC machine and make sure it meets th
 
 	-   WindowsServer2012R2DatacenterEval.vhd
 
-	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD
+	-   WindowsServer2016Datacenter.vhdx: Windows Server 2016 Data Center VHD (includes KB 3124262)
 
 	**Important**: You must have at least 128GB of free space on the physical boot volume.
 
@@ -133,12 +133,12 @@ For example, `.\DeployAzureStack.ps1 –verbose –PublicVLan 305`
 ## Turn off telemetry for Microsoft Azure Stack POC (optional)
 
 
-Before deploying Microsoft Azure Stack POC, you can turn off telemetry for Microsoft Azure Stack on the machine from which the deployment is performed. To turn off this feature on a single machine, please refer to: <http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq>, and change the **Diagnostic and usage data** setting to **Basic**.
+Before deploying Microsoft Azure Stack POC, you can turn off telemetry for Microsoft Azure Stack on the machine from which the deployment is performed. To turn off this feature on a single machine, please refer to: [http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq](http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq), and change the **Diagnostic and usage data** setting to **Basic**.
 
 
 
-After deploying Microsoft Azure Stack POC, you can turn off telemetry on all the virtual machines that joined the Azure Stack domain. To create a group policy and manage your telemetry settings on those virtual machines, please refer to: [https://technet.microsoft.com/library/mt577208(v=vs.85).aspx\#BKMK\_UTC](https://technet.microsoft.com/library/mt577208%28v=vs.85%29.aspx#BKMK_UTC), and select **0** or **1** for the **Allow Telemetry** group policy. There are two virtual machines (bgpvm and natvm) not joining the Azure Stack domain. To change the Feedback and Diagnostics settings on these virtual machines separately, please refer to:  <http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq>.
+After deploying Microsoft Azure Stack POC, you can turn off telemetry on all the virtual machines that joined the Azure Stack domain. To create a group policy and manage your telemetry settings on those virtual machines, please refer to: [https://technet.microsoft.com/library/mt577208(v=vs.85).aspx\#BKMK\_UTC](https://technet.microsoft.com/library/mt577208%28v=vs.85%29.aspx#BKMK_UTC), and select **0** or **1** for the **Allow Telemetry** group policy. There are two virtual machines (bgpvm and natvm) not joining the Azure Stack domain. To change the Feedback and Diagnostics settings on these virtual machines separately, please refer to:  [http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq](http://windows.microsoft.com/windows-10/feedback-diagnostics-privacy-faq).
 
-## Next Steps
+## Next steps
 
 [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
