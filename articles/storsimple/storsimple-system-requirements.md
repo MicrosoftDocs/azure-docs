@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/01/2016"
+   ms.date="02/04/2016"
    ms.author="alkohli"/>
 
 # StorSimple software, high availability, and networking requirements
@@ -216,7 +216,7 @@ For more information about networking your device for high availability and perf
 
 #### SSDs and HDDs
 
-StorSimple devices include solid state disks (SSDs) and hard disk drives (HDDs) that are protected using mirrored spaces, and a hot-spare is provided for the HDDs. Use of mirrored spaces ensures that the device is able to tolerate the failure of one or more SSDs or HDDs.
+StorSimple devices include solid state disks (SSDs) and hard disk drives (HDDs) that are protected using mirrored spaces. Use of mirrored spaces ensures that the device is able to tolerate the failure of one or more SSDs or HDDs.
 
 - Make sure that all SSD and HDD modules are installed.
 
