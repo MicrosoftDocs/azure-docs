@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="article"
-    ms.date="11/20/2015"
+    ms.date="01/29/2016"
     ms.author="yuaxu"/>
 
 #Create an Android app

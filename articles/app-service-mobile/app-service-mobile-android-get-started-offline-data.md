@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="donnam"/>
 
 # Enable offline sync for your Android mobile app
