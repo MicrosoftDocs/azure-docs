@@ -13,11 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-<<<<<<< HEAD
    ms.date="02/04/2016"
-=======
-   ms.date="02/02/2016"
->>>>>>> 7d83640a1bb93c86ef5056f45b84cc6e9aadea57
    ms.author="jesseb"/>
 
 
