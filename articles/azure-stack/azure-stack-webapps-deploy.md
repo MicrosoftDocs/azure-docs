@@ -349,7 +349,7 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 
 17. On the **Dashboard**, click the **webapps** tile to explore the new resource provider settings. 
 
-**Deploy a new Webb App**
+**Deploy a new Web App**
 
 Now that you have deployed and registered the Web Apps resource provider, you can test it to make sure that tenants can deploy web apps.
 
@@ -359,9 +359,15 @@ Now that you have deployed and registered the Web Apps resource provider, you ca
 
 3. Under **Resource Group**, click **New**, and then type a name in the **Resource Group** box. 
 
-4. Click **App Service plan/Location**, click **Create New**, 
+4. Click **App Service plan/Location** and click **Create New**.
 
+5. In the **App Service plan** blade, type a name in the **App Service plan** box.
 
+6. Click **Pricing tier**, click **Free-Shared** or **Shared-Shared**, click **Select**, click **OK**, and then click **Create**.
+
+7. In under a minute, a tile for the new web app will appear on the **Dashboard**. Click on the tile.
+
+8. In the web app blade, click **Browse** to view the default website for this app.
 
 
 Locate the private IP address for the Web Apps controller VM and RDP to that address.  To get the IP address, Browse > All resources > CN0-NIC
