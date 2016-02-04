@@ -38,12 +38,15 @@ To back up files and data from a Windows machine or Data Protection Manager (DPM
 **To create a Backup vault:**
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
+
 2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** and choose **Quick Create**.
 
     ![Create vault](./media/backup-configure-vault/createvault1.png)
 
 3. For the **Name** parameter, enter a friendly name to identify the backup vault. This needs to be unique for each subscription.
+
 4. For the **Region** parameter, select the geographic region for the backup vault. The choice determines the geographic region where your backup data is sent. By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure.
+
 5. Click **Create Vault** to complete the workflow.
 
     It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal.
@@ -67,7 +70,9 @@ To learn more about [using vault credentials to authenticate with the Azure Back
 **To download the vault credential file to a local machine:**
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
+
 2. Click **Recovery Services** in the left navigation pane and select the backup vault that you created.
+
 3.  Click the cloud icon to get to the *Quick Start* view of the backup vault.
 
     ![Quick view](./media/backup-configure-vault/quickview.png)
@@ -82,7 +87,9 @@ To learn more about [using vault credentials to authenticate with the Azure Back
 
 5. Click **Save** to download the vault credentials to the local account's downloads folder, or select **Save As** from the *Save* menu to specify a location for the vault credentials.
 
-    You don't need to open the vault credentials at this time.<br><br>Ensure that the vault credentials are saved in a location that can be accessed from your machine. If it is stored in a file share/SMB, check for the access permissions.<br>
+    You don't need to open the vault credentials at this time.
+
+    Ensure that the vault credentials are saved in a location that can be accessed from your machine. If it is stored in a file share/SMB, check for the access permissions.
 
 ## Download, install, and register the Azure Backup agent
 After creating the Azure Backup vault, an agent should be installed on each of your Windows machines (Windows Server, Windows client, System Center Data Protection Manager server, or Azure Backup Server machine) that enables back up of data and applications to Azure.
@@ -90,7 +97,9 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 **To download, install, and register the agent:**
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
+
 2. Click **Recovery Services**, then select the backup vault that you want to register with a server.
+
 3. On the Quick Start page, click **Agent for Windows Server or System Center Data Protection Manager or Windows Client > Save**.
 
     ![Save agent](./media/backup-configure-vault/agent.png)
