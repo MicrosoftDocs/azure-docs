@@ -111,7 +111,7 @@ coreos:
 3. Create a cloud service for your basic cluster by typing
 `azure service create <cloud-service-name>` where <*cloud-service-name*> is the name for your CoreOS cloud service. This sample uses the name **`coreos-cluster`**; you will need to reuse the name that you choose to create your CoreOS VM instances inside the cloud service.
 
-	One note: If you observe your work so far in the [preview portal](https://portal.azure.com), you'll find your cloud service name is both a resource group and domain, as the following image shows:
+	One note: If you observe your work so far in the [Azure portal](https://portal.azure.com), you'll find your cloud service name is both a resource group and domain, as the following image shows:
 
 	![][CloudServiceInNewPortal]
 
