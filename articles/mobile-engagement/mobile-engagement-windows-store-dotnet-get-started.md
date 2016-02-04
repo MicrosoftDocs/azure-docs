@@ -2,7 +2,7 @@
 	pageTitle="Get started with Azure Mobile Engagement for Windows Universal Apps"
 	description="Learn how to use Azure Mobile Engagement with analytics and push notifications for Windows Universal Apps."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="windows"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -56,13 +56,11 @@ The following steps assume the use of Visual Studio 2015 though the steps are si
 
     ![][1]
 
-> [AZURE.IMPORTANT] Azure Mobile Engagement does not support Windows 10 Universal Windows Apps yet. 
-
 You have now created a new Windows Universal App project into which we will integrate the Azure Mobile Engagement SDK.
 
 ###Connect your app to Mobile Engagement backend
 
-1. Install the [MicrosoftAzure.MobileEngagement] nuget package in your project. If you are targeting both Windows and Windows Phone platforms, you need to do this for both the projects. The same Nuget package places the correct platform-specific binaries in each project.
+1. Install the [MicrosoftAzure.MobileEngagement] nuget package in your project. If you are targeting both Windows and Windows Phone platforms, you need to do this for both the projects. For Windows 8.x and Windows Phone 8.1 the same Nuget package places the correct platform-specific binaries in each project.
 
 2. Open **Package.appxmanifest** and make sure that the following capability is added there:
 
@@ -82,11 +80,20 @@ You have now created a new Windows Universal App project into which we will inte
 
 			using Microsoft.Azure.Engagement;
 
-	b. Initialize the SDK in the **OnLaunched** method:
+	b. Add a method dedicated to the Engagement initialization and setting:
+
+           private void InitEngagement(IActivatedEventArgs e)
+           {
+             EngagementAgent.Instance.Init(e);
+
+			 //... rest of the code
+           }
+
+    c. Initialize the SDK in the **OnLaunched** method:
 
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -95,7 +102,7 @@ You have now created a new Windows Universal App project into which we will inte
 
 			protected override void OnActivated(IActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -139,17 +146,9 @@ The following sections set up your app to receive them.
 
 ###Initialize the REACH SDK
 
-1. In `App.xaml.cs`, call **EngagementReach.Instance.Init();** in the **OnLaunched** function right after the agent initialization:
+In `App.xaml.cs`, call **EngagementReach.Instance.Init(e);** in the **InitEngagement** function right after the agent initialization:
 
-		protected override void OnLaunched(LaunchActivatedEventArgs e)
-		{
-		   EngagementAgent.Instance.Init(e);
-		   EngagementReach.Instance.Init(e);
-		}
-
-2. In `App.xaml.cs`, call **EngagementReach.Instance.Init(e);** in the **OnActivated** function right after the agent initialization:
-
-		protected override void OnActivated(IActivatedEventArgs e)
+        private void InitEngagement(IActivatedEventArgs e)
 		{
 		   EngagementAgent.Instance.Init(e);
 		   EngagementReach.Instance.Init(e);

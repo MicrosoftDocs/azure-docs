@@ -29,7 +29,7 @@ Azure Data Factory is a fully managed cloud-based data integration service that 
 
 With ADF, existing data processing services can be composed into data pipelines that are highly available and managed in the cloud. These data pipelines can be scheduled to ingest, prepare, transform, analyze, and publish data, and ADF will manage and orchestrate all of the complex data and processing dependencies. Solutions can be quickly built and deployed in the cloud, connecting a growing number of on-premises and cloud data sources.
 
-Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations. For more information on ADF, see the documentation at [Azure Data Factory (ADF)](http://azure.microsoft.com/services/data-factory/).
+Consider using ADF when data needs to be continually migrated in a hybrid scenario that accesses both on-premise and cloud resources, and when the data is transacted or needs to be modified or have business logic added to it in the course of being migrated. ADF allows for the scheduling and monitoring of jobs using simple JSON scripts that manage the movement of data on a periodic basis. ADF also has other capabilities such as support for complex operations. For more information on ADF, see the documentation at [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>The Scenario
 
@@ -49,18 +49,18 @@ This tutorial assumes you have:
 * Access to an **Azure SQL Database**. If you must setup an Azure SQL Database, [Getting Started with Microsoft Azure SQL Database ](sql-database-get-started.md) provides information on how to provision a new instance of a Azure SQL Database.
 * Installed and configured **Azure PowerShell** locally. For instructions, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
-> [AZURE.NOTE] This procedure uses the [Azure preview portal](https://ms.portal.azure.com/).
+> [AZURE.NOTE] This procedure uses the [Azure Portal](https://ms.portal.azure.com/).
 
 ##<a name="upload-data"></a> Upload the data to your on-premise SQL Server
 
-We use the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) to demonstrate the migration process. The NYC Taxi dataset is available, as noted that post, on Azure blob storage [here](http://www.andresmh.com/nyctaxitrips/). The data has two files, the trip_data.csv file which contains trip details and the  trip_far.csv file which contains details of the fare paid for each trip. A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](machine-learning-data-science-process-sql-walkthrough.md#dataset).
+We use the [NYC Taxi dataset](http://chriswhong.com/open-data/foil_nyc_taxi/) to demonstrate the migration process. The NYC Taxi dataset is available, as noted that post, on Azure blob storage [NYC Taxi Data](http://www.andresmh.com/nyctaxitrips/). The data has two files, the trip_data.csv file which contains trip details and the  trip_far.csv file which contains details of the fare paid for each trip. A sample and description of these files are provided in [NYC Taxi Trips Dataset Description](machine-learning-data-science-process-sql-walkthrough.md#dataset).
 
 
 You can either adapt the procedure provided here to a set of your own data or follow the steps as described by using the NYC Taxi dataset. To upload the NYC Taxi dataset into your on-premise SQL Server database, follow the procedure outlined in [Bulk Import Data into SQL Server Database](machine-learning-data-science-process-sql-walkthrough.md#dbload). These instructions are for a SQL Server on an Azure Virtual Machine, but the procedure for uploading to the on-premise SQL Server is the same.
 
 ##<a name="create-adf"></a> Create an Azure Data Factory
 
-The instructions for creating a new Azure Data Factory and a resource group in the [Azure preview portal](https://ms.portal.azure.com/) are provided [here](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
+The instructions for creating a new Azure Data Factory and a resource group in the [Azure Portal](https://ms.portal.azure.com/) are provided [Create an Azure Data Factory](data-factory-build-your-first-pipeline-using-editor.md#step-1-creating-the-data-factory). Name the new ADF instance *adfdsp* and name the resource group created *adfdsprg*.
 
 ## Install and configure up the Data Management Gateway
 
@@ -81,13 +81,13 @@ We have three resources in this scenario for which linked services are needed.
 
 
 ###<a name="adf-linked-service-onprem-sql"></a>Linked service for on-premise SQL Server database
-To create the linked service for the on-premise SQL Server, click on the **Data Store** in the ADF landing page on Azure Portal, select *SQL* and enter the credentials for the *username* and *password* for the on-premise SQL Server. You need to enter the servername as a **fully qualified servername backslash instance name (servername\instancename)**. Name the linked service *adfonpremsql*.
+To create the linked service for the on-premise SQL Server, click on the **Data Store** in the ADF landing page on Azure Classic Portal, select *SQL* and enter the credentials for the *username* and *password* for the on-premise SQL Server. You need to enter the servername as a **fully qualified servername backslash instance name (servername\instancename)**. Name the linked service *adfonpremsql*.
 
 ###<a name="adf-linked-service-blob-store"></a>Linked service for Blob
-To create the linked service for the Azure Blob Storage account, click on the **Data Store** in the ADF landing page on Azure Portal, select *Azure Storage Account* and enter the Azure Blob Storage account key and container name. Name the link service *adfds*.
+To create the linked service for the Azure Blob Storage account, click on the **Data Store** in the ADF landing page on Azure Classic Portal, select *Azure Storage Account* and enter the Azure Blob Storage account key and container name. Name the link service *adfds*.
 
 ###<a name="adf-linked-service-azure-sql"></a>Linked service for Azure SQL database
-To create the linked service for the Azure SQL Database, click on the **Data Store** in the ADF landing page on Azure Portal, select *Azure SQL* and enter the credentials for the *username* and *password* for the Azure SQL Database. The *username* must be specified as *user@servername*.   
+To create the linked service for the Azure SQL Database, click on the **Data Store** in the ADF landing page on Azure Classic Portal, select *Azure SQL* and enter the credentials for the *username* and *password* for the Azure SQL Database. The *username* must be specified as *user@servername*.   
 
 
 ##<a name="adf-tables"></a>Define and create tables to specify how to access the datasets
@@ -107,7 +107,7 @@ Three table definitions are needed for this ADF pipeline:
 2. [Blob Table ](#adf-table-blob-store)
 3. [SQL Azure Table](#adf-table-azure-sql)
 
-> [AZURE.NOTE]  The following procedures use Azure PowerShell to define and create the ADF activities. But these tasks can also be accomplished using the Azure preview portal. For details, see [Create input and output datasets](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
+> [AZURE.NOTE]  The following procedures use Azure PowerShell to define and create the ADF activities. But these tasks can also be accomplished using the Azure Portal. For details, see [Create input and output datasets](data-factory-use-onpremises-datasources.md#step-3-create-input-and-output-datasets).
 
 ###<a name="adf-table-onprem-sql"></a>SQL on-premise Table
 
@@ -211,7 +211,7 @@ Specify the activities that belong to the pipeline and create the pipeline with 
 * The script assumes that the **pipeline name** is *AMLDSProcessPipeline*.
 * Also note that we set the periodicity of the pipeline to be executed on daily basis and use the default execution time for the job (12 am UTC).
 
-> [AZURE.NOTE]  The following procedures use Azure PowerShell to define and create the ADF pipeline. But this task can also be accomplished using the Azure preview portal. For details, see [Create and run a pipeline](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
+> [AZURE.NOTE]  The following procedures use Azure PowerShell to define and create the ADF pipeline. But this task can also be accomplished using the Azure Portal. For details, see [Create and run a pipeline](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline).
 
 Using the table definitions provided above, the pipeline definition for the ADF is specified as follows:
 
@@ -286,7 +286,7 @@ Copy this JSON definition of the pipeline into a file called *pipelinedef.json* 
 
 	New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
-Confirm that you can see the pipeline on the ADF in the Azure portal show up as following (when you click on the diagram)
+Confirm that you can see the pipeline on the ADF in the Azure Classic Portal show up as following (when you click on the diagram)
 
 ![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
@@ -299,4 +299,4 @@ The *startdate* and *enddate* parameter values need to be replaced with the actu
 
 Once the pipeline executes, you should be able to see the data show up in the container selected for the blob, one file per day.
 
-Note that we have not leveraged the functionality provided by ADF to pipe data incrementally. For more details on how to do this and other capabilities provided by ADF, see the [ADF documentation](http://azure.microsoft.com/services/data-factory/).
+Note that we have not leveraged the functionality provided by ADF to pipe data incrementally. For more details on how to do this and other capabilities provided by ADF, see the [ADF documentation](https://azure.microsoft.com/services/data-factory/).

@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="10/15/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight
@@ -24,7 +24,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
 ## Prerequisites
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **A Windows or Linux based Hadoop on HDInsight cluster**. See [Provision Linux-based Hadoop on HDInsight](hdinsight-hadoop-provision-linux-clusters.md) or [Provision Windows-based Hadoop on HDInsight](hdinsight-provision-clusters.md) for more information.
 
 * **[Maven](http://maven.apache.org/)**
@@ -231,7 +231,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
 > [AZURE.NOTE] The following steps use Windows PowerShell. For other methods of running MapReduce jobs, see [Use MapReduce in Hadoop on HDInsight](hdinsight-use-mapreduce.md).
 
-1. [Install and configure Azure PowerShell](../install-configure-powershell.md).
+1. [Install and configure Azure PowerShell](../powershell-install-configure.md).
 
 2. Start Azure PowerShell and Log in to your Azure account. After providing your credentials, the command returns information about your account.
 
@@ -298,7 +298,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
             -HttpCredential $creds
         #Download the output of the job
         Get-AzureStorageBlobContent `
-            -Blob example/wordcountout/part-r-00000 `
+            -Blob example/wordcountout/part-00000 `
             -Container $container `
             -Destination output.txt `
             -Context $context

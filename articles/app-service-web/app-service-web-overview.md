@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/27/2015"
+	ms.date="01/09/2016"
 	ms.author="jaime.espinosa"/>
 
 
@@ -56,7 +56,6 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: web-sites-dotnet-get-started.md

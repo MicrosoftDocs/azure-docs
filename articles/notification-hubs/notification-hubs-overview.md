@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/10/2015"
 	ms.author="wesmc"/>
 
 
@@ -123,7 +123,7 @@ To facililate a seamless and unifying experience across Azure services, [App Ser
 Mobile Apps developers can utilize Notification Hubs with the following workflow:
 
 1. Retrieve device PNS handle
-2. Register device and [templates]  (optional) with Notification Hubs through convenient Mobile Apps Client SDK register API
+2. Register device and [templates] with Notification Hubs through convenient Mobile Apps Client SDK register API
     + Note that Mobile Apps strips away all tags on registrations for security purposes. Work with Notification Hubs from your backend directly to associate tags with devices.
 3. Send notifications from your app backend with Notification Hubs
 
@@ -167,6 +167,6 @@ The relevant .NET managed API references for push notifications are located here
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [App Service Mobile Apps]: https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop/
-  [templates]: https://msdn.microsoft.com/en-us/library/azure/dn530748.aspx
+  [templates]: notification-hubs-templates.md
   [Azure Portal]: https://portal.azure.com
   [tags]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

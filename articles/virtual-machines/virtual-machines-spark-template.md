@@ -47,7 +47,7 @@ As shown in the above image, the deployment topology consists of the following e
 -	Four slave nodes running in the same virtual subnet and availability set as the master node.
 -	A jump-box VM located in the same virtual network and subnet that can be used to access the cluster.
 
-Spark version 3.0.0 is the default version and can be changed to any pre-built binaries available on the Spark repository. There is also a provision in the script to uncomment the build from source. A static IP address will be assigned to each Spark master node: 10.0.0.10. A static IP address will be assigned to each Spark slave node in order to work around the current limitation of not being able to dynamically compose a list of IP addresses from within the template. (By default, the first node will be assigned the private IP address of 10.0.0.30, the second node will be assigned 10.0.0.31, and so on.) To check deployment errors, go to the Azure preview portal and look under **Resource Group** > **Last deployment** > **Check Operation Details**.
+Spark version 3.0.0 is the default version and can be changed to any pre-built binaries available on the Spark repository. There is also a provision in the script to uncomment the build from source. A static IP address will be assigned to each Spark master node: 10.0.0.10. A static IP address will be assigned to each Spark slave node in order to work around the current limitation of not being able to dynamically compose a list of IP addresses from within the template. (By default, the first node will be assigned the private IP address of 10.0.0.30, the second node will be assigned 10.0.0.31, and so on.) To check deployment errors, go to the Azure portal and look under **Resource Group** > **Last deployment** > **Check Operation Details**.
 
 Before diving into more details related to Azure Resource Manager and the template we will use for this deployment, make sure you have Azure PowerShell or the Azure CLI configured correctly.
 
@@ -381,7 +381,7 @@ Parameters        :
 
 During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.
 
-To do that, go to the [Azure preview portal](https://portal.azure.com) and do the following:
+To do that, go to the [Azure portal](https://portal.azure.com) and do the following:
 
 - Click **Browse** on the left-hand navigation bar, and then scroll down and click **Resource Groups**.
 - Click the resource group that you just created, to bring up the "Resource Group" blade.

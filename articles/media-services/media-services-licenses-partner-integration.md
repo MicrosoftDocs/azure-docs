@@ -45,5 +45,5 @@ You can use [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) to deliver W
 
 [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
 
-[Mingfei’s blog](https://azure.microsoft.com/en-us/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
+[Mingfei’s blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 

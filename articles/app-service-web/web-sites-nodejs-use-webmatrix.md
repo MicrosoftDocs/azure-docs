@@ -3,9 +3,9 @@
 	description="A tutorial that teaches you how to use WebMatrix to develop a Node.js application and deploy it to Azure App Service Web Apps." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson"/>
+	ms.date="01/09/2016"
+	ms.author="robmcm"/>
 
 
 # Build and deploy a Node.js web app to Azure using WebMatrix
 
-This tutorial shows you how to use WebMatrix to develop a Node.js application and deploy it to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. WebMatrix is a free web development tool from Microsoft that includes everything you need for website or web app development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
+This tutorial shows you how to use WebMatrix to develop a Node.js application and deploy it to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. WebMatrix is a free web development tool from Microsoft that includes everything you need for website or web app development. WebMatrix includes several features that make it easy to use Node.js including code completion, pre-built templates, and editor support for Jade, LESS, and CoffeeScript. Learn more about [WebMatrix](https://www.microsoft.com/web/webmatrix/).
 
 Upon completing this guide, you will have a Node.js web app running in Azure App Service.
  
@@ -81,11 +81,11 @@ Follow these steps to create a web app in Azure App Service.
 
 You can easily modify and republish your application. Here, you will make a simple change to the heading in in the **index.jade** file, and republish the application.
 
-1. In WebMatrix, select **Files**, and then expend the **views** folder. Open the **index.jade** file by double-clicking it.
+1. In WebMatrix, select **Files**, and then expand the **views** folder. Open the **index.jade** file by double-clicking it.
 
 	![webmatrix viewing index.jade][webmatrix-modify-index]
 
-2. Change the second line to the following:
+2. Change the paragraph line to the following:
 
 		p Welcome to #{title} with WebMatrix on Azure!
 
@@ -105,7 +105,6 @@ If you encounter problems with your application after it has been deployed to Az
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [WebMatrix WebSite]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
 [WebMatrix for Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409

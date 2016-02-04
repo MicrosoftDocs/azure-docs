@@ -1,27 +1,29 @@
-<properties 
-	pageTitle="C# retry logic to connect to SQL Database | Microsoft Azure" 
-	description="C# sample includes retry logic for reliably interacting with Azure SQL Database." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="C# retry logic to connect to SQL Database | Microsoft Azure"
+	description="C# sample includes retry logic for reliably interacting with Azure SQL Database."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/15/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
 # Code sample: Retry logic in C# for connecting to SQL Database
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
+
 
 
 This topic provides a C# code sample that demonstrates custom retry logic. The retry logic is designed to gracefully process temporary errors or *transient faults* that tend to go away if the program waits a few seconds and retries.
@@ -54,7 +56,7 @@ The list of error numbers that are categorized as transient faults is available 
 ## C# code sample
 
 
-The C# code sample in the present topic contains custom detection and retry logic to handle transient errors.
+The C# code sample in the present topic contains custom detection and retry logic to handle transient errors. The sample assumes .NET Framework 4.5.1 or later is installed.
 
 
 The code sample follows a few basic guidelines or recommendations that apply regardless of which technology you use to interact with Azure SQL Database. You can see the general recommendations at:
@@ -131,8 +133,6 @@ namespace RetryAdo2
 			int retryIntervalSeconds = 10;
 			bool returnBool = false;
 
-			Program program = new Program();
-
 			for (int tries = 1; tries <= 5; tries++)
 			{
 				try
@@ -142,8 +142,7 @@ namespace RetryAdo2
 						H.Thread.Sleep(1000 * retryIntervalSeconds);
 						retryIntervalSeconds = Convert.ToInt32(retryIntervalSeconds * 1.5);
 					}
-
-					program.GetSqlConnectionStringBuilder(out sqlConnectionSB);
+					this.GetSqlConnectionStringBuilder(out sqlConnectionSB);
 
 					sqlConnection = new C.SqlConnection(sqlConnectionSB.ToString());
 
@@ -193,6 +192,10 @@ SELECT TOP 3
 			_sqlConnectionSB["User ID"] = "MyLogin";  // "@yourservername"  as suffix sometimes.
 			_sqlConnectionSB["Password"] = "MyPassword";
 			_sqlConnectionSB["Database"] = "MyDatabase";
+
+			// Adjust these values if you like. (.NET 4.5.1 or later.)
+			_sqlConnectionSB["ConnectRetryCount"] = 3;
+			_sqlConnectionSB["ConnectRetryInterval"] = 10;  // Seconds.
 
 			// Leave these values as they are.
 			_sqlConnectionSB["Trusted_Connection"] = false;
@@ -281,3 +284,4 @@ Run the program with the "test" parameter, and verify it first fails but then su
 
 - [Client quick-start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
+- [Try SQL Database: Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)

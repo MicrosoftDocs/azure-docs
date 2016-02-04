@@ -17,7 +17,7 @@
 	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-# NoSQL tutorial: DocumentDB C# console application 
+# NoSQL tutorial: Build a DocumentDB C# console application 
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
@@ -45,7 +45,7 @@ Now let's get started!
 
 Please make sure you have the following:
 
-- An active Azure account. If you don't have one, you can sign up for a [Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+- An active Azure account. If you don't have one, you can sign up for a [Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 
 ## Step 1: Create a DocumentDB account
@@ -79,9 +79,9 @@ First, add these references to the beginning of your C# application, in the Prog
 
 > [AZURE.IMPORTANT] In order to complete this NoSQL tutorial, make sure you add the dependencies above.
 
-Next, save the DocumentDB account endpoint and either the primary or secondary access key, which can be found in the [Azure Preview Portal](https://portal.azure.com).
+Next, save the DocumentDB account endpoint and either the primary or secondary access key, which can be found in the [Azure Portal](https://portal.azure.com).
 
-![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
+![Screen shot of the Azure Portal used by the NoSQL tutorial to create a C# console application. Shows a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
@@ -280,7 +280,7 @@ Next, create your documents within your **GetStartedDemo** async method.
 
 You have now created the following database, collection, and documents in your DocumentDB account.
 
-![Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a C# console application](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ##<a id="Query"></a>Step 7: Query DocumentDB resources
 
@@ -320,11 +320,11 @@ DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documen
 
 The following diagram illustrates how the DocumentDB SQL query syntax is called against the collection you created, and the same logic applies to the LINQ query as well.
 
-![Diagram illustrating the scope and meaning of the query](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagram illustrating the scope and meaning of the query used by the NoSQL tutorial to create a C# console application](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
 
 The [FROM](documentdb-sql-query.md#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root, or the variable name you chose, reference the current collection by default.
 
-##<a id="DeleteDatabase"></a>Step 8: Delete the database
+##<a id="DeleteDatabase"></a>Step 8: Delete the online database
 
 Deleting the created database will remove the database and all children resources (collections, documents, etc.). You can delete the database and the document client by adding the following code snippet to the end of your **GetStartedDemo** async method.
 
@@ -457,9 +457,9 @@ You should now see the output of your get started app. The output will show the 
 	  "_attachments": "attachments/"
 	} from LINQ query
 
-Congratulations! You've completed this NoSQL tutorial! 
+Congratulations! You've completed this NoSQL tutorial and have a working C# console application! 
 
-##<a id="GetSolution"></a> Get the complete solution
+##<a id="GetSolution"></a> Get the complete NoSQL tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
 -   [DocumentDB account][documentdb-create-account].
@@ -472,11 +472,9 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio, right-cli
 -   Want a more complex ASP.NET MVC NoSQL tutorial? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
 -	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
--	Learn more about the programming model in the Development section of the [DocumentDB documentation page](../../services/documentdb/).
+-	Learn more about the programming model in the Develop section of the [DocumentDB documentation page](https://azure.microsoft.com/documentation/services/documentdb/).
 
-[doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  

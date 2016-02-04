@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Setting up Azure AD Join in your organization
@@ -27,7 +27,7 @@ Detailed instructions for syncing your on-prem users to Azure AD is covered in [
 To manually create and manage users in Azure AD, refer to [User management in Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## Set up device registration 
-1. Log on to the Azure Portal as Administrator.
+1. Log on to the Azure Portal as administrator.
 2. On the left pane, select Active Directory.
 3. On the **Directory** tab, select your directory.
 4. Select the **Configure** tab.
@@ -49,12 +49,10 @@ Following are the three scenarios how you can enable your users to set up Azure 
 - Users add work accounts to Windows on a personal device 
 
 ## Additional Information
-
 * [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
-
 
 

@@ -32,22 +32,22 @@ At a high level the following diagram shows the HPC Pack cluster you'll create.
 
 * **Client computer** - You'll need a Windows-based client computer to run the Azure PowerShell cluster deployment script (if you choose that deployment method) and to submit sample Excel and SOA jobs to the cluster.
 
-* **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* **Azure subscription** - If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several cluster nodes with multicore VM sizes. If you are using an Azure quickstart template, be aware that the cores quota in Resource Manager is per Azure region, and you might need to increase the quota in a specific region. See [Azure subscription limits, quotas, and constraints](../azure-subscription-service-limits.md). To increase a quota, you can [open an online customer support request](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
+* **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several cluster nodes with multicore VM sizes. If you are using an Azure quickstart template, be aware that the cores quota in Resource Manager is per Azure region, and you might need to increase the quota in a specific region. See [Azure subscription limits, quotas, and constraints](../azure-subscription-service-limits.md). To increase a quota, you can [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
 
 ## Step 1. Set up an HPC Pack cluster in Azure
 
-We'll show you two ways to set up the cluster: first, using an Azure quickstart template and the Azure preview portal; and second, using an Azure PowerShell deployment script.
+We'll show you two ways to set up the cluster: first, using an Azure quickstart template and the Azure portal; and second, using an Azure PowerShell deployment script.
 
 
 ### Use a quickstart template
-Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure preview portal. When you open the template in the preview portal, you get a simple UI where you enter the settings for your cluster. Here are the steps.
+Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluster in the Azure portal. When you open the template in the preview portal, you get a simple UI where you enter the settings for your cluster. Here are the steps.
 
 1. Visit the [Create HPC Cluster template page on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). If you want, review information about the template and the source code.
 
-2. Click **Deploy to Azure** to start a deployment with the template in the Azure preview portal.
+2. Click **Deploy to Azure** to start a deployment with the template in the Azure portal.
 
     ![Deploy template to Azure][github]
 
@@ -61,7 +61,7 @@ Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluste
 
     ![Enter parameters][parameters]
 
-    >[AZURE.NOTE]The head node VM will be created automatically from the [latest Marketplace  image](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) of HPC Pack 2012 R2 on Windows Server 2012 R2. Currently the image is based on HPC Pack 2012 R2 Update 3.
+    >[AZURE.NOTE]The head node VM will be created automatically from the [latest Marketplace  image](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) of HPC Pack 2012 R2 on Windows Server 2012 R2. Currently the image is based on HPC Pack 2012 R2 Update 3.
     >
     >Compute node VMs will be created from the latest image of the selected compute node family. Select the **ComputeNode** option for the latest HPC Pack 2012 R2 Update 3 compute image for general purposes. Select **ComputeNodeWithExcel** option for the latest HPC Pack compute node image that includes an evaluation version of Microsoft Excel Professional Plus 2013. If you want to deploy a cluster for general SOA sessions or for Excel UDF offloading, choose the **ComputeNode** option (without Excel installed).
     >
@@ -81,7 +81,7 @@ Use an Azure quickstart template to quickly and easily deploy an HPC Pack cluste
 
 3.	When the deployment completes (it typically takes around 30 minutes), export the cluster certificate file from the cluster head node. In a later step this public certificate will be imported on the client computer to provide the server-side authentication for secure HTTP binding.
 
-    a. Connect to the head node by Remote Desktop from the Azure preview portal.
+    a. Connect to the head node by Remote Desktop from the Azure portal.
 
      ![Connect to the head node][connect]
 
@@ -348,7 +348,7 @@ To do this, explicitly set UseAzureQueue flag to false in the SessionStartInfo.
 
 ### Use NetTcp binding
 
-To use NetTcp binding, the configuration is like connecting to an on-premises cluster. You'll need to open a few endpoints on the head node VM. In the Azure portal do the following.
+To use NetTcp binding, the configuration is like connecting to an on-premises cluster. You'll need to open a few endpoints on the head node VM. In the Azure classic portal do the following.
 
 
 1. Stop the VM.

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -67,6 +67,8 @@ The granularities available depend on the time range you select. The explicit gr
 ## Metrics Explorer
 
 Click through any chart on the overview blade to see a more detailed set of related charts and grids. You can edit these charts and grids to focus on the details you're interested in.
+
+Or you can just click the Metrics Explorer button in the head of the overview blade.
 
 For example, click through the web app's Failed Requests chart:
 

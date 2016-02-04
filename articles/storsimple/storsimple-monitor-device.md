@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="11/05/2015"
+   ms.date="01/29/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to monitor your StorSimple device 
@@ -21,7 +21,7 @@
 
 You can use the StorSimple Manager service to monitor specific devices within your StorSimple solution. You can create custom charts based on I/O performance, capacity utilization, network throughput, and device performance metrics. 
 
-To view the monitoring information for a specific device, in the Azure Portal, select the StorSimple Manager service, click the **Monitor** tab, and then select from the list of devices. The **Monitor** page contains the following information.
+To view the monitoring information for a specific device, in the Azure classic portal, select the StorSimple Manager service, click the **Monitor** tab, and then select from the list of devices. The **Monitor** page contains the following information.
 
 ## I/O performance 
 
@@ -44,6 +44,7 @@ For the same device, a cloud snapshot was taken for volume data starting at 2:00
 ## Capacity utilization 
 
 **Capacity utilization** tracks metrics related to the amount of data storage space that is used by the volumes, volume containers, or device. You can create reports based on the capacity utilization of your primary storage, your cloud storage, or your device storage. Capacity utilization can be measured on a specific volume, a specific volume container, or all volume containers.
+
 
 The primary, cloud and device storage capacity can be described as follows:
 
@@ -74,6 +75,10 @@ The following charts show the primary storage capacity utilization of a StorSimp
 ![Primary capacity utilization before cloud snapshot](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
 ![Primary capacity utilization after cloud snapshot](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
+
+If you are running Update 2 or higher, you can break down the primary storage capacity utilization by an individual volume, all volumes, all tiered volumes, and all local volumes as shown below. Breaking down by all local volumes will allow you to quickly ascertain how much of the local tier is used up.
+
+![Primary capacity utilization for all local volumes](./media/storsimple-monitor-device/localvolumes.png)
 
 
 ###Cloud storage capacity utilization

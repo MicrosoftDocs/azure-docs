@@ -40,7 +40,7 @@ This tutorial demonstrates the simple broadcast scenario in using Notification H
 
 Be sure to follow along with the tutorials in the "Next steps" section to see how to use notification hubs to address specific users and groups of devices.
 
->[AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
+>[AZURE.NOTE] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%notification-hubs-chrome-get-started%2F).
 
 ##<a id="register"></a>Enable Google Cloud Messaging
 
@@ -66,7 +66,7 @@ Be sure to follow along with the tutorials in the "Next steps" section to see ho
 
 ##<a id="configure-hub"></a>Configure your notification hub
 
-1. Sign in to the [Azure portal], and then click **+ NEW** at the bottom left of the screen.
+1. Sign in to the [Azure Classic Portal], and then click **+ NEW** at the bottom left of the screen.
 
 2. Click **App Services** > **Service Bus** > **Notification Hub** > **Quick Create**. Type a name for your notification hub, select your desired region, and then click **Create a new Notification Hub**.
 
@@ -402,7 +402,7 @@ You should see the following view for your folder at the end of this:
 
    	![][19]
 
-5. Enter your **Notification Hub Name** and the **DefaultListenSharedAccessSignature** that you obtained from the Azure portal earlier, and click **Register with Azure Notification Hub**. You must see the message **Notification Hub Registration successful!** and the details of the registration response, which contains the Azure Notification Hubs registration ID.
+5. Enter your **Notification Hub Name** and the **DefaultListenSharedAccessSignature** that you obtained from the portal earlier, and click **Register with Azure Notification Hub**. You must see the message **Notification Hub Registration successful!** and the details of the registration response, which contains the Azure Notification Hubs registration ID.
 
    	![][20]  
 
@@ -485,7 +485,7 @@ To target specific users, refer to the tutorial [Azure Notification Hubs Notify 
 <!-- URLs. -->
 [Chrome App Notification Hub Sample]: http://google.com
 [Google Cloud Console]: http://cloud.google.com/console
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Notification Hubs Overview]: http://msdn.microsoft.com/library/jj927170.aspx
 [Chrome Apps Overview]: https://developer.chrome.com/apps/about_apps
 [Chrome App GCM Sample]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications

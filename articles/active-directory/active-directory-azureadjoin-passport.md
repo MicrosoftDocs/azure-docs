@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Authenticating identities without passwords through Microsoft Passport | Microsoft Azure" 
-	description="Provides and overview of Microsoft Passport and additional information on deploying Microsoft Passport." 
+	description="Provides an overview of Microsoft Passport and additional information on deploying Microsoft Passport." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Authenticating identities without passwords through Microsoft Passport
@@ -26,9 +26,10 @@ Microsoft Passport is a new private/public key or certificate-based authenticati
 
 The private key is made available solely through a “user gesture” like a PIN, biometrics, remote device like a smart card that the user used to log on to the device and this information is linked to a certificate or an asymmetrical key pair. This private-key is hardware attested if device has a Trusted Platform Module (TPM) chip. The private key never leaves the device.
 
-The public key is registered with Azure Active Directory and Windows Server Active Directory (for On-Premises). The Identity Providers (IDPs) validate the user by mapping the public key of the user to the private key and provides log on information through One Time Password (OTP), Phonefactor or a different notification mechanism.
+The public key is registered with Azure Active Directory and Windows Server Active Directory (for On-Premises). The Identity Providers (IDPs) validate the user by mapping the public key of the user to the private key and provides sign-in information through One Time Password (OTP), Phonefactor or a different notification mechanism.
 
 ## Why should enterprises adopt Microsoft Passport
+
 By enabling Microsoft Passport, enterprises can make their resources even more secure by:
 
 * Setting up Microsoft Passport with a hardware-preferred option, which means that keys will be generated on TPM 1.2 or TPM 2.0 when available and by software when TPM is not available. 
@@ -52,7 +53,7 @@ The above diagram illustrates the private-public key pair and the validation by 
 
 1. User proves his/her identity through multiple built-in proofing methods (gestures, physical smart cards, multi-factor authentication) and sends this information to the Identity Provider (IDP) like Azure Active Directory or Active Directory.
 
-2.  Device then creates the keys, attests the key, takes the public portion of this key, attach it with station statements, signs in and sends it to IDP to register this key. 
+2. The device then creates the keys, attests the key, takes the public portion of this key, attach it with station statements, signs in and sends it to IDP to register this key. 
 
 3. As soon as the public portion of the key is registered in the IDP, it challenges the device to sign with the private portion of the key. The IDP then validates and issues the authentication token that lets the user access protected resources.
 
@@ -63,7 +64,7 @@ The above diagram illustrates the private-public key pair and the validation by 
 ## Deployment requirements
 At the enterprise level
 ---------------------------
-* Azure Subscription
+* Azure subscription
 
 At the user level
 -------------------------------------------------------------
@@ -71,12 +72,13 @@ At the user level
 
 For detailed deployment instructions, see [Enable Microsoft Passport for work in the organization](active-directory-azureadjoin-passport-deployment.md).
 
+
 ## Additional information
 
 * [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Learn about usage scenarios for Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Enable Microsoft Passport for work in the organization](active-directory-azureadjoin-passport-deployment.md)
 * [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md)
 * [Set up Azure AD Join](active-directory-azureadjoin-setup.md)
+
 

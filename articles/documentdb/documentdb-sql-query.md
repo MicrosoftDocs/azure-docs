@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="SQL query on a DocumentDB, a NoSQL database | Microsoft Azure" 
-	description="Learn how to use SQL query statements to query DocumentDB, a NoSQL database. As a JSON query language, SQL queries can be used for big data analytics." 
-	keywords="sql query, sql queries, sql syntax, json query language, database concepts and sql queries"
+	pageTitle="SQL syntax and SQL query for DocumentDB | Microsoft Azure" 
+	description="Learn about SQL syntax, database concepts and SQL queries for DocumentDB, a NoSQL database. SQL can used as a JSON query language in DocumentDB." 
+	keywords="sql syntax,sql query, sql queries, json query language, database concepts and sql queries"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="arramac"/>
 
-# SQL query in DocumentDB
+# SQL query and SQL syntax in DocumentDB
 Microsoft Azure DocumentDB supports querying documents using SQL (Structured Query Language) as a JSON query language. DocumentDB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
 
 While designing the query language for DocumentDB we had two goals in mind:
 
--	Instead of inventing a new query language, we wanted to support SQL. SQL is one of the most familiar and popular query languages. DocumentDB SQL provides a formal programming model for rich queries over JSON documents.
+-	Instead of inventing a new JSON query language, we wanted to support SQL. SQL is one of the most familiar and popular query languages. DocumentDB SQL provides a formal programming model for rich queries over JSON documents.
 -	As a JSON document database capable of executing JavaScript directly in the database engine, we wanted to use JavaScript's programming model as the foundation for our query language. The DocumentDB SQL is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, spatial queries, and invocation of user defined functions (UDFs) written entirely in JavaScript, among other features. 
 
 We believe that these capabilities are key to reducing the friction between the application and the database and are crucial for developer productivity.
@@ -187,7 +187,7 @@ Refer to the [DocumentDB samples](https://github.com/Azure/azure-documentdb-net)
 ## Basics of a DocumentDB SQL query
 Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list.
     
-    SELECT <select_list> 
+    SELECT [TOP <top_expression>] <select_list> 
     [FROM <from_specification>] 
     [WHERE <filter_condition>]
     [ORDER BY <sort_specification]    
@@ -897,6 +897,37 @@ The special operator (*) is supported to project the document as-is. When used, 
 	    "isRegistered": true
 	}]
 
+###TOP Operator
+The TOP keyword can be used to limit the number of values from a query. When TOP is used in conjunction with the ORDER BY clause, the result set is limited to the first N number of ordered values; otherwise, it returns the first N number of results in an undefined order. As a best practice, in a SELECT statement, always use an ORDER BY clause with the TOP clause. This is the only way to predictably indicate which rows are affected by TOP. 
+
+
+**Query**
+
+	SELECT TOP 1 * 
+	FROM Families f 
+
+**Results**
+
+	[{
+	    "id": "AndersenFamily",
+	    "lastName": "Andersen",
+	    "parents": [
+	       { "firstName": "Thomas" },
+	       { "firstName": "Mary Kay"}
+	    ],
+	    "children": [
+	       {
+	           "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+	           "pets": [{ "givenName": "Fluffy" }]
+	       }
+	    ],
+	    "address": { "state": "WA", "county": "King", "city": "seattle" },
+	    "creationDate": 1431620472,
+	    "isRegistered": true
+	}]
+
+TOP can be used with a constant value (as shown above) or with a variable value using parameterized queries. For more details, please see parameterized queries below.
+
 ## ORDER BY clause
 Like in ANSI-SQL, you can include an optional Order By clause while querying. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. For a more detailed look at Order By, refer to [DocumentDB Order By Walkthrough](documentdb-orderby.md).
 
@@ -1314,6 +1345,15 @@ This request can then be sent to DocumentDB as a parameterized JSON query like s
         ] 
     }
 
+The argument to TOP can be set using parameterized queries like shown below.
+
+    {      
+        "query": "SELECT TOP @n * FROM Families",     
+        "parameters": [          
+            {"name": "@n", "value": 10},         
+        ] 
+    }
+
 Parameter values can be any valid JSON (strings, numbers, Booleans, null, even arrays or nested JSON). Also since DocumentDB is schema-less, parameters are not validated against any type.
 
 ##Built-in functions
@@ -1725,7 +1765,7 @@ LINQ is a .NET programming model that expresses computation as queries on stream
 
 The picture below shows the architecture of supporting LINQ queries using DocumentDB.  Using the DocumentDB client, developers can create an **IQueryable** object that directly queries the DocumentDB query provider, which then translates the LINQ query into a DocumentDB query. The query is then passed to the DocumentDB server to retrieve a set of results in JSON format. The returned results are deserialized into a stream of .NET objects on the client side.
 
-![Architecture of supporting LINQ queries using DocumentDB][1]
+![Architecture of supporting LINQ queries using DocumentDB - SQL syntax, JSON query language, database concepts and SQL queries][1]
  
 
 
@@ -1840,6 +1880,22 @@ First, for the type system, we support all JSON primitive types – numeric type
 		new Parent { familyName = "Smith", givenName = "Joe" };
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
+
+### List of supported LINQ operators
+Here is a list of supported LINQ operators in the LINQ provider included with the DocumentDB .NET SDK.
+
+-	**Select**: Projections translate to the SQL SELECT including object construction
+-	**Where**: Filters translate to the SQL WHERE, and support translation between && , || and ! to the SQL operators
+-	**SelectMany**: Allows unwinding of arrays to the SQL JOIN clause. Can be used to chain/nest expressions to filter on array elements
+-	**OrderBy and OrderByDescending**: Translates to ORDER BY ascending/descending:
+-	**CompareTo**: Translates to range comparisons. Commonly used for strings since they’re not comparable in .NET
+-	**Take**: Translates to the SQL TOP for limiting results from a query
+-	**Math Functions**: Supports translation from .NET’s Abs, Acos, Asin, Atan, Ceiling, Cos, Exp, Floor, Log, Log10, Pow, Round, Sign, Sin, Sqrt, Tan, Truncate to the equivalent SQL built-in functions.
+-	**String Functions**: Supports translation from .NET’s Concat, Contains, EndsWith, IndexOf, Count, ToLower, TrimStart, Replace, Reverse, TrimEnd, StartsWith, SubString, ToUpper to the equivalent SQL built-in functions.
+-	**Array Functions**: Supports translation from .NET’s Concat, Contains, and Count to the equivalent SQL built-in functions.
+-	**Geospatial Extension Functions**: Supports translation from stub methods Distance, Within, IsValid, and IsValidDetailed to the equivalent SQL built-in functions.
+-	**User Defined Function Extension Function**: Supports translation from the stub method UserDefinedFunctionProvider.Invoke to the corresponding user defined function.
+-	**Miscellaneous**: Supports translation of the coalesce and conditional operators. Can translate Contains to String CONTAINS, ARRAY_CONTAINS or the SQL IN depending on context.
 
 ### SQL query operators
 Here are some examples that illustrate how some of the standard LINQ query operators are translated down to DocumentDB queries.

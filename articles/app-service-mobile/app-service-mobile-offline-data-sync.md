@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="01/11/2015"
 	ms.author="wesmc"/>
 
 # Offline Data Sync in Azure Mobile Apps
@@ -36,10 +36,11 @@ Offline sync has a number of benefits:
 
 The following tutorials show how to add offline sync to your mobile clients using Azure Mobile Apps:
 
+* [Android: Enable offline sync]
 * [iOS: Enable offline sync]			
 * [Xamarin iOS: Enable offline sync]	
 * [Xamarin Android: Enable offline sync]
-* [Windows 8.1: Enable offline sync]	
+* [Windows 8.1: Enable offline sync]
 
 ## What is a sync table?
 
@@ -122,6 +123,7 @@ When using sync tables, your client code controls when local changes will be syn
 
 <!-- Links -->
 
+[Android: Enable offline sync]: ../app-service-mobile-android-get-started-offline-data.md
 [iOS: Enable offline sync]: ../app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Enable offline sync]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md

@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to modify a Mobile App .NET backend to use a 
 
 This tutorial requires you to have the following:
 
-- **An existing Mobile App backend** <br/>Follow the [quickstart tutorial](app-service-mobile-windows-store-dotnet-get-started.md) to create and download a new .NET backend Mobile App from the [Azure Portal].
+- **An existing Mobile App backend** <br/>Follow the [quickstart tutorial](app-service-mobile-windows-store-dotnet-get-started.md) to create and download a new .NET backend Mobile App from the [Azure portal].
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -41,7 +41,7 @@ This tutorial requires you to have the following:
 
 You need to create a new Hybrid Connection and BizTalk service for the code portion of your Mobile App backend, which is a web app.
 
-1. In the [Azure Portal], browse to your Mobile App and click **Networking** in settings.
+1. In the [Azure portal], browse to your Mobile App and click **Networking** in settings.
 
 	![Navigate to web app](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started/mobile-app-link-to-web-app-backend.png)
 
@@ -113,7 +113,7 @@ In this step, you define a connection string for the on-premises database and mo
 
 Next, you need to add an app setting for this new connection string so that it can be used from Azure.  
 
-1. Back in the [Azure Portal] in the web app backend code for your Mobile App, click **All settings**, then **Application settings**.
+1. Back in the [Azure portal] in the web app backend code for your Mobile App, click **All settings**, then **Application settings**.
 
 3. In the **Web app settings** blade, scroll down to **Connection strings** and add an new **SQL Server** connection string named `OnPremisesDBConnection` with a value like `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
 
@@ -158,6 +158,6 @@ Finally, you need to publish the Mobile App backend to Azure and verify that it 
 
 
 <!-- Links -->
-[Azure Portal]: https://portal.azure.com/
-[Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
+[Azure portal]: https://portal.azure.com/
+[Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md

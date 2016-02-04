@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="11/21/2015" 
 	ms.author="awills"/>
 
 # Detect and diagnose crashes in Windows Store and Phone apps with Application Insights

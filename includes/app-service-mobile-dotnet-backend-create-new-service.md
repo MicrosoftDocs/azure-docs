@@ -1,7 +1,3 @@
-
-
-Follow these steps to create a new Mobile App backend.
-
 1. Log into the [Azure Portal].
 
 2. In the top left of the window, click the **+NEW** button > **Web + Mobile** > **Mobile App**, then provide a name for your Mobile App backend.
@@ -16,7 +12,7 @@ Follow these steps to create a new Mobile App backend.
 
     > [AZURE.NOTE] As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same location as the new mobile app backend, you can instead choose **Use an existing database** and then select that database. The use of a database in a different location is not recommended because of additional bandwidth costs and higher latencies. Other data storage options are available. 
 
-6. In the **Settings** blade for the new Mobile App backend, scroll down to Mobile and click **Get started** > your client app platform > **Connect a database**. 
+6. In the **Settings** blade for the new Mobile App backend, click **Quick start** > your client app platform > **Connect a database**. 
 
 	![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
 
@@ -30,7 +26,6 @@ Follow these steps to create a new Mobile App backend.
 
 	Creation of the database can take a few minutes.  Use the **Notifications** area to monitor the progress of the deployment.  You cannot continue until the database has been deployed sucessfully.
 
-You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, you will download a server project for a simple "todo list" backend and publish it to Azure.
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/

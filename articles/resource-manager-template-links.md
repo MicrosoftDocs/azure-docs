@@ -1,6 +1,6 @@
 <properties
    pageTitle="Resource Manager template for linking resources | Microsoft Azure"
-   description="Shows the resource manager template schema for creating links between related resources."
+   description="Shows the Resource Manager schema for deploying links between related resources through a template."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/31/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
-# Resource links - template schema
+# Resource links template schema
 
 Creates a link between two resources. The link is applied to a resource known as the source resource. The second resource in the link is known as the target resource.
 
@@ -54,7 +54,7 @@ The following tables describe the values you need to set in the schema.
 
 | Name | Type | Required | Permitted Values | Description |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| tagetId   | string | Yes |   | The identifier of the target resource to link to. |
+| targetId   | string | Yes |   | The identifier of the target resource to link to. |
 | notes   | string | No | 512 characters | Description of the lock. |
 
 
@@ -78,18 +78,18 @@ Use the following Azure PowerShell command to see all of the links in your subsc
 The following example applies a read-only lock to a web app.
 
     {
-	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"hostingPlanName": {
-      			"type": "string"
-   		}
-	},
-	"variables": {
-		"siteName": "[concat('site',uniqueString(resourceGroup().id))]"
-	},
-	"resources": [
-	    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "hostingPlanName": {
+                "type": "string"
+            }
+        },
+        "variables": {
+            "siteName": "[concat('site',uniqueString(resourceGroup().id))]"
+        },
+        "resources": [
+            {
                 "apiVersion": "2015-08-01",
                 "type": "Microsoft.Web/serverfarms",
                 "name": "[parameters('hostingPlanName')]",
@@ -103,17 +103,17 @@ The following example applies a read-only lock to a web app.
                     "numberOfWorkers": 1
                 }
             },
-	    {
+            {
                 "apiVersion": "2015-08-01",
                 "name": "[variables('siteName')]",
                 "type": "Microsoft.Web/sites",
                 "location": "[resourceGroup().location]",
-	        "dependsOn": [ "[parameters('hostingPlanName')]" ],
+                "dependsOn": [ "[parameters('hostingPlanName')]" ],
                 "properties": {
                     "serverFarmId": "[parameters('hostingPlanName')]"
                 }
-	    },
-	    {
+            },
+            {
                 "type": "Microsoft.Web/sites/providers/links",
                 "apiVersion": "2015-01-01",
                 "name": "[concat(variables('siteName'),'/Microsoft.Resources/SiteToStorage')]",
@@ -123,9 +123,20 @@ The following example applies a read-only lock to a web app.
                     "notes": "This web site uses the storage account to store user information."
                 }
     	    }
-	],
-	"outputs": {}
+        ],
+        "outputs": {}
     }
+
+## Quickstart templates
+
+The following quickstart templates deploy resources with a link.
+
+- [Alert to queue with Logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+- [Alert to Slack with Logic app](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+- [Provision an API app with an existing gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
+- [Provision an API app with a new gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
+- [Create a Logic App plus API app using a template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
+- [Logic app that sends a text message when an alert fires](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
 
 
 ## Next steps

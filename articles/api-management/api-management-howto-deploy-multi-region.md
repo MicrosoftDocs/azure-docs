@@ -13,26 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # How to deploy an Azure API Management service instance to multiple Azure regions
 
 API Management supports multi-region deployment which enables API publishers to distribute a single API management service across any number of desired Azure regions. This helps reduce request latency perceived by geographically distributed API consumers and also improves service availability if one region goes offline. 
 
-When an API Management service is created initially, it contains only one [unit][] and resides in a single Azure region, which is designated as the Primary Region. Additional regions can be easily added through Azure Portal. API Management gateway server is deployed to each region and call traffic will be routed to the closest gateway. If a region goes offline, the traffic is automatically re-directed to the next closest gateway. 
+When an API Management service is created initially, it contains only one [unit][] and resides in a single Azure region, which is designated as the Primary Region. Additional regions can be easily added through Azure Classic Portal. API Management gateway server is deployed to each region and call traffic will be routed to the closest gateway. If a region goes offline, the traffic is automatically re-directed to the next closest gateway. 
 
 > [AZURE.IMPORTANT] Multi-region deployment is only available in the **[Premium][]** tier.
 
 ## <a name="add-region"> </a>Deploy an API Management service instance to a new region
 
-To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+To get started, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal.
 
 ![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
-Navigate to the **Scale** tab in Azure Portal for your API Management service instance. 
+Navigate to the **Scale** tab in Azure Classic Portal for your API Management service instance. 
 
 ![Scale tab][api-management-scale-service]
 
@@ -48,7 +48,7 @@ Once the desired regions and units are configured, click **Save**.
 
 ## <a name="remove-region"> </a>Delete an API Management service instance from a region
 
-To remove an API Management service instance from a region, navigate to the **Scale** tab in Azure Portal for your API Management service instance. 
+To remove an API Management service instance from a region, navigate to the **Scale** tab in Azure Classic Portal for your API Management service instance. 
 
 ![Scale tab][api-management-scale-service]
 

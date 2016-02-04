@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/16/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Manage your first API in Azure API Management
@@ -61,7 +61,7 @@ The system is made up of the following components:
 
 >[AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
 
-The first step in working with API Management is to create a service instance. Sign in to the [Azure portal][] and click **New**, **App Services**, **API Management**, **Create**.
+The first step in working with API Management is to create a service instance. Sign in to the [Azure Classic Portal][] and click **New**, **App Services**, **API Management**, **Create**.
 
 ![API Management new instance][api-management-create-instance-menu]
 
@@ -95,7 +95,7 @@ APIs can be created (and operations can be added) manually, or they can be impor
 
 >[AZURE.NOTE] For guidance on creating an API and manually adding operations, see [How to create APIs](api-management-howto-create-apis.md) and [How to add operations to an API](api-management-howto-add-operations.md).
 
-APIs are configured from the publisher portal, which is accessed through the Azure portal. To reach the publisher portal, click **Manage** in the Azure portal for your API Management service.
+APIs are configured from the publisher portal, which is accessed through the Azure Classic Portal. To reach the publisher portal, click **Manage** in the Azure Classic Portal for your API Management service.
 
 ![Publisher portal][api-management-management-console]
 
@@ -206,7 +206,7 @@ The **Analytics** section has the following four tabs:
 [Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png

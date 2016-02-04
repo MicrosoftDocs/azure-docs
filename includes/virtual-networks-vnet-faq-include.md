@@ -1,4 +1,4 @@
-﻿## Virtual Network Basics
+## Virtual Network Basics
 
 ### What is an Azure Virtual network (VNet)?
 
@@ -24,7 +24,7 @@ Visit the [Virtual Network Overview](virtual-networks-overview.md) to see a deci
 
 ### How do I get started?
 
-Visit [the Virtual Network documentation](http://azure.microsoft.com/documentation/services/virtual-network/) to get started. This page has links to common configuration steps as well as information that will help you understand the things that you'll need to take into consideration when designing your virtual network.
+Visit [the Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/) to get started. This page has links to common configuration steps as well as information that will help you understand the things that you'll need to take into consideration when designing your virtual network.
 
 ### What services can I use with VNets?
 
@@ -205,7 +205,7 @@ No. A MAC address cannot be statically configured.
 
 ### Will the MAC address remain the same for my VM once it has been created?
 
-No. A VM's MAC address can change for a different reasons. If the VM is put in the status Stopped (Deallocated), if you change the VM size, or if there is service healing or planned maintenance of the host server, the MAC address is not retained.
+No, but it will only change if the VM is put in the status Stopped (Deallocated). If you change the VM size, reboot, or in case of service healing or planned maintenance of the host server, the MAC address is retained.
 
 ### Can I connect to the internet from a VM in a VNet?
 
@@ -222,11 +222,11 @@ You can only use compute services within VNets. Compute services are limited to 
 Yes. You can deploy Web Apps inside a VNet using ASE (App Service Environment). Adding to that, Web Apps can securely connect and access resources in your Azure VNet if you have point-to-site configured for your VNet. For more information, see the following:
 
 
-- [Creating Web Apps in an App Service Environment](https://azure.microsoft.com/en-us/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+- [Creating Web Apps in an App Service Environment](app-service-web-how-to-create-a-web-app-in-an-ase.md)
 
-- [Web Apps Virtual Network Integration](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Web Apps Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
-- [Using VNet Integration and Hybrid Connections with Web Apps](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
+- [Using VNet Integration and Hybrid Connections with Web Apps](https://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Integrate a web app with an Azure Virtual Network](web-sites-integrate-with-vnet.md)
 

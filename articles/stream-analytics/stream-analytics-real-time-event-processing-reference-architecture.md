@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Real-time event processing with Stream Analytics | Microsoft Azure" 
+	pageTitle="Real-time event processing with Stream Analytics event processing | Microsoft Azure" 
 	description="Learn how a set of Azure services can interoperate for enabling real-time event processing and analytics." 
+    keywords="real-time processing, event processing, reference architecture"
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
-# Reference Architecture: Real-time event processing with Microsoft Azure Stream Analytics
+# Reference architecture: Real-time event processing with Microsoft Azure Stream Analytics
 
 The reference architecture for real-time event processing with Azure Stream Analytics is intended to provide a generic blueprint for deploying a real-time platform as a service (PaaS) stream-processing solution with Microsoft Azure.
 

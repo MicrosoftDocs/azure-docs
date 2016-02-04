@@ -15,21 +15,23 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="08/24/2015"
+      ms.date="11/17/2015"
       ms.author="v-jibran@microsoft.com"/>
 
 # Quickstart for the Azure AD Graph API
 
-The Azure Active Directory (AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects. For example, you can use the Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable or delete the user. For more information on the Graph API features and application scenarios, see [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) and [Azure AD Graph API Prerequisites](https://msdn.microsoft.com/library/azure/hh974464.aspx).
+The Azure Active Directory (AD) Graph API provides programmatic access to Azure AD through OData REST API endpoints. Applications can use the Graph API to perform create, read, update, and delete (CRUD) operations on directory data and objects. For example, you can use the Graph API to create a new user, view or update user’s properties, change user’s password, check group membership for role-based access, disable or delete the user. For more information on the Graph API features and application scenarios, see [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) and [Azure AD Graph API Prerequisites](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx).
+
+> [AZURE.IMPORTANT] Azure AD Graph API functionality is also available through [Microsoft Graph](https://graph.microsoft.io/), a unified API that  includes APIs from other Microsoft services such as Outlook, OneDrive, OneNote, Planner, and Office Graph, accessible through a single endpoint and with a single access token.
 
 ## How to construct a Graph API URL
 
 In Graph API, in order to access directory data and objects (in other words, resources or entities) against which you want to perform CRUD operations, you can use URLs based on the Open Data (OData) Protocol. The URLs used in Graph API consist of four main parts: service root, tenant identifier, resource path, and query string options: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Take the example of the following URL: `https://graph.windows.net/contoso.com/groups?api-version=1.5`.
 
 - **Service Root**: In Azure AD Graph API, the service root is always https://graph.windows.net.
-- **Tenant identifier**: This can be a verified (registered) domain name, in the example above, contoso.com. It can also be a tenant object ID or the “myorganiztion” or “me” alias. For more information, see [Addressing Entities and Operations in the Graph API](https://msdn.microsoft.com/library/azure/dn424880.aspx)).
+- **Tenant identifier**: This can be a verified (registered) domain name, in the example above, contoso.com. It can also be a tenant object ID or the “myorganiztion” or “me” alias. For more information, see [Addressing Entities and Operations in the Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview)).
 - **Resource path**: This section of a URL identifies the resource to be interacted with (users, groups, a particular user, or a particular group, etc.) In the example above, it is the top-level “groups” to address that resource set. You can also address a specific entity, for example “users/{objectId}” or “users/userPrincipalName”.
-- **Query parameters**: ? separates the resource path section from the query parameters section. The “api-version” query parameter is required on all requests in the Graph API. The Graph API also supports the following OData query options: **$filter**, **$orderby**, **$expand**, **$top**, and **$format**. The following query options are not currently supported: **$count**, **$inlinecount**, and **$skip**. For more information, see [Supported Queries, Filters, and Paging Options in Azure AD Graph API](https://msdn.microsoft.com/library/azure/dn727074.aspx).
+- **Query parameters**: ? separates the resource path section from the query parameters section. The “api-version” query parameter is required on all requests in the Graph API. The Graph API also supports the following OData query options: **$filter**, **$orderby**, **$expand**, **$top**, and **$format**. The following query options are not currently supported: **$count**, **$inlinecount**, and **$skip**. For more information, see [Supported Queries, Filters, and Paging Options in Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 
 ## Graph API versions
 
@@ -40,7 +42,7 @@ The following versions have been released for the Graph API.
 * Version 2013-11-08
 * Version 2013-04-05
 
-You specify the version for a Graph API request in the “api-version” query parameter. For version 1.5 you use a numerical version value; api-version=1.5. For previous versions, you use a date string that adheres to the format YYYY-MM-DD; for example, api-version=2013-11-08. For preview features, use the string “beta”; for example, api-version=beta. For more information about differences between Graph API versions, see [Azure AD Graph API Versioning](https://msdn.microsoft.com/library/azure/dn835125.aspx).
+You specify the version for a Graph API request in the “api-version” query parameter. For version 1.5 you use a numerical version value; api-version=1.5. For previous versions, you use a date string that adheres to the format YYYY-MM-DD; for example, api-version=2013-11-08. For preview features, use the string “beta”; for example, api-version=beta. For more information about differences between Graph API versions, see [Azure AD Graph API Versioning](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
 
 ## Graph API metadata
 
@@ -48,7 +50,7 @@ To return the Graph API metadata file, add the “$metadata” segment after the
 
 ## Common queries
 
-[Azure AD Graph API Common Queries](https://msdn.microsoft.com/library/azure/jj126255.aspx) lists common queries that can be used with the Azure AD Graph, including queries that can be used to access top-level resources in your directory and queries to perform operations in your directory.
+[Azure AD Graph API Common Queries](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) lists common queries that can be used with the Azure AD Graph, including queries that can be used to access top-level resources in your directory and queries to perform operations in your directory.
 
 For example, `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.5` returns company information for directory contoso.com.
 
@@ -90,7 +92,7 @@ In the example below, you will use Fiddler Web Debugger to create a new security
 **Compose and run a query**: Complete the following steps.
 
 1. Open Fiddler Web Debugger and switch to the **Composer** tab.
-2. Since you want to create a new security group, select **Post** as the HTTP method from the pull-down menu. For more information about operations and permissions on a group object, see [Group](https://msdn.microsoft.com/library/azure/hh974486.aspx) within the [Azure AD Graph REST API Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+2. Since you want to create a new security group, select **Post** as the HTTP method from the pull-down menu. For more information about operations and permissions on a group object, see [Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#GroupEntity) within the [Azure AD Graph REST API Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 3. In the field next to **Post**, type in the following as the request URL: `https://graph.windows.net/mytenantdomain/groups?api-version=1.5`.
 
     > [AZURE.NOTE] You must substitute mytenantdomain with the domain name of your own Azure AD directory.
@@ -116,7 +118,7 @@ Content-Type: application/json
         }
 ```
 
-    For more information about creating groups, see [Create Group](https://msdn.microsoft.com/library/azure/dn151614.aspx).
+    For more information about creating groups, see [Create Group](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#CreateGroup).
 
 For more information on Azure AD entities and types that are exposed by Graph and information about the operations that can be performed on them with Graph, see [Azure AD Graph REST API Reference](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 

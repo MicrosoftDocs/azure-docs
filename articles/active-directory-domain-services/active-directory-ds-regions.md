@@ -4,8 +4,8 @@
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
-	manager="udayh"
-	editor="inhenk"/>
+	manager="stevenpo"
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="01/26/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)*
 
-To learn where Azure services are available, please see [Services by region](https://azure.microsoft.com/en-us/regions/#services).
+To learn where Azure AD Domain Services are available, please see [Azure Services by region](https://azure.microsoft.com/regions/#services/).

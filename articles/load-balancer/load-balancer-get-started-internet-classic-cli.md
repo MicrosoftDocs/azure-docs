@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Get started creating Internet facing load balancer in classic deployment model using the Azure CLI | Microsoft Azure"
+   pageTitle="Get started creating an Internet facing load balancer in classic deployment model using the Azure CLI | Microsoft Azure"
    description="Learn how to create an Internet facing load balancer in classic deployment model using the Azure CLI"
    services="load-balancer"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="11/06/2015"
    ms.author="joaoma" />
 
-# Get started creating Internet facing load balancer (classic) in the Azure CLI
+# Get started creating an Internet facing load balancer (classic) in the Azure CLI
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 

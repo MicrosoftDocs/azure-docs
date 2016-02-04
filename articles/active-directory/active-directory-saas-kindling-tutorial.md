@@ -3,8 +3,8 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and Kindling."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Kindling

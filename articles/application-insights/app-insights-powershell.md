@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="01/22/2016" 
 	ms.author="awills"/>
  
 # Create Application Insights resources using PowerShell
@@ -76,7 +76,7 @@ Install the Azure Powershell module on the machine where you want to run the scr
 
 2. Open [Azure Resource Manager](https://resources.azure.com/). Navigate down through subscriptions, resourceGroups, components, to your app resource. 
 
-    ![](./media/app-insights-create-powershell/01.png)
+    ![](./media/app-insights-powershell/01.png)
 
     *Components* are the basic Application Insights resources for displaying applications. There are separate resources for the associated alert rules and availability web tests.
 
@@ -117,6 +117,27 @@ find | replace with
 `"myappname"` (lower case) | `"[toLower(parameters('appName'))]"`
 `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"`|`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]" `
 
+## If your app is an Azure web app
+
+Add this resource, or if a `siteextensions` resource is already there, parameterize it like this:
+
+```json
+    {
+      "apiVersion": "2014-04-01",
+      "name": "Microsoft.ApplicationInsights.AzureWebSites",
+      "type": "siteextensions",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
+        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
+        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
+      ],
+      "properties": { }
+    }
+
+```
+
+This resource deploys the Application Insights SDK to your Azure web app.
+
 ## Set dependencies between the resources
 
 Azure should set up the resources in strict order. To make sure one setup completes before the next begins, add dependency lines:
@@ -145,6 +166,7 @@ Azure should set up the resources in strict order. To make sure one setup comple
                -webTestName aWebTest `
                -Url http://myapp.com `
                -text "Welcome!"
+               -siteName "MyAzureSite"
 
     ``` 
 
@@ -154,6 +176,7 @@ Azure should set up the resources in strict order. To make sure one setup comple
     * -webTestName The name of the web test to create.
     * -Url The url of your web app.
     * -text A string that appears in your web page.
+    * -siteName - used if it's an Azure website
 
 
 ## Define metric alerts

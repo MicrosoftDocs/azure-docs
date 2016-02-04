@@ -14,51 +14,51 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
+	ms.date="01/20/2016"
 	ms.author="dkshir"/>
 
 # Different Ways to Create a Linux Virtual Machine
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Azure offers different ways to create a VM because VMs are suited for different users and purposes. This means you'll need to make some choices about the VM and how you'll create it. This article gives you a summary of these choices and links to instructions.
+Azure offers different ways to create a VM, to suit different users and purposes. This article summarizes these differences and the choices you can make for creating your Linux virtual machines.
 
-Azure Resource Manager templates were recently introduced as a way to create and manage a virtual machine and its different resources as one logical deployment unit. Instructions for this approach are included below, where available. To learn more about Azure Resource Manager and how to manage resources as one unit, see the [overview][].
+Azure Resource Manager templates can also be used to create and manage a virtual machine and its different resources as one logical deployment unit. Instructions for this approach are included where applicable. To learn more about Azure Resource Manager and how to manage resources as one unit, see the [overview][].
 
 ## Tool choices
 
-### GUI: The Azure Portal or Preview Portal
+### GUI: The Azure classic portal or Azure portal
 
-The graphical user interface of the Azure portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use either the [Azure portal](http://manage.windowsazure.com) or the [Azure preview portal](http://portal.azure.com) to create the VM. For general instructions, see [Create a Custom Virtual Machine][] and select any Linux image from the **Gallery**. Note that the [Azure portal](http://manage.windowsazure.com) creates virtual machines using only the classic deployment model.
+The graphical user interface of the portal is an easy way to try out a virtual machine, especially if you're just starting out with Azure. Use either the [Azure classic portal](https://manage.windowsazure.com) or the [Azure portal](https://portal.azure.com) to create the VM. For general instructions, see [Create a Custom Virtual Machine][] and select any Linux image from the **Gallery**. Note that the [Azure classic portal](https://manage.windowsazure.com) creates virtual machines using only the classic deployment model.
 
 ### Command Shell: Azure CLI or Azure PowerShell
 
-If you prefer working in a command shell, choose between the Azure command-line interface (CLI) for Mac and Linux users, or Azure PowerShell, which has Windows PowerShell cmdlets for Azure and a custom console.
+If you prefer working in a command shell, choose between the Azure command-line interface (CLI) for Mac, Linux and Windows users, or the Azure PowerShell, which has Windows PowerShell cmdlets for Azure and a custom console.
 
-For Azure CLI, see [Create a Virtual Machine Running Linux][]. To use a template, see [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI][].
+To create virtual machines in Resource Manager deployment model using the Azure CLI, see [Create a Virtual Machine Running Linux][]. Follow the tabs or article selectors on this article to read instructions using Azure PowerShell and Templates.  
 
-For Azure PowerShell, see [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines][]. To use a template, see [Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell][].
+For classic deployment model, see [Create a custom Linux virtual machine using Azure CLI](virtual-machines-linux-create-custom.md) and
+[Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines][].
+
 
 ### Development Environment: Visual Studio
 
-[Creating a virtual machine for a website with Visual Studio][]
+Visual Studio also supports creating Azure virtual machines. For classic deployment model, read [Creating a virtual machine for a website with Visual Studio][]. For Resource Manager deployment model, read [Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries][].
 
-[Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries][]
 
 ## Operating System and Image Choices
 
 Choose an image based on the operating system you want to run. Azure and its partners offer many images, some of which include applications and tools. Or, use one of your own images.
 
+
 ### Azure Images
 
-These instructions show you how to use an Azure image to create a virtual machine that's customized with options for networking, load balancing, and more. See [How to Create a Custom Virtual Machine Running Linux in Azure][].
+In all of the above articles, you can easily use an existing Azure image to create a virtual machine and customize it for networking, load balancing, and more. The portals provide a gallery or image list for Azure supplied images. You can get similar lists using the command line. For example, in Azure CLI, run `azure vm image list` to get a list of all available images, by location and publisher.
+
 
 ### Use Your Own Image
 
-Use an image based on an existing Azure virtual machine by *capturing* that VM, or upload an image of your own, stored in a virtual hard disk (VHD):
-
-- [How to Capture a Linux Virtual Machine to Use as a Template with the CLI][]
-- [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System][]
+Use an image based on an existing Azure virtual machine by *capturing* that VM, or upload an image of your own, stored in a virtual hard disk (VHD). For classic deployment model, see [How to Capture a Linux Virtual Machine to Use as a Template with the CLI][] and [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System][]. For Resource Manager deployment model, see [How to capture a Linux virtual machine as a Resource Manager template](virtual-machines-linux-capture-image-resource-manager.md).
 
 ## Next Steps
 
