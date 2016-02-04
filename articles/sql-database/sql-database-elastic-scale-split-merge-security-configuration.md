@@ -58,12 +58,12 @@ A SSL certificate is required to encrypt the communication and authenticate the 
 4.    [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
 5.    [Import SSL Certification Authority](#Import-SSL-Certification-Authority)
 
-### To Use an existing certificate from the certificate store
+### To use an existing certificate from the certificate store
 1. [Export SSL Certificate From Certificate Store](#Export-SSL-Certificate-From-Certificate-Store)
 2. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
 3. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
 
-### To Use an existing certificate in a PFX file
+### To use an existing certificate in a PFX file
 
 1. [Upload SSL Certificate to Cloud Service](#Upload-SSL-Certificate-to-Cloud-Service)
 2. [Update SSL Certificate in Service Configuration File](#Update-SSL-Certificate-in-Service-Configuration-File)
