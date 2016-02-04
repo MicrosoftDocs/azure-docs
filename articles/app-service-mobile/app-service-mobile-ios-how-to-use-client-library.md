@@ -293,7 +293,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 ```
 let newItem = oldItem.mutableCopy() as! NSMutableDictionary // oldItem is NSDictionary
 newItem["text"] = "Updated text"
-table.update(newItem as [NSObject : AnyObject]) { (result, error) in
+table.update(newItem as [NSObject: AnyObject]) { (result, error) in
     if let err = error {
         print("ERROR ", err)
     } else if let item = result {
@@ -349,7 +349,7 @@ To delete an item, invoke `delete` with the item:
 **Swift**:
 
 ```
-table.delete(newItem as [NSObject : AnyObject]) { (itemId, error) in
+table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
     if let err = error {
         print("ERROR ", err)
     } else {
