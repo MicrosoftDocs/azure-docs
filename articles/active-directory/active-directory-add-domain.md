@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/19/2016"
+	ms.date="02/03/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Using custom domain names to simplify the sign-in experience for your users
@@ -61,8 +61,13 @@ Most management tasks for domain names in Azure Active Directory can also be com
 -   [Using the Graph API to manage domain names in Azure AD (preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 
-## Additional resources
+## Next steps
 
-If you need additional resources to understand domain name usage in Azure Active Diretory, try:
+If you need additional resources to understand domain name usage in Azure Active Directory, try:
 
 - [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
+- [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
+- [Assign users to a custom domain](active-directory-add-domain-add-users.md)
+- [Built-in domain names in Azure Active Directory](active-directory-add-domain-builtin-domains.md)
+- [Change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
+- [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)

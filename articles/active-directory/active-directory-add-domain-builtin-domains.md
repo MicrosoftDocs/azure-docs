@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Built-in domain names in Azure Active Directory | Microsoft Azure"
+	pageTitle="Built-in domain name reference for Azure Active Directory | Microsoft Azure"
 	description="Describes the different kinds of domain names supported by Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="02/03/2016"
 	ms.author="curtand;jeffsta"/>
 
 
-# Built-in domain names in Azure Active Directory
+# Built-in domain name reference for Azure Active Directory
 
 -   Built in: the domain that comes with your Azure AD, in the form of contoso.onmicrosoft.com
 
@@ -33,7 +33,7 @@
 
 -   Verified: Azure AD has confirmed that your organization owns this domain.
 
--   Unverifed: Azure AD has confirmed that your organization owns this domain.
+-   Unverified: Azure AD has confirmed that your organization owns this domain.
 
 ## Federation
 
@@ -42,3 +42,12 @@
 -   Planned
 
 -   Configured
+
+## Next steps
+
+- [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
+- [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
+- [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
+- [Assign users to a custom domain](active-directory-add-domain-add-users.md)
+- [Change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
+- [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="02/03/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Assign users to a custom domain
@@ -53,3 +53,12 @@ If you have already set up a connection between your on-premises Active Director
 	4.  When you add the user name, choose the custom domain from the domain list.
 
 	5.  Select **Save**.
+
+## Next steps
+
+- [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
+- [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
+- [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
+- [Built-in domain names in Azure Active Directory](active-directory-add-domain-builtin-domains.md)
+- [Change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
+- [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)b
