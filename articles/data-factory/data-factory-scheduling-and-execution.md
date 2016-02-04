@@ -35,7 +35,7 @@ As shown above, specifying a schedule for the activity creates a series of tumbl
  
 For the currently executing activity window, the time interval associated with the activity window can be accessed with **WindowStart** and **WindowEnd** system variables in the activity JSON. You can use these variables for different purposes in your activity JSON and scripts associated with the activity including selecting data from input, output datasets representing time series data.
 
-For more information on different properties available for scheduler including scheduling at a specific time offset, setting the mode to align processing at the beginning of interval for the activity window or at the end please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article.
+The **scheduler** property supports the same sub-properties as the **availability** property in a dataset. For more information on different properties available for scheduler including scheduling at a specific time offset, setting the mode to align processing at the beginning of interval for the activity window or at the end please refer to the [Dataset availability](data-factory-create-datasets.md#Availability) article. 
 
 ## Time series Datasets and Data Slices
 
