@@ -65,5 +65,5 @@ Select one of the following disclaimers depending on your scenario.
 2. step 2.
 3. step 3.
 
-## Learn more (Optional)
-- Reference links to other related topics.
++## Next steps
+Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for lists of links. If you include links to next steps, make sure to include a bit of text helping the user understand why the next step is relevant and important.
