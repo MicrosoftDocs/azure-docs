@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2015"
+	ms.date="02/04/2016"
 	ms.author="larryfr"/>
 
 # Quickstart tutorial for the R programming language for Azure Machine Learning
