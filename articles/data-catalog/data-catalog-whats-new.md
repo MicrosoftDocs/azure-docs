@@ -24,7 +24,7 @@ Updates to **Azure Data Catalog** are released on a regular basis. Not every rel
 
 As of the week of February 5, 2016, the following capabilities have been added to **Azure Data Catalog**:
 
-- •Support for changing the Azure subscription used by **Azure Data Catalog**. **Azure Data Catalog** administrators can use the Settings page in the **Azure Data Catalog** portal to select a different Azure subscription for billing purposes.
+- Support for changing the Azure subscription used by **Azure Data Catalog**. **Azure Data Catalog** administrators can use the Settings page in the **Azure Data Catalog** portal to select a different Azure subscription for billing purposes.
 
 ## What's new for the week of January 29, 2016 release
 
