@@ -22,7 +22,7 @@
 ## Steps to resolve transient connectivity issues
 1.	Make sure your app uses retry logic. See the [connectivity issues](sql-database-connectivity-issues.md) and the [best practices and design guidelines](sql-database-connect-central-recommendations.md) for general retry strategies. Then see [code samples](sql-database-develop-quick-start-client-code-samples.md) for specifics.
 2.	As a database approaches its resource limits, it can look like a transient connectivity issue. See [Troubleshooting Performance Issues](sql-database-troubleshoot-performance.md).
-3.	If connectivity problems continue, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/en-us/support/options) site.
+3.	If connectivity problems continue, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/support/options) site.
 
 ## Steps to resolve persistent connectivity issues
 If the app can’t connect at all, it’s usually the IP and firewall configuration. This can include network reconfiguration on the client side (for example, a new IP address or proxy). Mistyped connection parameters, such as the connection string, are also common.
