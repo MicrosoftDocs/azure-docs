@@ -48,3 +48,8 @@ Before performing this procedure, make sure that the STS the claims aware app re
 4. Under **Trusted URL**, enter the URL you entered in the Application Proxy under **External URL** and click **OK**.
 
 ![Add an Endpoint - set Trusted URL value - screenshot](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
+
+## Related Articles
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Providing secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
+- [How to enable native client apps to interact with proxy Applications](active-directory-application-proxy-native-client.md)

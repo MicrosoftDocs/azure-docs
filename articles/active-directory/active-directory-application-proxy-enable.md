@@ -87,6 +87,7 @@ There's a lot more you can do with Application Proxy:
 
 ## Additional resources
 
-* [Sign up for Azure as an organization](sign-up-organization.md)
-* [Azure Identity](fundamentals-identity.md)
-* [Publish Applications with Application Proxy](active-directory-application-proxy-publish.md)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [Sign up for Azure as an organization](sign-up-organization.md)
+- [Azure Identity](fundamentals-identity.md)
+- [Publish Applications with Application Proxy](active-directory-application-proxy-publish.md)

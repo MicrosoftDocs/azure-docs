@@ -69,5 +69,6 @@ You can also make your shared account more secure with Multi-Factor Authenticati
 
 ## Related articles
 
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 - [Protecting apps with conditional access](active-directory-conditional-access.md)
 - [Self-service group management/SSAA](active-directory-accessmanagement-self-service-group-management.md)

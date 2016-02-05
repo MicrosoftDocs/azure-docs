@@ -61,5 +61,5 @@ There's a lot more you can do with Application Proxy:
 - [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Additional resources
-
-* [About Kerberos constrained delegation](http://technet.microsoft.com/library/cc995228.aspx)
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+- [About Kerberos constrained delegation](http://technet.microsoft.com/library/cc995228.aspx)
