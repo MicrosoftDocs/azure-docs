@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/05/2016"
 	ms.author="tarcher"/>
 
 # Grant user permissions to specific DevTest Lab policies
@@ -24,7 +24,7 @@ This article illustrates how to use PowerShell to grant users permissions to a p
 
 ## Policies as resources
 
-As discussed in the [AzureRole-based Access Control](/role-based-access-control-configure.md) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. 
+As discussed in the [Azure Role-based Access Control](/role-based-access-control-configure.md) article, RBAC enables fine-grained access management of resources for Azure. Using RBAC, you can segregate duties within your DevOps team and grant only the amount of access to users that they need to perform their jobs. 
 
 In DevTest Lab, a policy is a resource type that enables the RBAC action **Microsoft.DevTestLab/labs/policySets/policies/**. Each DevTest Lab policy is a resource in the Policy resource type, and can be assigned as a scope to an RBAC role. 
 
