@@ -34,13 +34,16 @@ This article assumes you have:
 
 2. **Microsoft Azure PowerShell 1.0.x** - Make sure you have the Microsoft Azure PowerShell version 1.0.x installed. We recommend using this version since new Resource Manager features will not be added to older PowerShell versions. Read [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) to know more about the version differences.
 
-3. **Windows operating system stored in a .vhd file and attached to a virtual machine** - There are many tools for creating .vhd files. For example, you can use Hyper-V Manager to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For details about which Windows operating systems are supported, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
+3. **A virtual machine running the Windows operating system** - There are many tools for creating virtual machines on premises. For example, you can use Hyper-V Manager to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For details about which Windows operating systems are supported, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
 
- > [AZURE.IMPORTANT] Microsoft Azure can only accept images for [Generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) saved in the VHD file format.
 
-	- The Hyper-V Manager will typically save your VM image in a VHDX format, which is not supported in Microsoft Azure. You can convert it to VHD format using either Hyper-V or the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For steps using PowerShell, read [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/). Or in Hyper-V, select your local computer on the left and then in the menu above it, click **Actions** > **Edit Disk...** > **Next** > Your VHDX path > **Next** > **Convert** > **Next** > **VHD** > **Next** > Choose any VHD type > **Next** > Enter path for the VHD file > **Next** > **Finish**.
+## Make sure the VM is saved as a VHD
 
-	- If you have a Windows VM image in [the VMDK file format](https://en.wikipedia.org/wiki/VMDK), you can convert it to a VHD format using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
+Microsoft Azure can only accept images for [Generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) saved in the VHD file format.
+
+- The Hyper-V Manager will typically save your VM image in a VHDX format, which is not supported in Microsoft Azure. You can convert it to VHD format using either Hyper-V or the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For steps using PowerShell, read [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/). Or in Hyper-V, select your local computer on the left and then in the menu above it, click **Actions** > **Edit Disk...** > **Next** > Your VHDX path > **Next** > **Convert** > **Next** > **VHD** > **Next** > Choose any VHD type > **Next** > Enter path for the VHD file > **Next** > **Finish**.
+
+- If you have a Windows VM image in [the VMDK file format](https://en.wikipedia.org/wiki/VMDK), you can convert it to a VHD format using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
 
 
 ## Prepare the VHD for upload
@@ -76,29 +79,29 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 4. If you want to create a new storage account, click **Add** and enter the following information:
 
- - Enter the **Name** for the storage account. It should contain between 3 to 24 lowercase letters and numbers only. This name becomes part of the URL you will use to access blob, files, and other resources from the storage account.
+	- Enter the **Name** for the storage account. It should contain between 3 to 24 lowercase letters and numbers only. This name becomes part of the URL you will use to access blob, files, and other resources from the storage account.
 
- - Select the **Type** of the storage account that you want to create. For more information, read [About Azure storage accounts](../storage/storage-create-storage-account.md).
+	- Select the **Type** of the storage account that you want to create. For more information, read [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
- - Enter the name of the **Resource Group**. The portal will create a new resource group if it cannot find an existing one with that name.
+	- Enter the name of the **Resource Group**. The portal will create a new resource group if it cannot find an existing one with that name.
 
- - Choose the **Location** for the storage account.
+	- Choose the **Location** for the storage account.
 
- - Click **Create**. The account now appears under the **Storage accounts** panel.
+	- Click **Create**. The account now appears under the **Storage accounts** panel.
 
-  ![Enter storage account details](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_storage_account.png)
+		![Enter storage account details](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_storage_account.png)
 
- - You can create a new blob container in this storage account by clicking **Blobs** in the **Services** tile. This is an optional step, as the PowerShell command to upload the image can also create a new blob container for your image.
+	- You can create a new blob container in this storage account by clicking **Blobs** in the **Services** tile. This is an optional step, as the PowerShell command to upload the image can also create a new blob container for your image.
 
-	![Blob service](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_blob.png)
+		![Blob service](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_blob.png)
 
- - Once the blob panel shows up, click **+ Container** to create a new blob storage container. Enter the name of the container and the access type.
+	- Once the blob panel shows up, click **+ Container** to create a new blob storage container. Enter the name of the container and the access type.
 
-	![Create new blob](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_container.png)
+		![Create new blob](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_container.png)
 
-> [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the **Blob** option. To allow full public read access for the container and blobs, use the **Container** option.
+  		> [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the **Blob** option. To allow full public read access for the container and blobs, use the **Container** option.
 
- - The **Blob service** panel will list the new blob container. Note down the URL of this container; you will need this for the PowerShell command to upload the image. Depending on the length of the URL and your screen resolution, the URL may get partly hidden; if that happens, maximize the panel by clicking the *Maximize* icon on the upper right corner.
+	- The **Blob service** panel will list the new blob container. Note down the URL of this container; you will need this for the PowerShell command to upload the image. Depending on the length of the URL and your screen resolution, the URL may get partly hidden; if that happens, maximize the panel by clicking the *Maximize* icon on the upper right corner.
 
 
 ### Using PowerShell
@@ -125,7 +128,7 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 4. If you wish to create a new storage account to hold this image, follow these steps:
 
- - Make sure you have a resource group for this storage account. Find out all resource groups in your subscription by using:
+	- Make sure you have a resource group for this storage account. Find out all resource groups in your subscription by using:
 
 			Get-AzureRmResourceGroup
 
@@ -133,7 +136,7 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
  			New-AzureRmResourceGroup -Name YourResourceGroup -Location "West US"
 
- - Create a new storage account in this resource group by using:
+	- Create a new storage account in this resource group by using:
 
 			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -Type "Standard_GRS"
 
