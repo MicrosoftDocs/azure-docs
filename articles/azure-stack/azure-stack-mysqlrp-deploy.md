@@ -16,7 +16,7 @@
 	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
-# MySQL resource providers
+# Add a MySQL resource provider to Azure Stack
 
 MySQL databases support common website platforms as is a common technology used on the websites scene. You can deploy the MySQL Resource Provider to work with servers and databases through Azure Resource Manager deployment templates, as well as deploy WordPress websites from the Azure Web Apps add on for Azure Stack
 
