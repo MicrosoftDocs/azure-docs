@@ -23,7 +23,7 @@ A primary reason for using Elasticsearch is to support searches through data. Us
 
 This document summarizes options that you can consider when determining the best way to optimize your system for query and search performance.
 
-All performance recommendations depend largely on the scenarios that apply to your situation, the volume of data that you are indexing, and the rate at which applications and users query your data. You should carefully test the results of any change in configuration or indexing structure using your own data and workloads to assess the benefits to your specific scenarios. To this end, this document also describes a number of benchmarks that were performed for one specific scenario implemented by using different configurations. You can adapt the approach taken to assess the performance of your own systems. The details of these tests are described in the [appendix](#appendix-the-query-and-aggregation-performance-test).
+All performance recommendations depend largely on the scenarios that apply to your situation, the volume of data that you are indexing, and the rate at which applications and users query your data. You should carefully test the results of any change in configuration or indexing structure using your own data and workloads to assess the benefits to your specific scenarios. To this end, this document also describes a number of benchmarks that were performed for one specific scenario implemented by using different configurations. You can adapt the approach taken to assess the performance of your own systems. 
 
 ## Index and Query Performance Considerations
 
@@ -60,11 +60,11 @@ However, under some circumstances sharing an index across types can be efficient
 An Elasticsearch index contains a copy of the original JSON documents that were used to populate it. This information is held in the [*\_source*](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-source-field.html#mapping-source-field) field of each indexed item. This data is not searchable, but by default is returned by *get* and *search* requests. However, this field incurs overhead and occupies storage, making shards larger and increasing the volume of I/O performed. You can disable the *\_source* field on a per type basis:
 
 ````
-PUT my\_index
+PUT my_index
 {
     "mappings": {
-		"my\_type": {
-			"\_source": {
+		"my_type": {
+			"_source": {
 				"enabled": false
 			}
 		}
@@ -89,7 +89,7 @@ The number of shards available to an index ultimately determines the capacity of
 
 Re-indexing effectively involves creating a new index from the data in an old one, and then removing the old index. If an index is large, this process can take time, and you may need to ensure that the data remains searchable during this period. For this reason, you should create an [alias for each index](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html), and queries should retrieve data through these aliases. While re-indexing, keep the alias pointing at the old index, and then switch it to reference the new index once re-indexing is complete. This approach is also useful for accessing time-based data which creates a new index each day; to access the current data use an alias that rolls over to the new index as it is created.
 
-TODO - internal link to query tuning
+<!-- TODO - internal link to query tuning -->
 
 <span id="_Query_Tuning" class="anchor"><span id="_Optimizing_Resources_for" class="anchor"></span></span>
 
@@ -104,7 +104,7 @@ Elasticsearch uses mappings to determine how to interpret the data that occurs i
 - Use *not\_analyzed* to avoid tokenization where appropriate. For example, if a document contains a string field named *data* that holds the value "ABC-DEF" then you might attempt to perform a search for all documents that match this value as follows:
 
 ````
-GET /myindex/mydata/\_search
+GET /myindex/mydata/_search
 {
 	"query" : {
 		"filtered" : {
@@ -128,7 +128,7 @@ PUT /myindex
 			"properties" : {
 				"data" : {
 					"type" : "string",
-					"index" : "not\_analyzed"
+					"index" : "not_analyzed"
 				}
 			}
 		}
@@ -154,7 +154,7 @@ PUT /myindex
 			"properties" : {
 				"data" : {
 					...
-				"doc\_values": true
+				"doc_values": true
 				}
 			}
 		}
@@ -179,7 +179,7 @@ A common strategy to boost the performance of queries is to create many replicas
 Elasticsearch can cache the local data requested by queries on each shard in memory. This enables queries that access the same data to run more quickly; data can be retrieved from memory rather than disk storage. The data in the cache is invalidated when the shard is refreshed and the data has changed; the frequency of refreshes is governed by the value of the *refresh\_interval* setting of the index. The shard request cache for an index is disabled by default, but you can enable it as follows:
 
 ````
-PUT /myindex/\_settings
+PUT /myindex/_settings
 {
 	"index.requests.cache.enable": true
 }
@@ -187,85 +187,40 @@ PUT /myindex/\_settings
 
 The shard request cache is most suitable for information that remains relatively static, such as historical or logging data.
 
-### Tuning Queries
-
-The following points summarize tips for maximizing the performance of Elasticsearch queries:
-
-- Avoid queries that involve wild cards wherever possible
-
-<!-- TODO example -->
-
-- If the same field is subject to full-text searching and exact matching, then consider storing the data for the field in analyzed and non-analyzed forms. In the following example, the *myField* is tokenized and supports full-text searches, and the sub-property *myField.original* is not tokenized and can be used for exact matches.
-
-<!-- TODO example -->
-    
-- Only return the data necessary. If you have large documents, but an application only requires information held in a subset of the fields, then return this subset from queries rather than entire documents. This strategy can reduce the network bandwidth requirements of the cluster.
-
-<!-- TODO example -->
-
-- Wherever possible, use filters instead of queries when searching for data. A filter simply determines whether a document matches a given criterion whereas a query also calculates how close a match a document is (scoring). Internally, the values generated by a filter are stored as a bitmap indicating match/no-match for each document, and they can be cached by Elasticsearch. If the same filter criterion occurs subsequently, the bitmap can be retrieved from cache and used to quickly fetch the matching documents. For more information, see [Internal Filter Operation](https://www.elastic.co/guide/en/elasticsearch/guide/current/_finding_exact_values.html#_internal_filter_operation).
-
-- Use *bool* filters for performing static comparisons, and only use *and*, *or*, and *not* filters for dynamically calculated filters, such as those that involve scripting or the *geo-\** filters.
-
-<!-- TODO - EXAMPLE SHOWING HOW TO RECAST AN AND FILTER AS A BOOL FILTER -->
-
-- If a query combines *bool* filters with *and*, *or*, or *not* with *geo-\** filters, place the *and*/*or*/*not geo-\** filters last so that they operate on the smallest data set possible.
-
-<!-- TODO example -->
-
-- Similarly, use a *post\_filter* to run expensive filter operations. These filters will be performed last.
-
-<!-- TODO example -->
-
-- Use aggregations rather than facets. Avoid calculating aggregates that are analyzed or that have many possible values.
-
-<!-- TODO example -->
-  
-[AZURE.NOTE] Facets have been removed in Elasticsearch version 2.0.0.
-
-- Use the *cardinality* aggregation in preference to the *value\_count* aggregation unless your application requires an exact count of matching items. An exact count can become quickly outdated, and many applications only require a reasonable approximation.
-
-<!-- TODO example -->
-
-- Avoid scripting wherever possible. Scripts in queries and filters can be expensive and the results are not cached. Long-running scripts can consume search threads indefinitely, causing subsequent requests to be queued. If the queue fills up, further requests will be rejected.
-
-<!-- TODO example -->
-
 ## Testing and Analyzing Aggregation and Search Performance
-
 This section describes the results of a series of tests that were performed against varying cluster and index configurations. Each test started with an empty index which was populated as the test proceeded by performing bulk insert operations (each operation added 1000 documents). At the same time, a number of queries designed to search for specific data and to generate aggregations were repeated at 5 second intervals. The purpose of the tests was to establish how query performance was effected by the volume of data.
 
 Each document in the index had the same schema. This table summarizes the fields in the schema:
 
-  Name                          Type         Notes
-  ----------------------------- ------------ -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Organization                  String       The test generates 200 unique organizations. Between 2 and 4 of organizations account for approximately 50% of the data generated, 20 organizations are referenced by 35% of the data, and the rest are distributed across the remaining 15%.
-  CustomField1 - CustomField5   String       These are five string fields which are set to the empty string.
-  DateTimeRecievedUtc           Timestamp    The date and time at which the document was added.
-  Host                          String       This field is set to the empty string.
-  HttpMethod                    String       This field is set to one of the following values: “POST”,”GET”,”PUT”.
-  HttpReferrer                  String       This field is set to the empty string.
-  HttpRequest                   String       This field is populated with random text between 10 and 200 characters in length.
-  HttpUserAgent                 String       This field is set to the empty string.
-  HttpVersion                   String       This field is set to the empty string.
-  OrganizationName              String       This field is set to the same value as the Organization field.
-  SourceIp                      IP           This field contains an IP address indicating the "origin" of the data. The test generates IP addresses where 80% of the values are unique but 20% are duplicated.
-  SourceIpAreaCode              Long         This field is set to 0.
-  SourceIpAsnNr                 String       This field is set to "AS\#\#\#\#\#".
-  SourceIpBase10                Long         This field is set to 500.
-  SourceIpCountryCode           String       This field contains a 2-character country code. Between 2 and 4 of countries account for approximately 50% of the data generated, 20 countries are referenced by 35% of the data, and the rest are distributed across the remaining 15%.
-  SourceIpCity                  String       This field contains a string identifying a city in a country. Each country has 10 cities.
-  SourceIpLatitude              Double       This field contains a random value.
-  SourceIpLongitude             Double       This field contains a random value.
-  SourceIpMetroCode             Long         This field is set to 0.
-  SourceIpPostalCode            String       This field is set to the empty string.
-  SourceLatLong                 Geo\_point   This field is set to a random geo point.
-  SourcePort                    String       This field is populated with the string representation of a random number in the range 4000 to 4500.
-  TargetIp                      IP           This is populated with a random IP address in the range 0.0.100.100 to 255.9.100.100
-  SourcedFrom                   String       This field is set to the string “MonitoringCollector”.
-  TargetPort                    String       This field is populated with the string representation of a random number in the range 9000 to 9500.
-  Rating                        String       This field is populated with one of 20 different string values selected at random.
-  UseHumanReadableDateTimes     Boolean      This field is set to false.
+  Name                          | Type         | Notes |
+  ----------------------------- | ------------ | -------------------------------------------------------- |
+  Organization                  | String      | The test generates 200 unique organizations. |
+  CustomField1 - CustomField5   |String       |These are five string fields which are set to the empty string.|
+  DateTimeRecievedUtc           |Timestamp    |The date and time at which the document was added.|
+  Host                          |String       |This field is set to the empty string.|
+  HttpMethod                    |String       |This field is set to one of the following values: “POST”,”GET”,”PUT”.|
+  HttpReferrer                  |String       |This field is set to the empty string.|
+  HttpRequest                   |String       |This field is populated with random text between 10 and 200 characters in length.|
+  HttpUserAgent                 |String       |This field is set to the empty string.|
+  HttpVersion                   |String       |This field is set to the empty string.|
+  OrganizationName              |String       |This field is set to the same value as the Organization field.|
+  SourceIp                      |IP           |This field contains an IP address indicating the "origin" of the data. |
+   SourceIpAreaCode              |Long         |This field is set to 0.|
+  SourceIpAsnNr                 |String       |This field is set to "AS\#\#\#\#\#".|
+  SourceIpBase10                |Long         |This field is set to 500.|
+  SourceIpCountryCode           |String       |This field contains a 2-character country code. |
+  SourceIpCity                  |String       |This field contains a string identifying a city in a country. |
+  SourceIpLatitude              |Double       |This field contains a random value.|
+  SourceIpLongitude             |Double       |This field contains a random value.|
+  SourceIpMetroCode             |Long         |This field is set to 0.|
+  SourceIpPostalCode            |String       |This field is set to the empty string.|
+  SourceLatLong                 |Geo\_point   |This field is set to a random geo point.|
+  SourcePort                    |String       |This field is populated with the string representation of a random number|
+  TargetIp                      |IP           |This is populated with a random IP address in the range 0.0.100.100 to 255.9.100.100|
+  SourcedFrom                   |String       |This field is set to the string “MonitoringCollector”.|
+  TargetPort                    |String       |This field is populated with the string representation of a random number|
+  Rating                        |String       |This field is populated with one of 20 different string values selected at random.|
+  UseHumanReadableDateTimes     |Boolean      |This field is set to false.|
 
 The following queries were performed as a batch by each iteration of the test (the names in italics are used to refer to these queries in the remainder of this document):
 
@@ -283,71 +238,76 @@ The following queries were performed as a batch by each iteration of the test (t
 
 - How many different *SourceIp* values occur in documents added in the last 15 minutes (*Unique IP Count*)?
 
-The definition of the index and the details of the queries are outlined in the [appendix](#appendix-the-query-and-aggregation-performance-test).
-
+<!-- The definition of the index and the details of the queries are outlined in the [appendix](#appendix-the-query-and-aggregation-performance-test).
+-->
 The tests were performed to understand the effects of the following variables:
 
 - **Disk type**. The test was performed on a 6-node cluster of D4 VMs using standard storage (HDDs) and repeated on a 6-node cluster of DS4 VMs using premium storage (SSDs).
 
 - **Machine size - scaling up**. The test was performed on a 6-node cluster comprising DS3 VMs (designated as the *small* cluster), repeated on a cluster of DS4 VMs (the *medium* cluster), and repeated again on a cluster of DS14 machines (the *large* cluster). The following table summarizes the key characteristics of each VM SKU:
 
-  Cluster   VM SKU          Number of Cores   Number of Data Disks   RAM (GB)
-  --------- --------------- ----------------- ---------------------- ----------
-  Small     Standard DS3    4                 8                      14
-  Medium    Standard DS4    8                 16                     28
-  Large     Standard DS14   16                32                     112
+  Cluster   |VM SKU          |Number of Cores   |Number of Data Disks   |RAM (GB)|
+  --------- |--------------- |----------------- |---------------------- |--------|
+  Small     |Standard DS3    |4                 |8                      |14      |
+  Medium    |Standard DS4    |8                 |16                     |28      |
+  Large     |Standard DS14   |16                |32                     |112     |
 
-
+<!--
 - **Cluster size - scaling out**. The test was performed on clusters of DS14 VMs comprising 1, 3, and 6 nodes.
 
 - **Number of index replicas**. The test was performed using indexes configured with 1 and 2 replicas.
+-->
 
-- **Doc values**. Initially the tests were performed with the index setting *doc\_values* set to *true*. Selected tests were repeated with *doc\_values* set to *false*.
+- **Doc values**. Initially the tests were performed with the index setting *doc\_values* set to *true*. Selected tests were repeated with *doc_values* set to *false*.
 
+<!--
 - **Caching**. The test was conducted with the shard request cache enabled on the index.
 
 - **Dedicated client nodes**. The test was performed by using a pool of dedicated client nodes to connect applications performing queries to the cluster.
 
 - **Number of shards**. The test was repeated using varying numbers of shards to establish whether queries ran more efficiently across indexes containing fewer, larger shards or more, smaller shards.
-  
+-->
+
+<!--
 [AZURE.NOTE] You can repeat the tests yourself. The test plans and scripts are available online, and the document [How-To: Run the Automated Elasticsearch Query Tests](TODO) describes how to use these assets to conduct your own testing.
+-->
 
 ### Performance Results – Disk Type
 
-The table below summarizes the response times of the work performed by running the test on the 6-node cluster of D4 VMs (using HDDs), and on the 6-node cluster of DS4 VMs (using SSDs). The configuration of Elasticsearch in both clusters was the same. The data was spread across 16 disks on each node, and each node had 14GB of RAM allocated to the JVM running Elasticsearch; the remaining memory (also 14GB) was left for operating system use. Each test ran for 24 hours. This period was selected to enable the effects of the increasing volume of data to become apparent and to allow the system to stabilize.
+The table below summarizes the response times of the work performed by running the test on the 6-node cluster of D4 VMs (using HDDs), and on the 6-node cluster of DS4 VMs (using SSDs). The configuration of Elasticsearch in both clusters was the same. The data was spread across 16 disks on each node, and each node had 14GB of RAM allocated to the JVM running Elasticsearch; the remaining memory (also 14GB) was left for operating system use. Each test ran for 24 hours. This period was selected to enable the effects of the increasing volume of data to become apparent and to allow the system to stabilize:
 
-  Cluster   Operation/Query              Average Response Time (ms)
-  --------- ---------------------------- ----------------------------
-  D4        Ingestion                    978
-            Count By Rating              103
-            Count Over Time              134
-            Hits By Country              199
-            Top 15 Organizations         137
-            Unique Count Organizations   139
-            Unique IP Count              510
-            Total Hits Counts            89
-  DS4       Ingestion                    511
-            Count By Rating              187
-            Count Over Time              411
-            Hits By Country              402
-            Top 15 Organizations         307
-            Unique Count Organizations   320
-            Unique IP Count              841
-            Total Hits Counts            236
+  Cluster   |Operation/Query              |Average Response Time (ms)|
+ -----------|---------------------------- |--------------------------|
+  D4        |Ingestion                    |978                       |
+            |Count By Rating              |103                       |
+            |Count Over Time              |134                       |
+            |Hits By Country              |199                       |
+            |Top 15 Organizations         |137                       |
+            |Unique Count Organizations   |139                       |
+            |Unique IP Count              |510                       |
+            |Total Hits Counts            |89                        |
+  DS4       |Ingestion                    |511                       |
+            |Count By Rating              |187                       |
+            |Count Over Time              |411                       |
+            |Hits By Country              |402                       |
+            |Top 15 Organizations         |307                       |
+            |Unique Count Organizations   |320                       |
+            |Unique IP Count              |841                       |
+            |Total Hits Counts            |236                       |
 
 At first glance, it would appear that the DS4 cluster performed queries less well than the D4 cluster, at times doubling (or worse) the response time. This does not tell the whole story though. The next table shows the number of ingestion operations performed by each cluster (remember that each operation loads 1000 documents):
 
-  Cluster   \## Ingestion Operations
-  --------- -------------------------
-  D4        264769
-  DS4       503157
+ Cluster   | Ingestion Operations
+ ----------|---------------------
+  D4       | 264769              
+  DS4      | 503157              
 
 The DS4 cluster was able to load nearly twice as much data than the D4 cluster during the test. Therefore, when analyzing the response times for each operation, you also need to consider how many documents each query has to scan, and how many documents are returned. These are dynamic figures as the volume of documents in the index is continually growing. You cannot simply divide 503137 by 264769 (the number of ingestion operations performed by each cluster) and then multiply the result by the average response time for each query performed by the D4 cluster to give a comparative figure as this ignores the amount of I/O being performed concurrently by the ingestion operation. Instead, you should measure the physical amount of data being written to and read from disk as the test proceeds. The JMeter test plan captures this information for each node. The summarized results were:
 
-  Cluster   Average bytes written/read by each operation
-  --------- ----------------------------------------------
-  D4        13471557
-  DS4       24643470
+  Cluster   |Average bytes written/read by each operation|
+  --------- |--------------------------------------------|
+  D4        |13471557                                    |
+  DS4       |24643470                                    |
 
 These figures show that the DS4 cluster was able to sustain an I/O rate approximately 1.8 times that of the D4 cluster. Given that, apart from nature of the disks, all other resources are the same, the difference must be due to using SSDs rather HDDs.
 
@@ -371,34 +331,26 @@ There is one other factor to consider. During the test, the D4 cluster generated
 
 ### Performance Results – Scaling Up
 
-The table below summarizes the results of running the tests on the small (DS3), medium (DS4), and large (DS14) clusters. Each VM used SSDs to hold the data. Each test ran for 24 hours:
+The table below summarizes the results of running the tests on the medium (DS4), and large (DS14) clusters. Each VM used SSDs to hold the data. Each test ran for 24 hours:
 
-  Cluster        Operation/Query              Number of Requests   Average Response Time (ms)
-  -------------- ---------------------------- -------------------- ----------------------------
-  Small (DS3)    Ingestion                                         
-                 Count By Rating                                   
-                 Count Over Time                                   
-                 Hits By Country                                   
-                 Top 15 Organizations                              
-                 Unique Count Organizations                        
-                 Unique IP Count                                   
-                 Total Hits Counts                                 
-  Medium (DS4)   Ingestion                    503157               511
-                 Count By Rating              6958                 187
-                 Count Over Time              6958                 411
-                 Hits By Country              6958                 402
-                 Top 15 Organizations         6958                 307
-                 Unique Count Organizations   6956                 320
-                 Unique IP Count              6955                 841
-                 Total Hits Counts            6958                 236
-  Large (DS14)   Ingestion                    502714               511
-                 Count By Rating              7041                 201
-                 Count Over Time              7040                 298
-                 Hits By Country              7039                 363
-                 Top 15 Organizations         7038                 244
-                 Unique Count Organizations   7037                 283
-                 Unique IP Count              7037                 681
-                 Total Hits Counts            7038                 200
+|  Cluster        |Operation/Query              |Number of Requests   |Average Response Time (ms)|
+|  -------------- |---------------------------- |-------------------- |--------------------------|
+|  Medium (DS4)   |Ingestion                    |503157               |511                       |
+|                 |Count By Rating              |6958                 |187                       |
+|                 |Count Over Time              |6958                 |411                       |
+|                 |Hits By Country              |6958                 |402                       |
+|                 |Top 15 Organizations         |6958                 |307                       |
+|                 |Unique Count Organizations   |6956                 |320                       |
+|                 |Unique IP Count              |6955                 |841                       |
+|                 |Total Hits Counts            |6958                 |236                       |
+|  Large (DS14)   |Ingestion                    |502714               |511                       |
+|                 |Count By Rating              |7041                 |201                       |
+|                 |Count Over Time              |7040                 |298                       |
+|                 |Hits By Country              |7039                 |363                       |
+|                 |Top 15 Organizations         |7038                 |244                       |
+|                 |Unique Count Organizations   |7037                 |283                       |
+|                 |Unique IP Count              |7037                 |681                       |
+|                 |Total Hits Counts            |7038                 |200                       |
 
 <!-- 
 DISCUSSION POINTS:
@@ -413,125 +365,135 @@ Show memory utilization – more data cached, fewer GCs, etc.
 
 -->
 
+<!--
 To isolate the effects of the ingestion operations and show how query performance varies as nodes scale up, a second set of tests was performed using the same nodes. The ingestion part of the test was omitted, and the index on each node was pre-populated with 100 million documents. An amended set of queries was performed; the time element limiting documents to those added in the last 15 minutes was removed as the data was now static. The tests ran for 90 minutes; there is less need to allow the system to stabilize due to the fixed amount of data. The following table summarizes the results obtained on each cluster:
 
 [AZURE.NOTE] The amended version of the test that omits the data ingestion process and that uses a set of indexes containing 100 million documents is referred to as the *query-only* test in the remainder of this document. You should not compare the performance of the queries in this test with that of the tests that perform ingestion and query operations because the queries have been modified and the volume of documents involved is different.
 
-  Cluster        Operation/Query              Number of Requests   Average Response Time (ms)
-  -------------- ---------------------------- -------------------- ----------------------------
-  Small (DS3)    Count By Rating                                   
-                 Count Over Time                                   
-                 Hits By Country                                   
-                 Top 15 Organizations                              
-                 Unique Count Organizations                        
-                 Unique IP Count                                   
-                 Total Hits Counts                                 
-  Medium (DS4)   Count By Rating                                   
-                 Count Over Time                                   
-                 Hits By Country                                   
-                 Top 15 Organizations                              
-                 Unique Count Organizations                        
-                 Unique IP Count                                   
-                 Total Hits Counts                                 
-  Large (DS14)   Count By Rating                                   
-                 Count Over Time                                   
-                 Hits By Country                                   
-                 Top 15 Organizations                              
-                 Unique Count Organizations                        
-                 Unique IP Count                                   
-                 Total Hits Counts                                 
+ |Cluster        |Operation/Query              |Number of Requests   Average Response Time (ms)
+ | --------------| ----------------------------| -------------------- ----------------------------
+ | Small (DS3)   | Count By Rating             |                      
+ |               | Count Over Time             |                      
+ |               | Hits By Country             |                      
+ |               | Top 15 Organizations        |                      
+ |               | Unique Count Organizations  |                      
+ |               | Unique IP Count             |                      
+ |               | Total Hits Counts           |                      
+ | Medium (DS4)  | Count By Rating             |                      
+ |               | Count Over Time             |                      
+ |               | Hits By Country             |                      
+ |               | Top 15 Organizations        |                      
+ |               | Unique Count Organizations  |                      
+ |               | Unique IP Count             |                      
+ |               | Total Hits Counts           |                      
+ | Large (DS14)  | Count By Rating             |                      
+ |               | Count Over Time             |                      
+ |               | Hits By Country             |                      
+ |               | Top 15 Organizations        |                      
+ |               | Unique Count Organizations  |                      
+ |               | Unique IP Count             |                      
+ |               | Total Hits Counts           |                      
 
 ### Performance Results – Scaling Out
+-->
 
+
+<!--
 To show the system scales out with the number of nodes, tests were run using DS14 clusters comprising 1, 3, and 6 nodes. This time, only the query-only test was performed, using 100 million documents and running for 90 minutes:
 
 [AZURE.NOTE] For detailed information on how scaling out can affect the behavior of data ingestion operations, see the document [Maximizing Data Ingestion Performance with Elasticsearch on Azure](https://github.com/mspnp/azure-guidance/blob/master/Elasticsearch-Data-Ingestion-Performance.md).
 
-  Cluster   Operation/Query              Number of Requests   Average Response Time (ms)
-  --------- ---------------------------- -------------------- ----------------------------
-  1 Node    Count By Rating                                   
-            Count Over Time                                   
-            Hits By Country                                   
-            Top 15 Organizations                              
-            Unique Count Organizations                        
-            Unique IP Count                                   
-            Total Hits Counts                                 
-  3 Nodes   Count By Rating                                   
-            Count Over Time                                   
-            Hits By Country                                   
-            Top 15 Organizations                              
-            Unique Count Organizations                        
-            Unique IP Count                                   
-            Total Hits Counts                                 
-  6 Nodes   Count By Rating                                   
-            Count Over Time                                   
-            Hits By Country                                   
-            Top 15 Organizations                              
-            Unique Count Organizations                        
-            Unique IP Count                                   
-            Total Hits Counts                                 
+|  Cluster   |Operation/Query              |Number of Requests   |Average Response Time (ms)
+|  --------- |---------------------------- |-------------------- |----------------------------
+|  1 Node    |Count By Rating              |                     |
+|            |Count Over Time              |                     |
+|            |Hits By Country              |                     |
+|            |Top 15 Organizations         |                     |
+|            |Unique Count Organizations   |                     |
+|            |Unique IP Count              |                     |
+|            |Total Hits Counts            |                     |
+|  3 Nodes   |Count By Rating              |                     |
+|            |Count Over Time              |                     |
+|            |Hits By Country              |                     |
+|            |Top 15 Organizations         |                     |
+|            |Unique Count Organizations   |                     |
+|            |Unique IP Count              |                     |
+|            |Total Hits Counts            |                     |
+|  6 Nodes   |Count By Rating              |                     |
+|            |Count Over Time              |                     |
+|            |Hits By Country              |                     |
+|            |Top 15 Organizations         |                     |
+|            |Unique Count Organizations   |                     |
+|            |Unique IP Count              |                     |
+|            |Total Hits Counts            |                     |
+-->
 
+<!--
 ### Performance Results – Number of Replicas
 
 The ingestion and query tests were run against an index with a single replica. The tests were repeated on the 6-node DS4 and DS14 clusters using an index configured with two replicas. All tests ran for 24 hours. The table below shows the comparative results for one and two replicas:
 
-  Cluster   Operation/Query              Average Response Time (ms) – 1 Replica   Average Response Time (ms) – 2 Replicas   % Difference in Response Time
-  --------- ---------------------------- ---------------------------------------- ----------------------------------------- -------------------------------
-  DS4       Ingestion                    511                                      655                                       +28%
-            Count By Rating              187                                      168                                       -10%
-            Count Over Time              411                                      309                                       -25%
-            Hits By Country              402                                      562                                       +40%
-            Top 15 Organizations         307                                      366                                       +19%
-            Unique Count Organizations   320                                      378                                       +18%
-            Unique IP Count              841                                      987                                       +17%
-            Total Hits Counts            236                                      236                                       +0%
-  DS14      Ingestion                    511                                      618                                       +21%
-            Count By Rating              201                                      275                                       +37%
-            Count Over Time              298                                      466                                       +56%
-            Hits By Country              363                                      529                                       +46%
-            Top 15 Organizations         244                                      407                                       +67%
-            Unique Count Organizations   283                                      403                                       +42%
-            Unique IP Count              681                                      823                                       +21%
-            Total Hits Counts            200                                      221                                       +11%
+|  Cluster|  Operation/Query            | response time 1 Replica (ms)| response time 2 Replicas (ms) | % Difference in Response Time
+|  -------| ----------------------------| ----------------------------|----------- -------------------|--------------------- --------
+|  DS4    |   Ingestion                 |   511                       |               655             |                          +28%
+|         |   Count By Rating           |   187                       |               168             |                          -10%
+|         |   Count Over Time           |   411                       |               309             |                          -25%
+|         |   Hits By Country           |   402                       |               562             |                          +40%
+|         |   Top 15 Organizations      |   307                       |               366             |                          +19%
+|         |   Unique Count Organizations|   320                       |               378             |                          +18%
+|         |   Unique IP Count           |   841                       |               987             |                          +17%
+|         |   Total Hits Counts         |   236                       |               236             |                          +0%
+|  DS14   |   Ingestion                 |   511                       |               618             |                          +21%
+|         |   Count By Rating           |   201                       |               275             |                          +37%
+|         |   Count Over Time           |   298                       |               466             |                          +56%
+|         |   Hits By Country           |   363                       |               529             |                          +46%
+|         |   Top 15 Organizations      |   244                       |               407             |                          +67%
+|         |   Unique Count Organizations|   283                       |               403             |                          +42%
+|         |   Unique IP Count           |   681                       |               823             |                          +21%
+|         |   Total Hits Counts         |   200                       |               221             |                          +11%
+
 
 NEED \## OF DOCUMENTS RETURNED TO JUSTIFY THIS DATA, OTHERWISE PERF FOR 2 REPLICAS LOOKS POOR!
 
 PRESENT QUERY-ONLY TEST RESULTS TO SHOW BETTER RESULTS
+-->
 
 ### Performance Results – Doc Values
 
 The ingestion and query tests were conducted with doc values enabled, causing Elasticsearch to store data used for sorting fields on disk. The tests were repeated with doc values disabled, so Elasticsearch constructed fielddata dynamically and cached it in memory. All tests ran for 24 hours. The table below compares the response times for tests run against clusters of 6 nodes built using D4, DS4, and DS14 VMs.
 
-  Cluster   Operation/Query              Average Response Time (ms) – Doc Values Enabled   Average Response Time (ms) – Doc Values Disabled   % Difference in Response Time
-  --------- ---------------------------- ------------------------------------------------- -------------------------------------------------- -------------------------------
-  D4        Ingestion                    978                                               835                                                -15%
-            Count By Rating              103                                               132                                                +28%
-            Count Over Time              134                                               189                                                +41%
-            Hits By Country              199                                               259                                                +30%
-            Top 15 Organizations         137                                               184                                                +34%
-            Unique Count Organizations   139                                               197                                                +42%
-            Unique IP Count              510                                               604                                                +18%
-            Total Hits Counts            89                                                134                                                +51%
-  DS4       Ingestion                    511                                               581                                                +14%
-            Count By Rating              187                                               190                                                +2%
-            Count Over Time              411                                               409                                                -0.5%
-            Hits By Country              402                                               414                                                +3%
-            Top 15 Organizations         307                                               284                                                -7%
-            Unique Count Organizations   320                                               313                                                -2%
-            Unique IP Count              841                                               955                                                +14%
-            Total Hits Counts            236                                               281                                                +19%
-  DS14      Ingestion                    511                                               571                                                +12%
-            Count By Rating              201                                               232                                                +15%
-            Count Over Time              298                                               341                                                +14%
-            Hits By Country              363                                               457                                                +26%
-            Top 15 Organizations         244                                               338                                                +39%
-            Unique Count Organizations   283                                               350                                                +24%
-            Unique IP Count              681                                               909                                                +33%
-            Total Hits Counts            200                                               245                                                +23%
+|  Cluster   |Operation/Query            |Doc Values Enabled (ms) |  Doc Values Disabled (ms)  | % Difference       |
+|  --------- |---------------------------| -----------------------|--------------------------  |--------------------|
+|  D4        |Ingestion                  |  978                   |        835                 |           -15%     |
+|            |Count By Rating            |  103                   |        132                 |           +28%     |
+|            |Count Over Time            |  134                   |        189                 |           +41%     |
+|            |Hits By Country            |  199                   |        259                 |           +30%     |
+|            |Top 15 Organizations       |  137                   |        184                 |           +34%     |
+|            |Unique Count Organizations |  139                   |        197                 |           +42%     |
+|            |Unique IP Count            |  510                   |        604                 |           +18%     |
+|            |Total Hits Counts          |  89                    |        134                 |           +51%     |
+|  DS4       |Ingestion                  |  511                   |        581                 |           +14%     |
+|            |Count By Rating            |  187                   |        190                 |           +2%      |
+|            |Count Over Time            |  411                   |        409                 |           -0.5%    |
+|            |Hits By Country            |  402                   |        414                 |           +3%      |
+|            |Top 15 Organizations       |  307                   |        284                 |           -7%      |
+|            |Unique Count Organizations |  320                   |        313                 |           -2%      |
+|            |Unique IP Count            |  841                   |        955                 |           +14%     |
+|            |Total Hits Counts          |  236                   |        281                 |           +19%     |
+|  DS14      |Ingestion                  |  511                   |        571                 |           +12%     |
+|            |Count By Rating            |  201                   |        232                 |           +15%     |
+|            |Count Over Time            |  298                   |        341                 |           +14%     |
+|            |Hits By Country            |  363                   |        457                 |           +26%     |
+|            |Top 15 Organizations       |  244                   |        338                 |           +39%     |
+|            |Unique Count Organizations |  283                   |        350                 |           +24%     |
+|            |Unique IP Count            |  681                   |        909                 |           +33%     |
+|            |Total Hits Counts          |  200                   |        245                 |           +23%     |
 
+
+<!--
 The next table compares the number of ingestion operations performed by the tests:
 
-  Cluster   \## Ingestion Operations – Doc Values Enabled   \## Ingestion Operations – Doc Values Disabled   % Difference in \## Ingestion Operations
+  Cluster   Ingestion Operations – Doc Values Enabled   \## Ingestion Operations – Doc Values Disabled   % Difference in \## Ingestion Operations
   --------- ---------------------------------------------- ----------------------------------------------- -----------------------------------------
   D4        264769                                         408690                                          +54%
   DS4       503137                                         578237                                          +15%
@@ -550,177 +512,180 @@ To isolate the effects that doc values on query performance from data ingestion,
 In the first test, the Elasticsearch index was created with doc values enabled, the index was pre-populated with 100 million documents, and then modified set of queries used by the replica tests were performed repeatedly for 90 minutes while performance statistics were gathered.
 
 In the second test, the Elasticsearch index was created with doc values disabled, populated, and then subjected to the same query load for the same period as the first test.
+-->
 
- 
+<!--
 ## Appendix: The Query and Aggregation Performance Test
 
 This appendix describes the performance test performed against the Elasticsearch cluster. The tests were run by using JMeter running on a separate set of VMs. Details the configuration of the test environment are described in the document How-To: Create a Performance Testing Environment for Elasticsearch. To perform your own testing, you can create your own JMeter test plan manually following the guidance in this appendix, or you can use the automated test scripts available separately. See the document How-To: Run the Automated Elasticsearch Query Tests for further information.
 
 The data query workload performed the set of queries described below while performing a large-scale upload of documents at the same time (the data was uploaded by using a JUnit test, following the same approach for the data ingestion tests described in the document Maximizing Data Ingestion Performance with Elasticsearch on Azure.) The purpose of this workload was to simulate a production environment where new data is constantly being added while searches are performed. The queries were structured to retrieve only the most recent data from documents added in the last 15 minutes.
 
-Each document was stored in a single index named *dcu*, and had the type *ctip*. You can use the following HTTP request to create the index. The *number\_of\_replicas* and *number\_of\_shards* settings varied from the values shown below in many of the tests. Additionally, for the tests that used fielddata rather than doc values, each property was annotated with the attribute *"doc\_values" : false*.
+Each document was stored in a single index named *sample*, and had the type *ctip*. You can use the following HTTP request to create the index. The *number\_of\_replicas* and *number\_of\_shards* settings varied from the values shown below in many of the tests. Additionally, for the tests that used fielddata rather than doc values, each property was annotated with the attribute *"doc\_values" : false*.
 
 **Important**. The index was dropped and recreated prior to each test run.
 
-```JSON
-PUT /dcu {
-  "settings": {
-    "number\_of\_replicas": 1,
-    "refresh\_interval": "30s",
-    "number\_of\_shards": "5",
-    "index.translog.durability": "async"
-  },
-  "ctip": {
-    "mappings": {
-      "event": {
-        "\_all": {
-          "enabled": false
-        },
-        "\_timestamp": {
-          "enabled": true,
-          "store": true,
-          "format": "date\_time"
-        },
-        "properties": {
-          "Organization": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "CustomField1": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "CustomField2": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "CustomField3": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "CustomField4": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "CustomField5": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "DateTimeReceivedUtc": {
-            "type": "date",
-            "format": "dateOptionalTime"
-          },
-          "Host": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "HttpMethod": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "HttpReferrer": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "HttpRequest": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "HttpUserAgent": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "HttpVersion": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "OrganizationName": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "SourceIp": {
-            "type": "ip"
-          },
-          "SourceIpAreaCode": {
-            "type": "long"
-          },
-          "SourceIpAsnNr": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "SourceIpBase10": {
-            "type": "long"
-          },
-          "SourceIpCity": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "SourceIpCountryCode": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "SourceIpLatitude": {
-            "type": "double"
-          },
-          "SourceIpLongitude": {
-            "type": "double"
-          },
-          "SourceIpMetroCode": {
-            "type": "long"
-          },
-          "SourceIpPostalCode": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "SourceIpRegion": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "SourceLatLong": {
-            "type": "geo\_point",
-            "doc\_values": true,
-            "lat\_lon": true,
-            "geohash": true
-          },
-          "SourcePort": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "SourcedFrom": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "TargetIp": {
-            "type": "ip"
-          },
-          "TargetPort": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "Rating": {
-            "type": "string",
-            "index": "not\_analyzed"
-          },
-          "UseHumanReadableDateTimes": {
-            "type": "boolean"
-          }
+```http
+PUT /sample
+{  
+    "settings" : {
+        "number_of_replicas": 1,
+        "refresh_interval": "30s",
+        "number_of_shards": "5",
+        "index.translog.durability": "async"    
+    },
+    "ctip": {
+        "mappings": {
+            "event": {
+                "_all": {
+                    "enabled": false
+                },
+                "_timestamp": {
+                    "enabled": true,
+                    "store": true,
+                    "format": "date_time"
+                },
+                "properties": {
+                    "Organization": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "CustomField1": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "CustomField2": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "CustomField3": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "CustomField4": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "CustomField5": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "DateTimeReceivedUtc": {
+                        "type": "date",
+                        "format": "dateOptionalTime"
+                    },
+                    "Host": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "HttpMethod": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "HttpReferrer": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "HttpRequest": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "HttpUserAgent": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "HttpVersion": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "OrganizationName": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "SourceIp": {
+                        "type": "ip"
+                    },
+                    "SourceIpAreaCode": {
+                        "type": "long"
+                    },
+                    "SourceIpAsnNr": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "SourceIpBase10": {
+                        "type": "long"
+                    },
+                    "SourceIpCity": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "SourceIpCountryCode": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "SourceIpLatitude": {
+                        "type": "double"
+                    },
+                    "SourceIpLongitude": {
+                        "type": "double"
+                    },
+                    "SourceIpMetroCode": {
+                        "type": "long"
+                    },
+                    "SourceIpPostalCode": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "SourceIpRegion": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "SourceLatLong": {
+                        "type": "geo_point",
+                        "doc_values": true,
+                        "lat_lon": true,
+                        "geohash": true
+                    },
+                    "SourcePort": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "SourcedFrom": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "TargetIp": {
+                        "type": "ip"
+                    },
+                    "TargetPort": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "Rating": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                    },
+                    "UseHumanReadableDateTimes": {
+                        "type": "boolean"
+                    }
+                }
+            }
         }
-      }
     }
-  }
 }
+
 ```
 
 The following queries were performed by the test:
 
 - How many documents with each *Rating* value have been entered in the last 15 minutes?
 
-```JSON
-GET /dcu/ctip/\_search {
+```http
+GET /sample/ctip/_search
+{
   "query": {
     "bool": {
-      "must": \
-      [
+      "must": [
         {
           "range": {
             "DateTimeReceivedUtc": {
@@ -729,12 +694,9 @@ GET /dcu/ctip/\_search {
             }
           }
         }
-        \
       ],
-      "must\_not": \
-      [ \ ],
-      "should": \
-      [ \ ]
+      "must_not": [],
+      "should": []
     }
   },
   "from": 0,
@@ -745,22 +707,23 @@ GET /dcu/ctip/\_search {
         "field": "Rating",
         "size": 5,
         "order": {
-          "\_count": "desc"
+          "_count": "desc"
         }
       }
     }
   }
-} 
+}
+
 ```
 
 - How many documents have been added in each 5 minute interval during the last 15 minutes?
 
-```JSON
-GET /dcu/ctip/\_search {
+```http
+GET /sample/ctip/_search 
+{
   "query": {
     "bool": {
-      "must": \
-      [
+      "must": [
         {
           "range": {
             "DateTimeReceivedUtc": {
@@ -769,26 +732,22 @@ GET /dcu/ctip/\_search {
             }
           }
         }
-        \
       ],
-      "must\_not": \
-      [ \ ],
-      "should": \
-      [ \ ]
+      "must_not": [],
+      "should": []
     }
   },
   "from": 0,
   "size": 0,
-  "sort": \
-  [ \ ],
+  "sort": [],
   "aggs": {
     "2": {
-      "date\_histogram": {
+      "date_histogram": {
         "field": "DateTimeReceivedUtc",
         "interval": "5m",
-        "time\_zone": "America/Los\_Angeles",
-        "min\_doc\_count": 1,
-        "extended\_bounds": {
+        "time_zone": "America/Los_Angeles",
+        "min_doc_count": 1,
+        "extended_bounds": {
           "min": "now-15m",
           "max": "now"
         }
@@ -796,29 +755,30 @@ GET /dcu/ctip/\_search {
     }
   }
 }
+
 ```
 
 - How many documents of each *Rating* value have been added for each country in the last 15 minutes?
 
-```JSON
-GET /dcu/ctip/\_search {
+```http
+GET /sample/ctip/_search 
+{
   "query": {
     "filtered": {
       "query": {
-        "query\_string": {
-          "query": "\*",
-          "analyze\_wildcard": true
+        "query_string": {
+          "query": "*",
+          "analyze_wildcard": true
         }
       },
       "filter": {
         "bool": {
-          "must": \
-          [
+          "must": [
             {
               "query": {
-                "query\_string": {
-                  "query": "\*",
-                  "analyze\_wildcard": true
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
                 }
               }
             },
@@ -830,10 +790,8 @@ GET /dcu/ctip/\_search {
                 }
               }
             }
-            \
           ],
-          "must\_not": \
-          [ \ ]
+          "must_not": []
         }
       }
     }
@@ -845,7 +803,7 @@ GET /dcu/ctip/\_search {
         "field": "Rating",
         "size": 5,
         "order": {
-          "\_count": "desc"
+          "_count": "desc"
         }
       },
       "aggs": {
@@ -854,7 +812,7 @@ GET /dcu/ctip/\_search {
             "field": "SourceIpCountryCode",
             "size": 15,
             "order": {
-              "\_count": "desc"
+              "_count": "desc"
             }
           }
         }
@@ -862,29 +820,30 @@ GET /dcu/ctip/\_search {
     }
   }
 }
+
 ```
 
 - Which 15 organizations occur most frequently in documents added in the last 15 minutes?
 
-``` JSON
-GET /dcu/ctip/\_search {
+``` http
+GET /sample/ctip/_search
+{
   "query": {
     "filtered": {
       "query": {
-        "query\_string": {
-          "query": "\*",
-          "analyze\_wildcard": true
+        "query_string": {
+          "query": "*",
+          "analyze_wildcard": true
         }
       },
       "filter": {
         "bool": {
-          "must": \
-          [
+          "must": [
             {
               "query": {
-                "query\_string": {
-                  "query": "\*",
-                  "analyze\_wildcard": true
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
                 }
               }
             },
@@ -896,10 +855,8 @@ GET /dcu/ctip/\_search {
                 }
               }
             }
-            \
           ],
-          "must\_not": \
-          [ \ ]
+          "must_not": []
         }
       }
     }
@@ -911,35 +868,36 @@ GET /dcu/ctip/\_search {
         "field": "Organization",
         "size": 15,
         "order": {
-          "\_count": "desc"
+          "_count": "desc"
         }
       }
     }
   }
 }
+
 ```
 
 - How many different organizations occur in documents added in the last 15 minutes?
 
-```JSON
-GET /dcu/ctip/\_search {
+```http
+GET /sample/ctip/_search
+{
   "query": {
     "filtered": {
       "query": {
-        "query\_string": {
-          "query": "\*",
-          "analyze\_wildcard": true
+        "query_string": {
+          "query": "*",
+          "analyze_wildcard": true
         }
       },
       "filter": {
         "bool": {
-          "must": \
-          [
+          "must": [
             {
               "query": {
-                "query\_string": {
-                  "query": "\*",
-                  "analyze\_wildcard": true
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
                 }
               }
             },
@@ -951,10 +909,8 @@ GET /dcu/ctip/\_search {
                 }
               }
             }
-            \
           ],
-          "must\_not": \
-          [ \ ]
+          "must_not": []
         }
       }
     }
@@ -968,29 +924,30 @@ GET /dcu/ctip/\_search {
     }
   }
 }
+
 ```
 
 - How many documents have been added in the last 15 minutes?
 
-```JSON
-GET /dcu/ctip/\_search {
+```http
+GET /sample/ctip/_search
+{
   "query": {
     "filtered": {
       "query": {
-        "query\_string": {
-          "query": "\*",
-          "analyze\_wildcard": true
+        "query_string": {
+          "query": "*",
+          "analyze_wildcard": true
         }
       },
       "filter": {
         "bool": {
-          "must": \
-          [
+          "must": [
             {
               "query": {
-                "query\_string": {
-                  "analyze\_wildcard": true,
-                  "query": "\*"
+                "query_string": {
+                  "analyze_wildcard": true,
+                  "query": "*"
                 }
               }
             },
@@ -1002,40 +959,39 @@ GET /dcu/ctip/\_search {
                 }
               }
             }
-            \
           ],
-          "must\_not": \
-          [ \ ]
+          "must_not": []
         }
       }
     }
   },
   "size": 0,
-  "aggs": { }
+  "aggs": {}
 }
+
 ```
 
 - How many different *SourceIp* values occur in documents added in the last 15 minutes?
 
-```JSON
-GET /dcu/ctip/\_search {
+```http
+GET /sample/ctip/_search
+{
   "query": {
     "filtered": {
       "query": {
-        "query\_string": {
-          "query": "\*",
-          "analyze\_wildcard": true
+        "query_string": {
+          "query": "*",
+          "analyze_wildcard": true
         }
       },
       "filter": {
         "bool": {
-          "must": \
-          [
+          "must": [
             {
               "query": {
-                "query\_string": {
-                  "query": "\*",
-                  "analyze\_wildcard": true
+                "query_string": {
+                  "query": "*",
+                  "analyze_wildcard": true
                 }
               }
             },
@@ -1047,10 +1003,8 @@ GET /dcu/ctip/\_search {
                 }
               }
             }
-            \
           ],
-          "must\_not": \
-          [ \ ]
+          "must_not": []
         }
       }
     }
@@ -1063,5 +1017,7 @@ GET /dcu/ctip/\_search {
       }
     }
   }
-}
+} 
+
 ```
+-->

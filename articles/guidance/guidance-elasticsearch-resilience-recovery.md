@@ -110,10 +110,10 @@ You should consider the following points when selecting the snapshot storage mec
 Intermittent network glitches, VM reboots after routine maintenance at the datacenter, and other similar events can cause nodes to become temporarily inaccessible. In these situations, where the event is likely to be short-lived, the overhead of rebalancing the shards occurs twice in quick succession (once when the failure is detected and again when the node become visible to the master) can become a significant overhead that impacts performance. You can prevent temporary node inaccessibility from causing the master to rebalance the cluster by setting the *delayed\_timeout* property of an index, or for all indexes. The example below sets the delay to 5 minutes:
 
 ````
-PUT /\_all/settings
+PUT /_all/settings
 {
 	"settings": {
-    "index.unassigned.node\_left.delayed\_timeout": "5m"
+    "index.unassigned.node_left.delayed_timeout": "5m"
 	}
 }
 ````
@@ -123,7 +123,7 @@ For more information, see [Delaying allocation when a node leaves](https://www.e
 In a network that is prone to interruptions, you can also modify the parameters that configure a master to detect when another node is no longer accessible. These parameters are part of the [Zen Discovery](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-zen.html#modules-discovery-zen) module provided with Elasticsearch, and you can set them in the Elasticsearch.yml file. For example, the *discovery.zen.fd.ping.retries* parameter specifies how many times a master node will attempt to ping another node in the cluster before deciding that it has failed. This parameter defaults to 3, but you can modify it as follows:
 
 ````
-discovery.zen.fd.ping\_retries: 6
+discovery.zen.fd.ping_retries: 6
 ````
 
 ### Controlling Recovery
@@ -137,14 +137,14 @@ When connectivity to a node is restored after a failure, any shards on that node
 If some indexes are more critical than others but do not match these criteria, you can override the precedence of indexes by setting the *index.priority* property. Indexes with a higher value for this property will be recovered before indexes that have a lower value:
 
 ````
-PUT low\_priority\_index
+PUT low_priority_index
 {
 	"settings": {
 		"index.priority": 1
 	}
 }
 
-PUT high\_priority\_index
+PUT high_priority_index
 {
 	"settings": {
 		"index.priority": 10
@@ -157,7 +157,7 @@ For more information, see [Index Recovery Prioritization](https://www.elastic.co
 You can monitor the recovery process for one or more indexes using the *\_recovery* API:
 
 ````
-GET /high\_priority\_index/\_recovery?pretty=true
+GET /high_priority_index/_recovery?pretty=true
 ````
 
 For more information, see [Indices Recovery](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-recovery.html#indices-recovery).
@@ -171,7 +171,7 @@ A split brain can occur if the connections between nodes fail. If a master node 
 You can reduce the chances of a split brain by configuring the *minimum\_master\_nodes* property of the discovery module, in the elasticsearch.yml file. This property specifies how many nodes must be available to enable the election of a master. The following example sets the value of this property to 2:
 
 ````
-discovery.zen.minimum\_master\_nodes: 2
+discovery.zen.minimum_master_nodes: 2
 ````
 
 This value should be set to the lowest majority of the number of nodes that are able to fulfil the master role. For example, if your cluster has 3 master nodes, *minimum\_master\_nodes* should be set to 2; if you have 5 master nodes, *minimum\_master\_nodes* should be set to 3. Ideally, you should have an odd number of master nodes.
@@ -185,10 +185,10 @@ If you are performing a software upgrade to nodes yourself (such as migrating to
 1.  Ensure that shard reallocation is delayed sufficiently to prevent the elected master from rebalancing shards from a missing node across the remainder of the cluster. By default, shard reallocation is delayed for 1 minute, but you can increase the duration if a node is likely to be unavailable for a longer period. The following example increases the delay to 5 minutes:
 
 ````
-PUT /\_all/\_settings
+PUT /_all/_settings
 {
 	"settings": {
-		"index.unassigned.node\_left.delayed\_timeout": "5m"
+		"index.unassigned.node_left.delayed_timeout": "5m"
 	}
 }
 ````
@@ -204,7 +204,7 @@ service elasticsearch stop
 3.  Alternatively, you can use the Shutdown API directly on the node:
 
 ````
-POST /\_cluster/nodes/\_local/\_shutdown
+POST /_cluster/nodes/_local/_shutdown
 ````
 
 4.  Perform the necessary maintenance on the node.
@@ -214,7 +214,7 @@ POST /\_cluster/nodes/\_local/\_shutdown
 6.  Re-enable shard allocation:
 
 ````
-PUT /\_cluster/settings
+PUT /_cluster/settings
 {
 	"transient": {
 		"cluster.routing.allocation.enable": "all"
@@ -230,7 +230,7 @@ Beware of automated updates to items such as the JVM (ideally, disable automatic
 
 ### Testing and Analyzing Elasticsearch Resilience and Recovery
 
-TODO
+<!-- TODO -->
 1.  <span id="_Split_Brain" class="anchor"></span>
 
 This section describes a series of tests that were performed to evaluate the resilience and recovery of an Elasticsearch cluster comprising three data nodes and three master nodes.
@@ -253,9 +253,9 @@ The following sections summarize the results of these tests, noting any degradat
 
 ### Node Failure and Restart with No Data Loss: Results
 
-TODO
+<!-- TODO -->
 
-The results of this test are shown in the file [ElasticsearchRecoveryScenario1.pdf](file:///C:\Users\masimms\Downloads\ElasticSearchRecoveryScenario1.pdf). The graphs show performance profile of the workload and physical resources for each node in the cluster. The initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes before being restarted. The statistics for a further 20 minutes are illustrated; the system takes approximately 10 minutes to recover and stabilize. This is illustrated by the transaction rates and response times for the different workloads.
+The results of this test are shown in the file [ElasticsearchRecoveryScenario1.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario1.pdf). The graphs show performance profile of the workload and physical resources for each node in the cluster. The initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes before being restarted. The statistics for a further 20 minutes are illustrated; the system takes approximately 10 minutes to recover and stabilize. This is illustrated by the transaction rates and response times for the different workloads.
 
 Note the following points:
 
@@ -272,9 +272,9 @@ Note the following points:
     
 ### Node Failure with Catastrophic Data Loss: Results
 
-TODO
+<!-- TODO -->
 
-The results of this test are depicted in the file [ElasticsearchRecoveryScenario2.pdf](file:///C:\Users\masimms\Downloads\ElasticSearchRecoveryScenario2.pdf). As with the first test, the initial part of the graphs shows the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. During this interval, the Elasticsearch data on this node is removed, simulating catastrophic data loss, before being restarted. Full recovery appears to take 12-15 minutes before the levels of performance seen before the test are restored.
+The results of this test are depicted in the file [ElasticsearchRecoveryScenario2.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario2.pdf). As with the first test, the initial part of the graphs shows the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. During this interval, the Elasticsearch data on this node is removed, simulating catastrophic data loss, before being restarted. Full recovery appears to take 12-15 minutes before the levels of performance seen before the test are restored.
 
 Note the following points:
 
@@ -293,9 +293,9 @@ Note the following points:
 ### Node Failure and Restart with Shard Reallocation: Results
 ---------------------------------------------------------
 
-TODO
+<!-- TODO -->
 
-The file [ElasticsearchRecoveryScenario3.pdf](file:///C:\Users\masimms\Downloads\ElasticSearchRecoveryScenario3.pdf) illustrates the results of this test. As with the first test, the initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. At this point, the Elasticsearch cluster attempts to recreate the missing shards and rebalance the shards across the remaining nodes. After 5 minutes node 0 is brought back online, and once again the cluster has to rebalance the shards. Performance is restored after 12-15 minutes.
+The file [ElasticsearchRecoveryScenario3.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario3.pdf) illustrates the results of this test. As with the first test, the initial part of the graphs show the system running normally for approximately 20 minutes, at which point node 0 is shut down for 5 minutes. At this point, the Elasticsearch cluster attempts to recreate the missing shards and rebalance the shards across the remaining nodes. After 5 minutes node 0 is brought back online, and once again the cluster has to rebalance the shards. Performance is restored after 12-15 minutes.
 
 Note the following points:
 
@@ -309,7 +309,8 @@ Note the following points:
   
 ### Rolling Updates: Results
 
-The results of this test, in the file [ElasticsearchRecoveryScenario4.pdf](file:///C:\Users\masimms\Downloads\ElasticSearchRecoveryScenario4.pdf), show how each node is taken offline and then brought back up again in succession. Each node is shut down for 5 minutes before being restarted at which point the next node in sequence is stopped.
+<!-- TODO -->
+The results of this test, in the file [ElasticsearchRecoveryScenario4.pdf](https://github.com/mspnp/azure-guidance/blob/master/figures/Elasticsearch/ElasticSearchRecoveryScenario4.pdf), show how each node is taken offline and then brought back up again in succession. Each node is shut down for 5 minutes before being restarted at which point the next node in sequence is stopped.
 
 Note the following points:
 
