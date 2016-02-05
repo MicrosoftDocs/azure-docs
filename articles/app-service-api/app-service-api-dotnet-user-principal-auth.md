@@ -78,9 +78,9 @@ If you are following the Node.js or Java getting-started series for API apps, sk
 
 If you are following the .NET getting-started series for API apps and have already deployed the sample application as directed in the [first](app-service-api-dotnet-get-started.md) and [second](app-service-api-cors-consume-javascript.md) tutorials, skip to the [Configure authentication](#azureauth) section.
 
-If you didn't do the the first and second tutorials and you want to follow this one, use **Deploy to Azure** button in the [To Do List sample repository readme file](https://github.com/tdykstra/app-service-api-dotnet-todo-list/blob/master/readme.md) to deploy the API apps and the web app.
+If you didn't do the the first and second tutorials and you want to follow this one, use the **Deploy to Azure** button in the [To Do List sample repository readme file](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/readme.md) to deploy the API apps and the web app.
 
-When deployment is finished, an HTTP link to the web app is shown.  To run the application and verify that it is operational, change that URL to HTTPS. 
+When deployment is finished, an HTTP link to the web app is shown.  To run the application and verify that it's operational, change that URL to HTTPS. 
 
 ## <a id="azureauth"></a> Set up authentication in Azure
 
