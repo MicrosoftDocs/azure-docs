@@ -19,7 +19,7 @@
 
 # Walkthrough Step 6: Access the Azure Machine Learning web service
 
-This is the last step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
+This is the last step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 
 1.	[Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -31,7 +31,10 @@ This is the last step of the walkthrough, [Developing a Predictive Solution with
 
 ----------
 
-For a web service to be useful, users need to be able to send data to it and receive results. The web service is an Azure web service that can receive and return data in one of two ways:  
+In the previous step in this walkthrough we deployed a web service that uses our credit risk prediction model. 
+Now users need to be able to send data to it and receive results. 
+
+The web service is an Azure web service that can receive and return data in one of two ways:  
 
 -	**Request/Response** - The user sends one or more rows of credit data to the service by using an HTTP protocol, and the service responds with a set of results.
 -	**Batch Execution** - The user sends to the service the URL of an Azure blob that contains one or more rows of credit data. The service stores the results in another blob and returns the URL of that container.  

@@ -19,7 +19,7 @@
 
 # Walkthrough Step 5: Deploy the Azure Machine Learning web service
 
-This is the fifth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
+This is the fifth step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 
 1.	[Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -31,7 +31,7 @@ This is the fifth step of the walkthrough, [Developing a Predictive Solution wit
 
 ----------
 
-To make this predictive model useful to others, we'll deploy it as a web service on Azure.
+To give others a chance to use the predictive model we've developed in this walkthrough, we'll deploy it as a web service on Azure. Users will be able to send the web service a set of credit data and get back a credit risk prediction.
 
 Up to this point we've been experimenting with training our model. But the deployed service is no longer going to do training - it will be generating predictions based on the user's input. So we're going to do some preparation and then deploy this experiment as a working web service that users can access. A user will be able to send a set of credit application data to the service, and the service will return the prediction of credit risk.
 

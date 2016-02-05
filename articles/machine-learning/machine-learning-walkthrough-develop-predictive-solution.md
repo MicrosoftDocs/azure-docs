@@ -42,4 +42,4 @@ To create a credit risk assessment solution, we'll follow these steps:
 6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 This walkthrough is based on a simplified version of the
-[Credit risk prediction sample experiment](../machine-learning-sample-credit-risk-prediction.md) included with Machine Learning Studio.
+[Binary Classfication: Credit risk prediction](../machine-learning-sample-credit-risk-prediction.md) sample experiment in the [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com/).
