@@ -73,7 +73,7 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 - Provision a new VM and install SQL server
 - Download and expand the [WebAppsDeployment.zip][WebAppsDeployment] to the client machine 
 - Run “Deploy-SqlServerDSC.ps1” script to provision a new VM and install SQL server:
-**NOTE** the resource group used in the script to provision the sql vm . The same resource group should be used for during WebApps deployment in the next step.
+**NOTE** the resource group used in the script to provision the sql vm . The same resource group should be used for during WebApps deployment in the next step. Make sure to record the password for this VM as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*).
 
 **NOTE** The resource group used in the script to provision the SQL vm should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL 
 
@@ -151,6 +151,7 @@ The Azure Stack Web App ARM template will collect information defining the web a
 - the “number of workers” item will only create Shared workers
 - there is not a lot of space for additional VMs in the TP1 POC environment so it is best to just go with 1 instance of each role type
 - the resource group used for deploying web apps must be the same as the one used to deploy the SQL server (as noted above, the default Resource Group for the SQL Server template deployment is: WebsitesSQL)
+- replace the *SQLServerPassword* with password you used when you ran the **Deploy-SQLServerDSC.ps1** script.
 
 After everything is filled in and the ***Create*** button is clicked, the VMs will be created for your Azure Stack Web App resource provider and the software will be installed.
 
@@ -159,7 +160,7 @@ This AzureStackAppServiceTemplate.json template can also be deployed via PowerSh
 ```
 New-AzureRmResourceGroupDeployment -Name "WebAppsDeploy01" -ResourceGroupName "WebsitesSQL" -TemplateFile C:\templates\AzureStackAppServiceTemplate.json `  
 -storageAccountNameParameter "webappsstorage" -adminUsername "admin" -adminPassword "myPassword1!" -environmentDnsSuffix webapps.azurestack.local `  
--sqlservername 10.0.2.4 -sqlsysadmin sa -sqlsysadminpwd "myPassword1!"   
+-sqlservername 10.0.2.4 -sqlsysadmin sa -sqlsysadminpwd "SQLServerPassword"   
 ```
 
 In the **Microsoft Azure STack App Service TP1** dialog box, click **Exit**.
