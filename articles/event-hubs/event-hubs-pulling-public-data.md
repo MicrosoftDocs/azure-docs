@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/04/2016"
+   ms.date="02/05/2016"
    ms.author="spyros;sethm" />
 
 # Pulling public data into Azure Event Hubs
@@ -28,11 +28,13 @@ change how the data is published? Consider the weather, or traffic, or stock quo
 or WSDOT, or NASDAQ to configure a push to your Event Hub. To solve this problem, we've written and open-sourced 
 a small cloud sample that you can modify and deploy that will pull the data from some such source and push 
 it to your Event Hub. From there, you can do whatever you want with it, subject, of course, to the license 
-terms from the producer. You can find the application [here](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb).
+terms from the producer. You can find the application [here](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/).
+
+Note that the code in this sample only shows how to pull data from typical web feeds, and how to write to an Azure Event Hub. This is NOT intended to be a production application, and no attempts have been made to make it suitable for use in such an environment - it is stricly a DIY, developer-focused example only. Furthermore, the existence of this sample is NOT tantamount to a recommendation that you should **pull** data into Azure rather than **push** it. You should review security, performance, functionality, and cost factors before settling on an end-to-end architecture.
 
 ## Application structure
 
-The application is written in C#, and the readme.md file in the sample contains all the information you need to
+The application is written in C#, and the [sample description](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/) contains all the information you need to
 modify, build, and publish the application. The following sections provide a high level overview of what the 
 application does.
 
@@ -70,27 +72,9 @@ again. Specifically:
   * The receiving and sending data is implemented as a loop in the Process() method in Program.cs. 
   After receiving output results from GetData(), the method enqueues separated values to the Event Hub.
 
-## Disclaimer
-
-The code in this sample only shows how to pull data from typical web feeds, and how to write to an Azure Event Hub. 
-This is NOT intended to be a production-ready application, and no attempts have been made to make it suitable for use
-in such an environment - it is stricly a DIY, developer-focused example. Furthermore, the existence of 
-this sample is NOT tantamount to a recommendation that you should **pull** data into Azure rather than **push** it.
-You need to review all sorts of security, performance, functionality, and cost factors before settling on 
-an end-to-end architecture.
-
 ## Next Steps
 
-To deploy the solution, clone or download the [GenericWebToEH](https://github.com/Azure-Samples/event-hubs-dotnet-importfromweb) 
+To deploy the solution, clone or download the [GenericWebToEH](https://azure.microsoft.com/documentation/samples/event-hubs-dotnet-importfromweb/) 
 application, edit the App.config file, build it, and finally publish it. Once you have published the application, 
 you can see it running in the Azure classic portal under Cloud Services, and you can change some of the configuration
 settings (such as the Event Hub target and the sleep interval) in the **Configure** tab.
-
-For more information about Azure Event Hubs and Iot Hubs, see the following articles:
-
-- [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)
-- Get started with an [Event Hubs tutorial](event-hubs-csharp-ephcs-getstarted.md).
-- Try a complete [sample application that uses Event Hubs](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097).
-- Deploy a [queued messaging solution](../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md) using Service Bus queues.
-- Notify users of alerts from your Event Hubs based upon [AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications)
