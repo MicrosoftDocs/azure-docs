@@ -78,3 +78,5 @@ To deploy the solution, clone or download the [GenericWebToEH](https://azure.mic
 application, edit the App.config file, build it, and finally publish it. Once you have published the application, 
 you can see it running in the Azure classic portal under Cloud Services, and you can change some of the configuration
 settings (such as the Event Hub target and the sleep interval) in the **Configure** tab.
+
+See more Event Hubs samples in the [Azure samples gallery](https://azure.microsoft.com/documentation/samples/?service=event-hubs) and on [MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5).
