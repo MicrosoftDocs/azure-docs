@@ -147,9 +147,9 @@ You will need a storage account in Azure to upload the VM image. You can either 
 <a id="uploadvm"></a>
 ## Upload the VM image to your storage account
 
-Use these steps in Azure PowerShell, to upload the VM image to the storage account you created in the above section.
+Use these steps in Azure PowerShell, to upload the VM image to your storage account. Your image will be uploaded to a blob storage container in this account; you can either use an existing container or create a new one.
 
-1. Login to Azure PowerShell 1.0.x using `Login-AzureRmAccount` and make sure you are using the right subscription using `Set-AzureRmContext`, as mentioned in the section above.
+1. Login to Azure PowerShell 1.0.x using `Login-AzureRmAccount` and make sure you are using the right subscription using `Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"`, as mentioned in the section above.
 
 2. Add the generalized Azure VHD to the storage account using the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx):
 
