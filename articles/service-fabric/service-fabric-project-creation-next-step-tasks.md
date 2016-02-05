@@ -78,10 +78,10 @@ To learn how you can set up a continuous integration process for your Service Fa
 
 
 <!-- Links -->
-[add-web-frontend]: ./service-fabric-add-a-web-frontend.md
-[create-cluster-in-portal]: ./service-fabric-cluster-creation-via-portal.md
-[publish-app-to-azure]: ./service-fabric-publish-app-remote-cluster.md
-[visualize-with-sfx]: ./service-fabric-visualizing-your-cluster.md
-[ci-with-vso]: ./service-fabric-set-up-continuous-integration.md
-[reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
-[app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
+[add-web-frontend]: service-fabric-add-a-web-frontend.md
+[create-cluster-in-portal]: service-fabric-cluster-creation-via-portal.md
+[publish-app-to-azure]: service-fabric-publish-app-remote-cluster.md
+[visualize-with-sfx]: service-fabric-visualizing-your-cluster.md
+[ci-with-vso]: service-fabric-set-up-continuous-integration.md
+[reliable-services-webapi]: service-fabric-reliable-services-communication-webapi.md
+[app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md

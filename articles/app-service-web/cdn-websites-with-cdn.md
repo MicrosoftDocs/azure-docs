@@ -358,7 +358,7 @@ However, when it is run in Visual Studio by typing `F5`, it will render each scr
 
     <script src="/Scripts/jquery-1.10.2.js"></script>
 
-This enables you to debug the JavaScript code in your development environment while reducing concurrent client connections (bundling) and improving file download performance (minification) in production. It's a great feature to preserve with Azure CDN integration. Furthermore, since the rendered bundle already contains an automatically generated version string, you want to replicate that functionality so the whenever you update your jQuery version through NuGet, it can be updated at the client side as soon as possible.
+This enables you to debug the JavaScript code in your development environment while reducing concurrent client connections (bundling) and improving file download performance (minification) in production. It's a great feature to preserve with Azure CDN integration. Furthermore, since the rendered bundle already contains an automatically generated version string, you want to replicate that functionality so that whenever you update your jQuery version through NuGet, it can be updated at the client side as soon as possible.
 
 Follow the steps below to integration ASP.NET bundling and minification with your CDN endpoint.
 
@@ -552,11 +552,11 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 7. Refresh your browser window for the Azure web app. You should now see that the all scripts and stylesheets are properly loaded.
 
 ## More Information 
-- [Overview of the Azure Content Delivery Network (CDN)](../cdn-overview.md)
-- [Serve Content from Azure CDN in Your Web Application](../cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Integrate a cloud service with Azure CDN](../cdn-cloud-service-with-cdn.md)
+- [Overview of the Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md)
+- [Serve Content from Azure CDN in Your Web Application](../cdn/cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Integrate a cloud service with Azure CDN](../cdn/cdn-cloud-service-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Using CDN for Azure](../cdn-how-to-use-cdn.md)
+- [Using CDN for Azure](../cdn/cdn-how-to-use-cdn.md)
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

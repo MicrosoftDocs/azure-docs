@@ -2,13 +2,14 @@
  pageTitle="Azure IoT preconfigured solutions | Microsoft Azure"
  description="A description of the Azure IoT preconfigured solutions and their architecture with links to additional resources."
  services=""
+ suite="iot-suite"
  documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="na"
+ ms.service="iot-suite"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
@@ -74,13 +75,13 @@ The preconfigured solution uses three [Azure Stream Analytics][lnk-asa] (ASA) jo
 - Job #2 filters the telemetry stream to identify command response messages and device status update messages from the devices and sends these specific messages to an Azure Event Hub endpoint.
 - Job #3 filters the telemetry stream for values that trigger alarms. When a value triggers an alarm, the solution displays the notification in the alarm history table in the dashboard view of the solution portal.
 
-In this preconfigured solution, the ASA jobs form part of to the *IoT solution backend* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
+In this preconfigured solution, the ASA jobs form part of to the *IoT solution back end* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
 ## Event processor
 
 An [EventPocessorHost][lnk-event-processor] instance, running in a [WebJob][lnk-web-job], processes the command response and device status messages identified by ASA job #2, and then stores this information in an [Azure DocumentDB][lnk-document-db] database.
 
-In this preconfigured solution, the event processor forms part of the *IoT solution backend* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
+In this preconfigured solution, the event processor forms part of the *IoT solution back end* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
 ## Solution portal
 
@@ -94,7 +95,7 @@ The solution portal is a web-based UI that is deployed to the cloud as part of t
 
 > [AZURE.NOTE] The solution portal also keeps the IoT Hub [device identity registry][lnk-identity-registry] synchronized with the store of richer device state information in the solution's DocumentDB database.
 
-In this preconfigured solution, the solution portal forms part of the *IoT solution backend* and part of the *Processing and business connectivity* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
+In this preconfigured solution, the solution portal forms part of the *IoT solution back end* and part of the *Processing and business connectivity* in a typical [IoT solution architecture][lnk-what-is-azure-iot].
 
 ## Next steps
 

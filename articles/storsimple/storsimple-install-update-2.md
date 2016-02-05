@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/12/2016"
+   ms.date="01/27/2016"
    ms.author="alkohli" />
 
 # Install Update 2 on your StorSimple device
@@ -81,13 +81,13 @@ The software versions that can be upgraded using the hotfix method are Update 0.
 
 The hotfixes applied through this method are as tabulated below:
 
-| Order  | KB        | Name                    | Package description         | Update type |
-|--------|-----------|-------------------------|-----------------------------|-------------|
-| 1      | KB3121901 | Software update         | HcsMdsSfotwareUpdate.exe <br></br>  CisMdsAgentUpdateBundle.exe    | Regular     |
-| 2      | KB3121900 | LSI driver              | HcsLsiUpdate.exe            										| Regular     |
-| 3      | KB3080728 | Storport fix            | Storport-KB3080728-x64.msu  										| Regular     |
-| 4      | KB3090322 | Spaceport fix           | Spaceport-KB3090322-x64.msu 										| Regular     |
-| 5      | KB3121899 | Disk firmware           | DiskFirmwarePackage.exe     										| Maintenance |
+| Order  | KB        | Name                    | Update type  |
+|--------|-----------|-------------------------|------------- |
+| 1      | KB3121901 | Software update         |  Regular     |
+| 2      | KB3121900 | LSI driver              |  Regular     |
+| 3      | KB3080728 | Storport fix            |  Regular     |
+| 4      | KB3090322 | Spaceport fix           |  Regular     |
+| 5      | KB3121899 | Disk firmware           | Maintenance  |
 
 
 > [AZURE.IMPORTANT] 
