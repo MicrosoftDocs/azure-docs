@@ -195,7 +195,7 @@ nohup ./startAgent.sh &
 
 The JMeter Server Agent should respond with messages indicating that it has started and is listening on port 4444.
 
-6.  Press Enter to obtain a command prompt, and then run the following command. Replace *<nodename>* with the name of your node. If you are not sure of the name of your node, you can find it by running the *hostname* command:
+6.  Press Enter to obtain a command prompt, and then run the following command. Replace `<nodename>` with the name of your node. If you are not sure of the name of your node, you can find it by running the *hostname* command:
 
 ```bash
 telnet <nodename> 4444
@@ -227,7 +227,7 @@ If the JMeter Server Agent is configured and listening correctly, it should indi
 exit
 ```
 
-> [AZURE.NOTE] As with the JMeter Subordinate VMs, if you log out, or if this machine is shutdown and restarted then the JMeter Server Agent will need to be restarted manually by using the *startAgent.sh* command. If you want the JMeter Server Agent to start automatically, add the following command to the end of the /etc/rc.local file, before the *exit 0* command. Replace *<username>* with your login name:
+> [AZURE.NOTE] As with the JMeter Subordinate VMs, if you log out, or if this machine is shutdown and restarted then the JMeter Server Agent will need to be restarted manually by using the *startAgent.sh* command. If you want the JMeter Server Agent to start automatically, add the following command to the end of the /etc/rc.local file, before the *exit 0* command. Replace `<username>` with your login name:
 
 ```bash
 sudo -u <username> bash << eoc
@@ -238,7 +238,7 @@ eoc
 
 Replace `<username>` with your login name.
 
-9.  You can now either repeat this entire process for every other node in the Elasticsearch cluster, or you can use the *rcp* (remote copy) command to copy the server-agent folder and contents to every other node and use the *rsh* command start the JMeter Server Agent as shown below. Replace <username> with your username, and <nodename> with the name of the node to which you wish to copy and run the software (you may be asked to provide your password as you run each command):
+9.  You can now either repeat this entire process for every other node in the Elasticsearch cluster, or you can use the *rcp* (remote copy) command to copy the server-agent folder and contents to every other node and use the *rsh* command start the JMeter Server Agent as shown below. Replace `<username>` with your username, and `<nodename>` with the name of the node to which you wish to copy and run the software (you may be asked to provide your password as you run each command):
 
 ```bash
 rcp -r \~/server-agent <username>@<nodename>:\~
@@ -353,7 +353,7 @@ sudo bin/plugin -i elasticsearch/marvel/latest
 sudo service elasticsearch restart
 ```
 
-4. To verify that Marvel was installed correctly, open a web browser and move to the URL *http://<server>:9200/_plugin/marvel*. Replace *<server>* with the name or IP address of any Elasticsearch server in the cluster.  Verify that a page similar to that shown below appears:
+4. To verify that Marvel was installed correctly, open a web browser and move to the URL `http://<server>:9200/_plugin/marvel`. Replace `<server>` with the name or IP address of any Elasticsearch server in the cluster.  Verify that a page similar to that shown below appears:
 
 ![](./media/guidance-elasticsearch-performance-image20.png)
 
@@ -377,9 +377,9 @@ sudo bin/plugin install marvel-agent
 sudo service elasticsearch restart
 ```
 
-> [AZURE.IMPORTANT] In the following procedure, replace <kibana-version> with 4.2.2 if you are using Elasticsearch 2.0.0 or Elasticsearch 2.0.1, or with 4.3.1 if you are using Elasticsearch 2.1.0 or later.
+> [AZURE.IMPORTANT] In the following procedure, replace `<kibana-version>` with 4.2.2 if you are using Elasticsearch 2.0.0 or Elasticsearch 2.0.1, or with 4.3.1 if you are using Elasticsearch 2.1.0 or later.
 
-Replace <marvel-version> with 2.0.0 if you are using Elasticsearch 2.0.0 or Elasticsearch 2.0.1, or with 2.1.0 if you are using Elasticsearch 2.1.0 or later.
+Replace `<marvel-version>` with 2.0.0 if you are using Elasticsearch 2.0.0 or Elasticsearch 2.0.1, or with 2.1.0 if you are using Elasticsearch 2.1.0 or later.
 
 4.  Perform the following tasks *on one node* in the cluster:
 
@@ -403,13 +403,13 @@ tar xvzf kibana-<kibana-version>-linux-x64.tar.gz
 sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 5601 -j ACCEPT
 ```
 
-Move to the kibana config folder (kibana-<kibana-version>-linux-x64/config), edit the kibana.yml file, and add the following line. Replace *<server>* with the name or IP address of an Elasticsearch server in the cluster:
+Move to the kibana config folder (`kibana-<kibana-version>-linux-x64/config`), edit the kibana.yml file, and add the following line. Replace `<server>` with the name or IP address of an Elasticsearch server in the cluster:
 
 ```
 elasticsearch.url: "http://<server>:9200"
 ```
 
-1.  Move to the kibana bin folder (kibana-<kibana-version>-linux-x64/bin).
+1.  Move to the kibana bin folder (`kibana-<kibana-version>-linux-x64/bin`).
 
 2.  Run the following command to integrate the Marvel plugin into Kibana:
 
@@ -426,7 +426,7 @@ sudo nohup ./kibana &
 
 1.  Perform the following tasks to verify the Marvel installation:
 
-1.  Open a web browser and move to the URL *http://<server>:5601/app/marvel*. Replace <server> with the name or IP address of the server running Kibana:
+1.  Open a web browser and move to the URL `http://<server>:5601/app/marvel`. Replace `<server>` with the name or IP address of the server running Kibana:
 
 2.  Verify that a page similar to that shown below appears (the name of your cluster will likely vary from that shown in the image):
 

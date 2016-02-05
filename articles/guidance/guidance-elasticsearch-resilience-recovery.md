@@ -49,9 +49,9 @@ Different VMs can share the same physical hardware. In an Azure datacenter, a si
 
 Similarly, VMs can be taken down by the [Azure Fabric Controller](https://azure.microsoft.com/documentation/videos/fabric-controller-internals-building-and-updating-high-availability-apps/) to perform planned maintenance and operating system upgrades. Azure allocates VMs to Update Domains (UDs). When a planned maintenance event occurs, only VMs in a single UD are effected at any one time; VMs in other UDs are left running until the VMs in the UD being updated are brought back on-line. Therefore, you also need to ensure that VMs hosting nodes and their replicas belong to different UDs wherever possible.
 
-> [AZURE.NOTE] For more information about FDs and UDs, see [Manage the Availability of Virtual Machines](virtual-machines-manage-availability/).
+> [AZURE.NOTE] For more information about FDs and UDs, see [Manage the Availability of Virtual Machines][].
 
-You cannot explicitly allocate a VM to a specific UD and FD; this allocation is controlled by Azure when VMs are created; see the document [Manage the availability of virtual machines](virtual-machines-manage-availability/) for more information. However, you can specify that VMs should be created as part of an availability set (AS). VMs in the same AS will be spread across UDs and FDs. If you create VMs manually, Azure will associate each AS with two FDs and five UDs, and machines will be allocated to these FDs and UDs, cycling round as further VMs are provisioned, as follows:
+You cannot explicitly allocate a VM to a specific UD and FD; this allocation is controlled by Azure when VMs are created; see the document [Manage the availability of virtual machines][] for more information. However, you can specify that VMs should be created as part of an availability set (AS). VMs in the same AS will be spread across UDs and FDs. If you create VMs manually, Azure will associate each AS with two FDs and five UDs, and machines will be allocated to these FDs and UDs, cycling round as further VMs are provisioned, as follows:
 
 - The first VM provisioned in the AS will be placed in the first FD (FD 0) and the first UD (UD 0).
 - The second VM provisioned in the AS will be placed in FD 1 and UD 1.
@@ -88,7 +88,7 @@ You can use shard allocation awareness in conjunction with [Shard Allocation Fil
 
 If you need to scale beyond the number of FDs and UDs in an AS, you can create VMs in additional ASs. However, you need to understand that nodes in different ASs can be taken down for maintenance simultaneously. Try to ensure that each shard and at least one of its replicas are contained within the same AS.
 
-> [AZURE.NOTE] There is currently a limit of 100 VMs per AS. For more information, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits/).
+> [AZURE.NOTE] There is currently a limit of 100 VMs per AS. For more information, see [Azure Subscription and Service Limits, Quotas, and Constraints](../articles/azure-subscription-service-limits.md).
 
 ### Backup and Restore
 
@@ -342,3 +342,5 @@ The tests performed indicated that:
 - Only scenario 4 indicated potential data loss, and this loss only affected new data being added. It is good practice in applications performing data ingestion to mitigate this likelihood by retrying insert operations that have failed as the type of error reported is highly likely to be transient.
 
 - The results of test 4 also show that if you are performing planned maintenance of the nodes in a cluster, performance will benefit if you allow several minutes between cycling one node and the next. In an unplanned situation (such as the datacenter recycling nodes after performing an operating system update), you have less control over how and when nodes are taken down and restarted. The contention that arises when Elasticsearch attempts to recover the state of the cluster after sequential node outages can result in timeouts and errors. 
+
+[Manage the Availability of Virtual Machines]: ../articles/virtual-machines/virtual-machines-manage-availability.md
