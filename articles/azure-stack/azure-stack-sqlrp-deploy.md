@@ -105,7 +105,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 3. Copy **AzureStack.SqlRP.Setup.*.nupkg** to the **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment\** folder.
 
-4. On the **ClientVM.AzureStack.local** virtual machine, create a new folder named **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Contents\Deployment\Certificate**.
+4. On the **ClientVM.AzureStack.local** virtual machine, create a new folder named **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment\Certificate**.
 
 5. Copy the **certificate.pfx** file from the **portalvm** to the folder you created in the previous step.
 
@@ -155,7 +155,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 10. In the **IP Address** box, type the public IP address you wrote down in step 4, and then click **Add Host**.
 
-## Register the SQL Resource Provider
+## Register the SQL resource provider
 
 1. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
 
