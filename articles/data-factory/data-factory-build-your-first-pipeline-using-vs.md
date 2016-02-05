@@ -344,8 +344,10 @@ To update Azure Data Factory tools for Visual Studio, do the following:
 2. Select **Updates** in the left pane and then select **Visual Studio Gallery**.
 3. Select **Azure Data Factory tools for Visual Studio** and click **Update**. If you do not see this entry, you already have the latest version of the tools. 
 
- ## Using configuration files
-You can use configuration files in Visual Studio to configure linked services differently for each environment. Say, you have JSON definition for an Azure Storage linked service as shown below and you want to specify different values for **accountname** and **accountkey** depending on the environment (dev/test/production) to which you are deploying. You can do this by using separate configuration file for each environment. 
+ ## Use configuration files
+You can use configuration files in Visual Studio to configure properties for linked services/tables/pipelines differently for each environment. 
+
+Consider the following JSON definition for an Azure Storage linked service. To specify **connectionString** with different values for accountname and accountkey based on the environment (Dev/Test/Production) to which you are deploying Data Factory entities. You can do this by using separate configuration file for each environment. 
 
 	{
 	    "name": "StorageLinkedService",
@@ -359,6 +361,8 @@ You can use configuration files in Visual Studio to configure linked services di
 	} 
 
 ### Add a configuration file
+Add a configuration file for each environment by performing the following steps:   
+
 1. Right-click the Data Factory project in your Visual Studio solution, point to **Add**, and click **New item**.
 2. Select **Config** from the list of installed templates on the left, select **Configuration File**, enter a **name** for the configuration file, and click **Add**.
 
@@ -381,14 +385,22 @@ You can use configuration files in Visual Studio to configure linked services di
 		    ]
 		}
 
-	Use [JsonPath](http://goessner.net/articles/JsonPath/) format for the name property to point to the property you want to change and provide a new value.  
+	This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](http://goessner.net/articles/JsonPath/).   
 
 ### Deploy solution using a configuration
-When you are publishing Azure Data Factory entities in VS, you can specify the configuration that you want to use as shown in the following image. 
+When you are publishing Azure Data Factory entities in VS, you can specify the configuration that you want to use for that publishing operation. 
 
-Right-click on Data Factory project and click **Publish** to see the **Publish Items** dialog box. After you select an existing data factory or specify values for creating a new data factory on the first page, switch to the **Publish Items** page. You will see a drop-down list with available configurations for the **Select Deployment Config** field.   
+To publish entities in an Azure Data Factory project using configuration file:   
 
-![Select config file](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+1. Right-click on Data Factory project and click **Publish** to see the **Publish Items** dialog box. 
+2. Select an existing data factory or specify values for creating a new data factory on the **Configure data factory** page, and click **Next**.   
+3. On the **Publish Items** page: you will see a drop-down list with available configurations for the **Select Deployment Config** field.
+
+	![Select config file](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+
+4. Select the **configuration file** that you would like to use and click **Next**. 
+5. Confirm that you see the name of JSON file in the **Summary** page and click **Next**. 
+6. Click **Finish** after the deployment operation is finished. 
 
 When you deploy, the values from the configuration file are used to set values for properties in the JSON files for Data Factory entities (Linked services, tables, or pipelines) before the entities are deployed to Azure Data Factory service.   
 
