@@ -1,48 +1,46 @@
-<properties 
-	pageTitle="Get Started with authentication for Mobile Apps in Xamarin.Forms app" 
-	description="Learn how to use Mobile Apps to authenticate users of your Xamarin Forms app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft." 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+<properties
+	pageTitle="Get Started with authentication for Mobile Apps in Xamarin.Forms app"
+	description="Learn how to use Mobile Apps to authenticate users of your Xamarin Forms app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft."
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="wesmc7777"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/07/2015" 
+	ms.date="02/04/2016"
 	ms.author="wesmc"/>
 
 # Add authentication to your Xamarin.Forms app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Overview
 
 This topic shows you how to authenticate users of an App Service Mobile App from your client application. In this tutorial, you add authentication to the Xamarin.Forms quickstart project using an identity provider that is supported by App Service. After being successfully authenticated and authorized by your Mobile App, the user ID value is displayed and you will be able to access restricted table data.
 
-You must first complete the [Xamarin.Forms quickstart tutorial](app-service-mobile-xamarin-forms-get-started.md). If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
+You must first complete the [Xamarin.Forms quickstart tutorial](app-service-mobile-xamarin-forms-get-started.md). If you do not use the downloaded quick start server project, you must add the authentication extension package to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 
 ##Register your app for authentication and configure App Services
 
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ##Restrict permissions to authenticated users
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 
-##Add authentication to the portable class library 
+##Add authentication to the portable class library
 
-Mobile Apps use a platform specific `MobileServiceClient.LoginAsync` method in order to display the login interface and cache data. To authenticate with a Xamarin Forms project you will define an `IAuthenticate` interface in the portable class library. Each platform you want to support will implement this interface in the platform specific project. 
+Mobile Apps use a platform specific `MobileServiceClient.LoginAsync` method in order to display the login interface and cache data. To authenticate with a Xamarin Forms project you will define an `IAuthenticate` interface in the portable class library. Each platform you want to support will implement this interface in the platform specific project.
 
-You will also update the user interface defined in the portable class library, adding a login button. The user will need to click this button to authenticate after the app starts. 
+You will also update the user interface defined in the portable class library, adding a login button. The user will need to click this button to authenticate after the app starts.
 
 1. In Visual Studio or Xamarin Studio, open App.cs from the **portable** project. Add the following `using` statement to the file.
 
@@ -59,14 +57,14 @@ You will also update the user interface defined in the portable class library, a
 
 		public class App : Application
 		{
-	
+
 	        public static IAuthenticate Authenticator { get; private set; }
-	
+
 	        public static void Init(IAuthenticate authenticator)
 	        {
 	            Authenticator = authenticator;
 	        }
-	
+
 			...
 
 
@@ -134,7 +132,7 @@ In this section you will add authentication for the droid project. If you are no
 
 1. In Visual Studio or Xamarin Studio, right click the **droid** project and click **Set as StartUp Project**.
 
-2. Go ahead and run the project in the debugger to verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This will happen because you restricted access on the backend to authorized users only. 
+2. Go ahead and run the project in the debugger to verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This will happen because you restricted access on the backend to authorized users only.
 
 3. Next, open MainActivity.cs in the droid project and add the following `using` statement.
 
@@ -146,13 +144,13 @@ In this section you will add authentication for the droid project. If you are no
 		public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
 
 
-5. Update the `MainActivity` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface. 
- 
+5. Update the `MainActivity` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface.
+
 	If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-	
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -191,7 +189,7 @@ In this section you will add authentication for the droid project. If you are no
 
 
 
-7. Rebuild the app and run it.  Log in with the authentication provider you chose and verify you are able to access the table as an authenticated user.  
+7. Rebuild the app and run it.  Log in with the authentication provider you chose and verify you are able to access the table as an authenticated user.
 
 
 
@@ -201,7 +199,7 @@ In this section you will add authentication for the iOS project. If you are not 
 
 1. In Visual Studio or Xamarin Studio, right click the **iOS** project and click **Set as StartUp Project**.
 
-2. Go ahead and run the project in the debugger to verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This will happen because you restricted access on the backend to authorized users only. 
+2. Go ahead and run the project in the debugger to verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This will happen because you restricted access on the backend to authorized users only.
 
 3. Next, open AppDelegate.cs in the iOS project and add the following `using` statement.
 
@@ -213,13 +211,13 @@ In this section you will add authentication for the iOS project. If you are not 
 		public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
 
 
-5. Update the `AppDelegate` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface. 
- 
+5. Update the `AppDelegate` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface.
+
 	If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
 
 		// Define a authenticated user.
 		private MobileServiceUser user;
-	
+
         public async Task<bool> Authenticate()
         {
             var success = false;
@@ -255,7 +253,7 @@ In this section you will add authentication for the iOS project. If you are not 
 
 
 
-7. Rebuild the app and run it.  Log in with the authentication provider you chose and verify you are able to access the table as an authenticated user.  
+7. Rebuild the app and run it.  Log in with the authentication provider you chose and verify you are able to access the table as an authenticated user.
 
 
 
@@ -266,7 +264,7 @@ In this section you will add authentication for the WinApp project. If you are n
 
 1. In Visual Studio right click the **WinApp** project and click **Set as StartUp Project**.
 
-2. Go ahead and run the project in the debugger to verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This will happen because you restricted access on the backend to authorized users only. 
+2. Go ahead and run the project in the debugger to verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This will happen because you restricted access on the backend to authorized users only.
 
 3. Next, open MainPage.xaml.cs in the WinApp project and add the following `using` statement. Replace <*Your portable class library namespace*> with the namespace for your portable class library.
 
@@ -279,8 +277,8 @@ In this section you will add authentication for the WinApp project. If you are n
 	    public sealed partial class MainPage : IAuthenticate
 
 
-5. Update the `MainPage` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface. 
- 
+5. Update the `MainPage` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface.
+
 	If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
 
         // Define a authenticated user.
@@ -320,13 +318,13 @@ In this section you will add authentication for the WinApp project. If you are n
             this.InitializeComponent();
 
             <Your portable class library namespace>.App.Init(this);
-            
+
             LoadApplication(new <Your portable class library namespace>.App());
         }
 
 
 
-7. Rebuild the app and run it.  Log in with the authentication provider you chose and verify you are able to access the table as an authenticated user.  
+7. Rebuild the app and run it.  Log in with the authentication provider you chose and verify you are able to access the table as an authenticated user.
 
 
 ##Add authentication to the Windows Phone 8.1 app
@@ -335,7 +333,7 @@ In this section you will add authentication for the WinPhone81 project. If you a
 
 1. In Visual Studio right click the **WinPhone81** project and click **Set as StartUp Project**.
 
-2. Go ahead and run the project in the debugger to verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This will happen because you restricted access on the backend to authorized users only. 
+2. Go ahead and run the project in the debugger to verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. This will happen because you restricted access on the backend to authorized users only.
 
 
 3. Next, open MainPage.xaml.cs in the WinPhone81 project and add the following `using` statement. Replace <*Your portable class library namespace*> with the namespace for your portable class library.
@@ -349,8 +347,8 @@ In this section you will add authentication for the WinPhone81 project. If you a
 	    public sealed partial class MainPage : IAuthenticate
 
 
-5. Update the `MainPage` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface. 
- 
+5. Update the `MainPage` class by adding a `MobileServiceUser` field and the `Authenticate` method shown below to support the `IAuthenticate` interface.
+
 	If you want to use a different `MobileServiceAuthenticationProvider` instead of Facebook, make that change as well.
 
         // Define a authenticated user.
@@ -405,7 +403,7 @@ In this section you will add authentication for the WinPhone81 project. If you a
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
 		    base.OnActivated(args);
-		
+
 		    if (args.Kind == ActivationKind.WebAuthenticationBrokerContinuation)
 		    {
 		        var client = TodoItemManager.DefaultManager.CurrentClient as MobileServiceClient;
@@ -415,7 +413,7 @@ In this section you will add authentication for the WinPhone81 project. If you a
 
 
 
-8. Rebuild the app and run it.  Log in with the authentication provider you chose and verify you are able to access the table as an authenticated user.  
+8. Rebuild the app and run it.  Log in with the authentication provider you chose and verify you are able to access the table as an authenticated user.
 
 <!-- Images. -->
 
@@ -427,4 +425,3 @@ In this section you will add authentication for the WinPhone81 project. If you a
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 
- 

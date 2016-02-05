@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="torsteng;sidneyh"/>
 
 # Elastic Database client library with Entity Framework 
@@ -270,9 +270,9 @@ The approaches outlined in this document entail a couple of limitations:
 
 * Given a request, it is assumed that all of its database processing is contained within a single shard as identified by the sharding key provided by the request. However, this assumption does not always hold true. For example, when it is not possible to make a sharding key available. To address this, the client library provides the **MultiShardQuery** class that implements a connection abstraction for querying over several shards. Learning to use the **MultiShardQuery** in combination with EF is beyond the scope of this document
 
-## Conclusions 
+## Conclusion
 
-Entity Framework applications can easily benefit from the elastic database tools in Azure SQL Database. Through the steps outlined in this document, EF applications can use the elastic database client library's capability for data dependent routing by refactoring constructors of the **DbContext** subclasses used in the EF application. This limits the  changes required to those places where **DbContext** classes already exist. In addition, EF applications can continue to benefit from automatic schema deployment by combining the steps that invoke the necessary EF migrations with the registration of new shards and mappings in the shard map. 
+Through the steps outlined in this document, EF applications can use the elastic database client library's capability for data dependent routing by refactoring constructors of the **DbContext** subclasses used in the EF application. This limits the  changes required to those places where **DbContext** classes already exist. In addition, EF applications can continue to benefit from automatic schema deployment by combining the steps that invoke the necessary EF migrations with the registration of new shards and mappings in the shard map. 
 
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

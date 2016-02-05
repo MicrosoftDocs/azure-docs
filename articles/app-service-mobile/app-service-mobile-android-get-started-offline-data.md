@@ -12,20 +12,18 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/01/2015"
+	ms.date="02/04/2016"
 	ms.author="donnam"/>
 
 # Enable offline sync for your Android mobile app
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Overview
 
 This tutorial covers the offline sync feature of Azure Mobile Apps for Android. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote backend.
 
-If this is your first experience with Azure Mobile Apps, you should first complete the tutorial [Create an Android App]. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md). 
+If this is your first experience with Azure Mobile Apps, you should first complete the tutorial [Create an Android App]. If you do not use the downloaded quick start server project, you must add the data access extension packages to your project. For more information about server extension packages, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps].
 
@@ -36,7 +34,7 @@ With offline sync you read to and write from a *sync table* (using the *IMobileS
 To push and pull changes between the device and Azure Mobile Services, you use a *synchronization context* (*MobileServiceClient.SyncContext*), which you initialize with the local database that you use to store data locally.
 
 1. In `TodoActivity.java`, comment out the existing definition of `mToDoTable` and uncomment the sync table version:
-    
+
 	    private MobileServiceSyncTable<ToDoItem> mToDoTable;
 
 2. In the `onCreate` method, comment out the existing initialization of `mToDoTable` and uncomment this definition:

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/01/2016"
 	ms.author="billmath"/>
 
 # Hybrid Identity Required Ports and Protocols
@@ -46,7 +46,13 @@ This table describes the ports and protocols that are required for communication
 For a list of Office 365 ports and IP address see [Office 365 URLs and IP address ranges.](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
 
 ## Table 3 - Azure AD Connect and Federation Servers/WAP
-This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Federation/WAP servers.  Coming soon!
+This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Federation/WAP servers.  
+
+| Protocol |Ports |Description
+| --------- | --------- |--------- |
+| HTTP|80 (TCP/UDP)|Used to download CRLs (Certificate Revocation Lists) to verify SSL certificates.
+|HTTPS|443(TCP/UDP)|Used to synchronize with Azure AD.
+|WinRM|5985| WinRM Listener
 
 ## Table 4 - WAP and Federation Servers
 This table describes the ports and protocols that are required for communication between the Federation servers and WAP servers.

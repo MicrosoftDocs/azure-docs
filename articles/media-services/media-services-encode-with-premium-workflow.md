@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/28/2016"  
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 #Advanced encoding with Media Encoder Premium Workflow
 
-**Note** Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
+>[AZURE.NOTE]For premium encoder questions, email mepd at Microsoft.com.
+>
+>Media Encoder Premium Workflow media processor discussed in this topic is not available in China.
 
 ##Overview
 
@@ -33,6 +35,8 @@ The following topics outline details related to **Media Encoder Premium Workflow
 This topic demonstrates how to encode with **Media Encoder Premium Workflow** using .NET.
 
 Encoding tasks for the **Media Encoder Premium Workflow** require a separate configuration file, called a Workflow file. These files have a .workflow extension and are created using the [Workflow Designer](media-services-workflow-designer.md) tool.
+
+>[AZURE.NOTE]For premium encoder questions, email mepd at Microsoft.com.
 
 ##Encode
 
