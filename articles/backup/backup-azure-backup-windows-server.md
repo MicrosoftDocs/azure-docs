@@ -51,3 +51,4 @@ It’s easy to back up Windows files and folders to Azure with this simple proce
 - [Manage Windows Server or Windows Client](backup-azure-manage-windows-server.md)
 - [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
 - [Azure Backup FAQ](backup-azure-backup-faq.md)
+- Visit [Azure Backup Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)

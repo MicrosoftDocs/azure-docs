@@ -18,5 +18,5 @@
 
 # Set up Application Insights: Diagnose exceptions
 
-Sorry. [This page has moved](app-insights-asp-net-exception.md).
+Sorry. [This page has moved](app-insights-asp-net-exceptions.md).
  
