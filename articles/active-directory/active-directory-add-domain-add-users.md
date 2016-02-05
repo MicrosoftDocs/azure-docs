@@ -22,7 +22,7 @@ After you have added your custom domain to Azure Active Directory, you must add 
 
 ## Users synced in from a directory on your corporate network
 
-If you have already set up a connection between your on-premises Active Directory and Azure Active Directory, synchronization can populate the accounts. For more information on how to synchronize Azure Active Directory with your on-premises Active Directory, see [get the title right](then the URL).
+If you have already set up a connection between your on-premises Active Directory and Azure Active Directory, synchronization can populate the accounts. For more information on how to synchronize Azure Active Directory with your on-premises Active Directory, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 
 ## Users added and managed in the cloud
 
@@ -59,6 +59,6 @@ This can also be done using [Microsoft PowerShell](https://msdn.microsoft.com/li
 - [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
 - [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
 - [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
-- [Built-in domain names in Azure Active Directory](active-directory-add-domain-builtin-domains.md)
+- [Built-in domain name reference for Azure Active Directory](active-directory-add-domain-builtin-domains.md)
 - [Change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
-- [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)b
+- [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)

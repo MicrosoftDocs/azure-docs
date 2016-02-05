@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="02/05/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Add and verify a custom domain name in Azure Active Directory
@@ -24,7 +24,7 @@ To add a custom domain name and verify it for use with your Azure Active Directo
 
     -   [Add a custom domain name that will be federated with on-premises Active Directory](#add-a-custom-domain-name-that-will-be-federated)
 
-    -   [Add a custom domain name that will not be federated with on-premises Active Directory](#add-and-verify-a-custom-domain-name-that-will-not-be-federated)
+    -   [Add a custom domain name that will not be federated with on-premises Active Directory](#add-a-custom-domain-name-that-will-not-be-federated)
 
 2.  Verify the custom domain name.
 
@@ -54,7 +54,7 @@ For more information about on-premises directory integration using Azure AD Conn
 
 8.  Click **Add**.
 
-## Add  a custom domain name that will not be federated
+## Add a custom domain name that will not be federated
 
 Most custom domain names are second level domains “contoso.com”
 
@@ -82,14 +82,14 @@ Most custom domain names are second level domains “contoso.com”
 
 To verify your domain, you create a DNS record at the domain name registrar, or wherever your DNS is hosted, and then Azure AD uses that record to confirm that you own the domain. [Instructions for adding DNS entries at popular DNS registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
 
-If you already have a domain registered with a domain name registrar, the required DNS records already exist, and you can skip to [Verify your domain](#verify-your-domain).
+If you already have the domain registered with a domain name registrar, the required DNS records already exist.
 
 When you've added a custom domain but the domain hasn't yet been verified, the status will show as **Unverified**.
 
 ## Verify a custom domain name that you will not be federating with an on-premises directory
-After any records that you created for your domain have been added successfully through the DNS system at you domain registrar, do the following:
+After any records that you created for your domain have been added successfully through the DNS system at your domain registrar, do the following:
 
-1.  In Azure Active Directory in the [Azure classic portal](https://manage.winowsazure.com/), click **Domains**.
+1.  In Azure Active Directory in the [Azure classic portal](https://manage.windowsazure.com/), click **Domains**.
 
 2.  In the **Domains** list, find the domain that you're verifying, and then based on the portal you are using, click either **Click to verify domain** or **Verify**.
 
@@ -122,6 +122,6 @@ After you've verified your domain, you can configure your domain to work with yo
 - [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
 - [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
 - [Assign users to a custom domain](active-directory-add-domain-add-users.md)
-- [Built-in domain names in Azure Active Directory](active-directory-add-domain-builtin-domains.md)
+- [Built-in domain name reference for Azure Active Directory](active-directory-add-domain-builtin-domains.md)
 - [Change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
 - [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)
