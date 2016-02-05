@@ -90,7 +90,7 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 - Provision a new VM and install SQL server
 - Download and expand the [WebAppsDeployment.zip][http://go.microsoft.com/fwlink/?LinkId=723982] to the client machine 
 - Run “Deploy-SqlServerDSC.ps1” script to provision a new VM and install SQL server:
-**NOTE** the resource group used in the script to provision the sql vm . The same resource group should be used for during WebApps deployment in the next step. Make sure to record the password for this VM as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime database.
+**NOTE** the resource group used in the script to provision the sql vm . The same resource group should be used for during WebApps deployment in the next step. When prompted to create a user account on the VM, the username admin will be auto populate and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
 
 **NOTE** The resource group used in the script to provision the SQL vm should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL 
 
