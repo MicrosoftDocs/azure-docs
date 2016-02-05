@@ -23,6 +23,12 @@ Azure Stack enables deploying Platform as a Service (PaaS) services from Microso
 ## Additional PaaS services
 In Technical Preview 1, the first of the App Service services - Web Apps, along with a set of web data services will be available for deployment on top of Azure Stack. This will provide the same Azure experience for deploying Web Apps using SQL or MySQL data.
 
+[SQL Server resource provider](azure-stack-sqlrp-deploy.md)
+
+[MySQL resource provider](azure-stack-mysqlrp-deploy.md)
+
+[Web Apps resource provider](azure-stack-webapps-deploy.md)
+
 ## Template tools
 
 
