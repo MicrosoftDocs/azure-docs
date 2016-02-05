@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Determine Azure Backup storage redundancy option | Microsoft Azure"
+	pageTitle="Determine Azure Backup storage redundancy options | Microsoft Azure"
 	description="Understand the difference between geo redundant storage and locally redundant storage to determine your Azure Backup storage redundancy option."
 	services="backup"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Storage redundancy options for Azure Backup
 
-Your business needs will determine the appropriate storage redundancy for Azure Backup backend storage. If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) Geo-Redundant storage option. If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing Locally Redundant Storage
+Your business needs will determine the appropriate storage redundancy option for Azure Backup storage. If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) geo-redundant storage option. If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises and using Azure for your long term retention needs), you should consider choosing locally redundant storage
 
 ## Geo-redundant storage (GRS)
 
@@ -29,7 +29,7 @@ Geo-redundant storage maintains six copies of your data. With GRS, your data is 
 
 Locally redundant storage maintains three copies of your data. LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of an entire Azure facility. This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
 
-You can select the appropriate option for your needs from the **Configure** option of your Backup vault.
+You can select the appropriate option for your needs from the **Configure** option of your backup vault.
 
 ## Next steps
 
