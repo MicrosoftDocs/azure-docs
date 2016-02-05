@@ -324,6 +324,8 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
  
 	![output data](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
 
+See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
+
 ## Use Server Explorer to review Data Factory entities
 
 1. In **Visual Studio**, click **View** on the menu, and click **Server Explorer**.
@@ -342,8 +344,53 @@ To update Azure Data Factory tools for Visual Studio, do the following:
 2. Select **Updates** in the left pane and then select **Visual Studio Gallery**.
 3. Select **Azure Data Factory tools for Visual Studio** and click **Update**. If you do not see this entry, you already have the latest version of the tools. 
 
-See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure Portal to monitor the pipeline and datasets you have created in this tutorial.
- 
+ ## Using configuration files
+You can use configuration files in Visual Studio to configure linked services differently for each environment. Say, you have JSON definition for an Azure Storage linked service as shown below and you want to specify different values for **accountname** and **accountkey** depending on the environment (dev/test/production) to which you are deploying. You can do this by using separate configuration file for each environment. 
+
+	{
+	    "name": "StorageLinkedService",
+	    "properties": {
+	        "type": "AzureStorage",
+	        "description": "",
+	        "typeProperties": {
+	            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	        }
+	    }
+	} 
+
+### Add a configuration file
+1. Right-click the Data Factory project in your Visual Studio solution, point to **Add**, and click **New item**.
+2. Select **Config** from the list of installed templates on the left, select **Configuration File**, enter a **name** for the configuration file, and click **Add**.
+
+	![Add configuration file](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
+3. Add configuration parameters and their values in the format shown below:
+
+		{
+		    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+		    "AzureStorageLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+		        }
+		    ],
+		    "AzureSqlLinkedService1": [
+		        {
+		            "name": "$.properties.typeProperties.connectionString",
+		            "value":  "Server=tcp:spsqlserver.database.windows.net,1433;Database=spsqldb;User ID=spelluru;Password=Sowmya123;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+		        }
+		    ]
+		}
+
+	Use [JsonPath](http://goessner.net/articles/JsonPath/) format for the name property to point to the property you want to change and provide a new value.  
+
+### Deploy solution using a configuration
+When you are publishing Azure Data Factory entities in VS, you can specify the configuration that you want to use as shown in the following image. 
+
+Right-click on Data Factory project and click **Publish** to see the **Publish Items** dialog box. After you select an existing data factory or specify values for creating a new data factory on the first page, switch to the **Publish Items** page. You will see a drop-down list with available configurations for the **Select Deployment Config** field.   
+
+![Select config file](./media/data-factory-build-your-first-pipeline-using-vs/select-config-file.png)
+
+When you deploy, the values from the configuration file are used to set values for properties in the JSON files for Data Factory entities (Linked services, tables, or pipelines) before the entities are deployed to Azure Data Factory service.   
 
 ## Next Steps
 In this article, you have created a pipeline with a transformation activity (HDInsight Activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy Activity to copy data from an Azure Blob to Azure SQL, see [Tutorial: Copy data from an Azure blob to Azure SQL](data-factory-get-started.md).
