@@ -37,11 +37,11 @@ This article assumes you have:
 3. **A virtual machine running the Windows operating system** - There are many tools for creating virtual machines on premises. For example, you can use Hyper-V Manager to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For details about which Windows operating systems are supported, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
 
 
-## Make sure the VM is saved as a VHD
+## Make sure the VM has the right file format
 
-Microsoft Azure can only accept images for [Generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) saved in the VHD file format.
+Microsoft Azure can only accept images for [Generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) saved in the VHD file format. The VHDs should be of fixed size, which should be a whole number MB. The maximum size allowed for the VHD is 1023GB.
 
-- The Hyper-V Manager will typically save your VM image in a VHDX format, which is not supported in Microsoft Azure. You can convert it to VHD format using either Hyper-V or the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For steps using PowerShell, read [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/). Or in Hyper-V, select your local computer on the left and then in the menu above it, click **Actions** > **Edit Disk...** > **Next** > Your VHDX path > **Next** > **Convert** > **Next** > **VHD** > **Next** > Choose any VHD type > **Next** > Enter path for the VHD file > **Next** > **Finish**.
+- The Hyper-V Manager will typically save your VM image in a VHDX format, which is not supported in Microsoft Azure. You can convert it to VHD format using either Hyper-V or the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For steps using PowerShell, read [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/). Or in Hyper-V, select your local computer on the left and then in the menu above it, click **Actions** > **Edit Disk...** > **Next** > Your VHDX path > **Next** > **Convert** > **Next** > **VHD** > **Next** > **Fixed size** > **Next** > Enter path for the VHD file > **Next** > **Finish**.
 
 - If you have a Windows VM image in [the VMDK file format](https://en.wikipedia.org/wiki/VMDK), you can convert it to a VHD format using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
 
@@ -56,11 +56,11 @@ This section shows you how to generalize your Windows virtual machine. This remo
 
 3. In the **System Preparation Tool** dialog box, do the following:
 
-	- In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked.
+	1. In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)** and make sure that **Generalize** is checked.
 
-	- In **Shutdown Options**, select **Shutdown**.
+	2. In **Shutdown Options**, select **Shutdown**.
 
-	- Click **OK**.
+	3. Click **OK**.
 
 	![Start Sysprep](./media/virtual-machines-upload-image-windows-resource-manager/sysprepgeneral.png)
 
