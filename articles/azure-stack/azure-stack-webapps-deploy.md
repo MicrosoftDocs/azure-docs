@@ -350,24 +350,26 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 ```
 
 8. Sign out of the controller, **management**, and **portalvm** virtual machines and close the RDC windows.
+ 
+## Create a new Web Apps resource provider
 
-9. On the **ClientVM.AzureStack.local** virtual machine, sign in to the Azure Stack portal as an admin, click **Browse**, and then click **Resource Providers**.
+1. On the **ClientVM.AzureStack.local** virtual machine, sign in to the Azure Stack portal as an admin, click **Browse**, and then click **Resource Providers**.
 
-10. In the **Resource Providers** blade and click **Add**.
+2. In the **Resource Providers** blade and click **Add**.
 
-11. In the **Register resource provider** blade, type a **Display Name**, like *WebApps*.
+3. In the **Register resource provider** blade, type a **Display Name**, like *WebApps*.
 
-12. In the **Manifest endpoint** box, type the location of the manifest file, like *htts://management.azurestack.local/*.
+4. In the **Manifest endpoint** box, type the location of the manifest file, like *htts://management.azurestack.local/*.
 
-13. Type the admin credentials for **Username** and **Password**.
+5. Type the admin credentials for **Username** and **Password**.
 
-14. Click **Location**, click **Create new location**, and then choose **Local**.
+6. Click **Location**, click **Create new location**, and then choose **Local**.
 
-15. In the **Enter a resource group name** box, type a resource group name, like *WebAppsRG*.
+7. In the **Enter a resource group name** box, type a resource group name, like *WebAppsRG*.
 
-16. Click **Create**. In about five minutes, close and reopen the browser, and then sign in to the Azure Stack portal as an admin.
+8. Click **Create**. In about five minutes, close and reopen the browser, and then sign in to the Azure Stack portal as an admin.
 
-17. On the **Dashboard**, click the **webapps** tile to explore the new resource provider settings. 
+9. On the **Dashboard**, click the **webapps** tile to explore the new resource provider settings. 
 
 **Deploy a new Web App**
 
@@ -406,7 +408,7 @@ Now that you have deployed and registered the Web Apps resource provider, you ca
 [12]: ./media/azure-stack-webapps-deploy/appsvcinstall-12.png
 [13]: ./media/azure-stack-webapps-deploy/appsvcinstall-13.png
 [14]: ./media/azure-stack-webapps-deploy/appsvcinstall-14.png
-
+[14]: ./media/azure-stack-webapps-deploy/appsvcinstall-15.png
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
