@@ -16,7 +16,7 @@
 	ms.date="02/05/2016"
 	ms.author="marsma" />
 
-# Execute Message Passing Interface (MPI) applications in Azure Batch with multi-instance tasks
+# Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch
 
 With multi-instance tasks, you can run an Azure Batch task on multiple compute nodes simultaneously to enable high performance computing scenarios like Message Passing Interface (MPI) applications. In this article, you will learn how to execute multi-instance tasks using the [Batch .NET][api_net] library.
 
