@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="12/15/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders

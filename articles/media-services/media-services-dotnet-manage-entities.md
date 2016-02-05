@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 
@@ -248,6 +248,46 @@ Note that a locator path to an asset is only a base URL to the asset. To create 
 	    }
 	}
 
+## Enumerate through large collections of entities
+
+You need to use Skip and Take when enumerating through large collections of entities. There is a limit of 1000 entities returned at one time. 
+
+The following example shows how to use Skip and Take to enumerate through all assets in the account.  
+
+	static void ProcessAssets()
+	{
+	    try
+	    {
+	        int skipSize = 0;
+	        int batchSize = 1000;
+	        int currentSkipSize = 0;
+	
+	        while (true)
+	        {
+	            // Enumerate through all assets (1000 at a time)
+	            foreach (IAsset asset in _context.Assets.Skip(skipSize).Take(batchSize))
+	            {
+	                currentSkipSize++;
+	                Console.WriteLine("Processing Asset " + asset.Id);
+	
+	            }
+	
+	            if (currentSkipSize == batchSize)
+	            {
+	                skipSize += batchSize;
+	                currentSkipSize = 0;
+	            }
+	            else
+	            {
+	                break;
+	            }
+	        }
+	    }
+	    catch (Exception ex)
+	    {
+	        Console.WriteLine(ex.Message);
+	    }
+	}
 
 ##Delete an Asset
 
