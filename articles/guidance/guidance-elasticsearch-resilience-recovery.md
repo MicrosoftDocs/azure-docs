@@ -232,9 +232,6 @@ Beware of automated updates to items such as the JVM (ideally, disable automatic
 
 ### Testing and Analyzing Elasticsearch Resilience and Recovery
 
-<!-- TODO -->
-1.  <span id="_Split_Brain" class="anchor"></span>
-
 This section describes a series of tests that were performed to evaluate the resilience and recovery of an Elasticsearch cluster comprising three data nodes and three master nodes.
 
 Four scenarios were tested:
@@ -324,9 +321,9 @@ Note the following points:
 - After the final node is recycled, the system enters a period of significant volatility. This is most likely caused by the recovery process having to synchronize changes across every node and ensure that all replicas and their corresponding shards are consistent. At one point, this effort causes successive bulk insert operations to timeout and fail. The errors reported each case were:
 
 ```
-Failure -- BulkDataInsertTest17(org.apache.jmeter.protocol.java.sampler.JUnitSampler\$AnnotatedTestCase): java.lang.AssertionError: failure in bulk execution:
+Failure -- BulkDataInsertTest17(org.apache.jmeter.protocol.java.sampler.JUnitSampler$AnnotatedTestCase): java.lang.AssertionError: failure in bulk execution:
+[1]: index [systwo], type [logs], id [AVEg0JwjRKxX_sVoNrte], message [UnavailableShardsException[[systwo][2] Primary shard is not active or isn't assigned to a known node. Timeout: [1m], request: org.elasticsearch.action.bulk.BulkShardRequest@787cc3cd]]
 
-        \[1\]: index \[systwo\], type \[logs\], id \[AVEg0JwjRKxX\_sVoNrte\], message \[UnavailableShardsException\[\[systwo\]\[2\] Primary shard is not active or isn't assigned to a known node. Timeout: \[1m\], request: org.elasticsearch.action.bulk.BulkShardRequest@787cc3cd\]\]
 ```
 
 Subsequent experimentation showed that introducing a delay of a few minutes between cycling each node eliminated this error, so it was most likely caused by contention between the recovery process attempting to restore several nodes simultaneously and the bulk insert operations trying to store thousands of new documents.
