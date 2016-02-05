@@ -20,6 +20,7 @@
 
 Select an icon to learn how to quickly leverage these APIs to build logic apps that call these services.
 
+|APIs|
 |-----------|  
 |![API Icon] [bingsearchicon] <br> [**Bing Search**][bingsearchdoc]|
 |![API Icon] [boxicon] <br> [**Box**][boxDoc]|
