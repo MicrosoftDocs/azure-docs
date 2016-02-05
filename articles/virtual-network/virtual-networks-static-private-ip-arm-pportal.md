@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="How to set a static private IP in ARM mode using the Preview Portal| Microsoft Azure"
-   description="Understanding private IPs (DIPs) and how to manage them in ARM mode using the preview portal"
+   pageTitle="How to set a static private IP in ARM mode using the Azure portal| Microsoft Azure"
+   description="Understanding private IPs (DIPs) and how to manage them in ARM mode using the Azure portal"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
-# How to set a static private IP address in the preview portal
+# How to set a static private IP address in the Azure portal
 
 [AZURE.INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
@@ -31,14 +31,14 @@ The sample steps below expect a simple environment already created. If you want 
 
 ## How to create a VM for testing static private IP addresses
 
-You cannot set a static private IP address during the creation of a VM in the Resource Manager deployment mode by using the preview portal. You must create the VM first, tehn set its private IP to be static.
+You cannot set a static private IP address during the creation of a VM in the Resource Manager deployment mode by using the Azure portal. You must create the VM first, tehn set its private IP to be static.
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*, follow the steps below.
 
 1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
 2. Click **NEW** > **Compute** > **Windows Server 2012 R2 Datacenter**, notice that the **Select a deployment model** list already shows **Resource Manager**, and then click **Create**, as seen in the figure below.
 
-	![Create VM in preview portal](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
+	![Create VM in Azure portal](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
 
 3. In the **Basics** blade, enter the name of the VM to be created (*DNS01* in our scenario), the local administrator account, and password, as seen in the figure below.
 
@@ -62,13 +62,13 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 
 7. In the **Summary** blade, click **OK**. Notice the tile below displayed in your dashboard.
 
-	![Create VM in preview portal](./media/virtual-networks-static-ip-arm-pportal/figure06.png)
+	![Create VM in Azure portal](./media/virtual-networks-static-ip-arm-pportal/figure06.png)
 
 ## How to retrieve static private IP address information for a VM
 
 To view the static private IP address information for the VM created with the steps above, execute the steps below.
 
-1. From the Azure preview portal, click **BROWSE ALL** > **Virtual machines** > **DNS01** > **All settings** > **Network interfaces** and then click on the only network interface listed.
+1. From the Azure Azure portal, click **BROWSE ALL** > **Virtual machines** > **DNS01** > **All settings** > **Network interfaces** and then click on the only network interface listed.
 
 	![Deploying VM tile](./media/virtual-networks-static-ip-arm-pportal/figure07.png)
 
@@ -82,7 +82,7 @@ To add a static private IP address to the VM created using the steps above, foll
 1. From the **IP addresses** blade shown above, click **Static** under **Assignment**.
 2. Type *192.168.1.101* for **IP address**, and then click **Save**.
 
-	![Create VM in preview portal](./media/virtual-networks-static-ip-arm-pportal/figure09.png)
+	![Create VM in Azure portal](./media/virtual-networks-static-ip-arm-pportal/figure09.png)
 
 >[AZURE.NOTE] If after clicking **Save** you notice that the assignment is still set to **Dynamic**, it means that the IP address you typed is already in use. Try a different IP address.
 

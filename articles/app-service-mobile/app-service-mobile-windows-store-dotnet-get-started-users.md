@@ -3,7 +3,7 @@
 	description="Learn how to use Azure App Service Mobile Apps to authenticate users of your Windows app using a variety of identity providers, including: AAD, Google, Facebook, Twitter, and Microsoft."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="11/23/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Add authentication to your Windows app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to add cloud-based authentication to your mobile app. In this tutorial, you add authentication to the Mobile Apps quickstart project using an identity provider that is supported by Azure App Service. After being successfully authenticated and authorized by your Mobile App backend, the user ID value is displayed.
 
-This tutorial is based on the Mobile Apps quickstart. You must first complete the tutorial [Get started with Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md). 
+This tutorial is based on the Mobile Apps quickstart. You must first complete the tutorial [Get started with Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).
 
 ##<a name="register"></a>Register your app for authentication and configure the App Service
 
@@ -45,7 +43,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
 ##<a name="tokens"></a>Store the authentication token on the client
 
-The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the App Service every time that the app starts. Not only is this method inefficient, you can run into usage-relates issues should many customers try to start you app at the same time. A better approach is to cache the authorization token returned by your App Service and try to use this first before using a provider-based sign-in. 
+The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the App Service every time that the app starts. Not only is this method inefficient, you can run into usage-relates issues should many customers try to start you app at the same time. A better approach is to cache the authorization token returned by your App Service and try to use this first before using a provider-based sign-in.
 
 >[AZURE.NOTE]You can cache the token issued by App Services regardless of whether you are using client-managed or service-managed authentication. This tutorial uses service-managed authentication.
 
@@ -55,13 +53,13 @@ The previous example showed a standard sign-in, which requires the client to con
 
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
-+ [Add push notifications to your Windows app](app-service-mobile-windows-store-dotnet-get-started-push.md)   
++ [Add push notifications to your Windows app](app-service-mobile-windows-store-dotnet-get-started-push.md)
   Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
-+ [Enable offline sync for your Windows app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. 
++ [Enable offline sync for your Windows app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)
+  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 
 <!-- URLs. -->
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
- 
+
