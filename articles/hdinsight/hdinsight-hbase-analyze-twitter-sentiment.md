@@ -134,7 +134,7 @@ The Twitter streaming APIs use [OAuth](http://oauth.net/) to authorize requests.
 
 
 
-## Create a simple Twitter streaming service
+## Create Twitter streaming service
 
 You need to create an application to get tweets, calculate tweet sentiment score, and send the processed tweet words to HBase.
 
@@ -450,7 +450,7 @@ To run the streaming service, press **F5**. The following is a screenshot of the
 Keep the streaming console application running while you develop the web application, so you have more data to use. To examine the data inserted into the table, you can use HBase Shell. See [Get started with HBase in HDInsight](hdinsight-hbase-tutorial-get-started.md#create-tables-and-insert-data).
 
 
-## Visualize Twitter sentiment
+## Visualize real-time sentiment
 
 In this section, you will create an ASP.NET MVC web application to read the real-time sentiment data from HBase and plot the data on Bing maps.
 
