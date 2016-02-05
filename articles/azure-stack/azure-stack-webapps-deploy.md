@@ -16,7 +16,7 @@
 	ms.date="02/03/2016" 
 	ms.author="chriscompy"/>	
 
-# Deploy a Web Apps resource provider
+# Add a Web Apps resource provider to Azure Stack
 
 
 Azure Stack App Service is the Azure App Service brought to on premise installation.  In this first preview release only the Web Apps aspect of the Azure App Service is being made available.   The current Azure Stack Web App deployment will create an instance of each of the 5 required role types, and a file server.  While you can add more instances for each of the role types please remember that there is not a lot of space for VMs in Technical Preview 1.  The current capabilities for Azure Stack App Service are primarily foundation capabilities that are needed to manage the system and to host web apps.  
