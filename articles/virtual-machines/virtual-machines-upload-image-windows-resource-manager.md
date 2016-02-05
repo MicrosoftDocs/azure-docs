@@ -79,29 +79,29 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 4. If you want to create a new storage account, click **Add** and enter the following information:
 
-	- Enter the **Name** for the storage account. It should contain between 3 to 24 lowercase letters and numbers only. This name becomes part of the URL you will use to access blob, files, and other resources from the storage account.
+	1. Enter the **Name** for the storage account. It should contain between 3 to 24 lowercase letters and numbers only. This name becomes part of the URL you will use to access blob, files, and other resources from the storage account.
 
-	- Select the **Type** of the storage account that you want to create. For more information, read [About Azure storage accounts](../storage/storage-create-storage-account.md).
+	2. Select the **Type** of the storage account that you want to create. For more information, read [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
-	- Enter the name of the **Resource Group**. The portal will create a new resource group if it cannot find an existing one with that name.
+	3. Enter the name of the **Resource Group**. The portal will create a new resource group if it cannot find an existing one with that name.
 
-	- Choose the **Location** for the storage account.
+	4. Choose the **Location** for the storage account.
 
-	- Click **Create**. The account now appears under the **Storage accounts** panel.
+	5. Click **Create**. The account now appears under the **Storage accounts** panel.
 
 		![Enter storage account details](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_storage_account.png)
 
-	- You can create a new blob container in this storage account by clicking **Blobs** in the **Services** tile. This is an optional step, as the PowerShell command to upload the image can also create a new blob container for your image.
+	6. You can create a new blob container in this storage account by clicking **Blobs** in the **Services** tile. This is an optional step, as the PowerShell command to upload the image can also create a new blob container for your image.
 
 		![Blob service](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_blob.png)
 
-	- Once the blob panel shows up, click **+ Container** to create a new blob storage container. Enter the name of the container and the access type.
+	7. Once the blob panel shows up, click **+ Container** to create a new blob storage container. Enter the name of the container and the access type.
 
 		![Create new blob](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_container.png)
 
   		> [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the **Blob** option. To allow full public read access for the container and blobs, use the **Container** option.
 
-	- The **Blob service** panel will list the new blob container. Note down the URL of this container; you will need this for the PowerShell command to upload the image. Depending on the length of the URL and your screen resolution, the URL may get partly hidden; if that happens, maximize the panel by clicking the *Maximize* icon on the upper right corner.
+	8. The **Blob service** panel will list the new blob container. Note down the URL of this container; you will need this for the PowerShell command to upload the image. Depending on the length of the URL and your screen resolution, the URL may get partly hidden; if that happens, maximize the panel by clicking the *Maximize* icon on the upper right corner.
 
 
 ### Using PowerShell
@@ -128,15 +128,15 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 4. If you wish to create a new storage account to hold this image, follow these steps:
 
-	- Make sure you have a resource group for this storage account. Find out all resource groups in your subscription by using:
+	1. Make sure you have a resource group for this storage account. Find out all resource groups in your subscription by using:
 
 			Get-AzureRmResourceGroup
 
-	 You can create a resource group by using:
+	2. If you want to create a new resource group, use this command:
 
- 			New-AzureRmResourceGroup -Name YourResourceGroup -Location "West US"
+			New-AzureRmResourceGroup -Name YourResourceGroup -Location "West US"
 
-	- Create a new storage account in this resource group by using:
+	3. Create a new storage account in this resource group by using:
 
 			New-AzureRmStorageAccount -ResourceGroupName YourResourceGroup -Name YourStorageAccountName -Location "West US" -Type "Standard_GRS"
 
