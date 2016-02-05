@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="12/08/2015" 
-	ms.author="erikre"/>
+	ms.author="tdykstra"/>
 
 
 # Configure web apps in Azure App Service #
