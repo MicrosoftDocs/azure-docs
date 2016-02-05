@@ -22,7 +22,23 @@ MySQL databases support common website platforms as is a common technology used 
 
 ## Prepare the Azure Stack POC machine
 
-Before deploying MySQL resource providers, prepare the Azure Stack POC environment with the necessary certifications, marketplace items, and binaries.
+Before deploying MySQL resource providers, turn off IE Enhanced Seucrity, install the latest version of Azure PowerShell, and prepare the Azure Stack POC environment with the necessary certifications, marketplace items, and binaries.
+
+### Turn off IE Enhanced Security
+
+1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
+2. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
+4. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+
+### Install the latest version of Azure PowerShell
+
+1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.
+2. Using Remote Desktop Connection, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
+3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
+4. Download and install the latest Azure PowerShell from [http://aka.ms.webpi-azps](http://aka.ms.webpi-azps).
+
+### Enable certificates, marketplace items, and binaries
 
 1.	On the Azure Stack POC machine, download the [AzureStackMySQLforWebApps.zip](http://aka.ms/MASMySQLRP) file and extract the contents to D:\MySql.
 
@@ -35,7 +51,7 @@ Before deploying MySQL resource providers, prepare the Azure Stack POC environme
 5.	Click the **Download-MySqlServer.ps1** tab and run it. When prompted, accept the EULA by clicking **Yes** in the **Confirm** dialog box. This command adds two zip files to the D:\MySql\BlobStorage\Container folder.
 
 6.	Click the **Upload-Microsoft.MySql-RP.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command uploads the binaries for the MySQL resource provider.
-> When prompted for AadTenantID, input your AAD tenant name, e.g. microsoftazurestack.onmicrosoft.com
+> When prompted for AadTenantID, input your AAD tenant FQDN, e.g. microsoftazurestack.onmicrosoft.com
 > When Prompted for service admin credentials, input your Azure Stack Service Admin user's username and password
 
 7.	Click the **Publish-GalleryPackages.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command adds two marketplace items to the Azure Stack POC portal.
