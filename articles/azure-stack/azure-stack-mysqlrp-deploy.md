@@ -78,9 +78,20 @@ Now that you have prepared the Azure Stack POC with the necessary certificates a
 
 ## Update DNS and register the MySQL resource provider
 
-1.	To make your newly deployed machine discoverable to other machines in your Azure Stack deployment run the **Add-DNSEntry.PS1** script.
-2.	In PowerShell ISE, click the **Deploy MySql provider** tab, click the **Register-Microsoft.MySql-fqdn.ps1** tab, and run it. When prompted for the Zero-day credentials, type your service admin credentials.
-3.	Click the **Register-Microsoft.MySql-provider.ps1** tab and run it. When prompted for the Zero-day credentials, type your service admin credentials.
+1. In PowerShell ISE, click the **Deploy MySql provider** tab, click the **Register-Microsoft.MySql-fqdn.ps1** tab, and run it. When prompted the AAD Tenant ID, input your AAD tenant FQDN, e.g. microsoftazurestack.onmicrosoft.com.
+
+2. Click the **Register-Microsoft.MySql-provider.ps1** tab and run the script. When prompted for credentials, type **basicauthusername** and **basicauthpassword** values that you created earlier.
+
+3. Refresh the portal.
+
+4. To see your resource provider in the portal, click **Browse**, click **Resource Groups**, choose resource group you used and it says succeeded, and click **Resource Providers**, and look for **mysql1** in the list.  
+
+## Validate the deployment
+
+1. In Azure Stack management portal, click “+”, click **Data**, deploy a MySQL server\database pair, and wait for successful completion.
+
+2. (Optional) If you also deployed Azure Stack App Service Web Apps, you can deploy a WordPress website from the marketplace. When prompted for database parameters input the username as *User1@Server1* (with the username and server name of your choice).
+
 
 ## Next steps
 
