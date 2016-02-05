@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="02/03/2016" 
 	ms.author="josephd"/>
 
-# Set up a simulated hybrid cloud environment for testing
+# Set up a simulated hybrid cloud environment for testing (classic deployment mode)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](../virtual-machines/virtual-machines-setup-simulated-hybrid-cloud-environment-testing.md).
 
 This article steps you through creating a simulated hybrid cloud environment with Microsoft Azure for testing using two separate Azure virtual networks. Use this configuration as an alternative to 
 [Set up a hybrid cloud environment for testing](virtual-networks-setup-hybrid-cloud-environment-testing.md) when you do not have a direct Internet connection and an available public IP address. Here is the resulting configuration.
@@ -221,11 +221,7 @@ Your simulated hybrid cloud environment is now ready for testing.
 
 ## Next Steps
 
-Set up the following workloads in the TestVNET virtual network:
-
-- [SharePoint intranet farm](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-- [Web-based line of business application](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-- [Office 365 Directory Synchronization (DirSync) server](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
+- Set up a [SharePoint intranet farm](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), a [Web-based line of business application](virtual-networks-setup-lobapp-hybrid-cloud-testing.md), or an [Office 365 Directory Synchronization (DirSync) server](virtual-networks-setup-dirsync-hybrid-cloud-testing.md) in the TestVNET virtual network.
 
 
 ## <a id="costs"></a>Minimizing the ongoing costs of this environment
@@ -265,4 +261,3 @@ Next, you configure the pre-shared key for both gateways to use the same value, 
 	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet -SharedKey $preSharedKey
 
 Next, on the Network page of the Azure Management Portal, click the **TestLab** virtual network, and then click **Connect** in the task bar. Wait until the TestLab virtual network shows a connected state to the TestVNET local network.
- 
