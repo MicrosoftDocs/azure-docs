@@ -49,7 +49,7 @@ Different VMs can share the same physical hardware. In an Azure datacenter, a si
 
 Similarly, VMs can be taken down by the [Azure Fabric Controller](https://azure.microsoft.com/documentation/videos/fabric-controller-internals-building-and-updating-high-availability-apps/) to perform planned maintenance and operating system upgrades. Azure allocates VMs to Update Domains (UDs). When a planned maintenance event occurs, only VMs in a single UD are effected at any one time; VMs in other UDs are left running until the VMs in the UD being updated are brought back on-line. Therefore, you also need to ensure that VMs hosting nodes and their replicas belong to different UDs wherever possible.
 
-    ^[AZURE.NOTE] For more information about FDs and UDs, see [Manage the Availability of Virtual Machines](virtual-machines-manage-availability/).
+> [AZURE.NOTE] For more information about FDs and UDs, see [Manage the Availability of Virtual Machines](virtual-machines-manage-availability/).
 
 You cannot explicitly allocate a VM to a specific UD and FD; this allocation is controlled by Azure when VMs are created; see the document [Manage the availability of virtual machines](virtual-machines-manage-availability/) for more information. However, you can specify that VMs should be created as part of an availability set (AS). VMs in the same AS will be spread across UDs and FDs. If you create VMs manually, Azure will associate each AS with two FDs and five UDs, and machines will be allocated to these FDs and UDs, cycling round as further VMs are provisioned, as follows:
 
@@ -61,7 +61,7 @@ You cannot explicitly allocate a VM to a specific UD and FD; this allocation is 
 - The sixth VM provisioned in the AS will be placed in FD 1 and UD 0.
 - The seventh VM provisioned in the AS will be placed in FD 0 and UD 1.
 
-    ^[AZURE.IMPORTANT] If you create VMs using the Azure Resource Manager (ARM), each availability set can be allocated up to 3 FDs and 20 UDs. This is a compelling reason for using the ARM.
+> [AZURE.IMPORTANT] If you create VMs using the Azure Resource Manager (ARM), each availability set can be allocated up to 3 FDs and 20 UDs. This is a compelling reason for using the ARM.
 
 In general, place all VMs that serve the same purpose in the same availability set, but create different availability sets for VMs that perform different functions. With Elasticsearch this means that you should consider creating at least separate availability sets for:
 
@@ -88,7 +88,7 @@ You can use shard allocation awareness in conjunction with [Shard Allocation Fil
 
 If you need to scale beyond the number of FDs and UDs in an AS, you can create VMs in additional ASs. However, you need to understand that nodes in different ASs can be taken down for maintenance simultaneously. Try to ensure that each shard and at least one of its replicas are contained within the same AS.
 
-    ^[AZURE.NOTE] There is currently a limit of 100 VMs per AS. For more information, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits/).
+> [AZURE.NOTE] There is currently a limit of 100 VMs per AS. For more information, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits/).
 
 ### Backup and Restore
 
@@ -164,7 +164,7 @@ GET /high_priority_index/_recovery?pretty=true
 
 For more information, see [Indices Recovery](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-recovery.html#indices-recovery).
 
-    ^[AZURE.NOTE] A cluster with shards that require recovery will have a status of *yellow* to indicate that not all shards are currently available. When all the shards are available, the cluster status should revert to *green*. A cluster with a status of *red* indicates that one or more shards are physically missing; it may be necessary to restore data from a backup.
+> [AZURE.NOTE] A cluster with shards that require recovery will have a status of *yellow* to indicate that not all shards are currently available. When all the shards are available, the cluster status should revert to *green*. A cluster with a status of *red* indicates that one or more shards are physically missing; it may be necessary to restore data from a backup.
 
 ### Preventing a Split Brain 
 
@@ -195,7 +195,7 @@ PUT /_all/_settings
 }
 ```
 
-    ^[AZURE.IMPORTANT] You can also disable shard reallocation completely by setting the *cluster.routing.allocation.enable* of the cluster to *none*. However, you should avoid using this approach if new indexes are likely to be created while the node is offline as this can cause index allocation to fail resulting in a cluster with red status.
+> [AZURE.IMPORTANT] You can also disable shard reallocation completely by setting the *cluster.routing.allocation.enable* of the cluster to *none*. However, you should avoid using this approach if new indexes are likely to be created while the node is offline as this can cause index allocation to fail resulting in a cluster with red status.
 
 2.  Stop Elasticsearch on the node to be maintained. If Elasticsearch is running as a service, you may be able to halt the process in a controlled manner by using an operating system command. The following example shows how to halt the Elasticsearch service on a single node running on Ubuntu:
 
@@ -224,7 +224,7 @@ PUT /_cluster/settings
 }
 ```
 
-    ^[AZURE.NOTE] If you need to maintain more than one node, repeat steps 2, 3, and 4 on each node before re-enabling shard allocation.
+> [AZURE.NOTE] If you need to maintain more than one node, repeat steps 2, 3, and 4 on each node before re-enabling shard allocation.
 
 If you can, stop indexing new data during this process. This will help to minimize recovery time when nodes are brought back online and rejoin the cluster.
 
@@ -248,7 +248,7 @@ Each scenario was subject to the same workload comprising a mixture of data inge
 
 The following sections summarize the results of these tests, noting any degradation in performance while a node is offline or being recovered, and any errors that were reported. The results are presented graphically, highlighting the points at which one or more nodes are missing and estimating the time taken for the system to fully recover and achieve a similar level of performance that was present prior to the nodes being taken offline.
 
-    ^[AZURE.NOTE] The test harnesses used to perform these tests are available online. You can adapt and use these harnesses to verify the resilience and recoverability of your own cluster configurations. For more information, see the document How-To: Run the Automated Elasticsearch Resilience Tests.
+> [AZURE.NOTE] The test harnesses used to perform these tests are available online. You can adapt and use these harnesses to verify the resilience and recoverability of your own cluster configurations. For more information, see the document How-To: Run the Automated Elasticsearch Resilience Tests.
 
 ### Node Failure and Restart with No Data Loss: Results
 

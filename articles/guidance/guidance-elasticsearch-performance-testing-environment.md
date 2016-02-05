@@ -19,7 +19,7 @@
    
 # Create a Performance Testing Environment for Elasticsearch
 
-[AZURE.INCLUDE [guidance-elasticsearch-selector](../../includes/guidance-elasticsearch-selector.md)]
+This article is [part of a series](guidance-elasticsearch-introduction.md). 
 
 This document describes how to set up an environment for testing the performance of an Elasticsearch cluster. This configuration was used to test the performance of data ingestion and query workloads, as described in [Maximizing Data Ingestion Performance with Elasticsearch on Azure][].
 
@@ -47,7 +47,7 @@ The structure of the performance testing environment.
 
 ## Creating an Azure Resource Group for the Virtual Machines
 
-    ^ [AZURE.IMPORTANT] The JMeter Master needs to be able to connect directly to each of the nodes in the Elasticsearch cluster to gather performance data. If the JMeter VNet is distinct from the Elasticsearch cluster VNet, then this entails configuring each Elasticsearch node with a public IP address. If this is a problem with your Elasticsearch configuration, then consider implementing the JMeter VMs in the same VNet as the Elasticsearch cluster by using the same resource group, in which case you can omit this first procedure.
+> [AZURE.IMPORTANT] The JMeter Master needs to be able to connect directly to each of the nodes in the Elasticsearch cluster to gather performance data. If the JMeter VNet is distinct from the Elasticsearch cluster VNet, then this entails configuring each Elasticsearch node with a public IP address. If this is a problem with your Elasticsearch configuration, then consider implementing the JMeter VMs in the same VNet as the Elasticsearch cluster by using the same resource group, in which case you can omit this first procedure.
 
 First, [create a resource group](../articles/resource-group-portal/#create-resource-group-and-resources). This document assumes that your resource group is named *JMeterPerformanceTest*. If you wish to run the JMeter VMs in the same VNet as the Elasticsearch cluster, use the same resource group as that cluster instead of creating a new one.
 
@@ -78,7 +78,7 @@ Once you've connected to one of the Subordinate VMs, we'll use bash to setup JMe
 
 First, install the Java Runtime Environment required to run JMeter.
 
-``` bash
+```bash
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install oracle-java8-installer
@@ -86,20 +86,20 @@ sudo apt-get install oracle-java8-installer
 
 Now, download the JMeter software packaged as a zip file.
 
-``` bash
+```bash
 wget http://apache.mirror.anlx.net/jmeter/binaries/apache-jmeter-2.13.zip
 ```
 
 Install the unzip command, then use it to expand the JMeter software. The software is copied to a folder named **apache-jmeter-2.13**.
 
-``` bash
+```bash
 sudo apt-get install unzip
 unzip apache-jmeter-2.13.zip
 ```
 
 Change to the *bin* directory holding the JMeter executables, and make the *jmeter-server* and *jmeter* programs executable.
 
-``` bash
+```bash
 cd apache-jmeter-2.13/bin
 chmod u+x jmeter-server
 chmod u+x jmeter
@@ -108,7 +108,7 @@ chmod u+x jmeter
 
 Now, we need to edit the file **jmeter.properties** located in the current folder (use the text editor with which you are most familiar, such as *vi* or *vim*). Locate the following lines:
 
-```
+```yaml
 ...
 client.rmi.localport=0
 ...
@@ -118,7 +118,7 @@ server.rmi.localport=4000
 
 Uncomment (remove the leading \## characters) and modify these lines as shown below, then save the file and close the editor:
 
-```
+```yaml
 ...
 client.rmi.localport=4441
 ...
@@ -127,21 +127,21 @@ server.rmi.localport=4440
 
 Now, run the following commands to open port 4441 to incoming TCP traffic (this is the port you on which you have just configured *jmeter-server* to listen):
 
-``` bash
+```bash
 sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 4441 -j ACCEPT
 ```
 
 Download a zip file containing the standard collection of plugins for JMeter (these plugins provide performance monitoring counters) and then unzip the file. Unzipping the file in this location places the plugins in the correct folder.
 If you are prompted to replace the LICENSE file, type A (for all):
 
-``` bash
+```bash
 wget http://jmeter-plugins.org/downloads/file/JMeterPlugins-Standard-1.3.0.zip
 unzip JMeterPlugins-Standard-1.3.0.zip
 ```
 
 Use `nohup` to launch the JMeter Server in the background. It should respond by displaying a process ID and a message indicating that it has created a remote object and is ready to start receiving commands.
 
-``` bash
+```bash
 nohup bin/jmeter-server &
 ```
 
@@ -154,7 +154,7 @@ nohup ./jmeter-server &
 eoc
 ```
 
-Replace <username> with your login name.
+Replace `<username>` with your login name.
 
 You may find it useful to keep the terminal window open so that you can monitor the progress of the JMeter Server while testing is in progress.
 
@@ -168,14 +168,14 @@ You will need to repeat these steps for each JMeter Subordinate VM.
 
 2.  At the bash command prompt, enter the following commands to create a folder for holding the JMeter Server Agent and move to that folder:
 
-``` bash
+```bash
 mkdir server-agent
 cd server-agent
 ```
 
 3.  Run the following commands to install the *unzip* command (if it is not already installed), download the JMeter Server Agent software, and unzip it:
 
-``` bash
+```bash
 sudo apt-get install unzip
 wget http://jmeter-plugins.org/downloads/file/ServerAgent-2.2.1.zip
 unzip ServerAgent-2.2.1.zip
@@ -183,13 +183,13 @@ unzip ServerAgent-2.2.1.zip
  
 4.  Run the following command to configure the firewall and enable TCP traffic to pass through port 4444 (this is the port used by the JMeter Server Agent):
 
-``` bash
+```bash
 sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 4444 -j ACCEPT
 ```
 
 5.  Run the following command to start the JMeter Server Agent in the background:
 
-``` bash
+```bash
 nohup ./startAgent.sh &
 ```
 
@@ -197,7 +197,7 @@ The JMeter Server Agent should respond with messages indicating that it has star
 
 6.  Press Enter to obtain a command prompt, and then run the following command. Replace *<nodename>* with the name of your node. If you are not sure of the name of your node, you can find it by running the *hostname* command:
 
-``` bash
+```bash
 telnet <nodename> 4444
 ```
 
@@ -229,18 +229,18 @@ exit
 
 > [AZURE.NOTE] As with the JMeter Subordinate VMs, if you log out, or if this machine is shutdown and restarted then the JMeter Server Agent will need to be restarted manually by using the *startAgent.sh* command. If you want the JMeter Server Agent to start automatically, add the following command to the end of the /etc/rc.local file, before the *exit 0* command. Replace *<username>* with your login name:
 
-``` bash
+```bash
 sudo -u <username> bash << eoc
 cd /home/<username>/server-agent
 nohup ./startAgent.sh &
 eoc
 ```
 
-Replace <username> with your login name.
+Replace `<username>` with your login name.
 
-9.  You can now either repeat this entire process for every other node in the Elasticsearch cluster, or you can use the *rcp* (remote copy) command to copy the server-agent folder and contents to every other node and use the *rsh* command start the JMeter Server Agent as shown below. Replace *&lt;username&gt;* with your username, and *&lt;nodename&gt;* with the name of the node to which you wish to copy and run the software (you may be asked to provide your password as you run each command):
+9.  You can now either repeat this entire process for every other node in the Elasticsearch cluster, or you can use the *rcp* (remote copy) command to copy the server-agent folder and contents to every other node and use the *rsh* command start the JMeter Server Agent as shown below. Replace <username> with your username, and <nodename> with the name of the node to which you wish to copy and run the software (you may be asked to provide your password as you run each command):
 
-``` bash
+```bash
 rcp -r \~/server-agent <username>@<nodename>:\~
 rsh <nodename> sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 4444 -j ACCEPT
 rsh <nodename> -n -f 'nohup \~/server-agent/startAgent.sh'
@@ -276,22 +276,22 @@ rsh <nodename> -n -f 'nohup \~/server-agent/startAgent.sh'
 13. In this section of the file, find the following line:
 
 ```
-remote\_hosts=127.0.0.1
+remote_hosts=127.0.0.1
 ```
 
 14.  Change this line and replace the IP address 127.0.0.1 with a comma separated list of IP addresses or host names for each of the JMeter Subordinate servers. For example:
 
 ```
-remote\_hosts=JMeterSub1,JMeterSub2
+remote_hosts=JMeterSub1,JMeterSub2
 ```
 
 15.  Find the following line:
 
 ```
-\#client.rmi.localport=0
+#client.rmi.localport=0
 ```
 
-16.  Remove the \## character at the start of this line, and modify the value of the client.rmi.localport settings as follows:
+16.  Remove the `#` character at the start of this line, and modify the value of the client.rmi.localport settings as follows:
 
 ```
 client.rmi.localport=4440
@@ -339,7 +339,7 @@ If you are using Elasticsearch 1.7.3 or earlier, perform the following steps *on
 
 1.  Log in to the node and move to the Elasticsearch home directory.
 
-**Note:** On Linux, the default home directory is /usr/share/elasticsearch
+> [AZURE.NOTE] On Linux, the default home directory is /usr/share/elasticsearch
 
 2.  Run the following command to download and install the Marvel plugin for Elasticsearch:
 
@@ -353,7 +353,7 @@ sudo bin/plugin -i elasticsearch/marvel/latest
 sudo service elasticsearch restart
 ```
 
-4. To verify that Marvel was installed correctly, open a web browser and move to the URL *http://<server>:9200/\_plugin/marvel*. Replace *<server>* with the name or IP address of any Elasticsearch server in the cluster.  Verify that a page similar to that shown below appears:
+4. To verify that Marvel was installed correctly, open a web browser and move to the URL *http://<server>:9200/_plugin/marvel*. Replace *<server>* with the name or IP address of any Elasticsearch server in the cluster.  Verify that a page similar to that shown below appears:
 
 ![](./media/guidance-elasticsearch-performance-image20.png)
 
@@ -377,9 +377,9 @@ sudo bin/plugin install marvel-agent
 sudo service elasticsearch restart
 ```
 
-> [AZURE.IMPORTANT] In the following procedure, replace *&lt;kibana-version&gt;* with 4.2.2 if you are using Elasticsearch 2.0.0 or Elasticsearch 2.0.1, or with 4.3.1 if you are using Elasticsearch 2.1.0 or later.
+> [AZURE.IMPORTANT] In the following procedure, replace <kibana-version> with 4.2.2 if you are using Elasticsearch 2.0.0 or Elasticsearch 2.0.1, or with 4.3.1 if you are using Elasticsearch 2.1.0 or later.
 
-Replace *&lt;marvel-version&gt;* with 2.0.0 if you are using Elasticsearch 2.0.0 or Elasticsearch 2.0.1, or with 2.1.0 if you are using Elasticsearch 2.1.0 or later.
+Replace <marvel-version> with 2.0.0 if you are using Elasticsearch 2.0.0 or Elasticsearch 2.0.1, or with 2.1.0 if you are using Elasticsearch 2.1.0 or later.
 
 4.  Perform the following tasks *on one node* in the cluster:
 
@@ -394,7 +394,7 @@ wget https://download.elastic.co/kibana/kibana/kibana-<kibana-version>-linux-x64
 1.  Extract the Kibana software from the zip file:
 
 ```
-tar xvzf kibana-*&lt;kibana-version&gt;*-linux-x64.tar.gz
+tar xvzf kibana-<kibana-version>-linux-x64.tar.gz
 ```
 
 1.  Open port 5601 to accept incoming requests:
@@ -406,15 +406,15 @@ sudo iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 5601 -j ACCEPT
 Move to the kibana config folder (kibana-<kibana-version>-linux-x64/config), edit the kibana.yml file, and add the following line. Replace *<server>* with the name or IP address of an Elasticsearch server in the cluster:
 
 ```
-elasticsearch.url: "http://*&lt;server&gt;*:9200"
+elasticsearch.url: "http://<server>:9200"
 ```
 
-1.  Move to the kibana bin folder (kibana-*&lt;kibana-version&gt;*-linux-x64/bin).
+1.  Move to the kibana bin folder (kibana-<kibana-version>-linux-x64/bin).
 
 2.  Run the following command to integrate the Marvel plugin into Kibana:
 
 ```
-sudo ./kibana plugin --install elasticsearch/marvel/*&lt;marvel-version&gt;*
+sudo ./kibana plugin --install elasticsearch/marvel/<marvel-version>
 ```
 
 1.  Start Kibana running:
@@ -426,7 +426,7 @@ sudo nohup ./kibana &
 
 1.  Perform the following tasks to verify the Marvel installation:
 
-1.  Open a web browser and move to the URL *http://&lt;server&gt;:5601/app/marvel*. Replace *&lt;server&gt;* with the name or IP address of the server running Kibana:
+1.  Open a web browser and move to the URL *http://<server>:5601/app/marvel*. Replace <server> with the name or IP address of the server running Kibana:
 
 2.  Verify that a page similar to that shown below appears (the name of your cluster will likely vary from that shown in the image):
 
