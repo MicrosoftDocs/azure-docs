@@ -17,6 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
+
 # Copy an Azure SQL Database
 
 **Single database**

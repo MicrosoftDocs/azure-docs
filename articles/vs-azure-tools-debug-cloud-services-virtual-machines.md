@@ -5,14 +5,14 @@
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
-	editor="tlee" />
+	editor="" />
 <tags 
 	ms.service="visual-studio-online"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="02/03/2016"
+	ms.date="02/04/2016"
 	ms.author="tarcher" />
 
 # Debugging an Azure cloud service or virtual machine in Visual Studio
