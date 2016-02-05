@@ -180,7 +180,6 @@ the Git repository. Starting in Visual Studio 2013, Git support is built-in and 
 ###<a name="webmatrix"></a>How to deploy from WebMatrix directly
 
 * [Build and deploy a Node.js web site to Azure using WebMatrix](web-sites-nodejs-use-webmatrix.md).
-* [Create and deploy a PHP-MySQL web app using WebMatrix](web-sites-php-mysql-use-webmatrix.md).
 * [WebMatrix 3: Integrated Git and Deployment to Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). 
 How to use WebMatrix to deploy from a Git source control repository.
 
@@ -220,7 +219,7 @@ Additional pros of deploying using TFS are:
 
 ###<a name="tfs"></a>How to deploy continuously with TFS
 
-* [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery.md). This document is for an Azure Cloud 
+* [Continuous Delivery for Cloud Services in Azure](../cloud-services/cloud-services-dotnet-continuous-delivery.md). This document is for an Azure Cloud 
 Service, but some of its content is relevant to Web Apps.
 
 ###<a name="gitmercurial"></a>How to deploy from an on-premises Git or Mercurial repository
@@ -269,9 +268,9 @@ Additional pros of deploying using Visual Studio Team Services are:
 
 ###<a name="vsts"></a>How to deploy continuously with Visual Studio Team Services
 
-- [Continuous delivery to Azure using Visual Studio Team Services and TFVC](../cloud-services-continuous-delivery-use-vso.md). Step-by-step 
+- [Continuous delivery to Azure using Visual Studio Team Services and TFVC](../cloud-services/cloud-services-continuous-delivery-use-vso.md). Step-by-step 
 tutorial that shows how to set up continuous delivery from Visual Studio Team Services to a web app, using TFVC. 
-- [Continuous delivery to Azure using Visual Studio Team Services and Git](../cloud-services-continuous-delivery-use-vso-git.md). Similar to 
+- [Continuous delivery to Azure using Visual Studio Team Services and Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md). Similar to 
 the previous tutorial but uses Git instead of TFVC.
 
 ###<a name="cloudgitmercurial"></a>How to deploy from a cloud-based Git or Mercurial repository

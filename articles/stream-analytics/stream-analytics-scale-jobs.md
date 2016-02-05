@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/03/2016"
+	ms.date="02/04/2016"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs to increase stream data processing throughput

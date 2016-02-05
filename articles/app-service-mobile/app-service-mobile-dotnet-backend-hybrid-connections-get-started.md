@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="10/23/2015"
+	ms.date="01/25/2016"
 	ms.author="glenga"/>
 
 
