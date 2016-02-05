@@ -56,7 +56,7 @@ Perform the following steps to view the details of any job.
 
 3. At the bottom of the page, click **Details**.
 
-4. In the **Details** dialog box, you can view the status, details,  and time statistics. The following illustration shows an example of the **Backup Job Details** dialog box.
+4. In the **Details** dialog box, you can view status, details,  and time statistics. The following illustration shows an example of the **Backup Job Details** dialog box.
  
     ![Job details page](./media/storsimple-ova-manage-jobs/ovajobs2.png)
 
