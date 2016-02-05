@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Deploy a VM with a static public IP using the preview portal in Resource Manager | Microsoft Azure"
-   description="Learn how to deploy VMs with a static public IP using the preview portal in Resource Manager"
+   pageTitle="Deploy a VM with a static public IP using the Azure portal in Resource Manager | Microsoft Azure"
+   description="Learn how to deploy VMs with a static public IP using the zure portal in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="01/08/2016"
+   ms.date="02/04/2016"
    ms.author="telmos" />
 
 # Deploy a VM with a static public IP using the Azure portal
