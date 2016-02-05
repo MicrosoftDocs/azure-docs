@@ -81,7 +81,7 @@ and uses it to create a new **CloudTable** object which represents a table named
 
 	   // Create the table if it doesn't exist.
 	   String tableName = "people";
-	   CloudTable cloudTable = new CloudTable(tableName,tableClient);
+	   CloudTable cloudTable = tableClient.getTableReference(tableName);
 	   cloudTable.createIfNotExists();
     }
     catch (Exception e)
