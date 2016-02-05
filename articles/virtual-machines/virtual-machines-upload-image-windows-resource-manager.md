@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="02/05/2016"
 	ms.author="dkshir"/>
 
 # Upload a Windows VM image to Microsoft Azure for Resource Manager deployments
@@ -32,7 +32,7 @@ This article assumes you have:
 
 1. **An Azure subscription** - If you don't have one, [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card won't be charged, unless you explicitly change your settings. You also can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). The MSDN subscription gives credits every month that you can use for paid Azure services.
 
-2. **Microsoft Azure PowerShell 1.0.x** - Make sure you have the Microsoft Azure PowerShell version 1.0.x installed. We recommend using this version since new Resource Manager features will not be added to older PowerShell versions. Read [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) to know more about the version differences.
+2. **Microsoft Azure PowerShell 1.0.x** - Make sure you have the Microsoft Azure PowerShell version 1.0.x installed. We recommend using this version since new Resource Manager features will not be added to older PowerShell versions. Read [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/) to know more about the version differences. If you don't already have it installed, read [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 3. **A virtual machine running the Windows operating system** - There are many tools for creating virtual machines on premises. For example, you can use Hyper-V Manager to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and configure a virtual machine](http://technet.microsoft.com/library/hh846766.aspx). For details about which Windows operating systems are supported, see [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/kb/2721672).
 
@@ -244,9 +244,11 @@ For example, your workflow could look something like this:
 		C:\> $osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 		C:\> $urlOfUploadedImageVhd = "https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd"
 		C:\> $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
-		C:\> New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
-		C:\>
-
+		C:\> $result = New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+		C:\> $result
+		RequestId IsSuccessStatusCode StatusCode ReasonPhrase
+		--------- ------------------- ---------- ------------
+		                         True         OK OK
 
 You should see the newly created VM in either the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, OR by using the following PowerShell commands:
 
