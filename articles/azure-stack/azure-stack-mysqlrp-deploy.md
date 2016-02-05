@@ -18,13 +18,13 @@
 
 # MySQL resource providers
 
-You can deploy MySQL resource providers in your Azure Stack POC environment.
+MySQL databases support common website platforms as is a common technology used on the websites scene. You can deploy the MySQL Resource Provider to work with servers and databases through Azure Resource Manager deployment templates, as well as deploy WordPress websites from the Azure Web Apps add on for Azure Stack
 
 ## Prepare the Azure Stack POC machine
 
 Before deploying MySQL resource providers, prepare the Azure Stack POC environment with the necessary certifications, marketplace items, and binaries.
 
-1.	On the Azure Stack POC machine, download the [AzureStackMySQLforWebApps.zip](http:\\tbd) file and extract the contents to D:\MySql.
+1.	On the Azure Stack POC machine, download the [AzureStackMySQLforWebApps.zip](http://aka.ms/MASMySQLRP) file and extract the contents to D:\MySql.
 
 2.	Run the **D:\Mysql\Bootstrap.cmd** file as an administrator (use the portal service admin account). This opens the Bootstrap.ps1 file in PowerShell ISE.
 
@@ -35,13 +35,13 @@ Before deploying MySQL resource providers, prepare the Azure Stack POC environme
 5.	Click the **Download-MySqlServer.ps1** tab and run it. When prompted, accept the EULA by clicking **Yes** in the **Confirm** dialog box. This command adds two zip files to the D:\MySql\BlobStorage\Container folder.
 
 6.	Click the **Upload-Microsoft.MySql-RP.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command uploads the binaries for the MySQL resource provider.
-> When prompted for AadTenantID, input your Azure Active Directory Tenant ID (XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXXX)
+> When prompted for AadTenantID, input your AAD tenant name, e.g. microsoftazurestack.onmicrosoft.com
 > When Prompted for service admin credentials, input your Azure Stack Service Admin user's username and password
 
 7.	Click the **Publish-GalleryPackages.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command adds two marketplace items to the Azure Stack POC portal.
 
 8.	Verify that these files are in the D:\MySql\Prerequisites\BlobStorage\Container folder:
-  - AzureStack.MySql.Setup.1.0.28.0.nupkg
+  - AzureStack.MySql.Setup.1.0.46.0.nupkg
   - mysql-5.5.44-winx64.zip
   - mysql-5.6.26-winx64.zip
   - \_.AzureStack.local.pfx
@@ -63,8 +63,8 @@ Now that you have prepared the Azure Stack POC with the necessary certificates a
 ## Update DNS and register the MySQL resource provider
 
 1.	To make your newly deployed machine discoverable to other machines in your Azure Stack deployment run the **Add-DNSEntry.PS1** script.
-2.	In PowerShell ISE, click the **Deploy MySql provider** tab, click the **Register-Microsoft.MySql-fqdn.ps1** tab, and run it. When prompted for the Zero-day credentials, type your serviceadmin@microsoft.AzureStack.onmicrosoft.com credentials.
-3.	Click the **Register-Microsoft.MySql-provider.ps1** tab and run it. When prompted for the Zero-day credentials, type your serviceadmin@microsoft.AzureStack.onmicrosoft.com credentials.
+2.	In PowerShell ISE, click the **Deploy MySql provider** tab, click the **Register-Microsoft.MySql-fqdn.ps1** tab, and run it. When prompted for the Zero-day credentials, type your service admin credentials.
+3.	Click the **Register-Microsoft.MySql-provider.ps1** tab and run it. When prompted for the Zero-day credentials, type your service admin credentials.
 
 ## Next steps
 
