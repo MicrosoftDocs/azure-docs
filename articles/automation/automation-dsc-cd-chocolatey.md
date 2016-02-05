@@ -78,7 +78,7 @@ The PowerShell Gallery is instrumented to install DSC resources into your Azure 
 Or, there’s the manual approach.  The folder structure of a PowerShell Integration Module for a Windows computer is a little different from the folder structure expected by the Azure Automation.  This requires a little tweaking on your part.  But it’s not hard, and it’s done only once per resource (unless you want to upgrade it in future.)  For more information on authoring PowerShell Integration Modules, see this article: [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 -   Install the module that you need on your workstation, as follows:
-    -   Install [Windows Management Framework, v5](http://www.microsoft.com/en-us/download/details.aspx?id=48729) (not needed for Win10)
+    -   Install [Windows Management Framework, v5](http://www.microsoft.com/download/details.aspx?id=48729) (not needed for Win10)
     -   `Install-Module  –ModuleName MODULENAME`    <—grabs the module from the PowerShell gallery 
 -   Copy the module folder from `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` to a temp folder 
 -   Delete samples and documentation from the main folder 
