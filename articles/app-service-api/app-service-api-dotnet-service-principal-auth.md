@@ -96,7 +96,7 @@ If you don't validate claims in code in the protected API app, and if you use a 
 
 If you are following the Node.js or Java getting-started series for API apps, skip to the [Next steps](#next-steps) section. 
 
-The remainder of this article continues the .NET getting-started series for API apps and assumes that you have completed the [user authentication tutorial](app-service-api-user-principal-authentication.md) and have the sample application running in Azure with user authentication enabled.
+The remainder of this article continues the .NET getting-started series for API apps and assumes that you have completed the [user authentication tutorial](app-service-api-user-principal-auth.md) and have the sample application running in Azure with user authentication enabled.
 
 ## Set up authentication in Azure
 
