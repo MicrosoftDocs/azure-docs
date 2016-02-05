@@ -19,6 +19,8 @@
    
 # Configuring, Testing, and Analyzing Elasticsearch Resilience and Recovery on Azure
 
+This article is [part of a series](guidance-elasticsearch-introduction.md). 
+
 A key feature of Elasticsearch is the support that it provides for resiliency in the event of node failures and/or network partition events. Replication is the most obvious way in which you can improve the resiliency of any cluster, enabling Elasticsearch to ensure that more than one copy of any data item is available on different nodes in case one node should become inaccessible. If a node becomes temporarily unavailable, other nodes containing replicas of data from the missing node can serve the missing data until the problem is resolved. In the event of a longer-term issue, the missing node can be replaced with a new one, and Elasticsearch can restore the data to the new node from the replicas.
 
 This document summarizes the resiliency and recovery options available with Elasticsearch when hosted in Azure, and describes some important aspects of an Elasticsearch cluster that you should consider to minimize the chances of data loss and extended data recovery times.
@@ -47,7 +49,7 @@ Different VMs can share the same physical hardware. In an Azure datacenter, a si
 
 Similarly, VMs can be taken down by the [Azure Fabric Controller](https://azure.microsoft.com/documentation/videos/fabric-controller-internals-building-and-updating-high-availability-apps/) to perform planned maintenance and operating system upgrades. Azure allocates VMs to Update Domains (UDs). When a planned maintenance event occurs, only VMs in a single UD are effected at any one time; VMs in other UDs are left running until the VMs in the UD being updated are brought back on-line. Therefore, you also need to ensure that VMs hosting nodes and their replicas belong to different UDs wherever possible.
 
-[AZURE.NOTE] For more information about FDs and UDs, see [Manage the Availability of Virtual Machines](virtual-machines-manage-availability/).
+^ [AZURE.NOTE] For more information about FDs and UDs, see [Manage the Availability of Virtual Machines](virtual-machines-manage-availability/).
 
 You cannot explicitly allocate a VM to a specific UD and FD; this allocation is controlled by Azure when VMs are created; see the document [Manage the availability of virtual machines](virtual-machines-manage-availability/) for more information. However, you can specify that VMs should be created as part of an availability set (AS). VMs in the same AS will be spread across UDs and FDs. If you create VMs manually, Azure will associate each AS with two FDs and five UDs, and machines will be allocated to these FDs and UDs, cycling round as further VMs are provisioned, as follows:
 
@@ -59,7 +61,7 @@ You cannot explicitly allocate a VM to a specific UD and FD; this allocation is 
 - The sixth VM provisioned in the AS will be placed in FD 1 and UD 0.
 - The seventh VM provisioned in the AS will be placed in FD 0 and UD 1.
 
-[AZURE.IMPORTANT] If you create VMs using the Azure Resource Manager (ARM), each availability set can be allocated up to 3 FDs and 20 UDs. This is a compelling reason for using the ARM.
+^ [AZURE.IMPORTANT] If you create VMs using the Azure Resource Manager (ARM), each availability set can be allocated up to 3 FDs and 20 UDs. This is a compelling reason for using the ARM.
 
 In general, place all VMs that serve the same purpose in the same availability set, but create different availability sets for VMs that perform different functions. With Elasticsearch this means that you should consider creating at least separate availability sets for:
 
@@ -69,24 +71,24 @@ In general, place all VMs that serve the same purpose in the same availability s
 
 Additionally, you should ensure that each node in a cluster is aware of the update domain and fault domain to which it belongs. This information can help to ensure that Elasticsearch does not create shards and their replicas in the same fault and update domains, minimizing the scope for a shard and its replicas from being taken down at the same time. You can configure an Elasticsearch node to mirror the hardware distribution of the cluster by configuring [Shard Allocation Awareness](https://www.elastic.co/guide/en/elasticsearch/reference/current/allocation-awareness.html#allocation-awareness). For example, you could define a pair of custom node attributes called *faultDomain* and *updateDomain* in the elasticsearch.yml file, as follows:
 
-````
+```yaml
 node.faultDomain: \${FAULTDOMAIN}
 node.updateDomain: \${UPDATEDOMAIN}
-````
+```
 
 In this case, the attributes are set using the values held in the *\${FAULTDOMAIN}* and *\${UPDATEDOMAIN}* environment variables when Elasticsearch is started. You also need to add the following entries to the Elasticsearch.yml file to indicate that *faultDomain* and *updateDomain* are allocation awareness attributes, and specify the sets of acceptable values for these attributes:
 
-````
+```yaml
 cluster.routing.allocation.awareness.force.updateDomain.values: 0,1,2,3,4
 cluster.routing.allocation.awareness.force.faultDomain.values: 0,1
 cluster.routing.allocation.awareness.attributes: updateDomain, faultDomain
-````
+```
 
 You can use shard allocation awareness in conjunction with [Shard Allocation Filtering](https://www.elastic.co/guide/en/elasticsearch/reference/2.0/shard-allocation-filtering.html#shard-allocation-filtering) to specify explicitly which nodes can host shards for any given index.
 
 If you need to scale beyond the number of FDs and UDs in an AS, you can create VMs in additional ASs. However, you need to understand that nodes in different ASs can be taken down for maintenance simultaneously. Try to ensure that each shard and at least one of its replicas are contained within the same AS.
 
-[AZURE.NOTE] There is currently a limit of 100 VMs per AS. For more information, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits/).
+^ [AZURE.NOTE] There is currently a limit of 100 VMs per AS. For more information, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits/).
 
 ### Backup and Restore
 
@@ -109,22 +111,22 @@ You should consider the following points when selecting the snapshot storage mec
 
 Intermittent network glitches, VM reboots after routine maintenance at the datacenter, and other similar events can cause nodes to become temporarily inaccessible. In these situations, where the event is likely to be short-lived, the overhead of rebalancing the shards occurs twice in quick succession (once when the failure is detected and again when the node become visible to the master) can become a significant overhead that impacts performance. You can prevent temporary node inaccessibility from causing the master to rebalance the cluster by setting the *delayed\_timeout* property of an index, or for all indexes. The example below sets the delay to 5 minutes:
 
-````
+```http
 PUT /_all/settings
 {
 	"settings": {
     "index.unassigned.node_left.delayed_timeout": "5m"
 	}
 }
-````
+```
 
 For more information, see [Delaying allocation when a node leaves](https://www.elastic.co/guide/en/elasticsearch/reference/current/delayed-allocation.html).
 
 In a network that is prone to interruptions, you can also modify the parameters that configure a master to detect when another node is no longer accessible. These parameters are part of the [Zen Discovery](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-zen.html#modules-discovery-zen) module provided with Elasticsearch, and you can set them in the Elasticsearch.yml file. For example, the *discovery.zen.fd.ping.retries* parameter specifies how many times a master node will attempt to ping another node in the cluster before deciding that it has failed. This parameter defaults to 3, but you can modify it as follows:
 
-````
+```yaml
 discovery.zen.fd.ping_retries: 6
-````
+```
 
 ### Controlling Recovery
 
@@ -136,7 +138,7 @@ When connectivity to a node is restored after a failure, any shards on that node
 
 If some indexes are more critical than others but do not match these criteria, you can override the precedence of indexes by setting the *index.priority* property. Indexes with a higher value for this property will be recovered before indexes that have a lower value:
 
-````
+```http
 PUT low_priority_index
 {
 	"settings": {
@@ -150,19 +152,19 @@ PUT high_priority_index
 		"index.priority": 10
 	}
 }
-````
+```
 
 For more information, see [Index Recovery Prioritization](https://www.elastic.co/guide/en/elasticsearch/reference/2.0/recovery-prioritization.html#recovery-prioritization).
 
 You can monitor the recovery process for one or more indexes using the *\_recovery* API:
 
-````
+```http
 GET /high_priority_index/_recovery?pretty=true
-````
+```
 
 For more information, see [Indices Recovery](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-recovery.html#indices-recovery).
 
-[AZURE.NOTE] A cluster with shards that require recovery will have a status of *yellow* to indicate that not all shards are currently available. When all the shards are available, the cluster status should revert to *green*. A cluster with a status of *red* indicates that one or more shards are physically missing; it may be necessary to restore data from a backup.
+^ [AZURE.NOTE] A cluster with shards that require recovery will have a status of *yellow* to indicate that not all shards are currently available. When all the shards are available, the cluster status should revert to *green*. A cluster with a status of *red* indicates that one or more shards are physically missing; it may be necessary to restore data from a backup.
 
 ### Preventing a Split Brain 
 
@@ -170,9 +172,9 @@ A split brain can occur if the connections between nodes fail. If a master node 
 
 You can reduce the chances of a split brain by configuring the *minimum\_master\_nodes* property of the discovery module, in the elasticsearch.yml file. This property specifies how many nodes must be available to enable the election of a master. The following example sets the value of this property to 2:
 
-````
+```yaml
 discovery.zen.minimum_master_nodes: 2
-````
+```
 
 This value should be set to the lowest majority of the number of nodes that are able to fulfil the master role. For example, if your cluster has 3 master nodes, *minimum\_master\_nodes* should be set to 2; if you have 5 master nodes, *minimum\_master\_nodes* should be set to 3. Ideally, you should have an odd number of master nodes.
 
@@ -184,28 +186,28 @@ If you are performing a software upgrade to nodes yourself (such as migrating to
 
 1.  Ensure that shard reallocation is delayed sufficiently to prevent the elected master from rebalancing shards from a missing node across the remainder of the cluster. By default, shard reallocation is delayed for 1 minute, but you can increase the duration if a node is likely to be unavailable for a longer period. The following example increases the delay to 5 minutes:
 
-````
+```http
 PUT /_all/_settings
 {
 	"settings": {
 		"index.unassigned.node_left.delayed_timeout": "5m"
 	}
 }
-````
+```
 
-[AZURE.IMPORTANT] You can also disable shard reallocation completely by setting the *cluster.routing.allocation.enable* of the cluster to *none*. However, you should avoid using this approach if new indexes are likely to be created while the node is offline as this can cause index allocation to fail resulting in a cluster with red status.
+^ [AZURE.IMPORTANT] You can also disable shard reallocation completely by setting the *cluster.routing.allocation.enable* of the cluster to *none*. However, you should avoid using this approach if new indexes are likely to be created while the node is offline as this can cause index allocation to fail resulting in a cluster with red status.
 
 2.  Stop Elasticsearch on the node to be maintained. If Elasticsearch is running as a service, you may be able to halt the process in a controlled manner by using an operating system command. The following example shows how to halt the Elasticsearch service on a single node running on Ubuntu:
 
-````
+```bash
 service elasticsearch stop
-````
+```
 
 3.  Alternatively, you can use the Shutdown API directly on the node:
 
-````
+```http
 POST /_cluster/nodes/_local/_shutdown
-````
+```
 
 4.  Perform the necessary maintenance on the node.
 
@@ -213,16 +215,16 @@ POST /_cluster/nodes/_local/_shutdown
 
 6.  Re-enable shard allocation:
 
-````
+```http
 PUT /_cluster/settings
 {
 	"transient": {
 		"cluster.routing.allocation.enable": "all"
 	}
 }
-````
+```
 
-**Notes**: If you need to maintain more than one node, repeat steps 2, 3, and 4 on each node before re-enabling shard allocation.
+^ [AZURE.NOTE] If you need to maintain more than one node, repeat steps 2, 3, and 4 on each node before re-enabling shard allocation.
 
 If you can, stop indexing new data during this process. This will help to minimize recovery time when nodes are brought back online and rejoin the cluster.
 
@@ -249,7 +251,7 @@ Each scenario was subject to the same workload comprising a mixture of data inge
 
 The following sections summarize the results of these tests, noting any degradation in performance while a node is offline or being recovered, and any errors that were reported. The results are presented graphically, highlighting the points at which one or more nodes are missing and estimating the time taken for the system to fully recover and achieve a similar level of performance that was present prior to the nodes being taken offline.
 
-[AZURE.NOTE] The test harnesses used to perform these tests are available online. You can adapt and use these harnesses to verify the resilience and recoverability of your own cluster configurations. For more information, see the document How-To: Run the Automated Elasticsearch Resilience Tests.
+^ [AZURE.NOTE] The test harnesses used to perform these tests are available online. You can adapt and use these harnesses to verify the resilience and recoverability of your own cluster configurations. For more information, see the document How-To: Run the Automated Elasticsearch Resilience Tests.
 
 ### Node Failure and Restart with No Data Loss: Results
 
@@ -291,7 +293,6 @@ Note the following points:
 - The network activity for all three nodes indicate bursts of activity as data is transmitted and received between nodes. In scenario 1, only node 0 exhibited as much network activity, but this activity seemed to be sustained for a longer period. Again, this difference could be due to the efficiencies of transmitting the entire data for a shard as a single request rather than the series of smaller requests received when recovering a shard.
 
 ### Node Failure and Restart with Shard Reallocation: Results
----------------------------------------------------------
 
 <!-- TODO -->
 
@@ -322,11 +323,11 @@ Note the following points:
 
 - After the final node is recycled, the system enters a period of significant volatility. This is most likely caused by the recovery process having to synchronize changes across every node and ensure that all replicas and their corresponding shards are consistent. At one point, this effort causes successive bulk insert operations to timeout and fail. The errors reported each case were:
 
-````
+```
 Failure -- BulkDataInsertTest17(org.apache.jmeter.protocol.java.sampler.JUnitSampler\$AnnotatedTestCase): java.lang.AssertionError: failure in bulk execution:
 
         \[1\]: index \[systwo\], type \[logs\], id \[AVEg0JwjRKxX\_sVoNrte\], message \[UnavailableShardsException\[\[systwo\]\[2\] Primary shard is not active or isn't assigned to a known node. Timeout: \[1m\], request: org.elasticsearch.action.bulk.BulkShardRequest@787cc3cd\]\]
-````
+```
 
 Subsequent experimentation showed that introducing a delay of a few minutes between cycling each node eliminated this error, so it was most likely caused by contention between the recovery process attempting to restore several nodes simultaneously and the bulk insert operations trying to store thousands of new documents.
 
@@ -343,6 +344,4 @@ The tests performed indicated that:
 
 - Only scenario 4 indicated potential data loss, and this loss only affected new data being added. It is good practice in applications performing data ingestion to mitigate this likelihood by retrying insert operations that have failed as the type of error reported is highly likely to be transient.
 
-- The results of test 4 also show that if you are performing planned maintenance of the nodes in a cluster, performance will benefit if you allow several minutes between cycling one node and the next. In an unplanned situation (such as the datacenter recycling nodes after performing an operating system update), you have less control over how and when nodes are taken down and restarted. The contention that arises when Elasticsearch attempts to recover the state of the cluster after sequential node outages can result in timeouts and errors.
-
-  
+- The results of test 4 also show that if you are performing planned maintenance of the nodes in a cluster, performance will benefit if you allow several minutes between cycling one node and the next. In an unplanned situation (such as the datacenter recycling nodes after performing an operating system update), you have less control over how and when nodes are taken down and restarted. The contention that arises when Elasticsearch attempts to recover the state of the cluster after sequential node outages can result in timeouts and errors. 
