@@ -28,7 +28,7 @@ Elasticsearch is a highly scalable open-source search engine and database. It is
 - **[JMeter guidance][]** describes how to create and use a JUnit sampler that can generate and upload data to an Elasticsearch cluster.
 - **[Considerations for JMeter][]** summarizes the key experiences gained from constructing and running data ingestion and query test plans. 
 - **[Query aggregation and performance][]** summarizes options that you can consider when determining the best way to optimize your system for query and search performance.
-- 
+
 - **[Resilience and Recovery][]** summarizes the resiliency and recovery options available with Elasticsearch when hosted in Azure.
 
   > [AZURE.NOTE] This guidance assumes some basic familiarity with Elasticsearch. For more detailed information, visit the [Elasticsearch website](https://www.elastic.co/products/elasticsearch).
