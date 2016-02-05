@@ -39,9 +39,9 @@ This article assumes you have:
 
 ## Make sure the VM has the right file format
 
-Microsoft Azure can only accept images for [Generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) saved in the VHD file format. The VHDs should be of fixed size, which should be a whole number MB. The maximum size allowed for the VHD is 1023GB.
+Microsoft Azure can only accept images for [Generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) saved in the VHD file format. The VHD size must be fixed and a whole number of MB. The maximum size allowed for the VHD is 1023GB.
 
-- The Hyper-V Manager will typically save your VM image in a VHDX format, which is not supported in Microsoft Azure. You can convert it to VHD format using either Hyper-V or the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For steps using PowerShell, read [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/). Or in Hyper-V, select your local computer on the left and then in the menu above it, click **Actions** > **Edit Disk...** > **Next** > Your VHDX path > **Next** > **Convert** > **Next** > **VHD** > **Next** > **Fixed size** > **Next** > Enter path for the VHD file > **Next** > **Finish**.
+- The Hyper-V Manager will typically save your VM image in a VHDX format, which is not supported in Microsoft Azure. You can convert it to VHD format using either Hyper-V or the [Convert-VHD PowerShell cmdlet](http://technet.microsoft.com/library/hh848454.aspx). For steps using PowerShell, read [Converting Hyper-V .vhdx to .vhd file formats](https://blogs.technet.microsoft.com/cbernier/2013/08/29/converting-hyper-v-vhdx-to-vhd-file-formats-for-use-in-windows-azure/). Or in Hyper-V, select your local computer on the left and then in the menu above it, click **Actions** > **Edit Disk...**. Navigate through the screens by clicking **Next** and entering these options: Path for your VHDX file > **Convert** > **VHD** > **Fixed size** > Path for the new VHD file. Click **Finish** to close.
 
 - If you have a Windows VM image in [the VMDK file format](https://en.wikipedia.org/wiki/VMDK), you can convert it to a VHD format using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMWare VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
 
@@ -67,7 +67,7 @@ This section shows you how to generalize your Windows virtual machine. This remo
 </br>
 ## Create or find an Azure storage account
 
-You will need a storage account in Azure to upload the VM image. You can either use an existing storage account or create new. You can use either the portal or the PowerShell to do this.
+You will need a storage account in Azure to upload the VM image. You can either use an existing storage account or create a new one. You can use either the portal or the PowerShell to do this.
 
 ### Using the portal
 
@@ -75,7 +75,7 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 2. Click **Browse** > **Storage accounts**.
 
-3. Check if a storage account exists that you want to use for uploading this image. Note the name of this storage account. You can skip the next steps in this section if you are using an existing storage account.
+3. Check if a storage account exists that you want to use for uploading this image. Note the name of this storage account. You can proceed to [Upload VM image](#uploadvm) section if you are using an existing storage account.
 
 4. If you want to create a new storage account, click **Add** and enter the following information:
 
@@ -91,7 +91,7 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 		![Enter storage account details](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_storage_account.png)
 
-	6. You can create a new blob container in this storage account by clicking **Blobs** in the **Services** tile. This is an optional step, as the PowerShell command to upload the image can also create a new blob container for your image.
+	6. This and the next steps show you how to create a blob container in this storage account. This is optional, as the PowerShell command to upload the image can also create a new blob container for your image. If you don't want to create it yourself, proceed to the [Upload VM image](#uploadvm) section. Else, click **Blobs** in the **Services** tile.
 
 		![Blob service](./media/virtual-machines-upload-image-windows-resource-manager/portal_create_blob.png)
 
@@ -106,7 +106,7 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 ### Using PowerShell
 
-1. Open the Azure PowerShell 1.0.x and login to your Azure account.
+1. Open Azure PowerShell 1.0.x and login to your Azure account.
 
 		Login-AzureRmAccount
 
@@ -126,6 +126,8 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 		Get-AzureRmStorageAccount
 
+	If you want to use an existing storage account, proceed to the [Upload VM image](#uploadvm) section.
+
 4. If you wish to create a new storage account to hold this image, follow these steps:
 
 	1. Make sure you have a resource group for this storage account. Find out all resource groups in your subscription by using:
@@ -142,7 +144,8 @@ You will need a storage account in Azure to upload the VM image. You can either 
 
 
 </br>
-## Upload VM image
+<a id="uploadvm"></a>
+## Upload the VM image to your storage account
 
 Use these steps in Azure PowerShell, to upload the VM image to the storage account you created in the above section.
 
@@ -155,19 +158,28 @@ Use these steps in Azure PowerShell, to upload the VM image to the storage accou
 	Where:
 	- **StorageAccountURL** is the URL for the storage account. It will typically be of this format: `https://YourStorageAccountName.blob.core.windows.net`. Note that you will need to use the name of the existing or new storage account in place of **YourStorageAccountName**.
 	- **BlobContainer** is the blob container where you want to store your images. If the cmdlet does not find an existing blob container with this name, it will create a new one for you.
-	- **TargetVHDName** is the name you want to save the image in the portal as.
+	- **TargetVHDName** is the name you want to save the image as.
 	- **LocalPathOfVHDFile** is the full path and name of the .vhd file on your local machine.
 
 	A successful `Add-AzureRmVhd` execution will look like this:
 
-	![PowerShell Add-AzureRmVhd](./media/virtual-machines-upload-image-windows-resource-manager/powershell_upload_vhd.png)
+		C:\> Add-AzureRmVhd -ResourceGroupName testUpldRG -Destination https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd -LocalFilePath "C:\temp\WinServer12.vhd"
+		MD5 hash is being calculated for the file  C:\temp\WinServer12.vhd.
+		MD5 hash calculation is completed.
+		Elapsed time for the operation: 00:03:35
+		Creating new page blob of size 53687091712...
+		Elapsed time for upload: 01:12:49
+
+		LocalFilePath           DestinationUri
+		-------------           --------------
+		C:\temp\WinServer12.vhd https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd
 
 	This command will take some time to complete, depending on your network connection and the size of your VHD file.
 
 </br>
 ## Deploy a new VM from the uploaded image
 
-Now you can use the uploaded image to create a new Windows VM. These steps show you how to use the Azure PowerShell and the VM image uploaded in the above steps, to create the VM in a new virtual network.
+Now you can use the uploaded image to create a new Windows VM. These steps show you how to use Azure PowerShell and the VM image uploaded in the above steps, to create the VM in a new virtual network.
 
 >[AZURE.NOTE] The VM image should be present in the same storage account as the actual virtual machine that will be created.
 
@@ -213,9 +225,27 @@ The following PowerShell script shows how to set up the virtual machine configur
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
 
-Your workflow could look something like this:
+For example, your workflow could look something like this:
 
-![PowerShell Create VM](./media/virtual-machines-upload-image-windows-resource-manager/powershell_create_vm.png)
+		C:\> $pipName = "testpip6"
+		C:\> $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
+		C:\> $subnet1Name = "testsub6"
+		C:\> $nicname = "testnic6"
+		C:\> $vnetName = "testvnet6"
+		C:\> $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
+		C:\> $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
+		C:\> $nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+		C:\> $vmName = "testupldvm6"
+		C:\> $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A4"
+		C:\> $computerName = "testupldcomp6"
+		C:\> $vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+		C:\> $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+		C:\> $osDiskName = "testupos6"
+		C:\> $osDiskUri = '{0}vhds/{1}{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+		C:\> $urlOfUploadedImageVhd = "https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd"
+		C:\> $vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
+		C:\> New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+		C:\>
 
 
 You should see the newly created VM in either the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, OR by using the following PowerShell commands:
@@ -226,4 +256,4 @@ You should see the newly created VM in either the [Azure portal](https://portal.
 
 ## Next steps
 
-To manage your new virtual machine with the Azure PowerShell, read [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md).
+To manage your new virtual machine with Azure PowerShell, read [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md).
