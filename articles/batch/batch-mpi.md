@@ -33,7 +33,11 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 3. After the common resource files have been downloaded, the **coordination command** is executed by the primary and other subtasks. This coordination command is typically used to start a background service (such as [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) and may also verify that the nodes are ready to process inter-node messages.
 4. When the coordination command has been completed successfully by the primary and other subtasks, the main task's **command line** (the "application command") is executed *only* by the **primary task**. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi_msdn]'s `mpiexec.exe` using the application command.
 
-We'll get into the full details of configuring multi-instance settings shortly, but here is a short code snippet showing an example configuration using the Batch .NET library:
+> [AZURE.NOTE] Unlike other special task types in Batch, like the [StartTask][net_starttask] and the [JobPreparationTask][net_jobprep], the "multi-instance task" is not actually a distinct task type. The multi-instance task is simply a standard Batch task whose multi-instance settings have been configured. In this article, we refer to this as the multi-instance task, or "main" task.
+
+## Create a multi-instance task with Batch .NET
+
+The following code snippet shows you how to create a multi-instance task using the Batch .NET library. In the snippet, we create standard CloudTask and configure its MultiInstanceSettings property.
 
 ```
 // Create the "main" task. Its command line will be executed *only* by the primary subtask, and
@@ -47,16 +51,13 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 myMultiInstanceTask.MultiInstanceSettings.CoordinationCommandLine = @"cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d";
 myMultiInstanceTask.MultiInstanceSettings.CommonResourceFiles = new List<ResourceFile>();
 myMultiInstanceTask.MultiInstanceSettings.CommonResourceFiles.Add(
-	new ResourceFile("https://mystorageaccount.blob.core.windows.net/mpi/MyMPIApplication.exe", "MyMPIApplication.exe"));
+	new ResourceFile("https://mystorageaccount.blob.core.windows.net/mpi/MyMPIApplication.exe",
+	"MyMPIApplication.exe"));
 
 // Submit the task to the job. Batch will take care of splitting it into subtasks and
 // scheduling them for execution on the nodes.
 await batchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask);
 ```
-
-### The multi-instance task type
-
-Unlike other special task types in Batch, like the [StartTask][net_starttask] and the [JobPreparationTask][net_jobprep], the "multi-instance task" is not actually a distinct task type. The multi-instance task is simply a standard Batch task whose multi-instance settings have been configured. In this article, we refer to this as the multi-instance task, or "main" task.
 
 ## Primary task and subtasks
 
