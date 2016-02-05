@@ -63,7 +63,7 @@ To enable PowerShell scripts to authenticate against AAD, you must turn off of I
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.
 2. Using Remote Desktop Connection, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
 3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
-4. Download and install the latest Azure PowerShell from [http://aka.ms.webpi-azps](http://aka.ms.webpi-azps).
+4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
 
 
 ### Installation prerequisites
