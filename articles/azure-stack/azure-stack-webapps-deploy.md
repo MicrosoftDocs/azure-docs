@@ -51,7 +51,7 @@ There are two portals for the Azure Stack App Service, the Resource Provider adm
 
 ### Turn off IE Enhanced Security
 
-To enable PowerShell script sto authenticate against AAD, you must turn off of IE Enhanced Security:
+To enable PowerShell scripts to authenticate against AAD, you must turn off of IE Enhanced Security:
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
 2. Turn off **IE Ehanced Security Configuration** for both Admins and Users.
@@ -83,14 +83,14 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 
 - check the following path and ensure 
 \\\\sofs\Share\CRP\GuestArtifactRepository and ensure Microsoft.Powershell.DSC.2.11.0.0.zip exists in the path 
-- Ensure the vhd in the path \\\\sofs\Share\CRP\PlatformImages  (has .net 3.5) 
+- Ensure the vhd in the path \\\\sofs\Share\CRP\PlatformImages has .NET 3.5. If it does not, [create a .NET 3.4 compatible base server image in your Azure Stack Platform Image Repository](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5). 
  
 2 Login to the Client VM 
 
 - Provision a new VM and install SQL server
-- Download and expand the [WebAppsDeployment.zip][WebAppsDeployment] to the client machine 
+- Download and expand the [WebAppsDeployment.zip][http://go.microsoft.com/fwlink/?LinkId=723982] to the client machine 
 - Run “Deploy-SqlServerDSC.ps1” script to provision a new VM and install SQL server:
-**NOTE** the resource group used in the script to provision the sql vm . The same resource group should be used for during WebApps deployment in the next step. Make sure to record the password for this VM as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*).
+**NOTE** the resource group used in the script to provision the sql vm . The same resource group should be used for during WebApps deployment in the next step. Make sure to record the password for this VM as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime database.
 
 **NOTE** The resource group used in the script to provision the SQL vm should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL 
 
