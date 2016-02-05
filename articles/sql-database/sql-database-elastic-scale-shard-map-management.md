@@ -13,12 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="02/05/2016" 
 	ms.author="ddove;sidneyh"/>
 
 # Shard map management
 
-Use the [Elastic Database client library](sql-database-elastic-database-client-library.md) to manage sharded applications. In a sharded database environment, a [**shard map**](sql-database-elastic-scale-glossary.md) maintains information allowing an application to connect to the correct database based upon the value of the **sharding key**. Understanding how these maps are constructed is essential to shard map management.
+In a sharded database environment, a [**shard map**](sql-database-elastic-scale-glossary.md) maintains information allowing an application to connect to the correct database based upon the value of the **sharding key**. Understanding how these maps are constructed is essential to shard map management. For Azure SQL Database, use the [ShardMapManager class](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx), found in the [Elastic Database client library](sql-database-elastic-database-client-library.md) to manage shard maps. 
+ 
 
 ## Shard maps and shard mappings
  
@@ -38,7 +39,7 @@ Elastic Scale support the following .Net Framework types as sharding keys:
 Shard maps can be constructed using **lists of individual sharding key values**, or they can be constructed using **ranges of sharding key values**. 
 
 ###List shard maps
-**Shards** contain **shardlets** and the mapping of shardlets to shards is maintained by a shard map. A **list shard map** is an association between the individual key values that identify the shardlets and the databases that serve as shards.  **List mappings** are explicit (for example, key 1 maps to Database A) and different key values can be mapped to the same database (key values 3 and 6 both reference Database B).
+**Shards** contain **shardlets** and the mapping of shardlets to shards is maintained by a shard map. A **list shard map** is an association between the individual key values that identify the shardlets and the databases that serve as shards.  **List mappings** are explicit and different key values can be mapped to the same database. For example, key 1 maps to Database A, and key values 3 and 6 both reference Database B.
 
 | Key | Shard Location |
 |-----|----------------|
@@ -62,24 +63,25 @@ For example, **[0, 100)** includes all integers greater than or equal 0 and less
 | [400,600) | Database_C     |
 | ...       | ...            
 
-Each of the tables shown above is a conceptual example of a **ShardMap** object.  Each row is a simplified example of an individual **PointMapping** (for the list shard map) or **RangeMapping** (for the range shard map) object.
+Each of the tables shown above is a conceptual example of a **ShardMap** object. Each row is a simplified example of an individual **PointMapping** (for the list shard map) or **RangeMapping** (for the range shard map) object.
 
 ## Shard map manager 
 
-In the client library, the Shard Map Manager is a collection of shard maps. The data managed by a **ShardMapManager** .Net object is kept in three places: 
+In the client library, the shard map  manager is a collection of shard maps. The data managed by a **ShardMapManager** instance is kept in three places: 
 
-1. **Global Shard Map (GSM)**: When you create a **ShardMapManager**, you specify a database to serve as the repository for all of its shard maps and mappings. Special tables and stored procedures are automatically created to manage the information. This is typically a small database and lightly accessed, but it should not be used for other needs of the application. The tables are in a special schema named **__ShardManagement**. 
+1. **Global Shard Map (GSM)**: You specify a database to serve as the repository for all of its shard maps and mappings. Special tables and stored procedures are automatically created to manage the information. This is typically a small database and lightly accessed, and it should not be used for other needs of the application. The tables are in a special schema named **__ShardManagement**. 
 
-2. **Local Shard Map (LSM)**: Every database that you specify to be a shard within a shard map will be modified to contain several small tables and special stored procedures that contain and manage shard map information specific to that shard. This information is redundant to the information in the GSM, but it allows the application to validate cached shard map information without placing any load on the GSM; the application uses the LSM to determine if a cached mapping is still valid. The tables corresponding to the LSM on each shard are in schema **__ShardManagement**.
+2. **Local Shard Map (LSM)**: Every database that you specify to be a shard is modified to contain several small tables and special stored procedures that contain and manage shard map information specific to that shard. This information is redundant with the information in the GSM, and it allows the application to validate cached shard map information without placing any load on the GSM; the application uses the LSM to determine if a cached mapping is still valid. The tables corresponding to the LSM on each shard are also in the schema **__ShardManagement**.
 
 3. **Application cache**: Each application instance accessing a **ShardMapManager** object maintains a local in-memory cache of its mappings. It stores routing information that has recently been retrieved. 
 
 ## Constructing a ShardMapManager
-A **ShardMapManager** object in the application is instantiated using a factory pattern. The **ShardMapManagerFactory.GetSqlShardMapManager** method takes credentials (including the server name and database name holding the GSM) in the form of a **ConnectionString** and returns an instance of a **ShardMapManager**.  
 
-The **ShardMapManager** should be instantiated only once per app domain, within the initialization code for an application. A **ShardMapManager** can contain any number of shard maps. While a single shard map may be sufficient for many applications, there are times when different sets of databases are used for different schema or for unique purposes, and in those cases multiple shard maps may be preferable. 
+A **ShardMapManager** object is constructed using a [factory](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx) pattern. The **[ShardMapManagerFactory.GetSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)** method takes credentials (including the server name and database name holding the GSM) in the form of a **ConnectionString** and returns an instance of a **ShardMapManager**.  
 
-In this code, an application tries to open an existing **ShardMapManager**.  If objects representing a Global **ShardMapManager** (GSM) do not yet exist inside the database, the client library creates them there.
+The **ShardMapManager** should be instantiated only once per app domain, within the initialization code for an application. A **ShardMapManager** can contain any number of shard maps. While a single shard map may be sufficient for many applications, there are times when different sets of databases are used for different schema or for unique purposes; in those cases multiple shard maps may be preferable. 
+
+In this code, an application tries to open an existing **ShardMapManager** with the [TryGetSqlShardMapManager method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx).  If objects representing a Global **ShardMapManager** (GSM) do not yet exist inside the database, the client library creates them there using the [CreateSqlShardMapManager method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx).
 
     // Try to get a reference to the Shard Map Manager via the Shard Map Manager database.  
     // If it doesn't already exist, then create it. 
@@ -117,9 +119,9 @@ For applications that administer shard maps (adding or changing shards, shard ma
 
 ### Only metadata affected 
 
-Methods used for populating or changing the **ShardMapManager** data do not alter the user data stored in the shards themselves. For example, methods such as **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. affect the shard map metadata only. They do not remove, add, or alter user data contained in the shards. Instead, these methods are designed to be used in conjunction with separate operations you perform to create or remove actual databases, or that move rows from one shard to another to rebalance a sharded environment.  (The **split-merge** tool included with elastic database tools makes use of these APIs along with orchestrating actual data movement between shards.) 
+Methods used for populating or changing the **ShardMapManager** data do not alter the user data stored in the shards themselves. For example, methods such as **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. affect the shard map metadata only. They do not remove, add, or alter user data contained in the shards. Instead, these methods are designed to be used in conjunction with separate operations you perform to create or remove actual databases, or that move rows from one shard to another to rebalance a sharded environment.  (The **split-merge** tool included with elastic database tools makes use of these APIs along with orchestrating actual data movement between shards.) See [Scaling using the Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md).
 
-## Populating a shard map: example
+## Populating a shard map example
  
 An example sequence of operations to populate a specific shard map is shown below. The code performs these steps: 
 
@@ -127,7 +129,7 @@ An example sequence of operations to populate a specific shard map is shown belo
 2. The metadata for two different shards is added to the shard map. 
 3. A variety of key range mappings are added, and the overall contents of the shard map are displayed. 
 
-The code is written in a way that the entire method can be safely rerun in case an unexpected error is encountered – each request tests whether a shard or mapping already exists, before attempting to create it. The code below assumes that databases named **sample_shard_0**, **sample_shard_1** and **sample_shard_2** have already been created in the server referenced by string **shardServer**. 
+The code is written so that the method can be rerun if an error occurs. Each request tests whether a shard or mapping already exists, before attempting to create it. The code assumes that databases named **sample_shard_0**, **sample_shard_1** and **sample_shard_2** have already been created in the server referenced by string **shardServer**. 
 
     public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
         {            
@@ -140,7 +142,7 @@ The code is written in a way that the entire method can be safely rerun in case 
             } 
 
             Shard shard0 = null, shard1=null; 
-            // check if shard exists and if not, 
+            // Check if shard exists and if not, 
             // create it (Idempotent / tolerant of re-execute) 
             if (!sm.TryGetShard(new ShardLocation(shardServer, "sample_shard_0"), out shard0)) 
             { 
@@ -207,7 +209,7 @@ Once shard maps have been populated, data access applications can be created or 
 
 ## Data dependent routing 
 
-Most use of the shard map manager will come from the applications that require database connections to perform the app-specific data operations. In a sharded application, those connections now must be associated with the correct target database. This is known as **Data Dependent Routing**.  For these applications, instantiate a shard map manager object from the factory using credentials that have read-only access on the GSM database. Individual requests for connections will later supply credentials necessary for connecting to the appropriate shard database.
+Most use of the shard map manager will come from the applications that require database connections to perform the app-specific data operations. In a sharded application, those connections now must be associated with the correct target database. This is known as **Data Dependent Routing**. For these applications, instantiate a shard map manager object from the factory using credentials that have read-only access on the GSM database. Individual requests for connections will later supply credentials necessary for connecting to the appropriate shard database.
 
 Note that these applications (using **ShardMapManager** opened with read-only credentials) will be unable to make changes to the maps or mappings.  For those needs, create administrative-specific applications or PowerShell scripts that supply higher-privileged credentials as discussed earlier.   
 
