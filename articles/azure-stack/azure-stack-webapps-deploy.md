@@ -351,7 +351,7 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 
 8. Sign out of the controller, **management**, and **portalvm** virtual machines and close the RDC windows.
  
-## Create a new Web Apps resource provider
+### Create a new Web Apps resource provider
 
 1. On the **ClientVM.AzureStack.local** virtual machine, sign in to the Azure Stack portal as an admin, click **Browse**, and then click **Resource Providers**.
 
