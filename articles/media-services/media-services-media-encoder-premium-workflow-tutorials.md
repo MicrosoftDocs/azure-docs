@@ -21,7 +21,7 @@
 ##Overview 
 
 This document contains walkthroughs that show how to customize workflows with  **Workflow Designer**. You can find the actual workflow
- files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows).  
+ files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
 ##TOC
 
