@@ -37,7 +37,7 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 
 ## Create a multi-instance task with Batch .NET
 
-The following code snippet shows you how to create a multi-instance task using the Batch .NET library. In the snippet, we create standard CloudTask and configure its MultiInstanceSettings property.
+The following code snippet shows you how to create a multi-instance task using the Batch .NET library. In the snippet, we create standard a [CloudTask][net_task], then configure its [MultiInstanceSettings][net_multiinstance_prop] property.
 
 ```
 // Create the "main" task. Its command line will be executed *only* by the primary subtask, and
@@ -63,7 +63,7 @@ await batchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask);
 
 When you create the multi-instance settings for a task, you specify the number of number of compute nodes to execute task. When you submit the task to a job, the Batch service creates that number of subtasks, one of which it designates as the "primary."
 
-These subtasks, both the primary and the other subtasks, are assigned an integer id in the range from 0 to *numberOfInstances - 1*. The subtask with id 0 is the primary task, and all other ids are subtasks. For example, if you create the following multi-instance settings for a task, the primary task would have an id of 0, and the other subtasks would have ids 1 through 9.
+These subtasks, both the primary and the other subtasks, are assigned an integer id in the range of 0 to *numberOfInstances - 1*. The subtask with id 0 is the primary task, and all other ids are subtasks. For example, if you create the following multi-instance settings for a task, the primary task would have an id of 0, and the other subtasks would have ids 1 through 9.
 
 ```
 int numberOfNodes = 10;
@@ -74,7 +74,7 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 
 The **coordination command** is executed by all subtasks, including the primary task. Once the primary task and all subtasks have finished executing the coordination command, the main task's command line is executed by the primary task *only*. We will call the main task's command line the "application command" to distinguish it from the coordination command.
 
-The invocation of the coordination command is blocking--Batch does not execute the application command until the coordination command has returned successfully for all subtasks. The coordination command should therefore start any required background services, verify that they are ready for use, and sthen exit. For example, a coordination command for a solution using MS-MPI version 7 might be:
+The invocation of the coordination command is blocking--Batch does not execute the application command until the coordination command has returned successfully for all subtasks. The coordination command should therefore start any required background services, verify that they are ready for use, and then exit. For example, a coordination command for a solution using MS-MPI version 7 might be:
 
 ```
 cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
@@ -94,7 +94,7 @@ You can specify one or more **common resource files** for a multi-instance task.
 
 Resource files that you specify for the main task are downloaded to the task's working directory, `AZ_BATCH_TASK_WORKING_DIR`, by the primary subtask *only*--the other subtasks do not download the main task's resource files.
 
-The contents of the `AZ_BATCH_TASK_SHARED_DIR` are accessible by all subtasks that execute on a node, including the primary. An example task shared directory is `tasks/myjob/job-1/mytask1/`. Each subtask, including the primary, also has its own working directory accessible by that task only, and is accessed by using the environment variable `AZ_BATCH_TASK_WORKING_DIR`.
+The contents of the `AZ_BATCH_TASK_SHARED_DIR` are accessible by all subtasks that execute on a node, including the primary. An example task shared directory is `tasks/myjob/job-1/mytask1/`. Each subtask, including the primary, also has a working directory that is accessible by that task only, and is accessed by using the environment variable `AZ_BATCH_TASK_WORKING_DIR`.
 
 > [AZURE.IMPORTANT] Always use the environment variables `AZ_BATCH_TASK_SHARED_DIR` and `AZ_BATCH_TASK_WORKING_DIR` to refer to the these directories in your command lines. Do not attempt to construct the paths manually.
 
@@ -104,9 +104,9 @@ The lifetime of the primary task controls the lifetime of the entire multi-insta
 
 If any of the subtasks fail, exiting with a non-zero return code, for example, the entire multi-instance task fails. The main task is terminated, and the entire multi-instance task is retried up to its retry limit.
 
-Deleting a multi-instance task also deletes the primary and all other subtasks. All subtask directories and their files are deleted from the compute nodes, just as for a normal task.
+When you delete a multi-instance task, the primary and all other subtasks are also deleted by the Batch service. All subtask directories and their files are deleted from the compute nodes, just as for a standard task.
 
-The multi-instance task's [TaskConstraint][net_taskconstraints] properties such as [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock], and [RetentionTime][net_taskconstraint_retention] are honored in the same way as a standard task, and apply to the primary and all subtasks. However, if you change the [RetentionTime][net_taskconstraint_retention] property after adding the task to the job, this change is applied only to the primary task. All other subtasks will continue to use the original [RetentionTime][net_taskconstraint_retention].
+[TaskConstraints][net_taskconstraints] for a multi-instance task, such as the [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock], and [RetentionTime][net_taskconstraint_retention] properties, are honored as they are for a standard task, and apply to the primary and all subtasks. However, if you change the [RetentionTime][net_taskconstraint_retention] property after adding the task to the job, this change is applied only to the primary task. All other subtasks will continue to use the original [RetentionTime][net_taskconstraint_retention].
 
 A compute node's recent task list will reflect the id of a subtask if the recent task was part of a multi-instance task.
 
