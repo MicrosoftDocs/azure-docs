@@ -412,7 +412,7 @@ Now that you have deployed and registered the Web Apps resource provider, you ca
 [12]: ./media/azure-stack-webapps-deploy/appsvcinstall-12.png
 [13]: ./media/azure-stack-webapps-deploy/appsvcinstall-13.png
 [14]: ./media/azure-stack-webapps-deploy/appsvcinstall-14.png
-[14]: ./media/azure-stack-webapps-deploy/appsvcinstall-15.png
+
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531
