@@ -391,6 +391,14 @@ Now that you have deployed and registered the Web Apps resource provider, you ca
 
 8. In the web app blade, click **Browse** to view the default website for this app.
 
+**Deploy a WordPress, DNN, or Django website (optional)**
+
+1. In Azure Stack management portal, click “+”, go to marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system based database and doesn’t require any additional RPs like SQL or MySQL.  
+
+2. If you also deployed MySQL RP, you can deploy a WordPress website from the marketplace. When prompted for database parameters input the username as *User1@Server1* (with the username and server name of your choice).
+
+3. If you also deployed SQLServer RP, you can deploy a DNN (.Net Nuke) website from the marketplace. When prompted for database parameters pick a database in the SQL Server connected to your Resource Provider.
+
 
 
 <!--Image references-->
