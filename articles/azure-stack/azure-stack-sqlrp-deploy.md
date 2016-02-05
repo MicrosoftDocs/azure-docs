@@ -16,13 +16,39 @@
 	ms.date="01/04/2016"
 	ms.author="v-anpasi"/>
 
-# Installing SQL Server Resource Provider adaptor for Azure Stack
-The SQL Server Resource Provider adaptor lets you consume any SQL Server-based workload through your Azure stack, allowing SQL server databases to be consumed when deploying cloud native apps as well as SQL-based websites on Azure Stack.
-You can deploy SQL Server resource provider in your Azure Stack POC environment by following the steps below:
+# Add a SQL resource provider to Azure Stack
 
-## Pre-Requisites
-You will need Windows Server 2012 R2 Datacenter VHD with .Net 3.5 as the default image in the Platform Image repository (Refer to this document [this link](https://fakeurl.com))
+The SQL Server Resource Provider adaptor lets you use any SQL Server-based workload through Azure Stack so that SQL server databases can be used when deploying cloud native apps as well as SQL-based websites on Azure Stack.
 
+## Before you deploy
+
+Before deploying SQL resource providers, you'll need to create a default Windows Server image with .NET 3.5, turn off IE Enhanced Seucrity, and install the latest version of Azure PowerShell.
+
+### Create an image of Windows Server including .NET 3.5
+
+You'll need to create a Windows Server 2012 R2 Datacenter VHD with .Net 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of WindowsServer2012R2 including .NET 3.5](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5).
+
+### Turn off IE Enhanced Security
+
+To enable PowerShell scripts to authenticate against AAD, you must turn off of IE Enhanced Security:
+
+1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
+
+2. Turn off **IE Ehanced Security Configuration** for both Admins and Users.
+
+3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
+
+4. Turn off **IE Ehanced Security Configuration** for both Admins and Users.
+
+### Install the latest version of Azure PowerShell
+
+1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.
+
+2. Using Remote Desktop Connection, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
+
+3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
+
+4. Download and install the latest Azure PowerShell from [http://aka.ms.webpi-azps](http://aka.ms.webpi-azps).
 
 ## Certificate Creation
 
