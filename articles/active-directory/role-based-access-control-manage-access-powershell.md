@@ -22,9 +22,10 @@
 - [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
 - [REST API](role-based-access-control-manage-access-rest.md)
 
->[AZURE.IMPORTANT] If you're running Windows 10 or Windows Management Framework 5, you need to [install the Azure Resource Manager cmdlets](https://msdn.microsoft.com/en-us/library/mt125356.aspx) in PowerShell before you can use the cmdlets we walk through in this article.
-
 ## List Role-Based Access Control (RBAC) roles
+
+>[AZURE.IMPORTANT] If you're running Windows 10 or Windows Management Framework 5, you need to [install the Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell before you can use the cmdlets we walk through in this article.
+
 ### List all available roles
 To list RBAC roles available for assignment and to inspect the operations to which they grant access use:
 
