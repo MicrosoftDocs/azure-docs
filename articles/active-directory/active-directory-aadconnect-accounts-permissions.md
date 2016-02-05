@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/05/2016"
    ms.author="andkjell;billmath"/>
 
 
@@ -95,11 +95,11 @@ If you use express settings, then an account will be created in Active Directory
 ![AD account](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
 ### Azure AD Connect sync service accounts
-Two local service accounts are created by the installation wizard (unless you specify the account to use in custom settings). The account prefixed **AAD_** is used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the accounts are created in the domain. If you use a SQL server on a remote server, the **AAD_** service account must be located in the domain. The account prefixed **AADSyncSched_** is used for the scheduled task which is running the sync engine.
+A local service account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **AAD_** and used for the actual sync service to run as. If you install Azure AD Connect on a Domain Controller, the accounts are created in the domain. If you use a SQL server on a remote server, the **AAD_** service account must be located in the domain.
 
 ![Sync Service Account](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
-The accounts are created with a long complex password which does not expire.
+The account is created with a long complex password which does not expire.
 
 For the sync engine service account, this account will be used by Windows to store the encryption keys so the password for this account should not be reset or changed.
 

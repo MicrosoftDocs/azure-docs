@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="02/03/2016"
 	ms.author="billmath"/>
 
 # Azure AD Connect FAQ
@@ -21,7 +21,7 @@
 ## General installation
 **Q: Will installation work if the Azure AD Global Admin has 2FA enabled?**
 
-Installation will not work in this case. The Global Admin installing Azure AD Connect must not have MFA enabled. We are aware of this limitation and will support this in the future.
+With the builds from February 2016, this is supported.
 
 **Q: Is there a way to install Azure AD Connect unattended?**
 
@@ -29,7 +29,7 @@ It is only supported to install Azure AD Connect using the installation wizard. 
 
 **Q: I have a forest where one domain cannot be contacted. How do I install Azure AD Connect?**
 
-We have heard this feedback and will support this in a future release.
+With the builds from February 2016, this is supported.
 
 ## Network
 **Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client side timeout threshold be when using Azure AD Connect?**
@@ -84,7 +84,6 @@ No. This option will not retrieve all configuration settings and should not be u
 [Microsoft Azure Active Directory Forums](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
 - You can search and browse for technical questions and answers from the community or ask your own question by clicking [here](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
-
 
 [Azure AD Connect customer support](https://manage.windowsazure.com/?getsupport=true)
 

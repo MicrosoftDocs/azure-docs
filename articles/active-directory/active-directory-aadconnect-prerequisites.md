@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="01/21/2016"
+   ms.date="02/04/2016"
    ms.author="andkjell;billmath"/>
 
 # Prerequisites for Azure AD Connect
@@ -141,8 +141,7 @@ The following is a list of components that Azure AD Connect will install on the 
 - Microsoft SQL Server 2012 Command Line Utilities
 - Microsoft SQL Server 2012 Native Client
 - Microsoft SQL Server 2012 Express LocalDB
-- Azure Active Directory Module for Windows PowerShell
-- Microsoft Online Services Sign-In Assistant for IT Professionals
+- Microsoft Online Services Sign-In Assistant for IT Professionals (installed but no dependency on it)
 - Microsoft Visual C++ 2013 Redistribution Package
 
 ## Hardware requirements for Azure AD Connect
