@@ -155,15 +155,25 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 10. In the **IP Address** box, type the public IP address you wrote down in step 4, and then click **Add Host**.
 
-
-
-
-
-
 ## Register the SQL Resource Provider
 
-1.	Invoke Register-SqlRP.ps1 with the required parameters. Look up the SqlRP endpoint user name and password hard-coded in the ConfigureAzureStackSqlServer.ps1 script. ##TODO write the actual password, it doesn’t matter for TP1
+1. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
 
-2. Open the Azure Stack Admin Portal, click **Browse**, click **Resource Providers**, and verify that your SQL resource provider is registered.
+2. Run the **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\content\Deployment\Register-SqlRP.ps1** file as an admin.
 
-3. Create your SQL resource by clicking "+" and selecting "Data" --> "SQL".
+3. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
+
+4. At the **packageName** prompt, type **AzureStack.SqlRP.Setup.5.11.61.0.nupkg**. 
+
+5. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials
+
+6. In the **Windows PowerShell credential request** dialog box, type *sqlRpUsername* and *sqlRPPassw0rd* for the manifest credentials.
+
+## Verify your resource provider exists
+
+1. To verify that your SQL resource provider is registered, open the Azure Stack admin portal, click **Browse**, and then click **Resource Providers**.
+
+2. To create your SQL resource, click "+", select **Data**, and then click **SQL**.
+
+
+
