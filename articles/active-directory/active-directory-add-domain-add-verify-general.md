@@ -3,7 +3,7 @@
 	description="How to add your exiting domains to Azure Active Directory as part of getting started with Azure AD. Set up your custom domain to sync user account information with your on-premises identity infrastructure."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand"
+	authors="jeffsta"
 	manager="stevenpo"
 	editor=""/>
 

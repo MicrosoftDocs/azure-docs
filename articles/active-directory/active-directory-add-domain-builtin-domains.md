@@ -3,7 +3,7 @@
 	description="Describes the different kinds of domain names supported by Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand"
+	authors="jeffsta"
 	manager="stevenpo"
 	editor=""/>
 

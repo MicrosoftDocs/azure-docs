@@ -3,7 +3,7 @@
 	description="How to delete a custom domain in Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand"
+	authors="jeffsta"
 	manager="stevenpo"
 	editor=""/>
 

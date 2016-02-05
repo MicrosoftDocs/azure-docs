@@ -3,7 +3,7 @@
 	description="How to populate a custom domain in Azure Active Directory with user accounts."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand"
+	authors="jeffsta"
 	manager="stevenpo"
 	editor=""/>
 

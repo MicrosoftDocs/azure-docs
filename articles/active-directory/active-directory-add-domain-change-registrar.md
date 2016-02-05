@@ -3,7 +3,7 @@
 	description="Describes how to change the DNS registrar for your custom domain name in Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand"
+	authors="jeffsta"
 	manager="stevenpo"
 	editor=""/>
 

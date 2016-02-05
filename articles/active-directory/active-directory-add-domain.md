@@ -3,7 +3,7 @@
 	description="Explains how to add your own domain name to Azure Active Directory, and other related information."
 	services="active-directory"
 	documentationCenter=""
-	authors="curtand"
+	authors="jeffsta"
 	manager="stevenpo"
 	editor=""/>
 
