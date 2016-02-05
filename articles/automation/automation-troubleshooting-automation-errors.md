@@ -21,8 +21,8 @@
 This article explains some of the common errors you might experience when working with Azure Automation and suggests possible remediation steps.
 
 ## Troubleshoot authentication errors when working with Azure Automation runbooks  
-
-
+  
+  
 ### Scenario: Sign in to Azure Account failed
 
 **Error:** 
@@ -46,6 +46,8 @@ In order to determine what's wrong, take the following steps:
 
 3. If your authentication fails locally, this means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Active Directory account set up correctly.    
 
+  
+
 
 ### Scenario: Unable to find the Azure subscription
 
@@ -65,7 +67,8 @@ In order to determine if you have properly authenticated to Azure and have acces
     * If you do see the subscription details in the output, confirm that you are using the correct subscription name or ID with the **Select-AzureSubscription** cmdlet.   
 
 
-
+  
+  
 ### Scenario: Authentication to Azure failed because multi-factor authentication is enabled
 
 **Error:** 
@@ -78,10 +81,12 @@ If you have multi-factor authentication on your Azure account, you can't use an 
 To use a certificate with the Azure Service Management cmdlets, refer to [creating and adding a certificate to manage Azure services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) To use a service principal with Azure Resource Manager cmdlets, refer to [creating service principal using Azure portal](./resource-group-create-service-principal-portal.md) and [authenticating a service principal with Azure Resource Manager.](./resource-group-authenticate-service-principal.md)
 
 
+  
+  
 
 ## Troubleshoot common errors when working with runbooks 
 
-### Scenario: Cannot bind parameters when executing a runbook
+### Scenario: Runbook fails because of deserialized object
 
 **Error:** 
 Your runbook fails with the error "Cannot bind parameter ``<ParameterName>``. Cannot convert the ``<ParameterType>`` value of type Deserialized ``<ParameterType>`` to type ``<ParameterType>``". 
@@ -98,6 +103,8 @@ Any of the following three solutions will fix this problem:
 3. Use a PowerShell runbook instead of a PowerShell Workflow runbook.  
 
 
+  
+  
 ### Scenario: Runbook job failed because the allocated quota exceeded
 
 **Error:** 
@@ -115,6 +122,8 @@ If you want to use more than 500 minutes of processing per month you will need t
 4. On the **Choose your pricing tier** blade, select **Basic**    
 
 
+
+  
 ### Scenario: Cmdlet not recognized when executing a runbook
 
 **Error:** 
@@ -132,7 +141,11 @@ Any of the following solutions will fix the problem:
 
 - If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.  
 
+- If you are executing the runbook on-premises in a hybrid worker group, then make sure that the module/cmdlet is installed on the machine that hosts the hybrid worker.
 
+
+
+  
 ## Troubleshoot common errors when importing modules 
 
 ### Scenario: Module fails to import or cmdlets can't be executed after importing
