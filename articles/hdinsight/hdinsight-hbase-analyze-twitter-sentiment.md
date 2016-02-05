@@ -380,10 +380,10 @@ You need to create an application to get tweets, calculate tweet sentiment score
         {
             class Program
             {
-                const string TWITTERAPPACCESSTOKEN = "23087070-THyxKyp0q3d9eUJ17G5yKk6ZqhFGatl3KBYOwh9dc";
-                const string TWITTERAPPACCESSTOKENSECRET = "TyCWVdiQr9vQpU4M4J024L4KW1PQkEDCDdTwpMawRQwE3";
-                const string TWITTERAPPAPIKEY = "R8YjGkvfQK8bJ7fzwPBfQH4hr";
-                const string TWITTERAPPAPISECRET = "ex04qgzDA4XcQrN900HvUaFKUcRqhDh8WbbIlobwbxnH3GVErC";
+                const string TWITTERAPPACCESSTOKEN = "<Enter Twitter App Access Token>";
+                const string TWITTERAPPACCESSTOKENSECRET = "<Enter Twitter Access Token Secret>";
+                const string TWITTERAPPAPIKEY = "<Enter Twitter App API Key>";
+                const string TWITTERAPPAPISECRET = "<Enter Twitter App API Secret>";
 
                 static void Main(string[] args)
                 {
