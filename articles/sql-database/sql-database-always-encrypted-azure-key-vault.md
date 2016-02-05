@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2015"
+	ms.date="02/02/2015"
 	ms.author="sstein"/>
 
 # SQL Database tutorial: Protect sensitive data with Always Encrypted (Azure Key Vault)
@@ -60,21 +60,18 @@ For this tutorial you'll need:
 You must first enable your client application to access the SQL Database service by setting up the required authentication and acquiring the *ClientId* and *Secret* that you will need to authenticate your application in the code below. 
 
 1. Open the [Classic portal](http://manage.windowsazure.com).
-2. Select **Active Directory** in the left menu.
-3. Click the Active Directory your application will use.
-3. Click **Applications**.
-4. Click **ADD** (at the botttom).
-5. Type a name for your application (for example: *myClientApp*).
-6. Select **WEB APPLICATION** and click the arrow to continue.
-7. For the SIGN-ON URL and APP ID URI you can simply type a valid url (for example: *http://myClientApp*).
-8. Click **CONFIGURE**.
-9. Copy your **CLIENT ID** (you will need this value in your code later).
-10. In the keys section, set the **Select duration** dropdown to **1 year** (we will copy the key after we save below).
+2. Select **Active Directory** in the left menu and click the Active Directory your application will use.
+3. Click **Applications** and then click **ADD** (at the botttom).
+4. Type a name for your application (for example: *myClientApp*), select **WEB APPLICATION** and click the arrow to continue.
+5. For the SIGN-ON URL and APP ID URI you can simply type a valid url (for example: *http://myClientApp*).
+6. Click **CONFIGURE**.
+7. Copy your **CLIENT ID** (you will need this value in your code later).
+8. In the keys section, set the **Select duration** dropdown to **1 year** (we will copy the key after we save below).
 11. Click **Add application**.
 12. Leave this set to **Microsoft Apps** and then locate and select **Windows Azure Service Management** and click the arrow to continue.
 13. Click the **Delegated Permissions** dropdown and select **Access Azure Service Management**.
 14. Click **SAVE** (at the bottom).
-15. Copy the key value in the **keys** section (you will need this value in your code later). 
+15. Now locate and copy the key value in the **keys** section (you will need this value in your code later). 
 
 
 
