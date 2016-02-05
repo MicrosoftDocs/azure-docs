@@ -69,64 +69,23 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 7. Click **Select** and choose **AzureStackCertificationAuthority**.
 
-8. In the **Friendly name*8 box, type *\*.azurestack.Local*.
+8. In the **Friendly name** box, type *\*.azurestack.Local*.
 
 
 
+## Export the wildcard certificate
 
-## Certificate Creation
-
-You will need a wildcard certificate to secure communications between the resource provider and Azure Resource Manager:
-
-1.	On PortalVM in inetmgr, select Feature: Server Certificates, Action: Create Domain Certificate
-
-2.	Fill out the Prompt wizard
-
-	- Common name: *.azurestack.local
-	
-	- You can fill whatever details you would like in the other fields, click next
-	
-	- Click select and select AzureStackCertificationAuthority
-	
-	- Friendly name: *.azureStack.Local    
-	
-3.	Export wildcard certificate
-
-	- Open MMC
-	
-	- Ctrl+M, add certifcates pane for the local computer acoount
-	 
-	- Go to Certificates, Personal and find *.azureStack.local
-	
-	- Right-click, all tasks, export
-	
-	- Slect Yes, export private key
-	
-	- Check Export all extended properties.
-	
-	- Check Password and Specify suitable password. 
-	
-	- Export to file certificate.pfx in a folder of your choice.
-	
-	- Remote desktop from portalVM to ClientVM and copy certificate.pfx to its desktop
-
-3.	Export the wildcard certificate.
-
-  - Open MMC Certificates and find \*.azureStack.local.
-
-  - Right-click, all tasks, export
-
-  - Select Yes, export private key
-
-  - Check Export all extended properties.
-
-  - Specify suitable password.
-
-  - Export to file certificate.pfx
-
-The certificates are only valid in the environment in which they were generated.
-
-Caution: When deploying in a multiple POC environment caution must be taken not to use a certificate from a different environment. If certificate generation is used, then make sure to remove any certificates which were not generated for this environment.
+1. Open Microsoft Management Console (MMC) from the **Run** command box.
+2. Click **File**, click **Add or Remove Snap-ins**, click **Certificate**, click **Add**, click **Computer account**, and then click **Next**.
+3. In the **Select Computer** dialog box, choose **Local computer**, click **Finish**, and then click **OK**.
+4. Expand **Certificates**, click **Personal**, and then click **Certificates**.
+5. Right-click the **\*.azurestack.local** certificate, click **All Tasks**, and then click **Export**.
+6. In the **Certificate Export Wizard**, click **Next**, choose **Yes, export private key** option, and then click **Next**.
+7. Choose **Export all extended properties** and **Include all instances in the certificate path if possible**, and then click **Next**.
+8. Choose **Password** and type and confirm a password, and then click **Next**. Make sure to record this password so you don’t forget it.
+9. Browse to a folder of your choice, save the file as **certificate.pfx**, and then click **Next**.
+10. Click **Finish**, and then click **OK**.
+11. On the PortalVM, copy **certificate.pfx**, use Remote Desktop Connection to sign in to **ClientVM.AzureStack.local** as an administrator, and then paste **certificate.pfx** to the **ClientVM.AzureStack.local** virtual machine desktop.
 
 ## Prepare and perform deployment
 
