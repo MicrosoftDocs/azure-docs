@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/05/2016" 
     ms.author="elizapo" />
 
 
@@ -60,7 +60,7 @@ When you set device redirection by class GUID all devices that match that class 
 
 ## Redirecting a USB device by using the device instance ID
 
-If you want more fine-grained control and want to control redirection per device, you can use the **USB\InstanceID **redirection parameter.
+If you want more fine-grained control and want to control redirection per device, you can use the **USB\InstanceID** redirection parameter.
 
 The hardest part of this method is finding the USB device instance ID. You'll need access to the computer and the specific USB device. Then follow these steps:
 
