@@ -254,12 +254,12 @@ With [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 Integrating Azure App Service or Azure Cloud Services with Azure CDN gives you the following advantages:
 
-- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure web app's [continuous deployment](../web-sites-publish-source-control.md) process
+- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure web app's [continuous deployment](../app-service-web/web-sites-publish-source-control.md) process
 - Easily upgrade your CDN-served NuGet packages, such as jQuery or Bootstrap versions 
 - Manage your Web application and your CDN-served content from the same Visual Studio interface
 
 For related tutorials, see:
-- [Use Azure CDN in Azure App Service](../cdn-websites-with-cdn.md)
+- [Use Azure CDN in Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 
 Without integration with Azure App Service Web Apps or Azure Cloud Services, it is possible to use Azure CDN for your script bundles, with the following caveats:
@@ -271,7 +271,7 @@ Without integration with Azure App Service Web Apps or Azure Cloud Services, it 
 
 ## More Information ##
 - [Overview of the Azure Content Delivery Network (CDN)](cdn-overview.md)
-- [Use Azure CDN in Azure App Service](../cdn-websites-with-cdn.md)
+- [Use Azure CDN in Azure App Service](../app-service-web/cdn-websites-with-cdn.md)
 - [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 - [How to Map Content Delivery Network (CDN) Content to a Custom Domain](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Using CDN for Azure](cdn-how-to-use-cdn.md)
