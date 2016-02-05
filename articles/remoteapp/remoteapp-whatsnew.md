@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/23/2015"
+    ms.date="02/06/2016"
     ms.author="elizapo" />
 
 
@@ -22,6 +22,9 @@
 
 One of the advantages of Azure RemoteApp is that we are always working to improve it. Every time we do, we'll announce those changes here.
 
+## Future updates
+Hey - did you know the Azure RemoteApp team posts monthly updates to the RDS blog? You can find not just what's change in Azure RemoteApp but also other information about how to use RDS. Check out their blog, [Remote Desktop Services Blog](https://blogs.msdn.microsoft.com/rds/), for information. For example, a couple of weeks ago, they posted an entry about [lifting and shifting workloads with Azure RemoteApp and Azure AD](https://blogs.msdn.microsoft.com/rds/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services/).
+ 
 ## September 2015
 - Added Infopath to the Microsoft Office 365 template and gallery image. If you want to share Infopath, make sure to update your collections with the latest image.
 - Client updates:
@@ -72,7 +75,7 @@ There have been a number of additions (and months) since we first created this t
 - [Create an Azure RemoteApp image from an Azure virtual machine](remoteapp-image-on-azurevm.md). Makes uploading your custom image to Azure much quicker.
 - Use an Azure VNET instead of a RemoteApp VNET to connect your corporate network resources to Azure. We've updated the [hybrid collection instructions](remoteapp-create-hybrid-deployment.md) to walk you through creating an Azure VNET (it's Step 1).
 - Speaking of VNETs, check out [the new guidance](remoteapp-vnetsizing.md) around VNET size limits and limitations.
-- And speaking of limits - just what are the [service limits and defaults](remoteapp-servicelimits.md)?
+- And speaking of limits - just what are the [service limits and defaults](../azure-subscription-service-limits.md)?
 
 Want to learn more about Azure RemoteApp? The RemoteApp team was out in force at Ignite a few weeks ago. Check out Eric's video, [The Fundamentals of Microsoft Azure RemoteApp Management and Administration](http://channel9.msdn.com/Events/Ignite/2015/BRK3868).
 
