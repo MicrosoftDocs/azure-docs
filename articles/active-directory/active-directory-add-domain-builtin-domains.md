@@ -19,9 +19,11 @@
 
 # Built-in domain name reference for Azure Active Directory
 
--   Built in: the domain that comes with your Azure AD, in the form of contoso.onmicrosoft.com
+This is intended as a quick reference for some of the terms and ideas used when discussing adding or removing custom domains in Azure Active Directory (Azure AD).
 
--   Custom: a domain name that your organization owns, such as contoso.com
+-   Built in: the domain that comes with your Azure AD directory, in the form of contoso.onmicrosoft.com
+
+-   Custom: a domain name that your organization already owns, such as contoso.com
 
 ## Lower-level domains
 
@@ -35,13 +37,6 @@
 
 -   Unverified: Azure AD has confirmed that your organization owns this domain.
 
-## Federation
-
--   Not planned
-
--   Planned
-
--   Configured
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Add and verify a custom domain name in Azure Active Directory | Microsoft Azure"
-	description="How to add your exiting domains to Azure Active Directory as part of getting started with Azure AD. Set up your custom domain to sync user account information with your on-premises identity infrastructure."
+	description="How to add your existing domains to Azure Active Directory as part of getting started with Azure AD. Set up your custom domain to sync user account information with your on-premises identity infrastructure."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"

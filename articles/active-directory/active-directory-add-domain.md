@@ -44,7 +44,7 @@ Domain names generally require no ongoing management or administration in Azure 
 
 -   [See the list of domain names in your Azure Active Directory](active-directory-add-domain-add-users.md)
 
--   [What to do if you change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.mdfs)
+-   [What to do if you change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
 
 ## Delete a custom domain name
 
