@@ -54,9 +54,9 @@ Before a virtual machine can be added to the Marketplace, its image must be adde
 
 1.	In Hyper-V, create a virtual machine by using a copy of the WindowsServer2012 PIR image. Store this VHD in a new location and record that location so it can be copied later.
 
-2.	Follow these steps: [https://technet.microsoft.com/en-us/library/dn482071.aspx](https://technet.microsoft.com/en-us/library/dn482071.aspx). These steps include ensuring that the source media is available, which involves downloading the Windows Server 2012 R2 ISO from TechNet.
+2.	Follow these steps: [https://technet.microsoft.com/library/dn482071.aspx](https://technet.microsoft.com/library/dn482071.aspx). These steps include ensuring that the source media is available, which involves downloading the Windows Server 2012 R2 ISO from TechNet.
 
-3.	To generalize the image, use Sysprep on the virtual machine as described here: [https://technet.microsoft.com/en-us/library/hh824938.aspx](https://technet.microsoft.com/en-us/library/hh824938.aspx).
+3.	To generalize the image, use Sysprep on the virtual machine as described here: [https://technet.microsoft.com/library/hh824938.aspx](https://technet.microsoft.com/library/hh824938.aspx).
 
 4.	Wait until the virtual machine is off (which happens as part of the Sysprep process), then copy the VHD to a staging folder.
 
