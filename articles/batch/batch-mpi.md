@@ -28,7 +28,7 @@ In Batch, each task is normally executed on a single compute node--you submit mu
 
 When you submit a task with multi-instance settings to a job, Batch performs several steps unique to multi-instance tasks:
 
-1. The Batch service automatically splits the "main" task into **subtasks**, one of which acts as the **primary task**. Batch then schedules the primary and other subtasks for execution on the pool's compute nodes.
+1. The Batch service automatically splits the "main" task into **subtasks**, one of which is designated as the **primary task**. Batch then schedules the primary and other subtasks for execution on the pool's compute nodes.
 2. These tasks, both the primary and the other subtasks, download any **common resource files** that you specify in the multi-instance settings.
 3. After the common resource files have been downloaded, the **coordination command** is executed by the primary and other subtasks. This coordination command is typically used to start a background service (such as [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) and may also verify that the nodes are ready to process inter-node messages.
 4. When the coordination command has been completed successfully by the primary and other subtasks, the main task's **command line** (the "application command") is executed *only* by the **primary task**. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi_msdn]'s `mpiexec.exe` using the application command.
@@ -56,89 +56,66 @@ await batchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask);
 
 ### The multi-instance task type
 
-Unlike other special task types in Batch, like the [StartTask][net_starttask] ** and the [JobPreparationTask][net_jobprep], the "multi-instance task" is not actually a distinct task type. The multi-instance task is simply a standard Batch task whose multi-instance settings have been configured. In this article, we refer to this as the "main" task.
+Unlike other special task types in Batch, like the [StartTask][net_starttask] and the [JobPreparationTask][net_jobprep], the "multi-instance task" is not actually a distinct task type. The multi-instance task is simply a standard Batch task whose multi-instance settings have been configured. In this article, we refer to this as the multi-instance task, or "main" task.
 
 ## Primary task and subtasks
 
-When you create the multi-instance settings for a task, you specify the number of instances for the task--the number of compute nodes to execute task. When you submit the task to a job, the Batch service creates that number of subtasks, one of which it designates the "primary."
+When you create the multi-instance settings for a task, you specify the number of number of compute nodes to execute task. When you submit the task to a job, the Batch service creates that number of subtasks, one of which it designates as the "primary."
 
-These subtasks, both the primary and the other subtasks, are assigned an integer ID in the range from 0 to *numberOfInstances - 1*. The subtask with id 0 is the primary task, and all other ids are subtasks. For example, if you create the following multi-instance settings for a task:
+These subtasks, both the primary and the other subtasks, are assigned an integer id in the range from 0 to *numberOfInstances - 1*. The subtask with id 0 is the primary task, and all other ids are subtasks. For example, if you create the following multi-instance settings for a task, the primary task would have an id of 0, and the other subtasks would have ids 1 through 9.
 
 ```
 int numberOfNodes = 10;
 myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNodes);
 ```
 
-The primary task would have an id of 0, and the other subtasks would have ids 1 through 9.
-
 ## Coordination and application commands
 
 The **coordination command** is executed by all subtasks, including the primary task. Once the primary task and all subtasks have finished executing the coordination command, the main task's command line is executed by the primary task *only*. We will call the main task's command line the "application command" to distinguish it from the coordination command.
 
-The invocation of the coordination command is blocking--Batch does not execute the application command until the coordination command has returned successfully for all subtasks. The coordination command should therefore set up any required background services, verify that they are ready for use, and *then exit*. For example, a coordination command for a solution using MS-MPI version 7 might be:
+The invocation of the coordination command is blocking--Batch does not execute the application command until the coordination command has returned successfully for all subtasks. The coordination command should therefore start any required background services, verify that they are ready for use, and sthen exit. For example, a coordination command for a solution using MS-MPI version 7 might be:
 
-`cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d`
+```
+cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
+```
 
 Note the use of `start` in this coordination command. This is required because the `smpd.exe` application does not return immediately after execution. Without the use of the [start][cmd_start] command, this coordination command would not return, and would therefore block the application command from running.
 
-The **application command**, the command line specified for the main task, is executed *only* by the primary subtask. For Windows MPI applications, this will be the execution of your `mpiexec.exe` command. For example, an application command for a solution using MS-MPI version 7 might be:
+The **application command**, the command line specified for the main task, is executed *only* by the primary task. For MS-MPI applications, this will be the execution of your MPI-enabled application using `mpiexec.exe`. For example, an application command for a solution using MS-MPI version 7 might be:
 
-`cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe`
+```
+cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
+```
 
 ## Resource files
 
-You can specify one or more **common resource files** for the subtasks. These common resource files are downloaded from [Azure Storage](./../storage/storage-introduction.md) into the node's task shared directory by all of the subtasks, including the primary. The task shared directory is accessible using the `AZ_BATCH_TASK_SHARED_DIR` environment variable.
+You can specify one or more **common resource files** for a multi-instance task. These common resource files are downloaded from [Azure Storage](./../storage/storage-introduction.md) into the node's task shared directory by all of the subtasks, including the primary. You can access the task shared directory from application and coordination command lines by using the `AZ_BATCH_TASK_SHARED_DIR` environment variable.
 
 Resource files that you specify for the main task are downloaded to the task's working directory, `AZ_BATCH_TASK_WORKING_DIR`, by the primary subtask *only*--the other subtasks do not download the main task's resource files.
 
-The contents of the `AZ_BATCH_TASK_SHARED_DIR` are accessible by all subtasks that execute on a node, including the primary. An example task shared directory is `tasks/myjob/job-1/mytask1/`. Each subtask, including the primary, has its own working directory accessible by that task only, and is accessible with the environment variable `AZ_BATCH_TASK_WORKING_DIR`.
+The contents of the `AZ_BATCH_TASK_SHARED_DIR` are accessible by all subtasks that execute on a node, including the primary. An example task shared directory is `tasks/myjob/job-1/mytask1/`. Each subtask, including the primary, also has its own working directory accessible by that task only, and is accessed by using the environment variable `AZ_BATCH_TASK_WORKING_DIR`.
 
 > [AZURE.IMPORTANT] Always use the environment variables `AZ_BATCH_TASK_SHARED_DIR` and `AZ_BATCH_TASK_WORKING_DIR` to refer to the these directories in your command lines. Do not attempt to construct the paths manually.
 
 ## Task lifetime
 
-The lifetime of the primary task controls the lifetime of the multi-instance task. When the primary exits, all other subtasks are terminated. The exit code of the primary is the exit code of the task, and is therefore used to determine the success or failure of the task for retry purposes.
+The lifetime of the primary task controls the lifetime of the entire multi-instance task. When the primary exits, all other subtasks are terminated. The exit code of the primary is the exit code of the task, and is therefore used to determine the success or failure of the task for retry purposes.
 
 If any of the subtasks fail, exiting with a non-zero return code, for example, the entire multi-instance task fails. The main task is terminated, and the entire multi-instance task is retried up to its retry limit.
 
-Deleting a multi-instance task also deletes the primary and all other subtasks. All subtask root directories and files are deleted from their compute nodes, just as for a normal task.
+Deleting a multi-instance task also deletes the primary and all other subtasks. All subtask directories and their files are deleted from the compute nodes, just as for a normal task.
 
-The multi-instance task's `maxWallClockTime`, `maxRetryCount` and `retentionTime` settings are honored in the same way as a standard task, and apply to the primary and all subtasks. However, if you change the `retentionTime` property after adding the task to the job, this change is applied only to the primary task. All other subtasks will continue to use the original `retentionTime`.
+The multi-instance task's [TaskConstraint][net_taskconstraints] properties such as [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock], and [RetentionTime][net_taskconstraint_retention] are honored in the same way as a standard task, and apply to the primary and all subtasks. However, if you change the [RetentionTime][net_taskconstraint_retention] property after adding the task to the job, this change is applied only to the primary task. All other subtasks will continue to use the original [RetentionTime][net_taskconstraint_retention].
 
-A compute node's recent task list reflects the id of the subtask if the recent task was part of a multi-instance task.
+A compute node's recent task list will reflect the id of a subtask if the recent task was part of a multi-instance task.
 
 ## Obtain information about subtasks
 
-**TODO: Change to .NET members**
+To obtain information on subtasks using the Batch .NET library, the [CloudTask.ListSubtasks][net_task_listsubtasks] method can be used to obtain information on all subtasks except the primary. This method returns information such as the id of the subtask's compute node, its root directory, and the pool id. You can use this information with the [PoolOperations.GetNodeFile][poolops_getnodefile] method to obtain the subtask's files.
 
-To obtain information on the subtasks using the REST API, the **List the subtasks of a task** API can be used to obtain information on all subtasks except the primary. This API returns information such as the compute node on which the subtask is running, the subtask's working directory, and so on. You can use this information with the **List the files on a node** API to fetch subtask files. For a single-instance task, the **Get Subtasks** API will return an empty collection.
+Unless otherwise stated, Batch .NET methods that operate on the standard [CloudTask][net_task] apply only to the primary subtask. For example, when you call the [CloudTask.ListNodeFiles][net_task_listnodefiles] method on a multi-instance task, only the primary task's files are returned.
 
-Unless stated otherwise, REST APIs that operate on tasks apply only to the primary subtask. For example, **Get Task Files** for any multi-instance task will fetch only task files from primary.
-
-## Example: MPI with Batch .NET
-
-**TODO: Add task monitoring, accessing subtasks, etc.**
-
-This code snippet shows the creation of a [CloudTask][net_task] object with multi-instance settings using the [CloudTask.MultiInstanceSettings][net_multiinstance_prop] property:
-
-```
-// Create the "main" task. Its commandline will be executed *only* by the primary subtask, and
-// only after all subtasks execute the CoordinationCommandLine.
-CloudTask multiInstanceTask = new CloudTask(id: "mymultiinstancetask",
-	commandline: "cmd /c mpiexec.exe -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe");
-
-// Configure the task's MultiInstanceSettings. The CoordinationCommandLine will be executed by
-// *all* subtasks, including the primary.
-multiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numNodes);
-multiInstanceTask.MultiInstanceSettings.CoordinationCommandLine = @"cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" –d";
-multiInstanceTask.MultiInstanceSettings.CommonResourceFiles = new List<ResourceFile>();
-multiInstanceTask.MultiInstanceSettings.CommonResourceFiles.Add(
-	new ResourceFile("https://mystorageaccount.blob.core.windows.net/mpi/MyMPIApplication.exe", "MyMPIApplication.exe"));
-
-// Submit the task to the job. Batch will take care of splitting it into subtasks and
-// scheduling them for execution on the nodes.
-await batchClient.JobOperations.AddTaskAsync("mybatchjob", multiInstanceTask);
-```
+**TODO: Add code snippet showing task monitoring, accessing subtasks, obtaining their files**
 
 ## Pool requirements for multi-instance tasks
 
@@ -146,6 +123,9 @@ Multi-instance tasks require a pool with **inter-node communication enabled**, a
 
 Additionally, multi-instance tasks will execute *only* on nodes in **pools created after 12/14/2015**.
 
+## Next steps
+
+**TODO: Add next steps.**
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
@@ -168,6 +148,13 @@ Additionally, multi-instance tasks will execute *only* on nodes in **pools creat
 [net_resourcefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.resourcefile.aspx
 [net_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.starttask.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
+[net_taskconstraints]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskconstraints.aspx
+[net_taskconstraint_maxretry]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskconstraints.maxtaskretrycount.aspx
+[net_taskconstraint_maxwallclock]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskconstraints.maxwallclocktime.aspx
+[net_taskconstraint_retention]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskconstraints.retentiontime.aspx
+[net_task_listsubtasks]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listsubtasks.aspx
+[net_task_listnodefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
+[poolops_getnodefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getnodefile.aspx
 
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
