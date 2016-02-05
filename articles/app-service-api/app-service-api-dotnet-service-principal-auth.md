@@ -65,7 +65,7 @@ This section provides general instructions that apply to any API app. For steps 
 
 7. In the **Authentication / Authorization** blade, click **Save**.
 
-When this is done, App Service only allows requests from callers in the configured Azure AD tenant. No authentication or authorization code is required in the protected API app. The JWT token is passed to the API app along with commonly used claims in HTTP headers, and you can read that information in code to validate that requests are from a particular caller, such as a service principal.
+When this is done, App Service only allows requests from callers in the configured Azure AD tenant. No authentication or authorization code is required in the protected API app. The bearer token is passed to the API app along with commonly used claims in HTTP headers, and you can read that information in code to validate that requests are from a particular caller, such as a service principal.
 
 This authentication functionality works the same way for all languages that App service supports, including .NET, Node.js, and Java. 
 
