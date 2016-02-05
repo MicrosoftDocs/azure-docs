@@ -16,20 +16,20 @@
    ms.author="joaoma" />
 
 
-# Using dynamic DNS to register hostnames
+# Using dynamic DNS to register hostnames on your own DNS server
 [Azure provides name resolution](virtual-networks-name-resolution-for-vms-and-role-instances.md) for virtual machines (VMs) and role instances. However, when your name resolution needs go beyond those provided by Azure, you can provide your own DNS servers for name resolution. This gives you the power to tailor your DNS solution to suit your own specific needs. For example, you may need a DNS solution for accessing your on-premises Active Directory domain controller.
 
 Azure doesn't have the ability (i.e. credentials) to directly register records on your DNS servers, so alternative arrangements are often needed. Here are some common scenarios with alternatives.
 
 ## Windows clients
-Non-domain-joined Windows clients attempt unsecured dynamic DNS updates when they boot or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but this can be overridden in the VM, via the [UI](https://technet.microsoft.com/library/cc794784.aspx) or [by using automation](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).  
+Non-domain-joined Windows clients attempt unsecured dynamic DNS (DDNS) updates when they boot or when their IP address changes. The DNS name is the hostname plus the primary DNS suffix. Azure leaves the primary DNS suffix blank, but you can override this in the VM, via the [UI](https://technet.microsoft.com/library/cc794784.aspx) or [by using automation](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).  
 
 Domain-joined Windows clients register their IP addresses with the domain controller by using secure dynamic DNS. The domain-join process sets the primary DNS suffix on the client and manages the trust relationship.
 
 ## Linux clients
-Linux clients generally do not register themselves with the DNS server on startup--they assume the DHCP server does it. The Bind package comes with a tool called *nsupdate* that you can use to send dynamic DNS updates. Because the dynamic DNS protocol is standardized, you can use *nsupdate* even when you're not using Bind on the DNS server.  
+Linux clients generally don't register themselves with the DNS server on startup--they assume the DHCP server does it. You can use a tool called *nsupdate*, which is included in the Bind package, to send dynamic DNS updates. Because the dynamic DNS protocol is standardized, you can use *nsupdate* even when you're not using Bind on the DNS server.  
 
-The Linux DHCP client provides hooks that allow you to run scripts when an IP address is assigned or changed--for example, in */etc/dhcp/dhclient-exit-hooks.d/*. This can be used to register the hostname in DNS. For example:
+You can use hooks provided by the Linux DHCP client to register the hostname in DNS. They allow you to run scripts when an IP address is assigned or changed--for example, in */etc/dhcp/dhclient-exit-hooks.d/*. Here's an example:
 
     	#!/bin/sh
     	requireddomain=mydomain.local
@@ -56,10 +56,10 @@ The Linux DHCP client provides hooks that allow you to run scripts when an IP ad
 		#done
 		exit 0;
 
-You can also use the *nsupdate* command to perform secure dynamic DNS updates. For example, when you're using a Bind DNS server, a public-private key pair is [generated](http://linux.yyz.us/nsupdate/).  Also, the DNS server is [configured](http://linux.yyz.us/dns/ddns-server.html) with the public part of the key so that it can verify the signature of the request. You must use the *-k* option to provide the key-pair to *nsupdate* in order for the dynamic DNS update request to be signed.
+You can also use the *nsupdate* command to perform secure dynamic DNS updates. For example, when you're using a Bind DNS server, a public-private key pair is [generated](http://linux.yyz.us/nsupdate/).  The DNS server is [configured](http://linux.yyz.us/dns/ddns-server.html) with the public part of the key so that it can verify the signature of the request. You must use the *-k* option to provide the key-pair to *nsupdate* in order for the dynamic DNS update request to be signed.
 
-When you're using a Windows DNS server, you can use Kerberos authentication with nsupdate's *-g* switch (it's not available in the Windows version of *nsupdate*). To do this, use *kinit* to load the credentials (e.g. from a [keytab file](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)). Then *nsupdate -g* will pick up the credentials from the cache.
+When you're using a Windows DNS server, you can use Kerberos authentication with the *-g* parameter in *nsupdate* (it's not available in the Windows version of *nsupdate*). To do this, use *kinit* to load the credentials (e.g. from a [keytab file](http://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)). Then *nsupdate -g* will pick up the credentials from the cache.
 
-If needed, you can add a DNS search suffix to your VMs. The DNS suffix is specified in the */etc/resolv.conf* file. Most Linux distros automatically manage the content of this file, so it usually can't be edited. However, the suffix can be overridden by using the DHCP client's *supersede* command. To do this, in */etc/dhcp/dhclient.conf*, add:
+If needed, you can add a DNS search suffix to your VMs. The DNS suffix is specified in the */etc/resolv.conf* file. Most Linux distros automatically manage the content of this file, so usually you can't edit it. However, you can override the suffix by using the DHCP client's *supersede* command. To do this, in */etc/dhcp/dhclient.conf*, add:
 
 		supersede domain-name <required-dns-suffix>;
