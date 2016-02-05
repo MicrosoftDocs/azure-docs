@@ -45,9 +45,9 @@ To back up files and data from a Windows machine or Data Protection Manager (DPM
 
 3. For the **Name** parameter, enter a friendly name to identify the backup vault. This needs to be unique for each subscription.
 
-4. For the **Region** parameter, select the geographic region for the backup vault. The choice determines the geographic region where your backup data is sent. By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure.
+    For the **Region** parameter, select the geographic region for the backup vault. The choice determines the geographic region where your backup data is sent. By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure.
 
-5. Click **Create Vault** to complete the workflow.
+    Click **Create Vault** to complete the workflow.
 
     It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal.
 
@@ -56,14 +56,12 @@ To back up files and data from a Windows machine or Data Protection Manager (DPM
     After the backup vault has been created, you'll see a message saying the vault has been successfully created. The vault is also listed in the resources for Recovery Services as **Active**.
     ![Creating Vault status](./media/backup-configure-vault/backupvaultstatus1.png)
 
-> [AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
+> [AZURE.IMPORTANT] The best time to identify your storage redundancy option is right after vault creation and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 >
 > **Learn more about choosing storage redundancy options in this [overview](backup-introduction-to-azure-backup.md#how-should-i-determine-my-storage-redundancy-options).**
 
 ## Download the vault credential file
-An on-premises server must be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved using “vault credentials”. The vault credential file is downloaded through a secure channel from the Azure portal and the Azure Backup service is unaware of the private key of the certificate, which does not persist in the portal or the service.
-
-The on-premises server (Windows client or Windows Server or Data Protection Manager server) needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved using “vault credentials”. The concept of vault credentials is similar to the concept of a “publish settings” file which is used in Azure PowerShell.
+The on-premises server (Windows client or Windows Server or Data Protection Manager server) needs to be authenticated with a backup vault before it can back up data to Azure. The authentication is achieved using “vault credentials”. The vault credential file is downloaded through a secure channel from the Azure portal and the Azure Backup service is unaware of the private key of the certificate, which does not persist in the portal or the service.
 
 To learn more about [using vault credentials to authenticate with the Azure Backup service](backup-introduction-to-azure-backup.md#what-is-the-vault-credential-file).
 
@@ -112,7 +110,7 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 5. If you use a proxy server to connect to the internet, in the **Proxy configuration** screen, enter the proxy server details. If you use an authenticated proxy, enter the user name and password details and click **Next**.
 
-    The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not available already installed) to complete the installation.
+    The Azure Backup agent installs .NET Framework 4.5 and Windows PowerShell (if it’s not already installed) to complete the installation.
 
 6. Once the agent is installed, click **Proceed to Registration** to continue with the workflow.
 
