@@ -49,6 +49,23 @@ There are two portals for the Azure Stack App Service, the Resource Provider adm
 - Create multiple App Service Plans like in Azure
 - View web app properties
 
+### Turn off IE Enhanced Security
+
+To enable PowerShell script sto authenticate against AAD, you must turn off of IE Enhanced Security:
+
+1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
+2. Turn off **IE Ehanced Security Configuration** for both Admins and Users.
+3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
+4. Turn off **IE Ehanced Security Configuration** for both Admins and Users.
+
+### Install the latest version of Azure PowerShell
+
+1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.
+2. Using Remote Desktop Connection, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
+3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
+4. Download and install the latest Azure PowerShell from [http://aka.ms.webpi-azps](http://aka.ms.webpi-azps).
+
+
 ### Installation prerequisites
 
 To install Azure Stack Web apps there are a few items that you will need.  Those items are:
