@@ -50,6 +50,30 @@ To enable PowerShell scripts to authenticate against AAD, you must turn off of I
 
 4. Download and install the latest Azure PowerShell from [http://aka.ms.webpi-azps](http://aka.ms.webpi-azps).
 
+
+## Create a wildcard certificate
+
+You’ll need a wildcard certificate to secure communications between the resource provider and Azure Resource Manager. Here’s how to get one:
+
+1. Log in to your POC machine, open Hyper-V Manager, double-click the **PORTALVM** virtual machine, and sign in as an administrator.
+
+2. Open Internet Information Services (IIS) Manager by typing *InetMgr* in the **Run** command box.
+
+3. Expand **PORTALVM** in the left pane and then double-click **Server Certificates** in the center pane. 
+
+4. In the **Actions** pane, click **Create Domain Certificate**.
+
+5. In the **Common name** box, type *\*.azurestack.local*.
+
+6. Type values of your choic ein the other boxes and then click **Next**.
+
+7. Click **Select** and choose **AzureStackCertificationAuthority**.
+
+8. In the **Friendly name*8 box, type *\*.azurestack.Local*.
+
+
+
+
 ## Certificate Creation
 
 You will need a wildcard certificate to secure communications between the resource provider and Azure Resource Manager:
