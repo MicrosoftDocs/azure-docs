@@ -33,7 +33,7 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 3. After the common resource files have been downloaded, the **coordination command** is executed by the primary and other subtasks. This coordination command is typically used to start a background service (such as [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) and may also verify that the nodes are ready to process inter-node messages.
 4. When the coordination command has been completed successfully by the primary and other subtasks, the main task's **command line** (the "application command") is executed *only* by the **primary task**. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi_msdn]'s `mpiexec.exe` using the application command.
 
-> [AZURE.NOTE] Though it is functionally distinct, the "multi-instance task" is not actually a distinct task type like other special task types in Batch, for example, the [StartTask][net_starttask] and [JobPreparationTask][net_jobprep]. The multi-instance task is simply a standard Batch task whose multi-instance settings have been configured. In this article, we refer to this as the multi-instance task.
+> [AZURE.NOTE] Though it is functionally distinct, the "multi-instance task" is not a unique task type like others in Batch, such as the [StartTask][net_starttask] and [JobPreparationTask][net_jobprep]. The multi-instance task is simply a standard Batch task ([CloudTask][net_task] in Batch .NET) whose multi-instance settings have been configured. In this article, we refer to this as the multi-instance task.
 
 ## Create a multi-instance task with Batch .NET
 
