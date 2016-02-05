@@ -65,7 +65,7 @@ This section provides general instructions that apply to any API app. For steps 
 
 7. In the **Authentication / Authorization** blade, click **Save**.
 
-When this is done, App Service prevents any unauthenticated API calls from reaching the API app. No authentication or authorization code is required in the protected API app. 
+When this is done, App Service only allows requests from callers in the configured Azure AD tenant. No authentication or authorization code is required in the protected API app. The JWT token is passed to the API app along with commonly used claims in HTTP headers, and you can read that information in code to validate that requests are from a particular caller, such as a service principal.
 
 This authentication functionality works the same way for all languages that App service supports, including .NET, Node.js, and Java. 
 
@@ -388,6 +388,6 @@ For more information about Azure Active Directory, see the following resources.
 
 * [Azure AD developers' guide](http://aka.ms/aaddev)
 * [Azure AD scenarios](http://aka.ms/aadscenarios)
-* [Azure AD samples](http://aka.ms/aadsamples)
+* [Azure AD samples](http://aka.ms/aadsamples) The [WebApp-WebAPI-OAuth2-AppIdentity-DotNet](http://github.com/AzureADSamples/WebApp-WebAPI-OAuth2-AppIdentity-DotNet) sample is similar to what is shown in this tutorial, but without using App Service authentication.
 
 For information about other ways to deploy Visual Studio projects to API apps, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure App Service app](web-sites-deploy.md).
