@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add the Box connector API to your Logic Apps | Microsoft Azure"
-	description="Create or configure a new Box connector"
+	pageTitle="Add the Box API to your Logic Apps | Microsoft Azure"
+	description="Overview of the Box API with REST API parameters"
 	services=""
 	documentationCenter="" 
 	authors="MandiOhlinger"
@@ -8,47 +8,45 @@
 	editor=""/>
 
 <tags
-   ms.service="powerapps"
+   ms.service=""
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="01/28/2016"
+   ms.date="02/04/2016"
    ms.author="mandia"/>
 
-# Get started with the Box connector
-
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version of this connector, click [Box connector](..app-service-logic-connector-box.md).
-
+# Get started with the Box API
 Connect to Box and create files, delete files, and more.
 
->[AZURE.TIP] "Connector" and "API" are used interchangeably.
+The Box API can be used from logic apps. 
 
-With the Box connector, you can:
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Box connector](..app-service-logic-connector-box.md).
 
-- Add the Box connector to your logic app, and build your business flow based on the data you get from Box. 
-- Use triggers to start your flow. When a file is created or updated, it triggers (or starts) a new instance of the flow (your logic app), and passes the data received to your logic app for additional processing.
-- Use actions that copy a file, delete a file, and more. These actions get a response, and then make the output available for other actions in the logic app to use. For example, when a file is changed on Box, you can take that file and email it using Office 365.
+With Box, you can:
 
-This topic focuses on the Box triggers and actions available, creating a connection to Box, and also lists the REST API parameters. 
+- Build your business flow based on the data you get from Box. 
+- Use triggers when a file is created or updated.
+- Use actions that copy a file, delete a file, and more. These actions get a response, and then make the output available for other actions. For example, when a file is changed on Box, you can take that file and email it using Office 365.
 
-Need help creating a logic app? See [Create a logic app](..app-service-logic-create-a-logic-app.md).
-
+To add an operation in logic apps, see [Create a logic app](..app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
-The Box connector can be used as a trigger and as an action. All connectors support data in JSON and XML formats. The Box connector has the following triggers and actions available:
+Box includes the following trigger and actions.
 
 | Triggers | Actions|
 | --- | --- |
 |<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
 
+All APIs support data in JSON and XML formats.
+
 ## Create a connection to Box
-To use the Box connector, you first create a connection to Box. To create the connection: 
+When you add this API to your logic apps, you must authorize logic apps to connect to your Box.
 
 1. Sign in to your Box account.
 2. Select **Authorize**, and allow your logic apps to connect and use your Box. 
 
-After you create the connection, you enter the Box properties. The properties change, depending on the trigger or action you choose. For example, if you choose the **Copy file** action, then enter the **Source URL**, **Destination file path**, and the **Overwrite** properties. For a description of these properties, see the **REST API reference** in this topic. 
+After you create the connection, you enter the Box properties. The **REST API reference** in this topic describes these properties.
 
 >[AZURE.TIP] You can use this same Box connection in other logic apps.
 
@@ -225,3 +223,8 @@ Triggers a flow when a file is modified in a Box folder.
 |---|---|
 |200|OK|
 |default|Operation Failed.|
+
+
+## Next steps
+
+[Create a logic app](..app-service-logic-create-a-logic-app.md).
