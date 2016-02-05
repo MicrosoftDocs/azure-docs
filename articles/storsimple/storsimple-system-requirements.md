@@ -67,7 +67,7 @@ Your StorSimple device is a locked-down device. However, ports need to be opened
 
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
 
-<sup>2</sup> If multiple ports carry a gateway configuration, the outbound routed traffic order will be determined based on the port routing order described in [Port routing](#port-routing), below.
+<sup>2</sup> If multiple ports carry a gateway configuration, the outbound routed traffic order will be determined based on the port routing order described in [Port routing](#routing-metric), below.
 
 <sup>3</sup> The controller fixed IPs on your StorSimple device must be routable and able to connect to the Internet. The fixed IP addresses are used for servicing the updates to the device. If the device controllers cannot connect to the Internet via the fixed IPs, you will not be able to update your StorSimple device.
 
@@ -258,7 +258,7 @@ Carefully review these best practices to ensure the high availability of hosts c
 ## Next steps
 
 - [Learn about StorSimple system limits](storsimple-limits.md).
-- [Learn how to deploy your StorSimple solution](storsimple-deployment-walkthrough.md).
+- [Learn how to deploy your StorSimple solution](storsimple-deployment-walkthrough-u2.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
