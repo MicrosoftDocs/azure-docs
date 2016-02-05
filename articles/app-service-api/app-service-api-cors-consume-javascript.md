@@ -134,6 +134,8 @@ The procedure to create a new web app and deploy a project to it is the same as 
 
 	Visual Studio creates the web app, creates a publish profile for it, and displays the **Connection** step of the **Publish Web** wizard.
 
+	Before you click **Publish** in the **Publish Web** wizard, you'll configure the new web app to call the middle tier API app that is running in App Service. 
+
 ### Set the middle tier URL in web app settings
 
 1. Go to the [Azure portal](https://portal.azure.com/), and then navigate to the **Web App** blade for the web app that you created to host the TodoListAngular (front end) project.
@@ -182,9 +184,9 @@ The procedure to create a new web app and deploy a project to it is the same as 
 
 ### Deploy the ToDoListAngular web project to the new web app
 
-*  In the **Connection** step of the **Publish Web** wizard, click **Publish**.
+*  In Visual Studio, in the **Connection** step of the **Publish Web** wizard, click **Publish**.
 
-	Visual Studio deploys the ToDoListAngular project to the web app and opens a browser to the URL of the web app. 
+	Visual Studio deploys the ToDoListAngular project to the new web app and opens a browser to the URL of the web app. 
 
 ### Test the application without CORS enabled 
 
