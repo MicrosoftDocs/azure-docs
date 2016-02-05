@@ -17,5 +17,5 @@
 
 # Detect, Triage and Diagnose web apps with Application Insights
 
-Please see the [consolidated article](app-insights-detect-triage-diagnose-java.md).
+Please see the [consolidated article](app-insights-detect-triage-diagnose.md).
  
