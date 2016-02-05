@@ -17,8 +17,8 @@
 	ms.author="v-anpasi"/>
 
 # Installing SQL Server Resource Provider adaptor for Azure Stack
-
-You can deploy SQL Server resource providers in your Azure Stack POC environment.
+The SQL Server Resource Provider adaptor lets you consume any SQL Server-based workload through your Azure stack, allowing SQL server databases to be consumed when deploying cloud native apps as well as SQL-based websites on Azure Stack.
+You can deploy SQL Server resource provider in your Azure Stack POC environment by following the steps below:
 
 ## Pre-Requisites
 You will need Windows Server 2012 R2 Datacenter VHD with .Net 3.5 as the default image in the Platform Image repository (Refer to this document [this link](https://fakeurl.com))
@@ -88,7 +88,7 @@ Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and co
 
 3.	Take the certificate.pfx file you have created (Detailed steps are above) and place the certificate under d:\SQLRP\ AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment\Certificate Folder
 
-4.	Go to D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.57.0\Contents\
+4.	Go to D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment\Templates
 
 5.	Change the parameters in InstallSqlRpComplete-Parameters.json.
 
@@ -101,7 +101,7 @@ Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and co
 
 6. Invoke SqlRPTemplateDeployment.ps1 as admin (right click, “Run as Administrator”)
 
-    - When asked for AAD tenantID parameter – input your AAD tenant ID
+    - When asked for AAD tenantID parameter – input your AAD tenant name, e.g. microsoftazurestack.onmicrosoft.com
 
     - When asked for package name, provide: AzureStack.SqlRP.Setup.5.11.57.0.nupkg
     >this is case sensitive
