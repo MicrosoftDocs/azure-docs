@@ -19,6 +19,8 @@
    
 # Maximizing Data Aggregation and Query Performance with Elasticsearch on Azure
 
+This article is [part of a series](guidance-elasticsearch-introduction.md). 
+
 A primary reason for using Elasticsearch is to support searches through data. Users should be able to quickly locate the information for which they are looking. Additionally, the system must enable users to ask questions of the data, seek correlations, and come to conclusions that can drive business decisions; this processing is what differentiates data from information.
 
 This document summarizes options that you can consider when determining the best way to optimize your system for query and search performance.
@@ -42,6 +44,7 @@ If there is a significant mismatch between data volumes for the types, informati
 ![](./media/guidance-elasticsearch-query-performance1.png)
 
 The effects of sharing an index between types
+<!-- TODO: sentence fragment -->
 
 Figure 1 depicts this scenario. In the upper part of the diagram, the same index is shared by documents of type A and type B. There are many more documents of type A than type B. Searches for type A will involve querying all four shards. The lower part of the diagram shows the effect if separate indexes are created for each type. In this case, searches for type A will only require accessing two shards.
 
@@ -59,7 +62,7 @@ However, under some circumstances sharing an index across types can be efficient
 
 An Elasticsearch index contains a copy of the original JSON documents that were used to populate it. This information is held in the [*\_source*](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-source-field.html#mapping-source-field) field of each indexed item. This data is not searchable, but by default is returned by *get* and *search* requests. However, this field incurs overhead and occupies storage, making shards larger and increasing the volume of I/O performed. You can disable the *\_source* field on a per type basis:
 
-````
+```http
 PUT my_index
 {
     "mappings": {
@@ -70,7 +73,7 @@ PUT my_index
 		}
 	}
 }
-````
+```
 
 Disabling this field also removes the ability to perform the following operations:
 
@@ -82,10 +85,9 @@ Disabling this field also removes the ability to perform the following operation
  
 ### Re-indexing Data
 
-
 The number of shards available to an index ultimately determines the capacity of the index. You can take an initial (and informed) guess at how many shards will be required, but you should always consider your document re-indexing strategy up front. In many cases, re-indexing may be an intended task as data grows; you may not want to allocate a large number of shards to an index initially, for the sake of search optimization, but allocate new shards as the volume of data expands. In other cases re-indexing might need to be performed on a more ad-hoc basis if your estimates about data volume growth simply prove to be inaccurate.
 
-[AZURE.NOTE] Re-indexing might not be necessary for data that ages quickly. In this case, an application might create a new index for each period of time. Examples include performance logs or audit data which could be stored in a fresh index each day.
+> [AZURE.NOTE] Re-indexing might not be necessary for data that ages quickly. In this case, an application might create a new index for each period of time. Examples include performance logs or audit data which could be stored in a fresh index each day.
 
 Re-indexing effectively involves creating a new index from the data in an old one, and then removing the old index. If an index is large, this process can take time, and you may need to ensure that the data remains searchable during this period. For this reason, you should create an [alias for each index](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-aliases.html), and queries should retrieve data through these aliases. While re-indexing, keep the alias pointing at the old index, and then switch it to reference the new index once re-indexing is complete. This approach is also useful for accessing time-based data which creates a new index each day; to access the current data use an alias that rolls over to the new index as it is created.
 
@@ -103,7 +105,7 @@ Elasticsearch uses mappings to determine how to interpret the data that occurs i
 
 - Use *not\_analyzed* to avoid tokenization where appropriate. For example, if a document contains a string field named *data* that holds the value "ABC-DEF" then you might attempt to perform a search for all documents that match this value as follows:
 
-````
+```http
 GET /myindex/mydata/_search
 {
 	"query" : {
@@ -116,11 +118,11 @@ GET /myindex/mydata/_search
 		}
 	}
 }
-````
+```
 
 However, this search will fail to return the expected results due to the way in which the string ABC-DEF is tokenized when it is indexed; it will be effectively split into two tokens, ABC and DEF, by the hyphen. This feature is designed to support full text searching, but if you want the string to be interpreted as a single atomic item you should disable tokenization when the document is added to the index. You can use a mapping such as this:
 
-````
+```http
 PUT /myindex
 {
 	"mappings" : {
@@ -134,7 +136,7 @@ PUT /myindex
 		}
 	}
 }
-````
+```
 
 For more information, see [Finding Exact Values](https://www.elastic.co/guide/en/elasticsearch/guide/current/_finding_exact_values.html#_term_filter_with_text).
 
@@ -146,7 +148,7 @@ As an alternative approach, Elasticsearch also supports *doc values*. A doc valu
 
 You enable or disable doc values on a per-property basis in an index using the *doc\_values* attribute, as shown by the following example:
 
-````
+```http
 PUT /myindex
 {
 	"mappings" : {
@@ -160,9 +162,9 @@ PUT /myindex
 		}
 	}
 }
-````
+```
 
-[AZURE.NOTE] Doc values are enabled by default with Elasticsearch version 2.0.0 onwards.
+> [AZURE.NOTE] Doc values are enabled by default with Elasticsearch version 2.0.0 onwards.
 
 The exact impact of using doc values is likely to be highly specific to your own data and query scenarios, so be prepared to conduct performance testing to establish their usefulness. You should also note that doc values do not work with analyzed string fields. For more information, see [Doc Values](https://www.elastic.co/guide/en/elasticsearch/guide/current/doc-values.html#doc-values).
 
@@ -178,12 +180,12 @@ A common strategy to boost the performance of queries is to create many replicas
 
 Elasticsearch can cache the local data requested by queries on each shard in memory. This enables queries that access the same data to run more quickly; data can be retrieved from memory rather than disk storage. The data in the cache is invalidated when the shard is refreshed and the data has changed; the frequency of refreshes is governed by the value of the *refresh\_interval* setting of the index. The shard request cache for an index is disabled by default, but you can enable it as follows:
 
-````
+```http
 PUT /myindex/_settings
 {
 	"index.requests.cache.enable": true
 }
-````
+```
 
 The shard request cache is most suitable for information that remains relatively static, such as historical or logging data.
 
@@ -269,7 +271,7 @@ The tests were performed to understand the effects of the following variables:
 -->
 
 <!--
-[AZURE.NOTE] You can repeat the tests yourself. The test plans and scripts are available online, and the document [How-To: Run the Automated Elasticsearch Query Tests](TODO) describes how to use these assets to conduct your own testing.
+> [AZURE.NOTE] You can repeat the tests yourself. The test plans and scripts are available online, and the document [How-To: Run the Automated Elasticsearch Query Tests](TODO) describes how to use these assets to conduct your own testing.
 -->
 
 ### Performance Results – Disk Type
@@ -368,7 +370,7 @@ Show memory utilization – more data cached, fewer GCs, etc.
 <!--
 To isolate the effects of the ingestion operations and show how query performance varies as nodes scale up, a second set of tests was performed using the same nodes. The ingestion part of the test was omitted, and the index on each node was pre-populated with 100 million documents. An amended set of queries was performed; the time element limiting documents to those added in the last 15 minutes was removed as the data was now static. The tests ran for 90 minutes; there is less need to allow the system to stabilize due to the fixed amount of data. The following table summarizes the results obtained on each cluster:
 
-[AZURE.NOTE] The amended version of the test that omits the data ingestion process and that uses a set of indexes containing 100 million documents is referred to as the *query-only* test in the remainder of this document. You should not compare the performance of the queries in this test with that of the tests that perform ingestion and query operations because the queries have been modified and the volume of documents involved is different.
+> [AZURE.NOTE] The amended version of the test that omits the data ingestion process and that uses a set of indexes containing 100 million documents is referred to as the *query-only* test in the remainder of this document. You should not compare the performance of the queries in this test with that of the tests that perform ingestion and query operations because the queries have been modified and the volume of documents involved is different.
 
  |Cluster        |Operation/Query              |Number of Requests   Average Response Time (ms)
  | --------------| ----------------------------| -------------------- ----------------------------
@@ -401,7 +403,7 @@ To isolate the effects of the ingestion operations and show how query performanc
 <!--
 To show the system scales out with the number of nodes, tests were run using DS14 clusters comprising 1, 3, and 6 nodes. This time, only the query-only test was performed, using 100 million documents and running for 90 minutes:
 
-[AZURE.NOTE] For detailed information on how scaling out can affect the behavior of data ingestion operations, see the document [Maximizing Data Ingestion Performance with Elasticsearch on Azure](https://github.com/mspnp/azure-guidance/blob/master/Elasticsearch-Data-Ingestion-Performance.md).
+^ [AZURE.NOTE] For detailed information on how scaling out can affect the behavior of data ingestion operations, see the document [Maximizing Data Ingestion Performance with Elasticsearch on Azure](https://github.com/mspnp/azure-guidance/blob/master/Elasticsearch-Data-Ingestion-Performance.md).
 
 |  Cluster   |Operation/Query              |Number of Requests   |Average Response Time (ms)
 |  --------- |---------------------------- |-------------------- |----------------------------
