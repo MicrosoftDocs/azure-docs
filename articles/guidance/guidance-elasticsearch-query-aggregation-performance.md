@@ -43,8 +43,7 @@ If there is a significant mismatch between data volumes for the types, informati
 
 ![](./media/guidance-elasticsearch-query-performance1.png)
 
-The effects of sharing an index between types
-<!-- TODO: sentence fragment -->
+***Figure 1. The effects of sharing an index between types***
 
 Figure 1 depicts this scenario. In the upper part of the diagram, the same index is shared by documents of type A and type B. There are many more documents of type A than type B. Searches for type A will involve querying all four shards. The lower part of the diagram shows the effect if separate indexes are created for each type. In this case, searches for type A will only require accessing two shards.
 
