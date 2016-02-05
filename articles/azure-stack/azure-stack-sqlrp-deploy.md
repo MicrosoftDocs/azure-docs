@@ -133,22 +133,32 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 17. The deployment will take about 90 minutes to complete.
 
+## Add a DNS record
 
-## Add DNS record
+1. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
 
-1.	From the Azure Stack admin portal, lookup the NIC resource for your newly deployed VM and write down its public IP (192.168.X.X).
+2. Sign in to the Azure Stack portal as an administrator, click **Browse**, click **Resource Groups**, click the SQL resource group you created earlier.
 
-2.	Log in to your POC env and from there log in to ADVM (remote desktopadvm.AzureStackLocal.com),
+3. Under **Summary**, click **sqlrp-NIC**.
 
-3.	Run DNS manager from run box dnsmgmt.msc.
+4. In the **sqlrp-NIC** blade, locate the **Public IP address**. Write down this address. It will be something like (192.168.X.X).
 
-4.	Create an A Record in the ADVM for ‘sqlrp.azurestack.local’ by right clicking and selecting "new Host Record".
+5. Minimize the **ClientVM.AzureStack.local** virtual machine.
 
-  - Enter the Name for the new host “sqlrp” (this will make it sqlrp.azurestack.local).
+6. Open Hyper-V Manager, double-click the **ADVM** virtual machine, and sign in as an administrator.
 
-  - Enter the public IP address you wrote down in step 1 in “IP Address” field.
+7. Open DNS Manager by running **DNSmgmt.msc** from the **Run** command box.
 
-  - Click add host.
+8. Expand **ADVM**, expand **Forward Lookup Zones**, right-click **AzureStack.Local**, and then click **New Host (A or AAAA)**. 
+
+9. In the **New Host** dialog box, type *sqlrp* in the **Name** box. This will set the new host URL to **sqlrp.azurestack.local**.
+
+10. In the **IP Address** box, type the public IP address you wrote down in step 4, and then click **Add Host**.
+
+
+
+
+
 
 ## Register the SQL Resource Provider
 
