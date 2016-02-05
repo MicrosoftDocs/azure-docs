@@ -96,6 +96,7 @@ Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and co
     >this is case sensitive
 
     - Specify an admin user\password to use as credentials for the RP VM.
+    >the adminPassword field will be used as your SQL auth login as well in your Resource Provider's SQL Server
 
     - Input the certificate password you chose to create the certificate in the steps above.
 
