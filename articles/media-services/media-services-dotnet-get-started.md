@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="01/28/2016"
+	ms.date="02/03/2016" 
 	ms.author="juliako"/>
 
 
@@ -66,7 +66,7 @@ Get and run a sample from [here](https://azure.microsoft.com/documentation/sampl
 
 1. In the Azure Classic Portal, click **New**, click **Media Service**, and then click **Quick Create**.
 
-![Media Services Quick Create](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
+	![Media Services Quick Create](./media/media-services-dotnet-get-started/wams-QuickCreate.png)
 
 2. In **NAME**, enter the name of the new account. A Media Services account name is all lower-case numbers or letters with no spaces, and is 3 - 24 characters in length.
 
