@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/02/2016" 
+	ms.date="02/05/2016" 
 	ms.author="elizapo"/>
 
 # How to create a hybrid collection for Azure RemoteApp
@@ -120,7 +120,7 @@ See [Directory synchronization roadmap](http://msdn.microsoft.com//library/azure
 
 An Azure RemoteApp app is the app or program that you provide to your users. It is located in the template image you uploaded for the collection. When a user accesses an app, it appears to run in their local environment, but it is really running in Azure. 
 
-Before your users can access apps, you need to publish them to the end-user feed – a list of available apps that your users access through the Remote Desktop client.
+Before your users can access apps, you need to publish them – this lets your users access the apps through the Remote Desktop client.
  
 You can publish multiple apps to your collection. From the publishing page, click **Publish** to add an app. You can either publish from the **Start** menu of the template image or by specifying the path on the template image for the app. If you choose to add from the **Start** menu, choose the program to add. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
 
