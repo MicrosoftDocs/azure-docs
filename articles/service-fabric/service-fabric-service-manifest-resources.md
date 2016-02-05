@@ -36,7 +36,7 @@ When an endpoint resource is defined in the service manifest, Service Fabric ass
 </Resources>
 ```
 
-Refer to [Configuring stateful Reliable Services](../Service-Fabric/service-fabric-reliable-services-configuration.md) to read more about referencing endpoints from the config package settings file (settings.xml).
+Refer to [Configuring stateful Reliable Services](service-fabric-reliable-services-configuration.md) to read more about referencing endpoints from the config package settings file (settings.xml).
 
 ## Example: specifying an HTTP endpoint for your service
 
