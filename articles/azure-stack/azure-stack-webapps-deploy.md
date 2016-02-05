@@ -184,8 +184,6 @@ In the **Microsoft Azure STack App Service TP1** dialog box, click **Exit**.
 
 To make sure the deployment was successful, in the Azure Stack portal, click **Resource Groups** and then click the **WebSitesSQL** resource group. A green check mark next to the resource provider name indicates that it deployed successfully.
 
-![][12]  
- 
 
 ### Pre-registration Azure Stack Web Apps configuration steps
 
