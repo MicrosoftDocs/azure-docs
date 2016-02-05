@@ -33,7 +33,8 @@ This topic shows how to accomplish the following Media Services management tasks
 - List all assets 
 - List jobs and assets 
 - List all access policies 
-- List All Locators 
+- List All Locators
+- Enumerate through large collections of entities
 - Delete an asset 
 - Delete a job 
 - Delete an access policy 
