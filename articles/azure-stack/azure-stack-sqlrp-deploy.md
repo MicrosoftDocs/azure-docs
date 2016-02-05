@@ -76,47 +76,63 @@ You’ll need a wildcard certificate to secure communications between the resour
 ## Export the wildcard certificate
 
 1. Open Microsoft Management Console (MMC) from the **Run** command box.
+
 2. Click **File**, click **Add or Remove Snap-ins**, click **Certificate**, click **Add**, click **Computer account**, and then click **Next**.
+
 3. In the **Select Computer** dialog box, choose **Local computer**, click **Finish**, and then click **OK**.
+
 4. Expand **Certificates**, click **Personal**, and then click **Certificates**.
+
 5. Right-click the **\*.azurestack.local** certificate, click **All Tasks**, and then click **Export**.
+
 6. In the **Certificate Export Wizard**, click **Next**, choose **Yes, export private key** option, and then click **Next**.
+
 7. Choose **Export all extended properties** and **Include all instances in the certificate path if possible**, and then click **Next**.
+
 8. Choose **Password** and type and confirm a password, and then click **Next**. Make sure to record this password so you don’t forget it.
+
 9. Browse to a folder of your choice, save the file as **certificate.pfx**, and then click **Next**.
+
 10. Click **Finish**, and then click **OK**.
+
 11. On the PortalVM, copy **certificate.pfx**, use Remote Desktop Connection to sign in to **ClientVM.AzureStack.local** as an administrator, and then paste **certificate.pfx** to the **ClientVM.AzureStack.local** virtual machine desktop.
 
-## Prepare and perform deployment
+## Deploy the SQL Server resource provider
 
-Download the SQL RP binaries by clicking [this link](https://fakeurl.com) and copy the downloaded ZIP file to the ClientVM's desktop in your POC environment.
+1. [Download the SQL resource provider zip file](http://aka.ms/MASSQLRP) to the **ClientVM.AzureStack.local** desktop in your Azure Stack POC environment.
 
-1.	Change the deployment (AzureStack.SqlRP.Deployment.\*.nupkg) nuget package extension to .zip and extract the contents to D:\SQLRP\
+2. Change the **AzureStack.SqlRP.Deployment.*.nupkg** file extension to **AzureStack.SqlRP.Deployment.*.zip** and extract the contents to **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0**.
 
-2.	Place the setup nuget package (AzureStack.SqlRP.Setup.\*.nupkg) inside the extracted Deployment at d:\SQLRP\ AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment\
+3. Copy **AzureStack.SqlRP.Setup.*.nupkg** to the **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment\** folder.
 
-3.	Take the certificate.pfx file you have created (Detailed steps are above) and place the certificate under d:\SQLRP\ AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment\Certificate Folder
+4. On the **ClientVM.AzureStack.local** virtual machine, create a new folder named **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Contents\Deployment\Certificate**.
 
-4.	Go to D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.57.0\Contents\Deployment\Templates
+5. Copy the **certificate.pfx** file from the **portalvm** to the folder you created in the previous step.
 
-5.	Change the parameters in InstallSqlRpComplete-Parameters.json.
+6. Open the **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment\Templates\InstallSqlRpComplete-Parameters.json** file.
 
-    - Change cseBlobNamePackage to: AzureStack.SqlRP.Setup.5.11.57.0.nupkg
-    >this is case sensitive
+7. Type a password for the **adminPassword** parameter value. Make sure to record this password as it is the administrator password for your SQL auth login and your resource provider’s SQL Server.
 
-    - Specify an admin user\password to use as credentials for the RP VM.
-    >the adminPassword field will be used as your SQL auth login as well in your Resource Provider's SQL Server
+8. For the **certPassword** parameter value, type the certificate password you chose when you created the certificate.
 
-    - Input the certificate password you chose to create the certificate in the steps above.
+9. Save the **InstallSqlRpComplete-Parameters.json** file.
 
-6. Invoke SqlRPTemplateDeployment.ps1 as admin (right click, “Run as Administrator”)
+10. Open the **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment\Templates\InstallSqlRpPackage-Parameters.json** file.
 
-    - When asked for AAD tenantID parameter – input your AAD tenant name, e.g. microsoftazurestack.onmicrosoft.com
+11. Type the same password for the **adminPassword** parameter value that you used in the **InstallSqlRpComplete-Parameters.json**. For the **certPassword** parameter value, type the certificate password you chose when you created the certificate.
 
-    - When asked for package name, provide: AzureStack.SqlRP.Setup.5.11.57.0.nupkg
-    >this is case sensitive
+12. Make sure that the parameter value for **cseBlobStorage** is **AzureStack.SQLRP.Setup.5.11.61.0.nupkg** (make sure the numbers are accurate).
 
-7.	Wait for the deployment to succeed. This might take 90 minutes.
+13. Launch PowerShell ISE as an admin, **CD** into **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment**, and then run **SqlRPTemplateDeployment.ps1**.
+
+14. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
+
+15. At the **packageName** prompt, type **AzureStack.SqlRP.Setup.5.11.61.0.nupkg**. 
+
+16. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
+
+17. The deployment will take about 90 minutes to complete.
+
 
 ## Add DNS record
 
