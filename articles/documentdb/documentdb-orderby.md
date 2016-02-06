@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/03/2016" 
 	ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By
@@ -126,13 +126,6 @@ Here's how you can create a collection with indexing for Order By against just t
 
 ## Samples
 Take a look at this [Github samples project](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) that demonstrates how to use Order By, including creating indexing policies and paging using Order By. The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers. Please refer to the [Contribution guidelines](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) for guidance on how to contribute.  
-
-## What's coming next?
-
-Future service updates will expand on the Order By support introduced here. We are working on the following additions and will prioritize the release of these improvements based on your feedback:
-
-- Dynamic Indexing Policies: Support to modify indexing policy after collection creation and in the Azure Classic Portal
-- Support for Compound Indexes for more efficient Order By and Order By on multiple properties.
 
 ## FAQ
 
