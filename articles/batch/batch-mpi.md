@@ -31,13 +31,13 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 1. The Batch service automatically splits the "main" task into **subtasks**, one of which is designated as the **primary task**. Batch then schedules the primary and other subtasks for execution on the pool's compute nodes.
 2. These tasks, both the primary and the other subtasks, download any **common resource files** that you specify in the multi-instance settings.
 3. After the common resource files have been downloaded, the **coordination command** is executed by the primary and other subtasks. This coordination command is typically used to start a background service (such as [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) and may also verify that the nodes are ready to process inter-node messages.
-4. When the coordination command has been completed successfully by the primary and other subtasks, the main task's **command line** (the "application command") is executed *only* by the **primary task**. For example, in a Windows MPI scenario, you would typically execute your MPI-enabled application with [MS-MPI][msmpi_msdn]'s `mpiexec.exe` using the application command.
+4. When the coordination command has been completed successfully by the primary and other subtasks, the main task's **command line** (the "application command") is executed *only* by the **primary task**. For example, in an [MS-MPI][msmpi_msdn]-based solution, this is where you execute your MPI-enabled application using `mpiexec.exe`.
 
-> [AZURE.NOTE] Though it is functionally distinct, the "multi-instance task" is not a unique task type like others in Batch, such as the [StartTask][net_starttask] and [JobPreparationTask][net_jobprep]. The multi-instance task is simply a standard Batch task ([CloudTask][net_task] in Batch .NET) whose multi-instance settings have been configured. In this article, we refer to this as the multi-instance task.
+> [AZURE.NOTE] Though it is functionally distinct, the "multi-instance task" is not a unique task type like the [StartTask][net_starttask] or [JobPreparationTask][net_jobprep]. The multi-instance task is simply a standard Batch task ([CloudTask][net_task] in Batch .NET) whose multi-instance settings have been configured. In this article, we refer to this as the multi-instance task.
 
 ## Create a multi-instance task with Batch .NET
 
-The following code snippet shows you how to create a multi-instance task using the Batch .NET library. In the snippet, we create standard a [CloudTask][net_task], then configure its [MultiInstanceSettings][net_multiinstance_prop] property.
+The following code snippet shows you how to create a multi-instance task using the Batch .NET library. In the snippet, we create a standard [CloudTask][net_task], then configure its [MultiInstanceSettings][net_multiinstance_prop] property.
 
 ```
 // Create the "main" task. Its command line will be executed *only* by the primary subtask, and
@@ -61,7 +61,7 @@ await batchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask);
 
 ## Primary task and subtasks
 
-When you create the multi-instance settings for a task, you specify the number of number of compute nodes to execute task. When you submit the task to a job, the Batch service creates that number of subtasks, one of which it designates as the "primary."
+When you create the multi-instance settings for a task, you specify the number of number of compute nodes to execute the task. When you submit the task to a job, the Batch service creates that number of subtasks, one of which it designates as the "primary."
 
 These subtasks, both the primary and the other subtasks, are assigned an integer id in the range of 0 to *numberOfInstances - 1*. The subtask with id 0 is the primary task, and all other ids are subtasks. For example, if you create the following multi-instance settings for a task, the primary task would have an id of 0, and the other subtasks would have ids 1 through 9.
 
@@ -72,7 +72,7 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 
 ## Coordination and application commands
 
-The **coordination command** is executed by all subtasks, including the primary task. Once the primary task and all subtasks have finished executing the coordination command, the main task's command line is executed by the primary task *only*. We will call the main task's command line the "application command" to distinguish it from the coordination command.
+The **coordination command** is executed by all subtasks, including the primary task. Once the primary task and all subtasks have finished executing the coordination command, the main task's command line is executed by the primary task *only*. We will call the main task's command line the **application command** to distinguish it from the coordination command.
 
 The invocation of the coordination command is blocking--Batch does not execute the application command until the coordination command has returned successfully for all subtasks. The coordination command should therefore start any required background services, verify that they are ready for use, and then exit. For example, a coordination command for a solution using MS-MPI version 7 might be:
 
