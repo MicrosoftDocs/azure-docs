@@ -22,7 +22,7 @@ MySQL databases support common website platforms as is a common technology used 
 
 ## Prepare the Azure Stack POC machine
 
-Before deploying MySQL resource providers, turn off IE Enhanced Seucrity, install the latest version of Azure PowerShell, and prepare the Azure Stack POC environment with the necessary certifications, marketplace items, and binaries.
+Before deploying MySQL resource providers, turn off IE Enhanced Security, install the latest version of Azure PowerShell, and prepare the Azure Stack POC environment with the necessary certifications, marketplace items, and binaries.
 
 ### Turn off IE Enhanced Security
 
