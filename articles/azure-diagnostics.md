@@ -46,17 +46,17 @@ The Azure diagnostics extension can transfer this data to an Azure storage accou
 
 
 ## Versioning
-See [Azure Diagnostics Versioning History](./azure-diagnostics-versioning-history).
+See [Azure Diagnostics Versioning History](azure-diagnostics-versioning-history).
 
 ## Next Steps
 Pick which service you are trying to collect diagnostics on.
 
 ### General Azure Diagnostics
-- [Azure Diagnostics Schema Configuration](https://msdn.microsoft.com/en-us/library/azure/mt634524.aspx) - Learn how to change the schema file to collect and route diagnostics data. Note that you can also use Visual Studio to change the schema file.
-- [How Azure Diagnostics data is stored in Azure Storage](./cloud-services-dotnet-diagnostics-storage) - Know the names of the tables and blobs where the diagnostic data is written.
-- Learn to [use Performance Counters in Azure Diagnostics](./cloud-services-dotnet-diagnostics-performance-counters).
+- [Azure Diagnostics Schema Configuration](https://msdn.microsoft.com/library/azure/mt634524.aspx) - Learn how to change the schema file to collect and route diagnostics data. Note that you can also use Visual Studio to change the schema file.
+- [How Azure Diagnostics data is stored in Azure Storage](./cloud-services/cloud-services-dotnet-diagnostics-storage.md) - Know the names of the tables and blobs where the diagnostic data is written.
+- Learn to [use Performance Counters in Azure Diagnostics](./cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
 - [Route diagnostics information to other Application Insights](./cloud-services/azure-diagnostics-configure-applicationinsights.md)
-- [Toubleshooting Azure Diagnostics](./azure-diagnostics-troubleshooting.md)
+- [ToubleShooting Azure Diagnostics](./azure-diagnostics-troubleshooting.md)
 
 ### Cloud Services using Azure Diagnostics
 - [How to monitor Cloud services using Azure Diagnostics](./cloud-services/cloud-services-how-to-monitor.md)
@@ -72,7 +72,7 @@ Pick which service you are trying to collect diagnostics on.
 - [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](./virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md)
 
 ### Service Fabric using Azure Diagnostics
-- [Monitor a Service Fabric application](./service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)
+- [Monitor a Service Fabric application](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/)
 
 ### Web Apps (Not Azure diagnostics)
  - [Web Apps](./web-sites/web-sites-enable-diagnostic-log.md)

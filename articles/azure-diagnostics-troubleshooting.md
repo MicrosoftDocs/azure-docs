@@ -4,7 +4,7 @@
 	services="multiple"
 	documentationCenter=".net"
 	authors="rboucher"
-	manager="jwhit" 
+	manager="jwhit"
 	editor=""/>
 
 <tags
@@ -18,8 +18,7 @@
 
 
 # Azure Diagnostics Troubleshooting and FAQ
-## TODO
-Take the table information in the FAQ nad move it and a similar article to the Schema reference for Diagnostics
+
 
 ## Azure Diagnostics is not Starting
 Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent. Log files for the guest agent plugin are located in the file:

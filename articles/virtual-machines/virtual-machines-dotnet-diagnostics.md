@@ -22,11 +22,6 @@
 
 See [Azure Diagnostics Overview](../azure-diagnostics.md) for a background on Azure Diagnostics.
 
-## TODO
-
-Check the links at the bottom for validity
-
-
 ## How to Enable Diagnostics in a Virtual Machine
 
 This walk through describes how to remotely install Diagnostics to an Azure virtual machine from a development computer. You also learn how to implement an application that runs on that Azure virtual machine and emits telemetry data using the .NET [EventSource Class][]. Azure Diagnostics is used to collect the telemetry and store it in an Azure storage account.
@@ -180,7 +175,7 @@ In the Visual Studio **Server Explorer** navigate to the wadexample storage acco
 
 ## Configuration File Schema
 
-The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](https://msdn.microsoft.com/en-us/library/azure/mt634524.aspx) for valid values and examples.
+The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](https://msdn.microsoft.com/library/azure/mt634524.aspx) for valid values and examples.
 
 ## Troubleshooting and FAQ
 
@@ -189,11 +184,9 @@ See [Troubleshooting Azure Diagnostics](../azure-diagnostics-troubleshooting.md)
 
 ## Additional Resources
 
+- [Configuring Diagnostics for Azure Cloud Services][]
 - [Collect Logging Data by Using Azure Diagnostics][]
-- [Debugging an Azure Application][]
-- [Configuring Diagnostics for Azure Cloud Services and Virtual Machines][]
-
-
+- [Azure Diagnostics 1.2 Configuration Schema](http://msdn.microsoft.com/library/azure/dn782207.aspx)
 
 [Overview]: #overview
 [How to Enable Diagnostics in a Worker Role]: #worker-role
@@ -205,13 +198,8 @@ See [Troubleshooting Azure Diagnostics](../azure-diagnostics-troubleshooting.md)
 [Additional Resources]: #additional
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
-[Configuring Diagnostics for Azure Cloud Services and Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/dn186185.aspx
+[Configuring Diagnostics for Azure Cloud Services]: http://msdn.microsoft.com/library/windowsazure/dn186185.aspx
 [Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
-[Troubleshooting Best Practices for Developing Azure Applications]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
-[Azure Diagnostics 1.2 Configuration Schema]: http://msdn.microsoft.com/library/azure/dn782207.aspx
-[Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
-[Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx
-[Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
+	[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
