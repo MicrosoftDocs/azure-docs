@@ -54,9 +54,9 @@ There are two portals for the Azure Stack App Service, the Resource Provider adm
 To enable PowerShell scripts to authenticate against AAD, you must turn off of IE Enhanced Security:
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
-2. Turn off **IE Ehanced Security Configuration** for both Admins and Users.
+2. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
 3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
-4. Turn off **IE Ehanced Security Configuration** for both Admins and Users.
+4. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
 
 ### Install the latest version of Azure PowerShell
 
@@ -90,7 +90,7 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 - Provision a new VM and install SQL server
 - Download and expand the [WebAppsDeployment.zip](http://go.microsoft.com/fwlink/?LinkId=723982) to the client machine 
 - Run “Deploy-SqlServerDSC.ps1” script to provision a new VM and install SQL server:
-**NOTE** the resource group used in the script to provision the sql vm . The same resource group should be used for during WebApps deployment in the next step. When prompted to create a user account on the VM, the username admin will be auto populate and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
+**NOTE** the resource group used in the script to provision the SQL vm . The same resource group should be used for during WebApps deployment in the next step. When prompted to create a user account on the VM, the username admin will be auto populate and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
 
 **NOTE** The resource group used in the script to provision the SQL vm should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL 
 
@@ -178,7 +178,7 @@ New-AzureRmResourceGroupDeployment -Name "WebAppsDeploy01" -ResourceGroupName "W
 -sqlservername 10.0.2.4 -sqlsysadmin sa -sqlsysadminpwd "SQLServerPassword"   
 ```
 
-In the **Microsoft Azure STack App Service TP1** dialog box, click **Exit**.
+In the **Microsoft Azure Stack App Service TP1** dialog box, click **Exit**.
 
 To make sure the deployment was successful, in the Azure Stack portal, click **Resource Groups** and then click the **WebSitesSQL** resource group. A green check mark next to the resource provider name indicates that it deployed successfully.
 
@@ -208,7 +208,7 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
  
 1. Minimize the client virtual machine.
 
-2. Open Hyper-V Manager, double-click the **ADVM** vitual machine, and sign in as an administrator.
+2. Open Hyper-V Manager, double-click the **ADVM** virtual machine, and sign in as an administrator.
  
 3. Open DNS Manager, expand the **ADVM** node, expand **Forward Lookup Zones**, right-click **AzureStack.Local**, and then click **New Host (A or AAAA)**.
 
@@ -222,7 +222,7 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
 
 6. Click **Add host**.
 
-7. In the **Name** box, type *\*.webapps*. {find where this is mentioned earlier in the doc} This DNS name should match the name you used when populating the ARM template for the Web App resource provider. In this case we had webapps.azurestack.local so the DNS name should be *\*.webapps*.
+7. In the **Name** box, type *\*.webapps*. This DNS name should match the name you used when populating the ARM template for the Web App resource provider. In this case we had webapps.azurestack.local so the DNS name should be *\*.webapps*.
 
 8. In the **IP address** box, type the IP address for the **FrontEndServersLoadBalancer** that you noted above.
 
@@ -268,7 +268,7 @@ To configure your Azure Stack Web Apps deployment with wildcard certificates you
 
 7. Choose **Yes, export the private key** and then click **Next**.
 
-8. Choose **Perosnal Information Exchange - PKCS #12 (.PFX)**, choose **Include all certificates in the certification path if possible**, choose **Export all extended properties**, leave the other boxes unchecked, and then click **Next**.
+8. Choose **Personal Information Exchange - PKCS #12 (.PFX)**, choose **Include all certificates in the certification path if possible**, choose **Export all extended properties**, leave the other boxes unchecked, and then click **Next**.
 
 9. Check **Password**, type and confirm a password (take note of the password for later use), and then click **Next**. 
 
@@ -309,7 +309,7 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 
 14. Double-click **\*.azurestack.local** and click **Certification Path**.
 
-15. To verify that the new certificte has been imported successfully, confirm that the **AzureStackCertificatinAuthority** icon is connected to the **\*.azurestack.local** icon.
+15. To verify that the new certificate has been imported successfully, confirm that the **AzureStackCertificatinAuthority** icon is connected to the **\*.azurestack.local** icon.
 
 16. Click **OK** and minimize the **management** and **portalvm** RDC windows.
 
@@ -328,7 +328,7 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 
 5. Copy the **_.azurestack.local.pfx** certificate from the **management** virtual machine desktop to the controller virtual machine C:\ drive.
 
-6. On the controller virtual machine, open PowerShell and run the following cmdlets in order. Replace **YOURPASSWORD** with your pasword. Replace **DNSNAME** with the DNS entry for the management virtual machine, like *management.azurestack.local*.
+6. On the controller virtual machine, open PowerShell and run the following cmdlets in order. Replace **YOURPASSWORD** with your password. Replace **DNSNAME** with the DNS entry for the management virtual machine, like *management.azurestack.local*.
 
 ```
     Import-Module Websites
