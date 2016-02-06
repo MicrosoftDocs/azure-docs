@@ -232,4 +232,4 @@ Use the following steps to monitor a geo-replication partnership.
 - [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - [Designing cloud applications for business continuity using geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
-- [SQL Database documentation](sql-database.md)
+- [SQL Database documentation](https://azure.microsoft.com/services/sql-database/)
