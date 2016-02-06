@@ -22,6 +22,7 @@
 ## Contents in this article
 
 **Billing**
+
 - [What payment options do I have in purchasing Azure?](#FAQ)
 
 - How do I check the status of a payment made by credit card?
@@ -30,7 +31,8 @@
 
 - How can I request the invoice method of payment?
 
-- How do I remove a credit card that I no longer use as an Azure payment method.
+- How do I remove a credit card that I no longer use as an Azure payment method?
+
 - How can I update or change my credit card information?
 
 - How do we know in advance about service downtime for planned maintenance?
@@ -57,7 +59,7 @@
 
 - Can notifications be sent to a different email address other than the Account Owner email address associated with my account?
 
-- How can I edit my payment information for my Azure Subscription/s?
+- How can I edit my payment information for my Azure subscriptions?
 
 - I can't edit or add details to my subscription
 
@@ -108,6 +110,7 @@ Follow the steps in [Azure Invoicing](https://azure.microsoft.com//pricing/invoi
 You must submit a support ticket to request assistance. To create a support ticket to remove a credit card, see the article [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
 
 **How can I update or change my credit card information?**
+
 For instructions about how to use a different credit card as a payment method, or how to add a new credit card see [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md).
 
 **How do we know in advance about service downtime for planned maintenance?**
