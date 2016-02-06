@@ -387,6 +387,39 @@ Add a configuration file for each environment by performing the following steps:
 
 	This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](http://goessner.net/articles/JsonPath/).   
 
+	If JSON has a property that has an array of values as shown below:  
+
+		"structure": [
+	  		{
+	  			"name": "FirstName",
+	    		"type": "String"
+	  		},
+	  		{
+	    		"name": "LastName",
+	    	    "type": "String"
+			}
+		],
+	
+	You will need to configure as follows in the configuration file (use zero-based indexing): 
+		
+		{
+            "name": "$.properties.structure[0].name",
+            "value": "FirstName"
+        }
+        {
+            "name": "$.properties.structure[0].type",
+            "value": "String"
+        }
+        {
+            "name": "$.properties.structure[1].name",
+            "value": "LastName"
+        }
+        {
+            "name": "$.properties.structure[1].type",
+            "value": "String"
+        }
+
+
 ### Deploy solution using a configuration
 When you are publishing Azure Data Factory entities in VS, you can specify the configuration that you want to use for that publishing operation. 
 
