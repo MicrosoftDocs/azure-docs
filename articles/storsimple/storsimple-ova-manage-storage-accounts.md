@@ -72,7 +72,7 @@ You can edit a storage account used by your device. If you edit a storage accoun
 
 3. In the **Add/Edit Storage Accounts** dialog box:
 
-  1. In the drop-down list of **Storage Accounts**, choose an existing account that you would like to modify. This could also include the storage accounts that were automatically generated when the service was first created.
+  1. In the drop-down list of **Storage Accounts**, choose an existing account that you would like to modify. 
   2. If necessary, you can modify the **Enable SSL Mode** selection.
   3. You can choose to regenerate your storage account access keys. For more information, see [Regenerate the storage account keys](storage-create-storage-account.md#manage-your-storage-access-keys). Supply the new storage account key. For an Azure storage account, this is the primary access key. 
   4. Click the check icon ![check icon](./media/storsimple-ova-manage-storage-accounts/checkicon.png) to save the settings. The settings will be updated on the **Configure** page. 
