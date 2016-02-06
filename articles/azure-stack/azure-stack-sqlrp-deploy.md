@@ -22,7 +22,7 @@ The SQL Server Resource Provider adaptor lets you use any SQL Server-based workl
 
 ## Before you deploy
 
-Before deploying SQL resource providers, you'll need to create a default Windows Server image with .NET 3.5, turn off IE Enhanced Seucrity, and install the latest version of Azure PowerShell.
+Before deploying SQL resource providers, you'll need to create a default Windows Server image with .NET 3.5, turn off IE Enhanced Security, and install the latest version of Azure PowerShell.
 
 ### Create an image of Windows Server including .NET 3.5
 
@@ -34,11 +34,11 @@ To enable PowerShell scripts to authenticate against AAD, you must turn off of I
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
 
-2. Turn off **IE Ehanced Security Configuration** for both Admins and Users.
+2. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
 
 3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
 
-4. Turn off **IE Ehanced Security Configuration** for both Admins and Users.
+4. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
 
 ### Install the latest version of Azure PowerShell
 
@@ -65,7 +65,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 5. In the **Common name** box, type *\*.azurestack.local*.
 
-6. Type values of your choic ein the other boxes and then click **Next**.
+6. Type values of your choice in the other boxes and then click **Next**.
 
 7. Click **Select** and choose **AzureStackCertificationAuthority**.
 
