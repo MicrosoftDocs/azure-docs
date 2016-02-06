@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Billing and Subscription FAQ | Microsoft Azure"
-	description="Provide answers to common Azure Billing and Subscription questions"
+	description="Provide answers to the common Azure Billing and Subscription questions"
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -71,9 +71,7 @@
 
 - Can I adjust the amount of the Spending Limit?
 
-- In which countries/regions is Azure commercially available?
-
-- What currencies can be used to purchase Azure?
+- In which countries and regions is Microsoft Azure commercially available, and what currencies can be used to purchase Azure?
 
 - Do we restrict resale of Azure based service into countries under embargo?
 
