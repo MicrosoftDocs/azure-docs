@@ -43,7 +43,7 @@ To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learn
 4.	On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
 
 After your Machine Learning workspace is created, you will see it listed on the **machine learning** page in the Azure classic portal. 
-For more details on creating your workspace, see [Create an Azure Machine Learning workspace](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/).
+For more details on creating your workspace, see [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md).
 
 > [AZURE.TIP] You can share the experiments you're working on by inviting others to your workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
 
