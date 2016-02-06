@@ -37,8 +37,8 @@ Up to this point we've been experimenting with training our model. But the deplo
 
 So this is a two-step process:  
 
-- Convert the *training experiment* we've created into a *predictive experiment*
-- Deploy the predictive experiment as a web service
+1. Convert the *training experiment* we've created into a *predictive experiment*
+2. Deploy the predictive experiment as a web service
 
 But first, we need to trim this experiment down a little. We currently have two different models in the experiment, but we only want one model when we deploy this as a web service.  
 
@@ -46,10 +46,10 @@ Let's say we've decided that the boosted tree model was the better model to use.
 
 We need to delete the following modules:  
 
-1.	[Two-Class Support Vector Machine][two-class-support-vector-machine]
-2.	[Train Model][train-model] and [Score Model][score-model] modules that were connected to it
-3.	[Normalize Data][normalize-data] (both of them)
-4.	[Evaluate Model][evaluate-model]
+- [Two-Class Support Vector Machine][two-class-support-vector-machine]
+- [Train Model][train-model] and [Score Model][score-model] modules that were connected to it
+- [Normalize Data][normalize-data] (both of them)
+- [Evaluate Model][evaluate-model]
 
 Just select the module and press the Delete key, or right-click the module and select **Delete**.
 
@@ -87,7 +87,7 @@ Our experiment should now look like this:
 ![Scoring the trained model][4]  
 
 
-> [Azure.NOTE] You may be wondering why we left the UCI German Credit Card Data dataset in the predictive experiment. The service is going to use the user's data, not the original dataset, so why leave the original dataset in the model?
+> [AZURE.NOTE] You may be wondering why we left the UCI German Credit Card Data dataset in the predictive experiment. The service is going to use the user's data, not the original dataset, so why leave the original dataset in the model?
 >
 >It's true that the service doesn't need the original credit card data. But it does need the schema for that data, which includes information such as how many columns there are and which columns are numeric. This schema information is necessary in order to interpret the user's data. We leave these components connected so that the scoring module will have the dataset schema when the service is running. The data isn't used, just the schema.  
 

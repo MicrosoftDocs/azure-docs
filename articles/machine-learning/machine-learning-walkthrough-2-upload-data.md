@@ -59,7 +59,8 @@ In either case, we have created a comma-separated version of the data in a file 
 
 ##Upload the dataset to Machine Learning Studio
 
-Once the data has been converted to CSV format, we need to upload it into Machine Learning Studio.  
+Once the data has been converted to CSV format, we need to upload it into Machine Learning Studio. 
+For more information about getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/).
 
 1.	Open Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net)). When asked to sign in, use the account you specified as the owner of the workspace.
 1.  Click the **Studio** tab at the top of the window.

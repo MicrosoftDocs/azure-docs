@@ -37,7 +37,7 @@ In the experiment we're developing in this walkthrough, we'll create two differe
 
 There are a number of models we could choose from. To see the models available, expand the **Machine Learning** node in the module palette, and then expand **Initialize Model** and the nodes beneath it. For the purposes of this experiment, we'll select the Support Vector Machine (SVM) and the Two-Class Boosted Decision Trees modules.    
 
-> [Azure.TIP] To get help deciding which Machine Learning algorithm best suits the particular problem you're trying to solve, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+> [AZURE.TIP] To get help deciding which Machine Learning algorithm best suits the particular problem you're trying to solve, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 ##Train the models
 First, let's set up the boosted decision tree model:  
