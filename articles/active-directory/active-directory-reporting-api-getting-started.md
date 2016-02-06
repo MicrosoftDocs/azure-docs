@@ -146,11 +146,10 @@ Edit one of the scripts below to work with your directory by replacing $ClientID
 	import datetime
 	import sys
 	
-	client_id = 'fb2284ce-08d3-4fd1-ae8a-e9cb1d69a9dc' #'your-application-client-id-here'
-	client_secret = 'j22FmwxshSt6v7caLKmnqVuV77B92Zkt4xyZI3B3j8o=' #your-application-client-secret-here'
+	client_id = 'your-application-client-id-here'
+	client_secret = 'your-application-client-secret-here'
 	login_url = 'https://login.windows.net/'
-	tenant_domain = 'bf85dc9d-cb43-44a4-80c4-469e8c58249e' #your-directory-name-here.onmicrosoft.com'
-	
+	tenant_domain = 'your-directory-name-here.onmicrosoft.com' 
 	
 	# Get an OAuth access token
 	bodyvals = {'client_id': client_id,
