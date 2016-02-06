@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="02/05/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to manage your storage account (Preview)
@@ -99,4 +99,4 @@ You can edit a storage account used by your device. If you edit a storage accoun
 
 ## Next steps
 
-- Learn more about [using the StorSimple Manager service to administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md).
+- Learn how to [administer your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
