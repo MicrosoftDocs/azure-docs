@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/15/2015"
+   ms.date="01/28/2016"
    ms.author="jgao"/>
 
 #Connect Excel to Hadoop with the Microsoft Hive ODBC driver
@@ -55,26 +55,26 @@ The following steps show you how to create a Hive ODBC Data Source.
 
 5. Type or select the following values:
 
-Property|Description
----|---
-Data Source Name|Give a name to your data source
-Host|Enter <HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net
-Port|Use <strong>443</strong>. (This port has been changed from 563 to 443.)
-Database|Use <strong>Default</strong>.
-Hive Server Type|Select <strong>Hive Server 2</strong>
-Mechanism|Select <strong>Azure HDInsight Service</strong>
-HTTP Path|Leave it blank.
-User Name|Enter HDInsight cluster user username. This is the username created during the cluster provision process. If you used the quick create option, the default username is <strong>admin</strong>.
-Password|Enter HDInsight cluster user password.
-</table>
+    Property|Description
+    ---|---
+    Data Source Name|Give a name to your data source
+    Host|Enter <HDInsightClusterName>.azurehdinsight.net. For example, myHDICluster.azurehdinsight.net
+    Port|Use <strong>443</strong>. (This port has been changed from 563 to 443.)
+    Database|Use <strong>Default</strong>.
+    Hive Server Type|Select <strong>Hive Server 2</strong>
+    Mechanism|Select <strong>Azure HDInsight Service</strong>
+    HTTP Path|Leave it blank.
+    User Name|Enter HDInsight cluster user username. This is the username created during the cluster provision process. If you used the quick create option, the default username is <strong>admin</strong>.
+    Password|Enter HDInsight cluster user password.
+    </table>
 
-There are some important parameters to be aware of when you click **Advanced Options**:
+    There are some important parameters to be aware of when you click **Advanced Options**:
 
-Parameter|Description
----|---
-Use Native Query|When it is selected, the ODBC driver will NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked.
-Rows fetched per block|When fetching a large amount of records, tuning this parameter may be required to ensure optimal performances.
-Default string column length, Binary column length, Decimal column scale|The data type lengths and precisions may affect how data is returned. They will cause incorrect information to be returned due to loss of precision and/or truncation.
+    Parameter|Description
+    ---|---
+    Use Native Query|When it is selected, the ODBC driver will NOT try to convert TSQL into HiveQL. You shall use it only if you are 100% sure you are submitting pure HiveQL statements. When connecting to SQL Server or Azure SQL Database, you should leave it unchecked.
+    Rows fetched per block|When fetching a large amount of records, tuning this parameter may be required to ensure optimal performances.
+    Default string column length, Binary column length, Decimal column scale|The data type lengths and precisions may affect how data is returned. They will cause incorrect information to be returned due to loss of precision and/or truncation.
 
 
 	![Advanced options][img-HiveOdbc-DataSource-AdvancedOptions]
@@ -83,7 +83,7 @@ Default string column length, Binary column length, Decimal column scale|The dat
 7. Click **OK** to close the Test dialog. The new data source should now be listed on the **ODBC Data Source Administrator**.
 8. Click **OK** to exit the wizard.
 
-##Import data into Excel from an HDInsight cluster
+##Import data into Excel from HDInsight
 
 The steps below describe the way to import data from a hive table into an Excel workbook using the ODBC data source that you created in the steps above.
 

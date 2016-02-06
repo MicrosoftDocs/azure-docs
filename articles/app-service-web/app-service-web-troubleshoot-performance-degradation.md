@@ -50,7 +50,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 #### Track Service health
 
-Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](insights-service-health.md).
+Microsoft Azure publicizes each time there is a service interruption or performance degradation. You can track the health of the service on the [Azure Portal](https://portal.azure.com/). For more information, see [Track service health](../azure-portal/insights-service-health.md).
 
 #### Monitor your web app
 
@@ -69,7 +69,7 @@ Some of the metrics that you might want to monitor for your web app are
 For more information, see:
 
 -	[Monitor Web Apps in Azure App Service](web-sites-monitor.md)
--	[Receive alert notifications](insights-receive-alert-notifications.md)
+-	[Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md)
 
 #### Monitor web endpoint status
 
@@ -91,9 +91,9 @@ Each App Service web app provides an extensible management end point that allows
 
 [Azure Application Insights](/services/application-insights/) and [New Relic](/marketplace/partners/newrelic/newrelic/) are two of the performance monitoring site extensions that are available. To use New Relic, you install an agent at runtime. To use Azure Application Insights, you rebuild your code with an SDK, and you can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail.
 
-To use Application Insights, see [Monitor performance in web applications](app-insights-web-monitor-performance.md).
+To use Application Insights, see [Monitor performance in web applications](../application-insights/app-insights-web-monitor-performance.md).
 
-To use New Relic, see [New Relic Application Performance Management on Azure](store-new-relic-cloud-services-dotnet-application-performance-management.md).
+To use New Relic, see [New Relic Application Performance Management on Azure](../store-new-relic-cloud-services-dotnet-application-performance-management.md).
 
 <a name="collect" />
 ### 2. Collect data
@@ -186,4 +186,4 @@ This is often the simplest way to recover from one-time issues. On the [Azure Po
  ![](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
 You can also manage your web app using Azure Powershell. For more information, see
-[Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
+[Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).

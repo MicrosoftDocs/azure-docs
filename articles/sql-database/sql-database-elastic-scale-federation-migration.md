@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="11/04/2015" 
+    ms.date="02/04/2016" 
     ms.author="ddove;sidneyh"/>
 
 # Federations migration 
 
-The Azure SQL Database Federations feature is being retired along with the Web/Business editions in September 2015. At that point in time, applications that utilize the Federations feature will cease to execute. To ensure a successful migration, it is highly encouraged that migration efforts begin as soon as possible to allow for sufficient planning and execution.
+The Azure SQL Database Federations feature has been retired along with the Web/Business editions in September 2015. At that point in time, applications that utilize the Federations feature ceased to execute. To ensure a successful migration, it is highly encouraged that migration efforts begin as soon as possible to allow for sufficient planning and execution.
 
 If your application is not yet ready to work without Federations, then contact Microsoft Support using instructions mentioned [here](https://support.microsoft.com/kb/3087180).  
 

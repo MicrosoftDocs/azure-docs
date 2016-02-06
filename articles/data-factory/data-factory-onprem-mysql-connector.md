@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
 # Move data From MySQL using Azure Data Factory
@@ -32,8 +32,9 @@ For Data Management Gateway to connect to the MySQL Database, you need to instal
 > [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
 
 ## Sample: Copy data from MySQL to Azure Blob
-
-The sample below shows:
+This sample shows how to copy data from an on-premises MySQL database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+ 
+The sample has the following data factory entities:
 
 1.	A linked service of type [OnPremisesMySql](data-factory-onprem-mysql-connector.md#mysql-linked-service-properties).
 2.	A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
@@ -215,7 +216,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 
 
 
-## MySQL Linked Service properties
+## MySQL linked service properties
 
 The following table provides description for JSON elements specific to MySQL linked service.
 
@@ -232,7 +233,7 @@ The following table provides description for JSON elements specific to MySQL lin
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises MySQL data source.
 
-## MySQL Dataset type properties
+## MySQL dataset type properties
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
 
@@ -242,7 +243,7 @@ The **typeProperties** section is different for each type of dataset and provide
 | -------- | ----------- | -------- |
 | tableName | Name of the table in the MySQL Database instance that linked service refers to. | No (if **query** of **RelationalSource** is specified) | 
 
-## MySQL Copy Activity type properties
+## MySQL copy activity type properties
 
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/08/2016"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with Hadoop in HDInsight
@@ -511,9 +511,9 @@ To run jobs that use these classes, connect to the HDInsight cluster, and run th
 
 Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
 
-* [Hive with HDInsight](../hadoop-use-hive.md)
-* [Pig with HDInsight](../hadoop-use-pig.md)
-* [MapReduce with HDInsight](../hadoop-use-mapreduce.md)
+* [Hive with HDInsight](hdinsight-use-hive.md)
+* [Pig with HDInsight](hdinsight-use-pig.md)
+* [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: ../powershell-install-configure.md
