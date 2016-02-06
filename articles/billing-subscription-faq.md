@@ -19,11 +19,11 @@
 
 #  Azure Billing and Subscription FAQ
 
-## Contents in this article
+## Contents：
 
 **Billing**
 
-- [What payment options do I have in purchasing Azure?](#FAQ)
+- What payment options do I have in purchasing Azure?
 
 - How do I check the status of a payment made by credit card?
 
@@ -61,7 +61,7 @@
 
 - How can I edit my payment information for my Azure subscriptions?
 
-- I can't edit or add details to my subscription
+- Why I can't edit or add details to my subscription?
 
 - Who can purchase Azure services?
 
@@ -186,9 +186,9 @@ To view and edit the Azure account information, you must sign in to the Azure Ac
 
 For more information, see the article [How to change the credit card used to pay for an Azure subscription](billing-how-to-change-credit-card.md).
 
-**NOTE**: Currently, the Change Payment Method tool does not allow you to remove an existing credit card as a payment method. For information about how to remove a credit card, see [How do I remove a credit card that I no longer use as an Azure payment method?xxxx](111)
+**NOTE**: Currently, the Change Payment Method tool does not allow you to remove an existing credit card as a payment method. For information about how to remove a credit card, see the FAQ "How do I remove a credit card that I no longer use as an Azure payment method?" in this article.
 
-**I can't edit or add details to my subscription**
+**Why I can't edit or add details to my subscription ?**
 
 To view and edit the Azure account information, you must sign in to the Azure Account Center as the account administrator.  If you are the AA and still cannot edit the subscription, please submit a support ticket to request assistance. To create a support ticket, see the article [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
 
