@@ -20,10 +20,15 @@
 
 Select an icon to learn how to quickly leverage these APIs to build logic apps that call these services.
 
-|APIs|
-|-----------|  
-|![API Icon] [bingsearchicon] <br> [**Bing Search**][bingsearchdoc]|
-|![API Icon] [boxicon] <br> [**Box**][boxDoc]|
+|APIs||||
+|-----------|-----------|-----------|-----------|
+|![API Icon] [bingsearchicon] <br> [**Bing Search**][bingsearchdoc]|![API Icon] [boxicon] <br> [**Box**][boxDoc]|[![API Icon] [crmonlineicon] <br> **CRM Online**][crmonlinedoc]|[![API Icon] [dropboxicon] <br> **Dropbox**][dropboxdoc]|
+|[![API Icon] [excelicon] <br> **Excel**][exceldoc]|[![API Icon] [ftpicon] <br> **FTP**][ftpdoc]|[![API Icon] [googledriveicon] <br> **Google Drive**][googledrivedoc]|[![API Icon] [microsofttranslatoricon] <br> **Translator**][microsofttranslatordoc]|
+|[![API Icon] [office365icon] <br> **Office 365** <br> **Outlook**][office365outlookdoc]|[![API Icon] [office365icon] <br> **Office 365**<br> **Users**][office365usersdoc]|[![API Icon] [office365icon] <br> **Office 365** <br>**Video**][office365videodoc]|[![API Icon] [office365icon] <br> **Office**<br>**Unified**][officeunifieddoc]|
+|[![API Icon] [onedriveicon] <br> **OneDrive**][onedrivedoc]|[![API Icon] [salesforceicon] <br> **Salesforce**][salesforcedoc]|[![API Icon] [servicebusicon] <br> **Service Bus**][servicebusdoc]|[![API Icon] [sftpicon] <br> **SFTP**][sftpdoc]|
+|[![API Icon] [sharepointicon] <br> **SharePoint**<br>**Server**][sharepointdoc]|[![API Icon] [slackicon] <br> **Slack** <br>][slackdoc]|[![API Icon] [smtpicon] <br> **SMTP**][smtpdoc]|[![API Icon] [sqlicon] <br> **SQL**][sqldoc]|
+|[![API Icon] [twilioicon] <br> **Twilio**][twiliodoc]|[![API Icon] [twittericon] <br> **Twitter**][twitterdoc]|[![API Icon] [yammericon] <br> **Yammer**][yammerdoc]
+
   
 
 
@@ -35,48 +40,47 @@ Select an icon to learn how to quickly leverage these APIs to build logic apps t
 
 <!--API Documentation-->
 [bingsearchDoc]: ../power-apps/powerapps-create-api-bingsearch.md "Search Bing for web, images, news and video."
-[boxDoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/ "Connect to box."
-[crmonlinedoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[dropboxdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/ "Connect to Dropbox and can get, delete, list, and more file tasks."
-[exceldoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[ftpdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[googledrivedoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[microsofttranslatordoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/g
-[office365outlookdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/ "The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account."
-[officeunifieddoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[office365usersdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[office365videodoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[onedrivedoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/ "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
-[salesforcedoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[servicebusdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[sharepointdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/ "Connects to on-premises Microsoft SharePoint Server or SharePoint Online to manage documents, and list items. Different authentication methods such as default credentials, OAuth 2.0, Windows authentication, and Form-Based authentication are supported."
-[slackdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[sftpdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[smtpdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[sqldoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[twiliodoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
-[twitterdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/ "Connects to Twitter and get timelines, post tweets, and more."
-[yammerdoc]: https://azure.microsoft.com/en-us/documentation/articles/powerapps-create-api-bingsearch/
+[boxDoc]: ../power-apps/powerapps-create-api-bingsearch/ "Connect to box."
+[crmonlinedoc]: ../power-apps/powerapps-create-api-bingsearch/
+[dropboxdoc]: ../power-apps/powerapps-create-api-bingsearch/ "Connect to Dropbox and can get, delete, list, and more file tasks."
+[exceldoc]: ../power-apps/powerapps-create-api-bingsearch/
+[ftpdoc]: ../power-apps/powerapps-create-api-bingsearch/
+[googledrivedoc]: ../power-apps/powerapps-create-api-bingsearch/
+[microsofttranslatordoc]: ../power-apps/powerapps-create-api-bingsearch/
+[office365outlookdoc]: ../power-apps/powerapps-create-api-bingsearch/ "The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account."
+[officeunifieddoc]: ../power-apps/powerapps-create-api-bingsearch/
+[office365usersdoc]: ../power-apps/powerapps-create-api-bingsearch/
+[office365videodoc]: ../power-apps/powerapps-create-api-bingsearch/
+[onedrivedoc]: ../power-apps/powerapps-create-api-bingsearch/ "Connects to your personal Microsoft OneDrive and upload, delete, list files, and more."
+[salesforcedoc]: ../power-apps/powerapps-create-api-bingsearch/
+[servicebusdoc]: ../power-apps/powerapps-create-api-bingsearch/
+[sharepointdoc]: ../power-apps/powerapps-create-api-bingsearch/ "Connects to on-premises Microsoft SharePoint Server or SharePoint Online to manage documents, and list items. Different authentication methods such as default credentials, OAuth 2.0, Windows authentication, and Form-Based authentication are supported."
+[slackdoc]: ../power-apps/powerapps-create-api-bingsearch/
+[sftpdoc]: ../power-apps/powerapps-create-api-bingsearch/
+[smtpdoc]: ../power-apps/powerapps-create-api-bingsearch/
+[sqldoc]: ../power-apps/powerapps-create-api-bingsearch/
+[twiliodoc]: ../power-apps/powerapps-create-api-bingsearch/
+[twitterdoc]: ../power-apps/powerapps-create-api-bingsearch/ "Connects to Twitter and get timelines, post tweets, and more."
+[yammerdoc]: ../power-apps/powerapps-create-api-bingsearch/
 
 <!--Icon references-->
 [bingsearchicon]: ./media/apis-list/bingsearchicon.png
 [boxicon]: ./media/apis-list/boxicon.png
-[ftpicon]: ./media/app-service-logic-apis-list/ftpicon.PNG
-[crmonlineicon]: ./media/app-service-logic-apis-list/dynamicscrmicon.PNG
-[dropboxicon]: ./media/app-service-logic-apis-list/dropboxicon.PNG
-[excelicon]: ./media/app-service-logic-apis-list/excelicon.PNG
-[googledriveicon]: ./media/app-service-logic-apis-list/googledriveicon.PNG
-[microsofttranslatoricon]: ./media/app-service-logic-apis-list/translatoricon.PNG
-[office365icon]: ./media/app-service-logic-apis-list/office365icon.PNG
-[onedriveicon]: ./media/app-service-logic-apis-list/onedriveicon.PNG
-[salesforceicon]: ./media/app-service-logic-apis-list/salesforceicon.PNG
-[servicebusicon]: ./media/app-service-logic-apis-list/servicebusicon.PNG
-[sftpicon]: ./media/app-service-logic-apis-list/sftpicon.PNG
-[sharepointicon]: ./media/app-service-logic-apis-list/sharepointicon.PNG
-[slackicon]: ./media/app-service-logic-apis-list/slackicon.PNG
-[smtpicon]: ./media/app-service-logic-apis-list/smtpicon.PNG
-[sqlicon]: ./media/app-service-logic-apis-list/sqlicon.PNG
-[twilioicon]: ./media/app-service-logic-apis-list/twilioicon.PNG
-[twittericon]: ./media/app-service-logic-apis-list/twittericon.PNG
-[yammericon]: ./media/app-service-logic-apis-list/yammericon.PNG
-[icon]: ./media//.PNG
+[ftpicon]: ./media/apis-list/ftpicon.png
+[crmonlineicon]: ./media/apis-list/dynamicscrmicon.png
+[dropboxicon]: ./media/apis-list/dropboxicon.png
+[excelicon]: ./media/apis-list/excelicon.png
+[googledriveicon]: ./media/apis-list/googledriveicon.png
+[microsofttranslatoricon]: ./media/apis-list/translatoricon.png
+[office365icon]: ./media/apis-list/office365icon.png
+[onedriveicon]: ./media/apis-list/onedriveicon.png
+[salesforceicon]: ./media/apis-list/salesforceicon.png
+[servicebusicon]: ./media/apis-list/servicebusicon.png
+[sftpicon]: ./media/apis-list/sftpicon.png
+[sharepointicon]: ./media/apis-list/sharepointicon.png
+[slackicon]: ./media/apis-list/slackicon.png
+[smtpicon]: ./media/apis-list/smtpicon.png
+[sqlicon]: ./media/apis-list/sqlicon.png
+[twilioicon]: ./media/apis-list/twilioicon.png
+[twittericon]: ./media/apis-list/twittericon.png
+[yammericon]: ./media/apis-list/yammericon.png
