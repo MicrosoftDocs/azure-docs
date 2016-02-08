@@ -170,7 +170,7 @@ The following example shows how to define parameters:
        }
     }
 
-For how to input the parameter values during deployment, see [Deploy an application with Azure Resource Manager template](./resource-group-template-deploy/#parameter-file). 
+For how to input the parameter values during deployment, see [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy/#parameter-file). 
 
 ## Variables
 
