@@ -67,7 +67,7 @@ Install Azure PowerShell 1.0 or greater from the Gallery using the following com
 
 
 ## Step 2: Start
-You can run the cmdlets from the standard Windows PowerShell console, or from PowerSHell Integrated Scripting Environment (ISE).
+You can run the cmdlets from the standard Windows PowerShell console, or from PowerShell Integrated Scripting Environment (ISE).
 The method you use to open either console depends on the version of Windows you're running:
 
 - On a computer running at least Windows 8 or Windows Server 2012, you can use the built-in Search. From the **Start** screen, begin typing power. This returns a scoped list of apps that includes Windows PowerShell. To open the console, click either app. (To pin the app to the **Start** screen, right-click the icon.)
