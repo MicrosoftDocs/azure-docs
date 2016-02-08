@@ -1,9 +1,9 @@
 <properties
-pageTitle="Use the Azure blob storage API in your Logic Apps | Microsoft Azure"
-description="Get started building Microsoft Azure logic apps and power apps with Yammer API (connector)"
+pageTitle="Use the Yammer API in your Logic Apps | Microsoft Azure"
+description="Get started building Microsoft Azure App Service logic apps with Yammer API (connector)"
 services=""	
 documentationCenter="" 	
-authors="msftguy"	
+authors="msftman"	
 manager="dwrede"	
 editor=""/>
 
@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/04/2016"
+ms.date="02/18/2016"
 ms.author="deonhe"/>
 
 # Get started with the Yammer API
@@ -27,8 +27,6 @@ Yammer is a social networking service for the enterprise.  Connect to Yammer to 
 With the Yammer connector, you can:
 
 * Use it to build logic apps
-* Use it to build power apps
-
 
 This topic focuses on the Yammer triggers and actions available, creating a connection to the connector, and also lists the REST API parameters.
 
