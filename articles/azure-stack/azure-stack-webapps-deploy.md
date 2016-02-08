@@ -74,7 +74,7 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 - Enough space in your Azure Stack system to deploy a small deployment of Azure Stack Web Apps.  The space required is roughly 20 Gb of Ram
 - A SQL Server database
 - The DNS name for your Azure Stack deployment
-- •	A storage account [created](azure-stack-provision-storage-account.md) in the "Default Provider Subscription" as the Service Admin
+- A storage account [created](azure-stack-provision-storage-account.md) in the "Default Provider Subscription" as the Service Admin
 - The key to the storage account
 
 ### Steps to install SQL server
@@ -394,7 +394,9 @@ Now that you have deployed and registered the Web Apps resource provider, you ca
 
 3. If you also deployed SQLServer RP, you can deploy a DNN (.Net Nuke) website from the marketplace. When prompted for database parameters pick a database in the SQL Server connected to your Resource Provider.
 
+## Next Steps
 
+You can also try out other [PaaS services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sqlrp-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
 
 <!--Image references-->
 [1]: ./media/azure-stack-webapps-deploy/appsvcinstall-1.png
