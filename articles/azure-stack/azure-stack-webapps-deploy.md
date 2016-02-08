@@ -88,45 +88,45 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 To install Azure Stack Web apps there are a few items that you will need.  Those items are:
 
-- A completed deployment of Azure Stack Technical Preview 1
-- Enough space in your Azure Stack system to deploy a small deployment of Azure Stack Web Apps.  The space required is roughly 20 Gb of Ram
-- A SQL Server database
-- The DNS name for your Azure Stack deployment
-- A storage account [created](azure-stack-provision-storage-account.md) in the "Default Provider Subscription" as the Service Admin
-- The key to the storage account
+- A completed deployment of Azure Stack Technical Preview 1.
+- Enough space in your Azure Stack system to deploy a small deployment of Azure Stack Web Apps.  The space required is roughly 20 Gb of Ram.
+- A SQL Server database.
+- The DNS name for your Azure Stack deployment.
+- A storage account [created](azure-stack-provision-storage-account.md) in the "Default Provider Subscription" as the Service Admin.
+- The key to the storage account.
 
 ### Steps to install SQL server
 
 1 Log in to the POC host:
 
-- Go to check the following path and ensure 
-\\\\sofs\Share\CRP\GuestArtifactRepository and ensure Microsoft.Powershell.DSC.2.11.0.0.zip exists in the path 
+- Go to the following path and ensure 
+\\\\sofs\Share\CRP\GuestArtifactRepository and ensure Microsoft.Powershell.DSC.2.11.0.0.zip exists in the path. 
 -  Go to the \\\\sofs\Share\CRP\PlatformImages folder. You should see the WindowsServer2012R2DatacenterEval.VHD image file. But you need to create an image that includes .NET 3.5 and save it here. For instructions on how to create that image, see [create a .NET 3.5 compatible base server image in your Azure Stack Platform Image Repository](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5). Then use the new image filename when you define the manifest file's **Filename** parameter.
  
-2 Login to the Client VM 
+2 Login to the ClientVM: 
 
-- Download and expand the [WebAppsDeployment.zip](http://go.microsoft.com/fwlink/?LinkId=723982) to the client machine 
-- Run “Deploy-SqlServerDSC.ps1” script to provision a new VM and install SQL server:
-**NOTE** the resource group used in the script to provision the SQL vm . The same resource group should be used during WebApps deployment in the next step. When prompted to create a user account on the VM, the username admin will be auto populate and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
+- Download and expand the [WebAppsDeployment.zip](http://go.microsoft.com/fwlink/?LinkId=723982) to the client machine. 
+- Run the **Deploy-SqlServerDSC.ps1** script to provision a new VM and install SQL server.
+**NOTE** Make sure to remember the resource group used in the script to provision the SQL virtual machine. The same resource group should be used during Web Apps deployment in the next step. When prompted to create a user account on the VM, the username admin will be auto-populated and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
 
-**NOTE** The resource group used in the script to provision the SQL vm should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL 
+**NOTE** The resource group used in the script to provision the SQL vm should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL. 
 
 Once the deployment completes, navigate to the Resource Group in the Azure Stack portal, select the Sq0-NIC resource, and take note of the Private IP address (it will be something like: 10.0.2.4). This IP address will be used later in this deployment process.
 Record the IP address for the SQL Server.  To do this Browse > Resource Groups > select resource group used for installing SQL server > Resources > Sq0-NIC  This address will be needed when running the ARM template.
 
 ### Azure Web Apps Installation steps
 
-The installation experience for Azure Stack Web Apps starts with the download of the appservice.exe installer from [Azure Stack App Service preview installer][Azure_Stack_App_Service_preview_installer] 
+The installation experience for Azure Stack Web Apps starts with the download of the appservice.exe installer from [Azure Stack App Service preview installer][Azure_Stack_App_Service_preview_installer]. 
 
 This installer will:
 
-1.	Prompt the user to approve of the third party licenses
-2.	Collect Azure Stack deployment information 
-3.	Create a blob container in the Azure Stack storage account specified
-4.	Download the files needed to install the Azure Stack Web App resource provider
-5.	Prepare the install to deploy the Web App resource provider in the Azure Stack environment
-6.	Upload the files to the Azure Stack storage account specified
-7.	Present information needed to kick off the ARM template
+1.	Prompt the user to approve of the third party licenses.
+2.	Collect Azure Stack deployment information.
+3.	Create a blob container in the Azure Stack storage account specified.
+4.	Download the files needed to install the Azure Stack Web App resource provider.
+5.	Prepare the install to deploy the Web App resource provider in the Azure Stack environment.
+6.	Upload the files to the Azure Stack storage account specified.
+7.	Present information needed to kick off the ARM templat.e
 
 As administrator run the installer that you just downloaded.  The last item will seem to offer the ability to directly bring up the UI for the ARM template but that capability is not yet operational.  The UI screens for the installer appear as shown:
  
@@ -134,21 +134,21 @@ As administrator run the installer that you just downloaded.  The last item will
 
 ![][1]
 
-Click ***Install***
+Click ***Install***.
 
 ![][2]
 
-Check approval of the EULA and then click ***Next***
+Check approval of the EULA and then click ***Next***.
 
 ![][3]
 
-Check approval for the licenses and then click ***Next***
+Check approval for the licenses and then click ***Next***.
 
 ![][4]
 
-In this step, provide the storage account and storage account access key created for this WebApp deployment. The storage account name and key can be copied from the Azure Stack portal, from the storage account resource > Settings > Access keys. The Azure Stack DNS suffix will be the domain for the Azure Stack, in this case: **azurestack.local**   
+In this step, provide the storage account and storage account access key created for this WebApp deployment. The storage account name and key can be copied from the Azure Stack portal, from the storage account resource > Settings > Access keys. The Azure Stack DNS suffix will be the domain for the Azure Stack, in this case: **azurestack.local**.   
 
-Once you have entered your information then click ***Next***
+Once you have entered your information then click ***Next***.
 
 ![][5]
 
@@ -176,14 +176,14 @@ Open Notepad and paste the contents of your clipboard immediately.
 
 The Azure Stack Web App ARM template will collect information defining the web app resource provider deployment.  There are a few things that need to be noted:
 
-- the storage account name entered will create a new account
-- the environment DNS suffix is the subdomain that is used for web apps created in this environment (example: webapps.azurestack.local)
-- the SQL server name is the private IP address gathered after the SQL Server template deployment (found on Sq0-NIC resource blade, as noted above)
-- the SA password is the local SQL admin password used during the deployment of the SQL Server template
-- the “number of workers” item will only create Shared workers
-- there is not a lot of space for additional VMs in the TP1 POC environment so it is best to just go with 1 instance of each role type
-- the resource group used for deploying web apps must be the same as the one used to deploy the SQL server (as noted above, the default Resource Group for the SQL Server template deployment is: WebsitesSQL)
-- replace the *SQLServerPassword* with password you used when you ran the **Deploy-SQLServerDSC.ps1** script.
+- The storage account name entered will create a new account.
+- The environment DNS suffix is the subdomain that is used for web apps created in this environment (example: webapps.azurestack.local).
+- The SQL server name is the private IP address gathered after the SQL Server template deployment (found on Sq0-NIC resource blade, as noted above).
+- The SA password is the local SQL admin password used during the deployment of the SQL Server template.
+- The “number of workers” item will only create Shared workers.
+- There is not a lot of space for additional VMs in the TP1 POC environment so it is best to just go with 1 instance of each role type.
+- The resource group used for deploying web apps must be the same as the one used to deploy the SQL server (as noted above, the default Resource Group for the SQL Server template deployment is: WebsitesSQL).
+- Replace the *SQLServerPassword* with password you used when you ran the **Deploy-SQLServerDSC.ps1** script.
 
 After everything is filled in and the ***Create*** button is clicked, the VMs will be created for your Azure Stack Web App resource provider and the software will be installed.
 
@@ -239,7 +239,7 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
 
 6. Click **Add host**.
 
-7. In the **Name** box, type *\*.webapps*. This DNS name should match the name you used when populating the ARM template for the Web App resource provider. In this case we had webapps.azurestack.local so the DNS name should be *\*.webapps*.
+7. In the **Name** box, type \*.webapps. This DNS name should match the name you used when populating the ARM template for the Web App resource provider. In this case we had webapps.azurestack.local so the DNS name should be \*.webapps.
 
 8. In the **IP address** box, type the IP address for the **FrontEndServersLoadBalancer** that you noted above.
 
