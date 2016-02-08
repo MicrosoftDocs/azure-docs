@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Active Directory B2C preview | Microsoft Azure"
-	description="How to build a web application that has sign-in, sign-pp, and profile management by using Azure Active Directory B2C."
+	description="How to build a web application that has sign-in, sign-up, and profile management by using Azure Active Directory B2C."
 	services="active-directory-b2c"
 	documentationCenter=".net"
 	authors="dstrockis"
