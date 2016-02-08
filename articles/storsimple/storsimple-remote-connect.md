@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/02/2016"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 # Connect remotely to your StorSimple device
@@ -33,7 +33,7 @@ This tutorial explains how to configure your device for remote management and th
 
 You can connect remotely to the Windows PowerShell interface. However, remote access to your StorSimple device via the Windows PowerShell interface is not enabled by default. You need to enable remote management on the device first, and then on the client that is used to access your device.
 
-The steps described in this article were performed on a host system runnning Windows Server 2012 R2.
+The steps described in this article were performed on a host system running Windows Server 2012 R2.
 
 ## Connect through HTTP
 
