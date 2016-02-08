@@ -36,4 +36,4 @@ NodeProperty--A user-defined or system-defined map from a string to a value that
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-For more information: [Application scenarios](../service-fabric-application-scenarios).
+For more information: [Application scenarios](service-fabric-application-scenarios.md).

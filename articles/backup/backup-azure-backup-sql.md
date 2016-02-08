@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/26/2015"
-	ms.author="aashishr", "giridham"; "jimpark"/>
+	ms.date="02/08/2016"
+	ms.author="giridham; jimpark;"/>
 
 
 # Azure Backup for SQL Server workloads using DPM
