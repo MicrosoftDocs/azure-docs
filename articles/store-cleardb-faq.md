@@ -114,4 +114,4 @@ Contact [Enterprise Customer Support](http://aka.ms/AzureEntSupport) with regard
 
 ## More information
 
-[Azure Marketplace FAQ](https://azure.microsoft.com/en-us/marketplace/faq/)
+[Azure Marketplace FAQ](/marketplace/faq/)
