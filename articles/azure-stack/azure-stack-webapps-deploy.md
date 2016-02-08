@@ -62,7 +62,7 @@ To enable PowerShell scripts to authenticate against AAD, you must turn off of I
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.
 2. Using Remote Desktop Connection, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
-3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
+3. Open the Control Panel, click **Uninstall a program**, right-click **Microsoft Azure PowerShell - November 2015**, and then click **Uninstall**.
 4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
 
 
@@ -70,7 +70,7 @@ To enable PowerShell scripts to authenticate against AAD, you must turn off of I
 
 To install Azure Stack Web apps there are a few items that you will need.  Those items are:
 
-- A completed deployment of Azure Stack technical preview 1
+- A completed deployment of Azure Stack Technical Preview 1
 - Enough space in your Azure Stack system to deploy a small deployment of Azure Stack Web Apps.  The space required is roughly 20 Gb of Ram
 - A SQL Server database
 - The DNS name for your Azure Stack deployment
@@ -83,14 +83,13 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 
 - Go to check the following path and ensure 
 \\\\sofs\Share\CRP\GuestArtifactRepository and ensure Microsoft.Powershell.DSC.2.11.0.0.zip exists in the path 
--  Go to the \\\\sofs\Share\CRP\PlatformImages folder. You should see the WindowsServer2012R2DatacenterEval.VHD image file. But you need to create an image that includes .NET 3.5 and save it here. For instructions on how to create that image, see [create a .NET 3.4 compatible base server image in your Azure Stack Platform Image Repository](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5). Then use the new image filename when you define the manifest file's **Filename** parameter.
+-  Go to the \\\\sofs\Share\CRP\PlatformImages folder. You should see the WindowsServer2012R2DatacenterEval.VHD image file. But you need to create an image that includes .NET 3.5 and save it here. For instructions on how to create that image, see [create a .NET 3.5 compatible base server image in your Azure Stack Platform Image Repository](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5). Then use the new image filename when you define the manifest file's **Filename** parameter.
  
 2 Login to the Client VM 
 
-- Provision a new VM and install SQL server
 - Download and expand the [WebAppsDeployment.zip](http://go.microsoft.com/fwlink/?LinkId=723982) to the client machine 
 - Run “Deploy-SqlServerDSC.ps1” script to provision a new VM and install SQL server:
-**NOTE** the resource group used in the script to provision the SQL vm . The same resource group should be used for during WebApps deployment in the next step. When prompted to create a user account on the VM, the username admin will be auto populate and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
+**NOTE** the resource group used in the script to provision the SQL vm . The same resource group should be used during WebApps deployment in the next step. When prompted to create a user account on the VM, the username admin will be auto populate and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
 
 **NOTE** The resource group used in the script to provision the SQL vm should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL 
 
