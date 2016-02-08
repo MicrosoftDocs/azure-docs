@@ -73,6 +73,10 @@ Use these Azure templates to deploy Linux HPC clusters.
 
 * [Spin up a Torque cluster](https://azure.microsoft.com/documentation/templates/torque-cluster/)
 
+* [Intel Cloud Edition for Lustre Software - Eval](https://azure.microsoft.com/en-us/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
+
+
+
 
 ## Microsoft MPI
 
