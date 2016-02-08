@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Customer Case Studies | Microsoft Azure" 
+	pageTitle="Customer case studies | Microsoft Azure" 
 	description="Learn about how some of our customers have been using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="02/01/2016" 
 	ms.author="spelluru"/>
 
-# Customer Case Studies
+# Customer case studies
 
 Data Factory is a cloud-based information management service that automates the movement and transformation of data. Customers across many industries use Data Factory and other Azure services to build their analytics pipelines and solve their business problems.  Learn directly from our customers how and why they are using Data Factory.
 
@@ -36,7 +36,7 @@ Data Factory is a cloud-based information management service that automates the 
 
 [Airline Uses Tablets, Cloud Services to Offer More Engaging In-Flight Entertainment](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
-## Tacoma Public Schools
+## Tacoma public schools
 
 [Predicting student dropout risks, increasing graduation rates with cloud analytics](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)
 

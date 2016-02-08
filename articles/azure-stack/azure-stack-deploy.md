@@ -25,7 +25,7 @@ Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make
 | | **Requirements**  |
 |---|---|
 | **OS Version** | [Windows Server 2016 Datacenter Edition Technical Preview 4](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview) with the latest updates installed, including [KB 3124262](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=3124262).|
-| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually the operating system, updates, and KB 3124262.|
+| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually install the operating system, updates, and KB 3124262.|
 | **Domain joined?** | No. |
 
 ## Network
@@ -48,7 +48,7 @@ Only IPv4 is supported. You cannot create IPv6 networks.
 
 ### DHCP
 
-Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and password as a deployment parameter. For example:
+Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and gateway as a deployment parameter. For example:
 
 	DeployAzureStack.ps1 -Verbose -NATVMStaticIP 10.10.10.10/24 -NATVMStaticGateway 10.10.10.1
 
@@ -128,6 +128,6 @@ These requirements apply to the Azure Stack POC only and might change for future
 
 Sample OEM configurations are available.
 
-## Next Steps
+## Next steps
 
 [Deploy Azure Stack POC](azure-stack-run-powershell-script.md)

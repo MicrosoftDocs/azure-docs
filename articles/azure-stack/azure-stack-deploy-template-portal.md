@@ -34,6 +34,6 @@ ARM templates deploy and provision all of the resources for your application in 
 
 6.  Click **Create**. A new tile on the dashboard tracks the progress of your template deployment.
 
-## Next Steps
+## Next steps
 
 [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
