@@ -3,7 +3,7 @@
 	description="A technical guide to the Solution Template with Microsoft Cortana Analytics for predictive maintenance in aerospace, utilities, and transportation."
 	services="cortana-analytics"
 	documentationCenter=""
-	authors="garyericson"
+	authors="fboylu"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -14,20 +14,19 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/29/2016"
-	ms.author="garye" />
+	ms.author="fboylu" />
 
 # Technical guide to the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses
+
+## **Acknowledgements**
+This article is authored by data scientists Yan Zhang, Gauher Shaheen, Fidan Boylu Uz and software engineer Dan Grecoe at Microsoft.
 
 ## **Overview**
 
 Solution Templates are designed to accelerate the process of building an
 E2E demo on top of Cortana Analytics Suite. A deployed template will
 provision your subscription with necessary Cortana Analytics components
-and build the relationships between them. It also seeds the data
-pipeline with sample data generated from a data simulation application which you will download and install on
-your local machine after you deploy the solution template.The data generated from the simulator will hydrate the
-data pipeline and start generating machine learning predictions which can
-then be visualized on the Power BI dashboard. The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.  
+and build the relationships between them. It also seeds the data pipeline with sample data generated from a data generator application which you will download and install on your local machine after you deploy the solution template. The data generated from the generator will hydrate the data pipeline and start generating machine learning predictions which can then be visualized on the Power BI dashboard. The deployment process will guide you through several steps to set up your solution credentials. Make sure you record these credentials such as solution name, username, and password you provide during the deployment.  
 
 The goal of this document is to explain the reference architecture and
 different components provisioned in your subscription as part of this
@@ -49,7 +48,7 @@ When the solution is deployed, various Azure services within Cortana
 Analytics Suite are activated (*i.e.* Event Hub, Stream Analytics,
 HDInsight, Data Factory, Machine Learning, *etc.*). The architecture
 diagram above shows, at a high level, how the Predictive Maintenance for
-Aerospace Solution Template is constructed from end-to-end. You will be able to investigate these services by clicking on them on the solution template diagram created with the deployment of the solution.
+Aerospace Solution Template is constructed from end-to-end. You will be able to investigate these services in the azure portal by clicking on them on the solution template diagram created with the deployment of the solution with the exception of HDInsight as this service is provisioned on demand when the related pipeline activities are required to run and deleted afterwards.
 You can download a [full-size version of the diagram](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 The following sections describe each piece.
@@ -60,7 +59,7 @@ The following sections describe each piece.
 
 For this template the data source used is generated from a desktop
 application that you will download and run locally after successful
-deployment. You will find the instructions to download and install this application in the properties bar when you select the first node called Predictive Maintenance Data Simulator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
+deployment. You will find the instructions to download and install this application in the properties bar when you select the first node called Predictive Maintenance Data Generator on the solution template diagram. This application feeds the [Azure Event Hub](#azure-event-hub) service
 with data points, or events, that will be used in the rest of the solution flow. This data
 source is comprised of or derived from publicly available data from the
 [NASA data
@@ -394,14 +393,14 @@ containing data (*e.g.*. prediction results) for visualization.
 
 	    ![](media\cortana-analytics-technical-guide-predictive-maintenance\edit-queries.png)
 
-	-	You'll see two tables, **RemainingUsefulLife** and **PMResult**.Select the first table and click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-query-settings.png) next to **'Source'** under
+	-	You'll see two tables, **RemainingUsefulLife** and **PMResult**. Select the first table and click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-query-settings.png) next to **'Source'** under
 		**'APPLIED STEPS'** on the right **'Query Settings'** panel. Ignore
 		any warning messages that appear.
 
     -   In the pop out window, replace **'Server'** and **'Database'** with
     your own server and database names, and then click **'OK'**. For server
     name, make sure you specify the port 1433
-    (**YourSoutionName.database.windows.net, 1433**). Ignore the warning
+    (**YourSoutionName.database.windows.net, 1433**). Leave the Database field as **pmaintenancedb**. Ignore the warning
     messages that appear on the screen.
 
     -   In the next pop out window, you'll see two options on the left pane
@@ -436,7 +435,7 @@ containing data (*e.g.*. prediction results) for visualization.
     -   Once you open the report, click ![](media\cortana-analytics-technical-guide-predictive-maintenance\icon-pin.png) to pin all the
     visualizations to your dashboard. To find detailed instructions, see [Pin a tile to a Power BI dashboard from a report](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
     Go to the dashboard page and
-    adjust the size and location of your visualizations and edit their titles. To find detailed instructions on how to edit your tiles, see [Edit a tile -- resize, move, rename, pin, delete, add hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Here is an example dashboard with some cold path visualizations pinned to it.  Depending on how long you run your data simulator, your numbers on the visualizations may be different.
+    adjust the size and location of your visualizations and edit their titles. To find detailed instructions on how to edit your tiles, see [Edit a tile -- resize, move, rename, pin, delete, add hyperlink](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Here is an example dashboard with some cold path visualizations pinned to it.  Depending on how long you run your data generator, your numbers on the visualizations may be different.
 <br/>
     ![](media\cortana-analytics-technical-guide-predictive-maintenance\final-view.png)
 <br/>
@@ -465,23 +464,22 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
     -  You will need to follow the instructions in
     [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics-power-bi-dashboard.md)
     to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
-	- Locate the stream analytics job **maintenancesa02asapbi** in the [Azure Portal](https://manage.windowsazure.com).
-	- Setup the three outputs of the ASA query which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. Make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same as in your query (**aircraftmonitor**, **aircraftalert**, and **flightsbyhour**). Once
-    you have added all three output tables and started the Stream
-    Analytics job, you should get a confirmation message (*e.g.*,
-    "Starting stream analytics job maintenancesa02asapbi succeeded").
+	- The ASA query has three outputs which are **aircraftmonitor**, **aircraftalert**, and **flightsbyhour**. You can view the query by clicking on query tab. Corresponding to each of these tables, you will need to add an output to ASA. When you add the first output (*e.g.* **aircraftmonitor**) make sure the **Output Alias**, **Dataset Name** and **Table Name** are the same (**aircraftmonitor**). Repeat the steps to add outputs for **aircraftalert**, and **flightsbyhour**. Once you have added all three output tables and started the ASA job, you should get a confirmation message (*e.g.*, "Starting stream analytics job maintenancesa02asapbi succeeded").
 
 2. Log in to [Power BI online](http://www.powerbi.com)
 
     -   On the left panel Datasets section in My Workspace, the
     ***DATASET*** names **aircraftmonitor**, **aircraftalert**, and
-    **flightsbyhour** previously defined in the Power BI output settings
-    in the ASA job should appear.
-
+    **flightsbyhour** should appear.This is the streaming data you pushed from Azure Stream Analytics in the previous step.The dataset **flightsbyhour** may not show up at the same time as the other two datasets due to the nature of the SQL query behind it. However, it should show up after an hour.
     -   Make sure the ***Visualizations*** pane is open and is shown on the
     right side of the screen.
 
-3. Create the "Fleet View of Sensor 11 vs. Threshold 48.26" tile:
+3. Once you have the data flowing into Power BI, you can start visualizing the streaming data. Below is an example dashboard with some hot path visualizations pinned to it. You can create other dashboard tiles based on appropriate datasets. Depending on how long you run your data generator, your numbers on the visualizations may be different.
+
+
+    ![](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+
+4. Here are some steps to create one of the tiles above –  the "Fleet View of Sensor 11 vs. Threshold 48.26" tile:
 
     -   Click dataset **aircraftmonitor** on the left panel
     Datasets section.
@@ -509,9 +507,8 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
     Sensor 11 vs. Threshold 48.26" and subtitle to "Average across fleet
     over time".
 
-4.  Create other dashboard tiles based on appropriate datasets. Here is an example dashboard with some hot path visualizations pinned to it. Depending on how long you run your data simulator, your numbers on the visualizations may be different.
-
-    ![](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+## **How to delete your solution**
+Please ensure that you stop the data generator when not actively using the solution as running the data generator will incur higher costs. Please delete the solution if you are not using it. Deleting your solution will delete all the components provisioned in your subscription when you deployed the solution. To delete the solution right click on your solution name in the left panel of the solution template and click on delete.
 
 ## **Cost estimation tools**
 

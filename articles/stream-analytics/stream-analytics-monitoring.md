@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/04/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
-# Understanding Stream Analytics job monitoring and how to monitor queries
+# Understand Stream Analytics job monitoring and how to monitor queries
 
 ## Introduction: The monitor page
 
@@ -35,7 +35,8 @@ The first time a Stream Analytics job is created in a region, you will need to c
 
   ![Azure preview portal Configure query Diagnostics](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)  
 
-## Metrics available for Stream Analytics  
+## Metrics available for Stream Analytics
+
 
 | Metric | Definition |
 |--------|-------------|
@@ -45,7 +46,9 @@ The first time a Stream Analytics job is created in a region, you will need to c
 | Output Events | Amount of data sent by the Stream Analytics job to the output target, in terms of event count. |
 | Out-of-Order Events | Number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the Out of Order Tolerance Window setting. |
 | Data Conversion Errors | Number of data conversion errors incurred by a Stream Analytics job. |
+| Runtime Errors | Number of errors that happen during execution of a Stream Analytics job. |
 | Late Input Events | Number of events arriving late from the source which have either been dropped or their timestamp has been adjusted, based on the Event Ordering Policy configuration of the Late Arrival Tolerance Window setting. |
+
 ## Customizing Monitoring in the Azure Management portal ##
 
 Up to 6 metrics can be displayed on a chart.

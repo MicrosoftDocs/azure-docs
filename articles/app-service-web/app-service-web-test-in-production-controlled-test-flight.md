@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="02/02/2016"
 	ms.author="cephalin"/>
 # Flighting deployment (beta testing) in Azure App Service
 
@@ -191,7 +191,7 @@ That's it!
 
 In this section, you will configure the different deployment slots to send slot-specific telemetry to the same Application Insights resource. This way, you can compare telemetry data between traffic from different slots (deployment environments) to easily see the effect of your app changes. At the same time, you can separate the production traffic from the rest so you can continue to monitor your production app as needed.
 
-Since you're gathering data on client behavior, you will [add a telemetry initializer to your JavaScript code](app-insights-api-custom-events-metrics.md#js-initializer) in index.cshtml. If you want to test server-side performance, for example, you can also do similarly in your server code (see [Application Insights API for custom events and metrics]((app-insights-api-custom-events-metrics.md)).
+Since you're gathering data on client behavior, you will [add a telemetry initializer to your JavaScript code](app-insights-api-custom-events-metrics.md#js-initializer) in index.cshtml. If you want to test server-side performance, for example, you can also do similarly in your server code (see [Application Insights API for custom events and metrics](app-insights-api-custom-events-metrics.md).
 
 1. First, add the code bewteen the two `//` comments below in the JavaScript block that you added to the `<heading>` tag earlier.
 

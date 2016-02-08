@@ -391,6 +391,6 @@ Here is the Azure PowerShell command set to create this virtual machine.
 
 [Deploy and Manage Azure Virtual Machines using Resource Manager Templates and PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
-[Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
+[Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template.md)
 
-[How to install and configure Azure PowerShell](../install-configure-powershell.md)
+[How to install and configure Azure PowerShell](powershell-install-configure.md)

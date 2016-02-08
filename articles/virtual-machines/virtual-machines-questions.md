@@ -17,6 +17,7 @@
 	ms.date="11/16/2015"
 	ms.author="cynthn"/>
 
+	
 # Frequently asked question about Azure Virtual Machines created with the classic deployment model
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
