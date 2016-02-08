@@ -12,19 +12,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/01/2016"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 # Deactivate and delete a StorSimple Virtual Array
 
 ## Overview
 
-You will need to deactivate a StorSimple Virtual Array if you are performing a device failover to a secondary device in case of disaster recovery (DR). After the device data is transferred and the failover is complete, you can delete the device. When you deactivate a device, the connection between the device and the corresponding StorSimple Manager service is severed. This tutorial explains how to deactivate a StorSimple Virtual Array and then delete it. 
+When you deactivate a StorSimple Virtual Array, you sever the connection between the device and the corresponding StorSimple Manager service. Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again.
 
-When you deactivate a device, any data that was stored locally on the device will no longer be accessible. Only the data associated with the device that was stored in the cloud can be recovered. If you plan to keep the device data after deactivation, then you should take a cloud snapshot of all your data before you deactivate a device. This will allow you to recover all the data at a later stage.
+You may need to deactivate and delete a StorSimple virtual device in the following scenarios:
 
->[AZURE.WARNING] Deactivation is a PERMANENT operation and cannot be undone. A deactivated device cannot be registered with the StorSimple Manager service again. 
->
+
+- Your device is online and you plan to fail over this device. You may need to do this if you are planning  to upgrade to a larger device. After the device data is transferred and the failover is complete, you can then delete the device.
+
+- Your device is offline and you plan to fail over this device. This may happen in the event of a disaster where due to an outage in the datacenter, your primary device is down. You plan to fail over the device to a secondary device. After the device data is transferred and the failover is complete, you can delete the device.
+
+- You want to decommission the device and then delete it. 
+ 
+
+When you deactivate a device, any data that was stored locally will no longer be accessible. Only the data stored in the cloud can be recovered. If you plan to keep the device data after deactivation, then you should take a cloud snapshot of all your data before you deactivate a device. This will allow you to recover all the data at a later stage.
 
 
 This tutorial explains how to:
@@ -63,7 +70,7 @@ Perform the following steps to deactivate your device.
 
 ## Delete the device
 
-Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. Complete the following steps to delete the device:
+A device has to be first deactivated in order to delete it. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. The data associated with the device in the cloud will however remain. Complete the following steps to delete the device:
 
 #### To delete the device 
 
