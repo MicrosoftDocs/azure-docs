@@ -132,7 +132,7 @@ For example, `.\DeployAzureStack.ps1 –verbose –PublicVLan 305`
 
 ## Turn off automated TiP tests
 
-Microsoft Azure Stack Technical Preview 1 includes a set of validation tests used during the deployment process and on a recurring daily schedule. They simulate actions taken by an Azure Stack tenant, and TiP user accounts are created in your Azure Active Directory in order to run the tests. After a successful deployment, you can turn off these Test in POC (TiP) tests. 
+Microsoft Azure Stack Technical Preview 1 includes a set of validation tests used during the deployment process and on a recurring daily schedule. They simulate actions taken by an Azure Stack tenant, and Test-in-POC (TiP) user accounts are created in your Azure Active Directory in order to run the tests. After a successful deployment, you can turn off these TiP tests. 
 
 **To turn off TiP automated tests**
 
