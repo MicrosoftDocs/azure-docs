@@ -3,7 +3,7 @@
 	description="Advanced Analytics Process and Technology in Action"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh-msft,weig"
+	authors="bradsev,hangzh-msft,wguo123"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/05/2016" 
-	ms.author="bradsev;hangzh;wguo123"/>
+	ms.author="bradsev;hangzh;weig"/>
 
 
 # The Cortana Analytics Process in action: using SQL Data Warehouse
