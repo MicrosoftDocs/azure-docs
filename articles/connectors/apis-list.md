@@ -26,7 +26,7 @@ For pricing information and a list of what is included with each Service Tier, s
 
 |APIs||||
 |-----------|-----------|-----------|-----------|
-|![API Icon] [bingsearchicon] <br> [**Bing Search**][bingsearchdoc]|![API Icon] [boxicon] <br> [**Box**][boxDoc]|[![API Icon] [crmonlineicon] <br> **CRM Online**][crmonlinedoc]|[![API Icon] [dropboxicon] <br> **Dropbox**][dropboxdoc]|
+|[![API Icon] [bingsearchicon] <br> **Bing Search**][bingsearchdoc]|[![API Icon] [boxicon] <br> **Box**][boxDoc]|[![API Icon] [crmonlineicon] <br> **CRM Online**][crmonlinedoc]|[![API Icon] [dropboxicon] <br> **Dropbox**][dropboxdoc]|
 |[![API Icon] [excelicon] <br> **Excel**][exceldoc]|[![API Icon] [ftpicon] <br> **FTP**][ftpdoc]|[![API Icon] [googledriveicon] <br> **Google Drive**][googledrivedoc]|[![API Icon] [microsofttranslatoricon] <br> **Translator**][microsofttranslatordoc]|
 |[![API Icon] [office365icon] <br> **Office 365** <br> **Outlook**][office365outlookdoc]|[![API Icon] [office365icon] <br> **Office 365**<br> **Users**][office365usersdoc]|[![API Icon] [office365icon] <br> **Office 365** <br>**Video**][office365videodoc]|[![API Icon] [office365icon] <br> **Office**<br>**Unified**][officeunifieddoc]|
 |[![API Icon] [onedriveicon] <br> **OneDrive**][onedrivedoc]|[![API Icon] [salesforceicon] <br> **Salesforce**][salesforcedoc]|[![API Icon] [servicebusicon] <br> **Service Bus**][servicebusdoc]|[![API Icon] [sftpicon] <br> **SFTP**][sftpdoc]|
