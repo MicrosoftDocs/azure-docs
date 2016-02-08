@@ -56,17 +56,24 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 **Turn off IE Enhanced Security**
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
+
 2. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+
 3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
+
 4. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
 
 **Enable cookies**
 
 1. Click the Star button, click **All apps**, click **Windows accessories**, right-click **Internet Explorer**, click **More**, and then click **Run as an administrator**.
+
 2. If prompted, check **Use recommended security**, and then click **OK**.
-2. In Internet Explorer, click the Tools (gear) icon, click **Internet Options**, and then click the **Privacy** tab.
-3. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again. 
-4. Close Internet Explorer and restart PowerShell ISE as an administrator.
+
+3. In Internet Explorer, click the Tools (gear) icon, click **Internet Options**, and then click the **Privacy** tab.
+
+4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again. 
+
+5. Close Internet Explorer and restart PowerShell ISE as an administrator.
 
 
 ### Install the latest version of Azure PowerShell
