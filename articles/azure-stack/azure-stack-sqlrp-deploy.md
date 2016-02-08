@@ -178,7 +178,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 4. At the **packageName** prompt, type **AzureStack.SqlRP.Setup.5.11.61.0.nupkg**. 
 
-5. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials
+5. In the **Microsoft Azure** sign in page, sign in with your Azure Active Directory (AAD) tenant credentials.
 
 6. In the **Windows PowerShell credential request** dialog box, type *sqlRpUsername* and *sqlRPPassw0rd* for the manifest credentials.
 
