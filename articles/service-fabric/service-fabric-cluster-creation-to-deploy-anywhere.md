@@ -87,7 +87,9 @@ After downloading the package, open the ClusterConfig.JSON in an editor of your 
 
 **Configuration Setting :** NodeList
 
-**Description :** The details for each of the nodes that will be part of the cluster (node type, node name, seed node, IP address, Fault Domain and Upgrade Domain of the node). The machines you want the cluster to be created on need to be listed here with their IP address. Upgrade Domains and Fault Domains are described earlier in the planning section of this article.
+**Description :** The details for each of the nodes that will be part of the cluster (node type, node name, seed node, IP address, Fault Domain and Upgrade Domain of the node). The machines you want the cluster to be created on need to be listed here with their IP address. Upgrade Domains and Fault Domains are described earlier in the planning section of this article. 
+
+If you use the same IP addresses for all the nodes, then a scale minimized or one-box cluster will be created, which you can use for test purposes. Scale minimized clusters should not be used for deploying production workloads.
 
 
 ## Run Setup script
@@ -96,7 +98,7 @@ Once you have modified the cluster configuration in the JSON doc and added all t
 This script can be run on any machine that has admin access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on, may or may not be part of the cluster.
 
 ```
-C:\ServiceFabricDeployAnywherePackag> .\CreateServiceFabricCluster.ps1 -ClusterConfigurationFilePath C:\ServiceFabricDeployAnywherePackage\ClusterConfig.JSON -ServiceFabricPackageSourcePath C:\ServiceFabricDeployAnywherePackage\
+C:\ServiceFabricDeployAnywherePackag> .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath C:\ServiceFabricDeployAnywherePackage\ClusterConfig.JSON -MicrosoftServiceFabricCabFilePath C:\ServiceFabricDeployAnywherePackage\MicrosoftAzureServiceFabric.cab
 ```
 
 
