@@ -9,6 +9,7 @@
 
 <tags
    ms.service="security-center"
+   ms.topic="hero-article" 
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
