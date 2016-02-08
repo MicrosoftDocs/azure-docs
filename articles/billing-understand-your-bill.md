@@ -75,7 +75,18 @@ To view or download a bill:
 
     ![Summary-billing history 5](./media/billing-understand-your-bill/ContentViewaBillforMA5.png)
 
-> [AZURE.NOTE] ***Important:*** *Charges listed on billing statements for international customers are for estimation purposes only as banks have different costs for the conversion rates.*
+> [AZURE.NOTE] Important: Charges listed on billing statements for international customers are for estimation purposes only as banks have different costs for the conversion rates.
+
+<div class="wa-note wa-note-tip">
+  <span class="wa-icon wa-icon-tip:"></span>
+  <h5>
+    <a name="tip" id="_tip" href="#tip" ms.pgarea="content" ms.cmpgrp="body" ms.cmptyp="link" ms.cmpnm="" ms.title="" km.title="" ms.interactiontype="1"</a>
+    TIP:
+  </h5>
+  <p>
+    Important: Charges listed on billing statements for international customers are for estimation purposes only as banks have different costs for the conversion rates.
+  </p>
+</div>
 
 Below are some sample statements for two different offers available on Microsoft Azure.
 
