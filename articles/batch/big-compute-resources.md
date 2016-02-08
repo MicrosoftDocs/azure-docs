@@ -75,9 +75,6 @@ Use these Azure templates to deploy Linux HPC clusters.
 
 * [Intel Cloud Edition for Lustre Software - Eval](https://azure.microsoft.com/en-us/marketplace/partners/intel/lustre-cloud-edition-evaleval-lustre-2-7/)
 
-
-
-
 ## Microsoft MPI
 
 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831.aspx) (MS-MPI) is a Microsoft implementation of the Message Passing Interface standard for developing and running parallel applications on the Windows platform.
