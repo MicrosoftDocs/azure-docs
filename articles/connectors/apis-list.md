@@ -16,9 +16,9 @@
 	ms.date="02/18/2016"
 	ms.author="deonhe"/>
 
-# Here's the list of Microsoft-managed APIs for building logic apps
+# Here's the list of Microsoft-managed APIs for building apps
 
-Select an icon to learn how to quickly leverage these APIs to build logic apps that call these services.
+Select an icon to learn how to quickly leverage these APIs to build  apps that call these services. These APIs can be used to build logic apps and or power apps or both. 
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
@@ -38,18 +38,19 @@ For pricing information and a list of what is included with each Service Tier, s
 ### APIs can be triggers
 Several APIs provide triggers that can notify your app when specific events occur. For example, the FTP API has the OnUpdatedFile trigger. You can build an either a logic app or power app that listens to this trigger and takes an action whenever the trigger is fired. 
 
-There are two types of triggers:
-Poll Triggers: These triggers poll your service at a specified frequency to check for new data. When new data is available, a new instance of your Logic App runs with the data as input. To prevent the same data from being consumed multiple times, the trigger may clean-up data that has been read and passed to the Logic App. TODO: Examples of such connectors are _____________________________.
-Push Triggers: These triggers listen for data on an endpoint or for an event to occur. Then, triggers a new instance of your app. The twitter API is one such example. TODO--verify that Twitter is a good example.
+There are two types of triggers:  
+
+* Poll Triggers: These triggers poll your service at a specified frequency to check for new data. When new data is available, a new instance of your app runs with the data as input. To prevent the same data from being consumed multiple times, the trigger may clean-up data that has been read and passed to your app. 
+* Push Triggers: These triggers listen for data on an endpoint or for an event to occur. Then, triggers a new instance of your app. The twitter API is one such example. TODO--verify that Twitter is a good example.
 
 
 ### APIs can be actions
-APIs can also be used as actions within your apps. Actions are useful for looking up data which can then be used in the execution of your app. For example, you may need to look up customer data from a SQL database when processing an order. Or, you may need to write, update or delete data in a destination. You can do this using the actions provided by the APIs. Actions map to operations that are defined in the Swagger metadata.
+APIs can also be used as actions within your apps. Actions are useful for looking up data which can then be used in the execution of your app. For example, you may need to look up customer data from a SQL database when processing an order. Or, you may need to write, update or delete data in a destination table. You can do this using the actions provided by the APIs. Actions map to operations that are defined in the Swagger metadata.
 
 
 [What's new](TODO)  
 [Get help migrating to version 2015-12-01-preview](TODO)  
-[Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 [Get started with Power apps now](../power-apps/powerapps-get-started-azure-portal.md)  
 
 <!--API Documentation-->
@@ -72,7 +73,7 @@ APIs can also be used as actions within your apps. Actions are useful for lookin
 [slackdoc]: ../power-apps/powerapps-create-api-slack.md/ "Connect to Slack and post messages to Slack channels."
 [sftpdoc]: ../power-apps/powerapps-create-api-sftp.md/ "Connects to SFTP and can upload, get, delete files, and more."
 [smtpdoc]: ../power-apps/powerapps-create-api-smtp.md/ "Connects to a SMTP server and can send email with attachments." 
-[sqldoc]: ../power-apps/powerapps-create-api-sqlserver.md/ "Connects to on-premises SQL Server or an Azure SQL Database. You can create, update, get, and delete entries on a SQL database table. <br> MQ | Connects to IBM WebSphere MQ Server version 8, on-premises and on an Azure virtual machine running a Windows operating system. When using on-premises, VPN or Azure ExpressRoute can be used. The connector also includes the Microsoft Client for MQ.<br/><br/>No triggers. No actions.<br/><br/>**Note** Currently cannot be used with Logic Apps."
+[sqldoc]: ../power-apps/powerapps-create-api-sqlserver.md/ "Connects to on-premises SQL Server or an Azure SQL Database. You can create, update, get, and delete entries on a SQL database table."
 [twiliodoc]: ../power-apps/powerapps-create-api-twilio.md/ "Connects to Twilio and can send and get messages, get available numbers, managing incoming phone numbers, and more."
 [twitterdoc]: ../power-apps/powerapps-create-api-twitter.md/ "Connects to Twitter and get timelines, post tweets, and more."
 [yammerdoc]: ../power-apps/powerapps-create-api-yammer.md/ "Connects to Yammer to post messages and get new messages."
