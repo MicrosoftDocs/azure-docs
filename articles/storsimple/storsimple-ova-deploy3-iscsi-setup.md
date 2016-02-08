@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/06/2016"
+   ms.date="02/08/2016"
    ms.author="alkohli" />
 
 
@@ -100,7 +100,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
 
         ![credentials](./media/storsimple-ova-deploy3-iscsi-setup/image8.png)
         
-      > [AZURE.NOTE]
+           > [AZURE.NOTE]
 	   > 
 	   > If joining your iSCSI server to a domain, ensure that your virtual array is in in its own organizational unit (OU) for 
 	   > Microsoft Active Directory and no group policy objects (GPO) are applied to it.
