@@ -49,7 +49,7 @@ There are two portals for the Azure Stack App Service, the Resource Provider adm
 - Create multiple App Service Plans like in Azure
 - View web app properties
 
-### Turn off IE Enhanced Security and enable cookies
+## Turn off IE Enhanced Security and enable cookies
 
 To deploy a resource provider, your PowerShell ISE must be run as an administrator. For this reason, you'll need to allow cookies and java script in your Internet Explorer profile used for logging into Azure Active Directory.
 
@@ -76,7 +76,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 5. Close Internet Explorer and restart PowerShell ISE as an administrator.
 
 
-### Install the latest version of Azure PowerShell
+## Install the latest version of Azure PowerShell
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.
 2. Using Remote Desktop Connection, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
@@ -84,7 +84,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
 
 
-### Installation prerequisites
+## Installation prerequisites
 
 To install Azure Stack Web apps there are a few items that you will need.  Those items are:
 
@@ -114,7 +114,7 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 Once the deployment completes, navigate to the Resource Group in the Azure Stack portal, select the Sq0-NIC resource, and take note of the Private IP address (it will be something like: 10.0.2.4). This IP address will be used later in this deployment process.
 Record the IP address for the SQL Server.  To do this Browse > Resource Groups > select resource group used for installing SQL server > Resources > Sq0-NIC  This address will be needed when running the Azure Resource Manager template.
 
-### Azure Web Apps installation steps
+## Azure Web Apps installation steps
 
 The installation experience for Azure Stack Web Apps starts with the download of the appservice.exe installer from [Azure Stack App Service preview installer][Azure_Stack_App_Service_preview_installer]. 
 
@@ -172,7 +172,7 @@ Open Notepad and paste the contents of your clipboard immediately.
 
 **NOTE** If this information is lost for some reason, you can still get everything you need by accessing the storage account blob container directly. 
 
-### Web App Azure Resource Manager deployment
+## Web App Azure Resource Manager deployment
 
 The Azure Stack Web App Azure Resource Manager template will collect information defining the web app resource provider deployment.  There are a few things that need to be noted:
 
@@ -200,7 +200,7 @@ In the **Microsoft Azure Stack App Service TP1** dialog box, click **Exit**.
 To make sure the deployment was successful, in the Azure Stack portal, click **Resource Groups** and then click the **WebSitesSQL** resource group. A green check mark next to the resource provider name indicates that it deployed successfully.
 
 
-### Pre-registration Azure Stack Web Apps configuration steps
+## Pre-registration Azure Stack Web Apps configuration steps
 
 Before registering the newly deployed web app resource provider, you'll need to get the load balancer IP addresses, add DNS records, and set up wildcard certificates.
 
@@ -364,7 +364,7 @@ The new certificate is now saved to the desktop on the **portalvm** virtual mach
 
 8. Sign out of the controller, **management**, and **portalvm** virtual machines and close the RDC windows.
  
-### Create a new Web Apps resource provider
+## Create a new Web Apps resource provider
 
 1. On the **ClientVM.AzureStack.local** virtual machine, sign in to the Azure Stack portal as an admin, click **Browse**, and then click **Resource Providers**.
 
