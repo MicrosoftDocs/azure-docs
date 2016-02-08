@@ -49,7 +49,7 @@ In Azure AD B2C, every user experience is defined by a [policy](active-directory
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-After you have created your three policies, you're ready to build your app.
+After you create your three policies, you're ready to build your app.
 
 ## Download the code and configure authentication
 
@@ -95,7 +95,7 @@ Next, open the `web.config` file in the root of the project and enter your app's
 
 [AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Next, add an OWIN startup class to the project called `Startup.cs`. Right-click on the project, select **Add** and **New Item**, and then Search for "OWIN." Change the class declaration to `public partial class Startup`. We implemented part of this class for you in another file. The OWIN middleware will invoke the `Configuration(...)` method when your app starts. In this method, make a call to `ConfigureAuth(...)`, where you will set up authentication for your app.
+Next, add an OWIN startup class to the project called `Startup.cs`. Right-click on the project, select **Add** and **New Item**, and then Search for "OWIN." Change the class declaration to `public partial class Startup`. We implemented part of this class for you in another file. The OWIN middleware will invoke the `Configuration(...)` method when your app starts. In this method, make a call to `ConfigureAuth(...)`, where you set up authentication for your app.
 
 ```C#
 // Startup.cs
@@ -245,7 +245,7 @@ public ActionResult Claims()
   ...
 ```
 
-You can also use OWIN to sign out the user from the app. Back in `Controllers\AccountController.cs`:  
+You can also use OWIN to sign out the user from the app. In `Controllers\AccountController.cs`:  
 
 ```C#
 // Controllers\AccountController.cs
@@ -286,7 +286,7 @@ private async Task OnRedirectToIdentityProvider(RedirectToIdentityProviderNotifi
 ```
 
 ## Display user information
-When you authenticate users by using OpenID Connect, Azure AD returns an ID token to the app that contains **claims**, or assertions about the user. You can use these claims to personalize your app.  
+When you authenticate users by using OpenID Connect, Azure AD returns an ID token to the app that contains **claims**. These are assertions about the user. You can use claims to personalize your app.  
 
 Open the `Controllers\HomeController.cs` file. You can access user claims in your controllers via the `ClaimsPrincipal.Current` security principal object.
 
