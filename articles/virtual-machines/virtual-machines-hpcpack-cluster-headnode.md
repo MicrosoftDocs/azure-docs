@@ -30,7 +30,7 @@ Pack 2012 R2 Update 3 pre-installed. Use this head node for a proof of concept
 ![HPC Pack head node][headnode]
 
 >[AZURE.TIP]For a production deployment of a complete HPC Pack cluster in Azure, we recommend that you use an automated  method, such as the [HPC Pack IaaS deployment
-script](virtual-machines-hpcpack-cluster-powershell-script.md) or the [HPC Pack cluster for Windows workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/) template in the Marketplace.
+script](virtual-machines-hpcpack-cluster-powershell-script.md) or a Resource Manager template such as the [HPC Pack cluster for Windows workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterwindowscn/) template. See [HPC Pack cluster options in Azure](virtual-machines-hpcpack-cluster-options.md) for additional templates. 
 
 ## Planning considerations
 
@@ -88,7 +88,7 @@ Pack head node by using the Resource Manager deployment model in the Azure porta
 
 * You can now work with the head node of your HPC Pack cluster. For
 example, start HPC Cluster Manager, and complete the [Deployment To-do List](https://technet.microsoft.com/library/jj884141.aspx).
-* [Add compute node VMs](virtual-machines-hpcpack-cluster-node-manage.md) to your cluster, or add [Azure burst nodes](virtual-machines-hpcpack-cluster-node-burst.md) in a cloud service. See [additional guidance for HPC Pack in Azure](virtual-machines-hpcpack-cluster-options.md).
+* Add [Azure burst nodes](virtual-machines-hpcpack-cluster-node-burst.md) in a cloud service to increase the cluster compute capacity on-demand. 
 
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 

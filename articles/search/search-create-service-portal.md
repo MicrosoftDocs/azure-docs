@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="02/05/2016"
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the Azure Classic Portal
@@ -35,7 +35,7 @@ As an administrator, you can add Azure Search to an existing Azure subscription 
 
      ![][2]
 
-	- **Service name** must be unique, lowercase, and under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
+	- **Service name** must be unique, lowercase, and under 60 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions.
 
 	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels.
 
