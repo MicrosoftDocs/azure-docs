@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="02/08/2016" 
 	ms.author="billmath"/>
 
 # Configuring Azure Multi-Factor Authentication
@@ -36,7 +36,7 @@ Feature| Description| What is covered
 [Trusted IPs](#trusted-ips)|Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet.|Configure and setup IP addresses that are exempt for multi-factor authentication	
 [App Passwords](#app-passwords)|App passwords allows an application that is not mfa aware to bypass multi-factor authentication and continue working.|Information about app passwords.
 [Suspend Multi-Factor Authentication for remembered devices and browsers (Public Preview)](#suspend-multi-factor-authentication-for-remembered-devices-and-browsers-public-preview)|Allows you to suspend MFA for a set number of days after a user has successfully signed in using MFA.|Information about enabling this feature and setting up the number of days.
-
+[Selectable Authentication Methods (Public Preview)](#selectable-authentication-methods)|Allows you to choose the authentication methods that are available for users to use.|Information about enabling or disabling specific authentication methods such as call or text messages.
 
 
 
@@ -209,7 +209,7 @@ Outside corpnet|For browser flows, multi-factor authentication required.|For bro
 
 
 
-![Cloud](./media/multi-factor-authentication-whats-next/trustedips2.png)
+![Trusted IPs](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 
 
@@ -268,7 +268,7 @@ For example, suppose you have an architecture that consists of the following:
 - You are using Azure Multi-Factor Authentication
 
 
-<center>![Proofup](./media/multi-factor-authentication-whats-next/federated.png)</center>
+![Proofup](./media/multi-factor-authentication-whats-next/federated.png)
 
  In these instances, you must do the following:
 
@@ -290,7 +290,8 @@ By default, users cannot create app passwords.  This feature must be enabled.  T
 6. At the top of the multi-factor authentication page, click Service Settings.
 7. Ensure that the radio button next to Allow users to create app passwords to sign into non-browser applications is selected.
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/trustedips.png)</center>
+
+![Create App Passwords](./media/multi-factor-authentication-whats-next/trustedips3.png)
 
 ### Creating app passwords
 Users can create app passwords during their initial registration.  They are given an option at the end of the registration process that allows them to create them.
@@ -323,7 +324,7 @@ Additionally users can also create app passwords later on by changing their sett
 8. Copy the app password to the clipboard and paste it into your app.
 
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/app2.png)</center>
+![App passwords](./media/multi-factor-authentication-whats-next/app2.png)
 
 ### To create app passwords if you do not have an Office 365 or Azure subscription
 --------------------------------------------------------------------------------
@@ -335,7 +336,7 @@ Additionally users can also create app passwords later on by changing their sett
 7. Enter a name for the app password and click **Next**
 8. Copy the app password to the clipboard and paste it into your app.
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/myapp.png)</center>
+![App passwords](./media/multi-factor-authentication-whats-next/myapp.png)
 
 ## Suspend Multi-Factor Authentication for remembered devices and browsers (Public Preview)
 
@@ -350,16 +351,37 @@ To ensure that the user accounts are secured, you should restore Multi-Factor Au
 
 ### How to enable/disable Suspend MFA for remembered devices and set
 
-<ol>
-<li>Sign-in to the Azure Management Portal.</li>
-<li>On the left, click Active Directory.</li>
-<li>Under Active Directory, click on the directory you wish to setup Suspend Multi-Factor Authentication for remembered devices on.</li>
-<li>On the Directory you have selected, click Configure.</li>
-<li>In the multi-factor authentication section, click Manage service settings.</li>
-<li>On the Service Settings page, under manage user device settings, select/unselect the **Allow users to suspend multi-factor authentication by causing a device to be remembered**.</li>
+1. Sign-in to the Azure Management Portal.
+2. On the left, click Active Directory.
+3. Under Active Directory, click on the directory you wish to setup Suspend Multi-Factor Authentication for remembered devices on.
+4. On the Directory you have selected, click Configure.
+5. In the multi-factor authentication section, click Manage service settings.
+6. On the Service Settings page, under manage user device settings, select/unselect the **Allow users to suspend multi-factor authentication by causing a device to be remembered**.
 ![Suspend devices](./media/multi-factor-authentication-manage-users-and-devices/suspend.png)
-<li>Set the number of days that you want to allow the suspension. The default is 14 days.</li>
-<li>Click save.</li>
-<li>click close.</li>
+8. Set the number of days that you want to allow the suspension. The default is 14 days.
+9. Click save.
+10. Click close.
 
 
+## Selectable Authentication Methods (Public Preview)
+It is now possible to choose the authentication methods that are available to your users when using Azure Multi-Factor Authentication.  This feature, was previously only available in the on-premises server version.  The table below provides a brief overview of the various authentication methods that can be enabled or disabled for your users.
+
+Method|Description
+:------------- | :------------- | 
+[Call to phone](multi-factor-authentication-end-user-first-time-mobile-phone.md)|  Places an automated voice call to the Authentication phone. The user answers the call and presses # in the phone keypad to authenticate. This phone number will not be synchronized to on-premises Active Directory.
+[Text message to phone](multi-factor-authentication-end-user-first-time-mobile-phone.md)|Sends a text message containing a verification code to the user. The user is prompted to either reply to the text message with the verification code or to enter the verification code into the sign-in interface.
+[Notification through mobile app](multi-factor-authentication-end-user-first-time-mobile-app.md)|In this mode, the Multi-Factor Authentication app prevents unauthorized access to accounts and stops fraudulent transactions. This is done using a push notification to your phone or registered device. Simply view the notification and if it is legitimate select Authenticate. Otherwise you may choose Deny or choose to deny and report the fraudulent notification. For information on reporting fraudulent notifications see How to use the Deny and Report Fraud Feature for Multi-Factor Authentication.</br></br>Azure Authenticator app is available for [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).|
+[Verification code from mobile app](multi-factor-authentication-end-user-first-time-mobile-app.md)|In this mode, the Multi-Factor Authentication app can be used as a software token to generate an OATH verification code. This verification code can then be entered along with the username and password to provide the second form of authentication.</li><br><p> The Azure Authenticator app is available for [Windows Phone](http://www.windowsphone.com/en-us/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+
+### How to enable/disable authentication methods
+
+1. Sign-in to the Azure Management Portal.
+2. On the left, click Active Directory.
+3. Under Active Directory, click on the directory you wish to setup Suspend Multi-Factor Authentication for remembered devices on.
+4. On the Directory you have selected, click Configure.
+5. In the multi-factor authentication section, click Manage service settings.
+6. On the Service Settings page, under verification options, select/unselect the options you wish to use.
+![Suspend devices](./media/multi-factor-authentication-whats-next/authmethods.png)
+8. Set the number of days that you want to allow the suspension. The default is 14 days.
+9. Click save.
+10. Click close.
