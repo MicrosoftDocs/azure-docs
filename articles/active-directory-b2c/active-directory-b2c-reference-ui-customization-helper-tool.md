@@ -40,7 +40,7 @@ You will need to [register an application](active-directory-b2c-app-registration
 
 ## Customize your policy
 
-To customize the look and feel of your policy, you need to first create HTML and CSS files using the specific conventions of Azure AD B2C. You can then upload your static content to a publicly available location so that Azure AD B2C can access it. This could be your own dedicated web server, Azure Blob Storage, Azure CDN, or any other static resource-hosting provider. The only requirements are that your content is available over HTTPS and can be accessed by using CORS. Once you've exposed your static content on the web, you can edit your policy to point to this location and present that content to your customers. The [main UI customization article](active-directory-b2c-reference-ui-customization.md) describes in detail how the Azure AD B2C customization feature works.
+To customize the look and feel of your policy, you need to first create HTML and CSS files using the specific conventions of Azure AD B2C. You can then upload your static content to a publicly available location so that Azure AD B2C can access it. This could be your own dedicated web server, Azure Blob Storage, Azure Content Delivery Network, or any other static resource-hosting provider. The only requirements are that your content is available over HTTPS and can be accessed by using CORS. Once you've exposed your static content on the web, you can edit your policy to point to this location and present that content to your customers. The [main UI customization article](active-directory-b2c-reference-ui-customization.md) describes in detail how the Azure AD B2C customization feature works.
 
 For the purposes of this tutorial, we've already created some sample content and hosted it on Azure Blob Storage. The sample content is a very basic customization in the theme of our fictional company, "Contoso B2C". To try it out in your own policy, follow these steps:
 
@@ -51,7 +51,7 @@ For the purposes of this tutorial, we've already created some sample content and
 5. Click **Local account sign-up page**. Toggle the **Use custom template** switch to **Yes**. In the **Custom page URI** field, enter `https://contosob2c.blob.core.windows.net/static/EmailVerification.html`. Click **OK** twice to close the UI customization blades.
 6. Click **Save**.
 
-Now you can try out your customized policy. You can use your own application or the Azure AD B2C playground if you wish, but you can also simply click the **Run Now** command in the policy blade. Select your application in the drop-down box and choose the appropriate redirect URI. Click the **Run now** button. A new browser tab will open and you can run through the user experience of signing up for your application with the new content in place!
+Now you can try out your customized policy. You can use your own application or the Azure AD B2C playground if you want to, but you can also simply click the **Run Now** command in the policy blade. Select your application in the drop-down box and choose the appropriate redirect URI. Click the **Run now** button. A new browser tab will open and you can run through the user experience of signing up for your application with the new content in place!
 
 ## Upload the sample content to Azure Blob Storage
 
@@ -89,4 +89,4 @@ In the same repository, unzip `B2CAzureStorageClient.zip` and run the `B2CAzureS
 
 Now that you've uploaded the sample content to your own storage account, you must edit your sign-up policy to reference it. Repeat the steps from the ["Customize your policy"](#customize-your-policy) section above, this time using your own storage account's URLs. For instance, the location of your `Index.html` file would be `<url-of-your-container>/Index.html`.
 
-Now you can use the **Run Now** button or your own applicaition to execute your policy again. The result should look almost exactly the same - you used the same sample HTML & CSS in both cases. However, your policies are now referencing your own instance of Azure Blob Storage, and you are free to edit and re-upload the files as you please. For more information on customizing the HTML & CSS, refer to the [main UI customization article](active-directory-b2c-reference-ui-customization.md).
+Now you can use the **Run Now** button or your own applicaition to execute your policy again. The result should look almost exactly the same--you used the same sample HTML and CSS in both cases. However, your policies are now referencing your own instance of Azure Blob Storage, and you are free to edit and upload the files again as you please. For more information on customizing the HTML and CSS, refer to the [main UI customization article](active-directory-b2c-reference-ui-customization.md).
