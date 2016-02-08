@@ -1,20 +1,33 @@
-<properties urlDisplayName="" pageTitle="Supported browsers and devices" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="need to identify contact" editor=""  />
+<properties 
+	pageTitle="Supported browsers and devices" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="flanakin" 
+	manager="lwelicki" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="Justin Beckwith" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/23/2015" 
+	ms.author="micflan"/>
 
 #Supported browsers and devices
-The Microsoft Azure Preview Portal runs on all modern desktop and tablet devices and browsers.
+The Microsoft Azure portal runs on all modern desktop and tablet devices and browsers.
 
-### Supported Devices
-The preview portal will run great on modern PCs, Macs, and tablets. Mobile phones are not currently supported.
+### Supported devices
+The portal will run great on modern PCs, Macs, and tablets. Mobile phones are not currently supported.
 
-### Supported Browsers
+### Supported browsers
 The latest versions of the following browsers are supported:
 
-- Internet Explorer (10 and up)
-- Safari (7 and up)
-- Chrome (Latest)
-- Firefox (Latest)
-
-*Safari 6 and lower is not supported. If you're using OS X, you can either use Chrome, Firefox, or upgrade to OS X Mavericks to get Safari 7.*
-
+- Edge (latest)
+- Internet Explorer 11
+- Safari (latest, Mac only)
+- Chrome (latest)
+- Firefox (latest)

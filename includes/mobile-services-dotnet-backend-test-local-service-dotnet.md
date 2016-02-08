@@ -5,13 +5,13 @@ In this section, you will test your new app against the mobile service running l
 
 1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.
 
-2. Press the **F5** key to rebuild the project and start the mobile service locally.
+2. In the Solution Explorer in Visual Studio, right-click your service project, click **Set as StartUp Project**, and then press the **F5** key to build the project and start the mobile service locally.
 
 	![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
 
 	A web page is displayed after the mobile service starts successfully.
 
-3. In Solution Explorer in Visual Studio, right-click your client app project and click **Set as StartUp Project** and then press the **F5** key to rebuild the project and start the app.
+3. To test the store app, right-click your client app project, click **Set as StartUp Project**, and then press the **F5** key to rebuild the project and start the app.
 
 	This starts the app, which connects to the local mobile service instance.	
 

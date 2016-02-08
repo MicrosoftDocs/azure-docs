@@ -2,7 +2,7 @@
 Next, you need to change when you register for notifications to make sure that the user is authenticated before registration is attempted.
 
 
-1. In Package Explorer in Eclipse, open the ToDoActivity.java file and find the `onCreate` method. Move the following code from the `onCreate` method to the beginning of the `createTable` method.
+1. In Project Explorer in Android Studio, open the ToDoActivity.java file and find the `onCreate` method. Move the following code from the `onCreate` method to the beginning of the `createTable` method.
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 

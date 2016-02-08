@@ -9,21 +9,21 @@
       <text id="text5703" style="text-anchor:start;text-align:start;" font-weight="bold" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="96.236259" x="275.93869" font-family="Segoe UI" fill="#ffffff">Tell me about </text>
       <text id="text5705" style="text-anchor:start;text-align:start;" font-weight="bold" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="107.79639" x="284.16556" font-family="Segoe UI" fill="#ffffff">HDInsight</text>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-introduction/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-introduction/" target="_blank">
         <path id="path5707" fill-rule="evenodd" fill="#a8d08d" d="m480.15,55.452,0,26.01,104.04,0,0-26.01-104.04,0z"/>
         <text id="text5709" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="65.891151" x="491.30484" font-family="Segoe UI" fill="#000000">What is Hadoop on </text>
         <text id="text5711" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="77.451279" x="509.14392" font-family="Segoe UI" fill="#000000">HDInsight</text>
         <text id="text5713" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="77.451279" x="551.56323" font-family="Segoe UI" fill="#000000">?</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-overview/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-hbase-overview/" target="_blank">
         <path id="path5715" fill-rule="evenodd" fill="#a8d08d" d="m480.15,85.797,0,26.01,104.04,0,0-26.01-104.04,0z"/>
         <text id="text5717" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="96.236259" x="495.29379" font-family="Segoe UI" fill="#000000">What is HBase on </text>
         <text id="text5719" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="107.79639" x="509.14392" font-family="Segoe UI" fill="#000000">HDInsight</text>
         <text id="text5721" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="107.79639" x="551.56323" font-family="Segoe UI" fill="#000000">?</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-blob-storage/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-use-blob-storage/" target="_blank">
         <path id="path6263" fill-rule="evenodd" fill="#a8d08d" d="m480.15,116.14,0,26.01,104.04,0,0-26.01-104.04,0z"/>
         <text id="text6265" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="126.58136" x="484.52689" font-family="Segoe UI" fill="#000000">How is the data stored </text>
         <text id="text6267" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="138.14149" x="503.93207" font-family="Segoe UI" fill="#000000">in HDInsight</text>
@@ -43,13 +43,13 @@
       <text id="text5741" style="text-anchor:start;text-align:start;" font-weight="bold" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="190.52283" x="337.27847" font-family="Segoe UI" fill="#ffffff">Go through the </text>
       <text id="text5743" style="text-anchor:start;text-align:start;" font-weight="bold" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="202.08296" x="353.14426" font-family="Segoe UI" fill="#ffffff">tutorials</text>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-get-started/" target="_blank">
         <path id="path5745" fill-rule="evenodd" fill="#a8d08d" d="m480.15,164.91,0,26.01,104.04,0,0-26.01-104.04,0z"/>
         <text id="text5747" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="175.35028" x="498.6239" font-family="Segoe UI" fill="#000000">Get started with </text>
         <text id="text5749" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="186.91042" x="487.58871" font-family="Segoe UI" fill="#000000">Hadoop in HDInsight</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/" target="_blank">
         <path id="path5751" fill-rule="evenodd" fill="#a8d08d" d="m480.15,195.26,0,26.01,104.04,0,0-26.01-104.04,0z"/>
         <text id="text5753" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="205.69537" x="498.6239" font-family="Segoe UI" fill="#000000">Get started with </text>
         <text id="text5755" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="217.25551" x="491.57764" font-family="Segoe UI" fill="#000000">HBase in HDInsight</text>
@@ -65,13 +65,13 @@
       <text id="text5769" style="text-anchor:start;text-align:start;" font-weight="bold" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="282.28073" x="289.87112" font-family="Segoe UI" fill="#ffffff">cluster</text>
       <text id="text5771" style="text-anchor:start;text-align:start;" font-weight="bold" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="282.28073" x="320.09348" font-family="Segoe UI" fill="#ffffff">?</text>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">
         <path id="path5773" fill-rule="evenodd" fill="#a8d08d" d="m480.15,245.11,0,26.01,104.04,0,0-26.01-104.04,0z"/>
         <text id="text5775" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="255.54805" x="490.81351" font-family="Segoe UI" fill="#000000">Provision a Hadoop </text>
         <text id="text5777" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="267.10818" x="518.5257" font-family="Segoe UI" fill="#000000">cluster</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-provision-vnet/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-hbase-provision-vnet/" target="_blank">
         <path id="path5779" fill-rule="evenodd" fill="#a8d08d" d="m480.15,275.45,0,26.01,104.04,0,0-26.01-104.04,0z"/>
         <text id="text5781" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="285.89316" x="492.07639" font-family="Segoe UI" fill="#000000">Provision an HBase </text>
         <text id="text5783" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="297.45328" x="518.5257" font-family="Segoe UI" fill="#000000">cluster</text>
@@ -82,7 +82,7 @@
       <path id="path5789" stroke-linejoin="round" d="m358.77,273.29,91.035,0,0,15.173,26.326,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path5791" fill-rule="evenodd" fill="#5b9bd5" d="m480.15,288.46-5.3285,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3285l5.3285,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started-emulator/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/" target="_blank">
         <path id="path6047" fill-rule="evenodd" fill="#e2efd9" d="m460.64,355.65,0,47.685,143.06,0,0-47.685-143.06,0z"/>
         <path id="path6049" stroke-linejoin="miter" d="m460.64,403.34,143.06,0,0-47.685-143.06,0,0,47.685z" stroke="#c8c8c8" stroke-linecap="square" stroke-miterlimit="4" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
         <text id="text6051" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="365.36835" x="470.10709" font-family="Segoe UI" fill="#000000">Looking to learn HDInsight in </text>
@@ -108,7 +108,7 @@
       <path id="path5807" fill-rule="evenodd" fill="#00bcf2" d="m254.73,366.49,0,26.01,104.04,0,0-26.01-104.04,0z"/>
       <text id="text5809" style="text-anchor:start;text-align:start;" font-weight="bold" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="382.70837" x="278.5867" font-family="Segoe UI" fill="#ffffff">Run samples</text>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-get-started-emulator/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/" target="_blank">
         <path id="path5811" fill-rule="evenodd" fill="#a8d08d" d="m148.52,577.37,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5813" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="592.16199" x="168.58781" font-family="Segoe UI" fill="#000000">Use Azure Blob </text>
         <text id="text5815" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="603.72211" x="156.01907" font-family="Segoe UI" fill="#000000">storage for your data</text>
@@ -117,7 +117,7 @@
       <path id="path5817" stroke-linejoin="round" d="m137.68,569.33,0,25.378,6.8186,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path5819" fill-rule="evenodd" fill="#5b9bd5" d="m148.52,594.71-5.3284,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3284l5.3284,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-upload-data/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-upload-data/" target="_blank">
         <path id="path5821" fill-rule="evenodd" fill="#a8d08d" d="m148.52,617.92,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5823" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="626.91418" x="167.45406" font-family="Segoe UI" fill="#000000">Upload data for </text>
         <text id="text5825" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="638.4743" x="168.3055" font-family="Segoe UI" fill="#000000">Hadoop jobs in </text>
@@ -127,7 +127,7 @@
       <path id="path5829" stroke-linejoin="round" d="m137.68,569.33,0,65.928,6.8186,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path5831" fill-rule="evenodd" fill="#5b9bd5" d="m148.52,635.26-5.3284,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3284l5.3284,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-hive/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-use-hive/" target="_blank">
         <path id="path5833" fill-rule="evenodd" fill="#a8d08d" d="m276.4,576.92,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5835" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="597.50842" x="281.3363" font-family="Segoe UI" fill="#000000">Use Hive with Hadoop</text>
       </a>
@@ -135,7 +135,7 @@
       <path id="path5837" stroke-linejoin="round" d="m263.4,569.33,0,24.926,8.9861,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path5839" fill-rule="evenodd" fill="#5b9bd5" d="m276.4,594.26-5.3284,2.7094c0.85797-1.716,0.85797-3.6577,0-5.3736l5.3284,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-pig/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-use-pig/" target="_blank">
         <path id="path5841" fill-rule="evenodd" fill="#a8d08d" d="m276.4,618.78,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5843" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="639.34131" x="284.04807" font-family="Segoe UI" fill="#000000">Use Pig with Hadoop</text>
       </a>
@@ -143,13 +143,13 @@
       <path id="path5845" stroke-linejoin="round" d="m263.4,569.33,0,66.786,8.9861,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path5847" fill-rule="evenodd" fill="#5b9bd5" d="m276.4,636.12-5.3284,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3285l5.3284,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-mapreduce/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-use-mapreduce/" target="_blank">
         <path id="path5849" fill-rule="evenodd" fill="#a8d08d" d="m276.4,660.59,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5851" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="675.39429" x="302.39276" font-family="Segoe UI" fill="#000000">Use Hadoop </text>
         <text id="text5853" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="686.95441" x="303.45325" font-family="Segoe UI" fill="#000000">MapReduce</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-python/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-python/" target="_blank">
         <path id="path5855" fill-rule="evenodd" fill="#a8d08d" d="m276.4,702.45,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5857" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="717.22717" x="283.5845" font-family="Segoe UI" fill="#000000">Use Python with Hive </text>
         <text id="text5859" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="728.78729" x="312.73395" font-family="Segoe UI" fill="#000000">and Pig</text>
@@ -160,34 +160,34 @@
       <path id="path5865" stroke-linejoin="round" d="m263.4,569.33,0,150.46,8.9861,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path5867" fill-rule="evenodd" fill="#5b9bd5" d="m276.4,719.79-5.3284,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3284l5.3284,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-high-availability/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-high-availability/" target="_blank">
         <path id="path5869" fill-rule="evenodd" fill="#a8d08d" d="m22.804,740.79,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5871" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="749.81189" x="42.89304" font-family="Segoe UI" fill="#000000">Availability and </text>
         <text id="text5873" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="761.37201" x="31.74514" font-family="Segoe UI" fill="#000000">reliability of Hadoop </text>
         <text id="text5875" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="772.93213" x="59.137966" font-family="Segoe UI" fill="#000000">clusters</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-management-portal/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/" target="_blank">
         <path id="path5877" fill-rule="evenodd" fill="#a8d08d" d="m22.804,576.92,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5879" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="597.50842" x="41.127174" font-family="Segoe UI" fill="#000000">Using the Portal</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-powershell/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-powershell/" target="_blank">
         <path id="path5881" fill-rule="evenodd" fill="#a8d08d" d="m22.804,617.92,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5883" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="638.4743" x="38.436577" font-family="Segoe UI" fill="#000000">Using PowerShell</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-administer-use-command-line/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-command-line/" target="_blank">
         <path id="path5885" fill-rule="evenodd" fill="#a8d08d" d="m22.804,658.88,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5887" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="679.44019" x="55.236347" font-family="Segoe UI" fill="#000000">Using CLI</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-monitor-use-ambari-api/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-monitor-use-ambari-api/" target="_blank">
         <path id="path5889" fill-rule="evenodd" fill="#a8d08d" d="m22.804,699.83,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5891" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="720.40607" x="37.982544" font-family="Segoe UI" fill="#000000">Using Ambari API</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-oozie/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-use-oozie/" target="_blank">
         <path id="path5893" fill-rule="evenodd" fill="#a8d08d" d="m276.4,786.08,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5895" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="800.89294" x="296.93405" font-family="Segoe UI" fill="#000000">Use Oozie with </text>
         <text id="text5897" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="812.45306" x="311.58405" font-family="Segoe UI" fill="#000000">Hadoop</text>
@@ -204,14 +204,14 @@
       <path id="path5915" stroke-linejoin="round" d="m11.966,569.33,0,147.84,6.8186,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path5917" fill-rule="evenodd" fill="#5b9bd5" d="m22.804,717.17-5.3285,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3284l5.3285,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-develop-deploy-java-mapreduce/" target="_blank">
         <path id="path5919" fill-rule="evenodd" fill="#a8d08d" d="m276.4,868.9,0,47.685,104.04,0,0-47.685-104.04,0z"/>
         <text id="text5921" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="884.414" x="300.97672" font-family="Segoe UI" fill="#000000">Develop Java </text>
         <text id="text5923" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="895.97412" x="281.65118" font-family="Segoe UI" fill="#000000">MapReduce programs </text>
         <text id="text5925" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="907.5343" x="304.26025" font-family="Segoe UI" fill="#000000">for Hadoop</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/" target="_blank">
         <path id="path5927" fill-rule="evenodd" fill="#a8d08d" d="m276.4,923.31,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5929" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="938.09619" x="281.55963" font-family="Segoe UI" fill="#000000">Develop C</text>
         <text id="text5931" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="938.09619" x="325.24844" font-family="Segoe UI" fill="#000000"># </text>
@@ -219,7 +219,7 @@
         <text id="text5935" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="949.65631" x="308.28409" font-family="Segoe UI" fill="#000000">programs</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-build-java-maven/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-hbase-build-java-maven/" target="_blank">
         <path id="path5937" fill-rule="evenodd" fill="#a8d08d" d="m276.4,964.72,0,47.685,104.04,0,0-47.685-104.04,0z"/>
         <text id="text5939" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="974.43799" x="287.42767" font-family="Segoe UI" fill="#000000">Use Maven to build </text>
         <text id="text5941" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="985.99811" x="283.2453" font-family="Segoe UI" fill="#000000">Java applications that </text>
@@ -227,7 +227,7 @@
         <text id="text5945" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="1009.1184" x="311.58405" font-family="Segoe UI" fill="#000000">Hadoop</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/" target="_blank">
         <path id="path5947" fill-rule="evenodd" fill="#a8d08d" d="m276.4,744.27,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5949" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="764.83997" x="284.46399" font-family="Segoe UI" fill="#000000">Submit Hadoop Jobs</text>
       </a>
@@ -235,19 +235,19 @@
       <path id="path5951" stroke-linejoin="round" d="m263.4,569.33,0,371.32,8.9861,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path5953" fill-rule="evenodd" fill="#5b9bd5" d="m276.4,940.65-5.3284,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3285l5.3284,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-sample-pi-estimator/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-sample-pi-estimator/" target="_blank">
         <path id="path5955" fill-rule="evenodd" fill="#a8d08d" d="m11.966,296.05,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5957" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="310.81949" x="30.052038" font-family="Segoe UI" fill="#000000">The Pi Estimator </text>
         <text id="text5959" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="322.37936" x="49.170662" font-family="Segoe UI" fill="#000000">sample</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-sample-wordcount/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-sample-wordcount/" target="_blank">
         <path id="path5961" fill-rule="evenodd" fill="#a8d08d" d="m11.966,339.4,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5963" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="354.16965" x="30.522476" font-family="Segoe UI" fill="#000000">The WordCount </text>
         <text id="text5965" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="365.72949" x="49.170662" font-family="Segoe UI" fill="#000000">sample</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-sample-10gb-graysort/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-sample-10gb-graysort/" target="_blank">
         <path id="path5967" fill-rule="evenodd" fill="#a8d08d" d="m11.966,382.75,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5969" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="397.51978" x="22.805761" font-family="Segoe UI" fill="#000000">The </text>
         <text id="text5971" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="397.51978" x="40.981388" font-family="Segoe UI" fill="#000000">10</text>
@@ -256,7 +256,7 @@
         <text id="text5977" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="409.0799" x="49.170662" font-family="Segoe UI" fill="#000000">sample</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-sample-csharp-streaming/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-sample-csharp-streaming/" target="_blank">
         <path id="path5979" fill-rule="evenodd" fill="#a8d08d" d="m11.966,426.1,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5981" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="440.8699" x="26.382994" font-family="Segoe UI" fill="#000000">The C</text>
         <text id="text5983" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="440.8699" x="50.522972" font-family="Segoe UI" fill="#000000"># </text>
@@ -264,7 +264,7 @@
         <text id="text5987" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="452.43005" x="49.170662" font-family="Segoe UI" fill="#000000">sample</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-mahout/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-mahout/" target="_blank">
         <path id="path5989" fill-rule="evenodd" fill="#a8d08d" d="m402.12,576.92,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text5991" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="585.94824" x="420.85477" font-family="Segoe UI" fill="#000000">Generate movie </text>
         <text id="text5993" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="597.50842" x="416.02155" font-family="Segoe UI" fill="#000000">recommendations </text>
@@ -274,7 +274,7 @@
       <path id="path5997" fill-rule="evenodd" fill="#00bcf2" d="m380.44,543.32,0,26.01,104.04,0,0-26.01-104.04,0z"/>
       <text id="text5999" style="text-anchor:start;text-align:start;" font-weight="bold" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="559.57703" x="386.4935" font-family="Segoe UI" fill="#ffffff">Real world scenarios</text>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-connect-excel-power-query/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/" target="_blank">
         <path id="path6001" fill-rule="evenodd" fill="#a8d08d" d="m402.12,782.43,0,39.015,104.04,0,0-39.015-104.04,0z"/>
         <text id="text6003" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="793.59552" x="419.19925" font-family="Segoe UI" fill="#000000">Connect Excel to </text>
         <text id="text6005" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="805.15564" x="412.46097" font-family="Segoe UI" fill="#000000">Hadoop with Power </text>
@@ -284,7 +284,7 @@
       <path id="path6009" stroke-linejoin="round" d="m389.11,569.33,0,232.6,8.9861,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path6011" fill-rule="evenodd" fill="#5b9bd5" d="m402.12,801.93-5.3284,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3284l5.3284,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/" target="_blank">
         <path id="path6013" fill-rule="evenodd" fill="#a8d08d" d="m402.12,827.49,0,47.685,104.04,0,0-47.685-104.04,0z"/>
         <text id="text6015" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="837.23474" x="419.19925" font-family="Segoe UI" fill="#000000">Connect Excel to </text>
         <text id="text6017" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="848.79486" x="426.97443" font-family="Segoe UI" fill="#000000">Hadoop with </text>
@@ -295,20 +295,20 @@
       <path id="path6023" stroke-linejoin="round" d="m389.11,569.33,0,282,8.9861,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path6025" fill-rule="evenodd" fill="#5b9bd5" d="m402.12,851.33-5.3284,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3285l5.3284,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-giraph/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-giraph/" target="_blank">
         <path id="path6027" fill-rule="evenodd" fill="#a8d08d" d="m402.12,618.55,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text6029" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="627.56445" x="423.59937" font-family="Segoe UI" fill="#000000">Perform graph </text>
         <text id="text6031" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="639.12457" x="412.30515" font-family="Segoe UI" fill="#000000">analysis with Giraph </text>
         <text id="text6033" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="650.68469" x="424.48148" font-family="Segoe UI" fill="#000000">using Hadoop</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-analyze-twitter-data/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-analyze-twitter-data/" target="_blank">
         <path id="path6035" fill-rule="evenodd" fill="#a8d08d" d="m402.12,660.19,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text6037" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="674.96075" x="411.36691" font-family="Segoe UI" fill="#000000">Analyze Twitter data </text>
         <text id="text6039" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="686.52087" x="424.48148" font-family="Segoe UI" fill="#000000">using Hadoop</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-analyze-flight-delay-data/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-analyze-flight-delay-data/" target="_blank">
         <path id="path6041" fill-rule="evenodd" fill="#a8d08d" d="m402.12,741.65,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text6043" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="756.45905" x="413.02747" font-family="Segoe UI" fill="#000000">Analyze flight delay </text>
         <text id="text6045" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="768.01917" x="413.79187" font-family="Segoe UI" fill="#000000">data using Hadoop</text>
@@ -324,19 +324,19 @@
 
       <path id="path6077" fill-rule="evenodd" fill="#5b9bd5" d="m254.73,98.802-5.3285,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3285l5.3285,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-debug-jobs/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-debug-jobs/" target="_blank">
         <path id="path6079" fill-rule="evenodd" fill="#a8d08d" d="m276.4,1019.1,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text6081" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="1033.9" x="284.37247" font-family="Segoe UI" fill="#000000">Debug Hadoop Error </text>
         <text id="text6083" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="1045.4601" x="307.98563" font-family="Segoe UI" fill="#000000">Messages</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-sqoop/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-use-sqoop/" target="_blank">
         <path id="path6085" fill-rule="evenodd" fill="#a8d08d" d="m276.4,1060.5,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text6087" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="1075.2994" x="296.56018" font-family="Segoe UI" fill="#000000">Move data to a </text>
         <text id="text6089" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="1086.8595" x="284.03589" font-family="Segoe UI" fill="#000000">database with Sqoop</text>
       </a>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-dotnet-avro-serialization/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-dotnet-avro-serialization/" target="_blank">
         <path id="path6091" fill-rule="evenodd" fill="#a8d08d" d="m276.4,1101.9,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text6093" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="1116.6987" x="290.35321" font-family="Segoe UI" fill="#000000">Serialize data with </text>
         <text id="text6095" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="1128.2589" x="284.88974" font-family="Segoe UI" fill="#000000">.</text>
@@ -402,7 +402,7 @@
       <text id="text6157" style="text-anchor:start;text-align:start;" font-weight="bold" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="553.79706" x="519.66925" font-family="Segoe UI" fill="#ffffff">Stay current with </text>
       <text id="text6159" style="text-anchor:start;text-align:start;" font-weight="bold" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="565.35724" x="535.59644" font-family="Segoe UI" fill="#ffffff">HDInsight</text>
      
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-component-versioning/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/" target="_blank">
         <path id="path6161" fill-rule="evenodd" fill="#a8d08d" d="m525.67,578.91,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text6163" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="593.6792" x="547.44122" font-family="Segoe UI" fill="#000000">What</text>
         <path id="path6165" fill="none" d="M570.06,593.68"/>
@@ -417,7 +417,7 @@
 
       <path id="path6179" fill-rule="evenodd" fill="#5b9bd5" d="m525.67,596.25-5.3284,2.6642c0.85797-1.6708,0.85797-3.6577,0-5.3284l5.3284,2.6642z"/>
  
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-release-notes/" target="_blank">
         <path id="path6181" fill-rule="evenodd" fill="#a8d08d" d="m525.67,619.41,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text6183" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="634.21167" x="540.60901" font-family="Segoe UI" fill="#000000">HDInsight release </text>
         <text id="text6185" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="645.77179" x="566.28735" font-family="Segoe UI" fill="#000000">notes</text>
@@ -472,7 +472,7 @@
 
       <path id="path6237" fill-rule="evenodd" fill="#5b9bd5" d="m276.4,1077.8-5.3284,2.6642c0.85797-1.6707,0.85797-3.6576,0-5.3284l5.3284,2.6642z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-analyze-twitter-sentiment/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-hbase-analyze-twitter-sentiment/" target="_blank">
         <path id="path6239" fill-rule="evenodd" fill="#a8d08d" d="m402.12,700.92,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text6241" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="709.92975" x="417.48206" font-family="Segoe UI" fill="#000000">Analyze real</text>
         <text id="text6243" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="709.92975" x="468.69763" font-family="Segoe UI" fill="#000000">-</text>
@@ -485,7 +485,7 @@
       <path id="path6271" stroke-linejoin="round" d="m358.77,98.802,91.035,0,0,30.345,25.694,0" stroke="#5b9bd5" stroke-linecap="round" stroke-dasharray="none" stroke-width="0.72250247px" fill="none"/>
       <path id="path6273" fill-rule="evenodd" fill="#5b9bd5" d="m474.82,126.48,5.3285,2.6642-5.3285,2.6642,0-5.3284z"/>
 
-      <a xlink:href="http://azure.microsoft.com/en-us/documentation/articles/hdinsight-use-oozie-coordinator-time/" target="_blank">
+      <a xlink:href="http://azure.microsoft.com/documentation/articles/hdinsight-use-oozie-coordinator-time/" target="_blank">
         <path id="path6275" fill-rule="evenodd" fill="#a8d08d" d="m276.4,827.49,0,34.68,104.04,0,0-34.68-104.04,0z"/>
         <text id="text6277" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="836.51215" x="281.08707" font-family="Segoe UI" fill="#000000">Use Oozie coordinator </text>
         <text id="text6279" style="text-anchor:start;text-align:start;" font-weight="normal" xml:space="preserve" font-size="9.39253235px" font-style="normal" y="848.07227" x="296.04715" font-family="Segoe UI" fill="#000000">with Hadoop in </text>

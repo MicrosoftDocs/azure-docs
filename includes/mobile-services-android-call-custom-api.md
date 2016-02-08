@@ -1,7 +1,7 @@
 
-##<a name="update-app"></a>Update the app to call the custom API
+###<a name="update-app"></a>Update the app to call the custom API
 
-1. We will add a button labelled "Complete All" next to the existing button, and move both buttons down a line. In Eclipse, open the *res\layout\activity_to_do.xml* file in your quickstart project, locate the **LinearLayout** element that contains the **Button** element named `buttonAddToDo`. Copy the **LinearLayout** and paste it immediately following the original one. Delete the **Button** element from the first **LinearLayout**.
+1. We will add a button labelled "Complete All" next to the existing button, and move both buttons down a line. In Android Studio, open the *res\layout\activity_to_do.xml* file in your quickstart project, locate the **LinearLayout** element that contains the **Button** element named `buttonAddToDo`. Copy the **LinearLayout** and paste it immediately following the original one. Delete the **Button** element from the first **LinearLayout**.
 
 2. In the second **LinearLayout**, delete the **EditText** element, and add the following  code immediately following the existing **Button** element: 
 
@@ -42,7 +42,7 @@
 
 
 
-5. In Package Explorer, right click the project name in the *src* folder (`com.example.{your projects name}`), choose **New** then **Class**. In the dialog, enter **MarkAllResult** in the class name field, choose OK, and replace the resulting class definition with the following code:
+5. In Project Explorer, right click the project name in the *src* folder (`com.example.{your projects name}`), choose **New** then **Class**. In the dialog, enter **MarkAllResult** in the class name field, choose OK, and replace the resulting class definition with the following code:
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -95,9 +95,9 @@
 	
 	This method handles the **Click** event for the new button. The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors.
 
-## Test the app
+### Test the app
 
-1. From the **Run** menu, click **Run** to start the project in the Android emulator.
+1. From the **Run** menu, click **Run app** to start the project in the Android emulator, or in a connected Android device.
 
 	This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.
 

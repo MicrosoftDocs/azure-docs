@@ -1,5 +1,4 @@
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Windows Store C# | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/)
-- [(Windows Store C# | Javascript)](/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage/)
-- [(Windows Phone | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/)
-- [(Windows Phone | Javascript)](/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage/)
+- [(Windows Runtime 8.1 universal C# | .NET)](../articles/mobile-services-dotnet-backend-windows-universal-dotnet-upload-data-blob-storage.md)
+- [(Windows Runtime 8.1 universal C# | Javascript)](../articles/mobile-services-javascript-backend-windows-universal-dotnet-upload-data-blob-storage.md)
+- [(Android | Javascript)](../articles/mobile-services-android-upload-data-blob-storage.md)

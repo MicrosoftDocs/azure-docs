@@ -13,9 +13,7 @@ The final stage of this tutorial is to build and run your new app.
 
 	Notice that data saved from the previous step is loaded from the mobile service after the app starts.
  
-4. Back in the Management Portal, click the **Data** tab and then click the **TodoItems** table.
-
-   	![](./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png)
+4. Back in the [Azure classic portal](https://manage.windowsazure.com/), click the **Data** tab and then click the **TodoItems** table.
 
    	This lets you browse the data inserted by the app into the table.
 

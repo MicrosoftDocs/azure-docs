@@ -1,6 +1,6 @@
 ##<a name="add-select-images"></a>Update the quickstart client app to capture and upload images
 
-1. In Visual Studio 2012, open the Package.appxmanifest file and in the **Capabilities** tab enable the **Webcam** and **Microphone** capabilities.
+1. In Visual Studio, open the Package.appxmanifest file and in the **Capabilities** tab enable the **Webcam** and **Microphone** capabilities.
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
@@ -50,7 +50,7 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   	>[WACOM.NOTE]To add new properties to the TodoItem object, you must have Dynamic Schema enabled in your mobile service. When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties.
+   	>[AZURE.NOTE]To add new properties to the TodoItem object in a JavaScript backend mobile service, you must have Dynamic Schema enabled in your mobile service. When Dynamic Schema is enabled, new columns are automatically added to the TodoItem table that map to these new properties. For a .NET backend mobile service, see the topic [How to make data model changes to a .NET backend mobile service](../articles/mobile-services/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 5. In the MainPage class, add the following code:
 
@@ -140,5 +140,5 @@ The final step is to test the app and validate that uploads succeed.
 
 	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-ie.png)
 
-   	>[WACOM.NOTE]The image is downloaded automatically from the Blob Storage service when the <code>imageUri</code> property of the new item is bound to the <strong>Image</strong> control.
+   	>[AZURE.NOTE]The image is downloaded automatically from the Blob Storage service when the <code>imageUri</code> property of the new item is bound to the <strong>Image</strong> control.
 
