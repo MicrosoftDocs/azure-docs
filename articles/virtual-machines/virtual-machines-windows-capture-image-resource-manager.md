@@ -17,7 +17,6 @@
 	ms.date="01/29/2016"
 	ms.author="dkshir"/>
 
-
 # How to capture a Windows virtual machine in the Resource Manager deployment model
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-capture-image-windows-server.md).
