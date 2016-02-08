@@ -63,7 +63,7 @@ PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 -	In the DirectorySearcher project, open `MainPage.xaml.cs`.  Replace the values in the `Config Values` region to reflect the values you input into the Azure Portal.  Your code will reference these values whenever it uses ADAL.
     -	The `tenant` is the domain of your Azure AD tenant, e.g. contoso.onmicrosoft.com
     -	The `clientId` is the clientId of your application you copied from the portal.
--	You now need to discover the callback uri for your Windows Phone app.  Set a breakpoint on this line in the `MainPage` method:
+-	You now need to discover the callback uri for your Windows Store app.  Set a breakpoint on this line in the `MainPage` method:
 
 ```
 redirectURI = Windows.Security.Authentication.Web.WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
@@ -91,7 +91,7 @@ public MainPage()
 }
 ```
 
-- Now locate the `Search(...)` method, which will be invoked when the user cliks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
+- Now locate the `Search(...)` method, which will be invoked when the user clicks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)

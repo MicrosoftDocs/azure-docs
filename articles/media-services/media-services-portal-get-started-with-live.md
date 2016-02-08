@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="01/31/2016"  
 	ms.author="juliako"/>
 
 
@@ -37,8 +37,7 @@ In this tutorial, the Azure Classic Portal is used to accomplish the following t
 ## Prerequisites
 The following are required to complete the tutorial.
 
-- To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes.
-For details, see [Azure Free Trial](azure.microsoft.com).
+- To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
 - A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
 - A webcam and an encoder that can send a multi-bitrate live stream.
 
@@ -89,7 +88,7 @@ Once the channel is created, you can get ingest URLs that you will provide to th
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-For more information about Ingest URLs, see [Using on-premises encoders to send multi-bitrate live stream to a channel](../media-services-channels-overview.md).
+For more information about Ingest URLs, see [Using on-premises encoders to send multi-bitrate live stream to a channel](media-services-channels-overview.md).
 
 ## Configure a live encoder and ingest live stream
 

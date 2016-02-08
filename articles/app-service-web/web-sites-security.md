@@ -30,7 +30,7 @@ Security in Azure App Service has two levels:
 Because App Service maintains the Azure VMs, storage, network connections, web frameworks, management and integration features and much more, it is actively secured and hardened and goes 
 through vigorous compliance and checks on a continuous basis to make sure that:
 
-- Your App Service apps are isolated from both the Internet from other customers' Azure resources.
+- Your App Service apps are isolated from both the Internet and from the other customers' Azure resources.
 - Communication of secrets (e.g. connection strings) between your App Service app and other Azure resources (e.g. SQL Database) in a resource group stays within Azure and doesn't cross any network boundaries. Secrets are 
 always encrypted.
 - All communication between your App Service app and external resources, such as PowerShell management, command-line interface, Azure SDKs, REST APIs, and hybrid connections, are properly encrypted.
@@ -72,8 +72,8 @@ Enabling [HTTPS](https://en.wikipedia.org/wiki/HTTPS) can help protect against M
 App Service highly integrates with SQL Database, such that all the connection strings are encrypted across the board and are only decrypted on the VM that the app runs on *and* only when the app runs. 
 In addition, Azure SQL Database includes many security features to help you secure your application data from cyber threats, including 
 [at-rest encryption](https://msdn.microsoft.com/library/dn948096.aspx), [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx),
-[Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md), and [Threat Detection](sql-database-threat-detection-get-started). 
-If you have sensitive data or compliance requirements, see [Securing your SQL Database](sql-database-security.md) for more information on how to secure 
+[Dynamic Data Masking](../sql-database/sql-database-dynamic-data-masking-get-started.md), and [Threat Detection](sql-database-threat-detection-get-started). 
+If you have sensitive data or compliance requirements, see [Securing your SQL Database](../sql-database/sql-database-security.md) for more information on how to secure 
 your data.
 
 If you use a third-party database provider, such as ClearDB, you should consult with the provider's documentation directly on security best practices.  
