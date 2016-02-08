@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/08/2016"
 	ms.author="v-anpasi"/>
 
-# Add a SQL resource provider to Azure Stack
+# Add a SQL Server resource provider to Azure Stack
 
 The SQL Server Resource Provider adaptor lets you use any SQL Server-based workload through Azure Stack so that SQL server databases can be used when deploying cloud native apps as well as SQL-based websites on Azure Stack.
 
