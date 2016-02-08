@@ -3,7 +3,7 @@
 	description="Down sampling data in Azure HDInsight  (Hadopop) Hive Tables"
 	services="machine-learning,hdinsight"
 	documentationCenter=""
-	authors="hangzh-msft"
+	authors="bradsev,hangzh-msft"
 	manager="paulettm" 
 	editor="cgronlun"  />
 
@@ -13,28 +13,33 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="02/07/2016"
 	ms.author="hangzh;bradsev" />
 
 # Sample data in Azure HDInsight Hive tables
 
-This **menu** links to topics that describe how to sample data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
+## Introduction
+
+In this article, we describe how to down-sample data stored in Azure HDInsight Hive tables using Hive queries. We cover three popularly used sampling methods: 
+
+* Uniform random sampling 
+* Random sampling by groups 
+* Stratified sampling
+
+**Why sample your data?**
+If the dataset you plan to analyze is large, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
+
+The **menu** below links to topics that describe how to sample data from various storage environments. 
 
 [AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
-## Introduction
+This sampling task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-If the dataset you plan to analyze is big, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. Its role in the Cortana Analytics Process is to enable fast prototyping of the data processing functions and machine learning models.
 
-In this article, we describe how to down-sample data in Azure HDInsight Hive tables using Hive queries. We cover three popularly used sampling methods: 
+## How to submit Hive queries
+Hive queries can be submitted from the Hadoop Command Line console on the head node of the Hadoop cluster. To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there. For instructions on submitting Hive queries in the Hadoop Command Line console, see [How to Submit Hive Queries](machine-learning-data-science-process-hive-tables.md#submit).
 
-* Uniform random sampling 
-* random sampling by groups 
-* stratified sampling
-
-You should submit the Hive queries from the Hadoop Command Line console on the head node of the Hadoop cluster. To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there. For instructions on submitting Hive queries in the Hadoop Command Line console, see [How to Submit Hive Queries](machine-learning-data-science-process-hive-tables.md#submit).
-
-## <a name="uniform"></a> Uniform random sampling ##
+## <a name="uniform"></a> Uniform random sampling
 Uniform random sampling means that each row in the data set has an equal chance of being sampled. This can be implemented by adding an extra field rand() to the data set in the inner "select" query, and in the outer "select" query that condition on that random field.
 
 Here is an example query:
@@ -52,7 +57,7 @@ Here is an example query:
 
 Here, `<sample rate, 0-1>` specifies the proportion of records that the users want to sample.
 
-## <a name="group"></a> Random sampling by groups ##
+## <a name="group"></a> Random sampling by groups
 
 When sampling categorical data, you may want to either include or exclude all of the instances of some particular value of a categorical variable. This is what is meant by "sampling by group".
 For example, if you have a categorical variable "State", which has values NY, MA, CA, NJ, PA, etc, you want records of the same state be always together, whether they are sampled or not.

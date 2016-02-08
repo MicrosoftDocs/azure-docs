@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" /> 
 
 #Explore data in the Cortana Analytics Process
-
-This **menu** links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
 This document covers how to explore data in four different environments typically used in the Cortana Analytics Process:
 
@@ -28,3 +24,9 @@ This document covers how to explore data in four different environments typicall
 - **SQL Server data** data is explored by using SQL and by using a programming language like Python.
 - **Hive table** data is explored using Hive queries.
 - **Azure Machine Learning (AML) Studio** data is explored using AML modules.
+
+This **menu** links to the topics that describe how to use these tools to explore data from various storage environments. 
+
+[AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
+
+
