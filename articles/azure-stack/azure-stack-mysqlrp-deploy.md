@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/04/2016"
+	ms.date="02/08/2016"
 	ms.author="v-anpasi"/>
 
 # Add a MySQL resource provider to Azure Stack
