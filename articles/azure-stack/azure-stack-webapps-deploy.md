@@ -27,12 +27,12 @@ The Azure Stack Web Apps resource provider utilizes the same code as used in Azu
 
 In Azure there is a Shared worker that supports high density multi-tenant web app hosting and 3 reserved sizes of dedicated workers, Small, Medium, and Large.  The needs of on premise customers though cannot be always so described so in Azure Stack Web Apps the resource provider administrator can define the worker tiers they wish to make available and then define their own pricing SKUs that use those worker tiers.   
 
-## Portal Features
+## Portal features
 
 As with the back-end the UI used in Azure Stack is the same that is used in Azure.  There are a number of things that are disabled as they are not yet functional in Azure Stack due to Azure specific expectations or services that are not yet available in Azure Stack that those features require.
 There are two portals for the Azure Stack App Service, the Resource Provider administration portal and the End user tenant portal.
 
-### Resource Provider administration
+### Resource provider administration
 
 - Manage roles
 - View system properties
@@ -114,7 +114,7 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 Once the deployment completes, navigate to the Resource Group in the Azure Stack portal, select the Sq0-NIC resource, and take note of the Private IP address (it will be something like: 10.0.2.4). This IP address will be used later in this deployment process.
 Record the IP address for the SQL Server.  To do this Browse > Resource Groups > select resource group used for installing SQL server > Resources > Sq0-NIC  This address will be needed when running the ARM template.
 
-### Azure Web Apps Installation steps
+### Azure Web Apps installation steps
 
 The installation experience for Azure Stack Web Apps starts with the download of the appservice.exe installer from [Azure Stack App Service preview installer][Azure_Stack_App_Service_preview_installer]. 
 
