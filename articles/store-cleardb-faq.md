@@ -3,8 +3,8 @@
 	description="Answers to common questions about using ClearDB MySQL databases with Azure App Service."
 	documentationCenter="php"
 	services=""
-	authors="rmcmurray"
-	manager="wpickett"
+	authors="sunbuild"
+	manager="yochayk"
 	editor=""
 	tags="mysql"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/08/2016"
-	ms.author="robmcm"/>
+	ms.author="sumuth"/>
 
 This FAQ answers common questions about using and purchasing ClearDB MySQL databases for Azure Web Apps.
 
@@ -25,7 +25,7 @@ You have several options:
 
 * [ClearDB Shared MySQL database](/marketplace/partners/cleardb/databases/)
 
-* [ClearDB MySQL Premium clusters](/marketplace/partners/cleardb-clusters/cluster/) 
+* [ClearDB MySQL Premium clusters](/marketplace/partners/cleardb-clusters/cluster/)
 
 * [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 
@@ -40,12 +40,12 @@ This depends on the type of subscription you are using. Here are some commonly u
 * [Pay as you Go](/offers/ms-azr-0003p/): Requires a credit card, and when you purchase a paid MySQL database your credit card will be charged.
 
 * [Free trial](https://azure.microsoft.com/pricing/free-trial/): Includes credits for use with Microsoft Azure services but doesn't allow purchase of third party resources. To purchase third party services or a paid MySQL database you need to use a credit card enabled subscription. For Web Apps you can create a FREE ClearDB MySQL database.
- 
+
 * [MSDN subscription](/pricing/member-offers/msdn-benefits/) and **MSDN Dev Test Pay as you go**: Similar to Free trial, an MSDN subscription requires you to have a credit card to purchase a paid MySQL solution from ClearDB.
 
-* [Enterprise Agreement (EA)](/pricing/enterprise-agreement/): EA customers are billed against their EA each quarter for all of their Azure Marketplace (third party) purchases on a separate, consolidated invoice. You will be billed outside the monetary commitment for any marketplace purchases. Please note that, at this time, Azure Store is not available to customers enrolled in Azerbaijan, Croatia, Norway and Puerto Rico.
+* [Enterprise Agreement (EA)](/pricing/enterprise-agreement/): EA customers are billed against their EA each quarter for all of their Azure Marketplace (third party) purchases on a separate, consolidated invoice. You will be billed outside the monetary commitment for any marketplace purchases. Please note that, at this time, Azure Store is not available to customers enrolled in Azerbaijan, Croatia, Norway and Puerto Rico. 
 
-* **DreamSpark**: You can create only FREE ClearDB databases for Web Apps. There is no limit on the number of Free ClearDB MySQL databases you can create. Note that Free databases are not to be used for production web apps, as this service is intended only for trial.
+*   [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): You can create only FREE ClearDB databases for Web Apps. There is no limit on the number of Free ClearDB MySQL databases you can create. Note that Free databases are not to be used for production web apps, as this service is intended only for trial.
 
 ## Why was I charged $3.50 for a Web app + MySQL from the Azure Marketplace?
 
@@ -57,7 +57,7 @@ Yes. You can connect your web app to your database as long as your Azure VM has 
 
 ## In which countries are ClearDB Premium MySQL clusters supported?
 
-[ClearDB Premium MySQL clusters](/marketplace/partners/cleardb-clusters/cluster/) are available in all Azure regions worldwide with the exception of India, Australia, Brazil South and Mainland China.
+[ClearDB Premium MySQL clusters](/marketplace/partners/cleardb-clusters/cluster/) are available in all Azure regions worldwide with the exception of India, Australia, Brazil South, and China.
 
 ## Can I create a new cluster prior to creating a database with ClearDB premium cluster solution?
 
@@ -77,17 +77,17 @@ Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend eithe
 
 ## How do I upgrade my ClearDB database from one plan to another?
 
-You can use the [ClearDB Upgrade Wizard](https://www.cleardb.com/store/azure/upgrade). Currently we don’t have an upgrade path in the Azure portal. 
+You can use the [ClearDB Upgrade Wizard](https://www.cleardb.com/store/azure/upgrade). Currently we don’t have an upgrade path in the Azure portal.
 
 ## Who do I contact for support when my database is down?
 
 Contact [ClearDB support](https://www.cleardb.com/developers/help/support) for any database related issues. Be prepared to provide them with your Azure subscription information.
 
-## Can I purchase Scalable WordPress with an Enterprise Agreement (EA) subscription? 
+## Can I purchase Scalable WordPress with an Enterprise Agreement (EA) subscription?
 
 The process is the same for any subscription. Go to Azure Marketplace in the [Azure portal](https://portal.azure.com/), and select [Scalable WordPress](https://portal.azure.com/?feature.customportal=false#create/WordPress.ScalableWordPress) to start creating the app. Scalable WordPress only supports ClearDB Saturn and Jupiter pricing tiers, and your EA credits will go towards both your web application running on the Standard Web Apps pricing tier and the paid ClearDB (shared) MySQL database.[/marketplace/faq/](/marketplace/faq/)  You will be billed against your EA each quarter for all Store purchases on a separate, consolidated invoice.
 
-## Can I transfer a ClearDB database from a credit card subscription to an EA subscription? 
+## Can I transfer a ClearDB database from a credit card subscription to an EA subscription?
 
 Existing ClearDB databases will use the credit card associated with the existing subscriptions. To use an EA subscription you need to migrate your data to a new database:
 
@@ -106,10 +106,10 @@ Indirect EA customers can find their Azure Marketplace subscriptions on the **Ma
 
 Access to Azure Marketplace for third party services can be managed by your EA Azure enrollment administrators. They can disable or re-enable access to 3rd party purchases from the Store in Manage Accounts and Subscriptions under the Accounts section in the Enterprise Portal.
 
-## Who do I contact for questions about my bill for ClearDB services in my EA subscription? 
+## Who do I contact for questions about my bill for ClearDB services in my EA subscription?
 
 Contact [Enterprise Customer Support](http://aka.ms/AzureEntSupport) with regards to billing under their EA enrollment. The EA Portal Support Team will answer your question or help resolve your issue.
 
 ## More information
 
-Azure Marketplace FAQ
+[Azure Marketplace FAQ](https://azure.microsoft.com/en-us/marketplace/faq/)
