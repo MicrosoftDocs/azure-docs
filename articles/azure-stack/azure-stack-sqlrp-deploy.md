@@ -26,7 +26,7 @@ Before deploying SQL resource providers, you'll need to create a default Windows
 
 ### Create an image of Windows Server including .NET 3.5
 
-You'll need to create a Windows Server 2012 R2 Datacenter VHD with .Net 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of WindowsServer2012R2 including .NET 3.5](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5).
+You'll need to create a Windows Server 2012 R2 Datacenter VHD with .Net 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of WindowsServer2012R2 including .NET 3.5](azure-stack-add-image-pir.md#create-an-image-of-windowsserver2012r2-including-net-35).
 
 ### Turn off IE Enhanced Security
 
@@ -63,13 +63,13 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 4. In the **Actions** pane, click **Create Domain Certificate**.
 
-5. In the **Common name** box, type *\*.azurestack.local*.
+5. In the **Common name** box, type **\*.azurestack.local**.
 
 6. Type values of your choice in the other boxes and then click **Next**.
 
 7. Click **Select** and choose **AzureStackCertificationAuthority**.
 
-8. In the **Friendly name** box, type *\*.azurestack.Local*.
+8. In the **Friendly name** box, type **\*.azurestack.local**.
 
 
 
@@ -123,7 +123,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 
 12. Make sure that the parameter value for **cseBlobStorage** is **AzureStack.SQLRP.Setup.5.11.61.0.nupkg** (make sure the numbers are accurate).
 
-13. Launch PowerShell ISE as an admin, **CD** into **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment**, and then run **SqlRPTemplateDeployment.ps1**.
+13. Launch PowerShell Console as an admin, **CD** into **D:\SQLRP\AzureStack.SqlRP.Deployment.5.11.61.0\Content\Deployment**, and then run **SqlRPTemplateDeployment.ps1**.
 
 14. At the **AadTenantDirectoryName** prompt, type your Azure Stack environment URL.
 
