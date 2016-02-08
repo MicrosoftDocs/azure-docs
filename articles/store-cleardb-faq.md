@@ -17,6 +17,8 @@
 	ms.date="02/08/2016"
 	ms.author="sumuth"/>
 
+# FAQ for ClearDB MySql databases with Azure App Service
+
 This FAQ answers common questions about using and purchasing ClearDB MySQL databases for Azure Web Apps.
 
 ## What options do I have for MySQL on Azure?
