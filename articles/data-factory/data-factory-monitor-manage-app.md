@@ -189,7 +189,6 @@ You can switch to different activity window by clicking on it in the calendar vi
 
 In the Activity Window details pane (bottom pane), you see two buttons on the toolbar. The first one is to **rerun** an activity window and the second one is to **refresh** details in the window. The details are not automatically refreshed, so you use the refresh button to do so.  
 
-#### Sort or filter activity windows
 In the Activity Windows list, click on the name of a column (for example: Status). 
 
 ![Activity Windows List column menu](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
@@ -212,10 +211,6 @@ When you click an activity window in the list, you will see details about the ac
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
-Change the start time and end time settings in the command bar to filter activity windows. After you change Start time and End time, click the button next to end-time to refresh the Activity Windows list.
-
-![Start and End Times](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
-
 
 ## Using system views
 The Monitoring and Management App includes pre-built system views (**Recent activity windows**, **Failed activity windows**, **In-Progress activity windows**) that allows you to view recent/failed/in-progress activity windows for your data factory. 
@@ -229,6 +224,12 @@ There are three system views supported at this time. Select an option to see rec
 For example, you can use the **Failed activity windows** view to see all failed activity windows in the list. Select a failed activity window in the list to see details about it in the **Properties** window (or) **Activity Window Explorer**. You can also download any logs for a failed activity window. 
 
 
+## Filtering activity windows
+Change the start time and end time settings in the command bar to filter activity windows. After you change Start time and End time, click the button next to end-time to refresh the Activity Windows list.
+
+![Start and End Times](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
+
+
 ## Performing batch actions
 
 ### Rerun an activity window
@@ -237,6 +238,10 @@ Select an activity window, click the down arrow for the first command bar button
 
 You can also select multiple activity windows in the list and rerun them at the same time. You may want to filter activity windows based on the status (for example: **Failed**) and then rerun the failed activity windows after correcting the issue that causes the activity windows to fail. See the following section for details about filtering activity windows in the list.  
 
+### Pause/resume multiple pipelines
+You can multi-select two or more pipelines (using CTRL) and use command bar buttons (highlighted in red rectangle in the following image) to suspend/resume them at a time.
+
+![Suspend/Resume on Command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
 ## Creating alerts 
 The Alerts page lets you create a new alert, view/edit/delete existing alerts. You can also disable/enable an alert. Click the Alerts tab to see the page.
