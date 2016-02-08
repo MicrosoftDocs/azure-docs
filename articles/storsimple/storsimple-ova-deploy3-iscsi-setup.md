@@ -102,8 +102,8 @@ Use the following step-by-step instructions to set up and configure your StorSim
         
            > [AZURE.NOTE]
 	   > 
-	   > If joining your iSCSI server to a domain, ensure that your virtual array is in in its own organizational unit (OU) for 
-	   > Microsoft Active Directory and no group policy objects (GPO) are applied to it.
+	   > If joining your iSCSI server to a domain, ensure that your virtual array is in its own organizational unit (OU) for 
+	   > Microsoft Azure Active Directory and no group policy objects (GPO) are applied to it.
 	   
 
     6. Click **Apply**. This will apply and validate the device settings.
