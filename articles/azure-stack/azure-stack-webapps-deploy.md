@@ -107,12 +107,12 @@ To install Azure Stack Web apps there are a few items that you will need.  Those
 
 - Download and expand the [WebAppsDeployment.zip](http://go.microsoft.com/fwlink/?LinkId=723982) to the client machine. 
 - Run the **Deploy-SqlServerDSC.ps1** script to provision a new VM and install SQL server.
-**NOTE** Make sure to remember the resource group used in the script to provision the SQL virtual machine. The same resource group should be used during Web Apps deployment in the next step. When prompted to create a user account on the VM, the username admin will be auto-populated and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App ARM template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
+**NOTE** Make sure to remember the resource group used in the script to provision the SQL virtual machine. The same resource group should be used during Web Apps deployment in the next step. When prompted to create a user account on the VM, the username admin will be auto-populated and you will be asked to submit a password. Make sure to record this password for as you’ll need it again when you deploy the Web App Azure Resource Manager template (for example *SQLServerPassword*). This will be the password for the Web Apps service to access its runtime SQL database located on this SQL server.
 
 **NOTE** The resource group used in the script to provision the SQL vm should be the same resource group used during the WebApps deployment in the next step. The script default for the Resource Group is: WebsitesSQL. 
 
 Once the deployment completes, navigate to the Resource Group in the Azure Stack portal, select the Sq0-NIC resource, and take note of the Private IP address (it will be something like: 10.0.2.4). This IP address will be used later in this deployment process.
-Record the IP address for the SQL Server.  To do this Browse > Resource Groups > select resource group used for installing SQL server > Resources > Sq0-NIC  This address will be needed when running the ARM template.
+Record the IP address for the SQL Server.  To do this Browse > Resource Groups > select resource group used for installing SQL server > Resources > Sq0-NIC  This address will be needed when running the Azure Resource Manager template.
 
 ### Azure Web Apps installation steps
 
@@ -126,9 +126,9 @@ This installer will:
 4.	Download the files needed to install the Azure Stack Web App resource provider.
 5.	Prepare the install to deploy the Web App resource provider in the Azure Stack environment.
 6.	Upload the files to the Azure Stack storage account specified.
-7.	Present information needed to kick off the ARM templat.e
+7.	Present information needed to kick off the Azure Resource Manager template.
 
-As administrator run the installer that you just downloaded.  The last item will seem to offer the ability to directly bring up the UI for the ARM template but that capability is not yet operational.  The UI screens for the installer appear as shown:
+As administrator run the installer that you just downloaded.  The last item will seem to offer the ability to directly bring up the UI for the Azure Resource Manager template but that capability is not yet operational.  The UI screens for the installer appear as shown:
  
 **NOTE** The installer must be executed with an elevated account (local or domain Administrator). If logged in as azurestack\azuerstackuser, you will be prompted for elevated credentials.
 
@@ -166,15 +166,15 @@ Click "No". By clicking "No", the following text is copied to your clipboard:
     Template location:  http://mytp1webapp.blob.azurestack.local/appservice-template/AzureStackAppServiceTemplate.json
     Invoke from Portal: https://portal.azurestack.local/#create/Microsoft.Template/uri/http%3A%2F%2Fmytp1webapp.blob.core.windows.net%2Fappservice-template%2FAzureStackAppServiceTemplate.json 
 
-This is the information needed to get and kick off the WebApps ARM template.
+This is the information needed to get and kick off the WebApps Azure Resource Manager template.
 
 Open Notepad and paste the contents of your clipboard immediately.  
 
 **NOTE** If this information is lost for some reason, you can still get everything you need by accessing the storage account blob container directly. 
 
-### Web App ARM deployment
+### Web App Azure Resource Manager deployment
 
-The Azure Stack Web App ARM template will collect information defining the web app resource provider deployment.  There are a few things that need to be noted:
+The Azure Stack Web App Azure Resource Manager template will collect information defining the web app resource provider deployment.  There are a few things that need to be noted:
 
 - The storage account name entered will create a new account.
 - The environment DNS suffix is the subdomain that is used for web apps created in this environment (example: webapps.azurestack.local).
@@ -239,7 +239,7 @@ DNS entries need to be made for the Front End and Management Server VIPs.  To do
 
 6. Click **Add host**.
 
-7. In the **Name** box, type \*.webapps. This DNS name should match the name you used when populating the ARM template for the Web App resource provider. In this case we had webapps.azurestack.local so the DNS name should be \*.webapps.
+7. In the **Name** box, type \*.webapps. This DNS name should match the name you used when populating the Azure Resource Manager template for the Web App resource provider. In this case we had webapps.azurestack.local so the DNS name should be \*.webapps.
 
 8. In the **IP address** box, type the IP address for the **FrontEndServersLoadBalancer** that you noted above.
 
