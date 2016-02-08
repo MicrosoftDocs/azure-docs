@@ -32,9 +32,9 @@ In order to complete this tutorial you'll need the following:
 - An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].
 - [Microsoft Azure PowerShell 1.0][lnk-powershell-install] or later.
 
-[AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
-
 > [AZURE.TIP] This article describes how to create a new IoT hub using a C# program and an ARM template. You can also use the [ARM template](#submit-a-template-to-create-an-iot-hub) in the current article with a PowerShell script instead of a C# program. The article [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] describes how to write a PowerShell script that uses an ARM template to create an Azure resource such as an IoT hub. 
+
+[AZURE.INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## Prepare your Visual Studio project
 
