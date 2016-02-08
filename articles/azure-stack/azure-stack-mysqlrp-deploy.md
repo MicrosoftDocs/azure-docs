@@ -18,7 +18,7 @@
 
 # Add a MySQL resource provider to Azure Stack
 
-MySQL databases support common website platforms as is a common technology used on the websites scene. You can deploy the MySQL Resource Provider to work with servers and databases through Azure Resource Manager deployment templates, as well as deploy WordPress websites from the Azure Web Apps add on for Azure Stack
+MySQL databases support common website platforms as is a common technology used on the websites scene. You can deploy the MySQL Resource Provider to work with servers and databases through Azure Resource Manager deployment templates, as well as deploy WordPress websites from the Azure Web Apps add on for Azure Stack.
 
 ## Prepare the Azure Stack POC machine
 
@@ -72,9 +72,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 5.	Click the **Download-MySqlServer.ps1** tab and run it. When prompted, accept the EULA by clicking **Yes** in the **Confirm** dialog box. This command adds two zip files to the D:\MySql\BlobStorage\Container folder.
 
-6.	Click the **Upload-Microsoft.MySql-RP.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command uploads the binaries for the MySQL resource provider.
-> When prompted for AadTenantID, input your AAD tenant FQDN, e.g. microsoftazurestack.onmicrosoft.com
-> When Prompted for service admin credentials, input your Azure Stack Service Admin user's username and password
+6.	Click the **Upload-Microsoft.MySql-RP.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command uploads the binaries for the MySQL resource provider. When prompted for AadTenantID, input your AAD tenant FQDN, e.g. microsoftazurestack.onmicrosoft.com. When Prompted for service admin credentials, input your Azure Stack Service Admin user's username and password.
 
 7.	Click the **Publish-GalleryPackages.ps1** tab and run it. In the **Windows PowerShell credential request** dialog box, type the Azure Stack service administrator credentials. This command adds two marketplace items to the Azure Stack POC portal.
 
