@@ -66,12 +66,13 @@ HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows S
 
 ### Linux and OSS cluster solutions
 
-Use these Azure quickstart templates to deploy Linux HPC clusters with open source tools.
+Use these Azure templates to deploy Linux HPC clusters.
 
 * [Spin up a SLURM cluster](https://azure.microsoft.com/documentation/templates/slurm/)
  and [blog post](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
 * [Spin up a Torque cluster](https://azure.microsoft.com/documentation/templates/torque-cluster/)
+
 
 ## Microsoft MPI
 
@@ -115,7 +116,21 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-size-specs.
 
 * [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
 
+## Customer stories
 
+* [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222)
+
+* [Milliman](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=14967)
+
+* [ANEO](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=4168) 
+
+* [d3View](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088)
+
+* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+
+* [Ludwig Institute of Cancer Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5830)
+
+* [Microsoft Research](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=15634)
 
 ## Next steps
 
