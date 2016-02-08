@@ -40,7 +40,7 @@ To deploy a resource provider, your PowerShell ISE must be run as an administrat
 
 **Enable cookies**
 
-1. Click the Star button, click **All apps**, click **Windows accessories**, right-click **Internet Explorer**, click **More**, and then click **Run as an administrator**.
+1. Click the Start button, click **All apps**, click **Windows accessories**, right-click **Internet Explorer**, click **More**, and then click **Run as an administrator**.
 
 2. If prompted, check **Use recommended security**, and then click **OK**.
 
