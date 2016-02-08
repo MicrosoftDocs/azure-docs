@@ -38,13 +38,6 @@ The Office365 Video Connector connector can be used as an action; there are no t
 
  The Office365 Video Connector connector has the following action(s) and/or trigger(s) available:
 
-### Office365 Video Connector triggers
-You can listen for these event(s):
-
-|Trigger | Description|
-|--- | ---|
-
-
 ### Office365 Video Connector actions
 You can take these action(s):
 
