@@ -41,3 +41,4 @@ While a paid Azure AD subscription (Basic or Premium) is not necessary to use Az
  - [External user token format](active-directory-b2b-references-external-user-token-format.md)
  - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
  - [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
+ - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

@@ -40,9 +40,13 @@ This capability can be used with hundreds of applications that you can add from 
 > [AZURE.NOTE]
 >You will see the Users and Groups tab only after you have enabled Azure AD Premium or Azure AD Basic.
 
+##Related Articles
+
 These articles provide additional information on Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md)
+
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 
 * [What is Azure Active Directory?](active-directory-whatis.md)
 

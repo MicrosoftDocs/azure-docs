@@ -89,3 +89,6 @@ The following example shows how to enable on-premises MFA by using the [Set-Msol
 
 In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for deploying Azure Multi-Factor Authentication on-premises.
 
+##Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

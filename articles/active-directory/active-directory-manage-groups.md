@@ -93,6 +93,8 @@ These articles provide additional information on Azure Active Directory.
 
 * [What is Azure Active Directory?](active-directory-whatis.md)
 
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 
 * [Graph API Reference for Groups](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)

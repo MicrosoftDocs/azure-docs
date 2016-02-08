@@ -77,3 +77,7 @@ By default, the user will need to consent to the permission that’s required in
 For applications that you trust, it’s possible for you to consent to application on behalf of all of the users in your organization.
 
 For more information about user consent and the consent experience in Azure, see [Integrating Applications with Azure Active Directory](active-directory-integrating-applications.md)
+
+##Related Articles
+
+- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
