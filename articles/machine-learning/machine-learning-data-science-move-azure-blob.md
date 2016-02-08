@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev;sunliangms;sachouks;mohabib" />
 
 # Move Data to and from Azure Blob Storage
