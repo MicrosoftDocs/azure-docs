@@ -24,18 +24,40 @@ MySQL databases support common website platforms as is a common technology used 
 
 Before deploying MySQL resource providers, turn off IE Enhanced Security, install the latest version of Azure PowerShell, and prepare the Azure Stack POC environment with the necessary certifications, marketplace items, and binaries.
 
-### Turn off IE Enhanced Security
+### Turn off IE Enhanced Security and enable cookies
+
+To deploy a resource provider, your PowerShell ISE must be run as an administrator. For this reason, you'll need to allow cookies and java script in your Internet Explorer profile used for logging into Azure Active Directory.
+
+**Turn off IE Enhanced Security**
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
+
 2. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+
 3. Sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator, and then open Server Manager.
+
 4. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
+
+**Enable cookies**
+
+1. Click the Star button, click **All apps**, click **Windows accessories**, right-click **Internet Explorer**, click **More**, and then click **Run as an administrator**.
+
+2. If prompted, check **Use recommended security**, and then click **OK**.
+
+3. In Internet Explorer, click the Tools (gear) icon, click **Internet Options**, and then click the **Privacy** tab.
+
+4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again. 
+
+5. Close Internet Explorer and restart PowerShell ISE as an administrator.
 
 ### Install the latest version of Azure PowerShell
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.
+
 2. Using Remote Desktop Connection, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
+
 3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
+
 4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
 
 ### Enable certificates, marketplace items, and binaries
@@ -95,4 +117,5 @@ Now that you have prepared the Azure Stack POC with the necessary certificates a
 
 ## Next steps
 
-[Tools and PaaS services for Azure Stack](azure-stack-tools-paas-services.md)
+You can also try out other [PaaS services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sqlrp-deploy.md) and [Web Apps resource provider](azure-stack-webapps-deploy.md).
+
