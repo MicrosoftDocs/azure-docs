@@ -28,9 +28,11 @@ Before deploying SQL resource providers, you'll need to create a default Windows
 
 You'll need to create a Windows Server 2012 R2 Datacenter VHD with .Net 3.5 image and set is as the default image in the Platform Image repository. For more information, see [Create an image of WindowsServer2012R2 including .NET 3.5](azure-stack-add-image-pir.md#Create-an-image-of-WindowsServer2012R2-including-.NET-3.5).
 
-### Turn off IE Enhanced Security
+### Turn off IE Enhanced Security and enable cookies
 
-To enable PowerShell scripts to authenticate against AAD, you must turn off of IE Enhanced Security:
+To deploy a resource provider, your PowerShell ISE must be run as an administrator. For this reason, you'll need to allow cookies and java script in your Internet Explorer profile used for logging into Azure Active Directory.
+
+**Turn off IE Enhanced Security**
 
 1. Sign in to the Azure Stack POC machine as an AzureStack/administrator, and then open Server Manager.
 
@@ -40,15 +42,18 @@ To enable PowerShell scripts to authenticate against AAD, you must turn off of I
 
 4. Turn off **IE Enhanced Security Configuration** for both Admins and Users.
 
-### Install the latest version of Azure PowerShell
+**Enable cookies**
 
-1. Sign in to the Azure Stack POC machine as an AzureStack/administrator.
+1. Click the Star button, click **All apps**, click **Windows accessories**, right-click **Internet Explorer**, click **More**, and then click **Run as an administrator**.
 
-2. Using Remote Desktop Connection, sign in to the **ClientVM.AzureStack.local** virtual machine as an administrator.
+2. If prompted, check **Use recommended security**, and then click **OK**.
 
-3. Open the Control Panel, click **Uninstall a program**, click the **Azure PowerShell** entry, and then click **Uninstall**.
+3. In Internet Explorer, click the Tools (gear) icon, click **Internet Options**, and then click the **Privacy** tab.
 
-4. Download and install the latest Azure PowerShell from [http://aka.ms/webpi-azps](http://aka.ms/webpi-azps).
+4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again. 
+
+5. Close Internet Explorer and restart PowerShell ISE as an administrator.
+
 
 
 ## Create a wildcard certificate
@@ -176,4 +181,7 @@ You’ll need a wildcard certificate to secure communications between the resour
 2. To create your SQL resource, click "+", select **Data**, and then click **SQL**.
 
 
+## Next Steps
+
+You can also try out other [PaaS services](azure-stack-tools-paas-services.md), like the [Web Apps resource provider](azure-stack-webapps-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
 
