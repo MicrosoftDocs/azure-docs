@@ -66,7 +66,7 @@ The commands below should be performed using the Node.js command line. By using 
 
 1. Copy the **lib** folder from the **start** folder into the **ContactList** folder created by the scaffolder. 
 
-1. Replace the code in the **handlers/contacts.js** file with the code below. This code uses the JSON data stored in the **lib/contacts.json** file that is served by **lib/contactRepository.js**. The new contats.js code below will respond to HTTP requests to get all of the contacts using this code. 
+1. Replace the code in the **handlers/contacts.js** file with the code below. This code uses the JSON data stored in the **lib/contacts.json** file that is served by **lib/contactRepository.js**. The new contacts.js code below will respond to HTTP requests to get all of the contacts using this code. 
 
         'use strict';
         
@@ -86,7 +86,7 @@ The commands below should be performed using the Node.js command line. By using 
         
         module.exports = {
             get: function contacts_get(req, res) {
-                res.json(repository.get(req.params['id']))
+                res.json(repository.get(req.params['id']));
             }    
         };
 
@@ -151,7 +151,7 @@ In this section you'll walk through the process of creating a new, empty API App
 
 The GitHub repository from which you cloned the source code is not the same repository you'll be pushing the code into for deployment. The sample GitHub repository contained the "Start" state of the code, and now that you've scaffolded the "end" state of the code you'll need to push that code only into the Git repository associated with your API App. The first step will be to create your API App using the Azure Portal, then you'll 
 
-1. Browse to the [Azure Portal](http://portal.azure.com). 
+1. Browse to the [Azure Portal](https://portal.azure.com/). 
 
 1. Create a new API App. 
 
@@ -237,5 +237,8 @@ Using the built-in continuous delivery features Azure App Service provides, you 
 
     ![Postman Hitting Api](media/app-service-api-nodejs-api-app/postman-hitting-api.png)
 
-## Summary
-At this point you've successfully created and deployed your first API App using Node.js. From here, you could add code to the handlers to store your data in a database or on the disk of your API App instance. Now that you have the Continuous Deployment wired up, changing your API App's functionality and extending it is as easy as changing and pushing your code to your Git repository. 
+## Next steps
+
+At this point you've successfully created and deployed your first API App using Node.js. The next tutorial in the API Apps getting started series shows how to [consume API apps from JavaScript clients, using CORS](app-service-api-cors-consume-javascript.md).
+
+To build on this sample, you could add code to the handlers to store your data in a database or on the disk of your API App instance. Now that you have the Continuous Deployment wired up, changing your API App's functionality and extending it is as easy as changing and pushing your code to your Git repository. 

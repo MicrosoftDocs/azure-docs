@@ -21,7 +21,7 @@
 This article describes the **ANALYTICS** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. For more information, see [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
 
 
-The Analytics section of the UI provides aggregated information about your application based on historic data that is updated every 24 hours. The information is displayed on different dashboards composed of line/bar/pie charts, grids, and maps. The data can also be downloaded as .csv files. Most of this same information is available in real time in the Monitor section of the UI, and it can also be accessed from the Analytics API. See the **Glossary** section in the [Concepts](http://go.microsoft.com/fwlink/?LinkId=525555) topic for definitions of terms and abbreviations in Analytics and Monitoring (such as the following: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info).
+The Analytics section of the UI provides aggregated information about your application based on historic data that is updated every 24 hours. The information is displayed on different dashboards composed of line/bar/pie charts, grids, and maps. The data can also be downloaded as .csv files. Most of this same information is available in real time in the Monitor section of the UI, and it can also be accessed from the Analytics API. 
 
 >[AZURE.NOTE] Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
 
@@ -29,7 +29,6 @@ The Analytics section of the UI provides aggregated information about your appli
 
 Azure Mobile Engagement provides a set of basic, standard analytic information about your applications that can be graphed as soon as you integrate your app with the SDK. Azure Mobile Engagement also provides the ability to gather additional custom analytics information that you want about your end-users' behavior. You can do this by creating a tag plan of custom "Tags (app info)", created from **Settings** so that Azure Mobile Engagement can collect this additional data for you.
 
-For more information, see:  [UI Documentation - Settings][Link 20]
  
  
 ## Analytics
@@ -73,7 +72,8 @@ The retention overview is broken down in the middle into several cards, each sho
 
 ## See also
 
-[Concepts - Glossary][Link 6], [Troubleshooting Guide - Analytics][Link 21]
+- [Concepts][Link 6]
+- [Troubleshooting Guide Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

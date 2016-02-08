@@ -3,8 +3,8 @@
 	description="Learn how to configure single sign-on between Azure Active Directory and Moxtra."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
-	manager="stevenpo"
+	authors="jeevansd"
+	manager="prasannas"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/05/2015"
-	ms.author="markusvi"/>
+	ms.date="12/01/2015"
+	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Moxtra
@@ -72,6 +72,7 @@ To configure the integration of Moxtra into Azure AD, you need to add Moxtra fro
 ![Creating an Azure AD test user](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_01.png)<br>
 7. In the results pane, select **Moxtra**, and then click **Complete** to add the application.
 <br><br>
+![Creating an Azure AD test user](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_02.png)<br>
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Moxtra based on a test user called "Britta Simon".

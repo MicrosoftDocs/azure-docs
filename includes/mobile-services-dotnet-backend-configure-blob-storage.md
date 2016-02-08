@@ -34,7 +34,7 @@ The existing **TodoItemController** is updated so that the **PostTodoItem** meth
 
 0. If you haven't yet created your storage account, see [How To Create a Storage Account].
 
-1. In the Management Portal, click **Storage**, click the storage account, then click **Manage Keys**. 
+1. In the [Azure classic portal](https://manage.windowsazure.com/), click **Storage**, click the storage account, then click **Manage Keys**. 
 
 2. Make a note of the **Storage Account Name** and **Access Key**.
  

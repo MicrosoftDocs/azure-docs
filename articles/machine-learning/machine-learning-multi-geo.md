@@ -23,7 +23,7 @@ This article describes how you can create a workspace and publish a web service 
 
 ## Create a workspace
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the Azure Classic Portal.
 
 2.  Click **+NEW** > **DATA SERVICES** > **MACHINE LEARNING** > **QUICK CREATE**.  Under **LOCATION** select another region, such as **Southeast Asia**.
 ![Multi-Geo Help image 1][1]

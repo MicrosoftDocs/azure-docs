@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="10/14/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Create a .NET MVC web app in Azure App Service with Azure Active Directory authentication #
@@ -46,8 +46,8 @@ You need the following to complete this tutorial:
 
 - An Azure Active Directory tenant with users in various groups
 - Permissions to create applications on the Azure Active Directory tenant
-- Visual Studio 2013
-- [Azure SDK 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) or later
+- Visual Studio 2013 or later
+- [Azure SDK 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) or later
 
 <a name="bkmk_sample"></a>
 ## Use sample application for line-of-business template ##
@@ -66,15 +66,15 @@ The sample application in this tutorial, [WebApp-RoleClaims-DotNet](https://gith
 2.	Follow the instructions at [How To Run The Sample as a Single Tenant App](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app) to set up the Azure Active Directory application and project.
 Be sure to follow all the instructions to convert the application from multi-tenant to single-tenant.
 
-3.	In the [Azure portal](https://manage.windowsazure.com) view for your Azure Active Directory application you just created, click the **USERS** tab. Then, assign the desired users to the desired roles.
+3.	In the [Azure classic portal](https://manage.windowsazure.com) view for your Azure Active Directory application you just created, click the **USERS** tab. Then, assign the desired users to the desired roles.
 
-	>[AZURE.NOTE] If you want to assign roles to groups in addition to users, you must upgrade your Azure Active Directory tenant to [Azure Active Directory Premium](/pricing/details/active-directory/). In your application's portal UI, if you see the **USERS** tab instead of the **USERS AND GROUPS tab, you can try Azure Active Directory Premium by going to your Azure Active Directory tenant's **LICENCES** tab. 
+	>[AZURE.NOTE] If you want to assign roles to groups in addition to users, you must upgrade your Azure Active Directory tenant to [Azure Active Directory Premium](/pricing/details/active-directory/). In your application's classic portal UI, if you see the **USERS** tab instead of the **USERS AND GROUPS tab, you can try Azure Active Directory Premium by going to your Azure Active Directory tenant's **LICENCES** tab. 
 
 3.	Once you're finished configuring the application, type `F5` in Visual Studio to run the ASP.NET application.
 
-4.	Once the application loads, click **Sign In** and sign in with a user that has the Admin role in the Azure portal. 
+4.	Once the application loads, click **Sign In** and sign in with a user that has the Admin role in the Azure classic portal. 
 
-5.	If you configured the Azure Active Directory application properly and set the corresponding settings in Web.config, you should be redirected to the log in. Simply log in with the account you used to create the Azure Active Directory application in the Azure portal, since it's the Azure Active Directory application's default owner. 
+5.	If you configured the Azure Active Directory application properly and set the corresponding settings in Web.config, you should be redirected to the log in. Simply log in with the account you used to create the Azure Active Directory application in the Azure classic portal, since it's the Azure Active Directory application's default owner. 
 	
 <a name="bkmk_deploy"></a>
 ## Deploy the sample application to App Service Web Apps
@@ -91,9 +91,17 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 4. Once signed in, click **New** to create a new web app in Azure.
 
-5. Fill in all required fields. You will need a database connection for this application to store role mappings, cached tokens, and any application data.
+5. In **Hosting**, Fill in all required fields. 
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
+
+5. You will need a database connection for this application to store role mappings, cached tokens, and any application data. In **Create App Service** dialog, click **Services**.  Next to the **SQL Database** click the plus sign to add a new database.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-database.png)
+
+5. In the **Configure SQL Database** dialog, select or create a server, set a name and click **OK**.
+
+	 ![](./media/web-sites-dotnet-lob-application-azure-ad/4-config-database.png)
 
 6. Click **Create**. Once the web app is created, the **Publish Web** dialog is opened.
 
@@ -109,7 +117,7 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 9. Instead of clicking **Publish** to go through with the web publish, click **Close**. Click **Yes** to save the changes to the publishing profile.
 
-2. In the [Azure management portal](https://manage.windowsazure.com), go to your Azure Active Directory tenant and click the **Applications** tab.
+2. In the [Azure classic portal](https://manage.windowsazure.com), go to your Azure Active Directory tenant and click the **Applications** tab.
 
 2. Click **Add** at the bottom of the page.
 
@@ -125,7 +133,7 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 2.	Once the application is created, update the application manifest the same way the you did earlier from the instructions at [Define your Application Roles](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#step-2-define-your-application-roles).
 
-3.	In the [Azure portal](https://manage.windowsazure.com) view for your Azure Active Directory application you just created, click the **USERS** tab. Then, assign the desired users to the desired roles.
+3.	In the [Azure classic portal](https://manage.windowsazure.com) view for your Azure Active Directory application you just created, click the **USERS** tab. Then, assign the desired users to the desired roles.
 
 6. Click the **CONFIGURE** tab.
 
@@ -156,7 +164,7 @@ Here, you will publish the application to a web app in Azure App Service. There 
 
 2. Click **Publish** to publish to Azure App Service Web Apps.
 
-When you're done, you have two Azure Active Directory applications configured in the Azure management portal: one for your debug environment in Visual Studio, and one for the published web app in Azure. During debugging, the app settings in Web.config are used to make your **Debug** configuration work with Azure Active Directory, and when it's published (by default, the **Release** configuration is published), a transformed Web.config is uploaded that incorporates the app setting changes in Web.Release.config.
+When you're done, you have two Azure Active Directory applications configured in the Azure classic portal: one for your debug environment in Visual Studio, and one for the published web app in Azure. During debugging, the app settings in Web.config are used to make your **Debug** configuration work with Azure Active Directory, and when it's published (by default, the **Release** configuration is published), a transformed Web.config is uploaded that incorporates the app setting changes in Web.Release.config.
 
 If you want to attach the published web app to the debugger (you must upload debug symbols of your code in the published web app), you can create a clone of the Debug configuration for Azure debugging, but with its own custom Web.config transform (e.g. Web.AzureDebug.config) that uses the Azure Active Directory settings from Web.Release.config. This allows you to maintain a static configuration across the different environments.
 
@@ -247,7 +255,7 @@ In this part of the tutorial, you will learn how to build out the desired line-o
         ...
 	}</pre>
 
-	Since you take care of role mappings in the Azure portal UI, all you need to do is make sure that each action authorizes the right roles.
+	Since you take care of role mappings in the Azure classic portal UI, all you need to do is make sure that each action authorizes the right roles.
 
 	> [AZURE.NOTE] You may have noticed the <code>[ValidateAntiForgeryToken]</code> decoration on some of the actions. Due to the behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail anti-forgery token validation because:
 	> + Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, which is required by default by the anti-forgery token.

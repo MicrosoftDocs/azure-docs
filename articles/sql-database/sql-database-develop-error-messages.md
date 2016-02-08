@@ -1,6 +1,7 @@
-<properties 
-	pageTitle="Error messages for SQL Database client programs"
-	description="For each error, this gives the numeric ID and the textual message. Feel free to cross-reference your own preferred friendlier error message text if you see fit."
+<properties
+	pageTitle="SQL error codes - database connection error | Microsoft Azure"
+	description="Learn about SQL error codes for SQL Database client applications, such as common database connection errors, database copy issues, and general errors. "
+	keywords="sql error code,access sql,database connection error,sql error codes"
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -8,17 +9,17 @@
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/24/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/06/2015"
 	ms.author="genemi"/>
 
 
-# Error messages for SQL Database client programs
+# SQL error codes for SQL Database client applications: Database connection error and other issues
 
 
 <!--
@@ -28,25 +29,19 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 -->
 
 
-This topic lists several categories of error messages. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server.
+This article lists SQL error codes for SQL Database client application, including database connection errors, transient errors (also called transient faults), resource governance errors, database copy issues, and other errors. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server.
 
-
-In your client program you have the option of providing your user with an alternative message customized by you, for any given error.
-
-
-> [AZURE.TIP] Of extra importance is the following section about [*transient fault* errors](#bkmk_connection_errors).
-
-
+In your client application for any given error you can provide your user with a message you customize.
 
 <a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
 
 
-## Transient faults, Connection-Loss, and other temporary errors
+## Database connection errors, transient errors, and other temporary errors
 
-The following table covers the connection-loss errors, and other transient errors, that you might encounter while working over the Internet with Azure SQL Database.
+The following table covers the SQL error codes for connection loss errors, and other transient errors you might encounter when your application attempts to access SQL Database.
 
 
-### Most common transient faults
+### Most common database connection errors and transient fault errors
 
 
 Transient fault errors typically manifest as one of the following error messages from your client programs:
@@ -64,13 +59,13 @@ Transient fault errors should prompt your client program to run *retry logic* th
 
 - [Client development and quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-- [Actions to fix connection errors and transient faults in SQL Database](sql-database-connectivity-issues.md)
+- [Actions to fix connection errors and transient errors in SQL Database](sql-database-connectivity-issues.md)
 
 
-### Transient fault error numbers
+### Transient fault error codes
 
 
-| Error number | Severity | Description |
+| Error code | Severity | Description |
 | ---: | ---: | :--- |
 | 4060 | 16 | Cannot open database "%.&#x2a;ls" requested by the login. The login failed. |
 |40197|17|The service has encountered an error processing your request. Please try again. Error code %d.<br/><br/>You will receive this error, when the service is down due to software or hardware upgrades, hardware failures, or any other failover problems. The error code (%d) embedded within the message of error 40197 provides additional information about the kind of failure or failover that occurred. Some examples of the error codes are embedded within the message of error 40197 are 40020, 40143, 40166, and 40540.<br/><br/>Reconnecting to your SQL Database server will automatically connect you to a healthy copy of your database. Your application must catch error 40197, log the embedded error code (%d) within the message for troubleshooting, and try reconnecting to SQL Database until the resources are available, and your connection is established again.|
@@ -79,8 +74,6 @@ Transient fault errors should prompt your client program to run *retry logic* th
 |49918|16|Cannot process request. Not enough resources to process request.<br/><br/>The service is currently busy. Please retry the request later. |
 |49919|16|Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
 |49920|16|Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. |
-
-**Note:** Errors 10053 and 10054 might also deserve inclusion in your retry logic.
 
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
@@ -91,7 +84,7 @@ Transient fault errors should prompt your client program to run *retry logic* th
 The following table covers the various errors you can encounter while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
 
 
-|Error number|Severity|Description|
+|Error code|Severity|Description|
 |---:|---:|:---|
 |40635|16|Client with IP address '%.&#x2a;ls' is temporarily disabled.|
 |40637|16|Create database copy is currently disabled.|
@@ -128,7 +121,7 @@ The following table covers the errors caused by excessive use of resources while
 - [Azure SQL Database resource limits](sql-database-resource-limits.md)
 
 
-|Error number|Severity|Description|
+|Error code|Severity|Description|
 |---:|---:|:---|
 |10928|20|Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-resource-limits.md). |
 |10929|20|Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>*Note:* For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-resource-limits.md).|
@@ -152,10 +145,10 @@ For additional discussion of resource governance and associated errors, see:
 ## General errors
 
 
-The following table lists all the general errors that do not fall into any previous category.
+The following table lists all the general errors that don't fall into any previous category.
 
 
-|Error number|Severity|Description|
+|Error code|Severity|Description|
 |---:|---:|:---|
 |15006|16|<AdministratorLogin> is not a valid name because it contains invalid characters.|
 |18452|14|Login failed. The login is from an untrusted domain and cannot be used with Windows authentication.%.&#x2a;ls (Windows logins are not supported in this version of SQL Server.)|
@@ -218,6 +211,7 @@ The following table lists all the general errors that do not fall into any previ
 |40651|16|Failed to create server because the subscription <subscription-id> is disabled.|
 |40652|16|Cannot move or create server. Subscription <subscription-id> will exceed server quota.|
 |40671|17|Communication failure between the gateway and the management service. Please retry later.|
+|40852|16|Cannot open database '%.*ls' on server '%.*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN  -  'server name'.database.windows.net should be modified to 'server name'.database.`secure`.windows.net.|
 |45168|16|The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later.|
 |45169|16|The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later.|
 
@@ -226,4 +220,3 @@ The following table lists all the general errors that do not fall into any previ
 
 - [Azure SQL Database General Limitations and Guidelines](sql-database-general-limitations.md)
 - [Azure SQL Database resource limits](sql-database-resource-limits.md)
-

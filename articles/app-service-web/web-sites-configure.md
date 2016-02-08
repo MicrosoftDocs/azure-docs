@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
-	ms.author="erikre"/>
+	ms.date="12/08/2015" 
+	ms.author="tdykstra"/>
 
 
 # Configure web apps in Azure App Service #
@@ -25,7 +25,7 @@ This topic explains how to configure a web app using the [Azure Portal](http://g
 
 ## Application settings
 
-1. In the [Azure Portal](https://portal.azure.com), open the blade for the web app.
+1. In the [Azure Portal](https://portal.azure.com/), open the blade for the web app.
 2. Click **All Settings**.
 3. Click **Application Settings**.
 
@@ -177,5 +177,4 @@ For more information, see [How to: Monitor web endpoint status](http://go.micros
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  

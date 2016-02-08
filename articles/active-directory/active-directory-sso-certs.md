@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="liviodlc"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="02/02/2016"
 	ms.author="liviodlc"/>
 
 #Managing Certificates for Federated Single Sign-On in Azure Active Directory

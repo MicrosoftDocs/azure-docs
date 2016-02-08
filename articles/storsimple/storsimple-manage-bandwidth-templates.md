@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/12/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to manage StorSimple bandwidth templates
@@ -35,7 +35,7 @@ This feature is available only for StorSimple physical devices and not for virtu
 
 - **Used by** – The number of volumes using the bandwidth templates.
 
-You use the StorSimple Manager service **Configure** page in the Management Portal to manage bandwidth templates. The most common tasks related to bandwidth templates that can be performed on this page are:
+You use the StorSimple Manager service **Configure** page in the Azure classic portal to manage bandwidth templates. The most common tasks related to bandwidth templates that can be performed on this page are:
 
 - Add a bandwidth template
 - Edit a bandwidth template

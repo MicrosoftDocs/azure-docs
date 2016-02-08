@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="01/28/2016" 
 	ms.author="juliako"/>
 
 
 #Managing Media Services Assets across Multiple Storage Accounts
 
 Starting with Microsoft Azure Media Services 2.2, you can attach multiple storage accounts to a single Media Services account. Ability to attach multiple storage accounts to a Media Services account provides the following benefits:
-Load balancing your assets across multiple storage accounts.
 
-Scaling Media Services for large amounts of content processing (as currently a single storage account has a max limit of 500 TB). 
+- Load balancing your assets across multiple storage accounts.
+- Scaling Media Services for large amounts of content processing (as currently a single storage account has a max limit of 500 TB). 
 
-This topic demonstrates how to attach multiple storage accounts to a Media Services account using [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx). It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
+This topic demonstrates how to attach multiple storage accounts to a Media Services account using Azure Service Management REST API. It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
 
 ##Considerations
 
@@ -40,7 +40,7 @@ Media Services uses the value of the **IAssetFile.Name** property when building 
 
 ##To attach a Storage Account with Azure Service Management REST API
 
-Currently, the only way to attach multiple storage accounts is by using [Azure Service Management REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx). The code sample in the [How to: Use Media Services Management REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx) topic defines the **AttachStorageAccountToMediaServiceAccount** method that attaches a storage account to the specified Media Services account. The code in the same topic defines the **ListStorageAccountDetails** method that lists all the storage accounts attached to the specified Media Services account.
+Currently, the only way to attach multiple storage accounts is by using [Azure Service Management REST API](http://msdn.microsoft.com/library/azure/dn167014.aspx). The code sample in the [How to: Use Media Services Management REST API](https://msdn.microsoft.com/library/azure/dn167656.aspx) topic defines the **AttachStorageAccountToMediaServiceAccount** method that attaches a storage account to the specified Media Services account. The code in the same topic defines the **ListStorageAccountDetails** method that lists all the storage accounts attached to the specified Media Services account.
 
 
 ##To manage Media Services assets across multiple Storage Accounts
@@ -142,12 +142,12 @@ The following code uses the latest Media Services SDK to perform the following t
 		            IJob job = _context.Jobs.Create("My encoding job");
 		            // Get a media processor reference, and pass to it the name of the 
 		            // processor to use for the specific task.
-		            IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Encoder");
+		            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 		
 		            // Create a task with the encoding details, using a string preset.
 		            ITask task = job.Tasks.AddNew("My encoding task",
 		                processor,
-		                "H264 Broadband 720p",
+		                "H264 Multiple Bitrate 720p",
 		                Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.ProtectedConfiguration);
 		
 		            // Specify the input asset to be encoded.

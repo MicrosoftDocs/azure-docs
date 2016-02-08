@@ -88,11 +88,11 @@ The POST operation will contain the following JSON payload and schema for all me
 |conditionType		|Y					|“Metric”, “Event”			|Two types of alerts are supported. One based on metric and the other based on event. In the future we will support alerts for Events, so use this value to check if the alert is based on metric or event|
 |condition			|Y					|							|This will have the specific fields to check for based on the conditionType|
 |metricName			|for Metric alerts	|							|The name of the metric that defines what the rule monitors.|
-|metricUnit			|for Metric alerts	|"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 The unit allowed in the metric. Allowed values: https://msdn.microsoft.com/en-us/library/microsoft.azure.insights.models.unit.aspx|
+|metricUnit			|for Metric alerts	|"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 The unit allowed in the metric. Allowed values: https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
 |metricValue		|for Metric alerts	|							|The actual value of the metric that caused the alert|
 |threshold			|for Metric alerts	|							|The threshold value that activates the alert|
 |windowSize			|for Metric alerts	|							|The period of time that is used to monitor alert activity based on the threshold. Must be between 5 minutes and 1 day. ISO 8601 duration format.|
-|timeAggregation	|for Metric alerts	|"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	How the data that is collected should be combined over time. The default value is Average. Allowed values: https://msdn.microsoft.com/en-us/library/microsoft.azure.insights.models.aggregationtype.aspx|
+|timeAggregation	|for Metric alerts	|"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	How the data that is collected should be combined over time. The default value is Average. Allowed values: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
 |operator			|for Metric alerts 	|							|The operator used to compare the data and the threshold.|
 |subscriptionId	 	|Y					|							|Azure subscription GUID|
 |resourceGroupName	|Y					|							|resource-group-name of the impacted resource|

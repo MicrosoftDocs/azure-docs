@@ -60,8 +60,6 @@ NuGet does not automatically deploy the SDK resources in your UWP application ye
 4.  In Visual Studio select your project and activate the **Show All files** icon on top of the **Solution Explorer**.
 5.  Some files are not included in the project. To import them at once right click on the **Resources** folder, **Exclude from project** then another right click on the **Resources** folder, **Include in project** to re-include the whole folder. All files from the **Resources** folder are now included in your project.
 
-The extracted Engagement package can also be found on *$(Solutiondir)\Packages* or as defined in you *NuGet.config* file.
-
 ## Add the capabilities
 
 The Engagement SDK needs some capabilities of the Windows SDK in order to work properly.
@@ -91,7 +89,7 @@ If you want to specify it at runtime instead, you can call the following method 
           /* Initialize Engagement angent with above configuration. */
           EngagementAgent.Instance.Init(e, engagementConfiguration);
 
-The connection string for your application is displayed on Azure Portal.
+The connection string for your application is displayed on the Azure Classic Portal.
 
 ### Engagement initialization
 

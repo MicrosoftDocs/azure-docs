@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="AzureStore"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/09/2015"
+   ms.date="01/07/2016"
    ms.author="hascipio" />
 
 # Deploy your offer to the Azure Marketplace
@@ -33,7 +33,7 @@ When you are satisfied with your offer (that is, you have tested customer scenar
 
 > [AZURE.IMPORTANT] You can always delete the offer while it is in a **Draft** status (i.e., never **Push to staging** or **Push to production**). On the **History** tab, click the **Discard draft** button at the bottom of the page to delete a draft.
 
-> For virtual machine images, the replication across the datacenters takes 24-48 hours. Once the replication is complete, your offer will be listed in the [Azure Marketplace](http://azure.microsoft.com/marketplace).
+> For virtual machine images, the replication across the datacenters takes 24-48 hours. Once the replication is complete, your offer will be listed in the [Azure Marketplace](https://azure.microsoft.com/marketplace/).
 
 ## Next steps
 Once the offer goes live, test the customer scenarios to validate that all the contracts and functionality work properly in the production environment as tested and validated in the staging environment.

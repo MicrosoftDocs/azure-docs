@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Monitor and manage Stream Analytics jobs with PowerShell | Microsoft Azure" 
 	description="Learn how to use Azure PowerShell and cmdlets to monitor and manage Stream Analytics jobs." 
-	keywords="azure powershell,azure powershell cmdlets,powershell command"	
+	keywords="azure powershell, azure powershell cmdlets, powershell command, powershell scripting"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,14 +14,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/17/2015" 
+	ms.date="02/04/2016" 
 	ms.author="jeffstok"/>
 
 
 # Monitor and manage Stream Analytics jobs with Azure PowerShell cmdlets
 
-Learn how to monitor and manage Stream Analytics resources with Azure PowerShell cmdlets that execute basic Stream Analytics tasks.
-
+Learn how to monitor and manage Stream Analytics resources with Azure PowerShell cmdlets and powershell scripting that execute basic Stream Analytics tasks.
 
 ## Prerequisites for running Azure PowerShell cmdlets for Stream Analytics
 
@@ -31,14 +30,10 @@ Learn how to monitor and manage Stream Analytics resources with Azure PowerShell
  		# Log in to your Azure account
 		Add-AzureAccount
 
-		# Select the Azure subscription you want to use to create the resource group
+		# Select the Azure subscription you want to use to create the resource group if you have more than one subscription on your account.
 		Select-AzureSubscription -SubscriptionName <subscription name>
  
-		# Set the appropriate Azure mode to access Stream Analytics cmdlets
-		Switch-AzureMode AzureResourceManager
-
-		# Optional - Create an Azure resource group	
-			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+		# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
 		#Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
 		# Create an Azure resource group

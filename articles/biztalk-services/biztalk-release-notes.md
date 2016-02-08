@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="12/02/2015" 
 	ms.author="deonhe"/>
 
 # Release Notes for Azure BizTalk Services
@@ -30,8 +30,8 @@ The release notes for the Microsoft Azure BizTalk Services contain the known iss
 * Organizational accounts are supported:  
  * **Scenario**: You registered a BizTalk Service deployment using a Microsoft account (like user@live.com). In this scenario, only Microsoft Account users can manage the BizTalk Service using the BizTalk Services portal. An organizational account cannot be used.  
  * **Scenario**: You registered a BizTalk Service deployment using an organizational account in an Azure Active Directory (like user@fabrikam.com or user@contoso.com). In this scenario, only Azure Active Directory users within the same organization can manage the BizTalk Service using the BizTalk Services portal. A Microsoft account cannot be used.  
-* When you create a BizTalk Service in the Azure Management Portal, you are automatically registered in the BizTalk Services Portal.
- * **Scenario**: You log into the Azure Management Portal, create a BizTalk Service, and then select **Manage** for the very first time. When the BizTalk Services portal opens, the BizTalk Service automatically registers and is ready for your deployments.  
+* When you create a BizTalk Service in the Azure classic portal, you are automatically registered in the BizTalk Services Portal.
+ * **Scenario**: You sign into the Azure classic portal, create a BizTalk Service, and then select **Manage** for the very first time. When the BizTalk Services portal opens, the BizTalk Service automatically registers and is ready for your deployments.  
  See [Registering and Updating a BizTalk Service Deployment on the BizTalk Services Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### August 14 Update

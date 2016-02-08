@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Create a virtual network using the Azure preview portal | Microsoft Azure"
-   description="Learn how to create a virtual network using the Azure preview portal."
+   pageTitle="Create a virtual network using the Azure portal | Microsoft Azure"
+   description="Learn how to create a virtual network using the Azure portal."
    services="virtual-network"
    documentationCenter=""
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
-   tags="classic"/>
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-network"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/21/2015"
+   ms.date="02/03/2016"
    ms.author="telmos"/>
 
 # Create a virtual network (classic) by using the Azure preview portal

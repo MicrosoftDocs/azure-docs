@@ -99,7 +99,7 @@ In the control panel of your Azure Web App, add the Application Insights extensi
 
 ## View performance telemetry
 
-Sign into [the Azure portal](http://portal.azure.com), browse Application Insights and open the resource that you created.
+Sign into [the Azure portal](https://portal.azure.com), browse Application Insights and open the resource that you created.
 
 ![Choose Browse, Application Insights, then select your app](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 

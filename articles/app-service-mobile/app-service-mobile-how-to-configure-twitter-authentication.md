@@ -3,7 +3,7 @@
 	description="Learn how to configure Twitter authentication for your App Services application."
 	services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="02/04/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Twitter login
 
 [AZURE.INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
-&nbsp;
-
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 This topic shows you how to configure Azure App Service to use Twitter as an authentication provider.
 
@@ -35,7 +32,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 ## <a name="register"> </a>Register your application with Twitter
 
 
-1. Log on to the [Azure Management Portal], and navigate to your application. Copy your **URL**. You will use this to configure your Twitter app.
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Twitter app.
 
 2. Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click **Create New App**.
 
@@ -59,7 +56,7 @@ This topic demonstrates use of the App Service Authentication / Authorization fe
 If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Twitter**. Paste in the values you obtained earlier and click **Save**.
 
 
-13. Back in the [Azure Management Portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
+13. Back in the [Azure portal], navigate to your application. Click **Settings**, and then **Authentication / Authorization**.
 
 14. If the Authentication / Authorization feature is not enabled, turn the switch to **On**.
 
@@ -67,11 +64,11 @@ If using the App Service Gateway, ignore this section and instead navigate to yo
 
     ![][1]
 
-	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. 
+	By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
 17. (Optional) To restrict access to your site to only users authenticated by Twitter, set **Action to take when request is not authenticated** to **Twitter**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Twitter for authentication.
 
-17. Click **Save**. 
+17. Click **Save**.
 
 You are now ready to use Twitter for authentication in your app.
 
@@ -89,5 +86,5 @@ You are now ready to use Twitter for authentication in your app.
 <!-- URLs. -->
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Azure Management Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

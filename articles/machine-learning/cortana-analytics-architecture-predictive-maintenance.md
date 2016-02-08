@@ -1,7 +1,6 @@
 <properties
-	pageTitle="Cortana Analytics Solution Template architecture for predictive maintenance | Microsoft Azure"
-	description="Architecture of the Microsoft Cortana Analytics Solution Template for predictive maintenance."
-	keywords="solution accelerator;cortana analytics;predictive maintenance"
+	pageTitle="Architecture of the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses | Microsoft Azure"
+	description="Architecture diagram of the Microsoft Cortana Analytics Solution Template for predictive maintenance in aerospace, utilities, and transportation."
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="11/24/2015"
 	ms.author="garye" />
 
-# Cortana Analytics Solution Template architecture for predictive maintenance
+# Architecture of the Cortana Analytics Solution Template for predictive maintenance in aerospace and other businesses
 
 The diagram below provides an architectural overview of the [Cortana Analytics Solution Template for predictive maintenance](cortana-analytics-playbook-predictive-maintenance.md).
 

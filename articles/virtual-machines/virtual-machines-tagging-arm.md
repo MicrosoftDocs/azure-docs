@@ -28,7 +28,7 @@ This article describes different ways to tag a virtual machine in Azure through 
 
 First, let’s look at tagging through templates. [This template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) places tags on the following resources: Compute (Virtual Machine), Storage (Storage Account), and Network (Public IP Address, Virtual Network, and Network Interface).
 
-Click the **Deploy to Azure** button from the [template link](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). This will navigate to the [Azure portal](http://portal.azure.com/) where you can deploy this template.
+Click the **Deploy to Azure** button from the [template link](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). This will navigate to the [Azure portal](https://portal.azure.com/) where you can deploy this template.
 
 ![Simple deployment with Tags](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -183,7 +183,7 @@ By analyzing these tags along with usage, organizations will be able to gain new
 
 
 [PowerShell environment with Azure Resource Manager]: ../powershell-azure-resource-manager.md
-[Azure Resource Cmdlets]: https://msdn.microsoft.com/en-us/library/azure/dn757692.aspx
+[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [Azure CLI environment]: ./xplat-cli-azure-resource-manager.md
 [Azure Resource Manager Overview]: ../resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../resource-group-using-tags.md

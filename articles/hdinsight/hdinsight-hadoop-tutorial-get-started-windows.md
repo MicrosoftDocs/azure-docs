@@ -50,7 +50,7 @@ information about using HDInsight Emulator, see [Get Started with the HDInsight 
 
 Before you begin this tutorial for Hadoop on Windows, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **A workstation computer** with Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
 ##Create Hadoop clusters
@@ -65,10 +65,10 @@ about HDInsight versions and their SLAs, see
 
 **To create a Hadoop cluster**
 
-1. Sign in to the [Azure Preview Portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure Portal](https://ms.portal.azure.com/).
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**. The portal opens a **New HDInsight Cluster** blade.
 
-    ![Create a new cluster in the Azure Preview Portal](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Create a new cluster in the Azure Preview Portal")
+    ![Create a new cluster in the Azure Portal](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Create a new cluster in the Azure Portal")
 
 3. Enter or select the following:
 
@@ -105,7 +105,7 @@ Now that you have created an HDInsight cluster, the next step is to run a Hive j
 
 **To run a Hive job from the cluster dashboard**
 
-1. Sign in to the [Azure Preview Portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure Portal](https://ms.portal.azure.com/).
 2. Click **BROWSE ALL** and then click **HDInsight Clusters** to see a list of clusters, including the cluster you just created in the previous section.
 3. Click the name of the cluster that you want to use to run the Hive job, and then click **Dashboard** at the top of the blade.
 4. A webpage opens in a different browser tab. Enter the Hadoop user account and password. The default user name is **admin**; the password is what you entered while creating the cluster.
@@ -175,7 +175,7 @@ HDInsight cluster provides a query console that includes a Getting Started galle
 
 **To run the sample**
 
-1. From the Azure preview portal startboard, click the tile for the cluster you just created.
+1. From the Azure Portal startboard, click the tile for the cluster you just created.
  
 2. On the new cluster blade, click **Dashboard**. When prompted, enter the admin username and password for the cluster.
 

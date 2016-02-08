@@ -54,8 +54,9 @@ You can also specify conditions for Alerts that will be automatically sent to yo
 
 
 ## See also
--  [Concepts - Glossary][Link 6] 
--  [Troubleshooting Guide - Analytics][Link 21]
+
+- [Concepts][Link 6]
+- [Troubleshooting Guide Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="02/05/2016"
    ms.author="larryfr"/>
 
 #Determine Twitter trending topics with Apache Storm on HDInsight

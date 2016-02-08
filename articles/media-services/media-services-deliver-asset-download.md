@@ -12,8 +12,8 @@
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.topic="article"
+  ms.date="02/03/2016"
 	ms.author="juliako"/>
 
 #How to: Deliver an Asset by Download

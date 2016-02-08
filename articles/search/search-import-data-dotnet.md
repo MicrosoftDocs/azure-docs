@@ -98,7 +98,8 @@ The next step in `Main` is to populate the newly-created index. This is done in 
 
         try
         {
-            indexClient.Documents.Index(IndexBatch.Create(documents.Select(doc => IndexAction.Create(doc))));
+            var batch = IndexBatch.Upload(sitecoreItems);
+            indexClient.Documents.Index(batch);
         }
         catch (IndexBatchException e)
         {
@@ -107,7 +108,7 @@ The next step in `Main` is to populate the newly-created index. This is done in 
             // retrying. For this simple demo, we just log the failed document keys and continue.
             Console.WriteLine(
                 "Failed to index some of the documents: {0}",
-                String.Join(", ", e.IndexResponse.Results.Where(r => !r.Succeeded).Select(r => r.Key)));
+                String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
         }
 
         // Wait a while for indexing to complete.
@@ -118,7 +119,7 @@ This method has four parts. The first creates an array of `Hotel` objects that w
 
 The second part creates an `IndexAction` for each `Hotel`, then groups those together in a new `IndexBatch`. The batch is then uploaded to the Azure Search index by the `Documents.Index` method.
 
-> [AZURE.NOTE] In this example, we are just uploading documents. If you wanted to merge changes into an existing document or a delete a document, you could create an `IndexAction` with the corresponding `IndexActionType`. We don't need to specify `IndexActionType` in this example because the default is `Upload`.
+> [AZURE.NOTE] In this example, we are just uploading documents. If you wanted to merge changes into an existing document or delete a document, you could use corresponding `Merge`, `MergeOrUpload` or `Delete` methods accordingly.
 
 The third part of this method is a catch block that handles an important error case for indexing. If your Azure Search service fails to index some of the documents in the batch, an `IndexBatchException` is thrown by `Documents.Index`. This can happen if you are indexing documents while your service is under heavy load. **We strongly recommend explicitly handling this case in your code.** You can delay and then retry indexing the documents that failed, or you can log and continue like the sample does, or you can do something else depending on your application's data consistency requirements.
 

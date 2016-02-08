@@ -27,7 +27,7 @@ As a preview customer, you might have used either one of these older preview ver
 
 Now that Azure Search is generally available, we encourage transitioning to newer releases: 2015-02-28 is the official API version of the generally available release of Azure Search. This version is documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx ).
 
-We’re also rolling out the next preview version, [2015-02-28-Preview](search-api-2015-02-28-preview.md), introducing features that are still in development. You can provide feedback on the preview API through either the [Azure Search forums](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch ) or our [feedback page](http://feedback.azure.com/forums/263029-azure-search ).
+We’re also rolling out the next preview version, [2015-02-28-Preview](search-api-2015-02-28-preview.md), introducing features that are still in development. You can provide feedback on the preview API through either the [Azure Search forums](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch ) or our [feedback page](https://feedback.azure.com/forums/263029-azure-search /).
 
 ###Checklist for migration###
 

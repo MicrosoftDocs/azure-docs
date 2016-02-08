@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="TomArcher" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
   
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="12/10/2015" 
 	ms.author="tarcher"/>
 
 # Error During Authentication Detection
@@ -22,11 +22,11 @@ While detecting previous authentication code, the wizard detected an incompatibl
 
 ##What is being checked?
 
-**Note:** In order to correctly detect previous authentication code in a project, the project must be built.  If you encountered this error and you don't have previous authentication code in your project, rebuild and try again.
+**Note:** In order to correctly detect previous authentication code in a project, the project must be built.  If you encountered this error and you don't have a previous authentication code in your project, rebuild and try again.
 
 ###Project Types
 
-The wizard checks which type of project you’re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, it will be considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, it will be considered an MVC project.  Anything else is considered not supported by the wizard.  WebForms projects are not currently supported.
+The wizard checks which type of project you’re developing so it can inject the right authentication logic into the project.  If there is any controller that derives from `ApiController` in the project, the project will be considered a WebAPI project.  If there are only controllers that derive from `MVC.Controller` in the project, the project will be considered an MVC project.  Anything else is not supported by the wizard.  WebForms projects are not currently supported.
 
 ###Compatible Authentication Code
 
@@ -95,4 +95,3 @@ To detect an old form of Organizational Account authentication, the wizard looks
 To change the authentication type, remove the incompatible authentication type and run the wizard again.
 
 For more information, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
- 
