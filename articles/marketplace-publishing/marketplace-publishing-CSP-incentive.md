@@ -3,7 +3,7 @@
    description="How to view and change your selection for CSP Reseller Incentive"
    services="marketplace-publishing"
    documentationCenter="na"
-   authors="v-dabosl"
+   authors="DavidBosland"
    manager="lakoch"
    editor=""/>
 
