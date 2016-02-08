@@ -62,7 +62,7 @@ HPC Pack is Microsoft's free HPC solution built on Microsoft Azure and Windows S
 * [Burst to Azure  Batch with HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 
-* [Windows HPC forums](https://social.microsoft.com/Forums/en-us/home?category=windowshpc)
+* [Windows HPC forums](https://social.microsoft.com/Forums/home?category=windowshpc)
 
 ### Linux and OSS cluster solutions
 
