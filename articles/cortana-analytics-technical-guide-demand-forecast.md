@@ -298,7 +298,8 @@ Power BI connects to an Azure SQL database as its data source, where the predict
 	-  Make sure you have installed the latest version of [Power BI desktop](https://powerbi.microsoft.com/en-us/desktop).
 
 	-	In the **"DemandForecastingDataGeneratorv1.0"** folder you downloaded, double click the **‘Power BI Template\DemandForecastPowerBI.pbix’** file. The initial visulizations are based on dummy data.
-	>[AZURE.NOTE] If you see an error massage, please make sure you have installed the latest version of Power BI Desktop.
+
+	>[AZURE.TIP] If you see an error massage, please make sure you have installed the latest version of Power BI Desktop.
 
 		Once you open it, on the top of the file, click **‘Edit Queries’**. In the pop out window, double click **‘Source’** on the right panel.
 
