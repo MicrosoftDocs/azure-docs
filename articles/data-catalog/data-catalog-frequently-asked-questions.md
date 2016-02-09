@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Data Catalog frequently asked questions"
    description="Frequently asked questions about Azure Data Catalog preview, including capabilities for data source discovery, annotation, and management."
    services="data-catalog"
