@@ -166,35 +166,9 @@ The activity windows can be in one of the following statuses:
 </table>
 
 
-### Sorting and filtering activity windows
-In the Activity Windows list, click on the name of a column (for example: Status). 
-
-![Activity Windows List column menu](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
-
-You can do the following:
-
-- Sort in the ascending order.
-- Sort in the descending order.
-- Filter by one or more values (Ready, Waiting, etc…)
-
-When you specify a filter on a column, you will see the filter button enabled for that column to indicate that the values in the column are filtered values. 
-
-![Filter in column of Activity Windows list](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
-
-You can use the same pop up window to clear filters. To clear all filters for the activity windows list, click the clear filter button on the command bar. 
-
-![Clear all filters in Activity Windows list](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
-
 When you click an activity window in the list, you will see details about the activity window in the Activity Windows Explorer or Properties window on the right.
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
-
-
-### Rerun selected activity window(s)
-Select one or more activity windows in the list, click the down arrow for the first command bar button and select **Rerun** / **Rerun with upstream in pipeline**. When you select **Rerun with upstream in pipeline** option, it reruns all upstream activity windows as well. 
-	![Rerun a activity window](./media/data-factory-monitor-manage-app/ReRunSlice.png)
-
-You may want to filter activity windows based on the status (for example: **Failed**) and then rerun the failed activity windows after correcting the issue that causes the activity windows to fail. See the following section for details about filtering activity windows in the list. 
 
 ### Refresh activity windows  
 The details are not automatically refreshed, so you use the **refresh** button (second button) on the command bar to manually refresh the activity windows list.  
@@ -230,15 +204,33 @@ There are three system views supported at this time. Select an option to see rec
 For example, you can use the **Failed activity windows** view to see all failed activity windows in the list. Select a failed activity window in the list to see details about it in the **Properties** window (or) **Activity Window Explorer**. You can also download any logs for a failed activity window. 
 
 
-## Filtering activity windows
-Change the start time and end time settings in the command bar to filter activity windows. After you change Start time and End time, click the button next to end-time to refresh the Activity Windows list.
+## Sorting and filtering activity windows
+Change the **start time** and **end time** settings in the command bar to filter activity windows. After you change Start time and End time, click the button next to end-time to refresh the Activity Windows list.
 
 ![Start and End Times](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
+
+In the **Activity Windows list**, click on the name of a column (for example: Status). 
+
+![Activity Windows List column menu](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
+
+You can do the following:
+
+- Sort in the ascending order.
+- Sort in the descending order.
+- Filter by one or more values (Ready, Waiting, etc…)
+
+When you specify a filter on a column, you will see the filter button enabled for that column to indicate that the values in the column are filtered values. 
+
+![Filter in column of Activity Windows list](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
+
+You can use the same pop up window to clear filters. To clear all filters for the activity windows list, click the clear filter button on the command bar. 
+
+![Clear all filters in Activity Windows list](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
 
 ## Performing batch actions
 
-### Re-running multiple failures
+### Re-run selected activity windows
 Select an activity window, click the down arrow for the first command bar button and select **Rerun** / **Rerun with upstream in pipeline**. When you select **Rerun with upstream in pipeline** option, it reruns all upstream activity windows as well. 
 	![Rerun a activity window](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
