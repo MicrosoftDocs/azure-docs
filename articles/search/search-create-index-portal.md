@@ -17,14 +17,14 @@
 	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
-# Create an Azure Search index in the Azure Classic Portal
+# Create an Azure Search index in the Azure Portal
 > [AZURE.SELECTOR]
 - [Overview](search-what-is-an-index.md)
 - [Portal](search-create-index-portal.md)
 - [.NET](search-create-index-dotnet.md)
 - [REST API](search-create-index-rest-api.md)
 
-You can quickly prototype an index in Azure Search by creating one in the Azure Classic Portal. Using the portal is great for proof-of-concept testing, but you can also use it to view schema definitions and resource usage for any index deployed to your service.
+You can quickly prototype an index in Azure Search by creating one in the Azure Portal. Using the portal is great for proof-of-concept testing, but you can also use it to view schema definitions and resource usage for any index deployed to your service.
 
 To complete this task, make sure you have an Azure Search service that's ready to go. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you need help setting it up.
 
