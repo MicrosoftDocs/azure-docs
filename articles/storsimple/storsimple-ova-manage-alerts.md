@@ -27,7 +27,7 @@ This tutorial describes how to configure alert notifications, common alert condi
 
 ## Configure alert settings
 
-You can choose whether you want to be notified by email of alert conditions for each of your StorSimple virtual devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **OTHER EMAIL RECIPIENTS** box, separated by semicolons.
+You can choose whether you want to be notified by email of alert conditions for each of your StorSimple virtual devices. Additionally, you can identify other alert notification recipients by entering their email addresses in the **Other email recipients** box, separated by semicolons.
 
 >[AZURE.NOTE] You can enter a maximum of 20 email addresses per virtual device.
 
@@ -35,23 +35,23 @@ After you enable email notification for a virtual device, members of the notific
 
 #### To enable email notification of alerts for a virtual device
 
-1. Go to **Devices** > **Configuration** for the virtual device. Go to the **Alert Settings** section.
+1. Go to **Devices** > **Configuration** for the virtual device. Go to the **Alert settings** section.
 
     ![alert settings](./media/storsimple-ova-manage-alerts/alerts2.png)
 
 2. Under **Alert Settings**, set the following:
 
-    1. In the **SEND EMAIL NOTIFICATION** field, select **YES**.
+    1. In the **Send email notification** field, select **YES**.
 
-    2. In the **EMAIL SERVICE ADMINISTRATORS** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
+    2. In the **Email service administrators** field, select **YES** if you wish to have the service administrator and all co-administrators receive the alert notifications.
 
-    3. In the **OTHER EMAIL RECIPIENTS** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device. 
+    3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per virtual device. 
 
         ![alerts notification configuration](./media/storsimple-ova-manage-alerts/alerts3.png)
 
 3. At the bottom of the page, click **Save** to save your configuration.
 
-4. To send a test email notification, click the arrow icon next to **SEND TEST EMAIL**. The StorSimple Manager service will display status messages as it forwards the test notification. 
+4. To send a test email notification, click the arrow icon next to **Send test email**. The StorSimple Manager service will display status messages as it forwards the test notification. 
 
 5. When the following message appears, click **OK**. 
 
@@ -191,6 +191,6 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 ## Next steps
 
-- Learn more about [using the web UI to manage your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)
-- Learn more about [using the StorSimple Manager service to administer your StorSimple Virtual Array](storsimple-ova-manager-service-administration.md).
+- Learn about [using the web UI to manage your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)
+
 
