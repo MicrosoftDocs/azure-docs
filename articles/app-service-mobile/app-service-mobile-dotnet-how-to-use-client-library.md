@@ -13,17 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/20/2016" 
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # How to use the managed client for Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-&nbsp;
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
-
-##Overview 
+##Overview
 
 This guide shows you how to perform common scenarios using the managed client library for Azure App Service Mobile Apps for Windows and Xamarin apps. If you are new to Mobile Apps, you should consider first completing the [Mobile Apps quickstart](app-service-mobile-windows-store-dotnet-get-started.md) tutorial. In this guide, we focus on the client-side managed SDK. To learn more about the server-side SDKs for Mobile Apps, see [Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or [How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
@@ -68,7 +65,7 @@ All of the code that accesses or modifies data in a backend table calls function
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-This is the typed serialization model. An untyped serialization model is also supported. The following creates a reference to an untyped table: 
+This is the typed serialization model. An untyped serialization model is also supported. The following creates a reference to an untyped table:
 
 	// Get an untyped table reference
 	IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
@@ -85,7 +82,7 @@ This section describes how to issue queries to the Mobile App backend, which inc
 - [Select specific columns]
 - [Look up data by ID]
 
->[AZURE.NOTE] A server-driven page size is enforced to prevent all rows from being returned. This keeps default requests for large data sets from negatively impacting the service. To return more than 50 rows, use the `Take` method, as described in [Return data in pages].  
+>[AZURE.NOTE] A server-driven page size is enforced to prevent all rows from being returned. This keeps default requests for large data sets from negatively impacting the service. To return more than 50 rows, use the `Take` method, as described in [Return data in pages].
 
 ### <a name="filtering"></a>How to: Filter returned data
 
@@ -188,8 +185,8 @@ You can specify which set of properties to include in the results by adding a `S
 
 	// Select multiple fields -- both Complete and Text info
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Select(todoItem => string.Format("{0} -- {1}", 
-						todoItem.Text.PadRight(30), todoItem.Complete ? 
+					.Select(todoItem => string.Format("{0} -- {1}",
+						todoItem.Text.PadRight(30), todoItem.Complete ?
 						"Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
 
@@ -252,7 +249,7 @@ String IDs provide you with the following benefits:
 + Records are easier to merge from different tables or databases.
 + IDs values can integrate better with an application's logic.
 
-When a string ID value is not set on an inserted record, the Mobile App backend generates a unique value for the ID. You can use the `Guid.NewGuid()` method To generate your own ID values, either on the client or in the backend. 
+When a string ID value is not set on an inserted record, the Mobile App backend generates a unique value for the ID. You can use the `Guid.NewGuid()` method To generate your own ID values, either on the client or in the backend.
 
 ##<a name="modifying"></a>How to: Modify data in a Mobile App backend
 
@@ -260,7 +257,7 @@ The following code illustrates how to update an existing instance with the same 
 
 	await todoTable.UpdateAsync(todoItem);
 
-To insert untyped data, you may take advantage of Json.NET as follows: 
+To insert untyped data, you may take advantage of Json.NET as follows:
 	JObject jo = new JObject();
 	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	jo.Add("Text", "Hello World");
@@ -282,11 +279,11 @@ To delete untyped data, you may take advantage of Json.NET as follows:
 	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 	await table.DeleteAsync(jo);
 
-Note that when you make a delete request, an ID must be specified. Other properties are not passed to the service or are ignored at the service. The result of a `DeleteAsync` call is usually `null`. The ID to pass in can be obtained from the result of the `InsertAsync` call. When you try to delete an item without the "Id" field already set, a `MobileServiceInvalidOperationException` is returned from the backend. 
+Note that when you make a delete request, an ID must be specified. Other properties are not passed to the service or are ignored at the service. The result of a `DeleteAsync` call is usually `null`. The ID to pass in can be obtained from the result of the `InsertAsync` call. When you try to delete an item without the "Id" field already set, a `MobileServiceInvalidOperationException` is returned from the backend.
 
 ##<a name="#custom-api"></a>How to: Call a custom API
 
-A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON. 
+A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
 
 You call a custom API by calling one of the [InvokeApiAsync] method overloads on the client. For example, the following line of code sends a POST request to the **completeAll** API on the backend:
 
@@ -312,7 +309,7 @@ The Mobile Apps client enables you to register for push notifications with Azure
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 		}
 
-Note that in this example, two tags are included with the registration. For more information on Windows apps, including how to register for template registrations, see [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md). 
+Note that in this example, two tags are included with the registration. For more information on Windows apps, including how to register for template registrations, see [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md).
 
 Xamarin apps require some additional code to be able to register an app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
@@ -328,7 +325,7 @@ Your templates will be of type JObject and can contain multiple templates in the
         {
             // single template for Windows Notification Service toast
             var template = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(message)</text></binding></visual></toast>";
-            
+
             var templates = new JObject
             {
                 ["generic-message"] = new JObject
@@ -357,7 +354,7 @@ To send notifications utilizing these registered templates, work with [Notificat
 
 Two or more clients may write changes to the same item, at the same time, in some scenarios. Without any conflict detection, the last write would overwrite any previous updates even if this was not the desired result. *Optimistic concurrency control* assumes that each transaction can commit and therefore does not use any resource locking. Before committing a transaction, optimistic concurrency control verifies that no other transaction has modified the data. If the data has been modified, the committing transaction is rolled back.
 
-Mobile Apps supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is defined for each table in your Mobile App backend. Each time a record is updated, Mobile Apps sets the `__version` property for that record to a new value. During each update request, the `__version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request does not match the backend, then the client library raises a `MobileServicePreconditionFailedException<T>`. The type included with the exception is the record from the backend containing the server's version of the record. The application can then use this information to decide whether to execute the update request again with the correct `__version` value from the backend to commit changes.  
+Mobile Apps supports optimistic concurrency control by tracking changes to each item using the `__version` system property column that is defined for each table in your Mobile App backend. Each time a record is updated, Mobile Apps sets the `__version` property for that record to a new value. During each update request, the `__version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the request does not match the backend, then the client library raises a `MobileServicePreconditionFailedException<T>`. The type included with the exception is the record from the backend containing the server's version of the record. The application can then use this information to decide whether to execute the update request again with the correct `__version` value from the backend to commit changes.
 
 To enable optimistic concurrency the application defines a column on the table class for the `__version` system property. The following definition provides an example.
 
@@ -486,7 +483,7 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 
 2. In Visual Studio or Xamarin Studio, open your project and add a reference to the `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet package. When searching, include prerelease versions.
 
-3. Add the below code to your application, according to the platform you are using. In each, make the following replacements: 
+3. Add the below code to your application, according to the platform you are using. In each, make the following replacements:
 
 * Replace **INSERT-AUTHORITY-HERE** ith the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure classic portal].
 
@@ -498,7 +495,7 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 
 The code needed for each platform follows:
 
-**Windows:** 
+**Windows:**
 
         private MobileServiceUser user;
         private async Task AuthenticateAsync()
@@ -680,7 +677,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 
 To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your Mobile App backend. Complete the steps in [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) to create a Microsoft account registration and connect it to your Mobile App backend. If you have both Windows Store and Windows Phone 8/Silverlight versions of your app, register the Windows Store version first.
 
-The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend. 
+The following code authenticates using Live SDK and uses the returned token to sign-in to your Mobile App backend.
 
 	private LiveConnectSession session;
  	//private static string clientId = "<microsoft-account-client-id>";
@@ -808,7 +805,7 @@ To support your specific app scenario, you might need to customize communication
 
     public class MyHandler : DelegatingHandler
     {
-        protected override async Task<HttpResponseMessage> 
+        protected override async Task<HttpResponseMessage>
             SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Add a custom header to the request.

@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/06/2015"
+	ms.date="02/04/2016"
 	ms.author="glenga"/>
 
 # Add authentication to your Android app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Summary
 
@@ -52,11 +50,11 @@ Next, you will update the app to authenticate users before requesting resources 
 
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
-+ [Add push notifications to your Android app](app-service-mobile-android-get-started-push.md)   
++ [Add push notifications to your Android app](app-service-mobile-android-get-started-push.md)
   Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
-+ [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md)  
-  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection. 
++ [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md)
+  Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 
 
