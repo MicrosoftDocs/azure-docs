@@ -10,7 +10,7 @@
    keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
    
 <tags
-   ms.service="virtual-machines"
+   ms.service="container-service"
    ms.devlang="na"
    ms.topic="home-page"
    ms.tgt_pltfrm="na"
