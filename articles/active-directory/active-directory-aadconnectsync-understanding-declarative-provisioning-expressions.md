@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: Understanding Declarative Provisioning Expressions
+# Azure AD Connect sync: Understanding Declarative Provisioning Expressions
 
 Azure AD Connect sync builds on declarative provisioning first introduced in Forefront Identity Manager 2010 to allow you to implement your complete identity integration business logic without the need to write compiled code.
 

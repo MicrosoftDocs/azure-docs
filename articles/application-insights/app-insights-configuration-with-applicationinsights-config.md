@@ -78,7 +78,7 @@ tracked by this module appears in the [Diagnostic Search][diagnostic].
 
 ### Web Request Tracking
 
-Reports the [response time and result code](app-insights-start-monitoring-app-health-usage.md) of HTTP requests. 
+Reports the [response time and result code](app-insights-asp-net.md) of HTTP requests. 
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
@@ -146,6 +146,29 @@ telemetry items with the domain name of the computer where the web application i
 Telemetry processors can filter and modify each telemetry item just before it is sent from the SDK to the portal.
 
 You can [write your own telemetry processors](app-insights-api-filtering-sampling.md#filtering).
+
+
+#### Adaptive sampling telemetry processor (from 2.0.0-beta3)
+
+This is enabled by default. If your app sends a lot of telemetry, this processor removes some of it.
+
+```xml
+
+    <TelemetryProcessors>
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+The parameter provides the target that the algorithm tries to achieve. Each instance of the SDK works independently, so if your server is a cluster of several machines, the actual volume of telemetry will be multiplied accordingly.
+
+[Learn more about sampling](app-insights-sampling.md).
+
+
+
+#### Fixed-rate sampling telemetry processor (from 2.0.0-beta1)
 
 There is also a standard [sampling telemetry processor](app-insights-api-filtering-sampling.md#sampling) (from 2.0.1):
 
@@ -267,7 +290,7 @@ To get a new key, [create a new resource in the Application Insights portal][new
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md

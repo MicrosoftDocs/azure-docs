@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/13/2015"
+	ms.date="01/15/2016"
 	ms.author="cynthn"/>
 
 # About images for virtual machines
@@ -23,7 +23,7 @@
 
 Images are used in Azure to provide a new virtual machine with an operating system. An image might also have one or more data disks. Images are available from several sources:
 
--	Azure offers images in the [Marketplace](http://azure.microsoft.com/gallery/virtual-machines/). You’ll find recent versions of Windows Server and distributions of the Linux operating system. Some images also contain applications, such as SQL Server. MSDN Benefit and MSDN Pay-as-You-Go subscribers have access to additional images.
+-	Azure offers images in the [Marketplace](https://azure.microsoft.com/gallery/virtual-machines/). You’ll find recent versions of Windows Server and distributions of the Linux operating system. Some images also contain applications, such as SQL Server. MSDN Benefit and MSDN Pay-as-You-Go subscribers have access to additional images.
 -	The open source community offers images through [VM Depot](http://vmdepot.msopentech.com/List/Index).
 -	You also can store and use your own images in Azure, by either capturing an existing Azure virtual machine for use as an image or uploading an image.
 
@@ -35,7 +35,7 @@ You can create your own images, based on a virtual machine in Azure, or a virtua
 
 ## Working with images
 
-You can use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows or Azure PowerShell module to manage the images available to your Azure subscription. You also can use the Azure portal for some image tasks, but the command line gives you more options.
+You can use the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows or Azure PowerShell module to manage the images available to your Azure subscription. You also can use the Azure classic portal for some image tasks, but the command line gives you more options.
 
 For information about using these tools with Resource Manager deployments, see [Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI](resource-groups-vm-searching.md).
 
@@ -52,6 +52,7 @@ For examples of using the tools in a classic deployment:
 -	**Save a specialized image**: `Save-AzureVMImage –ServiceName "mySvc2" –Name "MyVMToCapture2" –ImageName "myFirstVMImageSP" –OSState "Specialized" -Verbose`
 >[Azure.Tip] The OSState parameter is required if you want to create a VM image, which includes data disks as well as the operating system disk. If you don’t use the parameter, the cmdlet creates an OS image. The value of the parameter indicates whether the image is generalized or specialized, based on whether the operating system disk has been prepared for reuse.
 -	**Delete an image**: `Remove-AzureVMImage –ImageName "MyOldVmImage"`
+
 
 ## Additional resources
 

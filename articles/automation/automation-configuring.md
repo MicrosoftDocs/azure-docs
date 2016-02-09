@@ -3,7 +3,7 @@
    description="Describes steps that you must perform to configure Azure Automation for initial use."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="11/10/2015"
-   ms.author="bwren" />
+   ms.author="bwren;sngun" />
 
 # Configuring Azure Automation
 
@@ -91,5 +91,5 @@ You can retrieve the credential in a runbook using the [Get-AutomationPSCredenti
 You should repeat these lines after any [checkpoints](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) in your runbook. If the runbook is suspended and then resumes on another worker, then it will need to perform the authentication again.
 
 ## Related articles
-- [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
+- [Azure Automation: Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  

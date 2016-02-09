@@ -39,7 +39,7 @@ Note that if your application code handles *service management operations* as we
 
 The sample application documented in [Get started with Azure Search Management REST API](http://go.microsoft.com/fwlink/p/?linkID=516968) demonstrates the authentication techniques for each type of operation. Instructions for configuring a client application to use Active Directory are included in the getting started. 
 
-Access control for Azure Resource Manager uses the built-in Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see [Role-based access control in the Azure portal](../role-based-access-control-configure.md).
+Access control for Azure Resource Manager uses the built-in Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see [Role-based access control in the Azure Classic Portal](../role-based-access-control-configure.md).
 
 
 ### Summary of APIs ##

@@ -106,16 +106,16 @@ Before you can begin developing your Azure application, get the tools and set up
 
 To begin using Service Bus features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
 
-You can manage namespaces and Service Bus messaging entities using either the [Azure portal][] or the Visual Studio Server Explorer, but you can only create new namespaces from within the portal.
+You can manage namespaces and Service Bus messaging entities using either the [Azure classic portal][] or the Visual Studio Server Explorer, but you can only create new namespaces from within the portal.
 
-### To create a namespace using the portal:
+### Create a namespace using the Azure classic portal:
 
-1.  Sign in to the [Azure portal][].
+1.  Sign in to the [Azure classic portal][].
 
-2.  In the left navigation pane of the Azure portal, click
+2.  In the left navigation pane of the portal, click
     **Service Bus**.
 
-3.  In the lower pane of the Azure portal, click **Create**.
+3.  In the lower pane of the portal, click **Create**.
 
     ![][5]
 
@@ -135,7 +135,7 @@ You can manage namespaces and Service Bus messaging entities using either the [A
 
 	![][38]
 
-The namespace you created will appear in the Azure portal, though it may take a moment to activate. Wait until the status is **Active** before moving on.
+The namespace you created will appear in the Azure classic portal, though it may take a moment to activate. Wait until the status is **Active** before moving on.
 
 ## Obtain the default management credentials for the namespace
 
@@ -318,7 +318,7 @@ the Service Bus package, see [Using the NuGet Service Bus Package][].
     **&lt;system.ServiceModel&gt;** with the following XML code. Be sure to
     replace *yourServiceNamespace* with the name of your service
     namespace, and *yourKey* with the SAS key you retrieved earlier
-    from the Azure portal:
+    from the Azure classic portal:
 
         <system.serviceModel>
           <extensions>
@@ -487,7 +487,7 @@ Run the application to verify that it works.
 
 ## Make your application ready to deploy to Azure
 
-You can deploy your application to an Azure cloud service or to an Azure website. To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure website, see [Deploying an ASP.NET Web Application to an Azure Website](http://azure.microsoft.com/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure cloud service.
+You can deploy your application to an Azure cloud service or to an Azure website. To learn more about the difference between websites and cloud services, see [Azure Execution Models][executionmodels]. To learn how to deploy the application to an Azure website, see [Deploying an ASP.NET Web Application to an Azure Website](https://azure.microsoft.com/develop/net/tutorials/get-started/). This section contains detailed steps for deploying the application to an Azure cloud service.
 
 To deploy your application to a cloud service, you'll add a cloud service project deployment project to the solution. The deployment project contains configuration information that is needed to properly run your application in the cloud.
 
@@ -634,7 +634,7 @@ virtual machine server time for hosting these web role instances.
 The following steps show you how to stop and delete your
 application.
 
-1.  Sign in to the [Azure portal], click **Cloud Services**, then click the name of your service.
+1.  Sign in to the [Azure classic portal][], click **Cloud Services**, then click the name of your service.
 
 2.  Click the **Dashboard** tab, and then click **Stop** to temporarily suspend your application. You will be able to start it again by clicking **Start**. Click **Delete** to completely remove your application from Azure with no ability to restore it.
 
@@ -656,7 +656,7 @@ To learn more about Service Bus, see the following resources:
   [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Azure classic portal]: http://manage.windowsazure.com
   [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+  ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Getting started with Azure table storage and Visual Studio connected services (cloud services projects)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-cloud-services-getting-started-tables.md)
-> - [What happened](vs-storage-cloud-services-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
-> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
-> - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
 ##Overview
 
@@ -39,7 +30,7 @@ To get started, you first need to create a table in your storage account. We'll 
 
 - See [How to use Table storage from .NET](storage-dotnet-how-to-use-tables.md) for more information on programmatically manipulating tables.
 - See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
-- See [Cloud Services documentation](http://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
+- See [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
 - See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
 
 ## Access tables in code

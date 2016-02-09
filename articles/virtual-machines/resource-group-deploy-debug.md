@@ -3,6 +3,7 @@
    description="Describes common problems deploying resources created using Resource Manager deployment model, and shows how to detect and fix these issues."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
+   tags="top-support-issue"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
@@ -13,18 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="10/14/2015"
+   ms.date="01/28/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Troubleshooting resource group deployments in Azure
 
-When you encounter a problem during deployment, you need to discover what went wrong. Resource Manager provides two ways for you to find out what happened and why it happened. You can use deployment commands to retrieve information about 
-particular deployments for a resource group. Or, you can use the audit logs to retrieve information about all operations performed on a resource group.  With this information, you can fix the 
+When you encounter a problem during deployment, you need to discover what went wrong. Resource Manager provides two ways for you to find out what happened and why it happened. You can use deployment commands to retrieve information about
+particular deployments for a resource group. Or, you can use the audit logs to retrieve information about all operations performed on a resource group.  With this information, you can fix the
 issue and resume operations in your solution.
 
 This topic focuses primarily on using deployment commands to troubleshoot deployments. For information about using the audit logs to track all operations on your resources, see [Audit operations with Resource Manager](../resource-group-audit.md).
 
-This topic shows how to retrieve troubleshooting information through Azure PowerShell, Azure CLI and REST API. For information about using the preview portal to troubleshoot deployments, see [Using the Azure Preview Portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
+This topic shows how to retrieve troubleshooting information through Azure PowerShell, Azure CLI and REST API. For information about using the portal to troubleshoot deployments, see [Using the Azure portal to manage your Azure resources](../azure-portal/resource-group-portal.md).
 
 Solutions to common errors that users encounter are also described in this topic.
 
@@ -64,7 +65,7 @@ Each deployment is usually made up of multiple operations, with each operation r
     /subscriptions/xxxxx...   347A111792B648D8     @{ProvisioningState=Failed; Timestam...
     /subscriptions/xxxxx...   699776735EFC3D15     @{ProvisioningState=Succeeded; Times...
 
-It shows two operations in the deployment. One has a provisioning state of Failed and the other of Succeeded. 
+It shows two operations in the deployment. One has a provisioning state of Failed and the other of Succeeded.
 
 You can retrieve the status message with the following command:
 
@@ -99,7 +100,7 @@ You can get the overall status of a deployment with the **azure group deployment
     info:    group deployment show command OK
 
 
-You can find out more information about why the deployment failed in the audit logs. To see the audit logs, run the **azure group log show** command. You can include the **--last-deployment** option to retrieve only the log for the most recent deployment. 
+You can find out more information about why the deployment failed in the audit logs. To see the audit logs, run the **azure group log show** command. You can include the **--last-deployment** option to retrieve only the log for the most recent deployment.
 
     azure group log show ExampleGroup --last-deployment
 
@@ -138,7 +139,7 @@ The **azure group log show** command can return a lot of information. For troubl
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"Target\":null,\"Details\":[{\"Message\":\"Website with given name 
+        "statusMessage": "{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"Target\":null,\"Details\":[{\"Message\":\"Website with given name
           mysite already exists.\"},{\"Code\":\"Conflict\"},{\"ErrorEntity\":{\"Code\":\"Conflict\",\"Message\":\"Website with given name mysite already exists.\",\"ExtendedCode\":
           \"54001\",\"MessageTemplate\":\"Website with given name {0} already exists.\",\"Parameters\":[\"mysite\"],\"InnerErrors\":null}}],\"Innererror\":null}"
       },
@@ -161,7 +162,7 @@ The Resource Manager REST API provides URIs for retrieving information about a d
 
 Your deployment will fail if your Azure credentials have expired or if you have not signed into your Azure account. Your credentials can expire if your session is open too long. You can refresh your credentials with the following options:
 
-- For PowerShell, use the **Login-AzureRmAccount** cmdlet (or **Add-AzureAccount** for versions of PowerShell prior to 1.0 Preview). The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
+- For PowerShell, use the **Login-AzureRmAccount** cmdlet. The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
 - For Azure CLI, use **azure login**. For help with authentication errors, make sure that you have [configured the Azure CLI correctly](../xplat-cli-connect.md).
 
 ## Checking the format of templates and parameters
@@ -170,7 +171,7 @@ If your template or parameter file is not in the correct format, your deployment
 
 ### PowerShell
 
-For PowerShell, use **Test-AzureRmResourceGroupDeployment** (or **Test-AzureResourceGroupTemplate** for versions of PowerShell prior to 1.0 Preview).
+For PowerShell, use **Test-AzureRmResourceGroupDeployment**.
 
     PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
@@ -202,7 +203,7 @@ When specifying a location for a resource, you must use one of the locations tha
 
 ### PowerShell
 
-For versions of PowerShell prior to 1.0 Preview, you can see the full list of resources and locations with the **Get-AzureLocation** command.
+For versions of PowerShell prior to 1.0, you can see the full list of resources and locations with the **Get-AzureLocation** command.
 
     PS C:\> Get-AzureLocation
 
@@ -223,7 +224,7 @@ You can specify a particular type of resource with:
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
-For PowerShell 1.0 Preview, use **Get-AzureRmResourceProvider** to get supported locations.
+For PowerShell 1.0, use **Get-AzureRmResourceProvider** to get supported locations.
 
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
 
@@ -261,7 +262,7 @@ For Azure CLI, you can use **azure location list**. Because the list of location
     }
 
 ### REST API
-        
+
 For REST API, see [Get information about a resource provider](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
 ## Creating unique resource names
@@ -276,7 +277,7 @@ But Azure Active Directory enables you or your administrator to control which id
 
 You might also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, and other scopes. Confirm to your satisfaction that you have the resources available to deploy correctly. For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-To examine your own subscription's quotas for cores, you should use the `azure vm list-usage` command in the Azure CLI and the **Get-AzureVMUsage** cmdlet in PowerShell. The following shows the command in the Azure CLI, and illustrates that the core quota for a free trial account is 4:
+To examine your own subscription's quotas for cores, you should use the `azure vm list-usage` command in the Azure CLI and the **Get-AzureRmVMUsage** cmdlet in PowerShell. The following shows the command in the Azure CLI, and illustrates that the core quota for a free trial account is 4:
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -321,7 +322,7 @@ Resources are managed by resource providers, and an account or subscription migh
 
 ### PowerShell
 
-To get a list of resource providers and your registration status, use **Get-AzureProvider** for versions of PowerShell prior to 1.0 Preview.
+To get a list of resource providers and your registration status, use **Get-AzureProvider** for versions of PowerShell prior to 1.0.
 
     PS C:\> Get-AzureProvider
 
@@ -334,7 +335,7 @@ To get a list of resource providers and your registration status, use **Get-Azur
 
 To register a provider, use **Register-AzureProvider**.
 
-For Powershell 1.0 Preview, use **Get-AzureRmResourceProvider**.
+For Powershell 1.0, use **Get-AzureRmResourceProvider**.
 
     PS C:\> Get-AzureRmResourceProvider -ListAvailable
 
@@ -410,7 +411,7 @@ If you are using templates that you created, it's important to understand that t
 
 Note however, that this does not necessarily mean that your resource group is "active and ready for your users". For example, most deployments request the deployment to download upgrades, wait on other, non-template resources, or to install complex scripts or some other executable activity that Azure does not know about because it is not an activity that a provider is tracking. In these cases, it can be some time before your resources are ready for real-world use. As a result, you should expect that the deployment status succeeds some time before your deployment can be used.
 
-You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template. An example can be seen [here](https://msdn.microsoft.com/library/azure/dn790564.aspx).
+You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the [CustomScriptExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template. An example can be seen when [creating template deployments](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
 ## Useful tools to interact with Azure
 When you work with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure Resource Manager API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources and to design or interact with templates and template parameter files.
@@ -435,4 +436,3 @@ To master the creation of templates, read through the [Authoring Azure Resource 
 <!--Image references-->
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-

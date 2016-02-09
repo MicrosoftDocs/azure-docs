@@ -24,7 +24,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 ##To create an Oracle WebLogic Server 12c Virtual Machine in Azure
 
-1. Log in to the [Azure Portal](https://ms.portal.azure.com/).
+1. Log in to the [Azure portal](https://ms.portal.azure.com/).
 
 2. Click on the **Marketplace**, click **Compute**, then type **Oracle** into the search box.
 
@@ -52,7 +52,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 ##To configure your Oracle WebLogic Server 12c Virtual Machine in Azure
 
-1. Log in to the [Azure Portal](https://ms.portal.azure.com/).
+1. Log in to the [Azure portal](https://ms.portal.azure.com/).
 
 2.	Click **Virtual Machines**.
 
@@ -129,7 +129,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 10.	Create an endpoint for your Virtual Machine:
 
-	1. Log in to the [Azure Portal](https://ms.portal.azure.com/).
+	1. Log in to the [Azure portal](https://ms.portal.azure.com/).
 
 	2.	Click **Browse**
 
@@ -173,7 +173,7 @@ The following example shows you how you can create a Virtual Machine based on a 
 
 	8.	Specify a name for the rule and optionally a description, and then click **Finish**.
 
-12.	To see the shopping cart application running on the Internet, open a browser to the URL in the form of `http://<<unique_domain_name>>/shoppingcart`. (You can determine the value for <<*unique_domain_name*>> within the [Azure Portal](https://ms.portal.azure.com/) by clicking **Virtual Machines** and then selecting the Virtual Machine that you are using to run Oracle WebLogic Server).
+12.	To see the shopping cart application running on the Internet, open a browser to the URL in the form of `http://<<unique_domain_name>>/shoppingcart`. (You can determine the value for <<*unique_domain_name*>> within the [Azure portal](https://ms.portal.azure.com/) by clicking **Virtual Machines** and then selecting the Virtual Machine that you are using to run Oracle WebLogic Server).
 
 
 ##Additional resources

@@ -29,7 +29,7 @@ The sample script used in this topic creates a Windows-based Solr cluster with a
 
 **Related articles**
 
-- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): install Solr on HDInsight cluster using the Azure Preview Portal
+- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): install Solr on HDInsight cluster using the Azure Portal
 - [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters
 - [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action
@@ -37,7 +37,7 @@ The sample script used in this topic creates a Windows-based Solr cluster with a
 
 ## What is Solr?
 
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data.    
+[Apache Solr](http://lucene.apache.org/solr/features.html) is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data.    
 
 ## Install Solr using portal
 
@@ -70,7 +70,7 @@ You can also use the script to install Solr on HDInsight by using Azure PowerShe
 
 You must start with indexing Solr with some data files. You can then use Solr to run search queries on the indexed data. Perform the following steps to use Solr in an HDInsight cluster:
 
-1. **Use Remote Desktop Protocol (RDP) to remote into the HDInsight cluster with Solr installed**. From the Azure portal, enable Remote Desktop for the cluster you created with Solr installed, and then remote into the cluster. For instructions, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
+1. **Use Remote Desktop Protocol (RDP) to remote into the HDInsight cluster with Solr installed**. From the Azure portal, enable Remote Desktop for the cluster you created with Solr installed, and then remote into the cluster. For instructions, see [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 2. **Index Solr by uploading data files**. When you index Solr, you put documents in it that you may need to search on. To index Solr, use RDP to remote into the cluster, navigate to the desktop, open the Hadoop command line, and navigate to **C:\apps\dist\solr-4.7.2\example\exampledocs**. Run the following command: 
 	
@@ -182,7 +182,7 @@ See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customiz
 
 ## See also
 
-- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): install Solr on HDInsight cluster using the Azure Preview Portal
+- [Install Solr on HDInsight clusters](hdinsight-hadoop-solr-install.md): install Solr on HDInsight cluster using the Azure Portal
 - [Install and use Solr on HDinsight Hadoop clusters (Linux)](hdinsight-hadoop-solr-install-linux.md)
 - [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md): general information on creating HDInsight clusters
 - [Customize HDInsight cluster using Script Action][hdinsight-cluster-customize]: general information on customizing HDInsight clusters using Script Action

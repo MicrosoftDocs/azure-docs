@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="01/28/2016"
 	ms.author="larryfr"/>
 
 
@@ -32,9 +32,9 @@ Apache Oozie is a workflow/coordination system that manages Hadoop jobs. It is i
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**: See [Get Azure free trial](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
+- **An Azure subscription**: See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- **Azure CLI**: See [Install and Configure the Azure CLI](xplat-cli-install.md)
+- **Azure CLI**: See [Install and Configure the Azure CLI](../xplat-cli-install.md)
 
 - **An HDInsight cluster**: See [Get Started with HDInsight on Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 

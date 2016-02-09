@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="02/08/2016" 
 	ms.author="hangzh;bradsev" />
 
  
 #Create and load data into Hive tables from Azure blob storage
 
+## Introduction
+In **this document**, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
+
 This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Cortana Analytics Process (CAPS).
 
 [AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
- 
-## Introduction
-In **this document**, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
 
 ## Prerequisites
 This article assumes that you have:
@@ -128,23 +128,9 @@ Users can also use the Query Console (Hive Editor) by entering the URL of the fo
 
 *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor*  
 
-into a web browser. Note that you will be asked to input the Hadoop cluster credentials to log in. Alternatively, you can [Submit Hive jobs using PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+into a web browser. Note that you will be asked to input the Hadoop cluster credentials to log in. 
 
-
-## How to submit a Hive query (old)
-
-This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. (old intro - TBD incorporate)
-
-
-Hive queries can be submitted from the Hadoop Command Line console on the head node of the Hadoop cluster. To do this, log into the head node of the Hadoop cluster, open the Hadoop Command Line console, and submit the Hive queries from there. For instructions on how to do this, see [Submit Hive Queries to HDInsight Hadoop clusters in the advanced analytics process](machine-learning-data-science-process-hive-tables.md).
-
-Users can also use the Query Console (Hive Editor) by entering the URL 
-
-https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor
-
-into a web browser. Note that you will be prompted to input the Hadoop cluster credentials to log in, so you should have these credentials handy. 
-
-Alternatively, you can [Submit Hive jobs using PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell). 
+Alternatively, you can [Run Hive queries using PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
 
 ## <a name="create-tables"></a>Create Hive database and tables

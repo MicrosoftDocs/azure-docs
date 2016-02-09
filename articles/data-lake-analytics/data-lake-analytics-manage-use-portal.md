@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Manage Azure Data Lake Analytics using the Azure Preview portal | Azure" 
+   pageTitle="Manage Azure Data Lake Analytics using the Azure Portal | Azure" 
    description="Learn how to manage Data Lake Analytics acounts, data sources, users, and jobs." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -16,17 +16,17 @@
    ms.date="10/27/2015"
    ms.author="jgao"/>
 
-# Manage Azure Data Lake Analytics using Azure Preview portal
+# Manage Azure Data Lake Analytics using Azure Portal
 
 [AZURE.INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure Preview portal. To see management topics using other tools, click the tab selector above.
+Learn how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using the Azure Portal. To see management topics using other tools, click the tab selector above.
 
 **Prerequisites**
 
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/en-us/pricing/free-trial/).
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 
 
@@ -152,7 +152,7 @@ there.
 
 <a name="upload-data-to-adls"></a> **To upload files to Data Lake Store account**
 
-1. From the preview portal, click **Browse ** from the left menu, and then click **Data Lake Store**.
+1. From the Portal, click **Browse ** from the left menu, and then click **Data Lake Store**.
 2. Click the Data Lake Store account that you want to upload data to. To find the default Data Lake Storage account, see [here](#default-adl-account).
 3. Click **Data Explorer** from the top menu.
 4. Click **New Directory** to create a new folder, or click a folder name to change folder.
@@ -268,7 +268,7 @@ See [Monitor Data Lake Analytics jobs](#monitor-jobs).
 
 ##View U-SQL catalog
 
-The [U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md) is used to structure data and code so they can be shared by U-SQL scripts. The catalog enables the highest performance possible with data in Azure Data Lake. From the Azure Preview Portal, you are able to view U-SQL catalog.
+The [U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md) is used to structure data and code so they can be shared by U-SQL scripts. The catalog enables the highest performance possible with data in Azure Data Lake. From the Azure Portal, you are able to view U-SQL catalog.
 
 **To browse U-SQL catalog**
 
@@ -311,7 +311,7 @@ The ARM group however can be located in a different data center.
 ##See also 
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Get started with Data Lake Analytics using Azure Preview Portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
 - [Manage Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-use-powershell.md)
-- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Preview Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 

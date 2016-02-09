@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/15/2015"
+   ms.date="12/02/2015"
    ms.author="v-sharos" />
 
 # Use StorSimple Snapshot Manager to view and manage volumes
@@ -103,7 +103,7 @@ Use the following procedure to view information about local and Azure StorSimple
     :--------------|:-------------
     Name           | The **Name** column contains the drive letter assigned to each discovered volume.
     Device         | The **Device** column contains the IP address of the device connected to the host computer.
-    Device Volume Name | The **Device Volume Name** column contains the name of the device volume to which the selected volume belongs. This is the volume name defined in the Azure Management Portal for that specific volume.
+    Device Volume Name | The **Device Volume Name** column contains the name of the device volume to which the selected volume belongs. This is the volume name defined in the Azure classic portal for that specific volume.
     Access Paths   | The **Access Paths** column displays the access path to the volume. This is the drive letter or mount point at which the volume is accessible on the host computer.
  
 ## Delete a volume

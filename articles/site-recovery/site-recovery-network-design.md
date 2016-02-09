@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Network infrastructure considerations for Site Recovery" 
+	pageTitle="Network infrastructure considerations for Site Recovery | Microsoft Azure" 
 	description="This article discusses practical network design considerations for failover with Site Recovery" 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/10/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 #  Network infrastructure considerations for Site Recovery
 
-The Azure Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution by protecting and recovering your on-premises physical servers and virtual machines with orchestration and automation of replication and failover to Azure, or to a secondary on-premises datacenter. 
+The Azure Site Recovery service contributes to a robust business continuity and disaster recovery (BCDR) solution by protecting and recovering your on-premises physical servers and virtual machines with orchestration and automation of replication and failover to Azure, or to a secondary on-premises data center. 
 
 This article is aimed at the virtualization team responsible for architecting, implementing, and supporting a BCDR solution and infrastructure that includes System Center VMM and Azure Site Recovery.
 
@@ -62,7 +62,7 @@ In the event of a disaster, workloads can be recovered as follows:
 ### Clustered VMM server
 
 
-[Deploying VMM in a cluster](https://technet.microsoft.com/en-us/library/gg610675.aspx) provides high availability and protection against hardware failover. If you're deploying your VMM cluster with Site Recovery note that:
+[Deploying VMM in a cluster](https://technet.microsoft.com/library/gg610675.aspx) provides high availability and protection against hardware failover. If you're deploying your VMM cluster with Site Recovery note that:
 
 The VMM server should be deployed in a stretched cluster across geographically separate sites.
 The SQL Server database used by VMM should be protected with SQL Server AlwaysOn availability groups with a replica on the secondary site.
@@ -167,7 +167,7 @@ For Woodgrove to deploy replication and maintain IP addresses the following is r
 
 ### Option 2: Modified IP addresses
 
-This approach seems to be the most common and means that the IP address of every VM that fails over will change.  The main disadvantage of this approach is that your network infrastructure needs to be aware that IP addresses have changed and that DNS entries will typically have to be changed or flushed throughout the network, as will cached entries in network tables. This could incur downtime depending upon how the DNS infrastructure is setup. These issues can be mitigated by using low TTL values in the case of intranet applications and using [Azure Traffic Manager with Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) for internet-based applications.
+This approach seems to be the most common and means that the IP address of every VM that fails over will change.  The main disadvantage of this approach is that your network infrastructure needs to be aware that IP addresses have changed and that DNS entries will typically have to be changed or flushed throughout the network, as will cached entries in network tables. This could incur downtime depending upon how the DNS infrastructure is setup. These issues can be mitigated by using low TTL values in the case of intranet applications and using [Azure Traffic Manager with Site Recovery](https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/) for internet-based applications.
 
 #### Example - Modified IP addresses
 
@@ -186,7 +186,7 @@ Let's look at this scenario with an example that has a third site from which the
 - Virtual machines will update the DNS server that they are using after they start. DNS entries typically have to be changed or flushed throughout the network, and cached entries in network tables have to be updated or flushed, so it is not uncommon to be faced with downtime while these state changes take place. This can be mitigated by:
 
 	- Using low TTL values for intranet applications.
-	- Using [Azure Traffic Manger with Site Recovery](http://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ for internet based applications).
+	- Using [Azure Traffic Manger with Site Recovery](https://azure.microsoft.com/blog/2015/03/03/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/ for internet based applications/).
 	- Using the following script within your recovery plan to update the DNS Server to ensure a timely update (The script is not required if the Dynamic DNS registration is configured)
 
     [string]$Zone,
@@ -200,7 +200,7 @@ Let's look at this scenario with an example that has a third site from which the
 
 #### Example - Failover to Azure
 
-The Networking infrastructure setup for Azure as a Disaster Recovery Site [blog post](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to setup the required Azure networking infrastructure when retaining IP addresses isn’t a requirement. It starts with describing the application and then looks at how to set up networking on-premises and in Azure. It concludes with instructions for running a test failover and a planned failover.
+The Networking infrastructure setup for Azure as a Disaster Recovery Site [blog post](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to setup the required Azure networking infrastructure when retaining IP addresses isn’t a requirement. It starts with describing the application and then looks at how to set up networking on-premises and in Azure. It concludes with instructions for running a test failover and a planned failover.
 
 ## Next Steps
 

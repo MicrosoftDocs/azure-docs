@@ -3,7 +3,7 @@
 	description="Understand what Azure planned maintenance is and how it affects your virtual machines running in Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="kenazk"
+	authors="drewm"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="kenazk"/>
+	ms.date="01/05/2016"
+	ms.author="drewm"/>
 
 
 # Planned maintenance for Azure virtual machines
@@ -44,20 +44,20 @@ Multi-instance updates (for virtual machines in an availability set) are applied
 
 There are two kinds of virtual machine configurations: multi-instance and single-instance. In a multi-instance configuration, similar virtual machines are placed in an availability set.
 
-The multi-instance configuration provides redundancy, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should be nearly identical and serve the same purpose to your application.
+The multi-instance configuration provides redundancy across physical machines, power, and network, and it is recommended to ensure the availability of your application. All virtual machines in the availability set should serve the same purpose to your application.
 
 For more information about configuring your virtual machines for high availability, refer to [Manage the Availability of your Virtual Machines](virtual-machines-manage-availability.md).
 
 By contrast, a single-instance configuration is used for standalone virtual machines that are not placed in an availability set. These virtual machines do not qualify for the service level agreement (SLA), which requires that two or more virtual machines are deployed under the same availability set.
 
-For more information about SLAs, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
+For more information about SLAs, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 
 ## Multi-instance configuration updates
 
-During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration. This causes a reboot to these virtual machines.
+During planned maintenance, the Azure platform first updates the set of virtual machines that are hosted in a multi-instance configuration. This causes a reboot to these virtual machines with approximately 15 minutes of downtime.
 
-In a multi-instance configuration update, virtual machines are updated in way that preserves availability throughout the process, assuming that each virtual machine serves a similar function as the others in the set.
+In a multi-instance configuration update, virtual machines are updated in a way that preserves availability throughout the process, assuming that each virtual machine serves a similar function as the others in the set.
 
 Each virtual machine in your availability set is assigned an update domain and a fault domain by the underlying Azure platform. Each update domain is a group of virtual machines that will be rebooted in the same time window. Each fault domain is a group of virtual machines that share a common power source and network switch.
 
@@ -65,12 +65,17 @@ For more information about update domains and fault domains, see [Configure mult
 
 To prevent update domains from going offline at the same time, the maintenance is performed by shutting down each virtual machine in an update domain, applying the update to the host machines, restarting the virtual machines, and moving on to the next update domain. The planned maintenance event ends after all update domains have been updated.
 
-The order of the update domains that are being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time. Today, Azure offers 48-hour advanced notification for planned maintenance of virtual machines in the multi-instance configuration.
+The order of the update domains that are being rebooted may not proceed sequentially during planned maintenance, but only one update domain is rebooted at a time. Today, Azure offers 1-week advanced notification for planned maintenance of virtual machines in the multi-instance configuration.
 
 After a virtual machine is restored, here is an example of what your Windows Event Viewer might display:
 
 <!--Image reference-->
 ![][image2]
+
+Use the viewer to determine which virtual machines are configured in a multi-instance configuration using the Azure portal, Azure PowerShell, or Azure CLI. For example, to determine which virtual machines are in a multi-instance configuration, you can browse the list of virtual machines with the Availability Set column added to the virtual machines browse dialog. In the following example, the Example-VM1 and Example-VM2 virtual machines are in a muilti-instance configuration:
+
+<!--Image reference-->
+![][image4]
 
 ## Single-instance configuration updates
 
@@ -78,20 +83,20 @@ After the multi-instance configuration updates are complete, Azure will perform 
 
 Please note that even if you have only one instance running in an availability set, the Azure platform treats it as a multi-instance configuration update.
 
-For virtual machines in a single-instance configuration, virtual machines are updated by shutting down the virtual machines, applying the update to the host machine, and restarting the virtual machines. These updates are run across all virtual machines in a region in a single maintenance window.
+For virtual machines in a single-instance configuration, virtual machines are updated by shutting down the virtual machines, applying the update to the host machine, and restarting the virtual machines, approximately 15 minutes of downtime. These updates are run across all virtual machines in a region in a single maintenance window.
 
-This planned maintenance event will impact the availability of your application for this type of virtual machine configuration. Azure offers a 1-week advanced notification for planned maintenance of  virtual machines in the single-instance configuration.
+This planned maintenance event will impact the availability of your application for this type of virtual machine configuration. Azure offers a 1-week advanced notification for planned maintenance of virtual machines in the single-instance configuration.
 
 ### Email notification
 
-For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance for single-instance and 48-hours in advance for multi-instance). This email will be sent to the account administrator and co-administrator email accounts provided in the subscription. Here is an example of this type of email:
+For single-instance and multi-instance virtual machine configurations only, Azure sends email communication in advance to alert you of the upcoming planned maintenance (1-week in advance). This email will be sent to the account administrator and co-administrator email accounts provided in the subscription. Here is an example of this type of email:
 
 <!--Image reference-->
 ![][image1]
 
 ## Region pairs
 
-Azure organizes a set of region pairs. Azure will not roll out an update on paired regions simultaneously during a planned maintenance of virtual machines with single-instance configurations.
+When executing maintenance, Azure will only update the Virtual Machine instances in a single region of its pair. For example, when updating the Virtual Machines in North Central US, Azure will not update any Virtual Machines in South Central US at the same time. This will be scheduled at a separate time, enabling failover or load balancing between regions. However, other regions such as North Europe can be under maintenance at the same time as East US.
 
 Please refer to the following table for information regarding current region pairs:
 
@@ -108,12 +113,11 @@ Brazil South | South Central US
 Australia Southeast | Australia East
 US Gov Iowa | US Gov Virginia
 
-For example, during a planned maintenance, Azure will not roll out an update to West US if East US is under maintenance at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US.
-
 <!--Anchors-->
 [image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
 [image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
+[image4]: ./media/virtual-machines-planned-maintenance/AvailabilitySetExample.png
 
 
 <!--Link references-->

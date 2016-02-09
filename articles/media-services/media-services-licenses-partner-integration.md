@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"  
+ 	ms.date="02/03/2016"  
 	ms.author="juliako"/>
 
 #Using partners to deliver Widevine licenses to Azure Media Services
@@ -45,5 +45,5 @@ You can use [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) to deliver W
 
 [Using PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-drm.md)
 
-[Mingfei’s blog](https://azure.microsoft.com/en-us/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
+[Mingfei’s blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 

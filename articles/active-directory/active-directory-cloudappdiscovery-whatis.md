@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Finding unsanctioned cloud applications with Cloud App Discovery | Microsoft Azure"
-	description="This topic describes what is the Cloud App Discvery is and why you would use it."
+	pageTitle="Finding unmanaged cloud applications with Cloud App Discovery | Microsoft Azure"
+	description="Provides information about finding and managing applications with Cloud App Discovery, what are the benefits and how it works."
 	services="active-directory"
+	keywords="cloud app discovery, managing applications"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
-	editor="lisatoft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
-	ms.author="markusvi"/>
+	ms.date="01/26/2016"
+	ms.author="markvi"/>
 
-# Finding unsanctioned cloud applications with Cloud App Discovery
+# Finding unmanaged cloud applications with Cloud App Discovery
 
 ## Overview
 In modern enterprises, IT departments are often not aware of all the cloud applications that members of their organization use to do their work. It is easy to see why administrators would have concerns about unauthorized access to corporate data, possible data leakage and other security risks. This lack of awareness can make creating a plan for dealing with these security risks seem daunting.

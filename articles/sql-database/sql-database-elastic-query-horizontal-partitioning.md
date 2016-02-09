@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,14 +12,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
-    ms.author="sidneyh;torsteng" />
+    ms.date="01/28/2016"
+    ms.author="torsteng;sidneyh" />
 
 # Elastic database queries for sharding (horizontal partitioning)
 
 This document explains how to setup elastic database queries for horizontal partitioning scenarios and how to perform your queries. For a definition of the horizontal partitioning scenario, see the [elastic database query overview (preview)](sql-database-elastic-query-overview.md).
 
-The functionality is a part of the Azure SQL [Database Elastic Database feature set](sql-database-elastic-scale.md).  
+![Query across shards][1]
+
+The functionality is a part of the Azure SQL [Database Elastic Database feature set](sql-database-elastic-scale-introduction.md).  
  
 ## Creating database objects
 
@@ -190,7 +192,7 @@ Once you have defined your external data source and your external tables, you ca
 	where w_id > 100 and w_id < 200 
 	group by w_id, o_c_id 
  
-### 2.2 Stored procedure SP_EXECUTE_FANOUT 
+### 2.2 Stored procedure SP_ EXECUTE_FANOUT 
 
 Elastic query also introduces a stored procedure that provides direct access to the shards. The stored procedure is called sp_execute_fanout and takes the following parameters:   
 
@@ -198,7 +200,7 @@ Elastic query also introduces a stored procedure that provides direct access to 
 * Shard map database name (nvarchar): The name of the shard map database. 
 * User name (nvarchar): The user name to log into the shard map database. 
 * Password (nvarchar): Password for the user. 
-* Shard map name (nvarchar): The name of the shard map to be used for the query. 
+* Shard map name (nvarchar): The name of the shard map to be used for the query. The name is found in the _ShardManagement.ShardMapsGlobal table, which is the default name used when creating databases with the sample app found in [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md). The default name found in the app is "CustomerIDShardMap." 
 *  Query: The T-SQL query to be executed on each shard. 
 *  Parameter declaration (nvarchar) - optional: String with data type definitions for the parameters used in the Query parameter (like sp_executesql). 
 *  Parameter value list - optional: Comma-separated list of parameter values (like sp_executesql)  
@@ -210,7 +212,7 @@ Note that the same credentials are used to connect to the shard map database and
 Example: 
 
 	sp_execute_fanout 
-		’myserver.database.windows.net', 
+		N'myserver.database.windows.net', 
 		N'ShardMapDb', 
 		N'myuser', 
 		N'MyPwd', 
@@ -236,4 +238,5 @@ Use regular SQL Server connection strings to connect your application, your BI a
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->

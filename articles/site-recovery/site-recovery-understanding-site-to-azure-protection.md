@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Understanding Site to Azure Protection" 
+	pageTitle="Understanding Hyper-V replication with Azure Site Recovery | Microsoft Azure" 
 	description="Use this article to understand the technical concepts which helps you successfully install, configure, and manage Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 
 
-# Understanding Hyper-V or VMM site to Azure protection
+# Understanding Hyper-V replication with Azure Site Recovery
 
 This article describes the technical concepts which helps you successfully configure and manage Hyper-V site or VMM site to Azure protection using Azure Site Recovery.
 

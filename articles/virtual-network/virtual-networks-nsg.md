@@ -12,41 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # What is a Network Security Group (NSG)?
 
-You are probably familiar with the use of firewalls and access control lists (ACLs) to filter the flow of network traffic to network segments, individual computers, and even network interface cards (NICs) within a computer. You can also filter the flow of network traffic in Azure in similar ways, as listed below.
-
-- **Endpoint ACLs**
-	- Can only filter inbound traffic.
-	- Can only be used on endpoints exposed to the Internet, or through an internal load balancer.
-	- Limited to 50 ACL rules per endpoint.
-	- Does **NOT** require a VNet (classic deployments).
-- **Network Security Groups (NSGs)**
-	- Allow or deny traffic based on direction, protocol, source address and port, and destination address and port.
-	- Can control inbound and outbound traffic on VMs or role instances (classic deployments), NICs (Resource Manager deployments) and subnets (all deployments). This includes any resources connected to subnets, such as cloud services and AppService environments.
-	- Can only be applied to resources connected to a regional VNet.
-	- Do **NOT** require management of a firewall appliance.
-	- Limited to 100 NSGs, each with 200 rules, per region.
-- **Firewall appliances**
-	- Implemented as VMs in your Azure network.
-	- Allow or deny traffic based on direction, protocol, source address and port, and destination address and port.
-	- Provides extra functionality, depending on the firewall appliance used.
-
-This article focuses on NSGs. For more information on the other traffic filtering choices, visit the links provided below.
-
-- [ACL documentation](./virtual-networks-acl.md).
-- [Build a DMZ using NSGs and Firewall appliances](virtual-networks-dmz-nsg-fw-udr-asm.md).
-
-## How does an NSG work?
-
-An NSG contains two types of rules, **Inbound** and **Outbound**. When traffic flows into an Azure server hosting VMs or role instances, the host loads all inbound or outbound NSG rules, based on the direction of traffic. Then the hosts inspects each rule in order of priority. If a rule matches the packet the host is analyzing, the action for the rule (allow or deny) is applied. If no rules match the packet, the packet is dropped. The figure below shows this decision flow. 
-
-![NSG ACLs](./media/virtual-network-nsg-overview/figure3.png)
-
->[AZURE.NOTE] The rules applied to a given VM or role instance can come from multiple NSGs, since you can associate an NSG to a VM (classic deployments), a NIC (Resource Manager deployments), or a subnet (all deployments). The [Associating NSGs](#Associating-NSGs) section covers how rules from multiple NSGs are applied depending on the direction of traffic.
+Network security group (NSG) contains a list of Access control List (ACL) rules that allow\deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet.  In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
 
 NSGs contain the following properties.
 

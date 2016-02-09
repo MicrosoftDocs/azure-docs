@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/09/2015"
+	ms.date="01/21/2016"
 	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: Technical Concepts
+# Azure AD Connect sync: Technical Concepts
 
 Azure AD Connect sync builds upon a solid metadirectory synchronization platform.
 The following sections introduce the concepts for metadirectory synchronization.

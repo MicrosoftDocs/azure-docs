@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory hybrid identity design considerations- determine multi-factor authentication requirements"
+	pageTitle="Azure Active Directory hybrid identity design considerations - determine multi-factor authentication requirements"
 	description="With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application."
 	documentationCenter=""
 	services="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/11/2015"
+	ms.date="12/07/2015"
 	ms.author="billmath"/>
 
 # Determine multi-factor authentication requirements for your hybrid identity solution
@@ -22,7 +22,7 @@ In this world of mobility, with users accessing data and applications in the clo
 Start by evaluating the organizations requirements for multi-factor authentication. That is, what is the organization trying to secure.  This evaluation is important to define the technical requirements for setting up and enabling the organizations users for multi-factor authentication.
 
 >[AZURE.NOTE]
-If you are not familiar with MFA and what it does, it is strongly recommended that you read the article [What is Azure Multi-Factor Authentication?](multi-factor-authentication.md) prior to continue reading this section.
+If you are not familiar with MFA and what it does, it is strongly recommended that you read the article [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) prior to continue reading this section.
 
 Make sure to answer the following:
 

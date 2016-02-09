@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015" 
-	ms.author="ggailey777"/> 
+	ms.date="12/07/2015"
+	ms.author="glenga"/>
 
 # Store your mobile service project code in source control
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -94,7 +99,7 @@ Now that you have created your local repository, you can make changes to server 
 
 	You should see a series of commands that indicates that the commit is deployed to the mobile service.
 
-6. Back in the Management Portal, click the **Data** tab, then click the **TodoItem** table, click  **Script**, then select the **Insert** operation. Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
+6. Back in the [Azure classic portal], click the **Data** tab, then click the **TodoItem** table, click  **Script**, then select the **Insert** operation. Notice that the displayed insert operation script is the same as the JavaScript code that you just uploaded to the repository.
 
 ##<a name="use-npm"></a>Leverage shared code and Node.js modules in your server scripts
 
@@ -151,6 +156,6 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Work with server scripts in Mobile Services]: mobile-services-how-to-use-server-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure classic portal]: https://manage.windowsazure.com/
 [Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid

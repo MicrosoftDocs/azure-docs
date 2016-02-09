@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Configure automatic device registration for Windows 7 domain joined devices
@@ -58,3 +58,11 @@ Then, open a command prompt on the Windows 7 machine and execute the following c
 Event Viewer and Errors for Windows 7 domain joined devices.
 
 The Windows Event Log on the Windows 7 machine will display messages related to Workplace Join. You can find messages for both successful and unsuccessful Workplace Join events. The Event Log can be found in the Event Viewer under Applications and Services Logs> Microsoft-Workplace Join.
+
+## Additional topics
+
+- [Azure Active Directory Device Registration overview](active-directory-conditional-access-device-registration-overview.md)
+- [Automatic device registration with Azure Active Directory for Windows Domain-Joined Devices](active-directory-conditional-access-automatic-device-registration.md)
+- [Configure automatic device registration for Windows 8.1 domain joined devices](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+ 

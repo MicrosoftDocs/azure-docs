@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Administer your Azure AD directory"
-	description="A topic that explains what an Azure AD tenant is, and how to manage an Azure AD directory."
+	pageTitle="Administer your Azure AD directory | Microsoft Azure"
+	description="Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
-	authors="Markusvi"
+	authors="markusvi"
 	writer="markvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="01/25/2016"
 	ms.author="markvi"/>
 
 # Administer your Azure AD directory
@@ -27,7 +27,7 @@ In the cloud-enabled workplace, a tenant can be defined as a client or organizat
 
 Each Azure AD directory is distinct and separate from other Azure AD directories. Just like a corporate office building is a secure asset specific to only your organization, an Azure AD directory was also designed to be a secure asset for use by only your organization. The Azure AD architecture isolates customer data and identity information from co-mingling. This means that users and administrators of one Azure AD directory cannot accidentally or maliciously access data in another directory.
 
-![][1]
+![Manage Azure Active Directory][1]
 
 ## How can I get an Azure AD directory?
 

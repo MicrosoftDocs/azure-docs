@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="liamca"
    manager="pablocas"
-   editor=""/>
+   editor=""
+   tags="machine learning"/>
 
 <tags
    ms.service="search"
@@ -18,21 +19,21 @@
 
 # Azure Search "Frequently Bought Together" recommendations
 
-If you've shopped online, you've probably noticed 'Frequently Bought Together' or 'Customers Who Bought This Item Also Bought' or perhaps even a 'New For You' list that presents additional goods or services for your consideration. Generally, this data is compiled by online retailers based on the purchasing history of many customers, or perhaps just consumer preference data unique to you. The ability to offer relevant, consumer-directed recommendations is a powerful addition to not just commercial applications, but also sites that provide content or information.
+If you've shopped online, you've probably noticed 'Frequently Bought Together' or 'Customers Who Bought This Item Also Bought' or even a 'New For You' list that presents additional goods or services for your consideration. Generally, this data is compiled by online retailers based on the purchasing history of many customers, or just the consumer preference data that's unique to you. The ability to offer relevant, consumer-directed recommendations via search is a powerful addition to not only commercial applications, but also sites that provide multi-media content or information.
 
-In Azure Search applications, you can implement recommendations by writing some extra code that brings in data and services used to identify patterns and relationship in the data, and compile it into recommendations relevant to your users. 
+In Azure Search applications, you can implement recommendations by writing some extra code that brings in data and services used to identify patterns and relationships in the data, and then transform it into recommendations relevant to your users. 
 
-[This sample demonstrates how](https://github.com/liamca/azure-search-recommendations), using two different approaches: Apache Mahout and Azure Machine Learning. You can use either one. The same code sample shows both techniques.
+[This sample demonstrates how](https://github.com/liamca/azure-search-recommendations), using [Apache Mahout]() for the recommendations engine.
 
-In the rest of this article, I'll walk you through this code that adds 'Frequently Rented Together' recommendations using sample data about movie rentals.
+In the rest of this article, I'll walk you through the sample code that adds 'Frequently Rented Together' recommendations using sample data about movie rentals.
 
 ![1](./media/search-fbt-recommendations/product_recommendations.png)
 
 ## What is a Recommendation?
 
-Recommendations is a technique for surfacing more items from a catalog based on existing search User activity (such as web logs) used to recommend items and improve conversion.  
+*Recommendations* is a technique for surfacing more items from a catalog based on existing search User activity (such as web logs) used to recommend items and improve conversion.  
 
-Recommendation engines often trained using past customer activity or by collecting data directly from digital store
+Recommendation engines are often trained using past customer activity or by collecting data directly from a digital store. in this sample, I use Apache Mahout to compile recommendations data.
 
 Common recommendations include: 
 - Frequently Bought Together: a customer who bought this also bought that
@@ -48,7 +49,7 @@ Common recommendations include:
 
 ## Create a simple HTML application to Search Movies
 
-A completed JavaScript web application to allow you to Query the Azure Search index can be found: 
+A completed JavaScript web application that allows you to query the Azure Search index can be found at: 
 \WebSite\starter-template-complete
 
 If you would like to walk through the demo from scratch, the original CSS can be found here:
@@ -61,9 +62,9 @@ You should be able to open this file in a browser such as Chrome to now view mov
 ## Command for executing Creating Recommendations using Mahout
 
 - Upload the file data\movie_usage.txt to Azure Blob Storage 
-- Create an HDInsight instance (enabling Remote Desktop) and connect to the machine through Remote Desktop (available from the Azure Portal)
+- Create an HDInsight instance (enabling Remote Desktop) and connect to the machine through Remote Desktop (available from the Azure Classic Portal)
 - From the HDInsight machine, open the "Hadoop Command Line"
-- Change to the Mahout bin directory under c:\apps\dist.  Mine looks like this, but you may get a more recent version of Mahout
+- Change to the Mahout bin directory under c:\apps\dist. Mine looks like this, but you can get a more recent version of Mahout
 	C:\apps\dist\mahout-1.0.0.2.3.3.0-2992\bin
 - Execute the following command line where you replace the [CONTAINER] & [STORAGEACT] with your Azure Storage details (where you placed the movie_usage.txt file):
 
@@ -76,7 +77,7 @@ This file has 3 columns: [Item ID of Movie], [Item ID of Recommendations related
 
 ## Importing Data from Mahout to Azure Search
 
-The application that created the Azure Search index, had also created a field called Recommendations which is of type Collection (which is like a comma separated set of strings).  We will merge the data created in the previous step with this Azure Search index.  
+The program that created the Azure Search index also created a field called `Recommendations` which is of type Collection (which is like a comma-separated set of strings). We will merge the data created in the previous step with this Azure Search index.  
 
 - From the Visual Studio solution AzureSearchMovieRecommendations.sln, open Program.cs within MahoutOutputLoader.
 - Update SearchServiceName and SearchApiKey with your Azure Search service details

@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Getting Started: Azure AD Password Management | Microsoft Azure" 
-	description="Enable users to reset their own passwords, discover pre-requisites for password reset, and enable Password Writeback to manage on-premises passwords in Active Directory." 
-	services="active-directory" 
+	description="Password management enabling users to reset their own passwords, discover pre-requisites for password reset, and enable Password Writeback to manage on-premises passwords in Active Directory." 
+	services="active-directory"
+	keywords="Active directory password management, password management, reset Azure AD password" 
 	documentationCenter="" 
 	authors="asteen" 
 	manager="kbrint" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="01/25/2016" 
 	ms.author="asteen"/>
 
 # Getting started with Password Management
@@ -47,7 +48,7 @@ Before you can enable and use self-service password reset, you must complete the
 - Create an AAD tenant. For more information, see [Getting Started with Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/)
 - Obtain an Azure subscription. For more information, see [What is an Azure AD tenant?](active-directory-administer.md#what-is-an-azure-ad-tenant).
 - Associate your AAD tenant with your Azure subscription. For more information, see [How Azure subscriptions are associated with Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx).
-- Upgrade to Azure AD Premium or Basic. For more information, see [Azure Active Directory Editions](http://azure.microsoft.com/pricing/details/active-directory/).
+- Upgrade to Azure AD Premium or Basic. For more information, see [Azure Active Directory Editions](https://azure.microsoft.com/pricing/details/active-directory/).
 
   >[AZURE.NOTE] To enable self-service password reset, you must upgrade to Azure AD Premium or Azure AD Basic. For more information, Azure Active Directory Editions. This information includes detailed instructions on how to sign up for Azure AD Premium or Basic, how to activate your license plan and activate your Azure AD access, and how to assign access to administrator and user accounts.
   
@@ -60,7 +61,7 @@ To configure user password reset policy, complete the following steps:
 1.	Open a browser of your choice and go to the [Azure Management Portal](https://manage.windowsazure.com).
 2.	In the [Azure Management Portal](https://manage.windowsazure.com), find the **Active Directory extension** on the navigation bar on the left hand side.
 
-    ![][001]
+    ![Password Managment in Azure AD][001]
 
 3. Under the **Directory** tab, click the directory in which you want to configure the user password reset policy, for example, Wingtip Toys.
 
@@ -186,7 +187,7 @@ Before you can enable and use the Password Writeback, you must make sure you com
   
 - You have the Azure AD Connect tool installed and you have prepared your AD environment for synchronization to the cloud.  For more information, see [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md).
 
-  > [AZURE.NOTE] Before you test password writeback, make sure that you first complete a full import and a full sync from both AD and Azure AD in 
+  > [AZURE.NOTE] Before you test password writeback, make sure that you first complete a full import and a full sync from both AD and Azure AD in Azure AD Connect.
 
 - If you are using Azure AD Sync or Azure AD Connect  **TCP 443** outbound (and in some cases **TCP 9350-9354**) need to be open.  See [Step 3: Configure your firewall](#step-3-configure-your-firewall) for more information. Using DirSync for this scenario is no longer supported.  If you are still using DirSync, please upgrade to the latest version of Azure AD Connect before deploying password writeback.
 
@@ -308,18 +309,17 @@ Now that Password Writeback has been enabled, you can test that it works by rese
 <br/>
 <br/>
 
-**Additional Resources**
+## Links to password reset documentation
+Below are links to all of the Azure AD Password Reset documentation pages: 
 
-
-* [What is Password Management](active-directory-passwords.md)
-* [How Password Management works](active-directory-passwords-how-it-works.md)
-* [Customize Password Management](active-directory-passwords-customize.md)
-* [Password Management Best Practices](active-directory-passwords-best-practices.md)
-* [How to get Operational Insights with Password Management Reports](active-directory-passwords-get-insights.md)
-* [Password Management FAQ](active-directory-passwords-faq.md)
-* [Troubleshoot Password Management](active-directory-passwords-troubleshoot.md)
-* [Learn More](active-directory-passwords-learn-more.md)
-* [Password Management on MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Reset your own password**](active-directory-passwords-update-your-own-password.md) - learn about how to reset or change your own password as a user of the system
+* [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
+* [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
+* [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
+* [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
+* [**FAQ**](active-directory-passwords-faq.md) - get answers to frequently asked questions
+* [**Troubleshooting**](active-directory-passwords-troubleshoot.md) - learn how to quickly troubleshoot problems with the service
+* [**Learn more**](active-directory-passwords-learn-more.md) - go deep into the technical details of how the service works
 
 
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="12/17/2015"
    ms.author="prkumar"/>
 
 
@@ -72,7 +72,7 @@ Once your API app is created, you can now use the HTTP listener as a trigger for
 
 ## Using the HTTP action
 The HTTP action is natively supported by Logic Apps and doesn't require an API app to be created first to be able to use it. You can insert an HTTP action at any point in your Logic App and choose the URI, headers and body for the call.
-The HTTP action supports multiple options for client side security. To use these, please review the article [here](http://aka.ms/logicapphttpauth).
+The HTTP action supports multiple options for client side security. See the [client side security options](../scheduler-outbound-authentication.md).
 
 The output of the HTTP action is headers and body, which can be used further downstream in the flow similar to how output of other actions and connectors is consumed.
 
