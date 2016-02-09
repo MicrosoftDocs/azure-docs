@@ -130,6 +130,24 @@ For example, `.\DeployAzureStack.ps1 –verbose –PublicVLan 305`
 
 **UseAADChina**(Boolean) - Set this Boolean parameter to $true if you want to deploy the Microsoft Azure Stack POC with Azure China (Mooncake).
 
+## Turn off automated TiP tests
+
+Microsoft Azure Stack Technical Preview 1 includes a set of validation tests used during the deployment process and on a recurring daily schedule. They simulate actions taken by an Azure Stack tenant, and Test-in-POC (TiP) user accounts are created in your Azure Active Directory in order to run the tests. After a successful deployment, you can turn off these TiP tests. 
+
+**To turn off TiP automated tests**
+
+1. On the ClientVM, run the following cmdlet:
+
+  `Disable-ScheduledTask -TaskName AzureStackSystemvalidationTask`
+
+**To view the test results**
+
+1. On the ClientVM, run the following cmdlet:
+
+  `Get-AzureStackTiPTestsResult`
+
+
+
 ## Turn off telemetry for Microsoft Azure Stack POC (optional)
 
 
