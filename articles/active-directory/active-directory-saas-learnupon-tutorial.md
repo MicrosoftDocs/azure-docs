@@ -23,7 +23,7 @@ The objective of this tutorial is to show you how to integrate LearnUpon with Az
 
 - You can control in Azure AD who has access to LearnUpon
 - You can enable your users to automatically get signed-on to LearnUpon (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Active Directory Portal
+- You can manage your accounts in one central location - the Azure Active Directory classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -57,7 +57,7 @@ To configure the integration of LearnUpon into Azure AD, you need to add LearnUp
 
 **To add LearnUpon from the gallery, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**. <br><br>
+1. In the **Azure Management classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
 ![Active Directory][1]<br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
@@ -89,13 +89,13 @@ To configure and test Azure AD single sign-on with LearnUpon, you need to comple
 
 ### Configuring Azure AD Single Sign-On
 
-The objective of this section is to enable Azure AD single sign-on in the Azure AD portal and to configure single sign-on in your LearnUpon application.
+The objective of this section is to enable Azure AD single sign-on in the Azure AD classic portal and to configure single sign-on in your LearnUpon application.
 
 
 
 **To configure Azure AD single sign-on with LearnUpon, perform the following steps:**
 
-1. In the Azure AD portal, on the **LearnUpon** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure AD classic portal, on the **LearnUpon** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 <br><br> ![Configure Single Sign-On][6] <br>
 
 2. On the **How would you like users to sign on to LearnUpon** page, select **Azure AD Single Sign-On**, and then click **Next**.
@@ -130,7 +130,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 		d3. Choose **No Skip conditions**<br>
 		d4. **SAML Token POST param name** is the name of request post parameter to the SAML 	consumer URL indicated above, that contains the SAML Assertion to be verified and 	authenticated. e.g.**SAMLResponse** <br>
 		d5. **Name Identifier Format** tells us where in your SAML Assertion the users 	identifier (Email address) resides, e.g.**urn:oasis:names:tc:SAML:1.1:nameid-	format:emailAddress**.<br>
-		d6. **Identify Provider Location** is where we will send users if they click on your 	uploaded icon from your portal login screen.<br>
+		d6. **Identify Provider Location** is where we will send users if they click on your uploaded icon from your portal login screen.<br>
 		d7. Copy **Single Sign-Out Service URL** from Azure Configuration Screen to **Sign out 	URL**.
 		<br>![Configure Single Sign-On](./media/active-directory-saas-learnupon-tutorial/tutorial_learnupon_09.png) <br>
 		d8. Click the link **Manage finger prints** of Certificate Finger Print to upload the 	Finger Print of certificate.
@@ -142,7 +142,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 		e2. **Last Name Identifier Format** tells us where in your SAML Assertion the users 	lastname resides, e.g. **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/	surname**
 
 
-6. In the Azure AD portal, select the single sign-on configuration confirmation, and then click **Next**.
+6. In the Azure AD classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 <br><br>![Azure AD Single Sign-On][10]<br>
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
@@ -157,7 +157,7 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management Portal**, on the left navigation pane, click **Active Directory**.
+1. In the **Azure Management classic portal**, on the left navigation pane, click **Active Directory**.
 <br><br>![Creating an Azure AD test user](./media/active-directory-saas-learnupon-tutorial/create_aaduser_09.png) <br>
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
