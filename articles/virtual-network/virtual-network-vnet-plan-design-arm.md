@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Virtual Network (VNet) Plan and Design Guide | Microsoft Azure"
-   description="Plan and design virutal networks in Azure"
+   description="Plan and design virtual networks in Azure"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/05/2016"
+   ms.date="02/08/2016"
    ms.author="telmos" />
 
 # Plan and design Azure Virtual Networks
@@ -42,12 +42,9 @@ Use the questions below as a starting point for your Azure network design.
 4. How many IaaS VMs do you need for your solution?
 5. Do you need to isolate traffic based on groups of VMs (i.e. front end web servers and backend database servers)?
 6. Do you need to control traffic flow using virtual appliances?
+7. Do users need different sets of permissions to different Azure resources?
 
-## Design
-
-Once you know the answers to the questions in the [Plan](#Plan) section, review the following before defining your VNets.
-
-### Virtual networks (VNets)
+### Understand VNet and subnet properties
 
 VNet and subnets resources help define a security boundary for workloads running in Azure. A VNet is characterized by a collection of address spaces, defined as CIDR blocks. 
 
@@ -60,10 +57,9 @@ VNets contain the following properties.
 |Property|Description|Sample values|
 |---|---|---|
 |**addressSpace**|Collection of address prefixes that make up the VNet in CIDR notation|192.168.0.0/16|
-|**subnets**|Collection of subnets that make up the VNet|see [subnets](#Subnets) below.|
+|**subnets**|Collection of subnets that make up the VNet|see the subnet property table below.|
 |**ipAddress**|IP address assigned to object. This is a read-only property.|104.42.233.77|
 
-### Subnets
 A subnet is a child resource of a VNet, and helps define segments of address spaces within a CIDR block, using IP address prefixes. NICs can be added to subnets, and connected to VMs, providing connectivity for various workloads.
 
 Subnets contain the following properties. 
@@ -71,9 +67,9 @@ Subnets contain the following properties.
 |Property|Description|Sample values|
 |---|---|---|
 |**addressPrefix**|Single address prefix that make up the subnet in CIDR notation|192.168.1.0/24|
-|**networkSecurityGroup**|NSG applied to the subnet|see [NSGs](#Network-Security-Group)|
-|**routeTable**|Route table applied to the subnet|see [UDR](#Route-table)|
-|**ipConfigurations**|Collection of IP configruation objects used by NICs connected to the subnet|see [UDR](#Route-table)|
+|**networkSecurityGroup**|NSG applied to the subnet|see [NSGs](resource-groups-networking.md#Network-Security-Group)|
+|**routeTable**|Route table applied to the subnet|see [UDR](resource-groups-networking.md#Route-table)|
+|**ipConfigurations**|Collection of IP configuration objects used by NICs connected to the subnet|see [UDR](resource-groups-networking.md/#Route-table)|
 
 ### Limits
 
@@ -81,9 +77,21 @@ You need to consider the following limits when designing your VNets.
 
 [AZURE.INCLUDE [azure-virtual-network-limits.md](../../includes/azure-virtual-network-limits.md)]
 
->[AZURE.IMPORTANT] Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits/#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
+>[AZURE.IMPORTANT] Make sure you view all the [limits related to networking services in Azure](../azure-subscription-service-limits#networking-limits) before designing your solution. Some limits can be increased by opening a support ticket.
 
-### Number of VNets and subscriptions
+### Role-Based Access Control (RBAC)
+
+You can use [Azure RBAC](role-based-access-built-in-roles.md) to control the level of access different users may have to different resources in Azure. That way you can segregate the work done by your team based on their needs. 
+
+As far as virtual networks are concerned, users in the **Network Contributor** role have full control over Azure Resource Manager virtual network resources. Similarly, users in the **Classic Network Contributor** role have full control over classic virtual network resources.
+
+>[AZURE.NOTE] You can also [create your own roles](role-based-access-control-configure.md) to separate your administrative needs.
+
+## Design
+
+Once you know the answers to the questions in the [Plan](#Plan) section, review the following before defining your VNets.
+
+### Number of subscriptions and VNets
 
 You should consider creating multiple VNets in the following scenarios:
 
@@ -111,7 +119,7 @@ You should consider multiple subnets in a VNet in the following scenarios:
 
 - **Not enough private IP addresses for all NICs in a subnet**. If your subnet address space does not contain enough IP addresses for the number of NICs in the subnet, you need to create multiple subnets. Keep in mind that Azure reserves 5 private IP addresses from each subnet that cannot be used: the first and last addresses of the address space (for the subnet address, and multicast) and 3 addresses to be used internally (for DHCP and DNS purposes). 
 - **Security**. You can use subnets to separate groups of VMs from one another for workloads that have a multi-layer structure, and apply different [network security groups(NSGs)](virtual-networks-nsg.md#subnets) for those subnets.
-- **Hybrid connectivity**. You can use VPN gateways and ExpressRoute circuits to [connect](vpn-gateway-cross-premises-options.md) your VNets to one antoher, and to your on-premises datacenter(s). VPN gateways and ExpressRoute circuits require a subnet of their own to be created.
+- **Hybrid connectivity**. You can use VPN gateways and ExpressRoute circuits to [connect](vpn-gateway-cross-premises-options.md) your VNets to one another, and to your on-premises data center(s). VPN gateways and ExpressRoute circuits require a subnet of their own to be created.
 - **Virtual appliances**. You can use a virtual appliance, such as a firewall, WAN accelerator, or VPN gateway in an Azure VNet. When you do so, you need to [route traffic](virtual-networks-udr-overview) to those appliances and isolate them in their own subnet.
 
 ### Subnet and NSG design patterns
@@ -127,16 +135,127 @@ The table below shows some common design patterns for using subnets.
 
 ## Sample design
 
-|Provide a brief description of the customer scenario|
+To illustrate the application of the information in this article, consider the following scenario.
+
+You work for a company that has 2 data centers in North America, and two data centers Europe. You identified 6 different customer facing applications maintained by 2 different business units that you want to migrate to Azure as a pilot. The basic architecture for the applications are as follows:
+
+- App1, App2, App3, and App4 are web applications hosted on Linux servers running Ubuntu. Each application connects to a separate application server that hosts RESTful services on Linux servers. The RESTful services connect to a back end MySQL database.
+- App5 and App6 are web applications hosted on Windows servers running Windows Server 2012 R2. Each application connects to a back end SQL Server database.
+- All apps are currently hosted in one of the company's data centers in North America.
+- The on-premises data centers use the 10.0.0.0/8 address space.
+
+You need to design a virtual network solution that meets the following requirements:
+
+- Each business unit should not be affected by resource consumption of other business units.
+- You should minimize the amount of VNets and subnets.
+- Each business unit should have a single test/development VNet used for all applications.
+- Each application is hosted in 2 different Azure data centers per continent (North America and Europe).
+- Each application is completely isolated from each other.
+- Each application can be accessed by customers over the Internet using HTTP.
+- Each application can be accessed by users connected to the on-premises data centers by using an encrypted tunnel.
+- Connection to on-premises data centers should use existing VPN devices.
+- The company's networking group should have full control over the VNet configuration.
+- Developers in each business unit should only be able to deploy VMs to existing subnets.
+- All applications will be migrated as they are to Azure (lift-and-shift).
+- The databases in each location should replicate to other Azure locations once a day.
+- Each application should use 5 front end web servers, 2 application servers (when necessary), and 2 database servers.
 
 ### Plan
-|List sample requirements for the design.|
+
+You should start your design planning by answering the question in the [Define requirements](#Define-requirements) section as shown below.
+
+1. What Azure locations will you use to host VNets?
+
+	2 locations in North America, and 2 locations in Europe. You should pick those based on the physical location of your existing on-premises data centers.
+
+2. Do you need to provide communication between these Azure locations?
+
+	Yes. Since the databases must be replicated to all locations.
+
+3. Do you need to provide communication between your Azure VNet(s) and your on-premises data center(s)?
+
+	Yes. Since users connected to the on-premises data centers must be able to access the applications through an encrypted tunnel.
+ 
+4. How many IaaS VMs do you need for your solution?
+
+	200 IaaS VMs. App1, App2 and App3 require 5 web servers each, 2 applications servers each, and 2 database servers each. That's a total of 9 IaaS VMs per application, or 36 IaaS VMs. App5 and App6 require 5 web servers and 2 database servers each. That's a total of 7 IaaS VMs per application, or 14 IaaS VMs. Therefore, you need 50 IaaS VMs for all applications in each Azure region. Since we need to use 4 regions, there will be 200 IaaS VMs.
+
+5. Do you need to isolate traffic based on groups of VMs (i.e. front end web servers and back end database servers)?
+
+	Yes. Each application should be completely isolated from each other, and each application layer should also be isolated. 
+
+6. Do you need to control traffic flow using virtual appliances?
+
+	There isn't enough information to decide if there is a need for virtual appliances. Since this is a pilot, let's say **no** for now.
+
+7. Do users need different sets of permissions to different Azure resources?
+
+	Yes. The networking team needs full control on the virtual networking settings, while developers should only be able to deploy their VMs to pre-existing subnets. 
 
 ### Design
 
-|Provide a diagram of the sample design, followed by an explanation of why it looks the way it does and how it meets the requirements.  Information for this comes from your own experience with the Service/Feature, as well as information obtained from engineering, customers (forums), MS services, MVPs, or others.|
+You should follow the design specifying subscriptions, VNets, subnets, and NSGs. We will discuss NSGs here, but you should learn more about [NSGs](virtual-networks-nsg.md) before finishing your design.
+
+**Number of subscriptions and VNets**
+
+The following requirements are related to subscriptions and VNets:
+
+- Each business unit should not be affected by resource consumption of other business units.
+- You should minimize the amount of VNets and subnets.
+- Each business unit should have a single test/development VNet used for all applications.
+- Each application is hosted in 2 different Azure data centers per continent (North America and Europe).
+
+Based on those requirements, you need a subscription for each business unit. That way, consumption of resources from a business unit will not count towards limits for other business units. And since you want to minimize the number of VNets, you should consider using the **one subscription per business unit, two VNets per group of apps** pattern as seen below.
+
+![Single subscription](./media/virtual-network-vnet-plan-design-arm/figure9.png)
+
+You also need to specify the address space for each VNet. Since you need connectivity between the on-premises data centers and the Azure regions, the address space used for Azure VNets cannot clash with the on-premises, and the address space used by each VNet should not clash with other existing VNets. You could use the address spaces in the table below to satisfy these requirements.  
+
+|**Subscription**|**VNet**|**Azure region**|**Address space**|
+|---|---|---|---|
+|BU1|ProdBU1US1|West US|172.16.0.0/16|
+|BU1|ProdBU1US2|East US|172.17.0.0/16|
+|BU1|ProdBU1EU1|North Europe|172.18.0.0/16|
+|BU1|ProdBU1EU2|West Europe|172.19.0.0/16|
+|BU1|TestDevBU1|West US|172.20.0.0/16|
+|BU2|TestDevBU2|West US|172.21.0.0/16|
+|BU2|ProdBU2US1|West US|172.22.0.0/16|
+|BU2|ProdBU2US2|East US|172.23.0.0/16|
+|BU2|ProdBU2EU1|North Europe|172.24.0.0/16|
+|BU2|ProdBU2EU2|West Europe|172.25.0.0/16|
+
+**Number of subnets and NSGs**
+
+The following requirements are related to subnets and NSGs:
+
+- You should minimize the amount of VNets and subnets.
+- Each application is completely isolated from each other.
+- Each application can be accessed by customers over the Internet using HTTP.
+- Each application can be accessed by users connected to the on-premises data centers by using an encrypted tunnel.
+- Connection to on-premises data centers should use existing VPN devices.
+- The databases in each location should replicate to other Azure locations once a day.
+
+Based on those requirements, you could use one subnet per application layer, and use NSGs to filter traffic per application. That way, you only have 3 subnets in each VNet (front end, application layer, and data layer) and one NSG per application per subnet. In this case, you should consider using the **one subnet per application layer, NSGs per app** design pattern. The figure below shows the use of the design pattern representing the **ProdBU1US1** VNet.
+
+![One subnet per layer, one NSG per application per layer](./media/virtual-network-vnet-plan-design-arm/figure11.png)
+
+However, you also need to create an extra subnet for the VPN connectivity between the VNets, and your on-premises data centers. And you need to specify the address space for each subnet. The figure below shows a sample solution for **ProdBU1US1** VNet. You would replicate this scenario for each VNet. Each color represents a different application.
+
+![Sample VNet](./media/virtual-network-vnet-plan-design-arm/figure10.png)
+
+**Access Control**
+
+The following requirements are related to access control:
+
+- The company's networking group should have full control over the VNet configuration.
+- Developers in each business unit should only be able to deploy VMs to existing subnets.
+
+Based on those requirements, you could add users from the networking team to the built-in **Network Contributor** role in each subscription; and create a custom role for the application developers in each subscription giving them rights to add VMs to existing subnets.
 
 ## Next steps
 
-- Always include a link to the article that includes the Deploy content 
+- [Deploy a virtual network](virtual-networks-create-vnet-arm-template-click.md) based on a scenario.
+- Understand how to [load balance](load-balancer-overview.md) IaaS VMs and [manage routing over multiple Azure regions](traffic-manager-overview).
+- Learn more about [NSGs and how to plan and design](virtual-networks-nsg.md) an NSG solution.
+- Learn more about your [cross-premises and VNet connectivity options](vpn-gateway-cross-premises-options.md).  
 
