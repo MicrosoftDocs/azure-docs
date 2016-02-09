@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/05/2016"
+	ms.date="02/09/2016"
 	ms.author="tarcher"/>
 
 # Grant user permissions to specific DevTest Lab policies
@@ -80,3 +80,17 @@ In the previous example, the **AllowedVmSizesInLab** policy is used. You can use
 - MaxVmsAllowedPerLab
 - AllowedVmSizesInLab
 - LabVmsShutdown
+
+## Next steps
+
+Once you've granted user permissions to specific DevTest Lab policies, here are some next steps to consider:
+
+- [Secure access to a DevTest Lab](devtest-lab-add-devtest-user.md).
+
+- [Set lab policies](devtest-lab-set-lab-policy.md).
+
+- [Create a lab template](devtest-lab-create-template.md).
+
+- [Create custom artifacts for your VMs](devtest-lab-artifact-author.md).
+
+- [Add a VM with artifacts to an Azure DevTest Lab](devtest-lab-add-vm-with-artifacts.md).
