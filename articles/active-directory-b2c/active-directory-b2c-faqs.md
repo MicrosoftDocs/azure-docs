@@ -59,7 +59,7 @@ Each Azure AD B2C tenant has its own B2C features blade on the Azure portal. See
 
 ### How do I customize verification emails (the content and the "From:" field) sent by Azure AD B2C?
 
-Use the [company branding feature](./active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. The "From:" field can be changed via Support.
+Use the [company branding feature](../active-directory/active-directory-add-company-branding.md) to customize the content of verification emails. The "From:" field can be changed via Support.
 
 ### How can I migrate my existing usernames, passwords, and profiles from my database to Azure AD B2C?
 
