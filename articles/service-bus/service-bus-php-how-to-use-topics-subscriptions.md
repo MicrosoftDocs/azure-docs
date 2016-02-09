@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="02/08/2016" 
 	ms.author="sethm"/>
 
 
@@ -143,7 +143,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	// http://msdn.microsoft.com/library/azure/dd179357
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -212,7 +212,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/hh780775
+	// http://msdn.microsoft.com/library/azure/hh780775
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -280,7 +280,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here:
-	// http://msdn.microsoft.com/library/windowsazure/hh780735
+	// http://msdn.microsoft.com/library/azure/hh780735
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";
@@ -318,7 +318,7 @@ try	{
 catch(ServiceException $e){
 	// Handle exception based on error codes and messages.
 	// Error codes and messages are here: 
-	// http://msdn.microsoft.com/library/windowsazure/dd179357
+	// http://msdn.microsoft.com/library/azure/dd179357
 	$code = $e->getCode();
 	$error_message = $e->getMessage();
 	echo $code.": ".$error_message."<br />";

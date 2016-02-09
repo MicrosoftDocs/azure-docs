@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
-	ms.author="fashah;garye" /> 
+	ms.date="02/05/2016" 
+	ms.author="bradsev;fashah;garye" /> 
 
 
 # Create features for data in SQL Server using SQL and Python
 
-This **menu** links to topics that describe how to engineer features for data in various environments. This task is a step in the Cortana Analytics Process (CAP).
-
-[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-
 ## Introduction
 
-This document covers generating features for data stored in a SQL Server VM on Azure. This can be done by using SQL or by using a programming language like Python.
+This document shows how to generate features for data stored in a SQL Server VM on Azure which algorithms can learn from efficiently. This can be done by using SQL or by using a programming language like Python, both of which are used here.
 
 > [AZURE.NOTE] For a practical example, you can consult the [NYC Taxi dataset](http://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
+
+[AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
+This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+
 
 ## Prerequisites
 This article assumes that you have:
