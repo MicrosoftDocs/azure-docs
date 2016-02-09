@@ -24,7 +24,7 @@ To start using Microsoft Azure Active Directory (Azure AD) B2C, follow the three
 
 ## Step 1: Sign up for an Azure subscription
 
-If you already have an Azure subscription, skip to the next step. If not, sign up for an [Azure subscription](../active-directory/sign-up-organization.md) and get access to Azure AD B2C.
+If you already have an Azure subscription, skip this step. If not, sign up for an [Azure subscription](../active-directory/sign-up-organization.md) and get access to Azure AD B2C.
 
 > [AZURE.NOTE]
 Currently, you can use Azure AD B2C preview for free but its use is limited to 50,000 users per tenant. An Azure subscription is required to access the [Azure classic portal](http://manage.windowsazure.com/).
