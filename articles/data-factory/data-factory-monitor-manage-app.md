@@ -213,7 +213,7 @@ The Activity Window Explorer window is in the right-most pane of the Monitoring 
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-You can switch to different activity window by clicking on it in the calendar view at the top. You can also use the left arrow/right arrow buttons at the top to see activity windows from the previous/next week.
+You can switch to different activity window by clicking on it in the calendar view at the top. You can also use the **left arrow**/**right arrow** buttons at the top to see activity windows from the previous/next week.
 
 You can use the toolbar buttons in the bottom pane to **rerun** the activity window or **refresh** the details in the pane. 
 
