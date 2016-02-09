@@ -42,7 +42,7 @@ ADMINPASSWORD   | This is the password used for the user account on each Virtual
 DNSNAMEPREFIX   | This must be a world unique value. It will be used to create DNS names for each of the key parts of the service. More information below.
 AGENTCOUNT      | This is the number of Virtual Machines to create in your cluster that will host containers
 MASTERCOUNT     | This is the number of Virtual Machines to configure as masters for your cluster. You can select 1, but this will not provide any resilience in your cluster and is only recommended for testing. The recommended number for a production cluster would be 3 or 5. 
-SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. If you need to create an SSH key you can find guidance for [windows](https://azure.microsoft.co/documentation/articles/virtual-machines-windows-use-ssh-key/) and [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/) on the Azure documentation site.
+SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. If you need to create an SSH key you can find guidance for [windows](./virtual-machines-windows-use-ssh-key.md) and [Linux](./virtual-machines-linux-use-ssh-key.md) on the Azure documentation site.
   
 Once you have confirgure your parameters, click OK. The parameters blade will disappear.
  
@@ -119,7 +119,7 @@ There is an example parameters file (called 'azuredeploy.parameters.json') in Gi
  
 # Creating a Service using PowerShell
 
-These instructions are based on the 1.0 version of the [Azure PowerShell cmdlets](https://azure.microsoft.com/en-gb/blog/azps-1-0/). 
+These instructions are based on the 1.0 version of the [Azure PowerShell cmdlets](https://azure.microsoft.com/blog/azps-1-0/). 
 
 Before creating a cluster in your Azure subscription, verify that your PowerShell session has been logged into Azure. This can be completed with the `Get-AzureRMSubscription` command.
 
