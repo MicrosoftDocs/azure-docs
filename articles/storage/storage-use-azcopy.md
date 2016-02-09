@@ -1,36 +1,36 @@
-<properties 
-	pageTitle="Copy or move data to Storage with AzCopy | Microsoft Azure" 
-	description="Use the AzCopy utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage." 
-	services="storage" 
-	documentationCenter="" 
-	authors="micurd" 
-	manager="jahogg" 
+<properties
+	pageTitle="Copy or move data to Storage with AzCopy | Microsoft Azure"
+	description="Use the AzCopy utility to move or copy data to or from blob, table, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage."
+	services="storage"
+	documentationCenter=""
+	authors="micurd"
+	manager="jahogg"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/10/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="2/10/2016"
 	ms.author="micurd"/>
 
 # Transfer data with the AzCopy Command-Line Utility
 
 ## Overview
 
-AzCopy is a command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage. With AzCopy, you can migrate your data from the file system to Azure Storage, or vice versa, using simple commands and with optimal performance. You can also copy data from one object to another within your storage account, or between storage accounts. 
-
-> [AZURE.NOTE] This guide assumes that you have installed AzCopy 5.0 or later.
-
-The Microsoft Azure Storage Data Movement library preview is now available for download via [Nuget](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement). The Data Movement Library is the core library underlying AzCopy. Source code is available on [GitHub](https://github.com/Azure/azure-storage-net-data-movement). For more information, see [Introducing Azure Storage Data Movement Library Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+AzCopy is a Windows command-line utility designed for copying data to and from Microsoft Azure Blob, File, and Table storage using simple commands with optimal performance. You can also copy data from one object to another within your storage account, or between storage accounts.
 
 ## Download and install AzCopy
 
+### Windows
 1. Download the [latest version of AzCopy](http://aka.ms/downloadazcopy)
 2. Run the installation. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy\AzCopy.exe` (on a machine running 64-bit Windows) or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy\AzCopy.exe` (on a machine running 32-bit Windows). However, you can change the installation path from the setup wizard.
 3. If desired, you can add the AzCopy installation location to your system path.
+
+### Mac/Linux
+AzCopy is not available for Mac/Linux OSs. However, the Azure 
 
 ## Understand the AzCopy command-line syntax
 
@@ -43,7 +43,7 @@ Next, open a command window, and navigate to the AzCopy installation directory o
 ## Write your first AzCopy command
 
 An easy way to try AzCopy is to upload a file from your local file system to Blob storage. From a console window, run the following command, first replacing the resource names below with your own valid resource names:
-	
+
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
 
 Note that when copying single file, you'll need to specify the `/Pattern` option with the file name. More samples are available in the sections below.
@@ -54,7 +54,7 @@ Parameters for AzCopy are described in the table below. You can also type one of
 
 - For detailed command-line help for AzCopy: `AzCopy /?`
 - For detailed help with any AzCopy parameter: `AzCopy /?:SourceKey`
-- For command-line examples: `AzCopy /?:Samples` 
+- For command-line examples: `AzCopy /?:Samples`
 
 <table>
   <tr>
@@ -158,9 +158,9 @@ Parameters for AzCopy are described in the table below. You can also type one of
   </tr>
   <tr>
     <td><b>/Snapshot</b></td>
-    <td>Indicates whether to transfer snapshots. This option is only valid when the source is a blob. 
+    <td>Indicates whether to transfer snapshots. This option is only valid when the source is a blob.
         <br /><br />
-        The transferred blob snapshots are renamed in this format: [blob-name] (snapshot-time)[extension]. 
+        The transferred blob snapshots are renamed in this format: [blob-name] (snapshot-time)[extension].
         <br /><br />
         By default, snapshots are not copied.</td>
     <td>Y</td>
@@ -182,7 +182,7 @@ Parameters for AzCopy are described in the table below. You can also type one of
         If this option is not specified, or it is specified without a folder path, then AzCopy will create the journal file in the default location, which is <code>%LocalAppData%\Microsoft\Azure\AzCopy</code>.<br />
         Each time you issue a command to AzCopy, it checks whether a journal file exists in the default folder, or whether it exists in a folder that you specified via this option. If the journal file does not exist in either place, AzCopy treats the operation as new and generates a new journal file.
         <br /><br />
-		If the journal file does exist, AzCopy will check whether the command line that you input matches the command line in the journal file. If the two command lines match, AzCopy resumes the incomplete operation. If they do not match, you will be prompted to either overwrite the journal file to start a new operation, or to cancel the current operation. 
+		If the journal file does exist, AzCopy will check whether the command line that you input matches the command line in the journal file. If the two command lines match, AzCopy resumes the incomplete operation. If they do not match, you will be prompted to either overwrite the journal file to start a new operation, or to cancel the current operation.
         <br /><br />
         The journal file is deleted upon successful completion of the operation.
 		<br /><br />
@@ -193,10 +193,10 @@ Parameters for AzCopy are described in the table below. You can also type one of
   </tr>
   <tr>
     <td><b>/@:parameter-file</b></td>
-    <td>Specifies a file that contains parameters. AzCopy processes the parameters in the file just as if they had been specified on the command line.<br /> 
-		In a response file, you can either specify multiple parameters on a single line, or specify each parameter on its own line. Note that an individual parameter cannot span multiple lines. 
+    <td>Specifies a file that contains parameters. AzCopy processes the parameters in the file just as if they had been specified on the command line.<br />
+		In a response file, you can either specify multiple parameters on a single line, or specify each parameter on its own line. Note that an individual parameter cannot span multiple lines.
         <br /><br />
-		Response files can include comments lines that begin with the <code>#</code> symbol. 
+		Response files can include comments lines that begin with the <code>#</code> symbol.
         <br /><br />
         You can specify multiple response files. However, note that AzCopy does not support nested response files.</td>
     <td>Y</td>
@@ -310,7 +310,7 @@ Parameters for AzCopy are described in the table below. You can also type one of
   <tr>
     <td><b>/Delimiter:&lt;delimiter&gt;</b></td>
     <td>Indicates the delimiter character used to delimit virtual directories in a blob name.<br /><br />
-        By default, AzCopy uses / as the delimiter character. However, AzCopy supports using any common character (such as @, #, or %) as a delimiter. If you need to include one of these special characters on the command line, enclose the file name with double quotes. 
+        By default, AzCopy uses / as the delimiter character. However, AzCopy supports using any common character (such as @, #, or %) as a delimiter. If you need to include one of these special characters on the command line, enclose the file name with double quotes.
         <br /><br />
         This option is only applicable for downloading blobs.</td>
     <td>Y</td>
@@ -348,9 +348,9 @@ Parameters for AzCopy are described in the table below. You can also type one of
         <br /><br />
         If this option is not specified, then AzCopy uses a single thread to export table entities. For example, if the user specifies /PKRS:&quot;aa#bb&quot;, then AzCopy starts three concurrent operations.
         <br /><br />
-        Each operation exports one of three partition key ranges, as shown below: 
+        Each operation exports one of three partition key ranges, as shown below:
         <br /><br />
-        &nbsp;&nbsp;&nbsp;&#91;&lt;first partition key&gt;, aa&#41; 
+        &nbsp;&nbsp;&nbsp;&#91;&lt;first partition key&gt;, aa&#41;
         <br /><br />
         &nbsp;&nbsp;&nbsp;&#91;aa, bb&#41;
         <br /><br />
@@ -409,7 +409,7 @@ Parameters for AzCopy are described in the table below. You can also type one of
   <tr>
     <td><b>/SetContentType:&lt;content-type&gt;</b></td>
     <td>Specifies the MIME content type for destination blobs or files. <br /><br />
-		AzCopy sets the content type for a blob or file to <code>application/octet-stream</code> by default. You can set the content type for all blobs or files by explicitly specifying a value for this option. 
+		AzCopy sets the content type for a blob or file to <code>application/octet-stream</code> by default. You can set the content type for all blobs or files by explicitly specifying a value for this option.
 		<br /><br />
 		If you specify this option without a value, then AzCopy will set each blob or file's content type according to its file extension.</td>
     <td>Y</td>
@@ -440,7 +440,7 @@ The examples below demonstrate a variety of scenarios for copying blobs with AzC
 ### Copy a single blob
 
 **Upload a file from the file system to Blob storage:**
-	
+
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
 
 **Download a blob from Blob storage to the file system:**
@@ -455,15 +455,15 @@ When you copy a blob within a storage account or across storage accounts, a serv
 
 **Copy a blob within a storage account:**
 
-	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt 
+	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /Dest:https://myaccount.blob.core.windows.net/mycontainer2 /SourceKey:key /DestKey:key /Pattern:abc.txt
 
 **Copy a blob across storage accounts:**
 
 	AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1 /Dest:https://destaccount.blob.core.windows.net/mycontainer2 /SourceKey:key1 /DestKey:key2 /Pattern:abc.txt
- 
-### Copy a blob from the secondary region 
 
-If your storage account has read-access geo-redundant storage enabled, then you can copy data from the secondary region. 
+### Copy a blob from the secondary region
+
+If your storage account has read-access geo-redundant storage enabled, then you can copy data from the secondary region.
 
 **Copy a blob to the primary account from the secondary:**
 
@@ -568,7 +568,7 @@ After the copy operation, the directory `C:\myfolder` will include the following
 	C:\myfolder\a.txt
 	C:\myfolder\abcd.txt
 
-### Upload files matching the specified file pattern to a container, recursively 
+### Upload files matching the specified file pattern to a container, recursively
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:a* /S
 
@@ -588,7 +588,7 @@ After the copy operation, the container will include the following files:
 	abc2.txt
 	subfolder\a.txt
 	subfolder\abcd.txt
-	
+
 ### Download blobs with the specified prefix to the file system, recursively
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:a /S
@@ -657,14 +657,14 @@ Assume a response file named `copyoperation.txt`, that contains the following li
 	/Source:http://myaccount.blob.core.windows.net/mycontainer
 	/Dest:C:\myfolder
 	/SourceKey:<sourcekey>
-	/S 
+	/S
 	/Y
 
 To call AzCopy with this response files, use this command:
 
 	AzCopy /@:"C:\responsefiles\copyoperation.txt"
 
-AzCopy processes this command just as it would if you included all of the individual parameters on the command line:	
+AzCopy processes this command just as it would if you included all of the individual parameters on the command line:
 
 	AzCopy /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:<sourcekey> /S /Y
 
@@ -674,11 +674,11 @@ Note that each AzCopy parameter must be specified all on one line. For example, 
  	C:\myfolder
 	/sourcekey:
 	[sourcekey]
-	/S 
+	/S
 	/Y
 
 ### Specify a shared access signature (SAS)
-	
+
 **Specify a SAS for the source container using the /sourceSAS option**
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer1 /DestC:\myfolder /SourceSAS:SAS /S
@@ -699,13 +699,13 @@ Note that each AzCopy parameter must be specified all on one line. For example, 
 
 Each time you issue a command to AzCopy, it checks whether a journal file exists in the default folder, or whether it exists in a folder that you specified via this option. If the journal file does not exist in either place, AzCopy treats the operation as new and generates a new journal file.
 
-If the journal file does exist, AzCopy will check whether the command line that you input matches the command line in the journal file. If the two command lines match, AzCopy resumes the incomplete operation. If they do not match, you will be prompted to either overwrite the journal file to start a new operation, or to cancel the current operation. 
+If the journal file does exist, AzCopy will check whether the command line that you input matches the command line in the journal file. If the two command lines match, AzCopy resumes the incomplete operation. If they do not match, you will be prompted to either overwrite the journal file to start a new operation, or to cancel the current operation.
 
 **Use the default location for the journal file**
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 
-If you omit option `/Z`, or specify option `/Z` without the folder path, as shown above, AzCopy creates the journal file in the default location, which is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. If the journal file already exists, then AzCopy resumes the operation based on the journal file. 
+If you omit option `/Z`, or specify option `/Z` without the folder path, as shown above, AzCopy creates the journal file in the default location, which is `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. If the journal file already exists, then AzCopy resumes the operation based on the journal file.
 
 **Specify a custom location for the journal file**
 
@@ -762,7 +762,7 @@ Option `/NC` specifies the number of concurrent copy operations. By default, AzC
 
 ### Synchronously copy blobs between two Azure Storage endpoints
 
-AzCopy by default copies data between two storage endpoints asynchronously. Therefore, the copy operation will run in the background using spare bandwidth capacity that has no SLA in terms of how fast a blob will be copied, and AzCopy will periodically check the copy status until the copying is completed or failed. 
+AzCopy by default copies data between two storage endpoints asynchronously. Therefore, the copy operation will run in the background using spare bandwidth capacity that has no SLA in terms of how fast a blob will be copied, and AzCopy will periodically check the copy status until the copying is completed or failed.
 
 The `/SyncCopy` option ensures that the copy operation will get consistent speed. AzCopy performs the synchronous copy by downloading the blobs to copy from the specified source to local memory, and then uploading them to the Blob storage destination.
 
@@ -817,7 +817,7 @@ Asynchronous copying from File Storage to File Storage:
 	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
 
 Asynchronous copying from File Storage to Block Blob:
-  
+
 	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
 
 Asynchronous copying from Block/Page Blob Storage to File Storage:
@@ -833,7 +833,7 @@ Besides the asynchronous copying, user can also specify option `/SyncCopy` to co
 	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
 	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
-	
+
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
 When copying from File Storage to Blob Storage, the default blob type is block blob, user can specify option `/BlobType:page` to change the destination blob type.
@@ -877,7 +877,7 @@ AzCopy will generate a JSON data file into the local folder or blob container wi
 
 The generated JSON data file follows the payload format for minimal metadata. For details on this payload format, see [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Note that when exporting Storage Table Entities to Storage Blob, AzCopy will export the Table entities to local temporary data files firstly and then upload them to Blob, these temporary data files are put into the journal file folder with the default path “<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>”, you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files’ size is decided by your table entities’ size and the size you specified with the option /SplitSize, although the temporary data file in local disk will be deleted instantly once it has been uploaded to the Blob, please make sure you have enough local disk space to store these temporary data files before they are deleted, 
+Note that when exporting Storage Table Entities to Storage Blob, AzCopy will export the Table entities to local temporary data files firstly and then upload them to Blob, these temporary data files are put into the journal file folder with the default path “<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>”, you can specify option /Z:[journal-file-folder] to change the journal file folder location and thus change the temporary data files location. The temporary data files’ size is decided by your table entities’ size and the size you specified with the option /SplitSize, although the temporary data file in local disk will be deleted instantly once it has been uploaded to the Blob, please make sure you have enough local disk space to store these temporary data files before they are deleted,
 
 ### Split the export files
 
@@ -904,7 +904,7 @@ Note that the number of concurrent operations is also controlled by option `/NC`
 
 ### Import entities concurrently
 
-	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace 
+	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 
 The option `/EntityOperation` indicates how to insert entities into the table. Possible values are:
 
