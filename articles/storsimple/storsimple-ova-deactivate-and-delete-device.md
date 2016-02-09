@@ -70,7 +70,9 @@ Perform the following steps to deactivate your device.
 
 ## Delete the device
 
-A device has to be first deactivated in order to delete it. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. The data associated with the device in the cloud will however remain. Complete the following steps to delete the device:
+A device has to be first deactivated in order to delete it. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. The data associated with the device will however remain in the cloud. Be aware that this data will then accrue charges. 
+
+Complete the following steps to delete the device:
 
 #### To delete the device 
 
@@ -82,7 +84,7 @@ A device has to be first deactivated in order to delete it. Deleting a device re
  
 	![Click delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate6m.png)
 
- 3. You will be prompted for confirmation. Type the device name to confirm device deletion. Click the check icon to continue.
+ 3. You will be prompted for confirmation. Type the device name to confirm device deletion. Note that deleting the device will not delete the cloud data associated with the device. Click the check icon to continue.
  
 	![Confirm delete](./media/storsimple-ova-deactivate-and-delete-device/deactivate7m.png) 
 
