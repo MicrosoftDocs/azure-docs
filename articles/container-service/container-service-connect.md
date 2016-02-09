@@ -23,7 +23,7 @@
 
 The Mesos and Swarm clusters deployed by Azure Container Service expose REST endpoints, however these endpoints are not open to the outside world. In order to manage these endpoints an SSH tunnel must be created. Once an SSH tunnel has been established you can run commands against the cluster endpoints, and view the cluster UI through a browser on your own system. This document will walk through creating an SSH tunnel from Windows, Linux and OSX.
 
-**NOTE** - you can create an SSH session with a cluster management system, however this is not recommended. Working directly on the management system exposes some risk for inadvertent configuration change.   
+**NOTE** - you can create an SSH session with a cluster management system, however this is not recommended. Working directly on a management system exposes some risk for inadvertent configuration change.   
 
 ## SSH Tunnel on Linux
 

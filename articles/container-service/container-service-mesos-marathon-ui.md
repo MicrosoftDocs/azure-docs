@@ -17,3 +17,5 @@
    ms.workload="na"
    ms.date="12/02/2015"
    ms.author="rogardle"/>
+   
+   # Application Management through the UI

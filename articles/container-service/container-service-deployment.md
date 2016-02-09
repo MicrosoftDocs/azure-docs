@@ -18,9 +18,11 @@
    ms.date="12/02/2015"
    ms.author="rogardle"/>
    
-# Creating a Service using the Azure Portal
+# Deploying an Azure Container Service Cluster
+   
+## Creating a Service using the Azure Portal
  
-To access Azure Container Service, you will need an Azure subscription. If you don't have one then sign up for a [free trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AA4C1C935).
+To access Azure Container Service, you will need an Azure subscription. If you don't have one then sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
  
 Select one of the following templates to deploy a Mesos or Docker Swarm cluster:
  
@@ -40,7 +42,7 @@ ADMINPASSWORD   | This is the password used for the user account on each Virtual
 DNSNAMEPREFIX   | This must be a world unique value. It will be used to create DNS names for each of the key parts of the service. More information below.
 AGENTCOUNT      | This is the number of Virtual Machines to create in your cluster that will host containers
 MASTERCOUNT     | This is the number of Virtual Machines to configure as masters for your cluster. You can select 1, but this will not provide any resilience in your cluster and is only recommended for testing. The recommended number for a production cluster would be 3 or 5. 
-SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. If you need to create an SSH key you can find guidance for [windows](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-use-ssh-key/) and [Linux](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-use-ssh-key/) on the Azure documentation site.
+SSHRSAPUBLICKEY	| It is required that you use SSH for authentication against the Virtual Machines. This is where you add your public key. If you need to create an SSH key you can find guidance for [windows](https://azure.microsoft.co/documentation/articles/virtual-machines-windows-use-ssh-key/) and [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/) on the Azure documentation site.
   
 Once you have confirgure your parameters, click OK. The parameters blade will disappear.
  
@@ -56,7 +58,7 @@ Now sit back and relax while the cluster is created. Once complete, you will see
  
 ![Finished](media/final.png) 
 
-# Creating a Service using the Azure CLI
+## Creating a Service using the Azure CLI
 
 To access Azure Container Service using the command line, you will need an Azure subscription. If you don't have one then you can sign up for a free trial. You will also need to have installed and configured the Azure CLI.
  
@@ -156,7 +158,7 @@ Once you have a Resource Group, you can create your cluster with the following c
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
  ```
  
-###Dynamic Template Parameters
+### Dynamic Template Parameters
  
 If you are familiar with PowerShell, you know that you can cycle through the available parameters for a cmdlet by typing a minus sign (-) and then pressing the TAB key. This same functionality also works with parameters that you define in your template. As soon as you type the template name, the cmdlet fetches the template, parses it, and adds the template parameters to the command dynamically. This makes it very easy to specify the template parameter values. And, if you forget a required parameter value, PowerShell prompts you for the value.
  

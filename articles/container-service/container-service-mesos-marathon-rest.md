@@ -18,7 +18,7 @@
    ms.date="12/02/2015"
    ms.author="rogardle"/>
    
-Application Management through the REST API
+# Application Management through the REST API
 
 ACS exposes the REST endpoints but they are not open to the outside world. In order to use these endpoints you must first create an SSH tunnel through which calls will be made, see [Connecting to the ACS Cluster](./container-service-connect.md).
 
