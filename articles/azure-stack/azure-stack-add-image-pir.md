@@ -30,7 +30,7 @@ Before a virtual machine can be added to the Marketplace, its image must be adde
 
 3.  In command run the following command. Replace X with your drive letter.
 
- `X:\CRP\CM\Microsoft.AzureStack.Compute.Installer\content\Scripts\CopyImageToPlatformImageRepository.ps1`
+ `X:\CRP\VM\Microsoft.AzureStack.Compute.Installer\content\Scripts\CopyImageToPlatformImageRepository.ps1`
 
 4. For **PlatformImageRepositoryPath**, type `\\SOFS\Share\CRP\PlatformImages\`.
 
