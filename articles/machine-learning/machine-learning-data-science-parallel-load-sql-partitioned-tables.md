@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" /> 
 
 # Parallel Bulk Data Import Using SQL Partition Tables
 
-For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. This document describes how to build partitioned table(s) for fast parallel bulk importing of data to a SQL Server database.
+This document describes how to build partitioned table(s) for fast parallel bulk importing of data to a SQL Server database.
+
+For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. 
 
 
 ## Create a new database and a set of filegroups

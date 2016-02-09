@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/19/2015" 
+	ms.date="02/08/2016" 
 	ms.author="bradsev" />
 
 # Load data into storage environments for analytics
 
 ## Introduction
 
-The Cortana Analytics Process (CAP) requires that data be  ingested or loaded into a variety of different  storage environments to be processed or analyzed in the most appropriate way in each stage of the process. Data destinations commonly used for processing by CAP include Azure Blob Storage, SQL Azure databases, SQL Server on Azure VM, HDInsight (Hadoop), and Azure Machine Learning. 
+The Cortana Analytics Process (CAP) requires that data be ingested or loaded into a variety of different  storage environments to be processed or analyzed in the most appropriate way in each stage of the process. Data destinations commonly used for processing by CAP include Azure Blob Storage, SQL Azure databases, SQL Server on Azure VM, HDInsight (Hadoop), and Azure Machine Learning. 
 
 This **menu** links to topics that describe how to ingest data into these target environments where the data is stored and processed.
 
